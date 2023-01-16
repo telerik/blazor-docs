@@ -40,7 +40,7 @@ The `Size` property accepts values of type [`ThemeConstants.Grid.Size`](https://
         string size = field.GetValue(null).ToString();
 
         <TelerikGrid Size="@size"
-					 Data="@MyData"
+					 Data="@GridData"
 			 	     Height="350px">
             <GridColumns>
                 <GridColumn Field="ID"></GridColumn>
