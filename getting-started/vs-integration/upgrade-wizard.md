@@ -62,7 +62,7 @@ In case one of the options ([Create a backup before upgrading](#create-backup) o
 
 ## Troubleshooting
 
-The following common problems might occur when converting a project:
+The following common problems might occur when upgrading a project:
 
 * The [localization file is read-only or does not exists](#missing-localization-file).
 * The [**Finish** button is disabled](#finish-button-is-disabled).
