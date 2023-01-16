@@ -40,6 +40,12 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 }
 ````
 
+## Date Input Typing Settings
+
+The DateRangePicker
+@[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
+DateRangePicker.
+
 ## Events
 
 The Blazor Date Range Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Range Picker events...]({%slug daterangepicker-events %}).
@@ -87,7 +93,9 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendars will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
 
-The date range picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
+The date range picker is, essentially, two [DateInputs]({%slug components/dateinput/overview%}) and a [Calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
+
+@[template](/_contentTemplates/date-inputs/general.md#typing-parameters)
 
 ### Styling and Appearance
 
@@ -100,7 +108,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 You can find more options for customizing the Date Range Picker styling in the [Appearance article]({%slug daterangepicker-appearance%}).
 
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 ## DateRangePicker Reference and Methods
 

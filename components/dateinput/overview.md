@@ -10,119 +10,144 @@ position: 0
 
 # Blazor DateInput Overview
 
-The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to enter a date. The developer can control the format of the date. If the user input does not match the desired pattern, the value is not accepted. If the input can be parsed, it will be corrected automatically.
+The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hin the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
+
 
 ## Creating Blazor DateInput
 
-1. Add the `TelerikDateInput` tag to your razor page.
-1. Bind a `DateTime` object to the component
-1. Optionally, provide custom `Format`, `Min` and `Max` values
+1. Add a `TelerikDateInput` tag to your razor page.
+1. Bind the `Value` parameter to a [`DateTime` or `DateTime?` object](#nullable-datetime). The parameter supports two-way binding.
+1. (optional) Set the [`Format`, `Min` and `Max` parameters](#date-input-parameters).
+1. (optional) Configure the [typing user experience](#typing-settings) related to automatic value correction or navigation across the different parts of the date format.
 
->caption Basic DateInput with custom format, min and max
+>caption Basic Telerik Blazor DateInput
 
 ````CSHTML
-@dateInputValue
-<br />
-
-<TelerikDateInput @bind-Value="@dateInputValue" Format="dd MMMM yyyy"
-                  Min="@Min" Max="@Max">
+<TelerikDateInput @bind-Value="@DateValue"
+                  Format="dd MMMM yyyy"
+                  Min="@MinDate"
+                  Max="@MaxDate"
+                  Width="200px">
 </TelerikDateInput>
 
+<p>DateValue is: @DateValue</p>
+
 @code {
-    DateTime dateInputValue { get; set; } = DateTime.Now;
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+    private DateTime DateValue { get; set; } = DateTime.Now;
+
+    private DateTime MinDate { get; set; } = DateTime.Now.AddYears(-50);
+
+    private DateTime MaxDate { get; set; } = DateTime.Now.AddYears(50);
 }
 ````
+
+
+## Nullable DateTime
+
+The Date Input behavior differs, depend on the type of field it is bound to, and this can result in different user experience:
+
+| DateInput&nbsp;Scenario | Behavior with DateTime | Behavior with Nullable DateTime? |
+|---|---|---|
+| No set value | The value defaults to `0001-01-01`. | The value is `null`. The component displays its `Format` or `FormatPlaceHolder`. |
+| Empty date format segments | The `Value` does not change. The component displays its `Format` or `FormatPlaceHolder` only for the missing segment. | The `Value` remains or becomes `null`. The component displays its full `Format` or `FormatPlaceHolder`. |
+| Deleted value inside a Form | A validation error will appear. | No validation error (unless some other validation attributes are set). |
+
+
+## Typing Settings
+
+The Date Input provides various [options to configure the Date Input keyboard typing]({%slug dateinput-keyboard-typing%}) and user experience. They are related to the caret movement, two-digit years, and automatic correction of invalid values.
+
 
 ## Increment Steps
 
-The Date Input enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateInputSteps` tag and its parameters. [Read more about the Blazor Date Input increment steps...]({%slug dateinput-steps%})
+The Date Input enables users to change the value by pressing the arrow keys. Use the `<DateInputSteps>` nested tag to [set the increment and decrement steps for each part of the date format]({%slug dateinput-steps%}).
 
-## Events
-
-The Blazor Date Input generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Input events...]({%slug components/dateinput/events%}).
 
 ## Validation
 
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+The [built-in Date Input validation]({%slug common-features/input-validation%}) ensures that the component value is acceptable for the application business logic.
 
-## Date Input Parameters
+
+## Events
+
+The [Blazor Date Input fires events]({%slug components/dateinput/events%}) such as `change` and `blur`. Handle these events to react to user actions and customize the component behavior.
+
+
+## DateInput Parameters
+
+The following section lists some Date Input parameters and links to other pages that provide information for more parameters. Also check the [DateInput API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default Value | Description |
+| Parameter | Type and Default Value | Description |
 |---|---|---|
-| `AutoComplete` | `string` | The `autocomplete` HTML attribute of the `input`. |
+| `AriaDescribedBy` | `string` | The [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) if the `input`. |
+| `AriaLabel` | `string` | The [`aria-label` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) if the `input`. |
+| `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) if the `input`. |
+| `AutoComplete` | `string` | The [`autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) of the `input`. |
+| `Class` | `string` | A custom CSS class to be rendered on the `<span class="k-dateinput">` element. |
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
-| `Enabled` | `bool` | Defines if the `DateInput` is enabled |
+| `Enabled` | `bool` | Defines if the Date Input is enabled and accepts new values. |
 | `Format` | `string`| The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
-| `Id` | `string` | The `id` HTML attribute of the `input` |
-| `Placeholder` | `string` | The `placeholder` attribute of the `input` element. The placeholder will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
-| `TabIndex` | `int` | The `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
+| `Id` | `string` | The `id` attribute of the `input`. |
+| `Placeholder` | `string` | The [`placeholder` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder) of the `input`. The placeholder will appear only if the component is bound to nullable `DateTime?` object, the `Value` is `null` and the component is not focused. Once the user focuses it to start typing, the `FormatPlaceholder` (default or [custom one](#format-placeholder)) will override the `Placeholder` to indicate the expected date format. |
+| `TabIndex` | `int` | The `tabindex` attribute of the `input`. Use it to control the tabbing order of the inputs on the page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
-| `Value` | `DateTime` or `DateTime?` | The value of the `DateInput`. Supports two-way binding. |
+| `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler]({%slug components/dateinput/events%}#valuechanged). |
+| `Width` | `string` | The width of the Date Input. |
+
+### Typing User Experience
+
+The component provides multiple parameters, which control the [caret placement, two-digit year values and the auto-correct behavior of the Date Input]({%slug dateinput-keyboard-typing%}).
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor DateInput:
+The [Date Input Appearance article lists more parameters, which configure the component styling]({%slug dateinput-appearance%}).
 
-| Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-|`Class`| `string` |The CSS class that will be rendered on the `input` element|
-|`Width`|`string`|The width of the `DateInput`|
-
-You can find more options for customizing the Date Input styling in the [Appearance article]({%slug dateinput-appearance%}).
-
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
-
-## DateTime and Nullable DateTime
-
-The behavior of the component will depend on the type of field it is bound to, and this can result in different user experience and values that it will output:
-
-##### Bound to a Nullabe DateTime
-
-* When value is `null` - the `Format` is displayed as a placeholder.
-* When modifying a part, if some parts are not defined, the value remains `null`.
-* When all values are provided, the value changes.
-* Upon deleting any part, the whole value changes to `null`, and the entire input returns to the format placeholder. When one or more segments are deleted the value is no longer a valid date and thus defaults to `null`.
-* When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, no validation error is shown.
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 
-##### Bound to a Non-Nullabe DateTime
+## DateInput Reference and Methods
 
-* When the value is undefined, it defaults to `0001-01-01`, so the component has it as a value.
-* When modifying a part, if some parts are not defined, the bound value does not change.
-* When all values are provided, the value changes.
-* Upon deleting a focused segment of the input, only that part switches to the format placeholder and not the entire value.
-* When inside an `EditForm`, if no attributes are present on the field, and the value is deleted, a validation error is shown.
+The Date Input exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
+| Method | Description |
+| --- | --- |
+| `FocusAsync` | Focuses the DateInput component to be ready for typing. Always call with `await`. |
 
-## Component Reference
+>caption Date Input reference and FocusAsync method usage
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikDateInput @ref="@DateInputRef"
+                  @bind-Value="@DateValue"
+                  Width="200px">
+</TelerikDateInput>
 
-<TelerikDateInput @ref="theDateInput" @bind-Value="@dateInputValue"></TelerikDateInput>
+<TelerikButton OnClick="@OnButtonClick">Focus DateInput</TelerikButton>
 
 @code {
-    DateTime dateInputValue { get; set; } = DateTime.Now;
+    private TelerikDateInput<DateTime> DateInputRef { get; set; }
 
-    // the type of the component depends on the type of the value
-    // in this case it is DateTime, but it could be DateTime?
-    Telerik.Blazor.Components.TelerikDateInput<DateTime> theDateInput;
+    private DateTime DateValue { get; set; } = DateTime.Now;
+
+    private async Task OnButtonClick()
+    {
+        await DateInputRef.FocusAsync();
+    }
 }
 ````
 
+
 ## Next Steps
 
-* [Efficient Keyboard Input]({%slug dateinput-efficient-keyboard-input%})
-* [DateTimeInput Events]({%slug components/dateinput/events%})
+* [Learn about the flexible Date Input typing user experience]({%slug dateinput-keyboard-typing%})
+* [Set Date Input format]({%slug components/dateinput/supported-formats%})
+* [Customize the Date Input appearance]({%slug dateinput-appearance%})
+* [Handle Date Input events]({%slug components/dateinput/events%})
 
 
 ## See Also
 
-  * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [Supported Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1)
+* [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
+* [Input Validation]({%slug common-features/input-validation%})
+* [Date Input API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1)
