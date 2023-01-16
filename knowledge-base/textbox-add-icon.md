@@ -102,7 +102,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
             <div class="input-group-prepend">
                 <label for="theTb">
                     <span class="input-group-text">
-                        <TelerikFontIcon Icon="home" />
+                        <TelerikFontIcon Icon=FontIcon.Home />
                         &nbsp;Home
                     </span>
                 </label>

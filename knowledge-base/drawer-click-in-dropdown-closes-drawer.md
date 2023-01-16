@@ -74,7 +74,7 @@ The example below demonstrates the described approach. In this case, the Drawer 
     <div class="k-overlay"></div>
 }
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Open Drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Open Drawer</TelerikButton>
 
 <TelerikDrawer @ref="@DrawerRef"
                Class="custom-drawer"
@@ -94,7 +94,7 @@ The example below demonstrates the described approach. In this case, the Drawer 
             </DropDownListSettings>
         </TelerikDropDownList>
 
-        <TelerikButton OnClick="@(() => DrawerRef.CollapseAsync())" Icon="close">Close Drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.CollapseAsync())" Icon=FontIcon.X>Close Drawer</TelerikButton>
     </Template>
 </TelerikDrawer>
 

@@ -95,7 +95,7 @@ NestedComponent<br />
              SortMode="@SortMode.Single"
              OnRowClick="@RowClickHandler">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="Add">Add Customer</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Customer</GridCommandButton>
         <GridSearchBox DebounceDelay="200"></GridSearchBox>
     </GridToolBarTemplate>
     <GridColumns>

@@ -30,7 +30,7 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
     <ToolBarButtonGroup>
         <ToolBarButton Icon=FontIcon.Bold>Bold</ToolBarButton>
         <ToolBarButton Icon=FontIcon.Italic>Italic</ToolBarButton>
-        <ToolBarButton Icon="underline">Underline</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Underline>Underline</ToolBarButton>
     </ToolBarButtonGroup>
     <ToolBarSpacer />
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>

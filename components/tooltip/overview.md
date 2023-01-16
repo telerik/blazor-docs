@@ -28,12 +28,12 @@ The Tooltip will automatically display the value of `title` and `alt` attributes
 <div style="padding: 5em;">
     Hover the button ...
 
-    <TelerikButton Icon="eye" Title="Hello world!" Class="tooltip-target" />
+    <TelerikButton Icon=FontIcon.Eye Title="Hello world!" Class="tooltip-target" />
 
     ... and the question mark:
 
     <span title="I am a Telerik Blazor Tooltip." class="tooltip-target">
-        <TelerikFontIcon Icon="question-circle" />
+        <TelerikFontIcon Icon=FontIcon.QuestionCircle />
     </span>
 </div>
 ````
