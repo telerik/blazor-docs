@@ -46,9 +46,9 @@ To enable PopUp editing in the Gantt Tree, set its `TreeListEditMode` property t
     </GanttViews>
     <GanttColumns>
         <GanttCommandColumn Width="110px">
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon="edit"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon=FontIcon.Pencil></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Id"
                      Visible="false">
@@ -298,13 +298,13 @@ Parameter | Type | Description
         </GanttPopupEditFormSettings>
     </GanttSettings>
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttColumns>
         <GanttCommandColumn Width="110px">
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon="edit"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon=FontIcon.Pencil></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"

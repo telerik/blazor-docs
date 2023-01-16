@@ -60,7 +60,7 @@ In addition to the sample below, there is a [complete runnable project in GitHub
              OnModelInit="@OnGridModelInit"
              OnDelete="@OnGridDelete">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add Item</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Item</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         @{
@@ -90,7 +90,7 @@ In addition to the sample below, there is a [complete runnable project in GitHub
         <GridColumn Field="PropertyDate" Title="DateTime Column" FieldType="@typeof(DateTime)" />*@
 
         <GridCommandColumn>
-            <GridCommandButton Command="Delete" Icon="delete" @key="@( "command-column" )">Delete</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon=FontIcon.Trash @key="@( "command-column" )">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

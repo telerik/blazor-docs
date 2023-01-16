@@ -62,13 +62,13 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
     </GridToolBarTemplate>
 </TelerikGrid>
 
@@ -160,13 +160,13 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
     </GridToolBarTemplate>
 </TelerikGrid>
 

@@ -102,10 +102,10 @@ NestedComponent<br />
         <GridColumn Field="@nameof(Customer.Id)" />
         <GridColumn Field="@nameof(Customer.Name)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="edit"></GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete"></GridCommandButton>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true"></GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil></GridCommandButton>
+            <GridCommandButton Command="Delete" Icon=FontIcon.Trash></GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true"></GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true"></GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <DetailTemplate>

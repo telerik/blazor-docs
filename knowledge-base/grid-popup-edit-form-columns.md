@@ -57,11 +57,11 @@ In addition to column layout, you can also limit the maximum popup Window height
 
 <TelerikGrid Data=@GridData EditMode="@GridEditMode.Popup">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add New Item</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add New Item</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridCommandColumn Width="120px">
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
         </GridCommandColumn>
         @for (int i = 1; i <= 15; i++)
         {

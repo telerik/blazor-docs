@@ -64,7 +64,7 @@ How to change the Grid font size? How to set custom font styles?
              EditMode="GridEditMode.Inline"
              FilterMode="@GridFilterMode.FilterMenu">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="Name" Title="Product Name" />
@@ -72,8 +72,8 @@ How to change the Grid font size? How to set custom font styles?
         <GridColumn Field="@(nameof(Product.Released))" />
         <GridColumn Field="@(nameof(Product.Discontinued))" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
