@@ -111,7 +111,7 @@ The `TelerikValidationSummary` allows you to control its rendering via a nested 
                     @foreach (var message in validationSummaryContext)
                     {
                         <div>
-                            <TelerikIcon Icon="x-outline" />
+                            <TelerikFontIcon Icon="x-outline" />
                             <span>@message</span>
                         </div>
                     }

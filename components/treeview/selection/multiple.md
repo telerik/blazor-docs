@@ -63,7 +63,7 @@ You can use one-way binding to provide an initial node selection, and respond to
     foreach (var item in SelectedItems)
     {
         <div class="card" style="width: 15rem">
-            <span><strong>Icon:</strong> <TelerikIcon Icon="@((item as TreeItem).Icon)" /></span>
+            <span><strong>Icon:</strong> <TelerikFontIcon Icon="@((item as TreeItem).Icon)" /></span>
             <span><strong>Title:</strong> @((item as TreeItem).Text)</span>
             <span><strong>Id:</strong> @((item as TreeItem).Id) </span>
         </div>
@@ -192,7 +192,7 @@ You can use two-way binding to get the node the user has selected. This can be u
     foreach (var item in SelectedItems)
     {
         <div class="card" style="width: 15rem">
-            <span><strong>Icon:</strong> <TelerikIcon Icon="@((item as TreeItem).Icon)" /></span>
+            <span><strong>Icon:</strong> <TelerikFontIcon Icon="@((item as TreeItem).Icon)" /></span>
             <span><strong>Title:</strong> @((item as TreeItem).Text)</span>
             <span><strong>Id:</strong> @((item as TreeItem).Id) </span>
         </div>

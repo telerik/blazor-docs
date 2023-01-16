@@ -166,7 +166,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
 	<GridToolBarTemplate>
-		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</GridCommandButton>
+		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon=FontIcon.InfoCircle>Fire My Command</GridCommandButton>
 	</GridToolBarTemplate>
 	<GridColumns>
 		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />

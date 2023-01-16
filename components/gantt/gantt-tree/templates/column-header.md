@@ -63,7 +63,7 @@ By default columns display the name of the corresponding field or their `Title` 
                      Width="100px">
             <HeaderTemplate>
                 <span>
-                    <TelerikIcon Icon="image" />
+                    <TelerikFontIcon Icon="image" />
                     Column with Icon
                 </span>
             </HeaderTemplate>

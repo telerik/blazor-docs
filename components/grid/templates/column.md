@@ -61,7 +61,7 @@ The example below shows how to:
                 <TelerikCheckBox @bind-Value="@item.Organic" Enabled="false" />
                 <br />
                 or Icon:
-                <TelerikIcon Icon="@( item.Organic ? "checkbox-checked" : "checkbox" )" />
+                <TelerikFontIcon Icon="@( item.Organic ? "checkbox-checked" : "checkbox" )" />
             </Template>
         </GridColumn>
     </GridColumns>

@@ -33,7 +33,7 @@ The Tooltip will automatically display the value of `title` and `alt` attributes
     ... and the question mark:
 
     <span title="I am a Telerik Blazor Tooltip." class="tooltip-target">
-        <TelerikIcon Icon="question-circle" />
+        <TelerikFontIcon Icon="question-circle" />
     </span>
 </div>
 ````
