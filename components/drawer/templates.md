@@ -55,9 +55,9 @@ This template receives a `context` argument that is of the data model type and r
     public bool Expanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
     {
-        new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = "calendar", Description = "My events"},
+        new DrawerItem {Text = "Shopping Cart", Icon = FontIcon.Cart, Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Notifications", Icon = FontIcon.Bell, Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = FontIcon.Calendar, Description = "My events"},
         new DrawerItem {Text = "Settings", Icon = FontIcon.Gear, Description = "My profile settings"},
     };
 

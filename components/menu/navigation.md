@@ -43,7 +43,7 @@ To use the Menu for navigating between pages:
             {
                 Text = "Contact us",
                 Url = "/contacts",
-                Icon = "email"
+                Icon = FontIcon.Envelop
             },
             new MenuModel()
             {
@@ -62,7 +62,7 @@ To use the Menu for navigating between pages:
                     {
                         Text = "Language Settings",
                         Url = "/language",
-                        Icon = "globe"
+                        Icon = FontIcon.Globe
                     }
                 }
             }

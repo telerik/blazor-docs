@@ -141,7 +141,7 @@ The `TelerikValidationMessage` allows you to control its rendering via a nested 
                     @foreach (string message in validationMessages)
                     {
                         <div>
-                            <TelerikFontIcon Icon="x-outline"></TelerikIcon>
+                            <TelerikFontIcon Icon=FontIcon.XOutline></TelerikIcon>
                             <span class="custom-validation-message">@message</span>
                         </div>
                     }

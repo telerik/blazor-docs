@@ -56,7 +56,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = "gears"
+                Icon = FontIcon.Gears
             });
 
         TreeViewRef.Rebind();
@@ -184,7 +184,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = "gears"
+                Icon = FontIcon.Gears
             });
     }
 
@@ -303,7 +303,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = "gears"
+                Icon = FontIcon.Gears
             });
 
         Items = new List<TreeItem>(Items);
@@ -352,7 +352,7 @@ In this article:
             Text = "Child of item 1",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "gears"
+            Icon = FontIcon.Gears
         }
         };
         Items = new List<TreeItem>(Items);

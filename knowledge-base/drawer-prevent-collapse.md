@@ -76,10 +76,10 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
     {
-        new DrawerItem {Text = "Shopping Cart", Icon = "cart", Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Shopping Cart", Icon = FontIcon.Cart, Description = "Items in shopping cart"},
         new DrawerItem {Text = "Settings", Icon = FontIcon.Gear, Description = "My profile settings"},
-        new DrawerItem {Text = "Notifications", Icon = "notification", Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = "calendar", Description = "My events"},
+        new DrawerItem {Text = "Notifications", Icon = FontIcon.Bell, Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = FontIcon.Calendar, Description = "My events"},
     };
 
     private void SelectAndNavigate(DrawerItem item)

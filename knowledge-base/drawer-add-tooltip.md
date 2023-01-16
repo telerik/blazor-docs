@@ -59,8 +59,8 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = "plus", Url = "counter" },
-            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = "grid-layout", Url = "fetchdata" },
+            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = FontIcon.Plus, Url = "counter" },
+            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = FontIcon.GridLayout, Url = "fetchdata" },
          };
 
     public class DrawerItem
