@@ -67,7 +67,7 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
     {
         public string Title { get; set; }
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 }

@@ -47,7 +47,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
@@ -108,7 +108,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
             Text = "index.js",
             ParentId = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {

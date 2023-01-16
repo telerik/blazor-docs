@@ -75,7 +75,7 @@ To see the behavior, resize the browser window *@
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

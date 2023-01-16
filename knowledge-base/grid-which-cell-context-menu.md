@@ -139,7 +139,7 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
     {
         public string Text { get; set; }
         public string CommandName { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Disabled { get; set; }
         public List<ContextMenuItem> Items { get; set; }
     }

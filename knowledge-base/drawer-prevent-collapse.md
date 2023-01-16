@@ -98,7 +98,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Description { get; set; }
     }
 }

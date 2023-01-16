@@ -122,7 +122,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "index.js",
             ParentId = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -151,7 +151,7 @@ You can use one-way binding to provide an initial node selection, and respond to
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
@@ -242,7 +242,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "index.js",
             ParentId = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -271,7 +271,7 @@ You can use two-way binding to get the node the user has selected. This can be u
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

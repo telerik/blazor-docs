@@ -92,7 +92,7 @@ Make sure to use the correct way and resources for your actual project *@
     public class MenuModel
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
@@ -161,7 +161,7 @@ Make sure to use the correct way and resources for your actual project *@
     public class MenuModel
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

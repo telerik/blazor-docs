@@ -96,7 +96,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
     public class ContextMenuItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Separator { get; set; }
         public string CommandName { get; set; }
     }

@@ -50,7 +50,7 @@ The properties of a drawer item match directly to a field of the model the drawe
 public class DrawerItem
 {
 	public string Text { get; set; }
-	public string Icon { get; set; }
+	public FontIcon? Icon { get; set; }
 	public string Url { get; set; }
 	public bool Separator { get;set; }
 }

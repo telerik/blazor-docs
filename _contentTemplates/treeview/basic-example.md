@@ -17,7 +17,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -73,7 +73,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {

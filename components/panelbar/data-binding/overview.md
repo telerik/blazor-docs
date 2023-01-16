@@ -84,7 +84,7 @@ public class PanelBarItem
 	public int? ParentId { get; set; }
 	public bool Disabled { get; set; }
 	public bool HasChildren { get; set; }
-	public string Icon { get; set; }
+	public FontIcon? Icon { get; set; }
 	public string Url { get; set; }
 }
 ````

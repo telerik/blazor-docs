@@ -98,7 +98,7 @@ To achieve the desired result you can try the following:
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

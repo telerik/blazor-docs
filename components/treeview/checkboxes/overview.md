@@ -82,7 +82,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -143,7 +143,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -220,7 +220,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -276,7 +276,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -361,7 +361,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -417,7 +417,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -493,7 +493,7 @@ You can allow the user to click on the node itself and the TreeView will automat
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -549,7 +549,7 @@ You can allow the user to click on the node itself and the TreeView will automat
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -613,7 +613,7 @@ You can combine both selection and checking nodes. To keep both collections in s
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -674,7 +674,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -739,7 +739,7 @@ You can combine both selection and checking nodes. To keep both collections in s
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -800,7 +800,7 @@ You can combine both selection and checking nodes. To keep both collections in s
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {

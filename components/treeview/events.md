@@ -235,7 +235,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
     #endregion
 
@@ -285,7 +285,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "index.js",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = "js"
+                Icon = FontIcon.Js
             });
         items.Add(new TreeItem()
             {
