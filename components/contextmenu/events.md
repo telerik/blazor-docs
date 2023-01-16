@@ -55,30 +55,30 @@ You can use the `OnClick` event to react to user choices, for example load new c
             new MenuItem()
             {
                 Text = "Share",
-                Icon = "share",
+                Icon = FontIcon.Share,
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = "facebook"
+                        Icon = FontIcon.Facebook
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = "linkedin"
+                        Icon = FontIcon.Linkedin
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = "twitter"
+                        Icon = FontIcon.Twitter
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = "marker-pin"
+                Icon = FontIcon.MapMarker
             }
         };
 

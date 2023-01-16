@@ -82,7 +82,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
        new TreeItem()
        {
@@ -90,7 +90,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         },
         new TreeItem()
         {
@@ -98,7 +98,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
         new TreeItem()
         {
@@ -106,7 +106,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         },
         new TreeItem()
         {
@@ -122,7 +122,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         },
         new TreeItem()
         {
@@ -130,7 +130,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         }
     };
     }
@@ -206,7 +206,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
        new TreeItem()
        {
@@ -214,7 +214,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         },
         new TreeItem()
         {
@@ -222,7 +222,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
         new TreeItem()
         {
@@ -230,7 +230,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         },
         new TreeItem()
         {
@@ -246,7 +246,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         },
         new TreeItem()
         {
@@ -254,7 +254,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         }
     };
     }
@@ -328,7 +328,7 @@ In this article:
             Text = "New root item",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
             new TreeItem()
         {
@@ -336,7 +336,7 @@ In this article:
             Text = "New child item 1",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         },
             new TreeItem()
         {
@@ -344,7 +344,7 @@ In this article:
             Text = "New child item 2",
             ParentIdValue = 1,
             HasChildren = false,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
             new TreeItem()
         {
@@ -375,7 +375,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
        new TreeItem()
        {
@@ -383,7 +383,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         },
         new TreeItem()
         {
@@ -391,7 +391,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         },
         new TreeItem()
         {
@@ -399,7 +399,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         },
         new TreeItem()
         {
@@ -415,7 +415,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         },
         new TreeItem()
         {
@@ -423,7 +423,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         }
     };
 }

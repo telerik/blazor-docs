@@ -45,7 +45,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
             Text = "wwwroot",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
         items.Add(new TreeItem()
         {
@@ -53,7 +53,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
             Text = "css",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
         items.Add(new TreeItem()
         {
@@ -61,14 +61,14 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
             Text = "js",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
         items.Add(new TreeItem()
         {
             Id = 4,
             Text = "site.css",
             ParentId = 2,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
         items.Add(new TreeItem()
         {

@@ -65,7 +65,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
             Text = "Project",
             ParentId = null,
             HasChildren = false,
-            Icon = "folder",
+            Icon = FontIcon.Folder,
             Url = "projectURL.url"
         });
 
@@ -75,7 +75,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
             Text = "Implementation",
             ParentId = null,
             HasChildren = true,
-            Icon = "code"
+            Icon = FontIcon.Code
         });
 
         items.Add(new PanelBarItem()
@@ -84,7 +84,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
             Text = "C#",
             ParentId = 2,
             HasChildren = false,
-            Icon = "cs"
+            Icon = FontIcon.Cs
         });
 
         items.Add(new PanelBarItem()
@@ -93,7 +93,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
             Text = "HTML 5",
             ParentId = 2,
             HasChildren = false,
-            Icon = "html5"
+            Icon = FontIcon.Html5
         });
 
         items.Add(new PanelBarItem()
@@ -102,7 +102,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
             Text = "CSS",
             ParentId = 2,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         return items;

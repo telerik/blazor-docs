@@ -39,7 +39,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -48,7 +48,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "brush"
+            Icon = FontIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -56,7 +56,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = "folder"
+            Icon = FontIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -65,7 +65,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = "psd"
+            Icon = FontIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -81,7 +81,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -89,7 +89,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;

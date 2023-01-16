@@ -251,7 +251,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "Project",
                 ParentId = null,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -260,7 +260,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "Design",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = "brush"
+                Icon = FontIcon.Brush
             });
         items.Add(new TreeItem()
             {
@@ -268,7 +268,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "Implementation",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = "folder"
+                Icon = FontIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -277,7 +277,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "site.psd",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = "psd"
+                Icon = FontIcon.FilePsd
             });
         items.Add(new TreeItem()
             {
@@ -293,7 +293,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "index.html",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = "html"
+                Icon = FontIcon.Html5
             });
         items.Add(new TreeItem()
             {
@@ -301,7 +301,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
                 Text = "styles.css",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = "css"
+                Icon = FontIcon.Css
             });
 
         TreeViewData = items;
