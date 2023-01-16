@@ -39,7 +39,7 @@ The next page of the Upgrade Wizard lists all projects from the solution that us
 
 ## Upgrade Localization File
 
-If localization is enabled in the application you can select the **Upgrade the localization file** option. The Upgrade Wizard will add new localization keys from the default (English) localization file in the distribution we upgrade to.
+If localization is enabled in the application, you can select the **Upgrade the localization file** option. The Upgrade Wizard will add new localization keys from the default (English) localization file that UI for Blazor distributes.
 
 The option is selected by default if there is a **Resources\TelerikMessages.resx** file in the current project. In this case, **Resources\TelerikMessages.resx** file is selected in the file browser.
 
