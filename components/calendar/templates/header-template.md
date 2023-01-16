@@ -20,11 +20,11 @@ The example below is using a [Calendar reference and methods]({%slug components/
 <TelerikCalendar @bind-Value="@CalendarValue" @bind-Date="@CalendarDate">
     <HeaderTemplate>
 
-        <TelerikButton OnClick="@GoToPrevious" Icon="arrow-60-left" Title="Go to Previous Month"></TelerikButton>
+        <TelerikButton OnClick="@GoToPrevious" Icon="FontIcon.ArrowLeft" Title="Go to Previous Month"></TelerikButton>
         <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
-        <TelerikButton OnClick="@GoToNext" Icon="arrow-60-right" Title="Go to Next Month"></TelerikButton>
+        <TelerikButton OnClick="@GoToNext" Icon="FontIcon.ArrowRight" Title="Go to Next Month"></TelerikButton>
 
-        <TelerikIcon Icon="parameter-date-time" /> @CalendarValue.ToShortDateString()
+        <TelerikFontIcon Icon="FontIcon.ParameterDateTime" /> @CalendarValue.ToShortDateString()
 
     </HeaderTemplate>
 </TelerikCalendar>

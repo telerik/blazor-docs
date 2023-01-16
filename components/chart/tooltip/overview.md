@@ -216,7 +216,7 @@ The available series data point information in the `context` is:
                      Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
             <ChartSeriesTooltip Visible="true">
                 <Template>
-                    <TelerikIcon Icon="information" />
+                    <TelerikSvgIcon Icon="SvgIcon.InfoCircle" />
                     @((context.DataItem as MyDataModel).SecondSeriesValue) for @((context.DataItem as MyDataModel).ExtraData)
                 </Template>
             </ChartSeriesTooltip>

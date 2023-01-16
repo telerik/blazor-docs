@@ -81,7 +81,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 @if (!Expanded)
 {
-    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon="menu">Expand Drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ExpandAsync())" Icon=FontIcon.Menu>Expand Drawer</TelerikButton>
 }
 
 <TelerikDrawer Expanded="@Expanded"
@@ -112,15 +112,15 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
     public bool Expanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-         };
+            {
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout},
+             };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

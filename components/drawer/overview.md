@@ -31,35 +31,30 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 ````CSHTML
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
-<TelerikDrawer Data="@Data"
-               @ref="@DrawerRef"
-               @bind-SelectedItem="@SelectedItem">
-    <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
+               Icon=FontIcon.Menu>
+    Toggle drawer
+</TelerikButton>
 
-        @* Place your contents here - it can be as simple as text, it can be conditional components or components that
-            take the selected item as a parameter, or even the @Body tag for navigation if you place the
-            drawer high enough in the project layout hierarchy *@
-        <div class="m-5">
-            Selected Item: @SelectedItem?.Text
-        </div>
-    </DrawerContent>
+<TelerikDrawer Data="@Data" Mode="@DrawerMode.Push"
+               @ref="@DrawerRef">
+    <DrawerContent>lorem ipsum</DrawerContent>
 </TelerikDrawer>
 
 @code {
-    TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    DrawerItem SelectedItem { get; set; }
+    Telerik.Blazor.Components.TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-        };
+            {
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
@@ -136,7 +131,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="menu">
+               Icon=FontIcon.Menu>
     Toggle drawer
 </TelerikButton>
 
@@ -150,15 +145,15 @@ The Drawer methods are accessible through it's reference. These methods change t
 
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-        };
+            {
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
