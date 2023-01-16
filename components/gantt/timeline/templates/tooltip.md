@@ -45,7 +45,7 @@ Apart from that, you can add and customize any other content - for example, icon
               OnDelete="@DeleteItem">
     <TooltipTemplate>
             <h5>@(((TooltipTemplateContext)context).Title)</h5>        
-            <TelerikFontIcon Class="status" Icon="rotate"></TelerikIcon>
+            <TelerikFontIcon Class="status" Icon=FontIcon.Rotate></TelerikIcon>
             @(((TooltipTemplateContext)context).DataAttributes["percent"])% Completed                
         <br />
     </TooltipTemplate>
