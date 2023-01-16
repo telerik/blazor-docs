@@ -212,7 +212,7 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 | `ColumnSpacing`  | `string` | Defines the amout of vertical space between the Columns. See the [Columns]({%slug form-columns%}) article for more information. |
 | `Orientation`  | `FormOrientation` enum <br /> (`Vertical`) | controls the orientation of the Form. See the [Orientation]({%slug form-orientation%}) article for more information. |
 
-## Styling and Appearance
+### Styling and Appearance
 
 The following parameters enable you to customize the appearance of the Blazor Form:
 
