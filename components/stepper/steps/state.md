@@ -30,11 +30,11 @@ The stepper component will also allow you to [localize]({%slug globalization-loc
 <div style="width:700px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Cart" Icon="cart"></StepperStep>
-            <StepperStep Label="Delivery address" Icon="marker-pin-target"></StepperStep>
-            <StepperStep Label="Payment method" Icon="dollar"></StepperStep>
-            <StepperStep Optional="true" Label="Preview" Icon="preview"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="track-changes-accept"></StepperStep>
+            <StepperStep Label="Cart" Icon=FontIcon.Cart></StepperStep>
+            <StepperStep Label="Delivery address" Icon=FontIcon.MapMarkerTarget></StepperStep>
+            <StepperStep Label="Payment method" Icon=FontIcon.Dollar></StepperStep>
+            <StepperStep Optional="true" Label="Preview" Icon=FontIcon.Eye></StepperStep>
+            <StepperStep Label="Finish Order" Icon=FontIcon.TrackChangesAccept></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -57,11 +57,11 @@ This feature serves to mark the desired step as disabled, so users cannot click 
 <div style="width:700px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Cart" Icon="cart"></StepperStep>
-            <StepperStep Label="Delivery address" Icon="marker-pin-target"></StepperStep>
-            <StepperStep Label="Payment method" Icon="dollar"></StepperStep>
-            <StepperStep Disabled="true" Label="Preview" Icon="preview"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="track-changes-accept"></StepperStep>
+            <StepperStep Label="Cart" Icon=FontIcon.Cart></StepperStep>
+            <StepperStep Label="Delivery address" Icon=FontIcon.MapMarkerTarget></StepperStep>
+            <StepperStep Label="Payment method" Icon=FontIcon.Dollar></StepperStep>
+            <StepperStep Disabled="true" Label="Preview" Icon=FontIcon.Eye></StepperStep>
+            <StepperStep Label="Finish Order" Icon=FontIcon.TrackChangesAccept></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
