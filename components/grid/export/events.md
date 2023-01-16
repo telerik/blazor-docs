@@ -57,7 +57,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon=FontIcon.FileExcel>Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -165,7 +165,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
+        <GridCommandButton Command="CsvExport" Icon=FontIcon.FileCsv>Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -258,7 +258,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="file-excel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon=FontIcon.FileExcel>Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -333,7 +333,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="CsvExport" Icon="file-csv">Export to CSV</GridCommandButton>
+        <GridCommandButton Command="CsvExport" Icon=FontIcon.FileCsv>Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
