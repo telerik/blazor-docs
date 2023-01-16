@@ -60,15 +60,15 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
              OnCancel="@CancelHandler"
              ShowColumnMenu="true">
     <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
     </GridToolBar>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -141,15 +141,15 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
              OnCancel="@CancelHandler"
              ShowColumnMenu="true">
     <GridToolBar>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
     </GridToolBar>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

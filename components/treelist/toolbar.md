@@ -163,7 +163,7 @@ You can add your own HTML and components to create a more complex layout in the 
                 we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
 
             <div style="background:yellow">
-                <TreeListCommandButton Command="Add" Icon="add">Add Employee</TreeListCommandButton>
+                <TreeListCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</TreeListCommandButton>
             </div>
             <div style="background: green;">
                 <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>

@@ -32,8 +32,8 @@ You can data bind components in it to the current context, which is an instance 
     </GanttViews>
     <GanttColumns>
         <GanttCommandColumn Width="80px">
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Id"
                      Visible="false">

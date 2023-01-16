@@ -76,7 +76,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
                 if (task.ParentId != null)
                 {
-                    <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+                    <GridCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</GridCommandButton>
                 }
                 else
                 {
@@ -126,8 +126,8 @@ The following code example demonstrates declarations and handling of the built-i
         <GanttCommandColumn>
             <GanttCommandButton OnClick="@((args) => GetTaskDetails(args))" Icon="info-circle
 "></GanttCommandButton>
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
     <GanttViews>

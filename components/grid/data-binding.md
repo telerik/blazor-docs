@@ -70,7 +70,7 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
              OnCreate="@CreateHandler"
              OnModelInit="@(() => new Model1())">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="IntProperty" />

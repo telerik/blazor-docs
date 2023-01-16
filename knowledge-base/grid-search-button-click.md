@@ -53,7 +53,7 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
     <GridToolBarTemplate>
         <TelerikTextBox @bind-Value="@SearchValue" Width="200px" OnChange="@SearchGrid" />
         <TelerikButton OnClick="@SearchGrid" Icon="search">Search Grid</TelerikButton>
-        <TelerikButton OnClick="@ClearSearch" Icon="cancel">Clear Search</TelerikButton>
+        <TelerikButton OnClick="@ClearSearch" Icon=FontIcon.Cancel>Clear Search</TelerikButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(GridItem.Name1)" />

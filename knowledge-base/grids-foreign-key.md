@@ -110,8 +110,8 @@ own data source and return it from a service to render in the corresponding head
             </FilterCellTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <GridAggregates>

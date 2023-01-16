@@ -54,8 +54,8 @@ You can hide or more columns in the Grid based on the dimensions of the browser 
         <GridColumn Field="@(nameof(User.Gender))" Title="Gender" Width="200px" Visible="@( !IsMediumDown )" />
         
         <GridCommandColumn Width="250px" Title="Command Column">
-            <GridCommandButton Command="Edit" Icon="edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="delete">Delete</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

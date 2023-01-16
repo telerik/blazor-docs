@@ -47,15 +47,15 @@ Editing is cancelled for the first record.
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+        <TreeListCommandButton Command="Add" Icon=FontIcon.Plus>Add</TreeListCommandButton>
     </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -351,7 +351,7 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
     </TreeListSettings>
 
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="add">Add</TreeListCommandButton>
+        <TreeListCommandButton Command="Add" Icon=FontIcon.Plus>Add</TreeListCommandButton>
     </TreeListToolBarTemplate>
 
     <TreeListColumns>
@@ -362,10 +362,10 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
 
         <TreeListCommandColumn Width="280px">
             <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="edit">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="delete">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
     </TreeListColumns>

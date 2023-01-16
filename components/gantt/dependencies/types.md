@@ -42,7 +42,7 @@ This section showcases both ways to define the dependency type - by using an `in
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
@@ -77,8 +77,8 @@ This section showcases both ways to define the dependency type - by using an `in
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>
@@ -180,7 +180,7 @@ This section showcases both ways to define the dependency type - by using an `in
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
@@ -215,8 +215,8 @@ This section showcases both ways to define the dependency type - by using an `in
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>
