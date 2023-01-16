@@ -44,7 +44,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 }

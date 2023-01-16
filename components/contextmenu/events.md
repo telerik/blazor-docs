@@ -44,7 +44,7 @@ You can use the `OnClick` event to react to user choices, for example load new c
     public class MenuItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public List<MenuItem> Items { get; set; }
     }
 

@@ -75,7 +75,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
             Id = 5,
             Text = "scripts.js",
             ParentId = 3,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
 
         return items;
@@ -87,7 +87,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

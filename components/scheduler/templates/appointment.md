@@ -126,7 +126,7 @@ You can also style the entire appointments by adding a class to their wrapping e
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
 
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

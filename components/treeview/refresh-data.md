@@ -114,7 +114,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         },
         new TreeItem()
         {
@@ -141,7 +141,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
@@ -238,7 +238,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         },
         new TreeItem()
         {
@@ -265,7 +265,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
@@ -364,7 +364,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 
     public List<TreeItem> Items { get; set; } = new List<TreeItem>() {
@@ -407,7 +407,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         },
         new TreeItem()
         {

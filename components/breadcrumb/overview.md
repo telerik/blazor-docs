@@ -56,7 +56,7 @@ To use a Telerik Breadcrumb for Blazor:
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     } 
 }
@@ -87,7 +87,7 @@ To use a Telerik Breadcrumb for Blazor:
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 }

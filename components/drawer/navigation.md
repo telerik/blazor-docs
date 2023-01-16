@@ -52,7 +52,7 @@ To use the Drawer for navigating between pages:
     {
         public string Text { get; set; }
         public string Url { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Separator { get; set; }
     }
 }

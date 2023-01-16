@@ -113,7 +113,7 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
     <TelerikToolBar Adaptive="@ToolBarAdaptive">
         <ToolBarButton Icon=FontIcon.Undo>Undo</ToolBarButton>
         <ToolBarButton Icon=FontIcon.Redo>Redo</ToolBarButton>
-        <ToolBarButton Icon="image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
+        <ToolBarButton Icon=FontIcon.Image Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
         <ToolBarToggleButton Icon="apply-format"></ToolBarToggleButton>
         <ToolBarSeparator></ToolBarSeparator>

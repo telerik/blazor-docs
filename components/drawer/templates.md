@@ -64,7 +64,7 @@ This template receives a `context` argument that is of the data model type and r
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Description { get; set; }
     }
 }

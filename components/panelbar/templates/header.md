@@ -51,7 +51,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public string Url { get; set; }
     }
 

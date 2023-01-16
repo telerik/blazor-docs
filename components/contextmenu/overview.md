@@ -87,7 +87,7 @@ In addition to built-in [navigation capabilities]({%slug contextmenu-navigation%
     {
         public string Text { get; set; }
         public string CommandName { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Separator { get; set; }
         public List<ContextMenuItem> Items { get; set; }
     }

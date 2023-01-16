@@ -41,7 +41,7 @@ Last clicked item: @ClickedItem?.Text
     public class MenuItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public List<MenuItem> Items { get; set; }
     }
 

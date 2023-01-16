@@ -249,7 +249,7 @@ This article contains the following sections:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }                                                  
+        public FontIcon? Icon { get; set; }                                                  
     }
 
     protected override void OnInitialized()
@@ -302,7 +302,7 @@ This article contains the following sections:
                 Text = "index.js",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = "js"
+                Icon = FontIcon.Js
             });
         items.Add(new TreeItem()
             {
