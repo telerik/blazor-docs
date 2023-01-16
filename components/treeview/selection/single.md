@@ -54,7 +54,7 @@ You can use one-way binding to provide an initial node selection, and respond to
     <div>
         <strong>Selected item:</strong>
         <div class="card" style="width: 15rem">
-            <span><strong>Icon:</strong> <TelerikIcon Icon="@selectedItem.Icon" /></span>
+            <span><strong>Icon:</strong> <TelerikFontIcon Icon="@selectedItem.Icon" /></span>
             <span><strong>Title:</strong> @selectedItem.Text</span>
             <span><strong>Id:</strong> @selectedItem.Id </span>
         </div>
@@ -179,7 +179,7 @@ You can use two-way binding to get the node the user has selected. This can be u
     <div>
         <strong>Selected item:</strong>
         <div class="card" style="width: 15rem">
-            <span><strong>Icon:</strong> <TelerikIcon Icon="@selectedItem.Icon" /></span>
+            <span><strong>Icon:</strong> <TelerikFontIcon Icon="@selectedItem.Icon" /></span>
             <span><strong>Title:</strong> @selectedItem.Text</span>
             <span><strong>Id:</strong> @selectedItem.Id </span>
         </div>

@@ -107,7 +107,7 @@ The following code example demonstrates declarations and handling.
             <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
             <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Update</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="MyOwnCommand" Icon="information" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
+            <GridCommandButton Command="MyOwnCommand" Icon=FontIcon.InfoCircle ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

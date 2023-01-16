@@ -36,7 +36,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
 {
     TreeItem selectedItem = SelectedItems.FirstOrDefault() as TreeItem;
     <div>
-        Selected item: <strong> <TelerikIcon Icon="@selectedItem.Icon" /> @selectedItem.Text</strong>
+        Selected item: <strong> <TelerikFontIcon Icon="@selectedItem.Icon" /> @selectedItem.Text</strong>
     </div>
 }
 

@@ -37,9 +37,9 @@ The following example demonstrates how to set up the title through a template. T
 
 <TelerikDialog @bind-Visible="@Visible" ShowCloseButton="false">
     <DialogTitle>
-        <TelerikIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
+        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
         <strong>@Title</strong>
-        <TelerikIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
+        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
     </DialogTitle>
     <DialogContent>
         A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?

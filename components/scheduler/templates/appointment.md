@@ -38,7 +38,7 @@ You can also style the entire appointments by adding a class to their wrapping e
                 var appointment = context as SchedulerAppointment;
                 @if (!string.IsNullOrEmpty(appointment.Icon))
                 {
-                    <TelerikIcon Icon="@appointment.Icon" />
+                    <TelerikFontIcon Icon="@appointment.Icon" />
                 }
                 <strong>@appointment.Title</strong>
                 // sample logic that determines if the appointment is large enough to accommodate more text

@@ -43,7 +43,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
 
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="info">Fire My Command</TreeListCommandButton>
+        <TreeListCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon=FontIcon.InfoCircle>Fire My Command</TreeListCommandButton>
     </TreeListToolBarTemplate>
 
     <TreeListColumns>
