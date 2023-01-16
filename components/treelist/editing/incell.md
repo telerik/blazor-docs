@@ -60,7 +60,7 @@ Editing is cancelled for the first record.
     </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="200px">
-            <TreeListCommandButton Command="Add" Icon="plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Add" Icon=FontIcon.Plus>Add Child</TreeListCommandButton>
             <TreeListCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</TreeListCommandButton>
         </TreeListCommandColumn>
 

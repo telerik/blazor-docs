@@ -23,7 +23,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
 ````CSHTML
 @* This example demonstrates how to change the default Telerik icon used as a Breadcrumb Separator*@
 
-<TelerikBreadcrumb SeparatorIcon="FontIcon.CaretDoubleAltRight"
+<TelerikBreadcrumb SeparatorIcon=FontIcon.CaretDoubleAltRight
                    Data="@Items">
 </TelerikBreadcrumb>
 

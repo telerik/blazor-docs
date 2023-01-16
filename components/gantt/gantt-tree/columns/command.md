@@ -124,8 +124,7 @@ The following code example demonstrates declarations and handling of the built-i
                      DisplayFormat="{0:d}">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton OnClick="@((args) => GetTaskDetails(args))" Icon="info-circle
-"></GanttCommandButton>
+            <GanttCommandButton OnClick="@((args) => GetTaskDetails(args))" Icon=FontIcon.InfoCircle></GanttCommandButton>
             <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
             <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>

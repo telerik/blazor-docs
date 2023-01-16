@@ -36,7 +36,7 @@ The drawer's height is dynamic based on the height of the content (you can chang
 @* This example shows how the drawer behaves in Push mode. It uses item selection to toggle the content for brevity. *@
 
 <div>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@("menu")">Toggle drawer</TelerikButton>
     <TelerikDrawer @bind-Expanded="@Expanded"
                    Data="@Data"
                    MiniMode="true"
@@ -61,14 +61,14 @@ The drawer's height is dynamic based on the height of the content (you can chang
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout},
         };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````
