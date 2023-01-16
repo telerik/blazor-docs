@@ -26,7 +26,7 @@ The Wizard uses a [Stepper component]({%slug stepper-overview%}) internally, so 
 ````CSHTML
 <TelerikWizard @bind-Value="@WizardValue">
     <WizardSteps>
-        <WizardStep Label="Start" Icon="gear">
+        <WizardStep Label="Start" Icon=FontIcon.Gear>
             <Content>
                 <p>Welcome to the Wizard!</p>
             </Content>

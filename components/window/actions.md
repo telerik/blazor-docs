@@ -77,7 +77,7 @@ Custom actions can call C# directly
 
 <TelerikWindow Visible="true">
 	<WindowActions>
-		<WindowAction Name="MyAction" Icon="gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Name="MyAction" Icon=FontIcon.Gear OnClick="@MyCustomActionHandler" />
 	</WindowActions>
 	<WindowContent>
 		@result
