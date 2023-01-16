@@ -56,7 +56,7 @@ The CUD operations are implemented through dedicated events that let you alter t
         </div>
     </Template>
     <HeaderTemplate>
-        <ListViewCommandButton Command="Add" Icon="plus">Add Employee</ListViewCommandButton>
+        <ListViewCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</ListViewCommandButton>
         <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
     </HeaderTemplate>
 </TelerikListView>

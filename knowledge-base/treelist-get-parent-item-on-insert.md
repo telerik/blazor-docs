@@ -61,7 +61,7 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd" 
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="plus">
+                                   Icon=FontIcon.Plus>
                                     Add Child
             </TreeListCommandButton>
             <TreeListCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</TreeListCommandButton>
@@ -193,7 +193,7 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd"
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="plus">
+                                   Icon=FontIcon.Plus>
                                     Add Child
             </TreeListCommandButton>
             <TreeListCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</TreeListCommandButton>
