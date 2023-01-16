@@ -24,7 +24,7 @@ To enable the mini view when the drawer is collapsed (minimized), set the `MiniM
 @* Click on the Toggle MiniMode button to enable or disable it. *@
 @* The same behavior will be observed in both Push and Overlay modes *@
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Toggle drawer</TelerikButton>
 <TelerikButton OnClick="@(() => MiniMode = !MiniMode)">Toggle MiniMode</TelerikButton>
 <TelerikDrawer Data="@Data"
                MiniMode="@MiniMode"
@@ -37,15 +37,15 @@ To enable the mini view when the drawer is collapsed (minimized), set the `MiniM
     public bool MiniMode { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-        };
+            {
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

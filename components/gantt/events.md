@@ -47,15 +47,13 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
               Height="600px"
               IdField="Id"
               ParentIdField="ParentId"
-
               OnExpand="@OnItemExpand"
               OnCollapse="@OnItemCollapse"
-
               OnUpdate="@UpdateItem"
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView></GanttDayView>
@@ -70,7 +68,7 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
         <GanttColumn Field="Title"
                      Expandable="true"
                      Width="160px"
-                     Title="Task Title" >
+                     Title="Task Title">
         </GanttColumn>
         <GanttColumn Field="PercentComplete"
                      Width="60px">
@@ -84,8 +82,8 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>
@@ -116,13 +114,13 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
         for (int i = 1; i < 6; i++)
         {
             var newItem = new FlatModel()
-            {
-                Id = LastId,
-                Title = "Employee  " + i.ToString(),
-                Start = new DateTime(2020, 12, 6 + i),
-                End = new DateTime(2020, 12, 11 + i),
-                PercentComplete = Math.Round(random.NextDouble(), 2)
-            };
+                {
+                    Id = LastId,
+                    Title = "Employee  " + i.ToString(),
+                    Start = new DateTime(2020, 12, 6 + i),
+                    End = new DateTime(2020, 12, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
 
             Data.Add(newItem);
             var parentId = LastId;
@@ -131,14 +129,14 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
             for (int j = 0; j < 5; j++)
             {
                 Data.Add(new FlatModel()
-                {
-                    Id = LastId,
-                    ParentId = parentId,
-                    Title = "    Employee " + i + " : " + j.ToString(),
-                    Start = new DateTime(2020, 12, 6 + i + j),
-                    End = new DateTime(2020, 12, 7 + i + j),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                });
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Employee " + i + " : " + j.ToString(),
+                        Start = new DateTime(2020, 12, 6 + i + j),
+                        End = new DateTime(2020, 12, 7 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
 
                 LastId++;
             }

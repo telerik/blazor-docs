@@ -26,12 +26,12 @@ The example below is using a [DateRangePicker reference and methods]({%slug date
                         @ref="@Picker">
     <HeaderTemplate>
         <span>
-            <TelerikButton OnClick="@GoToPrevious" Icon="arrow-60-left" Title="Go to Previous Month"></TelerikButton>
+            <TelerikButton OnClick="@GoToPrevious" Icon=SvgIcon.ArrowLeft Title="Go to Previous Month"></TelerikButton>
             <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
-            <TelerikButton OnClick="@GoToNext" Icon="arrow-60-right" Title="Go to Next Month"></TelerikButton>
+            <TelerikButton OnClick="@GoToNext" Icon=SvgIcon.ArrowRight Title="Go to Next Month"></TelerikButton>
         </span>
         <span style="padding-right: .6em;">
-            <TelerikIcon Icon="parameter-date-time" /> Showing
+            <TelerikSvgIcon Icon=SvgIcon.ParameterDateTime /> Showing
             <strong>
                 @ViewDate.Month/@ViewDate.Year - @ViewDate.AddMonths(1).Month/@ViewDate.AddMonths(1).Year
             </strong>

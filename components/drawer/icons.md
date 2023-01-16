@@ -10,7 +10,7 @@ position: 22
 
 # Drawer Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Drawer item by assigning a `string` to the `IconField` parameter.
+You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Drawer item by assigning an `object` to the `IconField` parameter.
 
 >caption How to use icons in Telerik Drawer
 

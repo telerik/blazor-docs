@@ -40,7 +40,7 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
               FilterMode="@GanttFilterMode.FilterMenu"
               FilterMenuType="@FilterMenuType.Menu">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="add">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
@@ -75,8 +75,8 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>

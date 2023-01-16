@@ -97,7 +97,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
             new ContextMenuItem
             {
                 Text = "More Info",
-                Icon = "information",
+                Icon = FontIcon.InfoCircle,
                 CommandName = "info"
             },
             new ContextMenuItem
@@ -112,13 +112,13 @@ Hooking to your own HTML elements' events lets you determine what to do with the
                     new ContextMenuItem
                     {
                         Text = "Delete",
-                        Icon = "delete",
+                        Icon = FontIcon.Trash,
                         CommandName = "delete"
                     },
                     new ContextMenuItem
                     {
                         Text = "Report",
-                        Icon = "cancel",
+                        Icon = FontIcon.ReportElement,
                         CommandName = "report"
                     }
                 }
@@ -132,19 +132,19 @@ Hooking to your own HTML elements' events lets you determine what to do with the
     {
         public string Text { get; set; }
         public string CommandName { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Separator { get; set; }
         public bool Disabled { get; set; }
         public List<ContextMenuItem> Items { get; set; }
     }
 
     List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 25).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}",
-        Team = $"Team {x % 3}",
-        IsSpecial = x % 4 == 0
-    }).ToList();
+        {
+            Id = x,
+            Name = $"Name {x}",
+            Team = $"Team {x % 3}",
+            IsSpecial = x % 4 == 0
+        }).ToList();
 
     public class SampleData
     {
@@ -183,7 +183,7 @@ In this example, the context menu is used to select/deselect items, put an item 
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
 
-<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems" 
+<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems"
                     OnClick="@((MenuItem item) => ContextMenuClickHandler(item))">
 </TelerikContextMenu>
 
@@ -196,14 +196,14 @@ In this example, the context menu is used to select/deselect items, put an item 
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedItems">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="add">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -233,7 +233,7 @@ In this example, the context menu is used to select/deselect items, put an item 
     public class MenuItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public Action Action { get; set; }
         public string CommandName { get; set; }
     }
@@ -297,9 +297,9 @@ In this example, the context menu is used to select/deselect items, put an item 
         // context menu items
         MenuItems = new List<MenuItem>()
     {
-            new MenuItem(){ Text = "Select", Icon="checkbox-checked", CommandName="ToggleSelect" },
-            new MenuItem(){ Text = "Edit", Icon="edit", CommandName="BeginEdit" },
-            new MenuItem(){ Text = "Delete", Icon="delete", Action = DeleteItem }
+            new MenuItem(){ Text = "Select", Icon=FontIcon.CheckboxChecked, CommandName="ToggleSelect" },
+            new MenuItem(){ Text = "Edit", Icon=FontIcon.Pencil, CommandName="BeginEdit" },
+            new MenuItem(){ Text = "Delete", Icon=FontIcon.Trash, Action = DeleteItem }
         };
 
         // generate data for the grid
@@ -309,10 +309,10 @@ In this example, the context menu is used to select/deselect items, put an item 
         for (int i = 0; i < 100; i++)
         {
             GridData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Employee " + i.ToString(),
-            });
+                {
+                    ID = i,
+                    Name = "Employee " + i.ToString(),
+                });
         }
     }
 
@@ -466,7 +466,7 @@ In this example, the context menu is used to select/deselect items and delete it
     public class ContextMenuItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Separator { get; set; }
         public string CommandName { get; set; }
     }
@@ -477,7 +477,7 @@ In this example, the context menu is used to select/deselect items and delete it
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
         public bool Expanded { get; set; }
     }
 
@@ -490,7 +490,7 @@ In this example, the context menu is used to select/deselect items and delete it
             new ContextMenuItem
             {
                 Text = "Select",
-                Icon = "checkbox-checked",
+                Icon = FontIcon.CheckboxChecked,
                 CommandName = "ToggleSelect"
             },
             new ContextMenuItem
@@ -500,7 +500,7 @@ In this example, the context menu is used to select/deselect items and delete it
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = "delete",
+                Icon = FontIcon.Trash,
                 CommandName = "InvokeDelete"
             }
         };
@@ -518,7 +518,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = "folder",
+            Icon = FontIcon.Folder,
             Expanded = true
         });
 
@@ -528,7 +528,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = "brush",
+            Icon = FontIcon.Brush,
             Expanded = true
         });
         items.Add(new TreeItem()
@@ -537,7 +537,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = "folder",
+            Icon = FontIcon.Folder,
             Expanded = true
         });
 
@@ -547,7 +547,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = "psd",
+            Icon = FontIcon.FilePsd,
             Expanded = true
         });
         items.Add(new TreeItem()
@@ -556,7 +556,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "index.js",
             ParentId = 3,
             HasChildren = false,
-            Icon = "js"
+            Icon = FontIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -564,7 +564,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "index.html",
             ParentId = 3,
             HasChildren = false,
-            Icon = "html"
+            Icon = FontIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -572,7 +572,7 @@ In this example, the context menu is used to select/deselect items and delete it
             Text = "styles.css",
             ParentId = 3,
             HasChildren = false,
-            Icon = "css"
+            Icon = FontIcon.Css
         });
 
         FlatData = items;

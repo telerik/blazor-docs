@@ -24,13 +24,13 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
         <CardTitle>Bulgarian Mountains</CardTitle>
         <CardSubTitle>Bulgaria, Europe</CardSubTitle>
     </CardHeader>
-    
+
     <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rila_lakes.jpg"></CardImage>
-    
+
     <CardActions Layout="CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat" Icon="heart-outline" Title="Like"></TelerikButton>
-        <TelerikButton Class="k-flat" Icon="comment" Title="Comment"></TelerikButton>
-        <TelerikButton Class="k-flat" Icon="share" Title="Share"></TelerikButton>
+        <TelerikButton Class="k-flat" Icon="FontIcon.HeartOutline" Title="Like"></TelerikButton>
+        <TelerikButton Class="k-flat" Icon="SvgIcon.Comment" Title="Comment"></TelerikButton>
+        <TelerikButton Class="k-flat" Icon="SvgIcon.Share" Title="Share"></TelerikButton>
     </CardActions>
 </TelerikCard>
 ````

@@ -755,11 +755,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
               OnDelete="@DeleteItem">
     <GanttColumns>
         <GanttCommandColumn Width="120px">
-            <GanttCommandButton Command="Add" Icon="add"></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon="edit"></GanttCommandButton>
-            <GanttCommandButton Command="Save" Icon="save" ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Cancel" Icon="cancel" ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="delete"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon=FontIcon.Pencil></GanttCommandButton>
+            <GanttCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -802,11 +802,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         // add new inserted item to the state, then set it to the Gantt
         // you can predefine values here as well (not mandatory)
         currState.InsertedItem = new GanttTask()
-        {
-            Title = "some predefined value",
-            Start = new DateTime(2021, 7, 1),
-            End = new DateTime(2021, 7, 10)
-        };
+            {
+                Title = "some predefined value",
+                Start = new DateTime(2021, 7, 1),
+                End = new DateTime(2021, 7, 10)
+            };
         await GanttRef.SetStateAsync(currState);
 
         // note: possible only for Inline and Popup edit modes, with InCell there is never an inserted item, only edited items
@@ -822,14 +822,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         var itemToEdit = GanttData.FirstOrDefault();
 
         currState.EditItem = new GanttTask()
-        {
-            Id = itemToEdit.Id,
-            ParentId = itemToEdit.ParentId,
-            Title = itemToEdit.Title,
-            PercentComplete = itemToEdit.PercentComplete,
-            Start = itemToEdit.Start,
-            End = itemToEdit.End
-        };
+            {
+                Id = itemToEdit.Id,
+                ParentId = itemToEdit.ParentId,
+                Title = itemToEdit.Title,
+                PercentComplete = itemToEdit.PercentComplete,
+                Start = itemToEdit.Start,
+                End = itemToEdit.End
+            };
 
         currState.OriginalEditItem = itemToEdit;
 
@@ -959,13 +959,13 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
         for (int i = 1; i < 6; i++)
         {
             var newItem = new GanttTask()
-            {
-                Id = LastId,
-                Title = "Task  " + i.ToString(),
-                Start = new DateTime(2021, 7, 5 + i),
-                End = new DateTime(2021, 7, 11 + i),
-                PercentComplete = Math.Round(random.NextDouble(), 2)
-            };
+                {
+                    Id = LastId,
+                    Title = "Task  " + i.ToString(),
+                    Start = new DateTime(2021, 7, 5 + i),
+                    End = new DateTime(2021, 7, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
 
             GanttData.Add(newItem);
             var parentId = LastId;
@@ -974,14 +974,14 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
             for (int j = 0; j < 5; j++)
             {
                 GanttData.Add(new GanttTask()
-                {
-                    Id = LastId,
-                    ParentId = parentId,
-                    Title = "    Task " + i + " : " + j.ToString(),
-                    Start = new DateTime(2021, 7, 5 + j),
-                    End = new DateTime(2021, 7, 6 + i + j),
-                    PercentComplete = Math.Round(random.NextDouble(), 2)
-                });
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Task " + i + " : " + j.ToString(),
+                        Start = new DateTime(2021, 7, 5 + j),
+                        End = new DateTime(2021, 7, 6 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
 
                 LastId++;
             }

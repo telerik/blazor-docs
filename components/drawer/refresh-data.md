@@ -43,7 +43,7 @@ In this article:
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
@@ -56,7 +56,7 @@ In this article:
 
     void AddItem()
     {
-        Data.Add(new DrawerItem { Text = "Info", Icon = "info-circle" });
+        Data.Add(new DrawerItem { Text = "Info", Icon = FontIcon.InfoCircle });
         Data = new List<DrawerItem>(Data);
     }
 
@@ -73,22 +73,22 @@ In this article:
     {
         Data = new List<DrawerItem>
         {
-            new DrawerItem { Text = "Overview", Icon = "info-circle"},
-            new DrawerItem { Text = "Events", Icon = "star"},
+            new DrawerItem { Text = "Overview", Icon = FontIcon.InfoCircle },
+            new DrawerItem { Text = "Events", Icon = FontIcon.Star },
         };
     }
 
     List<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
-                        };
+            {
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+                            };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public string Icon { get; set; }
+        public FontIcon? Icon { get; set; }
     }
 }
 ````

@@ -21,12 +21,12 @@ The example below is using a [DatePicker reference and methods]({%slug component
     <HeaderTemplate>
 
         <span>
-            <TelerikButton OnClick="@GoToPrevious" Icon="arrow-60-left" Title="Go to Previous Month"></TelerikButton>
+            <TelerikButton OnClick="@GoToPrevious" Icon=FontIcon.ArrowLeft Title="Go to Previous Month"></TelerikButton>
             <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
-            <TelerikButton OnClick="@GoToNext" Icon="arrow-60-right" Title="Go to Next Month"></TelerikButton>
+            <TelerikButton OnClick="@GoToNext" Icon=FontIcon.ArrowRight Title="Go to Next Month"></TelerikButton>
         </span>
         <span style="padding-right: .6em;">
-            <TelerikIcon Icon="parameter-date-time" /> @ViewDate.Month / @ViewDate.Year
+            <TelerikFontIcon Icon=FontIcon.ParameterDateTime /> @ViewDate.Month / @ViewDate.Year
         </span>
     </HeaderTemplate>
 </TelerikDatePicker>
