@@ -119,7 +119,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
             new ContextMenuItem
             {
                 Text = "Info",
-                Icon = "information",
+                Icon = FontIcon.InfoCircle,
                 CommandName = "info"
             },
             new ContextMenuItem
@@ -129,7 +129,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = "delete",
+                Icon = FontIcon.Trash,
                 CommandName = "delete"
             }
         };

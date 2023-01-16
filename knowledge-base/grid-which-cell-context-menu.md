@@ -115,19 +115,19 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
             new ContextMenuItem
             {
                 Text = "More Info",
-                Icon = "information",
+                Icon = FontIcon.InfoCircle,
                 CommandName = "info"
             },
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = "delete",
+                Icon = FontIcon.Trash,
                 CommandName = "delete"
             },
             new ContextMenuItem
             {
                 Text = "Report",
-                Icon = "cancel",
+                Icon = FontIcon.Cancel,
                 CommandName = "report"
             }
         };

@@ -69,7 +69,7 @@ Make sure to use the correct way and resources for your actual project *@
             new MenuModel()
             {
                 Text = "TelerikIcon - easy",
-                Icon = "email"
+                Icon = FontIcon.Envelop
             },
             new MenuModel()
             {
@@ -138,7 +138,7 @@ Make sure to use the correct way and resources for your actual project *@
             new MenuModel()
             {
                 Text = "TelerikIcon - fail with custom fonts",
-                Icon = "email"
+                Icon = FontIcon.Envelop
             },
             new MenuModel()
             {

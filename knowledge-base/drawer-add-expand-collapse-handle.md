@@ -91,8 +91,8 @@ To achieve the desired result you can try the following:
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"}
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout}
         };
 
     public class DrawerItem

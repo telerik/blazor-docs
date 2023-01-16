@@ -42,10 +42,10 @@ To use the Drawer for navigating between pages:
     List<DrawerItem> NavigablePages { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Home", Url = "/", Icon = "home" },
+            new DrawerItem { Text = "Home", Url = "/", Icon = FontIcon.Home },
             new DrawerItem { Separator = true },
-            new DrawerItem { Text = "Counter", Url = "counter", Icon = "plus-outline" },
-            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = "grid" }
+            new DrawerItem { Text = "Counter", Url = "counter", Icon = FontIcon.PlusOutline },
+            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = FontIcon.Grid }
         };
 
     public class DrawerItem

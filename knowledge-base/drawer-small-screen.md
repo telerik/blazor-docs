@@ -68,8 +68,8 @@ To see the behavior, resize the browser window *@
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = "plus"},
-            new DrawerItem { Text = "FetchData", Icon = "grid-layout"},
+            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout},
         };
 
     public class DrawerItem

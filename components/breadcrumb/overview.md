@@ -45,7 +45,7 @@ To use a Telerik Breadcrumb for Blazor:
     {
         Items = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { Text = "Home", Icon = "home" },
+            new BreadcrumbItem { Text = "Home", Icon = FontIcon.Home },
             new BreadcrumbItem { Text = "Products"},
             new BreadcrumbItem { Text = "Computer peripherals"},
             new BreadcrumbItem { Text = "Keyboards"},
