@@ -20,7 +20,7 @@ You can control the appearance of the Chip by using the following parameters:
 
 ## FillMode
 
-The `FillMode` controls how the Chip is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:
+The `FillMode` affects the presence of a background and borders. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.FillMode` class:
 
 | Class members | Manual declarations |
 |------------|--------|
