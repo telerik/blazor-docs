@@ -41,7 +41,7 @@ The Grid filter state is stored in [CompositeFilterDescriptors](https://docs.tel
 
 Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
 
-* [Filter Row]({%slug grid-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field. The second `FilterDescriptor` instance contains null values.
+* [Filter Row]({%slug grid-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
 
 * [Filter Menu]({%slug grid-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter opearators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
 
@@ -57,7 +57,7 @@ There are two approaches to customize the grid filtering behavior, and you can u
 * Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the grid provides.
 
 
-### Customize The Filter Editors
+## Customize The Filter Editors
 
 You can customize the filter editors declaratively for some data types. It is possible to change the editor component or the editor format.
 

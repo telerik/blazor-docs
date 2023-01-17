@@ -594,7 +594,7 @@ To test it out, try filtering the Title column
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
-        <GanttColumn Field="End"  
+        <GanttColumn Field="End"
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
@@ -612,23 +612,26 @@ To test it out, try filtering the Title column
 
     private List<GanttTask> GanttData { get; set; }
 
-    async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
+    private async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
     {
         Console.WriteLine("User changed: " + args.PropertyName); // get the setting that was just changed (paging, sorting,...)
 
         if (args.PropertyName == "FilterDescriptors") // filtering changed for our example
         {
-            foreach (FilterDescriptor item in args.State.FilterDescriptors)
+            foreach (CompositeFilterDescriptor compositeFilter in args.State.FilterDescriptors)
             {
-                // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetStateAsync() method of the Gantt is always called if you do that
-                if (item.Member == "Title")
+                foreach (FilterDescriptor item in compositeFilter.FilterDescriptors)
                 {
-                    item.Value = "Task 1";
-                    item.Operator = FilterOperator.Contains;
+                    // you could override a user action as well - change settings on the corresponding parameter
+                    // make sure that the .SetStateAsync() method of the Gantt is always called if you do that
+                    if (item.Member == "Title")
+                    {
+                        item.Value = "Task 1";
+                        item.Operator = FilterOperator.Contains;
+                    }
                 }
-            }
-          
+            }        
+
             // needed only if you will be overriding user actions or amending them
             // if you only need to be notified of changes, you should not call this method
             await GanttRef.SetStateAsync(args.State);

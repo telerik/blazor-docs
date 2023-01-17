@@ -48,13 +48,13 @@ The TreeList filter state is stored in [CompositeFilterDescriptors](https://docs
 
 Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection) which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
 
-* [Filter Row]({%slug treelist-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field. The second `FilterDescriptor` instance contains null values.
+* [Filter Row]({%slug treelist-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
 
 * [Filter Menu]({%slug treelist-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
 
 * [SearchBox]({%slug treelist-searchbox%}) - one `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all `string` fields. A dedicated `FilterDescriptor` instance is added to this `CompositeFilterDescriptor` for each `string` field. Each `FilterDescriptor` instance contains the filter value typed in the Searchbox.
 
-### Customize The Filter Editors
+## Customize The Filter Editors
 
 You can customize the filter editors declaratively for some data types. It is possible to change the editor component or the editor format.
 
