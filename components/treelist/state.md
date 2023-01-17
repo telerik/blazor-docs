@@ -49,7 +49,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the TreeList so you 
 
 * `OnStateChanged` fires when the user makes a change to the TreeList state (such as paging, sorting, filtering, editing, selecting and so on). The `TreeListState` field of the event argument provides the current TreeList state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete. In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `TreeListState` field of the event argument will provide correct information about the overall TreeList state in both event handler executions.
 
 By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the TreeList layout for your users by calling your storage service in the respective handler.
@@ -575,7 +575,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
     // Note 2: The TreeList does not await this event, its purpose is to notify you of changes
     //         so you must not perform async operations and data loading here, or issues with the TreeList state may occur
     //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the TreeList, but not the rest of the page
-    async void OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         string changedSetting = args.PropertyName;
 

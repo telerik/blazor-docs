@@ -56,7 +56,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the grid so you can 
 
 * `OnStateChanged` fires when the user makes a change to the grid state (such as paging, sorting, grouping, filtering, editing, selecting and so on). The `GridState` field of the event argument provides the current grid state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete. In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `GridState` field of the event argument will provide correct information about the overall Grid state in both event handler executions.
 
 By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the grid layout for your users by calling your storage service in the respective handler.
@@ -531,7 +531,7 @@ To test it out, try filtering the name column
     // Note 2: The grid does not await this event, its purpose is to notify you of changes
     //         so you must not perform async operations and data loading here, or issues with the grid state may occur
     //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the grid, but not the rest of the page
-    private async void OnStateChangedHandler(GridStateEventArgs<SampleData> args)
+    private async Task OnStateChangedHandler(GridStateEventArgs<SampleData> args)
     {
         Console.WriteLine(args.PropertyName); // get the setting that was just changed (paging, sorting, filtering...)
 
