@@ -16,11 +16,11 @@ You can test the accessibility swatch in our [live demos](https://demos.telerik.
 
 # Default Ocean Blue Accessibility Swatch
 
-The Default Ocean Blue Accessibility Swatch is built on top of [Ocean Blue](#ocean-blue-accessibility-swatch). The difference is that it has contrast focus indicators enabled and enforces compliance with WCAG requirements.
+The Default Ocean Blue Accessibility Swatch is built on top of [Ocean Blue](#ocean-blue-accessibility-swatch). The difference is that it has contrast focus indicators and is compliant with WCAG requirements.
 
-You can test the accessibility swatch in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) - select the `Default Ocean Blue` option in the `Change Theme` menu.
+You can test the accessibility swatch in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) - select the `Default Ocean Blue` option in the `Change Theme` dropdown menu.
 
-> **Limitations:** ColorPalette fails WCAG success criteria 1.4.11. Non-text contrast for the focus indicator on its items.
+> **Limitations:** ColorPalette fails WCAG success criteria 1.4.11. - "Non-text contrast for the focus indicator on its items".
 
 Telerik UI for Blazor distributes the Default Ocean Blue theme and the Ocean Blue theme swatches via several resources. Read more in the [Swatch Distribution]({%slug themes-swatch-distribution%}) article.
 
