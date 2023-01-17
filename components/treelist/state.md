@@ -188,7 +188,7 @@ The following example shows one way you can store the TreeList state - through a
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
 
-    private async void SetState()
+    private async Task SetState()
     {
         TreeListState<Employee> state = new TreeListState<Employee>()
             {
