@@ -53,8 +53,8 @@ The Blazor Avatar provides the following parameters that allow you to configure 
 | ----------- | ----------- | -------|
 | `Bordered` | `bool` | Whether the Avatar will have border. |
 | `Class` | `string` | A custom CSS class that will be rendered on the main wrapping element of the Avatar. (`<div class="k-avatar>`) Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
-| `Height` | `string` | The height of the Avatar. Will be applied only if you explicitly set the [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
-| `Width` | `string` | The width of the Avatar. Will be applied only if you explicitly set the  [`Size`]({%slug avatar-appearance%}#size) to an empty `string`. |
+| `Height` | `string` | The height of the Avatar. Takes precedence over the [`Size`]({%slug avatar-appearance%}#size) parameter. |
+| `Width` | `string` | The width of the Avatar. Takes precedence over the [`Size`]({%slug avatar-appearance%}#size) parameter. |
 | `Type` | `AvatarType` <br/> (`Image`) | The type of the Avatar. Read more in the [Types article]. |
 
 You can find more options for customizing the Avatar styling in the [Appearance article]({%slug avatar-appearance%}).
