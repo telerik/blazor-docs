@@ -86,7 +86,7 @@ When `Mode` is set to `Overlay`, the Drawer's navigation is on top of the conten
 You may want to add padding to the left of the content so that it is not overlapped by the Drawer in its MiniMode. *@
 
 <div class="pl-4">
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu">Toggle drawer</TelerikButton>
 </div>
 <TelerikDrawer @bind-Expanded="@Expanded"
                Data="@Data"

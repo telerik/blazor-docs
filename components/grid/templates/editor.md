@@ -109,9 +109,9 @@ The Grid will save changes and close the current edit row (or edit cell) when th
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn Width="200px">
-            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -176,8 +176,8 @@ The Grid will save changes and close the current edit row (or edit cell) when th
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -301,8 +301,8 @@ Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge b
             </Template>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

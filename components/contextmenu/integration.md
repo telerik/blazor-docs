@@ -196,14 +196,14 @@ In this example, the context menu is used to select/deselect items, put an item 
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedItems">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon=FontIcon.Plus>Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -297,9 +297,9 @@ In this example, the context menu is used to select/deselect items, put an item 
         // context menu items
         MenuItems = new List<MenuItem>()
     {
-            new MenuItem(){ Text = "Select", Icon=FontIcon.CheckboxChecked, CommandName="ToggleSelect" },
-            new MenuItem(){ Text = "Edit", Icon=FontIcon.Pencil, CommandName="BeginEdit" },
-            new MenuItem(){ Text = "Delete", Icon=FontIcon.Trash, Action = DeleteItem }
+            new MenuItem(){ Text = "Select", Icon = FontIcon.CheckboxChecked, CommandName="ToggleSelect" },
+            new MenuItem(){ Text = "Edit", Icon = FontIcon.Pencil, CommandName="BeginEdit" },
+            new MenuItem(){ Text = "Delete", Icon = FontIcon.Trash, Action = DeleteItem }
         };
 
         // generate data for the grid

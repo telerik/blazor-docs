@@ -60,7 +60,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon=FontIcon.FilesError></TelerikIcon>
+            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>

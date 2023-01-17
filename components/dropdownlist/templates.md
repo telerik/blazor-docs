@@ -71,7 +71,7 @@ The `ValueTemplate` exposes a `context` which represents the selected item objec
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon=FontIcon.FilesError></TelerikFontIcon>
+            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikFontIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>

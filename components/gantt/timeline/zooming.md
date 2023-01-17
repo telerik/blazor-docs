@@ -28,7 +28,7 @@ The `RangeSnapTo` parameter receives an argument of type `GanttRangeSnapTo` whic
               OnCreate="@CreateItem"
               RangeSnapTo="GanttRangeSnapTo.MinorSlot">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon=FontIcon.Plus>Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon="@FontIcon.Plus">Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttWeekView></GanttWeekView>
@@ -51,8 +51,8 @@ The `RangeSnapTo` parameter receives an argument of type `GanttRangeSnapTo` whic
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>

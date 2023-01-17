@@ -25,7 +25,7 @@ The template receives the `DateTime` corresponding to its cell.
     <YearCellTemplate>
         @if (monthsWithEvents.Contains(context.Month))
         {
-            <TelerikFontIcon Icon="FontIcon.RoundCorners"></TelerikFontIcon>
+            <TelerikFontIcon Icon="@FontIcon.RoundCorners"></TelerikFontIcon>
         }
         @context.ToString("MMM")
     </YearCellTemplate>
