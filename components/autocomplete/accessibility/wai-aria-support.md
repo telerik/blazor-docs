@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor AutoComplete is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor AutoComplete component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -26,20 +26,20 @@ The Telerik UI for Blazor AutoComplete is [WCAG 2.1 AAA](https://www.w3.org/TR/W
 |  | `aria-haspopup=listbox` | Indicates the component has a listbox Popup. |
 |  | `aria-expanded=true/false` | Announces the state of the visibility of the popup. |
 |  | `aria-controls=.k-animation-container id` | Points to the popup element. Signifies that the `combobox` element controls the `listbox`. |
-|  | `aria-activedescendent=.k-list-item id` | Points to the focused item in the popup. The focused item is changed via keyboard navigation. If the popup is not visible, the attribute should not point to any element or should be removed. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item in the popup. The focused item is changed via keyboard navigation. If the popup is not visible, the attribute should not point to any element or should be removed. |
 |  | `aria-autocomplete=list` | Attribute is rendered and value is set to list when **filtering** feature is enabled. |
 |  | `aria-autocomplete=both` | Attribute is rendered and value is set to both when both **filtering** and **suggest** features are enabled. |
 |  | `aria-autocomplete=inline` | Attribute is rendered and value is set to only **suggest** feature is enabled. |
 |  | `readonly` or `aria-readonly` | Attribute is rendered only when the autocomplete is readonly. |
-|  | `aria-invalid=true` | Attribute is rendered only when the autocomplete is in form and announces the valid state of the component. |
 |  | `aria-busy=true` | Attribute is rendered only when the autocomplete is loading data. |
 |  | `tabindex=0` | The element must be focusable. |
+| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the autocomplete is in form and announces the valid state of the component. |
 | .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the autocomplete is disabled. |
 
-### Popup
+### ListBox Popup
 
 
-The Popup element of the component should implement the specification for a **PopupList** component.
+The Popup element of the component should implement the specification for a **Popup List** component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

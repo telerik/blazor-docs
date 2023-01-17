@@ -13,17 +13,19 @@ position: 50
 
 
 
-The Telerik UI for Blazor ButtonGroup is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor ButtonGroup component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-button-group | `role=group` | Sets the proper role for the group. |
+| .k-button-group:not(.k-split-button) | `role=group` | Sets the proper role for the group. |
 | .k-button-group.k-disabled | `aria-disabled=true` | Attribute is rendered only when the entire button group is disabled. |
-| .k-button | `aria-pressed` | Specifies the current state of the Button. Only the selected button in the Group would have this attribute set to `true`. |
+| .k-button-group:not(.k-split-button) .k-button | `aria-pressed` | Specifies the current state of the Button. Only the selected button in the Group would have this attribute set to `true`. |
 
 ## Resources
+
+[WAI-ARIA specification for button](https://www.w3.org/TR/wai-aria-1.2/#button)
 
 [WAI-ARIA specification for group](https://www.w3.org/TR/wai-aria-1.2/#group)
 

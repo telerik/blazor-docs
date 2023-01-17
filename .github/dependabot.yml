@@ -3,7 +3,7 @@ updates:
 
 # Accessibility Specs /src-a11y"
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/src-a11y"
     schedule:
       interval: "daily"
     allow:

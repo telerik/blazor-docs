@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ProgressBar
+from: /aria/progressbar_aria.md
+dest: ../components/progressbar/accessibility/wai-aria-support.md
+slug: progressbar-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ProgressBar Overview (Demo)](https://demos.telerik.com/blazor-ui/progressbar/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

@@ -342,20 +342,13 @@ With a few simple loops, you can extract information from the DataSourceRequest 
         // loop the DataSourceRequest collections to extract the data you require
         foreach (var item in args.Request.Filters)
         {
-            if(item is FilterDescriptor) // filter row
-            {
-                FilterDescriptor currFilter = item as FilterDescriptor;
-                output += $"field: {currFilter.Member}, operator {currFilter.Operator}, value: {currFilter.Value}<br />";
-            }
-
-            if(item is CompositeFilterDescriptor) // filter menu
+            if (item is CompositeFilterDescriptor)
             {
                 CompositeFilterDescriptor currFilter = item as CompositeFilterDescriptor;
                 output += $"START nested filter: logical operator: {currFilter.LogicalOperator}, details:<br />";
-                // there will actually be 1 or 2 only, this showcases the concept and the types
+                // by design, there will actually be 2 only, this showcases the concept and the types
                 foreach (FilterDescriptor nestedFilter in currFilter.FilterDescriptors)
                 {
-
                     output += $"field: {nestedFilter.Member}, operator {nestedFilter.Operator}, value: {nestedFilter.Value}<br />";
                 }
                 output += "END nested filter<br />";
@@ -379,12 +372,12 @@ With a few simple loops, you can extract information from the DataSourceRequest 
     }
 
     public IEnumerable<SampleData> PristineData = Enumerable.Range(1, 300).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {

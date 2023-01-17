@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Scheduler
+from: /aria/scheduler_aria.md
+dest: ../components/scheduler/accessibility/wai-aria-support.md
+slug: scheduler-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Scheduler Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

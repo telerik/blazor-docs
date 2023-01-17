@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: TileLayout
+from: /aria/tilelayout_aria.md
+dest: ../components/tilelayout/accessibility/wai-aria-support.md
+slug: tilelayout-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor TileLayout Overview (Demo)](https://demos.telerik.com/blazor-ui/tilelayout/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

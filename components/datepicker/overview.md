@@ -39,6 +39,12 @@ The selected date is: @datePickerValue.ToShortDateString()
 }
 ````
 
+## Date Input Typing Settings
+
+The DatePicker
+@[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
+DatePicker.
+
 ## Increment Steps
 
 The Date Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DatePickerSteps` tag and its parameters. [Read more about the Blazor Date Picker increment steps...]({%slug datepicker-steps%})
@@ -89,7 +95,9 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 
-The date picker is, essentially, a [date input]({%slug components/dateinput/overview%}) and a [calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
+The Date Picker is, essentially, a [DateInput]({%slug components/dateinput/overview%}) and a [Calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
+
+@[template](/_contentTemplates/date-inputs/general.md#typing-parameters)
 
 ### Styling and Appearance
 
@@ -105,7 +113,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 You can find more options for customizing the Date Picker styling in the [Appearance article]({%slug datepicker-appearance%}).
 
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 ## DatePicker Reference and Methods
 

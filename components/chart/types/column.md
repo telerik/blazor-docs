@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 #### To create a column chart:
 

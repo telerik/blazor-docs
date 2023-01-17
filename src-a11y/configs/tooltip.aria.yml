@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Tooltip
+from: /aria/tooltip_aria.md
+dest: ../components/tooltip/accessibility/wai-aria-support.md
+slug: tooltip-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Tooltip Overview (Demo)](https://demos.telerik.com/blazor-ui/tooltip/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: TextArea
+from: /aria/textarea_aria.md
+dest: ../components/textarea/accessibility/wai-aria-support.md
+slug: textarea-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor TextArea Overview (Demo)](https://demos.telerik.com/blazor-ui/textarea/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

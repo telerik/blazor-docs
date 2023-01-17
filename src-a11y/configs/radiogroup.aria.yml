@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: RadioGroup
+from: /aria/radiogroup_aria.md
+dest: ../components/radiogroup/accessibility/wai-aria-support.md
+slug: radiogroup-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor RadioGroup Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

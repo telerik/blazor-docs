@@ -49,7 +49,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the TreeList so you 
 
 * `OnStateChanged` fires when the user makes a change to the TreeList state (such as paging, sorting, filtering, editing, selecting and so on). The `TreeListState` field of the event argument provides the current TreeList state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete. In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `TreeListState` field of the event argument will provide correct information about the overall TreeList state in both event handler executions.
 
 By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the TreeList layout for your users by calling your storage service in the respective handler.
@@ -127,27 +127,30 @@ The following example shows one way you can store the TreeList state - through a
 <TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
 <TelerikButton OnClick="@SetState">Set the state</TelerikButton>
 
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
                  Pageable="true"
-                 Width="850px"
+                 Width="900px"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
+                 Sortable="true"
+                 FilterMode="@TreeListFilterMode.FilterRow"
                  OnStateChanged="@((TreeListStateEventArgs<Employee> args) => OnStateChangedHandler(args))"
                  OnStateInit="@((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
                  @ref="@TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" Width="320px" />
-        <TreeListColumn Field="@nameof(Employee.Id)" Width="120px" />
-        <TreeListColumn Field="@nameof(Employee.ParentId)" Width="120px" />
+        <TreeListColumn Field="@nameof(Employee.Id)" Width="150px" />
+        <TreeListColumn Field="@nameof(Employee.ParentId)" Width="150px" />
         <TreeListColumn Field="@nameof(Employee.EmailAddress)" Width="120px" />
         <TreeListColumn Field="@nameof(Employee.HireDate)" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 
-@code { string UniqueStorageKey = "SampleTreeListStateStorageKey";
+@code {
+    private string UniqueStorageKey = "SampleTreeListStateStorageKey";
 
-    async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
+    private async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
         try
         {
@@ -165,14 +168,14 @@ The following example shows one way you can store the TreeList state - through a
         }
     }
 
-    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    private async void OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         var state = args.TreeListState;
         state.ExpandedItems = null;
         await LocalStorage.SetItem(UniqueStorageKey, state);
     }
 
-    async Task ResetState()
+    private async Task ResetState()
     {
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
@@ -180,64 +183,82 @@ The following example shows one way you can store the TreeList state - through a
         await TreeListRef.SetStateAsync(null); // pass null to reset the state
     }
 
-    void ReloadPage()
+    private void ReloadPage()
     {
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
 
-    private void SetState()
+    private async Task SetState()
     {
         TreeListState<Employee> state = new TreeListState<Employee>()
-        {
-            FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
-            },
-            SortDescriptors = new List<SortDescriptor>()
-            {
-                new SortDescriptor() { Member = "StringProp", SortDirection = ListSortDirection.Descending }
-            },
-            Page = 2,
-            ColumnStates = new List<TreeListColumnState>()
-            {
-                new TreeListColumnState()
+                FilterDescriptors = new List<IFilterDescriptor>()
                 {
-                    Index = 3,
-                    Width = "150px"
+                    new CompositeFilterDescriptor(){
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() {
+                                Member="Id", 
+                                MemberType=typeof(int), 
+                                Value = 2, 
+                                Operator = FilterOperator.IsGreaterThan 
+                            }
+                        }
+                    }
                 },
-                new TreeListColumnState()
+                
+                SortDescriptors = new List<SortDescriptor>()
                 {
-                    Index = 1,
-                    Width = "120px"
+                    new SortDescriptor() {
+                        Member = "Name", 
+                        SortDirection = ListSortDirection.Descending 
+                    }
                 },
-                new TreeListColumnState()
+                
+                Page = 2,
+                
+                ColumnStates = new List<TreeListColumnState>()
                 {
-                    Index = 2,
-                    Width = "60px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 4,
-                    Width = "150px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 0,
-                    Width = "120px"
+                    new TreeListColumnState()
+                    {
+                        Index = 3,
+                        Width = "150px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 1,
+                        Width = "120px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 2,
+                        Width = "60px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 4,
+                        Width = "150px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 0,
+                        Width = "120px"
+                    }
                 }
-            }
-        };
+            };
 
         TreeListRef?.SetStateAsync(state);
+
+        await LocalStorage.SetItem(UniqueStorageKey, state);
     }
 
-    TelerikTreeList<Employee> TreeListRef { get; set; }
+    private TelerikTreeList<Employee> TreeListRef { get; set; }
 
-    public List<Employee> Data { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        TreeListData = await GetTreeListData();
     }
 
     // sample model
@@ -256,44 +277,44 @@ The following example shows one way you can store the TreeList state - through a
 
     // data generation
 
-    async Task<List<Employee>> GetTreeListData()
+    private async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 
         for (int i = 1; i < 15; i++)
         {
             data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null, // indicates a root-level item
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
+                {
+                    Id = i,
+                    ParentId = null, // indicates a root-level item
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    HireDate = DateTime.Now.AddYears(-i)
+                }); ;
 
             for (int j = 1; j < 4; j++)
             {
                 int currId = i * 100 + j;
                 data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId)
-                });
+                    {
+                        Id = currId,
+                        ParentId = i,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        HireDate = DateTime.Now.AddDays(-currId)
+                    });
 
                 for (int k = 1; k < 3; k++)
                 {
                     int nestedId = currId * 1000 + k;
                     data.Add(new Employee
-                    {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
+                        {
+                            Id = nestedId,
+                            ParentId = currId,
+                            Name = $"second level child {k} of {i} and {currId}",
+                            EmailAddress = $"{nestedId}@example.com",
+                            HireDate = DateTime.Now.AddMinutes(-nestedId)
+                        }); ;
                 }
             }
         }
@@ -402,12 +423,17 @@ If you want the TreeList to start with certain settings for your end users, you 
         {
             FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
                 }
             },
             SortDescriptors = new List<SortDescriptor>()
@@ -566,16 +592,19 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
             // in this example - ensure that the ID field is always filtered with a certain setting unless the user filters it explicitly
             bool isIdFiltered = false;
 
-            foreach (FilterDescriptor item in args.TreeListState.FilterDescriptors)
+            foreach (CompositeFilterDescriptor compositeFilterDescriptor in args.TreeListState.FilterDescriptors)
             {
-                Result = $"The {item.Member} field was filtered";
-
-                // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetStateAsync() method of the TeeList is always called if you do that
-                if (item.Member == "Name")
+                foreach(FilterDescriptor item in compositeFilterDescriptor.FilterDescriptors)
                 {
-                    item.Value = "second level child 1 of 1 and 1";
-                    item.Operator = FilterOperator.Contains;
+                    Result = $"The {item.Member} field was filtered";
+
+                    // you could override a user action as well - change settings on the corresponding parameter
+                    // make sure that the .SetStateAsync() method of the TeeList is always called if you do that
+                    if (item.Member == "Name")
+                    {
+                        item.Value = "second level child 1 of 1 and 1";
+                        item.Operator = FilterOperator.Contains;
+                    }
                 }
             }
             if (!isIdFiltered)

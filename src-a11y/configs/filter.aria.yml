@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Filter
+from: /aria/filter_aria.md
+dest: ../components/filter/accessibility/wai-aria-support.md
+slug: filter-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Filter Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

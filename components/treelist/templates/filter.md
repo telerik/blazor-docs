@@ -25,7 +25,7 @@ By default, the filter row puts an appropriate editor (like a numeric textbox fo
 
 To customize the filter cell, use the `<FilterCellTemplate>` tag of the `<TreeListColumn>`. It receives a `context` of type `FilterCellTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - the object that describes the column filter. By default it has a first filter with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`.
+* `FilterDescriptor` - a [CompositeFilterDescriptor](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator]({%slug common-features-filter-operators%}) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
 
 * `FilterAsync()` - an `async` method that invokes the built-in treelist filtering logic so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
 
@@ -48,94 +48,85 @@ The example below shows a custom filter that:
 ````CSHTML
 @using Telerik.DataSource
 
-The custom filter textboxes invoke filtering on Enter or blur through the OnChange event. 
+The custom filter textboxes invoke filtering on Enter or blur through the OnChange event.
 Note that a treelist keeps parent items when filtering should show child items.
 For example, try filtering with a Min value of 50+ to leave only root-level items in this sample.
 
-<TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterRow"
+<TelerikTreeList Data="@TreeListData" FilterMode="@TreeListFilterMode.FilterRow"
                  Pageable="true" IdField="Id" ParentIdField="ParentId" Width="850px">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" Filterable="false" />
         <TreeListColumn Field="Id" Filterable="false" Width="100px" />
-            <TreeListColumn Field="Age" Width="350px">
-                <FilterCellTemplate>
-                    @{
-                        // we store a reference to the filter context to use in the business logic
-                        // you can also use it inline in the template, like with the Clear button below
-                        theFilterContext = context;
-                    }
+        <TreeListColumn Field="Age" Width="350px">
+            <FilterCellTemplate>
+                @{
+                    // we store a reference to the filter context to use in the business logic
+                    // you can also use it inline in the template, like with the Clear button below
+                    AgeFilterContext = context;
+                }
 
-                    <label for="min">Min:&nbsp;</label>
-                    <TelerikNumericTextBox Id="min"
-                                           @bind-Value="@MinValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <label for="min">Max:&nbsp;</label>
-                    <TelerikNumericTextBox Id="max"
-                                           @bind-Value="@MaxValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <TelerikButton ButtonType="ButtonType.Button"
-                                   Class="k-clear-button-visible ml-2"
-                                   Icon="filter-clear"
-                                   Enabled="@( MinValue != null || MaxValue != null )"
-                                   OnClick="@(async () =>
+                <label for="min">Min:&nbsp;</label>
+                <TelerikNumericTextBox Id="min"
+                                       @bind-Value="@MinValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <label for="min">Max:&nbsp;</label>
+                <TelerikNumericTextBox Id="max"
+                                       @bind-Value="@MaxValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <TelerikButton ButtonType="ButtonType.Button"
+                               Class="k-clear-button-visible ml-2"
+                               Icon=FontIcon.FilterClear
+                               Enabled="@( MinValue != null || MaxValue != null )"
+                               OnClick="@(async () =>
                                           {
                                               MinValue = MaxValue = null;
 
                                               // clear filter through the method the context provides
                                               await context.ClearFilterAsync();
                                           })">
-                    </TelerikButton>
-                </FilterCellTemplate>
-            </TreeListColumn>
+                </TelerikButton>
+            </FilterCellTemplate>
+        </TreeListColumn>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    FilterCellTemplateContext theFilterContext { get; set; }
-    public decimal? MinValue { get; set; }
-    public decimal? MaxValue { get; set; }
+    private FilterCellTemplateContext AgeFilterContext { get; set; }
 
-    async Task SetupFilterRule()
+    private decimal? MinValue { get; set; }
+
+    private decimal? MaxValue { get; set; }
+
+    private async Task SetupFilterRule()
     {
-        // set up min value filter - there is one default filter descriptor
-        // that alredy has the field set up, so we use that for the MIN filter
-        // and set up a value and operator
-        var filter1 = theFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
+        // by default, the Composite FilterDescriptor from the context contains two FilterDescriptor instances.
+        // Get the filter values from the NumericTextBoxes in the template and populate them in the FilterDescriptor instances.
+        // Alter the default filter operators to achieve the desired filtering behavior
+        var filter1 = AgeFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
         filter1.Value = MinValue == null ? int.MinValue : MinValue;
         filter1.Operator = FilterOperator.IsGreaterThan;
 
-        // set up max value filter - we may have to crete a new filter descriptor
-        // if there wasn't one already so we prepare it first and check whether we have the second filter
-        var filter2Val = MaxValue == null ? int.MaxValue : MaxValue;
-        var filter2 = new FilterDescriptor("Age", FilterOperator.IsLessThan, filter2Val);
-        filter2.MemberType = typeof(decimal);
-
-        if (theFilterContext.FilterDescriptor.FilterDescriptors.Count > 1)
-        {
-            theFilterContext.FilterDescriptor.FilterDescriptors[1] = filter2;
-        }
-        else
-        {
-            theFilterContext.FilterDescriptor.FilterDescriptors.Add(filter2);
-        }
+        var filter2 = AgeFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
+        filter2.Value = MaxValue == null ? int.MaxValue : MaxValue;
+        filter2.Operator = FilterOperator.IsLessThan;
 
         // ensure logical operator between the two filters is AND (it is the default, but we showcase the option)
-        theFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
+        AgeFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
 
         // invoke filtering through the method the context provides
-        await theFilterContext.FilterAsync();
+        await AgeFilterContext.FilterAsync();
     }
 
 
     // sample treelist data follows
 
-    public List<Employee> Data { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        TreeListData = await GetTreeListData();
     }
 
     // sample models and data generation
@@ -156,23 +147,23 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
         for (int i = 1; i < 15; i++)
         {
             data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null,
-                Name = $"root: {i}",
-                Age = rand.Next(50, 67)
-            });
+                {
+                    Id = i,
+                    ParentId = null,
+                    Name = $"root: {i}",
+                    Age = rand.Next(50, 67)
+                });
 
             for (int j = 2; j < 5; j++)
             {
                 int currId = i * 100 + j;
                 data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $" child {j} of {i}",
-                    Age = rand.Next(18, 50)
-                });
+                    {
+                        Id = currId,
+                        ParentId = i,
+                        Name = $" child {j} of {i}",
+                        Age = rand.Next(18, 50)
+                    });
             }
         }
 
@@ -185,16 +176,13 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
     .k-filtercell-wrapper {
         align-items: center;
     }
+
         .k-filtercell-wrapper label {
             margin: unset;
         }
 </style>
+
 ````
-
->caption The result from the code snippet above after filtering
-
-![Custom Filter Cell Template - Min and Max](images/custom-filter-cell-min-max.png)
-
 
 ## Filter Menu Template
 
@@ -355,10 +343,3 @@ For example, try filtering just for a "Manager" to leave only root-level items i
     }
 }
 ````
-
->caption The result from the code snippet above, after filtering
-
-![Custom Filter Menu Template with Checkboxes](images/custom-filter-menu-checkboxes.png)
-
-
-

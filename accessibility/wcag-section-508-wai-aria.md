@@ -21,6 +21,7 @@ In this article you will find information on the general topics of accessibility
 * [Technical Specificatns](#technical-specifications)
 	* [WAI-ARIA](#wai-aria)
 	* [Keyboard Navigation](#keyboard-navigation)
+* [Accessibility Compliance Components Table](#accessibility-compliance-components-table)
 
 
 ## Standards and Policies
@@ -44,7 +45,7 @@ For more information, refer to:
 
 ### W3C Web Content Accessibility Guidelines (WCAG) 2.1
 
-The Web Content Accessibility Guidelines (WCAG) which are set by the World Wide Web Consortium (W3C) define recommendations for making web content accessible to people with physical and cognitive disabilities. WCAG defines accessibility principles with their respective success criteria. Depending on the implemented success criteria by a web application, the WCAG provide the A, AA, and AAA levels of accessibility conformance.
+The Web Content Accessibility Guidelines (WCAG) which are set by the World Wide Web Consortium (W3C) define recommendations for making web content accessible to people with physical and cognitive disabilities. WCAG defines accessibility principles with their respective success criteria. Depending on the implemented success criteria by a web application, the WCAG provide the A, `AA`, and AAA levels of accessibility conformance.
 
 For more information, refer to:
 
@@ -85,6 +86,88 @@ In WCAG 2.1, the keyboard accessible category provides the following success cri
 * [Character Key Shortcuts](https://www.w3.org/WAI/WCAG21/quickref/#character-key-shortcuts)
 
 See the [Keyboard Support in Telerik UI for Blazor]({%slug accessibility-keyboard-navigation%}) article for more details on using the Telerik components with the keyboard.
+
+> The described level of compliance in the table below is achievable with the [**Ocean Blue Sass Swatch**]({%slug themes-accessibility-swatch%}) and the **Default Ocean Blue A11Y**.
+
+### Accessibility Compliance Components Table
+The following table lists the Section 508 and WCAG 2.1 compliance levels of support for the Blazor UI components. 
+
+|Component |508|WCAG 2.1| Accessibility Example | Accessibility Documentation |
+|:---          |:---|:---|:---|:---
+|`AutoComplete`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation) | [Documentation]({%slug autocomplete-wai-aria-support%}) |
+|`Barcodes`|`No`|`n/a`| `n/a` | `n/a` |
+|`Breadcrumb`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation) | [Documentation]({%slug breadcrumb-wai-aria-support%}) |
+|`Button`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/button/keyboard-navigation) | [Documentation]({%slug button-wai-aria-support%}) |
+|`ButtonGroup`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation) | [Documentation]({%slug buttongroup-wai-aria-support%}) |
+|`Calendar`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation) | [Documentation]({%slug calendar-wai-aria-support%}) |
+|`Card`|`No`|`n/a`| `n/a` | `n/a` |
+|`Carousel`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation) | [Documentation]({%slug carousel-wai-aria-support%}) |
+|`Charts`|`No`|`n/a`| `n/a` | `n/a` |
+|`CheckBox`|`Yes`|`AA`| `n/a` | [Documentation]({%slug checkbox-wai-aria-support%}) |
+|`ChunkProgressBar`|`Yes`|`AA`| `n/a` | [Documentation]({%slug chunkprogressbar-wai-aria-support%}) |
+|`ColorGradient`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) | [Documentation]({%slug colorgradient-wai-aria-support%}) |
+|`ColorPalette`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation) | [Documentation]({%slug colorpalette-wai-aria-support%}) |
+|`ColorPicker`|`Yes`|`AA`| `n/a` | [Documentation]({%slug colorpicker-wai-aria-support%}) |
+|`ComboBox`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation) | [Documentation]({%slug combobox-wai-aria-support%}) |
+|`Context Menu`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation) | [Documentation]({%slug contextmenu-wai-aria-support%}) |
+|`Date Input`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation) | [Documentation]({%slug dateinput-wai-aria-support%}) |
+|`Date Picker`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation) | [Documentation]({%slug datepicker-wai-aria-support%}) |
+|`DateRange Picker`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation) | [Documentation]({%slug daterangepicker-wai-aria-support%}) |
+|`DateTime Picker`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation) | [Documentation]({%slug datetimepicker-wai-aria-support%}) |
+|`Dialog`|`Yes`|`AA`| `n/a` | [Documentation]({%slug dialog-wai-aria-support%}) |
+|`Drawer`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation) | [Documentation]({%slug drawer-wai-aria-support%}) |
+|`DropDownList`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation) | [Documentation]({%slug dropdownlist-wai-aria-support%}) |
+|`Editor`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation) | [Documentation]({%slug editor-wai-aria-support%}) |
+|`FileManager`|`No`|`n/a`| `n/a` | `n/a` |
+|`FileSelect`|`No`|`n/a`| `n/a` | `n/a` |
+|`Filter`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation) | [Documentation]({%slug filter-wai-aria-support%}) |
+|`FlatColorPicker`|`Yes`|`AA`| `n/a` | [Documentation]({%slug flatcolorpicker-wai-aria-support%}) |
+|`FloatingLabel`|`No`|`n/a`| `n/a` | `n/a` |
+|`Form`|`No`|`n/a`| `n/a` | `n/a` |
+|`Gantt`|`Yes`|`AA`| `n/a` | [Documentation]({%slug gantt-wai-aria-support%}) |
+|`Gauges`|`No`|`n/a`| `n/a` | `n/a` |
+|`Grid`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) | [Documentation]({%slug grid-wai-aria-support%}) |
+|`Grid Layout`|`No`|`n/a`| `n/a` | `n/a` |
+|`ListView`|`Yes`|`AAA`| `n/a` | [Documentation]({%slug listview-wai-aria-support%}) |
+|`Loader`|`No`|`n/a`| `n/a` | `n/a` |
+|`LoaderContainer`|`No`|`n/a`| `n/a` | `n/a` |
+|`Map`|`No`|`n/a`| `n/a` | `n/a` |
+|`MaskedTextbox`|`Yes`|`AA`| `n/a` | [Documentation]({%slug maskedtextbox-wai-aria-support%}) |
+|`MediaQuery`|`No`|`n/a`| `n/a` | `n/a` |
+|`Menu`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation) | [Documentation]({%slug menu-wai-aria-support%}) |
+|`MultiColumnComboBox`|`No`|`n/a`| `n/a` | `n/a` |
+|`MultiSelect`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation) | [Documentation]({%slug multiselect-wai-aria-support%}) |
+|`Notification`|`Yes`|`AA`| `n/a` | [Documentation]({%slug notification-wai-aria-support%}) |
+|`NumericTextbox`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/numericTextbox/keyboard-navigation) | [Documentation]({%slug numerictextbox-wai-aria-support%}) |
+|`Pager`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation) | [Documentation]({%slug pager-wai-aria-support%}) |
+|`PanelBar`|`No`|`n/a`| `n/a` | `n/a` |
+|`PDF Viewer`|`No`|`n/a`| `n/a` | `n/a` |
+|`ProgressBar`|`Yes`|`AA`| `n/a` | [Documentation]({%slug progressbar-wai-aria-support%}) |
+|`RadioGroup`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) | [Documentation]({%slug radiogroup-wai-aria-support%}) |
+|`Range Slider`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation) | [Documentation]({%slug rangeslider-wai-aria-support%}) |
+|`Scheduler`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation) | [Documentation]({%slug scheduler-wai-aria-support%}) |
+|`Signature`|`Yes`|`AA`| `n/a` | [Documentation]({%slug signature-wai-aria-support%}) |
+|`Skeleton`|`No`|`n/a`| `n/a` | `n/a` |
+|`Slider`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation) | [Documentation]({%slug slider-wai-aria-support%}) |
+|`SplitButton`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation) | [Documentation]({%slug splitbutton-wai-aria-support%}) |
+|`Splitter`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation) | [Documentation]({%slug splitter-wai-aria-support%}) |
+|`Stack Layout`|`No`|`n/a`| `n/a` | `n/a` |
+|`Stepper`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation) | [Documentation]({%slug stepper-wai-aria-support%}) |
+|`Stock Chart`|`No`|`n/a`| `n/a` | `n/a` |
+|`Switch`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation) | [Documentation]({%slug switch-wai-aria-support%}) |
+|`TabStrip`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation) | [Documentation]({%slug tabstrip-wai-aria-support%}) |
+|`TextArea`|`Yes`|`AAA`| `n/a` | [Documentation]({%slug textarea-wai-aria-support%}) |
+|`TextBox`|`Yes`|`AA`| `n/a` | [Documentation]({%slug textbox-wai-aria-support%}) |
+|`TileLayout`|`Yes`|`AAA`| `n/a` | [Documentation]({%slug tilelayout-wai-aria-support%}) |
+|`TimePicker`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation) | [Documentation]({%slug timepicker-wai-aria-support%}) |
+|`ToggleButton`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation) | [Documentation]({%slug togglebutton-wai-aria-support%}) |
+|`ToolBar`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation) | [Documentation]({%slug toolbar-wai-aria-support%}) |
+|`Tooltip`|`Yes`|`AA`| `n/a` | [Documentation]({%slug tooltip-wai-aria-support%}) |
+|`TreeList`|`No`|`n/a`| `n/a` | `n/a` |
+|`TreeView`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/treeView/keyboard-navigation) | [Documentation]({%slug treeview-wai-aria-support%}) |
+|`Upload`|`No`|`n/a`| `n/a` | `n/a` |
+|`Window`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) | [Documentation]({%slug window-wai-aria-support%}) |
+|`Wizard`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation) | [Documentation]({%slug wizard-wai-aria-support%}) |
 
 ## See Also
 

@@ -156,14 +156,17 @@ This approach is suitable for [`FilterRow` filter mode]({%slug grid-filter-row%}
 
         DateTime filterDate = DateTime.MinValue;
 
-        foreach (FilterDescriptor fd in args.Request.Filters)
+        foreach (CompositeFilterDescriptor cfd in args.Request.Filters)
         {
-            if (fd.Member == nameof(GridItem.TaskStart) &&
-                //fd.Operator == FilterOperator.IsEqualTo && // optional
-                fd.Value != null)
+            foreach (FilterDescriptor fd in cfd.FilterDescriptors)
             {
-                fd.Operator = FilterOperator.IsGreaterThanOrEqualTo;
-                filterDate = (DateTime)fd.Value;
+                if (fd.Member == nameof(GridItem.TaskStart) &&
+                    //fd.Operator == FilterOperator.IsEqualTo && // optional
+                    fd.Value != null)
+                {
+                    fd.Operator = FilterOperator.IsGreaterThanOrEqualTo;
+                    filterDate = (DateTime)fd.Value;
+                }
             }
         }
 

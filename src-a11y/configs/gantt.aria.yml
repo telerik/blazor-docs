@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Gantt
+from: /aria/gantt_aria.md
+dest: ../components/gantt/accessibility/wai-aria-support.md
+slug: gantt-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Gantt Overview (Demo)](https://demos.telerik.com/blazor-ui/gantt/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

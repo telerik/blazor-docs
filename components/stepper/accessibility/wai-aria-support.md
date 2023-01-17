@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor Stepper is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor Stepper component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -24,8 +24,7 @@ The Stepper component is a landmark `<nav>` element or an element with `role="na
 | -------- | --------- | ----- |
 | .k-stepper | `role=navigation` or `nodeName=nav` | The landmark role `navigation` must be assigned to the component. |
 | .k-step-disabled>.k-step-link | `aria-disabled=true` | A disabled (inactive) link. |
-| .k-step-current>.k-step-link | `aria-current=true` | Indicates whether the tab control is activated and its associated panel is displayed, or not. |
-|  | `aria-current=true` | The currently selected link. |
+| .k-step-current>.k-step-link | `aria-current=true` | The currently selected link. |
 |  | `tabindex=0` | Removes the element from the page Tab sequence. Set when a tab is not selected so that only the selected tab is in the page Tab sequence. |
 | .k-step:not(.k-step-current) .k-step-link | `tabindex=-1` | Removes the element from the page Tab sequence. Set when a tab is not selected so that only the selected tab is in the page Tab sequence. |
 
