@@ -10,7 +10,7 @@ position: 35
 
 # Chip Settings
 
-You can control the appearance of the Chip by using the following attribute:
+You can control the appearance of the Chip by using the following parameters:
 
 * [FillMode](#fillmode)
 * [Size](#size)
