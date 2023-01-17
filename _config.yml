@@ -292,6 +292,8 @@ navigation:
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
+     "*chiplist":
+        title: "ChipList"
      "*chunkprogressbar":
         title: "ChunkProgressBar"
      "*colorgradient":

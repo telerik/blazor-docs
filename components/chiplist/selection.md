@@ -20,9 +20,9 @@ You can configure the selection behavior by setting the `SelectionMode` paramete
 * `Single`
 * `Multiple`
 
-The selected chips will be stored in the `SelectedItems` collection (`IEnumerable<TItem>`). You can use it with [one-way binding](#one---way-binding) and [two-way binding (the `@bind-SelectedItems` syntax)](#two---way-binding).
+The selected chips will be stored in the `SelectedItems` collection (`IEnumerable<TItem>`). You can use it with [one way binding](#one-way-binding) and [two way binding (the `@bind-SelectedItems` syntax)](#two way binding).
 
-## One-way Binding
+## One way Binding
 
 Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event when you need to respond to the user selection and add some additional application logic.
 
@@ -65,7 +65,7 @@ Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event
 }
 ````
 
-## Two-way Binding
+## Two way Binding
 
 When you use the `@bind-SelectedItems` syntx, the ChipList will automatically update the `SelectedItems` collection when the user change the selection.
 

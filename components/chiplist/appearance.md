@@ -12,11 +12,9 @@ position: 35
 
 You can control the appearance of the chips in the ChipList by setting the following attributes:
 
-* [Gap](#gap)
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
 * [Size](#size)
-* [ThemeColor](#themecolor)
 
 You can use all of them together to achieve the desired appearance. This article will explain their effect one by one.
 
