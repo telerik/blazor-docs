@@ -14,7 +14,6 @@ The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor 
 
 ## Creating Blazor ChipList
 
-To use a Telerik ChipList for Blazor:
 
 1. Add the `TelerikChipList` tag
 1. Set the `Data` parameter to a collection of models that will be rendered as chips.
