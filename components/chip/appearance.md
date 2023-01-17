@@ -5,10 +5,10 @@ description: Appearance settings of the Chip for Blazor.
 slug: chip-appearance
 tags: telerik,blazor,chip,appearance
 published: True
-position: 35
+position: 10
 ---
 
-# Chip Settings
+# Chip Appearance
 
 You can control the appearance of the Chip by using the following parameters:
 

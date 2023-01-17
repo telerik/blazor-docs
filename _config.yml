@@ -292,7 +292,7 @@ navigation:
         title: "Chart"
      "*checkbox":
         title: "Checkbox"
-     "*checkbox":
+     "*chip":
         title: "Chip"
      "*chunkprogressbar":
         title: "ChunkProgressBar"

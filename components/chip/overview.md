@@ -49,7 +49,7 @@ To use a Telerik Chip for Blazor:
 
 ## Appearance
 
-You can customize the appearance of the Blazor Chip via a variety of built-in customization options. [Read more about the Chip appearance settings...]({%slug chip-settings%})
+You can customize the appearance of the Blazor Chip via a variety of built-in customization options. [Read more about the Chip appearance settings...]({%slug chip-appearance%})
 
 ## Chip Parameters
 
