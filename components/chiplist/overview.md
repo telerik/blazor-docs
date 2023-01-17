@@ -10,112 +10,90 @@ position: 0
 
 # Blazor ChipList Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor ChipList component</a> shows pieces of information in a compact form. The individual chips can be [selected]({%slug chiplist-selection%}), removed, or disabled. You can respond to various user interactions through the exposed [events]({%slug chiplist-events%}), customize the [appearance]({%slug chiplist-appearance%}) and add [icons]({%slug chiplist-bound%}) of the chips
+The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor ChipList component</a> shows pieces of information in a compact form. The individual chips can be [selected]({%slug chiplist-selection%}), removed, or disabled. You can respond to various user interactions through the exposed [events]({%slug chiplist-events%}), customize the [appearance]({%slug chiplist-appearance%}) and add [icons]({%slug chiplist-bound%}) of the chips, or define custom content for the chip with the [ItemTemplate]({%slug chiplist-templates%}).
 
-It provides an easy way to navigate backwards by one or multiple steps. In addition to built-in [navigation capabilities]({%slug breadcrumb-navigation%}), you can browse through the items, define [templates]({%slug breadcrumb-templates%}) for the individual nodes, render text and [icons/images]({%slug breadcrumb-icons%}), and respond to [events]({%slug breadcrumb-events%}).
+## Creating Blazor ChipList
 
->caption In this article:
+To use a Telerik ChipList for Blazor:
 
-* [Basics](#basics)
-* [Features](#features)
+1. Add the `TelerikChipList` tag
+1. Set the `Data` parameter to a collection of models that will be rendered as chips.
+1. Set the `TextField` parameter to point to the corresponding name in the model that holds the text that will be rendered in the individual chip. Read the [Data Binding article]({%slug chiplist-bound%}) for more information on other binding options.
 
-
-## Basics
-
-To use a Telerik Breadcrumb for Blazor:
-
-1. add the `TelerikBreadcrumb` tag
-1. provide a collection of objects to its `Data` property (read more in the [Data Binding article]({%slug breadcrumb-data-binding%}))
-1. match the fields in the model with the binding schema for the nodes
-    * In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article]({%slug breadcrumb-navigation%}) for more details on how to use the Breadcrumb for navigating through items.
-
->caption Basic Breadcrumb with data binding. The result from the snippet below.
-
-![Breadcrumb for Blazor](images/breadcrumb-basic-example.png)
+>caption Basic ChipList for Blazor
 
 ````CSHTML
-@* This example demonstrates the basic configuration of the Breadcrumb*@
-
-<TelerikBreadcrumb Data="@Items">
-</TelerikBreadcrumb>
+<TelerikChipList Data="@ChipListSource"
+                 TextField="@(nameof(ChipModel.ChipText))"
+                 IconField="@(nameof(ChipModel.ChipIcon))">
+</TelerikChipList>
 
 @code {
-
-    public List<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
+    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
     {
-        Items = new List<BreadcrumbItem>
+        new ChipModel()
         {
-            new BreadcrumbItem { Text = "Home", Icon = "home" },
-            new BreadcrumbItem { Text = "Products"},
-            new BreadcrumbItem { Text = "Computer peripherals"},
-            new BreadcrumbItem { Text = "Keyboards"},
-            new BreadcrumbItem { Text = "Gaming keyboards"}
-        };
-    }
-
-    public class BreadcrumbItem
-    {
-        public string Text { get; set; }
-        public string Icon { get; set; }
-        public string Url { get; set; }
-    } 
-}
-````
-
-
->caption Component namespace and reference
-
-````CSHTML
-<TelerikBreadcrumb @ref="theBreadcrumbRef" Data="@Items">
-</TelerikBreadcrumb>
-
-@code{
-    Telerik.Blazor.Components.TelerikBreadcrumb<BreadcrumbItem> theBreadcrumbRef { get; set; }
-
-    public IEnumerable<BreadcrumbItem> Items { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Items = new List<BreadcrumbItem>
+            ChipText = "Audio",
+            ChipIcon = FontIcon.FileAudio
+        },
+        new ChipModel()
         {
-        new BreadcrumbItem { Text = "Item1"},
-        new BreadcrumbItem { Text = "Item2"},
-        new BreadcrumbItem { Text = "Item3"}
-        };
-    }
+            ChipText = "Video",
+            ChipIcon = FontIcon.FileVideo
+        }
+    };
 
-    public class BreadcrumbItem
+    public class ChipModel
     {
-        public string Text { get; set; }
-        public string Icon { get; set; }
-        public string Url { get; set; }
+        public string ChipText { get; set; }
+        public FontIcon? ChipIcon { get; set; }
     }
 }
 ````
 
-## Features
+## Data Binding
 
-The Breadcrumb provides the following features:
+The Blazor ChipList requires a data source so that it can display items to the user. To provide a data source, use the `Data` property. [Read more about the Blazor ChipList data binding]({%slug chiplist-bound%}).
 
-* `Data` - a collection of flat data for all items in the Breadcrumb. See the [Data Binding]({%slug breadcrumb-data-binding%}) article for details.
+## Selection
 
-* `CollapseMode` - specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes]({%slug breadcrumb-collapse-modes%}) article.
+The Blazor ChipList supports single and multiple selection of chips. [Read more about the Blazor ChipList selection...]({%slug chiplist-selection%})  
 
-* `Width` - the width of the Breadcrumb component.
+## Templates 
 
-* `Height` - the height of the Breadcrumb component.
+You can use the functionality of the built-in templates and customize the default rendering of the component. [Read more about the Blazor ChipList templates...]({%slug chiplist-templates%})
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Breadcrumb.
+## Events
 
-* `ItemTemplate` - define a custom template for the Items of the Breadcrumb. Read more in the [Templates]({%slug breadcrumb-templates%}) article.
+You can use the built-in events of the Blazor ChipList to react to chip selection and removal. [Read more about the Blazor ChipList events...]({%slug chiplist-events%})
 
-* `SeparatorTemplate` - define a custom template for the [Breadcrumb Separator]({%slug breadcrumb-separator%}). Read more in the [Templates]({%slug breadcrumb-templates%}) article.
+## Appearance
 
-* Events - you can respond to user actions to implement your business logic. For more details see the [Events]({%slug breadcrumb-events%}) article.
+You can customize the appearance of the Blazor ChipList via a variety of built-in customization options. [Read more about the ChipList appearance settings...]({%slug chiplist-settings%})
+
+## ChipList Parameters
+
+The table below lists the ChipList parameters. Also check the [ChipList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChipList) for all parameters, methods and events.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `AriaLabel` | `string` | Maps to the `aria-label` attribute. Use  this parameter if the text that labels the component is not visible. |
+| `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
+| `Class` | `string` | An additional CSS class for the `<div class="k-chip-list">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
+| `Data` | `IEnumerable<TItem>` | The collection of the items that will be rendered as chips. |
+| `Removable` | `bool` | Specifies if the chip can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
+| `RemoveIcon` | `object` | Defines the icon that will be rendered if the `Removable` parameter is set to `true`. |
+
+## Next Steps
+
+* [Binding the ChipList to Data]({%slug chiplist-bound%})
+* [Handle the ChipList events]({%slug chiplist-events%})
+* [Handle Chip Selection]({%slug chiplist-selection%})
+
 
 ## See Also
 
-  * [Live Demo: Breadcrumb Overview](https://demos.telerik.com/blazor-ui/breadcrumb/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikBreadcrumb-1)
+  * [Live Demo: ChipList Overview](https://demos.telerik.com/blazor-ui/chiplist/overview)
+  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChipList)
