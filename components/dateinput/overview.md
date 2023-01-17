@@ -17,7 +17,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 1. Add a `TelerikDateInput` tag to your razor page.
 1. Bind the `Value` parameter to a [`DateTime` or `DateTime?` object](#nullable-datetime). The parameter supports two-way binding.
-1. (optional) Set the [`Format`, `Min` and `Max` parameters](#date-input-parameters).
+1. (optional) Set the [`Format`, `Min` and `Max` parameters](#dateinput-parameters).
 1. (optional) Configure the [typing user experience](#typing-settings) related to automatic value correction or navigation across the different parts of the date format.
 
 >caption Basic Telerik Blazor DateInput
