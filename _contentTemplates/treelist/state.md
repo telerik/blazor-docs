@@ -128,55 +128,65 @@
 
 @using Telerik.DataSource;
 
-<TelerikButton OnClick="@SetTreeListFilter">Set filtered state</TelerikButton>
+<TelerikButton OnClick="@SetTreeListFilter">Filter From Code</TelerikButton>
 
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Reorderable="true"
                  Resizable="true"
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterRow"
-                 Pageable="true" 
-                 Width="850px" 
+                 Pageable="true"
+                 Width="850px"
                  @ref="TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="Id" Editable="false" Width="150px" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
         <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
+    private TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
 
-    async Task SetTreeListFilter()
+    private async Task SetTreeListFilter()
     {
         var filteredState = new TreeListState<Employee>()
-        {
-            FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Id),
-                    MemberType = typeof(int),
-                    Operator = FilterOperator.IsGreaterThan,
-                    Value = 5
+                FilterDescriptors = new List<IFilterDescriptor>()
+            {
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Id),
+                            MemberType = typeof(int),
+                            Operator = FilterOperator.IsGreaterThan,
+                            Value = 5
+                        }
+                    }
                 },
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
                 }
             }
-        };
+            };
 
         await TreeListRef.SetStateAsync(filteredState);
     }
 
-    public List<Employee> Data { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
     // sample model
 
@@ -199,7 +209,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        TreeListData = await GetTreeListData();
     }
 
     async Task<List<Employee>> GetTreeListData()
@@ -209,13 +219,13 @@
         for (int i = 1; i < 15; i++)
         {
             Employee root = new Employee
-            {
-                Id = LastId,
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i),
-                DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
-            };
+                {
+                    Id = LastId,
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    HireDate = DateTime.Now.AddYears(-i),
+                    DirectReports = new List<Employee>(), // prepare a collection for the child items, will be populated later in the code
+                };
             data.Add(root);
             LastId++;
 
@@ -223,13 +233,13 @@
             {
                 int currId = LastId;
                 Employee firstLevelChild = new Employee
-                {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId),
-                    DirectReports = new List<Employee>(), // collection for child nodes
-                };
+                    {
+                        Id = currId,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        HireDate = DateTime.Now.AddDays(-currId),
+                        DirectReports = new List<Employee>(), // collection for child nodes
+                    };
                 root.DirectReports.Add(firstLevelChild); // populate the parent's collection
                 LastId++;
 
@@ -238,12 +248,12 @@
                     int nestedId = LastId;
                     // populate the parent's collection
                     firstLevelChild.DirectReports.Add(new Employee
-                    {
-                        Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
+                        {
+                            Id = LastId,
+                            Name = $"second level child {k} of {j} and {i}",
+                            EmailAddress = $"{nestedId}@example.com",
+                            HireDate = DateTime.Now.AddMinutes(-nestedId)
+                        }); ;
                     LastId++;
                 }
             }
@@ -288,20 +298,31 @@
         {
             FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Id),
-                    MemberType = typeof(int),
-                    Operator = FilterOperator.IsGreaterThan,
-                    Value = 5
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Id),
+                            MemberType = typeof(int),
+                            Operator = FilterOperator.IsGreaterThan,
+                            Value = 5
+                        }
+                    }
                 },
-                new FilterDescriptor()
-                {
-                    Member = nameof(Employee.Name),
-                    MemberType = typeof(string),
-                    Operator = FilterOperator.Contains,
-                    Value = "second level"
-                }
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor()
+                        {
+                            Member = nameof(Employee.Name),
+                            MemberType = typeof(string),
+                            Operator = FilterOperator.Contains,
+                            Value = "second level"
+                        }
+                    }
+                },
+
             }
         };
 

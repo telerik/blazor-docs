@@ -56,7 +56,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the grid so you can 
 
 * `OnStateChanged` fires when the user makes a change to the grid state (such as paging, sorting, grouping, filtering, editing, selecting and so on). The `GridState` field of the event argument provides the current grid state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
     * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete. In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `GridState` field of the event argument will provide correct information about the overall Grid state in both event handler executions.
 
 By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the grid layout for your users by calling your storage service in the respective handler.
@@ -449,36 +449,43 @@ Note that the filtering configuration depends on the `FilterMode`. [Row filterin
 
 @using Telerik.DataSource
 
-<TelerikGrid Data="@MyData" Sortable="true" FilterMode="@GridFilterMode.FilterRow" AutoGenerateColumns="true"
+<TelerikGrid Data="@GridData"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             AutoGenerateColumns="true"
              OnStateInit="@((GridStateEventArgs<SampleData> args) => OnStateInitHandler(args))">
 </TelerikGrid>
 
 @code {
-    async Task OnStateInitHandler(GridStateEventArgs<SampleData> args)
+    private async Task OnStateInitHandler(GridStateEventArgs<SampleData> args)
     {
         var state = new GridState<SampleData>
-        {
-            SortDescriptors = new List<SortDescriptor>
+            {
+                SortDescriptors = new List<SortDescriptor>
             {
                 new SortDescriptor{ Member = "Name", SortDirection = ListSortDirection.Descending }
             },
-            FilterDescriptors = new List<IFilterDescriptor>()
+                FilterDescriptors = new List<IFilterDescriptor>()
             {
-	        // use FilterDescriptor with row filtering, and CompositeFilterDescriptor with menu filtering
-                new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) },
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsLessThan, Value = 5, MemberType = typeof(int) }
+                    }
+                }
             }
-        };
+            };
 
-       args.GridState = state;
+        args.GridState = state;
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {
@@ -506,49 +513,67 @@ The example below shows the latter. Review the code comments to see how it works
 To test it out, try filtering the name column
 *@
 
-@using Telerik.DataSource 
+@using Telerik.DataSource
 
-<TelerikGrid Data="@MyData" Sortable="true" FilterMode="@GridFilterMode.FilterRow" AutoGenerateColumns="true" Pageable="true"
-             OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))" @ref="GridRef">
+<TelerikGrid Data="@GridData"
+             @ref="GridRef"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             AutoGenerateColumns="true"
+             Pageable="true"
+             OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))">
 </TelerikGrid>
 
 @code {
-    TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
     // Note: This can cause a performance delay if you do long operations here
     // Note 2: The grid does not await this event, its purpose is to notify you of changes
     //         so you must not perform async operations and data loading here, or issues with the grid state may occur
     //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the grid, but not the rest of the page
-    async void OnStateChangedHandler(GridStateEventArgs<SampleData> args)
+    private async Task OnStateChangedHandler(GridStateEventArgs<SampleData> args)
     {
-        Console.WriteLine(args.PropertyName); // get the setting that was just changed (paging, sorting,...)
+        Console.WriteLine(args.PropertyName); // get the setting that was just changed (paging, sorting, filtering...)
 
-        if (args.PropertyName == "FilterDescriptors") // sorting changed for our example
+        if (args.PropertyName == "FilterDescriptors") // filtering changed for our example
         {
             // ensure certain state based on some condition
             // in this example - ensure that the ID field is always filtered with a certain setting unless the user filters it explicitly
             bool isIdFiltered = false;
-            foreach (FilterDescriptor item in args.GridState.FilterDescriptors)
-            {
-                if(item.Member == "Id")
-                {
-                    isIdFiltered = true;
-                }
 
-                // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetStateAsync() method of the grid is always called if you do that
-                if(item.Member == "Name")
+            foreach (CompositeFilterDescriptor compositeFilter in args.GridState.FilterDescriptors)
+            {
+                foreach (FilterDescriptor filter in compositeFilter.FilterDescriptors)
                 {
-                    item.Value = "name 1";
-                    item.Operator = FilterOperator.Contains;
-                }
+                    if (filter.Member == "Id")
+                    {
+                        isIdFiltered = true;
+                    }
+
+                    // you could override a user action as well - change settings on the corresponding parameter
+                    // make sure that the .SetStateAsync() method of the grid is always called if you do that
+                    if (filter.Member == "Name")
+                    {
+                        filter.Value = "name 1";
+                        filter.Operator = FilterOperator.Contains;
+                    }
+                }            
             }
             if (!isIdFiltered)
             {
-                args.GridState.FilterDescriptors.Add(new FilterDescriptor
-                {
-                    Member = "Id", MemberType = typeof (int), Operator = FilterOperator.IsLessThan, Value = 15
-                });
+                args.GridState.FilterDescriptors.Add(
+                    new CompositeFilterDescriptor()
+                    {
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() {
+                                Member = "Id",
+                                MemberType = typeof(int),
+                                Operator = FilterOperator.IsLessThan,
+                                Value = 15
+                            } 
+                        }
+                    });
             }
             // needed only if you will be overriding user actions or amending them
             // if you only need to be notified of changes, you should not call this method
@@ -556,13 +581,13 @@ To test it out, try filtering the name column
         }
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 300).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 300).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {

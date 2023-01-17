@@ -52,7 +52,7 @@ The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can
 
 * `OnStateChanged` fires when the user makes a change to the Gantt state (such as sorting, filtering, editing, expanding parents and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what changed.
     * @[template](/_contentTemplates/Gantt/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.
+    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `State` field of the event argument will provide correct information about the overall Gantt state in both event handler executions.
 
 By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the Gantt layout for your users by calling your storage service in the respective handler.
@@ -372,7 +372,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         await LocalStorage.SetItem(UniqueStorageKey, args.State);
     }
 
-    private async void ResetState()
+    private async Task ResetState()
     {
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
@@ -380,7 +380,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         await GanttRef.SetStateAsync(null); // pass null to reset the state
     }
 
-    private async void ReloadPage()
+    private async Task ReloadPage()
     {
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
@@ -594,7 +594,7 @@ To test it out, try filtering the Title column
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
-        <GanttColumn Field="End"  
+        <GanttColumn Field="End"
                      Width="100px"
                      DisplayFormat="{0:d}">
         </GanttColumn>
@@ -612,23 +612,26 @@ To test it out, try filtering the Title column
 
     private List<GanttTask> GanttData { get; set; }
 
-    async void OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
+    private async Task OnStateChangedHandler(GanttStateEventArgs<GanttTask> args)
     {
         Console.WriteLine("User changed: " + args.PropertyName); // get the setting that was just changed (paging, sorting,...)
 
         if (args.PropertyName == "FilterDescriptors") // filtering changed for our example
         {
-            foreach (FilterDescriptor item in args.State.FilterDescriptors)
+            foreach (CompositeFilterDescriptor compositeFilter in args.State.FilterDescriptors)
             {
-                // you could override a user action as well - change settings on the corresponding parameter
-                // make sure that the .SetStateAsync() method of the Gantt is always called if you do that
-                if (item.Member == "Title")
+                foreach (FilterDescriptor item in compositeFilter.FilterDescriptors)
                 {
-                    item.Value = "Task 1";
-                    item.Operator = FilterOperator.Contains;
+                    // you could override a user action as well - change settings on the corresponding parameter
+                    // make sure that the .SetStateAsync() method of the Gantt is always called if you do that
+                    if (item.Member == "Title")
+                    {
+                        item.Value = "Task 1";
+                        item.Operator = FilterOperator.Contains;
+                    }
                 }
-            }
-          
+            }        
+
             // needed only if you will be overriding user actions or amending them
             // if you only need to be notified of changes, you should not call this method
             await GanttRef.SetStateAsync(args.State);

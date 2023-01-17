@@ -10,7 +10,9 @@ position: 0
 
 # Blazor Filtering Overview
 
-The Grid component offers built-in support for filtering.
+The Gantt Tree component offers built-in support for filtering.
+
+## Basics
 
 To enable filtering, set the grid's `FilterMode` property to one of the following values:
 
@@ -22,8 +24,18 @@ The behavior of the filter input and the available filter operators will depend 
 
 You can filter more than one column at a time, and all filter rules will be applied together with an `AND` logic.
 
+## Filter Descriptors
 
-## Customize The Filtering Fields
+The Gantt filter state is stored in [CompositeFilterDescriptors](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
+
+Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+
+* [Filter Row]({%slug gantt-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
+
+* [Filter Menu]({%slug gantt-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
+
+
+## Customize The Filter Editors
 
 You can customize the editors rendered in the Gantt
 by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. The `FilterEditorType` attribute accepts a member of the `GanttTreeListFilterEditorType` enum:

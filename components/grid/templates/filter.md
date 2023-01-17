@@ -25,7 +25,7 @@ By default, the filter row puts an appropriate editor (like a numeric textbox fo
 
 To customize the filter cell, use the `<FilterCellTemplate>` tag of the `<GridColumn>`. It receives a `context` of type `FilterCellTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - the object that describes the column filter. By default it has a first filter with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`.
+* `FilterDescriptor` - a [CompositeFilterDescriptor](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator]({%slug common-features-filter-operators%}) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
 
 * `FilterAsync()` - an `async` method that invokes the built-in grid filtering logic (including a handler to [`OnRead`]({%slug components/grid/manual-operations%}) if you use one) so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
 
@@ -62,7 +62,7 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
                 @{
                     // we store a reference to the filter context to use in the business logic
                     // you can also use it inline in the template, like with the Clear button below
-                    theFilterContext = context;
+                    PriceFilterContext = context;
                 }
 
                 <label for="min">Min:&nbsp;</label>
@@ -77,7 +77,7 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
                 </TelerikNumericTextBox>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon="filter-clear"
+                               Icon=FontIcon.FilterClear
                                Enabled="@( MinValue != null || MaxValue != null )"
                                OnClick="@(async () =>
                                           {
@@ -95,50 +95,41 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
 </TelerikGrid>
 
 @code {
-    FilterCellTemplateContext theFilterContext { get; set; }
-    public decimal? MinValue { get; set; }
-    public decimal? MaxValue { get; set; }
+    private FilterCellTemplateContext PriceFilterContext { get; set; }
 
-    async Task SetupFilterRule()
+    private decimal? MinValue { get; set; }
+
+    private decimal? MaxValue { get; set; }
+
+    private async Task SetupFilterRule()
     {
-        // set up min value filter - there is one default filter descriptor
-        // that alredy has the field set up, so we use that for the MIN filter
-        // and set up a value and operator
-        var filter1 = theFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
+        // by default, the Composite FilterDescriptor from the context contains two FilterDescriptor instances.
+        // Get the filter values from the NumericTextBoxes in the template and populate them in the FilterDescriptor instances.
+        // Alter the default filter operators to achieve the desired filtering behavior
+        var filter1 = PriceFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
         filter1.Value = MinValue == null ? int.MinValue : MinValue;
         filter1.Operator = FilterOperator.IsGreaterThan;
 
-        // set up max value filter - we may have to crete a new filter descriptor
-        // if there wasn't one already so we prepare it first and check whether we have the second filter
-        var filter2Val = MaxValue == null ? int.MaxValue : MaxValue;
-        var filter2 = new FilterDescriptor("Price", FilterOperator.IsLessThan, filter2Val);
-        filter2.MemberType = typeof(decimal);
-
-        if (theFilterContext.FilterDescriptor.FilterDescriptors.Count > 1)
-        {
-            theFilterContext.FilterDescriptor.FilterDescriptors[1] = filter2;
-        }
-        else
-        {
-            theFilterContext.FilterDescriptor.FilterDescriptors.Add(filter2);
-        }
+        var filter2 = PriceFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
+        filter2.Value = MaxValue == null ? int.MaxValue : MaxValue;
+        filter2.Operator = FilterOperator.IsLessThan;
 
         // ensure logical operator between the two filters is AND (it is the default, but we showcase the option)
-        theFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
+        PriceFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
 
         // invoke filtering through the method the context provides
-        await theFilterContext.FilterAsync();
+        await PriceFilterContext.FilterAsync();
     }
 
 
     // sample grid data
 
-    public List<SampleData> GridData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        Id = x,
-        Price = x * 0.5m,
-        ProductName = $"Product {x}"
-    }).ToList();
+    private List<SampleData> GridData { get; set; } = Enumerable.Range(1, 50).Select(x => new SampleData
+        {
+            Id = x,
+            Price = x * 0.5m,
+            ProductName = $"Product {x}"
+        }).ToList();
 
     public class SampleData
     {
@@ -153,6 +144,7 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
     .k-filtercell-wrapper {
         align-items: center;
     }
+
         .k-filtercell-wrapper label {
             margin: unset;
         }
