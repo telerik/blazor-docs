@@ -127,25 +127,28 @@ The following example shows one way you can store the TreeList state - through a
 <TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
 <TelerikButton OnClick="@SetState">Set the state</TelerikButton>
 
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
                  Pageable="true"
-                 Width="850px"
+                 Width="900px"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
+                 Sortable="true"
+                 FilterMode="@TreeListFilterMode.FilterRow"
                  OnStateChanged="@((TreeListStateEventArgs<Employee> args) => OnStateChangedHandler(args))"
                  OnStateInit="@((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
                  @ref="@TreeListRef">
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" Width="320px" />
-        <TreeListColumn Field="@nameof(Employee.Id)" Width="120px" />
-        <TreeListColumn Field="@nameof(Employee.ParentId)" Width="120px" />
+        <TreeListColumn Field="@nameof(Employee.Id)" Width="150px" />
+        <TreeListColumn Field="@nameof(Employee.ParentId)" Width="150px" />
         <TreeListColumn Field="@nameof(Employee.EmailAddress)" Width="120px" />
         <TreeListColumn Field="@nameof(Employee.HireDate)" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 
-@code { string UniqueStorageKey = "SampleTreeListStateStorageKey";
+@code {
+    string UniqueStorageKey = "SampleTreeListStateStorageKey";
 
     async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
@@ -185,20 +188,26 @@ The following example shows one way you can store the TreeList state - through a
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
 
-    private void SetState()
+    private async void SetState()
     {
         TreeListState<Employee> state = new TreeListState<Employee>()
-        {
-            FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new FilterDescriptor() { Member="StringProp", MemberType=typeof(string), Value = "2", Operator = FilterOperator.Contains }
-            },
-            SortDescriptors = new List<SortDescriptor>()
+                FilterDescriptors = new List<IFilterDescriptor>()
             {
-                new SortDescriptor() { Member = "StringProp", SortDirection = ListSortDirection.Descending }
+                new CompositeFilterDescriptor(){
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        new FilterDescriptor() {
+                            Member="Id", MemberType=typeof(int), Value = 2, Operator = FilterOperator.IsGreaterThan }
+                    }
+                }
             },
-            Page = 2,
-            ColumnStates = new List<TreeListColumnState>()
+                SortDescriptors = new List<SortDescriptor>()
+            {
+                new SortDescriptor() { Member = "Name", SortDirection = ListSortDirection.Descending }
+            },
+                Page = 2,
+                ColumnStates = new List<TreeListColumnState>()
             {
                 new TreeListColumnState()
                 {
@@ -226,18 +235,20 @@ The following example shows one way you can store the TreeList state - through a
                     Width = "120px"
                 }
             }
-        };
+            };
 
         TreeListRef?.SetStateAsync(state);
+
+        await LocalStorage.SetItem(UniqueStorageKey, state);
     }
 
     TelerikTreeList<Employee> TreeListRef { get; set; }
 
-    public List<Employee> Data { get; set; }
+    public List<Employee> TreeListData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetTreeListData();
+        TreeListData = await GetTreeListData();
     }
 
     // sample model
@@ -263,37 +274,37 @@ The following example shows one way you can store the TreeList state - through a
         for (int i = 1; i < 15; i++)
         {
             data.Add(new Employee
-            {
-                Id = i,
-                ParentId = null, // indicates a root-level item
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i)
-            }); ;
+                {
+                    Id = i,
+                    ParentId = null, // indicates a root-level item
+                    Name = $"root: {i}",
+                    EmailAddress = $"{i}@example.com",
+                    HireDate = DateTime.Now.AddYears(-i)
+                }); ;
 
             for (int j = 1; j < 4; j++)
             {
                 int currId = i * 100 + j;
                 data.Add(new Employee
-                {
-                    Id = currId,
-                    ParentId = i,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId)
-                });
+                    {
+                        Id = currId,
+                        ParentId = i,
+                        Name = $"first level child {j} of {i}",
+                        EmailAddress = $"{currId}@example.com",
+                        HireDate = DateTime.Now.AddDays(-currId)
+                    });
 
                 for (int k = 1; k < 3; k++)
                 {
                     int nestedId = currId * 1000 + k;
                     data.Add(new Employee
-                    {
-                        Id = nestedId,
-                        ParentId = currId,
-                        Name = $"second level child {k} of {i} and {currId}",
-                        EmailAddress = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
+                        {
+                            Id = nestedId,
+                            ParentId = currId,
+                            Name = $"second level child {k} of {i} and {currId}",
+                            EmailAddress = $"{nestedId}@example.com",
+                            HireDate = DateTime.Now.AddMinutes(-nestedId)
+                        }); ;
                 }
             }
         }
