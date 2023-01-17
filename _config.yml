@@ -631,7 +631,7 @@ enable_blazorRepl: true
 uiForBlazorLatestVersion: "4.0.0"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "6.0.0"
+themeCdnVersion: "6.0.3"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
