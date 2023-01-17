@@ -62,7 +62,7 @@
 
 @using Telerik.DataSource;
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">Set filtering from code</TelerikButton>
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">Filter From Code</TelerikButton>
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
