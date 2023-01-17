@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 1. Add a `TelerikDateInput` tag to your razor page.
 1. Bind the `Value` parameter to a [`DateTime` or `DateTime?` object](#nullable-datetime). The parameter supports two-way binding.
 1. (optional) Set the [`Format`, `Min` and `Max` parameters](#dateinput-parameters).
-1. (optional) Configure the [typing user experience](#typing-settings) related to automatic value correction or navigation across the different parts of the date format.
+1. (optional) Configure the [typing user experience](#typing-settings) related to automatic value correction or navigation across the different parts of the date format. For example, let's set `AutoSwitchKeys`, so that users can move from one date segment to the next with more keys and not just the arrows.
 
 >caption Basic Telerik Blazor DateInput
 
@@ -27,6 +27,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
                   Format="dd MMMM yyyy"
                   Min="@MinDate"
                   Max="@MaxDate"
+                  AutoSwitchKeys="@AutoSwitchKeys"
                   Width="200px">
 </TelerikDateInput>
 
@@ -38,6 +39,8 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
     private DateTime MinDate { get; set; } = DateTime.Now.AddYears(-50);
 
     private DateTime MaxDate { get; set; } = DateTime.Now.AddYears(50);
+
+    private List<object> AutoSwitchKeys { get; set; } = new List<object>() { ".", "/", " " };
 }
 ````
 
