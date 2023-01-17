@@ -63,5 +63,5 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](/
 
 ## See Also
 
-  * [Live Demo: Chip Overview](https://demos.telerik.com/blazor-ui/chip/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChip)
+* [Live Demo: Chip Overview](https://demos.telerik.com/blazor-ui/chip/overview)
+* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikChip)
