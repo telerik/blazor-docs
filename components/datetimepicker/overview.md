@@ -34,6 +34,12 @@ Selected time: @selectedTime
 }
 ````
 
+## Date Input Typing Settings
+
+The DateTimePicker
+@[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
+DateTimePicker.
+
 ## Increment Steps
 
 The DateTime Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateTimePickerSteps` tag and its parameters. [Read more about the Blazor DateTime Picker increment steps...]({%slug datetimepicker-steps%})
@@ -84,6 +90,8 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 
+@[template](/_contentTemplates/date-inputs/general.md#typing-parameters)
+
 ### Styling and Appearance
 
 The following parameters enable you to customize the appearance of the Blazor DateTimePicker:
@@ -96,7 +104,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 
 You can find more options for customizing the DateTimePicker styling in the [Appearance article]({%slug datetimepicker-appearance%}).
 
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 ## DateTimePicker Reference and Methods
 

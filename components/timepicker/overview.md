@@ -37,6 +37,12 @@ Selected time: @selectedTime?.ToLongTimeString()
 }
 ````
 
+## Date Input Typing Settings
+
+The TimePicker
+@[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
+TimePicker.
+
 ## Increment Steps
 
 The Time Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `TimePickerSteps` tag and its parameters. [Read more about the Blazor Time Picker increment steps...]({%slug timepicker-steps%})
@@ -86,6 +92,8 @@ The Blazor Time Picker component provides various parameters that allow you to c
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
 
+@[template](/_contentTemplates/date-inputs/general.md#typing-parameters)
+
 ### Styling and Appearance
 
 The following parameters enable you to customize the appearance of the Blazor Time Picker:
@@ -98,7 +106,7 @@ The following parameters enable you to customize the appearance of the Blazor Ti
 
 You can find more options for customizing the Time Picker styling in the [Appearance article]({%slug timepicker-appearance%}).
 
-@[template](/_contentTemplates/date-inputs/format-placeholders.md#format-placeholder)
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
 ## TimePicker Reference and Methods
 
