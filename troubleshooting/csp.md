@@ -43,4 +43,4 @@ Some of the above-listed limitations will be addressed in a future version of Te
 
 * Remove the need to specify `unsafe-eval` when [Chart Templates]({%slug components/chart/label-template-format%}) are used.
 * Remove the need to specify `unsafe-inline`.
-* Fix the `font-src` rule by detaching font icons.
+* Remove the need to specify `font-src` rule by detaching font icons.
