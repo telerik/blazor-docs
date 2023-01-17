@@ -41,11 +41,11 @@ To enable Inline editing in the Gantt Tree, set its `TreeListEditMode` property 
     </GanttViews>
     <GanttColumns>
         <GanttCommandColumn Width="120px">
-            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon=FontIcon.Pencil></GanttCommandButton>
-            <GanttCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon="@FontIcon.Pencil"></GanttCommandButton>
+            <GanttCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Id"
                      Visible="false">

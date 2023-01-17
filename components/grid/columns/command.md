@@ -71,7 +71,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
         var product = dataItem as ProductModel;
         if (product.Discontinued)
         {
-            <GridCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
         }
         else
         {
@@ -104,10 +104,10 @@ The following code example demonstrates declarations and handling.
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</GridCommandButton>
-            <GridCommandButton Command="MyOwnCommand" Icon=FontIcon.InfoCircle ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="MyOwnCommand" Icon="@FontIcon.InfoCircle" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

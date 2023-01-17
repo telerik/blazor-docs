@@ -103,7 +103,7 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
     <div>
                 <span>Console</span>
                 <span>
-                    <TelerikButton OnClick="@OnClearClick" Icon=FontIcon.X>Clear</TelerikButton>
+                    <TelerikButton OnClick="@OnClearClick" Icon="@FontIcon.X">Clear</TelerikButton>
                 </span>
                 <div>
                     @(new MarkupString(EventLog))

@@ -43,7 +43,7 @@ In this article:
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon=FontIcon.Menu>Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu">Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>

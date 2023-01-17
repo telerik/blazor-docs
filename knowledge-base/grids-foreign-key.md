@@ -89,7 +89,7 @@ own data source and return it from a service to render in the corresponding head
                 </TelerikMultiSelect>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon=FontIcon.Filter
+                               Icon="@FontIcon.Filter"
                                Enabled="@( FilteredRoles.Any() )"
                                OnClick="@(async () =>
                                           {
@@ -99,7 +99,7 @@ own data source and return it from a service to render in the corresponding head
                 </TelerikButton>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon=FontIcon.FilterClear
+                               Icon="@FontIcon.FilterClear"
                                Enabled="@( FilteredRoles.Any() )"
                                OnClick="@(async () =>
                                           {
@@ -110,8 +110,8 @@ own data source and return it from a service to render in the corresponding head
             </FilterCellTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <GridAggregates>

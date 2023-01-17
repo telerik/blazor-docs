@@ -32,9 +32,9 @@ If you need to perform logic more complex than simple data binding, use the chan
                  Width="850px">
     <TreeListColumns>
         <TreeListCommandColumn Width="100px">
-            <TreeListCommandButton Command="Edit" Icon=FontIcon.Pencil>Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

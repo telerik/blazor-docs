@@ -60,7 +60,7 @@ The AutoComplete component allows you to change what is rendered in its items, h
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon=FontIcon.FilesError></TelerikFontIcon>
+            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikFontIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>

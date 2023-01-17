@@ -27,7 +27,7 @@ The `OnClick` event fires when the user clicks on a button in the ToolBar (also 
 @*When clicking on the button a message will be printed in your console*@
 
 <TelerikToolBar>
-    <ToolBarButton Icon=FontIcon.EnvelopLink OnClick="@OnHyperlinkClick">Hyperlink</ToolBarButton>
+    <ToolBarButton Icon="@FontIcon.Envelop"Link OnClick="@OnHyperlinkClick">Hyperlink</ToolBarButton>
 </TelerikToolBar>
 
 

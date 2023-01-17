@@ -28,7 +28,7 @@ The delete confirmation dialog triggers before item deletion. You can enable it 
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Delete" Icon=FontIcon.Trash>Delete</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

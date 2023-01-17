@@ -25,13 +25,13 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 ````CSHTML
 <TelerikToolBar>
     <ToolBarButtonGroup>
-        <ToolBarButton Icon=FontIcon.Bold OnClick="@OnBold">Bold</ToolBarButton>
-        <ToolBarButton Icon=FontIcon.Italic OnClick="@OnItalic">Italic</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Bold" OnClick="@OnBold">Bold</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Italic" OnClick="@OnItalic">Italic</ToolBarButton>
     </ToolBarButtonGroup>
 
     <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
 
-    <ToolBarButton Icon=FontIcon.Undo OnClick="@OnUndo">Undo</ToolBarButton>
+    <ToolBarButton Icon="@FontIcon.Undo" OnClick="@OnUndo">Undo</ToolBarButton>
 </TelerikToolBar>
 
 <p> Last clicked button: @LastClicked </p>
@@ -111,19 +111,19 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 
 <div class="toolbar-wrapper">    
     <TelerikToolBar Adaptive="@ToolBarAdaptive">
-        <ToolBarButton Icon=FontIcon.Undo>Undo</ToolBarButton>
-        <ToolBarButton Icon=FontIcon.Redo>Redo</ToolBarButton>
-        <ToolBarButton Icon=FontIcon.Image Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Undo">Undo</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Redo">Redo</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Image" Overflow="ToolBarItemOverflow.Always">Image</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarToggleButton Icon=FontIcon.ApplyFormat></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="@FontIcon.ApplyFormat"></ToolBarToggleButton>
         <ToolBarSeparator></ToolBarSeparator>
-        <ToolBarButton Icon=FontIcon.Copy Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
+        <ToolBarButton Icon="@FontIcon.Copy" Overflow="ToolBarItemOverflow.Never">Copy</ToolBarButton>
         <ToolBarButton Icon="paste" Overflow="ToolBarItemOverflow.Never">Paste</ToolBarButton>
         <ToolBarSeparator></ToolBarSeparator>
     <ToolBarButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-        <ToolBarToggleButton Icon=FontIcon.AlignLeft OverflowText="Left"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon=FontIcon.AlignCenter OverflowText="Center"></ToolBarToggleButton>
-        <ToolBarToggleButton Icon=FontIcon.AlignRight OverflowText="Right"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="@FontIcon.AlignLeft" OverflowText="Left"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="@FontIcon.AlignCenter" OverflowText="Center"></ToolBarToggleButton>
+        <ToolBarToggleButton Icon="@FontIcon.AlignRight" OverflowText="Right"></ToolBarToggleButton>
     </ToolBarButtonGroup>
     </TelerikToolBar>
 </div>

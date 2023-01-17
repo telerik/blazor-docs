@@ -32,7 +32,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon=FontIcon.Menu>
+               Icon="@FontIcon.Menu">
     Toggle drawer
 </TelerikButton>
 
@@ -131,7 +131,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon=FontIcon.Menu>
+               Icon="@FontIcon.Menu">
     Toggle drawer
 </TelerikButton>
 

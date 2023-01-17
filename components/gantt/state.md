@@ -103,12 +103,19 @@ The following information is present in the Gantt state:
 
 You can find the following examples in this section:
 
-* [Save and Load Gantt State from Browser LocalStorage](#save-and-load-Gantt-state-from-browser-localstorage)
-* [Set Gantt Options Through State](#set-Gantt-options-through-state)
-* [Set Default (Initial) State](#set-default-initial-state)
-* [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-Gantt)
-* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
-* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
+- [Gantt State](#gantt-state)
+  - [Basics](#basics)
+    - [Events](#events)
+    - [Methods](#methods)
+  - [Information in the Gantt State](#information-in-the-gantt-state)
+  - [Examples](#examples)
+    - [Set Default (Initial) State](#set-default-initial-state)
+    - [Save and Load Gantt State from Browser LocalStorage](#save-and-load-gantt-state-from-browser-localstorage)
+    - [Set Gantt Options Through State](#set-gantt-options-through-state)
+    - [Get and Override User Action That Changes The Gantt](#get-and-override-user-action-that-changes-the-gantt)
+    - [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
+    - [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
+  - [See Also](#see-also)
 
 ### Set Default (Initial) State
 
@@ -755,11 +762,11 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
               OnDelete="@DeleteItem">
     <GanttColumns>
         <GanttCommandColumn Width="120px">
-            <GanttCommandButton Command="Add" Icon=FontIcon.Plus></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon=FontIcon.Pencil></GanttCommandButton>
-            <GanttCommandButton Command="Save" Icon=FontIcon.Save ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Cancel" Icon=FontIcon.Cancel ShowInEdit="true"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon=FontIcon.Trash></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon="@FontIcon.Pencil"></GanttCommandButton>
+            <GanttCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"
