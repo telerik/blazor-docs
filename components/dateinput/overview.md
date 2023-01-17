@@ -76,6 +76,11 @@ The [built-in Date Input validation]({%slug common-features/input-validation%}) 
 The [Blazor Date Input fires events]({%slug components/dateinput/events%}) such as `change` and `blur`. Handle these events to react to user actions and customize the component behavior.
 
 
+## Appearance
+
+The [DateInput exposes a few parameters for its styling]({%slug dateinput-appearance%}). Use them to change the component appearance declaratively and without custom CSS.
+
+
 ## DateInput Parameters
 
 The following section lists some Date Input parameters and links to other pages that provide information for more parameters. Also check the [DateInput API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1) for all parameters, methods and events.
@@ -88,7 +93,6 @@ The following section lists some Date Input parameters and links to other pages 
 | `AriaLabel` | `string` | The [`aria-label` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) if the `input`. |
 | `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) if the `input`. |
 | `AutoComplete` | `string` | The [`autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) of the `input`. |
-| `Class` | `string` | A custom CSS class to be rendered on the `<span class="k-dateinput">` element. |
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the Date Input is enabled and accepts new values. |
 | `Format` | `string`| The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
@@ -97,13 +101,17 @@ The following section lists some Date Input parameters and links to other pages 
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. Use it to control the tabbing order of the inputs on the page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
 | `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler]({%slug components/dateinput/events%}#valuechanged). |
-| `Width` | `string` | The width of the Date Input. |
 
 ### Typing User Experience
 
 The component provides multiple parameters, which control the [caret placement, two-digit year values and the auto-correct behavior of the Date Input]({%slug dateinput-keyboard-typing%}).
 
 ### Styling and Appearance
+
+| Parameter | Type and Default Value | Description |
+|---|---|---|
+| `Class` | `string` | A custom CSS class to be rendered on the `<span class="k-dateinput">` element. Use it for [custom CSS styling and theme overrides]({%slug themes-override%}). |
+| `Width` | `string` | The width of the Date Input. |
 
 The [Date Input Appearance article lists more parameters, which configure the component styling]({%slug dateinput-appearance%}).
 

@@ -93,7 +93,7 @@ For example, a user input of `68` will be treated as `2068`, but `69` will be tr
 * To allow only years from the *current century*, set to `100`.
 * To allow only years from the *previous century*, set to `0`.
 
-> The user *cannot* enter a year through the keyboard, which violates the above logic. If this contradicts the application requirements, then use a **four-digit year** in the date format. Although the user may be able to select any year from the Calendar popup (when using a DatePicker), the application and component configuration should not allow such discrepancy between keyboard and mouse capabilities, as this may confuse users or lead to unexpected component value.
+> The user *cannot* enter a year through the keyboard, which violates the above logic. If this contradicts the application requirements, then use a **four-digit year** in the date format. Users may be able to select any year from the Calendar popup (when using a DatePicker). However, the application and component configuration should not allow such discrepancy between keyboard and mouse capabilities. The latter may confuse users or lead to unexpected component value.
 
 
 ## Example
