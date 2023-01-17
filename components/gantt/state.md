@@ -372,7 +372,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         await LocalStorage.SetItem(UniqueStorageKey, args.State);
     }
 
-    private async void ResetState()
+    private async Task ResetState()
     {
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
@@ -380,7 +380,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
         await GanttRef.SetStateAsync(null); // pass null to reset the state
     }
 
-    private async void ReloadPage()
+    private async Task ReloadPage()
     {
         JsInterop.InvokeVoidAsync("window.location.reload");
     }

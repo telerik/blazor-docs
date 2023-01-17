@@ -48,7 +48,7 @@ The example below shows a custom filter that:
 ````CSHTML
 @using Telerik.DataSource
 
-The custom filter textboxes invoke filtering on Enter or blur through the OnChange event. 
+The custom filter textboxes invoke filtering on Enter or blur through the OnChange event.
 Note that a treelist keeps parent items when filtering should show child items.
 For example, try filtering with a Min value of 50+ to leave only root-level items in this sample.
 
@@ -57,46 +57,46 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" Filterable="false" />
         <TreeListColumn Field="Id" Filterable="false" Width="100px" />
-            <TreeListColumn Field="Age" Width="350px">
-                <FilterCellTemplate>
+        <TreeListColumn Field="Age" Width="350px">
+            <FilterCellTemplate>
                 @{
                     // we store a reference to the filter context to use in the business logic
                     // you can also use it inline in the template, like with the Clear button below
-                    theFilterContext = context;
+                    AgeFilterContext = context;
                 }
 
-                    <label for="min">Min:&nbsp;</label>
-                    <TelerikNumericTextBox Id="min"
-                                           @bind-Value="@MinValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <label for="min">Max:&nbsp;</label>
-                    <TelerikNumericTextBox Id="max"
-                                           @bind-Value="@MaxValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <TelerikButton ButtonType="ButtonType.Button"
-                                   Class="k-clear-button-visible ml-2"
-                                   Icon=FontIcon.FilterClear
-                                   Enabled="@( MinValue != null || MaxValue != null )"
-                                   OnClick="@(async () =>
+                <label for="min">Min:&nbsp;</label>
+                <TelerikNumericTextBox Id="min"
+                                       @bind-Value="@MinValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <label for="min">Max:&nbsp;</label>
+                <TelerikNumericTextBox Id="max"
+                                       @bind-Value="@MaxValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <TelerikButton ButtonType="ButtonType.Button"
+                               Class="k-clear-button-visible ml-2"
+                               Icon=FontIcon.FilterClear
+                               Enabled="@( MinValue != null || MaxValue != null )"
+                               OnClick="@(async () =>
                                           {
                                               MinValue = MaxValue = null;
 
                                               // clear filter through the method the context provides
                                               await context.ClearFilterAsync();
                                           })">
-                    </TelerikButton>
-                </FilterCellTemplate>
-            </TreeListColumn>
+                </TelerikButton>
+            </FilterCellTemplate>
+        </TreeListColumn>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    private FilterCellTemplateContext theFilterContext { get; set; }
+    private FilterCellTemplateContext AgeFilterContext { get; set; }
 
     private decimal? MinValue { get; set; }
-    
+
     private decimal? MaxValue { get; set; }
 
     private async Task SetupFilterRule()
@@ -104,19 +104,19 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
         // by default, the Composite FilterDescriptor from the context contains two FilterDescriptor instances.
         // Get the filter values from the NumericTextBoxes in the template and populate them in the FilterDescriptor instances.
         // Alter the default filter operators to achieve the desired filtering behavior
-        var filter1 = theFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
+        var filter1 = AgeFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
         filter1.Value = MinValue == null ? int.MinValue : MinValue;
         filter1.Operator = FilterOperator.IsGreaterThan;
 
-        var filter2 = theFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
+        var filter2 = AgeFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
         filter2.Value = MaxValue == null ? int.MaxValue : MaxValue;
         filter2.Operator = FilterOperator.IsLessThan;
 
         // ensure logical operator between the two filters is AND (it is the default, but we showcase the option)
-        theFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
+        AgeFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
 
         // invoke filtering through the method the context provides
-        await theFilterContext.FilterAsync();
+        await AgeFilterContext.FilterAsync();
     }
 
 
@@ -176,10 +176,12 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
     .k-filtercell-wrapper {
         align-items: center;
     }
+
         .k-filtercell-wrapper label {
             margin: unset;
         }
 </style>
+
 ````
 
 ## Filter Menu Template

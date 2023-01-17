@@ -62,7 +62,7 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
                 @{
                     // we store a reference to the filter context to use in the business logic
                     // you can also use it inline in the template, like with the Clear button below
-                    theFilterContext = context;
+                    PriceFilterContext = context;
                 }
 
                 <label for="min">Min:&nbsp;</label>
@@ -95,10 +95,10 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
 </TelerikGrid>
 
 @code {
-    private FilterCellTemplateContext theFilterContext { get; set; }
+    private FilterCellTemplateContext PriceFilterContext { get; set; }
 
     private decimal? MinValue { get; set; }
-    
+
     private decimal? MaxValue { get; set; }
 
     private async Task SetupFilterRule()
@@ -106,19 +106,19 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
         // by default, the Composite FilterDescriptor from the context contains two FilterDescriptor instances.
         // Get the filter values from the NumericTextBoxes in the template and populate them in the FilterDescriptor instances.
         // Alter the default filter operators to achieve the desired filtering behavior
-        var filter1 = theFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
+        var filter1 = PriceFilterContext.FilterDescriptor.FilterDescriptors[0] as FilterDescriptor;
         filter1.Value = MinValue == null ? int.MinValue : MinValue;
         filter1.Operator = FilterOperator.IsGreaterThan;
 
-        var filter2 = theFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
+        var filter2 = PriceFilterContext.FilterDescriptor.FilterDescriptors[1] as FilterDescriptor;
         filter2.Value = MaxValue == null ? int.MaxValue : MaxValue;
         filter2.Operator = FilterOperator.IsLessThan;
 
         // ensure logical operator between the two filters is AND (it is the default, but we showcase the option)
-        theFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
+        PriceFilterContext.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.And;
 
         // invoke filtering through the method the context provides
-        await theFilterContext.FilterAsync();
+        await PriceFilterContext.FilterAsync();
     }
 
 

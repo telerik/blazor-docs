@@ -148,9 +148,9 @@ The following example shows one way you can store the TreeList state - through a
 
 
 @code {
-    string UniqueStorageKey = "SampleTreeListStateStorageKey";
+    private string UniqueStorageKey = "SampleTreeListStateStorageKey";
 
-    async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
+    private async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
         try
         {
@@ -168,14 +168,14 @@ The following example shows one way you can store the TreeList state - through a
         }
     }
 
-    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    private async void OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         var state = args.TreeListState;
         state.ExpandedItems = null;
         await LocalStorage.SetItem(UniqueStorageKey, state);
     }
 
-    async Task ResetState()
+    private async Task ResetState()
     {
         // clean up the storage
         await LocalStorage.RemoveItem(UniqueStorageKey);
@@ -183,7 +183,7 @@ The following example shows one way you can store the TreeList state - through a
         await TreeListRef.SetStateAsync(null); // pass null to reset the state
     }
 
-    void ReloadPage()
+    private void ReloadPage()
     {
         JsInterop.InvokeVoidAsync("window.location.reload");
     }
@@ -193,48 +193,58 @@ The following example shows one way you can store the TreeList state - through a
         TreeListState<Employee> state = new TreeListState<Employee>()
             {
                 FilterDescriptors = new List<IFilterDescriptor>()
-            {
-                new CompositeFilterDescriptor(){
-                    FilterDescriptors = new FilterDescriptorCollection()
+                {
+                    new CompositeFilterDescriptor(){
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() {
+                                Member="Id", 
+                                MemberType=typeof(int), 
+                                Value = 2, 
+                                Operator = FilterOperator.IsGreaterThan 
+                            }
+                        }
+                    }
+                },
+                
+                SortDescriptors = new List<SortDescriptor>()
+                {
+                    new SortDescriptor() {
+                        Member = "Name", 
+                        SortDirection = ListSortDirection.Descending 
+                    }
+                },
+                
+                Page = 2,
+                
+                ColumnStates = new List<TreeListColumnState>()
+                {
+                    new TreeListColumnState()
                     {
-                        new FilterDescriptor() {
-                            Member="Id", MemberType=typeof(int), Value = 2, Operator = FilterOperator.IsGreaterThan }
+                        Index = 3,
+                        Width = "150px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 1,
+                        Width = "120px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 2,
+                        Width = "60px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 4,
+                        Width = "150px"
+                    },
+                    new TreeListColumnState()
+                    {
+                        Index = 0,
+                        Width = "120px"
                     }
                 }
-            },
-                SortDescriptors = new List<SortDescriptor>()
-            {
-                new SortDescriptor() { Member = "Name", SortDirection = ListSortDirection.Descending }
-            },
-                Page = 2,
-                ColumnStates = new List<TreeListColumnState>()
-            {
-                new TreeListColumnState()
-                {
-                    Index = 3,
-                    Width = "150px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 1,
-                    Width = "120px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 2,
-                    Width = "60px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 4,
-                    Width = "150px"
-                },
-                new TreeListColumnState()
-                {
-                    Index = 0,
-                    Width = "120px"
-                }
-            }
             };
 
         TreeListRef?.SetStateAsync(state);
@@ -242,9 +252,9 @@ The following example shows one way you can store the TreeList state - through a
         await LocalStorage.SetItem(UniqueStorageKey, state);
     }
 
-    TelerikTreeList<Employee> TreeListRef { get; set; }
+    private TelerikTreeList<Employee> TreeListRef { get; set; }
 
-    public List<Employee> TreeListData { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -267,7 +277,7 @@ The following example shows one way you can store the TreeList state - through a
 
     // data generation
 
-    async Task<List<Employee>> GetTreeListData()
+    private async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 
@@ -565,7 +575,7 @@ The example below shows how to achieve it by using the`OnStateChanged` event.
     // Note 2: The TreeList does not await this event, its purpose is to notify you of changes
     //         so you must not perform async operations and data loading here, or issues with the TreeList state may occur
     //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the TreeList, but not the rest of the page
-    async Task OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
+    async void OnStateChangedHandler(TreeListStateEventArgs<Employee> args)
     {
         string changedSetting = args.PropertyName;
 
