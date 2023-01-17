@@ -137,7 +137,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the Chip to achi
 
 ## ThemeColor
 
-The color of the Chip is controlled through the `ThemeColor` parameter. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.ThemeColor` class:
+The `ThemeColor` parameter applies a predefined text color and background color. Use a member of the `Telerik.Blazor.ThemeConstants.Chip.ThemeColor` class:
 
 | Class members | Manual declarations |
 |------------|--------|
