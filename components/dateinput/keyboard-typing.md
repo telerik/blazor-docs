@@ -76,7 +76,7 @@ See the [complete example](#example) below.
 
 `AutoSwitchParts` sets if the caret will **move automatically to the next date format segment** when the user completes the current one. It's `true` by default.
 
-* When `true`, the the caret will **not** move for days and months if the segment value is equal to `1` or `2`, because the value may not be complete yet. In this case, the user should press an arrow key or an "auto switch key" to advance.
+* When `true`, the caret will **not** move for days and months if the segment value is equal to `1` or `2`, because the value may not be complete yet. In this case, the user should press an arrow key or an "auto switch key" to advance.
 * When `false`, the user should always advance to the next segment manually with the arrow keys or any of the `AutoSwitchKeys`.
 
 See the [example](#example) below.
