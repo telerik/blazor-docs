@@ -81,8 +81,31 @@ namespace ConsoleApp1
                 Filters = new List<IFilterDescriptor>() // some sample filtering
                 {
                     // Items from Team 3 that have an ID bigger than 10
-                    new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int) },
-                    new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
+                    new CompositeFilterDescriptor()
+                    {
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() { 
+                                Member = "Id", 
+                                Operator = FilterOperator.IsGreaterThan, 
+                                Value = 10, 
+                                MemberType = typeof(int) 
+                            }
+                        }
+                    },
+                    
+                    new CompositeFilterDescriptor()
+                    {
+                        FilterDescriptors = new FilterDescriptorCollection()
+                        {
+                            new FilterDescriptor() {
+                                Member = "Team",
+                                Operator = FilterOperator.Contains,
+                                Value = "3",
+                                MemberType = typeof(string)
+                            }
+                        }
+                    }
                 }
             };
 
@@ -104,7 +127,7 @@ namespace ConsoleApp1
 
         static IQueryable<SampleModel> GetData()
         {
-            return Enumerable.Range(1, 1000).Select(x => new SampleModel 
+            return Enumerable.Range(1, 1000).Select(x => new SampleModel
             {
                 Id = x,
                 Team = $"Team {x % 4}"
@@ -118,7 +141,6 @@ namespace ConsoleApp1
         public string Team { get; set; }
     }
 }
-
 ````
 
 ## Differences with Kendo DataSource
