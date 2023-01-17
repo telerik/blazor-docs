@@ -222,8 +222,8 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 * [Explore Grid data binding]({%slug grid-data-binding%})
 * [Learn about Grid columns]({%slug components/grid/columns/bound%})
 
-
 ## See Also
 
 * [Live Grid Demos](https://demos.telerik.com/blazor-ui/grid/index)
 * [Grid API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
+* [Create Custom Styles by Using ThemeBuilder]({%slug themebuilder%})

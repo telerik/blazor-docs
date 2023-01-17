@@ -85,6 +85,8 @@ Well done! Now you have you first Telerik UI for Blazor component running in you
 
 * [Get Started with the Data Grid]({%slug grid-overview%})
 
+* [Create Custom Styles by Using ThemeBuilder]({%slug themebuilder%})
+
 * [See the Data Binding Fundamentals for Telerik UI for Blazor Components]({%slug common-features-data-binding-overview%}).
 
 * [Explore the List of Available Components]({%slug blazor-overview%}#list-of-components).

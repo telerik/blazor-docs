@@ -158,6 +158,7 @@ The following example shows [how to override the CSS styles in the theme]({%slug
 </style>
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
 ## Next Steps
 

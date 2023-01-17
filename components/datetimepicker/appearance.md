@@ -124,6 +124,8 @@ The `FillMode` controls how the TelerikDateTimePicker is filled. You can set it 
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
 ## See Also
 
 * [Live Demo: DateTimePicker - Appearance](https://demos.telerik.com/blazor-ui/datetimepicker/appearance)

@@ -90,3 +90,4 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the checkbox to 
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

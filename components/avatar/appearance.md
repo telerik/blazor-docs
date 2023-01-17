@@ -166,6 +166,8 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
 ## Next Steps
 
 * [Explore the Avatar types]({%slug avatar-types%})

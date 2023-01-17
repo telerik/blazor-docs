@@ -130,3 +130,4 @@ The `FillMode` controls how the TelerikTextArea is filled. You can set it to a m
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

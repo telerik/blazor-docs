@@ -187,3 +187,4 @@ The `FillMode` controls how the TelerikComboBox is filled. You can set it to a m
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

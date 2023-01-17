@@ -248,6 +248,7 @@ You can use the `Class` of the notification to set a higher z-index for the noti
 } 
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
 
 ## See Also
 

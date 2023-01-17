@@ -127,3 +127,4 @@ The `FillMode` controls how the TelerikMaskedTextBox is filled. You can set it t
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)

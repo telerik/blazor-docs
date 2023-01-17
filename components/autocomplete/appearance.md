@@ -142,3 +142,4 @@ The `FillMode` controls how the TelerikAutoComplete is filled. You can set it to
 }
 ````
 
+@[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
