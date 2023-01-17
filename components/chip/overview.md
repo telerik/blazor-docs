@@ -16,25 +16,36 @@ The <a href="https://www.telerik.com/blazor-ui/chip" target="_blank">Blazor Chip
 
 To use a Telerik Chip for Blazor:
 
-1. Add the `TelerikChip` tag
-1. Set the `Selected` parameter to a `boolean` (supports one-way and two-way binding).
-1. (Optional) Set the `Text` parameter to a render a string in the chip. 
+1. Add the `TelerikChip` tag.
+1. Set the `Selected` parameter to a `boolean`. It supports one-way and two-way binding.
+1. Set the `Text` and `Icon` parameters, or define arbitrary `ChildContent` inside the `TelerikChip` tag. 
 
 >caption Basic Chip for Blazor
 
 ````CSHTML
-<TelerikChip @bind-Selected="@IsChipSelected"
-             Text="Audio">
+@using Telerik.FontIcons
+
+<TelerikChip @bind-Selected="@Chip1Selected"
+             Text="Audio"
+             Icon="@FontIcon.FileAudio">
 </TelerikChip>
 
+<TelerikChip @bind-Selected="@Chip2Selected">
+    <TelerikFontIcon Icon="@FontIcon.Gear" />
+    Chip ChildContent
+</TelerikChip>
+
+
 @code {
-    private bool IsChipSelected { get; set; }
+    private bool Chip1Selected { get; set; } = true;
+
+    private bool Chip2Selected { get; set; }
 }
 ````
 
 ## Events
 
-[Read more about the Blazor Chip events...]({%slug chip-events%})
+[The Chip component fires events for clicks, selection and removal. Read more about them here.]({%slug chip-events%})
 
 ## Appearance
 
@@ -58,7 +69,8 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](/
 
 ## Next Steps
 
-* [Handle the Chip events]({%slug Chip-events%})
+* [Customize the Chip appearance]({%slug chip-appearance%})
+* [Handle Chip events]({%slug chip-events%})
 
 
 ## See Also

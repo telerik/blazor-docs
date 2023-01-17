@@ -13,10 +13,9 @@ position: 35
 You can control the appearance of the Chip by using the following parameters:
 
 * [FillMode](#fillmode)
-* [Size](#size)
 * [Rounded](#rounded)
+* [Size](#size)
 * [ThemeColor](#themecolor)
-
 
 ## FillMode
 
@@ -57,45 +56,6 @@ The `FillMode` affects the presence of a background and borders. You can set it 
 }
 ````
 
-## Size
-
-You can increase or decrease the size of the Chip by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.Chip.Size` class:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Class member | Manual declaration |
-|------------|--------|
-|`Small` |`sm`|
-|`Medium`|`md`|
-|`Large`|`lg`|
-
->caption The built-in sizes
-
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
-
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
-
-        <div style="float:left; margin: 20px;">
-            <TelerikChip @bind-Selected="@IsChipSelected"
-                 Size="@size"
-                 Text="Audio">
-            </TelerikChip>
-        </div>
-    }
-}
-
-@code {
-    private bool IsChipSelected { get; set; }
-}
-````
-
 ## Rounded
 
 The `Rounded` attribute applies the `border-radius` CSS rule to the Chip to achieve curving of the edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Chip.Rounded` class:
@@ -124,6 +84,45 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the Chip to achi
         <div style="float:left; margin: 20px;">
             <TelerikChip @bind-Selected="@IsChipSelected"
                  Rounded="@rounded"
+                 Text="Audio">
+            </TelerikChip>
+        </div>
+    }
+}
+
+@code {
+    private bool IsChipSelected { get; set; }
+}
+````
+
+## Size
+
+You can increase or decrease the size of the Chip by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.Chip.Size` class:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Class member | Manual declaration |
+|------------|--------|
+|`Small` |`sm`|
+|`Medium`|`md`|
+|`Large`|`lg`|
+
+>caption The built-in sizes
+
+````CSHTML
+@{
+    var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
+        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
+        | System.Reflection.BindingFlags.FlattenHierarchy)
+        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
+
+    foreach (var field in fields)
+    {
+        string size = field.GetValue(null).ToString();
+
+        <div style="float:left; margin: 20px;">
+            <TelerikChip @bind-Selected="@IsChipSelected"
+                 Size="@size"
                  Text="Audio">
             </TelerikChip>
         </div>
@@ -176,3 +175,11 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 ````
 
 @[template](/_contentTemplates/common/themebuilder-section.md#appearance-themebuilder)
+
+## Next Steps
+
+* [Handle Chip events]({%slug chip-events%})
+
+## See Also
+
+* [Live Demo: Chip Appearance](http://demos.telerik.com/blazor-ui/chip/appearance)

@@ -10,23 +10,24 @@ position: 20
 
 # Events
 
-This article showcases the available events in the Telerik Chip component:
+This article showcases the available events in the Telerik Chip component, together with a complete [example](#example).
 
-* [SeletedChanged](#selectedchanged)
 * [OnClick](#onclick)
 * [OnRemove](#onremove)
-
-## ValueChanged
-
-The `SelectedChanged` event fires every time the `Selected` parameter changes.
+* [SeletedChanged](#selectedchanged)
 
 ## OnClick
 
-The `OnClick` event fires when the user clicks on the Chip component. The event handler receives a `ChipClickEventArgs` object which provides the value of the `Text` parameter of the clicked Chip.
+The `OnClick` event fires when the user clicks or taps on the Chip component. The event handler receives a `ChipClickEventArgs` object, which provides the value of the `Text` parameter of the clicked Chip.
 
 ## OnRemove
 
 The `OnRemove` event fires when the user clicks the remove icon of the Chip. The event handler receives a `ChipRemoveEventArgs` object which provides the value of the `Text` parameter of the clicked Chip. You can cancel the event by setting the `IsCancelled` field to `true`.
+
+## SelectedChanged
+
+The `SelectedChanged` event fires every time the `Selected` parameter changes.
+
 
 ## Example
 
@@ -41,11 +42,11 @@ The `OnRemove` event fires when the user clicks the remove icon of the Chip. The
              Text="Audio">
 </TelerikChip>
 
-@(new MarkupString(logger))
+@(new MarkupString(Logger))
 
 @code {
     private bool IsChipSelected { get; set; }
-    private string logger { get; set; }
+    private string Logger { get; set; }
 
     private void OnChipSelectedChanged(bool value)
     {
@@ -54,19 +55,19 @@ The `OnRemove` event fires when the user clicks the remove icon of the Chip. The
 
     private void OnChipClick(ChipClickEventArgs args)
     {
-        logger += $"The User click on {args.Text} <br />";
+        Logger += $"The User click on {args.Text} <br />";
     }
 
     private void OnChipRemove(ChipRemoveEventArgs args)
     {
-        logger += $"The User removed {args.Text} <br />";
+        Logger += $"The User removed {args.Text} <br />";
 
-        args.IsCancelled = false; //set this to true to cancel the event
+        args.IsCancelled = false; //set to true to cancel the event
     }
 }
 ````
 
 ## See Also
 
+* [Live Demo: Chip Events](http://demos.telerik.com/blazor-ui/chip/events)
 * [Chip OverView]({%slug chip-overview%})
-
