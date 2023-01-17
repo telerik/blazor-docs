@@ -42,5 +42,5 @@ These limitations can adversely affect the Telerik UI for Blazor components, bec
 Some of the above-listed limitations will be addressed in a future version of Telerik UI for Blazor. The planned enhancements are:
 
 * Remove the need to specify `unsafe-eval` when [Chart Templates]({%slug components/chart/label-template-format%}) are used.
-* Remove the necessity for specifying the `unsafe-inline` directive.
+* Remove the need to specify `unsafe-inline`.
 * Fix the `font-src` rule by detaching font icons.
