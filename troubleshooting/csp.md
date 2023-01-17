@@ -16,6 +16,9 @@ If a strict `Content-Security-Policy` (CSP) mode is enabled, some browser featur
 * Dynamic code evaluation via `eval()` and string arguments for both `setTimeout` and `setInterval` are blocked.
 * Fonts and images from Base64 `data:` portions in stylesheets.
 
+
+## Current Limitations
+
 These limitations can adversely affect the Telerik UI for Blazor components, because they need the following:
 
 * `data:` sources to be allowed for fonts, because that's how the font icons we use are loaded.
@@ -32,5 +35,12 @@ These limitations can adversely affect the Telerik UI for Blazor components, bec
       img-src 'self' data:" />
 ````
 
->tip If you do not use our CDN services, you can remove their domains. If you do not use the templates of the charts, you may also be able to remove `'unsafe-eval'`.
+>tip If you do not use our CDN services, you can remove their domains. If you do not use the Templates of the Charts, you may also be able to remove `'unsafe-eval'`.
 
+## Upcoming Enhancements
+
+Some of the above-listed limitations will be addressed in a future version of Telerik UI for Blazor. The planned enhancements are:
+
+* Remove the necessity for specifying the `unsafe-eval` directive when the [Chart Templates]({%slug components/chart/label-template-format%}) are used.
+* Remove the necessity for specifying the `unsafe-inline` directive.
+* Fix the `font-src` rule by detaching font icons.
