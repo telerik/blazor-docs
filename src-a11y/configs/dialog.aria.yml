@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Dialog
+from: /aria/dialog_aria.md
+dest: ../components/dialog/accessibility/wai-aria-support.md
+slug: dialog-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Dialog Overview (Demo)](https://demos.telerik.com/blazor-ui/dialog/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

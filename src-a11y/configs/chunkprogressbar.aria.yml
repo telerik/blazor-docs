@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ChunkProgressBar
+from: /aria/chunk-progressbar_aria.md
+dest: ../components/chunkprogressbar/accessibility/wai-aria-support.md
+slug: chunkprogressbar-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ChunkProgressBar Overview (Demo)](https://demos.telerik.com/blazor-ui/chunkprogressbar/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

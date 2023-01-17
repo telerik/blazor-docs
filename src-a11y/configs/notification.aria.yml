@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Notification
+from: /aria/notification_aria.md
+dest: ../components/notification/accessibility/wai-aria-support.md
+slug: notification-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Notification Overview (Demo)](https://demos.telerik.com/blazor-ui/notification/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

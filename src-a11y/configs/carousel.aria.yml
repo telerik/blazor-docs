@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Carousel
+from: /aria/carousel_aria.md
+dest: ../components/carousel/accessibility/wai-aria-support.md
+slug: carousel-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Carousel Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

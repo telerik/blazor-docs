@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor DropDownList is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor DropDownList component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -27,11 +27,11 @@ The Telerik UI for Blazor DropDownList is [WCAG 2.1 AAA](https://www.w3.org/TR/W
 |  | `aria-expanded=true/false` | Announces the state of the visibility of the popup. |
 |  | `aria-controls=.k-list-ul id` | Points to the popup element. Signifies that the `combobox` element controls the `listbox`. |
 |  | `aria-describedby=.k-input-inner id` | Announces the selected value of the dropdown. |
-|  | `aria-activedescendent=.k-list-item id` | Points to the focused item in the popup. The focused item is changed via keyboard navigation. If the popup is not visible, the attribute should not point to any element or should be removed. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item in the popup. The focused item is changed via keyboard navigation. If the popup is not visible, the attribute should not point to any element or should be removed. |
 |  | `aria-readonly=true` | Attribute is rendered only when the dropdown is readonly. |
-|  | `aria-invalid=true` | Attribute is rendered only when the dropdown is in form and announces the valid state of the component. |
 |  | `aria-busy=true` | Attribute is rendered only when the dropdown is loading data. |
 |  | `tabindex=0` | The element should be focusable. |
+| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the dropdown is in form and announces the valid state of the component. |
 | .k-dropdownlist.k-disabled | `aria-disabled=true` | Attribute is rendered only when the dropdown is disabled. |
 | .k-input-button | `role=button` or `nodeName=button` | The element should either be a `<button>` element or should have `role="button"` assigned. |
 |  | `aria-label` | The button needs an accessible name to be assigned to it. |
@@ -43,14 +43,14 @@ The Telerik UI for Blazor DropDownList is [WCAG 2.1 AAA](https://www.w3.org/TR/W
 | -------- | --------- | ----- |
 | .k-list-filter>.k-searchbox>.k-input-inner | `role=searchbox` | Announces the searchbox capability of the input. |
 |  | `aria-label` | Points to search label. |
-|  | `aria-activedescendent=.k-list-item.k-selected id` | Points to the focused item. Either an item from the popup. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item. Either an item from the popup. |
 |  | `aria-autocomplete=list` | Indicates the list filtering capabilities of the select. |
 |  | `aria-controls=.k-list-ul id` | Points to the popup element. Builds relationship between the input and the popup. |
 |  | `aria-haspopup=listbox` | Indicates the presence of a listbox popup. |
 | .k-list-ul | `aria-live=polite/off` | Assures the live updates on the selected value of the popup. |
 
 
-The ListBox placed in the Popup element of the component should implement the specification for a **PopupList** component.
+The ListBox placed in the Popup element of the component should implement the specification for a **Popup List** component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

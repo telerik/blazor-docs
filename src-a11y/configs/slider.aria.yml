@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Slider
+from: /aria/slider_aria.md
+dest: ../components/slider/accessibility/wai-aria-support.md
+slug: slider-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Slider Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

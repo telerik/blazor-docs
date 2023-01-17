@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor MultiSelect is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor MultiSelect component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -28,7 +28,7 @@ The Telerik UI for Blazor MultiSelect is [WCAG 2.1 AAA](https://www.w3.org/TR/WC
 |  | `aria-controls=.k-list-ul id` | Points to the popup element. Signifies that the `combobox` element controls the `listbox`. |
 |  | `aria-autocomplete=list` | Attribute is rendered and value is set to list when **filtering** feature is enabled. |
 |  | `aria-describedby=.k-chip-list id` | Points to the taglist element that contains the selected items. |
-|  | `aria-activedescendent=.k-list-item id` | Points to the focused item. Either an item from the popup, or a tag item from the selected items. The focused item is changed via keyboard navigation. If the focus is not currently on a tag item, and the popup is not visible, the attribute should not point to any element or should be removed. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item. Either an item from the popup, or a tag item from the selected items. The focused item is changed via keyboard navigation. If the focus is not currently on a tag item, and the popup is not visible, the attribute should not point to any element or should be removed. |
 |  | `aria-readonly=true` | Attribute is rendered only when the multiselect is readonly. |
 |  | `aria-invalid=true` | Attribute is rendered only when the multiselect is in form and announces the valid state of the component. |
 |  | `aria-busy=true` | Attribute is rendered only when the multiselect is loading data. |
@@ -45,7 +45,7 @@ The Telerik UI for Blazor MultiSelect is [WCAG 2.1 AAA](https://www.w3.org/TR/WC
 | .k-list-ul | `aria-multiselectable=true` | Announces multiselection of the listbox popup. |
 
 
-The ListBox placed in the Popup element of the component should implement the specification for a **PopupList** component.
+The ListBox placed in the Popup element of the component should implement the specification for a **Popup List** component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

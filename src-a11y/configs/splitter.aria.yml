@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Splitter
+from: /aria/splitter_aria.md
+dest: ../components/splitter/accessibility/wai-aria-support.md
+slug: splitter-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Splitter Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

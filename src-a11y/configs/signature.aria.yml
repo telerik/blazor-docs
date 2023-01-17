@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Signature
+from: /aria/signature_aria.md
+dest: ../components/signature/accessibility/wai-aria-support.md
+slug: signature-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Signature Overview (Demo)](https://demos.telerik.com/blazor-ui/signature/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})

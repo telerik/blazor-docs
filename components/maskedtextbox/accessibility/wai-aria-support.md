@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor MaskedTextBox is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor MaskedTextBox component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -25,7 +25,7 @@ The Telerik UI for Blazor MaskedTextBox is [WCAG 2.1 AAA](https://www.w3.org/TR/
 | .k-input-inner | `role=textbox` or `nodeName=input` | Specifies the role of the component. Not required if `<input type=text`> is used. |
 |  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
 |  | `aria-placeholder` | Announces the mask/placeolder for the component. |
-|  | `aria-invalid=true` | Attribute is rendered only when the maskedtextbox is in form and announces the valid state of the component. |
+| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the maskedtextbox is in form and announces the valid state of the component. |
 | .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the maskedtextbox is disabled. |
 
 ## Section 508

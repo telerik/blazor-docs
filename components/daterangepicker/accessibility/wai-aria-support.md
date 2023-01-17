@@ -13,7 +13,7 @@ position: 50
 
 
 
-The Telerik UI for Blazor DateRangePicker is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+The Telerik UI for Blazor DateRangePicker component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
 
 ## Wai-Aria
 
@@ -26,10 +26,10 @@ The Telerik UI for Blazor DateRangePicker is [WCAG 2.1 AAA](https://www.w3.org/T
 |  | `aria-haspopup=grid` | Indicates the component has a Calendar Popup that implements `role="grid"`. |
 |  | `aria-expanded=true/false` | Announces whether the Popup is visible or not. |
 |  | `aria-controls=.k-calendar-container id` | Points to the popup element. Signifies that the `combobox` element controls the Calendar `grid`. |
-|  | `aria-activedescendent=.k-calendar-td id` | Points to the focused item (date/month/year) in the Calendar Popup. Should only be present when the Popup is open. |
+|  | `aria-activedescendant=.k-calendar-td.k-focus id` | Points to the focused item (date/month/year) in the Calendar Popup. Should only be present when the Popup is open. |
 |  | `readonly=readonly` or `aria-readonly=true` | Attribute is rendered only when the DateRangePicker is readonly. |
-|  | `aria-invalid=true` | Attribute is rendered only when the combobox is in form and announces the valid state of the component. |
 |  | `tabindex=0` | The element should be focusable. |
+| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the combobox is in form and announces the valid state of the component. |
 | .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the DateRangePicker is disabled. |
 
 ### Calendars Popup

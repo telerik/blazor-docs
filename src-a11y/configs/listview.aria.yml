@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: ListView
+from: /aria/listview_aria.md
+dest: ../components/listview/accessibility/wai-aria-support.md
+slug: listview-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor ListView Overview (Demo)](https://demos.telerik.com/blazor-ui/listview/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
