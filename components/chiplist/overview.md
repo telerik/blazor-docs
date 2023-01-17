@@ -69,7 +69,7 @@ You can use the built-in events of the Blazor ChipList to react to chip selectio
 
 ## Appearance
 
-You can customize the appearance of the Blazor ChipList via a variety of built-in customization options. [Read more about the ChipList appearance settings...]({%slug chiplist-settings%})
+You can customize the appearance of the Blazor ChipList via a variety of built-in customization options. [Read more about the ChipList appearance settings...]({%slug chiplist-appearance%})
 
 ## ChipList Parameters
 
