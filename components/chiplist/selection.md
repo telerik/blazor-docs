@@ -103,6 +103,6 @@ When you use the `@bind-SelectedItems` syntx, the ChipList will automatically up
 
 ## See Also
 
-* [ChipList Events]({%slug ChipList-events%})
+* [ChipList Events]({%slug chiplist-events%})
 * [ChipList Data Binding]({%slug chiplist-bound%})
 
