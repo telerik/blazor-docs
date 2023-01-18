@@ -52,11 +52,17 @@ You may add the Telerik resources as [static assets]({%slug getting-started/what
 
 ### 3. Include `@using` statements 
 
-You can set the project to recognize all Telerik components without explicit `@using `statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor`file:
+You can set the project to recognize all Telerik components without explicit `@using `statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor`file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
-````
+>caption _Imports.razor
+
+<div class="skip-repl"></div>
+
+````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
+@using Telerik.FontIcons
+@using Telerik.SvgIcons
 ````
 
 ### 4. Add the `TelerikRootComponent`
@@ -75,6 +81,8 @@ Once custom layouts are supported, you will be able to configure a Telerik layou
 The final step is to register the Telerik services. Add the Telerik services in accordance to the practice your native app requires.
 
 For example, in MAUI app, you register services in the `MauiProgram.cs`:
+
+<div class="skip-repl"></div>
 
 ````CSHTML
 namespace MyBlazorMauiAppName

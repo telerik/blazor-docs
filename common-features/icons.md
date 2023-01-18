@@ -30,12 +30,23 @@ This article contains the following sections:
 
 ## How Icons Work
 
-The Telerik Blazor components use built-in icons with the help of two NuGet packages. These are installed automatically as dependencies of the `Telerik.UI.for.Blazor` package. No manual actions are necessary. These icon packages are:
+The Telerik Blazor components use built-in icons with the help of two NuGet packages. They are installed *automatically* as dependencies of the `Telerik.UI.for.Blazor` package:
 
-* `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in font icons
-* `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in SVG icons
+* `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** icons
+* `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in **SVG** icons
 
-Some components provide icon-related parameters, which can rely on the above packages too. For example:
+To use the icons, import one or both namespaces, for example in `_Imports.razor`:
+
+>caption Register Telerik Blazor icon namespaces
+
+<div class="skip-repl"></div>
+
+````CSHTML
+@using Telerik.FontIcons
+@using Telerik.SvgIcons
+````
+
+Some components provide icon-related parameters, which can rely on the above packages and namespaces too. For example:
 
 >caption Icon parameter in Telerik Blazor components
 
