@@ -126,11 +126,17 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
 ### Common Configuration
 
-You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file:
+You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
+
+>caption _Imports.razor
+
+<div class="skip-repl"></div>
 
 ````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
+@using Telerik.FontIcons
+@using Telerik.SvgIcons
 ````
 
 To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
