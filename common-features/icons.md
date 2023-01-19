@@ -71,17 +71,26 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `FontIcon` `enum` | Any of the [built-in Telerik Blazor font icons](#icons-list). This parameter takes precedence over `IconClass`, if both are set. |
 | `IconClass` | `string` | Custom CSS class for a custom third-party icon. Do not use together with the `Icon` parameter. |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.Icon.Size` class. |
-| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.Icon.ThemeColor` class properties. By default, the icon color will inherit the current CSS text color. |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.FontIcon.Size` class. |
+| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.FontIcon.ThemeColor` class properties. By default, the icon color will inherit the current CSS text color. |
 
 >caption Using TelerikFontIcon
 
 ````CSHTML
-<TelerikFontIcon Icon="@FontIcon.Audio" />
+<TelerikFontIcon Icon="@FontIcon.FileAudio" />
 
 <span style="color: red;">
     <TelerikFontIcon Icon="@FontIcon.Save" Size="lg" Flip="@IconFlip.Vertical" />
 </span>
+
+<TelerikFontIcon IconClass="my-custom-icon" />
+
+<style>
+    .my-custom-icon {
+        /* define a background image or a custom font icon here */
+        background: purple;
+    }
+</style>
 ````
 
 ### Set Custom Font Icon Size
@@ -100,10 +109,10 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 </style>
 
 <div class="large-icons">
-    <TelerikIcon Icon="@FontIcon.Filter"></TelerikIcon>
+    <TelerikFontIcon Icon="@FontIcon.Filter"></TelerikFontIcon>
 </div>
 
-<TelerikIcon Icon="@FontIcon.Filter"></TelerikIcon>
+<TelerikFontIcon Icon="@FontIcon.Filter"></TelerikFontIcon>
 ````
 
 ### Render Font Icons with HTML
@@ -133,18 +142,18 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#implement-custom-svg-icon-classes). |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.Icon.Size` class. |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.SvgIcon.Size` class. |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
-| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.Icon.ThemeColor` class properties. |
+| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.SvgIcon.ThemeColor` class properties. |
 
 >caption Using TelerikSvgIcon
 
 ````CSHTML
 <TelerikSvgIcon Icon="@SvgIcon.Calendar" />
 
-<TelerikSvgIcon Icon="@SvgIcon.Audio"
-                Size="@ThemeConstants.Icon.Size.Large"
-                ThemeColor="@ThemeConstants.Icon.ThemeColor.Primary" />
+<TelerikSvgIcon Icon="@SvgIcon.FileAudio"
+                Size="@ThemeConstants.SvgIcon.Size.Large"
+                ThemeColor="@ThemeConstants.SvgIcon.ThemeColor.Primary" />
 ````
 
 ### Render Custom SVG Icons with HTML
