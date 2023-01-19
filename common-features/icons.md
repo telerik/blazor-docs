@@ -88,7 +88,7 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 <style>
     .my-custom-icon {
         /* define a background image or a custom font icon here */
-        background: blue;
+        background: purple;
     }
 </style>
 ````
