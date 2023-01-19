@@ -32,6 +32,7 @@ The section describes the available features and their use.
 The `GridCommandButton` tag offers the following features:
 
 * `Command` - the command that will be invoked. Can be one of the built-in commands (see below), or a custom command name.
+* `Icon` - the command button icon, which can be a font icon, an SVG icon or a custom icon. Use in the same way as the [Button component `Icon`]({%slug button-icons%}).
 * `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug components/grid/editing/overview%}). Cancelling it will prevent the built-in CRUD event from firing.
 * `ShowInEdit` - a boolean property indicating whether the button is only visible while the user is editing/inserting data.
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
