@@ -10,53 +10,57 @@ position: 15
 
 # Menu Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Menu item to illustrate its purpose by using the `IconField` parameter.
+You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Menu item to illustrate its purpose by using the `IconField` parameter. The Menu also supports custom icons.
 
->caption How to use icons in Telerik Menu
+If the icon property in the Menu model is called `Icon`, there is no need to set the `IconField` parameter.
+
+>caption How to use icons in the Telerik Menu
 
 ````CSHTML
 <TelerikMenu Data="@MenuData"
-             IconField="@nameof(MenuModel.TelerikFontIcon)">
+             IconField="@(nameof(MenuItem.Icon))">
 </TelerikMenu>
 
+<style>
+    .my-icon {
+        /* define a background image or a custom font icon here */
+        background: purple;
+    }
+</style>
+
 @code {
-    public List<MenuModel> MenuData { get; set; }
+    public List<MenuItem> MenuData { get; set; }
 
     protected override void OnInitialized()
     {
-        GenerateMenuData();
-    }
-
-    public void GenerateMenuData()
-    {
-        MenuData = new List<MenuModel>()
+        MenuData = new List<MenuItem>()
         {
-            new MenuModel()
+            new MenuItem()
             {
-                Text = "Mail Icon",
-                TelerikFontIcon = FontIcon.Envelop
+                Text = "Font Icon",
+                Icon = FontIcon.Envelop
             },
-            new MenuModel()
+            new MenuItem()
             {
-                Text = "Wrench Icon",
-                TelerikFontIcon = FontIcon.Wrench,
+                Text = "SVG Icon",
+                Icon = SvgIcon.Wrench,
             },
-            new MenuModel()
+            new MenuItem()
              {
-                Text = "Video Icon",
-                TelerikFontIcon = FontIcon.FileVideo
+                Text = "Custom Icon",
+                Icon = "my-icon"
              }
         };
     }
 
-    public class MenuModel
+    public class MenuItem
     {
         public string Text { get; set; }
-        public FontIcon? TelerikFontIcon { get; set; }
+        public object Icon { get; set; }
     }
 }
 ````
 
 ## See Also
 
-  * [Menu Overview]({%slug components/menu/overview%})
+* [Menu Overview]({%slug components/menu/overview%})
