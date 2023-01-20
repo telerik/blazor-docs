@@ -1,12 +1,12 @@
 ---
-title: Format or Bold Grid Search Results
-description: How to format, bold or highlight search results from the Grid SearchBox?
+title: Highlight, Format or Bold Grid Search Results
+description: How to highlight, bold or format search results from the Grid SearchBox?
 type: how-to
-page_title: How to Format or Bold Matching Search Results in the Grid
+page_title: How to Highlight, Bold or Format Matching Search Results in the Grid
 slug: grid-kb-search-highlight-results
 position: 
 tags: grid, search, gridsearchbox
-ticketid: 1568455
+ticketid: 1568455, 1593620
 res_type: kb
 ---
 
@@ -16,7 +16,8 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+            <td>Grid for Blazor, <br />
+            TreeList for Blazor</td>
         </tr>
     </tbody>
 </table>
@@ -24,7 +25,7 @@ res_type: kb
 
 ## Description
 
-I am using the Grid [**SearchBox**]({%slug grid-searchbox%}). How to format the Grid cell values to bold the search keyword? Is there a suitable event to format the search strings in the cells?
+I am using the Grid [**SearchBox**]({%slug grid-searchbox%}). How to format the Grid cell values to bold the search keyword? Is there a suitable event to highlight the text, which matches the search string in the cells?
 
 How to highlight matching search results in the Grid cells?
 
@@ -144,6 +145,7 @@ The following approach is valid for both the Grid and the TreeList.
     }
 }
 ````
+
 
 ## See Also
 
