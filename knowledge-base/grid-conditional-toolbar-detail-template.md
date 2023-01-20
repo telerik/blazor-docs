@@ -18,7 +18,7 @@ res_type: kb
             <td>Product</td>
             <td>
                 Grid for Blazor <br />
-                (The approach is applicable for any <code>RenderFragment</code>.)
+                (The approach is applicable for any component and <code>RenderFragment</code>.)
             </td>
         </tr>
     </tbody>
