@@ -34,7 +34,7 @@ How to change the Grid font size? How to set custom font styles?
 ````CSHTML
 <style>
     /* grid cells */
-    .k-grid.font-size,
+    .k-grid.font-size table,
 
     /* textboxes */
     .k-grid.font-size .k-input,
