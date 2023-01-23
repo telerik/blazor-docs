@@ -72,7 +72,7 @@ You can customize the appearance of the Blazor ChipList via a variety of built-i
 
 ## ChipList Parameters
 
-The table below lists the ChipList parameters. Also check the [ChipList API Reference]([/blazor-ui/api/Telerik.Blazor.Components.TelerikChipList](/blazor-ui/api/Telerik.Blazor.Components.TelerikChipList-1) for all parameters, methods and events.
+The table below lists the ChipList parameters. Also check the [ChipList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChipList-1) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
