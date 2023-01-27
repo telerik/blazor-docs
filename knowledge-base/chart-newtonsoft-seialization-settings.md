@@ -1,6 +1,6 @@
 ---
 title: Chart not working with Newtonsoft.Json properties
-description: Using Newtonsoft.Json serialization settings can break the chart. See how to fix it.
+description: Using Newtonsoft.Json.JsonProperty serialization settings can break the Chart. See how to fix it.
 type: troubleshooting
 page_title: Chart not working with Newtonsoft.Json serialization properties
 slug: chart-kb-newtonsoft-seialization-settings
@@ -11,21 +11,22 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product Version</td>
-			<td>2.10.0</td>
-		</tr>
-		<tr>
-			<td>Product</td>
-			<td>Charts for Blazor</td>
-		</tr>
-		<tr>
-			<td>Blazor application type</td>
-			<td>Client-side</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product Version</td>
+            <td>2.10.0</td>
+        </tr>
+        <tr>
+            <td>Product</td>
+            <td>Charts for Blazor</td>
+        </tr>
+        <tr>
+            <td>Blazor application type</td>
+            <td>Client-side</td>
+        </tr>
+    </tbody>
 </table>
 
 
@@ -82,12 +83,14 @@ Sample chart that does not display any longer after adding serialization setting
 
 ## Cause\Possible Cause(s)
 
-The Telerik Chart serializes the data for rendering and thus the serialization settings are honored. This causes changes in the field names from what you set in the markup - the `nameof()` operator does not use these settings. In the example above, it will provide `TheValue` to the chart, while the actual field name will be `val`.
+The Telerik Chart serializes its data for client-side rendering. The component will honor any server-side serialization settings. For example, `JsonProperty` settings in the Chart model will change the field names from what is in the Chart markup, as the `nameof()` operator does not use these settings.
+
+In the example above, the Chart will use `TheValue` server-side, while the client-side rendering mechanism will receive `thevalue`.
 
 
 ## Solution
 
-You must match the field names you provide in the chart settings (such as `Field` values and strings in templates) to the names that will actually be serialized.
+You must match the field names you provide in the chart settings (such as `Field` values and strings in templates) to the serialized property names.
 
 >caption Example of handling custom serialization settings in the chart
 
@@ -194,4 +197,5 @@ public class ChartDataController : ControllerBase
 ````
 
 ## Notes
-The approach used internally by the chart may change in the future. For example, at the time of writing, the new `System.Net.Http.Json` is not yet ready for use, but it may be used in the future. Thus, the approach described in this article may become unnecessary or wrong.
+
+The approach used internally by the Chart may change in the future. For example, at the time of writing, the new `System.Net.Http.Json` is not yet ready for use, but it may be used in the future. Thus, the approach described in this article may become unnecessary or wrong.
