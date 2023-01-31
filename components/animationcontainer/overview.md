@@ -8,122 +8,190 @@ published: True
 position: 0
 ---
 
-# Blazor Animation Container
+# Blazor AnimationContainer Overview
 
 The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_blank">Blazor Animation Container component</a> enables you to create messages and popups or expandable containers. It lets you define its animation, size and position, and arbitrary content.
 
 >tip If you are looking for an option to create [Notification]({%slug notification-overview%}), [Tooltip]({%slug tooltip-overview%}) or expandable container such as [Drawer]({%slug drawer-overview%}), you may use the dedicated components.
 
-#### To use the animation container, add the `TelerikAnimationContainer` tag.
+## Creating Blazor AnimationContainer
 
->caption How to use the Animation Container
+1. Use the `TelerikAnimationContainer` tag.
+1. Assign a [reference to the component instance via `@ref`](#animationcontainer-reference-and-methods).
+1. Add content as `ChildContent` inside the `TelerikAnimationContainer` tag.
+1. (optional) Define the [`AnimationType` or `AnimationDuration`](#animation).
+1. (optional) Set [parameters](#animationcontainer-parameters) for dimensions or [position](#position).
+
+>caption Basic AnimationContainer
 
 ````CSHTML
-@* Click the button to toggle the visibility of the customized popup *@
+<TelerikButton OnClick="@ToggleAnimationContainer">Toggle Animation Container</TelerikButton>
 
-<div style="position:relative; border: 1px solid red; height: 300px;">
-    <TelerikButton OnClick="@ToggleContainer">Toggle Animation Container</TelerikButton>
-
-    <TelerikAnimationContainer @ref="myPopupRef" Top="50px" Left="50px" Width="250px" Height="150px" AnimationType="AnimationType.ZoomOut" Class="k-popup">
-        <p>
-            The "k-popup" class adds some background and borders which you can define through your own styles instead.
-        </p>
-        <p>
-            My parent element has <code>position: relative</code> to control my <code>Top</code> and <code>Left</code> offset.
-        </p>
-    </TelerikAnimationContainer>
-</div>
+<TelerikAnimationContainer @ref="@TAC"
+                           AnimationType="@AnimationType.ZoomIn"
+                           Width="300px"
+                           Top="100px"
+                           Left="100px">
+    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
+        Telerik Blazor Animation Container
+    </div>
+</TelerikAnimationContainer>
 
 @code {
-    Telerik.Blazor.Components.TelerikAnimationContainer myPopupRef;
+    private TelerikAnimationContainer TAC { get; set; }
 
-    async Task ToggleContainer()
+    private async Task ToggleAnimationContainer()
     {
-        await myPopupRef.ToggleAsync();
+        await TAC.ToggleAsync();
     }
 }
 ````
 
->caption The result from the code snippet above
+## Position
 
-![Blazor Animation Container Overview](images/animation-container-overview.gif)
+The Animation Container renders at the place of its declaration. It has a `position:absolute` CSS style, so it will display over adjacent elements. The component position can be offset by parent elements with a `position` style, even of the `Top` and `Left` parameters are set.
 
->note The component renderes in its place of declaration and has `position: absolute`. Parent elements in the DOM with special positioning can affect its position and the calculation of the `Top` and `Left` offsets.
->
-> If you have `overflow: hidden` on the parent element, you may want to use `position: absolute` or `fixed` on it, instead of `relative` like in the example above.
->
->Toggling an additional element with the desired positioning together with the animation container can even let you size it up to match the viewport and adding an `@onclick` handler to it lets you hide the popup when the user clicks outside of it.
+The component should reside outside elements with an `overflow` CSS style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation will not exist for the [future `Popup` component](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
 
+## Animation
 
-The animation container exposes the following properties and methods:
+One of the core features of the Animation Container is the customizable open and close animation type and animation duration. Set the `AnimationDuration` parameter in milliseconds as `int`. The possible `AnimationType` values are the members of the `AnimationType` enum:
 
-* `ShowAsync()`, `HideAsync()` and `ToggleAsync()` - to control whether the container is shown.
-    * To show an animation container immediately when the page loads, use the `OnAfterRenderAsync` event.
-* `Width` and `Height` - to control its [size]({%slug common-features/dimensions%}). The `Height` cannot be in percentage values, it is recommended to use pixels for it.
-* `Top` and `Left` - to control its offset from its parent with special positioning (`relative`, `absolute`, `fixed`).
-* `AnimationType` and `AnimationDuration` to control the way it is shown and hidden. The animation duration is in milliseconds (defaults to `300`), and the type is of the `Telerik.Blazor.AnimationType` enum with the following options:
-	* SlideUp,
-	* SlideIn,
-	* SlideDown,
-	* SlideRight,
-	* SlideLeft,
-	* PushUp,
-	* PushDown,
-	* PushLeft,
-	* PushRight,
-	* Fade,
-	* ZoomIn,
-	* ZoomOut
-* `ShowDelay` and `HideDelay` - defines the delay between showing/hiding the component and the respective animation start. Both values are in milliseconds and default to `20`.
-* `ParentClass` - a CSS class rendered on the main wrapping element of the Animation container.
-* `Class` - a CSS class rendered on the inner element of the Animation container. 
+* `None`
+* `Fade`
+* `PushUp`
+* `PushDown`
+* `PushLeft`
+* `PushRight`
+* `RevealVertical`
+* `SlideUp`
+* `SlideIn`
+* `SlideDown` (default)
+* `SlideRight`
+* `SlideLeft`
+* `ZoomIn`
+* `ZoomOut`
 
->caption Explore the animation options
+>caption AnimationContainer animation options
 
 ````CSHTML
-@*Choose a new animation from the dropdown and toggle the container*@
+<label>
+    Animation Type:
+    <TelerikDropDownList Data="@AnimationTypes"
+                         Value="@SelectedAnimationType"
+                         ValueChanged="@( (AnimationType newValue) => OnDropDownValueChanged(newValue) )"
+                         Width="160px" />
+</label>
+<label>
+    Animation Duration:
+    <TelerikNumericTextBox @bind-Value="@SelectedAnimationDuration"
+                           Min="0"
+                           Max="7000"
+                           Width="100px" />
+</label>
 
-<div style="position:relative;">
+<TelerikButton OnClick="@ToggleAnimationContainer">Toggle Animation Container</TelerikButton>
 
-    <select @bind="AnimType">
-        @foreach (var possibleAnimation in Enum.GetValues(typeof(AnimationType)))
-        {
-            <option value="@possibleAnimation">@possibleAnimation</option>
-        }
-    </select>
-
-    <TelerikButton OnClick="@ShowContainer">Show Animation Container</TelerikButton>
-
-    <TelerikAnimationContainer @ref="myPopup" Top="40px" Width="200px" Height="200px" AnimationType="@AnimType" Class="my-popup">
-        My content goes here.<br />
-        <TelerikButton OnClick="@HideContainer">Hide Animation Container</TelerikButton>
-    </TelerikAnimationContainer>
-</div>
+<TelerikAnimationContainer @ref="@TAC"
+                           AnimationType="@SelectedAnimationType"
+                           AnimationDuration="@SelectedAnimationDuration"
+                           Width="300px"
+                           Top="100px"
+                           Left="200px">
+    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
+        Telerik Blazor Animation Container
+    </div>
+</TelerikAnimationContainer>
 
 @code {
-    TelerikAnimationContainer myPopup;
-    AnimationType AnimType { get; set; } = AnimationType.Fade;
+    private TelerikAnimationContainer TAC { get; set; }
 
-    async Task ShowContainer()
+    private List<AnimationType> AnimationTypes { get; set; }
+
+    private AnimationType SelectedAnimationType { get; set; } = AnimationType.SlideDown;
+
+    private int SelectedAnimationDuration { get; set; } = 300;
+
+    private async Task ToggleAnimationContainer()
     {
-        await myPopup.ShowAsync();
+        await TAC.ToggleAsync();
     }
 
-    async Task HideContainer()
+    private async Task OnDropDownValueChanged(AnimationType newAnimationType)
     {
-        await myPopup.HideAsync();
+        await TAC.HideAsync();
+
+        SelectedAnimationType = newAnimationType;
+
+        await TAC.ShowAsync();
+    }
+
+    protected override void OnInitialized()
+    {
+        AnimationTypes = new List<AnimationType>();
+
+        foreach (AnimationType animation in Enum.GetValues(typeof(AnimationType)))
+        {
+            AnimationTypes.Add(animation);
+        }
+
+        base.OnInitialized();
     }
 }
+````
 
-<style>
-    .my-popup {
-        border: 2px solid red;
-        background: #ccc;
+## AnimationContainer Parameters
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+|---|---|---|
+| `AnimationDuration` | `int` <br /> (`300`) | The length of the opening and closing animations. |
+| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The [animation type (fade, slide, push, zoom, etc.)](#animation).  |
+| `Class` | `string` | The custom CSS class to be rendered on the `<div>` element, which wraps the component `ChildContent`. This is *not* the outermost component container. See `ParentClass`. |
+| `Height` | `string` | The `height` CSS style of the `div.k-animation-container` element. |
+| `HideDelay` | `int` | The milliseconds between the closing animation and the Animation Container removal from the DOM. |
+| `Left` | `string` | The `left` CSS style of the `div.k-animation-container` element. |
+| `ParentClass` | `string` | The custom CSS class to be rendered on the `<div class="k-animation-container>` element. This is the outermost component element, which has the position and dimension styles. See `Class`. |
+| `ParentInlineStyle` | `string` | The custom inline CSS styles to be rendered on the `div.k-animation-container` element. |
+| `ShowDelay` | `int` | The time in millisends between the Animation Container rendering and the opening animation. |
+| `Top` | `string` | The `top` CSS style of the `div.k-animation-container` element. |
+| `Width` | `string` | The `width` CSS style of the `div.k-animation-container` element. |
+
+## AnimationContainer Reference and Methods
+
+The Animation Container provides methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute. The available methods are:
+
+* `ShowAsync()` - to display the component;
+* `HideAsync()` - to hide the component;
+* `ToggleAsync()` - if you want to use a single method for both operations.
+
+>tip To show an Animation Container immediately when the page loads, use the `OnAfterRenderAsync` event.
+
+>caption Use AnimationContainer reference and methods
+
+````CSHTML
+<TelerikAnimationContainer @ref="@TAC">
+    <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
+        Telerik Blazor Animation Container
+    </div>
+</TelerikAnimationContainer>
+
+@code {
+    private TelerikAnimationContainer TAC { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await TAC.ShowAsync();
+        }
     }
-</style>
+}
 ````
 
 ## See Also
 
-  * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAnimationContainer)
+* [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/index)
+* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAnimationContainer)
+* [Hide the AnimationContainer on outside click]({%slug animationcontainer-kb-close-on-outside-click%})

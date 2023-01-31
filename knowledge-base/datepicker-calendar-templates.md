@@ -11,18 +11,19 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>DatePicker for Blazor, <br />
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DatePicker for Blazor, <br />
                 DateInput for Blazor, <br />
                 Calendar for Blazor, <br />
                 AnimationContainer for Blazor, <br />
                 Button for Blazor
             </td>
-		</tr>
-	</tbody>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -38,7 +39,7 @@ At the time of writing (UI for Blazor version 2.29), the DatePicker does not exp
 * [Calendar]({%slug components/calendar/overview%})
 * [AnimationContainer]({%slug components/animationcontainer/overview%}).
 
-The only difference to a DatePicker is that the Calendar will not hide automatically when the user clicks outside the popup. The user will need to click on the icon button, or select a date. To improve the experience, you can add a "close" button inside the AnimationContainer.
+The only difference to a DatePicker is that the Calendar will not hide automatically when the user clicks outside the popup. The user will need to click on the icon button, or select a date. To improve the experience, you can add a "close" button inside the AnimationContainer or [close it with JavaScript]({%slug animationcontainer-kb-close-on-outside-click%}).
 
 The components are wrapped in a container with a `position:relative` style. This is needed to align the AnimationContainer popup position to the DateInput.
 
@@ -102,3 +103,7 @@ TelerikDateInput:
     }
 }
 ````
+
+## See Also
+
+* [Hide the AnimationContainer on outside click]({%slug animationcontainer-kb-close-on-outside-click%})
