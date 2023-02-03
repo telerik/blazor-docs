@@ -49,6 +49,10 @@ How to make the TreeView read-only?
 
 Normally, the event handlers should update the expanded, checked and selected items, as the [documentation examples]({%slug treeview-events%}) show. In this case, if the TreeView is "disabled", the event handlers will not update the TreeView parameter values. In this way, the TreeView state and nodes will remain the same.
 
+3. Disable [`pointer-events`](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events) with a CSS rule. This will prevent client-side collapse animations in the TreeView, which may be visible to users, even though the TreeView will ignore the collapse action.
+
+4. Optionally, apply `opacity` CSS style to make the TreeView **look** disabled.
+
 >caption Disable and enable TreeView to prevent user actions
 
 ````CSHTML
@@ -62,8 +66,18 @@ Normally, the event handlers should update the expanded, checked and selected it
                  SelectedItems="@TreeViewSelectedItems"
                  SelectedItemsChanged="@TreeViewSelectedItemsChanged"
                  CheckedItems="@TreeViewCheckedItems"
-                 CheckedItemsChanged="@TreeViewCheckedItemsChanged">
+                 CheckedItemsChanged="@TreeViewCheckedItemsChanged"
+                 Class="@TreeViewClass">
 </TelerikTreeView>
+
+<style>
+    .disabled-treeview {
+        pointer-events: none;
+
+        /* optional */
+        /*opacity: .8;*/
+    }
+</style>
 
 @code {
     private IEnumerable<TreeItem> FlatData { get; set; }
@@ -75,6 +89,8 @@ Normally, the event handlers should update the expanded, checked and selected it
     private IEnumerable<object> TreeViewSelectedItems { get; set; } = new List<TreeItem>();
 
     private bool EnableTreeView { get; set; }
+
+    private string TreeViewClass => EnableTreeView ? string.Empty : "disabled-treeview";
 
     private async Task TreeViewExpandedItemsChanged(IEnumerable<object> newExpandedItems)
     {
