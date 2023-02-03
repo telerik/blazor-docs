@@ -427,6 +427,10 @@ This means that it is often suitable to provide each series with its own collect
 
 ````
 
+## Chart Model with JsonProperty
+
+The Telerik Chart serializes its data for client-side rendering. The component will honor any server-side serialization settings. For example, `JsonProperty` settings in the Chart model will change the field names from what is in the Chart markup, as the `nameof()` operator does not use these settings. See this KB article about [using a Chart Model with `Newtonsoft.Json.JsonProperty`]({%slug chart-kb-newtonsoft-seialization-settings%}).
+
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
