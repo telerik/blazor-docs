@@ -103,6 +103,7 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 | `HeaderText` | `string` | The tile header as plain text. For rich text, use a nested `<HeaderTemplate>` tag. |
 | `Id` | `string` | Tile IDs are not rendered in the HTML markup. The component provides them in the [`OnReorder` and `OnResize` event arguments]({%slug tilelayout-events%}). |
 | `RowSpan` | `int` <br /> (`1`) | How many rows a tile will span over. |
+| `Visible` | `bool` <br /> (`true`) | Defines the tile visibility. |
 
 
 ## TileLayout Reference
