@@ -78,7 +78,7 @@ Here is one example:
 @* Note: If you use complex models, the GetChecked() method will be more complex and
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
     
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
+<TelerikMultiSelect @ref="MultiSelectRef" Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
 
     <HeaderTemplate>
         <label style="padding: 4px 8px;">
@@ -100,16 +100,18 @@ Here is one example:
 }
 
 @code{
+    TelerikMultiSelect<string, string> MultiSelectRef;
+
     void ToggleSelectAll(bool selectAll)
     {
+        TheValues.Clear();
+
         if (selectAll)
         {
-            TheValues = new List<string>(Roles);
+            TheValues.AddRange(Roles);
         }
-        else
-        {
-            TheValues = new List<string>();
-        }
+
+        MultiSelectRef.Rebind();
     }
 
     bool IsAllSelected()

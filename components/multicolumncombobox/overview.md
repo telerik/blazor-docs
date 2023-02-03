@@ -150,7 +150,7 @@ The popup of the component can be additionally customized via nested tags:
 ````
 <TelerikMultiColumnComboBox>
     <MultiColumnComboBoxSettings>
-        <MultiColumnComboBoxPopupSettings Height="..." />
+        <MultiColumnComboBoxPopupSettings Width="..." />
     </MultiColumnComboBoxSettings>
 </TelerikMultiColumnComboBox>
 ````
