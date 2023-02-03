@@ -51,7 +51,7 @@ Normally, the event handlers should update the expanded, checked and selected it
 
 3. Disable [`pointer-events`](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events) with a CSS rule. This will prevent client-side collapse animations in the TreeView, which may be visible to users, even though the TreeView will ignore the collapse action.
 
-4. Optionally, apply `opacity` CSS style to make the TreeView **look** disabled.
+4. Optionally, apply `opacity` CSS style to make the TreeView **look** disabled. If you need item-specific visual customizations, use the [`OnItemRender` event]({%slug treeview-events%}#onitemrender).
 
 >caption Disable and enable TreeView to prevent user actions
 
