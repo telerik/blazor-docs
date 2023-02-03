@@ -3,7 +3,7 @@ title: How to Disable TreeView
 description: How to disable the Telerik Blazor TreeView, and restrict the ability to expand, collapse, select and check items.
 type: how-to
 page_title: Disable TreeView Checkboxes and Prevent Item Expand, Collapse and Selection
-slug: treeview-kb-disabled-reaonly
+slug: treeview-kb-disabled-readonly
 position: 
 tags: 
 ticketid: 1593374
