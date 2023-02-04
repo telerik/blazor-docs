@@ -25,7 +25,7 @@ There are two main steps to use the Upload component:
 
 Afterwards, take care of [application security](#security) and check our tips for [large file uploads](#large-file-uploads) and [CORS](#cross-origin-requests).
 
-### Configure the component
+### Configure the Component
 
 1. Add the `TelerikUpload` tag.
 1. Set `SaveUrl` to the endpoint URL that will receive the uploaded files.
@@ -46,12 +46,12 @@ Steps 4 and 5 are optional, but strongly recommended.
                MaxFileSize="@MaxFileSize" />
 
 @code {
-    List<string> AllowedFileTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".gif" };
-    int MaxFileSize = 10 * 1024 * 1024; // 10 MB
+    private List<string> AllowedFileTypes { get; set; } = new List<string>() { ".jpg", ".jpeg", ".png", ".gif" };
+    private int MaxFileSize { get; set; } = 10 * 1024 * 1024; // 10 MB
 }
 ````
 
-### Implement controller methods
+### Implement Controller Methods
 
 * **Save** action method
     * Its argument should be `IFormFile` or `IEnumerable<IFormFile>`.
@@ -65,18 +65,25 @@ Steps 4 and 5 are optional, but strongly recommended.
 
 Both action methods should accept `POST` requests. Correct request routing depends on the application.
 
+The controller class below assumes that the project name and namespace is `TelerikBlazorUpload`, and the `UploadController.cs` file is in a `Controllers` folder. Adjust those if necessary.
+
+Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
+
+Also check the [Upload Troubleshooting]({%slug upload-troubleshooting%}) page.
+
 >caption Sample Upload Controller
 
 <div class="skip-repl"></div>
 
 ````CS
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MyBlazorApp.Controllers
+namespace TelerikBlazorUpload.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class UploadController : Controller
@@ -96,19 +103,20 @@ namespace MyBlazorApp.Controllers
                 try
                 {
                     // save to wwwroot - Blazor Server only
-                    var saveLocation = Path.Combine(HostingEnvironment.WebRootPath, files.FileName);
-                    // save to project root - Blazor Server or WebAssembly
-                    //var saveLocation = Path.Combine(HostingEnvironment.ContentRootPath, files.FileName);
+                    var rootPath = HostingEnvironment.WebRootPath;
+                    // save to Server project root - Blazor Server or WebAssembly
+                    //var rootPath = HostingEnvironment.ContentRootPath;
+                    var saveLocation = Path.Combine(rootPath, files.FileName);
 
                     using (var fileStream = new FileStream(saveLocation, FileMode.Create))
                     {
                         await files.CopyToAsync(fileStream);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     Response.StatusCode = 500;
-                    await Response.WriteAsync("Upload failed.");
+                    await Response.WriteAsync($"Upload failed.");
                 }
             }
 
@@ -116,26 +124,27 @@ namespace MyBlazorApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Remove(string files) // must match RemoveField
+        public async Task<IActionResult> Remove(string files) // must match RemoveField
         {
             if (files != null)
             {
                 try
                 {
                     // delete from wwwroot - Blazor Server only
-                    var fileLocation = Path.Combine(HostingEnvironment.WebRootPath, files);
-                    // delete from project root - Blazor Server or WebAssembly
-                    //var fileLocation = Path.Combine(HostingEnvironment.ContentRootPath, files);
+                    var rootPath = HostingEnvironment.WebRootPath;
+                    // delete from Server project root - Blazor Server or WebAssembly
+                    //var rootPath = HostingEnvironment.ContentRootPath;
+                    var fileLocation = Path.Combine(rootPath, files);
 
                     if (System.IO.File.Exists(fileLocation))
                     {
                         System.IO.File.Delete(fileLocation);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     Response.StatusCode = 500;
-                    Response.WriteAsync("File deletion failed.");
+                    await Response.WriteAsync($"Delete failed.");
                 }
             }
 
@@ -147,7 +156,7 @@ namespace MyBlazorApp.Controllers
 
 ### Security
 
-The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({% slug upload-events %}) to add headers, authentication tokens and custom data to the request.
+The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add headers, authentication tokens and custom data to the request.
 
 Authentication and authorization depends on the application.
 
@@ -155,7 +164,7 @@ Authentication and authorization depends on the application.
 
 ### Cross-Origin Requests
 
-[Cross-origin (CORS) requests](https://www.w3.org/TR/cors/) depend on the application and endpoint setup. The Upload `WithCredentials` parameter sets the corresponding [parameter of the XHR request](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). Cookies, headers and other parameters of the Blazor app and CORS endpoint should be implemented by the respective applications (for example, set the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). Read more in this [CORS Tutorial](https://www.html5rocks.com/en/tutorials/cors/). Also check [this forum thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA), which shows one way to setup the CORS requests, headers and responses on the receiving server.
+[Cross-origin (CORS) requests](https://www.w3.org/TR/cors/) depend on the application and endpoint setup. The Upload [`WithCredentials` parameter](#upload-parameters) sets the corresponding [parameter of the XHR request](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). Cookies, headers and other parameters of the Blazor app and CORS endpoint should be implemented by the respective applications (for example, set the `Access-Control-Allow-Origin` header with an appropriate value and the `Access-Control-Allow-Credentials` header with a `true` value). Read more in this [CORS Tutorial](https://www.html5rocks.com/en/tutorials/cors/). Also check [this forum thread](https://www.telerik.com/forums/upload-component-reports-'file-failed-to-upload'#-6QPJn3obkm3D1kR1ysukA), which shows one way to setup the CORS requests, headers and responses on the receiving server.
 
 
 ## Validation
@@ -220,19 +229,19 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
                AutoUpload="false" />
 
 @code {
-    TelerikUpload UploadRef { get; set; }
+    private TelerikUpload UploadRef { get; set; }
 
-    async Task SelectFiles()
+    private async Task SelectFiles()
     {
         await UploadRef.OpenFileSelectAsync();
     }
 
-    void Clear()
+    private void Clear()
     {
         UploadRef.ClearFiles();
     }
 
-    void Upload()
+    private void Upload()
     {
         UploadRef.UploadFiles();
     }
