@@ -78,7 +78,7 @@ If you cancel the event, the upload process will continue. For example, this can
 ````CS
 private async Task OnUploadCancel(UploadCancelEventArgs args)
 {
-    var file = args.Files.FirstOrDefault();
+    var file = args.Files.First();
 
     if (file.Size < 2 * 1024 * 1024 && file.Progress > 50)
     {
@@ -136,6 +136,7 @@ private async Task OnUploadError(UploadErrorEventArgs args)
     UploadOperationType operation = args.Operation;
     int statusCode = args.Request.Status;
     string statusMessage = args.Request.StatusText;
+    string customMessage = args.Request.ResponseText;
 }
 ````
 
@@ -150,19 +151,22 @@ See the [full example](#example) below.
 public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
 {
     // ...
-    // The exact implementation depends on the business requirements.
+    // The exact implementation can vary.
 
-    Response.StatusCode = 400; // Set status code 400 for some generic error for the request
-    await Response.WriteAsync("error message here"); // optional
-
-    // OR
-
-    // Unhandled exceptions have status code 500.
+    // unhandled exceptions have status code 500
     throw new Exception("error message here");
 
     // OR
 
-    // This is another way to return a custom message.
+    // custom status code and error messsage
+    Response.StatusCode = 400;
+    await Response.WriteAsync("error message here");
+    return new EmptyResult();
+
+    // OR
+
+    // custom status code and error messsage
+    Response.StatusCode = 400;
     return Content("error message here");
 }
 ````
@@ -183,7 +187,7 @@ The `UploadProgressEventArgs` event argument contains the properties [`Files` an
 ````CS
 private async Task OnUploadProgress(UploadProgressEventArgs args)
 {
-    string fileName = args.Files.FirstOrDefault().Name;
+    string fileName = args.Files.First().Name;
     int percentComplete = args.Progress;
 }
 ````
@@ -211,7 +215,7 @@ If you cancel the event, the Upload component will not send the file deletion re
 ````CS
 private async Task OnUploadRemove(UploadEventArgs args)
 {
-    var file = args.Files.FirstOrDefault();
+    var file = args.Files.First();
 
     if (file.Extension == ".pdf")
     {
@@ -252,7 +256,7 @@ The file rename process requires two separate steps:
 1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. Note that **the controller will always receive the original file name from the file system**, due to browser security restrictions.
 1. Send the new file name as [additional request data in the `OnUpload` event](#onupload). Use the `Save` action in the remote endpoint to set the file name, as it will be saved on the server.
 
->caption Rename uploaded files
+>caption Using the Upload OnSelect event to rename uploaded files
 
 <div class="skip-repl"></div>
 
@@ -261,6 +265,9 @@ async Task OnUploadSelect(UploadSelectEventArgs args)
 {
     foreach (var file in args.Files)
     {
+        string fileName = file.Name;
+        long fileSize = file.Size;
+
         // Change the file name that is displayed in the TelerikUpload component.
         // Delays here will result in rendering and upload delays.
         // The file name in the upload request will remain the original one.
@@ -302,10 +309,11 @@ For example, the server can return a URL string for an image thumbnail.
 ````CS
 private async Task OnUploadSuccess(UploadSuccessEventArgs args)
 {
-    string fileName = args.Files.FirstOrDefault().Name;
+    string fileName = args.Files.First().Name;
     UploadOperationType operation = args.Operation;
     int statusCode = args.Request.Status;
-    string successMessage = args.Request.ResponseText;
+    string statusMessage = args.Request.StatusText;
+    string customMessage = args.Request.ResponseText;
 }
 ````
 
@@ -318,10 +326,15 @@ private async Task OnUploadSuccess(UploadSuccessEventArgs args)
 public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
 {
     // ...
-    // The exact implementation depends on the business requirements.
+    // The exact implementation can vary.
 
     // default status code 200, no custom success message
     return new OkResult();
+
+    // OR
+
+    // default statuc code 200 and custom success message
+    return new OkObjectResult("success message here");
 
     // OR
 
@@ -329,11 +342,6 @@ public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
     Response.StatusCode = 201;
     await Response.WriteAsync("success message here");
     return new EmptyResult();
-
-    // OR
-
-    // default statuc code 200 and custom success message
-    return new OkObjectResult("success message here");
 
     // OR
 
@@ -395,23 +403,38 @@ See the full example below.
 
 ## Example
 
-@[template](/_contentTemplates/upload/notes.md#see-controller-sample-in-overview)
+The controller class below assumes that the project name and namespace is `TelerikBlazorUpload`, and the `UploadController.cs` file is in a `Controllers` folder. Adjust those if necessary.
+
+Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
+
+Also see:
+
+* Section [Implement Controller Methods]({%slug upload-overview%}#implement-controller-methods)
+* Page [Upload Troubleshooting]({%slug upload-troubleshooting%})
 
 >caption Using the Upload events
 
 <div class="skip-repl"></div>
 
 ````Razor
-<label>
-    <TelerikCheckBox @bind-Value="@ShouldCancelUpload" />
-    Cancel Uploading
-</label>
+@inject NavigationManager NavigationManager
 
-<TelerikUpload SaveUrl="api/upload/save"
-               RemoveUrl="api/upload/remove"
+<label>
+    <TelerikCheckBox @bind-Value="@AllowRequests" />
+    Allow Upload and Remove Requests
+</label> (otherwise cancel events)
+
+<TelerikRadioGroup Data="@RadioGroupData"
+                   @bind-Value="@ReturnSuccess"
+                   TextField="@nameof(RadioGroupModel.Text)"
+                   ValueField="@nameof(RadioGroupModel.Value)"
+                   Layout="@RadioGroupLayout.Horizontal" />
+
+<TelerikUpload SaveUrl="@UploadSaveUrl"
+               RemoveUrl="@UploadRemoveUrl"
                MaxFileSize="@( 16 * 1024 * 1024 )"
                MinFileSize="@( 1 * 1024 )"
-               AutoUpload="false"
+               AutoUpload="true"
                OnCancel="@OnUploadCancel"
                OnClear="@OnUploadClear"
                OnError="@OnUploadError"
@@ -423,15 +446,22 @@ See the full example below.
 </TelerikUpload>
 
 @code {
-    private bool ShouldCancelUpload { get; set; }
+    private bool AllowRequests { get; set; } = true;
 
-    private async Task OnUploadCancel(UploadCancelEventArgs args)
+    private bool ReturnSuccess { get; set; } = true;
+
+    private string UploadSaveUrl => ToAbsoluteUrl("api/upload/save");
+
+    private string UploadRemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    private void OnUploadCancel(UploadCancelEventArgs args)
     {
-        var file = args.Files.FirstOrDefault();
+        var file = args.Files.First();
 
         if (file.Size < 2 * 1024 * 1024 && file.Progress > 50)
         {
             args.IsCancelled = true;
+            Console.WriteLine($"OnCancel event cancelled.");
         }
         else
         {
@@ -439,53 +469,57 @@ See the full example below.
         }
     }
 
-    private async Task OnUploadClear(UploadClearEventArgs args)
+    private void OnUploadClear(UploadClearEventArgs args)
     {
         if (args.Files.Count > 3)
         {
             args.IsCancelled = true;
-            Console.WriteLine("OnClear event cancelled conditionally.");
+            Console.WriteLine("OnClear event cancelled.");
         }
         else
         {
-            Console.WriteLine("OnClear event fired.");
+            Console.WriteLine("OnClear event fired for:");
+
+            foreach (var file in args.Files)
+            {
+                Console.WriteLine($"  Name: {file.Name}, Size: {file.Size} bytes");
+            }
         }
     }
 
-    private async Task OnUploadError(UploadErrorEventArgs args)
+    private void OnUploadError(UploadErrorEventArgs args)
     {
         Console.WriteLine($"OnError event for:");
-        Console.WriteLine($"  File: {args.Files.FirstOrDefault().Name}");
+        Console.WriteLine($"  File: {args.Files.First().Name}");
         Console.WriteLine($"  Operation: {args.Operation}");
         Console.WriteLine($"  Response Status Code: {args.Request.Status}");
-        Console.WriteLine($"  Response Message: {args.Request.StatusText}");
+        Console.WriteLine($"  Response Status Message: {args.Request.StatusText}");
+        Console.WriteLine($"  Response Type: {args.Request.ResponseType}");
+        Console.WriteLine($"  Response Text: {args.Request.ResponseText}");
     }
 
-    private async Task OnUploadProgress(UploadProgressEventArgs args)
+    private void OnUploadProgress(UploadProgressEventArgs args)
     {
-        Console.WriteLine($"OnProgress event for {args.Files.FirstOrDefault().Name}");
-        Console.WriteLine($"  File: {args.Files.FirstOrDefault().Name}");
+        Console.WriteLine($"OnProgress event for:");
+        Console.WriteLine($"  File: {args.Files.First().Name}");
         Console.WriteLine($"  Progress: {args.Progress}");
     }
 
     private async Task OnUploadRemove(UploadEventArgs args)
     {
-        var file = args.Files.FirstOrDefault();
+        var file = args.Files.First();
 
-        if (file.Extension == ".pdf")
+        if (!AllowRequests)
         {
             args.IsCancelled = true;
+            Console.WriteLine($"OnRemove event cancelled for {file.Name}");
         }
         else
         {
             Console.WriteLine($"OnRemove event for {file.Name}");
 
-            args.RequestData.Add("dataKey", "dataValue");
-            args.RequestHeaders.Add("headerKey", "headerValue");
-
-            // Get these in the controller:
-            //string headerValue = Request.Headers["headerKey"];
-            //string formData = Request.Form["dataKey"];
+            args.RequestData.Add("successData", ReturnSuccess);
+            args.RequestHeaders.Add("successHeader", ReturnSuccess);
         }
     }
 
@@ -495,48 +529,185 @@ See the full example below.
 
         foreach (var file in args.Files)
         {
-            Console.WriteLine($"  Name: {file.Name}, Size: {file.Size}");
+            Console.WriteLine($"  File: {file.Name}, Size: {file.Size} bytes");
         }
 
         if (args.Files.Count > 5)
         {
             args.IsCancelled = true;
-            Console.WriteLine("OnSelect event cancelled conditionally.");
+            Console.WriteLine("OnSelect event cancelled.");
         }
     }
 
-    private async Task OnUploadSuccess(UploadSuccessEventArgs args)
+    private void OnUploadSuccess(UploadSuccessEventArgs args)
     {
         Console.WriteLine($"OnSuccess event for:");
-        Console.WriteLine($"  File: {args.Files.FirstOrDefault().Name}");
+        Console.WriteLine($"  File: {args.Files.First().Name}");
         Console.WriteLine($"  Operation: {args.Operation}");
         Console.WriteLine($"  Response Status Code: {args.Request.Status}");
+        Console.WriteLine($"  Response Status Message: {args.Request.StatusText}");
+        Console.WriteLine($"  Response Type: {args.Request.ResponseType}");
+        Console.WriteLine($"  Response Text: {args.Request.ResponseText}");
     }
 
     private async Task OnUploadUpload(UploadEventArgs args)
     {
-        if (ShouldCancelUpload)
+        if (!args.Files.Any())
+        {
+            // Possible bug:
+            // If no valid files are selected,
+            // the OnUpload event can still be triggered with AutoUpload or Enter keypress.
+            return;
+        }
+
+        var file = args.Files.First();
+
+        if (!AllowRequests)
         {
             args.IsCancelled = true;
-            Console.WriteLine("OnUpload event cancelled conditionally.");
+            Console.WriteLine($"OnUpload event cancelled for {file.Name}");
         }
-        else if (args.Files.Any())
+        else
         {
-            Console.WriteLine($"OnUpload event for {args.Files.FirstOrDefault().Name}.");
+            Console.WriteLine($"OnUpload event for {file.Name}");
 
-            args.RequestData.Add("dataKey", "dataValue");
-            args.RequestHeaders.Add("headerKey", "headerValue");
+            args.RequestData.Add("successData", ReturnSuccess);
+            args.RequestHeaders.Add("successHeader", ReturnSuccess);
+        }
+    }
 
-            // Get the custom data and header values in the controller:
-            //string headerValue = Request.Headers["headerKey"];
-            //string formData = Request.Form["dataKey"];
+    private string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+
+    private List<RadioGroupModel> RadioGroupData { get; set; } = new List<RadioGroupModel>()
+    {
+        new RadioGroupModel() { Value = true, Text = "Expect Request Success" },
+        new RadioGroupModel() { Value = false, Text = "Expect Request Failure" }
+    };
+
+    public class RadioGroupModel
+    {
+        public bool Value { get; set; }
+        public string Text { get; set; } = string.Empty;
+    }
+}
+````
+
+````UploadController.cs
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace TelerikBlazorUpload.Controllers
+{
+    [Route("api/[controller]/[action]")]
+    public class UploadController : Controller
+    {
+        public IWebHostEnvironment HostingEnvironment { get; set; }
+
+        public UploadController(IWebHostEnvironment hostingEnvironment)
+        {
+            HostingEnvironment = hostingEnvironment;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(IFormFile files) // must match SaveField
+        {
+            bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
+                && Convert.ToBoolean(Request.Headers["successHeader"]);
+
+            if (!shouldSucceed)
+            {
+                Response.StatusCode = 403;
+                await Response.WriteAsync("Upload refused.");
+            }
+            else if (files != null)
+            {
+                try
+                {
+                    var rootPath = HostingEnvironment.WebRootPath; // save to wwwroot - Blazor Server only
+                    //var rootPath = HostingEnvironment.ContentRootPath; // save to Server project root - Blazor Server or WebAssembly
+                    var saveLocation = Path.Combine(rootPath, files.FileName);
+
+                    using (var fileStream = new FileStream(saveLocation, FileMode.Create))
+                    {
+                        await files.CopyToAsync(fileStream);
+
+                        Response.StatusCode = 201;
+                        await Response.WriteAsync("Upload successful.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.StatusCode = 500;
+                    await Response.WriteAsync($"Upload failed. Exception: {ex.Message}");
+                }
+            }
+
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Remove(string files) // must match RemoveField
+        {
+            bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
+                && Convert.ToBoolean(Request.Headers["successHeader"]);
+
+            if (!shouldSucceed)
+            {
+                Response.StatusCode = 403;
+                await Response.WriteAsync("Delete refused.");
+            }
+            else if (files != null)
+            {
+                try
+                {
+                    var rootPath = HostingEnvironment.WebRootPath; // delete from wwwroot - Blazor Server only
+                    //var rootPath = HostingEnvironment.ContentRootPath; // delete from Server project root - Blazor Server or WebAssembly
+                    var fileLocation = Path.Combine(rootPath, files);
+
+                    if (System.IO.File.Exists(fileLocation))
+                    {
+                        System.IO.File.Delete(fileLocation);
+
+                        Response.StatusCode = 204;
+                        await Response.WriteAsync($"Delete successful.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.StatusCode = 500;
+                    await Response.WriteAsync($"Delete failed. Exception: {ex.Message}");
+                }
+            }
+
+            return new EmptyResult();
         }
     }
 }
 ````
 
-````Controller
-foo
+````Program.cs
+// ...
+
+var builder = WebApplication.CreateBuilder(args);
+
+// ...
+
+var app = builder.Build();
+
+// ...
+
+app.MapDefaultControllerRoute();
+
+// ...
+
+app.Run();
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
