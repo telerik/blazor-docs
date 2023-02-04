@@ -19,7 +19,7 @@ The Upload component requires integration with remote endpoints and controller m
     * The argument type of the `RemoveUrl` action method should be `string` or `IEnumerable<string>`.
     * The uploaded file size may be over the web server's maximum.
 * **The server returns `HTTP 400 Bad request`.**
-    * Make sure that [controller routing is enabled and configured correctly](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing).
+    * Make sure that [controller routing is enabled and configured correctly](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing). For example, the controller samples in this documentation use `[Route("api/[controller]/[action]")]`. It is enough to add `app.MapDefaultControllerRoute();` to `Program.cs` in the default Blazor project template.
     * Make sure that the `[Route]` attribute in the upload controller (if set) is compatible with `SaveUrl` and `RemoveUrl`.
     * Verify that the controller and action method names match the `SaveUrl` and `RemoveUrl` values.
 * **The server does not return any response. The browser console shows connection errors:**
