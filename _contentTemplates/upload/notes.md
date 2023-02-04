@@ -11,13 +11,8 @@ The controller methods in this documentation do not implement security measures 
 #end
 
 
-#events-files-carry-client-validation-info
-The individual files also carry information about their [client-side validation]({%slug upload-validation%}) that you can use in the event.
-#end
-
-
 #see-controller-sample-in-overview
-This example does not include a controller to consume the files. See [Implement controller methods]({%slug upload-overview%}#implement-controller-methods).
+This example does not include a controller to receive the uploaded files. See [Implement controller methods]({%slug upload-overview%}#implement-controller-methods).
 #end
 
 

@@ -191,7 +191,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `RemoveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file name submitted for deletion to the [`RemoveUrl` endpoint](#implement-controller-methods). The `RemoveField` value must match the delete controller method's argument name. The user triggers remove requests when clicking on the [x] buttons in the uploaded file list. |
 | `RemoveUrl` | `string` | The URL which receives the file names for deletion. |
 | `SaveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file submitted to the [`SaveUrl` endpoint](#implement-controller-methods). The `SaveField` value must match the save controller method's argument name. |
-| `SaveUrl` | `string` | The URL which receives the uploaded files. |
+| `SaveUrl` | `string` | The URL which receives the uploaded files. `SaveUrl` and `RemoveUrl` **cannot change** between file selection and file upload, because the component will be recreated and the selected files will be lost. |
 | `WithCredentials` | `bool` | Controls if the Upload will send credentials such as cookies or HTTP headers for [**cross-site** requests](#cross-origin-requests). See [XMLHttpRequest.withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). On the other hand, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add authentication tokens and other metadata to the component requests. |
 
 
