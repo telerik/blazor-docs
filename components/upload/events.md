@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Upload - Events
-description: Events in the File Upload for Blazor.
+description: Events and event handler examples for the File Upload for Blazor.
 slug: upload-events
 tags: telerik,blazor,upload,async,events
 published: true
@@ -60,7 +60,7 @@ The `UploadFileInfo` object has the following properties:
 | `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The file can be renamed in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers, but **[the change applies only to the client-side UI](#renaming-a-file)**. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Size` | `long` | The file size in bytes. |
-| `Status` | [`UploadFileStatus` enum](/blazor-ui/api/Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component. |
+| `Status` | [`UploadFileStatus` enum](/blazor-ui/api/Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
 
 
 ## OnCancel
@@ -132,7 +132,7 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
 ````CS
 private async Task OnUploadError(UploadErrorEventArgs args)
 {
-    string fileName = args.Files.FirstOrDefault().Name;
+    string fileName = args.Files.First().Name;
     UploadOperationType operation = args.Operation;
     int statusCode = args.Request.Status;
     string statusMessage = args.Request.StatusText;
@@ -148,10 +148,10 @@ See the [full example](#example) below.
 
 ````CS
 [HttpPost]
-public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
+public async Task<IActionResult> Save(IFormFile files)
 {
     // ...
-    // The exact implementation can vary.
+    // Different ways to return a response
 
     // unhandled exceptions have status code 500
     throw new Exception("error message here");
@@ -261,7 +261,7 @@ The file rename process requires two separate steps:
 <div class="skip-repl"></div>
 
 ````CS
-async Task OnUploadSelect(UploadSelectEventArgs args)
+private async Task OnUploadSelect(UploadSelectEventArgs args)
 {
     foreach (var file in args.Files)
     {
@@ -275,9 +275,9 @@ async Task OnUploadSelect(UploadSelectEventArgs args)
     }
 }
 
-async Task<string> GetNewFileNameFromServer(string fileName, string userName)
+private async Task<string> GetNewFileNameFromServer(string fileName, string userName)
 {
-    await Task.Delay(500); // simulate network delay
+    await Task.Delay(100); // simulate network delay
 
     // In a real case this can be a controller action method.
     // Use the same naming logic when actually saving the file on the server.
@@ -326,7 +326,7 @@ private async Task OnUploadSuccess(UploadSuccessEventArgs args)
 public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
 {
     // ...
-    // The exact implementation can vary.
+    // Different ways to return a response
 
     // default status code 200, no custom success message
     return new OkResult();
@@ -382,7 +382,7 @@ To send **cookies** with the upload request, set the [`WithCredentials` componen
 <div class="skip-repl"></div>
 
 ````CS
-async Task OnUploadHandler(UploadEventArgs args)
+private async Task OnUploadHandler(UploadEventArgs args)
 {
     if (args.Files.Count > 3)
     {
@@ -554,9 +554,6 @@ Also see:
     {
         if (!args.Files.Any())
         {
-            // Possible bug:
-            // If no valid files are selected,
-            // the OnUpload event can still be triggered with AutoUpload or Enter keypress.
             return;
         }
 
