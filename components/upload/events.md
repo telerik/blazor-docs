@@ -57,7 +57,7 @@ The `UploadFileInfo` object has the following properties:
 | `InvalidExtension` | `bool` | Defines if the file violates the [`AllowedExtensions` value]({%slug upload-overview%}#upload-parameters). |
 | `InvalidMaxFileSize` | `bool` | Defines if the file violates the [`MaxFileSize` value]({%slug upload-overview%}#upload-parameters). |
 | `InvalidMinFileSize` | `bool` | Defines if the file violates the [`MinFileSize` value]({%slug upload-overview%}#upload-parameters). |
-| `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The file can be renamed in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers, but **[the change applies only to the client-side UI](#renaming-a-file)**. |
+| `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The [file can be renamed](#renaming-a-file) in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Size` | `long` | The file size in bytes. |
 | `Status` | [`UploadFileStatus` enum](/blazor-ui/api/Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
@@ -254,7 +254,7 @@ In some cases, you may want to rename a selected file when uploading it, for exa
 The file rename process requires two separate steps:
 
 1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. Note that **the controller will always receive the original file name from the file system**, due to browser security restrictions.
-1. Send the new file name as [additional request data in the `OnUpload` event](#onupload). Use the `Save` action in the remote endpoint to set the file name, as it will be saved on the server.
+1. Send the new file name as [additional request data](#send-custom-data-with-the-file) in the [`OnUpload` event](#onupload). Use the `Save` action in the remote endpoint to set the file name, as it will be saved on the server.
 
 >caption Using the Upload OnSelect event to rename uploaded files
 
