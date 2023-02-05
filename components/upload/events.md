@@ -27,6 +27,8 @@ First, get familiar with the [**Event Arguments**](#event-arguments) section, as
 
 >warning Make sure to also check section [Upload Security]({%slug upload-overview%}#security).
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
 
 ## Event Arguments
 
@@ -75,14 +77,18 @@ If you cancel the event, the upload process will continue. For example, this can
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadCancel(UploadCancelEventArgs args)
-{
-    var file = args.Files.First();
+````CSHTML
+<TelerikUpload OnCancel="@OnUploadCancel" />
 
-    if (file.Size < 2 * 1024 * 1024 && file.Progress > 50)
+@code {
+    private void OnUploadCancel(UploadCancelEventArgs args)
     {
-        args.IsCancelled = true;
+        var file = args.Files.First();
+
+        if (file.Size < 2 * 1024 * 1024 && file.Progress > 50)
+        {
+            args.IsCancelled = true;
+        }
     }
 }
 ````
@@ -102,12 +108,16 @@ If you cancel the event, the current file list will remain visible.
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadClear(UploadClearEventArgs args)
-{
-    if (args.Files.Count > 3)
+````CSHTML
+<TelerikUpload OnClear="@OnUploadClear" />
+
+@code {
+    private void OnUploadClear(UploadClearEventArgs args)
     {
-        args.IsCancelled = true;
+        if (args.Files.Count > 3)
+        {
+            args.IsCancelled = true;
+        }
     }
 }
 ````
@@ -125,28 +135,26 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
 * `Operation`
 * `Request`
 
->caption Using the Upload OnError event
+>caption Using the OnError event with message from the controller
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadError(UploadErrorEventArgs args)
-{
-    string fileName = args.Files.First().Name;
-    UploadOperationType operation = args.Operation;
-    int statusCode = args.Request.Status;
-    string statusMessage = args.Request.StatusText;
-    string customMessage = args.Request.ResponseText;
+````Razor
+<TelerikUpload OnError="@OnUploadError" />
+
+@code {
+    private void OnUploadError(UploadErrorEventArgs args)
+    {
+        string fileName = args.Files.First().Name;
+        UploadOperationType operation = args.Operation;
+        int statusCode = args.Request.Status;
+        string statusMessage = args.Request.StatusText;
+        string customMessage = args.Request.ResponseText;
+    }
 }
 ````
 
-See the [full example](#example) below.
-
->caption Returning status code and error message from the controller for the OnError handler
-
-<div class="skip-repl"></div>
-
-````CS
+````Controller
 [HttpPost]
 public async Task<IActionResult> Save(IFormFile files)
 {
@@ -154,22 +162,24 @@ public async Task<IActionResult> Save(IFormFile files)
     // Different ways to return a response
 
     // unhandled exceptions have status code 500
-    throw new Exception("error message here");
+    throw new Exception("Custom error message.");
 
     // OR
 
     // custom status code and error messsage
     Response.StatusCode = 400;
-    await Response.WriteAsync("error message here");
+    await Response.WriteAsync("Custom error message.");
     return new EmptyResult();
 
     // OR
 
     // custom status code and error messsage
     Response.StatusCode = 400;
-    return Content("error message here");
+    return Content("Custom error message.");
 }
 ````
+
+See the [full example](#example) below.
 
 
 ## OnProgress
@@ -184,11 +194,15 @@ The `UploadProgressEventArgs` event argument contains the properties [`Files` an
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadProgress(UploadProgressEventArgs args)
-{
-    string fileName = args.Files.First().Name;
-    int percentComplete = args.Progress;
+````CSHTML
+<TelerikUpload OnProgress="@OnUploadProgress" />
+
+@code {
+    private void OnUploadProgress(UploadProgressEventArgs args)
+    {
+        string fileName = args.Files.First().Name;
+        int percentComplete = args.Progress;
+    }
 }
 ````
 
@@ -208,28 +222,41 @@ The [`UploadEventArgs` event argument](#event-arguments) contains the following 
 
 If you cancel the event, the Upload component will not send the file deletion request.
 
->caption Using the Upload OnRemove event
+>caption Using the OnRemove event to send custom data to the controller
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadRemove(UploadEventArgs args)
+````Razor
+<TelerikUpload OnRemove="@OnUploadRemove" />
+
+@code {
+    private async Task OnUploadRemove(UploadEventArgs args)
+    {
+        var file = args.Files.First();
+
+        if (file.Extension == ".pdf")
+        {
+            args.IsCancelled = true;
+        }
+        else
+        {
+            args.RequestData.Add("dataKey", "dataValue");
+            args.RequestHeaders.Add("headerKey", "headerValue");
+        }
+    }
+}
+````
+````Controller
+[HttpPost]
+public async Task<IActionResult> Remove(string files)
 {
-    var file = args.Files.First();
+    // ...
 
-    if (file.Extension == ".pdf")
-    {
-        args.IsCancelled = true;
-    }
-    else
-    {
-        args.RequestData.Add("dataKey", "dataValue");
-        args.RequestHeaders.Add("headerKey", "headerValue");
+    // Get the custom data and header values
+    string formData = Request.Form["dataKey"];
+    string headerValue = Request.Headers["headerKey"];
 
-        // Get the custom data and header values in the controller:
-        //string headerValue = Request.Headers["headerKey"];
-        //string formData = Request.Form["dataKey"];
-    }
+    // ...
 }
 ````
 
@@ -253,37 +280,41 @@ In some cases, you may want to rename a selected file when uploading it, for exa
 
 The file rename process requires two separate steps:
 
-1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. Note that **the controller will always receive the original file name from the file system**, due to browser security restrictions.
+1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. **The controller will always receive `IFormFile` with the original name from the file system**, due to browser security restrictions.
 1. Send the new file name as [additional request data](#send-custom-data-with-the-file) in the [`OnUpload` event](#onupload). Use the `Save` action in the remote endpoint to set the file name, as it will be saved on the server.
 
->caption Using the Upload OnSelect event to rename uploaded files
+>caption Using the Upload OnSelect event to rename files in the UI
 
 <div class="skip-repl"></div>
 
 ````CS
-private async Task OnUploadSelect(UploadSelectEventArgs args)
-{
-    foreach (var file in args.Files)
+<TelerikUpload OnSelect="@OnUploadSelect" />
+
+@code {
+    private async Task OnUploadSelect(UploadSelectEventArgs args)
     {
-        string fileName = file.Name;
-        long fileSize = file.Size;
+        foreach (var file in args.Files)
+        {
+            string fileName = file.Name;
+            long fileSize = file.Size;
 
-        // Change the file name that is displayed in the TelerikUpload component.
-        // Delays here will result in rendering and upload delays.
-        // The file name in the upload request will remain the original one.
-        file.Name = await GetNewFileNameFromServer(file.Name, "currentUserName");
+            // Change the file name that is displayed in the TelerikUpload component.
+            // Delays here will result in rendering and upload delays.
+            // The IFormFile file name in the upload request will remain the original one.
+            file.Name = await GetNewFileNameFromServer(file.Name, "currentUserName");
+        }
     }
-}
 
-private async Task<string> GetNewFileNameFromServer(string fileName, string userName)
-{
-    await Task.Delay(100); // simulate network delay
+    private async Task<string> GetNewFileNameFromServer(string fileName, string userName)
+    {
+        await Task.Delay(100); // simulate network delay
 
-    // In a real case this can be a controller action method.
-    // Use the same naming logic when actually saving the file on the server.
-    string newFileName = $"{userName}-{fileName}";
+        // In a real case this can be a controller action method.
+        // Use the same naming logic when actually saving the file on the server.
+        string newFileName = $"{userName}-{fileName}";
 
-    return await Task.FromResult(newFileName);
+        return await Task.FromResult(newFileName);
+    }
 }
 ````
 
@@ -302,28 +333,27 @@ The [`UploadSuccessEventArgs` event argument](#event-arguments) contains the fol
 
 For example, the server can return a URL string for an image thumbnail.
 
->caption Using the Upload OnSuccess event
+>caption Using the OnSuccess event with message from the controller
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadSuccess(UploadSuccessEventArgs args)
-{
-    string fileName = args.Files.First().Name;
-    UploadOperationType operation = args.Operation;
-    int statusCode = args.Request.Status;
-    string statusMessage = args.Request.StatusText;
-    string customMessage = args.Request.ResponseText;
+````Razor
+<TelerikUpload OnSuccess="@OnUploadSuccess" />
+
+@code {
+    private async Task OnUploadSuccess(UploadSuccessEventArgs args)
+    {
+        string fileName = args.Files.First().Name;
+        UploadOperationType operation = args.Operation;
+        int statusCode = args.Request.Status;
+        string statusMessage = args.Request.StatusText;
+        string customMessage = args.Request.ResponseText;
+    }
 }
 ````
-
->caption Returning status code and success message from the controller for the OnSuccess handler
-
-<div class="skip-repl"></div>
-
-````CS
+````Controller
 [HttpPost]
-public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
+public async Task<IActionResult> Save(IFormFile files)
 {
     // ...
     // Different ways to return a response
@@ -334,20 +364,20 @@ public async Task<IActionResult> Save(IEnumerable<IFormFile> files)
     // OR
 
     // default statuc code 200 and custom success message
-    return new OkObjectResult("success message here");
+    return new OkObjectResult("Custom success message.");
 
     // OR
 
     // custom status code and success messsage
     Response.StatusCode = 201;
-    await Response.WriteAsync("success message here");
+    await Response.WriteAsync("Custom success message.");
     return new EmptyResult();
 
     // OR
 
     // custom status code and success messsage
     Response.StatusCode = 201;
-    return Content("success message here");
+    return Content("Custom success message.");
 }
 ````
 
@@ -377,33 +407,44 @@ Use the `OnUpload` and [`OnRemove`](#onremove) event handlers to send additional
 
 To send **cookies** with the upload request, set the [`WithCredentials` component parameter]({%slug upload-overview%}#upload-parameters) to `true`.
 
->caption Using the Upload OnUpload event
+>caption Using the OnUpload event to send custom data to the controller
 
 <div class="skip-repl"></div>
 
-````CS
-private async Task OnUploadHandler(UploadEventArgs args)
-{
-    if (args.Files.Count > 3)
+````Razor
+<TelerikUpload OnUpload="@OnUploadHandler" />
+
+@code {
+    private async Task OnUploadHandler(UploadEventArgs args)
     {
-        args.IsCancelled = true;
+        if (args.Files.Count > 3)
+        {
+            args.IsCancelled = true;
+        }
+
+        args.RequestData.Add("dataKey", "dataValue"); // for example, user name
+        args.RequestHeaders.Add("headerKey", "headerValue"); // for example, authentication token
     }
-
-    args.RequestData.Add("dataKey", "dataValue"); // for example, user name
-    args.RequestHeaders.Add("headerKey", "headerValue"); // for example, authentication token
-
-    // Get the custom data and header values in the controller:
-    //string headerValue = Request.Headers["headerKey"];
-    //string formData = Request.Form["dataKey"];
 }
 ````
+````Controller
+[HttpPost]
+public async Task<IActionResult> Save(IFormFile files)
+{
+    // ...
 
-See the full example below.
+    // Get the custom data and header values
+    string formData = Request.Form["dataKey"];
+    string headerValue = Request.Headers["headerKey"];
+
+    // ...
+}
+````
 
 
 ## Example
 
-The controller class below assumes that the project name and namespace is `TelerikBlazorUpload`, and the `UploadController.cs` file is in a `Controllers` folder. Adjust those if necessary.
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
 
 Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
 
@@ -613,7 +654,7 @@ namespace TelerikBlazorUpload.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(IFormFile files) // must match SaveField
+        public async Task<IActionResult> Save(IFormFile files) // "files" matches the Upload SaveField value
         {
             bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
                 && Convert.ToBoolean(Request.Headers["successHeader"]);
@@ -650,7 +691,7 @@ namespace TelerikBlazorUpload.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Remove(string files) // must match RemoveField
+        public async Task<IActionResult> Remove(string files) // "files" matches the Upload RemoveField value
         {
             bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
                 && Convert.ToBoolean(Request.Headers["successHeader"]);

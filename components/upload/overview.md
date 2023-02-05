@@ -65,7 +65,7 @@ Steps 4 and 5 are optional, but strongly recommended.
 
 Both action methods should accept `POST` requests. Correct request routing depends on the application.
 
-The controller class below assumes that the project name and namespace is `TelerikBlazorUpload`, and the `UploadController.cs` file is in a `Controllers` folder. Adjust those if necessary.
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
 
 Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
 
@@ -96,7 +96,7 @@ namespace TelerikBlazorUpload.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(IFormFile files) // must match SaveField
+        public async Task<IActionResult> Save(IFormFile files) // "files" matches the Upload SaveField value
         {
             if (files != null)
             {
@@ -124,7 +124,7 @@ namespace TelerikBlazorUpload.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Remove(string files) // must match RemoveField
+        public async Task<IActionResult> Remove(string files) // "files" matches the Upload RemoveField value
         {
             if (files != null)
             {
