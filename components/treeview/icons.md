@@ -10,9 +10,11 @@ position: 15
 
 # TreeView Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the TreeView item to illustrate its purpose by using the `IconField` parameter. The TreeView also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the TreeView items. The component also supports custom icons.
 
-If the icon property name in the TreeView model is `Icon`, there is no need to define the `IconField` parameter.
+To use TreeView item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the respective `TreeViewBinding`. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+
+If the icon property name in the TreeView model is `Icon`, there is no need to set the `IconField` parameter.
 
 >caption How to use icons in the Telerik TreeView
 
@@ -24,8 +26,20 @@ If the icon property name in the TreeView model is `Icon`, there is no need to d
 </TelerikTreeView>
 
 <style>
+    /* Third-party icon libraries should provide these styles out-of-the-box. */
+
+    /* base styles for all custom icons */
     .my-icon {
-        /* define a background image or a custom font icon here */
+        /* Define size, position and font styles here. */
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+    }
+
+    /* styles for specific custom icons */
+    .my-icon-purple {
+        /* define a background image or a font icon glyph here */
         background: purple;
     }
 </style>
@@ -59,6 +73,14 @@ If the icon property name in the TreeView model is `Icon`, there is no need to d
         {
             Id = 3,
             Text = "Custom Icon",
+            ParentId = 1,
+            Icon = "my-icon my-icon-purple"
+        });
+
+        TreeViewData.Add(new TreeItem()
+        {
+            Id = 4,
+            Text = "Empty Icon",
             ParentId = 1,
             Icon = "my-icon"
         });
