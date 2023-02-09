@@ -10,12 +10,29 @@ position: 10
 
 # Breadcrumb Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Breadcrumb item by assigning a `string` to the `IconField` parameter.
+You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the Breadcrumb items. The component also supports custom icons.
 
->caption How to use icons in Telerik Breadcrumb.
+To use Breadcrumb icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Breadcrumb. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+
+If the icon property name in the Breadcrumb model is `Icon`, there is no need to set the `IconField` parameter.
+
+>caption How to use icons in Telerik Breadcrumb
 
 ````CSHTML
-    <TelerikBreadcrumb Data="@Data"></TelerikBreadcrumb>
+<TelerikBreadcrumb Data="@Data"></TelerikBreadcrumb>
+
+<style>
+    /* Third-party icon libraries should provide these styles out-of-the-box. */
+    /* You may need two CSS classes for the same element - 
+        one for base icon styles and one for the specific icon glyph. */
+
+    .my-icon {
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+        background: purple;
+    }
+</style>
 
 @code {
     public IEnumerable<BreadcrumbItem> Data = new List<BreadcrumbItem>();
@@ -24,11 +41,12 @@ You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}
     {
         Data = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { Title = "Home", Icon = FontIcon.Home },
+            new BreadcrumbItem { Title = "Home (Font)", Icon = FontIcon.Home },
             new BreadcrumbItem { Text = "General", Icon = FontIcon.Globe, Disabled = true },
             new BreadcrumbItem { Text = "Activities" },
-            new BreadcrumbItem { Text = "Drawing", Icon = FontIcon.Palette },
-            new BreadcrumbItem { Icon = FontIcon.Photos },
+            new BreadcrumbItem { Text = "Drawing (SVG)", Icon = SvgIcon.Palette },
+            new BreadcrumbItem { Text = "Custom", Icon = "my-icon" },
+            new BreadcrumbItem { Icon = SvgIcon.Photos }
         };
     }
 
@@ -36,7 +54,7 @@ You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}
     {
         public string Text { get; set; }
         public string Title { get; set; }
-        public FontIcon? Icon { get; set; }
+        public object Icon { get; set; }
         public bool Disabled { get; set; }
     }
 }

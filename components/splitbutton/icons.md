@@ -23,7 +23,7 @@ The `string` parameters below exist for both `TelerikSplitButton` and `SplitButt
 
 | Parameter | Intended Usage |
 | --- | --- |
-| `Icon` | Use with the [**built-in Telerik Font and SVG icons**]({%slug general-information/font-icons%}#icons-list). |
+| `Icon` | Use with the [built-in Telerik Font and SVG icons]({%slug general-information/font-icons%}#icons-list), or with custom CSS classes. |
 
 >tip It is also possible to define **any icon or image** with custom HTML markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this aproach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
 
@@ -32,17 +32,31 @@ The `string` parameters below exist for both `TelerikSplitButton` and `SplitButt
 
 >caption Using icons in the Blazor SplitButton
 
-````HTML
-@* Usage of Font and SVG Icons in the SplitButton. *@
-
+````CSHTML
 <TelerikSplitButton Icon="@("sln")">
     <SplitButtonContent>Telerik Icon</SplitButtonContent>
     <SplitButtonItems>
         <SplitButtonItem Icon="@FontIcon.Table">Telerik Font Icon</SplitButtonItem>
         <SplitButtonItem Icon="@SvgIcon.Calculator">Telerik SVG Icon</SplitButtonItem>
+        <SplitButtonItem Icon="@CustomIconClass">Custom Icon</SplitButtonItem>
         <SplitButtonItem> <TelerikLoader /> Custom markup </SplitButtonItem>
     </SplitButtonItems>
 </TelerikSplitButton>
+
+<style>
+    /* Third-party icon libraries should provide these styles out-of-the-box. */
+
+    .my-icon {
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+        background: purple;
+    }
+</style>
+
+@code {
+    string CustomIconClass { get; set; } = "my-icon";
+}
 ````
 
 
