@@ -104,7 +104,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
          new TemplateModel()
         {
             Id = 2,
-            Title="Template at cursor position",
+            Title="Block Template",
             Position = InsertPosition.Cursor,
             Content = "Block template content."
         },
