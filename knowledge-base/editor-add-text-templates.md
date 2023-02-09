@@ -40,8 +40,8 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
 
-<TelerikEditor @bind-Value="@EditorValue"
-               @ref="@TheEditor"
+<TelerikEditor @ref="@EditorRef"
+               @bind-Value="@EditorValue"
                Tools="@Tools">
     <EditorCustomTools>
         <EditorCustomTool Name="Templates">
@@ -59,7 +59,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 </TelerikEditor>
 
 @code {
-    private TelerikEditor TheEditor { get; set; }
+    private TelerikEditor EditorRef { get; set; }
 
     private string EditorValue { get; set; } = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Phasellus ornare fermentum ultrices.</p>";
 
@@ -78,12 +78,12 @@ Create a custom tool that programmatically changes the Editor value (inserts the
                 EditorValue += SelectedTemplate.Content;
                 break;
 
-            case InsertPosition.Cursor:
-                await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content));
+            case InsertPosition.Block:
+                await EditorRef.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content));
                 break;
 
             case InsertPosition.Inline:
-                await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content, true));
+                await EditorRef.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content, true));
                 break;
         }
     }
@@ -105,7 +105,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
         {
             Id = 2,
             Title="Block Template",
-            Position = InsertPosition.Cursor,
+            Position = InsertPosition.Block,
             Content = "Block template content."
         },
         new TemplateModel()
@@ -120,8 +120,8 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 
     public List<IEditorTool> Tools { get; set; } = new List<IEditorTool>()
     {
-        new EditorButtonGroup(new Undo(), new Redo()),
-        new EditorButtonGroup(new Bold(), new Italic(), new Underline()),
+        new EditorButtonGroup(new Telerik.Blazor.Components.Editor.Undo(), new Telerik.Blazor.Components.Editor.Redo()),
+        new EditorButtonGroup(new Telerik.Blazor.Components.Editor.Bold(), new Telerik.Blazor.Components.Editor.Italic(), new Telerik.Blazor.Components.Editor.Underline()),
         new EditorButtonGroup(new UnorderedList())
     };
 
