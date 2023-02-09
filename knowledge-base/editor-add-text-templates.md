@@ -58,7 +58,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 </TelerikEditor>
 
 @code {
-    private string EditorValue { get; set; }
+    private string EditorValue { get; set; } = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Phasellus ornare fermentum ultrices.</p>";
 
     private int SelectedTemplateId { get; set; }
 
