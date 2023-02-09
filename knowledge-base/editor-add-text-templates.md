@@ -111,7 +111,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
         new TemplateModel()
         {
             Id = 3,
-            Title="Inline template",
+            Title="Inline Template",
             Position = InsertPosition.Inline,
             Content = "Inline templated content"
         },
