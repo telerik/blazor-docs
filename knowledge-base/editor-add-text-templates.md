@@ -113,7 +113,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
             Id = 3,
             Title="Inline Template",
             Position = InsertPosition.Inline,
-            Content = "Inline templated content"
+            Content = "inline template content"
         },
         };
     }
