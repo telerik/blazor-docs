@@ -10,20 +10,34 @@ position: 15
 
 # Menu Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Menu item to illustrate its purpose by using the `IconField` parameter. The Menu also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the Menu items. The component also supports custom icons.
 
-If the icon property in the Menu model is called `Icon`, there is no need to set the `IconField` parameter.
+To use Menu item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Menu. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+
+If the icon property name in the Menu model is `Icon`, there is no need to set the `IconField` parameter.
 
 >caption How to use icons in the Telerik Menu
 
 ````CSHTML
 <TelerikMenu Data="@MenuData"
-             IconField="@(nameof(MenuItem.Icon))">
+             IconField="@(nameof(MenuItem.Icon))"
+             Orientation="@MenuOrientation.Vertical">
 </TelerikMenu>
 
 <style>
+    /* Third-party icon libraries should provide these styles out-of-the-box. */
+
+    /* base styles for all custom icons */
     .my-icon {
-        /* define a background image or a custom font icon here */
+        /* Define size, position and font styles here. */
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+    }
+
+    /* styles for specific custom icons */
+    .my-icon-purple {
+        /* define a background image or a font icon glyph here */
         background: purple;
     }
 </style>
@@ -46,10 +60,15 @@ If the icon property in the Menu model is called `Icon`, there is no need to set
                 Icon = SvgIcon.Wrench,
             },
             new MenuItem()
-             {
+            {
                 Text = "Custom Icon",
+                Icon = "my-icon my-icon-purple"
+            },
+            new MenuItem()
+            {
+                Text = "Empty Icon",
                 Icon = "my-icon"
-             }
+            }
         };
     }
 
@@ -63,4 +82,5 @@ If the icon property in the Menu model is called `Icon`, there is no need to set
 
 ## See Also
 
+* [Online Demo: Menu Icons](https://demos.telerik.com/blazor-ui/menu/icons)
 * [Menu Overview]({%slug components/menu/overview%})
