@@ -136,7 +136,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
     public enum InsertPosition
     {
         End,
-        Cursor,
+        Block,
         Inline
     }
 }
