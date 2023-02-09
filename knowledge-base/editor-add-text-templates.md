@@ -31,7 +31,7 @@ I want to have a tool that prefills various templates in the Editor. How to achi
 
 Create a custom tool that programmatically changes the Editor value (inserts the desired templated text in the Editor).
 
-1. [Create custom tool]({%slug editor-custom-tools%}). If you want to include more than one template option, you may consider a [DropDownList]({%slug components/dropdownlist/overview%}) component as per the example below. Thus, the user will be able to easily select one of the suggested templates.
+1. [Create a custom tool]({%slug editor-custom-tools%}). If you want to include more than one template option, consider a [DropDownList]({%slug components/dropdownlist/overview%}), as per the example below. Thus, users will be able to easily select one of the suggested templates.
 
 1. Provide a colection of your templates to the `Data` parameter of the DropDownList. The example below shows how you can use a complex model for the templates. The DropDownList only uses an `Id` and `Title` to show the available templates to the user. Once the user selects the desired template, you may retrieve its content from the database, for example. The key part is that the content of the template should be provided to the Editor as `string`, so the component can render it.
 
