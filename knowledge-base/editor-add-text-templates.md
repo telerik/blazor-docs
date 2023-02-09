@@ -29,7 +29,7 @@ I want to have a tool that prefills various templates in the Editor. How to achi
 
 ## Solution
 
-You can achieve the desired result by creating a custom tool that programmatically changes the Editor value (inserts the desired templated text in the Editor).
+Create a custom tool that programmatically changes the Editor value (inserts the desired templated text in the Editor).
 
 1. [Create custom tool]({%slug editor-custom-tools%}). If you want to include more than one template option, you may consider a [DropDownList]({%slug components/dropdownlist/overview%}) component as per the example below. Thus, the user will be able to easily select one of the suggested templates.
 
