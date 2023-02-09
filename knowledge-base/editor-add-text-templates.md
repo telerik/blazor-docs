@@ -33,14 +33,15 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 
 1. [Create a custom tool]({%slug editor-custom-tools%}). If you want to include more than one template option, consider a [DropDownList]({%slug components/dropdownlist/overview%}), as per the example below. Thus, users will be able to easily select one of the suggested templates.
 
-1. Provide a colection of your templates to the `Data` parameter of the DropDownList. The example below shows how you can use a complex model for the templates. The DropDownList only uses an `Id` and `Title` to show the available templates to the user. Once the user selects the desired template, you may retrieve its content from the database, for example. The key part is that the content of the template should be provided to the Editor as `string`, so the component can render it.
+1. Provide a [colection of your templates to the `Data` parameter of the DropDownList]({%slug components/dropdownlist/databind%}). The example below shows how you can use a complex model for the templates. The DropDownList only uses an `Id` and `Title` to show the available templates to the user. Once the user selects the desired template, you may retrieve its content from the database, for example. The key part is that the content of the template should be provided to the Editor as `string`, so the component can render it.
 
-1. Handle the [`ValueChanged`]({%slug components/dropdownlist/events%}#valuechanged) event of the DropDownList to get the template value and update the Editor value. You may add the template value to the Editor or replace the whole content depending on the exact desired result.
+1. Handle the [`ValueChanged`]({%slug components/dropdownlist/events%}#valuechanged) event of the DropDownList to get the template value and update the Editor value. In the example below, the selected value is deliberately not updated in the viewport, so it is not shown in the main element in the DropDownList - this allows the user to select the same template more than once. You may add the template value to the Editor or replace the whole content depending on the exact desired result. You may also control the position at which the template will be inserted.
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor @bind-Value="@EditorValue"
+               @ref="@TheEditor"
                Tools="@Tools">
     <EditorCustomTools>
         <EditorCustomTool Name="Templates">
@@ -58,19 +59,33 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 </TelerikEditor>
 
 @code {
+    private TelerikEditor TheEditor { get; set; }
+
     private string EditorValue { get; set; } = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Phasellus ornare fermentum ultrices.</p>";
 
     private int SelectedTemplateId { get; set; }
 
     private List<TemplateModel> Templates { get; set; } = new List<TemplateModel>();
 
-    private void OnTemplateSelected(int TemplateID)
+    private async Task OnTemplateSelected(int TemplateID)
     {
-        SelectedTemplateId = TemplateID;
-
         TemplateModel SelectedTemplate = Templates.FirstOrDefault(x => x.Id == TemplateID);
 
-        EditorValue += SelectedTemplate.Content;
+        switch (SelectedTemplate.Position)
+        {
+            case InsertPosition.End:
+
+                EditorValue += SelectedTemplate.Content;
+                break;
+
+            case InsertPosition.Cursor:
+                await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content));
+                break;
+
+            case InsertPosition.Inline:
+                await TheEditor.ExecuteAsync(new HtmlCommandArgs("insertHtml", SelectedTemplate.Content, true));
+                break;
+        }
     }
 
     protected override async Task OnInitializedAsync()
@@ -82,14 +97,23 @@ Create a custom tool that programmatically changes the Editor value (inserts the
         new TemplateModel()
         {
             Id = 1,
-            Title="Signature",
+            Title="Signature at the end",
+            Position = InsertPosition.End,
             Content = "<p></p><p>Regards,</p><h4>Jane Doe</h4><p><em>Senior Support Engineer</em></p><p>Telerik UI for Blazor</p>"
+        },
+         new TemplateModel()
+        {
+            Id = 2,
+            Title="Template at cursor position",
+            Position = InsertPosition.Cursor,
+            Content = "Temlplated content at cursor position"
         },
         new TemplateModel()
         {
-            Id = 2,
-            Title="Sick leave",
-            Content = "<p>Dear sender,</p><p>I am currently out of office on a sick leave. Please contact my team members for urgent requests.</p><p>Regards,</p><p>Jane Doe</p>"
+            Id = 3,
+            Title="Inline template",
+            Position = InsertPosition.Inline,
+            Content = "Inline templated content"
         },
         };
     }
@@ -105,7 +129,15 @@ Create a custom tool that programmatically changes the Editor value (inserts the
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public InsertPosition Position { get; set; }
         public string Content { get; set; }
+    }
+
+    public enum InsertPosition
+    {
+        End,
+        Cursor,
+        Inline
     }
 }
 ````
