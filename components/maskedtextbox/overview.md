@@ -10,71 +10,104 @@ position: 0
 
 # Blazor MaskedTextbox Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor Masked Textbox component</a> provides a mask and prompts the user to enter the data in the required format, and it prevents input that does not match the mask. You can use it to show the user the format the need to write things like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
+The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor Masked Textbox component</a> provides a mask and prompts the user to enter the data in the required format. The component prevents input that does not match the mask. Use it to show the user the required format for values like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values and so on.
 
-You can also add a custom CSS class or control various attributes of the `input` element such as the `name`, `placeholder`, `tabindex`, and [more](#features), and also respond to [events]({%slug maskedtextbox-events%}).
+You can also add standard attributes such as custom CSS classes, `name`, `placeholder`, `tabindex`, and [more](#maskedtextbox-parameters), and also respond to [events]({%slug maskedtextbox-events%}).
 
-## Creating MaskedTextBox
+## Creating Blazor MaskedTextBox
 
-To use a Telerik MaskedTextbox for Blazor:
+To use the Telerik MaskedTextbox for Blazor:
 
 1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
-1. Set its `Value` to the `string` you want to get out of it.
-1. Provide the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
+1. Set its `Value` parameter to a `string`. It supports two-way binding.
+1. Set the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
 
->caption Basic masked textbox with two-way value binding and a credit card mask
+>caption Basic Masked TextBox with two-way Value binding and a credit card mask
 
 ````CSHTML
-@TheValue
-<br />
+<TelerikMaskedTextBox @bind-Value="@MaskedValue"
+                      Mask="0000-0000-0000-0000"
+                      Width="300px" />
 
-<TelerikMaskedTextBox Mask="0000-0000-0000-0000"
-                      @bind-Value="@TheValue">
-</TelerikMaskedTextBox>
+<br /><br />
+The component value is: @MaskedValue
 
 @code{
-    string TheValue { get; set; }
+    private string MaskedValue { get; set; }
 }
 ````
 
->caption The result from the code snippet above before you start writing
+## Validation
 
-![Masked Textbox first look](images/masked-textbox-first-look.png)
+You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox).
 
+## Events
+
+The [Masked TextBox component fires events for value changes and blur]({%slug maskedtextbox-events%}). Use them to respond to user actions.
 
 ## Mask-Related Parameters
 
-The table below provides a quick overview of the mask-related parameters. You can see the [Mask and Prompt article for additional details.]({%slug maskedtextbox-mask-prompt%})
+The table below provides a quick overview of the mask-related parameters. Also see the [Mask and Prompt article]({%slug maskedtextbox-mask-prompt%}) for additional details.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `IncludeLiterals`  | `bool` | Controls if the literal characters from the mask (those characters that don't carry a special meaning such as brackets or dashes) are included in the `Value`. |
-| `Mask`  | `string` | Defines the mask (pattern) that the user has to follow. |
-| `MaskOnFocus`  | `bool` | Controls if the mask will be shown to the user only while the input is focused. When set to `true`, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) (if used) or `Placeholder` (if present) instead of the mask in case the textbox is empty. When there is some value in the input, the mask and input will be shown. |
-| `Prompt`  | `char` <br /> `_` | Defines the prompt character the user will see in the mask where there is no user value already. |
-| `PromptPlaceholder`  | `char?` <br /> ` ` (empty space) | Defines the character that is added to the raw `Value` for places where there is no user input yet. |
+|---|---|---|
+| `IncludeLiterals` | `bool` | Controls if the literal characters from the mask are included in the `Value`. These are the characters that don't carry a special meaning such as brackets or dashes. |
+| `Mask` | `string` | The mask (pattern) that the user has to follow. |
+| `MaskOnFocus` | `bool` | Controls if the mask will show only while the input is focused. When `true` and there is no value, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` (if used) instead of the mask. When there is some value, the mask and value will show. |
+| `Prompt` | `char` <br /> (`_`) | The character that will show in the mask where there is no user input already. |
+| `PromptPlaceholder` | `char?` <br /> (` ` space) | The character that is added to the raw `Value` for places where there is no user input yet. |
 
 ## MaskedTextBox Parameters
 
+See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox) for a full list of parameters, methods and events.
+
 | Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `Class`  | `string` | Adds a custom CSS class to the `<div class="k-maskedtextbox">` element. |
-| `Width`  | `string` | Controls the width of the `<input>` element. |
-| `DebounceDelay`  | `int` <br /> (`150`) | Specifies the time in milliseconds between the last typed symbol and the updating of the value. |
-| `Enabled`  | `bool` <br /> (`true`) | Controls if the users can type in the component. |
-| `Id`  | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input |
-| `Name`  | `string` | Renders as the `name` attribute of the HTML element. |
-| `Placeholder` | `string` | Renders as the `placeholder` attribute of the HTML element. |
-| `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
-| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | configures the event that will trigger validation (if validation is enabled). See the [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) article for more information. |
-| `Value`  | `string` | Get/set the value of the input, can be used for binding. |
+|---|---|---|
+| `AriaDescribedBy` | `string` | The [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) of the `input`. |
+| `AriaLabel` | `string` | The [`aria-label` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) of the `input`. |
+| `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) of the `input`. |
+| `Class` | `string` | The custom CSS class of the `<span class="k-maskedtextbox">` element. |
+| `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. |
+| `Enabled` | `bool` <br /> (`true`) | Controls if users can type in the component. |
+| `Id` | `string` | The `id` attribute of the `input`. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
+| `Name` | `string` | The `name` attribute of the `input`. |
+| `Placeholder` | `string` | The `placeholder` attribute of the HTML element. |
+| `TabIndex` | `int` | The `tabindex` attribute of the `input`. |
+| `Title` | `string` | The `title` attribute of `input`. Use it to add a [tooltip]({%slug tooltip-overview%}). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Value` | `string` | The value of the component. Supports two-way binding. |
+| `Width` | `string` | The component width. |
 
-## Validation
+### Styling and Appearance
 
-You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox)
+Find more parameters to customize the Masked TextBox styling in the [Appearance article]({%slug maskedtextbox-appearance%}).
+
+## MaskedTextBox Reference and Methods
+
+The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance.
+
+````CSHTML
+<TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
+
+<TelerikMaskedTextBox @ref="@MaskedTextBoxRef"
+                      @bind-Value="@MaskedValue"
+                      Mask="0000-0000-0000-0000"
+                      Width="300px" />
+
+@code{
+    private TelerikMaskedTextBox MaskedTextBoxRef { get; set; }
+
+    private string MaskedValue { get; set; }
+
+    private async Task FocusTextBox()
+    {
+        await MaskedTextBoxRef.FocusAsync();
+    }
+}
+````
 
 ## Mask Examples
 
@@ -183,12 +216,13 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 ## Next Steps
 
-* [Explore the behavior of the MaskedTextBox when pasting content]({%slug maskedtextbox-paste%})
-* [Learn more about the MaskedTextBox events]({%slug maskedtextbox-events%})
+* [Configure the MaskedTextBox mask]({%slug maskedtextbox-mask-prompt%})
+* [Explore the MaskedTextBox behavior when pasting content]({%slug maskedtextbox-paste%})
+* [Handle MaskedTextBox events]({%slug maskedtextbox-events%})
 
 ## See Also
 
-  * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
-  * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
-  * [Add Floating Label]({%slug inputs-kb-floating-label%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
+* [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
+* [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
+* [Add Floating Label]({%slug inputs-kb-floating-label%})
+* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
