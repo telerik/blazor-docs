@@ -1,5 +1,5 @@
 #event-callback-can-be-async
->tip The event is an `EventCallback` and it can be synchronous (return `void`), or it can also be asynchronous and return `async Task`.
+>tip The event is an `EventCallback`. It can be synchronous and return `void`, or asynchronous and return `async Task`. Do not use `async void`.
 #end
 
 #ensure-nuget-packge-for-upgrade

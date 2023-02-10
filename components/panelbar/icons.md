@@ -10,9 +10,11 @@ position: 15
 
 # PanelBar Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the PanelBar item by assigning a `string` to the `IconField` parameter. The PanelBar also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the PanelBar items. The component also supports custom icons.
 
-If the icon property name in the PanelBar model is `Icon`, there is no need to define the `IconField` parameter.
+To use PanelBar item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the PanelBar. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+
+If the icon property name in the PanelBar model is `Icon`, there is no need to set the `IconField` parameter.
 
 >caption How to use icons in the Telerik PanelBar
 
@@ -24,8 +26,19 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to d
 </TelerikPanelBar>
 
 <style>
+    /* Third-party icon libraries should provide these styles out-of-the-box. */
+
+    /* base styles for all custom icons */
     .my-icon {
-        /* define a background image or a custom font icon here */
+        /* Define size, position and font styles here. */
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
+    }
+
+    /* styles for specific custom icons */
+    .my-icon-purple {
+        /* define a background image or a font icon glyph here */
         background: purple;
     }
 </style>
@@ -81,7 +94,16 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to d
             Text = "Custom Icon",
             ParentId = null,
             HasChildren = false,
-            Icon = "my-icon"
+            Icon = "my-icon my-icon-purple"
+        });
+
+        Items.Add(new PanelBarItem()
+        {
+            Id = 6,
+            Text = "Empty Icon",
+            ParentId = null,
+            HasChildren = false,
+            Icon = "my-icon "
         });
 
         base.OnInitialized();
@@ -101,3 +123,4 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to d
 ## See Also
 
 * [PanelBar Overview]({%slug panelbar-overview%})
+* [Live Demos: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

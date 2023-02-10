@@ -11,16 +11,6 @@ The controller methods in this documentation do not implement security measures 
 #end
 
 
-#events-files-carry-client-validation-info
-The individual files also carry information about their [client-side validation]({%slug upload-validation%}) that you can use in the event.
-#end
-
-
-#see-controller-sample-in-overview
-This example does not include a controller to consume the files. See [Implement controller methods]({%slug upload-overview%}#implement-controller-methods).
-#end
-
-
 #fileselect-upload-comparison
 
 The FileSelect and Upload components are similar and even inter-changeable. The major difference is how they communicate with the server and this can determine which component to use.

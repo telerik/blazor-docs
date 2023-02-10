@@ -28,14 +28,14 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 
 ### For Excel Export
 
-* `Columns` - `List<ExcelExportableColumns` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns` - `List<GridExcelExportColumn>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
     * `Width` - define the width of the column **in pixels**.
     * `Title` - define the column title to be shown in the Excel file header. 
     * `NumberFormat` - provide an Excel-compatible number/date format
     * `Field` - set the data bound field of the column.
     
-To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, for example only the selected items in the Grid. 
@@ -46,9 +46,10 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 @* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to excel. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
+@using Telerik.FontIcons
 
-@*This using is for the ExcelExportableColumn in the OnExcelBeforeExport method*@
-@using Telerik.Blazor.Common.Export.Excel
+@*This using is for the GridExcelExportColumn in the OnExcelBeforeExport method*@
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@GridData" Pageable="true" Sortable="true"
              @bind-SelectedItems="@SelectedItems"
@@ -82,11 +83,11 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
     {
         //export a hidden column (Visible set to false)
 
-        var exportableHiddenColumn = new ExcelExportableColumn()
-        {
-            Title = "Product Id",
-            Field = nameof(SampleData.ProductId)
-        };
+        var exportableHiddenColumn = new GridExcelExportColumn()
+            {
+                Title = "Product Id",
+                Field = nameof(SampleData.ProductId)
+            };
 
         args.Columns.Insert(0, exportableHiddenColumn);
 
@@ -115,14 +116,14 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
@@ -141,12 +142,12 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
 
-* `Columns` - `List<ExcelExportableColumns>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 
     * `Title` - define the column title to be shown in the Excel file header.
     * `Field` - set the data bound field of the column.
 
-To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `ExcelExportableColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
 
@@ -154,9 +155,10 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 @* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to CSV file. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
+@using Telerik.FontIcons
 
-@*This using is for the ExcelExportableColumn in the OnExcelBeforeExport method*@
-@using Telerik.Blazor.Common.Export.Excel
+@*This using is for the GridCsvExportColumn in the OnExcelBeforeExport method*@
+@using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@GridData" Pageable="true" Sortable="true"
              @bind-SelectedItems="@SelectedItems"
@@ -195,11 +197,11 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
         //export a hidden column (Visible set to false)
 
-        var exportableHiddenColumn = new ExcelExportableColumn()
-        {
-            Title = "Id",
-            Field = nameof(SampleData.ProductId)
-        };
+        var exportableHiddenColumn = new GridCsvExportColumn()
+            {
+                Title = "Id",
+                Field = nameof(SampleData.ProductId)
+            };
 
         args.Columns.Insert(0, exportableHiddenColumn);
 
@@ -216,14 +218,14 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
