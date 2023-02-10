@@ -84,6 +84,41 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
 
 
+## FileSelect Reference and Methods
+
+The File Select exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The FileSelect methods are:
+
+| Method | Description |
+| --- | --- |
+| `ClearFiles` | Clears all files from the list. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. |
+
+>caption Get reference to the FileSelect and execute methods
+
+````CSHTML
+<p>
+    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
+    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
+</p>
+
+<TelerikFileSelect @ref="@FileSelectRef" />
+
+@code {
+    private TelerikFileSelect FileSelectRef { get; set; }
+
+    private void SelectFiles()
+    {
+        FileSelectRef.OpenSelectFilesDialog();
+    }
+
+    private void Clear()
+    {
+        FileSelectRef.ClearFiles();
+    }
+}
+````
+
+
 ## Next Steps
 
 * [Explore FileSelect Validation]({%slug fileselect-validation%})
