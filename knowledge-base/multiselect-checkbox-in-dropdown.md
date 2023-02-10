@@ -42,9 +42,15 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
 @* Note: If you use complex models, the GetChecked() method will be more complex and 
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
 
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
+<TelerikMultiSelect Data="@Roles"
+                    @bind-Value="@TheValues"
+                    AutoClose="false"
+                    Placeholder="Write the roles you need">
     <ItemTemplate>
-        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox k-rounded-md k-checkbox-md" checked="@GetChecked(context)">
+        <input type="checkbox"
+               id="@( "cb" + context.Replace(" ", "") )"
+               class="k-checkbox k-rounded-md k-checkbox-md"
+               checked="@GetChecked(context)">
         @context
     </ItemTemplate>
 </TelerikMultiSelect>
@@ -54,15 +60,15 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
     <div>@item</div>
 }
 
-@code{
+@code {
+    private List<string> TheValues { get; set; } = new List<string>();
+
     bool GetChecked(string text)
     {
         return TheValues.Contains(text);
     }
 
-    List<string> TheValues { get; set; } = new List<string>();
-
-    List<string> Roles { get; set; } = new List<string> {
+    private List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
@@ -78,18 +84,29 @@ Here is one example:
 @* Note: If you use complex models, the GetChecked() method will be more complex and
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
     
-<TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" AutoClose="false" Placeholder="Write the roles you need">
-
+<TelerikMultiSelect @ref="MultiSelectRef"
+                    Data="@Roles" 
+                    @bind-Value="@TheValues"
+                    AutoClose="false"
+                    Placeholder="Write the roles you need">
     <HeaderTemplate>
         <label style="padding: 4px 8px;">
-            <TelerikCheckBox TValue="bool" Value="@IsAllSelected()" ValueChanged="@( (bool v) => ToggleSelectAll(v) )"></TelerikCheckBox>
+            <TelerikCheckBox TValue="bool"
+                             Value="@IsAllSelected()"
+                             ValueChanged="@( (bool v) => ToggleSelectAll(v) )">
+            </TelerikCheckBox>
             &nbsp;Select All
         </label>
     </HeaderTemplate>
-
     <ItemTemplate>
-        <input type="checkbox" id="@( "cb" + context.Replace(" ", "") )" class="k-checkbox k-checkbox-md" checked="@GetChecked(context)">
-        <label class="k-checkbox-label" for="@( "cb" + context.Replace(" ", "") )">@context</label>
+        <input type="checkbox"
+               id="@( "cb" + context.Replace(" ", "") )"
+               class="k-checkbox k-checkbox-md"
+               checked="@GetChecked(context)">
+        <label class="k-checkbox-label"
+               for="@( "cb" + context.Replace(" ", "") )">
+            @context
+        </label>
     </ItemTemplate>
 
 </TelerikMultiSelect>
@@ -99,17 +116,20 @@ Here is one example:
     <div>@item</div>
 }
 
-@code{
+@code {
+    private TelerikMultiSelect<string, string> MultiSelectRef;
+    private List<string> TheValues { get; set; } = new List<string>();
+
     void ToggleSelectAll(bool selectAll)
     {
+        TheValues.Clear();
+
         if (selectAll)
         {
-            TheValues = new List<string>(Roles);
+            TheValues.AddRange(Roles);
         }
-        else
-        {
-            TheValues = new List<string>();
-        }
+
+        MultiSelectRef.Rebind();
     }
 
     bool IsAllSelected()
@@ -122,16 +142,14 @@ Here is one example:
         // would be a completely different feature anyway that will require asking the server for data
         // so it is beyond the scope of this article as it depends heavily on the use case and needs
     }
-    
+
     // for the item checkboxes
     bool GetChecked(string text)
     {
         return TheValues.Contains(text);
     }
 
-    List<string> TheValues { get; set; } = new List<string>();
-
-    List<string> Roles { get; set; } = new List<string> {
+    private List<string> Roles { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }
