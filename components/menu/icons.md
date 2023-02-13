@@ -82,5 +82,5 @@ If the icon property name in the Menu model is `Icon`, there is no need to set t
 
 ## See Also
 
-* [Online Demo: Menu Icons](https://demos.telerik.com/blazor-ui/menu/icons)
+* [Online Demo: Menu Icons](https://demos.telerik.com/blazor-ui/menu/images)
 * [Menu Overview]({%slug components/menu/overview%})
