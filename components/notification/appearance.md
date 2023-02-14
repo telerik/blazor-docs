@@ -76,9 +76,11 @@ You can control the Size of the Notification by using CSS. To make the cascading
 @* Use CSS to set the size of the notification *@
 
 <style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+    .MyTelerikNotification .k-notification-container .k-notification {
         width: 300px;
         height: 200px;
+        flex-wrap: wrap;
+        align-content: flex-start;
     }
 </style>
 
