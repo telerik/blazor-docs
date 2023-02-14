@@ -127,7 +127,7 @@ See the [full example](#example) below.
 
 ## OnError
 
-The `OnError` event fires when an *upload* or *remove* request fails.
+The `OnError` event fires when an *upload* or *remove* request fails in the controller.
 
 The [`UploadErrorEventArgs` event argument](#event-arguments) contains the following properties:
 
