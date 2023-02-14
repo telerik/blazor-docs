@@ -38,7 +38,7 @@ The `OnBeforeExport` event fires after the user clicked the `ExcelExport` or `Cs
 To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, for example only the selected items in the Grid. 
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
 
 * `isCancelled` -  `bool` - cancel the OnBeforeExcel event by setting the `isCancelled` property to `true`.
 
@@ -140,7 +140,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 ### For CSV Export
 
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, for example only the selected items in the Grid. 
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
 
 * `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
 

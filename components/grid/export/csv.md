@@ -22,7 +22,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable the grid CSV Export, add a [command button]({%slug components/grid/columns/command%}) with the `CsvExport` command name to the [toolbar]({%slug components/grid/features/toolbar%}).
+To enable the grid CSV Export, add a [command button]({%slug components/grid/columns/command%}) with the `CsvExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
 ````
 <GridToolBarTemplate>
@@ -34,6 +34,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
 * `FileName` - the name of the file. The grid will add the `.csv` extension for you.
 * `AllPages` - whether to export the current page only, or the entire data from the data source.
+* Subscribe to [Grid export events]({%slug grid-export-events%}) that allow further customizations of the exported columns or data.
 
 >caption Export the Grid to CSV - Example
 
