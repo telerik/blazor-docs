@@ -20,7 +20,8 @@ res_type: kb
                 Editor for Blazor, <br />
                 FileManager for Blazor, <br />
                 FileSelect for Blazor, <br />
-                PdfViewer for Blazor
+                PdfViewer for Blazor, <br />
+                Signature for Blazor
             </td>
         </tr>
     </tbody>
