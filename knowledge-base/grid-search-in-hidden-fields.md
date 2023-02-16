@@ -82,7 +82,7 @@ If you want to search in the hidden fields of the Grid, do the following:
                     // in versions 3.x: row filters are FilterDescriptors; search and menu filters are CompositeFilterDescriptors
                     // in versions 4.x: all filters are CompositeFilterDescriptors
                     var filterDescriptor = rootFilterDescriptor as CompositeFilterDescriptor;
-                    var filterString = (searchDescriptor.FilterDescriptors[0] as FilterDescriptor).Value.ToString();
+                    var filterString = (filterDescriptor.FilterDescriptors[0] as FilterDescriptor).Value.ToString();
 
                     if (searchString == filterString)
                     {
