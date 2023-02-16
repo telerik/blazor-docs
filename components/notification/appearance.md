@@ -68,33 +68,46 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 
 You can control the Size of the Notification by using CSS. To make the cascading of the styles easier and target a single instance of the component you should use the `Class` parameter exposed in the the `<TelerikNotification>` tag.
 
->caption Control the size of the Notiication component
-
-![resized notification](images/notification-size-changed-screenshot.png)
+>caption Chance the Notiication width and height
 
 ````CSHTML
-@* Use CSS to set the size of the notification *@
+<TelerikNotification @ref="@NotificationRef1"
+                     Class="large-notification-center">
+</TelerikNotification>
+
+<TelerikNotification @ref="@NotificationRef2"
+                     Class="large-notification-top">
+</TelerikNotification>
+
+Show a Notification and the content will be ...
+
+<TelerikButton OnClick="@( () => ShowNotification(NotificationRef1, "Vertically centered text") )">
+    Vertically Centered
+</TelerikButton>
+
+<TelerikButton OnClick="@( () => ShowNotification(NotificationRef2, "Text at the top") )">
+    At the Top
+</TelerikButton>
 
 <style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+    .large-notification-center .k-notification,
+    .large-notification-top .k-notification-content {
         width: 300px;
         height: 200px;
     }
 </style>
 
-<TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
-
-<TelerikNotification @ref="@NotificationReference" Class="MyTelerikNotification"></TelerikNotification>
-
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationRef1 { get; set; }
 
-    public void AddNotification()
+    private TelerikNotification NotificationRef2 { get; set; }
+
+    private void ShowNotification(TelerikNotification notifRef, string text)
     {
-        NotificationReference.Show(new NotificationModel()
+        notifRef.Show(new NotificationModel()
         {
-            Text = "Auto Closable Notification",
-            ThemeColor = "primary",
+            Text = text,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Primary,
             Closable = true,
             CloseAfter = 0
         });
