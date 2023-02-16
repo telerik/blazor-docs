@@ -90,10 +90,19 @@ Show a Notification and the content will be ...
 </TelerikButton>
 
 <style>
+    /* for centered content */
     .large-notification-center .k-notification,
+    /* for top content */
     .large-notification-top .k-notification-content {
         width: 300px;
         height: 200px;
+    }
+
+    /* move close button up */
+    .large-notification-top .k-notification-actions,
+    /* move success icon up - for some ThemeColors only */
+    .large-notification-top .k-notification > .k-icon {
+        align-self: start;
     }
 </style>
 
@@ -107,7 +116,7 @@ Show a Notification and the content will be ...
         notifRef.Show(new NotificationModel()
         {
             Text = text,
-            ThemeColor = ThemeConstants.Notification.ThemeColor.Primary,
+            ThemeColor = ThemeConstants.Notification.ThemeColor.Success,
             Closable = true,
             CloseAfter = 0
         });
