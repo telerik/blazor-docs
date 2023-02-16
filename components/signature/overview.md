@@ -42,42 +42,7 @@ Use the Blazor Signature **blur** and value **change** events to respond to user
 
 ## SignalR Message Size
 
-In **Blazor server-side applications**, the Signature uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. To work with larger content, increase the max WebSocket message size for the Blazor application:
-
->caption Program.cs (.NET 6)
-
-<div class="skip-repl"></div>
-
-````CS
-using Microsoft.AspNetCore.SignalR;
-
-var builder = WebApplication.CreateBuilder(args);
-
-//...
-
-// SignalR message size for the Signature
-builder.Services.Configure<HubOptions>(options =>
-{
-    options.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-});
-````
-
->caption Startup.cs (.NET 5)
-
-<div class="skip-repl"></div>
-
-````CS
-public void ConfigureServices(IServiceCollection services)
-{
-    //...
-
-    // SignalR message size for the Signature
-    services.Configure<HubOptions>(options =>
-    {
-        options.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-    });
-}
-````
+In **Blazor server-side applications**, the Signature component uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. This is rarely enough for the Signature `Value`, which is a Base64 image, so [increase the max WebSocket message size for the Blazor application]({%slug common-kb-increase-signalr-max-message-size%}).
 
 ## Signature Parameters
 
