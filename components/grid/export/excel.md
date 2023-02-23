@@ -23,7 +23,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable the grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [toolbar]({%slug components/grid/features/toolbar%}).
+To enable the Grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
 ````
 <GridToolBarTemplate>
@@ -35,6 +35,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 * `FileName` - the name of the file. The grid will add the `.xslx` extension for you.
 * `AllPages` - whether to export the current page only, or the entire data from the data source.
+* Subscribe to [Grid export events]({%slug grid-export-events%}) that allow further customizations of the exported columns or data.
 
 >caption Export the Grid to Excel - Example
 
