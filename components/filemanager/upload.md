@@ -30,6 +30,8 @@ The example below demonstrates how to handle successful upload on the FileManage
 
 >caption Using FileManager Upload
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @using System.IO
 
