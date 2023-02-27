@@ -26,6 +26,8 @@ The TreeList component can use templates for:
 
 * [no data available]({%slug treelist-templates-no-data%}) - when the TreeList Data collection is empty or null, you can customize the content inside.
 
+* [pager]({%slug treelist-templates-pager%}) - modifying the pager layout, content, and functionality.
+
 Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the treelist to a named model. The filter and header templates are the exception as they are not related to rows and models.
 
 You must make sure to provide valid HTML in the templates.
