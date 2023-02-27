@@ -3,14 +3,14 @@ title: Overview
 page_title: Chart Overview
 description: Overview of the Chart for Blazor.
 slug: components/chart/overview
-tags: telerik,blazor,chart,overview
+tags: telerik,blazor,chart,overview, graph
 published: True
 position: 0
 ---
 
 # Blazor Chart Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins and templates.
+The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of graph types and control all aspects of the component's appearance - from colors and fonts, to paddings, margins and templates.
 
 ## Creating Blazor Chart
 

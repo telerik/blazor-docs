@@ -6,7 +6,7 @@ slug: reporting-in-blazor
 position: 0
 ---
 
-# Reporting
+# Blazor Reporting
 
 You can utilize the [Telerik Reporting](https://www.telerik.com/products/reporting) product to embed reporting functionality in your Blazor app. We provide the following components for easy integration (find detailed information in the respective articles that are part of the Telerik Reporting product documentation).
 
@@ -24,6 +24,9 @@ The [Telerik Blazor Report Viewer Component](https://docs.telerik.com/reporting/
 * Search in the report content;
 * Use any other interactive features that the Telerik Reporting product offers.
 
+>caption Dashboard Report Demo
+![dashboard report demo](images/dashboard-report-demo.png)
+
 ## Telerik Native Blazor Report Viewer
 
 The [Telerik Native Blazor Report Viewer Component](https://docs.telerik.com/reporting/embedding-reports/display-reports-in-applications/web-application/native-blazor-report-viewer/overview) is a report viewer built with **native Blazor components** from our Telerik UI for Blazor library (requires a valid license). This report viewer brings a fluent user experience that blends with the rest of your Blazor application using the same input controls and styling mechanism. The initial version of this viewer supports all the core functionality needed for previewing and exporting report documents.
@@ -31,6 +34,9 @@ The [Telerik Native Blazor Report Viewer Component](https://docs.telerik.com/rep
 ## Telerik Blazor Report Designer
 
 The [Telerik Blazor Report Designer Component](https://docs.telerik.com/reporting/how-to-blazor-web-report-designer) enables you to embed a Report Designer tool in your Blazor application. This empowers your trusted end-users to edit existing or create new report definitions from scratch. See the Report Designer into action in the [Web Report Designer Demo](https://demos.telerik.com/reporting/designer)
+
+>caption Web Report Designer Demo
+![web report designer demo](images/web-report-designer-demo.png)
 
 
 ## See Also
