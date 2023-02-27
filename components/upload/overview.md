@@ -194,6 +194,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
+| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. See details in [DropZone Integration]({%slug dropzone-integration%}).
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |

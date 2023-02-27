@@ -19,21 +19,18 @@ The <a href="https://www.telerik.com/blazor-ui/dropzone" target="_blank">Blazor 
 1. Use the `TelerikDropZone` tag to add the component to your razor page.
 1. Set the `Id` parameter of the DropZone component.
 1. Set the `DropZoneId` of the [FileSelect]({%slug fileselect-overview%})/[Upload]({%slug upload-overview%}) component to match the `Id` the DropZone.
+1. (optional) Use the `NoteText` to add a note in the DropZone.
 
 
 ````CSHTML
-<TelerikDropZone Id="@DropZoneId">
-</TelerikDropZone>
+<TelerikDropZone Id="@DropZoneId" NoteText="@NoteText" />
 
-<TelerikUpload DropZoneId="@DropZoneId" 
-               SaveUrl="@SaveUrl"
-               RemoveUrl="@RemoveUrl">
-</TelerikUpload>
+<TelerikFileSelect DropZoneId="@DropZoneId"/>
 
 @code {
-    public string DropZoneId => "my-dropzone";
-    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
-    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+    private string DropZoneId => "my-dropzone";
+
+    private string NoteText => "Allowed file types: DOCX and PDF";
 }
 ````
 
@@ -55,7 +52,7 @@ The DropZone allows you to customize its rendring and appearence thorugh `Templa
 | Id | `string` | The id of the drop zone. Assign the same value to the DropZoneId of the corresponding Upload/FileSelect component. |
 | Enabled | `bool` | Specifies whether the drop zone is enabled. Default value is true. |
 | HintText | `string` | The text for the hint of the drop zone. If not provided, a default value will be rendered. |
-| NoteText | `string` | The text for the note of the drop zone. If not provided, no note will be rendered. |
+| NoteText | `string` | The text for the note of the drop zone. If not provided, no note will be rendered. Use that to render any additional information that will be visualized under the hint. |
 
 ### Styling and Appearance
 

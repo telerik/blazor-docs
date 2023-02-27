@@ -26,16 +26,68 @@ The connection is achieved in two simple steps:
 1. Set the `Id` parameter of the DropZone component.
 1. Set the `DropZoneId` of the FileSelect/Upload component to match the `Id` the DropZone.
 
-Once the file is dropped in the DropZone, it is automatically sent to the connected FileSelect or Upload for further actions.
+
 
 ## DropZone Integration with FileSelect
 
+The sample below showcases integration of a DropZone component with FileSelect.
+
+Once the user drops the file in the DropZone, the file is automatically sent to the connected FileSelect. This will effectively raise the [`OnSelect` event of the FileSelect]({%slug fileselect-events%}#onselect). You can handle that to perform further actions with the selected file(s).
+
 ````CSHTML
+<TelerikDropZone Id="@DropZoneId" />
+
+<TelerikFileSelect DropZoneId="@DropZoneId"
+                   OnSelect=@HandleFiles />
+
+@code {
+    private string DropZoneId => "my-dropzone";
+
+    private void HandleFiles(FileSelectEventArgs args)
+    {
+        Console.WriteLine($"User dropped {args.Files.Count} files");
+
+        foreach (var file in args.Files)
+        {
+            Console.WriteLine($"{file.Name}");
+        }
+    }
+}
 ````
 
 ## DropZone Integration with Upload
 
+The sample below showcases integration of a DropZone component with Upload.
+
+Once the user drops the file in the DropZone, the file is automatically sent to the connected FileSelect. This will effectively raise the [`OnSelect` event of the Upload]({%slug upload-events%}#onselect). Unless `AutoUpload="false"`, the [`OnUpload` event]({%slug upload-events%}#onupload) will also fire upon file drop in the DropZone.
+
+You can handle these events to perform further actions with the selected/uploaded file(s).
+
 ````CSHTML
+<TelerikDropZone Id="@DropZoneId" />
+
+<TelerikUpload DropZoneId="@DropZoneId"
+               OnSelect="@SelectHandler"
+               OnUpload="@UploadHandler" />
+
+@code {
+    private string DropZoneId => "my-dropzone";
+
+    private void SelectHandler(UploadSelectEventArgs args)
+    {
+        Console.WriteLine($"User dropped {args.Files.Count} files");
+
+        foreach (var file in args.Files)
+        {
+            Console.WriteLine($"{file.Name}");
+        }
+    }
+
+    private void UploadHandler(UploadEventArgs args)
+    {
+        Console.WriteLine("Upoad fired");
+    }
+}
 ````
 
 ## See Also

@@ -77,6 +77,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. (The FileSelect reuses the Upload HTML rendering.) |
+| `DropZoneId` | `string` | The id that is used to connect the FileSelect to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. See details in [DropZone Integration]({%slug dropzone-integration%}).
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
