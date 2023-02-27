@@ -46,6 +46,8 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 ````CSHMTL
 @* Use the AllDaySlotTemplate and SlotTemplate *@
 
+@using Telerik.FontIcons
+
 <TelerikScheduler @bind-Date="@SelectedDate" Height="600px" Data="@Data"
                   @bind-View="@CurrView"
                   OnCreate="@AddAppointment"
@@ -66,7 +68,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
                 @if (context.Start.TimeOfDay >= ControlDate.TimeOfDay
                 && context.End.AddSeconds(-1).TimeOfDay <= ControlDate.AddHours(1).TimeOfDay)
                 {
-                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikIcon>Lunch Break</div>
+                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikFontIcon>Lunch Break</div>
                 }
             </SlotTemplate>
             <AllDaySlotTemplate>
@@ -81,7 +83,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
                 @if (context.Start.TimeOfDay >= ControlDate.TimeOfDay
                 && context.End.AddSeconds(-1).TimeOfDay <= ControlDate.AddHours(1).TimeOfDay)
                 {
-                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikIcon>Lunch Break</div>
+                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikFontIcon>Lunch Break</div>
                 }
             </SlotTemplate>
             <AllDaySlotTemplate>
