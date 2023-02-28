@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: Upload - Templates
+page_title: Upload Templates
 description: Templates in the Upload for Blazor.
 slug: upload-templates
 tags: telerik,blazor,upload,templates
