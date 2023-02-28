@@ -14,6 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/radar-area-chart" target="_blank"
 
 Radar area charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. When backgrounds are semi-transparent, it lets the user clearly see where different sets of data overlap.
 
+![radar area chart](images/radar-area-chart.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 

@@ -14,6 +14,8 @@ The <a href="https://www.telerik.com/blazor-ui/radar-line-chart" target="_blank"
 
 Radar line charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. The lack of overlap between the series makes it easier to compare individual values in addition to overall coverage.
 
+![radar line chart](images/radar-line-chart.png)
+
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a radar line chart:

@@ -14,6 +14,8 @@ The <a href="https://www.telerik.com/blazor-ui/radar-column-chart" target="_blan
 
 Radar column charts are often used to make comparisons between several units that depend on a multitude of quantitative factors, with the compared units being the individual series, and the factors being the categories. The lack of overlap between the series makes it easy to compare individual values as opposed to overall coverage.
 
+![radar column chart](images/radar-column-chart.png)
+
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a radar column chart:
