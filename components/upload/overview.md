@@ -173,7 +173,7 @@ The Upload includes [built-in client-side validation]({%slug upload-validation%}
 
 ## Templates
 
-You can use the functionality of the built-in template and modify the appearance of the "Select files..." button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
 
 ## Large File Uploads
 
