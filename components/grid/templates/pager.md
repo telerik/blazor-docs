@@ -1,7 +1,7 @@
 ---
 title: Pager Template
 page_title: Grid Pager Template
-description: Use custom pager templates in Grid for Blazor.
+description: Learn how to use a custom pager template in the Blazor Data Grid. The template allows you to customize the layout, content, and functionality of the Pager UI component.
 slug: grid-templates-pager
 tags: telerik,blazor,grid,templates,pager
 published: True
