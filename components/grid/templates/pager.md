@@ -14,7 +14,7 @@ position: 40
 The `GridPagerTemplate` allows you to modify the layout, content, and functionality of the Pager. To paginate the data, you can use any set of Blazor components and DOM elements instead of the default Grid [Pager]({%slug pager-overview%}).
 
 
->caption use the Telerik UI for Blazor Slider to paginate the Grid data.
+>caption Using the Telerik UI for Blazor Slider to paginate the Grid data
 
 ````CSHTML
 @page "/grid/pager-template"
