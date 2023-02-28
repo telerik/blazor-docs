@@ -59,6 +59,11 @@ In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send
 
 >tip The maximum file size supported by the framework up till .NET 5 was 2 GB and .NET 6 [removed this limit](https://github.com/dotnet/aspnetcore/pull/33900). While [Telerik UI for Blazor supports .NET version 3.1]({%slug system-requirements%}), the FileSelect component will allow maximum file size of 2 GB.
 
+## Drag and Drop File Support
+
+The FileSelect provides built-in file drag and drop support. This allows the users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event]({%slug fileselect-events%}#onselect) is raised upon file drop. You can handle that to perform further actions with the selected file(s).
+
+In addition, you may define an external drop zone using the [DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-fileselect).
 
 ## Validation
 

@@ -1,22 +1,22 @@
 ---
-title: Overview
+title: Template
 page_title: DropZone Template
-description: Discover the DropZone for Blazor and explore the examples.
+description: Template for the Blazor DropZone content.
 slug: dropzone-template
-tags: telerik,blazor,dropzone,external,drag,drop,file,overview
+tags: telerik,blazor,dropzone,external,drag,drop,file,template,custom,content
 published: True
 position: 10
 ---
 
 # DropZone Template
 
-The DropZone allows to customize the default rendering of its content by using a `Template`. It is a `RenderFragment` so you can add any desired custom content - be that simple text, HTML elements or other components.
+The DropZone allows you to customize the default rendering of its content by using a `Template`. It is a `RenderFragment` so you can add any desired custom content - be that simple text, HTML elements or other components.
 
-The example below demonstrates placing the FileSelect inside the DropZone `Template`. This allows you to still have a FileSelect component to handle the file selction but save space in the viewport. 
+The example below demonstrates placing the FileSelect inside the DropZone's `Template`. This allows you to still have a FileSelect component to handle the file selection but save space in the viewport. 
 
 All elements of the FileSelect but the Button are hidden as they are not needed for the specific scenario.
 
->tip This result can also be achieved by hiding the whole FileSelect/Upload component and placing a custom button in the Template to open the SelectFilesDialog. See [live demo: DropZone - Template](https://demos.telerik.com/blazor-ui/dropzone/template)
+>tip This result can also be achieved by hiding the whole FileSelect/Upload component and placing a custom button in the `Template` to open the `SelectFilesDialog`. See [live demo: DropZone - Template](https://demos.telerik.com/blazor-ui/dropzone/template)
 
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId">
@@ -53,5 +53,3 @@ All elements of the FileSelect but the Button are hidden as they are not needed 
 ## See Also
 
   * [Live Demo: DropZone](https://demos.telerik.com/blazor-ui/dropzone/template)
-  * [KB: DropZone for the whole viewport](to-do)
-

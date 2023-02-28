@@ -39,9 +39,9 @@ Property | Type | Description
 
 ## OnSelect
 
-The `OnSelect` fires when one or multiple files have been selected through the `Select files` button. Contains a list of fileInfo objects, allowing processing of the files.
+The `OnSelect` fires when one or multiple files have been selected. The selection of files is achived either through the `Select files` button or by dropping the files anywhere in the component. 
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo).
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). It contains a list of `FileInfo` objects, allowing processing of the files.
 
 >caption Handle the OnSelect event of the FileSelect
 

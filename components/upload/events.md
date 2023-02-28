@@ -265,7 +265,7 @@ See the [full example](#example) below.
 
 ## OnSelect
 
-The `OnSelect` event fires when the user selects new file(s) for upload.
+The `OnSelect` event fires when the user selects new file(s) for upload. The selection of files is achived either through the `Select files` button or by dropping the files anywhere in the component. 
 
 The `UploadSelectEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments).
 
