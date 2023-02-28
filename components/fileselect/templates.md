@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: FileSelect - Templates
+page_title: FileSelect Templates
 description: Templates in the FileSelect for Blazor.
 slug: fileselect-templates
 tags: telerik,blazor,fileselect,templates
