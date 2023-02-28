@@ -91,7 +91,7 @@ The File Select exposes methods for programmatic operation. To use them, define 
 | Method | Description |
 | --- | --- |
 | `ClearFiles` | Clears all files from the list. |
-| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
 
 >caption Get reference to the FileSelect and execute methods
 

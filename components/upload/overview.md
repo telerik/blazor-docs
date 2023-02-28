@@ -211,7 +211,7 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 | Method | Description |
 | --- | --- |
 | `ClearFiles` | Clears all files from the list, both uploaded and in queue. |
-| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
 | `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event. |
 
 >caption Get reference to the Upload and execute methods
