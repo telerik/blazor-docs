@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: FileSelect Templates
-description: Templates in the FileSelect for Blazor.
+description: Discover the Blazor FileSelect component templates that enable you to customize the rendered button. The templates allow you to change the text and add custom content. 
 slug: fileselect-templates
 tags: telerik,blazor,fileselect,templates
 published: True
