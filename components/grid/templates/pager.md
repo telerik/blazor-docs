@@ -1,6 +1,6 @@
 ---
 title: Pager Template
-page_title: Grid - Pager Template
+page_title: Grid Pager Template
 description: Use custom pager templates in Grid for Blazor.
 slug: grid-templates-pager
 tags: telerik,blazor,grid,templates,pager
