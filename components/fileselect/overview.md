@@ -66,7 +66,7 @@ The FileSelect includes [built-in client-side validation]({%slug fileselect-vali
 
 ## Templates
 
-You can use the functionality of the built-in template and modify the appearance of the "Select files..." button. [Read more about the Telerik FileSelect templates...]({%slug fileselect-templates%})
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik FileSelect templates...]({%slug fileselect-templates%})
 
 ## FileSelect Parameters
 
