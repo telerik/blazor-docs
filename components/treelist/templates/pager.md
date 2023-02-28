@@ -1,7 +1,7 @@
 ---
 title: Pager Template
 page_title: TreeList Pager Template
-description: Use custom pager templates in TreeList for Blazor.
+description: Learn how to use a custom pager template in the Blazor TreeList. The template allows you to customize the layout, content, and functionality of the TreeList UI component in Blazor apps.
 slug: treelist-templates-pager
 tags: telerik,blazor,treelist,templates,pager
 published: True
