@@ -1,6 +1,6 @@
 ---
 title: Pager Template
-page_title: TreeList - Pager Template
+page_title: TreeList Pager Template
 description: Use custom pager templates in TreeList for Blazor.
 slug: treelist-templates-pager
 tags: telerik,blazor,treelist,templates,pager
