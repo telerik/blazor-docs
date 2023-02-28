@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: Upload Templates
-description: Templates in the Upload for Blazor.
+description: Discover the Blazor Upload component templates that enable you to customize the rendered button. Through these templates, you to change the text and add custom content. 
 slug: upload-templates
 tags: telerik,blazor,upload,templates
 published: True
