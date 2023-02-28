@@ -16,17 +16,13 @@ The `SelectFilesButtonTemplate` allows you to modify the "Select Files..." butto
 
 ```CSHTML
 <div>
-    <TelerikFileSelect AllowedExtensions="@AllowedExtensions">
+    <TelerikFileSelect>
         <SelectFilesButtonTemplate>
             <TelerikFontIcon Icon="@FontIcon.Upload" />
-            MyText
+            Click to Select Files for Upload
         </SelectFilesButtonTemplate>
     </TelerikFileSelect>
 </div>
-
-@code {
-    public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".PNG" };
-}
 ```
 
 ## See Also
