@@ -46,8 +46,6 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 ````CSHMTL
 @* Use the AllDaySlotTemplate and SlotTemplate *@
 
-@using Telerik.FontIcons
-
 <TelerikScheduler @bind-Date="@SelectedDate" Height="600px" Data="@Data"
                   @bind-View="@CurrView"
                   OnCreate="@AddAppointment"
