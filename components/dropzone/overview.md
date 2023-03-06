@@ -25,12 +25,14 @@ This integration enables the users to drag and drop one or multiple files to a d
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId" NoteText="@NoteText" />
 
-<TelerikFileSelect DropZoneId="@DropZoneId"/>
+<TelerikFileSelect DropZoneId="@DropZoneId" AllowedExtensions="@AllowedExtensions" />
 
 @code {
     private string DropZoneId => "my-dropzone";
 
     private string NoteText => "Allowed file types: DOCX and PDF";
+
+    private List<string> AllowedExtensions { get; set; } = new List<string>() { ".docx", ".pdf" };
 }
 ````
 
@@ -44,7 +46,7 @@ The DropZone allows you to customize its rendering and appearance through a `Tem
 
 ## Parameters
 
-The DropZone provides various parameters that allow you to configure the component:
+The following table lists DropZone parameters. Check the [DropZone API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropZone) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -52,8 +54,8 @@ The DropZone provides various parameters that allow you to configure the compone
 | --- | --- | --- |
 | `Id` | `string` | The id of the DropZone. Assign the same value of the corresponding Upload or FileSelect component to the `DropZoneId`. |
 | `Enabled` | `bool` <br /> (`true`) | Specifies whether the DropZone is enabled. |
-| `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value. |
-| `NoteText` | `string` | The text for the note of the DropZone. Used for rendering any additional information that will be visualized under the hint. If not provided, the DropZone won't render a note. |
+| `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value ("Drag and drop files here to upload"). |
+| `NoteText` | `string` | Optional content inside the DropZone. Use it to render any additional information below the hint. |
 
 ### Styling and Appearance
 
@@ -61,10 +63,10 @@ The following parameters enable you to customize the appearance of the Blazor Dr
 
 |  Parameter | Type  | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone (`<div class="k-external-dropzone">`). Used for [overriding the theme or applying custom styles]({%slug themes-override%}). |
-| `DragOverClass` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone when a file is dragged over it. Used for conditionally styling the component during a dragover action. |
-| `Width` | `string` | The width of the DropZone. |
-| `Height` | `string` | The height of the DropZone. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone (`<div class="k-external-dropzone">`). Use it for [overriding the theme or applying custom styles]({%slug themes-override%}). |
+| `DragOverClass` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone when a file is dragged over it. Use it for [conditionally styling the component during a dragover action](https://demos.telerik.com/blazor-ui/dropzone/overview). |
+| `Width` | `string` | The width of the DropZone. Use it to set a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
+| `Height` | `string` | The height of the DropZone. Use it to set a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
 
 ## Next Steps
 
