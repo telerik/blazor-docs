@@ -51,7 +51,7 @@ The DropZone provides various parameters that allow you to configure the compone
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Id` | `string` | The id of the DropZone. Assign the same value of the corresponding Upload or FileSelect component to the `DropZoneId`. |
-| `Enabled` | `bool` <br /> (`true`)| Specifies whether the DropZone is enabled. |
+| `Enabled` | `bool` <br /> (`true`) | Specifies whether the DropZone is enabled. |
 | `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value. |
 | `NoteText` | `string` | The text for the note of the DropZone. Used for rendering any additional information that will be visualized under the hint. If not provided, the DropZone won't render a note. |
 
