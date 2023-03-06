@@ -180,11 +180,11 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 * [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
 * [Kestrel](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/options) web server [`MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
 
-## Drag and Drop File Support
+## Drag-and-Drop File Support
 
-The Upload provides built-in file drag and drop support. This allows the users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`]({%slug upload-events%}#onselect) and [`OnUpload`]({%slug upload-events%}#onupload) events are raised upon file drop. You can handle that to perform further actions with the selected file(s).
+The Upload provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`]({%slug upload-events%}#onselect) and [`OnUpload`]({%slug upload-events%}#onupload) events are raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
 
-In addition, you may define an external drop zone using the [DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-upload).
+Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-upload).
 
 ## Upload Parameters
 

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: DropDown List Overview
+page_title: DropDownList Overview
 description: Discover the Blazor DropdownList for Blazor and explore the examples.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-## Creating DropDownList
+## Creating the DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown.
@@ -107,7 +107,7 @@ The following parameters enable you to customize the appearance of the Blazor Dr
 You can find more options for customizing the DropDownList styling in the [Appearance article]({%slug dropdownlist-appearance%}).
 
 
-### Popup settings
+### Popup Settings
 
 The popup of the component can be additionally customized via nested tags:
 
@@ -135,7 +135,7 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
 ````CSHTML
 <TelerikDropDownList @ref="@DropDownListRef"
                      Data="@DropDownListData"
-                     @bind-Value="@DropDownListValue" 
+                     @bind-Value="@DropDownListValue"
                      Width="300px"/>
 
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
@@ -160,7 +160,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 * To display `DefaultText` - `Value` should be `0` or `null` depending on the data type you are using in the `ValueField` and the `DefaultText` should be defined.
 
-* To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source. 
+* To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source.
 
 
 ## Examples
@@ -240,12 +240,10 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 ## Next Steps
 
 * [Binding the DropDownList to Data]({%slug components/dropdownlist/databind%})
-
 * [Pre-Selecting Items for the User]({% slug dropdownlist-pre-select-item %})
-
 
 ## See Also
 
-  * [Data Binding]({%slug components/dropdownlist/databind%})
-  * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
-  * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)
+* [Data Binding]({%slug components/dropdownlist/databind%})
+* [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
+* [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)

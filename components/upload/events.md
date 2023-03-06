@@ -14,18 +14,18 @@ This article describes the events of the Telerik Upload for Blazor.
 
 First, get familiar with the [**Event Arguments**](#event-arguments) section, as it applies to all events. The [example](#example) at the end also showcases all Upload events.
 
-* [OnCancel](#oncancel)
-* [OnClear](#onclear)
-* [OnError](#onerror)
-* [OnProgress](#onprogress)
-* [OnRemove](#onremove)
-* [OnSelect](#onselect)
-    * [Rename uploaded files](#renaming-a-file)
-* [OnSuccess](#onsuccess)
-* [OnUpload](#onupload)
-    * [Send custom additional data with the uploaded file](#send-custom-data-with-the-file)
+* [`OnCancel`](#oncancel)
+* [`OnClear`](#onclear)
+* [`OnError`](#onerror)
+* [`OnProgress`](#onprogress)
+* [`OnRemove`](#onremove)
+* [`OnSelect`](#onselect)
+    * [Renaming uploaded files](#renaming-a-file)
+* [`OnSuccess`](#onsuccess)
+* [`OnUpload`](#onupload)
+    * [Sending additional custom data with the uploaded file](#send-custom-data-with-the-file)
 
->warning Make sure to also check section [Upload Security]({%slug upload-overview%}#security).
+>warning Make sure to also check the section about [Upload security]({%slug upload-overview%}#security).
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -38,17 +38,17 @@ The different Upload events use different event argument types, but the exposed 
 
 | Property | Type | Description |
 |---|---|---|
-| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect` and `OnUpload` handlers. In the other events, the file is just one. |
+| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. In the other events, the file is just one. |
 | `IsCancelled` | `bool` | Set to `true` to cancel the event and the respective user action. |
 | `Operation` | [`UploadOperationType`](/blazor-ui/api/Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
-| `Request` | `UploadHttpRequest` | Information about the server response, such as status code and any custom messages. The object contains the `int` property `Status` and the strings `StatusText`, `ResponseType` and `ResponseText`. |
-| `RequestData` | `Dictionary<string, object>` | Add `KeyValuePair`s to [send custom data](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
-| `RequestHeaders` | `Dictionary<string, object>` | Add `KeyValuePair`s to [send custom HTTP headers](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
+| `Request` | `UploadHttpRequest` | Information about the server response such as status code and any custom messages. The object contains the `int` property `Status` and the `StatusText`, `ResponseType`, and `ResponseText` strings. |
+| `RequestData` | `Dictionary<string, object>` | Add `KeyValuePair` definitions to [send custom data](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
+| `RequestHeaders` | `Dictionary<string, object>` | Add `KeyValuePair` definitions to [send custom HTTP headers](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
 
 >tip The custom information in `RequestData` and `RequestHeaders` can be related to authentication, CSRF cross-site anti forgery tokens, or any business logic.
 
-### UploadFileInfo 
+### UploadFileInfo
 
 The `UploadFileInfo` object has the following properties:
 
@@ -71,7 +71,7 @@ The `OnCancel` event fires when the user clicks the *Cancel* icon of a file that
 
 The `UploadCancelEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments).
 
-If you cancel the event, the upload process will continue. For example, this can depend on some [file information](#uploadfileinfo) such as size and upload progress. 
+If you cancel the event, the upload process will continue. For example, this can depend on some [file information](#uploadfileinfo) such as size and upload progress.
 
 >caption Using the Upload OnCancel event
 
@@ -265,9 +265,9 @@ See the [full example](#example) below.
 
 ## OnSelect
 
-The `OnSelect` event fires when the user selects new file(s) for upload. The selection of files is achived either through the `Select files` button or by dropping the files anywhere in the component. 
+The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the **Select files** button or by dropping the files anywhere in the component.
 
-The `UploadSelectEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments).
+The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments).
 
 If you cancel the event, the Upload component will neither list, nor upload the selected files.
 

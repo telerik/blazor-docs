@@ -10,15 +10,15 @@ position: 0
 
 # Blazor FileSelect Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/fileselect" target="_blank">Blazor FileSelect component</a> helps users select one or multiple files from their local file system.
+The <a href = "https://www.telerik.com/blazor-ui/fileselect" target="_blank">Telerik UI for Blazor FileSelect component</a> helps users select one or more files from their local file system.
 
-The Telerik FileSelect for Blazor provides a [Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream?view=net-6.0) for each selected file, so that you can manipulate the file in-memory or save (upload) it to the server file system.
+The Blazor FileSelect provides a [Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream?view=net-6.0) for each selected file, so that you can manipulate the file in-memory or save (upload) it to the server file system.
 
-## Comparison to the Upload
+## FileSelect vs. Upload
 
 @[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
 
-## Creating Blazor FileSelect
+## Creating the FileSelect
 
 1. Add the `TelerikFileSelect` tag.
 1. Set `AllowedExtensions` to a `List<string>`.
@@ -28,7 +28,7 @@ The Telerik FileSelect for Blazor provides a [Stream](https://docs.microsoft.com
 
 Steps 2 and 3 are optional, but strongly recommended.
 
->caption Using FileSelect
+>caption Using the FileSelect
 
 ````CS
 <TelerikFileSelect AllowedExtensions="@AllowedExtensions"
@@ -59,11 +59,11 @@ In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send
 
 >tip The maximum file size supported by the framework up till .NET 5 was 2 GB and .NET 6 [removed this limit](https://github.com/dotnet/aspnetcore/pull/33900). While [Telerik UI for Blazor supports .NET version 3.1]({%slug system-requirements%}), the FileSelect component will allow maximum file size of 2 GB.
 
-## Drag and Drop File Support
+## Drag-and-Drop File Support
 
-The FileSelect provides built-in file drag and drop support. This allows the users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event]({%slug fileselect-events%}#onselect) is raised upon file drop. You can handle that to perform further actions with the selected file(s).
+The FileSelect provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event]({%slug fileselect-events%}#onselect) is raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
 
-In addition, you may define an external drop zone using the [DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-fileselect).
+Additionally, you may define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-fileselect).
 
 ## Validation
 

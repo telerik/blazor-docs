@@ -1,7 +1,7 @@
 ---
 title: Integration
-page_title: DropZone Integration
-description: Integration of the Blazor DropZone with FileSelect and Upload.
+page_title: DropZone FileSelect and Upload Integration 
+description: Learn how to integrate the Telerik UI for Blazor DropZone with a FileSelect or an Upload component, and enable users to drop files and automatically select or upload them.
 slug: dropzone-integration
 tags: telerik,blazor,dropzone,external,drag,drop,file,integration,fileselect,upload
 published: True
@@ -10,29 +10,25 @@ position: 5
 
 # DropZone Integration
 
-This article explains the specifics of integrating the DropZone with the [FileSelect]({%slug fileselect-overview%}) and [Upload]({%slug upload-overview%}) components.
+This article explains the specifics you need to consider when integrating the DropZone with the [FileSelect]({%slug fileselect-overview%}) and [Upload]({%slug upload-overview%}) components.
 
 >caption In this article:
 * [Basics](#basics)
-* [DropZone Integration with FileSelect](#dropzone-integration-with-fileselect)
-* [DropZone Integration with Upload](#dropzone-integration-with-upload)
+* [Integration with the FileSelect](#integration-with-the-fileselect)
+* [Integration with the Upload](#integration-with-the-upload)
 
 ## Basics
 
-The DropZone component can be used to define a dedicated area in the viewport where the users can drag and drop files into. To further handle the file upload, you need to integrate the DropZone with either FileSelect or Upload component.
+The DropZone component enables you to define a dedicated area in the viewport to which the users can drag and drop files. To further handle the file upload, you need to integrate the DropZone with either the FileSelect or the Upload component.
 
-The connection is achieved in two simple steps:
+To achieve the connection:
 
-1. Set the `Id` parameter of the DropZone component.
-1. Set the `DropZoneId` of the FileSelect/Upload component to match the `Id` of the DropZone.
+1. Set the `Id` parameter of the DropZone.
+1. Set the `DropZoneId` of the FileSelect or the Upload component to match the `Id` of the DropZone.
 
+## Integration with the FileSelect
 
-
-## DropZone Integration with FileSelect
-
-The sample below showcases integration of a DropZone component with FileSelect.
-
-Once the user drops the file in the external DropZone, the file is automatically sent to the connected FileSelect. This will effectively raise the [`OnSelect` event of the FileSelect]({%slug fileselect-events%}#onselect). You can handle that to perform further actions with the selected file(s).
+The sample below showcases the integration of a DropZone with a FileSelect component. Once the user drops a file in the external DropZone, the file is automatically sent to the connected FileSelect. This action effectively raises the [`OnSelect` event of the FileSelect]({%slug fileselect-events%}#onselect), which you can handle to perform further actions with the selected file.
 
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId" />
@@ -55,13 +51,9 @@ Once the user drops the file in the external DropZone, the file is automatically
 }
 ````
 
-## DropZone Integration with Upload
+## Integration with the Upload
 
-The sample below showcases integration of a DropZone component with Upload.
-
-Once the user drops the file in the external DropZone, the file is automatically sent to the connected Upload. This will effectively raise the [`OnSelect` event of the Upload]({%slug upload-events%}#onselect). Unless `AutoUpload="false"`, the [`OnUpload` event]({%slug upload-events%}#onupload) will also fire upon file drop in the DropZone.
-
-You can handle these events to perform further actions with the selected/uploaded file(s).
+The sample below showcases the integration of a DropZone with an Upload component. Once the user drops a file in the external DropZone, the file is automatically sent to the connected Upload. This action effectively raises the [`OnSelect` event of the Upload]({%slug upload-events%}#onselect). Unless the `AutoUpload="false"` configuration is set, the [`OnUpload` event]({%slug upload-events%}#onupload) will also fire upon dropping the file in the DropZone. You can handle these events to perform further actions with the selected or uploaded file.
 
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId" />
@@ -92,4 +84,4 @@ You can handle these events to perform further actions with the selected/uploade
 
 ## See Also
 
-  * [Live Demo: DropZone](https://demos.telerik.com/blazor-ui/dropzone/overview)
+* [Live Demo: Blazor DropZone Overview and Key Features](https://demos.telerik.com/blazor-ui/dropzone/overview)

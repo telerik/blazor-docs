@@ -1,7 +1,7 @@
 ---
 title: Template
-page_title: DropZone Template
-description: Template for the Blazor DropZone content.
+page_title: DropZone Content Template
+description: Learn more about how to modify the default content of the Telerik UI for Blazor DropZone by using its template and defining a custom layout.
 slug: dropzone-template
 tags: telerik,blazor,dropzone,external,drag,drop,file,template,custom,content
 published: True
@@ -10,13 +10,11 @@ position: 10
 
 # DropZone Template
 
-The DropZone allows you to customize the default rendering of its content by using a `Template`. It is a `RenderFragment` so you can add any desired custom content - be that simple text, HTML elements or other components.
+The DropZone allows you to customize the default rendering of its content by using a `Template`. `Template` is a `RenderFragment` and allows you to add whatever custom content is required such as simple text, HTML elements, or other components.
 
-The example below demonstrates placing the FileSelect inside the DropZone's `Template`. This allows you to still have a FileSelect component to handle the file selection but save space in the viewport. 
+The following example demonstrates how to place the FileSelect component inside the `Template` of the DropZone. This action allows you to save space in the viewport while still having a FileSelect for handling the file selection. Except for the Button, all FileSelect elements are hidden as they are not needed for the specific scenario.
 
-All elements of the FileSelect but the Button are hidden as they are not needed for the specific scenario.
-
->tip This result can also be achieved by hiding the whole FileSelect/Upload component and placing a custom button in the `Template` to open the `SelectFilesDialog`. See [live demo: DropZone - Template](https://demos.telerik.com/blazor-ui/dropzone/template)
+>tip To achieve the same result, you can also hide the whole FileSelect or Upload component and place a custom button for opening the `SelectFilesDialog` in the `Template`. For details, go to the [live demo on implementing the DropZone template](https://demos.telerik.com/blazor-ui/dropzone/template).
 
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId">
@@ -52,4 +50,4 @@ All elements of the FileSelect but the Button are hidden as they are not needed 
 
 ## See Also
 
-  * [Live Demo: DropZone](https://demos.telerik.com/blazor-ui/dropzone/template)
+* [Live Demo: Implementing the Blazor DropZone Template](https://demos.telerik.com/blazor-ui/dropzone/template)
