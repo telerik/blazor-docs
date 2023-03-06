@@ -48,7 +48,7 @@ The DropZone provides various parameters that allow you to configure the compone
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Id` | `string` | The id of the DropZone. Assign the same value of the corresponding Upload or FileSelect component to the `DropZoneId`. |
 | `Enabled` | `bool` <br /> (`true`)| Specifies whether the DropZone is enabled. |
