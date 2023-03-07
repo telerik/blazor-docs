@@ -5,14 +5,16 @@ description: Learn more about how to modify the default content of the Telerik U
 slug: dropzone-template
 tags: telerik,blazor,dropzone,external,drag,drop,file,template,custom,content
 published: True
-position: 10
+position: 5
 ---
 
 # DropZone Template
 
-The DropZone allows you to customize the default rendering of its content by using a `Template`. `Template` is a `RenderFragment` and allows you to add whatever custom content is required such as simple text, HTML elements, or other components.
+The DropZone allows you to customize the default rendering of its content by using a `Template`. 
 
->caption Use template to add custom content in the DropZone
+The `Template` is a `RenderFragment` and allows you to add whatever custom content is required such as simple text, HTML elements, or other components.
+
+>caption Use Template to add custom content in the DropZone
 
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId">

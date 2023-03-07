@@ -14,11 +14,11 @@ The <a href="https://www.telerik.com/blazor-ui/dropzone" target="_blank">Telerik
 
 This integration enables the users to drag and drop one or multiple files to a designated space in their viewport. Dropping the files in the connected DropZone area will automatically select or upload them respectively.
 
-## Creating the DropZone
+## Creating Blazor DropZone
 
 1. Add the DropZone to your Razor page by using the `TelerikDropZone` tag.
 1. Set the `Id` parameter of the component.
-1. Set the `DropZoneId` of the [FileSelect]({%slug fileselect-overview%}#fileselect-parameters) or [Upload]({%slug upload-overview%}#upload-parameters) component to match the `Id` of the DropZone. For more information, go to the article on the [supported integration of the DropZone]({%slug dropzone-integration%}).
+1. Set the `DropZoneId` of the [FileSelect]({%slug fileselect-overview%}#fileselect-parameters) or [Upload]({%slug upload-overview%}#upload-parameters) component to match the `Id` of the DropZone.
 1. (Optional) Add a note to the DropZone by using the `NoteText` setting.
 
 >caption Basic configuration of the DropZone with the FileSelect component.
@@ -38,7 +38,11 @@ This integration enables the users to drag and drop one or multiple files to a d
 
 ## Integration with the Upload and FileSelect
 
-You can integrate the DropZone both with the [FileSelect]({%slug fileselect-overview%}) or [Upload]({%slug upload-overview%}) components, which will allow users to drop files and automatically select or upload them. [Read more about connecting the DropZone with the FileSelect or Upload...]({%slug dropzone-integration%})
+You can integrate the DropZone with both the [FileSelect]({%slug fileselect-overview%}) or [Upload]({%slug upload-overview%}) components. This will allow users to drop files and automatically select or upload them.
+
+The connection is achieved by simply matching the value of the DropZone `Id` parameter with the `DropZoneId` parameter of the FileSelect or the Upload component.
+
+Once the user drops a file in the external DropZone, the file is automatically sent to the connected FileSelect/Upload. This action effectively raises the `OnSelect` event of the [FileSelect]({%slug fileselect-events%}#onselect) or [Upload]({%slug upload-events%}#onselect). You can handle that to perform further actions with the dropped file(s).
 
 ## Template
 
@@ -54,8 +58,8 @@ The following table lists DropZone parameters. Check the [DropZone API Reference
 | --- | --- | --- |
 | `Id` | `string` | The id of the DropZone. Assign the same value of the corresponding Upload or FileSelect component to the `DropZoneId`. |
 | `Enabled` | `bool` <br /> (`true`) | Specifies whether the DropZone is enabled. |
-| `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value ("Drag and drop files here to upload"). |
-| `NoteText` | `string` | Optional content inside the DropZone. Use it to render any additional information below the hint. |
+| `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value ("Drag and drop files here to upload"). The label text is also [localizable]({%slug globalization-localization%}).|
+| `NoteText` | `string` | Optional content inside the DropZone. Use it to render any additional information below the hint. The label text is also [localizable]({%slug globalization-localization%}). |
 
 ### Styling and Appearance
 
@@ -65,12 +69,12 @@ The following parameters enable you to customize the appearance of the Blazor Dr
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone (`<div class="k-external-dropzone">`). Use it for [overriding the theme or applying custom styles]({%slug themes-override%}). |
 | `DragOverClass` | `string` | The CSS class that will be rendered on the main wrapping element of the DropZone when a file is dragged over it. Use it for [conditionally styling the component during a dragover action](https://demos.telerik.com/blazor-ui/dropzone/overview). |
-| `Width` | `string` | The width of the DropZone. Use it to set a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
-| `Height` | `string` | The height of the DropZone. Use it to set a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
+| `Width` | `string` | The width of the DropZone. Accepts a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
+| `Height` | `string` | The height of the DropZone. Accepts a valid CSS value (see the [Dimensions article]({%slug common-features/dimensions%})). |
 
 ## Next Steps
 
-* [Integrating the DropZone with the FileSelect and Upload components]({%slug dropzone-integration%})
+* [Using the DropZone Template for custom content]({%slug dropzone-template%})
 
 ## See Also
 

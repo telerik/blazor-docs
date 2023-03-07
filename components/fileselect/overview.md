@@ -61,9 +61,9 @@ In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send
 
 ## Drag-and-Drop File Support
 
-The FileSelect provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event]({%slug fileselect-events%}#onselect) is raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
+The FileSelect provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event]({%slug fileselect-events%}#onselect) is raised upon dropping the file. You can handle this event to perform further actions with the selected file.
 
-Additionally, you may define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-fileselect).
+Additionally, you may define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-overview%}).
 
 ## Validation
 
@@ -82,7 +82,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. (The FileSelect reuses the Upload HTML rendering.) |
-| `DropZoneId` | `string` | The id that is used to connect the FileSelect to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. See details in [DropZone Integration]({%slug dropzone-integration%}).
+| `DropZoneId` | `string` | The id that is used to connect the FileSelect to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |

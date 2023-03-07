@@ -184,7 +184,7 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 
 The Upload provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`]({%slug upload-events%}#onselect) and [`OnUpload`]({%slug upload-events%}#onupload) events are raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
 
-Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-integration%}#dropzone-integration-with-upload).
+Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-overview%}).
 
 ## Upload Parameters
 
@@ -199,7 +199,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
-| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. See details in [DropZone Integration]({%slug dropzone-integration%}).
+| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
