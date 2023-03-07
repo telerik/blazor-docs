@@ -12,9 +12,11 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets users upload files to a server endpoint asynchronously. Users can select one or multiple files. The upload process can start immediately after selection or after a button click. Users can also delete their uploaded files. The component can validate the selected files' extensions and size.
 
+
 ## Comparison with the FileSelect
 
 @[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
+
 
 ## Creating Blazor Upload
 
@@ -154,6 +156,7 @@ namespace TelerikBlazorUpload.Controllers
 }
 ````
 
+
 ### Security
 
 The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add headers, authentication tokens and custom data to the request.
@@ -161,6 +164,7 @@ The Telerik Upload component makes XHR requests from the browser to the designat
 Authentication and authorization depends on the application.
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
+
 
 ### Cross-Origin Requests
 
