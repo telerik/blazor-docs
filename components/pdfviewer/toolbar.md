@@ -27,7 +27,7 @@ By default, the PDF Viewer displays all its built-in tools in the order below. U
 | Search | `PdfViewerToolBarSearchTool` | A search button. It opens an additional search bar that contains a textbox and arrow buttons to navigate the search results. |
 | Open | `PdfViewerToolBarOpenTool` | An open button. It fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
 | Download | `PdfViewerToolBarDownloadTool` | A download button. It fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
-| Print | `PdfViewerToolBarPrintTool` | A print button. |
+| Print | `PdfViewerToolBarPrintTool` | A print button. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
 
 By default, the toolbar also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). Separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
 
