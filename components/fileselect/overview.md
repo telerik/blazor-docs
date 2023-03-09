@@ -18,7 +18,7 @@ The Blazor FileSelect provides a [Stream](https://docs.microsoft.com/en-us/dotne
 
 @[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
 
-## Creating the FileSelect
+## Creating Blazor FileSelect
 
 1. Add the `TelerikFileSelect` tag.
 1. Set `AllowedExtensions` to a `List<string>`.
