@@ -12,38 +12,38 @@ position: 20
 
 This article describes the events and event arguments of the Telerik FileSelect for Blazor:
 
-* [OnSelect event](#onselect)
-* [OnRemove event](#onremove)
-* [FileSelectFileInfo class](#fileselectfileinfo)
+* [`OnSelect` event](#onselect)
+* [`OnRemove` event](#onremove)
+* [`FileSelectFileInfo` class](#fileselectfileinfo)
 
 ## FileSelectFileInfo
 
-The FileSelect event handlers provide a [`FileSelectEventArgs` argument](/blazor-ui/api/Telerik.Blazor.Components.FileSelectEventArgs). It has a `Files` property, which is a `List<FileSelectFileInfo>`.
+The FileSelect event handlers provide a [`FileSelectEventArgs` argument](/blazor-ui/api/Telerik.Blazor.Components.FileSelectEventArgs). `FileSelectEventArgs` has a `Files` property, which is a `List<FileSelectFileInfo>` type.
 
-The `FileSelectFileInfo` type contains these properties:
+The `FileSelectFileInfo` type contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 Property | Type | Description
 ---------|----------|---------
-`Id` | `string` | the unique file identifier
-`Name`|`string` | the file name
-`Size` |`long` | the file size in bytes
-`Extension` |`string` | the file extension
-`InvalidExtension` | `bool` | a boolean flag that shows if the file type is invalid
-`InvalidMinFileSize` | `bool` | a boolean flag that shows if file size is below the minimum
-`InvalidMaxFileSize` | `bool` | a boolean flag that shows if the file size exceeds the maximum
-`Stream`| `FileInfoStream` | a [System.IO.Stream](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system or other. Use it to **asynchronously** get the file contents as byte array.
+`Id` | `string` | The unique file identifier.
+`Name`|`string` | The file name.
+`Size` |`long` | The file size in bytes.
+`Extension` |`string` | The file extension.
+`InvalidExtension` | `bool` | A Boolean flag that shows if the file type is invalid.
+`InvalidMinFileSize` | `bool` | A Boolean flag that shows if file size is below the minimum.
+`InvalidMaxFileSize` | `bool` | A Boolean flag that shows if the file size exceeds the maximum.
+`Stream`| `FileInfoStream` | A [`System.IO.Stream`](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system, or other. Used for **asynchronously** getting the file contents as a byte array.
 
-> Due to Blazor framework limitations, `FileInfoStream` does not support **synchronous** operations such as `Read`, `Seek`, `Flush` and `Write`. The methods exist, but will [throw an exception]({%slug fileselect-kb-stream-exception%}). A possible workaround is to copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsync`. The `OnSelect` event example below demonstrates this.
+> Due to the Blazor framework limitations, `FileInfoStream` does not support **synchronous** operations such as `Read`, `Seek`, `Flush`, and `Write`. The methods exist, but will [throw an exception]({%slug fileselect-kb-stream-exception%}). A possible workaround is to copy the `FileInfoStream` **asynchronously** to another `Stream` with `CopyToAsync`, as demonstrated by the `OnSelect` event example below.
 
 ## OnSelect
 
-The `OnSelect` fires when one or multiple files have been selected through the `Select files` button. Contains a list of fileInfo objects, allowing processing of the files.
+The `OnSelect` fires when one or more files have been selected. The selection of files is achieved either through the **Select files** button or by dropping the files anywhere in the component.
 
-The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo).
+The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo), which contains a list of `FileInfo` objects that allow the processing of the files.
 
->caption Handle the OnSelect event of the FileSelect
+>caption Handling the `OnSelect` event of the FileSelect
 
 ````CSHTML
 @*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
@@ -89,7 +89,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
         await using FileStream fs = new FileStream(path, FileMode.Create);
         await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
     }
-    
+
     private async Task ReadFile(FileSelectFileInfo file)
     {
         Tokens.Add(file.Id, new CancellationTokenSource());
@@ -103,11 +103,11 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
 ## OnRemove
 
-The `OnRemove` fires when a file has been removed from the list of selected files (by clicking the `x` icon or pressing `Del` key).
+The `OnRemove` fires when a file has been removed from the list of selected files either by clicking the **x** icon or by pressing the `Del` key.
 
 The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one).
 
->caption Handle the OnRemove event of the FileSelect
+>caption Handling the `OnRemove` event of the FileSelect
 
 ````CSHTML
 @*Handle the OnRemove event of the FileSelect to access and delete the uploaded files*@
@@ -143,7 +143,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
             await Task.Delay(1);
 
             var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
-            
+
             // Remove the file from the file system
             File.Delete(path);
         }
@@ -157,6 +157,6 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
 ## See Also
 
-* [Live Demo: FileSelect Events](https://demos.telerik.com/blazor-ui/fileselect/events)
-* [FileSelect Overview]({%slug fileselect-overview%})
-* [FileSelect Validation]({%slug fileselect-validation%})
+* [Live Demo: Blazor FileSelect Events](https://demos.telerik.com/blazor-ui/fileselect/events)
+* [Telerik UI for Blazor FileSelect Overview]({%slug fileselect-overview%})
+* [Blazor FileSelect Validation]({%slug fileselect-validation%})

@@ -329,6 +329,8 @@ navigation:
         title: "Drawer"
      "*dropdownlist":
         title: "DropDownList"
+     "*dropzone":
+        title: "DropZone"
      "*dropdowntree":
         isNew: true
         title: "DropDownTree"

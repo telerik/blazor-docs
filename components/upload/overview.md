@@ -13,7 +13,7 @@ position: 0
 The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets users upload files to a server endpoint asynchronously. Users can select one or multiple files. The upload process can start immediately after selection or after a button click. Users can also delete their uploaded files. The component can validate the selected files' extensions and size.
 
 
-## Comparison with the FileSelect
+## Upload vs. FileSelect
 
 @[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
 
@@ -187,6 +187,11 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 * [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
 * [Kestrel](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/options) web server [`MaxRequestBodySize`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#kestrel-maximum-request-body-size)
 
+## Drag-and-Drop File Support
+
+The Upload provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`]({%slug upload-events%}#onselect) and [`OnUpload`]({%slug upload-events%}#onupload) events are raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
+
+Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-overview%}).
 
 ## Upload Parameters
 
@@ -201,6 +206,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
+| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
