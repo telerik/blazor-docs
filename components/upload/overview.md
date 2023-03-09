@@ -215,15 +215,17 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 
 The Upload exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The Upload methods are:
 
-* `ClearFiles` - Clears all files from the list, both uploaded and in queue.
-* `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
-* `OpenFileSelectAsync` - Triggers the browser's file select dialog.
+| Method | Description |
+| --- | --- |
+| `ClearFiles` | Clears all files from the list, both uploaded and in queue. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
+| `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event. |
 
->caption Get a reference to the Upload and execute methods.
+>caption Get reference to the Upload and execute methods
 
 <div class="skip-repl"></div>
 
-````HTML
+````CSHTML
 <p>
     <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
     <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
@@ -238,9 +240,9 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 @code {
     private TelerikUpload UploadRef { get; set; }
 
-    private async Task SelectFiles()
+    private void SelectFiles()
     {
-        await UploadRef.OpenFileSelectAsync();
+        UploadRef.OpenSelectFilesDialog();
     }
 
     private void Clear()
