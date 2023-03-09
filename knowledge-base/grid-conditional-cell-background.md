@@ -58,18 +58,18 @@ You can use a particular column's [cell template]({%slug grid-templates-column%}
 ````CSHTML
 <style>
     /* remove the default cell padding to remove traces of the original background */
-    .k-grid-table td {
+    .k-grid-table .k-table-td {
         padding: 0;
         /*height: 40px;*/ /*you may want to set height to the cells so the height:100% to the child div works better*/
     }
 
-        .k-grid-table td .cell-padding {
+        .k-grid-table .k-table-td .cell-padding {
             height: 100%;
             padding: 5px; /* apply the desired cell padding here */
         }
 
         /* the custom background - in this example, on every third element*/
-        .k-grid-table td .special-background {
+        .k-grid-table .k-table-td .special-background {
             background: yellow;
         }
 </style>
