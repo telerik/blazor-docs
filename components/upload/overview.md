@@ -175,6 +175,9 @@ Authentication and authorization depends on the application.
 
 The Upload includes [built-in client-side validation]({%slug upload-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug upload-events%}#onselect).
 
+## Templates
+
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
 
 ## Large File Uploads
 

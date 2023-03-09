@@ -64,6 +64,9 @@ In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send
 
 The FileSelect includes [built-in client-side validation]({%slug fileselect-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug fileselect-events%}#onselect).
 
+## Templates
+
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik FileSelect templates...]({%slug fileselect-templates%})
 
 ## FileSelect Parameters
 
