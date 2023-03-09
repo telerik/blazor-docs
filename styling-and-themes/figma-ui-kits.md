@@ -10,7 +10,7 @@ position: 4
 
 # Telerik and Kendo UI Design Kits for Figma
 
-Design files for Figma&mdash;building blocks that match the Telerik UI for Blazor components.
+Design files for Figma&mdash;building blocks that match the [Telerik UI for Blazor](https://www.telerik.com/blazor-ui) components.
 
 <a href="https://www.figma.com/@progress" style="display: contents;" title="Download UI Kits">
 <img src="./images/ui-kits-for-figma.png" alt="Download UI Kits"/>

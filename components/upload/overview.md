@@ -12,9 +12,11 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/upload" target="_blank">Blazor Upload component</a> lets users upload files to a server endpoint asynchronously. Users can select one or multiple files. The upload process can start immediately after selection or after a button click. Users can also delete their uploaded files. The component can validate the selected files' extensions and size.
 
+
 ## Upload vs. FileSelect
 
 @[template](/_contentTemplates/upload/notes.md#fileselect-upload-comparison)
+
 
 ## Creating Blazor Upload
 
@@ -154,6 +156,7 @@ namespace TelerikBlazorUpload.Controllers
 }
 ````
 
+
 ### Security
 
 The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add headers, authentication tokens and custom data to the request.
@@ -161,6 +164,7 @@ The Telerik Upload component makes XHR requests from the browser to the designat
 Authentication and authorization depends on the application.
 
 @[template](/_contentTemplates/upload/notes.md#server-security-note)
+
 
 ### Cross-Origin Requests
 
@@ -171,6 +175,9 @@ Authentication and authorization depends on the application.
 
 The Upload includes [built-in client-side validation]({%slug upload-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug upload-events%}#onselect).
 
+## Templates
+
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
 
 ## Large File Uploads
 
@@ -214,15 +221,17 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 
 The Upload exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The Upload methods are:
 
-* `ClearFiles` - Clears all files from the list, both uploaded and in queue.
-* `UploadFiles` - Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event.
-* `OpenFileSelectAsync` - Triggers the browser's file select dialog.
+| Method | Description |
+| --- | --- |
+| `ClearFiles` | Clears all files from the list, both uploaded and in queue. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
+| `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event. |
 
->caption Get a reference to the Upload and execute methods.
+>caption Get reference to the Upload and execute methods
 
 <div class="skip-repl"></div>
 
-````HTML
+````CSHTML
 <p>
     <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
     <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
@@ -237,9 +246,9 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 @code {
     private TelerikUpload UploadRef { get; set; }
 
-    private async Task SelectFiles()
+    private void SelectFiles()
     {
-        await UploadRef.OpenFileSelectAsync();
+        UploadRef.OpenSelectFilesDialog();
     }
 
     private void Clear()

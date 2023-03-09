@@ -69,6 +69,9 @@ Additionally, you may define an external drop zone by using the [Telerik UI for 
 
 The FileSelect includes [built-in client-side validation]({%slug fileselect-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug fileselect-events%}#onselect).
 
+## Templates
+
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik FileSelect templates...]({%slug fileselect-templates%})
 
 ## FileSelect Parameters
 
@@ -88,6 +91,41 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
+
+
+## FileSelect Reference and Methods
+
+The File Select exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` attribute (example below). The FileSelect methods are:
+
+| Method | Description |
+| --- | --- |
+| `ClearFiles` | Clears all files from the list. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
+
+>caption Get reference to the FileSelect and execute methods
+
+````CSHTML
+<p>
+    <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
+    <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>
+</p>
+
+<TelerikFileSelect @ref="@FileSelectRef" />
+
+@code {
+    private TelerikFileSelect FileSelectRef { get; set; }
+
+    private void SelectFiles()
+    {
+        FileSelectRef.OpenSelectFilesDialog();
+    }
+
+    private void Clear()
+    {
+        FileSelectRef.ClearFiles();
+    }
+}
+````
 
 
 ## Next Steps

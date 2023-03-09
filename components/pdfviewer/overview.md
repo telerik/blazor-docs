@@ -95,10 +95,10 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 | Method | Description |
 | --- | --- |
+| `Print` | Prints the loaded PDF document as an alternative to the [built-in Print button in the PDF Viewer toolbar]({%slug pdfviewer-toolbar%}#built-in-tools). |
 | `Rebind` | Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
 
-
->caption PDF Viewer reference and Rebind method usage
+>caption PDF Viewer reference and method usage
 
 ````CSHTML
 <TelerikPdfViewer @ref="@PdfViewerRef"
