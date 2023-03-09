@@ -16,7 +16,6 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 
 ## Creating Blazor MaskedTextBox
 
-To use the Telerik MaskedTextbox for Blazor:
 
 1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
 1. Set its `Value` parameter to a `string`. It supports two-way binding.
