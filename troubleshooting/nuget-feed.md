@@ -14,6 +14,7 @@ This article provides ways to fix the most common problems we have had reported 
 
 * [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
 * [Error 401 Logon failed.](#error-401-login-failed)
+* [Error `Unable to find package`](#unable-to-find-package)
 
 ## I do not see the Telerik Packages
 
@@ -61,6 +62,14 @@ Add-Type -AssemblyName System.Web
 ```
 
 ![Powershell Encoding](images/encode-passwords-with-powershell.png)
+
+
+## Unable to Find Package
+
+The error `Unable to find package` can imply the following:
+
+* If the error occurs for package `Telerik.UI.for.Blazor`, then the [Telerik NuGet source]({%slug installation/nuget%}) may not be setup or enabled. This can be due to missing configuration in the `NuGet.Config` file (or Visual Studio), or the correct `NuGet.Config` file is not used at all. The latter can apply especially in **Docker** scenarios, when it's best to copy the `NuGet.Config` file explicitly during build (see [this forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples)).
+* If the error occurs for the [icon packages (`Telerik.FontIcons` and `Telerik.SvgIcons`)]({%slug general-information/font-icons%}), this means the NuGet client is not using `nuget.org` as a NuGet source. The source may be disabled or there is [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping), which forces the NuGet client to search for the icon packages in source `nuget.telerik.com`. However, the icon packages are published on `nuget.org`.
 
 
 ## See Also
