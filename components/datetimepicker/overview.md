@@ -82,8 +82,8 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled |
 | `Format` | `string` | The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
 | `Id` | `string` | The `id` HTML attribute of the `input` |
-| `Max` | `DateTime` | The latest date and time that the user can select |
-| `Min` | `DateTime` | The earliest date and time that the user can select |
+| `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`) | The latest date and time that the user can select |
+| `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`) | The earliest date and time that the user can select |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |

@@ -83,8 +83,8 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `Enabled` | `bool` | Whether typing in the inputs is allowed. |
 | `EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `Format` | `string` | The format of the DateInputs of the DateRangePicker. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
-| `Max` | `DateTime` | The latest date that the user can select. |
-| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Max` | `DateTime`  <br /> (`DateTime(2099, 12, 31)`) | The latest date that the user can select. |
+| `Min` | `DateTime`  <br /> (`DateTime(1900, 1, 1)`)| The earliest date that the user can select. |
 | `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
 | `Placeholder` |`string` | The `placeholder` attribute of the two `<input />` elements. The `Placeholder` will appear if the component is bound to **nullable** DateTime objects - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime objects. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |

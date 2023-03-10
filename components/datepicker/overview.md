@@ -85,8 +85,8 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `Enabled` | `bool` | Specifies whether typing in the input and clicking the button is allowed. |
 | `Format` | `string` | The format of the DatePicker's DateInput. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
 | `Id` | `string` | The `id` attribute on the `<input />` element. Use it to attach a `<label for="">` to the input. |
-| `Max` | `DateTime` | The latest date that the user can select. |
-| `Min` | `DateTime` | The earliest date that the user can select. |
+| `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`)| The latest date that the user can select. |
+| `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`)| The earliest date that the user can select. |
 | `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to a **nullable** DateTime object - `DateTime?`. It will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
