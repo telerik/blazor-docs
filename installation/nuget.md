@@ -127,6 +127,12 @@ To use a `nuget.config` file for the Telerik feed, you need to:
          </packageSourceCredentials>
         </configuration>
 
+
+## Troubleshooting
+
+For tips about common pitfalls when working with the Telerik NuGet feed, see the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article.
+
+
 ## Next Steps
 
 @[template](/_contentTemplates/common/get-started.md#after-install)
