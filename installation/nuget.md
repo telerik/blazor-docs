@@ -130,7 +130,7 @@ To use a `nuget.config` file for the Telerik feed, you need to:
 
 ## Troubleshooting
 
-The article [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) provides tips about common pitfalls when working with the Telerik private NuGet feed.
+For tips about common pitfalls when working with the Telerik NuGet feed, see the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article.
 
 
 ## Next Steps
