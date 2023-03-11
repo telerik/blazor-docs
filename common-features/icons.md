@@ -35,7 +35,7 @@ The Telerik Blazor components use built-in icons with the help of two NuGet pack
 * `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** icons
 * `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in **SVG** icons
 
->tip Unlike package `Telerik.UI.for.Blazor`, the icon packages are available on source `nuget.org`. Keep this in mind when using [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping).
+>tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available from the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping).
 
 To use the icons, import one or both namespaces, for example in `_Imports.razor`:
 
