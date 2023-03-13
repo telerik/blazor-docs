@@ -46,7 +46,7 @@ The [MaskedTextBox component fires events for value changes and blur]({%slug mas
 
 ## Mask-Related Parameters
 
-The table below provides a quick overview of the mask-related parameters. Also see the [Mask and Prompt article]({%slug maskedtextbox-mask-prompt%}) for additional details.
+The table below provides a quick overview of the mask-related parameters. See the [Mask and Prompt article]({%slug maskedtextbox-mask-prompt%}) for additional details.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
