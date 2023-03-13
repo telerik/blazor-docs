@@ -54,7 +54,7 @@ The table below provides a quick overview of the mask-related parameters. See th
 |---|---|---|
 | `IncludeLiterals` | `bool` | Controls if the literal characters from the mask are included in the `Value`. These are the characters that don't carry a special meaning such as brackets or dashes. |
 | `Mask` | `string` | The mask (pattern) that the user has to follow. |
-| `MaskOnFocus` | `bool` | Controls if the mask will show only while the input is focused. When `true` and there is no value, the user will see the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` (if used) instead of the mask. When there is some value, the mask and value will show. |
+| `MaskOnFocus` | `bool` | Controls if the mask appears only while the input is focused. When `true` and no value is set, the user sees the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` instead of the mask. When a value is set, the user sees both the mask and value. |
 | `Prompt` | `char` <br /> (`_`) | The character that will show in the mask where there is no user input already. |
 | `PromptPlaceholder` | `char?` <br /> (` ` space) | The character that is added to the raw `Value` for places where there is no user input yet. |
 
