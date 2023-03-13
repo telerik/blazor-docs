@@ -10,7 +10,7 @@ position: 0
 
 # Blazor MaskedTextbox Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor Masked Textbox component</a> provides a mask and prompts the user to enter the data in the required format. The component prevents input that does not match the mask. Use it to show the user the required format for values like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values, and so on.
+The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor MaskedTextbox component</a> provides a mask and prompts the user to enter the data in the required format. The component prevents input that does not match the mask. Use it to show the user the required format for values like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values, and so on.
 
 You can also add standard attributes such as custom CSS classes, `name`, `placeholder`, `tabindex`, and [more](#maskedtextbox-parameters), and also respond to [events]({%slug maskedtextbox-events%}).
 
@@ -21,7 +21,7 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 1. Set its `Value` parameter to a `string`. The parameter supports two-way binding.
 1. Set the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
 
->caption Basic Masked TextBox with two-way Value binding and a credit card mask
+>caption Basic MaskedTextBox with two-way Value binding and a credit card mask
 
 ````CSHTML
 <TelerikMaskedTextBox @bind-Value="@MaskedValue"
@@ -67,7 +67,6 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `AriaDescribedBy` | `string` | The [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) of the `input`. |
 | `AriaLabel` | `string` | The [`aria-label` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) of the `input`. |
 | `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) of the `input`. |
-| `Class` | `string` | The custom CSS class of the `<span class="k-maskedtextbox">` element. |
 | `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. |
 | `Enabled` | `bool` <br /> (`true`) | Controls if users can type in the component. |
 | `Id` | `string` | The `id` attribute of the `input`. |
@@ -78,11 +77,15 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `Title` | `string` | The `title` attribute of `input`. Use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Value` | `string` | The value of the component. Supports two-way binding. |
-| `Width` | `string` | The component width. |
 
 ### Styling and Appearance
 
-Find more parameters to customize the Masked TextBox styling in the [Appearance article]({%slug maskedtextbox-appearance%}).
+| Parameter | Type and Default value | Description |
+|---|---|---|
+| `Class` | `string` | The custom CSS class of the `<span class="k-maskedtextbox">` element. |
+| `Width` | `string` | The component width. |
+
+Find more parameters to customize the masked textbox styling in the [Appearance article]({%slug maskedtextbox-appearance%}).
 
 ## MaskedTextBox Reference and Methods
 
