@@ -18,7 +18,7 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 
 
 1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
-1. Set its `Value` parameter to a `string`. It supports two-way binding.
+1. Set its `Value` parameter to a `string`. The parameter supports two-way binding.
 1. Set the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
 
 >caption Basic Masked TextBox with two-way Value binding and a credit card mask
