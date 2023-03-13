@@ -84,7 +84,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Decimals` | `int` | The number of allowed decimal places during typing. Takes effect only while the input is focused. The default value depends on the culture. |
 | `Format` | `string` | The number format when the input is not focused. Read more at [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) |
 | `Id` | `string` | The `id` attribute on the `<input />` element. |
-| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) on the `<input />` element. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Max` | numeric type | The maximum value the input can accept. Must match the `Value` type. |
 | `Min` | numeric type | The minimum value the input can accept. Must match the `Value` type. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
