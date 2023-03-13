@@ -1,6 +1,6 @@
 ---
 title: Keep the content in the DOM when the Window is closed
-description: How to keep the content in the DOM when the Window is closed?
+description: How to keep the Window content in the DOM when the component is closed?
 type: how-to
 page_title: Keep the content in the DOM when the Window is closed
 slug: window-kb-keep-content-when-closed
