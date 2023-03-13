@@ -12,6 +12,15 @@ position: 5
 
 The marker functionality allows you to add points in the map. These points are defined by geographical position in the map and can show useful information to the user in a tooltip.
 
+Sections in this article:
+
+* [Creating Map Marker Layer](#creating-map-marker-layer)
+* [Marker Template](#marker-template)
+* [Marker Shapes](#marker-shapes)
+* [Marker Tooltip Settings](#marker-tooltip-settings)
+
+## Creating Map Marker Layer
+
 **To configure a Map Layer of type Marker:**
 
 1. Add the `TelerikMap` tag.
@@ -81,19 +90,104 @@ The following example demonstrates how to configure the Map Marker Layer.
 }
 ````
 
->caption The result from the above code snippet.
+## Marker Template
 
-![](../images/marker-layer.png)
+To customize the marker appearance, set the `Template` parameter in the corresponding marker inner tag - `MapLayerMarkerSettings`. It accepts `string` and `RenderFragment`.
+
+The general syntax of the template is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview).
+
+>caption Custom Markers.
+
+````CSHTML
+@* This code snippet showcases an example of customizing the Marker appearance. *@
+
+<TelerikMap Center="@Center"
+            Zoom="3">
+    <MapLayers>
+        <MapLayer Type="@MapLayersType.Marker"
+                  Data="@MarkerData1"
+                  LocationField="@nameof(MarkerModel.LatLng)"
+                  TitleField="@nameof(MarkerModel.Title)">
+                  <MapLayerMarkerSettings Template="<span class='custom-marker-class'>#= dataItem.Title #</span>">
+                  </MapLayerMarkerSettings>
+        </MapLayer>
+
+        <MapLayer Type="@MapLayersType.Tile"
+                  Attribution="@Attribution"
+                  Subdomains="@Subdomains"
+                  UrlTemplate="@UrlTemplate">
+        </MapLayer>
+
+        <MapLayer Type="@MapLayersType.Marker"
+                  Data="@MarkerData2"
+                  LocationField="@nameof(MarkerModel.LatLng)"
+                  TitleField="@nameof(MarkerModel.Title)">
+                  <MapLayerMarkerSettings Template="#= dataItem.LatLng #">
+                      <MapLayerMarkerSettingsTooltip>
+                          <Template>
+                              @{
+                                  var dataItem = context.DataItem as MarkerModel;
+                              }
+
+                              <div>@dataItem.Title</div>
+                          </Template>
+                      </MapLayerMarkerSettingsTooltip>
+                  </MapLayerMarkerSettings>
+        </MapLayer>
+    </MapLayers>
+</TelerikMap>
+
+@code {
+    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
+    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    public double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
+
+    public List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
+    {
+        new MarkerModel()
+        {
+            LatLng = new double[] { 30.268107, -97.744821 },
+            Title = "Austin, TX"
+        },
+    };
+
+    public List<MarkerModel> MarkerData2 { get; set; } = new List<MarkerModel>()
+    {
+        new MarkerModel()
+        {
+            LatLng = new double[] { 37.7749, -122.4194 },
+            Title = "San Francisco, CA"
+        }
+    };
+
+    public class MarkerModel
+    {
+        public double[] LatLng { get; set; }
+        public string Title { get; set; }
+    }
+}
+
+<style>
+    .custom-marker-class {
+        background-image: url(https://demos.telerik.com/kendo-ui/content/shared/icons/16/star.png);
+        background-color: palegoldenrod;
+        color: blue;
+        background-size: 9px;
+        width: 62px;
+        background-repeat: no-repeat;
+        display: inline-table;
+        font-size: 14px;
+        padding-top: 5px;
+    }
+</style>
+````
 
 ## Marker Shapes
 
 The Markers in Map are two types - **Pin** and **PinTarget**. They can be defined using the `Shape` parameter of the `MapLayer` tag. The default visual appearance of the Marker is the **PinTarget**.
 
 >caption Different Marker Shapes.
-
-![Blazor Map Marker Shapes](../images/marker-shapes.png)
-
->caption The example for the above result.
 
 ````CSHTML
 @* This code snippet showcases an example of the different Marker Shapes. *@
@@ -157,10 +251,6 @@ The Markers in Map are two types - **Pin** and **PinTarget**. They can be define
 The `MapLayerMarkerSettingsTooltip` tag allows you to fine tune the tooltips content, appearance and options. You can fully customize the HTML content of the tooltip.
 
 >caption Marker Tooltip Template.
-
-![Blazor Map Marker ToolTip](../images/marker-tooltip-settings.png)
-
->caption The example for the above result.
 
 ````CSHTML
 @* This code snippet showcases an example of the Marker Tooltip Settings. *@
