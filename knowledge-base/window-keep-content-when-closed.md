@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Window for Blazor <br/> Dialog for Blazor</td>
+			<td>Window for Blazor, <br /> Dialog for Blazor</td>
 		</tr>
 	</tbody>
 </table>
