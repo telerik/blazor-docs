@@ -42,7 +42,7 @@ You can validate the content of the `TelerikMaskedTextBox` using the Data Annota
 
 ## Events
 
-The [Masked TextBox component fires events for value changes and blur]({%slug maskedtextbox-events%}). Use them to respond to user actions.
+The [MaskedTextBox component fires events for value changes and blur]({%slug maskedtextbox-events%}). Use them to respond to user actions.
 
 ## Mask-Related Parameters
 
