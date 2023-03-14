@@ -1,40 +1,40 @@
 ---
 title: Marker
 page_title: Map Layers - Marker
-description: Discover the Blazor Map Marker Layer and explore the examples.
+description: Learn more about the Marker layer of the Telerik UI for Blazor Map component and explore the available examples.
 slug: components/map/layers/marker
-tags: telerik,blazor,map,layers,marker
+tags: telerikui, blazor, map, layers, marker
 published: True
 position: 5
 ---
 
 # Marker Layer
 
-The marker functionality allows you to add points in the map. These points are defined by geographical position in the map and can show useful information to the user in a tooltip.
+The marker functionality allows you to add points to the Map. These points are defined by the geographical position in the map and can show useful information to the user in a tooltip.
 
 Sections in this article:
 
-* [Creating Map Marker Layer](#creating-map-marker-layer)
-* [Marker Template](#marker-template)
-* [Marker Shapes](#marker-shapes)
-* [Marker Tooltip Settings](#marker-tooltip-settings)
+* [Creating the Marker layer](#creating-the-marker-map-layer)
+* [Using the Marker template](#marker-template)
+* [Defining the Marker shapes](#marker-shapes)
+* [Setting the Marker tooltip](#marker-tooltip-settings)
 
-## Creating Map Marker Layer
+## Creating the Marker Map Layer
 
-**To configure a Map Layer of type Marker:**
+To configure a Map layer of the Marker type:
 
-1. Add the `TelerikMap` tag.
+1. Add the `TelerikMap` tag to the Map.
 2. Set the `Type` parameter of the `MapLayer` to `Marker`.
 3. Set the `Data` parameter.
 4. Set the `LocationField` and `TitleField` parameters.
-5. Optionally, provide [Tooltip Settings](#marker-tooltip-settings) and choose [Marker Shape](#marker-shapes).
+5. (Optional) Provide the [tooltip settings](#marker-tooltip-settings) and choose the [Marker shape](#marker-shapes).
 
-The following example demonstrates how to configure the Map Marker Layer.
+The following example demonstrates how to configure the Marker layer of the Map.
 
->caption The Map Marker Layer configuration.
+>caption The Marker Map layer configuration.
 
 ````CSHTML
-@* This code snippet showcases an example of a Marker Layer configuration. *@
+@* This code snippet showcases an example of a Marker layer configuration. *@
 
 <TelerikMap Center="@Center" Zoom="3">
     <MapLayers>
@@ -90,13 +90,13 @@ The following example demonstrates how to configure the Map Marker Layer.
 }
 ````
 
-## Marker Template
+## Customizing the Marker Appearance
 
-To customize the marker appearance, set the string `Template` parameter in the corresponding marker inner tag - `MapLayerMarkerSettings`.
+To customize the marker appearance, set the string `Template` parameter in the corresponding `MapLayerMarkerSettings` inner tag of the marker.
 
-The general syntax of the template is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview).
+The general syntax of the Marker template is based on the [Kendo UI templates](https://docs.telerik.com/kendo-ui/framework/templates/overview).
 
->caption Custom Markers.
+>caption Custom markers.
 
 ````CSHTML
 @* This code snippet showcases an example of customizing the Marker appearance. *@
@@ -174,14 +174,14 @@ The general syntax of the template is based on the [Kendo Templates](https://doc
 </style>
 ````
 
-## Marker Shapes
+## Defining the Marker Shapes
 
-The Markers in Map are two types - **Pin** and **PinTarget**. They can be defined using the `Shape` parameter of the `MapLayer` tag. The default visual appearance of the Marker is the **PinTarget**.
+The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker type, use the `Shape` parameter of the `MapLayer` tag. By default, the visual appearance of the Marker is `PinTarget`.
 
->caption Different Marker Shapes.
+>caption Different Marker shapes.
 
 ````CSHTML
-@* This code snippet showcases an example of the different Marker Shapes. *@
+@* This code snippet showcases an example of the different Marker shapes. *@
 
 <TelerikMap Center="@Center" Zoom="3">
     <MapLayers>
@@ -237,14 +237,14 @@ The Markers in Map are two types - **Pin** and **PinTarget**. They can be define
 }
 ````
 
-## Marker Tooltip Settings
+## Setting the Marker Tooltip
 
-The `MapLayerMarkerSettingsTooltip` tag allows you to fine tune the tooltips content, appearance and options. You can fully customize the HTML content of the tooltip.
+The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, appearance, and options of the tooltip, as well as fully customize its HTML content.
 
->caption Marker Tooltip Template.
+>caption Marker tooltip template.
 
 ````CSHTML
-@* This code snippet showcases an example of the Marker Tooltip Settings. *@
+@* This code snippet showcases an example of the Marker tooltip settings. *@
 
 <TelerikMap Center="@Center"
             Zoom="3">
