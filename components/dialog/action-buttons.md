@@ -73,3 +73,7 @@ The following example demonstrates all supported layout options for the Dialog a
     }
 }
 ````
+
+## See Also
+
+* [(KB) Keep Content in the DOM When the Window Is Closed]({%slug window-kb-keep-content-when-closed%})

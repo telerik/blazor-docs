@@ -37,9 +37,9 @@ The following example demonstrates how to set up the title through a template. T
 
 <TelerikDialog @bind-Visible="@Visible" ShowCloseButton="false">
     <DialogTitle>
-        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
+        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikFontIcon>
         <strong>@Title</strong>
-        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikIcon>
+        <TelerikFontIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikFontIcon>
     </DialogTitle>
     <DialogContent>
         A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?
@@ -56,3 +56,7 @@ The following example demonstrates how to set up the title through a template. T
     private string Title { get; set; } = "Software Update";
 }
 ````
+
+## See Also
+
+* [(KB) Keep Content in the DOM When the Window Is Closed]({%slug window-kb-keep-content-when-closed%})
