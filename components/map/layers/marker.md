@@ -15,9 +15,9 @@ The marker functionality allows you to add points to the Map. These points are d
 Sections in this article:
 
 * [Creating the Marker layer](#creating-the-marker-map-layer)
-* [Using the Marker template](#marker-template)
-* [Defining the Marker shapes](#marker-shapes)
-* [Setting the Marker tooltip](#marker-tooltip-settings)
+* [Customizing the Marker appearance](#customizing-the-marker-appearance)
+* [Defining the Marker shapes](#defining-the-marker-shapes)
+* [Setting the Marker tooltip](#setting-the-marker-tooltip)
 
 ## Creating the Marker Map Layer
 
