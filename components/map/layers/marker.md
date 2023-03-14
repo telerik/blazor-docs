@@ -92,7 +92,7 @@ The following example demonstrates how to configure the Map Marker Layer.
 
 ## Marker Template
 
-To customize the marker appearance, set the `Template` parameter in the corresponding marker inner tag - `MapLayerMarkerSettings`. It accepts `string` and `RenderFragment`.
+To customize the marker appearance, set the string `Template` parameter in the corresponding marker inner tag - `MapLayerMarkerSettings`.
 
 The general syntax of the template is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview).
 
@@ -123,15 +123,6 @@ The general syntax of the template is based on the [Kendo Templates](https://doc
                   LocationField="@nameof(MarkerModel.LatLng)"
                   TitleField="@nameof(MarkerModel.Title)">
                   <MapLayerMarkerSettings Template="#= dataItem.LatLng #">
-                      <MapLayerMarkerSettingsTooltip>
-                          <Template>
-                              @{
-                                  var dataItem = context.DataItem as MarkerModel;
-                              }
-
-                              <div>@dataItem.Title</div>
-                          </Template>
-                      </MapLayerMarkerSettingsTooltip>
                   </MapLayerMarkerSettings>
         </MapLayer>
     </MapLayers>
