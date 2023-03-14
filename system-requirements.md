@@ -38,7 +38,6 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 | --- | --- | --- |
 | .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
-| .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 ### Compatible .NET Versions
 
@@ -48,7 +47,9 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
+| .NET 8 Preview | 4.1.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 5 | 2.19.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 >warning We recommend using only **supported** .NET versions in production applications. This enables stability, maintenance, security patches and performance improvements.
 
