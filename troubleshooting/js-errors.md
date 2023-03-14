@@ -70,7 +70,7 @@ Generally, `defer` improves the performance of your app by not making the script
 
 ### Blazor Autostart
 
-Instead of removing the `defer` attribute above, you can [disable the automatic client-side initialization of Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-7.0#initialize-blazor-when-the-document-is-ready).
+If removing the `defer` attribute above does not help, you can [disablе the automatic client-side initialization of Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-7.0#initialize-blazor-when-the-document-is-ready).
 
 ### TypeScript
 
