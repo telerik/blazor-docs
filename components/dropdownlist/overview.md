@@ -136,7 +136,7 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
 <TelerikDropDownList @ref="@DropDownListRef"
                      Data="@DropDownListData"
                      @bind-Value="@DropDownListValue"
-                     Width="300px"/>
+                     Width="300px" />
 
 <TelerikButton OnClick="@OpenPopup">Open Popup</TelerikButton>
 
@@ -150,6 +150,10 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
     private void OpenPopup()
     {
         DropDownListRef.Open();
+        
+        DropDownListValue = DropDownListData.First();
+
+        DropDownListRef.Refresh();
     }
 }
 ````

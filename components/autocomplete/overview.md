@@ -151,6 +151,8 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
     private void OpenPopup()
     {
         AutoCompleteRef.Open();
+
+        AutoCompleteRef.Refresh();
     }
 }
 ````

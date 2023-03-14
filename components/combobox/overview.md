@@ -151,6 +151,10 @@ Add a reference to the component instance to use the [ComboBox's methods](/blazo
     private void OpenPopup()
     {
         ComboBoxRef.Open();
+        
+        ComboBoxValue = Suggestions.First();
+
+        ComboBoxRef.Refresh();
     }
 }
 ````

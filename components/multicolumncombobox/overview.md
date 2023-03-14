@@ -179,6 +179,7 @@ The table below lists the MultiComboBox methods. Also consult the [MultiColumnCo
 | `FocusAsync` | Focuses the component textbox. |
 | `Open` | Opens the component dropdown. |
 | `Rebind` | [Refreshes the component data]({%slug common-features-data-binding-overview%}#refresh-data). |
+| `Refresh` | Re-renders the component popup. |
 
 >caption Using MultiColumnComboBox methods
 
@@ -207,6 +208,10 @@ The table below lists the MultiComboBox methods. Also consult the [MultiColumnCo
     private void Open()
     {
         MultiColumnComboRef.Open();
+        
+        SelectedProduct = 3;
+
+        MultiColumnComboRef.Refresh();
     }
 
     protected override void OnInitialized()
@@ -214,11 +219,11 @@ The table below lists the MultiComboBox methods. Also consult the [MultiColumnCo
         var rnd = new Random();
 
         Products = Enumerable.Range(1, 30).Select(x => new Product()
-        {
-            Id = x,
-            Name = $"Product {x}",
-            Quantity = rnd.Next(0, 30)
-        }).ToList();
+            {
+                Id = x,
+                Name = $"Product {x}",
+                Quantity = rnd.Next(0, 30)
+            }).ToList();
 
         base.OnInitialized();
     }
