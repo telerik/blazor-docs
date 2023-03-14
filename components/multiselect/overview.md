@@ -167,6 +167,10 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
     private void OpenPopup()
     {
         MultiSelectRef.Open();
+        
+        MultiSelectValue = new List<string>() { MultiSelectData.First() };
+
+        MultiSelectRef.Refresh();
     }
 }
 ````
