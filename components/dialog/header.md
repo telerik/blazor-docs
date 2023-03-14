@@ -59,4 +59,4 @@ The following example demonstrates how to set up the title through a template. T
 
 ## See Also
 
-* [KB: Keep the content in the DOM when the Window is closed]({%slug window-kb-keep-content-when-closed%})
+* [(KB) Keep Content in the DOM When the Window Is Closed]({%slug window-kb-keep-content-when-closed%})

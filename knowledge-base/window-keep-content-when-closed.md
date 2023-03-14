@@ -1,21 +1,21 @@
 ---
-title: Keep the content in the DOM when the Window is closed
-description: How to keep the Window content in the DOM when the component is closed?
+title: Keep the Content in the DOM When the Window Is Closed
+description: Learn how to keep the content of the Telerik UI for Blazor Window in the DOM when the component is closed.
 type: how-to
-page_title: Keep the content in the DOM when the Window is closed
+page_title: Keep Content in DOM When Blazor Window Is Closed
 slug: window-kb-keep-content-when-closed
-position: 
-tags: window, keep , save , preserve, dom, close, disposed
+tags: telerikui, blazor, window, keep, save, preserve, dom, close, disposed
 ticketid: 1598259
 res_type: kb
 ---
 
 ## Environment
+
 <table>
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Window for Blazor, <br /> Dialog for Blazor</td>
+			<td>Progress® Telerik® UI for Blazor Window<br />Progress® Telerik® UI for Blazor Dialog</td>
 		</tr>
 	</tbody>
 </table>
@@ -23,32 +23,30 @@ res_type: kb
 
 ## Description
 
-When the `Visible` parameter is set to `false` the Window content is disposed from the DOM. I want to keep the content in the DOM when the user closes the Window. How to achieve this?
-
-How to preserve the Window content upon closing?
-
-Is it possible to close/hide the Window with CSS?
+When the `Visible` parameter is set to `false`, the Window content is disposed from the DOM. How can I keep the content in the DOM when the user closes the Window? How can I preserve the Window content upon closing? Is it possible to close or hide the Window with CSS?
 
 ## Solution
 
-To achieve the desired result you can toggle the visibility of the Window with CSS. For that purpose:
+To achieve the desired result, toggle the visibility of the Window with CSS:
 
-1. Create a [custom "Close" action]({%slug components/window/actions%}#custom-actions).
+1. Create a [custom **Close** action]({%slug components/window/actions%}#custom-actions).
 1. Handle the [`OnClick`]({%slug button-events%}#onclick) event of the action button to apply the needed CSS.
 
-The further steps will vary depending on whether or not the [Window is modal]({%slug components/window/modal%}). Only the second approach allpies to the [Dialog]({%slug dialog-overview%}) as it is always modal by design. See details and examples below:
-* [Custom close for non-modal Window](#custom-close-for-non-modal-window)
-* [Custom close for modal Window and Dialog](#custom-close-for-modal-window-and-dialog)
+The further steps will vary depending on whether or not the [Window is modal]({%slug components/window/modal%}). Only the second approach applies to the [Dialog]({%slug dialog-overview%}) as it is always modal by design.
 
-### Custom close for non-modal Window
+For more details on the suggested approaches, refer to the following examples in the section:
+* [Customizing the closing action of non-modal Windows](#custom-close-for-non-modal-windows)
+* [Customizing the closing action of modal Windows and Dialogs](#custom-close-for-modal-windows-and-dialogs)
 
-The next steps for custom closing a non-modal Window are:
+> The suggested implementations are based on hiding the Window and preserving its content in the DOM. As a result, the component is never treated as really closed and user actions such as [pressing the `Esc` key](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) or [clicking the overlay of a modal Window]({%slug components/window/modal%}) will not close the Window as no **Close** command is actually defined. If needed, you have to implement the required behavior in a custom manner.
 
-3. In the `OnClick` handler of the custom close action, set a custom CSS class to the Window through the `Class` parmeter.
+### Custom Close for Non-Modal Windows
 
-4. Use this class to add `display: none;` rule to the Window.
+To customize the closing of a non-modal Window:
 
-5. Clear this class when the user opens the Window to revert the custom style and display the componet.
+1. In the `OnClick` handler of the custom **Close** action, set a custom CSS class to the Window through the `Class` parameter.
+1. Use this class to add the `display: none;` rule to the Window.
+1. Clear this class when the user opens the Window to revert the custom style and display the component.
 
 ````CSHTML
 @*Hide Window with CSS to preserve its content*@
@@ -126,19 +124,17 @@ The next steps for custom closing a non-modal Window are:
 }
 ````
 
-### Custom close for modal Window and Dialog
+### Custom Close for Modal Windows and Dialogs
 
-The [modal Window]({%slug components/window/modal%}) and the [Dialog]({%slug dialog-overview%}) have a different rendering. They are wrapped in a `<div class="k-dialog-wrapper">` which contains both the Window/Dialog and the overlay. To allow the user interact with the page while the Window/Dialog is hidden you also need to hide the overlay.
+The [modal Window]({%slug components/window/modal%}) and [Dialog]({%slug dialog-overview%}) components have a different rendering. They are wrapped in a `<div class="k-dialog-wrapper">` which contains both the component and the overlay. To allow the user to interact with the page while the Window or Dialog is hidden, you also need to hide the overlay.
 
-The next steps for custom closing a modal Window or Dialog are:
+To customize the closing of a modal Window or Dialog:
 
-3. In the `OnClick` handler of the custom close action, toggle a flag to indicate the user wants to hide the Window.
+1. In the `OnClick` handler of the custom close action, toggle a flag to indicate the user wants to hide the Window.
+1. Based on this flag value, conditionally apply the `display: none;` rule to `<div class="k-dialog-wrapper">`. As a result, both the Window or Dialog and the overlay will be hidden.
+1. Toggle back the flag when the user opens the Window or Dialog to revert the custom style and display the component.
 
-4. Based on this flag value, conditionally apply `display: none;` rule to the `<div class="k-dialog-wrapper">`. This will hide both the Window/Dialog and the overlay.
-
-5. Toggle back the flag when the user opens the Window/Dialog to revert the custom style and display the component.
-
-> With this approach the application cannot use other modal Windows or Dialogs. 
+> The suggested approach prevents the application from using other modal Windows or Dialogs.
 
 ````CSHTML
 @*Hide modal Window with CSS to preserve its content*@
@@ -218,7 +214,3 @@ The next steps for custom closing a modal Window or Dialog are:
     }
 }
 ````
-
-## Notes
-
-The current approach is based on simply hiding the Window in order to preserve its content on the DOM. Thus, the Window will never be treated as really closed. In this scenario, user actions such as [pressing Esc](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) or [clicking on the overlay of a modal Window]({%slug components/window/modal%}) will not close the Window as there is no actual "Close" command. If needed, they have to be additionally implemented in a custom manner.

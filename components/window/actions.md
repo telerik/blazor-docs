@@ -140,5 +140,5 @@ You can mix custom actions with built-in actions, and you do not have to define 
 
 ## See Also
 
-* [Live Demo: Window Actions](https://demos.telerik.com/blazor-ui/window/actions)
-* [Keep the Window (content) in the DOM when the Window is closed]({%slug window-kb-keep-content-when-closed%})
+* [(Demo) Window Actions](https://demos.telerik.com/blazor-ui/window/actions)
+* [(KB) Keep Content in the DOM When the Window Is Closed]({%slug window-kb-keep-content-when-closed%})
