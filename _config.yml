@@ -630,7 +630,7 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "4.2.0"
+uiForBlazorLatestVersion: "4.1.0"
 
 ## Compatible theme version for CDN URLs
 themeCdnVersion: "6.2.0"
