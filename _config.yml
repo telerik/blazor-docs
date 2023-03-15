@@ -483,6 +483,7 @@ intro_columns:
   -
     title: "File Management"
     items:
+      "DropZone": "dropzone-overview"
       "FileManager": "filemanager-overview"
       "FileSelect": "fileselect-overview"
       "Upload": "upload-overview"
