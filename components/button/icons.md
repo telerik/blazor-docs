@@ -31,6 +31,10 @@ The `Icon` parameter type is `object` and it accepts:
     .my-icon {
         /* define a background image or a custom font icon here */
         background: purple;
+        /* dimensions and other base styles will usually come from another class */
+        width: 1em;
+        height: 1em;
+        font-size: 16px;
     }
 </style>
 ````
