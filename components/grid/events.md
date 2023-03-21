@@ -890,16 +890,15 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     /*===*/
     .k-grid .k-master-row.myCustomRowFormatting .k-grid-content-sticky,
     .k-grid .k-master-row.myCustomRowFormatting.k-alt .k-grid-content-sticky
-    /*===*/
-    {
+    /*===*/ {
         background-color: inherit;
     }
 
-    .k-grid tr.myCustomRowFormatting:hover {
+    .k-grid .k-master-row.myCustomRowFormatting:hover {
         background-color: red !important;
     }
 
-    .k-grid tr.myCustomRowFormatting {
+    .k-grid .k-master-row.myCustomRowFormatting {
         background-color: #90EE90;
     }
 </style>
@@ -933,11 +932,11 @@ This event fires upon the rendering of the Grid rows. It receives an argument of
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5
-    });
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5
+        });
 
     public class SampleData
     {
