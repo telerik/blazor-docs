@@ -3,7 +3,7 @@ title: Download New Versions
 page_title: Download New Versions - Visual Studio Integration
 description: Learn how to keep your projects updated when using Telerik UI for Blazor.
 slug: getting-started-vs-integration-latest-version
-position: 4
+position: 5
 ---
 
 # Download New Versions
