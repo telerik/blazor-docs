@@ -67,9 +67,12 @@ The **Create New Project** wizard presents several screens:
 
    ![The Create New Project Wizard Themes Options](images/vsx-extension-theme.png)
 
-4. On the last screen, you can choose whether to have localization applied by default in the project.
+4. On the final screen, you need to decide the following:
 
-   ![The Create New Project Wizard Localization Option](images/vsx-extension-localization.png)
+   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](https://docs.telerik.com/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](https://docs.telerik.com/blazor-ui/getting-started/what-you-need#using-cdn).
+   * Whether to use localization in the project or not.
+
+   ![The Create New Project Wizard Localization Option](images/vsx-extension-create-project-settings.png)
 
 ### Predefined Project Templates
 
