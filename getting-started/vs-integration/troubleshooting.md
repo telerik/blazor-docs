@@ -10,7 +10,7 @@ position: 7
 
 This article provides solutions for common issues you may encounter while working with the Telerik UI for Blazor Visual Studio (VS) Extensions.
 
-## The Telerik Sub-Menu is Missing from the Extensions Menu
+## The Telerik sub-menu is missing from the Extensions menu
 
 **Cause**: The Visual Studio extensions are disabled or not correctly installed.
 
@@ -40,16 +40,12 @@ If you apply both approaches and the issue persists, generate a Visual Studio [A
 1. Reproduce the issue so that the log can capture it.
 1. Attach the `Activitylog` files when you contact our support.
 
-
-
-## Convert Project Wizard Issues
+## Issues occur when converting existing projects
 
 For any issues with the **Convert Project** wizard, see its [dedicated troubleshooting section]({%slug getting-started-vs-integration-convert-project%}#troubleshooting).
 
-
-
 ## See Also
 
-* [Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
+* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
 * [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project %})
 * [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version %})

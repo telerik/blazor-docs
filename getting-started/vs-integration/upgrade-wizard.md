@@ -22,7 +22,7 @@ The **Upgrade Information** step of the Upgrade Project Wizard describes the fil
 
 ![Upgrade Wizard Information Page](images/upgrade-wizard-information.png)
 
-The Telerik Blazor Upgrade Wizard will do the following: 
+The Telerik Blazor Upgrade Wizard will do the following:
 
 * Update the version of the referenced Blazor NuGet package. It will also update the package source in the solution-based NuGet config file.
 * It will update the version of the theme references (If CDN is used, it will be also updated).
@@ -84,4 +84,3 @@ If **Create a backup before upgrading** option is selected, and the **Backup loc
 * [Getting Started with Client-Side Apps]({%slug getting-started/client-side%})
 * [Getting Started with Server-Side Apps]({%slug getting-started/server-side%})
 * [Workflow for Using the UI Components for Blazor]({%slug getting-started/what-you-need%})
-
