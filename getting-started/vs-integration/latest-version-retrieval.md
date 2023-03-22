@@ -1,14 +1,14 @@
 ---
-title: Download New Versions
-page_title: Download New Versions - Visual Studio Integration
-description: Learn how to keep your projects updated when using Telerik UI for Blazor.
+title: Downloading New Versions
+page_title: Downloading New Versions - Visual Studio Integration
+description: Learn how to keep your projects updated when using the Telerik UI for Blazor library.
 slug: getting-started-vs-integration-latest-version
-position: 4
+position: 5
 ---
 
-# Download New Versions
+# Downloading New Versions
 
-The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) Extensions allow you to download the latest version of the UI components without leaving Visual Studio.
+The Progress&reg; Telerik&reg; UI for Blazor Visual Studio (VS) extensions allow you to download the latest version of the UI components without leaving Visual Studio.
 
 
 <!--
@@ -21,26 +21,25 @@ Clicking the **Update Now** button starts the Latest Version Acquirer tool which
 -->
 
 
-Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. You must enter your Telerik credentials to continue. If you do not have a [www.telerik.com](https://www.telerik.com) account, select the **Create an account for free** link.
+Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. To continue, you must enter your Telerik credentials. If you do not have a [www.telerik.com](https://www.telerik.com) account, select the **Create an account for free** link.
 
-1. Log in with your Telerik credentials
+1. Log in with your Telerik credentials.
 
-    ![First, log in](images/login-vs-ext-download.png)
+    ![Log into your Telerik account](images/login-vs-ext-download.png)
 
-    >tip See the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) for more information on the latest available versions.
+    >tip For more information on the latest available versions, see the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 
 1. In the dialog that appears, click the **Download** button.
 
     ![Confirming the download of the latest version dialog](images/download-new-version.png)
 
-1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version from the dropdown menu.
+1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version from the drop-down menu.
 
     ![The new version is now available in the New Project wizard](images/new-version-in-new-project-wizard.png)
-    
-    
-The **Latest Version Acquirer** tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. It is saved in the `%APPDATA%\Telerik\Updates` folder by default. If the list with the offered packages gets too long and you do not need the older versions, close VS and use the Windows Explorer to delete these distributions.
+
+The Latest Version Acquirer tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. By default, the file is saved in the `%APPDATA%\Telerik\Updates` folder. If the list with the offered packages gets too long and you do not need the prior versions, close VS and use the Windows Explorer to delete these distributions.
 
 ## See Also
 
-* [Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
+* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
 * [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project %})
