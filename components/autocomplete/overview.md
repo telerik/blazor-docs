@@ -72,7 +72,7 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## Parameters
+## AutoComplete Parameters
 
 The Blazor AutoComplete provides various parameters that allow you to configure the component:
 
