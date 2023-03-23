@@ -46,6 +46,8 @@ In addition to the sample below, there is a [complete runnable project in GitHub
 
 >caption Grid data operations with ExpandoObject
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @using System.Dynamic
 
