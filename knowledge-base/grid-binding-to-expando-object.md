@@ -91,8 +91,8 @@ In addition to the sample below, there is a [complete runnable project in GitHub
         <GridColumn Field="PropertyString" Title="String Column" FieldType="@typeof(string)" />
         <GridColumn Field="PropertyDate" Title="DateTime Column" FieldType="@typeof(DateTime)" />*@
 
-        <GridCommandColumn>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash" @key="@( "command-column" )">Delete</GridCommandButton>
+        <GridCommandColumn @key="@( "command-column" )">
+            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
