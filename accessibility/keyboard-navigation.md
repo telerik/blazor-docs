@@ -1,7 +1,7 @@
 ---
 title: Keyboard Navigation
 page_title: Keyboard Navigation
-description: Support for keyboard navigation in the Telerik UI for Blazor suite.
+description: Support for keyboard navigation in the Telerik UI for Blazor suite and components.
 slug: accessibility-keyboard-navigation
 tags: telerik,blazor,accessibility,keyboard,navigation,support
 published: True
@@ -10,124 +10,113 @@ position: 2
 
 # Keyboard Navigation
 
-The Telerik UI for Blazor components support keyboard navigation so the end users can use the keyboard to walk through them and invoke actions such as clicking buttons, paging the grid and so on.
+The Telerik UI for Blazor components support keyboard navigation and the end users can use the keyboard to walk through them and invoke actions such as clicking buttons, paging the Grid, and so on.
 
-Generally, to focus a component use the `Tab` key as the keyboard support of the page follows the normal flow of the content. Once in a component, you can use specific keyboard shortcuts to trigger specific actions (such as using the arrow keys to focus different cells in the grid, or the `Enter` key to click a button).
+## How it Works
 
-By default, users can only navigate to links, buttons, and form controls with a keyboard, and we also made our components focusable so the user can interact with them too, even though they are complex structures. The navigation order in which interactive items receive keyboard focus has to be logical and intuitive. Generally, it needs to follow the visual horizontal and vertical flow of the page. For example, left to right and top to bottom, header first followed by the main and then page navigation.
+Generally, to focus a component, use the `Tab` key as the keyboard support of the page follows the normal flow of the content. Once inside a component, you can use specific keyboard shortcuts to trigger specific actions such as using the `Arrow` keys to focus different cells in the Grid, or the `Enter` key to click a button.
 
-The following list shows the Telerik components that support specific keyboard combinations and links to live demos where you can see the behavior in action, together with the available keyboard shortcuts:
+Normally, users can use the keyboard to navigate only to HTML links, buttons, and form controls. The Telerik UI for Blazor library has gone to the next level and the components it delivers are focusable. In this way, even though the components represent complex structures, users can interact with them too.
 
-* [AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
+The navigation order in which interactive items receive keyboard focus has to be logical and intuitive. Generally, the focus has to follow the visual horizontal and vertical flow of the page. For example, left-to-right and top-to-bottom, header first followed by the main and, then, page navigation.
 
-* [Breadcrumb](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation)
+Most of the components in the library represent a single `Tab` stop. Once users reach and focus a component, they can leave it with a single tab. If the component is more complex, users can walk though its inside elements with the `Arrow` keys, for example, Grid cells, Menu items, Toolbar buttons. Some complex components can accommodate multiple other components. For example, the Grid can host a Toolbar and a Pager. In this case, you can tab to move the focus from one nested component to another.
 
-* [Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
+## Types of Keyboard Support
 
-* [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
+The Telerik UI for Blazor components may provide enhanced, standard, or no keyboard support.
 
-* [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)
+* *Standard keyboard support* implies similar keyboard navigation capabilities as standard HTML elements. For example, the Button components support `Enter` and `Space` for clicking them. All components with standard keyboard support are reachable through the `Tab` key and provide focus styles.
+* *Enhanced keyboard support* builds on top of the standard key combinations and provides additional shortcuts for improved flexibility and user experience.
+* The components with no keyboard support serve a purely visualization purpose, are just content containers, provide no interaction, or provide only mouse and touch interaction by design.
 
-* [Carousel](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation)
+## Keyboard Support per Component
 
-* Chart - not applicable, the chart is a visualization component only.
+The following table lists the available Telerik UI for Blazor components with the type of keyboard support they provide. To see the combinations in action, click the desired component to see its keyboard navigation demo.   
 
-* Checkbox - not applicable, it is a simple input with the standard behavior.
-
-* ChunkProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
-
-* [Color Palette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
-
-* [Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
-
-* [ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)
-
-* [DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)
-
-* [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
-
-* [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation)
-
-* [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
-
-* [Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)
-
-* [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
-
-* Editor - will have keyboard navigation in an upcoming release.
-
-* [Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) (set `Navigable="true"`)
-
-* GridLayout - not applicable, it is a layout container.
-
-* MaskedTextbox - not applicable, it is a simple input with the standard behavior.
-
-* [Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
-
-* ListView - not applicable, its entire rendering is up to the app. Its pager is a separate component that offers accessibility and keyboard navigation.
-
-* Loader - not applicable, it is merely a visualization component the user cannot interact with.
-
-* LoaderContainer - not applicable, it is merely a visualization component the user cannot interact with.
-
-* [MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
-
-* Notification - not applicable, it is a visualization component. 
-
-* [NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)
-
-* [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
-
-* [PanelBar](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation)
-
-* ProgressBar - not applicable, it is merely a visualization component the user cannot interact with.
-
-* [RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) - has the standard behavior of radio buttons with the same `name`.
-
-* [RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
-
-* [Scheduler](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
-
-* [Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
-
-* [SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation)
-
-* [Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
-
-* StackLayout - not applicable, it is a layout container.
-
-* [Stepper](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation)
-
-* [Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
-
-* [TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
-
-* TextArea - not applicable, it is a simple input with the standard behavior.
-
-* Textbox - not applicable, it is a simple input with the standard behavior.
-
-* TileLayout - not applicable, the resize and drag actions apply to mouse/touch gestures only.
-
-* [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)
-
-* [ToolBar](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation)
-
-* [ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)
-
-* [TreeList](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation) (set `Navigable="true"`)
-
-* [TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
-
-* [Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)
-
-* [Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
-
-* [Wizard](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation)
-
-* AnimationContainer - not applicable, it is merely a container component the user cannot interact with.
+|Component|Enhanced Navigation|Standard Navigation|None|Notes
+|---|---|---|----|---
+|ArcGauge|||Yes|
+|[AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)| Yes|||
+|[Breadcrumb](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation)| Yes|||
+|[Button](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)||Yes||
+|[ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)||Yes||
+|[Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation)| Yes|||
+|[Carousel](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation)| Yes|||
+|[CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview)||Yes||
+|[Chip](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation)| Yes|||
+|[ChipList](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation)|Yes|||
+|CircularGauge|||Yes|
+|[ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)|Yes|||
+|[ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)|Yes|||
+|[ColorPicker](https://demos.telerik.com/blazor-ui/colorpicker/overview)|Yes|||See also the [ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) and [ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation).
+|[ComboBox](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation)|Yes|||
+|[ContextMenu](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)|Yes|||
+|[DateInput](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation)|Yes|||
+|[DatePicker](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)|Yes|||
+|[DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/keyboard-navigation)|Yes|||
+|[DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)|Yes|||
+|[Dialog](https://demos.telerik.com/blazor-ui/dialog/overview)|Yes|||Tab to reach and use its buttons. The Dialog restricts the focus within itself during tabbing.
+|[Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation)|Yes|||
+|[DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)|Yes|||
+|DropZone|||Yes|
+|[Editor](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation)|Yes|||
+|[FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)|Yes|||Tab to focus the different nested components. Keyboard navigation for the file list is not available yet.
+|[FileSelect](https://demos.telerik.com/blazor-ui/fileselect/keyboard-navigation)|Yes|||
+|[Filter](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation)|Yes|||
+|[FlatColorPicker](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)|Yes|||Tab to focus the different nested components. See also the [ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) and [ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation).
+|FloatingLabel|||Yes|
+|[Form](https://demos.telerik.com/blazor-ui/form/overview)||Yes||
+|[Gantt](https://demos.telerik.com/blazor-ui/gantt/overview)|Yes|||Keyboard navigation is available for the nested [TreeList](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation).
+|[Grid](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)|Yes|||Set `Navigable="true"`
+|GridLayout|||Yes|
+|Icons|||Yes|
+|LinearGauge|||Yes|
+|ListView|||Yes|The built-in [Pager component provides keyboard navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation).
+|Loader|||Yes|
+|LoaderContainer|||Yes|
+|[MaskedTextBox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)||Yes||
+|MediaQuery|||Yes|
+|[Menu](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)|Yes|||
+|[MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/keyboard-navigation)|Yes|||
+|[MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)|Yes|||
+|Notification|||Yes|
+|[NumericTextBox](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation)|Yes|||
+|[Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)|Yes|||
+|[PanelBar](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation)|Yes|||
+|[PdfViewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview)|Yes|||Tab to focus the different components in the toolbar. The built-in [Pager provides keyboard navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation).
+|ProgressBar|||Yes|
+|QRCode|||Yes|
+|RadialGauge|||Yes|
+|[RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation)||Yes||
+|[RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)|Yes|||
+|[Scheduler](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)|Yes|||
+|Signature|||Yes|
+|Skeleton|||Yes|
+|[Slider](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)|Yes|||
+|[SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation)|Yes|||
+|[Splitter](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)|Yes|||
+|StackLayout|||Yes|
+|[Stepper](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation)|Yes|||
+|StockChart|||Yes|
+|[Switch](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)|Yes|||
+|[TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)|Yes|||
+|[TextArea](https://demos.telerik.com/blazor-ui/textarea/overview)||Yes||
+|[TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)||Yes||
+|TileLayout|||Yes|
+|[TimePicker](https://demos.telerik.com/blazor-ui/timepicker/keyboard-navigation)|Yes|||
+|[ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/keyboard-navigation)|Yes|||
+|[ToolBar](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation)|Yes|||
+|Tooltip|||Yes|
+|[TreeList](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation)|Yes|||Set `Navigable="true"`
+|[TreeView](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)|Yes|||
+|[Upload](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation)|Yes|||
+|Validation|||Yes|
+|[Window](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)|Yes|||
+|[Wizard](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation)|Yes|||
 
 ## See Also
 
-  * [Accessibility Overview]({%slug accessibility-overview%})
-  * [Globalization Overview]({%slug globalization-overview%})
-  * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
+* [Accessibility Overview]({%slug accessibility-overview%})
+* [Globalization Overview]({%slug globalization-overview%})
+* [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
