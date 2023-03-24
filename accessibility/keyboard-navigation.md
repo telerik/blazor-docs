@@ -22,19 +22,13 @@ The navigation order in which interactive items receive keyboard focus has to be
 
 Most of the components in the library represent a single `Tab` stop. Once users reach and focus a component, they can leave it with a single tab. If the component is more complex, users can walk though its inside elements with the `Arrow` keys, for example, Grid cells, Menu items, Toolbar buttons. Some complex components can accommodate multiple other components. For example, the Grid can host a Toolbar and a Pager. In this case, you can tab to move the focus from one nested component to another.
 
-The following lists show the Telerik components that support specific keyboard combinations and links to live demos where you can see their behavior and the available keyboard combinations in action.
-
-* [Enhanced Keyboard Navigation](#components-with-enhanced-keyboard-navigation)
-* [Standard Keyboard Navigation](#components-with-standard-keyboard-navigation)
-* [No Keyboard Navigation](#components-without-keyboard-navigation)
-
 ## Types of Keyboard Support
 
 The Telerik UI for Blazor components provide the enhanced, standard, or no level of keyboard support.
 
 The components delivering standard keyboard support provide the same keyboard navigation capabilities as their standard HTML counterparts. For example, the Buttons support `Enter` and `Space` for clicking them. All components with standard keyboard support are reachable through the `Tab` key and provide focus styles.
 
-The components delivering enhanced keyboard support build on top of the standard combinations and implement additional shortcuts for better flexibility and improved user experience.    
+The components delivering enhanced keyboard support build on top of the standard combinations and implement additional shortcuts for improved flexibility and user experience.    
 
 The components delivering no keyboard support serve a purely visualization purpose, are just content containers, provide no interaction, or provide mouse and touch interaction by design.
 
