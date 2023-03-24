@@ -61,7 +61,7 @@ The example below shows how to:
                 <TelerikCheckBox @bind-Value="@item.Organic" Enabled="false" />
                 <br />
                 or Icon:
-                <TelerikFontIcon Icon="@( item.Organic ? "checkbox-checked" : "checkbox" )" />
+                <TelerikFontIcon Icon="@( item.Organic ? FontIcon.CheckboxChecked : FontIcon.Checkbox )" />
             </Template>
         </GridColumn>
     </GridColumns>
@@ -69,12 +69,12 @@ The example below shows how to:
 
 @code {
     private IEnumerable<FoodItem> GridData = Enumerable.Range(1, 10).Select(x => new FoodItem
-    {
-        Id = x,
-        Name = "Food Item " + x,
-        BestBefore = DateTime.Now.AddDays(x),
-        Organic = x % 2 != 0
-    });
+        {
+            Id = x,
+            Name = "Food Item " + x,
+            BestBefore = DateTime.Now.AddDays(x),
+            Organic = x % 2 != 0
+        });
 
     public class FoodItem
     {
