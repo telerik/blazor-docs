@@ -17,7 +17,7 @@ To use the Telerik UI for Blazor code snippets, install the Telerik UI for Blazo
 
 ## Adding a Code Snippet to a .razor Page
 
-1. Use the `tb` shortcut that stands for Telerik Blazor and select a snippet from the dropdown menu.
+1. Use the `tb` shortcut that stands for Telerik Blazor and select a snippet from the dropdown menu. Alternatively, type the component name, and the available snippets will appear in a dropdown menu. 
 1. Use a `Tab` sequence to populate the available attributes of the component.
 
 >caption Add a code snippet to your .razor page
