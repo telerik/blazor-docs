@@ -15,7 +15,7 @@ The Telerik UI for Blazor Visual Studio extension provides a handy feature for i
 
 To use the Telerik UI for Blazor code snippets, install the Telerik UI for Blazor Visual Studio Extension. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
-## Add a Code Snippet to a .razor page
+## Adding a Code Snippet to a .razor Page
 
 1. Use the `tb` shortcut that stands for Telerik Blazor and select a snippet from the dropdown menu.
     1. Alternatively, type the component name, and the available snippets will appear in a dropdown menu. 
