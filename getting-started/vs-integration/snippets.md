@@ -22,7 +22,7 @@ To use the Telerik UI for Blazor code snippets, install the Telerik UI for Blazo
 
 >caption Add a code snippet to your .razor page
 
-![add a code snippet](images/snippets.png)
+![Adding a Telerik UI for Blazor code snippet in Visual Studio Code](images/snippets.png)
 
 ## Available Code Snippets
 
