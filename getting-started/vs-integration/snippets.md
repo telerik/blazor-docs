@@ -11,7 +11,7 @@ position: 15
 
 The Telerik UI for Blazor Visual Studio extension provides a handy feature for increased developer productivity—code snippets for fast UI component reference and configuration. 
 
-## Get the Extension
+## Getting the Extension
 
 To use the **Telerik UI for Blazor Code Snippets**, install the Telerik UI for Blazor Visual Studio Extension. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
