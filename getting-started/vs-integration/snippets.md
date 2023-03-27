@@ -9,7 +9,7 @@ position: 15
 
 # Blazor Code Snippets
 
-The Telerik Visual Studio extension provides a handy feature for increased developer productivity – code snippets for fast UI component reference and configuration. 
+The Telerik UI for Blazor Visual Studio extension provides a handy feature for increased developer productivity—code snippets for fast UI component reference and configuration. 
 
 ## Get the Extension
 
