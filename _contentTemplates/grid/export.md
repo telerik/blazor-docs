@@ -5,7 +5,7 @@
 
 * Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in e Field in the model, or create your own excel file (see example <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">here</a>).
 
-* Only columns that have a `Field` set are exported.
+* The Grid exports only `<GridColumn>` instances. Other types of columns are not exported, for example command, checkbox, hierarchy, group and row-drag columns.
 
 * If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
 
