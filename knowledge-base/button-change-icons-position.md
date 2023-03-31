@@ -1,10 +1,9 @@
 ---
-title: Change icons position and add more than one icon in a button
-description: How to change icons position and add more than one icon in a button?
+title: Changing the Icon Position and Add Two or More Icons in a Button
+description: Learn how to change the position of the icons inside the Telerik UI for Blazor Button and add more than one icon to the component.
 type: how-to
-page_title: Change icons position and add more than one icon in a button
+page_title: Repositioning Icons and Add More Icons to Button Components
 slug: button-kb-changе-icons-position
-position: 
 tags: telerik,blazor,icon,button,position
 ticketid: 1514832
 res_type: kb
@@ -15,23 +14,24 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Button for Blazor</td>
+			<td>Telerik® UI for Blazor Button</td>
 		</tr>
 	</tbody>
 </table>
 
 
 ## Description
-How to make an icon in a button appear on the right side of the text instead of on the left side?
-How to include more than one icon in a button?
+
+How can I show an icon in a Telerik UI for Blazor Button on the right side of the text instead of on the left side?
+How can I also include more than one icon in the Button?
 
 ## Solution
-You can change the [icons]({%slug general-information/font-icons%}) position and add more icons in the button, by nesting the `TelerikIcon` in the `TelerikButton` content.
 
+You can change the position of the [icons]({%slug general-information/font-icons%}) and add more icons in the button by nesting the `TelerikIcon` in the `TelerikButton` content.
 
->caption Change the position of the icon in a button and add more than one icon. The result from the snippet below.
+>caption Reposition the Button icon and add more than one icon to the component
 
-![Button with two icons](images/button-change-icon-position-example.png)
+![Telerik UI for Blazor Button with two icons](images/button-change-icon-position-example.png)
 
 ````CSHTML
 @*This button has two icons, one on the left and one on the right side of the text*@
