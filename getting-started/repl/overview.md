@@ -17,7 +17,7 @@ previous_url: /getting-started/repl
 The <a href = "https://blazorrepl.telerik.com/" target = "_blank">Telerik REPL for Blazor application</a> interface consists of five main sections:
 
 * [Toolbar](#toolbar)
-* [Sidebar - Drawer](#sidebar---drawer)
+* [Sidebar](#sidebar)
 * [Editor](#editor)
 * [Result View](#result-view)
 * [Error List](#error-list)
@@ -38,6 +38,8 @@ The Toolbar of Telerik REPL for Blazor provides access to the operations that yo
     
 * **Feedback**&mdash;leads to the [public feedback portal for Telerik REPL for Blazor](https://feedback.telerik.com/repl) where you can share your enhancement requests and eventual bug reports. We use it to constantly monitor the community interest and demand and thus improve our products.
 
+* **Login/Register**&mdash;allows you to [login and save snippets to your account]({%slug blazor-repl-user-snippets%}).
+
 ## Sidebar
 
 The Sidebar provides the following functionalities:
@@ -45,6 +47,8 @@ The Sidebar provides the following functionalities:
 * **NuGet Package Manager**&mdash;it allows you to install third party NuGet packages that are stored in the public `nuget.org` repository. If the published NuGet requires accepting a license agreement, you will see a confirmation prompt. The latest `Telerik UI for Blazor` package is already installed by default.
 
 * **Static Asset Manager**&mdash;it allows you to add CDN URLs for your CSS or JavaScript files. Place the file URL in the input and click the download button. This will automatically add references for the corresponding files. Once the desired asset is added, you can easily enable/disable it via a switch. In case some of the installed NuGet packages include CSS/JavaScript files, they will automatically be listed in this section, so you can manage them.
+
+* **User Snippets**&mdash;allows you to review and manage the snippets saved in your account. [Read more about the user snippets...]({%slug blazor-repl-user-snippets%})
 
 * **Telerik UI Asset Manager**&mdash;shows the Telerik.UI.for.Blazor package version and allows you to change or update it. Starting from September 14, 2022 (R3 2022), each REPL example maintains its Telerik UI package version until changed explicitly. The Asset Manager also shows a list with the available [built-in themes]({%slug general-information/themes%}) and their corresponding [color swatches]({%slug themes-swatches%}). When you select a new theme or swatch, you can immediately see the applied styles in the Result View.
 
@@ -68,3 +72,8 @@ Telerik REPL for Blazor provides an Error List that displays details for the com
 
 The Error list is located at the bottom of the [Editor](#editor).
 
+## See Also
+
+* [Telerik REPL for Blazor - User Snippets]({%slug blazor-repl-user-snippets%})
+* [Telerik REPL for Blazor - Snippets and Scaffolders]({%slug blazor-repl-snippets-scaffolders%})
+* [Telerik REPL for Blazor - Integration]({%slug blazor-repl-integration%})
