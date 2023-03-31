@@ -73,3 +73,9 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
     * To use the command palette, select a section that you want to share, search for **Share to Telerik REPL for Blazor** in the command palette and select it.
 
         ![VS Code - Share to Telerik REPL for Blazor](../images/vs-code-extension-share-to-repl-command-palette.png)
+
+
+## See Also
+
+* [Telerik REPL for Blazor - User Snippets]({%slug blazor-repl-user-snippets%})
+* [Telerik REPL for Blazor - Snippets and Scaffolders]({%slug blazor-repl-snippets-scaffolders%})
