@@ -39,7 +39,7 @@ The Grid also exposes methods to programmatically resize columns to fit their co
 
 * `AutoFitColumnAsync(string id)` - autofits the column with the specified [`Id` attribute]({% slug components/grid/columns/bound%}#identification);
 * `AutoFitColumnsAsync(IEnumerable<string> ids)` - autofits multiple columns at once'
-* `AutoFitAllColumnsAsync()` - autofits all applicable columns (for example, this method does not affect the hierarchy expand/collapse columns);
+* `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
 Autofitting specific columns preserves the current widths of all the other columns. Similar to [column resizing](#resize-by-dragging), column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
 
