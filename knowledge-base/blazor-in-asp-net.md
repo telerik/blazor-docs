@@ -1,8 +1,8 @@
 ---
-title: Use Telerik UI for Blazor in ASP.NET Web Applications
+title: Using Telerik UI for Blazor in ASP.NET Web Applications
 description: Learn how to use the Telerik UI for Blazor components in ASP.NET Web applications.
 type: how-to
-page_title: Telerik UI for Blazor in ASP.NET Web Applications
+page_title: Using Telerik UI for Blazor in ASP.NET Web Applications
 slug: telerik-blazor-in-asp-net-app
 ticketid: 1422791
 res_type: kb

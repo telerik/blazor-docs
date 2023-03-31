@@ -1,8 +1,8 @@
 ---
-title: Change the Icon Position and Add Two or More Icons in a Button
+title: Changing the Icon Position and Add Two or More Icons in a Button
 description: Learn how to change the position of the icons inside the Telerik UI for Blazor Button and add more than one icon to the component.
 type: how-to
-page_title: Reposition Icons and Add More Icons to Button Components
+page_title: Repositioning Icons and Add More Icons to Button Components
 slug: button-kb-changе-icons-position
 tags: telerik,blazor,icon,button,position
 ticketid: 1514832

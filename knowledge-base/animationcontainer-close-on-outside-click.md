@@ -1,8 +1,8 @@
 ---
-title: Close the AnimationContainer on Outside Click
+title: Closing the AnimationContainer on Outside Click
 description: Learn how to close the Telerik UI for Blazor AnimationContainer when the user clicks outside the component.
 type: how-to
-page_title: Close the AnimationContainer When Users Click Outside It
+page_title: Closing the AnimationContainer When Users Click Outside It
 slug: animationcontainer-kb-close-on-outside-click
 tags: telerik, blazor, animationcontainer
 ticketid: 1588069, 1593919

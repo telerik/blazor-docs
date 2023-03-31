@@ -1,8 +1,8 @@
 ---
-title: Create a Mixed Selection Mode in the ButtonGroup
+title: Creating a Mixed Selection Mode in the ButtonGroup
 description: Learn how to create a mix between the single and multiple selection modes in the Telerik UI for Blazor ButtonGroup.
 type: how-to
-page_title: Implement a Mixed ButtonGroup Selection Mode
+page_title: Implementing a Mixed ButtonGroup Selection Mode
 slug: buttongroup-kb-mixed-selection-mode
 tags: buttongroup, mixed, button, selection, mode, third, single, multiple
 ticketid: 1585768
