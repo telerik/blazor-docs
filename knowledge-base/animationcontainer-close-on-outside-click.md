@@ -1,10 +1,9 @@
 ---
-title: Close AnimationContainer on Outside Click
-description: How to close the Telerik Blazor AnimationContainer when the user clicks outside it
+title: Close the AnimationContainer on Outside Click
+description: Learn how to close the Telerik UI for Blazor AnimationContainer when the user clicks outside the component.
 type: how-to
-page_title: Close Animation Container When Clicking Outside it
+page_title: Close the AnimationContainer When Users Click Outside It
 slug: animationcontainer-kb-close-on-outside-click
-position: 
 tags: telerik, blazor, animationcontainer
 ticketid: 1588069, 1593919
 res_type: kb
@@ -16,7 +15,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>AnimationContainer for Blazor</td>
+            <td>Telerik® UI for Blazor AnimationContainer</td>
         </tr>
     </tbody>
 </table>
@@ -24,18 +23,20 @@ res_type: kb
 
 ## Description
 
-If I click outside of the Animation Container, the control doesn't collapse like other popup components. You have to manually click to on the toggle button. How to close the Animation Container with a user click outside of it?
+When I click outside of the AnimationContainer, the control doesn't collapse like other popup components and you have to manually click the **Toggle** button for the component to do so. How can I enable the AnimationContainer to close with a user clicks outside of it?
 
 
 ## Solution
 
+To achieve the desired scenario:
+
 1. Set a custom `Class` for the AnimationContainer to distinguish its HTML element in JavaScript code.
 1. When you open the AnimationContainer with `ShowAsync()`, [call a JavaScript function](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet) and [subscribe](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) to the `click` event of the [`documentElement`](https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement).
-1. In the JavaScript `click` handler, get the [event `target`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) and check if it is [inside or outside](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) the AnimationContainer. Use the CSS Class from step 1.
+1. In the JavaScript `click` handler, get the [`target`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) event and check if it is [inside or outside](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) the AnimationContainer. Use the custom CSS `Class` from step 1.
 1. If the target is outside, [call a .NET method from the JavaScript code](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript) that will close the AnimationContainer.
 1. When closing the AnimationContainer from JavaScript, [detach](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener) the `click` handler from step 2.
 
->caption Close AnimationContainer on outside click
+>caption Close the AnimationContainer upon an outside click
 
 ````CSHTML
 @inject IJSRuntime js
@@ -103,14 +104,12 @@ If I click outside of the Animation Container, the control doesn't collapse like
 
 ## Notes
 
-If the AnimationContainer is opened as a result of a button click, take this into account in the opening and closing logic. The above example uses a `bool` flag for the AnimatioContainer state.
-
-All Telerik Blazor popup and dropdown components are rendered at the root of the app, and not at place of declaration. For example, if the AnimationContainer contains a ComboBox, its dropdown will render outside the AnimationContainer. This affects the check in [step 3](#solution) above. Use [another Class for the nested popup]({%slug components/combobox/overview%}#popup-settings) to distinguish it.
-
-The AnimationContainer should reside outside elements with an `overflow` style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation will not exist for the [future `Popup` component](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
+* If the AnimationContainer is opened as a result of a button click, consider this in the opening and closing logic. The above example uses a `bool` flag for the AnimatioContainer state.
+* All Telerik Blazor popup and drop-down components are rendered at the root of the app, and not at the place of declaration. For example, if the AnimationContainer contains a ComboBox, its drop-down will render outside the AnimationContainer. This behavior affects the check in [step 3](#solution) above. To distinguish it, use [another Class for the nested popup]({%slug components/combobox/overview%}#popup-settings).
+* The AnimationContainer must reside outside elements with an `overflow` style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation will not exist for the [future Popup component](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
 
 
 ## See Also
 
-* [Animation Container Documentation]({%slug components/animationcontainer/overview%})
-* [Telerik Blazor Popup feature request tracking](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning)
+* [AnimationContainer Documentation]({%slug components/animationcontainer/overview%})
+* [Telerik UI for Blazor Popup Feature Request Tracking](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning)

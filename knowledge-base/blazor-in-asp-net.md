@@ -1,28 +1,37 @@
 ---
-title: Telerik Blazor in ASP.NET Web Application
-description: Use Telerik Blazor components in ASP.NET Web Application.
+title: Use Telerik UI for Blazor in ASP.NET Web Applications
+description: Learn how to use the Telerik UI for Blazor components in ASP.NET Web applications.
 type: how-to
-page_title: Telerik Blazor in ASP.NET Web Application
+page_title: Telerik UI for Blazor in ASP.NET Web Applications
 slug: telerik-blazor-in-asp-net-app
-position: 
-tags: 
 ticketid: 1422791
 res_type: kb
 ---
 
+## Environment
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Telerik® UI for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Description
-You may have an ASP.NET Core 3 web application and you may want to start using Blazor components in it so you can modernize it, and even to eventually migrate it to Blazor.
+
+How can I modernize my ASP.NET Core 3 web application by adding Blazor components in it, and eventually migrate the project to Blazor?
 
 ## Considerations
-You can use an ASP.NET Core 3 web application to render Blazor components. Here is a list of the requirements and things to keep in mind (as sample project is available at the end):
 
-* You must first add Blazor to the project. This includes the client-side assets, the service, and the SignalR hub. In the sample project, they are added to the layout so that all pages can use them. Make sure you don't add them twice on a certain page.
-* You must then [add the Telerik components as usual]({%slug getting-started/what-you-need%}). The `TelerikRootComponent` must be added around the contents of every Blazor component, because there is no way to render it in a shared location like in an actual Blazor app.
-* Use Blazor components according to the current framework approach. At the time of writing, that is the ` <component type="typeof(MyComponent)" render-mode="ServerPrerendered" param-SomeParameter="@ObjectToPass" />` approach. In previous versions the recommended approach was using Razor components like partial views - through the `Html.RenderComponentAsync()` helper where you passed their Parameters as fields in an anomymous model object.
-* If you wish to use [Alert, Confirm or Prompt Dialogs]({%slug dialog-predefined %}), you need to do this in a **nested** Razor component of the `TelerikRootComponent`. Otherwise, if you try to define the `DialogFactory` `CascadingParameter` in the same Razor component that includes the `TelerikRootComponent`, then the cascading parameter will be `null`.
-* If you are already using Kendo widgets in such a project, make sure to only use the [Telerik UI for Blazor Themes]({%slug general-information/themes%}). They match the [SASS-based themes from Kendo](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) and you must only have one theme referenced.
-    * Try using versions of Kendo UI and UI for Blazor that are close together, so that there are as little differences in their theming as possible. The latest versions are advisable.
+You can use an ASP.NET Core 3 web application to render Blazor components by following the requirements, considerations, and steps below:
 
->tip A sample project with comments is available in the following repo that contains other examples as well: [https://github.com/telerik/blazor-ui/tree/master/common/razor-components](https://github.com/telerik/blazor-ui/tree/master/common/razor-components).
+1. Add Blazor to the project. This includes the client-side assets, the service, and the SignalR hub. In the sample project linked below, these are added to the layout so that all pages can use them. Make sure you don't add them twice on a certain page.
+1. [Add the Telerik components as usual]({%slug getting-started/what-you-need%}). Add the `TelerikRootComponent` around the contents of every Blazor component. Otherwise, it is not possible to render it in a shared location like in an actual Blazor app.
+1. Use the Blazor components according to the current framework approach by using the `<component type="typeof(MyComponent)" render-mode="ServerPrerendered" param-SomeParameter="@ObjectToPass" />` approach. In previous versions, the recommended approach was by using Razor components like partial views through the `Html.RenderComponentAsync()` helper, where you has to pass their parameters as fields in an anonymous model object.
+1. If you wish to use [Alert, Confirm, or Prompt Dialogs]({%slug dialog-predefined %}), you need to do this in a nested Razor component of the `TelerikRootComponent`. Otherwise, if you try to define the `DialogFactory` `CascadingParameter` in the same Razor component that includes the `TelerikRootComponent`, then the cascading parameter will be `null`.
+1. If you are already using Kendo UI components in such a project, make sure to only use the [Telerik UI for Blazor Themes]({%slug general-information/themes%}). They match the [SASS-based themes from Kendo UI](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes) and you must only have one theme referenced.
 
+    It is recommended that you use the latest Kendo UI and Telerik UI for Blazor versions. If not possible, try using Kendo UI and Telerik UI for Blazor versions that are close together, so that there are as little differences in their theming as possible.
+
+>tip To see the full implementation of the suggested approach, go to the [Razor components GitHub repo containing the sample project with comments and also other examples](https://github.com/telerik/blazor-ui/tree/master/common/razor-components).

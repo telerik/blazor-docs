@@ -1,10 +1,9 @@
 ---
-title: ButtonGroup Mixed Selection Mode
-description: How to create a mix between Single and Multiple selection modes in Blazor ButtonGroup.
+title: Create a Mixed Selection Mode in the ButtonGroup
+description: Learn how to create a mix between the single and multiple selection modes in the Telerik UI for Blazor ButtonGroup.
 type: how-to
-page_title: ButtonGroup Mixed Selection Mode
+page_title: Implement a Mixed ButtonGroup Selection Mode
 slug: buttongroup-kb-mixed-selection-mode
-position: 
 tags: buttongroup, mixed, button, selection, mode, third, single, multiple
 ticketid: 1585768
 res_type: kb
@@ -16,20 +15,20 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>ButtonGroup for Blazor</td>
+            <td>Telerik® UI for Blazor ButtonGroup</td>
         </tr>
     </tbody>
 </table>
 
 ## Description
 
-How to create a third selection mode that is a mix between `Single` and `Multiple`? How to force at least one selected ButtonGroup button?
-
-Currently, there are two possible options for the [`SelectionMode`]({%slug buttongroup-selection%}) in the ButtonGroup. The third mode needs to allow multiple selection and not allow deselecting the last selected item. Minimum one button needs to stay always selected.
+How can I create a third selection mode that is a mix between the `Single` and `Multiple` option? How can I force at least one selected ButtonGroup button?
 
 ## Solution
 
-Handle the [`SelectedChanged`]({%slug buttongroup-events%}#selectedchanged) event of each [`ButtonGroupToggleButton`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ButtonGroupToggleButton), and when you deselect a button, check if it was the last selected.
+Currently, the ButtonGroup [`SelectionMode`]({%slug buttongroup-selection%}) supports the two `Single` and `Multiple` options.
+
+To create a third, multiple selection mode, prevent the deselection of the last selected item, and enable at least one button to always stay selected, handle the [`SelectedChanged`]({%slug buttongroup-events%}#selectedchanged) event of each [`ButtonGroupToggleButton`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.ButtonGroupToggleButton). When you deselect a button, check if it was the last selected.
 
 ````CSHTML
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
@@ -65,5 +64,5 @@ Handle the [`SelectedChanged`]({%slug buttongroup-events%}#selectedchanged) even
 
 ## See Also
 
-* [Explore the built-in selection modes]({%slug buttongroup-selection%})
-* [See vertical button group]({%slug buttongroup-kb-vertical%})
+* [Exploring the Built-In Selection Modes of the ButtonGroup]({%slug buttongroup-selection%})
+* [Rendering Vertical Telerik UI for Blazor ButtonGroups]({%slug buttongroup-kb-vertical%})

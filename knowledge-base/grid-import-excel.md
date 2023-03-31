@@ -1,10 +1,9 @@
 ---
-title: How to Import Excel File in the Grid
-description: How to Import Excel file in the Grid
+title: Import an Excel Files in the Grid
+description: Learn how to enable the Excel import functionality in the Telerik UI for Blazor Data Grid component by using the Telerik Document Processing Library.
 type: how-to
-page_title: How to Import an Excel File in the Grid utilizing the Telerik Document Processing Library
+page_title: Enable Excel Import in Grid with Telerik DPL
 slug: grid-import-excel
-position: 
 tags: grid, import, excel, file
 res_type: kb
 ---
@@ -14,7 +13,8 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Blazor</td>
+			<td>Telerik® UI for Blazor Grid</td>
+			<td>Telerik® UI Document Processing Library</td>
 		</tr>
 	</tbody>
 </table>
@@ -22,19 +22,19 @@ res_type: kb
 
 ## Description
 
-How do I import excel file data in the Grid component using the [Telerik.Documents.SpreadsheetStreaming](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) package?
+How can I import an Excel file data in the Grid component by using the [`Telerik.Documents.SpreadsheetStreaming`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) package?
 
 ## Solution
 
-One way to bring an excel file into the Grid is by utilizing the Telerik.Documents.SpreadsheetStreaming library. This package provides an API for accessing excel files, enabling straightforward cell-by-cell reading. 
+A possible way to import an Excel file in the Grid is by utilizing the `Telerik.Documents.SpreadsheetStreaming` library. This package provides an API for accessing Excel files and enabling straightforward cell-by-cell reading.
 
-To import the data of an excel file in the Grid: 
+To import the data of an Excel file in the Grid:
 
 1. Read the value of each cell.
 1. Save the data in a collection of objects.
 1. Bind the Grid to the collection.
 
->caption Import Excel File in the Grid
+>caption Import an Excel file in the Grid
 
 ````CSHTML
 @* Import Excel File in the Grid *@
@@ -46,7 +46,7 @@ To import the data of an excel file in the Grid:
                    Multiple="false"
                    OnSelect="@OnSelectHandler" />
 
-<TelerikGrid Data=@GridData.AsEnumerable() 
+<TelerikGrid Data=@GridData.AsEnumerable()
              TItem="DataRow"
              Height="400px">
     <GridColumns>
