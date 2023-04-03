@@ -1,28 +1,27 @@
 ---
 title: NuGet Feed
-page_title: NuGet Feed Troubleshooting
-description: Telerik NuGet Feed Troubleshooting.
+page_title: Troubleshooting NuGet Feed Issues
+description: Learn how to handle various issues that may occur when you work with the Telerik UI for Blazor library and the NuGet installation approach.
 slug: troubleshooting-nuget
-tags: nuget,troubleshooting
+tags: telerik, nuget, blazor, ui, troubleshooting, installation
 published: True
 position: 7
 ---
 
 # NuGet Feed Troubleshooting
 
-This article provides ways to fix the most common problems we have had reported with the [setup of the Telerik online private NuGet feed]({%slug installation/nuget%}).
+This article summarizes common issues that may occur when you work with the Telerik UI for Blazor library and the [online Telerik private NuGet feed]({%slug installation/nuget%}), and their solutions.
 
-No matter the exact issue, we recommend starting from the general section below.
+Regardless of the cause, it is recommended that you start from the section on the commonly occurring issues.
 
-* [**General information and troubleshooting tips**](#general-information)
-   * [How to remove incorrect stored credentials](#remove-saved-credentials)
-* [Error `401 Unauthorized`.](#error-401-unauthorized)
-* [Error `Unable to find package`](#unable-to-find-package)
-* [Error `503 Service Unavailable`](#error-503-service-unavailable)
+* [**General information and troubleshooting tips**](#common-nuget-installation-issues)
+   * [Removing stored credentials](#removing-saved-credentials)
+* [`401 Unauthorized` error](#error-401-unauthorized)
+* [`Unable to find package` error](#unable-to-find-package)
+* [`503 Service Unavailable` error](#error-503-service-unavailable)
 * [Message about package `version not found`](#package-version-not-found)
 
-
-## General Information
+## Common NuGet Installation Issues
 
 The most common reasons for issues with a private NuGet feed are related to:
 
@@ -44,7 +43,7 @@ If the above URL doesn't open, there is either a local networking issue, or [the
 If you can access the feed in the browser, but you do not see thee packages in Visual Studio, the problem is most likely wrong credentials or usage of different Telerik account. Make sure your saved credentials are correct and that there isn't a `NuGet.Config` file in the project that is bringing in invalid credentials - project-level config files override the global ones.
 
 
-### Remove Saved Credentials
+### Removing Saved Credentials
 
 If you suspect the saved credentials are wrong, here is a sample process of removing them from Windows, so you can re-add the correct ones:
 
@@ -66,7 +65,7 @@ If the credentials are correct and your license includes the requested product a
 The possible solutions are:
 
 1. Change the password so that it doesn't include characters that do need to be escaped.
-2. Escape the special characters before storing the credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`. 
+2. Escape the special characters before storing the credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`.
 
 If needed, see [Remove Saved Credentials](#remove-saved-credentials) above.
 
