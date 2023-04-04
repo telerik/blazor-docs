@@ -30,6 +30,12 @@ The Telerik UI for Blazor components may provide enhanced, standard, or no keybo
 * *Enhanced keyboard support* builds on top of the standard key combinations and provides additional shortcuts for improved flexibility and user experience.
 * The components with no keyboard support serve a purely visualization purpose, are just content containers, provide no interaction, or provide only mouse and touch interaction by design.
 
+## Right-to-Left Support
+
+When the [Right-to-Left direction is enabled]({%slug rtl-support%}), the shortcuts for the components that support keyboard navigation will remain unchanged except for the `Left arrow` and `Right arrow` keys.
+
+The functionality of the left and right arrow keys is reversed to follow the right right-to-Left direction.
+
 ## Keyboard Support per Component
 
 The following table lists the available Telerik UI for Blazor components with the type of keyboard support they provide. To see the combinations in action, click the desired component to see its keyboard navigation demo.   
