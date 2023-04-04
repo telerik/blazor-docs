@@ -44,8 +44,6 @@ The Page select, which is present for mobile devices/smaller screens where there
 
 [WAI-ARIA specification for navigation](https://www.w3.org/TR/wai-aria-1.2/#navigation)
 
-[A11Y Style Guide: Pagination](https://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-pagination)
-
 ## Section 508
 
 
