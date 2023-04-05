@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Events | Carousel for Blazor
+page_title: Events - Carousel for Blazor
 description: Events in the Carousel for Blazor.
 slug: carousel-events
 tags: telerik,blazor,carousel,events

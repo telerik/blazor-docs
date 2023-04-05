@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Editor Documentation | Editor  Accessibility
+page_title: Telerik UI for Blazor Editor Documentation - Editor  Accessibility
 description: "Get started with the Telerik UI for Blazor Editor and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: editor-wai-aria-support 
-position: 50 
+slug: editor-wai-aria-support
+position: 50
 ---
 
 # Blazor Editor Accessibility

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | ColorGradient for Blazor
+page_title: Overview - ColorGradient for Blazor
 description: Overview of the ColorGradient for Blazor.
 slug: colorgradient-overview
 tags: telerik,blazor,colorgradient,overview

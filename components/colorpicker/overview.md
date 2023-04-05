@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | ColorPicker for Blazor
+page_title: Overview - ColorPicker for Blazor
 description: Overview of the ColorPicker for Blazor.
 slug: colorpicker-overview
 tags: telerik,blazor,colorpicker,overview
