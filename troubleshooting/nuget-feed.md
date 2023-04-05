@@ -28,7 +28,7 @@ The most common reasons for issues with the private Telerik NuGet feed are relat
 * Authentication and credentials.
 * Licensing. For example, requesting commercial packages with a trial license or vice-versa.
 * Missing or wrong local configuration (`NuGet.Config`).
-* Network connectivity issues, including proxies and firewalls.
+* Network connectivity issues, including **proxies** and **firewalls**.
 
 Errors like `Unable to load the service index for source https://nuget.telerik.com/v3/index.json` don't indicate the exact cause of the problem. In such cases, check the additional error information which usually provides an error code.
 
