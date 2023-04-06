@@ -35,6 +35,7 @@ You might still want to allow the user to see the whole content, so you can enab
 
 
 ````CSHTML
+@page "/"
 @*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.*@
 
 Resize Note column or double click on a row to see the product details
@@ -48,10 +49,29 @@ Resize Note column or double click on a row to see the product details
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.Note))" Title="Note" OnCellRender="@OnCellRenderHandler" />
+        <GridColumn Field="@(nameof(SampleData.Note))" Title="Notes Template">
+            <Template>
+                @{ var dataItem = (SampleData)context; }
+                <div class="custom-ellipsis">
+                    @dataItem.Note
+                </div>
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@(nameof(SampleData.Note))" Title="Notes OnCellRender" OnCellRender="@OnCellRenderHandler" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
     </GridColumns>
 </TelerikGrid>
+
+<style>
+    /* template */
+    div.custom-ellipsis,
+    /* OnCellRender */
+    .k-grid td.custom-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
 
 <TelerikWindow @bind-Visible="@WindowIsVisible" Modal="true">
     <WindowTitle>
@@ -102,15 +122,6 @@ Resize Note column or double click on a row to see the product details
         public DateTime HireDate { get; set; }
     }
 }
-
-<style>
-    .custom-ellipsis {
-        overflow: hidden;
-        max-height: 60px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-</style>
 ````
 
 ## See also
