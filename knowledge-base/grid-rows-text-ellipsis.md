@@ -35,7 +35,6 @@ You might still want to allow the user to see the whole content, so you can enab
 
 
 ````CSHTML
-@page "/"
 @*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.*@
 
 Resize Note column or double click on a row to see the product details
