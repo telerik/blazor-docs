@@ -86,6 +86,9 @@ own data source and return it from a service to render in the corresponding head
 
                 <TelerikMultiSelect Data="@Roles" @bind-Value="@FilteredRoles" Placeholder="Choose Roles to show" Class="no-x-button"
                                     TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)" AutoClose="false">
+                    <MultiSelectSettings>
+                        <MultiSelectPopupSettings Width="120px" Height="auto" />
+                    </MultiSelectSettings>
                 </TelerikMultiSelect>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
