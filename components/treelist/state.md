@@ -386,6 +386,9 @@ The TreeList state allows you to control the behavior of the TreeList programmat
 ````FilterMenu
 @[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
 ````
+````Columns
+@[template](/_contentTemplates/treelist/state.md#column-state-from-code)
+````
 
 
 ### Set Default (Initial) State
