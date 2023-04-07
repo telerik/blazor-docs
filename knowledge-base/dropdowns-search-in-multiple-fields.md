@@ -32,7 +32,7 @@ My dropdown data model has one numeric property in `ValueField` and two string p
 
 ## Solution
 
-* Use manual data binding for the component with the `OnRead` event. This will allow programmatic changes to the data request filter.
+* [Bind the component with the `OnRead` event]({%slug common-features-data-binding-onread%}). This will allow programmatic changes to the data request filter.
 * Create a new [`DataSourceRequest`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.FilterDescriptor) (see note below).
 * The `CompositeFilterDescriptor` object should have its `LogicalOperator` set to `FilterCompositionLogicalOperator.Or` (unless you want **all** searchable fields to contain the search string).
 * The `CompositeFilterDescriptor` object should have its `FilterDescriptors` collection contain one `FilterDescriptor` for each searchable field in the data.
