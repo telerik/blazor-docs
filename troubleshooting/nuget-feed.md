@@ -1,60 +1,69 @@
 ---
 title: NuGet Feed
-page_title: NuGet Feed Troubleshooting
-description: Telerik NuGet Feed Troubleshooting.
+page_title: Troubleshooting NuGet Feed Issues
+description: Learn how to handle various issues that may occur when you work with the Telerik UI for Blazor library and the NuGet installation approach.
 slug: troubleshooting-nuget
-tags: nuget,troubleshooting
+tags: telerik, nuget, blazor, ui, troubleshooting, installation
 published: True
 position: 7
 ---
 
 # NuGet Feed Troubleshooting
 
-This article provides ways to fix the most common problems we have had reported with the [setup of the Telerik Online Private NuGet Feed]({%slug installation/nuget%}):
+This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the [online Telerik private NuGet feed]({%slug installation/nuget%}), and their solutions.
 
-* [I do not see the Telerik Packages](#i-do-not-see-the-telerik-packages)
-* [Error 401 Logon failed.](#error-401-login-failed)
+Regardless of the cause for the issue, it is recommended that you start from the section on the commonly occurring issues.
+
+* [Tips for handling common NuGet issues](#tips-for-handling-common-nuget-issues)
+* [Removing stored credentials](#removing-saved-credentials)
+* [Error `401 Unauthorized`](#error-401-unauthorized)
 * [Error `Unable to find package`](#unable-to-find-package)
+* [Error `503 Service Unavailable`](#error-503-service-unavailable)
+* [Message about package `version not found`](#package-version-not-found)
 
-## I do not see the Telerik Packages
+## Tips for Handling Common NuGet Issues
 
-There are two common reasons for the Telerik packages to be missing in the Telerik Online Feed:
+The most common reasons for issues with the private Telerik NuGet feed are related to:
 
-* There is a network issue. For example, a proxy, firewall or other similar software blocks requests to our server.
+* Authentication and credentials.
+* Licensing. For example, requesting commercial packages with a trial license or vice-versa.
+* Missing or wrong local configuration (`NuGet.Config`).
+* Network connectivity issues, including **proxies** and **firewalls**.
 
-* Your license is tied to a different account than the one used for the feed credentials.
+Errors like `Unable to load the service index for source https://nuget.telerik.com/v3/index.json` don't indicate the exact cause of the problem. In such cases, check the additional error information which usually provides an error code.
 
-To check if this is a networking issue, open the following URL in your browser and enter your `telerik.com` credentials:
+To verify if you can access the Telerik NuGet server and the expected packages, open the https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0 URL directly in the web browser and enter your Telerik credentials in the prompt.
 
-<a href="https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0" target="_blank">https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0</a>
+As a result, you will see a JSON output with the NuGet packages and versions that are available for you. Depending on your license, search for `Telerik.UI.for.Blazor` or `Telerik.UI.for.Blazor.Trial`.
 
-You should see a json result with the list of packages you can access and you should see the `Telerik.UI.for.Blazor` package with the version appropriate to your license.
+If the above URL doesn't open, you have either come across a local networking issue or [the NuGet server is down](#error-503-service-unavailable).
 
-If you can access the feed in the browser, but you do not see the packages in Visual Studio, the most likely problem is wrong credentials that are not associated with a license. Make sure that your credentials are correct and that there isn't a `nuget.config` file in the project that is bringing in invalid credentials - project-level config files override the global settings.
+If you can access the feed in the browser, but you do not see the packages in Visual Studio, most likely the problem is caused by entering wrong credentials or using a different Telerik account. Make sure your saved credentials are correct. Also, you must not have a `NuGet.Config` file in your project as it may bring in invalid credentials and project-level configuration files override the global ones.
 
-I you suspect the credentials are wrong, here is a sample process of removing stored credentials from Windows so you can re-add the correct ones:
+## Removing Saved Credentials
 
-1. Remove saved credentials in <a href="https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager" target="_blank">Windows Credential Manager</a>. They will appear as `nuget.telerik.com` and/or `VSCredentials_nuget.telerik.com` entries.
-2. Remove the Telerik Nuget package source from Visual Studio.
-3. If you have added the Telerik  package source by nuget CLI, then try to remove it from the CLI:
-    * <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-list-source" target="_blank">dotnet nuget list source</a> 
-    * <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-remove-source" target="_blank">dotnet nuget remove source</a>
-4. Check if there are any credentials stored in `%AppData%\NuGet\Nuget.Config` and if so you have to remove them.
-5. Try to reset Visual Studio user data. You can read how to do that <a href="https://stackoverflow.com/questions/43550797/how-to-force-nuget-to-ask-for-authentication-when-connecting-to-a-private-feed" target="_blank">here</a>.
+If you suspect that your saved credentials are wrong, use the following steps to remove them from Windows and, then, add the correct ones:
+
+1. Remove the saved credentials in the [Windows Credential Manager](https://support.microsoft.com/en-us/windows/accessing-credential-manager-1b5c916a-6a16-889f-8581-fc16e8165ac0). These credentials will appear as `nuget.telerik.com` or `VSCredentials_nuget.telerik.com` entries.
+2. Remove the Telerik NuGet package source from Visual Studio.
+3. If you have added the Telerik  package source by NuGet CLI, try to remove it from the CLI by running the following commands:
+    * [`dotnet nuget list source`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-list-source)
+    * [`dotnet nuget remove source`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-remove-source)
+4. Check if you have any credentials stored in `%AppData%\NuGet\Nuget.Config`. If so, remove them.
+5. Try to reset the Visual Studio user data by [forcing NuGet to ask for authentication](https://stackoverflow.com/questions/43550797/how-to-force-nuget-to-ask-for-authentication-when-connecting-to-a-private-feed).
 6. Restart Visual Studio.
-7. Enter the Telerik nuget package source again through Visual Studio or CLI. If you are using the feed in .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
+7. Enter the Telerik NuGet package source again through Visual Studio or CLI. If you are using the feed in a .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
 
+## Error 401 Unauthorized
 
-## Error 401 login failed
+If your credentials are correct and your license includes the requested product and version, then the password probably contains special characters. You need to escape these characters or the authentication can fail on the NuGet server. For example, a common character you must escape is the ampersand (`&`); however, the character causing the issue may be as unique as the section character (`§`).
 
-If your password contains a special character, those characters need to be escaped or it may fail authentication resulting in *Error 401 login failure* from the NuGet server. A common character that needs to be escaped is the ampersand `&`, but it can be as unique as the section character `§`.
+To solve the issue:
 
-### Solutions
+1. Change the password so that it doesn't include characters you need to escape.
+2. Escape the special characters before storing the credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`.
 
-1. Change the password so that it only includes characters that do not need to be escaped
-2. Escape the special characters before storing it as server credentials. For example, `my§uper&P@§§word` encodes to `my&sect;uper&amp;P@&sect;&sect;word`. 
-
-We **strongly** discourage using a online encoder utility for a password. You can use Powershell command instead, here's one example:
+Avoid using an online encoder utility for a password. Instead, use a Powershell command:
 
 ```
 Add-Type -AssemblyName System.Web
@@ -63,20 +72,33 @@ Add-Type -AssemblyName System.Web
 
 ![Powershell Encoding](images/encode-passwords-with-powershell.png)
 
-
 ## Unable to Find Package
 
-The error `Unable to find package` can imply the following:
+If the error occurs for the `Telerik.UI.for.Blazor` package, the [Telerik NuGet source]({%slug installation/nuget%}) may not be added or enabled. The possible causes are:
 
-* If the error occurs for the `Telerik.UI.for.Blazor` package, the [Telerik NuGet source]({%slug installation/nuget%}) may not be added or enabled. The possible causes are:
-   * Missing configuration in the `NuGet.Config` file.
-   * The correct `NuGet.Config` file is not used. This is common in Docker scenarios and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during build. See the forum thread about [private NuGet feeds in Docker](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
-* If the error occurs for the [icon packages `Telerik.FontIcons` and `Telerik.SvgIcons`]({%slug general-information/font-icons%}), this means that the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
-   * The `nuget.org` source is disabled.
-   * There is [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping), which forces the NuGet client to search for the icon packages in the `nuget.telerik.com` source. However, the icon packages are published on `nuget.org`.
+* Missing configuration in the `NuGet.Config` file.
+* The correct `NuGet.Config` file is not used. This is common Docker scenario and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the build. For more information, see the [private NuGet feeds in Docker forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
 
+If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages]({%slug general-information/font-icons%}), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
+
+* The `nuget.org` source is disabled.
+* There is [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping), which forces the NuGet client to search for the icon packages in the `nuget.telerik.com` source. However, the icon packages are published on `nuget.org`.
+
+## Error 503 Service Unavailable
+
+If you get a message like `Unable to load the service index for source` and error `503 (Service unavailable`), check the Telerik NuGet server health at the [Telerik live services status page](https://status.telerik.com/).
+
+In urgent cases, download the NuGet packages from your [Telerik Account **Downloads** page](https://www.telerik.com/account/downloads/). Then, [set up a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds).
+
+## Package Version Not Found
+
+You may encounter an error similar to `ProjectName depends on Telerik.UI.for.Blazor (>= 3.6.1) but Telerik.UI.for.Blazor 3.6.1 was not found. An approximate best match of Telerik.UI.for.Blazor 3.7.0 was resolved.`
+
+This error means that version `3.6.1` is outside the subscription period of your license.
+
+To solve the issue, use a different version or ask the license holder at your company to assign you another license that includes the desired product version.
 
 ## See Also
 
-* [Setup of the Telerik Online Private NuGet Feed]({%slug installation/nuget%})
+* [Setting Up the Online Private Telerik NuGet Feed]({%slug installation/nuget%})
 * [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%})
