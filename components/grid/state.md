@@ -431,6 +431,9 @@ The grid state allows you to control the behavior of the grid programmatically -
 ````Hierarchy
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
+````Columns
+@[template](/_contentTemplates/grid/state.md#column-state-from-code)
+````
 
 @[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
 

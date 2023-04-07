@@ -570,6 +570,69 @@ public static class FilterExtensions
 #end
 
 
+#column-state-from-code
+<TelerikButton OnClick="@OnButtonClick">Reoder Name and Price Columns</TelerikButton>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Reorderable="true">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Active)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private TelerikGrid<Product> GridRef { get; set; }
+
+    private List<Product> GridData { get; set; }
+
+    private async Task OnButtonClick()
+    {
+        var gridState = GridRef.GetState();
+
+        var nameColState = gridState.ColumnStates.ElementAt(0);
+        var nameColIndex = nameColState.Index;
+        var priceColState = gridState.ColumnStates.ElementAt(1);
+        var priceColIndex = priceColState.Index;
+
+        nameColState.Index = priceColIndex;
+        priceColState.Index = nameColIndex;
+
+        await GridRef.SetStateAsync(gridState);
+    }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 5; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Price = (decimal)rnd.Next(1, 100),
+                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                Active = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool Active { get; set; }
+    }
+}
+#end
+
 #statechanged-possible-prop-values
 The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `SearchFilter`, `GroupDescriptors`, `Page`, `Skip`, `CollapsedGroups`, `ColumnStates`, `ExpandedItems`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
 #end
