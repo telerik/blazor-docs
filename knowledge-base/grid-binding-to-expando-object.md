@@ -43,7 +43,7 @@ The key points in the required implementation are:
 * The Grid clones data items during editing. When editing, you can store the original item in the [Grid `OnEdit` handler]({%slug components/grid/editing/overview%}#events). This will make the retrieval of the original item easier later in `OnUpdate` (example below).
 * Nested model properties and nullable types need special handling. Make sure to [check the notes](#notes) below the example.
 
-In addition, there is a [complete runnable project in GitHub](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object).
+In addition to the sample below, there is a [complete runnable project in GitHub](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object).
 
 >caption Grid data operations with ExpandoObject
 
