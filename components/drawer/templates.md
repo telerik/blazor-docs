@@ -26,6 +26,14 @@ This template receives a `context` argument that is of the data model type and r
 ````CSHTML
 @* This example shows how to control the rendering of the items in the Drawer menu *@
 
+@using Telerik.FontIcons
+
+<style>
+    .styled-icon {
+        margin-right: 8px;
+    }
+</style>
+
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu" />
 
 <TelerikDrawer @bind-Expanded="@Expanded"
@@ -35,12 +43,10 @@ This template receives a `context` argument that is of the data model type and r
                @bind-SelectedItem="@SelectedItem"
                @ref="@DrawerRef">
     <ItemTemplate Context="item">
-        <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
+        <TelerikFontIcon Icon="@item.Icon" Class="styled-icon"></TelerikFontIcon>
         @if (Expanded)
         {
-            <div class="@( item.Icon.ToLowerInvariant() == "gear" ? "text-danger" : "text-info" )">
-                <div style="font-weight:bold;">@item.Text</div>
-            </div>
+            <div style="font-weight:bold;">@item.Text</div>
         }
     </ItemTemplate>
     <DrawerContent>
@@ -97,6 +103,14 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
 ````CSHTML
 @* This example shows how to create header and footer for the Drawer and select an item manually. *@
 
+@using Telerik.FontIcons
+
+<style>
+    .styled-icon {
+        margin-right: 8px;
+    }
+</style>
+
 <TelerikDrawer @bind-Expanded="@DrawerExpanded"
                Data="@Data"
                MiniMode="true"
@@ -140,7 +154,8 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
                     @* Use onclick to handle manual item selection *@
                     <li @onclick="@(() => SelectedItem = item)"
                     class="k-drawer-item @GetSelectedItemClass(item)" style="white-space:nowrap">
-                        <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
+                        <TelerikFontIcon Icon="@item.Icon" Class="styled-icon"></TelerikFontIcon>
+
                         @if (DrawerExpanded)
                         {
                             <div>
