@@ -188,7 +188,7 @@ In addition, there is a [complete runnable project in GitHub](https://github.com
 
 ## Notes
 
-* It is possible to use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
+* You can also use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
 * If any property in the `ExpandoObject` is `nullable`, then do not set [`EditorType`]({%slug components/grid/editing/overview%}#customize-the-editor-fields) for the column (this may be supported in the future). Instead, use a [Grid column `EditorTemplate`](grid-templates-editor), for example:
 
 <div class="skip-repl"></div>
