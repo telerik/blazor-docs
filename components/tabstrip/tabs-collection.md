@@ -27,7 +27,7 @@ You can find another example with some more details in the following sample proj
     @{
         foreach (MyTabModel item in tabs)
         {
-            <TabStripTab Title="@item.Title" Disabled="@item.Disabled">
+            <TabStripTab Title="@item.Title" Disabled="@item.Disabled" @key="@item">
                 Content for tab @item.Title
             </TabStripTab>
         }
