@@ -37,9 +37,9 @@ When column resizing is enabled, a double click on the resize handle between the
 
 The Grid also exposes methods to programmatically resize columns to fit their contents:
 
-* `AutoFitColumn(string id)` - autofits the column with the specified [`Id` attribute]({% slug components/grid/columns/bound%}#identification);
-* `AutoFitColumns(IEnumerable<string> ids)` - autofits multiple columns at once'
-* `AutoFitAllColumns()` - autofits all applicable columns (for example, this method does not affect the hierarchy expand/collapse columns);
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute]({% slug components/grid/columns/bound%}#identification).
+* `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
+* `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
 Autofitting specific columns preserves the current widths of all the other columns. Similar to [column resizing](#resize-by-dragging), column autofitting can trigger a horizontal Grid scrollbar, or leave empty space after the last column.
 
@@ -73,7 +73,7 @@ List of the known limitations of the AutoFit Columns feature:
 <TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit String Columns</TelerikButton>
 <TelerikButton OnClick="@AutoFitAllColumns">AutoFit All Columns</TelerikButton>
 
-<TelerikGrid @ref="@Grid"
+<TelerikGrid @ref="@GridRef"
              Data="@GridData"
              Resizable="true"
              Pageable="true" PageSize="10" Sortable="true" Height="300px">
@@ -91,23 +91,23 @@ List of the known limitations of the AutoFit Columns feature:
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    public TelerikGrid<SampleData> GridRef { get; set; }
     public List<SampleData> GridData { get; set; }
 
-    private void AutoFitSingleColumn()
+    private async Task AutoFitSingleColumn()
     {
-        Grid.AutoFitColumn("IDColumn");
+        await GridRef.AutoFitColumnAsync("IDColumn");
     }
 
-    private void AutoFitMultipleColumns()
+    private async Task AutoFitMultipleColumns()
     {
         var columns = new List<string>() { "NameColumn1", "NameColumn2" };
-        Grid.AutoFitColumns(columns);
+        await GridRef.AutoFitColumnsAsync(columns);
     }
 
-    private void AutoFitAllColumns()
+    private async Task AutoFitAllColumns()
     {
-        Grid.AutoFitAllColumns();
+        await GridRef.AutoFitAllColumnsAsync();
     }
 
     protected override void OnInitialized()
