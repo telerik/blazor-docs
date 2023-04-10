@@ -81,7 +81,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `View` | `ColorPickerView` enum <br /> (`Gradient`) | The default selected [view]({%slug colorpicker-views%}). Supports two-way binding. |
 | `ShowPreview` | `bool` <br /> (`true`) | Toggles the visibility of the [current color box and the color preview box](#interface) in the popup. |
 | `Class` | `string` | A custom CSS class for the `span.k-colorpicker` element. |
-| `Enabled` | `bool` | Determines if the user can open the popup and change the value (`true` by default).
+| `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value.
 | `ShowButtons` | `bool` | Sets the visibility of the **Apply** and **Cancel** buttons (`true` by default).
 | `ShowClearButton` | `bool` | Sets the visibility of the **Clear** button.
 
