@@ -16,7 +16,6 @@ Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColo
 
 ## Creating Blazor ColorPicker
 
-To create the Telerik UI for Blazor ColorPicker:
 
 1. Add the `TelerikColorPicker` tag.
 1. Set its `string` `Value` parameter to any of the [supported HEX or RGB formats](#supported-value-formats). The parameter supports [two-way binding](#example) or [one-way binding with a `ValueChanged` handler]({%slug colorpicker-events%}#valuechanged).
