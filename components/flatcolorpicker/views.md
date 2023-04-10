@@ -1,6 +1,6 @@
 ---
 title: Views
-page_title: Views | FlatColorPicker for Blazor
+page_title: Views - FlatColorPicker for Blazor
 description: Views of the FlatColorPicker for Blazor.
 slug: flatcolorpicker-views
 tags: telerik,blazor,flatcolorpicker,views,overview

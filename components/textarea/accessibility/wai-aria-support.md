@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor TextArea Documentation | TextArea  Accessibility
+page_title: Telerik UI for Blazor TextArea Documentation - TextArea  Accessibility
 description: "Get started with the Telerik UI for Blazor TextArea and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: textarea-wai-aria-support 
-position: 50 
+slug: textarea-wai-aria-support
+position: 50
 ---
 
 # Blazor TextArea Accessibility

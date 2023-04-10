@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor ComboBox Documentation | ComboBox  Accessibility
+page_title: Telerik UI for Blazor ComboBox Documentation - ComboBox  Accessibility
 description: "Get started with the Telerik UI for Blazor ComboBox and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: combobox-wai-aria-support 
-position: 50 
+slug: combobox-wai-aria-support
+position: 50
 ---
 
 # Blazor ComboBox Accessibility

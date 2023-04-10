@@ -1,6 +1,6 @@
 ---
 title: Views
-page_title: Views | ColorPicker for Blazor
+page_title: Views - ColorPicker for Blazor
 description: Views of the ColorPicker for Blazor.
 slug: colorpicker-views
 tags: telerik,blazor,colorpicker,views,overview

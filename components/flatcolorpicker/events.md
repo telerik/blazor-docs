@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Events | FlatColorPicker for Blazor
+page_title: Events - FlatColorPicker for Blazor
 description: Events in the FlatColorPicker for Blazor.
 slug: flatcolorpicker-events
 tags: telerik,blazor,flatcolorpicker,events

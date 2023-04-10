@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Events | ColorGradient for Blazor
+page_title: Events - ColorGradient for Blazor
 description: Events in the ColorGradient for Blazor.
 slug: colorgradient-events
 tags: telerik,blazor,colorgradient,events

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Carousel for Blazor
+page_title: Overview - Carousel for Blazor
 description: Overview of the Carousel for Blazor.
 slug: carousel-overview
 tags: telerik,blazor,carousel,overview

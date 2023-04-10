@@ -1,6 +1,6 @@
 ---
 title: Events
-page_title: Events | ColorPicker for Blazor
+page_title: Events - ColorPicker for Blazor
 description: Events in the ColorPicker for Blazor.
 slug: colorpicker-events
 tags: telerik,blazor,colorpicker,events
@@ -93,7 +93,7 @@ The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires
 
 ## OnOpen
 
-The `OnOpen` event fires before the ColorPicker popup renders. 
+The `OnOpen` event fires before the ColorPicker popup renders.
 
 The event handler receives as an argument an `ColorPickerOpenEventArgs` object that contains:
 

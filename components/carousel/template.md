@@ -1,6 +1,6 @@
 ---
 title: Template
-page_title: Template | Carousel for Blazor
+page_title: Template - Carousel for Blazor
 description: How to use the Template of the Carousel for Blazor.
 slug: carousel-template
 tags: telerik,blazor,carousel,template
