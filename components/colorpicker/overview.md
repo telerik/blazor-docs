@@ -78,7 +78,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `Value` | `string` | The ColorPicker value in a few [different color formats](#supported-value-formats). Supports two-way binding. |
 | `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | Sets the color format, which the component will return in the application code - `Rgb` or `Hex`. |
 | `ColorPickerViews` | `RenderFragment` | A nested container to list the [ColorPicker views]({%slug colorpicker-views%}). All views are enabled by default and the user can switch between them with the buttons. Each view tag has its own configuration attributes. |
-| `View` | `ColorPickerView` | Sets the default selected [view]({%slug colorpicker-views%}) (`ColorPickerView.Gradient` by default). Supports two-way binding. |
+| `View` | `ColorPickerView` enum <br /> (`Gradient`) | The default selected [view]({%slug colorpicker-views%}). Supports two-way binding. |
 | `ShowPreview` | `bool` | Toggles the [current color box and the color preview box](#interface) in the popup (`true` by default). |
 | `Class` | `string` | Renders a custom CSS class to the `span.k-colorpicker` element. |
 | `Enabled` | `bool` | Determines if the user can open the popup and change the value (`true` by default).
