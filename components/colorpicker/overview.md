@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/colorpicker" target="_blank">Tele
 
 Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColorPicker component]({%slug flatcolorpicker-overview%}) with the only difference that the ColorPicker takes up less space and displays the color selection UI in a popup.
 
-## Creating the Blazor ColorPicker
+## Creating Blazor ColorPicker
 
 To create the Telerik UI for Blazor ColorPicker:
 
