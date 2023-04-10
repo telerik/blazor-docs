@@ -36,7 +36,7 @@ To create the Telerik UI for Blazor ColorPicker:
 
 ## Views
 
-The Blazor ColorPicker component comes with the Palette and Gradient views which allow users to select a color from an interface that matches their preferences. [Read more about the available Telerik UI for Blazor ColorPicker views.]({%slug colorpicker-views%})
+The Blazor [ColorPicker component comes with the Palette and Gradient views]({%slug colorpicker-views%}) which allow users to select a color from an interface that matches their preferences.
 
 ## Interface
 
