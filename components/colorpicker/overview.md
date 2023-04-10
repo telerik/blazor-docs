@@ -80,9 +80,10 @@ The ColorPicker tag exposes the following features through its attributes:
 | `View` | `ColorPickerView` enum <br /> (`Gradient`) | The default selected [view]({%slug colorpicker-views%}). Supports two-way binding. |
 | `ShowPreview` | `bool` <br /> (`true`) | Toggles the visibility of the [current color box and the color preview box](#interface) in the popup. |
 | `Class` | `string` | A custom CSS class for the `span.k-colorpicker` element. |
-| `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value.
-| `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons.
-| `ShowClearButton` | `bool` | Sets the visibility of the **Clear** button.
+| `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value. |
+| `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons. |
+| `ShowClearButton` | `bool` <br /> (`true`) | Sets the visibility of the **Clear** button. |
+| `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article]({%slug general-information/font-icons%}#icon-in-telerik-component). |
 
 ### Styling and Appearance
 
@@ -95,10 +96,6 @@ The following parameters enable you to customize the appearance of the Blazor Co
 | `FillMode` | `Telerik.Blazor.ThemeConstants.ColorPicker.FillMode` | Controls how the ColorPicker is filled. |
 
 For more information on customizing the ColorPicker styling, see the article about [setting the appearance of the ColorPicker]({%slug colorpicker-appearance%}).
-
-### Custom Icons
-
-The ColorPicker provides attributes to render an icon inside the [main component button](#interface), which can visually distinguish different ColorPickers on the page. In such cases, the selected color is displayed below the icon. To specify a [built-in Font or SVG icon]({%slug general-information/font-icons%}), use `Icon`-`object` with one attribute at a time.
 
 ## ColorPicker Reference and Methods
 
