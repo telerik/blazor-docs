@@ -82,7 +82,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `ShowPreview` | `bool` <br /> (`true`) | Toggles the visibility of the [current color box and the color preview box](#interface) in the popup. |
 | `Class` | `string` | A custom CSS class for the `span.k-colorpicker` element. |
 | `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value.
-| `ShowButtons` | `bool` | Sets the visibility of the **Apply** and **Cancel** buttons (`true` by default).
+| `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons.
 | `ShowClearButton` | `bool` | Sets the visibility of the **Clear** button.
 
 ### Styling and Appearance
