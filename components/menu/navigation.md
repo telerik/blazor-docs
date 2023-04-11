@@ -12,12 +12,16 @@ position: 3
 
 The Menu can be used to navigate between different pages in the applicaiton. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/menu/data-binding/overview%}).
 
+## Basics
+
 To use the Menu for navigating between pages:
 
 * Add the Menu to your application.
     * You may want to add it in the `MainLayout.razor` outside of the `@Body`, for example, in the header section of your app.
 * Provide a collection of models that describe the pages you want the user to navigate to.
-* Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
+* Set the `Url` property of the Menu model to the desired destination page. Alternatively, use a different property and set it to the `UrlField` parameter of the Menu component.
+
+## Example
 
 >caption Use the Menu to navigate between pages
 
