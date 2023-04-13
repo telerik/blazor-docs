@@ -42,7 +42,7 @@ The Notification component renders a brief message to the user which holds infor
 }
 
 <style>
-    .MyTelerikNotification .k-notification-container .k-notification-wrap {
+    .MyTelerikNotification .k-notification-container .k-notification {
         width: 300px;
         height: 50px;
         font-size: 1.5em;
