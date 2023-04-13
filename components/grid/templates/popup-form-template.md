@@ -1,7 +1,7 @@
 ---
 title: Popup Form Template
 page_title: Grid Popup Form Template
-description: Learn how to define a custom popup create/edit template in the Blazor Data Grid. The template allows you to customize the layout and the content of the create/edit popup.
+description: Learn how to define a custom popup create or edit template in the Blazor Data Grid. The template allows you to customize the layout and the content of the create/edit popup.
 slug: grid-templates-popup-form
 tags: telerik,blazor,grid,templates,popup,edit,create
 published: True
