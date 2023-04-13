@@ -72,7 +72,7 @@ The necessary steps are to:
 >caption Step 1 - Example for enabling localization in the app
 
 * `Startup.cs` for .NET 3.x and .NET 5
-* `Program.cs` for .NET 6
+* `Program.cs` for .NET 6 and .NET 7
 
 <div class="skip-repl"></div>
 ````Startup.cs
@@ -257,8 +257,8 @@ public class CultureController : Controller
 
 >caption Step 2 (continued) - Use a cookie to store the culture choice of the user.
 
-* `~/Pages/_Host.cshtml` for .NET 3.x and .NET 5
-* `~/Pages/_Layout.cshtml` for .NET 6
+* `~/Pages/_Host.cshtml` for .NET 6 and .NET
+* `~/Pages/_Layout.cshtml` for .NET 3.x and .NET 5
 
 <div class="skip-repl"></div>
 ````_Host.cshtml
