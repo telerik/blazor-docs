@@ -15,7 +15,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
 >If a [FormTemplate]({%slug grid-templates-popup-form%}) is declared, the `ButtonsTemplate` will be ignored.
 
->caption Modifying the buttons in the Edit/Create Popup by using a `ButtonsTemplate`.
+>caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
