@@ -5,7 +5,7 @@ name: Sync src-a11y
 on:
 pull_request:
     paths: # You can specify more paths if you need to
-    - 'src-a11y/**/*' # The resources folder name
+    - 'src-a11y/**' # The resources folder name
 
 jobs:
 sync:
