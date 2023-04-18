@@ -140,11 +140,12 @@ Add a reference to the component instance to use the [Context Menu methods](/bla
 
 | Method | Description |
 | --- | --- |
-| `ShowAsync` | programmatically shows the ContextMenu 
-| `HideAsync` | programmatically hides the ContextMenu
+| `ShowAsync` | Programmatically shows the ContextMenu. |
+| `HideAsync` | Programmatically hides the ContextMenu. |
+| `Refresh` | Re-renders the component. |
 
 ````CSHTML
-@* Open and close the ContextMenu programmatically *@
+@* Open, close and refresh the ContextMenu programmatically *@
 
 <div @oncontextmenu:preventDefault="true"
      @oncontextmenu="@( (MouseEventArgs e) => ShowContextMenu(e, false) )"
@@ -164,16 +165,25 @@ Add a reference to the component instance to use the [Context Menu methods](/bla
                 }
             </ul>
         }
-
+        <TelerikTextBox @bind-Value="@TextBoxValue" />
+        <br />
+        <TelerikButton OnClick="@HandleTextBoxReset">Reset textbox</TelerikButton>
         <TelerikButton OnClick="@(async () => await TheContextMenu.HideAsync())">Close</TelerikButton>
     </Template>
 </TelerikContextMenu>
 
 @code {
     public List<ContextMenuItem> MenuItems { get; set; }
+    public string TextBoxValue { get; set; }
 
     // the context menu is a generic component and its type depends on the model it binds to
     TelerikContextMenu<ContextMenuItem> TheContextMenu { get; set; }
+
+    void HandleTextBoxReset()
+    {
+        TextBoxValue = "";
+        TheContextMenu.Refresh();
+    }
 
     async Task ShowContextMenu(MouseEventArgs e, bool IsSpecial)
     {
