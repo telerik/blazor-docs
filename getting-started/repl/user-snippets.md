@@ -36,4 +36,4 @@ The **User Snippets** menu allows you to perform the following actions with the 
 
 ## See Also
 
-* [Telerik REPL for Blazor - Snippets and Scaffolders]({%slug blazor-repl-snippets-scaffolders%})
+* [Predefined Snippets and Scaffolders in Telerik REPL for Blazor]({%slug blazor-repl-snippets-scaffolders%})
