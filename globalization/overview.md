@@ -30,9 +30,9 @@ Internationalization (I18N) is the process of making an app support different la
 | `Breadcrumb` | `n/a` | `n/a` | [`Yes`]() |
 | `Button` | `n/a` | `n/a` | [`Yes`]() |
 | `ButtonGroup` | `n/a` | `n/a` | [`Yes`]() |
-| `Calendar` | [`Yes`](https://demos.telerik.com/blazor-ui/calendar/globalization) |  | [`Yes`]() |
+| `Calendar` | [`Yes`](https://demos.telerik.com/blazor-ui/calendar/globalization) | [`Yes`](https://demos.telerik.com/blazor-ui/calendar/globalization) | [`Yes`]() |
 | `Card` | `n/a` | `n/a` | [`Yes`]() |
-| `Carousel` | `n/a` |  | [`Yes`]() |
+| `Carousel` | `n/a` | `Yes` | [`Yes`]() |
 | `Charts` | [`Yes`](https://demos.telerik.com/blazor-ui/chart/globalization) | `n/a` | [`Yes`]() |
 | `Checkbox` | `n/a` | `n/a` | [`Yes`]() |
 | `Chip` | `n/a` | `n/a` | [`Yes`]() |

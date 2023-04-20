@@ -10,16 +10,16 @@ position: 5
 
 # Right-to-Left Support
 
-Right-to-Left (RTL) support represents the ability of a library, website, or application to handle and respond to users who communicate through right-to-left languages. Right-to-left languages are Arabic, Hebrew, Chinese, Japanese, and others.
+Right-to-Left (RTL) support represents the ability of a library, website, or application to handle and respond to users who communicate through right-to-left languages. Right-to-left languages are Arabic, Hebrew and others.
 
 The default language input for most users of the web is left-to-right. However, many websites and applications wish to also provide RTL support for their visitors. The RTL functionality falls more into the internationalization space but can be considered as an accessibility feature as well. After all, RTL is about making user experiences more accessible for visitors who use right-to-left languages.
 
 ## Configuration
 
-Enabling the Right-to-Left support is configured on root level so it targets all UI for Blazor components in the application. To enable the Right-to-Left direction of the components in your application, set the `Rtl` parameter of the `TelerikRootComponent`  to `true`.
+Enabling the Right-to-Left support is configured on root level so it targets all UI for Blazor components in the application. To enable the Right-to-Left direction of the components in your application, set the `EnableRtl` parameter of the `TelerikRootComponent`  to `true`.
 
 ````CSHTML
-<TelerikRootComponent Rtl="true">
+<TelerikRootComponent EnableRtl="true">
     @Body
 </TelerikRootComponent>
 ````
@@ -32,13 +32,13 @@ The majority of the UI for Blazor components incorporate RTL support. Check the 
 
 ## Limitations
 
-While the `TelerikRootComponent` may wrap the entire application, it does not render any HTML elements in the DOM. Thus, enabling the `Rtl` parameter of the `TelerikRootComponent` only ensures the RTL direction of the Telerik components ant does not alter the direction of any custom HTML elements out of the box.
+While the `TelerikRootComponent` may wrap the entire application, it does not render any HTML elements in the DOM. Thus, enabling the `EnableRtl` parameter of the `TelerikRootComponent` only ensures the RTL direction of the Telerik components ant does not alter the direction of any custom HTML elements out of the box.
 
 For any additional markup present in your application, you have to explicitly set `dir` attribute of some wrapping HTML element. 
 
 Not matching the RTL direction of the application with the one that `TelerikRootComponent` uses may lead to undesired behavior such as breaking the tabbing sequence - different in a document with RTL direction as it goes from right to left as well.
 
-If you need to change the `Rtl` parameter of the `TelerikRootComponent` during runtime make sure to also change the `dir` attribute of your custom wrapping element.
+If you need to change the `EnableRtl` parameter of the `TelerikRootComponent` during runtime make sure to also change the `dir` attribute of your custom wrapping element.
 
 ## Keyboard Navigation
 
