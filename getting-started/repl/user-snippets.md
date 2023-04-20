@@ -9,7 +9,7 @@ position: 3
 ---
 
 
-# Telerik REPL for Blazor User Snippets
+# Saving Your Code Snippets in Telerik REPL for Blazor
 
 **Telerik REPL for Blazor** allows you to login with your Telerik account or register as a new user.
 
