@@ -57,3 +57,8 @@ To use the scaffolders:
 
 
 Telerik REPL for Blazor allows using one scaffolder at a time. By default, the scaffolder will always be added to the `__Main.razor` file as this is the entry `@page` of the application. When you scaffold a component, it will override the current code in the `__Main.razor` file.
+
+## See Also
+
+* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-code-editor-snippets%})
+* [Integration of Telerik REPL for Blazor with VS and VS Code]({%slug blazor-repl-integration%})
