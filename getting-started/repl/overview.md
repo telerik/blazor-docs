@@ -75,5 +75,5 @@ The Error list is located at the bottom of the [Editor](#editor).
 ## See Also
 
 * [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
-* [Telerik REPL for Blazor - Snippets and Scaffolders]({%slug blazor-repl-snippets-scaffolders%})
+* [Predefined Snippets and Scaffolders in Telerik REPL for Blazor]({%slug blazor-repl-snippets-scaffolders%})
 * [Telerik REPL for Blazor - Integration]({%slug blazor-repl-integration%})
