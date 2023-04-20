@@ -20,7 +20,7 @@ You can manage the saved code snippets in the **User Snippets** section of the s
 
 ![User Snippets menu in Telerik REPL for Blazor](../images/repl-user-snippets.png)
 
-The **User Snippets** menu allows you to perform the following actions with the saved snippets:
+The **User Snippets** menu allows you to review and manage your code snippets:
 
 * **Open**—Clicking a snippet will automatically populate it in the editor. You can run it or make changes. To save the changed snippet, click the **Share** button—the updated snippet will be saved as a new one.
 
