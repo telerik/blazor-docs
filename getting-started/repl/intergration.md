@@ -77,5 +77,5 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ## See Also
 
-* [Telerik REPL for Blazor - User Snippets]({%slug blazor-repl-user-snippets%})
+* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
 * [Telerik REPL for Blazor - Snippets and Scaffolders]({%slug blazor-repl-snippets-scaffolders%})
