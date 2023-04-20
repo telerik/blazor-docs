@@ -60,5 +60,5 @@ Telerik REPL for Blazor allows using one scaffolder at a time. By default, the s
 
 ## See Also
 
-* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
+* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-code-editor-snippets%})
 * [Integration of Telerik REPL for Blazor with VS and VS Code]({%slug blazor-repl-integration%})

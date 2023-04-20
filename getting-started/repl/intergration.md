@@ -14,9 +14,13 @@ Telerik REPL for Blazor is integrated in the UI for Blazor resources (documentat
 
 In this article:
 
-* [Documentation Integration](#documentation-integration)
-* [Demos Integration](#demos-integration)
-* [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
+- [Telerik REPL for Blazor Integration](#telerik-repl-for-blazor-integration)
+  - [Documentation Integration](#documentation-integration)
+  - [Demos Integration](#demos-integration)
+  - [Visual Studio and Visual Studio Code Integration](#visual-studio-and-visual-studio-code-integration)
+    - [Sharing to REPL in Visual Studio](#sharing-to-repl-in-visual-studio)
+    - [Sharing to REPL Visual Studio Code](#sharing-to-repl-visual-studio-code)
+  - [See Also](#see-also)
 
 ## Documentation Integration
 
@@ -77,5 +81,5 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ## See Also
 
-* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
+* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-code-editor-snippets%})
 * [Predefined Snippets and Scaffolders in Telerik REPL for Blazor]({%slug blazor-repl-snippets-scaffolders%})
