@@ -23,7 +23,7 @@ You can manage the saved snippets in the **User Snippets** section of the Sideba
 
 The **User Snippets** menu allows you to perform the following actions with the saved snippets:
 
-* **Open** - clicking on a snippet will automatically populate it in the editor. You may directly run it or make any further changes. To save the changed snippet, click on the **Share** button - the updated snippet will be saved as a new one.
+* **Open**—Clicking a snippet will automatically populate it in the editor. You can run it or make changes. To save the changed snippet, click the **Share** button—the updated snippet will be saved as a new one.
 
 * **Filter**—You can filter the snippets by name or creation date.
 
