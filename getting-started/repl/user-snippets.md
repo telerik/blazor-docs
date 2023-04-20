@@ -11,7 +11,7 @@ position: 3
 
 # Saving Your Code Snippets in Telerik REPL for Blazor
 
-**Telerik REPL for Blazor** allows you to login with your Telerik account or register as a new user.
+Once you log in, [Telerik REPL for Blazor](https://www.telerik.com/blazor-ui/repl) automatically saves every code snippet you create from your account. To create a code snippet, enter the desired code and click the **Share** button in the toolbar.
 
 You can do that by clicking on the user icon in the Toolbar. You will be prompted to the Telerik login page where you can enter your credentials.
 
