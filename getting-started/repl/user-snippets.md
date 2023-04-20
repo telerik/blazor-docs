@@ -25,7 +25,7 @@ The **User Snippets** menu allows you to perform the following actions with the 
 
 * **Open** - clicking on a snippet will automatically populate it in the editor. You may directly run it or make any further changes. To save the changed snippet, click on the **Share** button - the updated snippet will be saved as a new one.
 
-* **Filter** - you can filter the snippets by their name or date of creation.
+* **Filter**—You can filter the snippets by name or creation date.
 
 * **Sort**—You can sort the snippets by name or date of creation in ascending or descending order.
 
