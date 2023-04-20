@@ -29,7 +29,7 @@ The **User Snippets** menu allows you to perform the following actions with the 
 
 * **Sort** - you can sort the snippets in accending or descending order targeting their name or date of creation.
 
-* **Rename** - by design, the Telerik REPL for Blazor will automatically generate a name when saving the snippet. You can change that to set a meaningful name considering the content of the snippet.
+* **Rename**—Telerik REPL for Blazor automatically generates a name when saving the snippet. You can change that default name to something meaningful.
 
 * **Delete** - while you are logged in, the the Telerik REPL for Blazor will automatically save each snippet you generate. The **User Snippets** menu allows you to delete a snippet if it is no longer needed.
 
