@@ -16,7 +16,7 @@ Once you log in, [Telerik REPL for Blazor](https://www.telerik.com/blazor-ui/rep
 To log into [Telerik REPL for Blazor](https://www.telerik.com/blazor-ui/repl), use your existing Telerik account or register as a new user by clicking the user icon in the toolbar. You will be prompted to the Telerik login page where you can enter your credentials.
 
 
-You can manage the saved snippets in the **User Snippets** section of the Sidebar:
+You can manage the saved code snippets in the **User Snippets** section of the sidebar:
 
 ![User Snippets menu in Telerik REPL for Blazor](../images/repl-user-snippets.png)
 
