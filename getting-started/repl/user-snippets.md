@@ -27,7 +27,7 @@ The **User Snippets** menu allows you to perform the following actions with the 
 
 * **Filter** - you can filter the snippets by their name or date of creation.
 
-* **Sort** - you can sort the snippets in accending or descending order targeting their name or date of creation.
+* **Sort**—You can sort the snippets by name or date of creation in ascending or descending order.
 
 * **Rename**—Telerik REPL for Blazor automatically generates a name when saving the snippet. You can change that default name to something meaningful.
 
