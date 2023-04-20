@@ -31,7 +31,7 @@ The **User Snippets** menu allows you to perform the following actions with the 
 
 * **Rename**—Telerik REPL for Blazor automatically generates a name when saving the snippet. You can change that default name to something meaningful.
 
-* **Delete** - while you are logged in, the the Telerik REPL for Blazor will automatically save each snippet you generate. The **User Snippets** menu allows you to delete a snippet if it is no longer needed.
+* **Delete**—While you are logged in, Telerik REPL for Blazor automatically saves each snippet you generate. The **User Snippets** menu allows you to delete the snippets you no longer need.
 
 
 ## See Also
