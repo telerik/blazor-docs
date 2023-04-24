@@ -7,7 +7,7 @@ Make sure that you have a NuGet feed source with the version you want to upgrade
 #end
 
 #date-format-per-culture
-the `Format` is culture-specific and the same format may produce different results depending on the culture. You can find more information and examples in the [Supported Date Formats]({%slug components/dateinput/supported-formats%}) article.
+The `Format` is culture-specific and the same format may produce different results depending on the culture. You can find more information and examples in the [Supported Date Formats]({%slug components/dateinput/supported-formats%}) article.
 #end
 
 #cdn
