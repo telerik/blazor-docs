@@ -13,6 +13,8 @@ As the Telerik UI for Blazor matures we will continuously optimize the rendering
 
 * [3.4.0]({%slug changes-in-3-4-0%})
 * [3.6.0]({%slug changes-in-3-6-0%})
+* [4.0.0]({%slug changes-in-4-0-0%})
+* [4.3.0]({%slug changes-in-4-3-0%})
 
 ## Good Styling Practices
 
