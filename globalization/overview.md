@@ -21,6 +21,8 @@ Internationalization (I18N) is the process of making an app support different la
 
 ## Internationalization Support
 
+Each Telerik UI for Blazor component supports a different set of internationalization features. The table below provides a quick reference.
+
 | Component | Globalization | Localization| Right-to-Left |
 |---|---|---|---|
 | `Avatar` | `n/a` | `n/a` | `Yes` |
