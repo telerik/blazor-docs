@@ -104,6 +104,12 @@ Another possible cause is a *race condition* during fast multiple recreations of
 * Do not call `StateHasChanged()` inside `EventCallback` methods (e.g. Button click handlers). Blazor executes `StateHasChanged()` automatically in such cases.
 * Throttle the user behavior, so that rapid subsequent navigation is not possible.
 
+## KeyNotFoundException: The given key inputElementValue was not present
+
+The full exception message is `System.Collections.Generic.KeyNotFoundException: The given key 'inputElementValue' was not present in the dictionary.`
+
+This error indicates that [the app is using an old or wrong version of the `telerik-blazor.js` file]({%slug common-kb-keynotfoundexception-inputelementvalue%}), for example, after a component version upgrade.
+
 ## Object doesn't support property or method 'assign'
 
 Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug system-requirements%}#browser-support), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
