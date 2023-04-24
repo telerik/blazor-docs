@@ -34,7 +34,6 @@ The Telerik UI for Blazor components may provide enhanced, standard, or no keybo
 
 When the [right-to-left direction is enabled]({%slug rtl-support%}), the keyboard shortcuts for the components that support keyboard navigation remain unchanged except for the `Left arrow` and `Right arrow` keys—their functionality is reversed to follow the right-to-left direction.
 
-The functionality of the left and right arrow keys is reversed to follow the right right-to-Left direction.
 
 ## Keyboard Support per Component
 
