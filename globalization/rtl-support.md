@@ -38,7 +38,7 @@ For any additional markup in your application, you have to explicitly set the `d
 
 A mismatch between the RTL direction of the application and the `TelerikRootComponent` may lead to undesired behavior such as incorrect tabbing sequence. That latter goes from right to left in RTL user interfaces.
 
-If you need to change the `EnableRtl` parameter of the `TelerikRootComponent` during runtime make sure to also change the `dir` attribute of your custom wrapping element.
+If you need to change the `EnableRtl` parameter of the `TelerikRootComponent` at runtime, make sure to also change the `dir` attribute of your wrapping HTML element.
 
 ## Keyboard Navigation
 
