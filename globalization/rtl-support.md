@@ -36,7 +36,7 @@ While the `TelerikRootComponent` may wrap the entire application, it does not re
 
 For any additional markup in your application, you have to explicitly set the `dir` attribute of some wrapping HTML element. 
 
-Not matching the RTL direction of the application with the one that `TelerikRootComponent` uses may lead to undesired behavior such as breaking the tabbing sequence - different in a document with RTL direction as it goes from right to left as well.
+A mismatch between the RTL direction of the application and the `TelerikRootComponent` may lead to undesired behavior such as incorrect tabbing sequence. That latter goes from right to left in RTL user interfaces.
 
 If you need to change the `EnableRtl` parameter of the `TelerikRootComponent` during runtime make sure to also change the `dir` attribute of your custom wrapping element.
 
