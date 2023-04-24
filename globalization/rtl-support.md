@@ -10,7 +10,7 @@ position: 5
 
 # Right-to-Left Support
 
-Right-to-Left (RTL) support represents the ability of a library, website, or application to handle and respond to users who communicate through right-to-left languages. Right-to-left languages are Arabic, Hebrew and others.
+Right-to-Left (RTL) support represents the ability of any software or UI to handle users who communicate through right-to-left languages. Right-to-left languages are Arabic, Hebrew and others.
 
 The default language input for most users on the web is left-to-right. However, many websites and applications need to provide RTL support for their visitors. The RTL functionality falls more into the internationalization space but can be considered an accessibility feature as well. After all, RTL is about making user experiences more accessible for visitors who use right-to-left languages.
 
