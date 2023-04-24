@@ -34,7 +34,7 @@ The majority of the UI for Blazor components incorporate RTL support. Check the 
 
 While the `TelerikRootComponent` may wrap the entire application, it does not render any HTML elements in the DOM. Thus, the `EnableRtl` parameter of the `TelerikRootComponent` only ensures the RTL direction of the Telerik components ant does not alter the direction of any custom HTML elements.
 
-For any additional markup present in your application, you have to explicitly set `dir` attribute of some wrapping HTML element. 
+For any additional markup in your application, you have to explicitly set the `dir` attribute of some wrapping HTML element. 
 
 Not matching the RTL direction of the application with the one that `TelerikRootComponent` uses may lead to undesired behavior such as breaking the tabbing sequence - different in a document with RTL direction as it goes from right to left as well.
 
