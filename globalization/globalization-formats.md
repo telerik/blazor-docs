@@ -11,7 +11,7 @@ position: 3
 
 # Globalization of Date And Number Formats
 
-The Telerik Components use the current thread culture to render the appropriate culture-specific format for dates, numbers and currency:
+The Telerik UI for Blazor components use the culture of the current thread to render the appropriate culture-specific format for dates, numbers, and currency.
 
 * [Calendar](https://demos.telerik.com/blazor-ui/calendar/globalization) - the names of the months and days of the week are taken from the current culture, and the `FirstDayOfWeek` of the culture is honored when ordering the days of the week. The Calendar uses the  `ShortestDayNames` array to get the short names for the days of the week and it expects them in the default order coming from the framework - Sunday to Saturday.
 
