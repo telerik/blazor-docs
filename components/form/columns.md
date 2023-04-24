@@ -6,6 +6,7 @@ slug: form-columns
 tags: telerik,blazor,form,edit,form,columns,spacing,column
 published: True
 position: 15
+previous_url: /components/form/colums
 ---
 
 # Form Columns

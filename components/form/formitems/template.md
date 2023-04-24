@@ -10,16 +10,18 @@ position: 5
 
 # FormItem Template - Custom Editors
 
+This article explains how to customize the editor of a single Form item. To customize the rendering and item structure of the whole Form, check the article [Form Template for All Items]({%slug form-formitems-formitemstemplate%}).
+
 You can provide your own custom editors instead of the [default editors the form can generate]({%slug form-overview%}#automatic-generation-of-fields). To do that, use the the `Template` of the [FormItem]({%slug form-formitems%}).
 
 When the Template is used, the built-in validation messages from the Form will not be rendered. Instead you can use the [Telerik Validation tools]({%slug validation-tools-overview%}) to provide validation messages, or any other suitable component such as the `ValidationMessage` that comes with the framework.
 
 In this article you can find the following examples:
 
-* [Use the Template to provide custom editors](#use-the-template-to-provide-custom-editors)
+* [Use Template to provide custom editors](#use-template-to-provide-custom-editor)
 * [Add validation messages to templated Form Items](#add-validation-messages-to-templated-form-items)
 
-## Use the Template to provide custom editors
+## Use Template to Provide Custom Editor
 
 ````CSHMTL
 @* Use the Template to change the default editors *@
@@ -131,11 +133,8 @@ In this article you can find the following examples:
 }
 ````
 
->caption The result from the code snippet above
 
-![Template example](images/formitems-template-example.png)
-
-## Add validation messages to templated Form Items
+## Add Validation Messages to Templated Form Items
 
 You can render validation messages for templated Form items by using the [TelerikValidationMessage]({%slug validation-tools-message%}).
 
