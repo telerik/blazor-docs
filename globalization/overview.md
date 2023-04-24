@@ -12,7 +12,7 @@ position: 0
 
 Internationalization (I18N) is the process of making an app support different languages and regions. In the Telerik UI for Blazor suite, this will consist of the following features:
 
-* [Localization (L10N)]({%slug globalization-localization%}) - the ability to show texts and UI elements in the components in different languages (such as button texts and ARIA attributes).
+* [Localization (L10N)]({%slug globalization-localization%})—the ability to show texts and UI elements in the components in different languages (such as button texts and ARIA attributes).
 
 * [Globalization (G11N)]({%slug globalization-formats%}) - the ability to react to the chosen culture where format strings are involved (such as number and date formats).
 
