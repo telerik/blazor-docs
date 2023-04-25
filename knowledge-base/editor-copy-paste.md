@@ -83,9 +83,12 @@ To **paste in the Editor** programmatically:
     }
 
     function copyFromEditor() {
-        var iframeWindow = document.querySelector("#editor1 iframe").contentWindow;
+        // when using Iframe EditMode
+        var windowObject = document.querySelector("#editor1 iframe").contentWindow;
+        // when using Div EditMode
+        //var windowObject = window;
 
-        var sel = iframeWindow.getSelection();
+        var sel = windowObject.getSelection();
         var html = "";
         if (sel.rangeCount) {
             // extract the selected content from multiple tags
