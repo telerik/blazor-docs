@@ -100,12 +100,11 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor DropDownList:
+The following parameters enable you to customize the [appearance]({%slug dropdownlist-appearance%}) of the Blazor DropDownList:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
-You can find more options for customizing the DropDownList styling in the [Appearance article]({%slug dropdownlist-appearance%}).
-
+>To learn more about the appearance, anatomy, and accessibility of the DropDownList, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/dropdownlist/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ### Popup Settings
 
