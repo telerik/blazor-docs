@@ -631,10 +631,10 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "4.1.0"
+uiForBlazorLatestVersion: "4.2.0"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "6.2.0"
+themeCdnVersion: "6.3.0"
 
 ## The Kendo UI version used
 cdnVersion: "2019.1.115"
