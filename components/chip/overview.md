@@ -51,6 +51,8 @@ To use a Telerik Chip for Blazor:
 
 You can customize the appearance of the Blazor Chip via a variety of built-in customization options. [Read more about the Chip appearance settings...]({%slug chip-appearance%})
 
+>tip To learn more about the appearance, anatomy, and accessibility of the Chip, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/chip/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+
 ## Chip Parameters
 
 The table below lists the Chip parameters. Also check the [Chip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChip) for all parameters, methods and events.

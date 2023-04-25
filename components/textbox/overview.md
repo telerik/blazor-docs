@@ -1,18 +1,18 @@
 ---
 title: Overview
-page_title: Textbox Overview
-description: Overview of the Textbox for Blazor.
+page_title: TextBox Overview
+description: Overview of the TextBox for Blazor.
 slug: components/textbox/overview
 tags: telerik,blazor,textbox,overview
 published: True
 position: 0
 ---
 
-# Blazor Textbox Overview
+# Blazor TextBox Overview
 
-The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor Textbox component</a> allows the user to enter a generic plain text message. 
+The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor TextBox component</a> allows the user to enter a generic plain text message. 
 
-You can control [various attributes](#features) of the `input` element and turn the Textbox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
+You can control [various attributes](#features) of the `input` element and turn the TextBox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
 
 ## Creating Blazor TextBox
 
@@ -34,6 +34,8 @@ You can control [various attributes](#features) of the `input` element and turn 
 ## Appearance
 
 The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings]({%slug textbox-appearance%}).
+
+>tip To learn more about the appearance, anatomy, and accessibility of the TextBox, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/textbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Events
 
@@ -66,7 +68,7 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 ## Examples
 
->caption Customized textbox with input attributes
+>caption Customized text box with input attributes
 
 ````CSHTML
 <label for="email">Email</label>
@@ -76,10 +78,10 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 </TelerikTextBox>
 ````
 
->caption Password type textbox
+>caption Password type TextBox
 
 ````CSHTML
-@* An example of enabling the Password mode of the textbox. Make sure to add a form and validation
+@* An example of enabling the Password mode of the text box. Make sure to add a form and validation
 for example: https://demos.telerik.com/blazor-ui/textbox/password
 *@
 

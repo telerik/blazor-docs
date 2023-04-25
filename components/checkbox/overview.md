@@ -41,6 +41,8 @@ In addition to basic *checked* and *unchecked* states, the Blazor CheckBox has a
 
 The Checkbox component provides size and border settings to control its appearance. [Read more about the Blazor Checkbox appearance settings]({%slug checkbox-appearance%}).
 
+>tip To learn more about the appearance, anatomy, and accessibility of the CheckBox, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/checkbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+
 ## Events
 
 The Blazor Checkbox fires value change, focus and state change events that you can handle and further customize its behavior. [Read more about the Blazor Checkbox events]({%slug checkbox-events%}).
