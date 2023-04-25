@@ -8,17 +8,17 @@ published: True
 position: 0
 ---
 
-# Blazor Numeric Textbox Overview
+# Blazor Numeric TextBox Overview
 
 The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">Blazor Numeric Textbox component</a> allows the user to enter decimal values and no text. The developer can control minimum, maximum values, steps and other elements of the UX.
 
-## Creating Blazor Numeric Textbox
+## Creating Blazor Numeric TextBox
 
 1. Add the `TelerikNumericTextBox` tag to your razor page.
 1. Bind a numeric data type to the component
 1. Optionally, set custom `Format`, `Min`, `Max` and `Step` values
 
->caption Basic numeric textbox with its key features
+>caption Basic numeric text box with its key features
 
 ````CSHTML
 The new value is: @theValue
@@ -72,7 +72,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 }
 ````
 
-## Numeric Textbox Parameters
+## Numeric TextBox Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -95,14 +95,14 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor Numeric TextBox:
+The following parameters enable you to customize the [appearance]({%slug numerictextbox-appearance%}) of the Blazor Numeric TextBox:
 
 | Attribute | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The CSS class that will be rendered on the `<span class="k-numerictextbox">` element. |
 | `Width` | `string` | The width of the component in [any supported CSS unit]({%slug common-features/dimensions%}). |
 
-Find more options for customizing the Numeric TextBox styling in the [Appearance article]({%slug numerictextbox-appearance%}).
+>tip To learn more about the appearance, anatomy, and accessibility of the NumericTextBox, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/numerictextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Component Reference
 
