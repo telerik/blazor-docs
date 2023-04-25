@@ -91,23 +91,21 @@ You can add a "Select All" feature through the `HeaderTemplate` - it only has to
                     AutoClose="false"
                     Placeholder="Write the roles you need">
     <HeaderTemplate>
-        <label class="select-all-item">
+        <div class="select-all-item">
             <TelerikCheckBox TValue="bool"
                              Value="@IsAllSelected()"
-                             ValueChanged="@( (bool v) => ToggleSelectAll(v) )">
+                             ValueChanged="@( (bool v) => ToggleSelectAll(v) )"
+                             Id="ms-select-all-checkbox">
             </TelerikCheckBox>
-            &nbsp;Select All
-        </label>
+            <label for="ms-select-all-checkbox">&nbsp;Select All</label>
+        </div>
     </HeaderTemplate>
     <ItemTemplate>
         <input type="checkbox"
                id="@( "cb" + context.Replace(" ", "") )"
                class="k-checkbox k-checkbox-md"
                checked="@GetChecked(context)">
-        <label class="k-checkbox-label"
-               for="@( "cb" + context.Replace(" ", "") )">
-            @context
-        </label>
+        @context
     </ItemTemplate>
 
 </TelerikMultiSelect>
@@ -115,12 +113,17 @@ You can add a "Select All" feature through the `HeaderTemplate` - it only has to
 <style>
     .select-all-item {
         padding: 4px 8px;
-        display: block;
+        display: flex;
         cursor: pointer;
     }
 
         .select-all-item:hover {
             background: rgba(0, 0, 0, 0.06);
+        }
+        .select-all-item label {
+            display: block;
+            flex: 1 1 auto;
+            cursor: pointer;
         }
 </style>
 
