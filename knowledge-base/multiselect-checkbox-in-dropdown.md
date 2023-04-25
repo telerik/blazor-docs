@@ -6,18 +6,19 @@ page_title: Checkbox in MultiSelect
 slug: multiselect-kb-checkbox-in-dropdown
 position: 
 tags: 
-ticketid: 1453142
+ticketid: 1453142, 1606291
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
@@ -78,19 +79,19 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
 
 You can add a "Select All" feature through the `HeaderTemplate` - it only has to update the `Value` collection accordingly (empty, or to have all the items in the `Data`).
 
-Here is one example:
+>caption Select all MultiSelect items with a checkbox
 
 ````CSHTML
 @* Note: If you use complex models, the GetChecked() method will be more complex and
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
     
 <TelerikMultiSelect @ref="MultiSelectRef"
-                    Data="@Roles" 
+                    Data="@Roles"
                     @bind-Value="@TheValues"
                     AutoClose="false"
                     Placeholder="Write the roles you need">
     <HeaderTemplate>
-        <label style="padding: 4px 8px;">
+        <label class="select-all-item">
             <TelerikCheckBox TValue="bool"
                              Value="@IsAllSelected()"
                              ValueChanged="@( (bool v) => ToggleSelectAll(v) )">
@@ -110,6 +111,18 @@ Here is one example:
     </ItemTemplate>
 
 </TelerikMultiSelect>
+
+<style>
+    .select-all-item {
+        padding: 4px 8px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .select-all-item:hover {
+            background: rgba(0, 0, 0, 0.06);
+        }
+</style>
 
 @foreach (var item in TheValues)
 {
@@ -154,4 +167,3 @@ Here is one example:
     };
 }
 ````
-
