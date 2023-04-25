@@ -101,12 +101,11 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor ComboBox:
+The following parameters enable you to customize the [appearance]({%slug combobox-appearance%}) of the Blazor ComboBox:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
-You can find more options for customizing the ComboBox styling in the [Appearance article]({%slug combobox-appearance%}).
-
+>To learn more about the appearance, anatomy, and accessibility of the ComboBox, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/combobox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ### Popup settings
 

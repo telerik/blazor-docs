@@ -80,12 +80,14 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 
 ### Styling and Appearance
 
+The following parameters enable you to customize the [appearance]({%slug maskedtextbox-appearance%}) of the Blazor MaskedTextBox:
+
 | Parameter | Type and Default value | Description |
 |---|---|---|
 | `Class` | `string` | The custom CSS class of the `<span class="k-maskedtextbox">` element. |
 | `Width` | `string` | The component width. |
 
-Find more parameters to customize the masked textbox styling in the [Appearance article]({%slug maskedtextbox-appearance%}).
+>To learn more about the appearance, anatomy, and accessibility of the MaskedTextBox, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/maskedtextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## MaskedTextBox Reference and Methods
 

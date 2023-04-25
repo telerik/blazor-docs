@@ -116,11 +116,11 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor MultiSelect:
+The following parameters enable you to customize the [appearance]({%slug multiselect-appearance%}) of the Blazor MultiSelect:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
-You can find more options for customizing the MultiSelect styling in the [Appearance article]({%slug multiselect-appearance%}).
+>tip To learn more about the appearance, anatomy, and accessibility of the MultiSelect, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/multiselect/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ### Popup settings
 

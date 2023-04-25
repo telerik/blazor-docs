@@ -22,7 +22,7 @@ The ButtonGroup component lets you [select one or more toggle buttons]({%slug bu
 1. Inside it, add the desired [button tags]({%slug buttongroup-buttons%}) that denote each button - `<ButtonGroupToggleButton>` or `<ButtonGroupButton>`.
 1. Optionally, use the `OnClick` event of these buttons to handle the user actions. Read more in the [Events]({%slug buttongroup-events%}) article.
 
->caption TelerikButtonGroup with regular buttons and toggle buttons, and their respective OnClick handlers
+>caption Blazor ButtonGroup with regular buttons and toggle buttons, and their respective `OnClick` handlers
 
 ````CSHTML
 <TelerikButtonGroup>
@@ -58,6 +58,8 @@ The ButtonGroup allows you to control the selection mode of its `ButtonGroupTogg
 ## Appearance
 
 The separate button instances of the ButtonGroup provide several parameters that control their [styling and appearance, including background color, rounded corners and fill]({%slug buttongroup-appearance%}).
+
+>tip To learn more about the appearance, anatomy, and accessibility of the ButtonGroup, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/buttongroup/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Events
 
