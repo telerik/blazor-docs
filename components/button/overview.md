@@ -59,7 +59,7 @@ To prevent user interaction with a Button, disable it. [Read more about the disa
 
 To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug general-information/themes%}). Additionally, set the `Class` attribute and implement custom CSS rules. [Read more about the Blazor Button styling...]({%slug button-styling%})
 
->tip To learn more about the appearance, anatomy, and accessibility of the Button, visit the [Progress Design System documentation](www.telerik.com/design-system/docs/components/button/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the Button, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/button/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Button Reference
 
