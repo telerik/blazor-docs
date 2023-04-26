@@ -16,8 +16,7 @@ Internationalization (I18N) is the process of making an app support different la
 
 * [Globalization (G11N)]({%slug globalization-formats%})—the ability to react to the chosen culture where format strings are involved (such as number and date formats).
 
-* [Right-to-Left Support]({%slug rtl-support%})—the ability to render the components in a right-to-left direction instead of the default left-to-right direction. This feature will become available in an upcoming release.
-
+* [Right-to-Left Support]({%slug rtl-support%})—the ability to render the components in a right-to-left direction instead of the default left-to-right direction.
 
 ## Internationalization Support
 
@@ -80,7 +79,6 @@ Each Telerik UI for Blazor component supports a different set of internationaliz
 | Pager | N/A | [Supported](https://demos.telerik.com/blazor-ui/pager/localization) | [Supported](https://demos.telerik.com/blazor-ui/pager/rtl) |
 | PanelBar | N/A | N/A | [Supported](https://demos.telerik.com/blazor-ui/panelbar/rtl) |
 | PdfViewer | N/A | [Supported](https://demos.telerik.com/blazor-ui/pdfviewer/localization) | [Supported](https://demos.telerik.com/blazor-ui/pdfviewer/rtl) |
-| Popup | N/A | N/A | Supported |
 | ProgressBar | N/A | N/A | [Supported](https://demos.telerik.com/blazor-ui/progressbar/rtl) |
 | QRCode | N/A | N/A | N/A |
 | RadialGauge | Supported | N/A | [Supported](https://demos.telerik.com/blazor-ui/radialgauge/rtl) |
