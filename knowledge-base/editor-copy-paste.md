@@ -1,11 +1,9 @@
 ---
-title: Programmatic Copy and Paste in the Editor
-description: How to copy and paste in the Telerik Blazor Editor programmatically with additional buttons in the Editor toolbar.
+title: Copying and Pasting Programmatically in the Editor
+description: "Learn how to programmatically copy and paste in the Telerik UI for Blazor Editor with additional buttons in the Editor toolbar."
 type: how-to
-page_title: Programmatic Copy and Paste in the Editor with Toobar Buttons
+page_title: Copying and Pasting Programmatically in the Editor with Toobar Buttons
 slug: editor-kb-copy-paste-programmatically
-position: 
-tags: 
 ticketid: 1595176
 res_type: kb
 ---
@@ -16,7 +14,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Editor for Blazor</td>
+            <td>Progress® Telerik® UI for Blazor Editor</td>
         </tr>
     </tbody>
 </table>
@@ -24,27 +22,25 @@ res_type: kb
 
 ## Description
 
-How to implement copy and paste buttons to the Editor toolbar?
-
-How to copy and paste in the Editor component programmatically?
+How can I implement **Copy** and **Paste** buttons to the Editor toolbar? How can I copy and paste in the Editor component programmatically?
 
 
 ## Solution
 
-To **copy from the Editor** programmatically:
+To programmatically copy from the Editor:
 
 1. Use a [custom Editor tool]({%slug editor-custom-tools%}) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
 1. On tool click (pure JavaScript event), [obtain the window selection](https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection).
-1. [`write()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write) to the browser [`Clipboard`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard).
+1. Use the [`write()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write) method to write the [`Clipboard`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard) of the browser.
 
-To **paste in the Editor** programmatically:
+To programmatically paste in the Editor:
 
 1. Use a [custom Editor tool]({%slug editor-custom-tools%}) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
-1. On tool click (pure JavaScript event), [`read()` the clipboard content](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/read).
-1. Pass the clipboard content [to the .NET runtime via JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript).
-1. Use the [`insertHtml` Editor command]({%slug editor-built-in-tools%}#commands-without-built-in-tools). Also see section [Programmatic Execution]({%slug editor-built-in-tools%}#programmatic-execution). Analyze if you will be pasting block content or inline content.
+1. On tool click (pure JavaScript event), use the [`read()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/read) method to read the clipboard content.
+1. Pass the clipboard content to the [.NET runtime with `JSInterop`](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript).
+1. Use the [`insertHtml` Editor command]({%slug editor-built-in-tools%}#commands-without-built-in-tools). For more information, see the section on [programmatic execution]({%slug editor-built-in-tools%}#programmatic-execution) and analyze if you will be pasting block content or inline content.
 
->caption Programmatic copy and paste in the Blazor Editor
+>caption Programmatic copy and paste in the Telerik UI for Blazor Editor
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
@@ -74,7 +70,7 @@ To **paste in the Editor** programmatically:
     </EditorCustomTools>
 </TelerikEditor>
 
-@* Move JavaScript to a separate JS file! *@
+@* Move the JavaScript to a separate JS file! *@
 <script suppress-error="BL9992">
     var dotNetReference;
 
@@ -83,15 +79,15 @@ To **paste in the Editor** programmatically:
     }
 
     function copyFromEditor() {
-        // when using Iframe EditMode
+        // When using the Iframe EditMode:
         var windowObject = document.querySelector("#editor1 iframe").contentWindow;
-        // when using Div EditMode
+        // When using the Div EditMode:
         //var windowObject = window;
 
         var sel = windowObject.getSelection();
         var html = "";
         if (sel.rangeCount) {
-            // extract the selected content from multiple tags
+            // Extract the selected content from multiple tags.
             var container = document.createElement("div");
             for (var i = 0, len = sel.rangeCount; i < len; ++i) {
                 container.appendChild(sel.getRangeAt(i).cloneContents());
@@ -146,7 +142,7 @@ To **paste in the Editor** programmatically:
 
     private List<IEditorTool> Tools { get; set; } = null!;
 
-    // replace __Main with the actual name of the Razor component
+    // Replace __Main with the actual name of the Razor component.
     private DotNetObjectReference<__Main>? DotNetRef;
 
     protected override Task OnInitializedAsync()
@@ -175,12 +171,12 @@ To **paste in the Editor** programmatically:
     public async Task InsertClipboard(string clipboardContent)
     {
         // The insertHtml command can work with block or inline content,
-        // but we need to know what we are getting.
+        // but you need to know what you are getting.
         var blockTags = new string[] { "<h", "<p", "<div", "<ul", "<ol", "<li", "<table" };
         bool inlineInsert = !blockTags.Any(tag => clipboardContent.Contains(tag));
 
-        // The insertHtml command expects max 1 tag,
-        // so if there are more, we will wrap them.
+        // The insertHtml command expects one tag maximum,
+        // so if there are more, you will wrap them.
         int childTags = System.Text.RegularExpressions.Regex.Matches(clipboardContent, "<").Count;
         string wrapTag = inlineInsert ? "span" : "div";
 
@@ -202,19 +198,17 @@ To **paste in the Editor** programmatically:
 
 ## Notes
 
-Replace `__Main` with the actual name of the Razor component, which holds the Editor.
+* Replace `__Main` with the actual name of the Razor component, which holds the Editor.
+* The above example makes a few assumptions, which affect the overall implementation. Adjust the example, according to your scenario and requirements.
+* The code uses a lot of standard JavaScript API and general logic, which are not related to the Editor component.
+* Copy-pasting a collection of several HTML tags, for example, list items, may produce unexpected or undesired results, depending on the paste location.
+* Programmatic copying and pasting in the browser may require user permissions.
 
-The above example makes a few assumptions and this affects the overall implementation. Adjust, according to your scenario and requirements.
+  The app controls only one out of the following challenges:
 
-The code uses a lot of standard JavaScript API and general logic, which are not related to the Editor component.
-
-Copy-pasting a collection of several HTML tags (e.g. list items) may produce unexpected or undesired results, depending on the paste location.
-
-Programmatic copying and pasting in the browser may require user permissions. There are three separate challenges and the app controls only one of them:
-
-* Some users may prohibit programmatic clipboard access.
-* Browsers may prompt users to approve programmatic pasting every time.
-* Browsers prohibit programmatic clipboard access unless the access occurs in a user event. This means you can't use Blazor `@onclick` handlers and `JSInterop` calls from the server to the browser, because the JavaScript execution doesn't occur as a result of user events.
+  * Some users may prohibit programmatic clipboard access.
+  * Browsers may prompt users to approve programmatic pasting every time.
+  * Browsers prohibit programmatic clipboard access unless the access occurs in a user event. This means you can't use Blazor `@onclick` handlers and `JSInterop` calls from the server to the browser, because the JavaScript execution doesn't occur as a result of user events.
 
 
 # See Also
