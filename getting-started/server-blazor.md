@@ -84,9 +84,9 @@ To enable the Telerik UI for Blazor components, you must add several client-side
     @using Telerik.SvgIcons
 
 
-7\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+6\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
 
-8\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+7\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 Now your Blazor Server project can use the Telerik UI for Blazor components.
 
