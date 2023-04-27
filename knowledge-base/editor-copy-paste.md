@@ -1,6 +1,6 @@
 ---
 title: Programmatic Copy and Paste in the Editor
-description: "Learn how to programmatically copy and paste in the Telerik UI for Blazor Editor with additional buttons in the Editor toolbar."
+description: Learn how to programmatically copy and paste in the Telerik UI for Blazor Editor with additional buttons in the Editor toolbar.
 type: how-to
 page_title: Programmatic Copy and Paste in the Editor with Toobar Buttons
 slug: editor-kb-copy-paste-programmatically
