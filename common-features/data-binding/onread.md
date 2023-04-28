@@ -236,7 +236,8 @@ Also check [how to rebind and refresh a component with a `Timer`]({%slug common-
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
                OnClick="@RebindComponents">Rebind Components</TelerikButton>
 
-<br /><br />
+<br />
+<br />
 
 <TelerikGrid @ref="@TheGrid"
              TItem="@SampleModel"
@@ -254,6 +255,8 @@ Also check [how to rebind and refresh a component with a `Timer`]({%slug common-
     List<SampleModel> DropDownData { get; set; }
 
     int DropDownValue { get; set; } = 1;
+
+    int ItemCounter { get; set; } = 3;
 
     void RebindComponents()
     {
@@ -291,11 +294,13 @@ Also check [how to rebind and refresh a component with a `Timer`]({%slug common-
 
         var rnd = new Random();
 
-        for (int i = 1; i <= 10; i++)
+        for (int i = 1; i <= ItemCounter; i++)
         {
             GridData.Add(new SampleModel() { Id = i, Text = $"Text {rnd.Next(1, 100)}" });
             DropDownData.Add(new SampleModel() { Id = i, Text = $"Text {rnd.Next(1, 100)}" });
         }
+
+        ItemCounter++;
     }
 
     public class SampleModel
