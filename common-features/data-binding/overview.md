@@ -111,8 +111,6 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
 >caption Call `Rebind()` or create new Data reference
 
-<div class="skip-repl"></div>
-
 ````CSHTML
 <p>
     <TelerikButton OnClick="@RefreshGridData">Refresh Grid Data</TelerikButton>
