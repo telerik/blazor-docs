@@ -522,17 +522,15 @@ public static class FilterExtensions
 
     async Task ExpandHierarchy()
     {
-        GridState<MainModel> desiredState = new GridState<MainModel>()
-        {
-            //expand the first two rows
-            ExpandedItems = new List<MainModel>
-            {
-                salesTeamMembers[0],
-                salesTeamMembers[1]
-            }
+        var gridState = Grid.GetState();
+
+        //expand the first two rows
+        gridState.ExpandedItems = new List<MainModel> {
+            salesTeamMembers[0],
+            salesTeamMembers[1]
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await Grid.SetStateAsync(gridState);
     }
 
     List<MainModel> salesTeamMembers { get; set; }
@@ -545,10 +543,12 @@ public static class FilterExtensions
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            mdl.Orders = Enumerable.Range(1, 3).Select(x => new DetailsModel {
+                OrderId = i * 100 + x, DealSize = (x ^ i) + 1 }
+            ).ToList();
             data.Add(mdl);
         }
         return data;
