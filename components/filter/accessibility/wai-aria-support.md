@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Filter Documentation - Filter  Accessibility
+page_title: Telerik UI for Blazor Filter Documentation | Filter  Accessibility
 description: "Get started with the Telerik UI for Blazor Filter and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: filter-wai-aria-support
-position: 50
+slug: filter-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Filter Accessibility
@@ -13,20 +13,26 @@ position: 50
 
 
 
-The Telerik UI for Blazor Filter component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Filter provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Filter is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 
 The Filter component represents visually the structure of a filter object. As the filter object can contain nested objects, that hierarchical structure must be represented in the accessibility tree by the `role=tree` assigned to the component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-filter-container | `role=tree` | Describes the hierarchical structure of the Filter component. |
+| `.k-filter-container` | `role=tree` | Describes the hierarchical structure of the Filter component. |
 |  | `aria-label` | Specifies a label for the Filter component. |
-| .k-filter-group-main,.k-filter-item | `role=treeitem` | Each FilterGroup and FilterExpression represent a separate `treeitem` in the Filter component structure. |
-| .k-filter-lines | `role=group` | Represents a group if items in the Filter component. |
-| .k-toolbar | `role=toolbar` | The role represents a collection of tools. |
+| `.k-filter-group-main,.k-filter-item` | `role=treeitem` | Each FilterGroup and FilterExpression represent a separate `treeitem` in the Filter component structure. |
+| `.k-filter-lines` | `role=group` | Represents a group if items in the Filter component. |
+| `.k-toolbar` | `role=toolbar` | The role represents a collection of tools. |
 |  | `aria-label` | Specifies a label for the toolbar. |
 
 
@@ -39,16 +45,19 @@ Each toolbar in the Filter should follow the specification for a ToolBar compone
 ## Section 508
 
 
-The Filter is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Filter is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Filter has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Filter has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

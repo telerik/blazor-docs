@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Carousel Documentation - Carousel  Accessibility
+page_title: Telerik UI for Blazor Carousel Documentation | Carousel  Accessibility
 description: "Get started with the Telerik UI for Blazor Carousel and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: carousel-wai-aria-support
-position: 50
+slug: carousel-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Carousel Accessibility
@@ -13,21 +13,27 @@ position: 50
 
 
 
-The Telerik UI for Blazor Carousel component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Carousel provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Carousel is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-scrollview | `role=application` | Specifies the role of the Carousel element. |
+| `.k-scrollview` | `role=application` | Specifies the role of the Carousel element. |
 |  | `aria-roledescription=carousel` | Clarifies the role of the Carousel element. |
 |  | `tabindex=0` | Carousel element must be focusable. |
-| .k-scrollview-wrap | `role=list` | Clarifies the scrollview wrap as a list of items (images). |
-| .k-scrollview>.k-sr-only | `aria-live=polite` | Identifies a hidden element as a live region in the `polite` state, meaning assistive technology users are informed about changes to the region at the next available opportunity. |
+| `.k-scrollview-wrap` | `role=list` | Clarifies the scrollview wrap as a list of items (images). |
+| `.k-scrollview>.k-sr-only` | `aria-live=polite` | Identifies a hidden element as a live region in the `polite` state, meaning assistive technology users are informed about changes to the region at the next available opportunity. |
 |  | `aria-live=off` | Identifies a hidden element as a live region that is in the `off` state, meaning assistive technology users are not informed about changes to the region. |
-| .k-scrollview-wrap>* | `role=listitem` | Specifies the role of each Carousel item. |
+| `.k-scrollview-wrap>*` | `role=listitem` | Specifies the role of each Carousel item. |
 |  | `aria-roledescription=slide` | Clarifies the role of the Carousel item. |
-| .k-scrollview-prev,.k-scrollview-next | `role=button` or `nodeName=button` | Specifies the role of the element as a Button. |
+| `.k-scrollview-prev,.k-scrollview-next` | `role=button` or `nodeName=button` | Specifies the role of the element as a Button. |
 |  | `aria-label` | Specifies label for the Previous/Next button. |
 |  | `aria-controls=.k-scrollview-wrap id` | Points to the id of the items container element. |
 
@@ -40,16 +46,19 @@ The Telerik UI for Blazor Carousel component is [WCAG 2.1 AA](https://www.w3.org
 ## Section 508
 
 
-The Carousel is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Carousel is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Carousel has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Carousel has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

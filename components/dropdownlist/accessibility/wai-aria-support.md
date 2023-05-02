@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor DropDownList Documentation - DropDownList  Accessibility
+page_title: Telerik UI for Blazor DropDownList Documentation | DropDownList  Accessibility
 description: "Get started with the Telerik UI for Blazor DropDownList and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: dropdownlist-wai-aria-support
-position: 50
+slug: dropdownlist-wai-aria-support 
+position: 50 
 ---
 
 # Blazor DropDownList Accessibility
@@ -13,71 +13,88 @@ position: 50
 
 
 
-The Telerik UI for Blazor DropDownList component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor DropDownList provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
 
-### DropDownList wrapper
+The DropDownList is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
+
+### DropDownList Wrapper
+
+
+The following table summarizes the selectors and attributes supported by the DropDownList wrapper:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-dropdownlist | `role=combobox` | Announces the button dropdown element. |
-|  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
+| `.k-dropdownlist:not(.k-views-dropdown)` | `role=combobox` | Announces the button drop-down element. |
+|  | `label for` or `aria-label` or `aria-labelledby` | The input requires an accessible name that will be assigned to it. |
 |  | `aria-haspopup=listbox` | Indicates the presence of a listbox popup. |
-|  | `aria-expanded=true/false` | Announces the state of the visibility of the popup. |
-|  | `aria-controls=.k-list-ul id` | Points to the popup element. Signifies that the `combobox` element controls the `listbox`. |
-|  | `aria-describedby=.k-input-inner id` | Announces the selected value of the dropdown. |
-|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item in the popup. The focused item is changed via keyboard navigation. If the popup is not visible, the attribute should not point to any element or should be removed. |
-|  | `aria-readonly=true` | Attribute is rendered only when the dropdown is readonly. |
-|  | `aria-busy=true` | Attribute is rendered only when the dropdown is loading data. |
-|  | `tabindex=0` | The element should be focusable. |
-| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the dropdown is in form and announces the valid state of the component. |
-| .k-dropdownlist.k-disabled | `aria-disabled=true` | Attribute is rendered only when the dropdown is disabled. |
-| .k-input-button | `role=button` or `nodeName=button` | The element should either be a `<button>` element or should have `role="button"` assigned. |
-|  | `aria-label` | The button needs an accessible name to be assigned to it. |
-|  | `tabindex=-1` | Button element should not be focusable. |
+|  | `aria-expanded=true/false` | Announces the visibility state of the popup. |
+|  | `aria-controls=.k-list-ul id` | Points to the listbox element. Signifies that the `combobox` controls the `listbox` element. |
+|  | `aria-describedby=.k-input-inner id` | Announces the selected value of the drop-down. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item in the popup. The focused item is changed through keyboard navigation. If the popup is not visible, the attribute must not point to any element or must be removed. |
+|  | `aria-readonly=true` | The attribute is rendered only when the DropDownList is read-only. |
+|  | `aria-busy=true` | The attribute is rendered only when the DropDownList is loading data. |
+|  | `tabindex=0` | The element must be focusable. |
+| `.k-invalid .k-input-inner,.ng-invalid .k-input-inner` | `aria-invalid=true` | The attribute is rendered only when the DropDownList is in a form, and announces the valid state of the component. |
+| `.k-dropdownlist.k-disabled` | `aria-disabled=true` | The attribute is rendered only when the DropDownList is disabled. |
+| `.k-input-button` | `role=button` or `nodeName=button` | The element must either be a `<button>` element or must have the `role="button"` assigned. |
+|  | `aria-label` | The button requires an accessible name that will be assigned to it. |
+|  | `tabindex=-1` | The button element must not be focusable. |
 
 ### Popup
 
+
+The following table summarizes the selectors and attributes supported by the DropDownList popup:
+
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-list-filter>.k-searchbox>.k-input-inner | `role=searchbox` | Announces the searchbox capability of the input. |
-|  | `aria-label` | Points to search label. |
-|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item. Either an item from the popup. |
-|  | `aria-autocomplete=list` | Indicates the list filtering capabilities of the select. |
-|  | `aria-controls=.k-list-ul id` | Points to the popup element. Builds relationship between the input and the popup. |
+| `.k-list-filter>.k-searchbox>.k-input-inner` | `role=searchbox` | Announces the search box capability of the input. |
+|  | `aria-label` | Points to the search label. |
+|  | `aria-activedescendant=.k-list-item.k-focus id` | Points to the focused item or to an item from the popup. |
+|  | `aria-autocomplete=list` | Indicates the list-filtering capabilities of the selected items. |
+|  | `aria-controls=.k-list-ul id` | Points to the popup element. Builds the relationship between the input and the popup. |
 |  | `aria-haspopup=listbox` | Indicates the presence of a listbox popup. |
-| .k-list-ul | `aria-live=polite/off` | Assures the live updates on the selected value of the popup. |
+| `.k-list-ul` | `aria-live=polite/off` | Assures the live updates on the selected value of the popup. |
+
+### Popup Listbox
 
 
-The ListBox placed in the Popup element of the component should implement the specification for a **Popup List** component.
+The listbox placed in the popup element of the DropDownList has to implement the WAI-ARIA specification for a Popup List component. The following table summarizes the selectors and attributes supported by the listbox popup of the DropDownList:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-animation-container | `role=region` | When the component container is appended to the `<body>` element of the document, it needs a landmark role to be assigned to it. Otherwise, it should be appended to an element with an appropriate landmark role. |
-|  | `aria-label` or `aria-labelledby` | Provides a label when the container has a `region` role assigned. |
-| .k-list-ul | `role=listbox` | Identifies the ul element as a listbox. |
-|  | `aria-label` or `aria-labelledby` |  Provides a label for the listbox of the combobox. |
-| .k-list-item | `role=option` | Identifies the li element as a listbox option. |
-| .k-list-item.k-selected | `aria-selected=true` | Indicates the selected state of the item. |
+| `.k-animation-container` | `role=region` | When the component container is appended to the `<body>` element of the document, it requires you to assing a `landmark` role to it. Otherwise, append it to an element with an appropriate `landmark` role. |
+|  | `aria-label` or `aria-labelledby` | When the container has a `region` role assigned, povides a label. |
+| `.k-list-ul` | `role=listbox` | Identifies the `ul` element as a listbox. |
+|  | `aria-label` or `aria-labelledby` | Provides a label for the listbox of the ComboBox. |
+| `.k-list-item` | `role=option` | Identifies the `li` element as a listbox option. |
+| `.k-list-item.k-selected` | `aria-selected=true` | Indicates the selected state of the item. |
 
 ## Resources
 
-[ARIA practices: Select-Only Combobox Example](https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html)
+[WAI-ARIA Authoring Practices: Select-Only Combobox Example](https://www.w3.org/WAI/ARIA/apg/example-index/combobox/combobox-select-only.html)
 
 ## Section 508
 
 
-The DropDownList is compliant with the [Section 508](http://www.section508.gov/) requirements
+The DropDownList is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The DropDownList has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The DropDownList has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

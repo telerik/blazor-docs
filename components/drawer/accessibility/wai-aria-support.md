@@ -13,34 +13,43 @@ position: 50
 
 
 
-The Telerik UI for Blazor Drawer component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Drawer provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Drawer is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 
 The Drawer component allows rendering a whole template inside of it. Thus, the accessibility roles are applied only when the built-in data-binding is used.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-drawer ul | `role=menubar` | Indicates that the list of drawer items is a menubar. |
+| `.k-drawer ul` | `role=menubar` | Indicates that the list of drawer items is a menubar. |
 |  | `aria-orientation=vertical` | Indicates that the orientation of the drawer is vertical. |
-| .k-drawer-item:not(.k-drawer-separator) | `role=menuitem` | Indicates that the item of a drawer serves as a menuitem. |
+| `.k-drawer-item:not(.k-drawer-separator)` | `role=menuitem` | Indicates that the item of a drawer serves as a menuitem. |
 |  | `aria-label` | The drawer item requires an `aria-label` attribute when in mini mode and no content is rendered in the item. The `aria-label` points to the text field value of the item. |
-| .k-drawer-item.k-drawer-separator | `role=separator` | Indicates that the item of a drawer serves as a separator. |
+| `.k-drawer-item.k-drawer-separator` | `role=separator` | Indicates that the item of a drawer serves as a separator. |
 
 ## Section 508
 
 
-The Drawer is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Drawer is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Drawer has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Drawer has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

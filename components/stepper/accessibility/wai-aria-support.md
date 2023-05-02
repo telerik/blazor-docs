@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Stepper Documentation - Stepper  Accessibility
+page_title: Telerik UI for Blazor Stepper Documentation | Stepper  Accessibility
 description: "Get started with the Telerik UI for Blazor Stepper and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: stepper-wai-aria-support
-position: 50
+slug: stepper-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Stepper Accessibility
@@ -13,20 +13,26 @@ position: 50
 
 
 
-The Telerik UI for Blazor Stepper component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Stepper provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Stepper is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 
 The Stepper component is a landmark `<nav>` element or an element with `role="navigation"`(https://www.w3.org/TR/wai-aria-1.2/#navigation). It contains an ordered list of navigation items. Each navigation item contains a link.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-stepper | `role=navigation` or `nodeName=nav` | The landmark role `navigation` must be assigned to the component. |
-| .k-step-disabled>.k-step-link | `aria-disabled=true` | A disabled (inactive) link. |
-| .k-step-current>.k-step-link | `aria-current=true` | The currently selected link. |
+| `.k-stepper` | `role=navigation` or `nodeName=nav` | The landmark role `navigation` must be assigned to the component. |
+| `.k-step-disabled>.k-step-link` | `aria-disabled=true` | A disabled (inactive) link. |
+| `.k-step-current>.k-step-link` | `aria-current=step` | The currently selected link. |
 |  | `tabindex=0` | Removes the element from the page Tab sequence. Set when a tab is not selected so that only the selected tab is in the page Tab sequence. |
-| .k-step:not(.k-step-current) .k-step-link | `tabindex=-1` | Removes the element from the page Tab sequence. Set when a tab is not selected so that only the selected tab is in the page Tab sequence. |
+| `.k-step:not(.k-step-current) .k-step-link` | `tabindex=-1` | Removes the element from the page Tab sequence. Set when a tab is not selected so that only the selected tab is in the page Tab sequence. |
 
 
 No aria attributes should be applied to the Stepper as the ProgressBar serves a purely aesthetic purpose.
@@ -38,16 +44,19 @@ No aria attributes should be applied to the Stepper as the ProgressBar serves a 
 ## Section 508
 
 
-The Stepper is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Stepper is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Stepper has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Stepper has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

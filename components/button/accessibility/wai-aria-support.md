@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Button Documentation - Button  Accessibility
+page_title: Telerik UI for Blazor Button Documentation | Button  Accessibility
 description: "Get started with the Telerik UI for Blazor Button and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: button-wai-aria-support
-position: 50
+slug: button-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Button Accessibility
@@ -13,32 +13,41 @@ position: 50
 
 
 
-The Telerik UI for Blazor Button component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Button provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Button is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-button | `role=button` or `nodeName=button` | If for any reason the used element is not a `<button>` it should have an explicitly set `role` to `button`. |
-|  | `aria-label` |  Announces the purpose of the button if no text is provided to an icon button. |
+| `.k-button` | `role=button` or `nodeName=button` | If the used element is not `<button>`, explicitly set its `role` to `button`. |
+|  | `aria-label` | If no text has been provided to an Icon Button, announces the purpose of the Button. |
 
 ## Resources
 
-[ARIA practices Button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+[WAI-ARIA Authoring Practices: Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
 
 ## Section 508
 
 
-The Button is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Button is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Button has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Button has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor RangeSlider Documentation - RangeSlider  Accessibility
+page_title: Telerik UI for Blazor RangeSlider Documentation | RangeSlider  Accessibility
 description: "Get started with the Telerik UI for Blazor RangeSlider and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: rangeslider-wai-aria-support
-position: 50
+slug: rangeslider-wai-aria-support 
+position: 50 
 ---
 
 # Blazor RangeSlider Accessibility
@@ -13,9 +13,15 @@ position: 50
 
 
 
-The Telerik UI for Blazor RangeSlider component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor RangeSlider provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The RangeSlider is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 [Slider accessibility specification]({{slider_a11y_link}})
 
@@ -24,7 +30,7 @@ The two focusable elements of the RangeSlider must implement the specification f
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-draghandle | `aria-valuetext` | Specifies the text that would be announced based on the currently selected values in both handle elements (e.g. `aria-valuetext="10 - 50"`). |
+| `.k-draghandle` | `aria-valuetext` | Specifies the text that would be announced based on the currently selected values in both handle elements (e.g. `aria-valuetext="10 - 50"`). |
 
 ## Resources
 
@@ -33,16 +39,19 @@ The two focusable elements of the RangeSlider must implement the specification f
 ## Section 508
 
 
-The RangeSlider is compliant with the [Section 508](http://www.section508.gov/) requirements
+The RangeSlider is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The RangeSlider has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The RangeSlider has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

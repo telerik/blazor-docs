@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor ButtonGroup Documentation - ButtonGroup  Accessibility
+page_title: Telerik UI for Blazor ButtonGroup Documentation | ButtonGroup  Accessibility
 description: "Get started with the Telerik UI for Blazor ButtonGroup and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: buttongroup-wai-aria-support
-position: 50
+slug: buttongroup-wai-aria-support 
+position: 50 
 ---
 
 # Blazor ButtonGroup Accessibility
@@ -13,35 +13,44 @@ position: 50
 
 
 
-The Telerik UI for Blazor ButtonGroup component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor ButtonGroup provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The ButtonGroup is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-button-group:not(.k-split-button) | `role=group` | Sets the proper role for the group. |
-| .k-button-group.k-disabled | `aria-disabled=true` | Attribute is rendered only when the entire button group is disabled. |
-| .k-button-group:not(.k-split-button) .k-button | `aria-pressed` | Specifies the current state of the Button. Only the selected button in the Group would have this attribute set to `true`. |
+| `.k-button-group:not(.k-split-button)` | `role=group` | Sets the proper role for the group of buttons. |
+| `.k-button-group.k-disabled` | `aria-disabled=true` | The attribute is rendered only when the entire button group is disabled. |
+| `.k-button-group:not(.k-split-button):not(.k-scheduler-navigation) .k-button` | `aria-pressed` | Specifies the current state of the ButtonGroup. Only the selected button within the group will have this attribute set to `true`. |
 
 ## Resources
 
-[WAI-ARIA specification for button](https://www.w3.org/TR/wai-aria-1.2/#button)
+[WAI-ARIA `button` Role Specification](https://www.w3.org/TR/wai-aria-1.2/#button)
 
-[WAI-ARIA specification for group](https://www.w3.org/TR/wai-aria-1.2/#group)
+[WAI-ARIA `group` Role Specification](https://www.w3.org/TR/wai-aria-1.2/#group)
 
 ## Section 508
 
 
-The ButtonGroup is compliant with the [Section 508](http://www.section508.gov/) requirements
+The ButtonGroup is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The ButtonGroup has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The ButtonGroup has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

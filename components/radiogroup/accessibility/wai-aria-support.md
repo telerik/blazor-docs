@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor RadioGroup Documentation - RadioGroup  Accessibility
+page_title: Telerik UI for Blazor RadioGroup Documentation | RadioGroup  Accessibility
 description: "Get started with the Telerik UI for Blazor RadioGroup and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: radiogroup-wai-aria-support
-position: 50
+slug: radiogroup-wai-aria-support 
+position: 50 
 ---
 
 # Blazor RadioGroup Accessibility
@@ -13,37 +13,46 @@ position: 50
 
 
 
-The Telerik UI for Blazor RadioGroup component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor RadioGroup provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The RadioGroup is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-radio-list | `role=radiogroup` | Announces the radiogroup role of the element. |
-| .k-radio-item | `role=none` | Force no role due to nesting items issue. |
-| .k-radio | `readonly` or `aria-readonly` | Attribute is rendered only when the radio is readonly. |
-|  | `aria-invalid=true` | Attribute is rendered only when the radio is in form and announces the valid state of the component. |
-| .k-disabled>.k-radio | `disabled` or `aria-disabled` | Attribute is rendered only when the radio is disabled. |
+| `.k-radio-list` | `role=radiogroup` | Announces the `radiogroup` role of the element. |
+| `.k-radio-item` | `role=none` | Due to issues with nested items, forces a no-role state. |
+| `.k-radio` | `readonly` or `aria-readonly` | The attribute is rendered only when the radio button is read-only. |
+|  | `aria-invalid=true` | The attribute is rendered only when the radio button is in a `form` HTML element and announces the invalid state of the component. |
+| `.k-disabled > .k-radio` | `disabled` or `aria-disabled` | The attribute is rendered only when the radio button is disabled. |
 
 ## Resources
 
-[WAI-ARIA specification for radiogroup](https://www.w3.org/TR/wai-aria-1.2/#radiogroup)
+[WAI-ARIA Radio Group Specification](https://www.w3.org/TR/wai-aria-1.2/#radiogroup)
 
-[ARIA practices Radio Group](https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/)
+[WAI-ARIA Authoring Practices: Radio Group](https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/)
 
 ## Section 508
 
 
-The RadioGroup is compliant with the [Section 508](http://www.section508.gov/) requirements
+The RadioGroup is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The RadioGroup has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The RadioGroup has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

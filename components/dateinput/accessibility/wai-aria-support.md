@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor DateInput Documentation - DateInput  Accessibility
+page_title: Telerik UI for Blazor DateInput Documentation | DateInput  Accessibility
 description: "Get started with the Telerik UI for Blazor DateInput and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: dateinput-wai-aria-support
-position: 50
+slug: dateinput-wai-aria-support 
+position: 50 
 ---
 
 # Blazor DateInput Accessibility
@@ -13,17 +13,23 @@ position: 50
 
 
 
-The Telerik UI for Blazor DateInput component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor DateInput provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The DateInput is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-input-inner | `role=textbox` or `nodeName=input` | The element should either be an `<input type="text">` element or should have `role="textbox"` assigned. |
+| `.k-input-inner` | `role=textbox` or `nodeName=input` | The element should either be an `<input type="text">` element or should have `role="textbox"` assigned. |
 |  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
 |  | `readonly=readonly` or `aria-readonly=true` | Attribute is rendered only when the DateInput is readonly. |
 |  | `tabindex=0` | The element should be focusable. |
-| .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the DateInput is disabled. |
+| `.k-disabled .k-input-inner` | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the DateInput is disabled. |
 
 ## Resources
 
@@ -32,16 +38,19 @@ The Telerik UI for Blazor DateInput component is [WCAG 2.1 AA](https://www.w3.or
 ## Section 508
 
 
-The DateInput is compliant with the [Section 508](http://www.section508.gov/) requirements
+The DateInput is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The DateInput has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The DateInput has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

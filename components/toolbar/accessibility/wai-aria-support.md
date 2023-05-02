@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Toolbar Documentation - Toolbar  Accessibility
+page_title: Telerik UI for Blazor Toolbar Documentation | Toolbar  Accessibility
 description: "Get started with the Telerik UI for Blazor Toolbar and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: toolbar-wai-aria-support
-position: 50
+slug: toolbar-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Toolbar Accessibility
@@ -13,32 +13,41 @@ position: 50
 
 
 
-The Telerik UI for Blazor ToolBar component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor ToolBar provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The ToolBar is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-toolbar | `role=toolbar` | The component role. |
-|  | `aria-label` or `aria-labelledby` | Must be supplied on each ToolBar only when the application contains more than one ToolBar. |
+| `.k-toolbar` | `role=toolbar` | The component role. |
+|  | `aria-label` or `aria-labelledby` | Must be supplied on each toolbar only when the application contains more than one toolbars. |
 
 ## Resources
 
-[ARIA-ARIA specification for toolbar](https://www.w3.org/TR/wai-aria-1.2/#toolbar)
+[WAI-ARIA Specification for the ToolBar](https://www.w3.org/TR/wai-aria-1.2/#toolbar)
 
 ## Section 508
 
 
-The ToolBar is compliant with the [Section 508](http://www.section508.gov/) requirements
+The ToolBar is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The ToolBar has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The ToolBar has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

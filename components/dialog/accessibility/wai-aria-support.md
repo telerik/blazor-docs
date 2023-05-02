@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Dialog Documentation - Dialog  Accessibility
+page_title: Telerik UI for Blazor Dialog Documentation | Dialog  Accessibility
 description: "Get started with the Telerik UI for Blazor Dialog and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: dialog-wai-aria-support
-position: 50
+slug: dialog-wai-aria-support 
+position: 50 
 ---
 
 # Blazor Dialog Accessibility
@@ -13,24 +13,30 @@ position: 50
 
 
 
-The Telerik UI for Blazor Dialog component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor Dialog provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The Dialog is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 ### Dialog component
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-dialog | `role=dialog` | Announces the dialog role of the component. |
+| `.k-dialog` | `role=dialog` | Announces the dialog role of the component. |
 |  | `aria-labelledby=.k-dialog-titlebar id` | Associate the title of the dialog. |
 |  | `aria-describedby=.k-dialog-content id` | Associate the dialog content to the wrap element. |
-| .k-overlay + .k-dialog | `aria-modal=true` | Announces that the dialog is modal. Attribute is added only when the dialog is modal. |
+| `.k-overlay + .k-dialog` | `aria-modal=true` | Announces that the dialog is modal. Attribute is added only when the dialog is modal. |
 
 ### Predefined dialogs
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-dialog.k-prompt,.k-dialog.k-alert,.k-dialog.k-confirm | `role=alertdialog` | Announces the dialog role of the component. |
+| `.k-dialog.k-prompt,.k-dialog.k-alert,.k-dialog.k-confirm` | `role=alertdialog` | Announces the dialog role of the component. |
 
 ## Resources
 
@@ -39,16 +45,19 @@ The Telerik UI for Blazor Dialog component is [WCAG 2.1 AA](https://www.w3.org/T
 ## Section 508
 
 
-The Dialog is compliant with the [Section 508](http://www.section508.gov/) requirements
+The Dialog is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The Dialog has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The Dialog has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |
