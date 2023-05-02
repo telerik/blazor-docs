@@ -1,259 +1,400 @@
 ---
-title: ForeignKey column
-description: How to use a Foreign Key in Telerik Blazor components
+title: Grid Foreign Key Column
+description: How to sort, filter, group and edit a foreign key in Telerik Blazor Grid and TreeList?
 type: how-to
-page_title: Foreign Key Column
+page_title: Grid Foreign Key Column
 slug: grids-foreign-key
 position: 
-tags: 
-ticketid: 1436233
+tags: telerik, blazor, grid, treelist
+ticketid: 1436233, 1537132, 1537553, 1540098, 1540705, 1542404, 1570566, 1573165, 1585454, 1587062, 1595651, 1606327
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor, TreeList for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
-I have foreign keys in my grid data and I want to show data from related tables that is more user friendly (for example, a State name instead of a State ID).
+
+I have foreign keys in my Grid data and I want to show data from related tables that is more user-friendly (for example, a State Name instead of a State ID).
+
+How to define a column that uses an ID that references a string in another table? How to specify a foreign key list of objects to use for display, filter and group values in the Grid?
+
+How to filter, sort and group by text lookup string value?
+
+How to sort and filter the Grid based on the display text (foreign key values) and not based on ID value?
+
+How to show a drop down list of available values in edit mode and then assign the selected key back to the edited record?
+
+Grid columns use human readable values for dropdownlists. The Grid displays entities related via ID. How to sort alphabetically by the name in the cell, and not on the backing numeric field.
+
+How to display, sort and edit data in the Grid from a foreign key table? The entities are linked with a foreign key.
+
 
 ## Solution
-There are two approaches you can take:
 
-* Flatten the data so each model has all fields you will need (move fields from the foreign key table to the current grid data source) - this will let the grid show all those fields easily, and also to apply data source operations on them based on their field types (like boolean, date, etc.). 
-    * Whether this is feasible, whether it is performant enough and how it will be done is up to the business logic of the application. You may find useful [this article on using nested models]({%slug grid-use-navigation-properties%}), however, so you may be able to add entire model references instead of fully flattening the data.
+There are a few ways to implement the scenario:
 
-* Use the various [grid templates]({%slug components/grid/features/templates%}) to show the corresponding information from the foreign key table. You need to fetch that data in the view-model and provide fast synchronous operations for it. One example of this is available below.
+* Flatten the data and move fields from the foreign key table to the current Grid data source. In this way, the Grid model will have all fields you need. This will let the Grid show all values easily and also apply data operations on them based on their types (boolean, DateTime, etc.). Whether this is feasible and performant, and how to do it exactly, depends on the the business logic of the application.
+* [Use nested models]({%slug grid-use-navigation-properties%}), so that you may be able to add entire model references instead of fully flattening the data.
+* Keep the data normalized and use the various [Grid templates]({%slug components/grid/features/templates%}) to show the corresponding values from the foreign key tables. You need to fetch that data in the view-model and provide fast synchronous operations for it. The current article focuses on this approach.
 
->caption Use Foreign Key data in grid columns and templates
+### Use a foreign key column in the Grid
+
+1. Bind the Grid with an [`OnRead` event]({%slug common-features-data-binding-onread%}), in case you need to execute custom data operations, such as sorting or aggregate calculations. The built-in Grid data operations can work only on properties in the Grid model class.
+1. Use a [Grid column template]({%slug grid-templates-column%}) to display the lookup foreign key value. *Use fast and synchrounous logic to retrieve the user-friendly string values for better rendering performance.*
+1. Use a [Grid editor template]({%slug grid-templates-editor%}) to display a suitable editor, for example, a DropDownList with a list of possible values.
+1. Use a [Grid filter template]({%slug grid-templates-filter%}) to allow users to see and select user-frienly string values, and then, construct [filter descriptors]({%slug components/grid/filtering%}#filter-descriptors), which target properties in the Grid model. All filtering criteria for a given Grid column should reside in a single `CompositeFilterDescriptor`. This doesn't apply to [search descriptors]({%slug grid-searchbox%}), which reside in the `SearchFilter` property of the [Grid state]({%slug grid-state%}).
+1. Use a [Grid group header template]({%slug grid-templates-group-header%}) to display user-friendly lookup values when grouping.
+1. The [Grid can calculate aggregates]({%slug grid-aggregates%}) only for properties in the main model. This means the only meaningful and supported aggregate for a foreign key column is `count`. For other aggregates, calculate the values manually and provide them to `args.AggregateResults` in the `OnRead` handler. Or alternatively, render the custom calculated aggregates directly in the [footer template]({%slug grid-templates-column-footer%}) and [group footer template]({%slug grid-templates-column-group-footer%}).
+
+>caption Using Foreign Key column in Grid or TreeList with sorting, filtering, editing, grouping and aggregates
 
 ````CSHTML
 @using Telerik.DataSource
-@* using for the custom filters *@
+@using Telerik.DataSource.Extensions
 
-Templates let you extract the data from the foreign key data sources and render it out as desired.
-<strong>This extraction should be fast and synchronous, otherwise rendering speed will suffer</strong>.
-<br />
-You can even group by such a field and you can use the text value too. Note that the grid can calculate
-aggregates on the main data source field, so if you want something specific you should calculate it in your
-own data source and return it from a service to render in the corresponding header/footer/group template.
+<TelerikLoaderContainer Visible="@LoaderVisible" />
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Groupable="true" 
-             FilterMode="@GridFilterMode.FilterRow" Sortable="true" OnUpdate="@UpdateHandler">
+<TelerikGrid TItem="@Product"
+             OnRead="@OnGridRead"
+             Sortable="true"
+             Pageable="true"
+             Groupable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             EditMode="@GridEditMode.Inline"
+             OnUpdate="@OnGridUpdate"
+             OnCreate="@OnGridCreate"
+             OnDelete="@OnGridDelete"
+             OnStateInit="@( (GridStateEventArgs<Product> args) => OnGridStateInit(args) )">
+    <GridAggregates>
+        @* The Grid can calculate aggregates only for the main model property (foreign key value) *@
+        <GridAggregate Field="@nameof(Product.CategoryId)" Aggregate="@GridAggregateType.Count"></GridAggregate>
+    </GridAggregates>
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add New Product</GridCommandButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.ID) Editable="false" Title="ID" Groupable="false" />
-        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
-        <GridColumn Field=@nameof(Employee.RoleId) Title="Position">
-            <EditorTemplate>
-                @{
-                    CurrentlyEditedEmployee = context as Employee;
-                    <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
-                                         @bind-Value="@CurrentlyEditedEmployee.RoleId"
-                                         TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                                         Width="100%">
-                        <DropDownListSettings>
-                            <DropDownListPopupSettings Height="auto" />
-                        </DropDownListSettings>
-                    </TelerikDropDownList>
-                }
-            </EditorTemplate>
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
+        <GridColumn Field="@nameof(Product.CategoryId)" Title="Category">
             <Template>
                 @{
-                    int roleId = (context as Employee).RoleId;
-                    <text>@GetRoleNameFromId(roleId)</text>
+                    var product = (Product)context;
                 }
+                @* Templates should rely on fast and sync logic for better rendering performance. *@
+                @Categories.FirstOrDefault(x => x.Id == product.CategoryId)?.Name
             </Template>
-            <FooterTemplate>
-                Total employees: @context.Count
-            </FooterTemplate>
-            <GroupFooterTemplate>
-                Total employees in group: @context.Count
-            </GroupFooterTemplate>
-            <GroupHeaderTemplate>
-                Employees with role @GetRoleNameFromId(int.Parse(context.Value.ToString())) : @context.Count
-            </GroupHeaderTemplate>
-            <FilterCellTemplate>
+            <EditorTemplate>
                 @{
-                    theFilterContext = context;
+                    var product = (Product)context;
                 }
+                <TelerikDropDownList Data="@Categories"
+                                     @bind-Value="@product.CategoryId"
+                                     ValueField="@nameof(Category.Id)"
+                                     TextField="@nameof(Category.Name)" />
+            </EditorTemplate>
+            <FilterCellTemplate>
+                @* Filtering by single Category value *@
 
-                <TelerikMultiSelect Data="@Roles" @bind-Value="@FilteredRoles" Placeholder="Choose Roles to show" Class="no-x-button"
-                                    TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)" AutoClose="false">
-                    <MultiSelectSettings>
-                        <MultiSelectPopupSettings Width="120px" Height="auto" />
-                    </MultiSelectSettings>
-                </TelerikMultiSelect>
-                <TelerikButton ButtonType="ButtonType.Button"
-                               Class="k-clear-button-visible ml-2"
-                               Icon="@FontIcon.Filter"
-                               Enabled="@( FilteredRoles.Any() )"
-                               OnClick="@(async () =>
-                                          {
-                                              UpdateFilterDescriptor();
-                                              await context.FilterAsync();
-                                          })">
-                </TelerikButton>
-                <TelerikButton ButtonType="ButtonType.Button"
-                               Class="k-clear-button-visible ml-2"
-                               Icon="@FontIcon.FilterClear"
-                               Enabled="@( FilteredRoles.Any() )"
-                               OnClick="@(async () =>
-                                          {
-                                              FilteredRoles = new List<int>();
-                                              await context.ClearFilterAsync();
-                                          })">
-                </TelerikButton>
+                @*<TelerikComboBox Data="@Categories"
+                    Value="@CategoryIdFilter"
+                    ValueField="@nameof(Category.Id)"
+                    TextField="@nameof(Category.Name)"
+                    Placeholder="Filter by Category"
+                    Filterable="true"
+                    FilterOperator="@StringFilterOperator.Contains"
+                    ValueChanged="@( (int newValue) => OnCategoryFilterChange(newValue, context) )" />*@
+
+                @* OR *@
+                @* Filtering by multiple Category values *@
+
+                <TelerikMultiSelect Data="@Categories"
+                                    Value="@CategoryIdMultiFilter"
+                                    ValueField="@nameof(Category.Id)"
+                                    TextField="@nameof(Category.Name)"
+                                    Placeholder="Filter by Categories"
+                                    AutoClose="false"
+                                    Filterable="true"
+                                    FilterOperator="@StringFilterOperator.Contains"
+                                    ValueChanged="@( (List<int> newValues) => OnCategoryFilterMultiChange(newValues, context) )" />
             </FilterCellTemplate>
+            <GroupHeaderTemplate>
+                Category: @Categories.FirstOrDefault(x => x.Id == (int)context.Value)?.Name,
+                Products: @context.Count
+            </GroupHeaderTemplate>
+            <GroupFooterTemplate>
+                Products in Group: @context.Count
+            </GroupFooterTemplate>
+            <FooterTemplate>
+                Total Categories: @context.Count
+            </FooterTemplate>
+            <HeaderTemplate>
+                <strong>Category Foreign Key</strong>
+            </HeaderTemplate>
         </GridColumn>
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" DisplayFormat="{0:yyyy-MM-dd}" />
+        <GridColumn Field="@nameof(Product.InProduction)" Title="In Production" Width="150px">
+            <Template>
+                @{
+                    var product = (Product)context;
+                }
+                <TelerikCheckBox @bind-Value="@product.InProduction" Enabled="false" />
+            </Template>
+        </GridColumn>
+        <GridCommandColumn Width="200px">
             <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
-    <GridAggregates>
-        <GridAggregate Field="@nameof(Employee.RoleId)" Aggregate="@GridAggregateType.Count"></GridAggregate>
-    </GridAggregates>
 </TelerikGrid>
 
 @code {
-    List<Employee> MyData { get; set; }
-    List<Role> Roles { get; set; } = new List<Role>();
-    Employee CurrentlyEditedEmployee { get; set; }
-    FilterCellTemplateContext theFilterContext { get; set; }
-    List<int> FilteredRoles { get; set; } = new List<int>();
+    #region Razor Component Properties
 
-    async Task UpdateHandler(GridCommandEventArgs args)
+    private List<Category> Categories { get; set; } = new List<Category>();
+    private List<Product> Products { get; set; } = new List<Product>();
+
+    private int CategoryIdFilter { get; set; }
+    private List<int> CategoryIdMultiFilter { get; set; } = new List<int>();
+
+    private bool LoaderVisible { get; set; }
+
+    #endregion Razor Component Properties
+
+    #region Grid Data Binding and Filtering
+
+    private async Task OnGridRead(GridReadEventArgs args)
     {
-        Employee item = (Employee)args.Item;
-
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    public class Employee
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int RoleId { get; set; }
-    }
-
-    public class Role
-    {
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-    }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-        Roles = await MyService.GetRoles();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // a helper method to extract the foreign key data that we want to render
-    // this needs to be fast and synchronous because each render needs it many times
-    string GetRoleNameFromId(int roleId)
-    {
-        Role matchingPos = Roles.FirstOrDefault(r => r.RoleId == roleId);
-        return matchingPos != null ? matchingPos.RoleName : "Unknown";
-    }
-
-    // custom filtering - we use a filter template to get the current field values based on the text
-    // from the foreign key - the grid only has the current field so it can filter on that only
-    // for customized filtering, handle the OnRead event, add the desired descriptors there before
-    // sending them to your data service that can handle the special filtering scenario
-    void UpdateFilterDescriptor()
-    {
-        var filterDescriptor = theFilterContext.FilterDescriptor;
-        filterDescriptor.FilterDescriptors.Clear();
-        filterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-        foreach (int item in FilteredRoles)
+        if (!Products.Any())
         {
-            var descr = new FilterDescriptor("RoleId", FilterOperator.IsEqualTo, item);
-            descr.MemberType = typeof(int);
-            filterDescriptor.FilterDescriptors.Add(descr);
+            LoaderVisible = true;
+            await GenerateData();
         }
 
-        //ensure there is at least one blank filter to avoid null reference exceptions
-        if (!filterDescriptor.FilterDescriptors.Any())
+        DataSourceResult result;
+
+        // Example for custom sorting of a foreign key column. The code shows how to:
+        //
+        // 1. Get sorting information from the DataSourceRequest.
+        // 2. Handle the sorting manually and outside ToDataSourceResult().
+        // 3. Skip the built-in sorting.
+        //
+        // A real-world implementation can vary, depending on how much the data is, where it is, etc.
+        if (args.Request.Sorts.Any() && !args.Request.Groups.Any())
         {
-            filterDescriptor.FilterDescriptors.Add(new FilterDescriptor());
-        }
-    }
+            SortDescriptor sd = args.Request.Sorts.First();
 
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<Employee> _data { get; set; } = new List<Employee>();
-        private static List<string> Roles = new List<string> { "Manager", "Employee", "Contractor" };
-
-        public static async Task<List<Employee>> Read()
-        {
-            if (_data.Count < 1)
+            if (sd.Member == nameof(Product.CategoryId))
             {
-                for (int i = 0; i < 30; i++)
+                IEnumerable<Product> sortedProductsByCategory = new List<Product>(Products);
+
+                if (sd.SortDirection == ListSortDirection.Ascending)
                 {
-                    _data.Add(new Employee()
-                    {
-                        ID = i,
-                        Name = "name " + i,
-                        RoleId = i % 4 // every one in four is an unknown one that will not be present in the roles list
-                                       // and will have an ID of 0 to match the DefaultText of the dropdownlist
-                                       // you can perform more complicated checks as necessary in your app and/or in the templates
-                                       // and/or in the view-model data to present it with suitable values and avoid exceptions
-                    });
+                    sortedProductsByCategory = sortedProductsByCategory.OrderBy(p => p, new CategoryComparer(Categories));
                 }
+                else
+                {
+                    sortedProductsByCategory = sortedProductsByCategory.OrderByDescending(p => p, new CategoryComparer(Categories));
+                }
+
+                args.Request.Sorts.Remove(sd);
+
+                result = sortedProductsByCategory.ToDataSourceResult(args.Request);
             }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task<List<Role>> GetRoles()
-        {
-            var data = new List<Role>
-        {
-                new Role { RoleId = 1, RoleName = "Manager" },
-                new Role { RoleId = 2, RoleName = "Employee" },
-                new Role { RoleId = 3, RoleName = "Contractor" },
-            };
-
-            return await Task.FromResult(data);
-        }
-
-        public static async Task Update(Employee itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
+            else
             {
-                _data[index] = itemToUpdate;
+                result = Products.ToDataSourceResult(args.Request);
             }
         }
-    }
-}
+        else
+        {
+            result = Products.ToDataSourceResult(args.Request);
+        }
 
-<style>
-    .no-x-button .k-select .k-icon.k-i-close {
-        display: none;
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
+
+        LoaderVisible = false;
     }
-</style>
+
+    // filter by a single Category via ComboBox
+    private async Task OnCategoryFilterChange(int newValue, FilterCellTemplateContext context)
+    {
+        // update the ComboBox Value
+        CategoryIdFilter = newValue;
+
+        // Update the first FilterDescriptor in the column's CompositeFilterDescriptor.
+        // The Grid can only filter by properties in its model.
+        ((FilterDescriptor)context.FilterDescriptor.FilterDescriptors[0]).Value = CategoryIdFilter;
+        if (CategoryIdFilter > 0)
+        {
+            await context.FilterAsync();
+        }
+        else
+        {
+            await context.ClearFilterAsync();
+        }
+    }
+
+    // filter by multiple Categories via MultiSelect
+    private async Task OnCategoryFilterMultiChange(List<int> newValues, FilterCellTemplateContext context)
+    {
+        // update the MultiSelect Value
+        CategoryIdMultiFilter = newValues;
+
+        if (CategoryIdMultiFilter.Any())
+        {
+            // the default LogicalOperator is AND
+            context.FilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            context.FilterDescriptor.FilterDescriptors.Clear();
+
+            // for each selected MultiSelect item, add a FilterDescriptor to the column's CompositeFilterDescriptor
+            foreach (int categoryId in CategoryIdMultiFilter)
+            {
+                context.FilterDescriptor.FilterDescriptors.Add(new FilterDescriptor()
+                {
+                    // the Grid can only filter by properties in its model
+                    Member = nameof(Product.CategoryId),
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = categoryId
+                });
+            }
+
+            await context.FilterAsync();
+        }
+        else
+        {
+            await context.ClearFilterAsync();
+        }
+    }
+
+    #endregion Grid Data Binding and Filtering
+
+    private void OnGridStateInit(GridStateEventArgs<Product> args)
+    {
+        // Group Grid by default
+        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
+        {
+            Member = nameof(Product.CategoryId),
+            MemberType = typeof(int)
+        });
+    }
+
+    #region Grid CUD Events
+
+    private async Task OnGridUpdate(GridCommandEventArgs args)
+    {
+        Product updatedItem = (Product)args.Item;
+        int indexToUpdate = Products.FindIndex(x => x.Id == updatedItem.Id);
+        if (indexToUpdate != -1)
+        {
+            await Task.Delay(100); // simulate async operation
+            Products[indexToUpdate] = updatedItem;
+        }
+    }
+
+    private async Task OnGridCreate(GridCommandEventArgs args)
+    {
+        Product createdItem = (Product)args.Item;
+        await Task.Delay(100); // simulate async operation
+        Products.Insert(0, createdItem);
+    }
+
+    private async Task OnGridDelete(GridCommandEventArgs args)
+    {
+        Product itemToDelete = (Product)args.Item;
+        await Task.Delay(100); // simulate async operation
+        Products.Remove(Products.First(x => x.Id == itemToDelete.Id));
+    }
+
+    #endregion Grid CUD Events
+
+    #region Data Generation
+
+    private async Task GenerateData()
+    {
+        await Task.Delay(300); // simulate async operation
+
+        Random rnd = new Random();
+
+        int CategoryCount = 20;
+        int ProductCount = 150;
+
+        Categories = Enumerable.Range(1, CategoryCount).Select(x => new Category
+        {
+            Id = x,
+            // random numbers to demonstrate string sorting by Category Name
+            Name = $"Category {(rnd.Next(1, CategoryCount * 10)).ToString("D4")} {x}"
+        }).ToList();
+
+        Products = Enumerable.Range(1, ProductCount).Select(x => new Product
+        {
+            Id = x,
+            Name = $"Product Name {x}",
+            CategoryId = rnd.Next(1, CategoryCount + 1),
+            Price = (decimal)(rnd.Next(1, 11) * 1.24),
+            ReleaseDate = DateTime.Now.AddMonths(-rnd.Next(1, 25)).AddDays(-rnd.Next(1, 30)).Date,
+            InProduction = x % 3 != 0
+        }).ToList();
+    }
+
+    #endregion Data Generation
+
+    #region Models and IComparer for Custom Sorting
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public int CategoryId { get; set; }
+        public decimal Price { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool InProduction { get; set; }
+    }
+
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class CategoryComparer : IComparer<Product>
+    {
+        private List<Category> Categories { get; set; }
+
+        private string GetCategoryName(int? id)
+        {
+            return Categories.First(x => x.Id == id).Name;
+        }
+
+        public int Compare(Product? p1, Product? p2)
+        {
+            return GetCategoryName(p1?.CategoryId).CompareTo(GetCategoryName(p2?.CategoryId));
+        }
+
+        public CategoryComparer(List<Category> categories)
+        {
+            Categories = categories;
+        }
+    }
+
+    #endregion Models and IComparer for Custom Sorting
+}
 ````
 
 ## Notes
 
-This article and approach are applicable to the TreeList component as well, its functionality and API are very similar to the Grid component.
+This article and approach are applicable to the TreeList component as well. Its functionality and API are very similar to the Grid component.
