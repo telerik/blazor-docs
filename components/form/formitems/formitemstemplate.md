@@ -43,7 +43,7 @@ The Form setup uses the following architecture:
 * [`<TelerikFormGroupRenderer>`](#form-group-renderer) defines the **rendering place** of a specific form **group**.
 * [`<TelerikFormItemRenderer>`](#form-item-renderer) defines the **rendering place** of a specific form **item**.
 
-> As any other template, `FormItemsTemplate` overrides the built-in rendering of Form groups, items. When the `<FormItemsTemplate>` tag is used, the Form component will only render groups and items that are added inside it via renderers. The HTML output *inside* each form item is unrelated to this feature and is not affected. [Form `Columns`]({%slug form-columns%}) may work differently, depending on the exact template markup.
+> As any other template, `FormItemsTemplate` overrides the built-in rendering of Form groups and items. When the `<FormItemsTemplate>` tag is used, the Form component will render only groups and items that have their own *renderer* components. The HTML output *inside* each form item is unrelated to this feature and is not affected. [Form `Columns`]({%slug form-columns%}) and [FormItem `ColSpan`]({%slug form-formitems%}#formitem-parameters) may work differently or stop working, depending on the exact template markup. In such cases, stop using the built-in Form columns and achieve the desired layout with custom HTML and CSS.
 
 
 ## FormItemsTemplate
