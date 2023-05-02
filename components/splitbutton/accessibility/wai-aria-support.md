@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor SplitButton Documentation - SplitButton  Accessibility
+page_title: Telerik UI for Blazor SplitButton Documentation | SplitButton  Accessibility
 description: "Get started with the Telerik UI for Blazor SplitButton and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: splitbutton-wai-aria-support
-position: 50
+slug: splitbutton-wai-aria-support 
+position: 50 
 ---
 
 # Blazor SplitButton Accessibility
@@ -13,28 +13,37 @@ position: 50
 
 
 
-The Telerik UI for Blazor SplitButton component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
-
-## Wai-Aria
+Out of the box, the Telerik UI for Blazor SplitButton provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The SplitButton implements the same ARIA specification as the **DropDownButton** component.
+The SplitButton is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
+
+
+The SplitButton implements the same WAI-ARIA specification as the DropDownButton component.
 
 [DropDownButton accessibility specification]({{dropdownbutton_a11y_link}})
 
 ## Section 508
 
 
-The SplitButton is compliant with the [Section 508](http://www.section508.gov/) requirements
+The SplitButton is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The SplitButton has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The SplitButton has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

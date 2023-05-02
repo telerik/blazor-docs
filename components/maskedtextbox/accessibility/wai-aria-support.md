@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor MaskedTextBox Documentation - MaskedTextBox  Accessibility
+page_title: Telerik UI for Blazor MaskedTextBox Documentation | MaskedTextBox  Accessibility
 description: "Get started with the Telerik UI for Blazor MaskedTextBox and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: maskedtextbox-wai-aria-support
-position: 50
+slug: maskedtextbox-wai-aria-support 
+position: 50 
 ---
 
 # Blazor MaskedTextBox Accessibility
@@ -13,34 +13,45 @@ position: 50
 
 
 
-The Telerik UI for Blazor MaskedTextBox component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
-
-## Wai-Aria
+Out of the box, the Telerik UI for Blazor MaskedTextBox provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-**`input` Element**
+The MaskedTextBox is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
+
+### `input` Element
+
+
+The following table summarizes the selectors and attributes supported by the `input` element of the MaskedTextBox:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-input-inner | `role=textbox` or `nodeName=input` | Specifies the role of the component. Not required if `<input type=text`> is used. |
-|  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
-|  | `aria-placeholder` | Announces the mask/placeolder for the component. |
-| .k-invalid .k-input-inner,.ng-invalid .k-input-inner | `aria-invalid=true` | Attribute is rendered only when the maskedtextbox is in form and announces the valid state of the component. |
-| .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the maskedtextbox is disabled. |
+| `.k-input-inner` | `role=textbox` or `nodeName=input` | Specifies the role of the component. Not required if the `<input type=text`> configuration is used. |
+|  | `label for` or `aria-label` or `aria-labelledby` | The input requires an accessible name that will be assigned to it. |
+|  | `aria-placeholder` | Announces the mask or placeolder for the component. |
+| `.k-invalid .k-input-inner,.ng-invalid .k-input-inner` | `aria-invalid=true` | The attribute is rendered only when the MaskedTextBox is in a form and announces the valid state of the component. |
+| `.k-disabled .k-input-inner` | `disabled=disabled` or `aria-disabled=true` | The attribute is rendered only when the MaskedTextBox is disabled. |
 
 ## Section 508
 
 
-The MaskedTextBox is compliant with the [Section 508](http://www.section508.gov/) requirements
+The MaskedTextBox is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The MaskedTextBox has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The MaskedTextBox has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

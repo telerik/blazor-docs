@@ -13,19 +13,25 @@ position: 50
 
 
 
-The Telerik UI for Blazor ListView component is [WCAG 2.1 AAA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
+Out of the box, the Telerik UI for Blazor ListView provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
-## Wai-Aria
+
+The ListView is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AAA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-listview:not(.k-selectable) .k-listview-content | `role=list` | Specifies the role of non selectable ListView content element. |
-| .k-listview.k-selectable .k-listview-content | `role=listbox` | Specifies the role of selectable ListView content element. |
-| .k-listview:not(.k-selectable) .k-listview-item | `role=listitem` | Specifies the role of each item in a non selectable ListView. |
-| .k-listview.k-selectable .k-listview-item | `role=option` | Specifies the role of each item in a selectable ListView. |
-| .k-listview-item | `aria-setsize` | Specifies the total number of items present in the ListView. |
+| `.k-listview:not(.k-selectable) .k-listview-content` | `role=list` | Specifies the role of non selectable ListView content element. |
+| `.k-listview.k-selectable .k-listview-content` | `role=listbox` | Specifies the role of selectable ListView content element. |
+| `.k-listview:not(.k-selectable) .k-listview-item` | `role=listitem` | Specifies the role of each item in a non selectable ListView. |
+| `.k-listview.k-selectable .k-listview-item` | `role=option` | Specifies the role of each item in a selectable ListView. |
+| `.k-listview-item` | `aria-setsize` | Specifies the total number of items present in the ListView. |
 |  | `aria-posinset` | Specifies the position of the current item in the entire list of items present in the ListView. Value must be greated than or equal to 1 and smaller than or equal to the total number of items in the ListView. |
-| .k-listview-item:nth-child(1) | `tabindex=0` | The first item in the ListView must be focusable by default. |
+| `.k-listview-item:nth-child(1)` | `tabindex=0` | The first item in the ListView must be focusable by default. |
 
 ## Resources
 
@@ -36,16 +42,19 @@ The Telerik UI for Blazor ListView component is [WCAG 2.1 AAA](https://www.w3.or
 ## Section 508
 
 
-The ListView is compliant with the [Section 508](http://www.section508.gov/) requirements
+The ListView is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The ListView has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The ListView has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |

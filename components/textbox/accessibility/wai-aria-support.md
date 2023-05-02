@@ -1,10 +1,10 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor TextBox Documentation - TextBox  Accessibility
+page_title: Telerik UI for Blazor TextBox Documentation | TextBox  Accessibility
 description: "Get started with the Telerik UI for Blazor TextBox and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
-slug: textbox-wai-aria-support
-position: 50
+slug: textbox-wai-aria-support 
+position: 50 
 ---
 
 # Blazor TextBox Accessibility
@@ -13,37 +13,46 @@ position: 50
 
 
 
-The Telerik UI for Blazor TextBox component is [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component role, and is tested against the popular screen readers.
-
-## Wai-Aria
+Out of the box, the Telerik UI for Blazor TextBox provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-No role attribute is implemented as the  `html input type="text"` element is sufficient for definining purpose of the component.
+The TextBox is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+
+## WAI-ARIA
+
+
+This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
+
+
+No role attribute is implemented as the `html input type="text"` element is sufficient for definining the purpose of the component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| .k-input-inner | `role=textbox` or `nodeName=input` | Describes the role of the component. |
-|  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
-|  | `aria-invalid=true` | Attribute is rendered only when the textbox is in form and announces the valid state of the component. |
-| .k-disabled .k-input-inner | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the textbox is disabled. |
+| `.k-input-inner` | `role=textbox` or `nodeName=input` | Describes the role of the component. |
+|  | `label for` or `aria-label` or `aria-labelledby` | The input requires an accessible name that will be assigned to it. |
+|  | `aria-invalid=true` | The attribute is rendered only when the TextBox is in a form and announces the valid state of the component. |
+| `.k-disabled .k-input-inner` | `disabled=disabled` or `aria-disabled=true` | The attribute is rendered only when the TextBox is disabled. |
 
 ## Resources
 
-[WAI-ARIA specification for textbox](https://www.w3.org/TR/wai-aria-1.2/#textbox)
+[WAI-ARIA Specification for the TextBox](https://www.w3.org/TR/wai-aria-1.2/#textbox)
 
 ## Section 508
 
 
-The TextBox is compliant with the [Section 508](http://www.section508.gov/) requirements
+The TextBox is fully compliant with the [Section 508 requirements](http://www.section508.gov/).
 
 ## Testing
 
 
-The component has been extensively tested automatically with static code analyzers and manually with the most popular screen readers.
+The TextBox has been extensively tested automatically with [axe-core](https://github.com/dequelabs/axe-core) and manually with the most popular screen readers.
 
-> Any Accessibility Issues could be reported in [Telerik Support System](https://www.telerik.com/account/support-center).
+> To report any accessibility issues, contact the team through the [Telerik Support System](https://www.telerik.com/account/support-center).
 
 ### Screen Readers
+
+
+The TextBox has been tested with the following screen readers and browsers combinations:
 
 | Environment | Tool |
 | ----------- | ---- |
