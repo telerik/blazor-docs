@@ -1,14 +1,14 @@
 ---
-title: Snippets and Scaffolders
-page_title: Snippets and Scaffolders in Telerik REPL for Blazor
-description: Explore how to use the available Snippets and Scaffolders in Telerik REPL for Blazor
+title: Predefined Editor Snippets and Scaffolders
+page_title: Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor
+description: Explore how to use the available predefined editor Snippets and Scaffolders in Telerik REPL for Blazor
 slug: blazor-repl-snippets-scaffolders
 tags: telerik,blazor,repl,snippets,scaffolders
 published: True
 position: 5
 ---
 
-# Telerik REPL for Blazor Snippets and Scaffolders
+# Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor
 
 Telerik REPL for Blazor provides code snippets and scaffolders to increase your productivity. They enable you to quickly add and configure a selection of UI components in the REPL UI.
 
@@ -60,5 +60,5 @@ Telerik REPL for Blazor allows using one scaffolder at a time. By default, the s
 
 ## See Also
 
-* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-code-editor-snippets%})
+* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
 * [Integration of Telerik REPL for Blazor with VS and VS Code]({%slug blazor-repl-integration%})
