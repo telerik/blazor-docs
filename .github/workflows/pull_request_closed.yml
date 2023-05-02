@@ -13,7 +13,7 @@ jobs:
         id: fc
         with:
           issue-number: ${{github.event.number}}
-          body-includes: "- [x] create pr to production"
+          body-includes: "- [x] create PR to production"
       - name: checkout
         if: steps.fc.outputs.comment-id != ''
         uses: actions/checkout@v2
