@@ -17,56 +17,66 @@ The `GridPagerTemplate` allows you to modify the layout, content, and functional
 >caption Using the Telerik UI for Blazor Slider to paginate the Grid data
 
 ````CSHTML
-@page "/grid/pager-template"
-@inject WeatherForecastService WeatherForecastService
-@using System.Collections.ObjectModel
-@using Telerik.Blazor.Components.Grid;
-@using Telerik.DataSource.Extensions
-
-<div class="mr-5">
-    <TelerikGrid TItem="WeatherForecast"
-                 Pageable="true"
-                 @bind-Page="CurrentPage"
-                 Height="auto"
-                 Width="600px"
-                 OnRead=@ReadItems>
-        <GridColumns>
-            <GridColumn Field="Summary" />
-            <GridColumn Field="TemperatureC" Title="Temp. C" />
-            <GridColumn Field="Date" />
-        </GridColumns>
-        <GridPagerTemplate>
-            @{
-                var pages = (int)Math.Ceiling((decimal)Total / (decimal)PageSize);
-                if (pages == 0) pages = CurrentPage;
-            }
+@* Telerik Blazor Grid with Pager Template *@
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             @bind-Page="@CurrentPage"
+             PageSize="@PageSize">
+    <GridPagerTemplate>
+        <div style="padding:10px">
             <TelerikSlider @bind-Value="@CurrentPage"
+                           Width="100%"
                            Min="1"
-                           Max="@pages">
+                           Max="@Total">
             </TelerikSlider>
-        </GridPagerTemplate>
-    </TelerikGrid>
-</div>
+        </div>
+    </GridPagerTemplate>
+    <GridColumns>
+        <GridColumn Field="Name" Title="Product Name" />
+        <GridColumn Field="Price" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
+    </GridColumns>
+</TelerikGrid>
 
 @code {
-    public List<WeatherForecast> SourceData { get; set; }
-    public int CurrentPage { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
-    public int Total { get; set; }
+    private List<Product> GridData { get; set; }
 
-    protected async Task ReadItems(GridReadEventArgs args)
+    private int CurrentPage { get; set; } = 1;
+
+    private int PageSize { get; set; } = 10;
+
+    private int Total { get; set; } = 10;
+
+    protected override void OnInitialized()
     {
-        if (SourceData == null)
+        GridData = new List<Product>();
+
+        var rnd = new Random();
+
+        for (int i = 1; i <= 100; i++)
         {
-            SourceData = await WeatherForecastService.GetForecastAsync(53);
+            GridData.Add(new Product
+                {
+                    Id = i,
+                    Name = "Product name " + i,
+                    Price = (decimal)(rnd.Next(1, 50) * 3.14),
+                    Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
+                    Discontinued = i % 5 == 0
+                });
+
         }
 
-        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+        base.OnInitialized();
+    }
 
-        args.Data = datasourceResult.Data;
-
-        args.Total = datasourceResult.Total;
-        Total = datasourceResult.Total;
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public DateTime Released { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
