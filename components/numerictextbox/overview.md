@@ -108,7 +108,7 @@ The following parameters enable you to customize the [appearance]({%slug numeric
 
 >tip To learn more about the appearance, anatomy, and accessibility of the NumericTextBox, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/numerictextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
-## NumericTextBox Reference and Methods
+## Numeric TextBox Reference and Methods
 
 The NumericTextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance.
 
