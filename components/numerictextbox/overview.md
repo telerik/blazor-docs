@@ -44,7 +44,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 The Blazor Numeric TextBox allows you to define your desired custom format through the `Format` parameter, for example:
 
->caption Using custom format strings with the Blazor NumericTextBox
+>caption Using custom format strings with the Blazor Numeric TextBox
 
 ````CSHTML
 @Weight
