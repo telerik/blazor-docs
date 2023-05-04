@@ -42,7 +42,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Custom Format Strings
 
-The Blazor Numeric TextBox allows you to define your desired custom format through the `Format` parameter. Here are some examples:
+The Blazor Numeric TextBox allows you to define your desired custom format through the `Format` parameter, for example:
 
 >caption Using custom format strings with the Blazor NumericTextBox
 
