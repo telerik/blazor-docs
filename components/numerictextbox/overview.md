@@ -42,7 +42,9 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Custom Format Strings
 
-The Blazor Numeric TextBox allows you to define your desired custom format throu its `Format` parameter. Here are some examples of using custom format strings.
+The Blazor Numeric TextBox allows you to define your desired custom format through the `Format` parameter, for example:
+
+>caption Using custom format strings with the Blazor Numeric TextBox
 
 ````CSHTML
 @Weight
@@ -85,13 +87,15 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Format` | `string` | The number format when the input is not focused. Read more at [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) |
 | `Id` | `string` | The `id` attribute on the `<input />` element. |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
-| `Max` | numeric type | The maximum value the input can accept. Must match the `Value` type. |
-| `Min` | numeric type | The minimum value the input can accept. Must match the `Value` type. |
+| `Max` | `TValue`* <br /> (`T.MaxValue`) | The maximum value the input can accept. Must match the `Value` type. |
+| `Min` | `TValue`* <br /> (`T.MinValue`) | The minimum value the input can accept. Must match the `Value` type. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
-| `Step` | numeric type | The decimal value with which the value changes when using the arrows. Must maatch the `Value` type. |
-| `Value` | numeric type | The component value. |
+| `Step` | `TValue`* <br /> (`1`) | The decimal value with which the component value changes when using the arrows. Must match the `Value` type. |
+| `Value` | `TValue`* | The component value. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+
+\* `TValue` can be [any numeric type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), except `nint` and `nuint`. Note that all `TValue` parameters must be of the same type.
 
 ### Styling and Appearance
 
@@ -102,11 +106,11 @@ The following parameters enable you to customize the [appearance]({%slug numeric
 | `Class` | `string` | The CSS class that will be rendered on the `<span class="k-numerictextbox">` element. |
 | `Width` | `string` | The width of the component in [any supported CSS unit]({%slug common-features/dimensions%}). |
 
->tip To learn more about the appearance, anatomy, and accessibility of the NumericTextBox, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/numerictextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the Numeric TextBox, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/numerictextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
-## Component Reference
+## Numeric TextBox Reference and Methods
 
-The NumericTextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance.
+The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance.
 
 ````CSHTML
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
