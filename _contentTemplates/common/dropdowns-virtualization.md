@@ -33,8 +33,8 @@ the component will call this method to request the model that matches the `Value
 
 #limitations
 * When the initially selected item/items are on a page different than the first one, opening the dropdown list will NOT scroll the list to the selected item.
+* When virtualization is enabled, we are internally calculating the position of the items. In this case, the loading indicators are not displayed as they would affect the proper positioning of the items. The loading animation will be updated in a future version of UI for Blazor to affect virtualized popup as well.
 #end
-
 
 #remote-data-sample-intro
 This example showcases sample implementations of:
