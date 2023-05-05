@@ -248,7 +248,7 @@ navigation:
         title: "State Management"
      "*how-to":
         title: "How To"
-     "*grid":
+     "*/grid":
         title: "Grid"
      "*gridlayout":
         title: "Grid Layout"
@@ -479,6 +479,7 @@ intro_columns:
       "Grid": "grid-overview"
       "ListView": "listview-overview"
       "Pager": "pager-overview"
+      "PivotGrid": "pivotgrid-overview"
       "TreeList": "treelist-overview"
   -
     title: "File Management"
