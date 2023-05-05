@@ -14,13 +14,9 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 #### In This Article
 
-- [DropDownList Virtualization](#dropdownlist-virtualization)
-      - [In This Article](#in-this-article)
-  - [Basics](#basics)
-    - [Limitations](#limitations)
-  - [Local Data Example](#local-data-example)
-  - [Remote Data Example](#remote-data-example)
-  - [See Also](#see-also)
+* [Basics](#basics)
+* [Local Data Example](#local-data-example)
+* [Remote Data Example](#remote-data-example)
 
 
 >caption Display, scroll and filter over 10k records in the DropDownList without delays and performance issues.
