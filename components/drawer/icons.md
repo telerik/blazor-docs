@@ -49,6 +49,7 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
     .my-icon-purple {
         /* define a background image or a font icon glyph here */
         background: purple;
+        flex-shrink: 0;
     }
 </style>
 
