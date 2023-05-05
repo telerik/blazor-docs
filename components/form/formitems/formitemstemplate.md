@@ -379,7 +379,7 @@ This approach is suitable for scenarios where the application positions each For
 
         <p>Text before all form items.</p>
         <div class="form-item-wrapper">
-            <TelerikFormItemRenderer Item="@( formItems.First(x => x.Field == @nameof(Person.Id)) )" />
+            <TelerikFormItemRenderer Item="@( formItems.First(x => x.Field == nameof(Person.Id)) )" />
         </div>
         <div class="form-item-wrapper">
             <TelerikFormItemRenderer Item="@( formItems[1] )" />
