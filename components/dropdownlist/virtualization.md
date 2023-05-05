@@ -14,9 +14,13 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 #### In This Article
 
-* [Basics](#basics)
-* [Local Data Example](#local-data-example)
-* [Remote Data Example](#remote-data-example)
+- [DropDownList Virtualization](#dropdownlist-virtualization)
+      - [In This Article](#in-this-article)
+  - [Basics](#basics)
+    - [Limitations](#limitations)
+  - [Local Data Example](#local-data-example)
+  - [Remote Data Example](#remote-data-example)
+  - [See Also](#see-also)
 
 
 >caption Display, scroll and filter over 10k records in the DropDownList without delays and performance issues.
@@ -35,9 +39,7 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 ### Limitations
 
-@[template](/_contentTemplates/common/dropdowns-virtualization.md#limitations)
-
-
+* When the initially selected item/items are on a page different than the first one, opening the dropdown list will NOT scroll the list to the selected item.
 
 ## Local Data Example
 
