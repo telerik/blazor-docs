@@ -52,9 +52,9 @@ To customize the cell format of the exported file before it reaches the client, 
 
 1. Loop through the sheets, rows and cells to copy their content in the `IWorkbookExporter` instance.
 
-1. Apply proper formatting depending on the cell value types.
+1. [Apply proper formatting](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/cells#set-a-format) depending on the cell value types.
 
-1. Apply the defined styles to the desired cells.
+1. Apply the [defined styles](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles) to the desired cells.
 
 1. Pass the new `MemoryStream` to the `args.Stream` of the `GridAfterExcelExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
