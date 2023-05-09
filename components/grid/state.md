@@ -688,7 +688,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
                 Item = itemToSave
             });
         }
-        else
+        else if (gridState.EditItem != null)
         {
             await UpdateHandler(new GridCommandEventArgs()
             {
@@ -701,7 +701,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         gridState.OriginalEditItem = null;
         gridState.InsertedItem = null;
 
-        await GridRef.SetState(gridState);
+        await GridRef.SetStateAsync(gridState);
     }
 
     async Task CancelEditing()
@@ -713,7 +713,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
         gridState.OriginalEditItem = null;
         gridState.InsertedItem = null;
 
-        await GridRef.SetState(gridState);
+        await GridRef.SetStateAsync(gridState);
     }
 
     // Sample CRUD operations and data follow
