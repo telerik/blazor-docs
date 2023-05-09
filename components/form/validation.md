@@ -223,9 +223,11 @@ You can use third-party validation libraries that integrate with the standard `E
 
 >note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
 
-````CSHTML
-@* Use FluentValidation to validate a model *@ 
+<div class="skip-repl"></div>
 
+>caption Using FluentValidation
+
+````CSHTML
 @using Microsoft.AspNetCore.Components.Forms
 @using FluentValidation
 
