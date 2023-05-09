@@ -22,6 +22,8 @@ To use the Drawer for navigating between pages:
 
 >caption Use the Drawer for Navigation in `MainLayout.razor`
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @* This is a very basic layout to showcase the concept. You may want to add a header, footer, 
     collapse/expand button and add desired heights to the layout and drawer *@
