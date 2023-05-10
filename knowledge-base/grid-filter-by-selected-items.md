@@ -1,6 +1,6 @@
 ---
 title: Filter the Grid by selected items
-description: How to filter the Grid by selected items?
+description: How to filter the Grid by Selected Items?
 type: how-to
 page_title: Filter the Grid by selected items
 slug: grid-kb-filter-by-selected-items
@@ -23,25 +23,24 @@ res_type: kb
 
 ## Description
 
-How to filter the Grid by the selected items?
+How can I achieve the following with the Blazor Grid:
 
-When the user selects items on different pages, I want to force the Grid to only show the selected items. How to achieve that?
-
-How to sort only the selected items?
+* When the user selects items on different pages, I want to force the Grid to only show the selected items. So I need to filter the Grid by the selected items.
+*  If specific items are selected, I want to sort only the selected items.
 
 ## Solution
 
-To achieve the desired result, you can simulate filtering by the selected items:
+To achieve the desired result, simulate filtering by the selected items:
 
-* Get the [`SelectedItems`]({%slug components/grid/selection/multiple%}#selected-items) data and assign that as Grid data - thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations to the selected items only.
+1. Get the [`SelectedItems`]({%slug components/grid/selection/multiple%}#selected-items) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
 
-* To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
+1. To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
 
-* Consider and choose the desired UI for triggering that custom filtering - for example, filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug components/grid/selection/multiple%}#checkbox-selection)). 
+1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug components/grid/selection/multiple%}#checkbox-selection)). 
 
-**Key points:** 
-* [Refresh the Grid]({%slug grid-refresh-data%}) each time you are changing its data, so the changes are visible in the viewport
-* [Override the Equals method]({%slug components/grid/selection/overview%}#selecteditems-equals-comparison), so that the selection is preserved during filtering
+> [Refresh the Grid]({%slug grid-refresh-data%}) each time you change its data so the changes are visible in the viewport.
+>
+> [Override the `Equals` method]({%slug components/grid/selection/overview%}#selecteditems-equals-comparison) so that the selection is preserved during filtering.
 
 >caption Show only selected items in Grid
 ````CSHTML
