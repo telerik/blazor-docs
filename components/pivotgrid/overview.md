@@ -68,7 +68,15 @@ The PivotGrid exposes methods for programmatic operation. To use them, define a 
 
     private void OnButtonClick()
     {
+        PivotGridRef.Rebind();
+    }
 
+    public class PivotModel
+    {
+        public string Product { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public DateTime ContractDate { get; set; }
+        public decimal ContractValue { get; set; }
     }
 }
 ````

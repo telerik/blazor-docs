@@ -8,7 +8,7 @@ published: True
 position: 100
 ---
 
-# Blazor PivotGrid Events
+# PivotGrid Events
 
 This article describes the PivotGrid events and event arguments.
 
