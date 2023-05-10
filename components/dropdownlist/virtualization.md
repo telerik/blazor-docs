@@ -35,7 +35,7 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 ### Limitations
 
-* When the initially selected item/items are on a page different than the first one, opening the dropdown list will NOT scroll the list to the selected item.
+* When the initially selected item is not on the first page, the dropdown will *not* scroll the list to the selected item when opening.
 
 ## Local Data Example
 
