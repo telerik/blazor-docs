@@ -29,36 +29,36 @@ To share a code snippet to the Telerik REPL for Blazor you have the following op
 
 ### Share Using the Code Editor Context Menu
 
-To share your code using *Share to Telerik REPL for Blazor* from the code editor's context menu:
+To share your code by using the code editor's context menu:
 
 * Open a `.razor` file in the code editor.
 * Select code to share:
-    * To send the whole file - clear the selection.
-    * To send a part of the file - select the code.
+    * To send the whole file, clear any existing selection.
+    * To send a part of the file, select the desired part of the code.
 * Right-click over the code editor.
-* In the context menu click `Share to Telerik REPL for Blazor`.
+* In the context menu click **Share to Telerik REPL for Blazor**.
 
 ![Share Using the Code Editor Context Menu](images/share-to-repl-editor-context-menu.png)
 
 ### Share Using the Code Editor Command Palette
 
-To share your code with Share to Telerik REPL for Blazor from the command palette:
+To share your code by using the command palette:
 
 * Open a `.razor` file or a Razor language in the code editor.
 * Select code to share:
-    * To send the whole file - clear the selection.
-    * To send a part of the file - select the code.
+    * To send the whole file, clear any existing selection.
+    * To send a part of the file, select the desired part of the code.
 * Open the Command Palette (Ctrl+Shift+P in Windows/Linux or Cmd+Shift+P on Mac) and type `Share to Telerik REPL for Blazor`.
 
 ![Share Using the Code Editor Context Menu](images/share-to-repl-editor-command-palette.png)
 
 ### Share Using the File Explorer Context Menu
 
-To use Share to Telerik REPL for Blazor from the VS Code file explorer's context menu:
+To share an entire file by using the VS Code file explorer context menu:
 
 * Right-click a `.razor` file in the files tree.
-* Select the Share to Telerik REPL for Blazor.
+* Select the **Share to Telerik REPL for Blazor**.
 
 ![Share Using the Code Editor Context Menu](images/share-to-repl-file-explorer-context-menu.png)
 
->Multiple selection is not supported. Only the file that you have right-clicked will be sent.
+>Multiple selection is not supported when using the file explorer context menu. Only the file that you have right-clicked will be sent.
