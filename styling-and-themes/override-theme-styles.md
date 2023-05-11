@@ -12,7 +12,7 @@ position: 6
 
 Sometimes you may need to make a small change to the appearance of a component, while still using the same [built-in]({%slug general-information/themes%}) or [custom]({%slug themes-custom%}) theme.
 
-This article provides high-level guidance about the required knowledge and tools to override existing CSS styles without changing them.
+This article provides high-level guidance about the knowledge and tools required to override existing CSS styles without changing the theme's CSS file. In scenarios with a larger number of customizations, it may be [more practical to use a different approach, for example, a custom theme]({%slug common-kb-theme-customization-options%}).
 
 ## CSS Knowledge
 
