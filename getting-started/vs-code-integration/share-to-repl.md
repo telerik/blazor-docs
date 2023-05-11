@@ -47,7 +47,7 @@ To share a code snippet to Telerik REPL for Blazor you have a few options.
 
 1.  Share Using the File Explorer Context Menu
 
-    To use Share to Telerik REPL for Blazor from the VS Code's file explorer's context menu:
+    To use Share to Telerik REPL for Blazor from the VS Code file explorer's context menu:
 
     * Right-click a `.razor` file in the files tree.
     * Select the Share to Telerik REPL for Blazor.
