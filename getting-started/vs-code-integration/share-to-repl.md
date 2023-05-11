@@ -19,7 +19,7 @@ To use the **Share to Telerik REPL for Blazor** option, install the Telerik UI f
 
 ## Share a Code Snippet
 
-To share a code snippet to the Telerik REPL for Blazor you have a few options. 
+To share a code snippet to Telerik REPL for Blazor you have a few options. 
 
 1. Share Using the Code Editor Context Menu
     To share your code using Share to Telerik REPL for Blazor from the code editor's context menu:
