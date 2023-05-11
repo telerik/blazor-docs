@@ -8,9 +8,9 @@ position: 25
 
 # Share to Telerik REPL
 
-[Progress Telerik REPL for Blazor]((https://www.telerik.com/blazor-ui/repl)) is a browser-based playground for creating, saving, running and sharing Blazor code snippets.
+[Progress Telerik REPL for Blazor]((https://www.telerik.com/blazor-ui/repl)) is a browser-based playground for creating, saving, running, and sharing Blazor code snippets.
 
-The [Telerik UI for Blazor Productivity Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) provides integration with Telerik REPL for Blazor. It allows you to export your code snippet and share the generated URL to social media, community forums or with a team member.
+The [Telerik UI for Blazor Productivity Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) extension provides integration with Telerik REPL for Blazor. It allows you to export your code snippet and share the generated URL to social media, community forums, or with a team member.
 
 ## Get the Extension
 
@@ -19,39 +19,46 @@ To use the **Share to Telerik REPL for Blazor** option, install the Telerik UI f
 
 ## Share a Code Snippet
 
-To share a code snippet to Telerik REPL for Blazor you have a few options. 
+To share a code snippet to the Telerik REPL for Blazor you have the following options:
 
-1. Share Using the Code Editor Context Menu
-    To share your code using *Share to Telerik REPL for Blazor* from the code editor's context menu:
+* [Share Using the Code Editor Context Menu](#share-using-the-code-editor-context-menu)
 
-    * Open a `.razor` file or a Razor language in the code editor.
-    * Select code to share:
-        * To send the whole file - clear the selection.
-        * To send a part of the file - select the code.
-    * Right-click over the code editor.
-    * In the context menu click `Share to Telerik REPL for Blazor`.
+* [Share Using the Code Editor Command Palette](#share-using-the-code-editor-command-palette)
 
-    ![Share Using the Code Editor Context Menu](images/share-to-repl-editor-context-menu.png)
+* [Share Using the File Explorer Context Menu](#share-using-the-file-explorer-context-menu)
 
-1. Share Using the Code Editor Command Palette
+### Share Using the Code Editor Context Menu
 
-    To share your code with Share to Telerik REPL for Blazor from the command palette:
+To share your code using *Share to Telerik REPL for Blazor* from the code editor's context menu:
 
-    * Open a `.razor` file or a Razor language in the code editor.
-    * Select code to share:
-        * To send the whole file - clear the selection.
-        * To send a part of the file - select the code.
-    * Open the Command Palette (Ctrl+Shift+P in Windows/Linux or Cmd+Shift+P on Mac) and type `Share to Telerik REPL for Blazor`.
+* Open a `.razor` file in the code editor.
+* Select code to share:
+    * To send the whole file - clear the selection.
+    * To send a part of the file - select the code.
+* Right-click over the code editor.
+* In the context menu click `Share to Telerik REPL for Blazor`.
 
-    ![Share Using the Code Editor Context Menu](images/share-to-repl-editor-command-palette.png)
+![Share Using the Code Editor Context Menu](images/share-to-repl-editor-context-menu.png)
 
-1.  Share Using the File Explorer Context Menu
+### Share Using the Code Editor Command Palette
 
-    To use Share to Telerik REPL for Blazor from the VS Code file explorer's context menu:
+To share your code with Share to Telerik REPL for Blazor from the command palette:
 
-    * Right-click a `.razor` file in the files tree.
-    * Select the Share to Telerik REPL for Blazor.
-    
-    ![Share Using the Code Editor Context Menu](images/share-to-repl-file-explorer-context-menu.png)
+* Open a `.razor` file or a Razor language in the code editor.
+* Select code to share:
+    * To send the whole file - clear the selection.
+    * To send a part of the file - select the code.
+* Open the Command Palette (Ctrl+Shift+P in Windows/Linux or Cmd+Shift+P on Mac) and type `Share to Telerik REPL for Blazor`.
 
-> Please note, that multiple selection is not supported. Only the right-clicked file is sent.
+![Share Using the Code Editor Context Menu](images/share-to-repl-editor-command-palette.png)
+
+### Share Using the File Explorer Context Menu
+
+To use Share to Telerik REPL for Blazor from the VS Code file explorer's context menu:
+
+* Right-click a `.razor` file in the files tree.
+* Select the Share to Telerik REPL for Blazor.
+
+![Share Using the Code Editor Context Menu](images/share-to-repl-file-explorer-context-menu.png)
+
+>Multiple selection is not supported. Only the file that you have right-clicked will be sent.
