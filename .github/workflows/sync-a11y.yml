@@ -12,20 +12,36 @@ jobs:
     if: github.actor != 'kendo-bot'
 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for Akeyless
+      contents: read 
+      packages: read
     
     defaults:
       run:
         working-directory: src-a11y # The resources folder name
 
     steps:
+    - name: Import Secrets
+      id: import-secrets
+      uses: LanceMcCarthy/akeyless-action@v3
+      with:
+        access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+        static-secrets: |
+          {
+            "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN"
+          }
+        export-secrets-to-environment: false
+        export-secrets-to-outputs: true
     - name: Checkout branch
       uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+        token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
 
     - uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '18'
 
     - name: Install
       run: npm ci
