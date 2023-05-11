@@ -59,6 +59,10 @@ The Notification component renders a brief message to the user which holds infor
 
 Multiple Notifications can stack if they derive from different references. [Read the Stacked Notifications article for more information...]({%slug notification-stacked-notifications%})
 
+## Templates
+
+You can customize the rendering of the Notification by using Templates. To learn more about this feature, refer to the [Notification Templates article]({%slug notification-templates%}).
+
 ## Notification Parameters
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
@@ -91,13 +95,30 @@ You can customize the appearance and styling of the Notification component by ch
 
 ## Notifications Reference and Methods
 
-To use the methods of the Blazor Notification, add a reference to the component instance.
+To use the Blazor Notification methods, you have to get a reference to the component instance by using the `@ref` directive (example below).
 
 | Method | Description |
 | --- | --- |
 | `Show` | This method displays a new notification and has two different overloads available. The first overload receives a single parameter of type `NotificationModel`. The second overload accepts two `string` parameters, namely the notification's text and its theme color.  |
 | `Hide` | This method accepts a `NotificationModel` reference as a parameter and hides the corresponding notification. |
 | `HideAll` | This method hides all notifications. |
+
+>caption Get reference to the Notification and execute methods
+
+````CSHTML
+<TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" />
+
+@code {
+    private TelerikNotification NotificationReference { get; set; }
+
+    private void OpenNotification()
+    {
+        NotificationReference.Show("Notification Text", "success");
+    }
+}
+````
 
 You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide]({%slug notification-open-close-hide%}) article.
 

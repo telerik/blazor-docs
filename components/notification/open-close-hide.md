@@ -43,9 +43,9 @@ If you do not need to customize the [closing](#close-and-hide) or the icon of th
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void OpenNotification()
+    private void OpenNotification()
     {
         NotificationReference.Show("My notification", "success");
     }
@@ -64,9 +64,9 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void OpenNotification()
+    private void OpenNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -107,9 +107,9 @@ You can also let the user dismiss a notification message before that timer elaps
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void AddAutoClosingNotification()
+    private void AddAutoClosingNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -137,9 +137,9 @@ You can prevent the notification from closing automatically and let the user clo
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void AddManuallyClosingNotification()
+    private void AddManuallyClosingNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -168,20 +168,20 @@ To hide all notifications, you use the `HideAll` method. This function enables y
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void AddTwoNotifications()
+    private void AddTwoNotifications()
     {
         AddFirstNotification();
         AddSecondNotification();
     }
 
-    public void HideAllNotification()
+    private void HideAllNotification()
     {
         NotificationReference.HideAll();
     }
 
-    public void AddFirstNotification()
+    private void AddFirstNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -192,12 +192,12 @@ To hide all notifications, you use the `HideAll` method. This function enables y
         });
     }
 
-    public void AddSecondNotification()
+    private void AddSecondNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
             Text = "My Second Notification",
-            ThemeColor = "success",
+            ThemeColor = "error",
             Closable = true,
             Icon = FontIcon.Star
         });
