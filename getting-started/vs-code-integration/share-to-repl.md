@@ -54,4 +54,4 @@ To share a code snippet to Telerik REPL for Blazor you have a few options.
     
     ![Share Using the Code Editor Context Menu](images/share-to-repl-file-explorer-context-menu.png)
 
-> Please note, that multiple selection is not supported. Only the file you have right-clicked on is sent.
+> Please note, that multiple selection is not supported. Only the right-clicked file is sent.
