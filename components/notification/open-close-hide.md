@@ -22,7 +22,7 @@ This article explains how to open, close and hide the Notification component. Fo
 
 ## Open
 
-You can open (show) the Notification component by using the [`Show`]({%slug notification-overview%}#show-method) method of its reference.
+You can open (show) the Notification component by using the `Show` method of its reference.
 
 You can use it in two ways:
 
@@ -43,9 +43,9 @@ If you do not need to customize the [closing](#close-and-hide) or the icon of th
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void OpenNotification()
+    private void OpenNotification()
     {
         NotificationReference.Show("My notification", "success");
     }
@@ -64,9 +64,9 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void OpenNotification()
+    private void OpenNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -99,7 +99,6 @@ You can also let the user dismiss a notification message before that timer elaps
 
 >caption Automatically Closing Notification
 
-
 ````CSHTML
 @* By default, notification messages close on their own after 5 seconds *@
 
@@ -108,9 +107,9 @@ You can also let the user dismiss a notification message before that timer elaps
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void AddAutoClosingNotification()
+    private void AddAutoClosingNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -138,9 +137,9 @@ You can prevent the notification from closing automatically and let the user clo
 <TelerikNotification @ref="@NotificationReference" />
 
 @code {
-    public TelerikNotification NotificationReference { get; set; }
+    private TelerikNotification NotificationReference { get; set; }
 
-    public void AddManuallyClosingNotification()
+    private void AddManuallyClosingNotification()
     {
         NotificationReference.Show(new NotificationModel()
         {
@@ -154,6 +153,57 @@ You can prevent the notification from closing automatically and let the user clo
 }
 ````
 
+## Hide All Notifications
+
+To hide all notifications, you use the `HideAll` method. This function enables you to easily and quickly close all notifications at once.
+
+>caption Hide All Notifications
+
+````CSHTML
+@* Hide all the notifications at once *@
+
+<TelerikButton OnClick="@AddTwoNotifications">Add two notifications</TelerikButton>
+<TelerikButton OnClick="@HideAllNotification">Hide All Notifications</TelerikButton>
+
+<TelerikNotification @ref="@NotificationReference" />
+
+@code {
+    private TelerikNotification NotificationReference { get; set; }
+
+    private void AddTwoNotifications()
+    {
+        AddFirstNotification();
+        AddSecondNotification();
+    }
+
+    private void HideAllNotification()
+    {
+        NotificationReference.HideAll();
+    }
+
+    private void AddFirstNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "My First Notification",
+            ThemeColor = "success",
+            Closable = true,
+            Icon = FontIcon.Star
+        });
+    }
+
+    private void AddSecondNotification()
+    {
+        NotificationReference.Show(new NotificationModel()
+        {
+            Text = "My Second Notification",
+            ThemeColor = "error",
+            Closable = true,
+            Icon = FontIcon.Star
+        });
+    }
+}
+````
 
 ## See Also
 
