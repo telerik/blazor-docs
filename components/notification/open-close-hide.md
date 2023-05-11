@@ -155,7 +155,7 @@ You can prevent the notification from closing automatically and let the user clo
 
 ## Hide All Notifications
 
-To hide all notifications, you can use the `HideAll` method. This function enables you to easily and quickly close all notifications at once.
+To hide all notifications, you use the `HideAll` method. This function enables you to easily and quickly close all notifications at once.
 
 >caption Hide All Notifications
 
