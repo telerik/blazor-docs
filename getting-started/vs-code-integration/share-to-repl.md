@@ -8,7 +8,7 @@ position: 25
 
 # Share to Telerik REPL
 
-[Progress Telerik REPL for Blazor]((https://www.telerik.com/blazor-ui/repl)) is a browser-based playground for creating, saving, running, and sharing Blazor code snippets.
+[Progress Telerik REPL for Blazor](https://www.telerik.com/blazor-ui/repl) is a browser-based playground for creating, saving, running, and sharing Blazor code snippets.
 
 The [Telerik UI for Blazor Productivity Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) extension provides integration with Telerik REPL for Blazor. It allows you to export your code snippet and share the generated URL to social media, community forums, or with a team member.
 
