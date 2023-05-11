@@ -87,7 +87,7 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 
 ### Styling and Appearance
 
-The Notification appearance and styling can be easily customized. You can change the notifications' colors, animation type, size and stack order. You can find more information in the [Notification Appearance]({%slug notification-appearance%}) article.
+You can customize the appearance and styling of the Notification component by changing the notifications' colors, animation type, size, and stack order. For more information, see the [Notification Appearance]({%slug notification-appearance%}) article.
 
 ## Notifications Reference and Methods
 
