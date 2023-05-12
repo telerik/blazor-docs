@@ -13,6 +13,9 @@ jobs:
 
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write
+    
     defaults:
       run:
         working-directory: src-a11y # The resources folder name
