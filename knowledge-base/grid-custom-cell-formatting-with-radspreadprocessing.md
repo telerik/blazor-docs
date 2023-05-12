@@ -41,7 +41,7 @@ To customize the cell format of the exported file before it reaches the client, 
 
 1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import.
 
-2. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+2. Handle the [`OnAfterExport`]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
 3. [Import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#load-workbook-from-file-as-filestream-or-memorystream).
 
