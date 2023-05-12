@@ -12,7 +12,7 @@ position: 15
 
 You can customize the files exported to Excel and CSV by using the [OnBeforeExport](#onbeforeexport) and the [OnAfterExport](#onafterexport) events exposed to the `GridExcelExport` and `GridCsvExport` tags. 
 
-#### In this article
+#### In This article
 
   - [OnBeforeExport](#onbeforeexport)
     - [For Excel Export](#for-excel-export)
@@ -20,7 +20,6 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
   - [OnAfterExport](#onafterexport)
     - [For Excel Export](#for-excel-export-1)
     - [For CSV Export](#for-csv-export-1)
-  - [See Also](#see-also)
 
 ## OnBeforeExport
 
