@@ -28,8 +28,11 @@ If the tree supports the load-more functionality, the **Load More** button is re
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-treeview` | `role=tree` | The root `div` element of the TreeView. |
-| `.k-treeview-group:not(.k-treeview-lines)` | `role=group` | The `ul` element that wraps the child nodes. |
+| `.k-treeview-lines` | `role=tree` | The root `div` element of the treeview. |
+| `.k-treeview-group:not(.k-treeview-lines)` | `role=group` | The `ul` element that wraps child nodes. |
+| `.k-input-inner` | `aria-label` | Specifies the announced name for the filter input. |
+|  | `role=searchbox` | Specifies the role of the filter input. |
+|  | `aria-controls=.k-treeview-lines id` | Points to the main ul element .k-treeview-lines. |
 | `.k-treeview-item` | `role=treeitem` | The `li` element rendered for a tree node. |
 |  | `aria-level` | Announces the level of the tree node item. The value of the level is number-based (>=1). Must be added when only a subsection of the TreeView is rendered in the DOM. |
 |  | `aria-setsize` | Announces the total count of the items at this level. Enables the user to understand the position of the navigation, for example, item 3 of 14. Must be added only when the load-more functionality of the tree is enabled and there are still nodes belonging to the group that are not loaded (rendered) yet. |
