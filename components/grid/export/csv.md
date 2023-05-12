@@ -14,7 +14,7 @@ You can export the grid to CSV with a click of a button. The current filter, sor
 
 When you click the Export button, your browser will receive the resulting file.
 
-#### In this article
+#### In This Article
 
   - [Basics](#basics)
   - [Programmatic Export](#programmatic-export)
