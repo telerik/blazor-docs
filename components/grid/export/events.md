@@ -14,7 +14,6 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
 
 #### In this article
 
-      - [In this article](#in-this-article)
   - [OnBeforeExport](#onbeforeexport)
     - [For Excel Export](#for-excel-export)
     - [For CSV Export](#for-csv-export)
