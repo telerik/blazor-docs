@@ -31,7 +31,7 @@ In Blazor WASM application customizing the exported file using RadSpreadProcessi
 
 ## Solution
 
-Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
+Handle the [`OnAfterExport`]({%slug grid-export-events%}#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
 You can copy the bytes from this stream and import them in a [`RadSpreadStreamProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook) to access and modify the cells.
 
