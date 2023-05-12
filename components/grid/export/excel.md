@@ -195,5 +195,5 @@ The Excel export has the following specifics:
 ## See Also
 
   * [Live Demo: Grid Excel Export](https://demos.telerik.com/blazor-ui/grid/export-excel)
-  * [Custom cell formatting of the exported file with **RadSpreadProcessing**]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
+  * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
   * [Custom cell formatting of the exported file with **RadSpreadStreamProcessing**]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%}) 
