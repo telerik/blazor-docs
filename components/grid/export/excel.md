@@ -17,7 +17,6 @@ When you click the Export button, your browser will receive the resulting file.
 
 #### In this article
 
-- [Excel Export](#excel-export)
       - [In this article](#in-this-article)
   - [Basics](#basics)
   - [Programmatic Export](#programmatic-export)
