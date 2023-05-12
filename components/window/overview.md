@@ -46,27 +46,27 @@ The Window component displays a popup window, which shows users custom content. 
 
 ## Size
 
-The Window can occupy a predefined size on the screen, or expand automatically, based on the content. By default, users can resize the Window. [Read more about the Blazor Window size...]({%slug components/window/size%}).
+The Window can occupy a predefined size on the screen or expand automatically based on the content. By default, users can resize the Window. [Read more about the Blazor Window size...]({%slug components/window/size%})
 
 ## Position
 
-The component position can be offset with the `Top` and `Left` parameters. [Read more about the Blazor Window position...]({%slug components/window/position%}).
+You can offset the position of the component with the `Top` and `Left` parameters. [Read more about the Blazor Window position...]({%slug components/window/position%})
 
 ## Actions
 
-You can maximize, minimize, or close the Window through the action buttons in its titlebar. [Read more about the Blazor Window action buttons...]({%slug components/window/actions%}).
+You can maximize, minimize, or close the Window through the action buttons in its titlebar. [Read more about the Blazor Window action buttons...]({%slug components/window/actions%})
 
 ## Dragging
 
-You can move the Window on the page by dragging its titlebar. [Read more about the Blazor Window dragging option...]({%slug window-draggable%}).
+You can move the Window on the page by dragging its titlebar. [Read more about the Blazor Window dragging option...]({%slug window-draggable%})
 
 ## Modal
 
-The Window can be modal and prevent interacting with the rest of the page until it closes. [Read more about the Blazor Window Modal...]({%slug components/window/modal%}).
+The Window can be modal and prevent interacting with the rest of the page until it closes. [Read more about the Blazor Window Modal...]({%slug components/window/modal%})
 
 ## Events
 
-The [Window component fires events for visibility, state, size and position changes]({%slug window-events%}). Use them to respond to user actions.
+The Window component fires events for visibility, state, size, and position changes. Use these events to respond to user actions. [Read more about the Blazor Window Events...]({%slug window-events%})
 
 ## Window Parameters
 
