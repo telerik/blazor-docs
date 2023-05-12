@@ -38,7 +38,7 @@ You can copy the bytes from this stream and import them in a [`RadSpreadStreamPr
 
 In WebAssembly applications, the customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}).
 
-The example below targets Excel file export and customization. Same approach can be applied for CSV files.
+The example below demonstrates the export and customization of an Excel file. You can apply the same approach to CSV files.
 
 To customize the cell format of the exported file before it reaches the client:
 
