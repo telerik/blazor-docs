@@ -65,7 +65,7 @@ The Card provides various parameters that allow you to configure the component:
 | `Width` | `string` | defines width of the component.
 | `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the Card.
 | `Orientation` | `CardOrientation` | defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article]({%slug card-orientation%}).
-| `ThemeColor` | `string` | defines the appearance of the component. We support predefined theme colors such as info, error, success (members of the `Telerik.Blazor.ThemeColors` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
+| `ThemeColor` | `string` | defines the appearance of the component. We support predefined theme colors such as primary, secondary, tertiary, success, info, warning, error, dark, light, and inverse (members of the `Telerik.Blazor.ThemeConstants.Card` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
 | `ChildContent` | `RenderFragment` | defines the child content of the component. All possible building blocks can be directly used as a `ChildContent` of the Card.
 
 
