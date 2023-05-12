@@ -42,7 +42,7 @@ The example below demonstrates the export and customization of an Excel file. Yo
 
 To customize the cell format of the exported file before it reaches the client:
 
-1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Handle the [`OnAfterExport`]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized so that the resource does not leak. Its binary data, however, is available so you can copy the stream bytes to a new `MemoryStream` instance.
 
 1. Define the desired cell styles. The example below demonstrates adding cell fill, you can specify different [cell styles](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles) based on the result you want to achieve.
 
