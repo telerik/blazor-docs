@@ -45,7 +45,7 @@ To customize the cell format of the exported file before it reaches the client, 
 
 3. [Import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/knowledge-base/import-export-save-load-workbook#load-workbook-from-file-as-filestream-or-memorystream).
 
-4. Select the desired cells - create a [CellSelection](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet).
+4. Select the desired cells—create a [`CellSelection`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet).
 
 5. Add your desired cell modifications to the selected cells. The example below demonstrates adding cell fill, you can modify different [cell properties](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/get-set-clear-properties#cell-properties) based on the result you want to achieve.
 
