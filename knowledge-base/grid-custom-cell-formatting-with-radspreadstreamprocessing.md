@@ -36,7 +36,7 @@ Handle the [`OnAfterExport`]({%slug grid-export-events%}#onafterexport) event of
 You can copy the bytes from this stream and import them in a [`RadSpreadStreamProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook) to access and modify the cells.
 
 
-In WebAssembly applications customization of the exported Excel files is faster using the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) compared to [using the RadSpreadProcessing one]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}).
+In WebAssembly applications, the customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}).
 
 The example below targets Excel file export and customization. Same approach can be applied for CSV files.
 
