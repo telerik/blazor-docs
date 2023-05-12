@@ -33,7 +33,7 @@ You can copy the bytes from this stream and import them in a [`RadSpreadProcessi
 
 [`RadSpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) is a powerful library that allows you to create spreadsheets from scratch, modify existing documents or convert between the most common spreadsheet formats. In this case, we will focus on the file modification.
 
->tip In WebAssembly applications customization of the exported Excel files is faster using the [RadSpreadStreamProcessing library]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%}) compared to using the RadSpreadProcessing one.
+>tip In WebAssembly applications, the customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%}) than with RadSpreadProcessing.
 
 The example below targets Excel file export and customization. Same approach can be applied for [CSV files](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider).
 
