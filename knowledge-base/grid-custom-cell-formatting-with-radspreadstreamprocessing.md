@@ -40,7 +40,7 @@ In WebAssembly applications, the customization of the exported Excel files is fa
 
 The example below targets Excel file export and customization. Same approach can be applied for CSV files.
 
-To customize the cell format of the exported file before it reaches the client, do the following:
+To customize the cell format of the exported file before it reaches the client:
 
 1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
