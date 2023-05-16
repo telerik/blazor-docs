@@ -14,13 +14,6 @@ This article provides basic information about the <a href="https://www.telerik.c
 
 The Window component displays a popup window, which shows users custom content. The component provides predefined titlebar actions such as close, minimize and maximize. Custom actions are also supported. Other Window features include modality, resizing, and position control.
 
-#### In this article:
-
-* [How to create a Window](#creating-blazor-window)
-* [Responsive example](#responsiveness)
-* [Parameters](#window-parameters)
-* [Important notes](#important-notes)
-
 ## Creating Blazor Window
 
 1. Use the `TelerikWindow` tag.
@@ -53,18 +46,27 @@ The Window component displays a popup window, which shows users custom content. 
 
 ## Size
 
-The Window can occupy a predefined size on the screen, or expand automatically, based on the content. By default, users can resize the Window. Learn more about the [Window features, related to size and resizing]({%slug components/window/size%}).
+The Window can occupy a predefined size on the screen or expand automatically based on the content. By default, users can resize the Window. [Read more about the Blazor Window size...]({%slug components/window/size%})
 
+## Position
+
+You can offset the position of the component with the `Top` and `Left` parameters. [Read more about the Blazor Window position...]({%slug components/window/position%})
+
+## Actions
+
+You can maximize, minimize, or close the Window through the action buttons in its titlebar. [Read more about the Blazor Window action buttons...]({%slug components/window/actions%})
 
 ## Dragging
 
-By default, users can move the Window on the page by dragging its titlebar. Learn more about how to use the [Window's `Draggable` feature]({%slug window-draggable%}).
+You can move the Window on the page by dragging its titlebar. [Read more about the Blazor Window dragging option...]({%slug window-draggable%})
 
+## Modal
 
-## Responsiveness
+The Window can be modal and prevent interacting with the rest of the page until it closes. [Read more about the Blazor Window Modal...]({%slug components/window/modal%})
 
-The Window component can be responsive when the browser window size changes. Here is an [example how to achieve responsive Window behavior]({%slug window-kb-responsive%}). One way is to use the `Width` and `Height` parameters of the Window. Another option is to apply CSS styles.
+## Events
 
+The Window component fires events for visibility, state, size, and position changes. Use these events to respond to user actions. [Read more about the Blazor Window Events...]({%slug window-events%})
 
 ## Window Parameters
 
@@ -79,8 +81,58 @@ The following table lists the Window parameters, which are not discussed elsewhe
 | `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Visible` | `bool` | Defines if the Window is rendered and visible on the page. |
 
+## Window Reference and Methods
 
-## Important Notes
+The Window methods are accessible through its reference.
+
+| Method | Description |
+| --- | --- |
+| `Refresh` | Redraws the component. |
+
+>caption Get a reference to the Window and use its methods.
+
+````CSHTML
+@* This code snippet showcases an example usage of the Refresh() method. *@
+
+<TelerikButton OnClick="OpenWindow">Open Window</TelerikButton>
+
+<TelerikWindow @ref="WindowRef" @bind-Visible="_windowVisible">
+    <WindowTitle>
+        Window Title
+    </WindowTitle>
+    <WindowContent>
+        <p role="status">Current count: @_currentCount</p>
+        <TelerikButton OnClick="IncrementCount">Increment Count</TelerikButton>
+        <TelerikButton OnClick="@(() => { _windowVisible = false; })">Close</TelerikButton>
+    </WindowContent>
+</TelerikWindow>
+
+@code {
+    TelerikWindow WindowRef;
+
+    private bool _windowVisible;
+
+    private int _currentCount = 0;
+
+    private void IncrementCount()
+    {
+        _currentCount++;
+
+        WindowRef.Refresh();
+    }
+
+    private void OpenWindow()
+    {
+        _windowVisible = true;
+    }
+}
+````
+
+### Responsiveness
+
+The Window component can adapt to different screen sizes by making it responsive to changes in the browser window. Here is an [example that shows the two possible ways to achieve responsive Window behavior]({%slug window-kb-responsive%}). The first method involves utilizing the `Width` and `Height` parameters of the component. The second method is to apply custom CSS styles.
+
+### Important Notes
 
 The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of the Blazor app. This is required, so it can show over the other page content, and have correct position.
 
@@ -91,12 +143,16 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 * [Using an EditContext for a form holding a Window requires updating the EditContext]({%slug window-in-form-edit-context%})
 * [Block all content with a Window]({%slug window-kb-block-all-content%})
 
+## Next Steps
+
+* [Using the Window Events]({%slug window-events%})
 
 ## See Also
 
-* [Live Demos: Window](https://demos.telerik.com/blazor-ui/window/index)
+* [Live Demo: Window](https://demos.telerik.com/blazor-ui/window/index)
 * [Window Size, Maximize, Minimize]({%slug components/window/size%})
 * [Window Actions]({%slug components/window/actions%})
 * [Window Events]({%slug window-events%})
 * [Window Position]({%slug components/window/position%})
 * [Modal Window]({%slug components/window/modal%})
+* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)
