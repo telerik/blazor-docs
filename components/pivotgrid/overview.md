@@ -13,6 +13,15 @@ position: 0
 The <a href="https://www.telerik.com/blazor-ui/pivotgrid" target="_blank">Blazor PivotGrid component</a> is a powerful data visualization component that allows you to perform operations over multi-dimensional pivot data.
 
 
+## Definitions
+
+The PivotGrid component and this documentation use the following terms:
+
+* Pivot **row**
+* Pivot **column**
+* Pivot **measure**
+
+
 ## Creating Blazor PivotGrid
 
 1. Foo
@@ -48,7 +57,32 @@ The following table lists the PivotGrid parameters. Also check the [PivotGrid AP
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `Data` | `IEnumerable<TItem>` |  |
+| `DataProviderType` | `PivotGridDataProviderType` enum <br /> (`Local`) |  |
+| `EnableLoaderContainer` | `bool` (`true`) | Sets if a built-in [LoaderContainer]({%slug loadercontainer-overview%}) will show during long-running operations (over 600ms). |
+| `Height` | `string` | A `height` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
+| `LoadOnDemand` | `bool` <br /> (`true`) |  |
+| `TItem` | `object` | The PivotGrid `@typeparam`. Required if the data item type cannot be inferred at compile-time. |
 | `Width` | `string` | A `width` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
+
+### Parameters for Rows, Columns and Measures
+
+The following table lists parameters of the `PivotGridRow`, `PivotGridColumn` and `PivotGridMeasure` tags.
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Aggregate` | `PivotGridAggregate` enum <br /> (`Sum`) | The nature of the calculated aggregate value. Applies to `PivotGridMeasure` only. |
+| `Name` | `string` | The field name of the respective row, column or measure. |
+
+
+## PivotGridConfigurator Parameters
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid-configurator">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `Fields` | `List<object>` | |
+| `Filterable` | `bool` | |
+| `Sortable` | `bool` | |
 
 
 ## PivotGrid Reference and Methods
@@ -84,7 +118,7 @@ The PivotGrid exposes methods for programmatic operation. To use them, define a 
 
 ## Next Steps
 
-* [...]({%slug pivotgrid-events%})
+* [Explore the PivotGrid data binding and data providers]({%slug pivotgrid-data-binding%})
 * [...]({%slug pivotgrid-events%})
 * [Handle PivotGrid events]({%slug pivotgrid-events%})
 

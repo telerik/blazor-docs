@@ -10,7 +10,22 @@ position: 10
 
 # PivotGrid Data Binding
 
-This article describes the PivotGrid configurator.
+This article describes the PivotGrid data binding mechanism.
+
+
+## Data Provider Type
+
+The PivotGrid supports different data sources via its `DataProviderType` parameter. The parameter type is `PivotGridDataProviderType` enum and its default value is `Local`. The following table lists all supported data provider types together with some usage details.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Data Provider Type | Description |
+| --- | --- |
+| `Adomd` |  |
+| `IQueryable` |  |
+| `Local` |  |
+| `Xmla` |  |
+
 
 ## Foo
 
