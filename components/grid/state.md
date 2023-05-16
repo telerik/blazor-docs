@@ -10,100 +10,290 @@ position: 50
 
 # Grid State
 
-The Grid lets you save, load and change its current state through code. The state management includes all the user-configurable elements of the grid - such as sorting, filtering, paging, grouping, edited items, selection, column size and order.
+The Grid lets you save, load and change its state through code. The state includes the Grid features that are *controlled by the user*, such as current sorting, current page number, applied grouping, column width, and many others.
 
-You can see this feature in the [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state).
+The Grid state is a generic class `GridState<TItem>`. The type depends on the type of the Grid model. The state contains properties that correspond to the Grid features and behaviors, which are controlled by the user.
 
-This article contains the following sections:
-
-
-
-<!-- Start Document Outline -->
-
-* [Basics](#basics)
-	* [Events](#events)
-	* [Methods](#methods)
-* [Information in the Grid State](#information-in-the-grid-state)
-* [Examples](#examples)
-	* [Save and Load Grid State from Browser LocalStorage](#save-and-load-grid-state-from-browser-localstorage)
-    * [Save and Load Grid State in a WebAssembly application](#save-and-load-grid-state-in-a-webassembly-application)
-	* [Set Grid Options Through State](#set-grid-options-through-state)
-	* [Set Default (Initial) State](#set-default-initial-state)
-	* [Get and Override User Action That Changes The Grid](#get-and-override-user-action-that-changes-the-grid)
-	* [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
-	* [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
-
-<!-- End Document Outline -->
-
-
-## Basics
-
-The grid state is a generic class whose type is determined by the type of the model you use for the grid. It contains fields that correspond to the grid behaviors which you can use to save, load and modify the grid state.
-
-Fields that pertain to model data (such as edited item, inserted item, selected items) are also typed according to the grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals `check for a class (model) is a reference check and the reference from the storage is unlikely to match the reference from the grid `Data`. Thus, you may want to override the `.Equals` method of the model you use so it compares by an ID, for example, or otherwise (in the app logic) re-populate the models in the state object with the new model references from the grid data source.
-
-The grid offers two events and two methods to allow flexible operations over its state:
-
-* [Events](#events)
-
-* [Methods](#methods)
-
-### Events
-
-The `OnStateInit` and `OnStateChanged` events are raised by the grid so you can have an easy to use hook for loading and saving state, respectively.
-
-* `OnStateInit` fires when the grid is initializing and you can provide the state you load from your storage to the `GridState` field of its event arguments.
-
-* `OnStateChanged` fires when the user makes a change to the grid state (such as paging, sorting, grouping, filtering, editing, selecting and so on). The `GridState` field of the event argument provides the current grid state so you can store it. The `PropertyName` field of the event arguments indicates what is the aspect that changed.
-    * @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values)
-    * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete. In case you need to execute logic that requires UI update, use **`async Task`**.
-    * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `GridState` field of the event argument will provide correct information about the overall Grid state in both event handler executions.
-
-By using the `OnStateChanged` and `OnStateInit` events, you can save and restore the grid layout for your users by calling your storage service in the respective handler.
-
-### Methods
-
-The `GetState` and `SetStateAsync` instance methods provide flexibility for your business logic. They let you get and set the current grid state on demand outside of the grid events.
-
-* `GetState` returns the grid state so you can store it only on a certain condition - for example, you may want to save the grid layout only on a button click, and not on every user interaction with the grid. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the OnRead event.
-
-* `SetStateAsync` takes an instance of a grid state so you can use your own code to alter the grid layout and state. For example, you can have a button that puts the grid in a certain configuration that helps your users review data (like certain filters, sorts, groups, expanded detail templates, initiate item editing or inserting, etc.).
-
-If you want to make changes on the current grid state, first get it from the grid through the `GetState` method, then apply the modifications on the object you got and pass it to `SetStateAsync`.
-
-If you want to put the grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there, then pass it to `SetStateAsync`.
-
-To reset the grid state, call `SetStateAsync(null)`.
-
-You should avoid calling `SetStateAsync` in the grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
 
 ## Information in the Grid State
 
-The following information is present in the grid state:
+The `GridState<TItem>` object exposes the following properties:
 
-* **Editing** - whether the user was inserting or editing an item (opens the same item for editing with the current data from the built-in editors of the grid - the data is updated in the `OnChange` event, not on every keystroke for performance reasons). The `OriginalEditItem` carries the original model without the user modifications so you can compare.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* **Filtering** - filter descriptors (fields by which the grid is filtered, the operator and value).
+| Property | Type | Description |
+| --- | --- | --- |
+| `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups]({%slug components/grid/features/grouping%}) when `LoadGroupsOnDemand="false"`, i.e. when *not* [loading groups on demand]({%slug grid-group-lod%}). |
+| `ColumnStates` | `ICollection<GridColumnState>` | Information about each [column's reorder index, width, visibility, locked state, `Id` parameter value and `Field`]({%slug components/grid/columns/bound%}). The column order in the collection matches the column order in the Grid declaration. On the other hand, the `Index` property matches the current column's position in the UI. **`Id` and `Field` are always `null` after deserialization, because these properties have no public setters.** |
+| `EditField` | `string` | The currently edited data item property in [`Incell` edit mode]({%slug components/grid/editing/incell%}). |
+| `EditItem` | `TItem`* | The currently edited data item in [any edit mode]({%slug components/grid/editing/overview%}). |
+| `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)]({%slug components/grid/features/hierarchy%}). |
+| `FilterDescriptors` | `ICollection<IFilterDescriptor>` | All filtering criteria, except the ones that relate to the[`GridSearchBox`]({%slug grid-searchbox%}). |
+| `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping]({%slug components/grid/features/grouping%}). |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. |
+| `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
+| `Page` | `int?` | The current [page index]({%slug components/grid/features/paging%}). Some user actions reset the page index to 1, such as filtering or changing the page size. |
+| `SearchFilter` | `IFilterDescriptor` | The `CompositeFilterDescriptor` that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
+| `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)]({%slug components/grid/selection/overview%}). |
+| `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling]({%slug components/grid/virtual-scrolling%}). In other words, this is the number of rows above the currently visible ones. |
+| `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts]({%slug components/grid/features/sorting%}). |
+| `TableWidth` | `string` | The sum of all visible column widths. This property changes together with `ColumnStates`. The `OnStateChanged` event does not fire separately for it. |
 
-* **SearchFilter** - filter descriptor specific to the GridSearchBox.
+\* `TItem` is the Grid model type.
 
-* **Grouping** - group descriptors (fields by which the grid is grouped), collapsed group indexes.
+> If you change the column order or number of columns in the Grid declaration, this can break state restore. In such cases, either ignore the stored column state, or implement custom logic to restore the state of columns that still exist in the Grid.
+>
+> If you want to change the visibility of columns, it's better to use the `Visible` parameter, rather than conditional markup. The `Visible` parameter will be present in the state and will not change the columns collection count, which makes it easier to reconcile changes.
 
-* **Paging** - page index, offset (skip) for virtual scrolling.
 
-* **Rows** - list of expanded items.
+## Events
 
-* **Sorting** - sort descriptors (fields by which the grid is sorted, and the direction).
+The Grid features two events, which are related to its state.
 
-* **Selection** - list of selected items.
+### OnStateInit
 
-* **Columns** - Visible, Width, Index (order) of the column that the user sees, Locked (pinned).
+The `OnStateInit` event fires when the Grid is initializing. Use this event to:
 
-    * The grid matches the columns from its markup sequentially (in the same order) with the columns list in the state object. So, when you restore/set the state, the grid must initialize with the same collection of columns that were used to save the state.
-    
-        The `Index` field in the column state object represents its place (order) that the user sees and can choose through the `Reordable` feature, not its place in the grid markup. You can find an example below.
-    
-        If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
+* Define initial state, for example default initial sorting;
+* Load and apply state that was previously saved in a database or in `localStorage`.
+
+The generic event argument is of type `GridStateEventArgs<TItem>`. It has one important property and that is `GridState`. See [Information in the Grid State](#information-in-the-grid-state) for details about its members.
+
+The example below shows how to apply initial sorting, filtering and grouping.
+
+>caption Using Grid OnStateInit
+
+````CSHTML
+@using Telerik.DataSource
+
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             PageSize="5"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Groupable="true"
+             OnStateInit="@( (GridStateEventArgs<Product> args) => OnGridStateInit(args) )">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Category)" />
+        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Product> GridData { get; set; }
+
+    private async Task OnGridStateInit(GridStateEventArgs<Product> args)
+    {
+        // Sort by Stock
+        args.GridState.SortDescriptors.Add(new SortDescriptor()
+        {
+            Member = nameof(Product.Stock),
+            SortDirection = ListSortDirection.Descending
+        });
+
+        // Filter Discontinued products
+        var discontinuedColumnFilter = new CompositeFilterDescriptor()
+        {
+            FilterDescriptors = new FilterDescriptorCollection() {
+                 new FilterDescriptor()
+                 {
+                    Member = nameof(Product.Discontinued),
+                    MemberType = typeof(bool),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = false
+                 }
+             }
+        };
+        args.GridState.FilterDescriptors.Add(discontinuedColumnFilter);
+
+        // Group by Category
+        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
+        {
+            Member = nameof(Product.Category),
+            MemberType = typeof(string)
+        });
+    }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 12; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Category = $"Category {i % 2 + 1}",
+                Stock = rnd.Next(0, 100),
+                Discontinued = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public int Stock { get; set; }
+        public bool Discontinued { get; set; }
+    }
+}
+````
+
+### OnStateChanged
+
+`OnStateChanged` fires when the user performs an action that changes the value of a [property in the Grid state](#information-in-the-grid-state). The event argument is of type `GridStateEventArgs<TItem>` and exposes these properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `PropertyName` | `string` | Information about what changed in the Grid state. The possible values match the [property names of the `GridState` object](#information-in-the-grid-state). @[template](/_contentTemplates/grid/state.md#statechanged-possible-prop-values) |
+| `GridState` | `GridState<TItem>` | The current (up-to-date) Grid state object. |
+
+>tip Some user actions will trigger two `OnStateChanged` events with different `PropertyName` each time. For example, filtering also resets the current page to 1. First, the event will fire with `PropertyName` equal to `"Page"`, and then `PropertyName` will be `"FilterDescriptors"`. However, the `GridState` property of the event argument will provide correct information about the overall Grid state in both event handler executions.
+
+> We recommend you to use an **`async Task`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking UI updates if the handler will wait for a service to save the Grid state somwhere.
+
+>caption Using Grid OnStateChanged
+
+````CSHTML
+@using System.Text.Json
+@using Telerik.DataSource
+
+<div id="demo-container">
+    <TelerikGrid Data="@GridData"
+                 FilterMode="@GridFilterMode.FilterMenu"
+                 Groupable="true"
+                 Pageable="true"
+                 PageSize="5"
+                 Resizable="true"
+                 Reorderable="true"
+                 @bind-SelectedItems="@GridSelectedItems"
+                 SelectionMode="@GridSelectionMode.Multiple"
+                 Sortable="true"
+                 OnStateChanged="@( (GridStateEventArgs<Product> args) => OnGridStateChanged(args) )"
+                 Width="800px">
+        <GridToolBarTemplate>
+            <GridSearchBox />
+        </GridToolBarTemplate>
+        <GridColumns>
+            <GridCheckboxColumn SelectAll="true" />
+            <GridColumn Field="@nameof(Product.Name)" />
+            <GridColumn Field="@nameof(Product.Category)" />
+            <GridColumn Field="@nameof(Product.Stock)" />
+            <GridColumn Field="@nameof(Product.Discontinued)" />
+        </GridColumns>
+    </TelerikGrid>
+
+    <div id="console">
+        <code>OnStateChanged</code> count: @OnStateChangedCount
+        <br />
+        Information about the last <code>OnStateChanged</code> event:
+        <br />
+        <strong>PropertyName</strong>: <code>&quot;@GridStateChangedProperty&quot;</code>
+        <br />
+        <strong>GridState</strong>:
+<pre>
+@GridStateString
+</pre>
+    </div>
+</div>
+
+<style>
+    #demo-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+        #demo-container > .k-grid {
+            flex: 0 1 auto;
+        }
+
+    #console {
+        height: 90vh;
+        overflow: auto;
+        border: 1px solid red;
+        flex: 1 0 auto;
+    }
+</style>
+
+@code {
+    private List<Product> GridData { get; set; }
+
+    private IEnumerable<Product> GridSelectedItems { get; set; } = new List<Product>();
+
+    private int OnStateChangedCount { get; set; }
+
+    private string GridStateChangedProperty { get; set; }
+
+    private string GridStateString { get; set; }
+
+    private async Task OnGridStateChanged(GridStateEventArgs<Product> args)
+    {
+        ++OnStateChangedCount;
+        GridStateChangedProperty = args.PropertyName;
+        GridStateString = JsonSerializer.Serialize(args.GridState, new JsonSerializerOptions() { WriteIndented = true });
+    }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 12; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Category = $"Category {i % 2 + 1}",
+                Stock = rnd.Next(0, 100),
+                Discontinued = i % 3 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public int Stock { get; set; }
+        public bool Discontinued { get; set; }
+    }
+}
+````
+
+## Methods
+
+The `GetState` and `SetStateAsync` methods of the [Grid instance]({%slug grid-overview%}#grid-reference-and-methods) let you get and set the current Grid state on demand outside of the Grid events.
+
+* `GetState` returns the Grid state, so you can save it or retrieve specific information. it only on a certain condition - for example, you may want to save the grid layout only on a button click, and not on every user interaction with the grid. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the OnRead event.
+
+* `SetStateAsync` receives an instance of a `GridState<TItem>` object and applies it to the Grid. For example, you can have a button that puts the Grid in a certain configuration programmatically, for example sort or filter the data, enter or exit edit mode, expand or collapse groups or detail Grids, etc.
+
+If you want to make changes to the current Grid state:
+
+1. First, get the current state with the `GetState()` method.
+1. Apply the desired modifications to the obtained `GridState` object.
+1. Set the modified state object via the `SetStateAsync` method.
+
+> Do not use `GetState` and `SetStateAsync` in the `OnStateInit` event. It's neither necessary, nor effective.
+
+If you want to put the Grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there, then pass it to `SetStateAsync`.
+
+To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
+
+Avoid calling `SetStateAsync` in the grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after the event. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
+
+
+## Equals Comparison
+
+State properties that pertain to data items (for example, edited item or selected items) are typed according to the Grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals()` check for a class (object) is a *reference check* and the reference from the restored state is very unlikely to match the current reference in the Grid data. Thus, you may want to override the `.Equals()` method of the Grid model class, so that it compares by ID, or otherwise re-populate the models in the state object with the new model references from the Grid data.
 
 
 ## Examples
@@ -928,5 +1118,4 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 
 ## See Also
 
-  * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
-   
+* [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
