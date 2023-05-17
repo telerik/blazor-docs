@@ -187,6 +187,8 @@ The `ISvgIcon` interface members are:
 | `Content` | `string` | All `<path>` tags inside the `<svg>` tag. |
 | `ViewBox` | `string` | The [`viewBox` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) value of the `<svg>` tag. |
 
+>tip You can use a custom SVG icon collection together with the built-in icon rendering feature of all components that have an `Icon` or `IconField` parameter, such as the Button, ContextMenu, Drawer, Menu, PanelBar, TreeView, etc.
+
 >caption Define custom SVG icon collection
 
 ````CSHTML
@@ -236,15 +238,18 @@ It is possible to configure the icon type for the whole application:
 
 ## Icons List
 
-Here is a list of all available built-in icons in Telerik UI for Blazor.
+The [Telerik Design System](https://www.telerik.com/design-system/docs/) website provides a list of all [**built-in icons in Telerik UI for Blazor**](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/).
 
-To define an icon with C# syntax, remove the "k-i-" part and use a PascalCase name. For example, `k-i-caret-tr` will become `FontIcon.CaretTr` or `SvgIcon.CaretTr`.
+To define an icon with C# syntax, replace the **kebap-case** with **PascalCase**. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
 
->caption Built-in Telerik Blazor Icons
+Each icon box in the icon list is clickable and reveals the following details:
 
-Please allow a few seconds for all icons to render. It is also possible to [open the frame as a standalone web page](https://telerik.github.io/kendo-icons/).
+* CSS class aliases, if such exist. Use the CSS classes for [manual HTML rendering of font icons](#render-font-icons-with-html). For example `k-i-plus` is equivalent to `k-i-add`. The C# icon names have no aliases.
+* Unicode representation of the font icon glyph. For example, `\e11e` corresponds to the `plus` icon.
+* Ability to copy the glyph symbol of the font icon.
+* Ability to copy the HTML markup (`<svg>` tag) of the SVG icon.
 
-<iframe src="https://telerik.github.io/kendo-icons/" style="width: 100%; height: 550px;"></iframe>
+The icon list may contain icons, which are not available in older versions of Telerik UI for Blazor, or even in the latest one. Such icons will be added in the next product version.
 
 
 ## See Also
