@@ -244,7 +244,7 @@ To define an icon with C# syntax, replace the **kebab-case** with **PascalCase**
 
 Each icon box in the icon list is clickable and reveals the following details:
 
-* CSS class aliases, if such exist. Use the CSS classes for [manual HTML rendering of font icons](#render-font-icons-with-html). For example `k-i-plus` is equivalent to `k-i-add`. The C# icon names have no aliases.
+* CSS class aliases, if such exist. Use the CSS classes for [manual HTML rendering of font icons](#render-font-icons-with-html). For example, `k-i-plus` is equivalent to `k-i-add`. The C# icon names have no aliases.
 * Unicode representation of the font icon glyph. For example, `\e11e` corresponds to the `plus` icon.
 * Ability to copy the glyph symbol of the font icon.
 * Ability to copy the HTML markup (`<svg>` tag) of the SVG icon.
