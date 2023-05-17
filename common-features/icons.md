@@ -249,7 +249,7 @@ Each icon box in the icon list is clickable and reveals the following details:
 * Ability to copy the glyph symbol of the font icon.
 * Ability to copy the HTML markup (`<svg>` tag) of the SVG icon.
 
-The icon list may contain icons, which are not available in older versions of Telerik UI for Blazor, or even in the latest one. Such icons will be added in the next product version.
+The icon list may contain icons which are not available in older versions of Telerik UI for Blazor or even in the latest one. Such icons will be added in the next product version.
 
 
 ## See Also
