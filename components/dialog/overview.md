@@ -91,7 +91,7 @@ The Dialog methods are accessible through its reference.
 
 | Method | Description |
 | --- | --- |
-| `Refresh` | Redraws the component. |
+| `Refresh` | The way the Telerik Dialog component is displayed is by rendering it as a child of the `TelerikRootComponent`, rather than its initial declaration location. As a result, when the Dialog is shown and its content is updated, it doesn't refresh automatically. To ensure that the updated content is correctly displayed within the Dialog, the `Refresh` method must be manually invoked. |
 
 >caption Get a reference to the Dialog and use its methods.
 
