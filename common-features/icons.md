@@ -240,7 +240,7 @@ It is possible to configure the icon type for the whole application:
 
 The [Telerik Design System](https://www.telerik.com/design-system/docs/) website provides a list of all [**built-in icons in Telerik UI for Blazor**](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/).
 
-To define an icon with C# syntax, replace the **kebab-case** with **PascalCase**. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
+To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
 
 Each icon box in the icon list is clickable and reveals the following details:
 
