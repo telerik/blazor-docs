@@ -29,7 +29,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | -------- | --------- | ----- |
 | `.k-input-inner` | `role=combobox` | The input element should follow the `combobox` specification. |
 |  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
-|  | `aria-haspopup=grid` | Indicates the component has a Dialog Popup. |
+|  | `aria-haspopup=dialog` | Indicates the component has a Dialog Popup. |
 |  | `aria-expanded=true/false` | Announces whether the Popup is visible or not. |
 |  | `aria-controls=.k-calendar-container id` | Points to the popup element. Signifies that the `combobox` element controls the Calendar `grid`. |
 |  | `aria-activedescendant=.k-calendar-td.k-focus id` | Points to the focused item (date/month/year/hour/minute) in the Calendar Popup or the Time Popup. Should only be present when the Popup is open. |
