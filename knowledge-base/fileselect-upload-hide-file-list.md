@@ -71,8 +71,9 @@ Upload:
     /* hide selected files */
     .k-upload.button-only .k-upload-files,
     /* hide Upload status */
-    .k-upload.button-only .k-upload-status {
-
+    .k-upload.button-only .k-upload-status,
+    /* hide drop hint */
+    .k-upload.button-only .k-dropzone-hint{
         display: none;
     }
 </style>
