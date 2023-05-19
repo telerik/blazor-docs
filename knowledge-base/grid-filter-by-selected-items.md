@@ -25,7 +25,7 @@ res_type: kb
 
 How can I achieve the following with the Blazor Grid:
 
-* When the user selects items on different pages, I want to force the Grid to only show the selected items. So I need to filter the Grid by the selected items.
+* How to filter the Grid, so that it shows only the selected items on different pages.
 * If specific items are selected, I want to sort only the selected items.
 
 ## Solution
