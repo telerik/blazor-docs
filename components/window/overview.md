@@ -21,7 +21,7 @@ The Window component displays a popup window, which shows users custom content. 
 1. Add content to the `WindowContent` child tag.
 1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported, too.
 1. (optional) Add a [`Close` action]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
-1. (optional) Add content within the `WindowFooter` tag to include custom content in the section rendered at the bottom.
+1. (optional) Add a `WindowFooter` tag to include custom content in the bottom section of the Window.
 
 >caption Basic Blazor Window
 
