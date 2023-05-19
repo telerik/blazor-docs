@@ -5,7 +5,7 @@ type: how-to
 page_title: Filter the Grid by selected items
 slug: grid-kb-filter-by-selected-items
 position: 
-tags: grid,filter,selected,only
+tags: grid,filter,selected
 ticketid: 1558031
 res_type: kb
 ---
