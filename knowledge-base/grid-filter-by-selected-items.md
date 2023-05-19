@@ -30,7 +30,7 @@ How can I achieve the following with the Blazor Grid:
 
 ## Solution
 
-To achieve the desired result, simulate filtering by the selected items:
+To simulate filtering by the selected items:
 
 1. Get the [`SelectedItems`]({%slug components/grid/selection/multiple%}#selected-items) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
 
