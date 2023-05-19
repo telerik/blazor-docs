@@ -20,7 +20,7 @@ The Blazor Button provides a variety of styling options through the [built-in th
 
 1. Use the `<TelerikButton>` tag to add the component to your razor page.
 
-1. Add an `OnClick` event handler to show the current date and time.
+1. Handle the `OnClick` event to respond to the user action.
 
 >caption Basic Blazor Button with `OnClick` event handler
 
@@ -30,9 +30,9 @@ The Blazor Button provides a variety of styling options through the [built-in th
 <TelerikButton OnClick="@OnClickHandler">Hello!</TelerikButton>
 
 @code {
-    string result;
+    private string result;
 
-    async Task OnClickHandler()
+    private async Task OnClickHandler()
     {
         result = DateTime.Now.ToString();
     }
@@ -53,29 +53,50 @@ The Blazor Button fires events that you can handle and respond to user actions. 
 
 ## Disabled State
 
-To prevent user interaction with a Button, disable it. [Read more about the disabled Blazor Button...]({%slug button-disabled%}).
+To prevent user interaction with a Button, disable it. [Read more about the disabled state of the Blazor Button...]({%slug button-disabled%}).
 
 ## Styling
 
-To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug general-information/themes%}). Additionally, set the `Class` attribute and implement custom CSS rules. [Read more about the Blazor Button styling...]({%slug button-styling%})
+To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug general-information/themes%}). Additionally, set the `Class` attribute to implement custom CSS rules or [configure the built-in appearance options]({%slug button-styling%}).
 
 >tip To learn more about the appearance, anatomy, and accessibility of the Button, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/button/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
-## Button Reference
+## Button Parameters
 
-Add a reference to the Button instance to use its methods (for example - `FocusAsync()`). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+The Blazor Button provides various parameters that allow you to configure the component. Also check the [Button's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton).
 
->caption Component namespace and reference
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default Value | Description |
+|----------|----------|----------|
+| `ButtonType` | `ButtonType` enum <br/> (`ButtonType.Submit`)  | The `type` attribute of the Button. |
+|`Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Button (`<button class="k-button>`). |
+| `Enabled` | `bool` <br/> (`true`) | Whether the Button is enabled. |
+| `Form` | `string` | The ID of the associated form. Allows using a submit button outside a form. |
+| `Id` | `string` | The `id` attribute of the Button. |
+| `Icon` | `object` | The [icon rendered in the Button]({%slug button-icons%}). Can be set to a predefined Telerik icon or a custom one. | 
+| `Title` | `string` | The `title` attribute of the Button. |
+| `Visible` | `bool` <br/> (`true`) | Whether the Button is visible. |
+
+## Button Reference and Methods
+
+Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Method | Description |
+| --- | --- |
+| `FocusAsync` | Focuses the Button component. Always call with `await`. |
 
 ````CSHTML
-<TelerikButton @ref="theButton">Hello!</TelerikButton>
+<TelerikButton @ref="ButtonRef">Hello!</TelerikButton>
 
-@code{
-    Telerik.Blazor.Components.TelerikButton theButton { get; set; }
+@code {
+    private Telerik.Blazor.Components.TelerikButton ButtonRef { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await theButton.FocusAsync();
+        await ButtonRef.FocusAsync();
 
         await base.OnAfterRenderAsync(firstRender);
     }
@@ -88,9 +109,6 @@ Add a reference to the Button instance to use its methods (for example - `FocusA
 
 * [Using Button Icons]({%slug button-icons%})
 
->caption The result from the code snippet above
-
-![use css to change the button size](images/button-size-change.png)
 
 ## See Also
 
