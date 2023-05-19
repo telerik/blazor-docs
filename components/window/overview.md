@@ -21,6 +21,7 @@ The Window component displays a popup window, which shows users custom content. 
 1. Add content to the `WindowContent` child tag.
 1. (optional) Add some title inside a `WindowTitle` tag. HTML markup and child components are supported, too.
 1. (optional) Add a [`Close` action]({%slug components/window/actions%}) inside a `<WindowActions>` tag.
+1. (optional) Add a `WindowFooter` tag to include custom content in the bottom section of the Window.
 
 >caption Basic Blazor Window
 
@@ -35,6 +36,9 @@ The Window component displays a popup window, which shows users custom content. 
     <WindowActions>
         <WindowAction Name="Close" />
     </WindowActions>
+    <WindowFooter>
+        Window Footer Content ...
+    </WindowFooter>
 </TelerikWindow>
 
 <TelerikButton OnClick="@( () => WindowIsVisible = !WindowIsVisible )">Toggle window</TelerikButton>
@@ -80,6 +84,7 @@ The following table lists the Window parameters, which are not discussed elsewhe
 | `Size` | `string` | A predefined Window **width**. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
 | `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Visible` | `bool` | Defines if the Window is rendered and visible on the page. |
+| `FooterLayoutAlign` | `WindowFooterLayoutAlign` enum <br /> (`Stretch`) | Controls the alignment of the HTML elements in the `WindowFooter`. Takes a member of the `WindowFooterLayoutAlign` enum. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
 
 ## Window Reference and Methods
 
