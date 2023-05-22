@@ -6,7 +6,7 @@ slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 3
+position: 4
 ---
 
 # Typical Workflow for Using the UI for Blazor Components
