@@ -37,9 +37,9 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 
         <div style="float:left; margin: 20px;">
             <TelerikToolBar Size="@size">
-                <ToolBarButton Icon="cut">Cut</ToolBarButton>
-                <ToolBarButton Icon="cut">Copy</ToolBarButton>
-                <ToolBarButton Icon="cut">Paste</ToolBarButton>
+                <ToolBarButton Icon="@SvgIcon.Cut">Cut</ToolBarButton>
+                <ToolBarButton Icon="@SvgIcon.Copy">Copy</ToolBarButton>
+                <ToolBarButton Icon="@SvgIcon.Clipboard">Paste</ToolBarButton>
             </TelerikToolBar>
         </div>
     }
