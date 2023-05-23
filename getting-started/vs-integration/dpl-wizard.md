@@ -8,7 +8,7 @@ position: 30
 
 # Configuring Document Processing Libraries
 
-This article demonstrates how to add a reference to the [Telerik Document Processing Libraries (DPL)](https://www.telerik.com/document-processing-libraries) packages in an existing **Telerik UI for Blazor** application using the **Document Processing Libraries Wizard**. The wizard is included in the [Telerik UI for Blazor Visual Studio extensions](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) and enables you to easily add the required packages when working with the Telerik Document Processing Library. The core functionality of the Wizard is to add DPL NuGet references to the project using the `dpl` folder in the distribution that the project uses.
+This article demonstrates how to add a reference to the [Telerik Document Processing Libraries (DPL)](https://www.telerik.com/document-processing-libraries) packages in an existing **Telerik UI for Blazor** application using the **Document Processing Libraries Wizard**. The wizard is included in the [Telerik UI for Blazor Visual Studio extensions](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions) and enables you to easily add the required packages when working with the Telerik Document Processing Library.
 
 ## Getting the Wizard
 
