@@ -17,6 +17,8 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 
 ````CSHTML
 @using System.Collections.Generic;
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
@@ -35,18 +37,24 @@ With the `FormTemplate` feature, you can customize the appearance and content of
                 @{
                     EditItem = context.Item as Person;
 
-                    <TelerikForm Model="@EditItem" OnValidSubmit="@OnValidSubmit">
-                        <FormItems>
-                            <FormItem Field="EmployeeId" Enabled="false"></FormItem>
-                            <FormItem Field="Name"></FormItem>
-                            <FormItem Field="AgeInYears" LabelText="Custom Age Label:"></FormItem>
+                        <TelerikForm Model="@EditItem" OnValidSubmit="@OnValidSubmit">
+                            <FormItems>
+                                <FormItem Field="EmployeeId" Enabled="false"></FormItem>
+                                <FormItem Field="Name">
+                                </FormItem>
+                                <FormItem Field="AgeInYears" LabelText="Custom Age Label:"></FormItem>
                             <FormItem Field="HireDate" LabelText="Custom Hire Date Label:"></FormItem>
-                        </FormItems>
-                        <FormButtons>
-                            <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
-                            <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
-                        </FormButtons>
-                    </TelerikForm>
+                            <FormItem>
+                                <Template>
+                                    <TelerikDropDownList Data="@PositionsData" @bind-Value="@EditItem.Position"></TelerikDropDownList>
+                                </Template>
+                            </FormItem>
+                            </FormItems>
+                            <FormButtons>
+                                <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
+                                <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                            </FormButtons>
+                        </TelerikForm>
                 }
             </FormTemplate>
         </GridPopupEditFormSettings>
@@ -56,6 +64,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
         <GridColumn Field=@nameof(Person.Name) />
         <GridColumn Field=@nameof(Person.AgeInYears) Title="Age" />
         <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
+        <GridColumn Field=@nameof(Person.Position) Title="Position" />
         <GridCommandColumn>
             <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
@@ -64,10 +73,24 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 </TelerikGrid>
 
 @code {
+    private List<string> PositionsData { get; set; } = new List<string>()
+    {
+        "Manager", "Developer", "QA"
+    };
+
     public TelerikGrid<Person> GridRef { get; set; }
     public List<Person> GridData { get; set; }
     public Person EditItem { get; set; }
     private List<Person> _people;
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public int AgeInYears { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Position { get; set; }
+    }
 
     public List<Person> People
     {
@@ -132,57 +155,55 @@ With the `FormTemplate` feature, you can customize the appearance and content of
     }
 
     #region Service Methods
-        public List<Person> GetPeople()
+    public List<Person> GetPeople()
+    {
+        return People;
+    }
+
+    public DataSourceResult GetPeople(DataSourceRequest request)
+    {
+        return People.ToDataSourceResult(request);
+    }
+
+    public void DeletePerson(Person person)
+    {
+        People.Remove(person);
+    }
+
+    public void UpdatePerson(Person person)
+    {
+        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
+        if (index != -1)
         {
-            return People;
+            People[index] = person;
+        }
+    }
+
+    public void CreatePerson(Person person)
+    {
+        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+
+        People.Insert(0, person);
+    }
+
+    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    {
+        List<Person> result = new List<Person>();
+
+        for (int i = startIndex; i < startIndex + count; i++)
+        {
+            result.Add(new Person()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    AgeInYears = i,
+                    HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
+
+                });
         }
 
-        public DataSourceResult GetPeople(DataSourceRequest request)
-        {
-            return People.ToDataSourceResult(request);
-        }
-
-        public void DeletePerson(Person person)
-        {
-            People.Remove(person);
-        }
-
-        public void UpdatePerson(Person person)
-        {
-            var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
-            if (index != -1)
-            {
-                People[index] = person;
-            }
-        }
-
-        public void CreatePerson(Person person)
-        {
-            person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
-
-            People.Insert(0, person);
-        }
-
-        private List<Person> GeneratePeople(int count, int startIndex = 0)
-        {
-            List<Person> result = new List<Person>();
-
-            for (int i = startIndex; i < startIndex + count; i++)
-            {
-                result.Add(new Person()
-                    {
-                        EmployeeId = i,
-                        Name = "Employee " + i.ToString(),
-                        AgeInYears = i,
-                        GraduateGrade = (i % 6) + 1,
-                        HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
-                        MeetingDate = new DateTime(2020, 6, 1).Date.AddDays((i % 4)),
-                        IsOutOfOffice = i % 3 == 0 ? true : false
-                    });
-            }
-
-            return result;
-        }
+        return result;
+    }
     #endregion
 }
 ````
