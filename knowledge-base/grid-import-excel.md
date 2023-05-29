@@ -39,6 +39,7 @@ To import the data of an Excel file in the Grid:
 ````CSHTML
 @* Import Excel File in the Grid *@
 
+@using System.IO;
 @using System.Data;
 @using Telerik.Documents.SpreadsheetStreaming;
 
