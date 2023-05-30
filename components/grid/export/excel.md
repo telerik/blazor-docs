@@ -15,7 +15,7 @@ You can export the grid to Excel with a click of a button. The current filter, s
 When you click the Export button, your browser will receive the resulting file.
 
 
-#### In This article
+#### In This Article
 
   - [Basics](#basics)
   - [Programmatic Export](#programmatic-export)
