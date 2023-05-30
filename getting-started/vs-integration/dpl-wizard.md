@@ -42,7 +42,7 @@ Alternatively, instead of the context menu, you can use the VS **Extensions** me
 
 >caption Start the Document Processing Libraries Wizard from the Extensions Menu
 
-![Start the Document Processing Libraries Wizard from the Extensions Menu](images/vs-ext-dpl-wizard-extensions-menu.png)
+![Start the Document Processing Libraries Wizard from the Extensions menu when working with a Telerik UI for Blazor](images/vs-ext-dpl-wizard-extensions-menu.png)
 
 When you select a package, the main page of the Wizard will appear. In the **SELECT DPL** section, all available packages will be listed, and the one you selected will be highlighted. Clicking the **FINISH** button will install the selected package and add the necessary references to your application.
 
