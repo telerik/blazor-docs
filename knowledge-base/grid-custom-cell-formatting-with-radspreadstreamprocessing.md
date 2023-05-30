@@ -31,10 +31,9 @@ I want to format the cells of the exported Excel file and customize their appear
 
 Handle the [`OnAfterExport`]({%slug grid-export-events%}#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
-You can copy the bytes from this stream and import them in a [`RadSpreadStreamProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook) to access and modify the cells.
+You can copy the bytes from this stream and import it using RadSpreadStreamProcessing to access and modify the cells.
 
-
-In WebAssembly applications, the customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}).
+The customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}).
 
 The example below demonstrates the export and customization of an Excel file. You can apply the same approach to CSV files.
 
@@ -44,7 +43,7 @@ To customize the cell format of the exported file before it reaches the client:
 
 1. Define the desired cell styles. The example below demonstrates adding cell fill, you can specify different [cell styles](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles) based on the result you want to achieve.
 
-1. [Import the new `MemoryStream` in a `workbook` using the `IWorkbookImporter`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import).
+1. [Import the new `MemoryStream` using the `IWorkbookImporter`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/import).
 
 1. [Define a `IWorkbookExporter` to export the modified file](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/export) and save it in a new `MemoryStream` instance.
 
