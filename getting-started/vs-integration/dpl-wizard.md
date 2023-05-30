@@ -48,7 +48,7 @@ When you select a package, the main page of the Wizard will appear. In the **SEL
 
 >caption Document Processing Libraries Wizard Main Page
 
-![Document Processing Libraries Wizard Main Page](images/vs-ext-dpl-main-page.png)
+![Document Processing Libraries Wizard main page - using the Telerik UI for Blazor VS extensions](images/vs-ext-dpl-main-page.png)
 
 ## See Also
 
