@@ -12,7 +12,7 @@ This article demonstrates how to add a reference to the [Telerik Document Proces
 
 ## Getting the Wizard
 
-To use the Convert Project Wizard, install the Telerik UI for Blazor Visual Studio (VS) extensions. @[template](/_contentTemplates/common/general-info.md#vsx-download)
+To use the Document Processing Libraries Wizard, install the Telerik UI for Blazor Visual Studio (VS) extensions. @[template](/_contentTemplates/common/general-info.md#vsx-download)
 
 ## Starting the Wizard
 
