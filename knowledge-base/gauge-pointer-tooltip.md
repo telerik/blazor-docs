@@ -27,7 +27,6 @@ res_type: kb
 
 How can I add a Tooltip to the Blazor Arc or Radial Gauge? I want to show a Tooltip when the user hovers over the pointer of the Radial Gauge or the Arc Gauge.
 
-How to add a Tooltip to the Arc Gauge?
 
 ## Solution
 
