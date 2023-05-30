@@ -12,15 +12,14 @@ position: 15
 
 You can customize the files exported to Excel and CSV by using the [OnBeforeExport](#onbeforeexport) and the [OnAfterExport](#onafterexport) events exposed to the `GridExcelExport` and `GridCsvExport` tags. 
 
-#### In this article
+#### In This Article
 
-* [OnBeforeExport](#onbeforeexport)
-    * [For Excel Export](#for-excel-export)
-    * [For CSV export](#for-csv-export)
-
-* [OnAfterExport](#onafterexport)
-    * [For Excel Export](#for-excel-export)
-    * [For CSV export](#for-csv-export)
+  - [OnBeforeExport](#onbeforeexport)
+    - [For Excel Export](#for-excel-export)
+    - [For CSV Export](#for-csv-export)
+  - [OnAfterExport](#onafterexport)
+    - [For Excel Export](#for-excel-export-1)
+    - [For CSV Export](#for-csv-export-1)
 
 ## OnBeforeExport
 
@@ -400,5 +399,6 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
 * [Grid Excel Export]({%slug grid-export-excel%})
 * [Grid CSV Export]({%slug grid-export-csv%})
 * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
+* [Custom cell formatting of the exported file with RadSpreadStreamProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%})  
 * [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%})
 * [Change the default CSV delimiter (comma) during Grid export]({%slug grid-kb-csv-export-change-field-delimiter%})
