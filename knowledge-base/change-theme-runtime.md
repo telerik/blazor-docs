@@ -28,6 +28,8 @@ Here is a basic implementation:
 
 >caption Step 1 - Index file - this is a sample from a Server app, replace the URL with the one you are actually using. The important bit is the `id` attribute that lets us get the element easily
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 <head>
     <meta charset="utf-8" />
@@ -47,6 +49,8 @@ Here is a basic implementation:
 ````
 
 >caption Step 2 - Prepare JS Interop function that will switch out the `<link>` elements
+
+<div class="skip-repl"></div>
 
 ````JavaScript
 // this code is in the ~/wwwroot/ThemeChanger.js file
@@ -74,6 +78,8 @@ var themeChanger = {
 ````
 
 >caption Step 3 - Call the JS Interop function from your Blazor code and pass the new theme URL. In this example we switch from Default to Material built-in theme.
+
+<div class="skip-repl"></div>
 
 ````CSHTML
 @inject IJSRuntime JsInterop
