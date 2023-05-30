@@ -56,11 +56,11 @@ The Blazor ColorGradient provides various parameters to configure the component.
 | --- | --- | --- |
 | `Class` | `string` | The class that will be rendered on the main wrapping elemnet of the component (`<div class="k-colorgradient">`). | 
 | `Enabled`| `bool` | Whether the ColorGradient is enabled. |
-| `Value` | `string` | The ColorGradient value. Accepts [several different color formats](#supported-value-formats). Supports two-way binding.
-| `ValueFormat` | `ColorFormat` enum <br/> (`ColorFormat.Rgb`)| The color format which the component will return in the application code.
 | `Format` | `ColorFormat` enum <br/> (`ColorFormat.Rgb`) | The value format which the users sees initially. Supports two-way binding. The `Rgb` input format allows changing the textbox values with the Up/Down arrow keys.
 | `Formats` | `IEnumerable<ColorFormat>` | The available color formats which the user can see, toggle, and edit by typing. Both `Hex` and `Rgb` formats are enabled by default, and the user can switch between them with a button.
 | `ShowOpacityEditor` | `bool` <br/> (`true`) | Whether the opacity (transparency) slider will be rendered.
+| `Value` | `string` | The ColorGradient value. Accepts [several different color formats](#supported-value-formats). Supports two-way binding.
+| `ValueFormat` | `ColorFormat` enum <br/> (`ColorFormat.Rgb`)| The color format which the component will return in the application code.
 
 ## Next Steps
 
