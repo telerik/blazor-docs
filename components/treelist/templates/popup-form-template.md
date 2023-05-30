@@ -13,7 +13,7 @@ position: 50
 
 With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the TreeList.
 
->When a `FormTemplate` is declared, the TreeList no longer handles the Update and Cancel operations.
+>When you declare a `FormTemplate`, the TreeList no longer handles the Update and Cancel operations.
 
 >caption Using a `FormTemplate` to modify the Edit/Create Popup window.
 ````CSHTML
