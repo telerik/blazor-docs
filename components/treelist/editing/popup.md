@@ -445,6 +445,14 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
 }
 ````
 
+### PopUp Form Customization
+
+In the `TreeListPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the TreeList. For more information and examples on customizing the TreeList PopUp window, refer to the [Popup Form Template]({%slug treelist-templates-popup-form%}) article.
+
+### PopUp Buttons Customization
+
+You can specify a `ButtonsTemplate` in the `TreeListPopupEditFormSettings` to customize how the buttons look in the create/edit Popup window of the TreeList. To learn more and see an example of customizing the TreeList PopUp buttons, refer to the [Popup Buttons Template]({%slug treelist-templates-popup-buttons%}) article.
+
 ## See Also
 
   * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
