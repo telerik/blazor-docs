@@ -55,9 +55,9 @@ To customize the cell format of the exported file before it reaches the client:
 
 1. Pass the new `MemoryStream` to the `args.Stream` of the `GridAfterExcelExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
-````CSHTML
-@*Use RadSpreadStreamProcessing to set background to table headers*@
+>caption Use RadSpreadStreamProcessing to set background to table headers
 
+````CSHTML
 @using System.IO
 @using Telerik.Documents.SpreadsheetStreaming
 
@@ -108,7 +108,8 @@ To customize the cell format of the exported file before it reaches the client:
                 IsBold = true
             };
 
-        //import the stream to modify it and then export it - see https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook
+        //import the stream to modify it and then export it - 
+        //see https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/model/workbook
         using (excelStream)
         {
             using (IWorkbookImporter workBookImporter = SpreadImporter.CreateWorkbookImporter(SpreadDocumentFormat.Xlsx, excelStream))
@@ -120,7 +121,9 @@ To customize the cell format of the exported file before it reaches the client:
                 {
                     using (var worksheetExporter = workbookExporter.CreateWorksheetExporter(worksheetImporter.Name))
                     {
-                        //this sets fixed width to all columns. If you need to autofit the content, use the CellContentSizeHelper - https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/text-measuring
+                        //this sets fixed width to all columns. 
+                        //If you need to autofit the content, use the CellContentSizeHelper -
+                        //https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/text-measuring
                         for (int i = 0; i < 5; i++)
                         {
                             var column = worksheetExporter.CreateColumnExporter();
