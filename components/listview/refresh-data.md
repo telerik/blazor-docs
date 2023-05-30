@@ -33,10 +33,10 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
     <TelerikListView @ref="@ListViewRef"
                      TItem="SampleData"
                      OnRead="@ReadItems"
-                     Width="500px"
-                     Height="700px">
+                     Width="700px"
+                     Pageable="true">
         <Template>
-            <div class="listview-item">
+            <div class="custom-listview-item">
                 <h4>@context.Name</h4>
                 <h5>@context.Team</h5>
             </div>
@@ -84,13 +84,16 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
     }
 }
 
-                @* Styles would usually go to to the site stylesheet *@
+@* Styles would usually go to to the site stylesheet *@
 
 <style>
-    .listview-item {
+    .k-listview-item {
+        display: inline-block;
+    }
+
+    .custom-listview-item {
         height: 150px;
         width: 150px;
-        display: inline-block;
         margin: 10px;
         border: 1px solid black;
         border-radius: 10px;
@@ -121,23 +124,23 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
         <h2>Employee List</h2>
     </HeaderTemplate>
     <Template>
-        <div class="listview-item">
+        <div class="custom-listview-item">
             <h4>@context.Name</h4>
             <h5>@context.Team</h5>
         </div>
     </Template>
 </TelerikListView>
 
-@code{
+@code {
     void AddEmployee()
     {
         var x = ListViewData.Count + 1;
         ListViewData.Add(new SampleData
-        {
-            Id = x,
-            Name = $"Name {x}",
-            Team = $"Team {x % 3}"
-        });
+            {
+                Id = x,
+                Name = $"Name {x}",
+                Team = $"Team {x % 3}"
+            });
     }
 
     void RemoveEmployee()
@@ -147,13 +150,13 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
             ListViewData.RemoveAt(ListViewData.Count - 1);
         }
     }
-        
+
     ObservableCollection<SampleData> ListViewData { get; set; } = new ObservableCollection<SampleData>(Enumerable.Range(1, 5).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}",
-        Team = $"Team {x % 3}"
-    }));
+        {
+            Id = x,
+            Name = $"Name {x}",
+            Team = $"Team {x % 3}"
+        }));
 
     public class SampleData
     {
@@ -166,10 +169,13 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 @* Styles would usually go to to the site stylesheet *@
 
 <style>
-    .listview-item {
+    .k-listview-item {
+        display: inline-block;
+    }
+
+    .custom-listview-item {
         height: 150px;
         width: 150px;
-        display: inline-block;
         margin: 10px;
         border: 1px solid black;
         border-radius: 10px;
@@ -200,23 +206,23 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
         <h2>Employee List</h2>
     </HeaderTemplate>
     <Template>
-        <div class="listview-item">
+        <div class="custom-listview-item">
             <h4>@context.Name</h4>
             <h5>@context.Team</h5>
         </div>
     </Template>
 </TelerikListView>
 
-@code{
+@code {
     void AddEmployee()
     {
         var x = ListViewData.Count + 1;
         ListViewData.Add(new SampleData
-        {
-            Id = x,
-            Name = $"Name {x}",
-            Team = $"Team {x % 3}"
-        });
+            {
+                Id = x,
+                Name = $"Name {x}",
+                Team = $"Team {x % 3}"
+            });
         ListViewData = new List<SampleData>(ListViewData);
     }
 
@@ -232,20 +238,20 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
     void ChangeData()
     {
         var newData = Enumerable.Range(6, 5).Select(x => new SampleData
+            {
+                Id = x,
+                Name = $"Name {x}",
+                Team = $"Team {x % 3}"
+            }).ToList();
+        ListViewData = new List<SampleData>(newData);
+    }
+
+    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 5).Select(x => new SampleData
         {
             Id = x,
             Name = $"Name {x}",
             Team = $"Team {x % 3}"
         }).ToList();
-        ListViewData = new List<SampleData>(newData);
-    }
-
-    List<SampleData> ListViewData { get; set; } = Enumerable.Range(1, 5).Select(x => new SampleData
-    {
-        Id = x,
-        Name = $"Name {x}",
-        Team = $"Team {x % 3}"
-    }).ToList();
 
     public class SampleData
     {
@@ -258,10 +264,13 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 @* Styles would usually go to to the site stylesheet *@
 
 <style>
-    .listview-item {
+    .k-listview-item {
+        display: inline-block;
+    }
+
+    .custom-listview-item {
         height: 150px;
         width: 150px;
-        display: inline-block;
         margin: 10px;
         border: 1px solid black;
         border-radius: 10px;
