@@ -38,9 +38,9 @@ To add a Tooltip for the pointer of the Gauge:
 
 The example below demonstrates how to add a Tooltip to the Arc Gauge. The same approach applies to all other Gauge types.
 
-````CSHTML
-@*Tooltip in Arc Gauge*@
+>caption Tooltip in Arc Gauge
 
+````CSHTML
 <TelerikArcGauge>
     <ArcGaugePointers>
         <ArcGaugePointer Color="#FFE162"
