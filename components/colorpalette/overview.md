@@ -41,7 +41,7 @@ The ColorPallete can work with your own set of colors. [Read more about the Blaz
 
 ## Events
 
-The Blazor ColorPalette fires value change and blur events that you can handle and further customize its behavior. [Read more about the Blazor Dialog events]({%slug colorpalette-events%}).
+The Blazor ColorPalette fires value change and blur events that you can handle and further customize its behavior. [Read more about the Blazor ColorPalette events]({%slug colorpalette-events%}).
 
 ## ColorPalette Parameters
 
