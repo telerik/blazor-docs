@@ -1,5 +1,5 @@
 ---
-title: Custom cell formatting of the exported file with RadSpreadStreamProcessing
+title: Custom Cell Formatting of the Exported File with RadSpreadStreamProcessing
 description: How to format the cells of the exported file with RadSpreadStreamProcessing?
 type: how-to
 page_title: Custom cell formatting of exported Excel files with RadSpreadStreamProcessing
