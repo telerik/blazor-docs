@@ -260,7 +260,7 @@ The `GridPopupEditFormSettings` nested tag exposes the following parameters to a
 }
 ````
 
-### PopUp Form Customization
+### Popup Form Customization
 
 In the `GridPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the Grid. For more information and examples on customizing the Grid PopUp window, refer to the [Popup Form Template]({%slug grid-templates-popup-form%}) article.
 
