@@ -24,7 +24,7 @@ To start the wizard, use either of the following options:
 ### Project Context Menu
 
 1. In the **Solution Explorer**, select the Blazor app in which you want to add a Telerik DPL package.
-1. Right-click the project node and, then, select **Telerik UI for Blazor**.
+1. Right-click the project node and select **Telerik UI for Blazor**.
 1. Select the package you want to include.
 
 >caption Start the Document Processing Libraries Wizard from the Context Menu
