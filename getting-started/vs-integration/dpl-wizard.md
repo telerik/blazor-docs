@@ -29,7 +29,7 @@ To start the wizard, use either of the following options:
 
 >caption Start the Document Processing Libraries Wizard from the Context Menu
 
-![Start the Document Processing Libraries Wizard from the context menu](images/vs-ext-dpl-wizard-context-menu.png)
+![Start the Document Processing Libraries Wizard from the context menu of a Telerik UI for Blazor app](images/vs-ext-dpl-wizard-context-menu.png)
 
 ### Extensions Menu
 
