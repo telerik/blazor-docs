@@ -12,6 +12,8 @@ position: 22
 
 The StockChart for Blazor can render labels on the axes, and the navigator. You can control those texts not only through the values you data bind, but also through [format strings](#format-strings) or [templates](#templates).
 
+You can also rotate the labels by setting the `Angle` parameter to a numeric value the labels will rotate to.
+
 * [Format Strings](#format-strings)
 * [Templates](#templates)
 
@@ -22,7 +24,7 @@ You can use the `Format` parameter to apply standard [numeric format strings](ht
 >caption Format the labels on the Value and Category Axes
 
 ````CSHTML
-Standard number format strings
+Standard number format strings and rotate the labels of the Category Axis
 
 <TelerikStockChart Width="700px"
                     Height="450px"
@@ -31,6 +33,7 @@ Standard number format strings
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
             <StockChartCategoryAxisLabels Format="{0:D}"></StockChartCategoryAxisLabels>
+            <StockChartCategoryAxisLabelsRotation Angle="30"></StockChartCategoryAxisLabelsRotation>
         </StockChartCategoryAxis>
     </StockChartCategoryAxes>
 
