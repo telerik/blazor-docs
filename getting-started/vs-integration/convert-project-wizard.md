@@ -21,7 +21,7 @@ The wizard adds the following client assets to your project:
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.
 * [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#common-configuration) at the root level of the DOM.
-* Registration for the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics) and for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics).
+* Registration for the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics), for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics), and for [hybrid projects]({%slug getting-started/what-you-need%}#hybrid-project-specifics).
 
 ## Getting the Wizard
 
@@ -102,7 +102,7 @@ The most common reason for this problem is a mismatch between the installed vers
 
 The cause are wrong paths to the needed web assets. To resolve this open the index file:
 
-* `wwwroot/index.html` for a WebAssembly Blazor app
+* `wwwroot/index.html` for a WebAssembly and a Hybrid Blazor app
 * `~/Pages/_Host.cshtml` for a Server-Side Blazor app using .NET 3.x or .NET 5
 * `~/Pages/_Layout.cshtml` for a Server-Side Blazor app using.NET 6
 
