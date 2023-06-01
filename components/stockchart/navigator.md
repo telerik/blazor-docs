@@ -163,6 +163,8 @@ The Navigator is defined closely to the way the charts are. As such you can use 
 
 To programatically set a time interval to the `Navigator` upon initialization use the `From` and `To` parameters of the `<StockChartNavigatorSelect>` and pass valid `DateTime` values according to your data.
 
+To control whether the Navigator renders below, or on top of the Stock Chart set the `Position` parameter to a member of the `StockChartNavigatorPosition` enum.
+
 You can control from which side (or both) the data navigation with shorten the time interval when the users cursor is located inside Navigator and is using the mouse wheel. To set it use the `Zoom` parameter of the `<StockChartNavigatorSelectMousewheel>`, child of `<StockChartNavigatorSelect>` to a member of the `ChartMousewheelZoom` enum:
  * `ChartMousewheelZoom.Left`
  * `ChartMousewheelZoom.Right`
@@ -177,7 +179,7 @@ You can control from which side (or both) the data navigation with shorten the t
                    Height="450px"
                    DateField="@nameof(StockDataPoint.Date)">
 
-    <StockChartNavigator>
+    <StockChartNavigator Position="@StockChartNavigatorPosition.Top">
 
         <StockChartNavigatorCategoryAxis>
             <StockChartNavigatorCategoryAxisLabels Color="#008B8B" Step="2">
