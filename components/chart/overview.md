@@ -41,7 +41,8 @@ Basic chart and common settings/elements
 		<ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
 	</ChartCategoryAxes>
 
-	<ChartTitle Text="Quarterly sales trend"></ChartTitle>
+    <ChartTitle Text="Quarterly sales trend" Position="@ChartTitlePosition.Top"></ChartTitle>
+    <ChartSubtitle Text="For the year 2023" Position="@ChartSubtitlePosition.Top"></ChartSubtitle>
 
 	<ChartLegend Position="Telerik.Blazor.ChartLegendPosition.Bottom">
 	</ChartLegend>
@@ -68,17 +69,56 @@ Basic chart and common settings/elements
 }
 ````
 
-## Chart Elements
+## Chart Types
+
+There are two main Chart types based on the [data]({%slug chart-databind-overview%}) they require for the x-axis:
+
+* **Categorical** - The categorical x-axis requires categories to match the values of the data points. These categories can be either `strings` or `DateTime` objects. Read the [Categorical x-axis]({%slug chart-databind-categorical%}) for more information.
+* **Numerical** - The x-axis requires numerical values (`int`, `double`, `decimal`) and renders them as it's labels. Read the [Numerical x-axis]({%slug chart-databind-numerical%}) for more information.
+
+>info There are also axis-free Chart types such as [Donut]({%slug components/chart/types/donut%}) and [Pie]({%slug components/chart/types/pie%}).
+
+## Chart Title
+
+You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter.
+
+## Chart Subtitle
+
+You can add a descriptive text that enriches the [Title](#title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
+
+>info The Chart Title and Subtitle are child tags of the `<TelerikChart>`.
+
+## Other Chart Elements
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
-
 ## Chart Size
 
-To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+To control the chart size, use its `Width` and `Height` properties (read the [Dimensions]({%slug common-features/dimensions%}) article to see how they work). You can set their values in `pixels` or `percentages`. If you set `Width` and `Height` to `100%` and the dimensions of the Chart's parent container change, you must use the [`Refresh()` method](#chart-reference-and-methods) to redraw the Chart.
 
-You can also set the chart size in percentage values so it occupies its container when it renderes. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example of making charts redraw on `window.resize` in the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample.
+>note See the [Responsive Chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart) sample application to see how to redraw the Chart on the `window.resize` event.
 
+
+## Chart Parameters
+
+The following table lists Chart parameters, which are not discussed elsewhere in the component documentation.
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default value | Description |
+|-----------|------------------------|-------------|
+| `Width`  | `string` | Controls the width of the StockChart. |
+| `Height`  | `string` | Controls the height of the StockChart. |
+| `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
+| `Transitions` | `bool?` | Controls if the Chart renders animations. |
+
+## Chart Reference and Methods
+
+To execute Chart methods, obtain reference to the component instance via `@ref`.
+
+| Method  | Description |
+|---------|-------------|
+| `Refresh` | Use the method to programmatically re-render the Chart.  |
 
 >caption Change the 100% chart size dynamically to have a responsive chart
 
@@ -125,45 +165,6 @@ You can make a responsive chart
     public List<object> someData = new List<object>() { 10, 2, 7, 5 };
 
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-}
-````
-
-## Chart Parameters
-
-The following table lists Chart parameters, which are not discussed elsewhere in the component documentation.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `Width`  | `string` | Controls the width of the StockChart. |
-| `Height`  | `string` | Controls the height of the StockChart. |
-| `Class`  | `string` | Renders a custom CSS class on the `<div class="k-chart">` element. |
-| `Transitions` | `bool?` | Controls if the Chart renders animations. |
-
-## Chart Reference and Methods
-
-To execute Chart methods, obtain reference to the component instance via `@ref`.
-
-| Method  | Description |
-|---------|-------------|
-| Refresh | Use the method to programmatically re-render the Chart.  |
-
-````CSHTML
-@using Telerik.Blazor.Components
-
-<TelerikButton OnClick="@RefreshTheChart">Refresh the Chart</TelerikButton>
-
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
-
-@code {
-	public TelerikChart myChartRef;
-	
-	private void RefreshTheChart()
-	{
-	    myChartRef.Refresh();
-	}
 }
 ````
 
