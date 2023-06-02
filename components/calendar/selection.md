@@ -54,8 +54,6 @@ You can find examples of both below.
 >caption Two-way binding for the selected date
 
 ````CSHTML
-@* With single selection, you can use two-way binding of the selected date *@
-
 <TelerikCalendar @bind-Date="@startDate"
                  @bind-Value="@SelectedDate"
                  SelectionMode="@CalendarSelectionMode.Single">
@@ -74,24 +72,24 @@ You can find examples of both below.
 >caption Handle Single selection in the Calendar through an event
 
 ````CSHTML
-@* This example shows how to handle Single selection *@
-
-<TelerikCalendar @bind-Date="@startDate"
+<TelerikCalendar @bind-Date="@StartDate"
                  SelectionMode="@CalendarSelectionMode.Single"
+                 Value="@SelectedDate"
                  ValueChanged="SelectionHandler">
 </TelerikCalendar>
 
 <p>
-    Selected Date: @SelectedDate
+    Selected Date: @SelectedDate.ToShortDateString()
 </p>
 
 @code {
-    private DateTime SelectedDate { get; set; }
-    private DateTime startDate = new DateTime(2019, 5, 2);
+    private DateTime SelectedDate { get; set; } = DateTime.Today;
 
-    public void SelectionHandler(DateTime selectedDate)
+    private DateTime StartDate = DateTime.Today;
+
+    private void SelectionHandler(DateTime newDate)
     {
-        SelectedDate = selectedDate;
+        SelectedDate = newDate;
     }
 }
 ````
@@ -104,8 +102,6 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 >caption Handle Multiple selection in the Calendar
 
 ````CSHTML
-@* This example shows how to handle Multiple selection *@
-
 <TelerikCalendar @ref="@CalendarRef"
                  SelectionMode="@CalendarSelectionMode.Multiple"
                  ValueChanged="@OnCalendarValueChanged">
