@@ -3,7 +3,7 @@ title: Using the Document Processing Libraries
 page_title: Using the Document Processing Libraries Wizard - Visual Studio Integration.
 description: Learn how to add a reference to the Telerik Document Processing Libraries in your application by using the Telerik UI for Blazor Visual Studio extension.
 slug: getting-started-vs-integration-dpl
-position: 30
+position: 5
 ---
 
 # Configuring Document Processing Libraries
