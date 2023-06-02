@@ -33,7 +33,6 @@ To start the wizard, use either of the following options:
 
 ### Extensions Menu
 
-Alternatively, instead of the context menu, you can use the VS **Extensions** menu at the top:
 
 1. In the **Solution Explorer**, select the Blazor app in which you want to add a Telerik DPL package.
 1. Open the **Extensions** menu.
