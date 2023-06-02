@@ -27,58 +27,60 @@ To enable virtual scrolling:
 >caption Sample of virtual scrolling in the Telerik Grid for Blazor
 
 ````CSHTML
-@* Scroll the grid instead of paging *@
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-<TelerikGrid Data=@GridData
+<TelerikGrid OnRead="@OnGridRead"
+             TItem="@Product"
              ScrollMode="@GridScrollMode.Virtual"
              Height="480px" RowHeight="60" PageSize="20"
-             Sortable="true" FilterMode="@GridFilterMode.FilterMenu">
+             Sortable="true" FilterMode="GridFilterMode.FilterRow">
     <GridColumns>
-        <GridColumn Field="Id" />
-        <GridColumn Field="Name" Title="First Name" />
-        <GridColumn Field="LastName" Title="Last Name" />
-        <GridColumn Field="HireDate" Width="200px">
-            <Template>
-                @((context as SampleData).HireDate.ToString("MMMM dd, yyyy"))
-            </Template>
-        </GridColumn>
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
+        <GridColumn Field="@nameof(Product.Stock)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public List<SampleData> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new List<Product>();
 
-    protected override async Task OnInitializedAsync()
+    private async Task OnGridRead(GridReadEventArgs args)
     {
-        GridData = await GetData();
+        await Task.Delay(200); // simulate network delay
+
+        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
+
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
     }
 
-    private async Task<List<SampleData>> GetData()
+    protected override void OnInitialized()
     {
-        return Enumerable.Range(1, 1000).Select(x => new SampleData
+        GridData = new List<Product>();
+        var rnd = new Random();
+
+        for (int i = 1; i <= 1000; i++)
         {
-            Id = x,
-            Name = $"name {x}",
-            LastName = $"Surname {x}",
-            HireDate = DateTime.Now.Date.AddDays(-x)
-        }).ToList();
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Stock = rnd.Next(0, 100)
+            });
+        }
     }
 
-    public class SampleData
+    public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public DateTime HireDate { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public int Stock { get; set; }
     }
 }
 ````
 
->caption How virtual scrolling looks like (deliberately slowed down to showcase the loading placeholders)
-
-![Blazor Grid Virtual Scrolling Overview](images/virtual-scrolling-overview.gif)
-
->tip The column where long text is expected (the `Hire Date` in this example) has a width set so that the text does not break into multiple lines and increase the height of the row. See the notes below for more details.
+>tip Set suitable widths for columns that will render long text. This will prevent the cell content from breaking into multiple lines, which will increase the row height. See the notes below for more details.
 
 ## Notes
 
@@ -124,64 +126,6 @@ List of the known limitations of the virtual scrolling feature:
 
 * When there are too many records, the browser may not let you scroll down to all of them, read more in the [Virtual Scroll does not show all items]({%slug grid-kb-virtualization-many-records%}) KB article.
 
-<!--
-Code for the GIF
-
-<TelerikGrid TItem="@SampleData"
-             ScrollMode="@GridScrollMode.Virtual"
-             Height="480px" RowHeight="60" PageSize="20"
-             Sortable="true" FilterMode="@GridFilterMode.FilterMenu"
-             OnRead=@ReadItems Width="640px">
-    <GridColumns>
-        <GridColumn Field="Id" />
-        <GridColumn Field="Name" Title="First Name" />
-        <GridColumn Field="LastName" Title="Last Name" />
-        <GridColumn Field="HireData" Width="200px">
-            <Template>
-                @((context as SampleData).HireDate.ToString("MMMM dd, yyyy"))
-            </Template>
-        </GridColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<SampleData> SourceData { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        SourceData = await GetData();
-    }
-
-    private async Task<List<SampleData>> GetData()
-    {
-        return Enumerable.Range(1, 1000).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"name {x}",
-            LastName = $"Surname {x}",
-            HireDate = DateTime.Now.Date.AddDays(-x)
-        }).ToList();
-    }
-
-    protected async Task ReadItems(GridReadEventArgs args)
-    {
-        Console.WriteLine("before");
-        await Task.Delay(500); //delay for creating the GIF
-        Console.WriteLine("after");
-
-        args.Data = SourceData.Skip(args.Request.Skip).Take(args.Request.PageSize).ToList();
-        args.Total = SourceData.Count;
-    }
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
--->
 
 ## See Also
 
