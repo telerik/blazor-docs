@@ -21,7 +21,7 @@ See examples of both approaches:
 * [One-way binding of the SelectedItems](#one-way-binding-of-the-selecteditems)
 
 
-## Two-way binding of the SelectedItems
+## Two-Way Binding of the SelectedItems
 
 You can use two-way binding when you want to track what items the user selected but you don't need to respond to the user action of selecting a file/folder.
 
