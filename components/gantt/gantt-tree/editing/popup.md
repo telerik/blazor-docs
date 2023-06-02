@@ -23,7 +23,7 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable PopUp editing in the Gantt Tree, set its `TreeListEditMode` property to `GanttTreeListEditMode.Popup`, then handle the CRUD events as shown in the example below.
+To enable Popup editing in the Gantt Tree, set its `TreeListEditMode` property to `GanttTreeListEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
 
 >caption The Command buttons and the Gantt events let you handle data operations in Popup edit mode.

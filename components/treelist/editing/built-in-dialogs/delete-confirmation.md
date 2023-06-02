@@ -172,7 +172,7 @@ The delete confirmation dialog triggers before item deletion. You can enable it 
 ## See Also
 
 * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-* [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
+* [Live Demo: TreeList Popup Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
 * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
 * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
 * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)

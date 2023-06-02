@@ -144,9 +144,9 @@ In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can 
 
 To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
 
-#### Inline and PopUp Edit Modes
+#### Inline and Popup Edit Modes
 
-In [Inline EditMode]({%slug components/grid/editing/inline%}) and [PopUp EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
+In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
 ### Selection in Template
 
