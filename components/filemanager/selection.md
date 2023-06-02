@@ -14,7 +14,7 @@ The FileManager lets the user select one or multiple files and folders in its ma
 
 To get or set the selected items, use the `SelectedItems` parameter. It is a collection of items from the FileManager's `Data`.
 
-The `SelectedItems` parameter allows two-way binding (`@bind-SelectedItems`) and [one-way binding] + [SelectedItemsChanged]({%slug filemanager-events%}#selecteditemschanged) event.
+The `SelectedItems` parameter supports two-way binding (`@bind-SelectedItems`) and one-way binding together with the [`SelectedItemsChanged`]({%slug filemanager-events%}#selecteditemschanged) event.
 
 See examples of both approaches:
 * [Two-way binding of the SelectedItems](#two-way-binding-of-the-selecteditems)
