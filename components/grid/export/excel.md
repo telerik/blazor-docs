@@ -15,11 +15,11 @@ You can export the grid to Excel with a click of a button. The current filter, s
 When you click the Export button, your browser will receive the resulting file.
 
 
-#### In this article
+#### In This Article
 
-* [Basics](#basics)
-* [Programmatic Export](#programmatic-export)
-* [Notes](#notes)
+  - [Basics](#basics)
+  - [Programmatic Export](#programmatic-export)
+  - [Notes](#notes)
 
 ## Basics
 
@@ -194,3 +194,4 @@ The Excel export has the following specifics:
 
   * [Live Demo: Grid Excel Export](https://demos.telerik.com/blazor-ui/grid/export-excel)
   * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
+  * [Custom cell formatting of the exported file with RadSpreadStreamProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%}) 
