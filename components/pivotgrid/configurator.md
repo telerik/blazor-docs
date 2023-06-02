@@ -30,6 +30,7 @@ The Pivot Grid Configurator contains the following sections:
 * The TreeView items and their checkbox state are populated automatically, based on the PivotGrid data and initial configuration.
 * Users can check and uncheck TreeView items, which will add or remove the respective Field in the Columns or Rows sections.
 * If a field is defined in a `<PivotGridRow>` or `<PivotGridColumn>` tag in the Pivot Grid, then users cannot use that field in another Configurator section.
+* If a field is not defined anywhere in the PivotGrid declaration, then checking a TreeView checkbox will add it as a *column field*. Then, the user can drag it to another section.
 
 
 ## Columns and Rows
