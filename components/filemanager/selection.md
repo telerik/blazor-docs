@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: FileManager Selection
-description: Item selection in the FileManager for Blazor.
+description: Learn how to configure the item selection in the FileManager component for Blazor by using the SelectedItems parameter and how to set the pre-selected items.
 slug: filemanager-selection
 tags: telerik,blazor,filemanager,selection,item,file,folder,selected,items
 published: True
