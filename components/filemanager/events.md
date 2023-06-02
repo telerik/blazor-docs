@@ -331,7 +331,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
 
 ### SelectedItemsChanged
 
-The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way data binding to respond to the user selection.
+The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way binding of the `SelectedItems` parameter to respond to user selection.
 
 ## Example
 
