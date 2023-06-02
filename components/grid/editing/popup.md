@@ -14,6 +14,10 @@ In this article:
 
 * [Basics](#basics)
 * [Customization](#customization)
+    * [Popup Customization](#popup-customization)
+    * [Edit Form Customization](#edit-form-customization)
+    * [Popup Form Customization](#popup-form-customization)
+    * [Popup Buttons Customization](#popup-buttons-customization)
 
 ## Basics
 

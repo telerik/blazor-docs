@@ -11,9 +11,11 @@ position: 50
 
 # Popup Form Template
 
-With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid.
+With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the grid. To set it, provide contents to the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`.
 
->When you declare a `FormTemplate`, the Grid no longer handles the Update and Cancel operations.
+You can use the `Context` attribute of the `<FormTemplate>` tag to set the name of the context variable. The context variable is of type `object` and can be cast to the model type to which the grid is bound.
+
+>When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. Consequently, the default `Update` and `Cancel` buttons are removed. This means the [`OnUpdate` and `OnCancel`](https://docs.telerik.com/blazor-ui/components/grid/events#cud-events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
 
 >caption Using a `FormTemplate` to modify the Edit/Create Popup window.
 
