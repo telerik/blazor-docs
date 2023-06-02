@@ -207,7 +207,7 @@ When using two-way binding, the selected items will be automatically updated in 
 }
 ````
 
-## One-way binding of the SelectedItems
+## One-Way Binding of the SelectedItems
 
 You can use one-way binding of the `SelectedItems` in combination with handling the [`SelectedItemsChanged` event]({%slug filemanager-events%}#selecteditemschanged) when you need to respond to the user action of selecting a file/folder.
 
