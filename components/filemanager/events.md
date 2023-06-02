@@ -21,6 +21,7 @@ This article explains the events available in the Telerik FileManager for Blazor
 * [Other Events](#other-events) - other events the grid provides.
     * [OnModelInit](#onmodelinit)
     * [OnDownload](#ondownload)
+    * [SelectedItemsChanged](#selecteditemschanged)
 
 ## CUD Events
 
@@ -328,6 +329,10 @@ The `OnModelInit` event fires when a new instance of the model is about to be cr
 
 The `OnDownload` event fires before a file is to be downloaded, cancellable. Its event handler receives the updated `FileManagerDownloadEventArgs` as an argument. See the [example](#example).
 
+### SelectedItemsChanged
+
+The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way binding of the `SelectedItems` parameter to respond to user selection.
+
 ## Example
 
 >caption Handle FileManager events.
@@ -335,21 +340,26 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Data"
+<TelerikFileManager Data="@Files"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
                     OnCreate="@OnCreateHandler"
                     OnUpdate="@OnUpdateHandler"
+                    OnDelete="@OnDeleteHandler"
                     OnModelInit="@OnModelInitHandler"
                     OnDownload="@OnDownloadHandler"
-                    OnDelete="@OnDeleteHandler">
+                    SelectedItems="@SelectedItems"
+                    SelectedItemsChanged="@((IEnumerable<FlatFileEntry> selectedFiles) => OnSelect(selectedFiles))">
 </TelerikFileManager>
 
 @code {
-    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
-    public string DirectoryPath { get; set; } = string.Empty;
+    private List<FlatFileEntry> Files = new List<FlatFileEntry>();
 
-    async Task OnCreateHandler(FileManagerCreateEventArgs args)
+    private string DirectoryPath { get; set; } = string.Empty;
+
+    private IEnumerable<FlatFileEntry> SelectedItems { get; set; } = new List<FlatFileEntry>();
+
+    private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
         var newFolder = args.Item as FlatFileEntry;
 
@@ -373,13 +383,13 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
         {
             // simulate add in file system
             newFolder.ParentId = parentDirectory.Id;
-            Data.Add(newFolder);
-            parentDirectory.HasDirectories = Data.Count(x => x.ParentId == parentDirectory.Id) > 0;
+            Files.Add(newFolder);
+            parentDirectory.HasDirectories = Files.Count(x => x.ParentId == parentDirectory.Id) > 0;
         }
         else
         {
             // create a folder in the root dir
-            Data.Add(newFolder);
+            Files.Add(newFolder);
         }
 
         RefreshData();
@@ -387,21 +397,21 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
 
     private FlatFileEntry GetDirectory(string path)
     {
-        var directory = Data.FirstOrDefault(x => x.IsDirectory && x.Path == path);
+        var directory = Files.FirstOrDefault(x => x.IsDirectory && x.Path == path);
 
         return directory;
     }
 
     private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
     {
-        var parentItem = Data
+        var parentItem = Files
             .FirstOrDefault(x => x.IsDirectory && x.Path == currDirectory);
 
         return parentItem;
     }
 
 
-    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
     {
         var item = args.Item as FlatFileEntry;
 
@@ -418,7 +428,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = Data.FirstOrDefault(x => x.Id == item.Id);
+            var updatedItem = Files.FirstOrDefault(x => x.Id == item.Id);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
@@ -426,7 +436,7 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
         }
     }
 
-    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
     {
         var selectedItem = args.Item as FlatFileEntry;
 
@@ -441,13 +451,13 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
     }
 
 
-    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = Data.FirstOrDefault(x => x.Id == currItem.Id);
+        var itemToDelete = Files.FirstOrDefault(x => x.Id == currItem.Id);
 
-        Data.Remove(itemToDelete);
+        Files.Remove(itemToDelete);
 
         RefreshData();
     }
@@ -468,15 +478,21 @@ The `OnDownload` event fires before a file is to be downloaded, cancellable. Its
         return item;
     }
 
+    private void OnSelect(IEnumerable<FlatFileEntry> selectedFiles)
+    {
+        //update the view-model
+        SelectedItems = selectedFiles;
+    }
+
     private void RefreshData()
     {
-        Data = new List<FlatFileEntry>(Data);
+        Files = new List<FlatFileEntry>(Files);
     }
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetFlatFileEntries();
+        Files = await GetFlatFileEntries();
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
