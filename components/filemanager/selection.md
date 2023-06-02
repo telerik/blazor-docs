@@ -12,7 +12,7 @@ position: 10
 
 The FileManager lets the user select one or multiple files and folders in its main pane. You can also pre-select a desired item.
 
-To get or set the selected items, use the `SelectedItems` parameter. It is a collection of items from the FileManager's Data.
+To get or set the selected items, use the `SelectedItems` parameter. It is a collection of items from the FileManager's `Data`.
 
 The `SelectedItems` parameter allows two-way binding (`@bind-SelectedItems`) and [one-way binding] + [SelectedItemsChanged]({%slug filemanager-events%}#selecteditemschanged) event.
 
