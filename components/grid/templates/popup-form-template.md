@@ -11,7 +11,7 @@ position: 50
 
 # Popup Form Template
 
-With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the grid. To set it, provide contents to the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`.
+With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`.
 
 You can use the `Context` attribute of the `<FormTemplate>` tag to set the name of the context variable. The context variable is of type `object` and can be cast to the model type to which the grid is bound.
 
