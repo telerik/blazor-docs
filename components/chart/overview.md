@@ -72,6 +72,13 @@ Basic chart and common settings/elements
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
+## Chart Title
+
+You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter.
+
+## Chart Subtitle
+
+You can add a descriptive text that enriches the [Title](#title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
 
 ## Chart Size
 
