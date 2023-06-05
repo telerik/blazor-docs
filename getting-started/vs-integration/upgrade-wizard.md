@@ -3,7 +3,7 @@ title: Upgrading Projects
 page_title: Upgrade Project - Visual Studio Integration
 description: Learn how to upgrade a Telerik UI for Blazor project with our Visual Studio Extension.
 slug: getting-started-vs-integration-upgrade-project
-position: 6
+position: 7
 ---
 
 # Upgrading Projects

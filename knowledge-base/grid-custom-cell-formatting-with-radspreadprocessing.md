@@ -149,3 +149,4 @@ To customize the cell format of the exported file before it reaches the client, 
 
   * [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%})
   * [Change the default CSV delimiter (comma) during Grid export]({%slug grid-kb-csv-export-change-field-delimiter%})
+  * [Configuring Document Processing Libraries]({%slug getting-started-vs-integration-dpl%})
