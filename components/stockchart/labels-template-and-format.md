@@ -10,7 +10,7 @@ position: 22
 
 # Label Template and Format
 
-The StockChart for Blazor can render labels on the axes, and the navigator. You can control those texts not only through the values you data bind, but also through [format strings](#format-strings) or [templates](#templates).
+The StockChart for Blazor can render labels on the axes and the navigator. You can control these texts not only through the values you bind to data but also through [format strings](#format-strings) or [templates](#templates).
 
 You can also rotate the labels by setting the `Angle` parameter to a numeric value the labels will rotate to.
 
