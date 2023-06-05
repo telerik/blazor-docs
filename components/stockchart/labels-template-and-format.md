@@ -1,7 +1,7 @@
 ---
 title: Label Template and Format
 page_title: StockChart - Label Template and Format
-description: Use Label Template and Format their text in the Chart for Blazor.
+description: Learn how to use the Label Template in the Blazor StockChart and to format the labels of the axes and the navigator.
 slug: stockchart-labels-format-template
 tags: telerik,blazor,stock,stockchart,chart,label,template,format,customize
 published: true
