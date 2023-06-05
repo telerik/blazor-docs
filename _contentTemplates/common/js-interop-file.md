@@ -141,33 +141,4 @@ builder.Services.AddTelerikBlazor();
 
 await builder.Build().RunAsync();
 ````
-````.NET_3.x
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System;
-        
-namespace ClientBlazorProject.Client // Make sure this matches your actual WASM project namespace.
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            // sample host builder for a WASM app, yours may differ
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            // There may be more code here.
-
-            // Register the Telerik services.
-            builder.Services.AddTelerikBlazor();
-
-            // There may be more code here.
-            // sample host builder for a WASM app, yours may differ
-            await builder.Build().RunAsync();
-        }
-    }
-}
-````
 #end

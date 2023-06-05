@@ -21,7 +21,7 @@ The wizard adds the following client assets to your project:
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.
 * [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#common-configuration) at the root level of the DOM.
-* Registration for the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics) and for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics).
+* Registration for the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics), for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics), and for [hybrid projects]({%slug getting-started/what-you-need%}#blazor-hybrid-project-specifics).
 
 ## Getting the Wizard
 
@@ -56,7 +56,7 @@ In the order of their appearance, the Create New Project wizard presents the fol
 
 2. On the second screen, you can choose:
 
-   * A WebAssembly or server-side Blazor app.
+   * A WebAssembly, server-side, or Hybrid Blazor app.
    * The .NET version you want to use.
    * The Telerik UI for Blazor version.
    * One of the [predefined Telerik project](#predefined-project-templates) templates.

@@ -70,7 +70,7 @@ You can obtain the required UI for Blazor packages in four ways:
 
 The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-stylesheet) and a [JS Interop file](#telerik-js-interop-file) in the app's main index file. Depending on the Blazor hosting model and framework version, this index file will differ:
 
-   * For Client-Side Blazor apps, use the `wwwroot/index.html` file.
+   * For Client-Side and Blazor Hybrid apps, use the `wwwroot/index.html` file.
    * For Server-Side Blazor apps, use one of the following files:
       * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
@@ -120,8 +120,9 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
 2. Follow the section for your project type:
 
-   * [Client-side (WASM)](#client-side-project-specifics).
-   * [Server-side](#server-side-project-specifics).
+   * [Client-side (WASM)](#client-side-project-specifics)
+   * [Server-side](#server-side-project-specifics)
+   * [Blazor Hybrid](#blazor-hybrid-project-specifics)
 
 
 ### Common Configuration
@@ -162,6 +163,33 @@ The final step is to register the Telerik services. In a server-side Blazor proj
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
+### Blazor Hybrid Project Specifics
+
+The final step is to register the Telerik services. In a Hybrid Blazor project, you register services in the `MauiProgram.cs` file of the project:
+
+**C#**
+<div class="skip-repl"></div>
+````MauiProgram.cs
+public static MauiApp CreateMauiApp()
+{
+   var builder = MauiApp.CreateBuilder();
+   builder
+      .UseMauiApp<App>()
+      .ConfigureFonts(fonts =>
+      {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+      });
+
+   builder.Services.AddMauiBlazorWebView();
+      
+   // Register the Telerik services.
+   builder.Services.AddTelerikBlazor();
+
+   var host = builder.Build();
+
+   return host;
+}
+````
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 

@@ -1,8 +1,8 @@
 ---
-title: Blazor Hybrid with .NET MAUI (Tutorial)
+title: Blazor Hybrid with .NET MAUI
 page_title: First Steps with Blazor Hybrid
 description: Make your first steps with Telerik UI for Blazor and build a .NET MAUI Blazor Hybrid app that runs the UI for Blazor components.
-slug: getting-started-hybrid-maui
+slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
 position: 3
