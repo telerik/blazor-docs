@@ -27,7 +27,10 @@ Define a column header template with a `<ColumnHeaderTemplate>` component. The `
 
 ## Data Cell Template
 
-Define a data cell template with a `<DataCellTemplate>` component. The `context` is of type `PivotGridDataCellTemplateContext`. The `context` provides `Value` and `FormattedValue` properties, which represent the original measure values as `object`. You may need to cast them to the correct type before usage.
+Define a data cell template with a `<DataCellTemplate>` component. The `context` is of type `PivotGridDataCellTemplateContext`. The `context` exposes `Value` (`object`) and `FormattedValue` (`string`) properties.
+
+* You may need to cast the `Value` property to the correct type before usage.
+* Depending on the Pivot Grid data and configuration, the `Value` property may be `null` and the `FormattedValue` may be an empty string.
 
 
 ## Row Header Template
@@ -53,7 +56,10 @@ All template components expose an optional `Context` parameter. Set it in scenar
         @{
             var c = (PivotGridDataCellTemplateContext)dataCellContext;
         }
-        @( ((decimal)c.Value).ToString("c2") )
+            if (c.Value != null)
+            {
+                @( ((decimal)c.Value).ToString("c2") )
+            }
     </DataCellTemplate>
     <RowHeaderTemplate>
         @{
