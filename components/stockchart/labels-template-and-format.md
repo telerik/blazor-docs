@@ -124,7 +124,23 @@ You can use the `Template` parameter to apply more complex formatting to the lab
 
 To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find examples of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article and the [Label Format - Complex Logic](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) sample project.
 
->info The syntax of the templates works the same between the Telerik UI for Blazor Chart and StockChart.
+### Template Fields
+
+In a *category axis* label template, you can use the following fields:
+
+* `value` - the category value
+* `format` - the default format of the label
+
+<!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
+<!--* culture - the default culture (if set) on the label-->
+
+In a *value axis* label template, you can use the following fields:
+
+* `value` - the label value
+
+### Example
+
+>tip The template syntax works the same way for the Telerik UI for Blazor Chart and StockChart.
 
 >caption Custom templates in labels
 
@@ -225,19 +241,7 @@ Label templates
 }
 ````
 
-In a **category axis label template**, you can use the following fields:
-
-* `value` - the category value
-* `format` - the default format of the label
-
-<!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
-<!--* culture - the default culture (if set) on the label-->
-
-In a **value axis label template**, you can use the following fields:
-
-* `value` - the label value
-
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: StockChart](https://demos.telerik.com/blazor-ui/stockchart/overview)
