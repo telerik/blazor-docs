@@ -55,11 +55,12 @@ All template components expose an optional `Context` parameter. Set it in scenar
     <DataCellTemplate Context="dataCellContext">
         @{
             var c = (PivotGridDataCellTemplateContext)dataCellContext;
-        }
+
             if (c.Value != null)
             {
-                @( ((decimal)c.Value).ToString("c2") )
+                @( ((decimal)c.Value).ToString("C2") )
             }
+        }
     </DataCellTemplate>
     <RowHeaderTemplate>
         @{
