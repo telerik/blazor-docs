@@ -70,7 +70,7 @@ You can obtain the required UI for Blazor packages in four ways:
 
 The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-stylesheet) and a [JS Interop file](#telerik-js-interop-file) in the app's main index file. Depending on the Blazor hosting model and framework version, this index file will differ:
 
-   * For Client-Side and Hybrid Blazor apps, use the `wwwroot/index.html` file.
+   * For Client-Side and Blazor Hybrid apps, use the `wwwroot/index.html` file.
    * For Server-Side Blazor apps, use one of the following files:
       * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
@@ -122,7 +122,7 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
    * [Client-side (WASM)](#client-side-project-specifics)
    * [Server-side](#server-side-project-specifics)
-   * [Hybrid](#hybrid-project-specifics)
+   * [Blazor Hybrid](#blazor-hybrid-project-specifics)
 
 
 ### Common Configuration
@@ -163,7 +163,7 @@ The final step is to register the Telerik services. In a server-side Blazor proj
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
-### Hybrid Project Specifics
+### Blazor Hybrid Project Specifics
 
 The final step is to register the Telerik services. In a Hybrid Blazor project, you register services in the `MauiProgram.cs` file of the project:
 
