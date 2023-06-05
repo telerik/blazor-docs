@@ -14,6 +14,7 @@ The StockChart for Blazor can render labels on the axes and the navigator. You c
 
 You can also rotate the labels by setting the `Angle` parameter to a numeric value the labels will rotate to.
 
+In this article:
 * [Format Strings](#format-strings)
 * [Templates](#templates)
 
