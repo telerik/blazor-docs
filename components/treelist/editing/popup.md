@@ -1,19 +1,23 @@
 ---
-title: PopUp Editing
-page_title: TreeList - PopUp Editing
+title: Popup Editing
+page_title: TreeList - Popup Editing
 description: Popup editing of data in treelist for Blazor.
 slug: treelist-editing-popup
-tags: telerik,blazor,treelist,PopUp,editing
+tags: telerik,blazor,treelist,Popup,editing
 published: True
 position: 2
 ---
 
-# TreeList PopUp Editing
+# TreeList Popup Editing
 
 In this article:
 
 * [Basics](#basics)
 * [Customization](#customization)
+    * [Popup Customization](#popup-customization)
+    * [Edit Form Customization](#edit-form-customization)
+    * [Popup Form Customization](#popup-form-customization)
+    * [Popup Buttons Customization](#popup-buttons-customization)
 
 ## Basics
 
@@ -23,12 +27,12 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable PopUp editing in the treelist, set its `EditMode` property to `Telerik.Blazor.TreeListEditMode.Popup`, then handle the CRUD events as shown in the example below.
+To enable Popup editing in the treelist, set its `EditMode` property to `Telerik.Blazor.TreeListEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
-The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
+The Popup editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
 
->caption The Command buttons and the treelist events let you handle data operations in PopUp edit mode
+>caption The Command buttons and the treelist events let you handle data operations in Popup edit mode
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -445,8 +449,16 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
 }
 ````
 
+### Popup Form Customization
+
+In the `TreeListPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the TreeList. For more information and examples on customizing the TreeList Popup window, refer to the [Popup Form Template]({%slug treelist-templates-popup-form%}) article.
+
+### Popup Buttons Customization
+
+You can specify a `ButtonsTemplate` in the `TreeListPopupEditFormSettings` to customize how the buttons look in the create/edit Popup window of the TreeList. To learn more and see an example of customizing the TreeList Popup buttons, refer to the [Popup Buttons Template]({%slug treelist-templates-popup-buttons%}) article.
+
 ## See Also
 
-  * [Live Demo: TreeList PopUp Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
+  * [Live Demo: TreeList Popup Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
   * [Custom Editor Template Per Field]({%slug treelist-templates-editor%})
 

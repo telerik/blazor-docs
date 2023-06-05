@@ -1,19 +1,23 @@
 ---
-title: PopUp Editing
-page_title: Grid - PopUp Editing
+title: Popup Editing
+page_title: Grid - Popup Editing
 description: Popup editing of data in Grid for Blazor.
 slug: components/grid/editing/popup
-tags: telerik,blazor,grid,PopUp,editing
+tags: telerik,blazor,grid,Popup,editing
 published: True
 position: 2
 ---
 
-# Grid PopUp Editing
+# Grid Popup Editing
 
 In this article:
 
 * [Basics](#basics)
 * [Customization](#customization)
+    * [Popup Customization](#popup-customization)
+    * [Edit Form Customization](#edit-form-customization)
+    * [Popup Form Customization](#popup-form-customization)
+    * [Popup Buttons Customization](#popup-buttons-customization)
 
 ## Basics
 
@@ -23,12 +27,12 @@ In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolb
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
-To enable PopUp editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Popup`, then handle the CRUD events as shown in the example below.
+To enable Popup editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
-The PopUp editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
+The Popup editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
 
->caption The Command buttons and the grid events let you handle data operations in PopUp edit mode (see the code comments for details)
+>caption The Command buttons and the grid events let you handle data operations in Popup edit mode (see the code comments for details)
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -260,9 +264,17 @@ The `GridPopupEditFormSettings` nested tag exposes the following parameters to a
 }
 ````
 
+### Popup Form Customization
+
+In the `GridPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the Grid. For more information and examples on customizing the Grid Popup window, refer to the [Popup Form Template]({%slug grid-templates-popup-form%}) article.
+
+### Popup Buttons Customization
+
+You can specify a `ButtonsTemplate` in the `GridPopupEditFormSettings` to customize how the buttons look in the create/edit Popup window of the Grid. To learn more and see an example of customizing the Grid Popup buttons, refer to the [Popup Buttons Template]({%slug grid-templates-popup-buttons%}) article.
+
 ## See Also
 
-  * [Live Demo: Grid PopUp Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
+  * [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
   * [Custom Editor Template Per Field]({%slug components/grid/features/templates%}#edit-template)
   * [Custom Editor Layout](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)
    

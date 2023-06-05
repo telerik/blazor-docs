@@ -251,9 +251,9 @@ In the [Incell EditMode]({%slug treelist-editing-incell%}) selection can be appl
 
 To see how to select the row that is being edited in InCell edit mode without using a `<TreeListCheckboxColumn />` check out the [Grid Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article - it is for the Grid component, but the concept is the same.
 
-#### Inline and PopUp Edit Modes
+#### Inline and Popup Edit Modes
 
-In [Inline EditMode]({%slug treelist-editing-inline%}) and [PopUp EditMode]({%slug treelist-editing-popup%}) selection can be done by clicking on the desired row or by using a `< TreeListCheckboxColumn />`.
+In [Inline EditMode]({%slug treelist-editing-inline%}) and [Popup EditMode]({%slug treelist-editing-popup%}) selection can be done by clicking on the desired row or by using a `< TreeListCheckboxColumn />`.
 
 ### Selection in Template
 
