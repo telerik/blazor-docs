@@ -45,7 +45,7 @@ The PivotGrid is an integrated product that includes several Razor components:
 
 1. Add a `<TelerikPivotGrid>` tag to a Razor file.
 1. Set the `DataProviderType` parameter to a member of the `PivotGridDataProviderType` enum, according to your [data provider]({%slug pivotgrid-data-binding%}#data-provider-type). The example below uses `Local` flat data for simplicity. In this case, the PivotGrid also needs a `Data` parameter, which points to an `IEnumerable<TItem>`.
-1. (optional) To show initial data, add at least one [row, column, and measure with a `Name` parameter](#parameters-for-rows-columns-and-measures) that points to a field name in the data:
+1. (optional) To show initial data, add at least one [row, column, and measure with a `Name` parameter](#row-column-and-measure-parameters) that points to a field name in the data:
     * One `<PivotGridColumn>` instance inside the `<PivotGridColumns>` tag.
     * One `<PivotGridRow>` instance inside the `<PivotGridRows>` tag.
     * One `<PivotGridMeasure>` instance inside the `<PivotGridMeasures>` tag. Set a `Name` and `Aggregate`.
@@ -57,8 +57,6 @@ The PivotGrid is an integrated product that includes several Razor components:
 >caption PivotGrid with configurator and local data
 
 ````CSHTML
-@using Telerik.Blazor.Components.PivotGrid.Enums
-
 <TelerikPivotGridContainer>
 
     <TelerikPivotGridConfigurator />
@@ -154,8 +152,8 @@ The following table lists the `TelerikPivotGrid` parameters. Also check the [Piv
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `Data` | `IEnumerable<TItem>` |  |
-| `DataProviderType` | `PivotGridDataProviderType` enum <br /> (`Local`) |  |
+| `Data` | `IEnumerable<TItem>` | The Pivot Grid component data. Use only with [`Local` `DataProviderType`]({%slug pivotgrid-data-binding%}#local). |
+| `DataProviderType` | `PivotGridDataProviderType` enum <br /> (`Local`) | The [type of data source that the Pivot Grid will use]({%slug pivotgrid-data-binding%}). |
 | `EnableLoaderContainer` | `bool` (`true`) | Defines if a built-in [LoaderContainer]({%slug loadercontainer-overview%}) will show during long-running operations (over 600ms). |
 | `Height` | `string` | A `height` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `LoadOnDemand` | `bool` <br /> (`true`) | Defines if the PivotGrid will request only the data to display in the current view, or all data. When loading on demand is disabled or when using the `Local` `DataProviderType`, the component performs all calculations in-memory. In such cases, large amounts of data may impact the performance, especially in WebAssembly apps. |
@@ -168,7 +166,8 @@ The following table lists parameters of the `PivotGridRow`, `PivotGridColumn` an
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Aggregate` | `PivotGridAggregateType` enum <br /> (`Sum`) | The nature of the calculated aggregate value. Applies to `PivotGridMeasure` only. |
+| `Aggregate` | `PivotGridAggregateType` enum <br /> (`Sum`) | The nature of the calculated aggregate values. Applies to `PivotGridMeasure` only. |
+| `Format` | `string` | The [display format](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) of the calculated aggregate values, for example `"{0:C2}"`. Applies to `PivotGridMeasure` only. |
 | `Name` | `string` | The field name of the respective row, column or measure. |
 
 
@@ -179,6 +178,7 @@ The following table lists parameters of the `TelerikPivotGridConfigurator` compo
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid-configurator">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `EnableLoaderContainer` | `bool` (`true`) | Defines if a built-in [LoaderContainer]({%slug loadercontainer-overview%}) will show during long-running operations (over 600ms). |
 
 
 ### Button Parameters
@@ -203,7 +203,9 @@ The following table lists parameters of the `TelerikPivotGridContainer` componen
 
 The Pivot Grid exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive. The PivotGrid methods are:
 
-* `Rebind` - Processes the component `Data` and refreshes the UI. See the [**Refresh Data** section in the common Data Binding article]({%slug common-features-data-binding-overview%}#refresh-data) for details.
+| Method | Description |
+| --- | --- |
+| `Rebind` | Processes the component `Data` and refreshes the UI. See the [**Refresh Data** section in the common Data Binding article]({%slug common-features-data-binding-overview%}#refresh-data) for details. |
 
 >caption Obtain reference to the PivotGrid instance and execute methods
 

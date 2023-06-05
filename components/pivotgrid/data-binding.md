@@ -30,8 +30,6 @@ When bound to local data, the Pivot Grid requires its `Data` parameter to provid
 >caption PivotGrid bound to Local data provider
 
 ````CSHTML
-@using Telerik.Blazor.Components.PivotGrid.Enums
-
 <TelerikPivotGrid Data="@PivotData">
     <PivotGridColumns>
         <PivotGridColumn Name="@nameof(PivotModel.City)" />
@@ -123,8 +121,6 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 >caption PivotGrid bound to XMLA data provider without credentials
 
 ````CSHTML
-@using Telerik.Blazor.Components.PivotGrid.Enums
-
 <TelerikPivotGridContainer>
     <TelerikPivotGridConfigurator />
 

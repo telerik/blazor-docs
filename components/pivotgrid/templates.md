@@ -12,6 +12,8 @@ position: 30
 
 This article describes the PivotGrid templates. They allow you to customize the content and appearance of the PivotGrid row headers, column headers and data cells.
 
+Each template is defined at component level. So for example the column header template applies to all column fields and headers.
+
 * [`ColumnHeaderTemplate`](#column-header-template)
 * [`DataCellTemplate`](#data-cell-template)
 * [`RowHeaderTemplate`](#row-header-template)
@@ -40,8 +42,6 @@ All template components expose an optional `Context` parameter. Set it in scenar
 >caption Using PivotGrid header and data cell templates
 
 ````CSHTML
-@using Telerik.Blazor.Components.PivotGrid.Enums
-
 <TelerikPivotGrid Data="@PivotData">
     <ColumnHeaderTemplate>
         @{
