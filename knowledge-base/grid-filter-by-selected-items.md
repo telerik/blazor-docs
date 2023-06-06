@@ -46,7 +46,7 @@ The data assignment will vary depending on the [data binding type you are using 
 
 ### Data binding through the Data parameter
 
-Assign the `SelectedItems` to the `Data` parameter of the Grid. [Refresh the Grid]({%slug grid-refresh-data%}) each time you change its data so the changes are visible in the viewport.
+Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data-binding-overview%}) of the Grid. [Refresh the Grid]({%slug grid-refresh-data%}) each time you change its data so the changes are visible in the viewport.
 
 >caption Show only selected items in Grid using the Data parameter
 
@@ -145,6 +145,8 @@ Assign the `SelectedItems` to the `Data` parameter of the Grid. [Refresh the Gri
 ````
 
 ### Data binding through the OnRead event
+
+Bind the Grid [through the OnRead event]({%slug common-features-data-binding-onread%}).
 
 Toggle a flag when the user initiates the filtering. Then call the `Rebind` method - this will force the Grid to fire its `OnRead` event. 
 
@@ -270,3 +272,8 @@ Depending on the flag value, you can make the request based on the corresponding
     }
 }
 ````
+
+## See Also
+
+* [Data Binding to through the `Data` parameter]({%slug common-features-data-binding-overview%})
+* [Data Binding to through the `OnRead` event]({%slug common-features-data-binding-onread%})
