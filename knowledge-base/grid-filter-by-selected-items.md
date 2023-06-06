@@ -146,7 +146,7 @@ Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data
 
 ### Data binding through the OnRead event
 
-Bind the Grid [through the OnRead event]({%slug common-features-data-binding-onread%}).
+Bind the Grid [through the `OnRead` event]({%slug common-features-data-binding-onread%}).
 
 Toggle a flag when the user initiates the filtering. Then call the `Rebind` method - this will force the Grid to fire its `OnRead` event. 
 
