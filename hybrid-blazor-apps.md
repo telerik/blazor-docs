@@ -16,7 +16,6 @@ This article outlines the specifics that can arise when configuring Maui apps to
 
 * The hybrid MAUI Blazor apps allow using browser developer tools. [Learn how to enable and use them...](https://docs.microsoft.com/en-us/aspnet/core/blazor/hybrid/developer-tools?view=aspnetcore-6.0&pivots=windows)
 * The Blazor web app code cannot make calls to native APIs. This feature is yet to be exposed by the framework. At the moment, you have to write your own calls to services and native app code that you need to explicitly expose.
-* At present, it is important to view the integration of the hybrid Blazor app as an initial exploration. We will closely observe the development and progress of the framework and potentially include the webview as a supported environment in the future.
 
 ## Known Issues
 
