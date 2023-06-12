@@ -155,4 +155,4 @@ To format numeric and date cells of the exported file before it reaches the clie
 
   * [Change the default CSV delimiter (comma) during Grid export]({%slug grid-kb-csv-export-change-field-delimiter%})
   * [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
-  * [Configuring Document Processing Libraries]({%slug getting-started-vs-integration-dpl%})
+  * [Configure Document Processing Libraries]({%slug getting-started-vs-integration-dpl%})
