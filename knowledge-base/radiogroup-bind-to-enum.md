@@ -22,7 +22,8 @@ res_type: kb
 </table>
 
 ## Description
-Is there a way to bind the Data source for a Blazor UI RadioGroup to an Enum?
+
+Is there a way to bind the data source for a Blazor UI RadioGroup to an enum?
 
 ## Solution
 You need to prepare a list of all the available 
