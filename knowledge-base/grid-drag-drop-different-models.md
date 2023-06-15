@@ -31,7 +31,7 @@ How can I drag and drop rows between two different Grids, which are bound to dif
 
 1. [Bind the two Grids to the same interface]({%slug grid-data-binding%}#binding-to-interface).
 1. Use the interface type in all event handlers related to drag-and-drop.
-1. If the two Grid models include unique property names, disable filtering for the respective columns. Otherwise the Grids will be unable to build their internal filtering logic and will throw a null reference exception.
+1. If the two Grid models include unique property names, disable sorting and filtering for the respective columns. Otherwise, the Grids will be unable to build their internal filtering logic and will throw a null reference exception.
 
 ````CSHTML
 <TelerikGrid Data="@GridData1"
@@ -48,7 +48,7 @@ How can I drag and drop rows between two different Grids, which are bound to dif
         <GridColumn Field="@(nameof(IParentSampleData.Id))" />
         <GridColumn Field="@(nameof(IParentSampleData.Name))" />
         <GridColumn Field="@(nameof(IParentSampleData.Team))" />
-        <GridColumn Title="Unique Field 1" Field="@nameof(SampleData1.UniqueField1)" Filterable="false" />
+        <GridColumn Title="Unique Field 1" Field="@nameof(SampleData1.UniqueField1)" Sortable="false" Filterable="false" />
     </GridColumns>
 </TelerikGrid>
 
@@ -65,7 +65,7 @@ How can I drag and drop rows between two different Grids, which are bound to dif
         <GridColumn Field="@(nameof(IParentSampleData.Id))" />
         <GridColumn Field="@(nameof(IParentSampleData.Name))" />
         <GridColumn Field="@(nameof(IParentSampleData.Team))" />
-        <GridColumn Title="Unique Field 2" Field="@nameof(SampleData2.UniqueField2)" Filterable="false" />
+        <GridColumn Title="Unique Field 2" Field="@nameof(SampleData2.UniqueField2)" Sortable="false" Filterable="false" />
     </GridColumns>
 </TelerikGrid>
 
