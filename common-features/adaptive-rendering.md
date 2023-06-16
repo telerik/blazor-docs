@@ -66,7 +66,8 @@ Three breakpoints define the rendering options as follows:
 
 ## Limitations
 
-* Custom values - some of the listed components allow custom values (for example, [ComboBox]({%slug components/combobox/custom-value%}), [MultiColumnComboBox]({%slug multicolumncombobox-custom-value%})). This feature is not compatible with `AdaptiveMode.Auto`.
+* Custom values - some of the listed components allow custom values (for example, [ComboBox]({%slug components/combobox/custom-value%}), [MultiColumnComboBox]({%slug multicolumncombobox-custom-value%})). This feature is not compatible with `AdaptiveMode.Auto`. Their compatibility will be shipped in a future version of UI for Blazor: [Support for custom values in AdaptiveMode
+](https://feedback.telerik.com/blazor/1611829-support-for-custom-values-in-adaptivemode)
 
 ## See also
 
