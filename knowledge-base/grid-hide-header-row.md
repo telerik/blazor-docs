@@ -37,7 +37,7 @@ To hide the header row in a Grid or TreeList, set the CSS property value of the 
 @* Hide the header row of the Grid *@
 
 <style>
-    .no-headers-grid > div > div.k-grid-header {
+    .no-headers-grid .k-grid-header {
         display: none;
     }
 </style>
