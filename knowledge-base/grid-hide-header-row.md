@@ -43,7 +43,7 @@ To hide the header row in a Grid or TreeList, set the CSS property value of the 
 </style>
 
 <TelerikGrid Class="no-headers-grid"
-             Data="Employees">
+             Data="@Employees">
     <GridColumns>
         <GridColumn Field="Id"></GridColumn>
         <GridColumn Field="Name"></GridColumn>
