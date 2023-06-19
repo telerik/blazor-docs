@@ -43,7 +43,7 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 A **compatible .NET version** is one that is *no longer* (or *not yet*) officially supported by Microsoft. The Telerik Blazor components should work in apps with that .NET version. We don't expect any .NET-related issues, but if such issues occur, we have no commitment to fix them.
 
->warning Telerik UI for Blazor version `4.6.0` will be the last version compatible with `.NET Core 3.1` and `.NET 5`.
+>warning Telerik UI for Blazor version `4.8.0` will be the last version compatible with `.NET Core 3.1` and `.NET 5`.
 
 >caption .NET versions that are compatible with Telerik UI for Blazor
 
