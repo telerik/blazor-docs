@@ -37,7 +37,7 @@ At the time of writing (UI for Blazor version 2.29), the DatePicker does not exp
 * [DateInput]({%slug components/dateinput/overview%}),
 * [icon button]({%slug button-icons%})
 * [Calendar]({%slug components/calendar/overview%})
-* [AnimationContainer]({%slug components/animationcontainer/overview%}).
+* [AnimationContainer]({%slug components/animationcontainer/overviewww%}).
 
 The only difference to a DatePicker is that the Calendar will not hide automatically when the user clicks outside the popup. The user will need to click on the icon button, or select a date. To improve the experience, you can add a "close" button inside the AnimationContainer or [close it with JavaScript]({%slug animationcontainer-kb-close-on-outside-click%}).
 
