@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Bla
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) Set the `Value` property to the initial value of the model.
 
->caption DropDownList [data binding](data-bind), two-way value binding and main features
+>caption DropDownList [data binding](data-bind), two-way value binding, and main features
 
 ````CSHTML
 Selected value: @selectedValue
