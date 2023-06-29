@@ -28,6 +28,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | `.k-switch` | `role=switch` | Announces the switch role of the element. |
 |  | `label for` or `aria-label` or `aria-labelledby` | The input requires an accessible name that will be assigned to it. |
 |  | `aria-checked` | Announces the checked state of the Switch. |
+|  | `tabindex=0` | The element must be focusable. |
 |  | `aria-invalid=true` | The attribute is rendered only when the Switch is in a form and announces the valid state of the component. |
 | `.k-switch.k-disabled` | `aria-disabled=true` | The attribute is rendered only when the Switch is disabled. |
 
