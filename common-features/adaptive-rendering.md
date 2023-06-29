@@ -19,7 +19,7 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 * [Rendering specifics](#rendering-specifics)
 * [Limitations](#limitations)
 
-## Supported components
+## Supported Components
 
 The adaptive rendering functionality is supported by the following components:
 
@@ -51,7 +51,7 @@ Optionally, you may set the `Title` parameter to provide custom header text for 
 <TelerikDropDownList ... AdaptiveMode="@AdaptiveMode.Auto" Title="Select item"... />
 ````
 
-# Rendering specifics
+## Rendering Specifics
 
 When you set the `AdaptiveMode` to `Auto`, the component will take the screen size into consideration to use the appropriate rendering. The different rendering targets the popup element of the component and how it will be displayed to the user.
 
