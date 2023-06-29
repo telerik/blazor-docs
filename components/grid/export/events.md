@@ -123,6 +123,8 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
                 Discontinued = x % 4 == 0,
                 FirstReleaseDate = DateTime.Now.AddDays(-x)
             }).ToList();
+      
+        SelectedItems = GridData.Take(5);
     }
 
     public class SampleData
@@ -225,6 +227,8 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
                 Discontinued = x % 4 == 0,
                 FirstReleaseDate = DateTime.Now.AddDays(-x)
             }).ToList();
+      
+        SelectedItems = GridData.Take(5);
     }
 
     public class SampleData
