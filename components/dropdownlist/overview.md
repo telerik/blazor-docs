@@ -16,12 +16,11 @@ The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Bla
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown.
-1. set the `TextField` and `ValueField` properties to point to the corresponding names of the model
+1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
-1. (optional) enable features like filtering and clear button
-1. (optional) set the `Value` property to the initial value of the model.
+1. (optional) Set the `Value` property to the initial value of the model.
 
->caption DropDownList [data binding](data-bind), two-way value binding and main features
+>caption DropDownList [data binding](data-bind), two-way value binding, and main features
 
 ````CSHTML
 Selected value: @selectedValue
@@ -39,7 +38,7 @@ Selected value: @selectedValue
         public string MyTextField { get; set; }
     }
 
-    int selectedValue { get; set; }
+    int selectedValue { get; set; } = 3;
 
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
