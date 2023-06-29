@@ -58,7 +58,7 @@ Grid Grouping Header follows the specification of the ToolBar component.
 |  | `aria-label` | Clarifies the purpose of the header. |
 |  | `aria-controls=.k-grid-aria-root id` | Pointing to the id of the element with `role=grid`. |
 | `.k-grouping-header .k-chip-list .k-chip` | `role=button` | If the element used is not `<button>`, then the role must be specified. |
-| `.k-grouping-header .k-chip-list` | `role=none` | The ChipList default listbox role is removed to keep the toolbar --> button roles hierarchy. |
+| `.k-grouping-header .k-chip-list` | `role=none/` | The ChipList default listbox role is removed to keep the toolbar --> button roles hierarchy. |
 |  | `title` | Present on the element or its child if sorting is enabled for that field. |
 
 ### Data Grid (excluding Toolbars and Pager)
