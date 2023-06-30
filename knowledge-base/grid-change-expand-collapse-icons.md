@@ -31,7 +31,21 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 ````CSHTML
 @*Change the icons in the Hierarchical Grid*@
 
+
+@*If your Telerik.UI.for.Blazor version is 4.3.0 or later, use the following CSS.*@
+
 <style>
+    .custom-icons .k-hierarchy-cell .k-svg-icon.k-svg-i-minus svg path{
+        d: path("M256 352 128 160h256L256 352z");
+    }
+    .custom-icons .k-hierarchy-cell .k-svg-icon.k-svg-i-plus svg path{
+        d: path("M352 256 160 384V128l192 128z");
+    }
+</style>
+
+@*If your Telerik.UI.for.Blazor version is below 4.3.0, use this CSS.*@
+
+<!-- <style>
     .custom-icons .k-hierarchy-cell .k-icon.k-i-plus::before {
         content: "\e005";
     }
@@ -39,7 +53,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
     .custom-icons .k-hierarchy-cell .k-icon.k-i-minus::before {
         content: "\e006";
     }
-</style>
+</style> -->
 
 <TelerikGrid Class="custom-icons" Data="salesTeamMembers" @ref="Grid"
              OnStateInit="@( (GridStateEventArgs<MainModel> args) => OnStateInit(args))">
@@ -108,4 +122,4 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 ![Hierarchical Grid with changed expand/collapse icons](images/grid-change-expand-collapse-icons-example.png)
 
 ## Notes
-To get the desired icons, you can use your dev tools to inspect the rendered icon you want and get its content. Also, you can use any custom icons that are not from the Telerik font (e.g., icons from Bootstrap, Open Iconic, and so on) by specifying the desired font name in addition to the content. 
+To get the desired icons, you can use your dev tools to inspect the rendered icon you want and get its content/path. Also, you can use any custom icons that are not from the Telerik icons package (e.g., icons from Bootstrap, Open Iconic, and so on) by specifying the desired font name in addition to the content. 
