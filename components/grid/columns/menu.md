@@ -51,7 +51,7 @@ You can see the what the column menu can do and how to control its settings in t
 </TelerikGrid>
 
 @code {
-    public IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
