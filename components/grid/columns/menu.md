@@ -25,7 +25,7 @@ The Grid allows you to setup a menu for its columns. It enables you to perform h
 
 ## Basics
 
-To enable the column menu, set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
+To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
 To disable the Column Menu for a specific column in the Grid, set the `ShowColumnMenu` parameter of the column to `false`.
 
