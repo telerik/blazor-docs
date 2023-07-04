@@ -14,7 +14,7 @@ This article explains how to bind the Gantt Tree for Blazor to flat data.
 @[template](/_contentTemplates/treelist/databinding.md#link-to-basics)
 
 
-Flat data means that the entire collection of Гantt items is available at one level, for example `List<MyGanttItemModel>`.
+Flat data means that the entire collection of Gantt items is available at one level, for example `List<MyGanttItemModel>`.
 
 The parent-child relationships are created through internal data in the model - the `ParentId` field which points to the `Id` of the item that will contain the current item. The root level has `null` for `ParentId`. There must be at least one node with a `null` value so that the Gantt Tree renders anything.
 
