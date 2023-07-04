@@ -24,6 +24,10 @@ The default filter operator is `starts with`. You can choose a different operato
 
 By default, the filtering is debounced with 150ms. Configure that with the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#parameters) parameter of the component.
 
+## Placeholder
+
+By default, the filter input in the popup is empty. Set the desired hint in it through the `FilterPlaceholder` parameter.
+
 ## Filtering Example
 
 >caption Filtering in the DropDownList
@@ -58,11 +62,12 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Fil
                      Filterable="true"
                      FilterOperator="@FilterOperator"
                      FilterDebounceDelay="@DebounceDelay"
+                     FilterPlaceholder="Search a product number..."
                      DefaultText="Type digits to see filtering in action"
                      Width="300px">
 </TelerikDropDownList>
 
-@code{
+@code {
     private List<Product> ProductList { get; set; }
 
     private int? SelectedProduct { get; set; }
@@ -78,10 +83,10 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Fil
         for (int i = 1; i <= 30; i++)
         {
             ProductList.Add(new Product()
-            {
-                Id = i,
-                Name = $"{i} Product {i * 111}"
-            });
+                {
+                    Id = i,
+                    Name = $"{i} Product {i * 111}"
+                });
         }
 
         base.OnInitialized();
