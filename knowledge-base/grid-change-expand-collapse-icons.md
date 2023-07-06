@@ -45,7 +45,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 
 @*If your Telerik.UI.for.Blazor version is below 4.3.0, use this CSS.*@
 
-<!-- <style>
+@* <style>
     .custom-icons .k-hierarchy-cell .k-icon.k-i-plus::before {
         content: "\e005";
     }
@@ -53,7 +53,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
     .custom-icons .k-hierarchy-cell .k-icon.k-i-minus::before {
         content: "\e006";
     }
-</style> -->
+</style> *@
 
 <TelerikGrid Class="custom-icons" Data="salesTeamMembers" @ref="Grid"
              OnStateInit="@( (GridStateEventArgs<MainModel> args) => OnStateInit(args))">
@@ -117,9 +117,34 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 }
 ````
 
+>The SVG icons customization does not work in the Safari browser. An alternative approach would be to hide the SVG icons and use font icons instead.
+
+>caption Replace the SVG icons with Font icons
+```
+
+<style>
+    .custom-icons .k-hierarchy-cell .k-svg-icon svg {
+        display:none;
+    }
+    .custom-icons .k-hierarchy-cell .k-svg-icon.k-svg-i-plus:before {
+         content: "\e005";
+         font-family: "WebComponentsIcons";
+    }
+    .custom-icons .k-hierarchy-cell .k-svg-icon.k-svg-i-minus:before {
+         content: "\e006";
+         font-family: "WebComponentsIcons";
+    }
+</style>
+
+```
+
 >caption Change the built-in expand/collapse icons. The result of the code snippet above.
 
 ![Hierarchical Grid with changed expand/collapse icons](images/grid-change-expand-collapse-icons-example.png)
 
 ## Notes
 To get the desired icons, you can use your dev tools to inspect the rendered icon you want and get its content/path. Also, you can use any custom icons that are not from the Telerik icons package (e.g., icons from Bootstrap, Open Iconic, and so on) by specifying the desired font name in addition to the content. 
+
+## See Also
+
+* [Font and SVG Icons]({%slug general-information/font-icons%})
