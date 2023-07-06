@@ -100,7 +100,7 @@ To disable locking and unlocking of a column from the Column Menu, set the `Lock
 
 The Column Chooser in the Column Menu allows you to toggle the visibility of the Grid columns from the Column Menu. By the default, all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
 
-The **Apply** button will set the column visibility, according to the current checkbox values, and will close the column menu. The **Reset** button will revert the checkbox values to their state when the column menu was opened. At this point the user can start over, click on **Apply** or click outside the column menu to close it.
+The **Apply** button will set the column visibility according to the current checkbox values and will close the column menu. The **Reset** button will revert the checkbox values to the state they had when the column menu was opened. At this point, the user can start over, click **Apply**, or click outside the column menu to close it.
 
 To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
 
