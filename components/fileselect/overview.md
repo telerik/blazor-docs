@@ -69,6 +69,10 @@ Additionally, you may define an external drop zone by using the [Telerik UI for 
 
 The FileSelect includes [built-in client-side validation]({%slug fileselect-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug fileselect-events%}#onselect).
 
+## Initial Files
+
+The FileSelect `Files` property is a collection of type `IEnumerable<FileSelectFileInfo>` that holds a set of pre-selected files. These files will be initially displayed in the FileSelect files list. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Telerik FileSelect Initial Files feature...]({%slug fileselect-initial-files%})
+
 ## Templates
 
 You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik FileSelect templates...]({%slug fileselect-templates%})
@@ -91,6 +95,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
+| `Files` | `IEnumerable<FileSelectFileInfo>` | Collection of files that will be initially displayed in the FileSelect files list. |
 
 
 ## FileSelect Reference and Methods

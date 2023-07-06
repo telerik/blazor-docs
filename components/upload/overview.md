@@ -175,6 +175,10 @@ Authentication and authorization depends on the application.
 
 The Upload includes [built-in client-side validation]({%slug upload-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug upload-events%}#onselect).
 
+## Initial Files
+
+The Upload `Files` property is a collection of type `IEnumerable<UploadFileInfo>` that holds a set of pre-selected files. These files will be initially displayed in the Upload files list. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Telerik Upload Initial Files feature...]({%slug upload-initial-files%})
+
 ## Templates
 
 You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
@@ -215,6 +219,7 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `SaveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file submitted to the [`SaveUrl` endpoint](#implement-controller-methods). The `SaveField` value must match the save controller method's argument name. |
 | `SaveUrl` | `string` | The URL which receives the uploaded files. `SaveUrl` and `RemoveUrl` **cannot change** between file selection and file upload, because the component will be recreated and the selected files will be lost. |
 | `WithCredentials` | `bool` | Controls if the Upload will send credentials such as cookies or HTTP headers for [**cross-site** requests](#cross-origin-requests). See [XMLHttpRequest.withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). On the other hand, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add authentication tokens and other metadata to the component requests. |
+| `Files` | `IEnumerable<UploadFileInfo>` | Collection of files that will be initially displayed in the Upload files list. |
 
 
 ## Upload Reference and Methods
