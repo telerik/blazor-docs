@@ -53,7 +53,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
 | `AutoSize` | `bool` | Specifies if the TextArea will adjust its height based on the user input. |
 | `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
-| `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Not supported in combination with `Width`.
+| `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Do not use together with `Width`.
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the TextArea is enabled. |
 | `Id` | `string` | Renders as the `id` attribute on the `<textarea>` element, so you can attach a `<label for="">`. |
