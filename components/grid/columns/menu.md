@@ -20,7 +20,7 @@ The Grid allows you to setup a menu for its columns. It enables you to perform h
     * [Frozen Columns](#frozen-columns)
     * [Column Chooser](#column-chooser)
     * [Sections](#sections)
-*[Example](#example)
+* [Example](#example)
 * [Notes](#notes)
 
 ## Basics
