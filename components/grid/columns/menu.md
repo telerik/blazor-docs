@@ -127,7 +127,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 ### Example
 
-The following example shows basic configuration of the `ColumnMenuSettings`.
+The following example shows the basic configuration of the `ColumnMenuSettings`.
 
 The columns in the Column Chooser are divided in sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Grid can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
