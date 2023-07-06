@@ -51,17 +51,19 @@ The Blazor TextArea provides various parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `Value` | `string` | Get/set the value of the input, can be used for binding. |
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
-| `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
 | `AutoSize` | `bool` | Specifies if the TextArea will adjust its height based on the user input. |
+| `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
+| `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Do not use together with `Width`.
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the TextArea is enabled. |
 | `Id` | `string` | Renders as the `id` attribute on the `<textarea>` element, so you can attach a `<label for="">`. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `Rows` | `int?` | Maps to the `rows` attribute of the HTML `<textarea>` element.
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
+| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. Do not use together with `Cols`.|
 
 See the [Input Validation]({%slug common-features/input-validation%}) article.
 
