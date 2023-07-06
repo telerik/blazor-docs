@@ -12,11 +12,7 @@ position: 20
 
 The Grid allows you to setup a menu for its columns. It enables you to perform high-level customization like [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%}), [showing or hiding]({%slug grid-columns-visible%}) columns and [freezing or unfreezing]({%slug grid-columns-frozen%}) them.
 
->caption Telerik Column Menu for the Grid
-
-![column menu basic example screenshot](images/column-menu-basic-example.png)
-
-In this article:
+>caption In this article:
 * [Basics](#basics)
 * [Features](#features)
     * [Sorting](#sorting)
@@ -24,22 +20,23 @@ In this article:
     * [Frozen Columns](#frozen-columns)
     * [Column Chooser](#column-chooser)
     * [Sections](#sections)
+* [Example](#example)
 * [Notes](#notes)
 
 ## Basics
 
-To enable the column menu set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
+To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikGrid>` tag to `true`. This will enable the menu for each column of the Grid.
 
-To disable the Column Menu for a specific column in the Grid set the `ShowColumnMenu` parameter of the column to `false`.
+To disable the Column Menu for a specific column in the Grid, set the `ShowColumnMenu` parameter of the column to `false`.
 
 You can see the what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
 
->caption Enable the column menu for all Grid columns. Results in the screnshot above.
+>caption Enable the column menu for all Grid columns.
 
 ````CSHTML
 @* Set the ShowColumnMenu parameter to true *@
 
-<TelerikGrid Data="@MyData"
+<TelerikGrid Data="@GridData"
              Pageable="true"
              PageSize="5"
              FilterMode="@GridFilterMode.FilterMenu"
@@ -54,7 +51,7 @@ You can see the what the column menu can do and how to control its settings in t
 </TelerikGrid>
 
 @code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -74,7 +71,7 @@ You can see the what the column menu can do and how to control its settings in t
 
 ## Features
 
-To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`:
+To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>` tag, nested inside the `<GridSettings>` tag:
 
 * [Sorting](#sorting)
 * [Filtering](#filtering)
@@ -86,27 +83,24 @@ To control the common features of the `Column Menu` use the `<GridColumnMenuSett
 
 To remove the sorting option from the Column Menu set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
 
-
 ### Filtering
 
 To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
-* `None` - disables the filtering from the Column Menu.
+* `None` - disables the filtering from the Column Menu. This is the recommended option if you use [`FilterRow` mode]({%slug grid-filter-row%}).
 * `FilterMenu` - enables a filter menu to apply filtering.
 
+>important Do not mix [`FilterRow`]({%slug grid-filter-row%}) mode with [`FilterMenu`]({%slug grid-filter-menu%}) in the Column Menu. These filtering modes provide different UI and filter inputs. Combining them may mislead the user about the applied filters.
 
 ### Frozen Columns
 
-To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
-
+To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the `GridColumnMenuSettings` to `false`.
 
 ### Column Chooser
 
-The Column Chooser in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
+The Column Chooser in the Column Menu allows you to toggle the visibility of the Grid columns from the Column Menu. By the default, all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
 
-The **Apply** button will set column visibility, according to the current checkbox values, and close the column menu. The **Reset** button will revert the checkbox values to their state when the column menu was opened. At this point the user can start over, click on **Apply** or click outside the column menu to close it.
-
-![column chooser screenshot](images/column-menu-chooser-in-action.gif)
+The **Apply** button will set the column visibility according to the current checkbox values and will close the column menu. The **Reset** button will revert the checkbox values to the state they had when the column menu was opened. At this point, the user can start over, click **Apply**, or click outside the column menu to close it.
 
 To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
 
@@ -130,58 +124,56 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
     
     * If you set the `Title` parameter of the `GridColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Grid Column. 
 
-![columns organized in groups](images/column-menu-sections-example.png)
 
->caption Organize the columns in the Column Chooser in sections
+### Example
+
+The following example shows the basic configuration of the `ColumnMenuSettings`.
+
+The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Grid can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
 ````CSHTML
-@* Organize the columns in the Column Chooser in some sections. Use the Id and ColumnId parameters of the Grid Column and GridColumnMenuChooserItem respectively to relate them. *@
-
-<TelerikGrid Data="@MyData"
+<TelerikGrid Data="@GridData"
              Pageable="true"
-             PageSize="5"
-             Width="700px"
-             FilterMode="@GridFilterMode.FilterMenu"
+             FilterMode="@GridFilterMode.FilterRow"
              Sortable="true"
              ShowColumnMenu="true">
     <GridSettings>
-        <GridColumnMenuSettings>
+        <GridColumnMenuSettings Lockable="false"
+                                FilterMode="@ColumnMenuFilterMode.None">
             <GridColumnMenuChooser>
                 <Template>
                     <GridColumnMenuChooserGroup Title="Personal Information">
-                        <GridColumnMenuChooserItem ColumnId="id-column-id" />
                         <GridColumnMenuChooserItem ColumnId="firstname-column-id" />
                         <GridColumnMenuChooserItem ColumnId="lastname-column-id" />
                     </GridColumnMenuChooserGroup>
                     <GridColumnMenuChooserGroup Title="Employee Information">
                         <GridColumnMenuChooserItem ColumnId="companyname-column-id" />
                         <GridColumnMenuChooserItem ColumnId="team-column-id" />
-                        <GridColumnMenuChooserItem ColumnId="hiredate-column-id" />
                     </GridColumnMenuChooserGroup>
                 </Template>
             </GridColumnMenuChooser>
         </GridColumnMenuSettings>
     </GridSettings>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" Id="id-column-id" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" ShowColumnMenu="false" />
         <GridColumn Field="@(nameof(SampleData.FirstName))" Title="First Name" Id="firstname-column-id" />
         <GridColumn Field="@(nameof(SampleData.LastName))" Title="Last Name" Id="lastname-column-id" />
         <GridColumn Field="@(nameof(SampleData.CompanyName))" Title="Company" Id="companyname-column-id" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Id="team-column-id" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Id="hiredate-column-id" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" VisibleInColumnChooser="false" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        FirstName = $"FirstName {x}",
-        LastName = $"LastName {x}",
-        CompanyName = $"Company {x}",
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            FirstName = $"FirstName {x}",
+            LastName = $"LastName {x}",
+            CompanyName = $"Company {x}",
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {
@@ -195,60 +187,9 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 }
 ````
 
-### Example of Column Menu Features Settings
-
->caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
-
-````CSHTML
-@* Disable filtering and locking columns, hide a column from the chooser (Team), disable the menu for a column (Name). *@
-
-<TelerikGrid Data="@MyData"
-             Pageable="true"
-             PageSize="5"
-             FilterMode="@GridFilterMode.FilterMenu"
-             Sortable="true"
-             ShowColumnMenu="true">
-    <GridSettings>
-        <GridColumnMenuSettings Lockable="false"
-                                FilterMode="@ColumnMenuFilterMode.None">
-        </GridColumnMenuSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" ShowColumnMenu="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" VisibleInColumnChooser="false" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
-
->caption Column menu with filtering, locking and sorting, but without a column chooser
-
-![column menu common settings example](images/column-menu-settings-example.gif)
-
 ## Notes
 
 * Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precendence over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
-
-* An exception will be thrown if the `FilterMode` of the Grid is set to `FilterRow` and a column menu is used - the filter descriptors of the two features are not compatible.
 
 * If the Grid has a [frozen]({%slug grid-columns-frozen%}) column (`Locked="true"`), that column cannot be unfrozen from the column menu.
 
