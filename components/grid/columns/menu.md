@@ -90,7 +90,7 @@ To control whether filtering is possible from the Column Menu set the `FilterMod
 * `None` - disables the filtering from the Column Menu. This is the recommended option if you use [`FilterRow` mode]({%slug grid-filter-row%}).
 * `FilterMenu` - enables a filter menu to apply filtering.
 
->important Do not mix [`FilterRow`]({%slug grid-filter-row%}) mode with [`FilterMenu`]({%slug grid-filter-menu%}) in the Column Menu. These filtering modes provide different UI and filter inputs. Combining them may cause a misleading UX regarding the applied filters.
+>important Do not mix [`FilterRow`]({%slug grid-filter-row%}) mode with [`FilterMenu`]({%slug grid-filter-menu%}) in the Column Menu. These filtering modes provide different UI and filter inputs. Combining them may mislead the user about the applied filters.
 
 ### Frozen Columns
 
