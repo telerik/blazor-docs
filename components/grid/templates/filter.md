@@ -314,7 +314,10 @@ By default, the Filter Menu renders the `Filter` and `Clear` buttons. You can cu
 
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - the object that describes the column filter. By default it has two filters with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`. You can use the filter descriptor to create a custom button that applies a predefined filter. 
+* `FilterDescriptor`—the object that describes the column filter. By default, the column filter has two filters: one for the type and another for the name of the field. You can modify the column filter by:
+   * Adding more filters to the `FilterDescriptors` collection.
+   * Changing the `LogicalOperator` (`AND` by default).
+   * Using the `FilterDescriptor` to create a custom button that applies a predefined filter. 
 * `FilterAsync` - applies the defined filters in the Filter Menu to the Grid component.
 * `ClearFilterAsync` - clears the applied filters.
 
