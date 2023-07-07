@@ -85,7 +85,7 @@ The algorithm below is using a `TelerikGrid`, but it's identical for all Telerik
                 Member = nameof(GridItem.Text),
                 SortDirection = ListSortDirection.Descending
             });
-            await grid.SetState(state);            
+            await grid.SetStateAsync(state);            
         }
     }
 
