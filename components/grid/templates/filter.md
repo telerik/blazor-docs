@@ -319,7 +319,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
    * Changing the `LogicalOperator` (`AND` by default).
    * Using the `FilterDescriptor` to create a custom button that applies a predefined filter. 
 * `FilterAsync`—applies the filters defined in the Filter Menu to the Grid component.
-* `ClearFilterAsync` - clears the applied filters.
+* `ClearFilterAsync`—clears the applied filters.
 
 >caption Implement a button with predefined filter.
 
