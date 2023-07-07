@@ -1,0 +1,178 @@
+---
+title: Range Column
+page_title: Chart - Range Column
+description: Overview of the Range Column Chart for Blazor.
+slug: components/chart/types/rangecolumn
+tags: telerik,blazor,chart,rangecolumn
+published: True
+position: 0
+---
+
+# Range Column Chart
+
+The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
+
+![column chart](images/column-chart.png)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+
+@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
+
+#### To create a column chart:
+
+1. add a `ChartSeries` to the `ChartSeriesItems` collection
+2. set its `Type` property to `ChartSeriesType.Column`
+3. provide a data collection to its `Data` property
+4. optionally, provide data for the x-axis `Categories`
+
+
+>caption A column chart that shows product revenues
+
+````CSHTML
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Name="University 1"
+                     Data="@StudentScores1"
+                     Type="ChartSeriesType.RangeColumn">
+            <ChartSeriesLabels Visible="true" />
+        </ChartSeries>
+        <ChartSeries Name="University 2"
+                     Data="@StudentScores2"
+                     Type="ChartSeriesType.RangeColumn">
+            <ChartSeriesLabels Visible="true" />
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@Years" />
+    </ChartCategoryAxes>
+
+    <ChartTooltip Visible="true">
+        <Template>
+            @{
+                var item = (int[])context.DataItem;
+                <span>@item[0] - @item[1]</span>
+            }
+        </Template>
+    </ChartTooltip>
+
+    <ChartTitle Text="Exam Score Ranges"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right"></ChartLegend>
+</TelerikChart>
+
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Name="University 1"
+                     Data="@StudentScoreList1"
+                     Type="ChartSeriesType.RangeColumn"
+                     FromField="@nameof(ScoreModel.LowScore)"
+                     ToField="@nameof(ScoreModel.HighScore)"
+                     CategoryField="@nameof(ScoreModel.Year)">
+        </ChartSeries>
+        <ChartSeries Name="University 2"
+                     Data="@StudentScoreList2"
+                     Type="ChartSeriesType.RangeColumn"
+                     FromField="@nameof(ScoreModel.LowScore)"
+                     ToField="@nameof(ScoreModel.HighScore)"
+                     CategoryField="@nameof(ScoreModel.Year)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTooltip Visible="true">
+        <Template>
+            @{
+                var item = (ScoreModel)context.DataItem;
+                <span>@item.LowScore - @item.HighScore</span>
+            }
+        </Template>
+    </ChartTooltip>
+
+    <ChartTitle Text="Exam Score Ranges"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right"></ChartLegend>
+</TelerikChart>
+
+@code {
+    private int[][] StudentScores1 { get; set; } = new int[5][];
+    private int[][] StudentScores2 { get; set; } = new int[5][];
+
+    private object[] Years { get; set; }
+
+    private List<ScoreModel> StudentScoreList1 { get; set; } = new List<ScoreModel>();
+    private List<ScoreModel> StudentScoreList2 { get; set; } = new List<ScoreModel>();
+
+    protected override void OnInitialized()
+    {
+        var thisYear = DateTime.Now.Year;
+        Years = new object[] { thisYear - 4, thisYear - 3, thisYear - 2, thisYear - 1, thisYear };
+
+        var rnd = new Random();
+        List<int[]> tempData1 = new List<int[]>();
+        List<int[]> tempData2 = new List<int[]>();
+
+        for (int i = 1; i <= Years.Count(); i++)
+        {
+            int randomValue = rnd.Next(30, 50);
+            tempData1.Add(new int[] { randomValue, randomValue + 30 });
+            tempData2.Add(new int[] { randomValue + 10, randomValue + 40 });
+
+            StudentScoreList1.Add(new ScoreModel()
+            {
+                Year = thisYear - 4 + i,
+                LowScore = randomValue,
+                HighScore = randomValue + 30
+            });
+
+            StudentScoreList2.Add(new ScoreModel()
+            {
+                Year = thisYear - 4 + i,
+                LowScore = randomValue + 10,
+                HighScore = randomValue + 40
+            });
+        }
+
+        StudentScores1 = tempData1.ToArray();
+        StudentScores2 = tempData2.ToArray();
+
+        base.OnInitialized();
+    }
+
+    public class ScoreModel
+    {
+        public int Year { get; set; }
+        public int LowScore { get; set; }
+        public int HighScore { get; set; }
+    }
+}
+````
+
+## Column Chart Specific Appearance Settings
+
+### Labels
+
+Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
+
+* `Visible` - hide all labels by setting this parameter to `false`.
+* `Step` - renders every n-th labels, where n is the value(double number) passed to the parameter.
+* `Skip` - skips the first n labels, where n is the value (double number) passed to the parameter.
+* `Angle` - rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
+
+To rotate the markers use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as value.
+
+### Color
+
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
+
+@[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
+
+
+## See Also
+
+* [Live Demo: Range Column Chart](https://demos.telerik.com/blazor-ui/chart/range-column-chart)
