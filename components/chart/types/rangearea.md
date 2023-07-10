@@ -10,7 +10,7 @@ position: 0
 
 # Range Area Chart
 
-The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by their items' "low" and "high" values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart]({%slug components/chart/types/rangearea%}). The latter can be regarded as a Range Area Chart with a "low" value of zero.
+The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by their items' "low" and "high" values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart]({%slug components/chart/types/area%}). The latter can be regarded as a Range Area Chart with a "low" value of zero.
 
 The Range Area Chart can emphasize the difference between pairs of continuous value sequences.
 
@@ -22,16 +22,16 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 
 1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
 2. Set its `Type` property to `ChartSeriesType.RangeArea`.
-3. Provide a data collection to its `Data` property. You can use a [jagged array](#bind-range-area-series-to-jagged-array) (an array of arrays) or a [collection of custom objects](#bind-range-area-series-to-custom-objects).
-4. If the Range Area data is a jagged array, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
+3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#bind-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-area-series-to-custom-objects).
+4. If the Range Area data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
-### Bind Range Area Series to Jagged Array
+### Bind Range Area Series to Collection of Arrays
 
-In this case, set the `ChartSeries` `Data` parameter to an array of arrays. The inner arrays should have two members - one for the "low" ("from") value, and one of the "high" ("to") value.
+In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the "low" ("from") value, and one for the "high" ("to") value.
 
 In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The members of this array will be used as labels for the category axis in their respective order.
 
->caption Blazor Range Area Chart bound to array of arrays
+>caption Blazor Range Area Chart bound to arrays
 
 ````CSHTML
 <TelerikChart>
@@ -58,7 +58,9 @@ In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `objec
 </TelerikChart>
 
 @code {
-    private double[][] SydneyData { get; set; } = new double[][]
+    // The RangeArea series Data can be any collection of arrays
+
+    private List<double[]> SydneyData { get; set; } = new List<double[]>
     {
         new double[] { 20, 27 },
         new double[] { 19.9, 26.8 },
@@ -88,7 +90,7 @@ In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `objec
         new double[] { 6.7, 17.6 },
         new double[] { 2.2, 10.7 },
         new double[] { -2.3, 4.6 }
-    };
+            };
 
     private object[] MonthNames = new string[] {
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
@@ -136,8 +138,9 @@ In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. The
     protected override void OnInitialized()
     {
         var rnd = new Random();
+        var dataPointCount = 10;
 
-        for (int i = 0; i <= 23; i++)
+        for (int i = 1; i <= dataPointCount; i++)
         {
             Tube1Data.Add(new AreaDataPoint()
             {
@@ -149,8 +152,8 @@ In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. The
             Tube2Data.Add(new AreaDataPoint()
             {
                 Hour = i,
-                LowValue = rnd.Next(5 * (24 - i), 10 * (24 - i)),
-                HighValue = rnd.Next(15 * (24 - i), 20 * (24 - i))
+                LowValue = rnd.Next(5 * (dataPointCount + 1 - i), 10 * (dataPointCount + 1 - i)),
+                HighValue = rnd.Next(15 * (dataPointCount + 1 - i), 20 * (dataPointCount + 1 - i))
             });
         }
     }

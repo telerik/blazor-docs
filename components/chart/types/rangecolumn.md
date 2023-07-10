@@ -10,23 +10,24 @@ position: 0
 
 # Range Column Chart
 
-The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Blazor Column chart</a> displays data as vertical bars whose heights vary according to their value. You can use a Column chart to show a comparison between several sets of data (for example, summaries of sales data for different time periods). Each series is automatically colored differently for easier reading.
-
-![column chart](images/column-chart.png)
+The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blank">Blazor Range Column Chart</a> displays data as vertical bars whose position and height vary according to their values. You can use a Range Column Chart to show a comparison between several sets of data (for example, summaries of quantities or measurements for different time periods). Each series is automatically colored differently for easier perception. The Range Column Chart is similar to the [Column Chart]({%slug components/chart/types/column%}). The latter can be regarded as a Range Column Chart with a "low" ("from") value of zero.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
+## Creating Blazor Range Column Chart
 
-#### To create a column chart:
+1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
+2. Set its `Type` property to `ChartSeriesType.RangeColumn`.
+3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#bind-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-column-series-to-custom-objects).
+4. If the Range Column data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
-1. add a `ChartSeries` to the `ChartSeriesItems` collection
-2. set its `Type` property to `ChartSeriesType.Column`
-3. provide a data collection to its `Data` property
-4. optionally, provide data for the x-axis `Categories`
+### Bind Range Column Series to Collection of Arrays
 
+In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the "low" ("from") value, and one for the "high" ("to") value.
 
->caption A column chart that shows product revenues
+In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The members of this array will be used as labels for the category axis in their respective order.
+
+>caption Blazor Range Column Chart bound to arrays
 
 ````CSHTML
 <TelerikChart>
@@ -34,12 +35,10 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
         <ChartSeries Name="University 1"
                      Data="@StudentScores1"
                      Type="ChartSeriesType.RangeColumn">
-            <ChartSeriesLabels Visible="true" />
         </ChartSeries>
         <ChartSeries Name="University 2"
                      Data="@StudentScores2"
                      Type="ChartSeriesType.RangeColumn">
-            <ChartSeriesLabels Visible="true" />
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -51,7 +50,7 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
         <Template>
             @{
                 var item = (int[])context.DataItem;
-                <span>@item[0] - @item[1]</span>
+                <span>@item[0] - @item[1] points</span>
             }
         </Template>
     </ChartTooltip>
@@ -61,6 +60,44 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
     <ChartLegend Position="ChartLegendPosition.Right"></ChartLegend>
 </TelerikChart>
 
+@code {
+    // The RangeColumn Series Data can be any collection of arrays
+    private List<int[]> StudentScores1 { get; set; } = new List<int[]>();
+    private int[][] StudentScores2 { get; set; } = new int[5][];
+
+    private object[] Years { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var thisYear = DateTime.Now.Year;
+        Years = new object[] { thisYear - 4, thisYear - 3, thisYear - 2, thisYear - 1, thisYear };
+
+        var rnd = new Random();
+        List<int[]> tempData1 = new List<int[]>();
+        List<int[]> tempData2 = new List<int[]>();
+
+        for (int i = 1; i <= Years.Count(); i++)
+        {
+            int randomValue = rnd.Next(30, 50);
+            tempData1.Add(new int[] { randomValue, randomValue + 30 });
+            tempData2.Add(new int[] { randomValue + 10, randomValue + 40 });
+        }
+
+        StudentScores1 = tempData1;
+        StudentScores2 = tempData2.ToArray();
+
+        base.OnInitialized();
+    }
+}
+````
+
+### Bind Range Column Series to Custom Objects
+
+In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. Then, set the `FromField`, `ToField` and `CategoryField` parameters of the `ChartSeries` to properties of the `T` type.
+
+>caption Blazor Range Column Chart bound to custom objects
+
+````CSHTML
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Name="University 1"
@@ -83,7 +120,7 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
         <Template>
             @{
                 var item = (ScoreModel)context.DataItem;
-                <span>@item.LowScore - @item.HighScore</span>
+                <span>@item.LowScore - @item.HighScore points</span>
             }
         </Template>
     </ChartTooltip>
@@ -94,11 +131,6 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
 </TelerikChart>
 
 @code {
-    private int[][] StudentScores1 { get; set; } = new int[5][];
-    private int[][] StudentScores2 { get; set; } = new int[5][];
-
-    private object[] Years { get; set; }
-
     private List<ScoreModel> StudentScoreList1 { get; set; } = new List<ScoreModel>();
     private List<ScoreModel> StudentScoreList2 { get; set; } = new List<ScoreModel>();
 
@@ -108,14 +140,10 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
         Years = new object[] { thisYear - 4, thisYear - 3, thisYear - 2, thisYear - 1, thisYear };
 
         var rnd = new Random();
-        List<int[]> tempData1 = new List<int[]>();
-        List<int[]> tempData2 = new List<int[]>();
 
         for (int i = 1; i <= Years.Count(); i++)
         {
             int randomValue = rnd.Next(30, 50);
-            tempData1.Add(new int[] { randomValue, randomValue + 30 });
-            tempData2.Add(new int[] { randomValue + 10, randomValue + 40 });
 
             StudentScoreList1.Add(new ScoreModel()
             {
@@ -132,9 +160,6 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
             });
         }
 
-        StudentScores1 = tempData1.ToArray();
-        StudentScores2 = tempData2.ToArray();
-
         base.OnInitialized();
     }
 
@@ -146,6 +171,7 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
     }
 }
 ````
+
 
 ## Column Chart Specific Appearance Settings
 
