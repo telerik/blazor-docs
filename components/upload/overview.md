@@ -177,7 +177,7 @@ The Upload includes [built-in client-side validation]({%slug upload-validation%}
 
 ## Initial Files
 
-The Upload `Files` property is a collection of type `IEnumerable<UploadFileInfo>` that holds a set of pre-selected files. These files will be initially displayed in the Upload files list. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Telerik Upload Initial Files feature...]({%slug upload-initial-files%})
+The Initial Files feature allows you to display a set of pre-selected files in the Upload when the component loads. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Upload Initial Files feature...]({%slug upload-initial-files%})
 
 ## Templates
 

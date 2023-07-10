@@ -10,7 +10,9 @@ position: 40
 
 # FileSelect Initial Files
 
-The `Files` parameter of the FileSelect accepts an `IEnumerable<FileSelectFileInfo>` collection that stores a set of pre-selected files. It allows you to display files in the file list initially, making it convenient for showcasing previously uploaded files.
+The Blazor FileSelect component enables you to display specific files in the file list when the component loads for the first time. This is a convenient way to show previously uploaded files.
+
+To configure the initially displayed files, use the `Files` parameter of the FileSelect—it accepts an `IEnumerable<FileSelectFileInfo>` collection that stores a set of pre-selected files.
 
 >caption Display initial files in FileSelect's list.
 
@@ -31,7 +33,9 @@ The `Files` parameter of the FileSelect accepts an `IEnumerable<FileSelectFileIn
 
 ## Persist Selected Files
 
-The Initial Files feature of the FileSelect allows you to save the selected files and display them again when the page is reloaded. You can store the [`FileSelectFileInfo`]({%slug fileselect-events%}#fileselectfileinfo) records received during the [`OnSelect`]({%slug fileselect-events%}#onselect) event and load them in FileSelect when the page is loaded.
+The Initial Files feature of the FileSelect allows you to save a list of files that the user has selected. Then, you can display them again when the page is reloaded. To achieve this:
+1. Store the [`FileSelectFileInfo`]({%slug fileselect-events%}#fileselectfileinfo) records received during the [`OnSelect`]({%slug fileselect-events%}#onselect) event.
+1. Load the [`FileSelectFileInfo`]({%slug fileselect-events%}#fileselectfileinfo) records in the FileSelect when the page is loaded.
 
 >caption How to load files and display them initially in the FileSelect
 

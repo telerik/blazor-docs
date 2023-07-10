@@ -71,7 +71,7 @@ The FileSelect includes [built-in client-side validation]({%slug fileselect-vali
 
 ## Initial Files
 
-The FileSelect `Files` property is a collection of type `IEnumerable<FileSelectFileInfo>` that holds a set of pre-selected files. These files will be initially displayed in the FileSelect files list. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Telerik FileSelect Initial Files feature...]({%slug fileselect-initial-files%})
+The Initial Files feature allows you to display a set of pre-selected files in the FileSelect when the component loads. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the FileSelect Initial Files feature...]({%slug fileselect-initial-files%})
 
 ## Templates
 
