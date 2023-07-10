@@ -66,7 +66,7 @@ If the icon property name in the TreeView model is `Icon`, there is no need to s
             Text = "SVG Icon",
             ParentId = 1,
             HasChildren = false,
-            Icon = FontIcon.Envelop
+            Icon = FontIcon.Envelope
         });
 
         TreeViewData.Add(new TreeItem()
