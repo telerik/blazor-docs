@@ -91,6 +91,7 @@ The following table lists the available Telerik UI for Blazor components with th
 | [Pager](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation) | **Enhanced** | |
 | [PanelBar](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation) | **Enhanced** | |
 | [PdfViewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) | **Enhanced** | Tab to focus the different components in the toolbar. The built-in [Pager provides keyboard navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation). |
+| PivotGrid | - | Not Supported <br /> (upcoming support) |
 | ProgressBar | - | |
 | QRCode | - | |
 | RadialGauge | - | |
