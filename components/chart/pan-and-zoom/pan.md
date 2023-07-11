@@ -14,7 +14,7 @@ The `Pan` feature allows you to navigate through the Telerik Blazor Chart compon
 
 ## Configuring the Pan Settings
 
-To enable panning: 
+To enable panning in the Blazor Chart: 
 
 1. Set the boolean `Enabled` parameter in the corresponding `ChartPannable` inner tag of the Chart.
 2. Set a range for the axis through the `Min` and `Max` parameters in the corresponding `ChartCategoryAxis` inner tag.
@@ -26,7 +26,7 @@ To perform panning, do either of the following:
 * Drag the plot area of the Chart.
 * Hold the assigned panning key and drag the plot area. This method requires you to [specify a key for panning](#specifying-a-key-for-panning).
 
->caption Pannable Chart.
+>caption Chart with enabled panning
 
 ````CSHTML
 @* This code snippet showcases an example of pannable Chart. *@
@@ -84,22 +84,23 @@ To perform panning, do either of the following:
 
 ### Specifying a Key for Panning
 
-Specify the key for performing panning through the `Key` parameter in the `ChartPannable` tag via the `ChartPannableKey` enum, which provides the following options:
- * (default) `None` - no key is required
- * `Ctrl`
- * `Shift`
- * `Alt`
+To specify the key for panning, use the `Key` parameter within the `ChartPannable` tag and pass the `ChartPannableKey` enum, which provides the following options:
 
-### Locking the Selected Axis for Panning
+* (default) `None`—No key is required
+* `Ctrl`
+* `Shift`
+* `Alt`
 
-Specifies an axis that should not be panned through the `Lock` parameter in the `ChartPannable` tag via the `ChartAxisLock` enum, which provides the following options:
- * (default) `None` - none of the series are locked (as in, user can pan by either X and Y axis)
- * `X` - X axis is locked, user can pan only by `Y` axis.
- * `Y` - Y axis is locked, user can pan only by `X` axis.
+### Disabling Panning on a Selected Axis
+
+To specify an axis that user cannot pan, use the `Lock` parameter within the `ChartPannable` tag and pass the `ChartAxisLock` enum, which provides the following options:
+
+* (default) `None`—None of the series are locked and users can pan by either X or Y axis.
+* `X`—The X axis is locked, users can pan only by Y axis.
+* `Y`—The Y axis is locked, users can pan only by X axis.
  
-### Example
 
->caption Specified Key and Locked Axis.
+>caption Chart with specified panning key and locked axis
 
 ````CSHTML
 @* This code snippet showcases an example of pannable Chart with specified modifier key and locked Axis. *@

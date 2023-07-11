@@ -10,7 +10,7 @@ position: 1
 
 # Zoom
 
-The `Zoom` feature allows you to zoom in/out the Telerik Blazor Chart component. This functionality works with both `category` and `numeric` series.
+The `Zoom` feature allows you to zoom in or out the Telerik UI for Blazor Chart component. This functionality works with both `category` and `numeric` series.
 
 ## Configuring the Zoom Settings
 
@@ -18,10 +18,10 @@ To enable zooming, set the boolean `Enabled` parameter in the corresponding `Cha
 
 To perform zooming, do either of the following:
 
-* [Mouse-wheel](#mousewheel) (desktop) or pinch-zoom (mobile).
-* [Selection](#selection) - hold the `Shift` key or the [assigned key](#specifying-a-key-for-zooming) and select an area.
+* Use the [Mouse-wheel](#mouse-wheel) on desktop devices or the pinch gesture on mobile devices.
+* When [Selection](#selection) is enabled, hold the `Shift` key or the [assigned key](#specifying-a-key-for-zooming) and select an area.
 
->caption Zoomable Chart.
+>caption Zoomable Chart
 
 ````CSHTML
 @* This code snippet showcases an example of zoomable Chart. *@
@@ -105,20 +105,20 @@ To perform zooming, do either of the following:
 }
 ````
 
-### MouseWheel
+### Mouse Wheel
 
-To specify if the chart can be zoomed via the mousewheel, set the boolean `Enabled` parameter in the corresponding `ChartZoomableMousewheel` inner tag of the `ChartZoomable` tag.
+To specify if users can zoom in and out with the scroll wheel, set the boolean `Enabled` parameter in the corresponding `ChartZoomableMousewheel` inner tag of the `ChartZoomable` tag.
 
-You can also specify the zoom rate as percentage of the axis range via the `Rate` parameter in the `ChartZoomableMousewheel` tag. The default value is `0.3`(double) or `30%` of the axis range.
+You can also specify the zoom rate as percentage of the axis range through the `Rate` parameter in the `ChartZoomableMousewheel` tag. The default value is `0.3`(`double`) or `30%` of the axis range.
 
 ### Selection 
 
-To specify if the chart can be zoomed via selection, set the boolean `Enabled` parameter in the corresponding `ChartZoomableSelection` inner tag of the `ChartZoomable` tag.
+To specify if users can zoom in and out on a selected area, set the boolean `Enabled` parameter in the corresponding `ChartZoomableSelection` inner tag of the `ChartZoomable` tag.
 
->caption MouseWheel and Selection Zoom in Chart.
+>caption Mouse wheel and selection zoom in the Chart
 
 ````CSHTML
-@* This code snippet showcases an example of mousewheel and selection zooming Chart. *@
+@* This code snippet showcases an example of mouse wheel and selection zooming Chart. *@
 <TelerikChart>
     <ChartZoomable Enabled="true">
         <ChartZoomableMousewheel Enabled="true" Rate="0.4"></ChartZoomableMousewheel>
@@ -176,22 +176,22 @@ To specify if the chart can be zoomed via selection, set the boolean `Enabled` p
 
 ### Specifying a Key for Zooming
 
-Specify the key (applicable only for [selection zooming](#selection)) for performing zooming through the `Key` parameter in the `ChartZoomableSelection` tag via the `ChartZoomableSelectionKey` enum, which provides the following options:
- * (default) `None` - no key is required
+>You can define a key for zooming only [selection zooming](#selection) is configured.
+
+To specify the key for zooming, use the `Key` parameter within the `ChartZoomableSelection` and pass the `ChartZoomableSelectionKey` enum, which provides the following options:
+ * (default) `None`—No key is required
  * `Ctrl`
  * `Shift`
  * `Alt`
 
-### Locking the Selected Axis for Zooming
+### Disabling Zooming on a Selected Axis
 
-Specify an axis that should not be zoomed through the `Lock` parameter in the `ChartZoomableMousewheel`/`ChartZoomableSelection` tag via the `ChartAxisLock` enum, which provides the following options:
- * (default) `None` - none of the series are locked (as in, user can zoom by either X and Y axis)
- * `X` - X axis is locked, user can zoom only by `Y` axis.
- * `Y` - Y axis is locked, user can zoom only by `X` axis.
+To specify an axis that users cannot zoom, use the `Lock` parameter within the `ChartZoomableMousewheel`/`ChartZoomableSelection` tag and pass the `ChartAxisLock` enum, which provides the following options:
+ * (default) `None`—None of the series are locked, users can zoom by either X or Y axis.
+ * `X`—The X axis is locked, users can zoom only by Y axis.
+ * `Y`—The Y axis is locked, users can zoom only by X axis.
 
-### Example
-
->caption Specified Key and Locked Axis.
+>caption Chart with specified zooming key and locked axis
 
 ````CSHTML
 @* This code snippet showcases an example of mousewheel and selection zooming Chart with specified key. *@
