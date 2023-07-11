@@ -117,7 +117,7 @@ You can change the expand/collapse [icons]({%slug general-information/font-icons
 }
 ````
 
->The SVG icons customization does not work in the Safari browser. An alternative approach would be to hide the SVG icons and use font icons instead.
+>The SVG icons customization does not work in the Safari browser. As a workaround, hide the SVG icons and use font icons instead.
 
 >caption Replace the SVG icons with Font icons
 ```
