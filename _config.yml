@@ -159,9 +159,12 @@ navigation:
      "*components/chart/types":
         title: "Types"
         position: 15
+     "*components/chart/pan-and-zoom":
+        title: "Pan and Zoom"
+        position: 32
      "*components/chart/tooltip":
         title: "Tooltips"
-        position: 32
+        position: 31
      "*components/stockchart/types":
         title: "Types"
         position: 12
