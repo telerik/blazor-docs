@@ -192,7 +192,7 @@ If both values in a range pair are missing or `null`, you can have the Chart wor
 
 You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag—it takes a member of the `Telerik.Blazor.ChartSeriesLineStyle` enum:
 
-* `Normal`—This is the default style. It produces a straight line between data points.
+* `Normal` (default)—This style produces a straight line between data points.
 * `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
 * `Smooth`—This style causes the Area Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines.
 
