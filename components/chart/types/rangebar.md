@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">
 3. Provide a data collection to the series `Data` parameter. You can use a [collection of arrays](#bind-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-column-series-to-custom-objects).
 4. If the Range Bar data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
-### Bind Range Bar Series to Collection of Arrays
+### Binding Range Bar Series to Collection of Arrays
 
 In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the "low" ("from") value, and one for the "high" ("to") value.
 
