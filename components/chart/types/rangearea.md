@@ -25,7 +25,7 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-area-series-to-custom-objects).
 4. If the Range Area data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
-### Bind Range Area Series to Collection of Arrays
+### Binding Range Area Series to Collection of Arrays
 
 In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the lower `from` value, and one for the higher `to` value.
 
