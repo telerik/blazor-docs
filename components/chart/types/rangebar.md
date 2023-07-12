@@ -75,7 +75,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 }
 ````
 
-### Bind Range Column Series to Custom Objects
+### Binding Range Column Series to Custom Objects
 
 In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. Then, set the `FromField`, `ToField` and `CategoryField` parameters of the `ChartSeries` to properties of the `T` type.
 
