@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blan
 
 1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
 2. Set the series `Type` parameter to `ChartSeriesType.RangeColumn`.
-3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#bind-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-column-series-to-custom-objects).
+3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-column-series-to-custom-objects).
 4. If the Range Column data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
 ### Bind Range Column Series to Collection of Arrays
