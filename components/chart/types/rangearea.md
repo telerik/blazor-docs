@@ -185,7 +185,7 @@ If both values in a range pair are missing or `null`, you can have the Chart wor
 
 * `Zero` (default)—The two lines and the area between them will go to the `0` value mark.
 * `Interpolate`—The lines and area will go through the interpolated values of the missing data points and connect to the next data points with a value.
-* `Gap` - there will be empty space in the range area until the next pair of values.
+* `Gap`—The range area will contain empty space until the next pair of values.
 
 
 ### Line Style
