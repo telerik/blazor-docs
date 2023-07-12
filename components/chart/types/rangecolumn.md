@@ -184,7 +184,7 @@ Each data item is decorated with a text label. You can control and customize the
 * `Skip`—Skips the first n labels, where n is the value (`double` number) passed to the parameter.
 * `Angle`—Rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter, use the `< ChartCategoryAxisLabelsRotation />` child tag.
 
-To rotate the markers use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as value.
+To rotate the markers, use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as values.
 
 ### Color
 
