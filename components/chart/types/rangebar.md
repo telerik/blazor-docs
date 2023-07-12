@@ -17,7 +17,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">
 ## Creating Blazor Range Bar Chart
 
 1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
-2. Set its `Type` property to `ChartSeriesType.RangeBar`.
+2. Set the series `Type` parameter to `ChartSeriesType.RangeBar`.
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#bind-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-column-series-to-custom-objects).
 4. If the Range Bar data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
