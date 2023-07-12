@@ -56,6 +56,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Do not use together with `Width`.
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the TextArea is enabled. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Id` | `string` | Renders as the `id` attribute on the `<textarea>` element, so you can attach a `<label for="">`. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |

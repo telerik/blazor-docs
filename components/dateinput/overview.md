@@ -95,6 +95,7 @@ The following section lists some Date Input parameters and links to other pages 
 | `AutoComplete` | `string` | The [`autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) of the `input`. |
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the Date Input is enabled and accepts new values. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Format` | `string`| The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
 | `Id` | `string` | The `id` attribute of the `input`. |
 | `Max` | `DateTime` <br /> (`new DateTime(2099, 12, 31)`)| The latest allowed date that the user can type. |

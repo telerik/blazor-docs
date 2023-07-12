@@ -94,6 +94,7 @@ The Blazor AutoComplete provides various parameters that allow you to configure 
 | `TabIndex` | `int?`  | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `ClearButton` | `bool`  | Whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`. |
 | `Enabled` | `bool`  | Use this Boolean property to render a disabled Blazor AutoComplete component until certain requirements are met. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `MinLength` | `int`  | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}). |
 | `Placeholder` | `string` | The text the user sees as a hint when there is no text in the input. In order for it to be shown, the `Value` parameter should be set to the default value for string (`null`). |
 

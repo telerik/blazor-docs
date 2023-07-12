@@ -93,6 +93,7 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 | `Adaptive`  | `bool` | Defines if the [toolbar]({%slug editor-toolbar%}) should adapt to changes in the width of the component and automatically hide and show the overflowing items in a popup. |
 | `Width`  | `string` | Defines the width of the Editor. The default width is `null` but the themes apply `100%`. |
 | `Height`  | `string` <br /> (`250px`) | Defines the height of the Editor. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `AriaLabelledBy`  | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `AriaDescribedBy`  | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 

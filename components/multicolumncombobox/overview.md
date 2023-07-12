@@ -120,6 +120,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 | `Data` | `IEnumerable<TItem>` | The component data. |
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the user can interact with the component. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Filterable` | `bool` | Enables [filtering]({% slug multicolumncombobox-filter %}) for the end user. |
 | `FilterOperator` | `StringFilterOperator` enum <br /> (`StartsWith`) | The [filtering method]({% slug multicolumncombobox-filter %}). |
 | `Id` | `string` | The `id` attribute of the `<input class="k-input-inner" />` element. Use it to attach a `<label for="...">` to the input. |

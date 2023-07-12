@@ -84,6 +84,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
 | `DefaultText` | `string` | Simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article. |
 | `Enabled` | `bool` | Whether the component is enabled. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 |`Filterable` | `bool` | Whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user. |
 | `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the filter input value update. Applicable to filtering only. Use it to balance between client-side performance and number of database queries. |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| The method of [filtering]({%slug components/dropdownlist/filter%}) the items. |
