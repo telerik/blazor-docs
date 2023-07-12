@@ -22,7 +22,7 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 
 1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
 2. Set the series `Type` parameter to `ChartSeriesType.RangeArea`.
-3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#bind-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#bind-range-area-series-to-custom-objects).
+3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-area-series-to-custom-objects).
 4. If the Range Area data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
 ### Bind Range Area Series to Collection of Arrays
