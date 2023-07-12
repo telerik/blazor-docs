@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blan
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-column-series-to-custom-objects).
 4. If the Range Column data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
 
-### Bind Range Column Series to Collection of Arrays
+### Binding Range Column Series to Collection of Arrays
 
 Set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays must have two members—one for the smaller `from` value, and one for the greater `to` value.
 
