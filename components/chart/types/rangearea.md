@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by their items' "low" and "high" values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart]({%slug components/chart/types/area%}), which can be regarded as a Range Area Chart with a constant "low" value of zero.
 
-The Range Area Chart can emphasize the difference between pairs of continuous value sequences.
+You can use the Range Area Chart to emphasize the difference between pairs of continuous value sequences.
 
 By default, the series backgrounds are semi-transparent, which lets the user clearly see where different sets of data overlap.
 
