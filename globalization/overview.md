@@ -22,7 +22,7 @@ Internationalization (I18N) is the process of making an app support different la
 
 Each Telerik UI for Blazor component supports a different set of internationalization features. The table below provides a quick reference.
 
-| Component | Globalization | Localization| Right-to-Left |
+| Component | Globalization | Localization | Right-to-Left |
 |---|---|---|---|
 | Avatar | N/A | N/A | Supported |
 | ArcGauge | Supported | N/A | [Supported](https://demos.telerik.com/blazor-ui/arcgauge/rtl) |
@@ -79,6 +79,7 @@ Each Telerik UI for Blazor component supports a different set of internationaliz
 | Pager | N/A | [Supported](https://demos.telerik.com/blazor-ui/pager/localization) | [Supported](https://demos.telerik.com/blazor-ui/pager/rtl) |
 | PanelBar | N/A | N/A | [Supported](https://demos.telerik.com/blazor-ui/panelbar/rtl) |
 | PdfViewer | N/A | [Supported](https://demos.telerik.com/blazor-ui/pdfviewer/localization) | [Supported](https://demos.telerik.com/blazor-ui/pdfviewer/rtl) |
+| PivotGrid | Not Supported | Supported | Not Supported <br/> (upcoming support) |
 | ProgressBar | N/A | N/A | [Supported](https://demos.telerik.com/blazor-ui/progressbar/rtl) |
 | QRCode | N/A | N/A | N/A |
 | RadialGauge | Supported | N/A | [Supported](https://demos.telerik.com/blazor-ui/radialgauge/rtl) |
