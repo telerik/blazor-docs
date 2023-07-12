@@ -190,7 +190,7 @@ If both values in a range pair are missing or `null`, you can have the Chart wor
 
 ### Line Style
 
-You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag - it takes a member of `Telerik.Blazor.ChartSeriesLineStyle` enum:
+You can render the lines between the points with different styles. The supported styles can be set via the `Style` property of the child `ChartSeriesLine` tag—it takes a member of the `Telerik.Blazor.ChartSeriesLineStyle` enum:
 
 * `Normal`—This is the default style. It produces a straight line between data points.
 * `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes.
