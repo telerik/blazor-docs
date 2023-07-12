@@ -25,7 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blan
 
 Set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays must have two members—one for the smaller `from` value, and one for the greater `to` value.
 
-In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The members of this array will be used as labels for the category axis in their respective order.
+Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The members of this array will be used as labels for the category axis in their respective order.
 
 >caption Blazor Range Column Chart bound to arrays
 
