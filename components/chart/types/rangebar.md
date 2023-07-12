@@ -77,7 +77,8 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 ### Binding Range Column Series to Custom Objects
 
-In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. Then, set the `FromField`, `ToField` and `CategoryField` parameters of the `ChartSeries` to properties of the `T` type.
+1. Set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. 
+1. Set the `FromField`, `ToField`, and `CategoryField` parameters of the `ChartSeries` to properties of the `T` type.
 
 >caption Blazor Range Bar Chart bound to custom objects
 
