@@ -1,7 +1,7 @@
 ---
 title: Range Area
 page_title: Chart - Range Area
-description: Overview of the Range Area Chart for Blazor.
+description: Overview of the Range Area Chart for Blazor with a description of the common use cases and the different ways to data bind the chart. The article lists configuration options and provides Range Area Chart examples.
 slug: components/chart/types/rangearea
 tags: telerik,blazor,chart,rangearea
 published: True
