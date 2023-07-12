@@ -1,7 +1,7 @@
 ---
 title: Range Bar
 page_title: Chart - Range Bar
-description: Overview of the Range Bar Chart for Blazor.
+description: Overview of the Range Bar Chart for Blazor with a description of the common use cases and the different ways to data bind the chart. The article lists configuration options and provides Range Bar Chart examples.
 slug: components/chart/types/rangebar
 tags: telerik,blazor,chart,rangebar
 published: True
