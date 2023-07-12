@@ -27,7 +27,7 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 
 ### Bind Range Area Series to Collection of Arrays
 
-In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the "low" ("from") value, and one for the "high" ("to") value.
+In this case, set the `ChartSeries` `Data` parameter to a `List` of arrays or a jagged array (an array of arrays). The inner arrays should have two members - one for the lower `from` value, and one for the higher `to` value.
 
 In addition, set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The members of this array will be used as labels for the category axis in their respective order.
 
