@@ -14,9 +14,9 @@ The <a href="https://www.telerik.com/blazor-ui/column-chart" target="_blank">Bla
 
 ![column chart](images/column-chart.png)
 
-@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+The Column Chart is similar to the [Range Column Chart]({%slug components/chart/types/rangecolumn%}), which allows the column's low end to start above the horizontal axis.
 
-@[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
+@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
 #### To create a column chart:
 
