@@ -10,7 +10,7 @@ position: 0
 
 # Range Bar Chart
 
-The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">Blazor Range Bar Chart</a> displays data as horizontal bars whose position and length vary according to their values. You can use a Range Bar Chart to show a comparison between several sets of data (for example, summaries of quantitative or time data). Each series is automatically colored differently for easier reading. The Range Bar Chart is similar to the [Bar Chart]({%slug components/chart/types/bar%}), which can be regarded as a Range Bar Chart with a "low" ("from") value of zero.
+The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">Blazor Range Bar Chart</a> displays data as horizontal bars whose position and length vary according to pairs of `from` and `to` values. You can use a Range Bar Chart to show a comparison between several sets of data (for example, summaries of quantitative or time data). Each series is automatically colored differently for easier reading. The Range Bar Chart is similar to the [Bar Chart]({%slug components/chart/types/bar%}), which can be regarded as a Range Bar Chart with a `from` value of zero.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
