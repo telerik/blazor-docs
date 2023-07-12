@@ -183,7 +183,7 @@ You can control the color of the line itself separately by using the `Color` pro
 
 If both values in a range pair are missing or `null`, you can have the Chart work around this by setting the `MissingValues` property of the series to the desired behavior. Use a member of the `Telerik.Blazor.ChartSeriesMissingValues` enum:
 
-* `Zero` - the default behavior. The two lines and the area between them will go to the 0 value mark.
+* `Zero` (default)—The two lines and the area between them will go to the `0` value mark.
 * `Interpolate` - the lines and area will go through the interpolated values of the missing data points and connect to the next data points with a value.
 * `Gap` - there will be empty space in the range area until the next pair of values.
 
