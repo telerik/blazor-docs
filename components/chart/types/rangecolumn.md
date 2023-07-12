@@ -1,7 +1,7 @@
 ---
 title: Range Column
 page_title: Chart - Range Column
-description: Overview of the Range Column Chart for Blazor.
+description: Overview of the Range Column Chart for Blazor with a description of the common use cases and the different ways to data bind the chart. The article lists configuration options and provides Range Column Chart examples.
 slug: components/chart/types/rangecolumn
 tags: telerik,blazor,chart,rangecolumn
 published: True
