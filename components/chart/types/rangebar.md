@@ -134,7 +134,7 @@ In this case, set the `ChartSeries` `Data` parameter to an `IEnumerable<T>`. The
 
 ### Color
 
-The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color controls the fill color of the area.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
 
