@@ -54,6 +54,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textbox">` element. |
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
 | `Enabled` | `bool` <br /> `true` | Whether the `input` is enabled. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |

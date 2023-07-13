@@ -69,6 +69,7 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) of the `input`. |
 | `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. |
 | `Enabled` | `bool` <br /> (`true`) | Controls if users can type in the component. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Id` | `string` | The `id` attribute of the `input`. |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Name` | `string` | The `name` attribute of the `input`. |
