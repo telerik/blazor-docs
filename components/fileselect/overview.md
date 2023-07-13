@@ -95,7 +95,7 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
-| `Files` | `IEnumerable<FileSelectFileInfo>` | Collection of files that will be initially displayed in the FileSelect files list. |
+| `Files` | `IEnumerable<FileSelectFileInfo>` | Collection of files that will be initially displayed in the FileSelect file list. |
 
 
 ## FileSelect Reference and Methods
