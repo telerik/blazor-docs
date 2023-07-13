@@ -168,6 +168,7 @@ The following table lists parameters of the `PivotGridRow`, `PivotGridColumn` an
 | --- | --- | --- |
 | `Aggregate` | `PivotGridAggregateType` enum <br /> (`Sum`) | The nature of the calculated aggregate values. Applies to `PivotGridMeasure` only. |
 | `Format` | `string` | The [display format](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) of the calculated aggregate values, for example `"{0:C2}"`. Applies to `PivotGridMeasure` only. |
+| `HeaderClass` | `string` | Adds a custom CSS class to the row/column/measure header. Use it to apply custom styles or [override the default PivotGrid styles]({%slug themes-override%}). |
 | `Name` | `string` | The field name of the respective row, column or measure. |
 
 
