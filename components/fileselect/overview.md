@@ -71,7 +71,7 @@ The FileSelect includes [built-in client-side validation]({%slug fileselect-vali
 
 ## Initial Files
 
-The Initial Files feature allows you to display a set of pre-selected files in the FileSelect when the component loads. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the FileSelect Initial Files feature...]({%slug fileselect-initial-files%})
+The Initial Files feature allows you to display a set of pre-selected files in the FileSelect when the component loads. This functionality is helpful when you want to show files that were previously provided by the user. [Read more about the FileSelect Initial Files feature...]({%slug fileselect-initial-files%})
 
 ## Templates
 

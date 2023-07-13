@@ -177,7 +177,7 @@ The Upload includes [built-in client-side validation]({%slug upload-validation%}
 
 ## Initial Files
 
-The Initial Files feature allows you to display a set of pre-selected files in the Upload when the component loads. This functionality is helpful when you want to show files that were previously uploaded. [Read more about the Upload Initial Files feature...]({%slug upload-initial-files%})
+The Initial Files feature allows you to display a set of pre-selected files in the Upload when the component loads. This functionality is helpful when you want to show files that were previously provided by the user. [Read more about the Upload Initial Files feature...]({%slug upload-initial-files%})
 
 ## Templates
 
