@@ -42,10 +42,9 @@ In the general case, that logic would be done by the backend, this sample keeps 
              FilterMode=@GridFilterMode.FilterRow Sortable="true" Pageable="true"
              Reorderable="true" Resizable="true" SelectionMode="@GridSelectionMode.Multiple">
     <GridColumns>
-
-        <GridColumn Field="@nameof(Employee.RowIndex)" Title="#" Width="40px" Sortable="false" Filterable="false" Groupable="false" Editable="false" />
-
-        <GridColumn Field=@nameof(Employee.ID) Editable="false" Filterable="false"/>
+        <GridColumn Field="@nameof(Employee.RowIndex)" Title="#" Width="50px"
+                    Sortable="false" Filterable="false" Groupable="false" Editable="false" />
+        <GridColumn Field=@nameof(Employee.ID) Editable="false" Filterable="false" />
         <GridColumn Field=@nameof(Employee.Name) Title="Name" />
         <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
     </GridColumns>
@@ -62,7 +61,11 @@ In the general case, that logic would be done by the backend, this sample keeps 
         List<Employee> iteratableData = datasourceResult.Data.Cast<Employee>().ToList();
         for (int i = 0; i < iteratableData.Count; i++)
         {
-            iteratableData[i].RowIndex = i + 1; // we add one for human readabale 1-based index
+            // OR Take paging into account...
+            iteratableData[i].RowIndex = i + 1 + (args.Request.Page - 1) * args.Request.PageSize;
+
+            // ...OR start numbering on each page from 1.
+            //iteratableData[i].RowIndex = i + 1; // we add one for human readabale 1-based index
         }
         datasourceResult.Data = iteratableData;
         // end row index setup
