@@ -27,13 +27,11 @@ Can I use a `DateTimeOffset` field with the Telerik date input and picker?
 Do the Telerik DateInput, DatePicker, DateTimePicker, TimePicker support the `DateTimeOffset` type?
 
 ## Answer
-The Telerik date and time inputs and pickers can work with a `DateTimeOffset` type and with the `DateTime` types. They can also be nullable.
+The Telerik DateInput, DateTimePicker and TimePicker can work with `DateTimeOffset` and `DateTime` types. The types can also be nullable. When the `Value` is of type `DateTimeOffset` these Telerik components will use its `.DateTime` field, which matches to the local time, just like with a "simple" `DateTime` object.
 
-When the `Value` is of type `DateTimeOffset` the Telerik components will use its `.DateTime` field, which matches to the local time, just like with a "simple" `DateTime` object.
+The DatePicker requires a [different approach. See the Notes below](#notes).
 
-For the DatePicker component, see the [Notes](#notes) below
-
->caption Sample of how the Telerik Date-Time inputs work with a DateTimeOffset
+>caption Sample of how the Telerik DateTime inputs work with a DateTimeOffset
 
 ````CSHTML
 @if(TheValue != null)
@@ -45,9 +43,9 @@ For the DatePicker component, see the [Notes](#notes) below
 }
 
 <TelerikDateInput @bind-Value="@TheValue" Format="F" Width="400px" />
-
-<br /><br />
-
+<br />
+<TelerikTimePicker @bind-Value="@TheValue" Format="F" Width="400px" />
+<br />
 <TelerikDateTimePicker @bind-Value="@TheValue" Format="F" Width="400px" />
 
 @code{
