@@ -152,11 +152,13 @@ The following table lists the `TelerikPivotGrid` parameters. Also check the [Piv
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `ColumnHeadersWidth` | `string` | The width of each column in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `Data` | `IEnumerable<TItem>` | The Pivot Grid component data. Use only with [`Local` `DataProviderType`]({%slug pivotgrid-data-binding%}#local). |
 | `DataProviderType` | `PivotGridDataProviderType` enum <br /> (`Local`) | The [type of data source that the Pivot Grid will use]({%slug pivotgrid-data-binding%}). |
 | `EnableLoaderContainer` | `bool` (`true`) | Defines if a built-in [LoaderContainer]({%slug loadercontainer-overview%}) will show during long-running operations (over 600ms). |
 | `Height` | `string` | A `height` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `LoadOnDemand` | `bool` <br /> (`true`) | Defines if the PivotGrid will request only the data to display in the current view, or all data. When loading on demand is disabled or when using the `Local` `DataProviderType`, the component performs all calculations in-memory. In such cases, large amounts of data may impact the performance, especially in WebAssembly apps. |
+| `RowHeadersWidth` | `string` | The width of all row headers in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `TItem` | `object` | The PivotGrid `@typeparam`. Required if the data item type cannot be inferred at compile-time. |
 | `Width` | `string` | A `width` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
 
