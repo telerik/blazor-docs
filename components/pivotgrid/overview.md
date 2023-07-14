@@ -66,14 +66,15 @@ The PivotGrid is an integrated product that includes several Razor components:
     <TelerikPivotGrid Data="@PivotData"
                       DataProviderType="@PivotGridDataProviderType.Local">
         <PivotGridColumns>
-            <PivotGridColumn Name="@nameof(PivotModel.City)" />
+            <PivotGridColumn Name="@nameof(PivotModel.City)" Title="City" />
         </PivotGridColumns>
         <PivotGridRows>
-            <PivotGridRow Name="@nameof(PivotModel.Category)" />
+            <PivotGridRow Name="@nameof(PivotModel.Category)" Title="Category" />
             <PivotGridRow Name="@nameof(PivotModel.Product)" />
         </PivotGridRows>
         <PivotGridMeasures>
             <PivotGridMeasure Name="@nameof(PivotModel.ContractValue)"
+                              Title="Contract Value"
                               Aggregate="@PivotGridAggregateType.Sum" />
         </PivotGridMeasures>
     </TelerikPivotGrid>
@@ -170,8 +171,9 @@ The following table lists parameters of the `PivotGridRow`, `PivotGridColumn` an
 | --- | --- | --- |
 | `Aggregate` | `PivotGridAggregateType` enum <br /> (`Sum`) | The nature of the calculated aggregate values. Applies to `PivotGridMeasure` only. |
 | `Format` | `string` | The [display format](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) of the calculated aggregate values, for example `"{0:C2}"`. Applies to `PivotGridMeasure` only. |
-| `HeaderClass` | `string` | Adds a custom CSS class to the row/column/measure header. Use it to apply custom styles or [override the default PivotGrid styles]({%slug themes-override%}). |
+| `HeaderClass` | `string` | Adds a custom CSS class to the respective row header, column header or measure. Use it to apply custom styles or [override the default PivotGrid styles]({%slug themes-override%}). |
 | `Name` | `string` | The field name of the respective row, column or measure. |
+| `Title` | `string` | The label to be displayed in the Configurator for the respective row, column or measure. |
 
 
 ### Configurator Parameters
