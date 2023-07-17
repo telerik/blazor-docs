@@ -321,7 +321,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 * `FilterAsync`—applies the filters defined in the Filter Menu to the Grid component.
 * `ClearFilterAsync`—clears the applied filters.
 
->caption Implementing a button with a predefined filter.
+>caption Using custom filter menu buttons
 
 ````CSHTML
 @* Customize the buttons in the Filter Menu
