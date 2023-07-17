@@ -807,7 +807,7 @@ Use the new icon names, according to the following list:
 </tr>
 <tr>
 <td>hyperlink-email</td>
-<td>envelop-link</td>
+<td>envelope-link</td>
 </tr>
 <tr>
 <td>table-light-dialog, table-insert, create-table</td>
@@ -903,11 +903,11 @@ Use the new icon names, according to the following list:
 </tr>
 <tr>
 <td>email, letter</td>
-<td>envelop</td>
+<td>envelope</td>
 </tr>
 <tr>
 <td>email-box, letter-box</td>
-<td>envelop-box</td>
+<td>envelope-box</td>
 </tr>
 <tr>
 <td>fields-more</td>

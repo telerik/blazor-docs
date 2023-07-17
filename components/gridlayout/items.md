@@ -333,7 +333,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                 Text = "Contact us",
                 ParentId = 1,
                 HasChildren = false,
-                TelerikFontIcon = FontIcon.Envelop
+                TelerikFontIcon = FontIcon.Envelope
             });
 
         TreeViewData.Add(new TreeViewModel()

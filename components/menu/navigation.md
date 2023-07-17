@@ -47,7 +47,7 @@ To use the Menu for navigating between pages:
             {
                 Text = "Contact us",
                 Url = "/contacts",
-                Icon = FontIcon.Envelop
+                Icon = FontIcon.Envelope
             },
             new MenuModel()
             {
