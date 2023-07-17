@@ -17,6 +17,7 @@ There are two different templates you can use depending on the [Filter Mode]({%s
 
 * [Filter Row Template](#filter-row-template)
 * [Filter Menu Template](#filter-menu-template)
+* [Filter Menu Buttons Template](#filter-menu-buttons-template)
 
 
 ## Filter Row Template
@@ -165,6 +166,8 @@ To customize the filter menu, use the `<FilterMenuTemplate>` tag of the `<GridCo
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
 * `FilterDescriptor` - the object that describes the column filter. By default it has two filters with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`.
+* `FilterAsync` - applies the defined filters in the Filter Menu to the Grid component.
+* `ClearFilterAsync` - clears the applied filters.
 
 You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as a nargument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
 
@@ -305,6 +308,100 @@ For an example with the CheckboxList Filter, see the [Custom Data]({%slug grid-c
 
 ![Custom Filter Menu Template with Checkboxes](images/custom-filter-menu-checkboxes.png)
 
+## Filter Menu Buttons Template
+
+By default, the Filter Menu renders `Filter` and `Clear` buttons. You can customize or remove them entirely by using the `FilterMenuButtonsTemplate` tag. 
+
+The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
+
+* `FilterDescriptor`—the object that describes the column filter. By default, the column filter has two filters: one for the type and another for the name of the field. You can modify the column filter by:
+   * Adding more filters to the `FilterDescriptors` collection.
+   * Changing the `LogicalOperator` (`AND` by default).
+   * Using the `FilterDescriptor` to create a custom button that applies a predefined filter. 
+* `FilterAsync`—applies the filters defined in the Filter Menu to the Grid component.
+* `ClearFilterAsync`—clears the applied filters.
+
+>caption Using custom filter menu buttons
+
+````CSHTML
+@* Customize the buttons in the Filter Menu
+
+@using Telerik.DataSource
+
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="Name" Title="Product Name" />
+        <GridColumn Field="Price">
+            <FilterMenuButtonsTemplate Context="filterContext">
+                <TelerikButton OnClick="@(async _ => await filterContext.FilterAsync())">Filter </TelerikButton>
+                <TelerikButton OnClick="@(() => SetPredefinedFilterAsync(filterContext))">Select >= 55</TelerikButton>
+                <TelerikButton OnClick="@(() => ClearFilterAsync(filterContext))">Clear</TelerikButton>
+            </FilterMenuButtonsTemplate>
+        </GridColumn>
+        <GridColumn Field="@nameof(Product.Released)" />
+        <GridColumn Field="@nameof(Product.Discontinued)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private async Task SetPredefinedFilterAsync(FilterMenuTemplateContext filterContext)
+    {
+        var compositeFilterDescriptor = filterContext.FilterDescriptor;
+        compositeFilterDescriptor.FilterDescriptors.Clear();
+        compositeFilterDescriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
+
+        compositeFilterDescriptor.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(Product.Price),
+                MemberType = typeof(int),
+                Operator = FilterOperator.IsGreaterThanOrEqualTo,
+                Value = 55
+            });
+
+        await filterContext.FilterAsync();
+    }
+
+    private async Task ClearFilterAsync(FilterMenuTemplateContext filterContext)
+    {
+        await filterContext.ClearFilterAsync();
+    }
+
+    private List<Product> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+
+        var rnd = new Random();
+
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Product
+                {
+                    Id = i,
+                    Name = "Product name " + i,
+                    Price = (decimal)(rnd.Next(1, 50) * 3.14),
+                    Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
+                    Discontinued = i % 5 == 0
+                });
+        }
+
+        base.OnInitialized();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public DateTime Released { get; set; }
+        public bool Discontinued { get; set; }
+    }
+}
+````
 
 ## See Also
 
