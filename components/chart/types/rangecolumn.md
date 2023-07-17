@@ -20,6 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-column-chart" target="_blan
 2. Set the series `Type` parameter to `ChartSeriesType.RangeColumn`.
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-column-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-column-series-to-custom-objects).
 4. If the Range Column data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
+5. (optional) Set `Visible="true"` or define [label `Template`]({%slug components/chart/label-template-format%}) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
 
 ### Binding Range Column Series to Collection of Arrays
 
@@ -35,10 +36,18 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
         <ChartSeries Name="University 1"
                      Data="@StudentScores1"
                      Type="ChartSeriesType.RangeColumn">
+            <ChartSeriesLabels>
+                <ChartSeriesLabelsFrom Visible="true" />
+                <ChartSeriesLabelsTo Visible="false" />
+            </ChartSeriesLabels>
         </ChartSeries>
         <ChartSeries Name="University 2"
                      Data="@StudentScores2"
                      Type="ChartSeriesType.RangeColumn">
+            <ChartSeriesLabels>
+                <ChartSeriesLabelsFrom Visible="true" Template="#= dataItem[0] #" />
+                <ChartSeriesLabelsTo Visible="true" Template="#= dataItem[1] #" />
+            </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -107,6 +116,10 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
                      FromField="@nameof(ScoreModel.LowScore)"
                      ToField="@nameof(ScoreModel.HighScore)"
                      CategoryField="@nameof(ScoreModel.Year)">
+            <ChartSeriesLabels>
+                <ChartSeriesLabelsFrom Visible="true" />
+                <ChartSeriesLabelsTo Visible="false" />
+            </ChartSeriesLabels>
         </ChartSeries>
         <ChartSeries Name="University 2"
                      Data="@StudentScoreList2"
@@ -114,6 +127,10 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
                      FromField="@nameof(ScoreModel.LowScore)"
                      ToField="@nameof(ScoreModel.HighScore)"
                      CategoryField="@nameof(ScoreModel.Year)">
+            <ChartSeriesLabels>
+                <ChartSeriesLabelsFrom Visible="true" Template="#= dataItem.LowScore #" />
+                <ChartSeriesLabelsTo Visible="true" Template="#= dataItem.HighScore #" />
+            </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -138,11 +155,10 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
     protected override void OnInitialized()
     {
         var thisYear = DateTime.Now.Year;
-        Years = new object[] { thisYear - 4, thisYear - 3, thisYear - 2, thisYear - 1, thisYear };
 
         var rnd = new Random();
 
-        for (int i = 1; i <= Years.Count(); i++)
+        for (int i = 1; i <= 5; i++)
         {
             int randomValue = rnd.Next(30, 50);
 

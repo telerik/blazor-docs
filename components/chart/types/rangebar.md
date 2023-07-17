@@ -20,6 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">
 2. Set the series `Type` parameter to `ChartSeriesType.RangeBar`.
 3. Provide a data collection to the series `Data` parameter. You can use a [collection of arrays](#binding-range-bar-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-column-series-to-custom-objects).
 4. If the Range Bar data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
+5. (optional) Set `Visible="true"` or define [label `Template`]({%slug components/chart/label-template-format%}) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
 
 ### Binding Range Bar Series to Collection of Arrays
 
@@ -35,6 +36,17 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.RangeBar" Data="@SleepData">
+            <ChartSeriesLabels>
+                @* Show the From and To labels together *@
+
+                <ChartSeriesLabelsFrom Visible="false" />
+                <ChartSeriesLabelsTo Visible="true" />
+
+                @* OR show the From and To labels separately *@
+
+                @*<ChartSeriesLabelsFrom Visible="true" Template="#= dataItem[0] #" />
+                    <ChartSeriesLabelsTo Visible="true" Template="#= dataItem[1] #" />*@
+            </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -43,7 +55,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
     </ChartCategoryAxes>
 
     <ChartValueAxes>
-        <ChartValueAxis Min="4"></ChartValueAxis>
+        <ChartValueAxis Min="6"></ChartValueAxis>
     </ChartValueAxes>
 
     <ChartTooltip Visible="true">
@@ -59,18 +71,18 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 @code {
     private List<int[]> SleepData = new List<int[]>() {
-        new int[] { 14, 17 },
-        new int[] { 12, 16 },
-        new int[] { 11, 14 },
-        new int[] { 10, 13 },
-        new int[] { 9, 12 },
-        new int[] { 8, 10 },
+        new int[] { 7, 8 },
         new int[] { 7, 9 },
-        new int[] { 7, 8 }
+        new int[] { 8, 10 },
+        new int[] { 9, 12 },
+        new int[] { 10, 13 },
+        new int[] { 11, 14 },
+        new int[] { 12, 16 },
+        new int[] { 14, 17 },
     };
 
     private string[] Categories = new string[] {
-        "0–3 m", "4-12 m", "1-2 y", "3-5 y", "6-12 y", "13-18 y", "18-60 y", "60+ y"
+        "60+ y", "18-60 y", "13-18 y", "6-12 y", "3-5 y", "1-2 y", "4-12 m", "0–3 m"
     };
 }
 ````
@@ -92,11 +104,22 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
                      FromField="@(nameof(RangeBarModel.LowValue))"
                      ToField="@(nameof(RangeBarModel.HighValue))"
                      CategoryField="@(nameof(RangeBarModel.AgeGroup))">
+            <ChartSeriesLabels>
+                @* Show the From and To labels together *@
+
+                <ChartSeriesLabelsFrom Visible="false" />
+                <ChartSeriesLabelsTo Visible="true" />
+
+                @* OR show the From and To labels separately *@
+
+                @*<ChartSeriesLabelsFrom Visible="true" Template="#= dataItem.LowValue #" />
+                    <ChartSeriesLabelsTo Visible="true" Template="#= dataItem.HighValue #" />*@
+            </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
     <ChartValueAxes>
-        <ChartValueAxis Min="4"></ChartValueAxis>
+        <ChartValueAxis Min="6"></ChartValueAxis>
     </ChartValueAxes>
 
     <ChartTooltip Visible="true">
@@ -112,14 +135,14 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 @code {
     private List<RangeBarModel> SleepData = new List<RangeBarModel>() {
-        new RangeBarModel { LowValue = 14, HighValue = 17, AgeGroup = "0-3 m" },
-        new RangeBarModel { LowValue = 12, HighValue = 16, AgeGroup = "4-12 m" },
-        new RangeBarModel { LowValue = 11, HighValue = 14, AgeGroup = "1-2 y" },
-        new RangeBarModel { LowValue = 10, HighValue = 13, AgeGroup = "3-5 y" },
-        new RangeBarModel { LowValue = 9, HighValue = 12, AgeGroup = "6-12 y" },
-        new RangeBarModel { LowValue = 8, HighValue = 10, AgeGroup = "13-18 y" },
+        new RangeBarModel { LowValue = 7, HighValue = 8, AgeGroup = "60+ y" },
         new RangeBarModel { LowValue = 7, HighValue = 9, AgeGroup = "18-60 y" },
-        new RangeBarModel { LowValue = 7, HighValue = 8, AgeGroup = "60+ y" }
+        new RangeBarModel { LowValue = 8, HighValue = 10, AgeGroup = "13-18 y" },
+        new RangeBarModel { LowValue = 9, HighValue = 12, AgeGroup = "6-12 y" },
+        new RangeBarModel { LowValue = 10, HighValue = 13, AgeGroup = "3-5 y" },
+        new RangeBarModel { LowValue = 11, HighValue = 14, AgeGroup = "1-2 y" },
+        new RangeBarModel { LowValue = 12, HighValue = 16, AgeGroup = "4-12 m" },
+        new RangeBarModel { LowValue = 14, HighValue = 17, AgeGroup = "0-3 m" }
     };
 
     public class RangeBarModel

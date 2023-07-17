@@ -24,6 +24,7 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 2. Set the series `Type` parameter to `ChartSeriesType.RangeArea`.
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-area-series-to-custom-objects).
 4. If the Range Area data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
+5. (optional) Set `Visible="true"` to `<ChartSeriesLabels>` to show both the `from` and `to` labels. Alternatively, enable visibility or define [label `Template`]({%slug components/chart/label-template-format%}) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
 
 ### Binding Range Area Series to Collection of Arrays
 
@@ -39,16 +40,25 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
         <ChartSeries Name="Sydney"
                      Data="@SydneyData"
                      Type="ChartSeriesType.RangeArea">
+            <ChartSeriesLabels Visible="true" />
         </ChartSeries>
         <ChartSeries Name="Sofia"
                      Data="@SofiaData"
                      Type="ChartSeriesType.RangeArea">
+            @*<ChartSeriesLabels>
+                <ChartSeriesLabelsFrom Visible="true" />
+                <ChartSeriesLabelsTo Visible="false" />
+            </ChartSeriesLabels>*@
         </ChartSeries>
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
         <ChartCategoryAxis Categories="@MonthNames" />
     </ChartCategoryAxes>
+
+    <ChartValueAxes>
+        <ChartValueAxis AxisCrossingValue="@( new object[] { -60 } )" />
+    </ChartValueAxes>
 
     <ChartTooltip Visible="true"></ChartTooltip>
 
@@ -61,7 +71,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
     // The RangeArea series Data can be any collection of arrays
 
     private List<double[]> SydneyData { get; set; } = new List<double[]>
-    {
+{
         new double[] { 20, 27 },
         new double[] { 19.9, 26.8 },
         new double[] { 18.4, 25.7 },
@@ -90,7 +100,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
         new double[] { 6.7, 17.6 },
         new double[] { 2.2, 10.7 },
         new double[] { -2.3, 4.6 }
-            };
+                };
 
     private object[] MonthNames = new string[] {
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
@@ -114,6 +124,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
                      FromField="@nameof(AreaDataPoint.LowValue)"
                      ToField="@nameof(AreaDataPoint.HighValue)"
                      CategoryField="@nameof(AreaDataPoint.Hour)">
+            <ChartSeriesLabels Visible="true" />
         </ChartSeries>
         <ChartSeries Name="Test Tube 2"
                      Data="@Tube2Data"
@@ -121,6 +132,10 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
                      FromField="@nameof(AreaDataPoint.LowValue)"
                      ToField="@nameof(AreaDataPoint.HighValue)"
                      CategoryField="@nameof(AreaDataPoint.Hour)">
+            @*<ChartSeriesLabels Visible="true">
+                    <ChartSeriesLabelsFrom Visible="true" />
+                    <ChartSeriesLabelsTo Visible="false" />
+                </ChartSeriesLabels>*@
         </ChartSeries>
     </ChartSeriesItems>
 
