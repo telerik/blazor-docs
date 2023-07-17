@@ -76,29 +76,13 @@ You can see the what the column menu can do and how to control its settings in t
 
 To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>`, nested inside the `<GridSettings>`:
 
-* [Sorting](#sorting)
-* [Filtering](#filtering)
-* [Frozen Columns](#frozen-columns)
 * [Column Chooser](#column-chooser)
+* [Filtering](#filtering)
+* [Groupable](#groupable)
+* [Frozen Columns](#frozen-columns)
 * [Sections](#sections)
-
-### Sorting
-
-To remove the sorting option from the Column Menu set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
-
-
-### Filtering
-
-To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
-
-* `None` - disables the filtering from the Column Menu.
-* `FilterMenu` - enables a filter menu to apply filtering.
-
-
-### Frozen Columns
-
-To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
-
+* [Sorting](#sorting)
+* [Reorderable](#reorderable)
 
 ### Column Chooser
 
@@ -111,6 +95,29 @@ The **Apply** button will set column visibility, according to the current checkb
 To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
 
 To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
+
+### Filtering
+
+To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+
+* `None` - disables the filtering from the Column Menu.
+* `FilterMenu` - enables a filter menu to apply filtering.
+
+### Groupable
+
+To group the Grid from the Column Menu set the `Groupable` parameter of the `GridColumnMenuSettings` tag to `true`. This feature will group the component by the column you have opened the Column Menu from.
+
+### Frozen Columns
+
+To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
+
+### Sorting
+
+To remove the sorting option from the Column Menu, set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
+
+### Reorderable
+
+To allow column reordering from the Column Column, set the `Reorderable` parameter of the `GridColumnMenuSettings` tag to `true`.
 
 ### Sections
 
@@ -205,11 +212,13 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 <TelerikGrid Data="@MyData"
              Pageable="true"
              PageSize="5"
+             Groupable="true"
              FilterMode="@GridFilterMode.FilterMenu"
              Sortable="true"
+             Reorderable="true"
              ShowColumnMenu="true">
     <GridSettings>
-        <GridColumnMenuSettings Lockable="false"
+        <GridColumnMenuSettings Lockable="false" Groupable="true" Reorderable="true"
                                 FilterMode="@ColumnMenuFilterMode.None">
         </GridColumnMenuSettings>
     </GridSettings>
@@ -223,12 +232,12 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 @code {
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
 
     public class SampleData
     {
@@ -239,10 +248,6 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
     }
 }
 ````
-
->caption Column menu with filtering, locking and sorting, but without a column chooser
-
-![column menu common settings example](images/column-menu-settings-example.gif)
 
 ## Notes
 
