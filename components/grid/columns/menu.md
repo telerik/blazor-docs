@@ -19,11 +19,13 @@ The Grid allows you to setup a menu for its columns. It enables you to perform h
 In this article:
 * [Basics](#basics)
 * [Features](#features)
-    * [Sorting](#sorting)
-    * [Filtering](#filtering)
-    * [Frozen Columns](#frozen-columns)
     * [Column Chooser](#column-chooser)
+    * [Filtering](#filtering)
+    * [Groupable](#groupable)
+    * [Frozen Columns](#frozen-columns)
     * [Sections](#sections)
+    * [Sorting](#sorting)
+    * [Reorderable](#reorderable)
 * [Notes](#notes)
 
 ## Basics
@@ -218,7 +220,9 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
              Reorderable="true"
              ShowColumnMenu="true">
     <GridSettings>
-        <GridColumnMenuSettings Lockable="false" Groupable="true" Reorderable="true"
+        <GridColumnMenuSettings Lockable="false"
+                                Groupable="true"
+                                Reorderable="true"
                                 FilterMode="@ColumnMenuFilterMode.None">
         </GridColumnMenuSettings>
     </GridSettings>
