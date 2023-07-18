@@ -15,11 +15,13 @@ The Grid allows you to setup a menu for its columns. It enables you to perform h
 >caption In this article:
 * [Basics](#basics)
 * [Features](#features)
-    * [Sorting](#sorting)
-    * [Filtering](#filtering)
-    * [Frozen Columns](#frozen-columns)
     * [Column Chooser](#column-chooser)
+    * [Filtering](#filtering)
+    * [Groupable](#groupable)
+    * [Frozen Columns](#frozen-columns)
     * [Sections](#sections)
+    * [Sorting](#sorting)
+    * [Reorderable](#reorderable)
 * [Example](#example)
 * [Notes](#notes)
 
@@ -73,15 +75,26 @@ You can see the what the column menu can do and how to control its settings in t
 
 To control the common features of the `Column Menu` use the `<GridColumnMenuSettings>` tag, nested inside the `<GridSettings>` tag:
 
-* [Sorting](#sorting)
-* [Filtering](#filtering)
-* [Frozen Columns](#frozen-columns)
 * [Column Chooser](#column-chooser)
+* [Filtering](#filtering)
+* [Groupable](#groupable)
+* [Frozen Columns](#frozen-columns)
 * [Sections](#sections)
+* [Sorting](#sorting)
+* [Reorderable](#reorderable)
 
-### Sorting
+### Column Chooser
 
-To remove the sorting option from the Column Menu set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
+The Column Chooser in the Column Menu and allows you to toggle the visiblity of Grid columns from the Column Menu. By the default all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
+
+The **Apply** button will set column visibility, according to the current checkbox values, and close the column menu. The **Reset** button will revert the checkbox values to their state when the column menu was opened. At this point the user can start over, click on **Apply** or click outside the column menu to close it.
+
+![column chooser screenshot](images/column-menu-chooser-in-action.gif)
+
+To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
+
+To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
+
 
 ### Filtering
 
@@ -90,21 +103,21 @@ To control whether filtering is possible from the Column Menu set the `FilterMod
 * `None` - disables the filtering from the Column Menu. This is the recommended option if you use [`FilterRow` mode]({%slug grid-filter-row%}).
 * `FilterMenu` - enables a filter menu to apply filtering.
 
->important Do not mix [`FilterRow`]({%slug grid-filter-row%}) mode with [`FilterMenu`]({%slug grid-filter-menu%}) in the Column Menu. These filtering modes provide different UI and filter inputs. Combining them may mislead the user about the applied filters.
+### Groupable
+
+To group the Grid from the Column Menu set the `Groupable` parameter of the `GridColumnMenuSettings` tag to `true`. This feature will group the component by the column you have opened the Column Menu from.
 
 ### Frozen Columns
 
-To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the `GridColumnMenuSettings` to `false`.
+To disable locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the column to `false`.
 
-### Column Chooser
+### Sorting
 
-The Column Chooser in the Column Menu allows you to toggle the visibility of the Grid columns from the Column Menu. By the default, all columns are visible under the `Columns` section of the Column Menu (click the Columns item to expand it).
+To remove the sorting option from the Column Menu, set the `Sortable` parameter of the `GridColumnMenuSettings` tag to `false`.
 
-The **Apply** button will set the column visibility according to the current checkbox values and will close the column menu. The **Reset** button will revert the checkbox values to the state they had when the column menu was opened. At this point, the user can start over, click **Apply**, or click outside the column menu to close it.
+### Reorderable
 
-To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GridColumnMenuSettings>` to `false`.
-
-To hide a column from the Column Chooser set the `VisibleInColumnChooser` property of the column to `false`.
+To allow column reordering from the Column Column, set the `Reorderable` parameter of the `GridColumnMenuSettings` tag to `true`.
 
 ### Sections
 
@@ -181,6 +194,55 @@ The columns in the Column Chooser are divided into sections. The Lockable option
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CompanyName { get; set; }
+        public string Team { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+### Example of Column Menu Features Settings
+
+>caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
+
+````CSHTML
+@* Disable filtering and locking columns, hide a column from the chooser (Team), disable the menu for a column (Name). *@
+
+<TelerikGrid Data="@MyData"
+             Pageable="true"
+             PageSize="5"
+             Groupable="true"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Sortable="true"
+             Reorderable="true"
+             ShowColumnMenu="true">
+    <GridSettings>
+        <GridColumnMenuSettings Lockable="false"
+                                Groupable="true"
+                                Reorderable="true"
+                                FilterMode="@ColumnMenuFilterMode.None">
+        </GridColumnMenuSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="80px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" ShowColumnMenu="false" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" VisibleInColumnChooser="false" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+        {
+            Id = x,
+            Name = "name " + x,
+            Team = "team " + x % 5,
+            HireDate = DateTime.Now.AddDays(-x).Date
+        });
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Team { get; set; }
         public DateTime HireDate { get; set; }
     }
