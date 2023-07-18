@@ -43,7 +43,8 @@ Resize Note column or double click on a row to see the product details
              Pageable="true" Sortable="true" Groupable="true"
              FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
              Resizable="true" Reorderable="true"
-             OnRowDoubleClick="@OnRowDoubleClickHandler">
+             OnRowDoubleClick="@OnRowDoubleClickHandler"
+             OnRowRender="@OnRowRender">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
@@ -66,6 +67,12 @@ Resize Note column or double click on a row to see the product details
     div.custom-ellipsis,
     /* OnCellRender */
     .k-grid td.custom-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    /* OnRowRender */
+    .custom-ellipsis .k-table-td {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -96,6 +103,12 @@ Resize Note column or double click on a row to see the product details
         CurrEmployee = args.Item as SampleData;
 
         WindowIsVisible = !WindowIsVisible;
+    }
+
+    // If you need to render all cells with ellipsis
+    private void OnRowRender(GridRowRenderEventArgs args)
+    {
+        args.Class = "custom-ellipsis";
     }
 
     void OnCellRenderHandler(GridCellRenderEventArgs args)
