@@ -87,6 +87,7 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 | `Data` | `IEnumerable<TItem>` | allows you to provide the data source. Required. |
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | whether the component is enabled. |
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 |`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user. |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items. |
 | `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |

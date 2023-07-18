@@ -114,6 +114,7 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 
 <TelerikButton OnClick="@ShowPrompt">Show Prompt</TelerikButton>
 <TelerikButton OnClick="@ShowPromptWithTitle">Show Prompt with Custom Title</TelerikButton>
+<TelerikButton OnClick="@ShowPromptWithTitleAndDefaultText">Show Prompt with Title and Default Input Text</TelerikButton>
 
 @code {
     [CascadingParameter]
@@ -136,6 +137,13 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
     async Task ShowPromptWithTitle()
     {
         string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed");
+
+        Console.WriteLine($"The user answer: {userInput}");
+    }
+
+    async Task ShowPromptWithTitleAndDefaultText()
+    {
+        string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed", "Default Text");
 
         Console.WriteLine($"The user answer: {userInput}");
     }

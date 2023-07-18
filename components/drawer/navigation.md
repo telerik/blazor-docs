@@ -14,7 +14,7 @@ The Drawer is a different kind of a [menu]({%slug components/menu/overview%}) th
 
 To use the Drawer for navigating between pages:
 
-* Add the Drawer to the `MainLayot.razor` of your app.
+* Add the Drawer to the `MainLayout.razor` of your app.
 * Put the `@Body` tag in the `<DrawerContent>` tag of the drawer.
 * Provide a collection of models that describe the pages you want the user to navigate to.
 

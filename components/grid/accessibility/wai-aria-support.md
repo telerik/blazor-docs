@@ -133,6 +133,10 @@ Implements the ColumnMenu specification.
 | `td.k-state-selected` | `aria-selected=true` | Set on the currently selected cell(s). Only used when selection mode is set to cell. |
 | `.k-master-row .k-hierarchy-cell,.k-grouping-row>td` | `aria-expanded=true/false` | Optionally for cells holding grouping criteria values and for Master row cells in Detail template scenario. |
 | `.k-drag-cell` | `aria-label` | Must be present in a Drag Row scenario on the cell containing the drag handle. |
+| `.k-grid-header-locked .k-grid-header-table .k-table-row` | `aria-owns` | When there are locked columns, the rows from the `locked` header table should `own` the cells from the corresponding non-locked header table rows. Value should be a space-separated list of `id`s. |
+| `.k-grid-content-locked .k-grid-table .k-table-row` | `aria-owns` | When there are locked columns, the rows from the `locked` content table should `own` the cells from the corresponding non-locked content table rows. Value should be a space-separated list of `id`s. |
+| `.k-grid-header-wrap .k-grid-header-table .k-table-row` | `role=presentation/none` | When there are locked columns, the rows from the non-locked header table should have their default semantic role removed, as their children are owned by the corresponding row from the locked table. |
+| `.k-grid-content .k-grid-table .k-table-row` | `role=presentation/none` | When there are locked columns, the rows from the non-locked content table should have their default semantic role removed, as their children are owned by the corresponding row from the locked table. |
 
 #### Grid footer
 
@@ -153,6 +157,15 @@ The Aggregates totals are placed within a `<tfoot>` element in the Content `<tab
 For the Grid Pager WAI-ARIA spec, please review the Pager component.
 
 [Pager accessibility specification]({{pager_a11y_link}})
+
+#### Grid selection aggregates
+
+
+The selection aggregates are placed within a `.k-grid-selection-aggregates` element after the Grid `.k-grid-aria-root` element.
+
+| Selector | Attribute | Usage |
+| -------- | --------- | ----- |
+| `.k-grid-selection-aggregates` | `aria-live=polite` | Ensures that changes in the calculated selection aggregates are announced by assistive technologies. |
 
 ## Resources
 

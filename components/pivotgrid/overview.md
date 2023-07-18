@@ -66,14 +66,15 @@ The PivotGrid is an integrated product that includes several Razor components:
     <TelerikPivotGrid Data="@PivotData"
                       DataProviderType="@PivotGridDataProviderType.Local">
         <PivotGridColumns>
-            <PivotGridColumn Name="@nameof(PivotModel.City)" />
+            <PivotGridColumn Name="@nameof(PivotModel.City)" Title="City" />
         </PivotGridColumns>
         <PivotGridRows>
-            <PivotGridRow Name="@nameof(PivotModel.Category)" />
+            <PivotGridRow Name="@nameof(PivotModel.Category)" Title="Category" />
             <PivotGridRow Name="@nameof(PivotModel.Product)" />
         </PivotGridRows>
         <PivotGridMeasures>
             <PivotGridMeasure Name="@nameof(PivotModel.ContractValue)"
+                              Title="Contract Value"
                               Aggregate="@PivotGridAggregateType.Sum" />
         </PivotGridMeasures>
     </TelerikPivotGrid>
@@ -152,11 +153,13 @@ The following table lists the `TelerikPivotGrid` parameters. Also check the [Piv
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | A custom CSS class for the `<div class="k-pivotgrid">` element. Use it to [override theme styles]({%slug themes-override%}). |
+| `ColumnHeadersWidth` | `string` | The width of each column in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `Data` | `IEnumerable<TItem>` | The Pivot Grid component data. Use only with [`Local` `DataProviderType`]({%slug pivotgrid-data-binding%}#local). |
 | `DataProviderType` | `PivotGridDataProviderType` enum <br /> (`Local`) | The [type of data source that the Pivot Grid will use]({%slug pivotgrid-data-binding%}). |
 | `EnableLoaderContainer` | `bool` (`true`) | Defines if a built-in [LoaderContainer]({%slug loadercontainer-overview%}) will show during long-running operations (over 600ms). |
 | `Height` | `string` | A `height` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `LoadOnDemand` | `bool` <br /> (`true`) | Defines if the PivotGrid will request only the data to display in the current view, or all data. When loading on demand is disabled or when using the `Local` `DataProviderType`, the component performs all calculations in-memory. In such cases, large amounts of data may impact the performance, especially in WebAssembly apps. |
+| `RowHeadersWidth` | `string` | The width of all row headers in [any supported CSS unit]({%slug common-features/dimensions%}). |
 | `TItem` | `object` | The PivotGrid `@typeparam`. Required if the data item type cannot be inferred at compile-time. |
 | `Width` | `string` | A `width` style in [any supported CSS unit]({%slug common-features/dimensions%}). |
 
@@ -168,7 +171,9 @@ The following table lists parameters of the `PivotGridRow`, `PivotGridColumn` an
 | --- | --- | --- |
 | `Aggregate` | `PivotGridAggregateType` enum <br /> (`Sum`) | The nature of the calculated aggregate values. Applies to `PivotGridMeasure` only. |
 | `Format` | `string` | The [display format](https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) of the calculated aggregate values, for example `"{0:C2}"`. Applies to `PivotGridMeasure` only. |
+| `HeaderClass` | `string` | Adds a custom CSS class to the respective row header, column header or measure. Use it to apply custom styles or [override the default PivotGrid styles]({%slug themes-override%}). |
 | `Name` | `string` | The field name of the respective row, column or measure. |
+| `Title` | `string` | The label to be displayed in the Configurator for the respective row, column or measure. |
 
 
 ### Configurator Parameters

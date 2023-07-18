@@ -92,7 +92,7 @@ In this article:
             new MenuModel()
             {
                 Text = "IconField",
-                TelerikFontIcon = FontIcon.Envelop
+                TelerikFontIcon = FontIcon.Envelope
             },
             new MenuModel()
             {

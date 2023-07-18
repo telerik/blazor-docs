@@ -310,7 +310,7 @@ For an example with the CheckboxList Filter, see the [Custom Data]({%slug grid-c
 
 ## Filter Menu Buttons Template
 
-By default, the Filter Menu renders the `Filter` and `Clear` buttons. You can customize or remove them entirely by using the `FilterMenuButtonsTemplate` tag. 
+By default, the Filter Menu renders `Filter` and `Clear` buttons. You can customize or remove them entirely by using the `FilterMenuButtonsTemplate` tag. 
 
 The template receives a `context` of type `FilterMenuTemplateContext` that provides the following members:
 
@@ -321,7 +321,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 * `FilterAsync`—applies the filters defined in the Filter Menu to the Grid component.
 * `ClearFilterAsync`—clears the applied filters.
 
->caption Implementing a button with a predefined filter.
+>caption Using custom filter menu buttons
 
 ````CSHTML
 @* Customize the buttons in the Filter Menu

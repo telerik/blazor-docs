@@ -31,7 +31,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 <TelerikTabStrip>
     <TabStripTab>
         <HeaderTemplate>            
-            <TelerikFontIcon Icon="@FontIcon.Envelop" />
+            <TelerikFontIcon Icon="@FontIcon.Envelope" />
             <strong>Icon and text</strong>
         </HeaderTemplate>
         <Content>            

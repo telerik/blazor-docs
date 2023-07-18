@@ -76,7 +76,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
             Text = "Email",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.Envelop
+            Icon = FontIcon.Envelope
         });
 
         Items.Add(new PanelBarItem()
