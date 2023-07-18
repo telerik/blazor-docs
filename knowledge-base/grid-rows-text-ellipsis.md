@@ -35,16 +35,16 @@ You might still want to allow the user to see the whole content, so you can enab
 
 
 ````CSHTML
-@*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.*@
+@*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.
+Use the OnRowRender event to set a custom CSS class to Grid rows.*@
 
-Resize Note column or double click on a row to see the product details
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true" Groupable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
+Both Grids have column resizing enabled. Double click a row to see the full Notes value.
+<br />
+Ellipsis for the Notes column via OnCellRender.
+<TelerikGrid Data="@MyData" Height="300px"
+             Pageable="true" Sortable="true"
              Resizable="true" Reorderable="true"
-             OnRowDoubleClick="@OnRowDoubleClickHandler"
-             OnRowRender="@OnRowRender">
+             OnRowDoubleClick="@OnRowDoubleClickHandler">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
@@ -62,17 +62,30 @@ Resize Note column or double click on a row to see the product details
     </GridColumns>
 </TelerikGrid>
 
+Ellipsis for all columns via OnRowRender.
+
+<TelerikGrid Data="@MyData" Height="300px"
+             Pageable="true" Sortable="true"
+             Resizable="true" Reorderable="true"
+             OnRowDoubleClick="@OnRowDoubleClickHandler"
+             OnRowRender="@OnRowRender">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Note))" Title="Notes" Width="200px" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Width="100px" />
+        <GridColumn Title="Empty Column" />
+    </GridColumns>
+</TelerikGrid>
+
 <style>
     /* template */
     div.custom-ellipsis,
     /* OnCellRender */
-    .k-grid td.custom-ellipsis {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+    .k-grid td.custom-ellipsis,
     /* OnRowRender */
-    .custom-ellipsis .k-table-td {
+    .k-grid tr.custom-ellipsis .k-table-td {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -94,24 +107,25 @@ Resize Note column or double click on a row to see the product details
 </TelerikWindow>
 
 @code {
-    bool WindowIsVisible { get; set; }
+    private bool WindowIsVisible { get; set; }
 
-    SampleData CurrEmployee { get; set; } = new SampleData();
+    private SampleData CurrEmployee { get; set; } = new SampleData();
 
-    void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    private void OnRowDoubleClickHandler(GridRowClickEventArgs args)
     {
         CurrEmployee = args.Item as SampleData;
 
         WindowIsVisible = !WindowIsVisible;
     }
 
-    // If you need to render all cells with ellipsis
-    private void OnRowRender(GridRowRenderEventArgs args)
+    // apply ellipsis to specific columns
+    private void OnCellRenderHandler(GridCellRenderEventArgs args)
     {
         args.Class = "custom-ellipsis";
     }
 
-    void OnCellRenderHandler(GridCellRenderEventArgs args)
+    // apply ellipsis to all columns
+    private void OnRowRender(GridRowRenderEventArgs args)
     {
         args.Class = "custom-ellipsis";
     }
@@ -119,8 +133,8 @@ Resize Note column or double click on a row to see the product details
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
-        Name = "Employee " + x,
-        Team = "team " + x % 5,
+        Name = "Employee Name " + x,
+        Team = "Team Name " + x % 5,
         Note = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has... ",
         HireDate = DateTime.Now.AddDays(-x).Date
     });
@@ -139,5 +153,3 @@ Resize Note column or double click on a row to see the product details
 ## See also
 
 * [Knowledge-Base article: Long text in TreeList does not align with the corresponding level]({%slug treelist-longer-text-starts-from-root-level%})
-
-
