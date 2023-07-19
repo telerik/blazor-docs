@@ -6,7 +6,7 @@ page_title: Search Grid in numeric and date fields
 slug: grid-kb-search-numeric-fields
 position: 
 tags: grid, search, gridsearchbox
-ticketid: 1485012, 1488627, 1440872, 1488627, 1551397, 1546489, 1520936
+ticketid: 1485012, 1488627, 1440872, 1488627, 1551397, 1546489, 1520936, 1616608
 res_type: kb
 ---
 
@@ -73,7 +73,9 @@ Here is an overview of the major steps in the example:
 * Date search values *must fully match* date values in the Grid to return results. The example also shows how to search by year only.
 * If the search value cannot be parsed to a specific data type (such as `"123 abc"`), then the code will not create additional non-string filters. This search value will not return any numeric, date and boolean results.
 
->tip It is possible to achieve different behavior, or to work around the above limitations, by using different business logic in the filter descriptor creation.
+>tip It is possible to achieve different behavior with a different implementation of the filter descriptor creation.
+
+> The `OnInput` handler in `GridUniversalSearchBox` uses a single `else if` block for similar data types for brevity, for example `float`, `float?`, `double` and `double?`. If the Grid data contains `null` values, then you must use a separate `else if` block for each type. For example, use one `else if` block for `float` and `float?`, and another block for `double` and `double?`. Otherwise you will get an exception *Nullable object must have a value*. The same requirement applies to all integer types too.
 
 
 ## Example
@@ -92,24 +94,27 @@ Here is an overview of the major steps in the example:
         <GridUniversalSearchBox OnSearch="@OnSearch" T="SampleData" Fields="@SearchBoxFields" />
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="60px" />
+        <GridColumn Field="@(nameof(SampleData.Bool))" Width="80px" />
         <GridColumn Field="@(nameof(SampleData.Byte))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Short))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Int))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Long))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Float))" Width="100px" />
         <GridColumn Field="@(nameof(SampleData.Double))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.Decimal))" Width="100px" />
+        <GridColumn Field="@(nameof(SampleData.DateTime))" Width="180px"/>
+        <GridColumn Field="@(nameof(SampleData.String))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Enum))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.String))" Width="100px" />
-        <GridColumn Field="@(nameof(SampleData.Bool))" Width="100px" />
-        <GridColumn Field="@(nameof(SampleData.DateTime))" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
     public TelerikGrid<SampleData> Grid { get; set; }
     public string SearchBoxValue { get; set; }
-    public List<string> SearchBoxFields { get; set; } = new List<string>
-    { "Id", "Byte", "Short", "Long", "Float", "Double", "DateTime", "Bool", "Enum", "String" };
+    public List<string> SearchBoxFields { get; set; } = new List<string> {
+        "Id", "Bool", "Byte", "Short", "Int", "Long", "Float", "Double", "Decimal", "DateTime", "String", "Enum"
+    };
 
     public async Task SetGridSearchBoxFilters(CompositeFilterDescriptor searchDescriptors)
     {
@@ -125,31 +130,35 @@ Here is an overview of the major steps in the example:
         await SetGridSearchBoxFilters(value);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
     {
         Id = x,
-        Byte = (byte)(x + 2),
-        Short = (short)(x + 3),
-        Long = (long)(x + 4),
-        Float = ((float)x) + 5.5f,
-        Double = ((double)x) + 6.5,
-        String = "Name " + x + 2,
-        DateTime = DateTime.Now.Date.AddMonths(-x),
         Bool = x % 2 == 0,
+        Byte = (byte)(x * 2),
+        Short = (short)(x * 3),
+        Int = x * 5,
+        Long = (long)(x * 7),
+        Float = ((float)x) + .2f,
+        Double = ((double)x) + .3,
+        Decimal = x + .4m,
+        String = $"Name {x}",
+        DateTime = DateTime.Now.Date.AddMonths(-x),
         Enum = (EnumType)(x % 3),
     });
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string String { get; set; }
-        public DateTime DateTime { get; set; }
         public bool Bool { get; set; }
         public byte Byte { get; set; }
         public short Short { get; set; }
+        public int Int { get; set; }
         public long Long { get; set; }
         public float Float { get; set; }
         public double Double { get; set; }
+        public decimal Decimal { get; set; }
+        public string String { get; set; } = string.Empty;
+        public DateTime DateTime { get; set; }
         public EnumType Enum { get; set; }
     }
 
@@ -209,12 +218,17 @@ Here is an overview of the major steps in the example:
             {
                 var type = typeof(T).GetProperty(field).PropertyType;
 
-                // you can specify the unsigned numbers too (uint, ulong...)
+                // !!! If using nullable properties,
+                // then separate each type pair (foo and foo?)
+                // to its own else if block !!!
+                // Otherwise you will get 'Nullable object must have a value' exception during search.
+
                 if (type == typeof(int) || type == typeof(int?) ||
                 type == typeof(short) || type == typeof(short?) ||
                 type == typeof(byte) || type == typeof(byte?) ||
                 type == typeof(long) || type == typeof(long?))
                 {
+                    // you can add the unsigned types too (uint, ulong...)
                     if (long.TryParse(value.ToString(), out var longValue))
                     {
                         var filter = CreateFilterDescriptor(field, FilterOperator.IsEqualTo, longValue);
@@ -227,6 +241,14 @@ Here is an overview of the major steps in the example:
                     if (double.TryParse(value.ToString(), out var doubleValue))
                     {
                         var filter = CreateFilterDescriptor(field, FilterOperator.IsEqualTo, doubleValue);
+                        newDescriptor.FilterDescriptors.Add(filter);
+                    }
+                }
+                else if (type == typeof(decimal) || type == typeof(decimal?))
+                {
+                    if (decimal.TryParse(value.ToString(), out var decimalValue))
+                    {
+                        var filter = CreateFilterDescriptor(field, FilterOperator.IsEqualTo, decimalValue);
                         newDescriptor.FilterDescriptors.Add(filter);
                     }
                 }
