@@ -10,7 +10,7 @@ position: 8
 
 The **Options** dialog enables you to configure the Telerik Visual Studio Extensions to best suit your needs.
 
-It can be accessed through the **Visual Studio >> Extensions >> Telerik >> Telerik UI for Blazor >> Options:**
+The dialog can be accessed through **Visual Studio >> Extensions >> Telerik >> Telerik UI for Blazor >> Options:**
 
 ![Telerik UI for Blazor Visual Studio Extensions open Options dialog](images/vs-extension-open-options.png)
 
