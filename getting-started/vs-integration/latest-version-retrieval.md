@@ -17,19 +17,20 @@ The Latest Version Retrieval tool automatically checks for the latest Telerik UI
 ![Getting the latest version notification](images/lva_notification.png)
 
 Clicking the **Update Now** button starts the Latest Version Acquirer tool which prompts for your Telerik credentials on its first page. If you do not have a [www.telerik.com](https://www.telerik.com) account, you can create one through the **Create an account for free** link.
-
 -->
 
 
-Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. To continue, you must enter your Telerik credentials. If you do not have a [www.telerik.com](https://www.telerik.com) account, select the **Create an account for free** link.
+Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. To continue, you must use your Telerik credentials.
 
-1. Log in with your Telerik credentials.
+1. Click on the LOG IN button. This will open a browser window with a login form on the telerik.com website.
 
-    ![Log into your Telerik account](images/login-vs-ext-download.png)
+    ![Log into your Telerik account](images/click-to-log-in.png)
 
     >tip For more information on the latest available versions, see the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 
-1. In the dialog that appears, click the **Download** button.
+1. Enter your Telerik credentials in the browser. If you do not have a [www.telerik.com](https://www.telerik.com) account, then create a new one.
+1. Return to Visual Studio and confirm any privacy-related requests.
+1. In the next dialog that appears, click the **Download** button.
 
     ![Confirming the download of the latest version dialog](images/download-new-version.png)
 
