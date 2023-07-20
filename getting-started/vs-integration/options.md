@@ -19,7 +19,7 @@ The **Options** dialog contains two sets of configurations that affect the Teler
 * [Notifications](#notifications-options)
 * [General](#general-options)
 
-The settings under the **General** category affect all installed Telerik Visual Studio Extensions - including those for other development platforms.
+The settings under the **General** category affect all installed Telerik Visual Studio Extensions—including those for other development platforms.
 
 ## Notifications Options
 
@@ -36,7 +36,7 @@ The **General Options** window includes the following configurations:
 
 ### Download Location
 
-This setting allows you to select the folder for downloading the **Telerik UI for Blazor** package. The default path is:
+This setting allows you to select the folder for downloading the Telerik UI for Blazor package. The default path is:
 
 ````
 C:\Users\[username]\AppData\Roaming\Telerik\Updates
@@ -44,13 +44,13 @@ C:\Users\[username]\AppData\Roaming\Telerik\Updates
 
 ### Project Setup
 
-* **Copy referenced assemblies to solution and integrate with source control** - When enabled, the referenced assemblies will be copied to the solution when using Telerik wizards. `True` by default.
+* **Copy referenced assemblies to solution and integrate with source control**—When enabled, the referenced assemblies will be copied to the solution when using Telerik wizards. `True` by default.
 
 ### Project Upgrade Notifications for Detected Local Distributions
 
-* **Suggest project upgrades for Telerik product versions available on my computer** - `True` by default.
+* **Suggest project upgrades for Telerik product versions available on my computer**—`True` by default.
 
-* **Suggest upgrades when an equal Dev release is detected on projects using a Trial** - `True` by default.
+* **Suggest upgrades when an equal Dev release is detected on projects using a Trial**—`True` by default.
 
 ## See Also
 
