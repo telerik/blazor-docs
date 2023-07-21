@@ -110,6 +110,8 @@ This section provides the following examples:
 * [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
 
+It is also possible to [trigger Form validation programmatically]({%slug form-overview%}#form-reference-and-methods).
+
 ### Validate a Model
 
 You can use the built-in `DataAnnotationsValidator` that comes with the Blazor framework.
