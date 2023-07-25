@@ -49,7 +49,7 @@ To achieve the desired result you can try the following:
         border: 1px solid rgba(0, 0, 0, 0.08);
         z-index: 1;
         background-color: #fff;
-        transition-duration:0.3s; /* match the Drawer's animation duration */
+        transition: all 300ms ease-in-out; /* match the Drawer's animation */
     }
     
     .my-toggle-button.collapsed {
@@ -102,3 +102,7 @@ To achieve the desired result you can try the following:
     }
 }
 ````
+
+## See Also
+
+* [CSS Isolation does not work for Telerik components]({%slug common-kb-css-isolation%})
