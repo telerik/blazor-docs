@@ -18,6 +18,12 @@ Accessibility consists of several aspects:
 * [Keyboard Navigation]({%slug accessibility-keyboard-navigation%})
 * [Globalization]({%slug globalization-overview%})
 
+### Voluntary Product Accessibility Template
+
+A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov/sell/vpat/) is a document that explains how information and communication technology (ICT) products such as software, hardware, electronic content, and support documentation meet (conform to) the Revised 508 Standards for IT accessibility.
+
+> You can review and download the latest version of the Telerik UI for Blazor VPAT document <a href="assets/BlazorVPAT.doc" download>here</a>.
+
 ## See Also
 
   * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
