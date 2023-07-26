@@ -10,9 +10,9 @@ position: 50
 
 # Grid State
 
-The Grid lets you save, load and change its state through code. The state includes the Grid features that are *controlled by the user*, such as current sorting, current page number, applied grouping, column width, and many others.
+The Grid lets you save, load and change its state through code. The state includes the Grid features that are *controlled by the user*, such as the current sorting, page number, applied grouping, column widths, and many others.
 
-The Grid state is a generic class `GridState<TItem>`. The type depends on the type of the Grid model. The state contains properties that correspond to the Grid features and behaviors, which are controlled by the user.
+The Grid state is a generic class `GridState<TItem>`. The type depends on the type of the Grid model.
 
 
 ## Information in the Grid State
@@ -45,6 +45,9 @@ The `GridState<TItem>` object exposes the following properties:
 ## Events
 
 The Grid features two events, which are related to its state.
+
+* [OnStateInit](#onstateinit)
+* [OnStateChanged](#onstatechanged)
 
 ### OnStateInit
 
@@ -350,7 +353,7 @@ Here is some additional information about certain `PropertyName` values:
 
 The `GetState` and `SetStateAsync` methods of the [Grid instance]({%slug grid-overview%}#grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
 
-* `GetState` returns the Grid state, so you can save it or retrieve specific information. it only on a certain condition - for example, you may want to save the Grid layout only on a button click, and not on every user interaction with the grid. You can also use it to get information about the current state of the filters, sorts and so on, if you are not using the [`OnRead` event]({%slug common-features-data-binding-onread%}).
+* `GetState` returns the current Grid state, so you can save it or retrieve specific information. You can also use this method to get information about the current data state (filters, sorts, page number, etc.) if you are [binding the Grid via `Data` parameter]({%slug common-features-data-binding-overview%}) and not via [`OnRead` event]({%slug common-features-data-binding-onread%}).
 
 * `SetStateAsync` receives an instance of a `GridState<TItem>` object and applies it to the Grid. For example, you can have a button that puts the Grid in a certain configuration programmatically, for example sort or filter the data, enter or exit edit mode, expand or collapse groups or detail Grids, etc.
 
@@ -366,7 +369,7 @@ If you want to put the Grid in a certain configuration without preserving the ol
 
 To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
 
-Avoid calling `SetStateAsync` in the grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after the event. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
+Avoid calling `SetStateAsync` in the Grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 ### SetStateAsync Examples
 
@@ -413,22 +416,22 @@ You can find the following examples in this section:
 
 ### Save and Load Grid State from Browser LocalStorage
 
-The following example shows one way you can store the grid state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
+The following example shows one way you can store the Grid state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
 
 The example below [overrides the `Equals` method](#equals-comparison) of the `SampleData` class, so that the application code can compare data items correctly.
 
 > We support the `System.Text.Json` serialization that is built-in in Blazor. Be aware of its [limitation to not serialize `Type` properties]({%slug kb-grid-json-serializer-null-membertype%}).
 
->caption Save, Load, Reset grid state on every state change. Uses a sample LocalStorage in the browser.
+>caption Save, Load, Reset Grid state on every state change. Uses a sample LocalStorage in the browser.
 
 <div class="skip-repl"></div>
 ````Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
-Change something in the grid (like sort, filter, select, page, resize columns, etc.), then reload the page to see the grid state fetched from the browser local storage.
+Change something in the Grid (like sort, filter, select, page, resize columns, etc.), then reload the page to see the Grid state fetched from the browser local storage.
 <br />
 
-<TelerikButton OnClick="@ReloadPage">Reload the page to see the current grid state preserved</TelerikButton>
+<TelerikButton OnClick="@ReloadPage">Reload the page to see the current Grid state preserved</TelerikButton>
 <TelerikButton OnClick="@ResetState">Reset the state</TelerikButton>
 
 <TelerikGrid Data="@GridData" Height="500px" @ref="@Grid"
@@ -482,7 +485,7 @@ Change something in the grid (like sort, filter, select, page, resize columns, e
 }
 
 @code {
-    // Load and Save the state through the grid events
+    // Load and Save the state through the Grid events
 
     string UniqueStorageKey = "SampleGridStateStorageThatShouldBeUnique";
     TelerikGrid<SampleData> Grid { get; set; }
@@ -706,11 +709,11 @@ The [knowledge base article for saving the Grid state in a WASM application]({%s
 
 ### Get and Override User Action That Changes The Grid
 
-Sometimes you may want to know what the user changed in the grid (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead` event]({%slug common-features-data-binding-onread%}), cache the previous [`DataSourceRequest` argument]({%slug common-features-data-binding-onread%}#event-argument), compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
+Sometimes you may want to know what the user changed in the Grid (e.g., when they filter, sort and so on) and even override those operations. One way to do that is to monitor the [`OnRead` event]({%slug common-features-data-binding-onread%}), cache the previous [`DataSourceRequest` argument]({%slug common-features-data-binding-onread%}#event-argument), compare against it, alter it if needed, and implement the operations yourself. Another is to use the `OnStateChanged` event.
 
 The example below shows the latter. Review the code comments to see how it works and to make sure you don't get issues. You can find another example of overriding the user actions in the [Static Grid Group]({%slug grid-kb-static-group%}) Knowledge Base article.
 
->caption Know when the grid state changes, which parameter changes, and amend the change
+>caption Know when the Grid state changes, which parameter changes, and amend the change
 
 ````CSHTML
 @* This example does the following:
@@ -735,8 +738,8 @@ To test it out, try filtering the name column
     private TelerikGrid<SampleData> GridRef { get; set; }
 
     // Note: This can cause a performance delay if you do long operations here
-    // Note 2: The grid does not await this event, its purpose is to notify you of changes
-    //         so you must not perform async operations and data loading here, or issues with the grid state may occur
+    // Note 2: The Grid does not await this event, its purpose is to notify you of changes
+    //         so you must not perform async operations and data loading here, or issues with the Grid state may occur
     //         or other things you change on the page won't actually change. The .SetStateAsync() call redraws only the grid, but not the rest of the page
     private async Task OnStateChangedHandler(GridStateEventArgs<SampleData> args)
     {
@@ -758,7 +761,7 @@ To test it out, try filtering the name column
                     }
 
                     // you could override a user action as well - change settings on the corresponding parameter
-                    // make sure that the .SetStateAsync() method of the grid is always called if you do that
+                    // make sure that the .SetStateAsync() method of the Grid is always called if you do that
                     if (filter.Member == "Name")
                     {
                         filter.Value = "name 1";
@@ -965,7 +968,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
         // define constructors and a static method so we can deep clone instances
         // we use that to define the edited item - otherwise the references will point
-        // to the item in the grid data sources and all changes will happen immediately on
+        // to the item in the Grid data sources and all changes will happen immediately on
         // the Data collection, and we don't want that - so we need a deep clone with its own reference
         // this is just one way to implement this, you can do it in a different way
         public SampleData()
