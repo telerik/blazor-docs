@@ -1,5 +1,5 @@
 ---
-title: ListView Popup Editing
+title: Implement ListView Popup Editing
 description: How to implement popup editing for the Telerik Blazor ListView.
 type: how-to
 page_title: How to use a Popup Edit Form with the Telerik Blazor ListView
