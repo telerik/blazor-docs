@@ -14,8 +14,6 @@ position: 3
 
 With the [ThemeBuilder app](https://themebuilderapp.telerik.com), you can create new themes, customize existing ones, and organize them in projects. You are in full control of the appearance of every Telerik UI for Blazor component while, at the same time, you can apply large-scale updates in seconds. To speed up the customization of your Blazor app, the ThemeBuilder preview visualizes every style change almost instantly.
 
-> Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version provides more free features and adds a Pro tier. All your existing custom themes will continue to work in the new ThemeBuilder.
-
 Visit the [ThemeBuilder documentation portal](https://docs.telerik.com/themebuilder) to learn how to:
 
 * [Create a custom theme](https://docs.telerik.com/themebuilder/get-started/first-steps-theme-builder)
