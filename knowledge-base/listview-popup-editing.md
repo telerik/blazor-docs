@@ -37,7 +37,7 @@ The steps below assume that the ListView data items are of type `TItem`.
 1. Add an edit Button to the [ListView `<Template>`]({%slug listview-templates%}). Use a lambda expression to pass the ListView template `context` as an argument to the [Button's `OnClick` handler]({%slug button-events%}). Assign the `context` property values to the variable from step 1.
 1. Add a Button to the [ListView `<HeaderTemplate>`]({%slug listview-templates%}) or anywhere outside the ListView. This Button's `OnClick` handler will create a new instance of `TItem` and assign it to the variable from step 1.
 1. Set the Window's `Visible` parameter to `true` on add/edit Button click.
-1. Use the [Form's `OnValidSubmit` or `OnSubmit` event]({%slug form-events%}) to save the ListView item to the database, [`Rebind()`]({%slug common-features-data-binding-overview%}#refresh-data) the ListView and hide the Window.
+1. Use the [Form's `OnValidSubmit` or `OnSubmit` event]({%slug form-events%}) to save the ListView item to the database, [`Rebind()`]({%slug common-features-data-binding-overview%}#refresh-data) the ListView, and hide the Window.
 
 >caption ListView Popup Editing
 
