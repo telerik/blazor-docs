@@ -19,7 +19,7 @@ With the [ThemeBuilder app](https://themebuilderapp.telerik.com), you can create
 Visit the [ThemeBuilder documentation portal](https://docs.telerik.com/themebuilder) to learn how to:
 
 * [Create a custom theme](https://docs.telerik.com/themebuilder/get-started/first-steps-theme-builder)
-* [Import a JSON file with an existing theme](https://docs.telerik.com/themebuilder/web-app/importing-json)
+* Migrate custom themes to new component versions [automatically](https://docs.telerik.com/themebuilder/web-app/automatic-migrations) or [manually](https://docs.telerik.com/themebuilder/web-app/migrating-projects)
 * [Export and use a theme in your Blazor app](https://docs.telerik.com/themebuilder/exported-package)
 
 ## Implementing Design Requirements
