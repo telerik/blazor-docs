@@ -21,8 +21,8 @@ You can control and customize the rendering of the content items in the PanelBar
 >caption Use ContentTemplate to customize the content items
 
 ````CSHTML
-@*Set Level 0, 1 or 2 to the PanelBarBinding to see how the content template appears for specific levels only.*@
-@*Without a Level, the ContentTemplate will be applied to all items that have no children, from all levels, which don't have their own binding.*@
+@* Set Level 0, 1 or 2 to the PanelBarBinding to see how the content template appears for specific levels only.
+Without a Level, the ContentTemplate will be applied to all items that have no children, from all levels without their own binding. *@
 
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items">
