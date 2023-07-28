@@ -80,7 +80,7 @@ var builder = WebApplication.CreateBuilder(args);
 // ...
 
 // AddTelerikBlazor() registers the built-in service that includes only the default English labels.
-// The actual localizer for the Telerik components should be registered after the line below.
+// The actual localizer for the Telerik components must be registered after the line below.
 builder.Services.AddTelerikBlazor();
 
 #region Localization Part 1
