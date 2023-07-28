@@ -232,6 +232,7 @@ You can use third-party validation libraries that integrate with the standard `E
 ````CSHTML
 @using Microsoft.AspNetCore.Components.Forms
 @using FluentValidation
+@using Blazored.FluentValidation
 
 <div class="mt-4" style="margin: 0 auto;">
     <TelerikForm EditContext="@EditContext">
