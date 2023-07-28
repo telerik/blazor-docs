@@ -35,10 +35,11 @@ Telerik provides and supports the default English strings. The other language st
 
 ## How to Enable Localization in Your App
 
-When localizing a Blazor app, make sure you are familiar with the way localization works in the framework. You can start from the following resources:
+When localizing a Blazor app, make sure you are familiar with how localization works in the framework. The Telerik components localization configuration builds on top of the standard .NET and Blazor localization. You can start from the following resources:
 
-* [Globalization and Localization in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
-* [Localization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization)
+* [Globalization and Localization in Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
+* [Localization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization)
+
 
 ### Sample Projects
 
@@ -65,120 +66,34 @@ The necessary steps are to:
 
 1. Implement a service for localizing the Telerik components - it must return the desired string based on the current culture and the requested key (see the explanations above).
 
-
-
 >note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app. Code comments and regions explain details.
 
 >caption Step 1 - Example for enabling localization in the app
 
-* `Startup.cs` for .NET 3.x and .NET 5
-* `Program.cs` for .NET 6 and .NET 7
+>caption `Program.cs`
 
 <div class="skip-repl"></div>
-````Startup.cs
-public class Startup
-{
-    // This method gets called by the runtime. Use this method to add services to the container.
-    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-    public void ConfigureServices(IServiceCollection services)
-    {
-        #region Localization
 
-        services.AddControllers();
-        services.AddLocalization(options => options.ResourcesPath = "Resources");
-        services.Configure<RequestLocalizationOptions>(options =>
-        {
-            // define the list of cultures your app will support
-            var supportedCultures = new List<CultureInfo>()
-        {
-            new CultureInfo("en-US"),
-            new CultureInfo("fr-FR"),
-            new CultureInfo("bg-BG")
-        };
-
-            // set the default culture
-            options.DefaultRequestCulture = new RequestCulture("en-US");
-
-            options.SupportedCultures = supportedCultures;
-            options.SupportedUICultures = supportedCultures;
-        });
-
-        // the custom localizer service is registered later, after the Telerik services
-
-        #endregion
-
-        services.AddRazorPages();
-        services.AddServerSideBlazor();
-
-
-        services.AddTelerikBlazor();
-        // register a custom localizer for the Telerik components, after registering the Telerik services
-        services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResxLocalizer));
-
-
-        services.AddSingleton<WeatherForecastService>();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        #region Localization
-        
-        app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
-        
-        #endregion
-        
-        // the rest is just a sample app configuration
-
-        app.UseResponseCompression();
-
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
-        }
-
-        app.UseHttpsRedirection();
-
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseEndpoints(endpoints =>
-        {
-            // enable controllers for the culture controller
-            endpoints.MapControllers();
-
-            endpoints.MapBlazorHub();
-            endpoints.MapFallbackToPage("/_Host");
-        });
-    }
-}
-````
-````Program.cs
+````CS
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
-builder.Services.AddTelerikBlazor();
-// Example of how to register a service in the project (add only if such exists)
-builder.Services.AddSingleton<WeatherForecastService>();
+// ...
 
-// register a custom localizer for the Telerik components, after registering the Telerik services
+// AddTelerikBlazor() registers the built-in service that includes only the default English labels.
+// The actual localizer for the Telerik components should be registered after the line below.
+builder.Services.AddTelerikBlazor();
+
+#region Localization Part 1
+
+// Register your Telerik component localizer after the built-in Telerik services above.
 builder.Services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResxLocalizer));
 
-#region Localization
-
+// Standard .NET localization code
 builder.Services.AddControllers();
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    // define the list of cultures your app will support
+    // The list of cultures that the app will support.
     var supportedCultures = new List<CultureInfo>()
             {
                 new CultureInfo("en-US"),
@@ -187,45 +102,27 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
                 new CultureInfo("bg-BG")
             };
 
-    // set the default culture
+    // Set the default culture.
     options.DefaultRequestCulture = new RequestCulture("en-US");
 
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });
 
-// the custom localizer service is registered later, after the Telerik services
-
-#endregion
+#endregion Localization Part 1
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+#region Localization Part 2
 
-#region Localization
-
+// Standard .NET localization code
 app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
-#endregion
+#endregion Localization Part 2
 
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.MapControllers();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+// ...
 
 app.Run();
-
 ````
 
 >caption Step 2 - Sample controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework)
@@ -257,15 +154,16 @@ public class CultureController : Controller
 
 >caption Step 2 (continued) - Use a cookie to store the culture choice of the user.
 
-* `~/Pages/_Host.cshtml` for .NET 6 and .NET
-* `~/Pages/_Layout.cshtml` for .NET 3.x and .NET 5
+>caption _Host.cshtml
 
 <div class="skip-repl"></div>
-````_Host.cshtml
+
+````CSHTML
 @using Microsoft.AspNetCore.Localization
 @using System.Globalization
 
-. . . .
+<!-- ... -->
+
 <body>
     @{
         this.HttpContext.Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
@@ -276,30 +174,6 @@ public class CultureController : Controller
     <app>
         <component type="typeof(App)" render-mode="ServerPrerendered" />
     </app>
-    
-. . . .
-    
-</body>
-````
-````_Layout.cshtml
-@using Microsoft.AspNetCore.Localization
-@using System.Globalization
-
-. . . .
-<body>
-    @* Culture cookie start *@
-
-    @{
-        this.Context.Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
-            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(CultureInfo.CurrentCulture, CultureInfo.CurrentUICulture))
-        );
-    }
-
-    @* Culture cookie end *@
-
-    @RenderBody()
-    
-. . . .
     
 </body>
 ````
@@ -419,4 +293,4 @@ Make sure to:
 
 ## See Also
 
-  * [Globalization Overview]({%slug globalization-overview%})
+* [Globalization Overview]({%slug globalization-overview%})
