@@ -143,10 +143,11 @@ The Telerik Window component renders as a child of the `TelerikRootComponent` at
 
 In Blazor, however, the render tree structure may be important. In some cases, the special Window placement may put you in one of the following situations:
 
-* [Returning data from a Window does not update the parent]({%slug window-does-not-update-parent%})
-* [CascadingParameter Value is null in the Window]({%slug window-cascading-parameter-null%})
-* [Using an EditContext for a form holding a Window requires updating the EditContext]({%slug window-in-form-edit-context%})
 * [Block all content with a Window]({%slug window-kb-block-all-content%})
+* [CascadingParameter Value is null in the Window]({%slug window-cascading-parameter-null%})
+* [The Window does not display its child items data]({%slug window-kb-does-not-display-child-items-data%})
+* [Returning data from a Window does not update the parent]({%slug window-does-not-update-parent%})
+* [Using an EditContext for a form holding a Window requires updating the EditContext]({%slug window-in-form-edit-context%})
 
 ## Next Steps
 
