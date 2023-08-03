@@ -22,7 +22,7 @@ The `OnClick` event fires when the user clicks or taps on the Chip component. Th
 
 ## OnRemove
 
-The `OnRemove` event fires when the user clicks the remove icon of the Chip. The event handler receives a `ChipRemoveEventArgs` object which provides the value of the `Text` parameter of the clicked Chip. You can cancel the event by setting the `IsCancelled` field to `true`.
+The `OnRemove` event fires when the user clicks the remove icon of the Chip. The event handler receives a `ChipRemoveEventArgs` object which provides the value of the [`Text` parameter]({%slug chip-overview%}#chip-parameters) of the clicked Chip. You can cancel the event by setting the `IsCancelled` property to `true`.
 
 ## SelectedChanged
 
