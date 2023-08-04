@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I have a custom theme `SCSS` (SASS) or `JSON` file with variables and values, which I created with [the ThemeBuilder application](https://themebuilderapp.telerik.com). I want to import this `SCSS` file to the ThemeBuilder to make some changes, but the Theme Builder now requires a `ZIP` file import.
+I have older custom themes exported as  SCSS (SASS) and JSON files with variables and values, which I created with previous versions of [the ThemeBuilder application](https://themebuilderapp.telerik.com). I want to import this SCSS file into ThemeBuilder to make some changes, but the Theme Builder now requires a ZIP file import.
 
 > Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the previous ThemeBuilder and provides more free features through its Pro, Ultimate, and Enterprise tiers. All your existing custom themes will continue to work in the new ThemeBuilder.  
 
