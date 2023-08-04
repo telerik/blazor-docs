@@ -161,4 +161,4 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 * [Window Events]({%slug window-events%})
 * [Window Position]({%slug components/window/position%})
 * [Modal Window]({%slug components/window/modal%})
-* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)
+* [Window API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)

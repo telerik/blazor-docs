@@ -87,4 +87,4 @@ The Blazor ColorPallete provides appearance settings. Control the size of the co
 ## See Also
 
 * [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-* [ColorPalette API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
+* [ColorPalette API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)

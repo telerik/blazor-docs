@@ -27,7 +27,7 @@ How can I apply a gradient color effect on the Telerik UI for Blazor Chart serie
 ## Solution
 
 1. Declare an external [linear gradient with an `svg` tag](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/linearGradient).
-1. Set the [Color](https://docs.telerik.com/blazor-ui/components/chart/types/area#color) parameter of the `ChartSeries` and refer the external gradient via its `id`. 
+1. Set the [Color](/blazor-ui/components/chart/types/area#color) parameter of the `ChartSeries` and refer the external gradient via its `id`. 
 
 >caption How to apply gradient effect on Area Chart.
 

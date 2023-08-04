@@ -15,7 +15,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 
 You can use the `Context` attribute of the `<FormTemplate>` tag to set the name of the context variable. The context variable is of type `object` and can be cast to the model type to which the TreeList is bound.
     
->When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. Consequently, the default `Update` and `Cancel` buttons are removed. This means the [`OnUpdate` and `OnCancel`](https://docs.telerik.com/blazor-ui/components/TreeList/events#cud-events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
+>When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. Consequently, the default `Update` and `Cancel` buttons are removed. This means the [`OnUpdate` and `OnCancel`](/blazor-ui/components/TreeList/events#cud-events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
 
 >caption Using a `FormTemplate` to modify the Edit/Create Popup window.
 ````CSHTML

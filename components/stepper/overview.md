@@ -94,4 +94,4 @@ The Blazor Stepper provides various parameters that allow you to configure the c
 
   * [Live Stepper Demos](https://demos.telerik.com/blazor-ui/stepper/overview)
 
-  * [Stepper API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStepper)
+  * [Stepper API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikStepper)

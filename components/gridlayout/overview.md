@@ -95,4 +95,4 @@ The GridLayout Item defines the content of the TelerikGridLayout. [See the Items
 ## See Also
 
   * [Live Demo: GridLayout](https://demos.telerik.com/blazor-ui/gridlayout/overview)
-  * [GridLayout API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)
+  * [GridLayout API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGridLayout)

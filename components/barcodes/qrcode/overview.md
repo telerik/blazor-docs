@@ -58,7 +58,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | `QRCodeEncoding` | `enum` | The encoding mode used to encode the value. |
 | `QRCodeErrorCorrection` | `enum` | The error correction level used to encode the value. |
 | `Value` | `string` | Defines the initial value of the QRCode. |
-| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](https://docs.telerik.com/blazor-ui/common-features/dimensions#dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
+| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](/blazor-ui/common-features/dimensions#dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
 | `Width` | `string` | Sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`. |
 | `Height` | `string` | Sets the height of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Height` should be set to `Width`. |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the QRCode component. |

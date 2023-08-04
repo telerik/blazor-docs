@@ -129,4 +129,4 @@ TextBox value: @StringValue
 ## See Also
 
   * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
-  * [TextBox API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
+  * [TextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)

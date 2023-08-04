@@ -165,7 +165,7 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
 
 ## See Also
 
-  * [Data Binding]({%slug autocomplete-databind%})
-  * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
-  * [Live Demo: AutoComplete Validation](https://demos.telerik.com/blazor-ui/autocomplete/validation)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1)
+* [Data Binding]({%slug autocomplete-databind%})
+* [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
+* [Live Demo: AutoComplete Validation](https://demos.telerik.com/blazor-ui/autocomplete/validation)
+* [AutoComplete API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1)

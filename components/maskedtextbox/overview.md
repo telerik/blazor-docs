@@ -230,4 +230,4 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
 * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
 * [Add Floating Label]({%slug inputs-kb-floating-label%})
-* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
+* [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)

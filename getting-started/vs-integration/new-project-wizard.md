@@ -69,7 +69,7 @@ In the order of their appearance, the Create New Project wizard presents the fol
 
 4. On the final screen, you need to decide the following:
 
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](https://docs.telerik.com/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](https://docs.telerik.com/blazor-ui/getting-started/what-you-need#using-cdn).
+   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
    * Whether to use localization in the project or not.
 
    ![The Create New Project Wizard Localization Option](images/vsx-extension-create-project-settings.png)

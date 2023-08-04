@@ -102,5 +102,5 @@ The ListView provides events related to editing and [loading data on demand]({%s
 ## See Also
 
   * [Live ListView Demos](https://demos.telerik.com/blazor-ui/listview/overview)
-  * [ListView API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikListView-1)
+  * [ListView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikListView-1)
 

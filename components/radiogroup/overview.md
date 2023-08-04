@@ -81,7 +81,7 @@ The Blazor RadioGroup fires blur and value change events to respond to user acti
 
 ## RadioGroup Parameters
 
-The Blazor RadioGroup provides various parameters to configure the component. Also check the [RadioGroup public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2).
+The Blazor RadioGroup provides various parameters to configure the component. Also check the [RadioGroup public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -111,4 +111,4 @@ See the [Input Validation]({%slug common-features/input-validation%}) article fo
 ## See Also
 
 * [Live RadioGroup Demos](https://demos.telerik.com/blazor-ui/radiogroup/overview)
-* [RadioGroup API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)
+* [RadioGroup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikRadioGroup-2)

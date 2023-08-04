@@ -77,7 +77,7 @@ The following parameters enable you to customize the appearance of the Blazor Sw
 
 ## Switch Reference and Methods
 
-The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1#methods).
+The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1#methods).
 
 | Method | Description |
 | --- | --- |

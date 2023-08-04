@@ -243,4 +243,4 @@ The TreeList is a generic component.Its type depends on the type of its model an
 ## See Also
 
 * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/overview)
-* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
+* [TreeList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
