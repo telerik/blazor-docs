@@ -82,7 +82,7 @@ The Blazor ToolBar provides parameters to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Adaptive ` | `bool` <br /> (`true`) | Toggles the overflow popup of the toolbar. Displays an additional anchor on the right of the toolbar, where it places all items which overflow from the toolbar. |
+| `Adaptive ` | `bool` <br /> (`true`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow. [Template items]({%slug toolbar-templated-item%}#notes) don't participate in this mechanism and they are always rendered in the ToolBar itself. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations]({%slug themes-override%}). |
 
 ### Styling and Appearance
