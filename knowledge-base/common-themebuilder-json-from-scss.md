@@ -33,6 +33,6 @@ Previous versions of the ThemeBuilder application were accepting SCSS (SASS) or 
 
 ## Suggested Workarounds
 
-All themes created with ThemeBuilder must be migrated to the latest application version. Once the theme migrates to the latest version, you can make all needed modifications within the ThemeBuilder application. [Learn how to manually migrate a theme with ThemeBuilder Pro here ...](https://docs.telerik.com/themebuilder/web-app/migrating-projects)
+All themes created with previous ThemeBuilder versions must be migrated to the latest application version. Then, you can make all needed modifications within the ThemeBuilder application. [Learn how to manually migrate a theme with ThemeBuilder Pro](https://docs.telerik.com/themebuilder/web-app/migrating-projects).
 
 The ThemeBuilder application, licensed with [the Ultimate and Enterprise tiers](https://www.telerik.com/themebuilder/pricing), provides the option for automatic migration of themes generated with older ThemeBuilder versions. Once the theme migrates to the latest version, you can make all needed modifications within the ThemeBuilder application. [Learn more about the automatic migration with ThemeBuilder Ultimate here...](https://docs.telerik.com/themebuilder/web-app/automatic-migrations)
