@@ -12,7 +12,7 @@ res_type: kb
 
 ## Description
 
-How to add [Context menu](/blazor-ui/components/contextmenu/overview) to the appointments to provide shortcuts to custom features?
+How to add [Context menu]({%slug contextmenu-overview%}}) to the appointments to provide shortcuts to custom features?
 
 
 ## Solution
