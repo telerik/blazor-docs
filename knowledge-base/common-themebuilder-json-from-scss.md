@@ -29,7 +29,7 @@ I have older custom themes exported as  SCSS (SASS) and JSON files with variable
 
 ## Cause\Possible Cause(s)
 
-Older versions of the ThemeBuilder applications were accepting `SCSS` (SASS) or `JSON` files to import an existing custom theme. Because this approach caused some issues, the team switched to the `ZIP` import instead.
+Previous versions of the ThemeBuilder application were accepting SCSS (SASS) or JSON files when importing an existing custom theme. As this approach caused some issues, the latest ThemeBuilder version accepts only ZIP files.
 
 ## Suggested Workarounds
 
