@@ -114,4 +114,4 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 ## See Also
 
 * [Live Demo: Signature](https://demos.telerik.com/blazor-ui/signature/overview)
-* [Signature API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature)
+* [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature)

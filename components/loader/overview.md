@@ -82,4 +82,4 @@ The following table lists the Loader parameters. Also check the [Loader API Refe
 ## See Also
 
 * [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
-* [Loader API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)
+* [Loader API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)

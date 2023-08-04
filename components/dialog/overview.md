@@ -67,7 +67,7 @@ The Blazor Dialog fires a `VisibleChanged` event to customize the application be
 
 ## Dialog Parameters
 
-The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
+The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -144,4 +144,4 @@ The Dialog methods are accessible through its reference.
 ## See Also
 
   * [Live Dialog Demos](https://demos.telerik.com/blazor-ui/dialog/overview)
-  * [Dialog API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)
+  * [Dialog API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)

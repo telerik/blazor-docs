@@ -155,7 +155,7 @@ The Grid supports custom content in various parts of the component such as data 
 
 ## Grid Parameters
 
-The following table lists Grid parameters, which are not discussed elsewhere in the component documentation. Check the [Grid API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1) for a full list of parameters, methods and events.
+The following table lists Grid parameters, which are not discussed elsewhere in the component documentation. Check the [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1) for a full list of parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -225,5 +225,5 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 ## See Also
 
 * [Live Grid Demos](https://demos.telerik.com/blazor-ui/grid/index)
-* [Grid API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
+* [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
 * [Create Custom Styles by Using ThemeBuilder]({%slug themebuilder%})

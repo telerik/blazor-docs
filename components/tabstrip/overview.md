@@ -136,7 +136,7 @@ The `TabStrip` methods are accessible through its reference.
 
 ## See Also
 
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
-  * [Live Demo: Tab Positions](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
-  * [Events]({%slug tabstrip-events%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTabStrip)
+* [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
+* [Live Demo: Tab Positions](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
+* [Events]({%slug tabstrip-events%})
+* [TabStrip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTabStrip)

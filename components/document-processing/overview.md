@@ -14,11 +14,11 @@ Telerik Document Processing provides the RadPdfProcessing, RadSpreadStreamProces
 
 #### Available Libraries
 
-* [PdfProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library enables you to create, import, and export PDF documents.
+* [PdfProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library enables you to create, import, and export PDF documents.
 * [SpreadProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) library enables you to work with spreadsheet documents.
-* [SpreadStreamProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) library enables you to export large `XLSX` and `CSV` spreadsheet documents with low memory footprint and great performance.
-* [WordsProcessing](http://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview) library enables you to create, import, and export `DOCX`, `DOC` & `DOT` (import only), `HTML`, `RTF`, and `TXT` documents, and export them to PDF.
-* [ZipLibrary](http://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview) library enables you to compress and decompress `ZIP` files.
+* [SpreadStreamProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) library enables you to export large `XLSX` and `CSV` spreadsheet documents with low memory footprint and great performance.
+* [WordsProcessing](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/overview) library enables you to create, import, and export `DOCX`, `DOC` & `DOT` (import only), `HTML`, `RTF`, and `TXT` documents, and export them to PDF.
+* [ZipLibrary](https://docs.telerik.com/devtools/document-processing/libraries/radziplibrary/overview) library enables you to compress and decompress `ZIP` files.
 
 In this article:
 
@@ -119,7 +119,7 @@ You can find more information on working with the Telerik document processing li
 
 	* [PDF format provider](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/pdf/pdfformatprovider/pdfformatprovider)
 	
-	* [Text format provider](http://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/plain-text/textformatprovider)
+	* [Text format provider](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/formats-and-conversion/plain-text/textformatprovider)
 
 * Fast spreadsheet generation
 	
@@ -140,7 +140,7 @@ You can find more information on working with the Telerik document processing li
 
 ## See Also
 
-* [Get Started with Telerik Document Processing](http://docs.telerik.com/devtools/document-processing/installation-and-deployment/installing-on-your-computer)
+* [Get Started with Telerik Document Processing](https://docs.telerik.com/devtools/document-processing/installation-and-deployment/installing-on-your-computer)
 * [Telerik UI for Blazor Overview]({% slug blazor-overview%})
 * [PdfProcessing Overview]({%slug pdfprocessing-overview%})
 * [SpreadProcessing Overview]({%slug spreadprocessing-overview%})

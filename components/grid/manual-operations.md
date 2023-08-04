@@ -396,5 +396,5 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [DataSourceRequest Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
-* [DataSourceResult Object API](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.DataSourceResult)
+* [DataSourceRequest Object API](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
+* [DataSourceResult Object API](/blazor-ui/api/Telerik.DataSource.DataSourceResult)
