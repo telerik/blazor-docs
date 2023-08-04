@@ -242,4 +242,4 @@ The table below lists the Gantt methods. Also consult the [Gantt API](/blazor-ui
 ## See Also
 
   * [Live Gantt Demos](https://demos.telerik.com/blazor-ui/gantt/index)
-  * [Gantt API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1)
+  * [Gantt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1)

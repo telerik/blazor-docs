@@ -136,4 +136,4 @@ To use the [methods of the Blazor ColorPicker](/blazor-ui/api/Telerik.Blazor.Com
 ## See Also
 
 * [Blazor ColorPicker Overview (Live Demo)](https://demos.telerik.com/blazor-ui/colorpicker/overview)
-* [Blazor ColorPicker API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker)
+* [Blazor ColorPicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker)

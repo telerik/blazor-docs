@@ -57,9 +57,9 @@ This exception will occur if the type of TItem is different from the type of the
 
 ## Solution
 
-* [Configure the application to use localization](https://docs.telerik.com/blazor-ui/globalization/localization).
+* [Configure the application to use localization](/blazor-ui/globalization/localization).
 * Include resource files for all required languages.
-* Update the resource files and make sure they [contain all required localization strings](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Resources.Messages).
+* Update the resource files and make sure they [contain all required localization strings](/blazor-ui/api/Telerik.Blazor.Resources.Messages).
 
 There are two places to get Telerik Blazor localization files:
 

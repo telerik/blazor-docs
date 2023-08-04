@@ -76,4 +76,4 @@ See the [Input Validation]({%slug common-features/input-validation%}) article.
 ## See Also
 
   * [Live TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/index)
-  * [TextArea API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTextArea)
+  * [TextArea API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTextArea)

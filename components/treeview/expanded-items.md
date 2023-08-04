@@ -119,7 +119,7 @@ The `ExpandedItems` collection is of type `IEnumerable<object>`.
 
 ## See Also
 
-* [TreeView Overview](https://docs.telerik.com/blazor-ui/components/treeview/overview)
-* [TreeView Data Binding](https://docs.telerik.com/blazor-ui/components/treeview/data-binding/overview)
-* [TreeView Events](https://docs.telerik.com/blazor-ui/components/treeview/events)
+* [TreeView Overview]({%slug treeview-overview%}})
+* [TreeView Data Binding]({%slug components/treeview/data-binding/overview%})
+* [TreeView Events]({%slug treeview-events%}})
 * [Expand and collapse TreeView items on click]({%slug treeview-kb-expand-collapse-on-item-click%})

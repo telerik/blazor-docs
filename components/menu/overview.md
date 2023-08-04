@@ -116,7 +116,7 @@ The Blazor Menu generates events that you can handle and further customize its b
 
 ## Menu Parameters
 
-The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods and events.
+The following table lists Context Menu parameters, which are not related to other features on this page. Check the [Menu API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1) for a full list of properties, methods and events.
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -132,5 +132,5 @@ The following table lists Context Menu parameters, which are not related to othe
 
 ## See Also
 
-  * [Live Demo: Menu](https://demos.telerik.com/blazor-ui/menu/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1)
+* [Live Demo: Menu](https://demos.telerik.com/blazor-ui/menu/index)
+* [Menu API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1)

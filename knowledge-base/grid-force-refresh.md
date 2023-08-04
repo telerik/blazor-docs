@@ -98,4 +98,4 @@ If you don't use an `ObservableCollection`, then [create a `new` instance of the
 
 ### Manual operations
 
-When using manual operations through the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations), call the component's [`Rebind()` method]({%slug grid-refresh-data%}#rebind-method). This will force the component to fire its `OnRead` event.
+When using manual operations through the [OnRead event]({%slug common-features-data-binding-onread%}), call the component's [`Rebind()` method]({%slug grid-refresh-data%}#rebind-method). This will force the component to fire its `OnRead` event.

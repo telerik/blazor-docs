@@ -162,7 +162,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 
 ## See Also
 
-  * [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1)
+* [Live Demo: Date Picker](https://demos.telerik.com/blazor-ui/datepicker/index)
+* [Input Validation]({%slug common-features/input-validation%})
+* [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
+* [DatePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDatePicker-1)

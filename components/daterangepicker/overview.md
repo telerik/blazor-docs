@@ -165,7 +165,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 
 ## See Also
 
-  * [Live Demo: Date Range Picker](https://demos.telerik.com/blazor-ui/daterangepicker/overview)
-  * [Input Validation]({%slug common-features/input-validation%})
-  * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1)
+* [Live Demo: Date Range Picker](https://demos.telerik.com/blazor-ui/daterangepicker/overview)
+* [Input Validation]({%slug common-features/input-validation%})
+* [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
+* [DateRangePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1)
