@@ -150,7 +150,7 @@ In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMod
 
 ### Selection in Template
 
-When using the Grid [Template](/blazor-ui/components/grid/templates) and you want to stop the Selection from being triggered when the user clicks in it, you should add the `@onclick:stopPropagation` directive to the element.
+When using the [Grid column Template]({%slug grid-templates-column%}}) and you want to stop the Selection from being triggered when the user clicks in it, you should add the `@onclick:stopPropagation` directive to the element.
 
 >caption Prevent row selection from happening when the user clicks inside a template
 
