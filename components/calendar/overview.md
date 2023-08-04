@@ -151,8 +151,8 @@ Add a reference to the component instance to use the [Calendar methods](/blazor-
 
 ## See Also
 
-  * [Navigation]({%slug components/calendar/navigation%})
-  * [Selection]({%slug components/calendar/selection%})
-  * [Multiple Views]({%slug components/calendar/multiview%})
-  * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar)
+* [Navigation]({%slug components/calendar/navigation%})
+* [Selection]({%slug components/calendar/selection%})
+* [Multiple Views]({%slug components/calendar/multiview%})
+* [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/index)
+* [Calendar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar)

@@ -1112,7 +1112,6 @@ using System.Collections.ObjectModel;
 
 ## See Also
 
-  * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
-
+* [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
+* [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
+* [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)

@@ -127,7 +127,7 @@ The TreeView can [display links to app views and external pages]({%slug treeview
 
 ## TreeView Parameters
 
-The following table lists TreeView parameters, which are not related to other features on this page. Check the [TreeView API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView) for a full list of properties, methods and events.
+The following table lists TreeView parameters, which are not related to other features on this page. Check the [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -167,5 +167,5 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 ## See Also
 
 * [Live TreeView Demos](https://demos.telerik.com/blazor-ui/treeview/index)
-* [TreeVew API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
+* [TreeVew API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
 * [Enable TreeView Scrolling]({%slug treeview-kb-horizontal-scrollbar%})

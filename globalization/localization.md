@@ -23,7 +23,7 @@ The Telerik UI for Blazor components use a set of keys that a localization servi
 
 You can find the list of keys in the following places:
 
-* In the [API reference](../api/Telerik.Blazor.Resources.Messages.html)
+* In the [`Telerik.Blazor.Resources.Messages` API reference](/blazor-ui/api/Telerik.Blazor.Resources.Messages.html)
 * In the `Resources/TelerikMessages.resx` file in our [Blazor demo site](https://demos.telerik.com/blazor-ui/). Download our [UI for Blazor automated installer]({%slug installation/msi%}) or [UI for Blazor ZIP archive]({%slug installation/zip%}). Then, look inside the installation folder, for example `C:\Program Files (x86)\Progress\Telerik UI for Blazor <YOUR VERSION>\demos\TelerikBlazorDemos\Resources`. It contains localization (`.resx`) files for a few different languages.
 
 Telerik provides and supports the default English strings. The other language strings are provided as-is, and you can use them as base for implementing your own.

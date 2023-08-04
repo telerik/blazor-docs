@@ -258,5 +258,5 @@ To execute StockChart methods, obtain reference to the component instance via `@
 
 ## See Also
 
-  * [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)
+* [Live Demos: Stock Chart](https://demos.telerik.com/blazor-ui/stockchart/overview)
+* [StockChart API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikStockChart)

@@ -184,7 +184,7 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
 ## See Also
 
-  * [Data Binding]({%slug multiselect-databind%})
-  * [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
-  * [Live Demo: MultiSelect Validation](https://demos.telerik.com/blazor-ui/multiselect/validation)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect-2)
+* [Data Binding]({%slug multiselect-databind%})
+* [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)
+* [Live Demo: MultiSelect Validation](https://demos.telerik.com/blazor-ui/multiselect/validation)
+* [MultiSelect API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiSelect-2)

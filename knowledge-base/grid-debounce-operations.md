@@ -35,7 +35,7 @@ There are three ideas on the basic approach how to do this:
 
     * if you already have an OData service that handles filtering, you can use that with the filter menu: [Get Telerik Grid Data from an OData v4 Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 
-* Implement the desired throttling/debouncing in the [OnRead event](https://docs.telerik.com/blazor-ui/components/grid/manual-operations). Below is an example of this.
+* Implement the desired throttling/debouncing in the [OnRead event]({%slug common-features-data-binding-onread%}). Below is an example of this.
 
 * Implement your own filtering (a second example is available below).
 

@@ -83,7 +83,7 @@ The Splitter generates events that you can handle to further customize the compo
 
 The Blazor Splitter provides various parameters for its configuration. The following table lists Splitter parameters on component level. Explore the [Splitter Panes]({%slug splitter-panes%}) article for details on the individual Panes configuration.
 
-Check the [Splitter API Reference ](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter) for a full list of properties, methods and events.
+Check the [Splitter API Reference ](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -96,7 +96,7 @@ Check the [Splitter API Reference ](https://docs.telerik.com/blazor-ui/api/Teler
 
 ## Splitter Reference and Methods
 
-Add a reference to the component instance to use the [Splitter methods](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter#methods).
+Add a reference to the component instance to use the [Splitter methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter#methods).
 
 | Method | Description |
 | --- | --- |
@@ -137,5 +137,5 @@ Add a reference to the component instance to use the [Splitter methods](https://
 ## See Also
 
   * [Live Demo: Splitter](https://demos.telerik.com/blazor-ui/splitter/overview)
-  * [Splitter API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter)
-  * [SplitterPane API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.SplitterPane)
+  * [Splitter API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter)
+  * [SplitterPane API Reference](/blazor-ui/api/Telerik.Blazor.Components.SplitterPane)

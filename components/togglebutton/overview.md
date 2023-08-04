@@ -105,4 +105,4 @@ It is possible to apply custom styles to the button through its `Class` paramete
 ## See Also
 
 * [Live Demo: ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/index)
-* [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton)
+* [ToggleButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton)

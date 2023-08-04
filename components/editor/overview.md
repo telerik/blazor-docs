@@ -137,6 +137,5 @@ You can replace that string with any other content you can generate/obtain accor
 
 ## See Also
 
-  * [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
-  * [API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
-   
+* [Live Demo: Editor](https://demos.telerik.com/blazor-ui/editor/overview)
+* [Editor API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikEditor)
