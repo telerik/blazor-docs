@@ -27,7 +27,7 @@ I have older custom themes exported as  SCSS (SASS) and JSON files with variable
 
 > Starting with R3 2022, ThemeBuilder is accessible from a [new URL](https://themebuilderapp.telerik.com). This new ThemeBuilder version replaces the previous ThemeBuilder and provides more free features through its Pro, Ultimate, and Enterprise tiers. All your existing custom themes will continue to work in the new ThemeBuilder.  
 
-## Cause\Possible Cause(s)
+## Cause
 
 Previous versions of the ThemeBuilder application were accepting SCSS (SASS) or JSON files when importing an existing custom theme. As this approach caused some issues, the latest ThemeBuilder version accepts only ZIP files.
 
