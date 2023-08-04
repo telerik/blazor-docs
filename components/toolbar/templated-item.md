@@ -14,8 +14,6 @@ The Telerik ToolBar for Blazor allows you to add a custom element. To use it, ad
 
 You can use that item to add complex toolbars to your application, which have dropdowns, inputs and other components. You can handle any events and use any API they expose to built your business logic.
 
-You cannot add those Templated items to a `ToolBarButtonGroup`.
-
 >caption Add a Telerik DropDownList to the ToolBar
 
 ![templated item for the ToolBar](images/toolbar-templated-item.png)
@@ -61,7 +59,11 @@ You cannot add those Templated items to a `ToolBarButtonGroup`.
 }
 ````
 
+## Notes
+
+* Template items cannot be part of a `ToolBarButtonGroup`.
+* Template items do not participate in the [ToolBar's adaptive behavior]({%slug toolbar-overview%}#toolbar-parameters) and don't expose `Overflow` and `OverFlowText` parameters. This is because template items do not have a predefined click action to be triggered from an item in the overflow popup.
 
 ## See Also
 
-  * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
+* [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
