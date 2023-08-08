@@ -120,7 +120,7 @@ This section applies to JavaScript errors similar to `Unexpected token` or `Inva
 * `?.` ([optional chaining](https://en.wikipedia.org/wiki/ECMAScript_version_history#ES2020))
 
 Such errors indicate an outdated browser version, WebView, or emulator, which doesn't support recent ECMAScript standards.
-[Microsoft Blazor supports current browsers only](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms). The [browser support policy for Telerik UI for Blazor]({%slug system-requirements%}) is the same.
+[Microsoft Blazor supports only current browsers](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms). The [browser support policy for Telerik UI for Blazor]({%slug system-requirements%}) is the same.
 
 ## KeyNotFoundException: The given key inputElementValue was not present
 
