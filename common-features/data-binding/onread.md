@@ -103,7 +103,7 @@ async Task GridReadHandler(GridReadEventArgs args)
 
 The [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
 
-The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik DataSource Extensions](/blazor-ui/api/Telerik.DataSource.Extensions.QueryableExtensions). It expects a `DataSourceRequest` argument.
+The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik.DataSource.Extensions](/blazor-ui/api/Telerik.DataSource.Extensions) namespace. It expects a `DataSourceRequest` argument.
 
 `ToDataSourceResult` returns a [`DataSourceResult` object](/blazor-ui/api/Telerik.DataSource.DataSourceResult). Its most important properties are:
 
@@ -119,9 +119,11 @@ The `Data` and `Total` properties of the `DataSourceRequest` and `DataSourceResu
 <div class="skip-repl"></div>
 
 ````CS
-IEnumerable<GridModel> AllGridData { get; set; }
+using Telerik.DataSource.Extensions;
 
-async Task GridReadHandler(GridReadEventArgs args)
+private IEnumerable<GridModel> AllGridData { get; set; }
+
+private async Task GridReadHandler(GridReadEventArgs args)
 {
     DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
 
