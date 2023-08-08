@@ -113,7 +113,7 @@ Another possible cause is a *race condition* during fast multiple recreations of
 
 ## SyntaxError: Unexpected token
 
-This section applies to JavaScript errors similar to `Unexpected token` or `Invalid character`. The exact token can vary, but it's usually a part of modern JavaScript syntax, for example:
+This section applies to JavaScript errors similar to `Unexpected token` or `Invalid character`. The exact token can vary, but it's usually a part of the modern JavaScript syntax, for example:
 
 * `||=` ([logical OR assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment))
 * `#` ([private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields))
