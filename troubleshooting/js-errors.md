@@ -10,7 +10,14 @@ position: 2
 
 # JavaScript Errors
 
-This page provides solutions for common JavaScript errors you may encounter while working with Telerik UI for Blazor components.
+This page provides solutions for JavaScript errors that you may encounter while working with Telerik UI for Blazor components.
+
+* [`TelerikBlazor` was undefined](#telerikblazor-was-undefined)
+* [`init[Component]` was undefined](#initcomponent-was-undefined)
+* [Cannot read properties of null (reading `addEventListener`)](#cannot-read-properties-of-null-reading-addeventlistener)
+* [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
+* [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
+* [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
 
 ## TelerikBlazor was undefined
 
@@ -21,14 +28,14 @@ You may get runtime error messages in the browser console similar to the followi
 
 If you get such errors, the reason may be:
 
-* [The JS Interop file is missing or the URL is wrong](#missing-file)
+* [The `telerik-blazor.js` JS Interop file is missing or the URL is wrong](#missing-file)
 * [The `defer` attribute causes the script to load and execute too late](#defer-attribute)
 * [The Blazor framework initializes too early](#blazor-autostart)
 * [TypeScript `exports` workaround break Telerik Blazor](#typescript)
 
 ### Missing File
 
-You can check if this is the case by inspecting the Network tab of your browser console to see if it is returning successfully. There are a few common causes for the JS Interop file to be missing:
+You can check if this is the case by inspecting the Network tab of your browser console to see if `telerik-blazor.js` is served successfully. Some common causes for the missing JS Interop file are:
 
 * The application is missing references to the needed [assets]({%slug getting-started/what-you-need%}#adding-the-client-assets).
 
@@ -103,6 +110,17 @@ Another possible cause is a *race condition* during fast multiple recreations of
 
 * Do not call `StateHasChanged()` inside `EventCallback` methods (e.g. Button click handlers). Blazor executes `StateHasChanged()` automatically in such cases.
 * Throttle the user behavior, so that rapid subsequent navigation is not possible.
+
+## SyntaxError: Unexpected token
+
+This section applies to JavaScript errors similar to `Unexpected token` or `Invalid character`. The exact token can vary, but it's usually a part of the modern JavaScript syntax, for example:
+
+* `||=` ([logical OR assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment))
+* `#` ([private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields))
+* `?.` ([optional chaining](https://en.wikipedia.org/wiki/ECMAScript_version_history#ES2020))
+
+Such errors indicate an outdated browser version, WebView, or emulator, which doesn't support recent ECMAScript standards.
+[Microsoft Blazor supports only current browsers](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms). The [browser support policy for Telerik UI for Blazor]({%slug system-requirements%}) is the same.
 
 ## KeyNotFoundException: The given key inputElementValue was not present
 
