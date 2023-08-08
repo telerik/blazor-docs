@@ -35,7 +35,7 @@ If you get such errors, the reason may be:
 
 ### Missing File
 
-You can check if this is the case by inspecting the Network tab of your browser console to see if `telerik-blazor.js` is served successfully. There are a few common causes for the JS Interop file to be missing:
+You can check if this is the case by inspecting the Network tab of your browser console to see if `telerik-blazor.js` is served successfully. Some common causes for the missing JS Interop file are:
 
 * The application is missing references to the needed [assets]({%slug getting-started/what-you-need%}#adding-the-client-assets).
 
