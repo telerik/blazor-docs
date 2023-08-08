@@ -49,7 +49,7 @@ The properties of a Gantt Tree item match directly to a field of the model the t
 
 ## Notes
 
-* The Gantt is designed to work with a collection of strongly typed models (e.g., `IENumerable<SomeDataModel>`). If you provide an `IEnumerable<object>` instead, you must set the `FieldType` of the `<GanttColumn>` instances to the data type of the fields they use (e.g., `<GanttColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" />`).
+* The Gantt is designed to work with a collection of strongly typed models (e.g., `IEnumerable<SomeDataModel>`). If you provide an `IEnumerable<object>` instead, you must set the `FieldType` of the `<GanttColumn>` instances to the data type of the fields they use (e.g., `<GanttColumn Field=@nameof(Employee.Name) FieldType="@(typeof(string))" />`).
 
 
 ## See Also
