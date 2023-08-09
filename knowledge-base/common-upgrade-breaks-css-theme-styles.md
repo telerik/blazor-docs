@@ -31,7 +31,7 @@ How to resolve UI (styling) issues after NuGet package version upgrade? Where do
 
 Upgrade the Telerik UI for Blazor version (NuGet package). The component styling breaks. If the previous version is restored, the styling is OK.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The application is using an outdated CSS theme or swatch.
 

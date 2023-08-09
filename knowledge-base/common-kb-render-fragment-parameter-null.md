@@ -28,7 +28,7 @@ When I use a `RenderFragment` that comes as a parameter (for example, because I 
 >    at YourCustomComponentNameHere`2.BuildRenderTree(RenderTreeBuilder __builder)
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 `RenderFragment` parameters are `null` by default and there is no really suitable place to make a check when passing the paramter as a property. You can read more here: [https://github.com/dotnet/aspnetcore/issues/10270](https://github.com/dotnet/aspnetcore/issues/10270)
 

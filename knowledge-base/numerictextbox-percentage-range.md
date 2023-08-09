@@ -27,7 +27,7 @@ When I use percentage and input 1 to the numeric text box it shows 100%, when i 
 
 I want that inputting 1 will show 1% and inputting 10 will show 10%
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The `Format` of the numeric textbox is just a string format over the actual value. In .NET, the percentage format has a range of [0%, 100%] for values between [0, 1]. Therefore, the value of 1 is 100%, the value of 0.1 is 10%.
 

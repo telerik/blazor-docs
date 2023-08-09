@@ -49,7 +49,7 @@ Use a sufficiently small number and bind it to the Numeric Textobox, then focus 
 }
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Sufficiently small (or large) numbers may be rendered as strings by the framework in scientific notation (see the example above).
 

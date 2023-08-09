@@ -28,7 +28,7 @@ The result is an item with an empty `span` and I don't see the icons.
 
 If I use similar code with the `IconClass` of a plain component like a `TelerikButton` I can see the icons, but I can't see them in data bound components like the menu, drawer, or treeview.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The most common reason for such a problem is that the model field that carries the classes for the custom font matches the default name that the Telerik component uses for the built-in [Telerik icons]({%slug general-information/font-icons%}) - `Icon`.
 

@@ -33,7 +33,7 @@ res_type: kb
 
 The `OpenSelectFilesDialog` method of the FileSelect and Upload components doesn't work in Safari. Normally, the browser should pop its native file selection dialog. In Safari, this browser dialog doesn't show when the application tries to open it programmatically via C#.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The `OpenSelectFilesDialog` method is pretty simple. It uses `JSInterop` to call the `click` JavaScript method of the `<input type="file" />` element inside the component HTML output.
 

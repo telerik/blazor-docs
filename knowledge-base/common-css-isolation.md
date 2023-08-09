@@ -59,7 +59,7 @@ I'm wanting to leverage CSS isolation in my projects but am finding that it does
 
 **Actual**: The new font size is not applied.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The CSS isolation feature works by adding a random attribute to the DOM elements from the component that defines the isolated CSS rules, and then cascades the CSS rule through that custom attribute.
 

@@ -81,7 +81,7 @@ Sample chart that does not display any longer after adding serialization setting
 ````
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The Telerik Chart serializes its data for client-side rendering. The component will honor any server-side serialization settings. For example, `JsonProperty` settings in the Chart model will change the field names from what is in the Chart markup, as the `nameof()` operator does not use these settings.
 

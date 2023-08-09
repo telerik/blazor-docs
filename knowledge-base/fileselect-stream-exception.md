@@ -43,7 +43,7 @@ The same exception will occur for the following methods and properties:
 * `SetLength()`
 * `Write()`
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Due to Blazor framework limitations, [`FileInfoStream` does not support synchronous operations]({%slug fileselect-events%}#fileselectfileinfo) such as `Read`, `Seek`, `Flush` and `Write`. The methods exist, but throw an exception.
 

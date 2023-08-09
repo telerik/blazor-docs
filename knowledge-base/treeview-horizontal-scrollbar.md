@@ -29,7 +29,7 @@ The TreeView does not allow horizontal scrolling when some items extend past the
 
 How to force a scroll bar to appear in the Blazor TreeView component?
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The TreeView renders `div.k-animation-container` elements with an `overflow: hidden` CSS style. These elements wrap nested items and prohibit overflowing content during expand and collapse animations.
 

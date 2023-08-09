@@ -104,7 +104,7 @@ To reproduce, double click quickly a row in the `Role` column.
 ![DropDownList in Grid InCell not opening](images/grid-incell-dropdown-open-issue-example.gif)
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Such behavior stems from the lifecycle of the Blazor framework and the time it takes for the Grid to be re-rendered. The double click causes a race condition between the rendering of the Grid and initialization of the DropDownList in its Editor template.
 

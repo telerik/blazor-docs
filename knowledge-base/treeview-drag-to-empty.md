@@ -31,7 +31,7 @@ How can I drop items into a TreeView that is empty?
 1. Remove all the nodes from the second TreeView (the drop target), for example, by dragging them to the first TreeView.
 1. Try to drag a node to the now empty TreeView.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 When there is no data in the TreeView, you can't drop items into it because it does not render anything and so there is no drop target.
 
 ## Solution

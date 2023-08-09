@@ -22,7 +22,7 @@ res_type: kb
 I cleaned the project, I also cleared the nuget packages cache but I am still getting these errors.
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The issue is that the project has the `_content` folder in the `wwwroot` folder and the Telerik static assets are copied there.
 

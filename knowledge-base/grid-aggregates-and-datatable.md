@@ -25,7 +25,7 @@ In this article:
 * [Description](#description)
 * [Error Message](#error-message)
 * [Steps to Reproduce](#steps-to-reproduce)
-* [Cause\Possible Cause(s)](#causepossible-causes)
+* [Possible Cause](#causepossible-causes)
 * [Solution](#solution)
 * [Suggested Workarounds](#suggested-workarounds)
 
@@ -135,7 +135,7 @@ This sample contains a solution for calculating them on the server over all data
 }
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 When using a `DataTable` as the grid data source, aggregates are not supported, they require using a model so they can extract the type of the field - the grid itself is strongly typed.
 
 ## Solution

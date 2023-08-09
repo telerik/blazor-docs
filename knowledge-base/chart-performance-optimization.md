@@ -30,7 +30,7 @@ Sometimes the chart data will be updated in real time (for example, by using Sig
 
 When doing this, the chart updates may seem to be really jerky during the re-render.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 When the data changes, the chart re-renders from scratch, and has an animation enabled by default.
 
 If the data updates come in too often, the browser simply drops the framerate while re-rendering the charts due to performance reasons. 
