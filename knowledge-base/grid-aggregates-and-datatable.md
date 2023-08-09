@@ -25,7 +25,7 @@ In this article:
 * [Description](#description)
 * [Error Message](#error-message)
 * [Steps to Reproduce](#steps-to-reproduce)
-* [Possible Cause](#causepossible-causes)
+* [Possible Cause](#possible-cause)
 * [Solution](#solution)
 * [Suggested Workarounds](#suggested-workarounds)
 

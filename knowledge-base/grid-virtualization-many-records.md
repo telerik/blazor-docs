@@ -33,7 +33,7 @@ Other symptoms can include the grid content overflowing its parent and hiding co
 In this article:
 
 * [Steps to Reproduce](#steps-to-reproduce)
-* [Possible Cause](#causepossible-causes)
+* [Possible Cause](#possible-cause)
 * [Solution](#solution)
 
 ## Steps to Reproduce
