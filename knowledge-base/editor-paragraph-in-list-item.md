@@ -29,7 +29,7 @@ The Blazor Editor adds unwanted HTML tags to the content. List items contain `<p
 How can I get rid of the unwanted and unneeded paragraph tags, and the large spacing between list items?
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 List items show with some empty space in-between, because the Editor's [ProseMirror engine](https://prosemirror.net) always [inserts a `<p>` tag inside every `<li>` tag](https://discuss.prosemirror.net/t/removing-the-default-paragraph-p-inside-a-list-item-li/2745). This is how the engine handles block containers, although HTML standards don't require such an approach.
 

@@ -14,7 +14,7 @@ res_type: kb
 ## Description
 All of our Models are Generated via EF Scaffolding. We need to be able to specify our Validation criteria using the [MetadataTypeAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.metadatatypeattribute?view=net-5.0) and partial classes, but the validation is not honored in the Telerik components.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The grid needs to create a new instance of the model for inserting or editing, and the only way to do that is to use `Activator.CreateInstance()`. This does not take into account the custom metadata type from the partial classes however, so the model that it returns does not have data annotations at all, and so - no validation or other attributes.
 
 >caption You can reproduce this behavior with the following simplistic markup without any Telerik components.

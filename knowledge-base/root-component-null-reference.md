@@ -27,7 +27,7 @@ When running a Telerik Blazor application I receive an error similar to the foll
    
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The origin of this behavior is a missing `<TelerikRootComponent>` from the `MainLayout.razor` file in the project. 
 

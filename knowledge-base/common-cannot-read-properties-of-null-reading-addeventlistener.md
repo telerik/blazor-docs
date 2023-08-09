@@ -46,7 +46,7 @@ Microsoft.JSInterop.JSException: Cannot read properties of null (reading 'addEve
 TypeError: Cannot read properties of null (reading 'addEventListener')
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The error indicates that the app is still using the old version of our `telerik-blazor.js` file.
 

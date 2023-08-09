@@ -67,7 +67,7 @@ The issue occurs after an upgrade to version 2.30.
 }
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 UI for Blazor 2.30 adds a [`DebounceDelay` parameter for the TextBox]({%slug components/textbox/overview%}#features). It specifies the time in milliseconds between the last typed symbol and the actual value update. DebounceDelay has a default value of 150ms and depends on the `oninput` event to count this time.
 

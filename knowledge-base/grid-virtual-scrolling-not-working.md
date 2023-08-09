@@ -28,7 +28,7 @@ I have a Grid with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%
 ![Blazor Virtual Scrolling Loading Indicator](images/virtual-scrolling-loading-indicator.png)
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 There are several common causes for that behavior:
 

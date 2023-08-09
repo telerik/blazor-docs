@@ -24,7 +24,7 @@ res_type: kb
 
 ComboBox is not closing when trying to select item - selection is not done and the popup remains opened until it loses focus.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 In order for the ComboBox to function properly, the `Value` parameter should be bound to a field of the same type as the `ValueField` is bound to. Mismatch in the data types of `Value` and `ValueField` could cause odd behavior of the ComboBox such as proper selection cannot be made and the popup not being closed.
 

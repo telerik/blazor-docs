@@ -29,7 +29,7 @@ The MultiSelect selected items order changes. The component sorts the list of nu
 The MultiSelect reorders selected items alphabetically. The items in the initial `Value` collection are in the correct order, but the MultiSelect sorts them. Is there any way to preserve selection order and disable automatic self sorting?
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The selected items' order in the MultiSelect `Value` matches the order of these items in the `Data`. This applies to initial page load and when the MultiSelect `Value` changes programmatically.
 

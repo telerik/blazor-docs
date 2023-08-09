@@ -60,7 +60,7 @@ The simplest way you can reproduce this is to add some layout that you expect to
 ````
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The origin of this behavior is the way elements with `display: flex` handle `<table>` elements with large width set in `%` and `table-layout:fixed`.
 

@@ -28,7 +28,7 @@ When you use `GridColumn` tags directly in the grid markup, they are rendered in
 When you put a `GridColumn` in a custom component in the app and put that component in the grid columns declaration, the column is not rendered in the place of declaration but at the end.
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 This behavior stems from the order in which the framework initializes components.
 

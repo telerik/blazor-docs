@@ -31,7 +31,7 @@ I would like to put a `TelerikComboBox` into a `HeaderTemplate` of a Grid's colu
 
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The reason behind this behavior is called Event Bubbling, also known as one of the event Propagation phases.
 

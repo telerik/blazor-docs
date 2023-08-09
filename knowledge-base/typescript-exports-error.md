@@ -79,7 +79,7 @@ you will get an error similar to
 
 >warning `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor' in 'window'.`
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The cause for the first error is that TypeScript, by default, produces JavaScript code that is designed for use through various package managers that cater to the `exports` and `modules`. Such tools are usully `Node.js` or `WebPack`. Thus, the very first meaninful line of code (`Object.defineProperty(exports, "__esModule", { value: true });`) relies on the presence of the `exports` object in the current (or global) scope. By default, that's not available in Blazor.
 

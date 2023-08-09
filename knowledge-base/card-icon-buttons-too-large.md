@@ -30,7 +30,7 @@ Card icon buttons are sized incorrectly when used with vertical orientation. The
 The icon buttons become large squares also in horizontal orientation with stretched layout.
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 There are two CSS styles in the Telerik Blazor theme, which cause the action icon buttons to increase their size and become big:
 

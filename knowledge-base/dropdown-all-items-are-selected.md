@@ -34,7 +34,7 @@ A manually selected initial ComboBox value doesn't display, and then no matter w
 Why the component matches all items to the selected one?
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Such unexpected behavior may occur if the ComboBox or DropDownList component are bound to a collection of objects. The possible reasons are related to incorrect configuration:
 

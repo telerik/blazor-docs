@@ -160,7 +160,7 @@ NestedComponent<br />
 }
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 There are a few factors at play:
 

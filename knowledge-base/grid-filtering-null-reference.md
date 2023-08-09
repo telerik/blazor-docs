@@ -31,7 +31,7 @@ For our current project, we are grabbing data from the server and using it to dy
 >`at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.OnInitializedAsync()`
 >`at Microsoft.AspNetCore.Components.ComponentBase.RunInitAndSetParametersAsync()`
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The possible reason for this error is a missing `FieldType` from the column that you try to filter.
 
 ## Solution
