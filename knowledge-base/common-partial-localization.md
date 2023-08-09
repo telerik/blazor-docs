@@ -31,7 +31,7 @@ Symptoms include:
 
 <!-- Start Document Outline -->
 
-* [Possible Cause](#causepossible-causes)
+* [Possible Cause](#possible-cause)
 * [Solution](#solution)
 * [Notes](#notes)
 
