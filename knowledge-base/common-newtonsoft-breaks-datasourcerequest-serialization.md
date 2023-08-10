@@ -55,7 +55,7 @@ The API call from the grid returns a status code `400` or `500` with an eror sim
 > Cannot access the Reporting REST service. (serviceUrl = '/api/reports'). Make sure the service address is correct and enable CORS if needed. (https://enable-cors.org)
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The core of the issue is the different serializers that are used in each case:
 

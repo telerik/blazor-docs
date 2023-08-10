@@ -17,7 +17,7 @@ I have a Telerik input component (such as a texbox, or an autocomplete, or a dro
 ## Error Message
 >warning Error SystemInvalidOperationException: Telerik.Blazor.Components.SomeComponent requires a value for 'ValueExpression'. ValueExpression is provided automatically when using 'bind-Value'
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The most common reason for this error is a combination of the following:
 
 * The component does not use `@bind-Value="@myModel.MyField"`, but simply `Value="@myModel.MyField"`, or its `Value` is not even specified

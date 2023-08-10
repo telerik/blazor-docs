@@ -32,7 +32,7 @@ It might be confusing for a user if they open a sub page directly and no Drawer 
 
 Is there a way to "fix" this issue?
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The Drawer selects (highlights) the item based on interaction with its own markup (such as a click on the item the user wants to navigate to). If you navigate by other means in the application, the component cannot capture this action and it does not update the selected item.
 
 ## Solution

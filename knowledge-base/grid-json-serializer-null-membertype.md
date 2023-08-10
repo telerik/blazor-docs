@@ -52,7 +52,7 @@ If the Grid is bound to **OData**, the OData query may be incorrect and the foll
 >warning A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The `FilterDescriptor` class has a `MemberType` property that is of type `Type`. The default [`JsonSerializer` is unable to serialize types](https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-migrate-from-newtonsoft-how-to?pivots=dotnet-6-0#types-without-built-in-support). After state restore in `OnStateInit`, the Grid filter descriptors end up with `null` `MemberType` values. This omission causes the errors.
 

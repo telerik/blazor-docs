@@ -20,7 +20,7 @@ I have created a new Telerik Blazor project in Visual Studio.  I can't see any o
 
 ![no components in the toolbox for blazor components](images/no-toolbox-components-in-blazor.png)
 
-## Cause\Possible Cause(s)
+## Possible Cause
 Generally speaking, ASP.NET MVC/Core doesn't have the same kind of toolbox & designer integration that you're used to with platforms like WPF and ASP.NET AJAX.
 
 For the most part, use of razor syntax based environments (like Blazor, MVC, Razor Pages)  is explicitly not a drag/drop affair. This allows for great flexibility in the layouts and types of applications you create without hindering the IDE with additional tools that need maintenance. The razor syntax has moved away from the concept of a drag-and-drop IDE and the Rapid-Application-Design towards code-first application creation.

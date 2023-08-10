@@ -25,7 +25,7 @@ res_type: kb
 
 I am not able to drag and drop rows to an empty Grid.  When I try to drag an item to an empty Grid, I just get the "not allowed" tooltip and cannot drop.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Row drag and drop relies on a `DestinationItem` in the destination Grid. The Grid expects the user to drop over/above/below a specific table row, and always within the table boundaries. When the destination Grid has no data, there is only one row - the "no data" row or the `NoDataTemplate`. In this case, the user can only drop over this row.
 

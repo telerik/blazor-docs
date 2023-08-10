@@ -37,7 +37,7 @@ When I try to Generate or Export documents through the Telerik Document Processi
 >    at _abort (http://localhost:62774/_framework/wasm/dotnet.js:1:117299)
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 It looks like, at the time of writing, the MONO runtime has issues with allocating memory in a WASM scenario. The same code works perfectly fine in a server-side Blazor app or in a console app.
 

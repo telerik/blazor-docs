@@ -26,7 +26,7 @@ I have a number of nested controls and I have a cascading value that encompasses
 
 If I move my component just outside the Telerik window and nothing else -- then the `CascadingParamter` gets the correct value from the `CascadingValue`.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The cause for this behavior is that the Telerik Window renders at the root  of the application, so its contents go out of the context of the original CascadingValue component.
 
 ## Solution

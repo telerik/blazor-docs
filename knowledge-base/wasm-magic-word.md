@@ -39,7 +39,7 @@ A particular environment is an ASP.NET Core hosted Blazor project hosted on smar
 
 ![failed to compile expected magic word](images/wasm-fail-to-compile-magic-word.png)
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The errors indicate the following issues:
 
 * The MIME type for the `wasm` files is wrong - it must be `application/wasm` but the hosting environment used the wrong one

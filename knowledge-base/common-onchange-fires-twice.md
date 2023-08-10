@@ -28,7 +28,7 @@ I observe twice firing onchange event in dropdownlist or other inputs.
 
 I want the event to fire only once when the user selects something.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The OnChange event is a user confirmation event - it fires when the user chooses an item from the dropdown list, and also when the user blurs an input (the dropdownlist is, in essence, an input).
 

@@ -30,7 +30,7 @@ When the sum of the skip and the page size is bigger then the total count of the
 
 ![Setting invalid Skip value breaks the grid virtualization appearance](images/invalid-skip.gif)
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The origin of the problem is that when the `Skip` value is too large, there may not be enough items to fill the Grid viewport. 
 
 For example, if the Grid viewport can fit 15 items, but according to the `Skip` setting, there are only 8 items to display, those items cannot push the placeholder rows out of view, and you will still see them at the top of the Grid.

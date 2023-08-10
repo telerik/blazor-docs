@@ -31,7 +31,7 @@ The PDF file content is visually corrupted with Edge and Chrome. The PDF file is
 
 The PDF Viewer has display issues and some of the words in the PDF document are cut. The rendering error may disappear if I change the zoom.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The problem is related to:
 

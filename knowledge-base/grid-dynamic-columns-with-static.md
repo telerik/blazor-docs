@@ -100,7 +100,7 @@ When I switch the number of dynamic columns or the column definitions, the comma
 ````
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Unexpected reordering of dynamic components is related to how Blazor works. The framework appends newly added components at the end of the component collection.
 
