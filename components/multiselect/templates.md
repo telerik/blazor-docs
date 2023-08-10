@@ -15,6 +15,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 >caption In this article:
 
 * [Item Template](#item-template)
+* [Tag Template](#tag-template)
 * [Header Template](#header-template)
 * [Footer Template](#footer-template)
 * [No Data Template](#no-data-template)
@@ -23,6 +24,10 @@ The MultiSelect component allows you to change what is rendered in its items, he
 ## Item Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#item-template)
+
+## Tag Template
+
+@[template](/_contentTemplates/dropdowns/templates.md#tag-template)
 
 ## Header Template
 
@@ -41,39 +46,64 @@ The MultiSelect component allows you to change what is rendered in its items, he
 >caption Using MultiSelect Templates
 
 ````CSHTML
-@* MultiSelect component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
+* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>
     <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
     MultiSelect has data
 </p>
 
-<TelerikMultiSelect Data="@MultiSelectData" @bind-Value="@SelectedRoles" Placeholder="Write the roles you need">
+<TelerikMultiSelect Data="@MultiSelectData"
+                    @bind-Value="@SelectedRoles"
+                    TextField="Title"
+                    ValueField="Id"
+                    Placeholder="Write the roles you need">
     <HeaderTemplate>
         <strong>Select one or more:</strong>
     </HeaderTemplate>
     <ItemTemplate>
-        Include <strong>@context</strong>
+        Include <strong>@context.Title</strong>
     </ItemTemplate>
+    <TagTemplate>
+        <TelerikFontIcon Icon="@context.Icon"></TelerikFontIcon>
+        @context.Title
+    </TagTemplate>
     <FooterTemplate>
         <h6>Total Positions: @MultiSelectData.Count()</h6>
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikIcon>
+            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikFontIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>
 </TelerikMultiSelect>
 
 @code {
-    private List<string> SelectedRoles { get; set; }
+    private List<int> SelectedRoles { get; set; }
 
     private bool IsDataAvailable { get; set; } = true;
 
-    private List<string> MultiSelectData { get; set; }
+    private List<Role> MultiSelectData { get; set; }   
 
-    private List<string> SourceData { get; set; } = new List<string> { "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer" };
+    private List<Role> SourceData { get; set; } = new List<Role>()
+    {
+        new Role(){Id = 1, Title = "Manager", Icon = FontIcon.User},
+        new Role(){Id = 2, Title = "Developer", Icon = FontIcon.Code},
+        new Role(){Id = 3, Title = "QA", Icon = FontIcon.ValidationXhtml},
+        new Role(){Id = 4, Title = "Technical Writer", Icon = FontIcon.Js},
+        new Role(){Id = 5, Title = "Support Engineer", Icon = FontIcon.QuestionCircle},
+        new Role(){Id = 6, Title = "Sales Agent", Icon = FontIcon.Dollar},
+        new Role(){Id = 7, Title = "Architect", Icon = FontIcon.BuildingBlocks},
+        new Role(){Id = 8, Title = "Designer", Icon = FontIcon.Brush},
+    };
+
+    public class Role
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public FontIcon Icon { get; set; }
+    }
 
     protected override void OnInitialized()
     {
@@ -84,11 +114,11 @@ The MultiSelect component allows you to change what is rendered in its items, he
     {
         if (IsDataAvailable)
         {
-            MultiSelectData = new List<string>(SourceData);
+            MultiSelectData = new List<Role>(SourceData);
         }
         else
         {
-            MultiSelectData = new List<string>();
+            MultiSelectData = new List<Role>();
         }
     }
 }
