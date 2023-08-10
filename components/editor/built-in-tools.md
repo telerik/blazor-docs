@@ -192,7 +192,15 @@ The inline tools add or work with inline HTML elements. For example, such elemen
 
 ### Color Tool Customization
 
-The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that accepts a color collection as `IEnumerable<string>`. You can provide a member of [`ColorPalettePresets`](/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats]({%slug colorpicker-overview%}#supported-value-formats). It is also possible to change the tooltips via `Title`.
+The `ForeColor` and `BackgroundColor` tools expose a few customization properties:
+
+| Property | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats]({%slug colorpicker-overview%}#supported-value-formats). |
+| `Title` | `string` | The tooltip content that shows on tool mouse over. |
+| `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | The format, which the Color tool will set in the generated HTML markup. Use `Rgb` or `Hex`. |
+
+>caption Customizing the Editor Color Tools
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
@@ -209,12 +217,14 @@ The `ForeColor` and `BackgroundColor` tools expose a `Colors` property that acce
         new ForeColor()
         {
             Title = "Text Color",
-            Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" }
+            Colors = new List<string> { "#f00", "#ff9900", "rgb(0, 128, 0)", "rgba(0, 0, 255, .8)" },
+            ValueFormat = ColorFormat.Hex
         },
         new BackgroundColor()
         {
             Title = "Background Color",
-            Colors = ColorPalettePresets.Basic
+            Colors = ColorPalettePresets.Basic,
+            ValueFormat = ColorFormat.Hex
         }
     };
 }
