@@ -12,34 +12,79 @@ res_type: kb
 
 ## Description
 
-Data that you bind to the grid may have complex objects in its model, not only primitive types.
+I bind the Grid to Data with complex objects in its model, not only primitive types.
 
-How do I use complex objects in my model and show nested (navigation) properties information in the grid?
+How to use complex objects in my model and show nested (navigation) properties information in the Grid?
+
+I prefer *not* to use a Column `Template` or a Grid `DetailTemplate`.
+
 
 ## Solution
 
-Set the `Field` parameter of the column to the name of the primitive type field (not a collection or entire class) that you want to use - include the name of the main model that holds the nested model, and the name of the field in the nested model.
+Consider the following data structure:
 
-Do *not* include the name of the main model the grid is bound to.
+<div class="skip-repl"></div>
 
-Do *not* use the `nameof` operator - it returns only the field name, without its parent class name.
+````CS
+private List<GridModel> GridData { get; set; }
 
->caption Use complex models with navigation properties in the grid without flattening the model
+public class GridModel
+{
+    public int Id { get; set; }
+    public ChildModel NavigationProperty { get; set; }
+}
+
+public class ChildModel
+{
+    public string Text { get; set; }
+}
+````
+
+If a Grid should display the `Id` values, the column `Field` definition will look like this:
+
+<div class="skip-repl"></div>
+
+````HTML
+<GridColumn Field="@nameof(GridModel.Id)" />
+<!-- which is equivalent to -->
+<GridColumn Field="Id" />
+````
+
+If the Grid should bind to `GridModel` items and display the `Text` values, the following will *not* work:
+
+<div class="skip-repl"></div>
+
+````HTML
+<!-- incorrect -->
+<GridColumn Field="@nameof(GridModel.NavigationProperty.Text)" />
+<!-- which is equivalent to -->
+<GridColumn Field="Text" />
+````
+
+This is because `nameof(GridModel.NavigationProperty.Text)` will return `Text` and the Grid will treat `Text` as a property of `GridModel`.
+
+The correct approach is to use a concatenated string that includes the property name from the Grid model class and the property name of the nested class:
+
+<div class="skip-repl"></div>
+
+````HTML
+<!-- correct -->
+<GridColumn Field="@( $"{nameof(GridModel.NavigationProperty)}.{nameof(ChildModel.Text)}" )" />
+<!-- which is equivalent to -->
+<GridColumn Field="NavigationProperty.Text" />
+````
+
+>caption Using complex models with navigation properties in the Grid without flattening the model
 
 ````CSHTML
-@* As of 2.11.0, the grid can show complex (nested, navigation) properties out-of-the-box. 
-    You can still consider using a Template or a DetailTemplate for showing complex details about a row/cell
-    *@
-
 <TelerikGrid Data="@myData" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow" Groupable="true">
     <GridColumns>
-        <GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID"></GridColumn>
-        <GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></GridColumn>
-        <GridColumn Title="First Nested Property" Field="SomeNavigationProperty.Field1" />
-        <GridColumn Field="SomeNavigationProperty.OtherField" />
+        <GridColumn Field="@nameof(SampleComplexObject.ID)" />
+        <GridColumn Field="@nameof(SampleComplexObject.Name)" />
+        <GridColumn Field="SomeNavigationProperty.Field1" />
+        <GridColumn Field="@( $"{nameof(SampleComplexObject.SomeNavigationProperty)}.{nameof(NestedObject.OtherField)}" )" />
     </GridColumns>
 </TelerikGrid>
-
 
 @code {
     public class SampleComplexObject
@@ -79,7 +124,7 @@ Do *not* use the `nameof` operator - it returns only the field name, without its
 
 ## Notes
 
-When editing is enabled in the grid, the nested models must be instantiated by the application code. Otherwise, for newly inserted items (or maybe even for some existing items, depending on the data), they will be `null` and so the grid editors will not have an instance to bind to, and so the values you write in them will be reset.
+When Grid editing is enabled, the nested models must be instantiated by the application code. Otherwise, for newly inserted items (or maybe even for some existing items, depending on the data), they will be `null` and so the grid editors will not have an instance to bind to, and so the values you write in them will be reset.
 
 There are two ways to solve this:
 
@@ -207,4 +252,3 @@ The code snippet below demonstrates both approaches (the second option is commen
     }
 }
 ````
-
