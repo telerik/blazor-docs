@@ -66,6 +66,10 @@ The command column provides access to the data item via `context`. This may be u
 
 Use a **named** context variable to avoid errors when nesting components or `RenderFragment`s in general. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."]({%slug nest-renderfragment%}).
 
+>caption Using GridCommandColumn context
+
+<div class="skip-repl"></div>
+
 ```razor
 <GridCommandColumn Context="dataItem">
     @{
