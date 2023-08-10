@@ -46,7 +46,7 @@ at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArr
 at Telerik.Blazor.Components.Common.Filters.FilterMenu.TelerikFilterMenu.get_FilterMenuSettingsLabel() 
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 A similar error can occur if a component is used in a localized application, but the `.resx` files are missing some keys for the corresponding component.
 

@@ -35,7 +35,7 @@ TelerikDropDownList used to open its dropdown when contained within TelerikTreeV
 
 Other elements that rely on clicks and focus may not operate as expected.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 UI for Blazor 2.20 add the [TreeView drag-and-drop feature](https://demos.telerik.com/blazor-ui/treeview/drag-drop). It consumes mouse events, so the focus is lost from the dropdown, which causes it to close. TreeView item focus also ensures working keyboard navigation.
 

@@ -36,7 +36,7 @@ When I set the focus on a DatePicker or DateInput and tab to switch to another c
 >warning System.Collections.Generic.KeyNotFoundException: The given key 'inputElementValue' was not present in the dictionary.
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 This error indicates that the app is using an old or wrong version of the `telerik-blazor.js` file, for example, after a [component version upgrade]({%slug upgrade-tutorial%}).
 

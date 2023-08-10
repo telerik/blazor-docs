@@ -66,7 +66,7 @@ Actual: The textbox label is still "inside" the textbox.
 
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 It seems Chrome updates only the rendering, but no the actual `value` of the input. This also happens with the regular `<input>` elements. 
 
 The data Chrome filled in does not appear in the Blazor model and so the Blazor components don't actually see the change in order to update.

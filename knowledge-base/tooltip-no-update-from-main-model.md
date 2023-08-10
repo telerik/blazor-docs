@@ -51,7 +51,7 @@ A simplified example - show the tooltip, type in the textbox - the expected beha
 }
 ````
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The Tooltip component renders at the root of the app to ensure its correct position - it is a direct child of the `<TelerikRootComponent>` in the main layout.
 

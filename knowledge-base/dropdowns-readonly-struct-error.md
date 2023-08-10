@@ -59,7 +59,7 @@ A typical error would be null reference exception like the one below
 >warning NullReferenceException: Object reference not set to an instance of an object.
 Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b__70_0(ListDataItem item)
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The components require a model when binding so it can be instantiated with a parameterless constructor. This is a requirement that comes down to the forms validation that they must support and getting the `Default` value and object. Structs do not have a parameterless constructor.
 
 ## Solution

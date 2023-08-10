@@ -73,7 +73,7 @@ Or:
 >
 > `A task was canceled.`
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 Blazor Server apps use a **SignalR WebSocket** to communicate between the client (browser) and server. The SignalR WebSocket has a default maximum message size of **32 KB**. A large Editor `Value`, FileSelect file size, or a PDFViewer `Data` can exceed the maximum SignalR message size, which will close the connection and abort the current application task.
 

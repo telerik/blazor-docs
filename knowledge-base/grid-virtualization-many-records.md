@@ -33,7 +33,7 @@ Other symptoms can include the grid content overflowing its parent and hiding co
 In this article:
 
 * [Steps to Reproduce](#steps-to-reproduce)
-* [Cause\Possible Cause(s)](#causepossible-causes)
+* [Possible Cause](#possible-cause)
 * [Solution](#solution)
 
 ## Steps to Reproduce
@@ -109,7 +109,7 @@ something after the grid that I can't see because of the grid issue
 ````
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 Browsers have a limitation on how large (tall or wide) an element can be. This limits how much data you can fit and how far the user can scroll.
 
 The height of the actual grid data element is `total records count` x `row height`. For example, with 60px row height, 1 million records will be 60 000 000 pixels.

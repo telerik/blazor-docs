@@ -15,7 +15,7 @@ res_type: kb
 I have a Window with no fixed width and the `Draggable` property is set to true. The Window contains a Grid. Initially the Window is rendered to be as wide as its content.
 When the user starts dragging the component for the first time, it grows and sticks to the right side of the screen.
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The Window may expand on drag if it has no fixed width, and its content has no width either.
 

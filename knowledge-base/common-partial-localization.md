@@ -31,13 +31,13 @@ Symptoms include:
 
 <!-- Start Document Outline -->
 
-* [Cause\Possible Cause(s)](#causepossible-causes)
+* [Possible Cause](#possible-cause)
 * [Solution](#solution)
 * [Notes](#notes)
 
 <!-- End Document Outline -->
 
-## Cause\Possible Cause(s)
+## Possible Cause
 The most common reason for such behavior is that the application uses old localization files that do not contain the necessary keys and their translations.
 
 The second most common reason for the problem is that these particular keys are not present in the current translation (localization) even if they are present in the default (English) list.

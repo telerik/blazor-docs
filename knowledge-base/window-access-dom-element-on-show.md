@@ -31,7 +31,7 @@ Accessing a DOM element inside the window when showing it throws an error simila
 Depending on the exact JS code you use, you may get an error similar to: `Error: Microsoft.JSInterop.JSException: Cannot read property 'innerHTML' of null
 TypeError: Cannot read property 'innerHTML' of null`
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 When you make the window visible and issue the JS Interop call, there is a race condition and when the JS code runs, the window is not yet rendered, so the element in question is not yet in the DOM.
 

@@ -48,7 +48,7 @@ or
 `Error: System.ArgumentNullException: Value cannot be null. (Parameter 'format')`
 
 
-## Cause\Possible Cause(s)
+## Possible Cause
 
 The error is caused by an outdated localization resource file (`.resx`), which is missing some localization keys.
 
