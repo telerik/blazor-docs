@@ -1,0 +1,179 @@
+---
+title: Waterfall
+page_title: Waterfall - Column
+description: Overview of the Waterfall Chart for Blazor.
+slug: components/chart/types/waterfall
+tags: telerik,blazor,chart,waterfall
+published: True
+position: 0
+---
+
+# Waterfall Chart
+
+The Blazor Waterfall Chart is a form of data visualization that helps in understanding the cumulative effect of sequentially introduced positive or negative values. These values can either be time based or category based.
+
+![waterfall chart](images/waterfall-chart.png)
+
+A Waterfall chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
+
+@[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
+
+#### To create a waterfall chart:
+
+1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
+2. Set its `Type` property to `ChartSeriesType.Waterfall` or `ChartSeriesType.HorizontalWaterfall`.
+3. Provide a data collection to its `Data` property
+4. Optionally, set `SummaryField`. Summary columns can be classified into two types:
+ * "runningTotal" - This column shows the cumulative sum of all items since the last "runningTotal" point.
+ * "total" -  This column displays the sum of all preceding items.
+
+To define a data item as "runningTotal" or "total," include a corresponding data point in the data source, and set the SummaryField value as either "runningTotal" or "total".
+
+>caption A waterfall chart that shows cash flow
+
+````CSHTML
+
+<TelerikChart Width="100%"
+              Height="400px">
+    <ChartTitle Text="Cash flow"></ChartTitle>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Waterfall"
+                     Data="@ChartData"
+                     ColorField="@nameof(CashFlowData.Color)"
+                     Field="@nameof(CashFlowData.Amount)"
+                     CategoryField="@nameof(CashFlowData.Period)"
+                     SummaryField="@nameof(CashFlowData.Summary)">
+                     <ChartSeriesLabels Visible="true"
+                                        Format="C0"
+                                        Position="@ChartSeriesLabelsPosition.InsideEnd"/>
+        </ChartSeries>
+    </ChartSeriesItems>
+    <ChartValueAxes>
+        <ChartValueAxis Type="ChartValueAxisType.Numeric">
+            <ChartValueAxisLabels Format="C0" />
+        </ChartValueAxis>
+    </ChartValueAxes>
+</TelerikChart>
+
+@code {
+    private CashFlowData[] ChartData { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        ChartData = GetWaterfallData();
+
+        return base.OnInitializedAsync();
+    }
+
+    private CashFlowData[] GetWaterfallData()
+    {
+        return new CashFlowData[] {
+            new CashFlowData
+            {
+                Period = "Beginning\nBalance",
+                Amount = 50000,
+                Color = "green"
+            },
+            new CashFlowData
+            {
+                Period = "Jan",
+                Amount = 17000,
+                Color = "green"
+            },
+            new CashFlowData
+            {
+                Period = "Feb",
+                Amount = 14000,
+                Color = "green"
+            },
+            new CashFlowData
+            {
+                Period = "Mar",
+                Amount = -12000,
+                Color = "red"
+            },
+            new CashFlowData
+            {
+                Period = "Q1",
+                Summary = "runningTotal",
+                Color = "gray"
+            },
+            new CashFlowData
+            {
+                Period = "Apr",
+                Amount = -22000,
+                Color = "red"
+            },
+            new CashFlowData
+            {
+                Period = "May",
+                Amount = -18000,
+                Color = "red"
+            },
+            new CashFlowData
+            {
+                Period = "Jun",
+                Amount = 10000,
+                Color = "green"
+            },
+            new CashFlowData
+            {
+                Period = "Q2",
+                Summary = "runningTotal",
+                Color = "gray"
+            },
+            new CashFlowData
+            {
+                Period = "Ending\nBalance",
+                Summary = "total",
+                Color = "#555"
+            }
+        };
+    }
+
+    private class CashFlowData
+    {
+        public string Period { get; set; }
+        public decimal? Amount { get; set; }
+        public string Summary { get; set; }
+        public string Color { get; set; }
+    }
+}
+````
+
+## Waterfall Chart Specific Appearance Settings
+
+### Orientation
+
+There are two types of Waterfall charts: 
+ * Traditional Waterfall Chart - displays changes vertically. To use this Waterfall Chart, you need to set the series type to `ChartSeriesType.Waterfall`.
+![vertical waterfall chart](images/vertical-waterfall-chart.png)
+ * Horizontal waterfall chart - presents changes horizontally. To use this type of Waterfall Chart, you need to configure the series type as `ChartSeriesType.HorizontalWaterfall`.
+![horizontal waterfall chart](images/horizontal-waterfall-chart.png)
+
+### Labels
+
+Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
+
+* `Visible` - hide all labels by setting this parameter to `false`.
+* `Step` - renders every n-th labels, where n is the value(double number) passed to the parameter.
+* `Skip` - skips the first n labels, where n is the value (double number) passed to the parameter.
+* `Angle` - rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
+
+To rotate the markers use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as value.
+
+### Color
+
+The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
+
+@[template](/_contentTemplates/chart/link-to-basics.md#color-field-bar-column)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#gap-and-spacing)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
+
+@[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-categorical)
+
+## See Also
+
+  * [Live Demo: Column Chart](https://demos.telerik.com/blazor-ui/chart/waterfall)
