@@ -82,7 +82,7 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
 
 >caption DatePicker with DateTimeOffset - one way to account for the time difference
 
-````
+````CSHTML
 @if (DateEffective != null)
 {
     <p>UTC: @DateEffective.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
