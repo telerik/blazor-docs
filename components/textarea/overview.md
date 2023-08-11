@@ -24,7 +24,7 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 ````CSHTML
 <TelerikTextArea @bind-Value="@TextAreaValue"
                  AutoSize="true" 
-                 MaxLength="200"/>
+                 MaxLength="200" />
 
 <p>TextArea value: @TextAreaValue</p>
 
