@@ -17,12 +17,14 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 1. Add the `<TelerikTextArea>` tag to a Razor file.
 2. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
 3. (optional) Set the `AutoSize` property to adjust the TextArea height based on the user input.
+4. (optional) Set the `MaxLength ` property to control the maximum amount of characters that the user can type in the component.
 
 >caption Basic TextArea with two-way value binding
 
 ````CSHTML
-<TelerikTextArea @bind-Value="@TextAreaValue" 
-                 AutoSize="true" />
+<TelerikTextArea @bind-Value="@TextAreaValue"
+                 AutoSize="true" 
+                 MaxLength="200" />
 
 <p>TextArea value: @TextAreaValue</p>
 
@@ -58,6 +60,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | `Enabled` | `bool` <br /> `true` | Whether the TextArea is enabled. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Id` | `string` | Renders as the `id` attribute on the `<textarea>` element, so you can attach a `<label for="">`. |
+| `MaxLength` | `int?` | Maps to the `maxlength` attribute of the HTML `<textarea>` element. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
 | `Rows` | `int?` | Maps to the `rows` attribute of the HTML `<textarea>` element.
