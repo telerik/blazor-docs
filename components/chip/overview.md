@@ -64,6 +64,8 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](/
 | `Icon` | `object` | Use this parameter to render an icon in the chip. |
 | `Removable` | `bool` | Specifies if the chip can be removed by the user. If set to `true` a remove icon will be rendered on each available chip. |
 | `RemoveIcon` | `object` | Defines the icon that will be rendered if the `Removable` parameter is set to `true`. |
+| `Selectable` | `bool` <br/> (`true`) | Specifies if the Chip can be selected. Overrides the `Selected` parameter value.|
+| `Selected` | `bool` | Controls the selected state of the Chip. |
 | `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Text` | `string` | The string that is rendered in the Chip. You can set the `Text` parameter even when [using a `RenderFragment` as a `ChildContent` of the Chip](#creating-blazor-chip). Otherwise `ChipRemoveEventArgs.Text` will be `null` in the [`OnRemove` handler]({%slug chip-events%})#onremove. |
 
