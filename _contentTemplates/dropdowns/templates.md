@@ -5,7 +5,7 @@ The `ItemTemplate` exposes a `context` which represents the data item object. Ca
 #end
 
 #tag-template
-The `TagTemplate` determines how the selected items are rendered in the main element of the component. By default, the text from the particular suggestion is rendered inside the tag.
+The `TagTemplate` determines how the selected items are rendered in the main element of the component. By default, the text of the particular item is rendered inside the tag.
 
 The `TagTemplate` exposes a `context` which represents the data item object. Cast it to the respective model type to access or render the item properties.
 #end
