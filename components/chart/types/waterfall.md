@@ -151,7 +151,7 @@ Waterfall Charts fall into two types:
  * Traditional Waterfall Chart - displays changes vertically. To use this Waterfall Chart, you need to set the series type to `ChartSeriesType.Waterfall`.
 ![vertical waterfall chart](images/vertical-waterfall-chart.png)
  * Horizontal waterfall chart - presents changes horizontally. To use this type of Waterfall Chart, you need to configure the series type as `ChartSeriesType.HorizontalWaterfall`.
-![horizontal waterfall chart](images/horizontal-waterfall-chart.png)
+   ![horizontal waterfall chart](images/horizontal-waterfall-chart.png)
 
 ### Labels
 
