@@ -155,7 +155,7 @@ Waterfall Charts fall into two types:
 
 ### Labels
 
-Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
+Each data item is decorated with a text label. To control and customize these labels, use the `<ChartCategoryAxisLabels />` tag and its children, which accept the following parameters:
 
 * `Visible`—When set to `false`, this parameter hides all labels.
 * `Step`—Renders every n-th label, where n is the value (double number) passed to the parameter.
