@@ -143,6 +143,8 @@ To define a data item as a running total or total, include a corresponding data 
 
 ## Waterfall Chart Specific Appearance Settings
 
+The Waterfall Chart provides dedicated properties that allow you to customize its appearance by controlling its [orientation](#orientation), [labels](#labels), and [color](#color).
+
 ### Orientation
 
 There are two types of Waterfall charts: 
