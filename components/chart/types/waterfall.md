@@ -18,7 +18,7 @@ A Waterfall chart is useful for different types of quantitative analysis related
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
-#### To create a waterfall chart:
+## Creating a Waterfall Chart
 
 1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
 2. Set its `Type` property to `ChartSeriesType.Waterfall` or `ChartSeriesType.HorizontalWaterfall`.
