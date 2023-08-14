@@ -24,7 +24,7 @@ A Waterfall Chart is useful for different types of quantitative analysis related
 2. Set its `Type` property to `ChartSeriesType.Waterfall` or `ChartSeriesType.HorizontalWaterfall`.
 3. Provide a data collection to its `Data` property
 4. Optionally, set the `SummaryField` to add a summary column. Summary columns can be classified into two types:
- * "runningTotal" - This column shows the cumulative sum of all items since the last "runningTotal" point.
+* `runningTotal`—This column shows the cumulative sum of all items since the last running total point.
  * `total`—This column displays the sum of all preceding items.
 
 To define a data item as "runningTotal" or "total," include a corresponding data point in the data source, and set the SummaryField value as either "runningTotal" or "total".
