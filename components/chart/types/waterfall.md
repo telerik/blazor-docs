@@ -1,6 +1,6 @@
 ---
 title: Waterfall
-page_title: Waterfall - Column
+page_title: Chart - Waterfall
 description: Overview of the Waterfall Chart for Blazor.
 slug: components/chart/types/waterfall
 tags: telerik,blazor,chart,waterfall
