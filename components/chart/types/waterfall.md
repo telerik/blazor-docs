@@ -1,7 +1,7 @@
 ---
 title: Waterfall
 page_title: Chart - Waterfall
-description: Overview of the Waterfall Chart for Blazor.
+description: The Telerik UI for Blazor Waterfall Chart illustrates the cumulative effects of positive or negative values from the starting point. Its purpose is to enhance comprehension of how an initial amount is impacted by subsequently added positive or negative values.
 slug: components/chart/types/waterfall
 tags: telerik,blazor,chart,waterfall
 published: True
@@ -12,9 +12,9 @@ position: 0
 
 The Blazor Waterfall Chart is a form of data visualization that helps users understand the cumulative effect of sequentially introduced positive or negative values. These values can be either time-based or category based.
 
-![waterfall chart](images/waterfall-chart.png)
-
 A Waterfall Chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
+
+![waterfall chart](images/waterfall-chart.png)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
@@ -161,8 +161,6 @@ Each data item is decorated with a text label. To control and customize these la
 * `Step`—Renders every n-th label, where n is the value (double number) passed to the parameter.
 * `Skip`—Skips the first n number of labels, where n is the value (double number) passed to the parameter.
 * `Angle`—Rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter, use the `< ChartCategoryAxisLabelsRotation />` child tag.
-
-To rotate the markers, use the `ChartCategoryAxisLabelsRotation` child tag and set its `Angle` parameter. It can take positive and negative numbers as values.
 
 ### Color
 
