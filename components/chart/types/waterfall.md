@@ -29,7 +29,7 @@ A Waterfall Chart is useful for different types of quantitative analysis related
 
 To define a data item as a running total or total, include a corresponding data point in the data source, and set the `SummaryField` value as either `runningTotal` or `total`.
 
->caption A waterfall chart that shows cash flow
+>caption A Waterfall Chart that shows cash flow
 
 ````CSHTML
 
