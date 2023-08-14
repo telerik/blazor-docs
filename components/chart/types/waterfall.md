@@ -14,7 +14,7 @@ The Blazor Waterfall Chart is a form of data visualization that helps users unde
 
 ![waterfall chart](images/waterfall-chart.png)
 
-A Waterfall chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
+A Waterfall Chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
