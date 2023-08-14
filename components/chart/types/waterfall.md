@@ -156,7 +156,7 @@ There are two types of Waterfall charts:
 Each data item is decorated with a text label. You can control and customize them through the `<ChartCategoryAxisLabels />` and its children tags.
 
 * `Visible`—When set to `false`, this parameter hides all labels.
-* `Step` - renders every n-th labels, where n is the value(double number) passed to the parameter.
+* `Step`—Renders every n-th label, where n is the value (double number) passed to the parameter.
 * `Skip` - skips the first n labels, where n is the value (double number) passed to the parameter.
 * `Angle` - rotates the labels with the desired angle by n degrees, where n is the value passed to the parameter. It can take positive and negative numbers. To set this parameter use the `< ChartCategoryAxisLabelsRotation />` child tag.
 
