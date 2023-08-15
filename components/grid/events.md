@@ -875,12 +875,19 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 ## OnRowRender
 
-This event fires upon the rendering of the Grid rows. It receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
+This event fires when each Grid row renders. This can happen in the following cases:
+
+* Initial Grid data binding and subsequent data operations (paging, sorting, etc.).
+* A command button is clicked. This includes entering and exiting edit mode, but also custom commands.
+* During typing in edit mode, but only if the column has an `EditorTemplate`.
+* A child component inside a column `Template` fires an `EventCallback`.
+
+`OnRowRender` receives an argument of type `GridRowRenderEventArgs` which exposes the following fields:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
-* `Class` - the CSS class that will be applied to the cells. The CSS rules that are set for that class will be visibly rendered on the Grid row.
+* `Class` - the custom CSS class that will be applied to the table row.
 
->caption Use the OnRowRender event to apply custom format to Grid rows based on certain condition
+>caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
 ````CSHTML
 @* Conditional styling/formatting for rows (including locked/frozen columns). *@
