@@ -10,10 +10,213 @@ position: 32
 
 # Chart Events
 
-This article explains the available events for the Telerik Chart for Blazor:
+This article describes the available events for the Telerik Chart for Blazor:
 
+* [OnAxisLabelClick](#onaxislabelclick)
+* [OnLegendItemClick](#onlegenditemclick)
 * [OnSeriesClick](#onseriesclick)
 
+## OnAxisLabelClick
+
+The `OnAxisLabelClick` event fires when the user clicks on a label item from any of the Chart axes. The event argument is of type `ChartAxisLabelClickEventArgs` and exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `AxisName` | `string` | The value of the `Name` parameter of the Chart axis. Returns `null` if `Name` is not set. |
+| `Index` | `int` | The label index on the clicked axis. |
+| `Text` | `string` | The visible value of the label. It may be formatted. |
+| `Value` | `object` | The underlying non-formatted value of the label. The `Value` may be: <ul><li>The same as the <code>Text</code> value when clicking on a category axis label.</li><li>A numeric value when clicking on a value axis label.</li><li>An ISO-8601 DateTime string when clicking on a date axis.</li></ul> |
+
+>caption Using the Chart OnAxisLabelClick event
+
+````CSHTML
+@* Using the Chart OnAxisLabelClick event *@
+
+<TelerikChart OnAxisLabelClick="@OnChartAxisLabelClick">
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@Series1Data"
+                     Field="@nameof(SalesData.Revenue)"
+                     CategoryField="@nameof(SalesData.TimePeriod)"
+                     Name="Smartphones">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Name="my-axis-name" Type="@ChartCategoryAxisType.Date"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Revenue per Product Line"></ChartTitle>
+</TelerikChart>
+
+@code {
+    private List<SalesData> Series1Data { get; set; } = new List<SalesData>();
+
+    private async Task OnChartAxisLabelClick(ChartAxisLabelClickEventArgs args)
+    {
+        Console.WriteLine($"Clicked axis label {args.Text} with index {args.Index} and value {args.Value} from axis {args.AxisName}.");
+    }
+
+    protected override void OnInitialized()
+    {
+        var rnd = new Random();
+        var now = DateTime.Today;
+        var monthsBack = 12;
+
+        for (int i = 1; i <= monthsBack; i++)
+        {
+            var dateTimeValue = now.AddMonths(-monthsBack + i);
+
+            Series1Data.Add(new SalesData()
+            {
+                Id = i,
+                Product = "Smartphones",
+                Revenue = rnd.Next(500, 900),
+                TimePeriod = dateTimeValue
+            });
+        }
+
+        base.OnInitialized();
+    }
+
+    public class SalesData
+    {
+        public int Id { get; set; }
+        public string Product { get; set; }
+        public DateTime TimePeriod { get; set; }
+        public decimal Revenue { get; set; }
+    }
+}
+````
+
+## OnLegendItemClick
+
+The `OnLegendItemClick` event fires when the user clicks on any item in the Chart legend. The event argument is of type `ChartLegendItemClickEventArgs` and exposes the following properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `PointIndex` | `int?` | The data point index in the series `Data`. Applies to single-series Charts only (Pie and Donut). |
+| `SeriesIndex` | `int` | The series index in the `ChartSeriesItems` collection. |
+| `Text` | `string` | The label of the clicked legend item. In multi-series Charts, the `Text` value matches the `ChartSeries` `Name`. In single-series Charts (Pie and Donut), the `Text` value matches the `CategoryField` value. |
+
+>caption Using the Chart OnLegendItemClick event
+
+````CSHTML
+@* Using the Chart OnLegendItemClick event *@
+
+<TelerikChart OnLegendItemClick="@OnChartLegendClick"
+              Transitions="false">
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@Series1Data"
+                     Field="@nameof(SalesData.Revenue)"
+                     CategoryField="@nameof(SalesData.TimePeriod)"
+                     Name="Smartphones"
+                     Visible="@( SeriesVisible(0) )">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@Series2Data"
+                     Field="@nameof(SalesData.Revenue)"
+                     CategoryField="@nameof(SalesData.TimePeriod)"
+                     Name="Tablets"
+                     Visible="@( SeriesVisible(1) )">
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@Series3Data"
+                     Field="@nameof(SalesData.Revenue)"
+                     CategoryField="@nameof(SalesData.TimePeriod)"
+                     Name="Headphones"
+                     Visible="@( SeriesVisible(2) )">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Type="@ChartCategoryAxisType.Date"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartValueAxes>
+        <ChartValueAxis Max="1000"></ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartTitle Text="Revenue per Product Line"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Bottom">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    private List<SalesData> Series1Data { get; set; } = new List<SalesData>();
+    private List<SalesData> Series2Data { get; set; } = new List<SalesData>();
+    private List<SalesData> Series3Data { get; set; } = new List<SalesData>();
+
+    private int? ChartLegendClickIndex { get; set; }
+
+    private bool SeriesVisible(int idx)
+    {
+        return ChartLegendClickIndex == null || ChartLegendClickIndex == idx;
+    }
+
+    private async Task OnChartLegendClick(ChartLegendItemClickEventArgs args)
+    {
+        Console.WriteLine($"Clicked legend item {args.Text} with series index {args.SeriesIndex}.");
+
+        if (ChartLegendClickIndex != args.SeriesIndex)
+        {
+            ChartLegendClickIndex = args.SeriesIndex;
+        }
+        else
+        {
+            ChartLegendClickIndex = null;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        var rnd = new Random();
+        var now = DateTime.Today;
+        var monthsBack = 12;
+
+        for (int i = 1; i <= monthsBack; i++)
+        {
+            var dateTimeValue = now.AddMonths(-monthsBack + i);
+
+            Series1Data.Add(new SalesData()
+            {
+                Id = i,
+                Product = "Smartphones",
+                Revenue = rnd.Next(500, 900),
+                TimePeriod = dateTimeValue
+            });
+            Series2Data.Add(new SalesData()
+            {
+                Id = i,
+                Product = "Tablets",
+                Revenue = rnd.Next(300, 700),
+                TimePeriod = dateTimeValue
+            });
+            Series3Data.Add(new SalesData()
+            {
+                Id = i,
+                Product = "Headphones",
+                Revenue = rnd.Next(100, 400),
+                TimePeriod = dateTimeValue
+            });
+        }
+
+        base.OnInitialized();
+    }
+
+    public class SalesData
+    {
+        public int Id { get; set; }
+        public string Product { get; set; }
+        public DateTime TimePeriod { get; set; }
+        public decimal Revenue { get; set; }
+    }
+}
+````
 
 ## OnSeriesClick
 
