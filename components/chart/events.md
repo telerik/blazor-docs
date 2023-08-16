@@ -18,7 +18,7 @@ This article describes the available events for the Telerik Chart for Blazor:
 
 ## OnAxisLabelClick
 
-The `OnAxisLabelClick` event fires when the user clicks on a label item from any of the Chart axes. The event argument is of type `ChartAxisLabelClickEventArgs` and exposes the following properties:
+The `OnAxisLabelClick` event fires when the user clicks a label item on any of the Chart axes. The event argument is of type `ChartAxisLabelClickEventArgs` and exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
