@@ -27,7 +27,7 @@ The `OnAxisLabelClick` event fires when the user clicks a label item on any of t
 | `AxisName` | `string` | The value of the `Name` parameter of the Chart axis. Returns `null` if `Name` is not set. |
 | `Index` | `int` | The label index on the clicked axis. |
 | `Text` | `string` | The visible value of the label. It may be formatted. |
-| `Value` | `object` | The underlying non-formatted value of the label. The `Value` may be: <ul><li>The same as the <code>Text</code> value when clicking on a category axis label.</li><li>A numeric value when clicking on a value axis label.</li><li>An ISO-8601 DateTime string when clicking on a date axis.</li></ul> |
+| `Value` | `object` | The underlying non-formatted value of the label. The `Value` can be: <ul><li>The same as the <code>Text</code> value when clicking on a category axis label.</li><li>A numeric value when clicking on a value axis label.</li><li>An ISO-8601 DateTime string when clicking on a date axis.</li></ul> |
 
 >caption Using the Chart OnAxisLabelClick event
 
