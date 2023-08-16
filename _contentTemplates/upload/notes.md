@@ -1,6 +1,6 @@
 #server-security-note
 
->warning File upload controllers can create application vulnerabilities. Learn about all possible security risks and how to avoid them. Do not trust any part of the upload request and implement server-side validation.
+>warning File upload and remove controllers can create application vulnerabilities. Learn about all possible security risks and how to avoid them. Do not trust any part of the upload or remove request and implement server-side validation.
 >
 * [ASP.NET Core Secuirty Considerations](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-6.0#security-considerations)
 * [File Upload Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
