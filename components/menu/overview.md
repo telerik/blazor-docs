@@ -102,6 +102,10 @@ A menu is often used to list pages, views, or sections in an application so the 
 
 The Blazor Menu allows you to control its orientation and display the items horizontally or vertically. [Read more about the Blazor Menu orientation...]({%slug components/menu/orientation%})
 
+## Show and Hide Events
+
+By default, the Menu is displayed on mouse hover and hidden on mouse leave, but it is possible to [configure it to show and hide on click or tap]({%slug menu-show-hide-events%}).
+
 ## Templates
 
 You can use the functionality of the built-in templates and customize what is rendered in the items. [Read more about the Blazor Menu templates...]({%slug components/menu/templates%})
@@ -121,7 +125,9 @@ The following table lists Context Menu parameters, which are not related to othe
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
-| `CloseOnClick` - `bool` | Determines whether the Menu popups should close when they are clicked.
+| `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked.
+| `ShowOn` | `MenuShowEvent` <br /> enum <br /> (`MouseEnter`) | Sets the browser event, which will trigger the Menu items to show. |
+| `HideOn` | `MenuHideEvent` <br /> enum <br /> (`MouseLeave`) | Sets the browser event, which will trigger the Menu items to hide.
 
 
 ## Next Steps
