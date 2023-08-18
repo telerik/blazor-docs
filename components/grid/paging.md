@@ -71,7 +71,7 @@ Dynamic page size change
 @code {
 	public IEnumerable<object> MyData = Enumerable.Range(1, 50).Select(x => new { ID = x, TheName = "name " + x });
 
-	protected int PageSize { get; set; }
+	protected int PageSize { get; set; } = 1;
 
 	protected void ChangePageSize(ChangeEventArgs e)
 	{
