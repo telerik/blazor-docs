@@ -22,7 +22,7 @@ You can control what user interaction with the Menu shows the children menu item
     * `MouseLeave`&mdash;When the mouse cursor leaves a Menu item, its child items will disappear.
     * `Click`&mdash;The child Menu items will disappear when the user clicks or taps. Clicking a specified child item or the parent item will not close the currently opened Menu items list. To change this behavior, use the [`CloseOnClick`]({%slug components/menu/overview%}#menu-parameters) parameter.
 
-By default, the Menu items are shown on hover (mouseenter) over the Menu, and hidden on mouse leave.
+By default, the Menu items are shown on hover (mouseenter) over the Menu and hidden on mouse leave.
 
 > Changing the `ShowOn` & `HideOn` values dynamically at runtime is not supported at this stage.
 
