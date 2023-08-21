@@ -15,7 +15,7 @@ You can control what user interaction with the Menu shows the children menu item
 1. The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
 
     * `MouseEnter` - When the mouse cursor enters a Menu item, its children menu items will be displayed.
-    * `Click` - When the user clicks/taps on a menu item, its children menu items will be displayed.
+    * `Click`&mdash;When the user clicks or taps on a Menu item, its child items will display.
 
 2. The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
 
