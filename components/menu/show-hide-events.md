@@ -125,7 +125,7 @@ By default, the Menu items are shown on hover (mouseenter) over the Menu and hid
 
 ## Next Steps
 
-* [Explore Menu Templates]({%slug components/menu/templates%})
+* [Explore the Menu Templates]({%slug components/menu/templates%})
 
 ## See Also
 
