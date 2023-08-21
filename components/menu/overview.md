@@ -102,7 +102,7 @@ A menu is often used to list pages, views, or sections in an application so the 
 
 The Blazor Menu allows you to control its orientation and display the items horizontally or vertically. [Read more about the Blazor Menu orientation...]({%slug components/menu/orientation%})
 
-## Show and Hide Events
+## Show and Hide Behavior
 
 By default, the Menu child items are displayed on mouse hover over the parent item and hidden on mouse leave. You can configure the Menu to [show and hide the items by clicking or tapping them]({%slug menu-show-hide-events%}).
 

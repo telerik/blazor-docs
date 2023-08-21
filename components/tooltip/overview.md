@@ -44,7 +44,7 @@ The Tooltip will automatically display the value of `title` and `alt` attributes
 
 The Tooltip normally appears above its target, but can show on all four sides. If there is not enough space, the component will shift or flip its position automatically. Learn how to [control the Tooltip position]({%slug tooltip-position%}).
 
-## Show Event
+## Show Behavior
 
 By default, the Tooltip displays on mouse over, but it is possible to [configure it to show on click or tap]({%slug tooltip-show-event%}).
 

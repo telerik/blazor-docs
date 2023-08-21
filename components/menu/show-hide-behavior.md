@@ -1,25 +1,25 @@
 ---
-title: Show & Hide Events
-page_title: Menu - Show and Hide Menu Items
+title: Show and Hide Behavior
+page_title: Menu - Show and Hide Behavior
 description: Configure the Menu's sub-items appearance by using the ShowOn parameter and control how they disappear through the HideOn option.
-slug: menu-show-hide-events
+slug: menu-show-hide-behavior
 tags: telerik,blazor,menu,show,hide,events,hover,click,mouseleave,mouseenter
 published: true
 position: 3
 ---
 
-# Show and Hide Menu Items
+# Show and Hide Behavior
 
 You can control the user interaction with the Menu items by defining how the child items show and hide. 
 
 The `ShownOn` and `HideOn` parameters allow you to set the event that will show and hide the Menu items.
 
-1. The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
+* The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
 
     * `MouseEnter`&mdash;When the mouse cursor enters a Menu item, its sub-items will display.
     * `Click`&mdash;When the user clicks or taps on a Menu item, its child items will display.
 
-2. The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
+* The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
 
     * `MouseLeave`&mdash;When the mouse cursor leaves a Menu item, its child items will disappear.
     * `Click`&mdash;The child Menu items will disappear when the user clicks or taps. Clicking a specified child item or the parent item will not close the currently opened Menu items list. To change this behavior, use the [`CloseOnClick`]({%slug components/menu/overview%}#menu-parameters) parameter.
@@ -28,7 +28,7 @@ By default, the Menu items are shown on hover (mouseenter) over the Menu and hid
 
 > Changing the `ShowOn` & `HideOn` values dynamically at runtime is not supported at this stage.
 
->caption Explore the show and hide events of the Menu
+>caption Explore the show and hide behavior of the Menu items
 
 ````CSHTML
 @* Setting `ShowOn` and `HideOn` is not mandatory. The default values are `MenuShowEvent.MouseEnter` & `MenuHideEvent.MouseLeave`. *@
