@@ -104,7 +104,7 @@ The Blazor Menu allows you to control its orientation and display the items hori
 
 ## Show and Hide Events
 
-By default, the Menu is displayed on mouse hover and hidden on mouse leave, but it is possible to [configure it to show and hide on click or tap]({%slug menu-show-hide-events%}).
+By default, the Menu child items are displayed on mouse hover over the parent item and hidden on mouse leave. You can configure the Menu to [show and hide the items by clicking or tapping them]({%slug menu-show-hide-events%}).
 
 ## Templates
 
