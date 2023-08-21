@@ -127,7 +127,7 @@ The following table lists Context Menu parameters, which are not related to othe
 | `Class` | `string` | Renders additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `CloseOnClick` | `bool` | Determines whether the Menu popups should close when they are clicked.
 | `ShowOn` | `MenuShowEvent` <br /> enum <br /> (`MouseEnter`) | Sets the browser event that will trigger the Menu items to show. |
-| `HideOn` | `MenuHideEvent` <br /> enum <br /> (`MouseLeave`) | Sets the browser event, which will trigger the Menu items to hide.
+| `HideOn` | `MenuHideEvent` <br /> enum <br /> (`MouseLeave`) | Sets the browser event that will trigger the Menu items to hide.
 
 
 ## Next Steps
