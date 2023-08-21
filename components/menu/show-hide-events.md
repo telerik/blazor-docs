@@ -8,7 +8,7 @@ published: true
 position: 3
 ---
 
-# Menu Show and Hide Events
+# Show and Hide Menu Items
 
 You can control what user interaction with the Menu shows the children menu items through the `ShowOn` parameter. On the other hand the `HideOn` parameter allows you to configure the trigger event that hides the menu items.
 
