@@ -1,7 +1,7 @@
 ---
 title: Show & Hide Events
 page_title: Menu - Show and Hide Menu Items
-description: Configure the Menu's appearance action using the ShowOn parameter and control when it disappears with the HideOn configuration.
+description: Configure the Menu's sub-items appearance by using the ShowOn parameter and control how they disappear through the HideOn option.
 slug: menu-show-hide-events
 tags: telerik,blazor,menu,show,hide,events,hover,click,mouseleave,mouseenter
 published: true
