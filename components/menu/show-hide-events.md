@@ -19,7 +19,7 @@ You can control what user interaction with the Menu shows the children menu item
 
 2. The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
 
-    * `MouseLeave` - When the mouse cursor leaves the Menu item, its children items will disappear.
+    * `MouseLeave`&mdash;When the mouse cursor leaves a Menu item, its child items will disappear.
     * `Click`  The menu items will disappear when the user performs a click/tap. Clicking a specific menu item in the list or the parent menu item will not close the clicked menu items list. To change this behavior, use the [`CloseOnClick`]({%slug components/menu/overview%}#menu-parameters) parameter.
 
 By default, the Menu items are shown on hover (mouseenter) over the Menu, and hidden on mouse leave.
