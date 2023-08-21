@@ -10,7 +10,9 @@ position: 3
 
 # Show and Hide Menu Items
 
-You can control what user interaction with the Menu shows the children menu items through the `ShowOn` parameter. On the other hand the `HideOn` parameter allows you to configure the trigger event that hides the menu items.
+You can control the user interaction with the Menu items by defining how the child items show and hide. 
+
+The `ShownOn` and `HideOn` parameters allow you to set the event that will show and hide the Menu items.
 
 1. The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
 
