@@ -18,7 +18,7 @@ The view hierarchy can be displayed in a breadcrumb for easy navigation back to 
 
 ## Configuring DrillDown Charts
 
-To configure a chart series for drilldown:
+To configure Chart series for drill-down:
 
 1. Prepare the data in the appropriate format. Each series data that will be drilled-down must contain a property of type `ChartSeriesDescriptor`. The descriptor includes all the parameters of the `ChartSeries` tag and acts as a container holding information about the series displayed upon user-initiated drill-down.
 1. Specify the drilldown field (the `ChartSeriesDescriptor` field) of the series data by using the `ChartSeries.DrillDownField` or `ChartSeriesDescriptor.DrillDownField` property.
