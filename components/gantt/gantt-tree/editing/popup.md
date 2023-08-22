@@ -33,7 +33,7 @@ The popup editing dialog renders up to four tabs that allow you to edit:
 
 ## Event Arguments
 
-In Telerik UI for Blazor version **4.5.0** the `GanttUpdateEventArgs` received three new collections as fields. They are populated when [Dependencies]({%slug gantt-dependencies-overview%}) are defined in the Gantt.
+In Telerik UI for Blazor version 4.5.0, the `GanttUpdateEventArgs` received three new collections as fields. They are populated when you define [Dependencies]({%slug gantt-dependencies-overview%}) in the Gantt.
 
 | Field | Type | Description |
 |----------|----------|----------|
