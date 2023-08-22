@@ -204,4 +204,4 @@ Optionally you can display a breadcrumb that shows the drilldown levels. To add 
 
 ## See Also
 
-* [Live Demo: Drilldown Charts](https://demos.telerik.com/blazor-ui/chart/drilldown)
+* [Live Demo: DrillDown Charts](https://demos.telerik.com/blazor-ui/chart/drilldown)
