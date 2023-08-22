@@ -1,7 +1,7 @@
 ---
 title: Drilldown Charts
 page_title: Drilldown Charts
-description: The drilldown Chart feature allows users to explore hierarchical data by initially displaying summarized information and enabling users to "drill down" into specific categories or data points for more detailed insights.
+description: The DrillDown Chart feature allows the users to explore hierarchical data by initially displaying summarized information and to "drill down" into specific categories or data points for more detailed insights.
 slug: chart-drilldown
 tags: telerik,blazor,chart,drill,down,drilldown
 published: true
