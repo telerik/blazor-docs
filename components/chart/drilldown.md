@@ -109,7 +109,7 @@ To configure Chart series for drill-down:
 
 ## Configuring Breadcrumb Navigation
 
-Optionally you can display a breadcrumb that shows the drilldown levels. To add breadcrumb:
+Optionally, you can display a Breadcrumb component to show the drill-down levels.
 
 1. Declare a `TelerikChartBreadcrumb` component.
 1. Set the `ChartId` parameter of the Breadcrumb. It must match the `Id` of the Chart that will be associated with the Breadcrumb.
