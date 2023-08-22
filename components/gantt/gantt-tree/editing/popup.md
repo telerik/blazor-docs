@@ -27,7 +27,7 @@ To enable Popup editing in the Gantt Tree, set its `TreeListEditMode` property t
 
 The popup editing dialog renders up to four tabs that allow you to edit:
 
-* `General` - the fields that are used in the [data-binding schema]({%slug gantt-data-binding-overview%}#gantt-tree-item-features).
+* `General`—The fields that are used in the [data-binding schema]({%slug gantt-data-binding-overview%}#gantt-tree-item-features).
 * `Other` - the fields that are not included in the [data-binding schema]({%slug gantt-data-binding-overview%}#gantt-tree-item-features), but are present in the bound model.
 * `Predecessor` and `Successor` - render if you have defined [dependencies]({%slug gantt-dependencies-overview%}) in the Gantt component. You can use these tabs as an alternative to the standard [dependency editing]({%slug gantt-dependencies-editing%})
 
