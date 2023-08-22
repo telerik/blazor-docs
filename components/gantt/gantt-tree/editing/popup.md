@@ -19,7 +19,7 @@ In this article:
 
 Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with the editable fields associated with a Gantt Task. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
-In a similar fashion, the `Cancel`, `Delete` command buttons, and `Add` toolbar button fire events to let you handle the data source operations.
+In a similar fashion, the `Cancel` and `Delete` command buttons and the `Add` toolbar button fire events to let you handle the data source operations.
 
 You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
