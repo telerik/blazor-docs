@@ -107,7 +107,7 @@ To configure Chart series for drill-down:
 
 ````
 
-## DrillDown Chart Breadcrumb
+## Configuring Breadcrumb Navigation
 
 Optionally you can display a breadcrumb that shows the drilldown levels. To add breadcrumb:
 
