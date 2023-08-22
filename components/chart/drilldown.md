@@ -24,7 +24,7 @@ To configure Chart series for drill-down:
 1. Specify the drilldown field (the `ChartSeriesDescriptor` field) of the series data by using the `ChartSeries.DrillDownField` or `ChartSeriesDescriptor.DrillDownField` property.
 
 ````CSHTML
-@* Configuring Drilldown Charts *@
+@* Configuring the DrillDown Chart *@
 
 <TelerikChart>
     <ChartSeriesItems>
