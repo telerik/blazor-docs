@@ -225,7 +225,7 @@ The `OnSeriesClick` event fires as a response to the user click on a `<ChartSeri
 
 ## OnDrilldown
 
-The `OnDrilldown` event is triggered when the [drilldown functionality is executed]({%slug chart-drilldown%}). The handler of this event accepts a `ChartDrilldownEventArgs` object as a parameter. You can access the name of the series that is drilled down (clicked) through the `SeriesName` property of the event arguments object.
+The `OnDrilldown` event is triggered when the [drill-down functionality executes]({%slug chart-drilldown%}). The handler of this event accepts a `ChartDrilldownEventArgs` object as a parameter. You can access the name of the drilled down (clicked) series through the `SeriesName` property of the event arguments object.
 
 Below you can find:
 
