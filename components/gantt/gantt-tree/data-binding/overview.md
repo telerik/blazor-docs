@@ -39,7 +39,7 @@ The Blazor Gantt Tree provides various parameters to configure its items. Also c
 | `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
 
 | `ParentId` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
-| `PercentCompleteField` | Defines whats the completion of a task in percentages. |
+| `PercentCompleteField` | Defines the level of completion of a task in percentages. |
 | `StartField` | Defines the start date of a task. |
 | `TitleField` | Defines whats the title of a task in percentages. |
 
