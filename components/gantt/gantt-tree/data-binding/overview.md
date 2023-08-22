@@ -37,6 +37,7 @@ The Blazor Gantt Tree provides various parameters to configure its items. Also c
 | `HasChildren` | Whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required for loading data on-demand - if you don't set it to `true`, there will be no expand arrow and so there will be no way for the user to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand, or override the arrow for some items. |
 | `Id` | A unique identifier for the item. Required only for binding to flat data. |
 | `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
+
 | `ParentId` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
 | `PercentCompleteField` | Defines whats the completion of a task in percentages. |
 | `StartField` | Defines the start date of a task. |
