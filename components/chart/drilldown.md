@@ -10,7 +10,7 @@ position: 55
 
 # DrillDown Charts
 
-The Telerik UI Chart supports drilldown functionality for exploring data.
+The Telerik UI for Blazor Chart supports drilldown functionality for exploring data.
 
 The drilldown function allows users to click on a point (bar, pie segment, etc.) in order to navigate to a different view. The new view usually contains finer grained data about the selected item, like breakdown by product of the selected category.
 
