@@ -16,7 +16,7 @@ The drilldown function allows users to click on a point (bar, pie segment, etc.)
 
 The view hierarchy can be displayed in a breadcrumb for easy navigation back to previous views.
 
-## Configuring Drilldown Charts
+## Configuring DrillDown Charts
 
 To configure a chart series for drilldown:
 
