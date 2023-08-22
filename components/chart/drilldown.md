@@ -112,7 +112,7 @@ To configure a chart series for drilldown:
 Optionally you can display a breadcrumb that shows the drilldown levels. To add breadcrumb:
 
 1. Declare a `TelerikChartBreadcrumb` component.
-1. Set the `ChartId` parameter of the breadcrumb component. It should match the `Id` of the chart that will be associated with the breadcrumb.
+1. Set the `ChartId` parameter of the Breadcrumb. It must match the `Id` of the Chart that will be associated with the Breadcrumb.
 
 ````CSHTML
 @* Configuring Drilldown Chart Breadcrumb *@
