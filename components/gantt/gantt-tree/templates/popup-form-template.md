@@ -1,7 +1,7 @@
 ---
 title: Popup Form Template
 page_title: Gantt Popup Form Template
-description: Learn how to define a custom popup create or edit template in the Blazor Gantt. The template allows you to customize the layout and the content of the create/edit popup.
+description: Learn how to define a custom create or edit popup template in the Blazor Gantt. The template allows you to customize the layout and the content of the create/edit popup.
 slug: gantt-templates-popup-form
 tags: telerik,blazor,gantt,ganttchart,templates,popup,edit,create
 published: True
