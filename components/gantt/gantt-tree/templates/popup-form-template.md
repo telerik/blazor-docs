@@ -355,9 +355,3 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
     }
 </style>
 ````
-
-## See Also
-
- * [Grid Popup Buttons Template]({%slug grid-templates-popup-buttons%})
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid Popup Edit Form Template](https://demos.telerik.com/blazor-ui/grid/popup-edit-form-template)
