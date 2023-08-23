@@ -1,6 +1,6 @@
 ---
-title: Drilldown Charts
-page_title: Drilldown Charts
+title: DrillDown
+page_title: DrillDown 
 description: The DrillDown Chart feature allows the users to explore hierarchical data by initially displaying summarized information and to "drill down" into specific categories or data points for more detailed insights.
 slug: chart-drilldown
 tags: telerik,blazor,chart,drill,down,drilldown
@@ -14,7 +14,7 @@ The Telerik UI for Blazor Chart supports drilldown functionality for exploring d
 
 The drill-down feature allows the users to click on a point (for example, bar, pie segment, and more) to navigate to a different view that contains finer-grained data about the selected data point, like breakdown by product of the selected category. The view hierarchy can be displayed in a Breadcrumb for easier navigation back to previous views.
 
-The view hierarchy can be displayed in a breadcrumb for easy navigation back to previous views.
+The view hierarchy can be displayed in a [breadcrumb]({%slug breadcrumb-overview%}) for easy navigation back to previous views.
 
 ## Configuring DrillDown Charts
 
