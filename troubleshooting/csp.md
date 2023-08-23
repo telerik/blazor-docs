@@ -10,37 +10,45 @@ position: 5
 
 # Content Security Policy
 
-If a strict `Content-Security-Policy` (CSP) mode is enabled, some browser features are disabled, such as:
+This article describes how Telerik UI for Blazor conforms to [`Content-Security-Policy` (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and what policy configuration it may need.
 
-* Inline JavaScript, such as `<script></script>` or DOM event attributes like `onclick`, are blocked. All script code must reside in separate files, served from a whitelisted domain.
-* Dynamic code evaluation via `eval()` and string arguments for both `setTimeout` and `setInterval` are blocked.
-* Fonts and images from Base64 `data:` portions in stylesheets.
+## Introduction
 
+In general, a strict CSP can disable web app features, such as:
 
-## Current Limitations
+* Scripts, styles and images from untrusted domains.
+* Inline JavaScript in `<script>` tags and legacy DOM attributes such as `onclick`. Blazor `@onclick` directives work as expected.
+* Inline CSS in `<style>` tags and `style` attributes. 
+* Fonts and images that are embedded in stylesheets with `data:` URIs.
+* Dynamic code evaluation via `eval()`.
 
-These limitations can adversely affect the Telerik UI for Blazor components, because they need the following:
+## Policy Configuration
 
-* `data:` sources to be allowed for fonts, because that's how the font icons we use are loaded.
-* `setTimeout()` is used for animations and `eval()` is used for the chart templates.
-* If you use our CDN, you must also allow it as a source for scripts and stylesheets.
+Telerik UI for Blazor components need the following exceptions to strict CSP. Some of them depend on the product version or product usage.
 
->caption Sample CSP rule that ensures the Telerik UI for Blazor components function and look as expected
+* Allow inline styles to use component parameters such as `Width`, `Height`, `RowHeight`, `ItemHeight`, `Top`, `Left`, etc. In addition, some components rely on inline styles for their rich functionality and UX.
+* Allow `data` URIs for images that are embedded in the [CSS themes]({%slug general-information/themes%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
+* Allow `data` URIs for fonts to use font icons in the [`<TelerikFontIcon>` component]({%slug general-information/font-icons%}#fonticon-component), or to [configure all components to use font icons internally]({%slug general-information/font-icons%}#set-global-icon-type). The `WebComponentsIcons` font is embedded in the CSS theme, but [this will change in late 2023](#upcoming-enhancements).
+* Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN]({%slug getting-started/what-you-need%}#using-cdn) for styles or scripts.
+* *(up to version 4.4.0 only)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}). These templates used to rely on `eval()`.
+
+## Example
+
+The CSP policy directives below ensure that the Telerik Blazor components look and work as expected. You can remove the Telerik domain or `font-src` if you don't use our CDN or font icons.
+
+>caption CSP for Telerik UI for Blazor
+
+<div class="skip-repl"></div>
 
 ````HTML
 <meta http-equiv="Content-Security-Policy" content="
-      script-src 'self' 'unsafe-eval' https://blazor.cdn.telerik.com;
+      script-src 'self' https://blazor.cdn.telerik.com;
       style-src 'self' 'unsafe-inline' https://blazor.cdn.telerik.com;
+      img-src 'self' data:;
       font-src 'self' data:;
-      img-src 'self' data:" />
+" />
 ````
-
->tip If you do not use our CDN services, you can remove their domains. If you do not use the Templates of the Charts, you may also be able to remove `'unsafe-eval'`.
 
 ## Upcoming Enhancements
 
-Some of the above-listed limitations will be addressed in a future version of Telerik UI for Blazor. The planned enhancements are:
-
-* Remove the need to specify `unsafe-eval` when [Chart Templates]({%slug components/chart/label-template-format%}) are used.
-* Remove the need to specify `unsafe-inline`.
-* Remove the need to specify `font-src` rule by detaching font icons.
+In late 2023 we will move the font icon styles and the custom font `WebComponentsIcons` to two additional separate files. This will avoid the need to set `font-src data:` even when using font icons.
