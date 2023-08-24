@@ -12,7 +12,7 @@ position: 17
 
 The Tag Mode of the MultiSelect controls how the selected items (tags) will be visualized in the main (input) element of the component. 
 
-To configure the tags rendering, use the `TagMode` parameter. It accepts a member of the `Telerik.Blazor.MultiSelectTagMode` enum.
+To configure the tag mode, use the `TagMode` parameter. It accepts a member of the `Telerik.Blazor.MultiSelectTagMode` enum.
 
 The MultiSelect supports three possible configurations for displaying the tags:
 
@@ -22,9 +22,9 @@ The MultiSelect supports three possible configurations for displaying the tags:
 
 ## Single Mode
 
-When the single tag mode is enabled only one summary tag (chip) will be displayed showing the count of all the selected items.
+When the single tag mode is enabled only one summary tag will be displayed showing the count of all the selected items.
 
-To use the single tag, set the `TagMode` parameter to `MultiSelectTagMode.Single`.
+To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.Single`.
 
 >caption MultiSelect with single tag mode
 
@@ -61,7 +61,7 @@ To use the single tag, set the `TagMode` parameter to `MultiSelectTagMode.Single
 
 ## Multiple Mode
 
-When the single tag mode is enabled each selected item will be displayed as a separate tag. This is the default `TagMode` value (`MultiSelectTagMode.Multiple`).
+When the multiple tag mode is enabled each selected item will be displayed as a separate tag. This is the default `TagMode` value (`MultiSelectTagMode.Multiple`).
 
 >caption MultiSelect with multiple tag mode
 
@@ -100,7 +100,7 @@ When the single tag mode is enabled each selected item will be displayed as a se
 
 ## Summarized tags based on the number of selections
 
-This setting is an extension of the multiple tag mode. It allows you to display the selected items as separate tags but control the greatest number of individual items that can be visualized. If the selected items count exceed this number, the MultiSelect will combine the rest of the selection in a summary tag.
+This setting is an extension of the multiple tag mode. It allows you to display the selected items as separate tags but control the greatest number of individual items that will be visualized. If the selected items count exceeds this number, the MultiSelect will combine the rest of the selections in a summary tag.
 
 To restrict the allowed number of individual tags, use the `MaxAllowedTags` parameter.
 
