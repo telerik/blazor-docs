@@ -16,12 +16,13 @@ This article describes the DropDownButton events:
 
 ## OnClick
 
-The `OnClick` event fires when the user clicks or taps the primary button or a secondary button. Each DropDownButton item can execute a separate `OnClick` handler.
+The `OnClick` event fires when the user clicks or taps the primary button or a secondary button. The primary `<TelerikDropDownButton>` and each of its `<DropDownButtonItem>` instances execute a separate `OnClick` handler.
 
-* The event argument type is [`MouseEventArgs`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs).
-* The event handler can be synchronous (`void`) or asynchronous (`async Task`).
+The event argument type is [`MouseEventArgs`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs).
+ 
+The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 
->caption DropDownButton OnClick event
+>caption Handling the DropDownButton OnClick event
 
 ````CSHTML
 <TelerikDropDownButton Icon="@SvgIcon.Clipboard" OnClick="@OnPrimaryButtonClick">
@@ -48,11 +49,6 @@ The `OnClick` event fires when the user clicks or taps the primary button or a s
     }
 }
 ````
-
-## Next Steps
-
-* [Add DropDownButton Icons]({%slug dropdownbutton-icons%})
-* [Configure the DropDownButton appearance]({%slug dropdownbutton-appearance%})
 
 
 ## See Also

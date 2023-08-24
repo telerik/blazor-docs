@@ -330,6 +330,8 @@ navigation:
         title: "DragAndDrop"
      "*drawer":
         title: "Drawer"
+     "*dropdownbutton":
+        title: "DropDownButton"
      "*dropdownlist":
         title: "DropDownList"
      "*dropzone":

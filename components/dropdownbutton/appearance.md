@@ -1,7 +1,7 @@
 ---
 title: Appearance
 page_title: DropDownButton Appearance
-description: Apperance settings for the DropDownButton for Blazor.
+description: Appearance settings of the DropDownButton for Blazor.
 slug: dropdownbutton-appearance
 tags: telerik,blazor,dropdownbutton,appearance,styling
 published: True
@@ -10,7 +10,7 @@ position: 10
 
 # DropDownButton Appearance
 
-This article describes the declarative settings of the DropDownButton component, which affect its styling and appearance.
+This article describes the declarative settings of the DropDownButton component, which affect the styling and appearance of the primary button.
 
 The DropDownButton provides the same appearance parameters, as the regular [Button component]({%slug button-appearance%}):
 
@@ -22,7 +22,7 @@ The DropDownButton provides the same appearance parameters, as the regular [Butt
 
 ## Setting Parameter Values
 
-The examples in this article use **reflection** to show all possible values of the DropDownButton parameters. In a real-world scenario, there are two options to set the desired parameter values:
+The examples in this article use **reflection** to show all possible values of the DropDownButton parameters. In a real-world scenario, you can use two options to set the desired parameter values:
 
 * Use the static class members in the `ThemeConstants.DropDownButton` namespace. This is the easier and recommended approach.
 * Set the actual string values directly.
@@ -33,10 +33,9 @@ The following two configurations will produce the same result.
 
 ````CSHTML
 <TelerikDropDownButton FillMode="@ThemeConstants.DropDownButton.FillMode.Solid"
-                    Rounded="@ThemeConstants.DropDownButton.Rounded.Large"
-                    Shape="@ThemeConstants.DropDownButton.Shape.Square"
-                    Size="@ThemeConstants.DropDownButton.Size.Large"
-                    ThemeColor="@ThemeConstants.DropDownButton.ThemeColor.Primary">
+                       Rounded="@ThemeConstants.DropDownButton.Rounded.Large"
+                       Size="@ThemeConstants.DropDownButton.Size.Large"
+                       ThemeColor="@ThemeConstants.DropDownButton.ThemeColor.Primary">
     <DropDownButtonContent> Foo </DropDownButtonContent>
     <DropDownButtonItems>
         <DropDownButtonItem> Bar </DropDownButtonItem>
@@ -44,10 +43,9 @@ The following two configurations will produce the same result.
 </TelerikDropDownButton>
 
 <TelerikDropDownButton FillMode="solid"
-                    Rounded="lg"
-                    Shape="square"
-                    Size="lg"
-                    ThemeColor="primary">
+                       Rounded="lg"
+                       Size="lg"
+                       ThemeColor="primary">
     <DropDownButtonContent> Foo </DropDownButtonContent>
     <DropDownButtonItems>
         <DropDownButtonItem> Bar </DropDownButtonItem>
@@ -58,7 +56,7 @@ The following two configurations will produce the same result.
 
 ## FillMode
 
-The `FillMode` parameter controls if the DropDownButton will have a background and borders. The setting also affects the component's hover state. To set the parameter value, use the `string` members of the static class `ThemeConstants.DropDownButton.FillMode`.
+The `FillMode` parameter controls if the primary button of the DropDownButton component will have a background and borders. The setting also affects the component's hover state. To set the parameter value, use the `string` members of the static class `ThemeConstants.DropDownButton.FillMode`.
 
 | `FillMode` Class Member | String Value |
 | --- | --- |
@@ -100,7 +98,7 @@ The `FillMode` parameter controls if the DropDownButton will have a background a
 
 ## Rounded
 
-The `Rounded` parameter affects the DropDownButton `border-radius` CSS styles. To set the parameter value, use the `string` members of the static class `ThemeConstants.DropDownButton.Rounded`.
+The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownButton's primary button. To set the parameter value, use the `string` members of the static class `ThemeConstants.DropDownButton.Rounded`.
 
 | `Rounded` Class Member | String Value |
 | --- | --- |
@@ -141,7 +139,7 @@ The `Rounded` parameter affects the DropDownButton `border-radius` CSS styles. T
 
 ## Size
 
-The `Size` parameter can change some DropDownButton dimensions, such as height, margins or paddings. Possible values are the `string` members of the static class `ThemeConstants.DropDownButton.Size`.
+The `Size` parameter can change some dimensions of the DropDownButton's primary button, such as height, margins or paddings. Possible values are the `string` members of the static class `ThemeConstants.DropDownButton.Size`.
 
 | `Size` Class Member | String Value |
 | --- | --- |
@@ -182,7 +180,7 @@ The `Size` parameter can change some DropDownButton dimensions, such as height, 
 
 ## ThemeColor
 
-The `ThemeColor` parameter sets the DropDownButton's background and text color from a set of predefined options. Use the `string` members of the static class `ThemeConstants.DropDownButton.ThemeColor`.
+The `ThemeColor` parameter sets the background and text color of the DropDownButton's primary button from a set of predefined options. Use the `string` members of the static class `ThemeConstants.DropDownButton.ThemeColor`.
 
 | `ThemeColor` Class Member | String Value |
 | --- | --- |

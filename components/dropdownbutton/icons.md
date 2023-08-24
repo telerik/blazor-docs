@@ -10,27 +10,15 @@ position: 5
 
 # DropDownButton Icons
 
-This article describes how to use icons inside the DropDownButton component.
+The `<TelerikDropDownButton>` and `<DropDownButtonItem>` provide an `Icon` parameter to add an icon to the main button and all secondary action items.
 
+The `Icon` parameter type is `object` and it accepts:
 
-## Icon Parameters
+* a member of the [`FontIcon` enum]({%slug general-information/font-icons%}#icons-list)
+* a property of the static [`SvgIcon` class]({%slug general-information/font-icons%}#icons-list)
+* a `string` that is a CSS class for a custom icon
 
-The DropDownButton provides four parameters and five different ways to add an icon to its main button and all secondary action items:
-
-The `string` parameters below exist for both `TelerikDropDownButton` and `DropDownButtonItem`.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Intended Usage |
-| --- | --- |
-| `Icon` | Use with the [built-in Telerik Font and SVG icons]({%slug general-information/font-icons%}#icons-list), or with custom CSS classes. |
-
->tip It is also possible to define **any icon or image** with custom HTML markup inside the `<DropDownButtonContent>` and `<DropDownButtonItem>` tags. Use this approach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
-
-
-## Example
-
->caption Using icons in the Blazor DropDownButton
+>caption How to use icons in Telerik Blazor DropDownButton
 
 ````CSHTML
 <TelerikDropDownButton Icon="@("sln")">
@@ -59,11 +47,12 @@ The `string` parameters below exist for both `TelerikDropDownButton` and `DropDo
 }
 ````
 
+>tip You can also add custom icons and images with additional markup inside the `<DropDownButtonContent>`, where the text is.
 
-## Next Steps
-
-* [Configure the DropDownButton appearance]({%slug dropdownbutton-appearance%})
-* [Handle DropDownButton Events]({%slug dropdownbutton-events%})
+>note Images used as icons should generally be small enough to fit in a line of text. The primary button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
+>
+> * Define a `Class` on the button that provides `height` and `width`. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`,
+> * Adding your own HTML inside the `<DropDownButtonContent>`, something like: `<DropDownButtonContent><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</DropDownButtonContent>`
 
 
 ## See Also

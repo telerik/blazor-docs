@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DropDownButton Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank">DropDownButton for Blazor</a> is a combination of a button and a dropdown. It provides a collection of related user actions in a compact interface. The DropDownButton allows users to click the primary button and open the dropdown popup to choose from a list of additional actions.
+The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank">DropDownButton for Blazor</a> is a combination of a button and a dropdown. It provides a collection of related user actions in a compact interface. The DropDownButton allows users to click the primary button and open the popup to choose from a list of additional actions.
 
 ## Creating Blazor DropDownButton
 
@@ -45,7 +45,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 ## Icons
 
-The primary DropDownButton action and each secondary item in the dropdown can [display a font icon or an image]({%slug dropdownbutton-icons%}) for better looks and user experience.
+The primary DropDownButton action and each secondary item in the dropdown can [display an icon or an image]({%slug dropdownbutton-icons%}) for better looks and user experience.
 
 ## Appearance
 
@@ -120,7 +120,10 @@ The DropDownButton exposes a `FocusAsync` method to focus it programmatically. T
 >caption Get a reference to the DropDownButton and execute methods
 
 ````CSHTML
-<TelerikDropDownButton Icon="@SvgIcon.Share">
+
+<TelerikButton OnClick="@FocusDropDownButton">Focus DropDownButton</TelerikButton>
+
+<TelerikDropDownButton @ref="@DropDownButtonRef" Icon="@SvgIcon.Share">
     <DropDownButtonContent>Share</DropDownButtonContent>
 
     <DropDownButtonItems>
@@ -153,3 +156,4 @@ The DropDownButton exposes a `FocusAsync` method to focus it programmatically. T
 
 * [DropDownButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton)
 * [Live Demo: DropDownButton](https://demos.telerik.com/blazor-ui/dropdownbutton/overview)
+* [Live Demo: DropDownButton Items](https://demos.telerik.com/blazor-ui/dropdownbutton/items)
