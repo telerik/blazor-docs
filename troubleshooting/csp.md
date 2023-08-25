@@ -16,7 +16,7 @@ This article describes how Telerik UI for Blazor conforms to [`Content-Security-
 
 In general, a strict CSP can disable web app features, such as:
 
-* Scripts, styles and images from untrusted domains.
+* Scripts, styles, and images from untrusted domains.
 * Inline JavaScript in `<script>` tags and legacy DOM attributes such as `onclick`. Blazor `@onclick` directives work as expected.
 * Inline CSS in `<style>` tags and `style` attributes. 
 * Fonts and images that are embedded in stylesheets with `data:` URIs.
