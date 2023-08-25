@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 1. (optional) Use the `Icon` parameter of the  `<TelerikDropDownButton>` tag to add an icon to the primary button.
 1. Define the primary button content in a child `<DropDownButtonContent>` tag. The content can be plain text, HTML or even another component.
 1. Add a child `<DropDownButtonItems>` tag. This will hold the actions rendered in the dropdown.
-1. Add the desired `<DropDownButtonItem>` instances inside the `<DropDownButtonItems>` tag. Specify their content and/or icons and handle their `OnClick` events.
+1. Add the desired `<DropDownButtonItem>` instances inside the `<DropDownButtonItems>` tag. Specify their content and icons and handle their `OnClick` events.
 
 >caption Basic DropDownButton
 
