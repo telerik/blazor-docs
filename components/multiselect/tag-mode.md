@@ -22,7 +22,7 @@ The MultiSelect supports three possible configurations for displaying the tags:
 
 ## Single Mode
 
-When the single tag mode is enabled only one summary tag will be displayed showing the count of all the selected items.
+When the single tag mode is enabled, only one summary tag will be displayed showing the count of all selected items.
 
 To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.Single`.
 
