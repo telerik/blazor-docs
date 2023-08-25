@@ -77,7 +77,7 @@ The following table lists the DropDownButton parameters, except those related to
 
 ### Popup Settings
 
-The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag like so:
+The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag:
 
 <div class="skip-repl"></div>
 
