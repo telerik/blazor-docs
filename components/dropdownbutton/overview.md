@@ -110,7 +110,7 @@ The following table lists the `DropDownButtonItem` parameters, except those rela
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the dropdown item's element, which is `<li class="k-item k-menu-item">`. |
-| `Enabled` | `bool`<br />(`true`) | Whether the item is enabled. |
+| `Enabled` | `bool`<br />(`true`) | Defines whether the item is enabled. |
 
 
 ## DropDownButton Reference and Methods
