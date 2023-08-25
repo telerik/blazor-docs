@@ -92,7 +92,7 @@ The DropDownButton exposes settings for its dropdown (popup). To configure the o
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
-| `Class` | `string` | Renders a custom CSS class to the dropdown container, which is `<div class="k-animation-container">`. |
+| `Class` | `string` | Applies a user-defined CSS class to the dropdown container, which is `<div class="k-animation-container">`. |
 | `Height` | `string` <br /> (`"auto"`) | The dropdown height. If the items cannot fit, a vertical scrollbar will appear. If not set, the dropdown will expand, based on the number of items. |
 | `MaxHeight` | `string` | The maximum dropdown height, if an explicit height is not set. |
 | `MinHeight` | `string` | The minimum dropdown height, if an explicit height is not set. |
