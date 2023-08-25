@@ -69,7 +69,7 @@ The following table lists the DropDownButton parameters, except those related to
 | `AriaLabel` | `string` | Sets the `aria-label` attribute of the primary button element `<button class="k-button">`. |
 | `AriaLabelledBy` | `string` | Sets the `aria-labelledby` attribute of the primary button element `<button class="k-button">`.
 | `Class` | `string` | Renders a custom CSS class to the main component element `<div class="k-dropdown-button">`. Use it to [override the theme styles]({%slug themes-override%}) and achieve a specific appearance if none of the [DropDownButton appearance settings]({%slug dropdownbutton-appearance%}) can do this. |
-| `Enabled` | `bool`<br />(`true`) | Whether the primary button is enabled. |
+| `Enabled` | `bool`<br />(`true`) | Defines whether the primary button is enabled. |
 | `Id` | `string` | Sets the `id` attribute of the primary button element `<button class="k-button">`. |
 | `TabIndex`| `int` | Sets the `tabindex` attribute of the primary button element `<button class="k-button">`. |
 | `Title`| `string` | Sets the `title` attribute of the primary button element `<button class="k-button">`. |
