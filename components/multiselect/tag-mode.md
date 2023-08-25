@@ -1,6 +1,6 @@
 ---
 title: Tag Mode
-page_title: MultiSelect Tag Mode
+page_title: MultiSelect - Tag Mode
 description: Explore the available tag modes in the Blazor MultiSelect.
 slug: multiselect-tag-mode
 tags: telerik,blazor,multiselect,tag,mode,single,multiple,summary
