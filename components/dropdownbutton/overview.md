@@ -100,7 +100,7 @@ The DropDownButton exposes settings for its dropdown (popup). To configure the o
 | `MaxWidth` | `string` | The maximum dropdown width, if an explicit width is not set. If there is a longer item, a horizontal scrollbar will show. |
 | `MinWidth` | `string` | The minimum dropdown width, if an explicit width is not set. |
 
->tip As in standard CSS, the *min* and *max* settings take precedence over *width* and *height*.
+>tip As in standard CSS, the `min` and `max` settings take precedence over `width` and `height`.
 
 
 ### Item Settings
