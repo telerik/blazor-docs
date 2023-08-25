@@ -37,15 +37,8 @@ To configure Chart series for drill-down:
 </TelerikChart>
 
 @code {
-    public List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
-
-    protected override Task OnInitializedAsync()
-    {
-        Data = GetSeriesData();
-        return base.OnInitializedAsync();
-    }
-
-    public static List<CompanyModel> GetSeriesData()
+    private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
+    private static List<CompanyModel> GetSeriesData()
     {
         var data = new List<CompanyModel>()
         {
@@ -87,6 +80,12 @@ To configure Chart series for drill-down:
             }
         };
         return data;
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Data = GetSeriesData();
+        return base.OnInitializedAsync();
     }
 
     public class CompanyModel
@@ -130,9 +129,53 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 </TelerikChart>
 
 @code {
-    public const string ChartId = "chart1";
+    private const string ChartId = "chart1";
+    private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
 
-    public List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
+    private static List<CompanyModel> GetSeriesData()
+    {
+        var data = new List<CompanyModel>()
+        {
+            new CompanyModel()
+            {
+                Name = "Company A",
+                Sales = 100M,
+                Details = new ChartSeriesDescriptor()
+                {
+                    Name = "Company A Sales By Product",
+                    Type = ChartSeriesType.Column,
+                    Field = nameof(ProductModel.Sales),
+                    CategoryField = nameof(ProductModel.Name),
+                    Data = new List<ProductModel>()
+                    {
+                        new ProductModel() { Name = "Product 1", Sales = 10M },
+                        new ProductModel() { Name = "Product 2", Sales = 20M },
+                        new ProductModel() { Name = "Product 3", Sales = 30M },
+                    }
+                }
+            },
+            new CompanyModel()
+            {
+                Name = "Company B" ,
+                Sales = 200M,
+                Details = new ChartSeriesDescriptor()
+                {
+                    Name = "Company B Sales By Product",
+                    Type = ChartSeriesType.Column,
+                    Field = nameof(ProductModel.Sales),
+                    CategoryField = nameof(ProductModel.Name),
+                    Data = new List<ProductModel>()
+                    {
+                        new ProductModel() { Name = "Product 1", Sales = 30M },
+                        new ProductModel() { Name = "Product 2", Sales = 20M },
+                        new ProductModel() { Name = "Product 3", Sales = 10M },
+                    }
+                }
+            }
+        };
+
+        return data;
+    }
 
     protected override Task OnInitializedAsync()
     {
@@ -140,7 +183,63 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
         return base.OnInitializedAsync();
     }
 
-    public static List<CompanyModel> GetSeriesData()
+    public class CompanyModel
+    {
+        public string Name { get; set; }
+        public decimal Sales { get; set; }
+        public ChartSeriesDescriptor Details { get; set; }
+    }
+
+    public class ProductModel
+    {
+        public string Name { get; set; }
+        public decimal Sales { get; set; }
+    }
+}
+````
+
+## Reset Drilldown Level
+
+To reset the drilldown level programmatically, use the `ResetDrilldownLevel` method. To invoke the method, obtain a reference to the Chart instance using the `@ref` directive.
+
+```
+@* Reset Drilldown Level Programmatically *@
+
+<TelerikButton OnClick="@ResetDrilldownLevel">Reset Drilldown level the Chart</TelerikButton>
+
+<TelerikChartBreadcrumb ChartId="@ChartId"></TelerikChartBreadcrumb>
+
+<TelerikChart Id="@ChartId"
+              @ref="myChartRef">
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Name="Total Sales By Company"
+                     Data="@Data"
+                     Field="@nameof(CompanyModel.Sales)"
+                     CategoryField="@nameof(CompanyModel.Name)"
+                     DrilldownField="@nameof(CompanyModel.Details)">
+        </ChartSeries>
+    </ChartSeriesItems>
+</TelerikChart>
+
+@code {
+    private TelerikChart myChartRef;
+
+    private void ResetDrilldownLevel()
+    {
+        myChartRef.ResetDrilldownLevel(0);
+    }
+
+    private const string ChartId = "chart1";
+    private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
+
+    protected override Task OnInitializedAsync()
+    {
+        Data = GetSeriesData();
+        return base.OnInitializedAsync();
+    }
+
+    private static List<CompanyModel> GetSeriesData()
     {
         var data = new List<CompanyModel>()
         {
@@ -198,7 +297,7 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
         public decimal Sales { get; set; }
     }
 }
-````
+```
 
 ## See Also
 

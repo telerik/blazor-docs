@@ -155,7 +155,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 | Method  | Description |
 |---------|-------------|
 | `Refresh` | Use the method to programmatically re-render the Chart.  |
-| `ResetDrilldownLevel` | Use the method to implement a custom breadcrumb for Chart navigation, to reset the Chart upon clicking a button, and more. For more information about the DrillDown feature, refer to the [DrillDown Charts article]({%slug chart-drilldown%}). |
+| `ResetDrilldownLevel` | Use the method to programmatically reset the DrillDown level of the Chart. For more information refer to the [DrillDown article]({%slug chart-drilldown%}#reset-drilldown-level). |
 
 ````CSHTML
 @using Telerik.Blazor.Components
