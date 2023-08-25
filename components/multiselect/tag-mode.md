@@ -1,7 +1,7 @@
 ---
 title: Tag Mode
 page_title: MultiSelect - Tag Mode
-description: Explore the available tag modes in the Blazor MultiSelect.
+description: Explore the available tag modes in the Blazor MultiSelect. See the options that the TagMode parameter of the MultiSelect supports and test it in combination with the MaxAllowedTags property.
 slug: multiselect-tag-mode
 tags: telerik,blazor,multiselect,tag,mode,single,multiple,summary
 published: True
