@@ -59,7 +59,7 @@ Each DropDownButton action [fires a separate `OnClick` event]({%slug dropdownbut
 
 ## DropDownButton Parameters
 
-The following table lists the DropDownButton parameters, except those related to [built-in styling]({%slug dropdownbutton-appearance%}) and [icons]({%slug dropdownbutton-icons%}). Also check the [DropDownButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton) for a full list of properties, methods and events.
+The following table lists the DropDownButton parameters, except those related to [built-in styling]({%slug dropdownbutton-appearance%}) and [icons]({%slug dropdownbutton-icons%}). Also check the [DropDownButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton) for a full list of properties, methods, and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
