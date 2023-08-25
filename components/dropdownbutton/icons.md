@@ -10,7 +10,7 @@ position: 5
 
 # DropDownButton Icons
 
-The `<TelerikDropDownButton>` and `<DropDownButtonItem>` provide an `Icon` parameter to add an icon to the main button and all secondary action items.
+The `<TelerikDropDownButton>` and `<DropDownButtonItem>` provide an `Icon` parameter that allows you to add an icon to the main button and all secondary action items.
 
 The `Icon` parameter type is `object` and it accepts:
 
