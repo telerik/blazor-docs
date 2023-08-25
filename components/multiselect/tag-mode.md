@@ -18,7 +18,7 @@ The MultiSelect supports three possible configurations for displaying the tags:
 
 * [Single Mode](#single-mode)
 * [Multiple Mode (the default)](#multiple-mode)
-* [Summarized tags based on the number of selections](#summarized-tags-based-on-the-number-of-selections)
+* [Summarized Tags Based on the Number of Selections](#summarized-tags-based-on-the-number-of-selections)
 
 ## Single Mode
 
