@@ -61,7 +61,7 @@ To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.S
 
 ## Multiple Mode
 
-When the multiple tag mode is enabled each selected item will be displayed as a separate tag. This is the default `TagMode` value (`MultiSelectTagMode.Multiple`).
+When the multiple tag mode is enabled, each selected item will be displayed as a separate tag. This is the default `TagMode` value (`MultiSelectTagMode.Multiple`).
 
 >caption MultiSelect with multiple tag mode
 
