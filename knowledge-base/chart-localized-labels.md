@@ -48,7 +48,7 @@ If you want to render more information in the label, you can utilize the [`Templ
 
 1. Use a [Chart label template]({%slug components/chart/label-template-format%}#templates).
 
-1. Implement the desired number formatting in a JavaScript function. For example, use the [toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) method.
+1. Implement the desired number formatting in a JavaScript function. For example, use the [`toLocaleString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) method.
 
 1. Call the custom formatting function from the template function and pass the needed arguments to it. The template function must return the string you want to show in the template.
 
