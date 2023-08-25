@@ -10,27 +10,32 @@ res_type: kb
 ---
 
 ## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Chart for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>4.5.0+ (for older versions, <a href="https://github.com/telerik/blazor-docs/blob/4.4.0/knowledge-base/chart-localized-labels.md">browse and older version of this page</a>)</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
-I am having a Chart and I would like my labels to be localization aware.
+How to localize the labels of a Telerik Blazor Chart?
 
+I want to make my Chart labels localization aware.
 
 ## Solution
 
 There are two different approaches:
 
-* [Using the Format Parameter](#using-the-format-parameter)
-* [Using the Template Parameter](#using-the-template-parameter)
+* [Use the Format Parameter](#using-the-format-parameter)
+* [Use the Template Parameter](#using-the-template-parameter)
 
 ### Using the Format Parameter
 
@@ -38,87 +43,69 @@ If you need to use only the value of the series item, and a single line of text,
 
 ### Using the Template Parameter
 
-If you want to expose more information, for example, some multi line text, HTML elements, etc., you can utilize the [`Template`]({%slug components/chart/label-template-format%}#templates) parameter, which is exposed from the `<ChartSeriesLabels>` tag. In a JavaScript file implement the desired number formatting by using the `toLocaleString` JavaScript method. A sample implementation can be seen in the example below.
+If you want to render more information in the label, you can utilize the [`Template`]({%slug components/chart/label-template-format%}#templates) parameter of the `<ChartSeriesLabels>` tag. In a JavaScript file, implement the desired number formatting by using the `toLocaleString` JavaScript method. Below is a sample implementation.
 
-#### Step by step explanation
 
-1. Use a custom [template]({%slug components/chart/label-template-format%}#templates)
+1. Use a [Chart label template]({%slug components/chart/label-template-format%}#templates).
 
-2. Implement the desired number formatting function in a JavaScript file (in the example below, we will call it `template-helpers.js` and it resides in the `wwwroot` folder). This can be achieved by using the [toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) method.
+1. Implement the desired number formatting in a JavaScript function. For example, use the [`toLocaleString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) method.
 
-3. Reference that file in your root component (`_Host.cshtml` for a server-side app, or `index.html` for a client-side app).
-
-4. Call the custom formatting function from the template and pass the needed arguments to it. It must return the string you want shown in the template.
+1. Call the custom formatting function from the template function and pass the needed arguments to it. The template function must return the string you want to show in the template.
 
 #### Localize numeric labels in the Chart using the Template parameter
 
-<div class="skip-repl"></div>
-````Razor
-@* This example shows how to localize numeric labels in the Chart using the Template parameter *@
-
-@*used to get the current culture*@
-@using System.Threading
-
+````CSHTML
 <TelerikChart>
 
-    <ChartLegend Visible="true" Position="ChartLegendPosition.Top"></ChartLegend>
+    <ChartLegend Visible="true"
+                 Position="ChartLegendPosition.Top"></ChartLegend>
 
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Donut"
-                     Data="@this.ChartData"
-                     Field="@nameof(Data.Value)"
-                     CategoryField="@nameof(Data.XValue)"
-                     ColorField="@nameof(Data.BackgroundColor)"
+                     Data="@ChartData"
+                     Field="@nameof(ChartModel.Value)"
+                     CategoryField="@nameof(ChartModel.XValue)"
+                     ColorField="@nameof(ChartModel.BackgroundColor)"
                      StartAngle="270">
-            <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
-                               Visible="true"
-                               Template="@LocalizedTemplateString">
+            <ChartSeriesLabels Visible="true"
+                               Position="ChartSeriesLabelsPosition.OutsideEnd"
+                               Template="chartSeriesLabelTemplate">
             </ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
 </TelerikChart>
 
-@code {
-    public string LocalizedTemplateString => GetFormattedNumericValue();
+<!-- Move JavaScript functions to a separate JS file in production -->
+<script suppress-error="BL9992">
+    var cultureInfo = "@System.Threading.Thread.CurrentThread.CurrentUICulture";
 
-    protected static string GetFormattedNumericValue()
-    {
-        var cultureInfo = Thread.CurrentThread.CurrentUICulture; //get the current culture
-        return $"value of the label: #= formatNumberLocale(value, '{cultureInfo.Name}', 2)#";
+    function chartSeriesLabelTemplate(context) {
+        return "localized label: " + formatNumberLocale(context.value, cultureInfo, 2);
     }
 
-    public class Data
+    function formatNumberLocale(number, locale, decimals){
+        return number.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    }
+</script>
+
+@code {
+    private List<ChartModel> ChartData = new List<ChartModel>()
+    {
+        new ChartModel { XValue = "Item", Value = 1.1223523525m, BackgroundColor = "red" },
+        new ChartModel { XValue = "Item 2", Value = 2.542342424m, BackgroundColor = "green" },
+        new ChartModel { XValue = "Item 3", Value = 3.141592653589793238m, BackgroundColor = "blue" }
+    };
+
+    public class ChartModel
     {
         public string XValue { get; set; }
         public decimal Value { get; set; }
         public string BackgroundColor { get; set; }
     }
-
-    public List<Data> ChartData = new List<Data>()
-    {
-        new Data { XValue = "Item", Value = 1.1223523525m, BackgroundColor = "red" },
-        new Data { XValue = "Item 2", Value = 2.542342424m, BackgroundColor = "green" },
-        new Data {XValue = "Item 3", Value = 3.141592653589793238m, BackgroundColor = "blue" }
-    };
 }
 ````
-````JavaScript
-function formatNumberLocale(number, locale, decimals){
-    return number.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-}
-````
-````Index
-<head>
-    <!-- there may be other content here -->
-    
-	<script src="template-helpers.js"></script>
-	
-	<!-- there may be other content here -->
-</head>
-````
-
 
 ## See Also
 
-  * [Knowledge Base article: How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%})
+* [Knowledge Base article: How to format the percent in a label for a Pie or Donut Chart]({%slug chart-format-percent%})

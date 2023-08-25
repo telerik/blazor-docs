@@ -10,15 +10,9 @@ position: 22
 
 # Label Template and Format
 
-The Chart for Blazor can render labels on the axes, series data points and legend. You can control those texts not only through the values you data bind, but also through [format strings](#format-strings) or [templates](#templates).
+The Chart for Blazor can render labels on the axes, series data points, and legend. You can control those labels through the values in the Chart `Data`, but also through [format strings](#format-strings) and [templates](#templates).
 
-To turn on series labels, you must set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the charts easier to read.
-
-You can jump to the following sections in this article:
-
-* [Format Strings](#format-strings)
-* [Templates](#templates)
-	* [Example: Hide Label Conditionally](#hide-label-conditionally)
+To turn on series labels, set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the Chart easier to read.
 
 ## Format Strings
 
@@ -27,141 +21,79 @@ Where the labels are numerical (series values, the value axis), you can format t
 >caption Format numerical values through format strings
 
 ````CSHTML
-Standard number format strings
-
 <TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue"
-							Field="@nameof(MyChartDataModel.TheValue)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<ChartSeriesLabels Visible="true" Format="{0:C2}"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@ChartData"
+                     Name="Revenue"
+                     Field="@nameof(ChartModel.Value)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true" Format="{0:C2}"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
 
-	<ChartValueAxes>
-		<ChartValueAxis>
-			<ChartValueAxisLabels Format="{0:C0}"></ChartValueAxisLabels>
-		</ChartValueAxis>
-	</ChartValueAxes>
+    <ChartValueAxes>
+        <ChartValueAxis>
+            <ChartValueAxisLabels Format="{0:C0}"></ChartValueAxisLabels>
+        </ChartValueAxis>
+    </ChartValueAxes>
 
-	<ChartLegend Position="ChartLegendPosition.Right">
-	</ChartLegend>
+    <ChartLegend Position="ChartLegendPosition.Right">
+    </ChartLegend>
 </TelerikChart>
 
 @code {
-	public class MyChartDataModel
-	{
-		public double TheValue { get; set; }
-		public string TheCategory { get; set; }
-	}
-
-	public List<MyChartDataModel> chartData = new List<MyChartDataModel>
+    private List<ChartModel> ChartData = new List<ChartModel>
     {
-		new MyChartDataModel
-		{
-			TheValue = 20000,
-			TheCategory = "2017"
-		},
-		new MyChartDataModel
-		{
+        new ChartModel
+        {
+            Value = 20000,
+            Category = "2017"
+        },
+        new ChartModel
+        {
 
-			TheValue = 300000,
-			TheCategory = "2018"
-		},
-		new MyChartDataModel
-		{
-			TheValue = 400000,
-			TheCategory = "2019"
-		}
-	};
+            Value = 300000,
+            Category = "2018"
+        },
+        new ChartModel
+        {
+            Value = 400000,
+            Category = "2019"
+        }
+    };
+
+    public class ChartModel
+    {
+        public double Value { get; set; }
+        public string Category { get; set; }
+    }
 }
 ````
 
 ## Templates
 
-To set a template for the corresponding label, use the `Template` property in the corresponding Label inner tag of the element you want to customize, for example, under `ChartSeriesLabels` or under `ChartValueAxisLabels`.
+> This section changed for product version 4.5.0. If you are using an older version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of this documentation page](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
 
-After the example, you can find lists with the available fields you can use in templates.
+To set a template for Chart labels, use the `Template` parameter in the corresponding inner `...Labels` tag. For example, set `Template` to `<ChartSeriesLabels>` inside `<ChartSeries>`, or to `<ChartValueAxisLabels>` inside `<ChartValueAxis>`.
 
-To add a new line, use the `\n` symbol. The other available objects are added through the `#=theObject#` syntax. You can find more details in the code samples below (including simple if-block logic).
+The Blazor Chart uses client-side rendering and the label templates are JavaScript-based. The `Template` parameter must point to a name of a JavaScript function, which is defined in the global scope. This function must return the formatted label as a plain text string. HTML markup inside the label template is not supported.
 
-The general syntax of the templates is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview). Note that the chart labels are not HTML elements and you cannot use HTML in them, only plain strings are allowed. Also, the various helper functions that come from the Kendo jQuery library are not available in Blazor (for example, `kendo.toString()` or `kendo.format()`).
+The JavaScript function for each label template will receive an argument that exposes different properties, depending on the template type. The mechanism is similar to the `context` of Blazor `RenderFragment`s. The sections below list the available method argument properties:
 
-To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find examples of this in the [How to format the percent in a label for a pie or donut chart]({%slug chart-format-percent%}) knowledge base article and the [Label Format - Complex Logic](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) sample project.
+* [Series labels](#series-label-template)
+* [Category axis labels](#category-axis-label-template)
+* [Value axis labels](#value-axis-label-template)
+* [Legend item labels](#legend-item-label-template)
+* [How to add new lines to label templates](#new-line-in-the-label-template)
+* [Example for all types of label templates](#label-template-example)
 
->caption Custom templates in labels
+### Series Label Template
 
-````CSHTML
-Label templates
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line" Data="@chartData" Name="Revenue" Color="red"
-                     Field="@nameof(MyChartDataModel.TheValue)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-            <ChartSeriesLabels Visible="true" Template="@MySeriesTemplate"></ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis>
-            <ChartCategoryAxisLabels Template="@MyCategoryAxisTemplate"></ChartCategoryAxisLabels>
-        </ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartValueAxes>
-        <ChartValueAxis>
-            <ChartValueAxisLabels Template="@MyValueAxisTemplate"></ChartValueAxisLabels>
-        </ChartValueAxis>
-    </ChartValueAxes>
-
-    <ChartTitle Text="Revenue per product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-        <ChartLegendLabels Template="@MyLegendItemTemplate"></ChartLegendLabels>
-    </ChartLegend>
-</TelerikChart>
-
-@code {
-    public string MySeriesTemplate = "value: #=value#\nfor category: #=category#\nextra info: #=dataItem.ExtraData#";
-    public string MyCategoryAxisTemplate = "#=value# quarter";
-    public string MyValueAxisTemplate = "#=value# million";
-    public string MyLegendItemTemplate = "#=series.color#: #=text#";
-
-    public class MyChartDataModel
-    {
-        public double TheValue { get; set; }
-        public string ExtraData { get; set; }
-        public string TheCategory { get; set; }
-    }
-
-    public List<MyChartDataModel> chartData = new List<MyChartDataModel>
-    {
-        new MyChartDataModel
-        {
-            ExtraData = "one",
-            TheValue = 2,
-            TheCategory = "first"
-        },
-        new MyChartDataModel
-        {
-            ExtraData = "two\nlines",
-            TheValue = 3,
-            TheCategory = "second"
-        },
-        new MyChartDataModel
-        {
-            ExtraData = "three",
-            TheValue = 4,
-            TheCategory = "third"
-        }
-    };
-}
-````
-
-
-In a **series label template**, you can use the following fields:
+The `Template` function of `ChartSeriesLabels` exposes the following fields in the template context:
 
 * `category` - the category name. Available for area, bar, column, donut, line, pie series.
-* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array. Sample syntax: `#=dataItem.MyModelFieldName#`.
+* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array. Sample syntax: `context.dataItem.MyModelPropertyName`.
 * `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts.
 * `stackValue` - the cumulative point value on the stack. Available only for stackable series.
 * `value` - the point value. Can be a number or object containing each bound field.
@@ -170,7 +102,9 @@ In a **series label template**, you can use the following fields:
 <!--* runningTotal - the sum of point values since the last "runningTotal" summary point. Available for waterfall series.
 * total - the sum of all previous series values. Available for waterfall series.-->
 
-In a **category axis label template**, you can use the following fields:
+### Category Axis Label Template
+
+The `Template` function of `CategoryAxisLabels` exposes the following fields in the template context:
 
 * `value` - the category value
 * `format` - the default format of the label
@@ -178,82 +112,204 @@ In a **category axis label template**, you can use the following fields:
 <!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
 <!--* culture - the default culture (if set) on the label-->
 
-In a **value axis label template**, you can use the following fields:
+### Value Axis Label Template
+
+The `Template` function of `ValueAxisLabels` exposes the following fields in the template context:
 
 * `value` - the label value
 
-In a **legend item label template**, you can use the following fields:
+### Legend Item Label Template
+
+The `Template` function of `ChartLegendLabels` exposes the following fields in the template context:
 
 * `text` - the text the legend item
 * `series` - the data series
 * `value` - the point value (only for donut and pie charts)
 * `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts
- 
+
+### New Line in the Label Template 
+
+To add a new line in the label, use a `\n`.
+
+<div class="skip-repl"></div>
+
+````JS
+function chartLabelFunction(context) {
+	return "foo \n " + contenxt.value;
+}
+````
+
+### Label Template Example
+
+>caption Using Chart label templates for series, axes and legend
+
+````CSHTML
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@ChartData"
+                     Name="Revenue"
+                     Color="red"
+                     Field="@nameof(ChartModel.Value)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis>
+            <ChartCategoryAxisLabels Template="chartCategoryAxisLabelTemplate"></ChartCategoryAxisLabels>
+        </ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartValueAxes>
+        <ChartValueAxis>
+            <ChartValueAxisLabels Template="chartValueAxisLabelTemplate"></ChartValueAxisLabels>
+        </ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartTitle Text="Revenue per Product"></ChartTitle>
+
+    <ChartLegend Position="ChartLegendPosition.Right">
+        <ChartLegendLabels Template="chartLegendItemLabelTemplate"></ChartLegendLabels>
+    </ChartLegend>
+</TelerikChart>
+
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function chartSeriesLabelTemplate(context) {
+        return "value: " + context.value + " mln\ncategory: " + context.category + "\nextra info: " + context.dataItem.ExtraData;
+    }
+
+    function chartCategoryAxisLabelTemplate(context) {
+        return context.value + " quarter";
+    }
+
+    function chartValueAxisLabelTemplate(context) {
+        return context.value + " mln";
+    }
+
+    function chartLegendItemLabelTemplate(context) {
+        return context.series.color + ": " + context.text;
+    }
+</script>
+
+@code {
+    private List<ChartModel> ChartData = new List<ChartModel>
+    {
+        new ChartModel
+        {
+            Category = "first",
+            Value = 2,
+            ExtraData = "one"
+        },
+        new ChartModel
+        {
+            Category = "second",
+            Value = 3,
+            ExtraData = "two\nlines"
+        },
+        new ChartModel
+        {
+            Category = "third",
+            Value = 4,
+            ExtraData = "three"
+        }
+    };
+
+    public class ChartModel
+    {
+        public string Category { get; set; }
+        public double Value { get; set; }
+        public string ExtraData { get; set; }
+    }
+}
+````
 
 ### Hide Label Conditionally
 
-In some cases, you want the series to have labels, but certain data points must not have a label. For example, in [stacked series]({%slug components/chart/stack%}) where a certain value is `0`.
+In some cases, you want the series to have labels, but certain data points must not have a label. For example, in a [stacked series]({%slug components/chart/stack%}) where a certain value is `0`.
 
 To do that, you need to:
 
-* add conditional logic in the template that renders the desired content when your condition is met, and returns nothing when it is not.
-* ensure the labels background is transparent so there are no leftover spots on the chart.
+* Add conditional logic in the template that renders the desired content when your condition is met, and returns an empty string when it is not.
+* Ensure the label background is `transparent` so there are no leftover spots on the Chart.
 
-This example also showcases basic logic use in the templates that does not require external functions.
-
->caption Hide labels with zero values
+>caption Hide Chart labels with zero value
 
 ````CSHTML
-Conditional label display
-
 <TelerikChart>
-	<ChartSeriesItems>
-		<ChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 1 Sales"
-							Field="@nameof(MyChartDataModel.Value1)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<ChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></ChartSeriesLabels>
-			<ChartSeriesStack Enabled="true"></ChartSeriesStack>
-		</ChartSeries>
-		<ChartSeries Type="ChartSeriesType.Column" Data="@chartData" Name="Product 2 Sales"
-							Field="@nameof(MyChartDataModel.Value2)" CategoryField="@nameof(MyChartDataModel.TheCategory)">
-			<ChartSeriesLabels Visible="true" Template="@MySeriesTemplate" Background="transparent"></ChartSeriesLabels>
-		</ChartSeries>
-	</ChartSeriesItems>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Data="@ChartData"
+                     Name="Product 1 Sales"
+                     Field="@nameof(ChartModel.Value1)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate"
+                               Background="transparent"></ChartSeriesLabels>
+            <ChartSeriesStack Enabled="true"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Data="@ChartData"
+                     Name="Product 2 Sales"
+                     Field="@nameof(ChartModel.Value2)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate"
+                               Background="transparent"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
 </TelerikChart>
 
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function chartSeriesLabelTemplate(context) {
+        if (context.value != 0) {
+            return context.value + " mln";
+        }
+        else {
+            return "";
+        }
+    }
+</script>
+
 @code {
-	public string MySeriesTemplate = "# if (value != 0) { # #=value# #}#";
+    private List<ChartModel> ChartData = new List<ChartModel>()
+    {
+        new ChartModel
+        {
+            Value1 = 3,
+            Value2 = 2,
+            Category = "Q1"
+        },
+        new ChartModel
+        {
+            Value1 = 1,
+            Value2 = 0,
+            Category = "Q2"
+        },
+        new ChartModel
+        {
+            Value1 = 0,
+            Value2 = 0,
+            Category = "Q3"
+        }
+    };
 
-	public class MyChartDataModel
-	{
-		public double Value1 { get; set; }
-		public double Value2 { get; set; }
-		public string TheCategory { get; set; }
-	}
-
-	public List<MyChartDataModel> chartData = new List<MyChartDataModel>
-	{
-		new MyChartDataModel
-		{
-			Value1 = 3,
-			Value2 = 2,
-			TheCategory = "Q1"
-		},
-		new MyChartDataModel
-		{
-			Value1 = 1,
-			Value2 = 0,
-			TheCategory = "Q2"
-		},
-		new MyChartDataModel
-		{
-			Value1 = 0,
-			Value2 = 0,
-			TheCategory = "Q3"
-		}
-	};
+    public class ChartModel
+    {
+        public double Value1 { get; set; }
+        public double Value2 { get; set; }
+        public string Category { get; set; }
+    }
 }
 ````
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Format percentage in label for Pie or Donut Chart]({%slug chart-format-percent%})
+* [Localize numeric Chart labels]({%slug chart-kb-localized-numeric-labels%})
+* [Complex logic in Chart label format](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)

@@ -11,17 +11,22 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Charts for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Charts for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>4.5.0+ (for older component versions, <a href="https://github.com/telerik/blazor-docs/blob/4.4.0/knowledge-base/chart-format-percent.md">browse an older version of this page</a>)</td>
+        </tr>
     </tbody>
 </table>
 
-
 ## Description
+
 When you use templates to customize the appearance of the labels, you may need to implement some application logic there or to implement complex formatting of the numbers.
 
 This article shows how to format the percent in a label for a pie or donut chart to have a desired number of decimals and to be a number between 0 and 100, instead of the default number between 0 and 1 that has many decimal places:
@@ -29,28 +34,25 @@ This article shows how to format the percent in a label for a pie or donut chart
 ![Blazor Pie Chart Formatted Percent](images/pie-chart-formatted-percent.png)
 
 ## Solution
-To customize the percentage display, you need to
 
-1. Use a custom [template]({%slug components/chart/label-template-format%}#templates) to show the `percentage` field.
+To customize the percentage display, you need to:
 
-2. Implement the desired rounding/formatting function in a JavaScript file (in the example below, we will call it `template-helpers.js` and it resides in the `wwwroot` folder).
+1. Use a [Chart label template]({%slug components/chart/label-template-format%}#templates). Set the label template function name to the `Template` parameter of `ChartSeriesLabels`.
 
-3. Reference that file in your root component (`_Host.cshtml` for a server-side app, or `index.html` for a client-side app).
+1. Use the [`percentage` field]({%slug components/chart/label-template-format%}#series-label-template) of the JavaScript label template function's argument.
 
-4. Call the custom formatting function from the template and pass the needed arguments to it. It must return the string you want shown in the template.
- 
+1. Implement the desired additional rounding/formatting in the JavaScript code.
 
->tip You can find a sample project with even more examples in the [https://github.com/telerik/blazor-ui/tree/master/chart/label-template](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) repo.
+>caption Format Pie Chart labels as percent
 
-<div class="skip-repl"></div>
-````Razor
-This is only one example, you can implement different functions and logic
-
+````CSHTML
 <TelerikChart>
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Pie" Data="@pieData"
-                            Field="@nameof(MyPieChartModel.SegmentValue)" CategoryField="@nameof(MyPieChartModel.SegmentName)">
-            <ChartSeriesLabels Visible="true" Template="@segmentTemplate" />
+        <ChartSeries Type="ChartSeriesType.Pie"
+                     Data="@PieData"
+                     Field="@nameof(PieChartModel.SegmentValue)"
+                     CategoryField="@nameof(PieChartModel.SegmentName)">
+            <ChartSeriesLabels Visible="true" Template="pieChartLabelTemplate" />
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -59,55 +61,47 @@ This is only one example, you can implement different functions and logic
     <ChartLegend Position="ChartLegendPosition.Right" />
 </TelerikChart>
 
-@code {
-    //this is where we call our custom rounding function
-    string segmentTemplate = "#=value#\n#= round(percentage * 100, 1)#%";
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function pieChartLabelTemplate(context) {
+        return context.value + " mln\n" + round(context.percentage * 100, 1) + "%";
+    }
 
-    //below is just some data to feed the display
-    public class MyPieChartModel
+    // From https://www.jacklmoore.com/notes/rounding-in-javascript/
+    function round(value, decimals) {
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    }
+</script>
+
+@code {
+    private List<PieChartModel> PieData = new List<PieChartModel>()
+    {
+        new PieChartModel
+        {
+            SegmentName = "Product 1",
+            SegmentValue = 1
+        },
+        new PieChartModel
+        {
+            SegmentName = "Product 2",
+            SegmentValue = 3
+        },
+        new PieChartModel
+        {
+            SegmentName = "Product 3",
+            SegmentValue = 5
+        }
+    };
+
+    public class PieChartModel
     {
         public string SegmentName { get; set; }
         public double SegmentValue { get; set; }
     }
-
-    public List<MyPieChartModel>
-    pieData = new List<MyPieChartModel>
-    {
-            new MyPieChartModel
-            {
-                SegmentName = "Product 1",
-                SegmentValue = 1
-            },
-            new MyPieChartModel
-            {
-                SegmentName = "Product 2",
-                SegmentValue = 3
-            },
-            new MyPieChartModel
-            {
-                SegmentName = "Product 3",
-                SegmentValue = 5
-            }
-    };
 }
-````
-````JavaScript
-//From https://www.jacklmoore.com/notes/rounding-in-javascript/
-function round(value, decimals) {
-	return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
-}
-````
-````Index
-<head>
-    <!-- there may be other content here -->
-    
-	<script src="~/template-helpers.js"></script>
-	
-	<!-- there may be other content here -->
-</head>
 ````
 
 ## See Also
 
-  * [Knowledge Base article: How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%})
-
+* [Knowledge Base article: How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%})
+* [Sample project: Chart Label Template](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)
