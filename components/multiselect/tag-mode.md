@@ -98,7 +98,7 @@ When the multiple tag mode is enabled, each selected item will be displayed as a
 }
 ````
 
-## Summarized tags based on the number of selections
+## Summarized Tags Based on the Number of Selections
 
 This setting is an extension of the multiple tag mode. It allows you to display the selected items as separate tags but control the greatest number of individual items that will be visualized. If the selected items count exceeds this number, the MultiSelect will combine the rest of the selections in a summary tag.
 
