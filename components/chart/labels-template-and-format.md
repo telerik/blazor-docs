@@ -75,11 +75,9 @@ Where the labels are numerical (series values, the value axis), you can format t
 
 > This section changed for product version 4.5.0. If you are using an older version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of this documentation page](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
 
-### Introduction
-
 To set a template for Chart labels, use the `Template` parameter in the corresponding inner `...Labels` tag. For example, set `Template` to `<ChartSeriesLabels>` inside `<ChartSeries>`, or to `<ChartValueAxisLabels>` inside `<ChartValueAxis>`.
 
-The Blazor Chart uses client-side rendering and the label templates are JavaScript-based. The `Template` parameter must point to a *name of a JavaScript function*, which is defined in the global scope. This function must return the formatted label as a *plain text string*. HTML markup inside the label template is not supported.
+The Blazor Chart uses client-side rendering and the label templates are JavaScript-based. The `Template` parameter must point to a name of a JavaScript function, which is defined in the global scope. This function must return the formatted label as a plain text string. HTML markup inside the label template is not supported.
 
 The JavaScript function for each label template will receive an argument that exposes different properties, depending on the template type. The mechanism is similar to the `context` of Blazor `RenderFragment`s. The sections below list the available method argument properties:
 
@@ -313,5 +311,5 @@ To do that, you need to:
 
 * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
 * [Format percentage in label for Pie or Donut Chart]({%slug chart-format-percent%})
-* [Localize numeric Chart labels]({%slug chart-kb-localized-numeric-labels})
+* [Localize numeric Chart labels]({%slug chart-kb-localized-numeric-labels%})
 * [Complex logic in Chart label format](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)
