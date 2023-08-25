@@ -139,7 +139,7 @@ The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownBu
 
 ## Size
 
-The `Size` parameter can change some dimensions of the DropDownButton's primary button, such as height, margins or paddings. Possible values are the `string` members of the static class `ThemeConstants.DropDownButton.Size`.
+The `Size` parameter can change some dimensions of the DropDownButton's primary button, such as height, margins, or paddings. Possible values are the `string` members of the static class `ThemeConstants.DropDownButton.Size`.
 
 | `Size` Class Member | String Value |
 | --- | --- |
