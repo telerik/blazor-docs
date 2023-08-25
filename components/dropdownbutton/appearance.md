@@ -12,7 +12,7 @@ position: 10
 
 This article describes the declarative settings of the DropDownButton component, which affect the styling and appearance of the primary button.
 
-The DropDownButton provides the same appearance parameters, as the regular [Button component]({%slug button-appearance%}):
+The DropDownButton provides the same appearance parameters as the regular [Button component]({%slug button-appearance%}):
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
