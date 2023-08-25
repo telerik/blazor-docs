@@ -45,7 +45,6 @@ If you need to use only the value of the series item, and a single line of text,
 
 If you want to render more information in the label, you can utilize the [`Template`]({%slug components/chart/label-template-format%}#templates) parameter of the `<ChartSeriesLabels>` tag. In a JavaScript file, implement the desired number formatting by using the `toLocaleString` JavaScript method. Below is a sample implementation.
 
-#### Step by step explanation
 
 1. Use a [Chart label template]({%slug components/chart/label-template-format%}#templates).
 
