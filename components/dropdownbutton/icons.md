@@ -1,6 +1,6 @@
 ---
 title: Icons
-page_title: DropDownButton Icons
+page_title: DropDownButton - Icons
 description: How to use icons with the DropDownButton for Blazor.
 slug: dropdownbutton-icons
 tags: telerik,blazor,dropdownbutton,icons
@@ -21,10 +21,9 @@ The `Icon` parameter type is `object` and it accepts:
 >caption How to use icons in Telerik Blazor DropDownButton
 
 ````CSHTML
-<TelerikDropDownButton Icon="@("sln")">
-    <DropDownButtonContent>Telerik Icon</DropDownButtonContent>
+<TelerikDropDownButton Icon="@FontIcon.User">
+    <DropDownButtonContent>Telerik Font Icon</DropDownButtonContent>
     <DropDownButtonItems>
-        <DropDownButtonItem Icon="@FontIcon.User">Telerik Font Icon</DropDownButtonItem>
         <DropDownButtonItem Icon="@SvgIcon.Gear">Telerik SVG Icon</DropDownButtonItem>
         <DropDownButtonItem Icon="@CustomIconClass">Custom Icon</DropDownButtonItem>
         <DropDownButtonItem> <TelerikLoader /> Custom markup </DropDownButtonItem>
@@ -43,7 +42,7 @@ The `Icon` parameter type is `object` and it accepts:
 </style>
 
 @code {
-    string CustomIconClass { get; set; } = "my-icon";
+    private string CustomIconClass { get; set; } = "my-icon";
 }
 ````
 

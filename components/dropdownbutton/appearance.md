@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: DropDownButton Appearance
+page_title: DropDownButton - Appearance
 description: Appearance settings of the DropDownButton for Blazor.
 slug: dropdownbutton-appearance
 tags: telerik,blazor,dropdownbutton,appearance,styling
@@ -83,7 +83,7 @@ The `FillMode` parameter controls if the primary button of the DropDownButton co
 }
 
 @code {
-    List<System.Reflection.FieldInfo> FillModes { get; set; }
+   private List<System.Reflection.FieldInfo> FillModes { get; set; }
 
     protected override void OnInitialized()
     {
@@ -125,7 +125,7 @@ The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownBu
 }
 
 @code {
-    List<System.Reflection.FieldInfo> RoundedOptions { get; set; }
+    private List<System.Reflection.FieldInfo> RoundedOptions { get; set; }
 
     protected override void OnInitialized()
     {
@@ -165,7 +165,7 @@ The `Size` parameter can change some dimensions of the DropDownButton's primary 
 }
 
 @code {
-    List<System.Reflection.FieldInfo> Sizes { get; set; }
+    private List<System.Reflection.FieldInfo> Sizes { get; set; }
 
     protected override void OnInitialized()
     {
@@ -214,7 +214,7 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 }
 
 @code {
-    List<System.Reflection.FieldInfo> ThemeColors { get; set; }
+    private List<System.Reflection.FieldInfo> ThemeColors { get; set; }
 
     protected override void OnInitialized()
     {
