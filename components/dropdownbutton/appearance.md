@@ -22,7 +22,7 @@ The DropDownButton provides the same appearance parameters, as the regular [Butt
 
 ## Setting Parameter Values
 
-The examples in this article use **reflection** to show all possible values of the DropDownButton parameters. In a real-world scenario, you can use two options to set the desired parameter values:
+The examples in this article use reflection to show all possible values of the DropDownButton parameters. In a real-world scenario, you can use two options to set the desired parameter values:
 
 * Use the static class members in the `ThemeConstants.DropDownButton` namespace. This is the easier and recommended approach.
 * Set the actual string values directly.
