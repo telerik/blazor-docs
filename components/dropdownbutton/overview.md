@@ -55,7 +55,7 @@ The DropDownButton provides a [variety of settings to control its visual appeara
 
 ## Events
 
-Each DropDownButton action [fires a separate `OnClick` event]({%slug dropdownbutton-events%}), so that the application can react to user behavior.
+Each DropDownButton action [fires a separate `OnClick` event]({%slug dropdownbutton-events%}) so that the application can react to user behavior.
 
 ## DropDownButton Parameters
 
