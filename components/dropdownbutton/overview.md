@@ -49,7 +49,7 @@ The primary DropDownButton action and each secondary item in the dropdown can [d
 
 ## Appearance
 
-The DropDownButton provides a [variety of settings to control its visual appearance]({%slug dropdownbutton-appearance%}), for example the colors, borders, and size. This spares the need to use custom CSS code.
+The DropDownButton provides a [variety of settings to control its visual appearance]({%slug dropdownbutton-appearance%}), for example, the colors, borders, and size. This spares the need to use custom CSS code.
 
 >tip To learn more about the appearance, anatomy, and accessibility of the DropDownButton, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/dropdownbutton/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
