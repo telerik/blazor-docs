@@ -26,7 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The component is a single tab stop, so the arrows must be used for internal navigation. Notable exception is that scrollable containers in non-agenda views should be focusable too.
 
-### Scheduler wrapper
+### Scheduler Wrapping Element
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

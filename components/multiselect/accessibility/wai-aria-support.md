@@ -23,10 +23,10 @@ The MultiSelect is compliant with the [Web Content Accessibility Guidelines (WCA
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### MultiSelect Wrapper
+### MultiSelect Wrapping Element
 
 
-The following table summarizes the selectors and attributes supported by the MultiSelect wrapper:
+The following table summarizes the selectors and attributes supported by the MultiSelect wrapper element:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

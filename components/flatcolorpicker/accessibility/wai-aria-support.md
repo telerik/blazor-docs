@@ -26,7 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The FlatColorPicker contains in itself ColorGradient, ColorPalette, a UI to switch between them, Cancel, Apply, and a button to reset its value. All the containing elements must implement their own specification apart from the ColorGradient element where some changes are required.
 
-### FlatColorPicker wrapper
+### FlatColorPicker Wrapping Element
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

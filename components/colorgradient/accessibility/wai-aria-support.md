@@ -23,7 +23,7 @@ The ColorGradient is compliant with the [Web Content Accessibility Guidelines (W
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### ColorGradient wrapper
+### ColorGradient Wrapping Element
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
