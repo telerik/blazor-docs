@@ -1,7 +1,7 @@
 ---
 title: DrillDown
 page_title: DrillDown 
-description: The DrillDown Chart feature allows the users to explore hierarchical data by initially displaying summarized information and to "drill down" into specific categories or data points for more detailed insights.
+description: The DrillDown feature of the Telerik Chart for Blazor allows users to explore hierarchical data by initially displaying summarized information and to drill down into specific categories or data points for more detailed insights.
 slug: chart-drilldown
 tags: telerik,blazor,chart,drill,down,drilldown
 published: true
@@ -21,9 +21,9 @@ To configure Chart series for drill-down:
 1. Prepare the data in the appropriate format. Each series data that will be drilled-down must contain a property of type `ChartSeriesDescriptor`. The descriptor includes all the parameters of the `ChartSeries` tag and acts as a container holding information about the series displayed upon user-initiated drill-down.
 1. Specify the drilldown field (the `ChartSeriesDescriptor` field) of the series data by using the `ChartSeries.DrilldownField` or `ChartSeriesDescriptor.DrilldownField` property.
 
-````CSHTML
-@* Configuring the DrillDown Chart *@
+>caption Chart DrillDown
 
+````CSHTML
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
@@ -38,6 +38,7 @@ To configure Chart series for drill-down:
 
 @code {
     private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
+
     private static List<CompanyModel> GetSeriesData()
     {
         var data = new List<CompanyModel>()
@@ -101,7 +102,6 @@ To configure Chart series for drill-down:
         public decimal Sales { get; set; }
     }
 }
-
 ````
 
 ## Configuring Breadcrumb Navigation
@@ -111,9 +111,9 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 1. Declare a `TelerikChartBreadcrumb` component.
 1. Set the `ChartId` parameter of the Breadcrumb. It must match the `Id` of the Chart that will be associated with the Breadcrumb.
 
-````CSHTML
-@* Configuring Drilldown Chart Breadcrumb *@
+>caption Configuring Breadcrumb for Chart Drilldown
 
+````CSHTML
 <TelerikChartBreadcrumb ChartId="@ChartId"></TelerikChartBreadcrumb>
 
 <TelerikChart Id="@ChartId">
@@ -130,6 +130,7 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 
 @code {
     private const string ChartId = "chart1";
+
     private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
 
     private static List<CompanyModel> GetSeriesData()
@@ -200,17 +201,17 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 
 ## Reset Drilldown Level
 
-To reset the drilldown level programmatically, use the `ResetDrilldownLevel` method. To invoke the method, obtain a reference to the Chart instance using the `@ref` directive.
+To reset the drilldown level programmatically, use the `ResetDrilldownLevel` method of the Chart. To invoke the method, obtain a reference to the Chart instance with the `@ref` directive.
 
-```
-@* Reset Drilldown Level Programmatically *@
+>caption Reset Chart Drilldown Level Programmatically
 
+````CSHTML
 <TelerikButton OnClick="@ResetDrilldownLevel">Reset Drilldown level the Chart</TelerikButton>
 
 <TelerikChartBreadcrumb ChartId="@ChartId"></TelerikChartBreadcrumb>
 
 <TelerikChart Id="@ChartId"
-              @ref="myChartRef">
+              @ref="ChartRef">
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
                      Name="Total Sales By Company"
@@ -223,14 +224,15 @@ To reset the drilldown level programmatically, use the `ResetDrilldownLevel` met
 </TelerikChart>
 
 @code {
-    private TelerikChart myChartRef;
+    private TelerikChart ChartRef { get; set; } = null!;
 
     private void ResetDrilldownLevel()
     {
-        myChartRef.ResetDrilldownLevel(0);
+        ChartRef.ResetDrilldownLevel(0);
     }
 
     private const string ChartId = "chart1";
+
     private List<CompanyModel> Data { get; set; } = new List<CompanyModel>();
 
     protected override Task OnInitializedAsync()
@@ -297,7 +299,7 @@ To reset the drilldown level programmatically, use the `ResetDrilldownLevel` met
         public decimal Sales { get; set; }
     }
 }
-```
+````
 
 ## See Also
 

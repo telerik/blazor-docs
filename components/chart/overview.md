@@ -155,22 +155,21 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 | Method  | Description |
 |---------|-------------|
 | `Refresh` | Use the method to programmatically re-render the Chart.  |
-| `ResetDrilldownLevel` | Use the method to programmatically reset the DrillDown level of the Chart. For more information refer to the [DrillDown article]({%slug chart-drilldown%}#reset-drilldown-level). |
+| `ResetDrilldownLevel` | Use the method to programmatically reset the drilldown level of the Chart. For more information refer to the [DrillDown article]({%slug chart-drilldown%}#reset-drilldown-level). |
+
+<div class="skip-repl"></div>
 
 ````CSHTML
-@using Telerik.Blazor.Components
+<TelerikButton OnClick="@RefreshChart">Refresh Chart</TelerikButton>
 
-<TelerikButton OnClick="@RefreshTheChart">Refresh the Chart</TelerikButton>
-
-<TelerikChart @ref="myChartRef">
-</TelerikChart>
+<TelerikChart @ref="ChartRef" />
 
 @code {
-	public TelerikChart myChartRef;
-	
-	private void RefreshTheChart()
+	public TelerikChart ChartRef;
+
+	private void RefreshChart()
 	{
-	    myChartRef.Refresh();
+		ChartRef.Refresh();
 	}
 }
 ````
