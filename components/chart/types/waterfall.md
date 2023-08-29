@@ -20,7 +20,7 @@ A Waterfall Chart is useful for different types of quantitative analysis related
 
 ## Creating a Waterfall Chart
 
-1. Add a `ChartSeries` to the `ChartSeriesItems` collection.
+1. Add a `ChartSeries` tag to the `ChartSeriesItems` collection.
 2. Set its `Type` parameter to `ChartSeriesType.Waterfall` or `ChartSeriesType.HorizontalWaterfall`.
 3. Provide a data collection to its `Data` property
 4. Optionally, set the `SummaryField` to add a summary column. Summary columns can be classified into two types:
