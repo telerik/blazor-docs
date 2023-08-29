@@ -147,6 +147,7 @@ The Waterfall Chart provides dedicated properties that allow you to customize it
 ### Orientation
 
 Waterfall Charts fall into two types: 
+
 * Traditional Waterfall Charts—They display changes vertically. To use this Waterfall Chart, set the series type to `ChartSeriesType.Waterfall`.
    ![vertical waterfall chart](images/vertical-waterfall-chart.png)
 * Horizontal Waterfall Charts—They present changes horizontally. To use this type of Waterfall Chart, set the series type to `ChartSeriesType.HorizontalWaterfall`.
