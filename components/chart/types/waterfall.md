@@ -10,7 +10,7 @@ position: 0
 
 # Waterfall Chart
 
-The Blazor Waterfall Chart is a form of data visualization that helps users understand the cumulative effect of sequentially introduced positive or negative values. These values can be either time-based or category based.
+The Blazor Waterfall Chart is a form of data visualization that helps users understand the cumulative effect of sequentially introduced positive or negative values. These values can be either time-based or category-based.
 
 A Waterfall Chart is useful for different types of quantitative analysis related to inventory, cash flows, performance, etc.
 
