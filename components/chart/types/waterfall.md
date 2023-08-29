@@ -44,7 +44,7 @@ To define a data item as a running total or total, include a corresponding data 
                      SummaryField="@nameof(CashFlowData.Summary)">
                      <ChartSeriesLabels Visible="true"
                                         Format="C0"
-                                        Position="@ChartSeriesLabelsPosition.InsideEnd"/>
+                                        Position="@ChartSeriesLabelsPosition.InsideEnd" />
         </ChartSeries>
     </ChartSeriesItems>
     <ChartValueAxes>
