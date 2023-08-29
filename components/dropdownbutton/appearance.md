@@ -1,7 +1,7 @@
 ---
 title: Appearance
 page_title: DropDownButton - Appearance
-description: Appearance settings of the DropDownButton for Blazor.
+description: Explore the appearance settings of the DropDownButton for Blazor. See the supproted built-in options for the primary button - fill mode, roundness, size and color.
 slug: dropdownbutton-appearance
 tags: telerik,blazor,dropdownbutton,appearance,styling
 published: True

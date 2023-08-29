@@ -12,6 +12,10 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/split-button" target="_blank">SplitButton for Blazor</a> is a combination of a button and a dropdown. It provides a collection of related user actions in a compact interface. The SplitButton has one primary clickable action, which is always visible, and a list of secondary actions that are displayed in a dropdown when the user clicks on the arrow.
 
+## SplitButton vs. DropDownButton
+
+@[template](/_contentTemplates/dropdownbutton/notes.md#dropdownbutton-splitbutton-comparison)
+
 ## Creating Blazor SplitButton
 
 1. Add a `<TelerikSplitButton>` tag.

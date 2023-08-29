@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDownButton Overview
-description: Overview of the DropDownButton for Blazor. Description of the component behavior, features and benefits.
+description: Explore the DropDownButton for Blazor and the features it provides. See how to configure a basic DropDownButton and test its behavior. Revise the available settings of the dropdown element and the child items in it.
 slug: dropdownbutton-overview
 tags: telerik,blazor,dropdownbutton
 published: True
@@ -11,6 +11,10 @@ position: 0
 # Blazor DropDownButton Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank">DropDownButton for Blazor</a> is a combination of a button and a dropdown. It provides a collection of related user actions in a compact interface. The DropDownButton allows users to click the primary button and open the popup to choose from a list of additional actions.
+
+## DropDownButton vs. SplitButton
+
+@[template](/_contentTemplates/dropdownbutton/notes.md#dropdownbutton-splitbutton-comparison)
 
 ## Creating Blazor DropDownButton
 

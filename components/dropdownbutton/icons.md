@@ -1,7 +1,7 @@
 ---
 title: Icons
 page_title: DropDownButton - Icons
-description: How to use icons with the DropDownButton for Blazor.
+description: Explore how to use icons with the DropDownButton for Blazor. See how you can add icons in the primary button and in the secondary action items. Revise the supported icon types that you can use.
 slug: dropdownbutton-icons
 tags: telerik,blazor,dropdownbutton,icons
 published: True
@@ -46,12 +46,14 @@ The `Icon` parameter type is `object` and it accepts:
 }
 ````
 
->tip You can also add custom icons and images with additional markup inside the `<DropDownButtonContent>`, where the text is.
+## Best Practices for Custom Icons and Images
 
->note Images used as icons should generally be small enough to fit in a line of text. The primary button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
->
-> * Define a `Class` for the button that provides `height` and `width`. The width and height can be set to `auto` or to a value in `px`. When using a static value, it must be sufficient to accommodate the icon.
-> * Adding your own HTML inside the `<DropDownButtonContent>`, something like: `<DropDownButtonContent><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</DropDownButtonContent>`
+* You can add custom icons and images through additional markup inside the `<DropDownButtonContent>`, where the text is.
+
+* Images used as icons should generally be small enough to fit in a line of text. The primary button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
+
+    * Define a `Class` for the button that provides `height` and `width`. The width and height can be set to `auto` or to a value in `px`. When using a static value, it must be sufficient to accommodate the icon.
+    * Adding your own HTML inside the `<DropDownButtonContent>`, something like: `<DropDownButtonContent><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</DropDownButtonContent>`
 
 
 ## See Also
