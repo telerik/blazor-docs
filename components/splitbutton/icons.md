@@ -1,7 +1,7 @@
 ---
 title: Icons
 page_title: SplitButton Icons
-description: How to use icons with the SplitButton for Blazor.
+description: Explore how to use icons with the SplitButton for Blazor. See how you can add icons in the primary button and in the secondary action items. Revise the supported icon types that you can use.
 slug: splitbutton-icons
 tags: telerik,blazor,splitbutton,icons
 published: True
@@ -10,33 +10,20 @@ position: 5
 
 # SplitButton Icons
 
-This article describes how to use icons inside the SplitButton component.
+The `<TelerikSplitButton>` and `<SplitButtonItem>` provide an `Icon` parameter that allows you to add an icon to the main button and all secondary action items.
 
+The `Icon` parameter type is `object` and it accepts:
 
-## Icon Parameters
+* a member of the [`FontIcon` enum]({%slug general-information/font-icons%}#icons-list)
+* a property of the static [`SvgIcon` class]({%slug general-information/font-icons%}#icons-list)
+* a `string` that is a CSS class for a custom icon
 
-The SplitButton provides four parameters and five different ways to add an icon to its main button and all secondary action items:
-
-The `string` parameters below exist for both `TelerikSplitButton` and `SplitButtonItem`.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Parameter | Intended Usage |
-| --- | --- |
-| `Icon` | Use with the [built-in Telerik Font and SVG icons]({%slug general-information/font-icons%}#icons-list), or with custom CSS classes. |
-
->tip It is also possible to define **any icon or image** with custom HTML markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this aproach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
-
-
-## Example
-
->caption Using icons in the Blazor SplitButton
+>caption How to use icons in Telerik Blazor SplitButton
 
 ````CSHTML
-<TelerikSplitButton Icon="@("sln")">
-    <SplitButtonContent>Telerik Icon</SplitButtonContent>
+<TelerikSplitButton Icon="@FontIcon.Table">
+    <SplitButtonContent>Telerik Font Icon</SplitButtonContent>
     <SplitButtonItems>
-        <SplitButtonItem Icon="@FontIcon.Table">Telerik Font Icon</SplitButtonItem>
         <SplitButtonItem Icon="@SvgIcon.Calculator">Telerik SVG Icon</SplitButtonItem>
         <SplitButtonItem Icon="@CustomIconClass">Custom Icon</SplitButtonItem>
         <SplitButtonItem> <TelerikLoader /> Custom markup </SplitButtonItem>
@@ -59,12 +46,14 @@ The `string` parameters below exist for both `TelerikSplitButton` and `SplitButt
 }
 ````
 
+## Best Practices for Custom Icons and Images
 
-## Next Steps
+* You can add custom icons and images through additional markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this aproach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
 
-* [Configure the SplitButton appearance]({%slug splitbutton-appearance%})
-* [Handle SplitButton Events]({%slug splitbutton-events%})
+* Images used as icons should generally be small enough to fit in a line of text. The primary button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
 
+    * Define a `Class` for the button that provides `height` and `width`. The width and height can be set to `auto` or to a value in `px`. When using a static value, it must be sufficient to accommodate the icon.
+    * Adding your own HTML inside the `<SplitButtonContent>`, something like: `<SplitButtonContent><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</SplitButtonContent>`
 
 ## See Also
 

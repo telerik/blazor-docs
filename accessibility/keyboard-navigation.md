@@ -63,6 +63,7 @@ The following table lists the available Telerik UI for Blazor components with th
 | [DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation) | **Enhanced** | |
 | [Dialog](https://demos.telerik.com/blazor-ui/dialog/overview) | **Enhanced** | Tab to reach and use its buttons. The Dialog restricts the focus within itself during tabbing. |
 | [Drawer](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation) | **Enhanced** | |
+| [DropDownButton](https://demos.telerik.com/blazor-ui/dropdownbutton/keyboard-navigation) | **Enhanced** | |
 | [DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation) | **Enhanced** | |
 | DropZone | - | |
 | [Editor](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation) | **Enhanced** | |
