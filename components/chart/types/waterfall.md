@@ -1,7 +1,7 @@
 ---
 title: Waterfall
 page_title: Chart - Waterfall
-description: The Telerik UI for Blazor Waterfall Chart illustrates the cumulative effects of positive or negative values from а starting point. Its purpose is to enhance comprehension of how an initial amount is impacted by subsequently added positive or negative values.
+description: The Telerik UI for Blazor Waterfall Chart illustrates the cumulative effects of positive or negative values from a starting point. Its purpose is to enhance comprehension of how an initial amount is impacted by subsequently added positive or negative values.
 slug: components/chart/types/waterfall
 tags: telerik,blazor,chart,waterfall
 published: True
