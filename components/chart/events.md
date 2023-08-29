@@ -14,6 +14,7 @@ This article describes the available events for the Telerik Chart for Blazor:
 
 * [OnAxisLabelClick](#onaxislabelclick)
 * [OnLegendItemClick](#onlegenditemclick)
+* [OnDrilldown](#ondrilldown)
 * [OnSeriesClick](#onseriesclick)
 
 ## OnAxisLabelClick
@@ -217,6 +218,10 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
     }
 }
 ````
+
+## OnDrilldown
+
+The `OnDrilldown` event is triggered when the [drill-down functionality executes]({%slug chart-drilldown%}). The handler of this event accepts a `ChartDrilldownEventArgs` object as a parameter. You can access the name of the drilled down (clicked) series through the `SeriesName` property of the event arguments object.
 
 ## OnSeriesClick
 
