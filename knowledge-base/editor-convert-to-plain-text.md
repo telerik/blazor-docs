@@ -36,7 +36,7 @@ Here are the required steps:
     * `Telerik.Windows.Documents.Flow.FormatProviders.Html`
     * `Telerik.Windows.Documents.Flow.FormatProviders.Txt`
     * `Telerik.Windows.Documents.Flow.Model`
-1. Create an [`HtmlFormaProvider`](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider) instance.
+1. Create an [`HtmlFormatProvider`](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/html/htmlformatprovider) instance.
 1. Use the HTML provider's **`Import`** method to create a `RadFlowDocument` from the Editor's HTML value.
 1. Create a [`TxtFormatProvider`](https://docs.telerik.com/devtools/document-processing/libraries/radwordsprocessing/formats-and-conversion/plain-text/txt-txtformatprovider) instance.
 1. Use the TXT provider's **`Export`** method to export the `RadFlowDocument` as plain text.
