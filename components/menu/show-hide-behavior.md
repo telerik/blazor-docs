@@ -16,8 +16,8 @@ The `ShownOn` and `HideOn` parameters allow you to set the event that will show 
 
 * The `ShowOn` parameter accepts a value from the `Telerik.Blazor.MenuShowEvent` enum:
 
-    * `MouseEnter`&mdash;When the mouse cursor enters a Menu item, its sub-items will display.
-    * `Click`&mdash;When the user clicks or taps on a Menu item, its child items will display.
+    * `MouseEnter`&mdash;Child Menu items will display when the mouse cursor enters a parent Menu item.
+    * `Click`&mdash;Child Menu items will display when the user clicks or taps on a parent Menu item.
 
 * The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
 
