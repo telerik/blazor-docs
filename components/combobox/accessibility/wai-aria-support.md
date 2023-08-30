@@ -23,10 +23,10 @@ The ComboBox is compliant with the [Web Content Accessibility Guidelines (WCAG) 
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### ComboBox Wrapper
+### ComboBox Wrapping Element
 
 
-The following table summarizes the selectors and attributes supported by the ComboBox wrapper:
+The following table summarizes the selectors and attributes supported by the ComboBox wrapper element:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

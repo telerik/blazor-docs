@@ -23,7 +23,7 @@ The DatePicker is compliant with the [Web Content Accessibility Guidelines (WCAG
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### DatePicker wrapper
+### DatePicker Wrapping Element
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

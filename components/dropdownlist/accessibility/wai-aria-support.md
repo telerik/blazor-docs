@@ -23,10 +23,10 @@ The DropDownList is compliant with the [Web Content Accessibility Guidelines (WC
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### DropDownList Wrapper
+### DropDownList Wrapping Element
 
 
-The following table summarizes the selectors and attributes supported by the DropDownList wrapper:
+The following table summarizes the selectors and attributes supported by the DropDownList wrapper element:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

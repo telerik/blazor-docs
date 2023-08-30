@@ -23,10 +23,10 @@ The AutoComplete is compliant with the [Web Content Accessibility Guidelines (WC
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### AutoComplete Wrapper
+### AutoComplete Wrapping Element
 
 
-The following table summarizes the selectors and attributes supported by the AutoComplete wrapper:
+The following table summarizes the selectors and attributes supported by the AutoComplete wrapper element:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
