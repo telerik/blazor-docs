@@ -48,7 +48,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
         var parent = GetParent(newFolder, DirectoryPath);
 
         newFolder.Id = DirectoryPath + newFolder.Name.ToString();
-        newFolder.ParentId = parent.Id;
+        newFolder.ParentId = parent != null ? parent.Id : null;
         newFolder.Name = "New folder";
         newFolder.IsDirectory = true;
         newFolder.HasDirectories = false;
