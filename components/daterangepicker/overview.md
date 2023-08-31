@@ -118,7 +118,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
-| `FocusStartAsync` | Focuses the Date Range Picker start value textbox. Always `await` this call, as it relies on `JSInterop`. |
+| `FocusStartAsync` | Focuses the Date Range Picker start value textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `FocusEndAsync` | Focuses the Date Range Picker end value textbox. Always `await` this call, as it relies on `JSInterop`.|
 | `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
 | `Open` | Opens the Calendar popup. |
