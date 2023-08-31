@@ -67,6 +67,32 @@ The Blazor TextBox provides various parameters to configure the component:
 
 See also the [Input Validation]({%slug common-features/input-validation%}) article.
 
+## TextBox Reference and Methods
+
+The TextBox provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component via its `@ref` attribute.
+@[template](/_contentTemplates/common/inputs.md#focus-kb)
+
+>caption Use TextBox methods
+
+````
+<TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
+
+<TelerikTextBox @ref="@TextBoxRef"
+                @bind-Value="@TextBoxValue"
+                Width="200px" />
+
+@code {
+    private TelerikTextBox TextBoxRef { get; set; }
+
+    private string TextBoxValue { get; set; }
+
+    async Task FocusTextBox()
+    {
+        await TextBoxRef.FocusAsync();
+    }
+}
+````
+
 ## Examples
 
 >caption Customized text box with input attributes
@@ -123,10 +149,9 @@ TextBox value: @StringValue
 ## Next Steps
 
 * [Explore the TextBox Appearance Settings]({%slug textbox-appearance%})
-
 * [Handle the TextBox Events]({%slug components/textbox/events%})
 
 ## See Also
 
-  * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
-  * [TextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)
+* [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
+* [TextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTextBox)

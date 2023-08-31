@@ -101,6 +101,47 @@ The Blazor RadioGroup provides various parameters to configure the component. Al
 
 See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
 
+## RadioGroup Reference and Methods
+
+The RadioGroup provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component via its `@ref` attribute.
+@[template](/_contentTemplates/common/inputs.md#focus-kb)
+
+>caption Using RadioGroup methods
+
+````
+<TelerikButton OnClick="@FocusRadioGroup">Focus RadioGroup</TelerikButton>
+
+<TelerikRadioGroup @ref="@RadioGroupRef"
+                   Data="@RadioGroupData"
+                   @bind-Value="@RadioGroupValue"
+                   ValueField="@nameof(ListItem.Id)"
+                   TextField="@nameof(ListItem.Text)">
+</TelerikRadioGroup>
+
+@code{
+    private TelerikRadioGroup<ListItem, int?> RadioGroupRef { get; set; }
+
+    private int? RadioGroupValue { get; set; }
+
+    List<ListItem> RadioGroupData { get; set; } = new List<ListItem>() {
+        new ListItem { Id = 1, Text = "Foo" },
+        new ListItem { Id = 2, Text = "Bar" },
+        new ListItem { Id = 3, Text = "Baz" }
+    };
+
+    private async Task FocusRadioGroup()
+    {
+        await RadioGroupRef.FocusAsync();
+    }
+
+    public class ListItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
+    }
+}
+````
+
 ## Next Steps
 
 * [Bind the RadioGroup to Data]({%slug radiogroup-databind%})

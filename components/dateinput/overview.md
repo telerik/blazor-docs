@@ -127,7 +127,7 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 | Method | Description |
 | --- | --- |
-| `FocusAsync` | Focuses the DateInput component to be ready for typing. Always call with `await`. |
+| `FocusAsync` | Focuses the DateInput component to be ready for typing. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
 >caption Date Input reference and FocusAsync method usage
 

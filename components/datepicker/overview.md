@@ -123,10 +123,12 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
-| `FocusAsync` | Focuses the Date Picker textbox. Always `await` this call, as it relies on `JSInterop`. |
+| `FocusAsync` | Focuses the Date Picker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
 | `Open` | Opens the Calendar popup. |
 | `Refresh` | Re-renders the Calendar popup. |
+
+>caption Using DatePicker methods
 
 ````CSHTML
 <TelerikDatePicker @ref="@DatePickerRef"

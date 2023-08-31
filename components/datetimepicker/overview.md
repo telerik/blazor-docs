@@ -114,7 +114,7 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
-| `FocusAsync` | Focuses the DateTimePicker textbox. Always `await` this call, as it relies on `JSInterop`.|
+| `FocusAsync` | Focuses the DateTimePicker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
 ````CSHTML

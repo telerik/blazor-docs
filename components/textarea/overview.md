@@ -71,6 +71,32 @@ The Blazor TextArea provides various parameters to configure the component:
 
 See the [Input Validation]({%slug common-features/input-validation%}) article.
 
+## TextArea Reference and Methods
+
+The TextArea provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component via its `@ref` attribute.
+@[template](/_contentTemplates/common/inputs.md#focus-kb)
+
+>caption Use TextArea methods
+
+````
+<TelerikButton OnClick="@FocusTextArea">Focus TextArea</TelerikButton>
+
+<TelerikTextArea @ref="@TextAreaRef"
+                 @bind-Value="@TextAreaValue"
+                 Width="200px" />
+
+@code {
+    private TelerikTextArea TextAreaRef { get; set; }
+
+    private string TextAreaValue { get; set; }
+
+    async Task FocusTextArea()
+    {
+        await TextAreaRef.FocusAsync();
+    }
+}
+````
+
 ## Next Steps
 
 * [Handle the TextArea Events]({%slug textarea-events%})
