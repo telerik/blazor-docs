@@ -36,6 +36,8 @@ To import the data of an Excel file in the Grid:
 
 >caption Import an Excel file in the Grid
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @* Import Excel File in the Grid *@
 
