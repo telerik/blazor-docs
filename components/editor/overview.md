@@ -99,7 +99,7 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 
 ## Editor Reference and Methods
 
-The Editor provides methods for programmatic operation. To use them, obtain reference to the component via its `@ref` attribute.
+The Editor provides methods for programmatic operation. To use them, obtain a reference to the component through its `@ref` attribute.
 
 | Method | Description |
 | --- | --- |
