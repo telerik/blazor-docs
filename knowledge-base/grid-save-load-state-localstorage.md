@@ -1,8 +1,8 @@
 ---
-title: 
-description: 
+title: Save and Load Grid State from LocalStorage
+description: Save and Load Grid State from LocalStorage
 type: how-to
-page_title: 
+page_title: Save and Load Grid State from LocalStorage
 slug: grid-kb-save-load-state-localstorage
 position: 
 tags: grid, state, localstorage
@@ -283,3 +283,4 @@ builder.Services.AddScoped<LocalStorage>();
 ## See Also
 
 * [Grid State]({%slug grid-state%})
+* [Save the Grid state in a WebAssembly app]({%slug grid-kb-save-state-in-webassembly%})
