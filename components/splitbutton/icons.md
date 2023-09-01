@@ -48,7 +48,7 @@ The `Icon` parameter type is `object` and it accepts:
 
 ## Best Practices for Custom Icons and Images
 
-* You can add custom icons and images through additional markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this aproach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
+* You can add custom icons and images through additional markup inside the `<SplitButtonContent>` and `<SplitButtonItem>` tags. Use this approach for images and font icons that rely on specific rendering. One such example is the Google Material Icons library.
 
 * Images used as icons should generally be small enough to fit in a line of text. The primary button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
 
