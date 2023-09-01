@@ -97,7 +97,7 @@ The example below showcases it for a few of them, but it is available for all in
 
 * The **earliest reliable programmatic focus** can occur in `OnAfterRenderAsync` and with some delay. The reason is that `OnAfterRenderAsync` is fired when the DOM tree is built, but **before** the HTML output is actually rendered in the browser. After the event is fired, the .NET runtime sends the HTML to the browser.
 The `FocusAsync` method relies on `JSInterop`, which in turn relies on the component to be rendered in the browser.
-* You can still use JavaScript to focus DOM elements by having a proper element reference or selector. The C# method is built on top of that. If you want more specific functionality (like <a href="https://feedback.telerik.com/blazor/1454982-always-highlight-all-numerictextbox-content-on-focus" target="_blank">selecting the text</a> as well, a pure JS solution might be simpler).
+* You can still use JavaScript to focus DOM elements by having a proper element reference or selector. The C# method is built on top of that. If you want more specific functionality (like <a href="https://feedback.telerik.com/blazor/1454982-always-highlight-all-numerictextbox-content-on-focus" target="_blank">selecting the text</a> as well), a pure JS solution might be simpler.
 
 >caption Focus on page load and select textbox content
 
