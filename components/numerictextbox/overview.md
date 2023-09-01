@@ -111,7 +111,7 @@ The following parameters enable you to customize the [appearance]({%slug numeric
 
 ## Numeric TextBox Reference and Methods
 
-The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance.
+The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `@ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
 ````CSHTML
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>

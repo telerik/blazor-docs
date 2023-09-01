@@ -116,7 +116,7 @@ Add a reference to the component instance to use the [Time Picker's methods](/bl
 | Method | Description |
 | --- | --- |
 | `Close` | Closes the Calendar popup. |
-| `FocusAsync` | Focuses the Time Picker textbox. Always `await` this call, as it relies on `JSInterop`.|
+| `FocusAsync` | Focuses the Time Picker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
 ````CSHTML
