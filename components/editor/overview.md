@@ -99,11 +99,14 @@ The following table lists Editor parameters, which are not discussed elsewhere i
 
 ## Editor Reference and Methods
 
-You can use the component reference to call its `ExecuteAsync` method, especially when creating [custom tools]({%slug editor-custom-tools%}). This method allows you to call programmatically the tools and commands of the editor (such as the Bold too, or a Back Color tool, or inserting HTML).
+The Editor provides methods for programmatic operation. To use them, obtain a reference to the component through its `@ref` attribute.
 
-You can find the reference for the available commands and their respective arguments in the [Built-in Tools list]({%slug editor-built-in-tools%}) section of the documentation.
+| Method | Description |
+| --- | --- |
+| `ExecuteAsync` | Executes a [built-in Editor command programmatically]({%slug editor-built-in-tools%}#programmatic-execution). You can also use this method to call built-in commands that are part of a [custom tool]({%slug editor-custom-tools%}). |
+| `FocusAsync` | Focuses the editable area of the component. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
->caption Paste at the cursor position
+>caption Paste in the Editor at the cursor position
 
 ````CSHTML
 @* This snippet shows how to insert a horizontal rule (<hr /> tag) at the cursor position.

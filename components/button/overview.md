@@ -82,11 +82,9 @@ The Blazor Button provides various parameters that allow you to configure the co
 
 Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Method | Description |
 | --- | --- |
-| `FocusAsync` | Focuses the Button component. Always call with `await`. |
+| `FocusAsync` | Focuses the Button component. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
 ````CSHTML
 <TelerikButton @ref="ButtonRef">Hello!</TelerikButton>

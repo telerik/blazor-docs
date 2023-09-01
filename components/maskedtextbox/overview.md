@@ -16,7 +16,6 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 
 ## Creating Blazor MaskedTextBox
 
-
 1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
 1. Set its `Value` parameter to a `string`. The parameter supports two-way binding.
 1. Set the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
@@ -92,7 +91,7 @@ The following parameters enable you to customize the [appearance]({%slug maskedt
 
 ## MaskedTextBox Reference and Methods
 
-The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance.
+The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `#ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
 ````CSHTML
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
