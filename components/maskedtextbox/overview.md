@@ -91,7 +91,7 @@ The following parameters enable you to customize the [appearance]({%slug maskedt
 
 ## MaskedTextBox Reference and Methods
 
-The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain reference to the component instance via `#ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
+The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `#ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
 ````CSHTML
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
