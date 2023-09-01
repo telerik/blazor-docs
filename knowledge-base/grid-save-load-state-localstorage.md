@@ -1,8 +1,8 @@
 ---
 title: Save and Load Grid State from LocalStorage
-description: Save and Load Grid State from LocalStorage
+description: How to save and load (restore) the Grid State from the browser's localStorage.
 type: how-to
-page_title: Save and Load Grid State from LocalStorage
+page_title: How to Save and Load Grid State from LocalStorage
 slug: grid-kb-save-load-state-localstorage
 position: 
 tags: grid, state, localstorage
@@ -24,10 +24,30 @@ res_type: kb
 
 ## Description
 
-How to save and restore the Grid state from the browser's `localStorage`?
+How to save and load the Grid state from the browser's `localStorage`?
+
+How to persist and restore the Grid's paging, sorting and filtering state to a future user session?
+
 
 ## Solution
 
+This scenario requires knowledge about the [Grid State]({%slug grid-state%}), so getting familiar with all sections in the linked article first is highly recommended.
+
+The follow these steps:
+
+1. Subscribe to the [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged) to detect user actions that change the Grid state, such as paging, sorting, filtering, editing, grouping, etc.
+1. Use the `OnStateChanged` handler to serialize the new Grid state (`args.GridState`) and save it to the browser's `localStorage`.
+1. Subscribe to the [Grid `OnStateInit` event]({%slug grid-state%}#onstatechanged) to configure the initial state of the Grid programmatically.
+1. Obtain the previously saved Grid state information from `localStorage`, deserialize it and set it to the `args.GridState` property of the `OnStateInit` event argument.
+    * Using `localStorage` requires JavaScript. Blazor doesn't allow JSInterop calls to be executed during pre-rendering. To avoid runtime exceptions, wrap the JSInterop call in `OnStateInit` in a try-catch block. 
+1. Some aspects of the Grid state depend on data item references, for example selected items, expanded hierarchy items, or edited items. To restore these successfully, override the `Equals` method of the Grid model class. This will allow .NET to compare data items by a primitive value (ID), rather than by reference. Reference comparison will always return `false` after serialization and deserialization.
+
+For more information about `localStorage`, see:
+
+* [Window: `localStorage` property](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+* [`Storage` API](https://developer.mozilla.org/en-US/docs/Web/API/Storage).
+
+> The `Id` and `Field` properties of `ColumnStates` are always `null` after deserialization, because these properties have no public setters.
 
 
 ## Example
@@ -275,6 +295,7 @@ public class LocalStorage
 
 builder.Services.AddTelerikBlazor();
 
+// register the LocalStorage service
 builder.Services.AddScoped<LocalStorage>();
 
 // ...
