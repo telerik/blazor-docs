@@ -303,4 +303,4 @@ To reset the drilldown level programmatically, use the `ResetDrilldownLevel` met
 
 ## See Also
 
-* [Live Demo: DrillDown Charts](https://demos.telerik.com/blazor-ui/chart/drilldown)
+* [Live Demo: DrillDown Charts](https://demos.telerik.com/blazor-ui/chart/drilldown-chart)
