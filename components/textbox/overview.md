@@ -69,7 +69,7 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 ## TextBox Reference and Methods
 
-The TextBox provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component via its `@ref` attribute.
+The TextBox provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component through its `@ref` attribute.
 @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
 >caption Use TextBox methods
