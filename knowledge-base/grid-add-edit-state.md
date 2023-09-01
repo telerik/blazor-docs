@@ -1,8 +1,8 @@
 ---
-title: Edit or Add Grid Item Programmatically
-description: Edit or Add Grid Item Programmatically
+title: Enter Grid Edit Mode Programmatically
+description: How to add and edit Grid rows programmatically or with custom buttons.
 type: how-to
-page_title: Edit or Add Grid Item Programmatically
+page_title: Enter and Exit Grid Edit Mode from Code
 slug: grid-kb-add-edit-state
 position: 
 tags: grid, state
@@ -26,13 +26,41 @@ res_type: kb
 
 How to enter edit mode from code?
 
+How to initiate insert and edit operations programmatically, instead of using [command buttons]({%slug components/grid/columns/command%})?
+
+How to add new Grid rows with a custom button, which is outside the component?
+
+How to insert Grid rows with an external button?
+
+How to cancel Grid edit mode programmatically?
+
+How to implement Grid command buttons outside the Grid?
+
+
 ## Solution
 
-The Grid state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Grid state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
+This scenario requires knowledge about the [Grid State]({%slug grid-state%}). Get familiar with the following sections first:
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `InsertItem` fields of the state object to put the Grid in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug components/grid/columns/command%}).
+* [Information in the Grid State]({%slug grid-state%}#information-in-the-grid-state)
+* [Grid State Methods]({%slug grid-state%}#methods)
 
->caption Enter Grid edit mode programmatically
+To enter and exit edit mode, set the following properties of the `GridState` object:
+
+* `InsertedItem` must be a new data item instance that will potentially be added to the Grid. You can set some default values, if needed.
+* `OriginalEditItem` must be a reference to an existing data item.
+* `EditItem` must be a clone (copy) of the `OriginalEditItem`. Later it will either update the original item, or be discarded.
+* `EditField` is used for incell editing only. It determines which cell will render an editor.
+
+Each property that is not relevant to a desired Grid state, should be set to `null`.
+
+
+## Example
+
+The sample below shows how to add, edit, cancel and save items in [`Inline`]({%slug components/grid/editing/inline%}) and [`Popup`]({%slug components/grid/editing/popup%}) `EditMode`.
+
+All these operations can also be used for [`Incell`]({%slug components/grid/editing/incell%}). However, blurring the edited cell triggers [`OnUpdate`]({%slug components/grid/editing/overview%}#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`]({%slug grid-templates-editor%}) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
+
+>caption Enter and exit Grid edit mode programmatically
 
 ````CSHTML
 <h1>Grid Edit Operations via the State</h1>
@@ -293,5 +321,5 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem` and `In
 
 ## See Also
 
-* [Grid State]({%slug grid-state%})
-* [Save the Grid state in a WebAssembly app]({%slug grid-kb-save-state-in-webassembly%})
+* [Grid State documentation]({%slug grid-state%})
+* [GridState API reference](/blazor-ui/api/Telerik.Blazor.Components.GridState-1)
