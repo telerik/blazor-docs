@@ -73,7 +73,7 @@ See the [Input Validation]({%slug common-features/input-validation%}) article.
 
 ## TextArea Reference and Methods
 
-The TextArea provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component via its `@ref` attribute.
+The TextArea provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component through its `@ref` attribute.
 @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
 >caption Use TextArea methods
