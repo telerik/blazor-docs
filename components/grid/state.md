@@ -12,12 +12,18 @@ position: 50
 
 The Grid lets you read, save, load, and change its state through code. The state includes the Grid features that are controlled by the user, such as the current sorting, page number, applied grouping, column widths, and many others.
 
-The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model.
+This article describes:
+
+* [The properties of the `GridState` object](#information-in-the-grid-state).
+* [How to set initial Grid configuration programmatically in `OnStateInit`](#onstateinit).
+* [How to detect user changes in the Grid state with `OnStateChanged`](#onstatechanged).
+* [How to use Grid methods to get and set the Grid state at any time](#methods)
+* [Why you may need to override the `Equals` method of the Grid model class](#equals-comparison)
 
 
 ## Information in the Grid State
 
-The `GridState<TItem>` object exposes the following properties:
+The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model. The `GridState<TItem>` object exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
