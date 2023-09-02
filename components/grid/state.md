@@ -17,7 +17,7 @@ This article describes:
 * [The properties of the `GridState` object](#information-in-the-grid-state).
 * [How to set initial Grid configuration programmatically in `OnStateInit`](#onstateinit).
 * [How to detect user changes in the Grid state with `OnStateChanged`](#onstatechanged).
-* [How to use Grid methods to get and set the Grid state at any time](#methods)
+* [How to use Grid methods to get and set the Grid state](#methods)
 * [Why you may need to override the `Equals` method of the Grid model class](#equals-comparison)
 
 
