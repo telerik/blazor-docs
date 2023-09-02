@@ -31,9 +31,13 @@ How to persist and restore the Grid's paging, sorting and filtering state to a f
 
 ## Solution
 
-This scenario requires knowledge about the [Grid State]({%slug grid-state%}), so getting familiar with all sections in the linked article first is highly recommended.
+This scenario requires knowledge about the [Grid State]({%slug grid-state%}), so first, get familiar with:
 
-The follow these steps:
+* [Information in the Grid State]({%slug grid-state%}#information-in-the-grid-state)
+* [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged)
+* [Grid `OnStateInit` event]({%slug grid-state%}#onstateinit)
+
+Then, follow these steps:
 
 1. Subscribe to the [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged) to detect user actions that change the Grid state, such as paging, sorting, filtering, editing, grouping, etc.
 1. Use the `OnStateChanged` handler to serialize the new Grid state (`args.GridState`) and save it to the browser's `localStorage`.
@@ -47,7 +51,7 @@ For more information about `localStorage`, see:
 * [Window: `localStorage` property](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 * [`Storage` API](https://developer.mozilla.org/en-US/docs/Web/API/Storage).
 
-> The `Id` and `Field` properties of `ColumnStates` are always `null` after deserialization, because these properties have no public setters.
+> The `Id` and `Field` properties of `ColumnStates` are always `null` after deserialization, because these properties have no public setters. If it's critical to deserialize the `Id` and `Field` information, then serialize `ColumnStates` separately and then deserialize it to a custom object.
 
 
 ## Example
