@@ -31,11 +31,16 @@ For versions prior to `2.15.0`, you could use a [custom editor template]({%slug 
 
 As of **2.15.0**, the grid provides enum filtering and editing through dropdowns out-of-the-box without any additional code.
 
+To control how each enum value will show in the filtering DropDownList, decorate it with the [`Display` attribute](https://learn.microsoft.com/en-us/dotnet/api/microsoft.openapi.attributes.displayattribute) and set the `Name` property. The Grid will use the `Name` value also for the default column editor. If you do not use a `[Display(Name = "...")]` attribute, the Grid will take the string representation of the enum value.
+
+>important At the time of writing, [enum DisplayName attributes are ignored in view mode of the Grid](https://feedback.telerik.com/blazor/1521947-enum-displayname-attributes-are-ignored-in-view-mode-of-the-grid). Follow the item to get notified about the fix.
 
 >caption Filter and Edit an enum in the Blazor Grid - 2.15.0 and later
 
 ````CSHTML
 @* You can filter and edit enums without any custom code *@
+
+@using System.ComponentModel.DataAnnotations;
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
              OnUpdate="@UpdateHandler" FilterMode="@GridFilterMode.FilterRow">
@@ -60,14 +65,15 @@ As of **2.15.0**, the grid provides enum filtering and editing through dropdowns
 
     public enum Role
     {
+        [Display(Name = "Team Manager")]
         Manager,
         Employee,
         Contractor
     }
 
-    public List<SampleData> MyData { get; set; }
+    private List<SampleData> MyData { get; set; }
 
-    public void UpdateHandler(GridCommandEventArgs args)
+    private void UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -88,11 +94,11 @@ As of **2.15.0**, the grid provides enum filtering and editing through dropdowns
         for (int i = 0; i < 50; i++)
         {
             MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "name " + i,
-                Role = (Role)(i % 3) // just some sample to populate initial values for the enum
-            });
+                {
+                    ID = i,
+                    Name = "name " + i,
+                    Role = (Role)(i % 3) // just some sample to populate initial values for the enum
+                });
         }
     }
 }
