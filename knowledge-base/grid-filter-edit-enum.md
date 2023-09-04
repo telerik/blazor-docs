@@ -33,7 +33,7 @@ As of **2.15.0**, the grid provides enum filtering and editing through dropdowns
 
 To control how each enum value will show in the filtering DropDownList, decorate it with the [`Display` attribute](https://learn.microsoft.com/en-us/dotnet/api/microsoft.openapi.attributes.displayattribute) and set the `Name` property. The Grid will use the `Name` value also for the default column editor. If you do not use a `[Display(Name = "...")]` attribute, the Grid will take the string representation of the enum value.
 
->important At the time of writing, [enum DisplayName attributes are ignored in view mode of the Grid](https://feedback.telerik.com/blazor/1521947-enum-displayname-attributes-are-ignored-in-view-mode-of-the-grid). Follow the item to be notified for the fix.
+>important At the time of writing, [enum DisplayName attributes are ignored in view mode of the Grid](https://feedback.telerik.com/blazor/1521947-enum-displayname-attributes-are-ignored-in-view-mode-of-the-grid). Follow the item to get notified about the fix.
 
 >caption Filter and Edit an enum in the Blazor Grid - 2.15.0 and later
 
