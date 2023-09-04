@@ -19,6 +19,7 @@ When you click the Export button, your browser will receive the resulting file.
 
   - [Basics](#basics)
   - [Programmatic Export](#programmatic-export)
+  - [Customization](#customization)
   - [Notes](#notes)
 
 ## Basics
@@ -180,6 +181,16 @@ You can programmatically invoke the export feature of the Grid, by using the fol
     }
 }
 ````
+
+## Customization
+
+To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` events the Grid exposes. 
+
+The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title` and more.
+
+For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license.
+
+[Read more about how to customize the exported file...]({%slug grid-export-events%})
 
 ## Notes
 
