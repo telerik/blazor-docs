@@ -187,7 +187,7 @@ To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` e
 
 The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns, such as `Width`, `Title`, and more.
 
-For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the `SpreadProcessing` or the `SpreadStreamProcessing` libraries that are available with your license.
+For more advanced customizations (such as coloring the headers, bolding the titles, or even changing cell values) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the `SpreadProcessing` or the `SpreadStreamProcessing` libraries that are available with your license.
 
 [Read more about how to customize the exported file...]({%slug grid-export-events%})
 
