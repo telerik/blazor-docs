@@ -71,7 +71,7 @@ To customize a Sass-based theme, create a `.scss` file and consume the theme pac
 
 1. To customize the variables that are used in the theme, change the theme before you import the theme files.
 
-        $primary: #E82C0C; // brand color
+        $kendo-color-primary: #E82C0C; // brand color
 
         @import "~@progress/kendo-theme-default/dist/all.scss";
 
@@ -132,8 +132,8 @@ For example, in the Material theme create `blue-pink-dark` swatch with the follo
 For the Default and Bootstrap themes, the swatch should look like:
 
     // Variables.
-    $primary: blue;
-    $secondary: pink;
+    $kendo-color-primary: blue;
+    $kendo-color-secondary: pink;
 
     // Import the theme file for the components you use.
     @import "../panelbar/_index.scss";
