@@ -34,7 +34,7 @@ To improve the collaboration between designers and developers, Telerik UI for Bl
    ![Color Styles in a UI Kit for Figma](./images/theme-builder-ui-kit-color-styles.png)
 
 4. Create a new project in the ThemeBuilder application. To choose the most suitable starting **Theme**, ask your designer which UI Kit was used: **Default**, **Bootstrap**, **Material**, or **Fluent**.
-5. Copy the color codes from the **Color Styles** in Figma and paste them into the ThemeBuilder color editor with the same name. For example, copy the value of the `$primary` color in Figma and paste it into the **Primary** color editor in ThemeBuilder.
+5. Copy the color codes from the **Color Styles** in Figma and paste them into the ThemeBuilder color editor with the same name. For example, copy the value of the `$primary` color in Figma and paste it into the `$kendo-color-primary` color editor in ThemeBuilder.
 
 ## See Also
 
