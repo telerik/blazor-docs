@@ -1,5 +1,5 @@
 #initial-state
->tip If you want to set an initial state to the grid, use a similar snippet, but in the [`OnStateInit event`]({%slug grid-state%}#set-default-initial-state)
+>tip If you want to set an initial state to the Grid, use a similar snippet, but in the [`OnStateInit event`]({%slug grid-state%}#onstateinit)
 #end
 
 
@@ -192,7 +192,7 @@
 
 #filter-menu-default-filters
 
->note If you want to alter filters for a column, do not use more than one `FilterDescriptor` in `FilterRow` mode, and more than two `FilterDescriptors` in `FilterMenu` mode. Otherwise additional descriptors will not show up in the UI. This means that you may need to replace or modify an existing descriptor, rather than add a new one.
+>note If you want to alter the filters for a specific column, do not use more than one `FilterDescriptor` in `FilterRow` mode, and more than two `FilterDescriptors` in `FilterMenu` mode. Otherwise additional descriptors will not show up in the UI. This means that you may need to replace or modify an existing descriptor, rather than add a new one.
 >
 > Inactive filter descriptors are distinguished by their `null` `Value`.
 
