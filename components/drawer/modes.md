@@ -77,7 +77,9 @@ The drawer's height is dynamic based on the height of the content (you can chang
 
 When `Mode` is set to `Overlay`, the Drawer's navigation is on top of the content and its height takes all available vertical space (100%). The drawer also adds blurred background on top of the content until the user clicks on an item of the Drawer or outside.
 
->caption The Drawer in Overlay mode
+ComboBoxes, DropDownLists, DateTimePickers and similar popup-based components are not supported inside the `Template` or `ItemTemplate` of a Drawer in `Overlay` mode. This is because the popup is rendered outside the Drawer and clicking on the popup will close the Drawer.
+
+>caption Drawer in Overlay mode
 
 ![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
 
