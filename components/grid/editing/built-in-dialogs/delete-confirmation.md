@@ -9,11 +9,14 @@ position: 3
 ---
 
 # Delete Confirmation Dialog
-The delete confirmation dialog triggers before item deletion. You can enable it by setting the `ConfirmDelete` parameter of the Grid to `true`. 
 
->caption Delete Confirmation dialog
+This article provides information on how to enable the built-in delete confirmation dialog and how you can create a custom dialog:
+* [Basics](#basics)
+* [Custom Delete Confirmation Dialog](#custom-delete-confirmation-dialog)
 
-![Blazor Grid Delete Confirmation](../images/grid-delete-confirmation.gif)
+## Basics
+
+The built-in delete confirmation dialog triggers before item deletion. You can enable it by setting the `ConfirmDelete` parameter of the Grid to `true`.
 
 >caption Enabling of the Delete Confirmation Dialog
 
@@ -90,6 +93,10 @@ The delete confirmation dialog triggers before item deletion. You can enable it 
     }
 }
 ````
+
+## Custom Delete Confirmation Dialog
+
+@[template](/_contentTemplates/grid/built-in-dialogs.md#delete-confirmation)
 
 
 ## See Also
