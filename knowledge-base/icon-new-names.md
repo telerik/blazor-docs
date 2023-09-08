@@ -31,7 +31,9 @@ res_type: kb
 
 ## Solution
 
-Use the new icon names, according to the following list:
+>tip While the below listed names will render the proper icons, the recommended approach for declaring icons is to use `FontIcon` or `SvgIcon` followed by PascalCase for the icon name. See details in [Icons List]({%slug general-information/font-icons%}#icons-list).
+
+Here is a list of the renamed icons:
 
 <table role="table">
 <thead>
