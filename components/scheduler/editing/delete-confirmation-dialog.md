@@ -10,13 +10,15 @@ position: 5
 
 # Delete Confirmation Dialog
 
-The delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter of the Scheduler to `true`. The default texts of the dialog are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
+This article provides information on how to enable the built-in delete confirmation dialog and how you can create a custom dialog:
+* [Basics](#basics)
+* [Custom Delete Confirmation Dialog](#custom-delete-confirmation-dialog)
+
+## Basics
+
+The built-in delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter of the Scheduler to `true`. The default texts of the dialog are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
 
 >important This dialog displays only for **single** events, **not** for recurring. The built-in delete confirmation dialog for recurring events is **not** changed.
-
->caption Delete Confirmation dialog appearance
-
-![A gif that visualizes the delete confirmation](../images/scheduler-delete-confirmation.gif)
 
 >caption Enabling of the Delete Confirmation Dialog
 
@@ -150,6 +152,10 @@ The delete confirmation dialog triggers before event deletion. You can enable it
     }
 }
 ````
+
+## Custom Delete Confirmation Dialog
+
+@[template](/_contentTemplates/grid/built-in-dialogs.md#delete-confirmation)
 
 
 ## See Also
