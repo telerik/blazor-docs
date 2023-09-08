@@ -5,7 +5,7 @@ To customize the appearance and behavior of the delete confirmation dialog, use 
 
 * **Localization** - this approach is useful if you want to change just the text of the built-in Delete Confirmation Dialog elements. It does not allow adding item details to the dialog text.
 
-* **Predefined Dialog Component** - this option is useful if you want to change the dialog text and include some details for the item the user tries to delete (for example, record name).
+* Predefined dialogs (`DialogFactory`) - this option is useful if you want to change the dialog text and include some details for the item the user tries to delete (for example, record name).
 
 * **Dialog Component** - this solution allows you to fully customize the rendering and appearance of the dialog. You may set the desired `ThemeColor` and add any content there, be that custom text, HTML elements or other components.
 
