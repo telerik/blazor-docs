@@ -1,7 +1,7 @@
 #delete-confirmation
 The built-in Delete Confirmation Dialog requires minimum effort and code. Thus, the dialog itself does not provide customization options.
 
-To achieve custom appearance and behavior of the Delete Confirmation Dialog, use one of the following options:
+To customize the appearance and behavior of the delete confirmation dialog, use one of the following options:
 
 * **Localization** - this approach is useful if you want to change just the text of the built-in Delete Confirmation Dialog elements. It does not allow adding item details to the dialog text.
 
