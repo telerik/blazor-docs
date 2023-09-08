@@ -10,7 +10,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridSort">set sort from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
              Pageable="true" Sortable="true">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -21,9 +21,9 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridSort()
+    private async Task SetGridSort()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -33,10 +33,10 @@
             }
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -131,7 +131,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -142,9 +142,9 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridFilter()
+    private async Task SetGridFilter()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -169,10 +169,10 @@
             }
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -192,238 +192,10 @@
 
 #filter-menu-default-filters
 
->note Until version `3.1.0`, there was a bug that made the component create default `FilterDecriptor`s in its state for **all columns** when `FilterMode` is `FilterMenu`, including when no filtering occurs at all. This side-effect allowed filter templates to work seamlessly and with little code. After version `3.1.0`, ths bug was fixed and empty `FilterDecriptor`s are not added to the state of the component if no filtering occurs (the way filter templates work is unchanged).
+>note If you want to alter filters for a column, do not use more than one `FilterDescriptor` in `FilterRow` mode, and more than two `FilterDescriptors` in `FilterMenu` mode. Otherwise additional descriptors will not show up in the UI. This means that you may need to replace or modify an existing descriptor, rather than add a new one.
+>
+> Inactive filter descriptors are distinguished by their `null` `Value`.
 
->note If you want to alter filters for a column, you must either modify the existing descriptor, or replace it. Simply adding an additional `FilterDescriptor` will not show up in the UI, because the Grid uses the first descriptor for the given field for the filtering UI. Another implication is that the Grid state always contains filter descriptors, no matter if the user has filtered or not. Inactive filter descriptors are distinguished by their `null` `Value`.
-
->caption Handling filter changes - unexpected addition that does not update the UI, replacement of one filter, replacecment of all filters
-
-<div class="skip-repl"></div>
-````Component
-@using Telerik.DataSource
-
-To see the full effects of this behavior, filter a column such as the ID being less than or equal to 4.
-<br /> Then, click a button to see the different behavior each will have:
-<ul>
-    <li>
-        the first button will not show the new filter in the Team column header
-        <TelerikButton OnClick="@WrongFilterAdd">Add filter without replace - you will not see the change in the filter UI but the data will change</TelerikButton>
-    </li>
-    <li>
-        the second button will keep the ID column filter and add the Team filter
-        <TelerikButton OnClick="@SetFilterWithReplaceInCollection">Replace only Team filter</TelerikButton>
-    </li>
-    <li>
-        the third button will remove all filters and set only the custom Team filter
-        <TelerikButton OnClick="@SetFilterNewCollection">Replace all filters to filter by Team</TelerikButton>
-    </li>
-</ul>
-
-This flexibility lets you choose what behavior you want from the grid.
-
-
-
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
-             Pageable="true" Sortable="true"
-             FilterMode="@GridFilterMode.FilterMenu">
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
-    </GridColumns>
-</TelerikGrid>
-
-
-
-@code{
-    // adds a filter without affecting the UI
-    async Task WrongFilterAdd()
-    {
-        // get state
-        var state = Grid.GetState();
-
-        // simply add a filter to the existing state and existing (default) filters
-        // PROBLEM - YOU WILL NOT SEE IT HIHGLIGHT THE UI BECAUSE THERE IS A DEFAULT FILTER ALREADY
-
-        state.FilterDescriptors.Add(new CompositeFilterDescriptor()
-        {
-            FilterDescriptors = new FilterDescriptorCollection()
-            {
-                new FilterDescriptor
-                {
-                    Member = "Team",
-                    Operator = FilterOperator.IsEqualTo,
-                    Value = "team 1",
-                    MemberType = typeof(string)
-                },
-                new FilterDescriptor()
-                {
-                    Member = "Team",
-                    Operator = FilterOperator.IsEqualTo,
-                    Value = null,
-                    MemberType = typeof(string)
-                }
-            },
-            LogicalOperator = FilterCompositionLogicalOperator.Or
-        });
-
-        // set state
-        await Grid.SetStateAsync(state);
-    }
-
-    // adds a filter
-    async Task SetFilterWithReplaceInCollection()
-    {
-        // get the current state
-        var state = Grid.GetState();
-
-        // remove the current filters for the Team field
-        // if you don't do this, the default or exiting fitlers will command the UI
-        // and you may not see the change from the new filter you will add
-        // see the extension methods related to GetFiltersForMember in the adjacent code tab
-        // create a new collection so we can iterate over it without it getting lost with the removal from the parent collection
-        List<IFilterDescriptor> teamFilters = new List<IFilterDescriptor>(state.FilterDescriptors.GetFiltersForMember("Team"));
-
-        // remove the existing filters for the Team field from the current collection
-        for (int i = 0; i < teamFilters.Count(); i++)
-        {
-            state.FilterDescriptors.Remove(teamFilters.ElementAt(i) as IFilterDescriptor);
-        }
-
-        // create the desired new filter for the Team field
-        CompositeFilterDescriptor theFilterDescriptor = new CompositeFilterDescriptor()
-        {
-            FilterDescriptors = new FilterDescriptorCollection()
-            {
-                new FilterDescriptor
-                {
-                    Member = "Team",
-                    Operator = FilterOperator.IsEqualTo,
-                    Value = "team 2",
-                    MemberType = typeof(string)
-                },
-                new FilterDescriptor()
-                {
-                    Member = "Team",
-                    Operator = FilterOperator.IsEqualTo,
-                    Value = null,
-                    MemberType = typeof(string)
-                }
-            },
-            LogicalOperator = FilterCompositionLogicalOperator.Or
-        };
-
-        // add the new filter so that it replaces the original filter(s)
-        state.FilterDescriptors.Add(theFilterDescriptor);
-
-        // set the updated state
-        await Grid.SetStateAsync(state);
-    }
-
-    // replaces all filters
-    async Task SetFilterNewCollection()
-    {
-        // get the current state
-        var state = Grid.GetState();
-
-        //replace the entire filters collection so it only has the new desired filter
-        state.FilterDescriptors = new List<IFilterDescriptor>()
-        {
-            new CompositeFilterDescriptor()
-            {
-                FilterDescriptors = new FilterDescriptorCollection()
-                {
-                    new FilterDescriptor()
-                    {
-                        Member = "Team",
-                        Operator = FilterOperator.Contains,
-                        Value = "3",
-                        MemberType = typeof(string)
-                    },
-                    new FilterDescriptor()
-                    {
-                        Member = "Team",
-                        Operator = FilterOperator.IsEqualTo,
-                        Value = null,
-                        MemberType = typeof(string)
-                    }
-                },
-                LogicalOperator = FilterCompositionLogicalOperator.Or
-            }
-        };
-
-        // set the new state
-        await Grid.SetStateAsync(state);
-    }
-}
-
-@code {
-    TelerikGrid<SampleData> Grid { get; set; }
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "Team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-}
-````
-````Extensions
-using Telerik.DataSource;
-
-//make sure the namespace matches your page, or add an appropriate using
-
-public static class FilterExtensions
-{
-    public static IEnumerable<CompositeFilterDescriptor> GetCompositeFiltersForMember(this IEnumerable<IFilterDescriptor> filtersCollection, string member)
-    {
-        var compositeFilters = filtersCollection.OfType<CompositeFilterDescriptor>();
-        return compositeFilters.GetFiltersForMember(member).Cast<CompositeFilterDescriptor>();
-    }
-
-    public static IEnumerable<IFilterDescriptor> GetAllFiltersForMember(this IEnumerable<IFilterDescriptor> filtersCollection, string member)
-    {
-        return filtersCollection.SelectMemberDescriptors().GetFiltersForMember(member);
-    }
-
-    public static IEnumerable<IFilterDescriptor> GetFiltersForMember(this IEnumerable<IFilterDescriptor> filtersCollection, string member)
-    {
-        return filtersCollection.Where(filter => filter.GetFilterMember() == member) ??
-               Enumerable.Empty<IFilterDescriptor>();
-    }
-
-    public static string GetFilterMember(this IFilterDescriptor filter)
-    {
-        var filterDescriptor = filter;
-        var isFilterDescriptor = filterDescriptor is FilterDescriptor;
-
-        while (!isFilterDescriptor)
-        {
-            var compositeDescriptor = filterDescriptor as CompositeFilterDescriptor;
-
-            if (compositeDescriptor == null)
-            {
-                break;
-            }
-
-            filterDescriptor = compositeDescriptor.FilterDescriptors?.ElementAtOrDefault(0);
-            isFilterDescriptor = filterDescriptor is FilterDescriptor;
-        }
-
-        return ((FilterDescriptor)filterDescriptor)?.Member;
-    }
-}
-````
 #end
 
 
@@ -434,7 +206,7 @@ public static class FilterExtensions
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid" Groupable="true"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef" Groupable="true"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -446,9 +218,9 @@ public static class FilterExtensions
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridGroup()
+    private async Task SetGridGroup()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -470,10 +242,10 @@ public static class FilterExtensions
             CollapsedGroups = new List<int>() { 0 },
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -518,11 +290,11 @@ public static class FilterExtensions
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<MainModel> Grid { get; set; }
+    private TelerikGrid<MainModel> Grid { get; set; }
 
-    async Task ExpandHierarchy()
+    private async Task ExpandHierarchy()
     {
-        var gridState = Grid.GetState();
+        var gridState = GridRef.GetState();
 
         //expand the first two rows
         gridState.ExpandedItems = new List<MainModel> {
@@ -530,10 +302,10 @@ public static class FilterExtensions
             salesTeamMembers[1]
         };
 
-        await Grid.SetStateAsync(gridState);
+        await GridRef.SetStateAsync(gridState);
     }
 
-    List<MainModel> salesTeamMembers { get; set; }
+    private List<MainModel> salesTeamMembers { get; set; }
 
     protected override void OnInitialized()
     {
