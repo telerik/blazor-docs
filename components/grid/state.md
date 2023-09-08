@@ -174,6 +174,8 @@ Here is some additional information about certain `PropertyName` values:
 
 > We recommend using an `async Task` handler for the `OnStateChanged` event, in order to reduce re-rendering and avoid blocking UI updates if the handler will wait for a service to save the Grid state somewhere.
 
+To observe the changes in the Grid state more easily, copy and run the following example in a local app and at full screen.
+
 >caption Using Grid OnStateChanged
 
 ````CSHTML
@@ -261,6 +263,7 @@ Here is some additional information about certain `PropertyName` values:
             overflow: auto;
             flex: 1 0 300px;
             border: 1px solid rgba(128, 128, 128, .3);
+            padding: 1em;
         }
     }
 </style>
@@ -281,6 +284,12 @@ Here is some additional information about certain `PropertyName` values:
 
     private bool _doubleStateChanged { get; set; }
 
+    private List<string> _operationsWithMultipleStateChanged = new List<string>() {
+        "FilterDescriptors",
+        "GroupDescriptors",
+        "SearchFilter"
+    };
+
     private async Task OnGridStateChanged(GridStateEventArgs<Product> args)
     {
         if (_doubleStateChanged)
@@ -298,14 +307,8 @@ Here is some additional information about certain `PropertyName` values:
         GridStateString = JsonSerializer.Serialize(args.GridState, new JsonSerializerOptions() { WriteIndented = true })
             .Replace($"\"{GridStateChangedProperty}\"", $"\"<strong class='latest-changed-property'>{GridStateChangedProperty}</strong>\"");
 
-        var operationsWithMultipleStateChanged = new List<string>() {
-            "FilterDescriptors",
-            "GroupDescriptors",
-            "SearchFilter"
-        };
-
         // highlight first GridStateChangedProperty during filtering, grouping and search
-        if (operationsWithMultipleStateChanged.Contains(GridStateChangedProperty))
+        if (_operationsWithMultipleStateChanged.Contains(GridStateChangedProperty))
         {
             _doubleStateChanged = true;
             GridStateChangedPropertyClass = "first-of-two";
@@ -347,8 +350,8 @@ Here is some additional information about certain `PropertyName` values:
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; } = default!;
-        public string Category { get; set; } = default!;
+        public string Name { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
         public int Stock { get; set; }
         public bool Discontinued { get; set; }
     }
@@ -369,7 +372,7 @@ If you want to make changes to the current Grid state:
 1. Apply the desired modifications to the obtained `GridState` object.
 1. Set the modified state object via the `SetStateAsync` method.
 
-> Do not use `GetState()` and `SetStateAsync()` in the [`OnStateInit` event](#onstateinit). Instead, get or set the `GridState` property of the `OnStateInit` event argument.
+> Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetStateAsync()` in `OnStateInit`. Instead, get or set the `GridState` property of the event argument.
 
 If you want to put the Grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there. Then pass the state object to `SetStateAsync()`.
 
