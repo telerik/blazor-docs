@@ -10,7 +10,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridSort">set sort from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
              Pageable="true" Sortable="true">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -21,9 +21,9 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridSort()
+    private async Task SetGridSort()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -33,10 +33,10 @@
             }
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -131,7 +131,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -142,9 +142,9 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridFilter()
+    private async Task SetGridFilter()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -169,10 +169,10 @@
             }
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -206,7 +206,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid" Groupable="true"
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef" Groupable="true"
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
@@ -218,9 +218,9 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> Grid { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
-    async Task SetGridGroup()
+    private async Task SetGridGroup()
     {
         GridState<SampleData> desiredState = new GridState<SampleData>()
         {
@@ -242,10 +242,10 @@
             CollapsedGroups = new List<int>() { 0 },
         };
 
-        await Grid.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(desiredState);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
         Name = "name " + x,
@@ -290,11 +290,11 @@
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<MainModel> Grid { get; set; }
+    private TelerikGrid<MainModel> Grid { get; set; }
 
-    async Task ExpandHierarchy()
+    private async Task ExpandHierarchy()
     {
-        var gridState = Grid.GetState();
+        var gridState = GridRef.GetState();
 
         //expand the first two rows
         gridState.ExpandedItems = new List<MainModel> {
@@ -302,10 +302,10 @@
             salesTeamMembers[1]
         };
 
-        await Grid.SetStateAsync(gridState);
+        await GridRef.SetStateAsync(gridState);
     }
 
-    List<MainModel> salesTeamMembers { get; set; }
+    private List<MainModel> salesTeamMembers { get; set; }
 
     protected override void OnInitialized()
     {
