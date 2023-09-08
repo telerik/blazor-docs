@@ -41,7 +41,7 @@ The Grid always tries to maintain the following order of sorting states for each
 
 No sorting &gt; Ascending &gt; Descending &gt; No sorting &gt; ...
 
-Let's assume that the Grid has a `Stock` column which is not sorted, but it should be sorted descending first, if the user clicks on the header. The required algorithm to interept sorting and change the sort direction is:
+Let's assume that the Grid has a `Stock` column which is not sorted, but it should be sorted descending first, if the user clicks on the header. The required algorithm to intercept sorting and change the sort direction is:
 
 1. Set a helper variable that will keep the previous sort state of the `Stock` column. If the column is unsorted by default, then the helper variable can be equal to `null`.
 1. Subscribe to the [Grid `OnStateChanged` Event]({%slug grid-state%}#onstatechanged).
