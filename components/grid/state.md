@@ -36,7 +36,7 @@ The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Bl
 | `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)]({%slug components/grid/features/hierarchy%}). |
 | `FilterDescriptors` | `ICollection<IFilterDescriptor>` | All filtering criteria, except the ones that relate to the[`GridSearchBox`]({%slug grid-searchbox%}). |
 | `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping]({%slug components/grid/features/grouping%}). |
-| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing]({%slug components/grid/editing/incell%}#event-sequence). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index]({%slug components/grid/features/paging%}). Some user actions reset the page index to 1, such as filtering or changing the page size. |
 | `SearchFilter` | `IFilterDescriptor` | The `CompositeFilterDescriptor` that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
@@ -62,7 +62,7 @@ The `OnStateInit` event fires when the Grid is initializing. Use this event to:
 * Define initial state, for example default initial sorting;
 * Load and apply state that was previously saved in a database or in `localStorage`.
 
-The generic event argument is of type `GridStateEventArgs<TItem>`. It has one important property and that is `GridState`. See [Information in the Grid State](#information-in-the-grid-state) for details about its members.
+The generic event argument is of type `GridStateEventArgs<TItem>` and has a `GridState` property. See [Information in the Grid State](#information-in-the-grid-state) for details.
 
 > If you change the column order or number of columns in the Grid declaration, this can break state restore. In such cases, either ignore the stored column state, or implement custom logic to restore only the columns that still exist in the Grid.
 >
@@ -166,7 +166,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 Here is some additional information about certain `PropertyName` values:
 
 * `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode.
+* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing]({%slug components/grid/editing/incell%}#event-sequence).
 * `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
 * `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
 
