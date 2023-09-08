@@ -30,7 +30,10 @@ There are two main ways to provide data to the components:
 Hierarchy components like the TreeList and the TreeView don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
 
 >warning Do not use `Data` and `OnRead` at the same time with the same component.
-
+>
+> The component model must be a `class` and not `struct`.
+>
+> The class properties should have getters and setters, otherwise data binding or editing may stop working.
 
 ## Data Type
 
