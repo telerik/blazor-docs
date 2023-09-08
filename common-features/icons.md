@@ -192,7 +192,11 @@ The `ISvgIcon` interface members are:
 >caption Define custom SVG icon collection
 
 ````CSHTML
+Moon:
 <TelerikSvgIcon Icon="@MySvgIcons.Moon" />
+
+Circles:
+<TelerikSvgIcon Icon="@MySvgIcons.Circles" />
 
 @code {
     public class Moon : SvgIconBase
@@ -205,10 +209,21 @@ The `ISvgIcon` interface members are:
         }
     }
 
+    public class Circles : SvgIconBase
+    {
+        public Circles()
+        {
+            Name = "circles";
+            Content = "<circle cx=\"5\" cy=\"5\" r=\"5\" fill=\"black\" /><circle cx=\"11\" cy=\"11\" r=\"5\" fill=\"red\" />";
+            ViewBox = "0 0 16 17";
+        }
+    }
+
     public static class MySvgIcons
     {
         public static ISvgIcon Moon => new Moon();
-        //public static ISvgIcon AnotherIcon => new AnotherIcon();
+
+        public static ISvgIcon Circles => new Circles();
     }
 }
 ````
