@@ -81,6 +81,7 @@ The following table lists the Window parameters, which are not discussed elsewhe
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The custom CSS class of the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). Here is a [custom Window styling example]({%slug window-kb-custom-css-styling%}). |
+| `PersistContent` | `bool` | Determines if the Window content will be removed from the DOM (default) or hidden with CSS when the [Window is minimized]({%slug components/window/size%}#maximize-and-minimize). |
 | `Size` | `string` | A predefined Window **width**. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
 | `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Visible` | `bool` | Defines if the Window is rendered and visible on the page. |
