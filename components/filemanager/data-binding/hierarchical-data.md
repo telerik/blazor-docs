@@ -25,7 +25,7 @@ This approach of providing items lets you gather separate collections of data th
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Data"
+<TelerikFileManager Data="@FileManagerData"
                     Height="400px"
                     @bind-Path="@DirectoryPath"
                     IdField="MyModelId"
@@ -40,16 +40,35 @@ This approach of providing items lets you gather separate collections of data th
                     DateCreatedField="DateCreated"
                     DateCreatedUtcField="DateCreatedUtc"
                     DateModifiedField="DateModified"
-                    DateModifiedUtcField="DateModifiedUtc"/>
+                    DateModifiedUtcField="DateModifiedUtc" 
+                    OnModelInit="@OnModelInitHandler" />
 
 @code {
-    public List<HierarchicalFileEntry> Data = new List<HierarchicalFileEntry>();
-    public string DirectoryPath { get; set; } = string.Empty;
+    private List<HierarchicalFileEntry> FileManagerData = new List<HierarchicalFileEntry>();
+
+    private string DirectoryPath { get; set; } = string.Empty;
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetHierarchicalFileEntries();
+        FileManagerData = await GetHierarchicalFileEntries();
+    }
+
+    //initialize the model to allow new folder creation
+    private HierarchicalFileEntry OnModelInitHandler()
+    {
+        var item = new HierarchicalFileEntry();
+        item.Name = $"New folder";
+        item.Size = 0;
+        item.Path = Path.Combine(DirectoryPath, item.Name);
+        item.IsDirectory = true;
+        item.HasDirectories = false;
+        item.DateCreated = DateTime.Now;
+        item.DateCreatedUtc = DateTime.Now;
+        item.DateModified = DateTime.Now;
+        item.DateModifiedUtc = DateTime.Now;
+
+        return item;
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -72,7 +91,7 @@ This approach of providing items lets you gather separate collections of data th
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
 
-    async Task<List<HierarchicalFileEntry>> GetHierarchicalFileEntries()
+    private async Task<List<HierarchicalFileEntry>> GetHierarchicalFileEntries()
     {
         var root = new HierarchicalFileEntry()
             {

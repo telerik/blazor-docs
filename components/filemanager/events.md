@@ -56,7 +56,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Data"
+<TelerikFileManager Data="@FileManagerData"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
                     IdField="MyModelId"
@@ -79,20 +79,21 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 </TelerikFileManager>
 
 @code {
-    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
-    public string DirectoryPath { get; set; } = string.Empty;
+    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
+    
+    private string DirectoryPath { get; set; } = string.Empty;
 
-    public async Task OnRead(FileManagerReadEventArgs args)
+    private async Task OnRead(FileManagerReadEventArgs args)
     {
         await GetFlatFileEntries();
 
-        args.Data = Data;
-        args.Total = Data.Count;
+        args.Data = FileManagerData;
+        args.Total = FileManagerData.Count;
 
         await Task.Yield();
     }
 
-    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
     {
         var item = args.Item as FlatFileEntry;
 
@@ -109,19 +110,19 @@ The `OnRead` event fires when the data source is read. Its event handler receive
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = Data.FirstOrDefault(x => x.MyModelId == item.MyModelId);
+            var updatedItem = FileManagerData.FirstOrDefault(x => x.MyModelId == item.MyModelId);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
         }
     }
 
-    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
     {
         var selectedItem = args.Item as FlatFileEntry;
 
         //the FileManager does not have the actual file.
-        //To download it, find the actual file in the datasource  
+        //To download it, find the actual file in the datasource
         //based on the selected file (args.Item) and
         //assign the following data to the argument:
 
@@ -131,14 +132,14 @@ The `OnRead` event fires when the data source is read. Its event handler receive
     }
 
 
-    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = Data.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
+        var itemToDelete = FileManagerData.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
 
         //simulate item deletion
-        Data.Remove(itemToDelete);
+        FileManagerData.Remove(itemToDelete);
 
         RefreshData();
     }
@@ -161,13 +162,13 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
     private void RefreshData()
     {
-        Data = new List<FlatFileEntry>(Data);
+        FileManagerData = new List<FlatFileEntry>(FileManagerData);
     }
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetFlatFileEntries();
+        FileManagerData = await GetFlatFileEntries();
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -189,7 +190,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
 
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
         var workFiles = new FlatFileEntry()
@@ -203,7 +204,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
+                Path = Path.Combine("Work Files"),
                 Size = 3 * 1024 * 1024
             };
 
@@ -218,7 +219,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "documents"),
+                Path = Path.Combine(workFiles.Path, "Documents"),
                 Size = 1024 * 1024
             };
 
@@ -233,7 +234,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "images"),
+                Path = Path.Combine(workFiles.Path, "Images"),
                 Size = 2 * 1024 * 1024
             };
 
@@ -249,7 +250,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
@@ -265,7 +266,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 20),
                 DateModified = new DateTime(2022, 1, 25),
                 DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
                 Size = 538 * 1024
             };
 
@@ -281,7 +282,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 10),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
                 Size = 1024
             };
 
@@ -297,7 +298,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
                 DateCreatedUtc = new DateTime(2022, 1, 12),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
                 Size = 1024
             };
 
@@ -323,7 +324,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
 ### OnModelInit
 
-The `OnModelInit` event fires when a new instance of the model is about to be created. See the [example](#example).
+The `OnModelInit` event fires when a new instance of the model is about to be created. Handle this event to allow the creation of a new folder/file. Provide an instance of the model that the component is bound to and include the desired properties (name, path, date of creation and more). See the [example](#example).
 
 ### OnDownload
 
