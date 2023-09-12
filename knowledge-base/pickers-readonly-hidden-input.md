@@ -41,7 +41,7 @@ This how-to article answers the following questions:
 1. Set the `Class` parameter of the DateTimePickers that should be readonly or hidden.
 1. Subscribe to the `OnAfterRenderAsync` event of the Razor component, which holds the DateTimePickers.
 1. Use `JSInterop` to apply a `readOnly` attribute to the `<input>` elements that are children of an element with the custom CSS class above. Make sure to execute the JavaScript only once, when `firstRender` is `true`. Use a small `Task.Delay()` before making the `JSInterop` call.
-1. To hide the DateInput textbox, apply custom CSS styles that reduce its `width` and side `padding`s to zero. Set the `opacity` to zero as well.
+1. To hide the DateInput textbox, apply custom CSS styles that reduce its `width` and side `padding` to zero. Set the `opacity` to zero as well.
 1. DateTimePickers with a hidden DateInput should also have their `Width` set to `"min-content"`.
 
 >caption Hide the DatePicker DateInput or make it readonly
