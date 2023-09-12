@@ -34,7 +34,7 @@ This how-to article answers the following questions:
 
 * How to force users to pick date and time only from the component popups?
 
-How to hide the DateTimePicker input textbox and display the selected date on another label?
+* How to hide the DateTimePicker input textbox and display the selected date on another label?
 
 ## Solution
 
