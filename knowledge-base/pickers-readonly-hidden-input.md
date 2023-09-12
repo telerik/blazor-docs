@@ -116,7 +116,7 @@ function makeDateInputsReadOnly() {
 ## Notes
 
 * The picker textbox must be `readonly` and not `disabled` in order to receive focus after date selection. Otherwise the popup Calendar will not close.
-* A possible negative side effect is that users will still be able to change the DateInput value via the Up and Down arrow keys.
+* A possible negative side effect is that users will still be able to change the DateInput value through the `Up` and `Down` arrow keys.
 * Even though the DateInput textbox is read-only, it will accept programmatic value changes.
 
 ## See Also
