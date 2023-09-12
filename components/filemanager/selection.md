@@ -32,8 +32,10 @@ When using two-way binding, the selected items will be automatically updated in 
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Files"
+<TelerikFileManager Data="@FileManagerData"
                     @bind-SelectedItems="@SelectedItems"
+                    @bind-Path="@DirectoryPath"
+                    OnModelInit="@OnModelInitHandler"
                     Height="400px" />
 
 <strong>Selected items:</strong>
@@ -50,14 +52,33 @@ When using two-way binding, the selected items will be automatically updated in 
 }
 
 @code {
-    private List<FlatFileEntry> Files = new List<FlatFileEntry>();
+    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
+
+    private string DirectoryPath { get; set; } = string.Empty;
 
     private IEnumerable<FlatFileEntry> SelectedItems { get; set; } = new List<FlatFileEntry>();
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Files = await GetFlatFileEntries();
+        FileManagerData = await GetFlatFileEntries();
+    }
+
+    //initialize the model to allow new folder creation
+    private FlatFileEntry OnModelInitHandler()
+    {
+        var item = new FlatFileEntry();
+        item.Name = $"New folder";
+        item.Size = 0;
+        item.Path = Path.Combine(DirectoryPath, item.Name);
+        item.IsDirectory = true;
+        item.HasDirectories = false;
+        item.DateCreated = DateTime.Now;
+        item.DateCreatedUtc = DateTime.Now;
+        item.DateModified = DateTime.Now;
+        item.DateModifiedUtc = DateTime.Now;
+
+        return item;
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -78,8 +99,9 @@ When using two-way binding, the selected items will be automatically updated in 
     }
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
+
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -91,7 +113,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
+                Path = Path.Combine("Work Files"),
                 Size = 3 * 1024 * 1024
             };
 
@@ -106,7 +128,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "documents"),
+                Path = Path.Combine(workFiles.Path, "Documents"),
                 Size = 1024 * 1024
             };
 
@@ -121,7 +143,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "images"),
+                Path = Path.Combine(workFiles.Path, "Images"),
                 Size = 2 * 1024 * 1024
             };
 
@@ -137,7 +159,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
@@ -153,7 +175,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 20),
                 DateModified = new DateTime(2022, 1, 25),
                 DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
                 Size = 538 * 1024
             };
 
@@ -169,7 +191,7 @@ When using two-way binding, the selected items will be automatically updated in 
                 DateCreatedUtc = new DateTime(2022, 1, 10),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
                 Size = 1024
             };
 
@@ -180,12 +202,12 @@ When using two-way binding, the selected items will be automatically updated in 
                 Name = "Grid Design",
                 IsDirectory = false,
                 HasDirectories = false,
-                Extension = ".png",
+                Extension = ".jpg",
                 DateCreated = new DateTime(2022, 1, 12),
                 DateCreatedUtc = new DateTime(2022, 1, 12),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
                 Size = 1024
             };
 
@@ -218,9 +240,11 @@ In this case, you need to manually update the view-model as the framework does n
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Files"
+<TelerikFileManager Data="@FileManagerData"
+                    @bind-Path="@DirectoryPath"
                     SelectedItems="@SelectedItems"
-                    SelectedItemsChanged="@((IEnumerable<FlatFileEntry> selectedFiles) => OnSelect(selectedFiles))"
+                    SelectedItemsChanged="@((IEnumerable<FlatFileEntry> selectedFiles) => OnSelect(selectedFiles))"                    
+                    OnModelInit="@OnModelInitHandler"
                     Height="400px" />
 
 <strong>Selected items:</strong>
@@ -237,7 +261,9 @@ In this case, you need to manually update the view-model as the framework does n
 }
 
 @code {
-    private List<FlatFileEntry> Files = new List<FlatFileEntry>();
+    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
+
+    private string DirectoryPath { get; set; } = string.Empty;
 
     private IEnumerable<FlatFileEntry> SelectedItems { get; set; } = new List<FlatFileEntry>();
 
@@ -252,7 +278,24 @@ In this case, you need to manually update the view-model as the framework does n
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Files = await GetFlatFileEntries();
+        FileManagerData = await GetFlatFileEntries();
+    }
+
+    //initialize the model to allow new folder creation
+    private FlatFileEntry OnModelInitHandler()
+    {
+        var item = new FlatFileEntry();
+        item.Name = $"New folder";
+        item.Size = 0;
+        item.Path = Path.Combine(DirectoryPath, item.Name);
+        item.IsDirectory = true;
+        item.HasDirectories = false;
+        item.DateCreated = DateTime.Now;
+        item.DateCreatedUtc = DateTime.Now;
+        item.DateModified = DateTime.Now;
+        item.DateModifiedUtc = DateTime.Now;
+
+        return item;
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -273,8 +316,9 @@ In this case, you need to manually update the view-model as the framework does n
     }
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
+
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -286,7 +330,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
+                Path = Path.Combine("Work Files"),
                 Size = 3 * 1024 * 1024
             };
 
@@ -301,7 +345,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "documents"),
+                Path = Path.Combine(workFiles.Path, "Documents"),
                 Size = 1024 * 1024
             };
 
@@ -316,7 +360,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "images"),
+                Path = Path.Combine(workFiles.Path, "Images"),
                 Size = 2 * 1024 * 1024
             };
 
@@ -332,7 +376,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
@@ -348,7 +392,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 20),
                 DateModified = new DateTime(2022, 1, 25),
                 DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
                 Size = 538 * 1024
             };
 
@@ -364,7 +408,7 @@ In this case, you need to manually update the view-model as the framework does n
                 DateCreatedUtc = new DateTime(2022, 1, 10),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
                 Size = 1024
             };
 
@@ -375,12 +419,12 @@ In this case, you need to manually update the view-model as the framework does n
                 Name = "Grid Design",
                 IsDirectory = false,
                 HasDirectories = false,
-                Extension = ".png",
+                Extension = ".jpg",
                 DateCreated = new DateTime(2022, 1, 12),
                 DateCreatedUtc = new DateTime(2022, 1, 12),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
                 Size = 1024
             };
 
