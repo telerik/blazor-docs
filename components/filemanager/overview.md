@@ -26,7 +26,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Data"
+<TelerikFileManager Data="@FileManagerData"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
                     OnCreate="@OnCreateHandler"
@@ -37,10 +37,11 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 </TelerikFileManager>
 
 @code {
-    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
-    public string DirectoryPath { get; set; } = string.Empty;
+    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
 
-    async Task OnCreateHandler(FileManagerCreateEventArgs args)
+    private string DirectoryPath { get; set; } = string.Empty;
+
+    private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
         // the new item data is hardcoded for the purpose of the example
         var newFolder = args.Item as FlatFileEntry;
@@ -65,13 +66,13 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
         {
             // simulate add in file system
             newFolder.ParentId = parentDirectory.Id;
-            Data.Add(newFolder);
-            parentDirectory.HasDirectories = Data.Count(x => x.ParentId == parentDirectory.Id) > 0;
+            FileManagerData.Add(newFolder);
+            parentDirectory.HasDirectories = FileManagerData.Count(x => x.ParentId == parentDirectory.Id) > 0;
         }
         else
         {
             // create a folder in the root dir
-            Data.Add(newFolder);
+            FileManagerData.Add(newFolder);
         }
 
         RefreshData();
@@ -79,21 +80,21 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
     private FlatFileEntry GetDirectory(string path)
     {
-        var directory = Data.FirstOrDefault(x => x.IsDirectory && x.Path == path);
+        var directory = FileManagerData.FirstOrDefault(x => x.IsDirectory && x.Path == path);
 
         return directory;
     }
 
     private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
     {
-        var parentItem = Data
+        var parentItem = FileManagerData
             .FirstOrDefault(x => x.IsDirectory == true && x.Path == currDirectory);
 
         return parentItem;
     }
 
 
-    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
     {
         var item = args.Item as FlatFileEntry;
 
@@ -110,7 +111,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = Data.FirstOrDefault(x => x.Id == item.Id);
+            var updatedItem = FileManagerData.FirstOrDefault(x => x.Id == item.Id);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
@@ -118,7 +119,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
         }
     }
 
-    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
     {
         var selectedItem = args.Item as FlatFileEntry;
 
@@ -133,13 +134,13 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
     }
 
 
-    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = Data.FirstOrDefault(x => x.Id == currItem.Id);
+        var itemToDelete = FileManagerData.FirstOrDefault(x => x.Id == currItem.Id);
 
-        Data.Remove(itemToDelete);
+        FileManagerData.Remove(itemToDelete);
 
         RefreshData();
     }
@@ -162,13 +163,13 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
     private void RefreshData()
     {
-        Data = new List<FlatFileEntry>(Data);
+        FileManagerData = new List<FlatFileEntry>(FileManagerData);
     }
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetFlatFileEntries();
+        FileManagerData = await GetFlatFileEntries();
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -190,7 +191,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
 
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
         var workFiles = new FlatFileEntry()

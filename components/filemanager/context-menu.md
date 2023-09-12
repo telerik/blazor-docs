@@ -53,7 +53,7 @@ The following example demonstrates handling of the ContextMenu commends.
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@Data"
+<TelerikFileManager Data="@FileManagerData"
                     @bind-Path="@DirectoryPath"
                     Height="400px"
                     IdField="MyModelId"
@@ -75,10 +75,11 @@ The following example demonstrates handling of the ContextMenu commends.
 </TelerikFileManager>
 
 @code {
-    public List<FlatFileEntry> Data = new List<FlatFileEntry>();
-    public string DirectoryPath { get; set; } = string.Empty;  
+    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
+    
+    private string DirectoryPath { get; set; } = string.Empty;
 
-    async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
+    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
     {
         var item = args.Item as FlatFileEntry;
 
@@ -95,19 +96,19 @@ The following example demonstrates handling of the ContextMenu commends.
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = Data.FirstOrDefault(x => x.MyModelId == item.MyModelId);
+            var updatedItem = FileManagerData.FirstOrDefault(x => x.MyModelId == item.MyModelId);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
         }
     }
 
-    async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
+    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
     {
         var selectedItem = args.Item as FlatFileEntry;
 
         //the FileManager does not have the actual file.
-        //To download it, find the actual file in the datasource  
+        //To download it, find the actual file in the datasource
         //based on the selected file (args.Item) and
         //assign the following data to the argument:
 
@@ -117,14 +118,14 @@ The following example demonstrates handling of the ContextMenu commends.
     }
 
 
-    async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
+    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = Data.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
+        var itemToDelete = FileManagerData.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
 
         //simulate item deletion
-        Data.Remove(itemToDelete);
+        FileManagerData.Remove(itemToDelete);
 
         RefreshData();
     }
@@ -147,13 +148,13 @@ The following example demonstrates handling of the ContextMenu commends.
 
     private void RefreshData()
     {
-        Data = new List<FlatFileEntry>(Data);
+        FileManagerData = new List<FlatFileEntry>(FileManagerData);
     }
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        Data = await GetFlatFileEntries();
+        FileManagerData = await GetFlatFileEntries();
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
@@ -175,7 +176,7 @@ The following example demonstrates handling of the ContextMenu commends.
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
 
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
 
         var workFiles = new FlatFileEntry()
@@ -189,7 +190,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
+                Path = Path.Combine("Work Files"),
                 Size = 3 * 1024 * 1024
             };
 
@@ -204,7 +205,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "documents"),
+                Path = Path.Combine(workFiles.Path, "Documents"),
                 Size = 1024 * 1024
             };
 
@@ -219,7 +220,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "images"),
+                Path = Path.Combine(workFiles.Path, "Images"),
                 Size = 2 * 1024 * 1024
             };
 
@@ -235,7 +236,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
@@ -251,7 +252,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 20),
                 DateModified = new DateTime(2022, 1, 25),
                 DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
                 Size = 538 * 1024
             };
 
@@ -267,7 +268,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 10),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
+                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
                 Size = 1024
             };
 
@@ -283,7 +284,7 @@ The following example demonstrates handling of the ContextMenu commends.
                 DateCreatedUtc = new DateTime(2022, 1, 12),
                 DateModified = new DateTime(2022, 2, 13),
                 DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
+                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
                 Size = 1024
             };
 
