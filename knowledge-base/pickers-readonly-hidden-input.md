@@ -32,7 +32,7 @@ This how-to article answers the following questions:
 
 * How to disable direct typing in the DatePicker and TimePicker components? I want to restrict users to use only the Calendar and TimeView popups.
 
-How to force users to pick date and time only from the component popups?
+* How to force users to pick date and time only from the component popups?
 
 How to hide the DateTimePicker input textbox and display the selected date on another label?
 
