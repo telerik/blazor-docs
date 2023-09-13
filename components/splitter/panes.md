@@ -20,12 +20,13 @@ Each Splitter Pane (section) is individually configured and offers the following
 |----------|----------|----------|
 | `ChildContent` | `RenderFragment` | The standard `RenderFragment` for Blazor that lets you define your content directly between the opening and closing tags of the pane.
 | `Class` | `string` | The CSS class that renders on the `<div class="k-pane">` element of the pane. Lets you apply styling such as changing the `overflow` for the content.
-| `Collapsed` | `bool` | Whether the pane will be collapsed (not visible). Supports two-way binding.
+| `Collapsed` | `bool` | Whether the pane content will be collapsed (not visible). Supports two-way binding.
 | `Collapsible` | `bool` | Whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane.
 | `Max` | `string` | The maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further.
 | `Min` | `string` |  The minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further.
 | `Resizable` | `bool` <br/> (`true`) | Whether the user can resize the pane by dragging the resize handle (splitbar) between two panes. Resizing means that the adjacent pane will take up the difference in size.
 | `Size` | `string`  | The size the pane in pixels or percentages. Must be between `Min` and `Max`. Supports two-way binding.
+| `Visible` | `bool`  | Controls the visibility of the pane. When toggled at runtime, the pane's order remains unchanged, unlike adding a pane with a conditional statement, which appends it to the end. This is different from the `Collapsed` parameter, which manages content visibility and keeps action buttons (expand, collapse, resize) always visible.
 
 ````CSHTML
 @*Configure the Splitter Panes*@
@@ -46,6 +47,11 @@ Each Splitter Pane (section) is individually configured and offers the following
         <SplitterPane Collapsible="false" >
             <h4>Right Pane</h4>
             <span>Non-collapsible pane. No size set, it will take the remaining space of the component.</span>
+        </SplitterPane>
+
+        <SplitterPane Visible="false" >
+            <h4>Not Visible Pane</h4>
+            <span>This pane is not displayed.</span>
         </SplitterPane>
         
     </SplitterPanes>
