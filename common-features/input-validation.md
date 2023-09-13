@@ -742,8 +742,8 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 </EditForm>
 
 <style>
-    .k-slider{
-        height: 60px
+    .validation-message{
+        margin-top: 15px
     }
 </style>
 
