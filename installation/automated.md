@@ -23,6 +23,7 @@ There is an automated installer for:
 
 * Linux (`.sh` + `.tar.gz`). Pass `-s <path to the archive>` when running the script. Other arguments are `-d` for the location where the archive will be extracted (defaults to `${HOME}/telerik-blazor"`) and `-SkipNETCoreInstall` to skip the installation of .NET Core (note that the framework is required).
 
+> The `.pkg` installer for Mac will be discontinued in 2024 [together with Visual Studio for Mac](https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac). Afterwards, use the [ZIP archive]({%slug installation/zip%}) instead.
 
 The automated installer provides the following:
 
