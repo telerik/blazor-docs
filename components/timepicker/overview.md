@@ -84,7 +84,7 @@ The Blazor Time Picker component provides various parameters that allow you to c
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Specifies whether typing in the input and opening the dropdown are allowed. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Format` | `string` | Specifies the format of the DateInput of the TimePicker. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. Note that format specifiers for non-time portions will only be editable in the input and will not have a representation in the time picker dropdown. |
+| `Format` | `string` <br /> (`ShortTimePattern`) | The format of the TimePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported data formats by the DateInput]({%slug components/dateinput/supported-formats%}). Note that format specifiers for non-time portions will be editable only in the input and will not have a representation in the Time Picker dropdown. |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
 | `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`) | The latest time that the user can select. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`) | The earliest time that the user can select. |
