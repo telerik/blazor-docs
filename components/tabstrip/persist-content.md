@@ -17,15 +17,29 @@ To keep the Tab content in the DOM at all times, set the `PersistContent` boolea
 >caption Persist the TabStrip content
 
 ````CSHTML
+<h3>PersistTabContent="true"</h3>
+
 <TelerikTabStrip PersistTabContent="true">
     <TabStripTab Title="First">
-        First tab content.
+        Type something in the textbox. Go to the other tab and then return.
+        <br />
+        <TelerikTextBox Width="200px" />
     </TabStripTab>
     <TabStripTab Title="Second">
-        Second tab content.        
+        Go back to the first tab to see the typed content.
     </TabStripTab>
-    <TabStripTab Title="Third">
-        Third tab content.
+</TelerikTabStrip>
+
+<h3>PersistTabContent="false"</h3>
+
+<TelerikTabStrip>
+    <TabStripTab Title="First">
+        Type something in the textbox. Go to the other tab and then return.
+        <br />
+        <TelerikTextBox Width="200px" />
+    </TabStripTab>
+    <TabStripTab Title="Second">
+        The TextBox value in the first tab will not be persisted.
     </TabStripTab>
 </TelerikTabStrip>
 ````
