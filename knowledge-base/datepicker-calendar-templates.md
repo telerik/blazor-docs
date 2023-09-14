@@ -68,6 +68,8 @@ TelerikDateInput:
     .picker-button {
         margin-left: -34px;
         border-left-width: 0;
+        position: relative;
+        z-index: 1;
     }
     /* remove the Calendar border, as we apply one to the AnimationContainer with k-calendar */
     .picker-popup > .k-calendar {
@@ -77,19 +79,20 @@ TelerikDateInput:
     .close-button {
         text-align: right;
     }
-    /* make the button look like an icon */
-    .close-button > .k-button {
-        border: 0;
-        height: auto;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        background: none transparent;
-    }
+        /* make the button look like an icon */
+        .close-button > .k-button {
+            border: 0;
+            height: auto;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            background: none transparent;
+        }
 </style>
 
 @code {
-    DateTime DateValue { get; set; } = DateTime.Now;
-    TelerikAnimationContainer CalendarContainer { get; set; }
+    private DateTime DateValue { get; set; } = DateTime.Now;
+
+    private TelerikAnimationContainer CalendarContainer { get; set; } = null!;
 
     async Task CalendarValueChanged(DateTime newDate)
     {
