@@ -83,7 +83,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `Enabled` | `bool` | Whether typing in the inputs is allowed. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `EndId` and `StartId` | `string` | The `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
-| `Format` | `string` <br /> (`ShortDatePattern`) | The format of the DateRangePicker DateInputs. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported data formats by the DateInput]({%slug components/dateinput/supported-formats%}). |
+| `Format` | `string` <br /> (`ShortDatePattern`) | The format of the DateRangePicker DateInputs. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput]({%slug components/dateinput/supported-formats%}). |
 | `Max` | `DateTime`  <br /> (`DateTime(2099, 12, 31)`) | The latest date that the user can select. |
 | `Min` | `DateTime`  <br /> (`DateTime(1900, 1, 1)`)| The earliest date that the user can select. |
 | `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
