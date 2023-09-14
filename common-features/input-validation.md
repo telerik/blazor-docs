@@ -531,7 +531,7 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
     <ValidationSummary />
 
     <p>
-        <TelerikFloatingLabel Text="Credit Card*:">
+        <TelerikFloatingLabel Text="Credit Card:">
             <TelerikMaskedTextBox MaskOnFocus="true" 
                                   Mask="0000-0000-0000-0000"
                                   IncludeLiterals="true"
@@ -742,7 +742,7 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 </EditForm>
 
 <style>
-    .validation-message{
+    .validation-message {
         margin-top: 15px
     }
 </style>
