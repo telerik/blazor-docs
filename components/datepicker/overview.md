@@ -84,7 +84,7 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected. |
 | `Enabled` | `bool` | Specifies whether typing in the input and clicking the button is allowed. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Format` | `string` | The format of the DatePicker's DateInput. [Read more about supported data formats in Telerik DateInput for Blazor UI]({%slug components/dateinput/supported-formats%}) article. |
+| `Format` | `string` <br /> (`ShortDatePattern`) | The format of the DatePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported data formats by the DateInput]({%slug components/dateinput/supported-formats%}). |
 | `Id` | `string` | The `id` attribute on the `<input />` element. Use it to attach a `<label for="">` to the input. |
 | `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`)| The latest date that the user can select. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`)| The earliest date that the user can select. |
