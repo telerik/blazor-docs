@@ -81,7 +81,7 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Format` | `string` | The date format that the user input must match. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
+| `Format` | `string` <br /> (`FullDateTimePattern`) | The format of the DateTimePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput]({%slug components/dateinput/supported-formats%}). |
 | `Id` | `string` | The `id` HTML attribute of the `input` |
 | `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`) | The latest date and time that the user can select |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`) | The earliest date and time that the user can select |
