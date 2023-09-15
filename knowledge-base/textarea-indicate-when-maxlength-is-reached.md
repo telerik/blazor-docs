@@ -33,7 +33,7 @@ How to display a counter, so the user knows how many characters they have left b
 
 ## Solution
 
-The `MaxLength` parameter of the TextArea maps to the `maxlength` attribute of the HTML `<textarea>` element. Its purpose is to prevent the user from typing if they reached the specified maximum allowed characters count. It does not provide visual indication out of the box.
+The `MaxLength` parameter of the TextArea maps to the `maxlength` attribute of the HTML `<textarea>` element. Its purpose is to prevent the user from typing beyond the specified maximum character count. It does not provide a visual indication out of the box.
 
 To notify the user that they have reached the `MaxLength` value:
 
