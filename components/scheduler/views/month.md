@@ -10,11 +10,17 @@ position: 4
 
 # Month View
 
-The Month view of the Scheduler for Blazor shows the entire month to the user.
+The Month view of the Scheduler for Blazor shows an entire month to the user.
 
-The `Date` parameter of the scheduler controls which month is displayed - the one containing the date.
+The `Date` parameter of the Scheduler controls which month is displayed. It's the one containing the date.
 
-A day shows up to two events and if there are more - an ellipsis button provides access to the DayView for the specific day so the user can see the needed details. This avoids cluttering and ugly rendering. You can also access the day view from the day number. Of course, you must also define a day view so the use can see it.
+Each day slot shows up to two appointments. If there are more appointments for a day, an ellipsis button will provide access to the DayView for the specific day. This avoids cluttering. You can also access the day view from the day number. Of course, you must also [define a day view]({%slug scheduler-views-day%}) so the user can see it.
+
+Here is how the Scheduler determines which two appointments to display in a month view slot:
+
+1. The Scheduler sorts all appointments in the current month by start date (ascending) and then by end date (descending).
+1. It takes the first two appointments for each day from the sorted collection.
+1. The component sorts the two appointments for each day by start time (ascending) and then by end time (descending).
 
 In this article:
 
@@ -99,7 +105,7 @@ In this article:
 ````
 ## Resource Grouping in the Month View
 
-You can configure the Month view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
+You can configure the Month view to display appointments that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
 
 >caption Resource Grouping in a Month view.
 
