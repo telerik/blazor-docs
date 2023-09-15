@@ -5,7 +5,7 @@ type: how-to
 page_title: Indicate that MaxLength is reached in TextArea
 slug: textarea-kb-indicate-when-maxlength-is-reached
 position: 
-tags: textarea, maxlength, max, count, counter, characters, message, indication
+tags: telerik, blazor, textarea, maxlength, counter
 ticketid:
 res_type: kb
 ---
