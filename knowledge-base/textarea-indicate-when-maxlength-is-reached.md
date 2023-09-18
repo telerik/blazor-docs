@@ -40,7 +40,7 @@ To notify the user that they have reached the `MaxLength` value:
 * Display this message if the length of the TextArea value equals the specified `MaxLength` value. 
 * Add the desired CSS rules or classes to style the message as needed.
 
-To let the user know how many characters they have left to type, render the TextArea value length and the `MaxLength` value - this will serve as a character counter.
+To inform the user about the remaining characters, render the TextArea value length and the `MaxLength` value—this will serve as a character counter.
 
 >caption Show a character counter and a message when max is reached
 
