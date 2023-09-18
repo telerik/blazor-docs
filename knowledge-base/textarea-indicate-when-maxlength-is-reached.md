@@ -42,50 +42,28 @@ To notify the user that they have reached the `MaxLength` value:
 
 To inform the user about the remaining characters, render the TextArea value length and the `MaxLength` value—this will serve as a character counter.
 
->caption Show a character counter and a message when max is reached
+
+>caption TextArea with counter, MaxLength and notification
 
 ````CSHTML
-@using System.ComponentModel.DataAnnotations
+<div style="width:400px">
+    <TelerikTextArea @bind-Value="@TextValue"
+                     Placeholder="Enter your text here"
+                     MaxLength="@MaxLength">
+    </TelerikTextArea>
+    <div class="textarea-info">
+        @if (TextLength == MaxLength)
+        {
+            <div class="k-form-hint k-form-error">You reached the maximum allowed characters.</div>
+        }
+        <span class="character-counter k-form-hint @(TextLength == MaxLength ? "k-form-error" : "")">@($"{TextLength} / {MaxLength}")</span>
+    </div>
+</div>
 
-@if (string.IsNullOrEmpty(FormSubmitMessage))
-{
-    <TelerikForm Model="@FormModel"
-                 OnValidSubmit="@OnValidSubmit"
-                 OnInvalidSubmit="@OnInvalidSubmit"
-                 Width="400px">
-        <FormValidation>
-            <DataAnnotationsValidator />
-        </FormValidation>
-        <FormItems>
-            <FormItem>
-                <Template>
-                    <label for="sendInvitation">Send Invitation:</label>
-                    <TelerikTextArea Id="sendInvitation"
-                                     Value="@FormModel.Text"
-                                     ValueExpression="@(() => FormModel.Text)"
-                                     ValueChanged="@OnValueChanged"
-                                     Placeholder="Enter your text here"
-                                     MaxLength="@MaxLength">
-                    </TelerikTextArea>
-                    <div class="textarea-info">
-                        <TelerikValidationMessage For="@(() => FormModel.Text)" />
-                        @if (TextLength == MaxLength)
-                        {
-                            <div class="k-form-hint k-form-error">You reached the maximum allowed characters.</div>
-                        }
-                        <span class="character-counter k-form-hint @(TextLength == MaxLength ? "k-form-error" : "")">@($"{TextLength} / {MaxLength}")</span>
-                    </div>
-                </Template>
-            </FormItem>
-        </FormItems>
-        <FormButtons>
-            <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Send</TelerikButton>
-        </FormButtons>
-    </TelerikForm>
-}
-else
-{
-    @FormSubmitMessage
+@code {
+    private string TextValue { get; set; }
+    private int MaxLength { get; set; } = 40;
+    private int TextLength => TextValue?.Length ?? 0;
 }
 
 <style>
@@ -98,41 +76,74 @@ else
         margin-left: auto;
     }
 </style>
+````
+
+>caption TextArea in Form with counter and validation
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+
+<TelerikForm Model="@FormModel"
+             OnValidSubmit="@OnValidSubmit"
+             Width="400px">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
+    <FormItems>
+        <FormItem>
+            <Template>
+                <label for="sendInvitation">Send Invitation:</label>
+                <TelerikTextArea Id="sendInvitation"
+                                 @bind-Value="@FormModel.Text"
+                                 Placeholder="Enter your text here">
+                </TelerikTextArea>
+                <div class="textarea-info">
+                    <TelerikValidationMessage For="@(() => FormModel.Text)" />  
+                    <span class="character-counter k-form-hint @(TextLength > MaxLength ? "k-form-error" : "")">@($"{TextLength} / {MaxLength}")</span>
+                </div>
+            </Template>
+        </FormItem>
+    </FormItems>
+    <FormButtons>
+        <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Send</TelerikButton>
+    </FormButtons>
+</TelerikForm>
+
+<br />
+
+@FormSubmitMessage
 
 @code {
     public class ValidationModel
     {
         [Required(ErrorMessage = "Please enter a text.")]
+        [MaxLength(40, ErrorMessage = "Maximum allowed characters is 40")]
         public string Text { get; set; }
     }
 
-    public ValidationModel FormModel = new ValidationModel();
+    private ValidationModel FormModel = new ValidationModel();
 
-    public string FormSubmitMessage { get; set; }
+    private int MaxLength { get; set; } = 40;
 
-    public int TextLength => FormModel?.Text?.Length ?? 0;
+    private int TextLength => FormModel?.Text?.Length ?? 0;
 
-    public int MaxLength { get; set; } = 100;
+    private string FormSubmitMessage { get; set; }
 
-    public async void OnValidSubmit()
+    private async void OnValidSubmit()
     {
         FormSubmitMessage = "Form submitted successfully!";
-        await Task.Delay(2000);
-        FormSubmitMessage = "";
         FormModel.Text = "";
-
-        StateHasChanged();
-    }
-
-    public void OnInvalidSubmit()
-    {
-        FormSubmitMessage = "";
-    }
-
-    public void OnValueChanged(string value)
-    {
-        FormSubmitMessage = "";
-        FormModel.Text = value;
     }
 }
+
+<style>
+    .textarea-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .character-counter {
+        margin-left: auto;
+    }
+</style>
 ````
