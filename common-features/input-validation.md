@@ -743,7 +743,7 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 
 <style>
     .validation-message {
-        margin-top: 15px
+        margin-top: 1em;
     }
 </style>
 
