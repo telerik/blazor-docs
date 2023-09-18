@@ -69,7 +69,10 @@ navigation:
         position: 30
      "integrations":
         title: "Integration With Other Telerik Products"
-        position: 250
+        position: 40
+     "testing":
+        title: "Testing"
+        position: 45
      "integrations/document-processing":
         title: "Document Processing"
         position: 20
