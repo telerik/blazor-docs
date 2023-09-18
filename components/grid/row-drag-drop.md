@@ -137,7 +137,7 @@ When you drap and drop items from one Grid to another, the `OnRowDrop` event fir
 The target drop area in the Grid is the data `<table>` element. Users cannot drop below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
 
 * Do not set a Grid `Height`, so that there is no empty space below the last table row.
-* Define a `NoDataTemplate`, which fills the Grid data area.
+* Define a [`NoDataTemplate`]({%slug grid-templates-no-data%}), which fills the Grid data area.
 
 The following example demonstrates both these options:
 
