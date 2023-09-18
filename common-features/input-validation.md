@@ -531,29 +531,35 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
     <ValidationSummary />
 
     <p>
-        <TelerikMaskedTextBox Mask="0000-0000-0000-0000"
-                              IncludeLiterals="true"
-                              Label="Credit Card:"
-                              @bind-Value="@Payment.CreditCard">
-        </TelerikMaskedTextBox>
+        <TelerikFloatingLabel Text="Credit Card:">
+            <TelerikMaskedTextBox MaskOnFocus="true" 
+                                  Mask="0000-0000-0000-0000"
+                                  IncludeLiterals="true"
+                                  @bind-Value="@Payment.CreditCard">
+            </TelerikMaskedTextBox>
+        </TelerikFloatingLabel>
         <ValidationMessage For="@(() => Payment.CreditCard)" />
     </p>
 
     <p>
-        <TelerikMaskedTextBox Mask="+1-000-000-0000"
-                              Label="Phone:"
-                              @bind-Value="@Payment.PhoneNumber"
-                              PromptPlaceholder="null">
-        </TelerikMaskedTextBox>
+        <TelerikFloatingLabel Text="Phone:">
+            <TelerikMaskedTextBox MaskOnFocus="true" 
+                                  Mask="+1-000-000-0000"
+                                  @bind-Value="@Payment.PhoneNumber"
+                                  PromptPlaceholder="null">
+            </TelerikMaskedTextBox>
+        </TelerikFloatingLabel>
         <ValidationMessage For="@(() => Payment.PhoneNumber)" />
     </p>
 
     <p>
-        <TelerikMaskedTextBox Mask="00000-9999"
-                              Label="ZIP:"
-                              @bind-Value="@Payment.Zip"
-                              PromptPlaceholder="null">
-        </TelerikMaskedTextBox>
+        <TelerikFloatingLabel Text="ZIP:">
+            <TelerikMaskedTextBox MaskOnFocus="true" 
+                                  Mask="00000-9999"
+                                  @bind-Value="@Payment.Zip"
+                                  PromptPlaceholder="null">
+            </TelerikMaskedTextBox>
+        </TelerikFloatingLabel>
         <ValidationMessage For="@(() => Payment.Zip)" />
     </p>
 
@@ -734,6 +740,12 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>
 </EditForm>
+
+<style>
+    .validation-message {
+        margin-top: 1em;
+    }
+</style>
 
 @code{
     MyModel TheModel { get; set; } = new MyModel();
