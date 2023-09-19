@@ -59,6 +59,10 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 
 Telerik UI for Blazor is committed to the currently supported official versions of .NET. We evaluate the compatibility with preview .NET versions on a regular basis and provide support for new .NET versions after their official release becomes available.
 
+### Features From Newer .NET Versions
+
+Telerik UI for Blazor can include features from newer .NET versions in its source code only after it drops support for older .NET versions. For example, .NET 7 will be supported by mid 2024 and .NET 6 will be supported by late 2024. As a result, the Telerik Blazor components can include .NET 8 features in 2025 at the earliest.
+
 
 ## Browser Support
 
