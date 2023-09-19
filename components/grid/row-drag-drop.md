@@ -134,7 +134,7 @@ This section contains the following examples:
 
 When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface]({%slug grid-kb-drag-drop-different-models%}).
 
-The target drop area in the Grid is the `<table>` element. Users cannot drop in the empty space below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
+The target drop area in the Grid is the `<table>` element. Users cannot drop items in the empty space below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
 
 * Do not set a Grid `Height`, so that there is no empty space below the last table row.
 * Define a [`NoDataTemplate`]({%slug grid-templates-no-data%}), which fills the Grid data area.
