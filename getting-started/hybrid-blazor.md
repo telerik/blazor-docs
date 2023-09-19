@@ -111,10 +111,11 @@ namespace MyBlazorMauiAppName
 
 Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui/).
 
-
 ## Running the Blazor Hybrid App
 
-You can now run the hybrid application. Refer to the following resources for each technology stack:
+You can now run the hybrid application in debug mode, but it's recommended to [be aware of possible caveats during deployment and prevent them upfront]({%slug hybrid-blazor-apps%}#known-issues).
+
+Refer to the following articles for more information on each technology stack:
 
 * [MAUI](https://docs.microsoft.com/en-us/dotnet/maui/get-started/first-app?pivots=devices-android)
 * [WinForms](https://docs.microsoft.com/en-us/visualstudio/ide/create-csharp-winform-visual-studio?view=vs-2022#run-the-application)
