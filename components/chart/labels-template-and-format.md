@@ -122,14 +122,14 @@ The `Template` function of `ValueAxisLabels` exposes the following fields in the
 
 The `Template` function of `ChartLegendLabels` exposes the following fields in the template context:
 
-* `text` - the text of the legend item
-* `series` - the data series object
-* `value` - the point value. Available only for Donut and Pie charts.
-* `percentage` - the point value represented as a number between 0 and 1. Available only for donut, pie and 100% stacked charts.
+* `text` - the text the legend item
+* `series` - the data series
+* `value` - the point value (only for donut and pie charts)
+* `percentage` - the point value represented as a percentage value. Available only for donut, pie and 100% stacked charts
 
 ### New Line in the Label Template 
 
-To add a new line in a label, use the new line character `\n`.
+To add a new line in the label, use a `\n`.
 
 <div class="skip-repl"></div>
 
@@ -146,21 +146,10 @@ function chartLabelFunction(context) {
 ````CSHTML
 <TelerikChart>
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Data="@PhoneSales"
-                     Name="Phones"
-                     Color="orange"
-                     Opacity="0.8"
-                     Field="@nameof(ChartModel.Value)"
-                     CategoryField="@nameof(ChartModel.Category)">
-            <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column"
-                     Data="@LaptopSales"
-                     Name="Laptops"
-                     Color="green"
-                     Opacity="0.8"
+        <ChartSeries Type="ChartSeriesType.Line"
+                     Data="@ChartData"
+                     Name="Revenue"
+                     Color="red"
                      Field="@nameof(ChartModel.Value)"
                      CategoryField="@nameof(ChartModel.Category)">
             <ChartSeriesLabels Visible="true"
@@ -175,46 +164,26 @@ function chartLabelFunction(context) {
     </ChartCategoryAxes>
 
     <ChartValueAxes>
-        <ChartValueAxis Max="16">
+        <ChartValueAxis>
             <ChartValueAxisLabels Template="chartValueAxisLabelTemplate"></ChartValueAxisLabels>
         </ChartValueAxis>
     </ChartValueAxes>
 
-    <ChartTitle Text="Sales per Product"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Top">
-        <ChartLegendLabels Template="chartLegendItemLabelTemplate"></ChartLegendLabels>
-    </ChartLegend>
-</TelerikChart>
-
-<TelerikChart>
-    <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Pie"
-                     Data="@PhoneSales"
-                     Field="@nameof(ChartModel.Value)"
-                     CategoryField="@nameof(ChartModel.Category)">
-            <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
-        </ChartSeries>
-    </ChartSeriesItems>
-
-    <ChartTitle Text="Phone Sales per Quarter"></ChartTitle>
+    <ChartTitle Text="Revenue per Product"></ChartTitle>
 
     <ChartLegend Position="ChartLegendPosition.Right">
-        <ChartLegendLabels Template="pieLegendItemLabelTemplate"></ChartLegendLabels>
+        <ChartLegendLabels Template="chartLegendItemLabelTemplate"></ChartLegendLabels>
     </ChartLegend>
 </TelerikChart>
 
 <!-- Move JavaScript code to a separate JS file in production -->
 <script suppress-error="BL9992">
     function chartSeriesLabelTemplate(context) {
-        return "Value: " + context.value + " mln\n" +
-            "Category: " + context.category + "\n" +
-            "Extra info: " + context.dataItem.ExtraData;
+        return "value: " + context.value + " mln\ncategory: " + context.category + "\nextra info: " + context.dataItem.ExtraData;
     }
 
     function chartCategoryAxisLabelTemplate(context) {
-        return context.value + " Quarter";
+        return context.value + " quarter";
     }
 
     function chartValueAxisLabelTemplate(context) {
@@ -222,59 +191,29 @@ function chartLabelFunction(context) {
     }
 
     function chartLegendItemLabelTemplate(context) {
-        return context.text + " (" + context.series.color + ")";
-    }
-
-    function pieLegendItemLabelTemplate(context) {
-        return "&#8205;\n" + // prevent new line trimming
-            "Text: " + context.text +
-            "\nValue: " + context.value + " mln" +
-            "\nPct: " + (context.percentage * 100).toFixed(2) + " %" +
-            "\n&#8205;"; // prevent new line trimming
+        return context.series.color + ": " + context.text;
     }
 </script>
 
 @code {
-    private List<ChartModel> PhoneSales = new List<ChartModel>()
+    private List<ChartModel> ChartData = new List<ChartModel>
     {
         new ChartModel
         {
-            Category = "First",
-            Value = 8.4,
+            Category = "first",
+            Value = 2,
             ExtraData = "one"
         },
         new ChartModel
         {
-            Category = "Second",
-            Value = 6.4,
-            ExtraData = "two\nnew line"
+            Category = "second",
+            Value = 3,
+            ExtraData = "two\nlines"
         },
         new ChartModel
         {
-            Category = "Third",
-            Value = 11.8,
-            ExtraData = "three"
-        }
-    };
-
-    private List<ChartModel> LaptopSales = new List<ChartModel>()
-    {
-        new ChartModel
-        {
-            Category = "First",
-            Value = 7.2,
-            ExtraData = "one"
-        },
-        new ChartModel
-        {
-            Category = "Second",
-            Value = 10.4,
-            ExtraData = "two\nnew line"
-        },
-        new ChartModel
-        {
-            Category = "Third",
-            Value = 7.6,
+            Category = "third",
+            Value = 4,
             ExtraData = "three"
         }
     };
@@ -284,6 +223,86 @@ function chartLabelFunction(context) {
         public string Category { get; set; }
         public double Value { get; set; }
         public string ExtraData { get; set; }
+    }
+}
+````
+
+### Hide Label Conditionally
+
+In some cases, you want the series to have labels, but certain data points must not have a label. For example, in a [stacked series]({%slug components/chart/stack%}) where a certain value is `0`.
+
+To do that, you need to:
+
+* Add conditional logic in the template that renders the desired content when your condition is met, and returns an empty string when it is not.
+* Ensure the label background is `transparent` so there are no leftover spots on the Chart.
+
+>caption Hide Chart labels with zero value
+
+````CSHTML
+<TelerikChart>
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Data="@ChartData"
+                     Name="Product 1 Sales"
+                     Field="@nameof(ChartModel.Value1)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate"
+                               Background="transparent"></ChartSeriesLabels>
+            <ChartSeriesStack Enabled="true"></ChartSeriesStack>
+        </ChartSeries>
+        <ChartSeries Type="ChartSeriesType.Column"
+                     Data="@ChartData"
+                     Name="Product 2 Sales"
+                     Field="@nameof(ChartModel.Value2)"
+                     CategoryField="@nameof(ChartModel.Category)">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate"
+                               Background="transparent"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+</TelerikChart>
+
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function chartSeriesLabelTemplate(context) {
+        if (context.value != 0) {
+            return context.value + " mln";
+        }
+        else {
+            return "";
+        }
+    }
+</script>
+
+@code {
+    private List<ChartModel> ChartData = new List<ChartModel>()
+    {
+        new ChartModel
+        {
+            Value1 = 3,
+            Value2 = 2,
+            Category = "Q1"
+        },
+        new ChartModel
+        {
+            Value1 = 1,
+            Value2 = 0,
+            Category = "Q2"
+        },
+        new ChartModel
+        {
+            Value1 = 0,
+            Value2 = 0,
+            Category = "Q3"
+        }
+    };
+
+    public class ChartModel
+    {
+        public double Value1 { get; set; }
+        public double Value2 { get; set; }
+        public string Category { get; set; }
     }
 }
 ````
