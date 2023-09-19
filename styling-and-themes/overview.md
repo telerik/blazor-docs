@@ -171,9 +171,9 @@ You can add the font to the page from Google Fonts in the following way:
 
 The Telerik Bootstrap Theme has a design that is similar to the Bootstrap framework style so you can better integrate the Telerik components in an app that already uses Bootstrap for layouts and styles.
 
-Bootstrap and Telerik UI for Blazor are two completely separate products that do not share classes or code, however. You can use Bootstrap to create layouts and then put our components in those layouts by treating them like the `<span>` or `<div>` elements that they are. You can use Bootstrap classes and utilities on your own elements in the markup regardless of the components inside.
+Bootstrap and Telerik UI for Blazor are two completely separate products that do not share classes or code. The Telerik Bootstrap theme is not the same as the Bootstrap framework (or styles). Our theme only uses the same Bootstrap metrics and design approaches to fit into a Bootstrap layout better.
 
-The Telerik Bootstrap theme is not the same as the Bootstrap framework (or styles), it is our own theme that uses the Bootstrap metrics and design approaches to fit into a Bootstrap layout better. It can also use customized variables from Bootstrap, and you can see one way to do that through building the SASS files for both Bootstrap and Telerik in the following sample app: [Blazor Dashboard](https://github.com/telerik/blazor-ui/tree/master/sample-applications/blazor-dashboard).
+You can use Bootstrap to create layouts and then put our components inside those layouts. You can use Bootstrap classes and utilities on your own elements in the markup regardless of the components inside. Using Bootstrap classes on our components may lead to styling conflicts and is generally not necessary or recommended.
 
 ### Bootstrap Framework Alternatives
 
