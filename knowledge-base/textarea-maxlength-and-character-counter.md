@@ -1,9 +1,9 @@
 ---
-title: Indicate that MaxLength is reached in TextArea
+title: TextArea with MaxLength and character counter
 description: How to indicate that MaxLength is reached in TextArea? How to display a message showing that the user has typed the maximum allowed characters? How to show a character counter?
 type: how-to
-page_title: Indicate that MaxLength is reached in TextArea
-slug: textarea-kb-indicate-when-maxlength-is-reached
+page_title: TextArea with MaxLength and character counter
+slug: textarea-kb-maxlength-and-character-counter
 position: 
 tags: telerik, blazor, textarea, maxlength, counter
 ticketid:
@@ -32,6 +32,14 @@ This how-to article answers the following questions:
 
 ## Solution
 
+This article provides two different solutions. Choose the more suitable one depending on how you want to use the TextArea:
+* [TextArea as a standalone component](#textarea-as-a-standalone-component)
+* [TextArea inside a Form](#textarea-inside-a-form)
+
+### TextArea as a standalone component
+
+To set maximum allowed characters when using the TextArea as a standalone component, use its `MaxLength` property. 
+
 The `MaxLength` parameter of the TextArea maps to the `maxlength` attribute of the HTML `<textarea>` element. Its purpose is to prevent the user from typing beyond the specified maximum character count. It does not provide a visual indication out of the box.
 
 To notify the user that they have reached the `MaxLength` value:
@@ -42,8 +50,7 @@ To notify the user that they have reached the `MaxLength` value:
 
 To inform the user about the remaining characters, render the TextArea value length and the `MaxLength` value—this will serve as a character counter.
 
-
->caption TextArea with counter, MaxLength and notification
+>caption TextArea with counter, MaxLength and conditional message
 
 ````CSHTML
 <div style="width:400px">
@@ -77,6 +84,16 @@ To inform the user about the remaining characters, render the TextArea value len
     }
 </style>
 ````
+
+### TextArea inside a Form
+
+When the TextArea is inside a Form, you can use the built-in Form validation and [DataAnnotations](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0). To restrict the user from submitting more that the desired characters, decorate the field bound to the TextArea with the [MaxLengthAttribute](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.maxlengthattribute?view=net-7.0). 
+
+With this setup, the user will be able to type more than the allowed characters, but in this case they will get a validation error. An error message will be automatically displayed for this field, if you have provided such in the `MaxLength` attribute.
+
+If you are declaring the TextArea inside a [`FormItem Template`]({%slug form-formitems-template%}), such a validation message will not be displayed out of the box. In this case, add a [ValidationMessage component]({%slug validation-tools-message%}).
+
+To inform the user about the remaining characters, render the TextArea value length and the `MaxLength` value—this will serve as a character counter. Add the desired CSS rules or classes to style the counter as needed.
 
 >caption TextArea in Form with counter and validation
 
