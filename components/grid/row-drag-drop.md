@@ -132,16 +132,22 @@ This section contains the following examples:
 
 ### Drag and Drop a Row between Grids
 
-When you drap and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model. It is also possible to [bind the Grids to different models, but they must be derived from the same interface]({%slug grid-kb-drag-drop-different-models%}).
+When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface]({%slug grid-kb-drag-drop-different-models%}).
+
+The target drop area in the Grid is the `<table>` element. Users cannot drop items in the empty space below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
+
+* Do not set a Grid `Height`, so that there is no empty space below the last table row.
+* Define a [`NoDataTemplate`]({%slug grid-templates-no-data%}), which fills the Grid data area.
+
+The following example demonstrates both these options:
+
+>caption Drag and drop items between Grids
 
 ````CSHTML
-@* Drag a row from one Grid and Drop it in the other *@ 
-
-<TelerikGrid Data="@MyData" Height="400px"
-             Pageable="true" Sortable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow"
-             Resizable="true" Reorderable="true"
-             @ref="@FirstGrid"
+<TelerikGrid @ref="@FirstGridRef"
+             Data="@MyData"
+             Pageable="true"
+             PageSize="5"
              RowDraggable="true"
              OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnRowDropHandler(args))">
     <GridSettings>
@@ -149,31 +155,34 @@ When you drap and drop items from one Grid to another, the `OnRowDrop` event fir
     </GridSettings>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
     </GridColumns>
 </TelerikGrid>
 
-<TelerikGrid Data="@MySecondGridData" Height="400px"
+<TelerikGrid Data="@MySecondGridData"
              Pageable="true"
-             Resizable="true" 
-             Reorderable="true"
+             PageSize="5"
              RowDraggable="true"
-             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnSecondGridRowDropHandler(args))">
+             OnRowDrop="@((GridRowDropEventArgs<SampleData> args) => OnSecondGridRowDropHandler(args))"
+             Height="300px">
     <GridSettings>
         <GridRowDraggableSettings DragClueField="@nameof(SampleData.Name)"></GridRowDraggableSettings>
     </GridSettings>
+    <NoDataTemplate>
+        <div style="padding:85px 0">Drag and drop rows here...</div>
+    </NoDataTemplate>
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    TelerikGrid<SampleData> FirstGrid { get; set; }
+    private TelerikGrid<SampleData> FirstGridRef { get; set; }
 
     private void OnRowDropHandler(GridRowDropEventArgs<SampleData> args)
     {
@@ -195,7 +204,7 @@ When you drap and drop items from one Grid to another, the `OnRowDrop` event fir
 
     private void InsertItem(GridRowDropEventArgs<SampleData> args)
     {
-        var destinationData = args.DestinationGrid == FirstGrid ? MyData : MySecondGridData;
+        var destinationData = args.DestinationGrid == FirstGridRef ? MyData : MySecondGridData;
 
         var destinationIndex = 0;
 
@@ -211,20 +220,20 @@ When you drap and drop items from one Grid to another, the `OnRowDrop` event fir
         destinationData.InsertRange(destinationIndex, args.Items);
     }
 
-    public List<SampleData> MySecondGridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private List<SampleData> MyData = Enumerable.Range(1, 12).Select(x => new SampleData
     {
-        Id = x + 2,
-        Name = "name  " + x + 2,
-        Team = "team " + x % 3,
-        HireDate = DateTime.Now.AddDays(-x * 2).Date
+        Id = 100 + x,
+        Name = "Name " + (100 + x),
+        Team = "Team " + (x % 5 + 1),
+        HireDate = DateTime.Now.AddDays(-x).Date
     }).ToList();
 
-    public List<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private List<SampleData> MySecondGridData = Enumerable.Range(1, 3).Select(x => new SampleData
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
+        Id = 200 + x,
+        Name = "Name  " + (200 + x),
+        Team = "Team " + (x % 3 + 1),
+        HireDate = DateTime.Now.AddDays(-x * 2).Date
     }).ToList();
 
     public class SampleData
