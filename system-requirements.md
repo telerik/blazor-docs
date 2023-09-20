@@ -61,7 +61,7 @@ Telerik UI for Blazor is committed to the currently supported official versions 
 
 ### Features From Newer .NET Versions
 
-Telerik UI for Blazor can include features from newer .NET versions in its source code only after it drops support for older .NET versions. For example, .NET 7 will be supported by mid 2024 and .NET 6 will be supported by late 2024. As a result, the Telerik Blazor components can include .NET 8 features in 2025 at the earliest.
+Telerik UI for Blazor can include features from newer .NET versions in its source code only after it drops support for older .NET versions. For example, [.NET 7 will be supported until mid 2024 and .NET 6 will be supported until late 2024](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core). As a result, the Telerik Blazor components can include .NET 8 features in 2025 at the earliest.
 
 
 ## Browser Support
