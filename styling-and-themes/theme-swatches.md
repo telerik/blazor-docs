@@ -10,7 +10,7 @@ position: 1
 
 # Theme Swatches
 
-Telerik UI for Blazor comes with three [built-in (base) themes]({%slug general-information/themes%}). Each of them provides a set of color swatches that you can choose from to match your application appearance and styling.
+Telerik UI for Blazor comes with four [built-in (base) themes]({%slug general-information/themes%}). Each of them provides a set of color swatches that you can choose from to match your application appearance and styling.
 
 #### In this article:
    * [Basics](#basics)
