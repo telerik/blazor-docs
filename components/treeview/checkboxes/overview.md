@@ -61,7 +61,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikFontIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
