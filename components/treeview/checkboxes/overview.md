@@ -199,7 +199,7 @@ Setting the `CheckChildren` boolean parameter to `true` will allow the user to s
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikFontIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
@@ -340,7 +340,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikFontIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
@@ -472,7 +472,7 @@ You can allow the user to click on the node itself and the TreeView will automat
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikFontIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
