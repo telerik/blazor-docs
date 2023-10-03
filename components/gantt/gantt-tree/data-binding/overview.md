@@ -27,7 +27,7 @@ There are two modes of providing data to a Gantt Tree, and they all use the item
 
 ## Gantt Tree Item Features
 
-The Blazor Gantt Tree provides various parameters to configure its items. Also check the [Gantt public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Tree provides various parameters to configure its items. Also, check the [Gantt public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -37,11 +37,10 @@ The Blazor Gantt Tree provides various parameters to configure its items. Also c
 | `HasChildren` | Whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required when loading data on-demand—if you don't set it to `true`, an expand arrow will not appear and the user will not be able to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand or override the arrow for some items. |
 | `Id` | A unique identifier for the item. Required only for binding to flat data. |
 | `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
-
 | `ParentId` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
 | `PercentCompleteField` | Defines the level of completion of a task in percentages. |
 | `StartField` | Defines the start date of a task. |
-| `TitleField` | Defines whats the title of a task in percentages. |
+| `TitleField` | Defines what's the title of a task in percentages. |
 
 ## Data Bindings
 
