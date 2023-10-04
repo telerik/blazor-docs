@@ -54,7 +54,7 @@ The following example demonstrates how to:
 >caption Setting up the ListBox Toolbar
 
 ````CSHTML
-@* The OnReorder, OnTransfer and OnRemove handlers are not defined for brevity. *@
+@* The ListBox OnReorder, OnTransfer, OnRemove and Button OnClick handlers are not defined for brevity. *@
 
 <TelerikListBox Data="@ListBoxData"
                 TextField="@nameof(ListBoxModel.Name)"
@@ -73,7 +73,6 @@ The following example demonstrates how to:
             <ListBoxToolBarRemoveTool />
             <ListBoxToolBarCustomTool>
                 <TelerikButton Icon="@SvgIcon.Gear"
-                               OnClick="@( () => { } )"
                                Enabled="@( ListBoxSelectedItems.Count() > 0 )" />
             </ListBoxToolBarCustomTool>
         </ListBoxToolBar>
@@ -107,7 +106,10 @@ The following example demonstrates how to:
 }
 ````
 
-> The `<ListBoxToolBar>` tag exposes `ChildContent` as a Blazor `RenderFragment`. If you add this tag just to toggle its `Visible` parameter at runtime, you must also define the toolbar buttons explicitly. Otherwise the `RenderFragment` will remain empty (but not `null`) and no buttons will show.
+> The `<ListBoxToolBar>` tag exposes `ChildContent` as a Blazor `RenderFragment`.
+>
+* If you add this tag just to toggle its `Visible` parameter at runtime, you must also define the toolbar buttons explicitly. Otherwise the `RenderFragment` will remain empty (but not `null`) and no buttons will show.
+* `RenderFragment` allows any child content (yet), however, the ListBox expects and supports only built-in or custom tools. Do not add other custom markup or components there.
 
 
 ## Next Steps
