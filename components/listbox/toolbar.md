@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: ListBox - Toolbar
-description: Description of the Blazor ListBox toolbar and its built-in buttons.
+description: Description of the Blazor ListBox toolbar and its built-in buttons. How to define custom toolbar buttons.
 slug: listbox-toolbar
 tags: telerik,blazor,listbox
 published: True

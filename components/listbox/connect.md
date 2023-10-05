@@ -1,7 +1,7 @@
 ---
 title: Connect ListBoxes
 page_title: ListBox - Connect Multiple Instances
-description:
+description: How to connect (link) several ListBoxes and move items from one to another with the ListBox toolbar buttons.
 slug: listbox-connect
 tags: telerik,blazor,listbox
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: ListBox - Selection
-description:
+description: Description of the Blazor ListBox selection feature with an example. Selection modes and specifics of the SelectedItems parameter.
 slug: listbox-selection
 tags: telerik,blazor,listbox
 published: True

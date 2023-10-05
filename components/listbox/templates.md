@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: ListBox - Templates
-description:
+description: Implement ListBox templates to customize the item rendering and styling. Use a custom no data template when there are no items to display.
 slug: listbox-templates
 tags: telerik,blazor,listbox
 published: True

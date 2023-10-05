@@ -1,7 +1,7 @@
 ---
 title: Drag and Drop
 page_title: ListBox - Drag and Drop
-description:
+description: How to enable ListBox drag and drop to move items between component instances. Example on how to configure the ListBox and handle the OnDrop event.
 slug: listbox-dragdrop
 tags: telerik,blazor,listbox
 published: True

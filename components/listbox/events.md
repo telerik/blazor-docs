@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: ListBox - Events
-description:
+description: Description of the ListBox events and event arguments. Complete runnable example with all ListBox events.
 slug: listbox-events
 tags: telerik,blazor,listbox
 published: True
