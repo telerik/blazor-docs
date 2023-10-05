@@ -82,32 +82,21 @@ position: 40
     private IEnumerable<ListBoxModel> ListBoxSelectedItems2 { get; set; } = new List<ListBoxModel>();
     private IEnumerable<ListBoxModel> ListBoxSelectedItems3 { get; set; } = new List<ListBoxModel>();
 
-    private void OnListBoxDrop(ListBoxDropEventArgs<ListBoxModel> args,
-        string sourceId,
-        List<ListBoxModel> sourceCollection)
+    private void OnListBoxDrop(
+        ListBoxDropEventArgs<ListBoxModel> args,
+        string sourceListBoxId,
+        List<ListBoxModel> sourceData)
     {
-        var newIndex = args.DestinationIndex ?? 0;
+        var destinationIndex = args.DestinationIndex ?? 0;
+        var destinationData = GetListBoxDataFromId(args.DestinationListBoxId);
 
-        if (args.DestinationListBoxId == sourceId)
+        if (args.DestinationListBoxId == sourceListBoxId)
         {
-            ReorderItems(args.Items, sourceCollection, newIndex);
+            ReorderItems(args.Items, sourceData, destinationIndex);
         }
         else
         {
-            switch (args.DestinationListBoxId)
-            {
-                case ListBoxId1:
-                    MoveItems(args.Items, sourceCollection, ListBoxData1, newIndex);
-                    break;
-                case ListBoxId2:
-                    MoveItems(args.Items, sourceCollection, ListBoxData2, newIndex);
-                    break;
-                case ListBoxId3:
-                    MoveItems(args.Items, sourceCollection, ListBoxData3, newIndex);
-                    break;
-                default:
-                    break;
-            }
+            MoveItems(args.Items, sourceData, destinationData, destinationIndex);
         }
 
         ListBoxRef1.Rebind();
@@ -115,7 +104,10 @@ position: 40
         ListBoxRef3.Rebind();
     }
 
-    private void ReorderItems(List<ListBoxModel> items, List<ListBoxModel> collection, int destinationIndex)
+    private void ReorderItems(
+        List<ListBoxModel> items,
+        List<ListBoxModel> collection,
+        int destinationIndex)
     {
         collection.RemoveAll(x => items.Contains(x));
 
@@ -129,24 +121,47 @@ position: 40
         }
     }
 
-    private void MoveItems(List<ListBoxModel> items,
-        List<ListBoxModel> sourceCollection,
-        List<ListBoxModel> destinationCollection,
+    private void MoveItems(
+        List<ListBoxModel> items,
+        List<ListBoxModel> sourceData,
+        List<ListBoxModel> destinationData,
         int destinationIndex)
     {
         foreach (var item in items)
         {
-            sourceCollection.RemoveAll(x => items.Any(y => y.Id == x.Id));
+            sourceData.RemoveAll(x => items.Any(y => y.Id == x.Id));
 
             if (destinationIndex >= 0)
             {
-                destinationCollection.Insert(destinationIndex, item);
+                destinationData.Insert(destinationIndex, item);
             }
             else
             {
-                destinationCollection.Add(item);
+                destinationData.Add(item);
             }
         }
+    }
+
+    private List<ListBoxModel> GetListBoxDataFromId(string listBoxId)
+    {
+        var collection = new List<ListBoxModel>();
+
+        switch (listBoxId)
+        {
+            case ListBoxId1:
+                collection = ListBoxData1;
+                break;
+            case ListBoxId2:
+                collection = ListBoxData2;
+                break;
+            case ListBoxId3:
+                collection = ListBoxData3;
+                break;
+            default:
+                break;
+        }
+
+        return collection;
     }
 
     protected override void OnInitialized()
