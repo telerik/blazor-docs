@@ -27,7 +27,7 @@ position: 40
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
                 OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
-                        OnListBoxDropCommon(args, ListBoxId1, ListBoxData1) )">
+                        OnListBoxDrop(args, ListBoxId1, ListBoxData1) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -42,7 +42,7 @@ position: 40
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
                 OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
-                        OnListBoxDropCommon(args, ListBoxId2, ListBoxData2) )">
+                        OnListBoxDrop(args, ListBoxId2, ListBoxData2) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -57,7 +57,7 @@ position: 40
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
                 OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
-                        OnListBoxDropCommon(args, ListBoxId3, ListBoxData3) )">
+                        OnListBoxDrop(args, ListBoxId3, ListBoxData3) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -82,7 +82,7 @@ position: 40
     private IEnumerable<ListBoxModel> ListBoxSelectedItems2 { get; set; } = new List<ListBoxModel>();
     private IEnumerable<ListBoxModel> ListBoxSelectedItems3 { get; set; } = new List<ListBoxModel>();
 
-    private void OnListBoxDropCommon(ListBoxDropEventArgs<ListBoxModel> args,
+    private void OnListBoxDrop(ListBoxDropEventArgs<ListBoxModel> args,
         string sourceId,
         List<ListBoxModel> sourceCollection)
     {
