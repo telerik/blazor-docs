@@ -19,6 +19,7 @@ To set up the `FormatPlaceholder`, use the `<*Component*FormatPlaceholder>` nest
 * `Minute`
 * `Second`
 * `Weekday`
+* `DayPeriod`
 
 By default, the value for all parameters is `null`, which applies the full format specifier. 
 
