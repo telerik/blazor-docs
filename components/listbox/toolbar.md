@@ -109,7 +109,7 @@ The following example demonstrates how to:
 > The `<ListBoxToolBar>` tag exposes `ChildContent` as a Blazor `RenderFragment`.
 >
 * If you add this tag just to toggle its `Visible` parameter at runtime, you must also define the toolbar buttons explicitly. Otherwise the `RenderFragment` will remain empty (but not `null`) and no buttons will show.
-* `RenderFragment` allows any child content (yet), however, the ListBox expects and supports only built-in or custom tools. Do not add other custom markup or components there.
+* `RenderFragment` allows any child content (yet), however, the ListBox expects only built-in or custom tools.
 
 
 ## Next Steps

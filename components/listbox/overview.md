@@ -19,21 +19,23 @@ To use a Telerik ListBox for Blazor:
 
 1. Add the `TelerikListBox` tag.
 1. Set the `Data` parameter to an `IEnumerable<T>`.
-1. Set `TextField` to the property name that holds the string values to display in the ListBox.
+1. Set `TextField` to the property name that holds the string values to display in the ListBox. Skip this step when [binding the component to a collection of primitive values](#data-binding).
 1. Set `SelectedItems` to an `IEnumerable<T>` to store or change the component selection. Optionally, [enable multiple selection]({%slug listbox-selection%}).
 1. Configure the [ListBox toolbar]({%slug listbox-toolbar%}) in `<ListBoxToolBarSettings>` and specify which buttons will be visible. By default, the toolbar shows all buttons. Each button requires an [event handler]({%slug listbox-events%}) to work.
 1. (optional) Set the `Width` and `Height` parameters, based on the number of toolbar buttons and desired number of visible items. The component will automatically show a vertical scrollbar if needed. Long items will wrap.
+1. Set the `@ref` attribute and obtain [reference to the ListBox instance](#listbox-reference-and-methods). This is necessary to [`Rebind()` the component after programmatic data changes]({%slug common-features-data-binding-overview%}#refresh-data).
 
 >caption Basic Blazor ListBox
 
 ````CSHML
+@* ListBox with item selection and reordering *@
+
 <TelerikListBox @ref="@ListBoxRef"
                 Data="@ListBoxData"
                 TextField="@nameof(ListBoxModel.Name)"
                 SelectionMode="@ListBoxSelectionMode.Multiple"
                 @bind-SelectedItems="@ListBoxSelectedItems"
-                OnReorder="@OnListBoxReorder"
-                TItem="@ListBoxModel"
+                OnReorder="@( (ListBoxReorderEventArgs<ListBoxModel> args) => OnListBoxReorder(args) )"
                 Width="180px"
                 Height="auto">
     <ListBoxToolBarSettings>
@@ -56,14 +58,11 @@ To use a Telerik ListBox for Blazor:
         ListBoxData.RemoveAll(x => args.Items.Contains(x));
         ListBoxData.InsertRange(args.ToIndex, args.Items);
 
-        // reset the collection reference to update the UI
-        ListBoxData = new List<ListBoxModel>(ListBoxData);
+        ListBoxRef.Rebind();
     }
 
     protected override void OnInitialized()
     {
-        var rnd = new Random();
-
         for (int i = 1; i <= 7; i++)
         {
             ListBoxData.Add(new ListBoxModel()
@@ -84,7 +83,7 @@ To use a Telerik ListBox for Blazor:
 
 ## Data Binding
 
-The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting a `TextField`. Another option is to bind the component to a collection of primitive strings.
+The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting a [`TextField`, unless the property name is `Text`](#listbox-parameters). Another option is to bind the component to a collection of primitive strings.
 
 >caption Bind ListBox to List<string>
 
@@ -94,8 +93,7 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
                 SelectionMode="@ListBoxSelectionMode.Multiple"
                 Height="auto">
     <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="false">
-        </ListBoxToolBar>
+        <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
 </TelerikListBox>
 
@@ -167,7 +165,7 @@ The table below lists the ListBox parameters. For a full list of the ListBox API
 | `SelectionMode` | `ListBoxSelectionMode` enum <br /> (`Single`) | Defines if users can select just one or multiple items. |
 | `Size` | `string` <br /> (`"md"`) | This parameter controls ListBox styles such as paddings or font size. For easier usage, set the parameter to a member of the static class `Telerik.Blazor.ThemeConstants.ListBox.Size`. |
 | `TextField` | `string` <br /> (`"Text"`) | The property name of class `T` that holds the item value to display in the ListBox. |
-| `TItem` | `Type` | The ListBox model type. |
+| `TItem` | `Type` | The ListBox model type. Although the compiler can usually infer the type from the `Data` parameter, you can set `TItem` for [simpler syntax in the event handler declarations]({%slug listbox-events%}). |
 | `ToolBarPosition` | `ListBoxToolBarPosition` enum <br /> (`Right`) | The ListBox toolbar position with relation to the item list. |
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default ListBox dimensions depend on the CSS theme. |
 
@@ -185,25 +183,29 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 >caption ListBox reference and method usage
 
 ````CSHTML
-<TelerikButton OnClick="@AddListBoxItem">Add ListBox Item</TelerikButton>
-<br />
 <TelerikListBox @ref="@ListBoxRef"
                 Data="@ListBoxData"
-                TextField="@nameof(ListBoxModel.Name)">
+                TextField="@nameof(ListBoxModel.Name)"
+                @bind-SelectedItems="@ListBoxSelectedItems">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
 </TelerikListBox>
+
+<TelerikButton OnClick="@AddListBoxItem">Add ListBox Item</TelerikButton>
 
 @code {
     private TelerikListBox<ListBoxModel> ListBoxRef { get; set; } = null!;
 
     private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
 
+    private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
+
     private void AddListBoxItem()
     {
-        var newId = DateTime.Now.Microsecond;
+        var newId = ListBoxData.Count + 1;
         ListBoxData.Add(new ListBoxModel() { Id = newId, Name = $"Item {newId}" });
+
         ListBoxRef.Rebind();
     }
 
