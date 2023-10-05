@@ -26,7 +26,8 @@ position: 40
                 @bind-SelectedItems="@ListBoxSelectedItems1"
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
-                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) => OnListBoxDrop1(args) )">
+                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
+                        OnListBoxDropCommon(args, ListBoxId1, ListBoxData1) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -40,7 +41,8 @@ position: 40
                 @bind-SelectedItems="@ListBoxSelectedItems2"
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
-                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) => OnListBoxDrop2(args) )">
+                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
+                        OnListBoxDropCommon(args, ListBoxId2, ListBoxData2) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -54,7 +56,8 @@ position: 40
                 @bind-SelectedItems="@ListBoxSelectedItems3"
                 Draggable="true"
                 DropSources="@ListBoxDropSources"
-                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) => OnListBoxDrop3(args) )">
+                OnDrop="( (ListBoxDropEventArgs<ListBoxModel> args) =>
+                        OnListBoxDropCommon(args, ListBoxId3, ListBoxData3) )">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false" />
     </ListBoxToolBarSettings>
@@ -78,23 +81,6 @@ position: 40
     private IEnumerable<ListBoxModel> ListBoxSelectedItems1 { get; set; } = new List<ListBoxModel>();
     private IEnumerable<ListBoxModel> ListBoxSelectedItems2 { get; set; } = new List<ListBoxModel>();
     private IEnumerable<ListBoxModel> ListBoxSelectedItems3 { get; set; } = new List<ListBoxModel>();
-
-    private bool SelectItemsInDestination { get; set; } = true;
-
-    private void OnListBoxDrop1(ListBoxDropEventArgs<ListBoxModel> args)
-    {
-        OnListBoxDropCommon(args, ListBoxId1, ListBoxData1);
-    }
-
-    private void OnListBoxDrop2(ListBoxDropEventArgs<ListBoxModel> args)
-    {
-        OnListBoxDropCommon(args, ListBoxId2, ListBoxData2);
-    }
-
-    private void OnListBoxDrop3(ListBoxDropEventArgs<ListBoxModel> args)
-    {
-        OnListBoxDropCommon(args, ListBoxId3, ListBoxData3);
-    }
 
     private void OnListBoxDropCommon(ListBoxDropEventArgs<ListBoxModel> args,
         string sourceId,
@@ -132,6 +118,7 @@ position: 40
     private void ReorderItems(List<ListBoxModel> items, List<ListBoxModel> collection, int destinationIndex)
     {
         collection.RemoveAll(x => items.Contains(x));
+
         if (destinationIndex >= 0)
         {
             collection.InsertRange(destinationIndex, items);
@@ -150,6 +137,7 @@ position: 40
         foreach (var item in items)
         {
             sourceCollection.RemoveAll(x => items.Any(y => y.Id == x.Id));
+
             if (destinationIndex >= 0)
             {
                 destinationCollection.Insert(destinationIndex, item);
