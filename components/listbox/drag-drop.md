@@ -90,7 +90,7 @@ position: 40
 
         if (args.DestinationListBoxId == sourceId)
         {
-            ReorderItems(args.Items, ListBoxData1, newIndex);
+            ReorderItems(args.Items, sourceCollection, newIndex);
         }
         else
         {
