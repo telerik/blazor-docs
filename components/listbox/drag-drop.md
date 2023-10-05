@@ -68,9 +68,9 @@ position: 40
     private TelerikListBox<ListBoxModel> ListBoxRef2 { get; set; } = null!;
     private TelerikListBox<ListBoxModel> ListBoxRef3 { get; set; } = null!;
 
-    private string ListBoxId1 { get; set; } = "listbox1";
-    private string ListBoxId2 { get; set; } = "listbox2";
-    private string ListBoxId3 { get; set; } = "listbox3";
+    private const string ListBoxId1 = "listbox1";
+    private const string ListBoxId2 = "listbox2";
+    private const string ListBoxId3 = "listbox3";
 
     private List<string> ListBoxDropSources => new List<string>() { ListBoxId1, ListBoxId2, ListBoxId3 };
 
@@ -96,13 +96,13 @@ position: 40
         {
             switch (args.DestinationListBoxId)
             {
-                case var value when value == ListBoxId1:
+                case ListBoxId1:
                     MoveItems(args.Items, sourceCollection, ListBoxData1, newIndex);
                     break;
-                case var value when value == ListBoxId2:
+                case ListBoxId2:
                     MoveItems(args.Items, sourceCollection, ListBoxData2, newIndex);
                     break;
-                case var value when value == ListBoxId3:
+                case ListBoxId3:
                     MoveItems(args.Items, sourceCollection, ListBoxData3, newIndex);
                     break;
                 default:
