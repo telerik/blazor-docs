@@ -95,9 +95,9 @@ To connect ListBox components:
     private TelerikListBox<ListBoxModel> ListBoxRef2 { get; set; } = null!;
     private TelerikListBox<ListBoxModel> ListBoxRef3 { get; set; } = null!;
 
-    private string ListBoxId1 { get; set; } = "listbox1";
-    private string ListBoxId2 { get; set; } = "listbox2";
-    private string ListBoxId3 { get; set; } = "listbox3";
+    private const string ListBoxId1 = "listbox1";
+    private const string ListBoxId2 = "listbox2";
+    private const string ListBoxId3 = "listbox3";
 
     private List<ListBoxModel> ListBoxData1 { get; set; } = new List<ListBoxModel>();
     private List<ListBoxModel> ListBoxData2 { get; set; } = new List<ListBoxModel>();

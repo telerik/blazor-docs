@@ -35,11 +35,17 @@ The following example shows how to place a Button inside the `NoDataTemplate`, w
 >caption Using ListBox templates
 
 ````CSHTML
+@* Add and remove ListBox items to see the item template and no-data template. *@
+
 <TelerikListBox @ref="@ListBoxRef"
                 Data="@ListBoxData"
-                @bind-SelectedItems="@ListBoxSelectedItems">
+                @bind-SelectedItems="@ListBoxSelectedItems"
+                OnRemove="@( (ListBoxRemoveEventArgs<Person> args) => OnListBoxRemove(args) )"
+                Width="200px">
     <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="false" />
+        <ListBoxToolBar>
+            <ListBoxToolBarRemoveTool />
+        </ListBoxToolBar>
     </ListBoxToolBarSettings>
     <ItemTemplate>
         <TelerikSvgIcon Icon="@context.Icon" />
@@ -60,19 +66,38 @@ The following example shows how to place a Button inside the `NoDataTemplate`, w
 
     private IEnumerable<Person> ListBoxSelectedItems { get; set; } = new List<Person>();
 
+    private void OnListBoxRemove(ListBoxRemoveEventArgs<Person> args)
+    {
+        foreach (var item in args.Items)
+        {
+            ListBoxData.Remove(item);
+        }
+
+        ListBoxRef.Rebind();
+    }
+
     private void AddItems()
     {
         ListBoxData.Add(new Person()
         {
-            Id = 1, FirstName = "Celestine", LastName = "Riny", Icon = SvgIcon.User
+            Id = 1,
+            FirstName = "Celestine",
+            LastName = "Riny",
+            Icon = SvgIcon.User
         });
         ListBoxData.Add(new Person()
         {
-            Id = 2, FirstName = "Liraz", LastName = "Sri", Icon = SvgIcon.Reddit
+            Id = 2,
+            FirstName = "Liraz",
+            LastName = "Sri",
+            Icon = SvgIcon.Reddit
         });
         ListBoxData.Add(new Person()
         {
-            Id = 3, FirstName = "Minh", LastName = "Sam", Icon = SvgIcon.Accessibility
+            Id = 3,
+            FirstName = "Minh",
+            LastName = "Sam",
+            Icon = SvgIcon.Accessibility
         });
 
         ListBoxRef.Rebind();

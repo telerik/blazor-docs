@@ -51,10 +51,12 @@ The following example demonstrates how to:
 * Mimic the default toolbar configuration, except for the custom tool.
 * Enable or disable a custom toolbar button, depending on the current ListBox selection.
 
+The example below omits all required event handlers for brevity. Consult the [ListBox Events article]({%slug listbox-events%}) for more information and complete examples.
+
 >caption Setting up the ListBox Toolbar
 
 ````CSHTML
-@* The ListBox OnReorder, OnTransfer, OnRemove and Button OnClick handlers are not defined for brevity. *@
+@* ListBox and Button handlers are not defined for brevity. *@
 
 <TelerikListBox Data="@ListBoxData"
                 TextField="@nameof(ListBoxModel.Name)"
