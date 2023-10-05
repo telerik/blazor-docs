@@ -83,9 +83,9 @@ To use a Telerik ListBox for Blazor:
 
 ## Data Binding
 
-The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting a [`TextField`, unless the property name is `Text`](#listbox-parameters). Another option is to bind the component to a collection of primitive strings.
+The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting the [`TextField` parameter, unless the property name is `"Text"`](#listbox-parameters). Another option is to bind the component to a collection of primitive strings.
 
->caption Bind ListBox to List<string>
+>caption Bind ListBox to List&lt;string&gt;
 
 ````CSHTML
 <TelerikListBox Data="@ListBoxStrings"

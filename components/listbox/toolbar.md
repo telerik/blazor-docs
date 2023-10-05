@@ -58,14 +58,24 @@ The example below omits all required event handlers for brevity. Consult the [Li
 ````CSHTML
 @* ListBox and Button handlers are not defined for brevity. *@
 
+<h2>Select ListBox toolbar position</h2>
+
+<TelerikRadioGroup Data="@RadioGroupData"
+                   @bind-Value="@CurrentToolBarPosition">
+</TelerikRadioGroup>
+
+<br />
+<br />
+
 <TelerikListBox Data="@ListBoxData"
                 TextField="@nameof(ListBoxModel.Name)"
                 SelectionMode="@ListBoxSelectionMode.Multiple"
                 @bind-SelectedItems="@ListBoxSelectedItems"
-                Width="180px"
+                ToolBarPosition="@CurrentToolBarPosition"
+                Width="max-content"
                 Height="auto">
     <ListBoxToolBarSettings>
-        <ListBoxToolBar Visible="true">
+        <ListBoxToolBar>
             <ListBoxToolBarMoveUpTool />
             <ListBoxToolBarMoveDownTool />
             <ListBoxToolBarTransferToTool />
@@ -85,6 +95,15 @@ The example below omits all required event handlers for brevity. Consult the [Li
     private List<ListBoxModel> ListBoxData { get; set; } = new List<ListBoxModel>();
 
     private IEnumerable<ListBoxModel> ListBoxSelectedItems { get; set; } = new List<ListBoxModel>();
+
+    private ListBoxToolBarPosition CurrentToolBarPosition { get; set; } = ListBoxToolBarPosition.Right;
+
+    private List<ListBoxToolBarPosition> RadioGroupData { get; set; } = new List<ListBoxToolBarPosition>() {
+        ListBoxToolBarPosition.Top,
+        ListBoxToolBarPosition.Right,
+        ListBoxToolBarPosition.Bottom,
+        ListBoxToolBarPosition.Left
+    };
 
     protected override void OnInitialized()
     {
