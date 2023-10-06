@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor Scheduler provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The Scheduler is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Scheduler is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2  AA](https://www.w3.org/TR/WCAG22/) standards](https://www.w3.org/TR/WCAG22/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -67,7 +67,7 @@ In case of an Agenda view, the role assigned to the Scheduler layout table (`k-s
 | `.k-scheduler-agendaview .k-scheduler-table>tbody` | `role=rowgroup` | Those elements must have their role explicitly set as it has been removed by the `<table>` role set (none/presentation). |
 | `.k-scheduler-agendaview .k-scheduler-table>tbody>tr` | `role=row` | Those elements must have their role explicitly set as it has been removed by the `<table>` role set (none/presentation). |
 | `.k-scheduler-agendaview .k-scheduler-table>tbody>tr>th` | `role=columnheader` | Those elements must have their role explicitly set as it has been removed by the `<table>` role set (none/presentation). |
-| `.k-scheduler-agendaview .k-scheduler-content tr.k-state-selected` | `aria-selected` | `aria-selected` attribute must be used to signify the currently selected row. As in Agenda view the selection follows focus, that would be the current `active descendant` row. |
+| `.k-scheduler-agendaview .k-scheduler-content tr .k-selected` | `aria-selected` | `aria-selected` attribute must be used to signify the currently selected row. As in Agenda view the selection follows focus, that would be the current `active descendant` row. |
 
 #### Content table td.k-scheduler-groupcolumn and td.k-scheduler-datecolumn elements
 
