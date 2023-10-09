@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor TabStrip provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The TabStrip is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The TabStrip is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2  AA](https://www.w3.org/TR/WCAG22/) standards](https://www.w3.org/TR/WCAG22/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -29,7 +29,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | `.k-tabstrip.k-tabstrip-left .k-tabstrip-items,.k-tabstrip.k-tabstrip-right .k-tabstrip-items` | `aria-orientation=vertical` | Indicates the orientation of the tablist container element. The attribute is rendered only when the orientation of the component is vertical as the `tablist` role comes with default horizontal orientation. |
 | `.k-tabstrip-item` | `role=tab` | The tab `li` element. |
 |  | `aria-controls=.k-tabstrip-content id` | Announces the relation between the panel and tab. |
-| `.k-tabstrip-item.k-state-active` | `aria-selected=true` | Announces the selected state of the tab. |
+| `.k-tabstrip .k-item.k-active` | `aria-selected=true` | Announces the selected state of the tab. |
 | `.k-tabstrip-content` | `role=tabpanel` | The content `div` of the tab. |
 |  | `aria-hidden=true` | Only if the component implements a feature to control whether the content should be persisted. |
 |  | `aria-labelledby=.k-tabstrip-item id` | Refers to the tab element that controls the panel. |

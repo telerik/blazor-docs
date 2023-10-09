@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor Grid provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.1  AA](https://www.w3.org/TR/WCAG21/) standards](https://www.w3.org/TR/WCAG21/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2  AA](https://www.w3.org/TR/WCAG22/) standards](https://www.w3.org/TR/WCAG22/) and [Section 508](http://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -127,10 +127,10 @@ Implements the ColumnMenu specification.
 | `.k-grid-content>table>tbody` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |
 | `.k-grid-content>table>tbody>tr` | `role=row` | Required as the owner `<table>` element has its semantic role removed. |
 |  | `aria-rowindex` | Row number including all headers, data (including master and detail) rows, and footers starting from 1. Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper indexing could not be calculated. Hence, the attribute must not be set. In scenarios when master and detail rows are present in the Grid (Hierarchical Grid, Detail Template Grid), both master and detail rows must always be indexed. For example, if the first master row has `aria-rowindex=2`, even if its detail row is not present in the DOM, the next master row must have `aria-rowindex=4`. When rendered, the detail row must receive the missing index between the two master rows. In this example it would be `aria-rowindex=3`. |
-| `.k-grid-content tr.k-state-selected` | `aria-selected=true` | Set on the currently selected row(s). Only used wen selection mode is set to `row`. |
+| `.k-grid-content tr.k-selected` | `aria-selected=true` | Set on the currently selected row(s). Only used wen selection mode is set to `row`. |
 | `.k-grid-content>table>tbody>tr>td` | `role=gridcell` | Required as the owner `<table>` element has its semantic role removed. |
 |  | `aria-colindex` | Col number, based on leaf columns, starting from 1. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. Otherwise, can be interpreted from the DOM structure. Can be calculated by summing previous columns colspans. |
-| `td.k-state-selected` | `aria-selected=true` | Set on the currently selected cell(s). Only used when selection mode is set to cell. |
+| `td.k-selected` | `aria-selected=true` | Set on the currently selected cell(s). Only used when selection mode is set to cell. |
 | `.k-master-row .k-hierarchy-cell,.k-grouping-row>td` | `aria-expanded=true/false` | Optionally for cells holding grouping criteria values and for Master row cells in Detail template scenario. |
 | `.k-drag-cell` | `aria-label` | Must be present in a Drag Row scenario on the cell containing the drag handle. |
 | `.k-grid-header-locked .k-grid-header-table .k-table-row` | `aria-owns` | When there are locked columns, the rows from the `locked` header table should `own` the cells from the corresponding non-locked header table rows. Value should be a space-separated list of `id`s. |
