@@ -17,7 +17,7 @@ In this article you will find information on the general topics of accessibility
 
 * [Standards and Policies](#standards-and-policies)
 	* [Section 508](#section-508)
-	* [W3C Web Content Accessibility Guidelines (WCAG) 2.1](#w3c-web-content-accessibility-guidelines-wcag-21)
+	* [W3C Web Content Accessibility Guidelines (WCAG) 2.2](#w3c-web-content-accessibility-guidelines-wcag-22)
 * [Technical Specificatns](#technical-specifications)
 	* [WAI-ARIA](#wai-aria)
 	* [Keyboard Navigation](#keyboard-navigation)
@@ -29,7 +29,7 @@ In this article you will find information on the general topics of accessibility
 Accessible websites and applications normally comply with some or all of the following standards:
 
 * [Section 508](#section-508)
-* [W3C Web Content Accessibility Guidelines (WCAG) 2.1](#w3c-web-content-accessibility-guidelines-wcag-21)
+* [W3C Web Content Accessibility Guidelines (WCAG) 2.2](#w3c-web-content-accessibility-guidelines-wcag-22)
 
 ### Section 508
 
@@ -43,14 +43,15 @@ For more information, refer to:
 * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 
-### W3C Web Content Accessibility Guidelines (WCAG) 2.1
+### W3C Web Content Accessibility Guidelines (WCAG) 2.2
 
 The Web Content Accessibility Guidelines (WCAG) which are set by the World Wide Web Consortium (W3C) define recommendations for making web content accessible to people with physical and cognitive disabilities. WCAG defines accessibility principles with their respective success criteria. Depending on the implemented success criteria by a web application, the WCAG provide the A, `AA`, and AAA levels of accessibility conformance.
 
 For more information, refer to:
 
 * [WCAG 2 Quick Reference Guide](https://www.w3.org/WAI/WCAG21/quickref/)
-* [WCAG 2.1 Guidelines](https://www.w3.org/TR/WCAG21)
+* [WCAG 2.2 Guidelines](https://www.w3.org/TR/WCAG22)
+* [Dragging Movements](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements)
 * [Telerik UI for Blazor Accessibility Compliance]({%slug accessibility-compliance%})
 
 
@@ -78,7 +79,7 @@ By default, users can only navigate to links, buttons, and form controls with a 
 
 [Keyboard accessibility](https://www.w3.org/WAI/WCAG21/quickref/#keyboard-accessible) is a category under the [WCAG Operable principle](https://www.w3.org/WAI/WCAG21/quickref/#principle2).
 
-In WCAG 2.1, the keyboard accessible category provides the following success criteria:
+In WCAG 2.2, the keyboard accessible category provides the following success criteria:
 
 * [Keyboard](https://www.w3.org/WAI/WCAG21/quickref/#keyboard)
 * [No Keyboard Trap](https://www.w3.org/WAI/WCAG21/quickref/#no-keyboard-trap)
@@ -90,9 +91,9 @@ See the [Keyboard Support in Telerik UI for Blazor]({%slug accessibility-keyboar
 > The described level of compliance in the table below is achievable with the [**Ocean Blue Sass Swatch**]({%slug themes-accessibility-swatch%}) and the **Default Ocean Blue A11Y**.
 
 ### Accessibility Compliance Components Table
-The following table lists the Section 508 and WCAG 2.1 compliance levels of support for the Blazor UI components. 
+The following table lists the Section 508 and WCAG 2 compliance levels of support for the Blazor UI components. 
 
-|Component |508|WCAG 2.1| Accessibility Example | Accessibility Documentation |
+|Component |508|WCAG 2.2| Accessibility Example | Accessibility Documentation |
 |:---          |:---|:---|:---|:---
 |`AutoComplete`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation) | [Documentation]({%slug autocomplete-wai-aria-support%}) |
 |`Barcodes`|`No`|`n/a`| `n/a` | `n/a` |
