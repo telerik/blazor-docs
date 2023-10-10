@@ -18,7 +18,7 @@ All components implement the required WAI-ARIA attributes without the need for a
 
 Due to the complexity of some of the components in the suite, we sometimes run into scenarios not covered by the WAI-ARIA specification. In those cases, we tap into the web development accessibility know-how of the rest of the Progress organization, including feedback from accessibility-minded users, for expertise and feedback based on 10 years of creating web component libraries. This knowledge-sharing across internal teams and clients helps us ensure that UI for Blazor can reach a certain level of accessibility compliance even with its most advanced components.
 
-This article will be updated with details on the Section 508 and WCAG 2.1 compatibility levels.
+This article will be updated with details on the Section 508 and WCAG 2.2 compatibility levels.
 
 <!--
 >caption Accessibility compliance levels support provided by the Telerik UI for Blazor components.
