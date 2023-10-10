@@ -115,7 +115,7 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
 
 ## Toolbar
 
-The [ListBox includes a toolbar with some built-in buttons]({%slug listbox-toolbar%}). These tools fire events, which are related to item remove, reorder, or transfer to another ListBox. The component supports removing some of the default buttons or adding custom ones. You can also control the toolbar position with regard to the ListBox item list, or hide the toolbar completely.
+The [ListBox includes a toolbar with some built-in buttons]({%slug listbox-toolbar%}). These tools fire events, which are related to item removal, reordering, or transfer to another ListBox. The component supports removing some of the default buttons or adding custom ones. You can also control the toolbar position with regard to the ListBox item list, or hide the toolbar completely.
 
 
 ## Selection
