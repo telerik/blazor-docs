@@ -32,7 +32,7 @@ If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the f
 
 >warning Error: System.Exception: A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.
 
-The root cause for this is a difference in the required configuration when [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes) are used.
+The root cause for this is a difference in the required configuration when using [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes).
 
 .NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
