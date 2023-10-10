@@ -112,7 +112,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
     See: [Dialog example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/DialogPage.cs) [Window example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/WindowButtonPage.cs).
 
 
-    In future, UI for Blazor will support [creation of an interface to easily mock the DialogFactory](https://feedback.telerik.com/blazor/1533040-create-an-interface-to-easily-mock-the-dialogfactory?_gl=1*11c7efe*_ga*MTU4MzUzNjcxLjE2OTA0Njc5NjA.*_ga_9JSNBCSF54*MTY5NDc5MjcyNS45My4xLjE2OTQ3OTYzOTcuNDguMC4w). Follow the request to gets status updates.
+    In future, UI for Blazor will support [creation of an interface to easily mock the DialogFactory](https://feedback.telerik.com/blazor/1533040-create-an-interface-to-easily-mock-the-dialogfactory). Follow the request to gets status updates.
 
 ## Grid - ticket 1569276
 
