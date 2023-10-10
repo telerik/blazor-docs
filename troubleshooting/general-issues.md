@@ -26,7 +26,7 @@ This page provides solutions for common issues you may encounter while working w
 
 ## TelerikRootComponent is missing in .NET 8.0
 
-The latest UI for Blazor (4.6.0) provides [compatibility with .NET 8.0 RC 2]({%slug system-requirements%}#compatible-net-versions). This framework version [is not yet supported]({%slug system-requirements%}#supported-net-versions) and we do not recommend using our components in it until officially supported.
+The latest UI for Blazor (4.6.0) provides [compatibility with .NET 8.0 RC 2]({%slug system-requirements%}#compatible-net-versions). This framework version [is not yet supported]({%slug system-requirements%}#supported-net-versions) and we do not recommend using our components with it until officially supported.
 
 If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the following error you may hit when using the new [Blazor Web App template](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-rc-1/#blazor-web-app-template-updates)
 
