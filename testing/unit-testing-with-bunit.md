@@ -39,7 +39,7 @@ Unit testing focuses on functional verification. You can use unit tests to ensur
 
 A case that requires an interaction with the component is a task for e2e testing.
 
-## BUnit Limitations
+## bUnit Limitations
 
 A known limitation of bUnit is that it does not run JavaScript. So, if the components use some JSInterop, one should emulate IJSRuntime. You may find some more details here: https://bunit.dev/docs/test-doubles/emulating-ijsruntime.html.
 
