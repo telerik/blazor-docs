@@ -23,7 +23,7 @@ This article provides information for bUnit and how it can be used with the Tele
 
 [bUnit](https://bunit.dev/) is a popular unit testing framework for Blazor. 
 
-BUnit covers explicitly unit testing and is not designed for e2e testing. It only runs your C# and Razor code, and not JavaScript.
+bUnit covers explicitly unit testing and is not designed for e2e testing. It only runs your C# and Razor code, and not JavaScript.
 
 Check the following resources for a general introduction to bUnit:
 * https://bunit.dev/docs/getting-started
