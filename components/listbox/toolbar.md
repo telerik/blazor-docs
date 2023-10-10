@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: ListBox - Toolbar
-description: Description of the Blazor ListBox toolbar and its built-in buttons. How to define custom toolbar buttons.
+description: Configure and use the Blazor ListBox toolbar and its built-in buttons. How to change the toolbar position or define custom toolbar buttons.
 slug: listbox-toolbar
 tags: telerik,blazor,listbox
 published: True
@@ -31,8 +31,8 @@ Each button becomes enabled when it can be used, for example, when the user sele
 | Transfer All From | `<ListBoxToolBarTransferAllFromTool />` | [`OnTransfer`]({%slug listbox-events%}#ontransfer) | Moves all items from the connected ListBox component to the current one. |
 | Remove | `<ListBoxToolBarRemoveTool />` | [`OnRemove`]({%slug listbox-events%}#onremove) | Removes the selected item(s). |
 
->tip The descriptions above mention the typical user operation that each button implies. However, the exact operation depends entirely on the business requirements and event handler implementation. For example:
->
+The descriptions above mention the typical user operation that each button implies. However, the exact operation depends entirely on the business requirements and event handler implementation. For example:
+
 * Clicking on the Remove button can apply custom disabled styling to an item, instead of removing it. The app may also prevent selection of this item through the [ListBox `SelectedItemsChanged` event]({%slug listbox-events%}#selecteditemschanged).
 * Transferred items can be copied to another ListBox component, rather than moved.
 * Reordered non-adjacent items can be moved with or without the gap between them.
