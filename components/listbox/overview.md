@@ -178,7 +178,7 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 
 | Method | Description |
 | --- | --- |
-| `Rebind` | Refreshes the ListBox and ensures it is displaying the current `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
+| `Rebind` | Refreshes the ListBox and ensures it displays the current `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
 
 >caption ListBox reference and method usage
 
