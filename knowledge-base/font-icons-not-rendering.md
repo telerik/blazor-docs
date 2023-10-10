@@ -41,7 +41,10 @@ To keep using Font icons in your application use one of the two approaches:
 * Use the dedicated Telerik UI for Blazor CDN in your application:
 
 ````_Host.cshtml
- <link href="https://blazor.cdn.telerik.com/blazor/4.6.0/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+
+<link href="https://blazor.cdn.telerik.com/blazor/4.6.0/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+
+<link href="https://blazor.cdn.telerik.com/blazor/4.6.0/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
 ````
 ````index.html
  <link href="https://blazor.cdn.telerik.com/blazor/4.6.0/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
@@ -50,8 +53,16 @@ To keep using Font icons in your application use one of the two approaches:
 * Download the [Telerik UI for Blazor package]({%slug installation/msi%}#how-to-download-the-automated-installer) and reference the static assets for the Font Icons:
 
 ````_Host.cshtml
+<!-- For Trial licenses, use
+<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
+-->
+
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````
 ````index.html
+<!-- For Trial licenses, use
+<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
+-->
+
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````
