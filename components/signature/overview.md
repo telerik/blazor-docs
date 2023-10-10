@@ -56,7 +56,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `AriaLabel` | `string` | Maps to the `aria-label` attribute. Use  this parameter if the text that labels the component is not visible. |
 | `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `DebounceDelay` | `int` <br /> `(150)` | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. |
+| `DebounceDelay` | `int` <br /> `(150)` | The time in milliseconds between the last drawn line and the value change event. |
 | `Enabled` | `bool` <br /> `(true)` | Defines if the component is enabled. |
 | `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the value of the `ExportScale` when converting the signature to an image. |
 | `Height` | `string` | Defines the height of the component. Set it in `px`. |
