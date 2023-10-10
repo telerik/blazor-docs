@@ -54,7 +54,7 @@ Consider e2e testing for any case that targets a complete workflow.
 
 ## Common issues
 
-Considering the above-listed JS limitation, you may experience some issues when testing the components. Here is a list of several common problems:
+Considering the above-listed JS limitation, you may experience some issues when testing the components. The following sections in this article list these issues.
 
 ### TelerikRootComponent is Missing
 
