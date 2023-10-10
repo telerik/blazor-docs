@@ -34,13 +34,13 @@ If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the f
 
 The root cause for this is a difference in the required configuration when [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes) are used.
 
+.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). It is required that the `TelerikRootComponent` is placed in a layout page (e.g. `MainLayout.razor`) that has interactive mode enabled. At the time of writing,the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
+Here are two options to go ahead with:
 
-By default, Blazor renders static pages which makes the layout pages (e.g. `MainLayout.razor`) not "interactable" unless they are explicitly configured. This prevents general functionality from working as expected - for example, components that render things in their `ChildContent` (which applies to the `TelerikRootComponent` as well). [Read more details on these specifics here ...](https://github.com/dotnet/aspnetcore/issues/50724#issuecomment-1723892147)
+* Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will save you specifying the render mode in every page and component.
 
-Having this in mind, the current recommended approach for wrapping the `body` with the `TelerikRootComponent` in the main or a custom layout is not applicable with interactive render modes as is.
-
-An option to handle this is to ensure that your layout and pages will render in server mode. To do so, set `@attribute [RenderModeServer]` in your layout and pages and wrap the Telerik UI for Blazor component in your custom layout.
+* Set the render mode for the specific pages and components - this is useful if you want to have different render modes. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
 
 ````MainLayout.razor
 @inherits LayoutComponentBase
@@ -131,6 +131,8 @@ An option to handle this is to ensure that your layout and pages will render in 
 
 </CustomLayout>
 ````
+
+>tip Consider and choose any configuration that best suits your application needs. The important part is to ensure that the layout component where the `TelerikRootComponent` is defined has interactive mode.
 
 ## Popups Do Not Work
 
