@@ -1,5 +1,5 @@
 ---
-title: Font Icons do not render in Telerik UI for Blazor 4.6
+title: Font Icons do not Render in Telerik UI for Blazor 4.6.0
 description: Font Icons do not render in Telerik UI for Blazor 4.6
 type: troubleshooting
 page_title: Font Icons do not Render in Telerik UI for Blazor 4.6.0
