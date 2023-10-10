@@ -239,14 +239,11 @@ In this article:
     
     private GanttView SelectedView { get; set; } = GanttView.Week;
 
-
-    void AddRootTask()
+    private void AddRootTask()
     {
-        var i = GanttData.Last().Id + 1;
-
         GanttData.Insert(0,new FlatModel()
         {
-            Id = i,
+            Id = ++LastId,
             ParentId = null,
             Title = "new task",
             PercentComplete = 0,
