@@ -48,7 +48,7 @@ This component is generic to showcase the concept, it does not have to be if you
 @using System.Linq.Expressions
 
 <TelerikComboBox Value="@CBValue" ValueChanged="@( async (T v) => await RaiseValueChanged(v) )" ValueExpression="@CustomValueExpression"
-                 Data="@MyData" TextField="@TextFiedCustom" ValueField="@ValueFiedCustom" Id="@MyId" AllowCustom="@AllowCustom">
+                 Data="@MyData" TextField="@TextFieldCustom" ValueField="@ValueFieldCustom" Id="@MyId" AllowCustom="@AllowCustom">
 </TelerikComboBox>
 
 @code {
@@ -61,9 +61,9 @@ This component is generic to showcase the concept, it does not have to be if you
     [Parameter]
     public IEnumerable<TItem> MyData { get; set; }
     [Parameter]
-    public string TextFiedCustom { get; set; }
+    public string TextFieldCustom { get; set; }
     [Parameter]
-    public string ValueFiedCustom { get; set; }
+    public string ValueFieldCustom { get; set; }
     [Parameter]
     public string MyId { get; set; }
     [Parameter]
@@ -95,8 +95,8 @@ This component is generic to showcase the concept, it does not have to be if you
                            CustomValueExpression="@( () => person.Team )"
                            MyData="@teams"
                            MyId="teamCombobox"
-                           TextFiedCustom="MyTextField"
-                           ValueFiedCustom="MyValueField">
+                           TextFieldCustom="MyTextField"
+                           ValueFieldCustom="MyValueField">
         </MyCustomComponent>
         <div>Current value: @person.Team</div>
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
@@ -107,8 +107,8 @@ This component is generic to showcase the concept, it does not have to be if you
                            CustomValueExpression="@( () => person.Role )"
                            MyData="@roles"
                            MyId="rolesCombobox"
-                           TextFiedCustom="Text"
-                           ValueFiedCustom="Value"
+                           TextFieldCustom="Text"
+                           ValueFieldCustom="Value"
                            AllowCustom="true">
         </MyCustomComponent>
 
