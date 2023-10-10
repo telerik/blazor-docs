@@ -140,7 +140,7 @@ The [ListBox component provides templates]({%slug listbox-templates%}) to enable
 
 ## Events
 
-Subscribe to the various [ListBox events]({%slug listbox-events%}) to react to user clicks on the component toolbar.
+The various [ListBox events]({%slug listbox-events%}) allow you to implement custom functionality and handle user interactions with the component's toolbar.
 
 
 ## ListBox Parameters
