@@ -56,7 +56,7 @@ Consider e2e testing for any case that targets a complete workflow.
 
 Considering the above-listed JS limitation, you may experience some issues when testing the components. Here is a list of several common problems:
 
-### TelerikRootComponent missing
+### TelerikRootComponent is Missing
 
 * Issue:
 
