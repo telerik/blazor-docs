@@ -42,6 +42,8 @@ Here are two possible options to proceed:
 
 * Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
 
+<div class="skip-repl"></div>
+
 ````MainLayout.razor
 @inherits LayoutComponentBase
 
