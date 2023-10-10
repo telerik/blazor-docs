@@ -52,7 +52,7 @@ You don't have to test our components, as we do that ourselves. Any unit tests f
 
 Consider e2e testing for any case that targets a complete workflow.
 
-## Common issues
+## Common Issues
 
 Considering the above-listed JS limitation, you may experience some issues when testing the components. The following sections in this article list these issues.
 
