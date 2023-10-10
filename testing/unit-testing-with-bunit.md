@@ -41,7 +41,7 @@ A case that requires an interaction with the component is a task for e2e testing
 
 ## bUnit Limitations
 
-A known limitation of bUnit is that it does not run JavaScript. So, if the components use some JSInterop, one should emulate IJSRuntime. You may find some more details here: https://bunit.dev/docs/test-doubles/emulating-ijsruntime.html.
+A known limitation of bUnit is that it does not run JavaScript. So, if the components use some JSInterop, one should emulate `IJSRuntime`. You may find some more details here: https://bunit.dev/docs/test-doubles/emulating-ijsruntime.html.
 
 
 ## Testing the Telerik UI for Blazor components with bUnit
