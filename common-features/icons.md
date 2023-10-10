@@ -37,6 +37,8 @@ The Telerik Blazor components use built-in icons with the help of two NuGet pack
 
 >tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available from the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping).
 
+> The font icons are detached from the Kendo UI Themes distribution. Read the [Font Icons do not render in Telerik UI for Blazor 4.6]({%slug icon-kb-font-icons-not-rendering%}) to see how to use Font icons in your application after the 4.6.0 Telerik UI for Blazor release. 
+
 To use the icons, import one or both namespaces, for example in `_Imports.razor`:
 
 >caption Register Telerik Blazor icon namespaces
