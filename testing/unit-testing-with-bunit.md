@@ -141,7 +141,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 * Workaround:
 
-    This attribute is used for internal purposes only and should not be included in the check.You may implement a method that can strip the unique attributes from the component, or verify particular elements using their CSS selectors (for instance `div.k-grid`). 
+    This attribute is used for internal purposes only and should not be included in the check. You may implement a method that can strip the unique attributes from the component, or verify particular elements using their CSS selectors (for instance `div.k-grid`). 
 
 ## Resources
 
