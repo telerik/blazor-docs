@@ -15,7 +15,7 @@ This article provides information for bUnit and how it can be used with the Tele
 * [E2E Vs Unit Testing](#e2e-vs-unit-testing)
 * [bUnit Limitations](#bunit-limitations)
 * [Testing the Telerik UI for Blazor Components](#testing-the-telerik-ui-for-blazor-components-with-bunit)
-* [Common issues](#common-issues)
+* [Common Issues](#common-issues)
 * [Resources](#resources)
 
 
