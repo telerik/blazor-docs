@@ -36,7 +36,7 @@ The root cause for this is a difference in the required configuration when [inte
 
 .NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
-Here are two options to go ahead with:
+Here are two possible options to proceed:
 
 * Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will save you specifying the render mode in every page and component.
 
