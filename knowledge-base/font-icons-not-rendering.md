@@ -38,13 +38,13 @@ The 7.0.0 version of the Kendo UI Themes is a dependency in Telerik UI for Blazo
 
 To keep using Font icons in your application use one of the two approaches:
 
-* Add the dedicated Telerik UI for Blazor CDN link in the _Host.cshtml or index.html (based on the hosting model) file in your application:
+* Add the dedicated Telerik UI for Blazor CDN link in the `_Host.cshtml` or `index.html` (based on the hosting model) file in your application:
 
 ````CSHTML
 <link href="https://blazor.cdn.telerik.com/blazor/4.6.0/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
 ````
 
-* Download the [Telerik UI for Blazor package]({%slug installation/msi%}#how-to-download-the-automated-installer) and reference the static assets for the Font Icons in the _Host.cshtml or index.html (based on the hosting model) file in your application:
+* Download the [Telerik UI for Blazor package]({%slug installation/msi%}#how-to-download-the-automated-installer) and reference the static assets for the Font Icons in the `_Host.cshtml` or `index.html` (based on the hosting model) file in your application:
 
 ````CSHTML
 <!-- For Trial licenses, use
