@@ -80,7 +80,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 | Cause | The root cause is that the Scheduler must render in the browser and then measure and adjust its layout with JavaScript. Then this information is sent to the .NET runtime to be used there. |
 | Workaround | [Mock the component](https://bunit.dev/docs/providing-input/substituting-components.html?tabs=moq) or refactor the component structure of your app, so that you can test a component that doesn't contain our Scheduler. |
 
-### Cannot find Dialog content in test 
+### Cannot Find Dialog Content
 
 |   | Details  |
 | - | ---------|
