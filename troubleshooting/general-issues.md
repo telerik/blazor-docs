@@ -40,7 +40,7 @@ Here are two possible options to proceed:
 
 * Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will spare the need to set the render mode in every page and component.
 
-* Set the render mode for the specific pages and components - this is useful if you want to have different render modes. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
+* Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
 
 ````MainLayout.razor
 @inherits LayoutComponentBase
