@@ -145,7 +145,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 ## Resources
 
-You can find a sample project about unit testing the UI of a Blazor app that contains Telerik UI for Blazor components in the following sample projects that also utilize bUnit:
+The following samples demonstrate unit testing a Blazor app with Telerik UI for Blazor components, including with bUnit:
 
 * <a href="https://github.com/telerik/blazor-ui/tree/master/testing" target="_blank">https://github.com/telerik/blazor-ui/tree/master/testing</a>.
 
