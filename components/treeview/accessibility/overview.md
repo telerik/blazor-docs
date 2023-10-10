@@ -19,9 +19,11 @@ In our illustrative example below, we've showcased the item reordering actions, 
 
 The following example demonstrates the [accessibility compliance of the TreeView component]({%slug treeview-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
 
->caption Open the TreeView accessibility example in a new window to evaluate it with Axe Core or other accessibility tools.
+>caption TreeView accessibility compliance example
 
 ````CSHTML
+@*Evaluate the example with Axe Core or other accessibility tools*@
+
 @using Telerik.SvgIcons
 @using Telerik.FontIcons
 
@@ -39,6 +41,20 @@ The following example demonstrates the [accessibility compliance of the TreeView
 
 @code {
     private TelerikContextMenu<ContextMenuItem> ContextMenu { get; set; }
+
+    private bool WaitingBefore { get; set; }
+    private bool WaitingAfter { get; set; }
+    private bool WaitingParent { get; set; }
+
+    private TreeItem ReorderItem { get; set; }
+
+    private TreeItem LastClickedItem { get; set; }
+
+    private IEnumerable<object> SelectedItems { get; set; } = new List<object>();
+
+    private List<TreeItem> FlatData { get; set; }
+
+    private List<ContextMenuItem> ContextMenuData { get; set; }
 
     private async Task OnTreeViewItemClick(TreeViewItemClickEventArgs args)
     {
@@ -81,21 +97,9 @@ The following example demonstrates the [accessibility compliance of the TreeView
         }
     }
 
-    bool WaitingBefore { get; set; }
-    bool WaitingAfter { get; set; }
-    bool WaitingParent { get; set; }
+    #region ContextMenu Actions
 
-    private TreeItem ReorderItem { get; set; }
-
-    public TreeItem LastClickedItem { get; set; }
-
-    public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
-
-    public List<TreeItem> FlatData { get; set; }
-
-    public List<ContextMenuItem> ContextMenuData { get; set; }
-
-    async Task OnItemContextMenuHandler(TreeViewItemContextMenuEventArgs args)
+    private async Task OnItemContextMenuHandler(TreeViewItemContextMenuEventArgs args)
     {
         LastClickedItem = args.Item as TreeItem;
 
@@ -146,8 +150,11 @@ The following example demonstrates the [accessibility compliance of the TreeView
         LastClickedItem = null; // clean up
     }
 
-    // sample data
+    #endregion
 
+    #region Models
+
+    // sample data
     public class ContextMenuItem
     {
         public string Text { get; set; }
@@ -163,7 +170,6 @@ The following example demonstrates the [accessibility compliance of the TreeView
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
         public FontIcon? Icon { get; set; }
-        public bool Expanded { get; set; }
 
         public TreeItem()
         {
@@ -183,6 +189,10 @@ The following example demonstrates the [accessibility compliance of the TreeView
             return new TreeItem(itmToClone);
         }
     }
+
+    #endregion
+
+    #region Load Data
 
     protected override void OnInitialized()
     {
@@ -229,75 +239,69 @@ The following example demonstrates the [accessibility compliance of the TreeView
 
     private void LoadFlatData()
     {
-        List<TreeItem>
-            items = new List<TreeItem>
-                ();
+        List<TreeItem> items = new List<TreeItem> ();
 
         items.Add(new TreeItem()
-            {
-                Id = 1,
-                Text = "Project",
-                ParentId = null,
-                HasChildren = true,
-                Icon = FontIcon.Folder,
-                Expanded = true
-            });
-
+        {
+            Id = 1,
+            Text = "Project",
+            ParentId = null,
+            HasChildren = true,
+            Icon = FontIcon.Folder,
+        });
         items.Add(new TreeItem()
-            {
-                Id = 2,
-                Text = "Design",
-                ParentId = 1,
-                HasChildren = true,
-                Icon = FontIcon.Brush,
-                Expanded = true
-            });
+        {
+            Id = 2,
+            Text = "Design",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = FontIcon.Brush,
+        });
         items.Add(new TreeItem()
-            {
-                Id = 3,
-                Text = "Implementation",
-                ParentId = 1,
-                HasChildren = true,
-                Icon = FontIcon.Folder,
-                Expanded = true
-            });
-
+        {
+            Id = 3,
+            Text = "Implementation",
+            ParentId = 1,
+            HasChildren = true,
+            Icon = FontIcon.Folder,
+        });
         items.Add(new TreeItem()
-            {
-                Id = 4,
-                Text = "site.psd",
-                ParentId = 2,
-                HasChildren = false,
-                Icon = FontIcon.FilePsd,
-                Expanded = true
-            });
+        {
+            Id = 4,
+            Text = "site.psd",
+            ParentId = 2,
+            HasChildren = false,
+            Icon = FontIcon.FilePsd,
+        });
         items.Add(new TreeItem()
-            {
-                Id = 5,
-                Text = "index.js",
-                ParentId = 3,
-                HasChildren = false,
-                Icon = FontIcon.Js
-            });
+        {
+            Id = 5,
+            Text = "index.js",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = FontIcon.Js
+        });
         items.Add(new TreeItem()
-            {
-                Id = 6,
-                Text = "index.html",
-                ParentId = 3,
-                HasChildren = false,
-                Icon = FontIcon.Html5
-            });
+        {
+            Id = 6,
+            Text = "index.html",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = FontIcon.Html5
+        });
         items.Add(new TreeItem()
-            {
-                Id = 7,
-                Text = "styles.css",
-                ParentId = 3,
-                HasChildren = false,
-                Icon = FontIcon.Css
-            });
+        {
+            Id = 7,
+            Text = "styles.css",
+            ParentId = 3,
+            HasChildren = false,
+            Icon = FontIcon.Css
+        });
 
         FlatData = items;
     }
+
+    #endregion
 }
 ````
 

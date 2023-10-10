@@ -19,21 +19,18 @@ In our illustrative example below, we've showcased the grouping and column reord
 
 The following example demonstrates the [accessibility compliance of the Grid component]({%slug grid-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
 
->caption Open the Grid accessibility example in a new window to evaluate it with Axe Core or other accessibility tools.
+>caption Grid accessibility compliance example
 
 ````CSHTML
+@*Evaluate the example with Axe Core or other accessibility tools*@
+
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using Telerik.SvgIcons
 @using Telerik.FontIcons
 
-<style>
-    .dialog-btn-formatting .k-actions-stretched > * {
-        flex: 0;
-    }
-</style>
-
-<TelerikContextMenu @ref="@ContextMenuRef" Data="@MenuItems"
+<TelerikContextMenu @ref="@ContextMenuRef" 
+                    Data="@MenuItems"
                     OnClick="@((MenuItem item) => ContextMenuClickHandler(item))">
     <ItemTemplate Context="item">
         @{
@@ -69,32 +66,34 @@ The following example demonstrates the [accessibility compliance of the Grid com
                 {
                     <span>@item.Text</span>
                     <TelerikDropDownList Width="190px"
-                                     Data="@ColumnsList"
-                                     @bind-Value="@ColumnBefore"
-                                     OnChange="@BeforeChangeHandler"
-                                     AriaLabel="Select Row"
-                                     DefaultText="-Select row-"
-                                     TextField="MyTextField"
-                                     ValueField="MyValueField">
+                                         Data="@ColumnsList"
+                                         @bind-Value="@ColumnBefore"
+                                         OnChange="@BeforeChangeHandler"
+                                         AriaLabel="Select Row"
+                                         DefaultText="-Select row-"
+                                         TextField="MyTextField"
+                                         ValueField="MyValueField">
                     </TelerikDropDownList>
                 }
                 else if (item.Id == 2)
                 {
                     <span>@item.Text</span>
                     <TelerikDropDownList Width="190px"
-                                     Data="@ColumnsList"
-                                     @bind-Value="@ColumnAfter"
-                                     OnChange="@AfterChangeHandler"
-                                     DefaultText="-Select row-"
-                                     AriaLabel="Select Row"
-                                     TextField="MyTextField"
-                                     ValueField="MyValueField">
+                                         Data="@ColumnsList"
+                                         @bind-Value="@ColumnAfter"
+                                         OnChange="@AfterChangeHandler"
+                                         DefaultText="-Select row-"
+                                         AriaLabel="Select Row"
+                                         TextField="MyTextField"
+                                         ValueField="MyValueField">
                     </TelerikDropDownList>
                 }
                 else
                 {
                     <span>@item.Text</span>
-                    <TelerikNumericTextBox Width="40%" AriaLabel="Select Destination Index" @bind-Value="@DestinationIndex" />
+                    <TelerikNumericTextBox @bind-Value="@DestinationIndex" 
+                                           Width="40%" 
+                                           AriaLabel="Select Destination Index" />
                 }
             </ItemTemplate>
         </TelerikRadioGroup>
@@ -105,7 +104,14 @@ The following example demonstrates the [accessibility compliance of the Grid com
     </DialogButtons>
 </TelerikDialog>
 
-<TelerikGrid Data="@GridData" @ref="@GridRef"
+<style>
+    .dialog-btn-formatting .k-actions-stretched > * {
+        flex: 0;
+    }
+</style>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
              Navigable="true"
              Reorderable="true"
              ShowColumnMenu="true"
@@ -143,35 +149,26 @@ The following example demonstrates the [accessibility compliance of the Grid com
     private List<RadioModel> RadioOptions { get; set; }
     private int RadioValue { get; set; }
 
-    protected List<MyDdlModel> ColumnsList { get; set; }
-    public int? ColumnAfter { get; set; }
-    public int? ColumnBefore { get; set; }
+    private List<MyDdlModel> ColumnsList { get; set; }
+    private int? ColumnAfter { get; set; }
+    private int? ColumnBefore { get; set; }
 
     //data sources
-    ObservableCollection<SampleData> GridData { get; set; }
-    List<MenuItem> MenuItems { get; set; }
-    IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
+    private ObservableCollection<SampleData> GridData { get; set; }
+    private List<MenuItem> MenuItems { get; set; }
+    private IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
     //metadata for the context menu actions
-    SampleData SelectedPerson { get; set; }
+    private SampleData SelectedPerson { get; set; }
     //component references so we can use their methods
-    TelerikContextMenu<MenuItem> ContextMenuRef { get; set; }
-    TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikContextMenu<MenuItem> ContextMenuRef { get; set; }
+    private TelerikGrid<SampleData> GridRef { get; set; }
 
     private int DestinationIndex { get; set; }
     private int OriginIndex { get; set; }
     private bool Visible { get; set; }
     private SampleData ReorderItem { get; set; }
 
-    // sample menu item class
-    public class MenuItem
-    {
-        public string Text { get; set; }
-        public ISvgIcon Icon { get; set; }
-        public Action Action { get; set; }
-        public string CommandName { get; set; }
-    }
-
-    void BeforeChangeHandler(object theUserInput)
+    private void BeforeChangeHandler(object theUserInput)
     {
         if ((int)theUserInput == 0 || (int)theUserInput == OriginIndex)
         {
@@ -179,7 +176,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
         }
     }
 
-    void AfterChangeHandler(object theUserInput)
+    private void AfterChangeHandler(object theUserInput)
     {
         if ((int)theUserInput == ColumnsList.Count - 1 || (int)theUserInput == OriginIndex)
         {
@@ -243,7 +240,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
     }
 
     // show the context menu for a particular row
-    async Task OnContextMenu(GridRowClickEventArgs args)
+    private async Task OnContextMenu(GridRowClickEventArgs args)
     {
         var argsItem = args.Item as SampleData;
 
@@ -256,7 +253,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
     }
 
     // sample handling of the context menu click
-    void ContextMenuClickHandler(MenuItem item)
+    private void ContextMenuClickHandler(MenuItem item)
     {
         if (item.Action != null)
         {
@@ -295,7 +292,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
     }
 
     // refresh dropdownlist data
-    void RefreshDropDownListData()
+    private void RefreshDropDownListData()
     {
         ColumnsList = new List<MyDdlModel>();
         for (int i = 0; i < GridData.Count; i++)
@@ -305,7 +302,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
     }
 
     // refresh grid rows ids
-    void RefreshRowIds()
+    private void RefreshRowIds()
     {
         for (int i = 0; i < GridData.Count; i++)
         {
@@ -352,8 +349,10 @@ The following example demonstrates the [accessibility compliance of the Grid com
         }
     }
 
+    #region CUD Operations
+
     // CUD operations for the grid
-    void CreateItem(GridCommandEventArgs args)
+    private void CreateItem(GridCommandEventArgs args)
     {
         var argsItem = args.Item as SampleData;
 
@@ -364,7 +363,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
         GridData.Insert(0, argsItem);
     }
 
-    void DeleteItem() // not async so it can be passed as an Action
+    private void DeleteItem() // not async so it can be passed as an Action
     {
         var argsItem = SelectedPerson;
 
@@ -373,7 +372,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
         GridData.Remove(argsItem);
     }
 
-    void UpdateHandler(GridCommandEventArgs args)
+    private void UpdateHandler(GridCommandEventArgs args)
     {
         var argsItem = args.Item as SampleData;
 
@@ -384,6 +383,18 @@ The following example demonstrates the [accessibility compliance of the Grid com
         {
             GridData[index] = argsItem;
         }
+    }
+
+    #endregion
+
+    #region Models
+    // sample menu item class
+    public class MenuItem
+    {
+        public string Text { get; set; }
+        public ISvgIcon Icon { get; set; }
+        public Action Action { get; set; }
+        public string CommandName { get; set; }
     }
 
     public class SampleData
@@ -434,6 +445,8 @@ The following example demonstrates the [accessibility compliance of the Grid com
         public string MyTextField { get; set; }
     }
 
+    #endregion
+
     #region Random Name Generator
     private static readonly Random random = new Random();
 
@@ -442,7 +455,7 @@ The following example demonstrates the [accessibility compliance of the Grid com
         "John", "Alice", "Michael", "Emma", "James", "Olivia", "Robert", "Sophia", "William", "Emily"
     };
 
-    public static string GenerateRandomFirstName()
+    private static string GenerateRandomFirstName()
     {
         return firstNames[random.Next(firstNames.Count)];
     }
