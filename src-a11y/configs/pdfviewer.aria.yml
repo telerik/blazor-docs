@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: PDFViewer
+from: /aria/pdfviewer_aria.md
+dest: ../components/pdfviewer/accessibility/wai-aria-support.md
+slug: pdfviewer-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor PDFViewer Overview (Demo)](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
