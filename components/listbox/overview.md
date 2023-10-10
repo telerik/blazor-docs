@@ -145,7 +145,7 @@ The various [ListBox events]({%slug listbox-events%}) allow you to implement cus
 
 ## ListBox Parameters
 
-The table below lists the ListBox parameters. For a full list of the ListBox API members (parameters, methods and events), check the [ListBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikListBox-1).
+The table below lists the ListBox parameters. For a full list of the ListBox API members (parameters, methods, and events), check the [ListBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikListBox-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
