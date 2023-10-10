@@ -48,7 +48,7 @@ A known limitation of bUnit is that it does not run JavaScript. So, if the compo
 
 The Telerik UI for Blazor components rely on JSInterop to support their rich UX features. This can make testing with bUnit difficult or even impossible in some scenarios due to the above-listed limitation.
 
-You don't have to test our components, as we do that ourselves. Any unit tests for custom markup and logic have to test just that - the custom logic in an isolated scenario.
+You don't have to test our components, as we do that ourselves. Any unit tests for custom markup and logic have to test just that—the custom logic in an isolated scenario.
 
 Consider e2e testing for any case that targets a complete workflow.
 
