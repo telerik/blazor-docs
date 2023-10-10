@@ -10,7 +10,7 @@ position: 0
 
 # Blazor ListBox Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/listbox" target="_blank">ListBox for Blazor</a> is an enhanced version of the HTML `<select multiple>` element. The ListBox provides a lot of additional features such as item reordering, item removal and moving items from one ListBox to another via toolbar buttons or drag-and-drop. The ListBox also allows single or multiple item selection, and will show a vertical scrollbar automatically if the items don't fit. The component features templates to customize its rendering.
+The <a href = "https://www.telerik.com/blazor-ui/listbox" target="_blank">ListBox for Blazor</a> is an enhanced version of the HTML `<select multiple>` element. The ListBox provides many additional features such as item reordering, item removal, and moving items from one ListBox to another through toolbar buttons or drag-and-drop. The ListBox also allows single or multiple item selection and will show a vertical scrollbar automatically if the items don't fit. The component features templates to customize its rendering.
 
 
 ## Creating Blazor ListBox
