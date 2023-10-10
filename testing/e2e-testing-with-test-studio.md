@@ -4,7 +4,7 @@ page_title: Testing Blazor Apps With Test Studio
 description: "Test your Blazor apps with Test Studio Translators. You can use them to record UI tests out of the box without the need to code."
 slug: testing-with-test-studio
 previous_url: /testing-with-test-studio
-position: 2
+position: 1
 ---
 
 # Testing With Test Studio
