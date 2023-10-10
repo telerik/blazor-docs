@@ -64,7 +64,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 | Cause |  A possible cause for this error is that in the test the component is rendered in isolation, without a layout, so the `TelerikRootComponent` is missing.|
 | Workaround | Ether [mock the `TelerikRootComponent`](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/Common/TelerikTestContext.cs) or use an [actual `TelerikRootComponent`](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/Common/TelerikTestContextWithActualRoot.cs). |
 
-## Attribute `data-id` is different in the markup
+### Attribute `data-id` is different in the markup
 
 |   | Details  |
 | - | ---------|
