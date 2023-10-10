@@ -49,7 +49,7 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 8 Preview | 4.1.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET 8 RC 2 | 4.6.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 5 | 2.19.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET Core 3.1 | 2.5.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 

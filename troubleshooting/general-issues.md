@@ -12,6 +12,7 @@ position: 1
 
 This page provides solutions for common issues you may encounter while working with Telerik UI for Blazor components.
 
+* [TelerikRootComponent is missing in .NET 8.0](#telerikrootcomponent-is-missing-in-net-80)
 * [Popups Do Not Work](#popups-do-not-work)
 * [Wrong Popup Position](#wrong-popup-position)
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
@@ -23,6 +24,113 @@ This page provides solutions for common issues you may encounter while working w
 * [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
 * [Upload Troubleshooting]({%slug upload-troubleshooting%})
 
+## TelerikRootComponent is missing in .NET 8.0
+
+The latest UI for Blazor (4.6.0) provides [compatibility with .NET 8.0 RC 2]({%slug system-requirements%}#compatible-net-versions). This framework version [is not yet supported]({%slug system-requirements%}#supported-net-versions) and we do not recommend using our components in it until officially supported.
+
+If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the following error you may hit when using the new [Blazor Web App template](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-rc-1/#blazor-web-app-template-updates)
+
+>warning Error: System.Exception: A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.
+
+The root cause for this is a difference in the required configuration when [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes) are used.
+
+
+
+By default, Blazor renders static pages which makes the layout pages (e.g. `MainLayout.razor`) not "interactable" unless they are explicitly configured. This prevents general functionality from working as expected - for example, components that render things in their `ChildContent` (which applies to the `TelerikRootComponent` as well). [Read more details on these specifics here ...](https://github.com/dotnet/aspnetcore/issues/50724#issuecomment-1723892147)
+
+Having this in mind, the current recommended approach for wrapping the `body` with the `TelerikRootComponent` in the main or a custom layout is not applicable with interactive render modes as is.
+
+An option to handle this is to ensure that your layout and pages will render in server mode. To do so, set `@attribute [RenderModeServer]` in your layout and pages and wrap the Telerik UI for Blazor component in your custom layout.
+
+````MainLayout.razor
+@inherits LayoutComponentBase
+
+@implements IDisposable
+
+@Body
+
+@code {
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+
+    public void Dispose()
+    {
+    }
+}
+````
+````CustomLayout.razor
+@attribute [RenderModeServer]
+
+<TelerikRootComponent>
+
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
+        <main>
+            <div class="top-row px-4">
+                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            </div>
+
+            <article class="content px-4">
+                @ChildContent
+            </article>
+        </main>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+</TelerikRootComponent>
+````
+````NavMenu.razor
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">MyBlazorWeb</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="weather">
+                <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
+            </NavLink>
+        </div>
+    </nav>
+</div>
+````
+````Home.razor
+@page "/"
+
+@attribute [RenderModeServer]
+
+<CustomLayout>
+  
+    @* Telerik UI for Blazor components here *@
+
+</CustomLayout>
+````
 
 ## Popups Do Not Work
 
