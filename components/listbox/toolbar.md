@@ -40,7 +40,7 @@ Each button becomes enabled when it can be used, for example, when the user sele
 
 ## Custom Tools
 
-In addition to built-in tools, the ListBox also supports custom tools. Use the `<ListBoxToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
+In addition to built-in tools, the ListBox also supports custom tools. Use the `<ListBoxToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example under [Toolbar Configuration](#toolbar-configuration).
 
 
 ## Toolbar Configuration
