@@ -72,7 +72,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 | Cause | The `data-id` of the components is automatically generated in our components and it is unique for each instance. Thus, this is an expected difference in the output if you call `RenderComponent` twice. |
 | Workaround | This attribute is used for internal purposes only and should not be included in the check. You may implement a method that can strip the unique attributes from the component, or verify particular elements using their CSS selectors (for instance `div.k-grid`). |
 
-### Scheduler throws in test
+### Scheduler Throws an Error
 
 |   | Details  |
 | - | ---------|
