@@ -34,7 +34,7 @@ If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the f
 
 The root cause for this is a difference in the required configuration when [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes) are used.
 
-.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). It is required that the `TelerikRootComponent` is placed in a layout page (e.g. `MainLayout.razor`) that has interactive mode enabled. At the time of writing,the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
+.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
 Here are two options to go ahead with:
 
