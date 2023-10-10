@@ -536,6 +536,7 @@ intro_columns:
       "DateRange Picker": "daterangepicker-overview"
       "DropDownList": "components/dropdownlist/overview"
       "HTML Editor": "editor-overview"
+      "ListBox": "listbox-overview"
       "Masked Textbox": "maskedtextbox-overview"
       "MultiSelect": "multiselect-overview"
       "Numeric Textbox": "components/numerictextbox/overview"
