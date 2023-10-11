@@ -645,13 +645,7 @@ enable_blazorRepl: true
 uiForBlazorLatestVersion: "4.6.0"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "7.0.0"
-
-## The Kendo UI version used
-cdnVersion: "2019.1.115"
-
-## The MVC Core version used
-mvcCoreVersion: "2019.1.115"
+themeCdnVersion: "7.0.1"
 
 ## Product
 product: "Telerik UI for Blazor"
