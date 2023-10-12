@@ -63,7 +63,7 @@ Here are two possible options to proceed:
 }
 ````
 ````CustomLayout.razor
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 
 <TelerikRootComponent>
 
@@ -125,7 +125,7 @@ Here are two possible options to proceed:
 ````Home.razor
 @page "/"
 
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 
 <CustomLayout>
   
