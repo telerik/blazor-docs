@@ -24,7 +24,7 @@ The Upload component requires integration with remote endpoints and controller m
     * Verify that the controller and action method names match the `SaveUrl` and `RemoveUrl` values.
 * **The server does not return any response. The browser console shows connection errors:**
     `Failed to load resource: net::ERR_CONNECTION_RESET` or `Failed to load resource: The network connection was lost.`
-    * The uploaded file size exceeds the web server's maximum.
+    * The uploaded file size [exceeds the web server's maximum]({%slug upload-overview%}#large-file-uploads).
 
 ## See Also
 
