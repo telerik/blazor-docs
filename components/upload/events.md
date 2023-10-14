@@ -38,7 +38,7 @@ The different Upload events use different event argument types, but the exposed 
 
 | Property | Type | Description |
 |---|---|---|
-| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. In the other events, the file is just one. |
+| `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. The file is always one in `OnCancel`, `OnError`, `OnProgress`, `OnRemove`, and `OnSuccess`. |
 | `IsCancelled` | `bool` | Set to `true` to cancel the event and the respective user action. |
 | `Operation` | [`UploadOperationType`](/blazor-ui/api/Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
@@ -69,7 +69,7 @@ The `UploadFileInfo` object has the following properties:
 
 The `OnCancel` event fires when the user clicks the *Cancel* icon of a file that is currently uploading.
 
-The `UploadCancelEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments).
+The `UploadCancelEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property contains only one file.
 
 If you cancel the event, the upload process will continue. For example, this can depend on some [file information](#uploadfileinfo) such as size and upload progress.
 
@@ -100,7 +100,7 @@ See the [full example](#example) below.
 
 The `OnClear` event fires when the user clicks the *Clear* button below the file list. This button is visible when [`AutoUpload="false"`]({%slug upload-overview%}#upload-parameters).
 
-The `UploadClearEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments).
+The `UploadClearEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
 
 If you cancel the event, the current file list will remain visible.
 
@@ -131,7 +131,7 @@ The `OnError` event fires when an *upload* or *remove* request fails in the cont
 
 The [`UploadErrorEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files`
+* `Files` that contains one file
 * `Operation`
 * `Request`
 
@@ -188,7 +188,7 @@ The `OnProgress` event fires each time a file makes progress in its upload proce
 
 The event is tied directly to the [`progress` event of the `XHR` object](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event), which sends the file to the controller. The Upload component cannot control when or how often the event will fire. For small files, the `Progress` value is likely to jump directly to `100`, especially on `localhost`.
 
-The `UploadProgressEventArgs` event argument contains the properties [`Files` and `Progress`](#event-arguments).
+The `UploadProgressEventArgs` event argument contains the properties [`Files` and `Progress`](#event-arguments). The `Files` property contains only one file.
 
 >caption Using the Upload OnProgress event
 
@@ -215,7 +215,7 @@ The `OnRemove` event fires when the users clicks the *Remove* (X) button of an u
 
 The [`UploadEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files`
+* `Files` that contains one file
 * `IsCancelled`
 * `RequestData` (see section [Send Custom Data with the File](#send-custom-data-with-the-file))
 * `RequestHeaders`
@@ -267,7 +267,7 @@ See the [full example](#example) below.
 
 The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the **Select files** button or by dropping the files anywhere in the component.
 
-The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments).
+The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files.
 
 If you cancel the event, the Upload component will neither list, nor upload the selected files.
 
@@ -280,8 +280,8 @@ In some cases, you may want to rename a selected file when uploading it, for exa
 
 The file rename process requires two separate steps:
 
-1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. **The controller will always receive `IFormFile` with the original name from the file system**, due to browser security restrictions.
-1. Send the new file name as [additional request data](#send-custom-data-with-the-file) in the [`OnUpload` event](#onupload). Use the `Save` action in the remote endpoint to set the file name, as it will be saved on the server.
+1. Use the `OnSelect` event to call a remote endpoint and check for duplicates before the actual upload process starts. If needed, set a new name to the `Name` property of the file. This new name will appear in the Upload component UI. The controller will always receive `IFormFile` with the original name from the file system, due to browser security restrictions.
+1. Send the new file name(s) as [additional request data](#send-custom-data-with-the-file) in the [`OnUpload`](#onupload) and [`OnRemove`](#onremove) events. Keep in mind that `OnUpload` can fire once for multiple files, so you may have to send multiple file names to the remote endpoint. Use multiple custom key-value pairs or a single serialized `Dictionary`. Then, use the `Save` action in the remote endpoint to set the name(s) of the saved file(s).
 
 >caption Using the Upload OnSelect event to rename files in the UI
 
@@ -327,7 +327,7 @@ The `OnSuccess` event fires when an upload or remove request is successful. The 
 
 The [`UploadSuccessEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files`
+* `Files` that contains one file
 * `Operation`
 * `Request`
 
@@ -390,7 +390,7 @@ The `OnUpload` event fires when files will be uploaded. By default, it will fire
 
 The [`UploadEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files`
+* `Files` that contains one or more files
 * `IsCancelled`
 * `RequestData`
 * `RequestHeaders`
@@ -598,19 +598,21 @@ Also see:
             return;
         }
 
-        var file = args.Files.First();
-
         if (!AllowRequests)
         {
             args.IsCancelled = true;
-            Console.WriteLine($"OnUpload event cancelled for {file.Name}");
+            Console.WriteLine($"OnUpload event cancelled for:");
         }
         else
         {
-            Console.WriteLine($"OnUpload event for {file.Name}");
-
             args.RequestData.Add("successData", ReturnSuccess);
             args.RequestHeaders.Add("successHeader", ReturnSuccess);
+            Console.WriteLine($"OnUpload event for:");
+        }
+
+        foreach (var file in args.Files)
+        {
+            Console.WriteLine($"  File: {file.Name}");
         }
     }
 
