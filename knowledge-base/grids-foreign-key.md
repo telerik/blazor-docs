@@ -134,7 +134,7 @@ There are a few ways to implement the scenario:
                 Products in Group: @context.Count
             </GroupFooterTemplate>
             <FooterTemplate>
-                Total Categories: @context.Count
+                Total Count: @context.Count
             </FooterTemplate>
             <HeaderTemplate>
                 <strong>Category Foreign Key</strong>
