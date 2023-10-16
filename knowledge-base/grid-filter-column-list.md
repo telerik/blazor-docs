@@ -18,6 +18,10 @@ res_type: kb
             <td>Product</td>
             <td>Grid for Blazor</td>
         </tr>
+        <tr>
+            <td>Version</td>
+            <td>4.4.0 +</td>
+        </tr>
     </tbody>
 </table>
 
