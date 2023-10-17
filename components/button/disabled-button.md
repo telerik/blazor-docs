@@ -31,7 +31,4 @@ The following example demonstrates how to enable and disable the Button.
     bool ButtonIsEnabled { get; set; } = false;
     string ButtonText => ButtonIsEnabled ? "Enabled Button" : "Disabled Button";
 }
-
->caption Comparison between disabled and enabled button
-
-![Blazor Disabled Button](images/disabled-button.png)
+````
