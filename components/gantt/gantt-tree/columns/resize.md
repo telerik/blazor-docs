@@ -47,7 +47,7 @@ Autofitting specific columns preserves the current widths of all the other colum
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
-              IdField="Id"
+              IdField="@nameof(FlatModel.Id)"
               ParentIdField="ParentId"
               ColumnResizable="true">
     <GanttViews>
