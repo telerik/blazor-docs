@@ -48,7 +48,8 @@ Autofitting specific columns preserves the current widths of all the other colum
               Width="900px"
               Height="600px"
               IdField="Id"
-              ParentIdField="ParentId">
+              ParentIdField="ParentId"
+              ColumnResizable="true">
     <GanttViews>
         <GanttDayView></GanttDayView>
         <GanttWeekView></GanttWeekView>
