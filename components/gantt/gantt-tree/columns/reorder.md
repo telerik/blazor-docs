@@ -24,8 +24,9 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
-              IdField="Id"
-              ParentIdField="ParentId">
+              IdField="@nameof(FlatModel.Id)"
+              ParentIdField="@nameof(FlatModel.ParentId)"
+              ColumnReorderable="true">
     <GanttViews>
         <GanttDayView></GanttDayView>
         <GanttWeekView></GanttWeekView>
@@ -33,17 +34,17 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
         <GanttYearView></GanttYearView>
     </GanttViews>
     <GanttColumns>
-        <GanttColumn Field="Title"
+        <GanttColumn Field="@nameof(FlatModel.Title)"
                      Expandable="true"
                      Reorderable="true"
                      Width="160px"
                      Title="Task Title">
         </GanttColumn>
-        <GanttColumn Field="Start"
+        <GanttColumn Field="@nameof(FlatModel.Start)"
                      Reorderable="true"
                      Width="100px">
         </GanttColumn>
-        <GanttColumn Field="End"
+        <GanttColumn Field="@nameof(FlatModel.End)"
                      Reorderable="true"
                      Width="100px">
         </GanttColumn>
