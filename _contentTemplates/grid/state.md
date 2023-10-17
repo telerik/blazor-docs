@@ -271,7 +271,7 @@
 
 <TelerikButton ThemeColor="primary" OnClick="@ExpandHierarchy">Expand hierarchy from code</TelerikButton>
 
-<TelerikGrid Data="salesTeamMembers" @ref="Grid">
+<TelerikGrid Data="salesTeamMembers" @ref="@GridRef">
     <DetailTemplate>
         @{
             var employee = context as MainModel;
@@ -290,7 +290,7 @@
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<MainModel> Grid { get; set; }
+    private TelerikGrid<MainModel> GridRef { get; set; }
 
     private async Task ExpandHierarchy()
     {
