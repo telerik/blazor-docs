@@ -25,7 +25,7 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
               Width="900px"
               Height="600px"
               IdField="@nameof(FlatModel.Id)"
-              ParentIdField="ParentId"
+              ParentIdField="@nameof(FlatModel.ParentId)"
               ColumnReorderable="true">
     <GanttViews>
         <GanttDayView></GanttDayView>
