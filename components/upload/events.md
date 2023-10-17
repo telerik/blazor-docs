@@ -211,7 +211,7 @@ See the [full example](#example) below.
 
 ## OnRemove
 
-The `OnRemove` event fires when the users clicks the *Remove* (X) button of an uploaded file. The Upload component sends a request to the server so you can delete the file.
+The `OnRemove` event fires when the users clicks the *Remove* (X) button of an uploaded or pending file. If the file is already uploaded, the Upload component will send a request to the server, so you can delete it. Then, the component will fire [`OnSuccess`](#onsuccess) or [`OnError`](#onerror).
 
 The [`UploadEventArgs` event argument](#event-arguments) contains the following properties:
 
@@ -265,9 +265,9 @@ See the [full example](#example) below.
 
 ## OnSelect
 
-The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the **Select files** button or by dropping the files anywhere in the component.
+The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the *Select files* button or by dropping the files anywhere in the component.
 
-The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files.
+The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files, and it is possible to [count the total number of selected files]({%slug upload-kb-count-selected-uploaded-files%}).
 
 If you cancel the event, the Upload component will neither list, nor upload the selected files.
 
@@ -327,7 +327,7 @@ The `OnSuccess` event fires when an upload or remove request is successful. The 
 
 The [`UploadSuccessEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files` that contains one file
+* `Files` that contains one file. See [how to count the total number of uploaded files]({%slug upload-kb-count-selected-uploaded-files%}).
 * `Operation`
 * `Request`
 
@@ -755,7 +755,7 @@ app.Run();
 
 ## See Also
 
-* [Upload Overview]({%slug upload-overview%})
-* [Validation]({%slug upload-validation%})
-* [Upload Methods]({%slug upload-overview%}#methods)
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
+* [Upload Overview]({%slug upload-overview%})
+* [Upload Methods]({%slug upload-overview%}#methods)
+* [Count all selected and uploaded files]({%slug upload-kb-count-selected-uploaded-files%})
