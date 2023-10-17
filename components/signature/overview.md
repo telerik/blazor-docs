@@ -19,7 +19,7 @@ The Blazor Signature component provides an area where users can draw their signa
 1. Use the `TelerikSignature` tag to add the component to your razor page.
 1. Set the `Value` parameter to a `string` property. It supports one-way and two-way binding.
 1. Set the `Width` and `Height` parameters to `px` values.
-1. Increase the [SignalR Message Size](#signalr-message-size)
+1. Increase the [SignalR Message Size](#signalr-message-size).
 
 >caption Blazor Signature with basic configuration
 
@@ -44,6 +44,8 @@ Use the Blazor Signature **blur** and value **change** events to respond to user
 
 In **Blazor server-side applications**, the Signature component uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. This is rarely enough for the Signature `Value`, which is a Base64 image, so [increase the max WebSocket message size for the Blazor application]({%slug common-kb-increase-signalr-max-message-size%}).
 
+The Signature parameters, which affect the `Value` size are `ExportScale`, `Height`, and `Width`.
+
 ## Signature Parameters
 
 The following table lists the Signature parameters. Also check the [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature).
@@ -56,9 +58,9 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `AriaLabel` | `string` | Maps to the `aria-label` attribute. Use  this parameter if the text that labels the component is not visible. |
 | `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles]({%slug themes-override%}). |
-| `DebounceDelay` | `int` <br /> `(150)` | The time in milliseconds between the last drawn line and the value change event. |
+| `DebounceDelay` | `int` <br /> `(150)` | The time in milliseconds between the last drawn line and the value change event. Increase the debounce delay to optimize the number of client-server requests while the user is drawing, especially when the `Width` and `Height` are larger. |
 | `Enabled` | `bool` <br /> `(true)` | Defines if the component is enabled. |
-| `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the value of the `ExportScale` when converting the signature to an image. |
+| `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the export scale when converting the signature to an image. If you don't need to save a high-precision signature of the user, or if the `Width` and `Height` are large, reduce the export scale to optimize the [`Value` size](#signalr-message-size). |
 | `Height` | `string` | Defines the height of the component. Set it in `px`. |
 | `HideLine` | `bool` | Whether the dotted line is rendered. |
 | `Maximizable` | `bool` | Whether the Signature can be maximized via a button at the top-right corner. When maximized, the component will show a modal popup dialog. Also see `PopupScale`. |
