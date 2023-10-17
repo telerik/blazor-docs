@@ -6,7 +6,7 @@ page_title: Bind Grid to Expando Object
 slug: grid-kb-binding-to-expando-object
 position: 
 tags: 
-ticketid: 1577265, 1602670
+ticketid: 1577265, 1602670, 1616508
 res_type: kb
 ---
 
