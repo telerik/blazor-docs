@@ -24,7 +24,7 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
-              IdField="Id"
+              IdField="@nameof(FlatModel.Id)"
               ParentIdField="ParentId"
               ColumnReorderable="true">
     <GanttViews>
