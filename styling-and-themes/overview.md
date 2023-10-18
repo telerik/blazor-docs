@@ -21,7 +21,7 @@ The UI for Blazor suite comes with a set of built-in themes that you can choose 
 
 The UI for Blazor suite has the same HTML rendering and SASS Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
 
-To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it is `~/Pages/_Host.cshtml`. The Razor syntax for a server application differs and you need to escape the `@` symbols as `@@`.
+To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it can be `~/Pages/_Host.cshtml` or `_Layout.cshtml` or `App.razor`, depending on the .NET version.
 
 This article contains the following sections:
 
@@ -46,26 +46,30 @@ Static assets are part of the NuGet package and the framework will copy them to 
 <!DOCTYPE html>
 <html>
 <head>
-    . . .
-    <!-- Choose only one of the themes -->
+    <!-- Choose only one theme -->
     
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-    
+
     <!-- 
+        <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/default-ocean-blue.css" rel="stylesheet" />
         <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
         <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-material/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor/css/kendo-theme-fluent/all.css" rel="stylesheet" />
     -->
-    
+
     <!-- For Trial licenses use one of the following -->
+
     <!--
         <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/default-ocean-blue.css" rel="stylesheet" />
         <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-bootstrap/all.css" rel="stylesheet" />
         <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-material/all.css" rel="stylesheet" />
+        <link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-fluent/all.css" rel="stylesheet" />
       -->
 </head>
 
- . . .
- 
+. . .
+
 </html>
 ````
 
