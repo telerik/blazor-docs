@@ -13,9 +13,14 @@ position: 1
 
 Telerik UI for Blazor provides a large set of built-in icons. There are two ways to consume and render them - as font icons or as SVG icons. It is also possible to use custom icons, or define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
 
+Usually, [the app will use only one type of icons](#set-global-icon-type) (font icons or SVG icons). However, it is possible to use both types at the same time.
+
 This article contains the following sections:
 
 * [How do icons work](#how-icons-work)
+    * [Install icon NuGet packages](#icon-nuget-packages)
+    * [Import icon namespaces](#icon-namespaces)
+    * [Register font icon stylesheet](#font-icon-stylesheet) (SVG icons don't need it)
 * [`FontIcon` component](#fonticon-component)
     * [Set custom font icon size](#set-custom-font-icon-size)
     * [Render font icons with HTML](#render-font-icons-with-html)
@@ -25,10 +30,16 @@ This article contains the following sections:
 * [Set global icon type for the whole application](#set-global-icon-type)
 * [Complete list of built-in icons](#icons-list)
 
-> [`TelerikFontIcon` replaced the `TelerikIcon` component in version 4.0]({%slug changes-in-4-0-0%}). The `ImageUrl` and `SpriteClass` parameters are no longer supported.
-
 
 ## How Icons Work
+
+The Telerik Blazor icons have three prerequisites to work:
+
+* [Install icon NuGet packages](#icon-nuget-packages)
+* [Import icon namespaces](#icon-namespaces)
+* [Register font icon stylesheet](#font-icon-stylesheet) (SVG icons don't need it)
+
+### Icon NuGet Packages
 
 The Telerik Blazor components use built-in icons with the help of two NuGet packages. They are installed *automatically* as dependencies of the `Telerik.UI.for.Blazor` package:
 
@@ -37,7 +48,7 @@ The Telerik Blazor components use built-in icons with the help of two NuGet pack
 
 >tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available from the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping).
 
-> The font icons are detached from the Kendo UI Themes distribution. Read the [Font Icons do not render in Telerik UI for Blazor 4.6]({%slug icon-kb-font-icons-not-rendering%}) to see how to use Font icons in your application after the 4.6.0 Telerik UI for Blazor release. 
+### Icon Namespaces
 
 To use the icons, import one or both namespaces, for example in `_Imports.razor`:
 
@@ -61,7 +72,23 @@ Some components provide icon-related parameters, which can rely on the above pac
 <GridCommandButton Icon="@SvgIcon.Save">Command Button with SVG icon</GridCommandButton>
 ```
 
-Usually, [the app will use only one type of icons](#set-global-icon-type). However, it is possible to use standalone Icon components of both types at the same time. The sections below discuss these standalone components.
+### Font Icon Stylesheet
+
+In version 4.6.0 of Telerik UI for Blazor, the font icon styles were separated in their own stylesheet. Register it in a similar way as the component theme:
+
+>caption Using the font icon CSS file
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<!-- If using static assets from the NuGet package -->
+<link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
+<!-- If using static assets from a Trial NuGet package -->
+<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
+
+<!-- If using the Telerik Blazor CDN - set the correct version number in the URL -->
+<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+````
 
 
 ## FontIcon Component
