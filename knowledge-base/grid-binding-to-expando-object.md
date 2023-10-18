@@ -6,7 +6,7 @@ page_title: Bind Grid to Expando Object
 slug: grid-kb-binding-to-expando-object
 position: 
 tags: 
-ticketid: 1577265, 1602670
+ticketid: 1577265, 1602670, 1616508
 res_type: kb
 ---
 
@@ -206,6 +206,97 @@ In addition to the sample below, there is a [complete runnable project in GitHub
 </GridColumn>
 ````
 
+* [Binding to `ExpandoObject` is not (yet) supported together with `LoadGroupsOnDemand="true"`](https://feedback.telerik.com/blazor/1535071). A possible workaround is:
+    1. Bind the Grid with its [`OnRead` event]({%slug common-features-data-binding-onread%}).
+    1. Populate the missing `MemberType` properties of the `FilterDescriptor`s in the [`OnRead` event argument]({%slug common-features-data-binding-onread%}#event-argument), namely in `args.Request.Filters`.
+
+>caption Using ExpandoObject and LoadGroupsOnDemand
+
+````CSHTML
+@using System.Dynamic
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikGrid OnRead="@OnGridRead"
+             TItem="@ExpandoObject"
+             Pageable="true"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             Groupable="true"
+             LoadGroupsOnDemand="true"
+             OnStateInit="@OnGridStateInit">
+    <GridColumns>
+        @{
+            if (GridData != null && GridData.Any())
+            {
+                // The first data item should always contain non-null values for the property types to be determined.
+                // Use another data item or OnModelInit to populate default values for newly added items.
+                var firstDataItem = (IDictionary<string, object>)GridData.First();
+
+                foreach (var item in firstDataItem)
+                {
+                    if (item.Key != "Id")
+                    {
+                        <GridColumn Field="@item.Key" FieldType="@item.Value.GetType()" @key="@item.Key">
+                        </GridColumn>
+                    }
+                }
+            }
+        }
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<ExpandoObject> GridData { get; set; } = new List<ExpandoObject>();
+
+    private Dictionary<string, Type> GridPropertyTypes { get; set; } = new Dictionary<string, Type>()
+    {
+        { "Id", typeof(int) },
+        { "PropertyInt", typeof(int) },
+        { "PropertyString", typeof(string) },
+        { "PropertyGroup", typeof(string) },
+        { "PropertyDate", typeof(DateTime) },
+    };
+
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        args.Request.Filters.OfType<FilterDescriptor>()
+            .Where(x => x.MemberType == null)
+            .Each(x => x.MemberType = GridPropertyTypes[x.Member]);
+
+        var result = GridData.ToDataSourceResult(args.Request);
+
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
+    }
+
+    private void OnGridStateInit(GridStateEventArgs<ExpandoObject> args)
+    {
+        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
+        {
+            Member = "PropertyGroup",
+            MemberType = typeof(string)
+        });
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 15; i++)
+        {
+            dynamic expando = new ExpandoObject();
+
+            expando.Id = i;
+            expando.PropertyInt = i;
+            expando.PropertyString = "String " + i;
+            expando.PropertyGroup = "Group " + (i % 3 + 1);
+            expando.PropertyDate = DateTime.Now.AddMonths(-i);
+
+            GridData.Add(expando);
+        }
+    }
+}
+````
 
 ## See Also
 
