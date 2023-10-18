@@ -77,7 +77,10 @@ The correct approach is to use a concatenated string that includes the property 
 >caption Using complex models with navigation properties in the Grid without flattening the model
 
 ````CSHTML
-<TelerikGrid Data="@myData" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow" Groupable="true">
+<TelerikGrid Data="@GridData"
+             Sortable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             Groupable="true">
     <GridColumns>
         <GridColumn Field="@nameof(SampleComplexObject.ID)" />
         <GridColumn Field="@nameof(SampleComplexObject.Name)" />
@@ -92,7 +95,7 @@ The correct approach is to use a concatenated string that includes the property 
         public int ID { get; set; }
         public string Name { get; set; }
         public NestedObject SomeNavigationProperty { get; set; } // use this field name for data binding
-        
+
         // the parameterless constructor must instantiate the nested fields when editing, see the notes below
         public SampleComplexObject()
         {
@@ -106,104 +109,7 @@ The correct approach is to use a concatenated string that includes the property 
         public string OtherField { get; set; }
     }
 
-    public IEnumerable<SampleComplexObject> myData = Enumerable.Range(1, 50).Select(x =>
-            new SampleComplexObject
-            {
-                ID = x,
-                Name = "Name " + x,
-                SomeNavigationProperty = new NestedObject
-                {
-                    Field1 = "first " + x % 4,
-                    OtherField = "second " + x % 6
-                }
-            }
-        );
-}
-````
-
-
-## Notes
-
-When Grid editing is enabled, the nested models must be instantiated by the application code. Otherwise, for newly inserted items (or maybe even for some existing items, depending on the data), they will be `null` and so the grid editors will not have an instance to bind to, and so the values you write in them will be reset.
-
-There are two ways to solve this:
-
-* The parameterless constructor of the main view-model can instantiate the nested objects so they are not `null`.
-
-* You can use an EditorTemplate for the grid column and ensure an instnace of the nested object is created there.
-
-The code snippet below demonstrates both approaches (the second option is commented out - replace the two nested field columns with the comment to see it in action, and remove the constructor).
-
->caption Measures for editing and inserting complex nested (navigation) objects
-
-````CSHTML
-@* Two ways to ensure nested objects can be edited and inserted. An issue can become obvious if you Add an item without those solutions, and try writing in the nested fields editors *@
-
-<TelerikGrid Data="@MyData" Pageable="true" Sortable="true" FilterMode="@GridFilterMode.FilterRow" Groupable="true"
-             EditMode="@GridEditMode.Inline" OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
-    <GridColumns>
-        <GridColumn Field="@nameof(SampleComplexObject.ID)" Title="ID" Editable="false"></GridColumn>
-        <GridColumn Field="@nameof(SampleComplexObject.Name)" Title="The Name"></GridColumn>
-        <GridColumn Title="First Nested Property" Field="SomeNavigationProperty.Field1"></GridColumn>
-        <GridColumn Field="SomeNavigationProperty.OtherField"></GridColumn>
-        @*<GridColumn Title="First Nested Property" Field="SomeNavigationProperty.Field1">
-            <EditorTemplate>
-                @{
-                    // Solution 2: ensure the nested object is instantiated in the first (or every) editor template
-                    CurrentlyEditedItem = context as SampleComplexObject;
-                    if (CurrentlyEditedItem.SomeNavigationProperty == null)
-                    {
-                        CurrentlyEditedItem.SomeNavigationProperty = new NestedObject();
-                    }
-                    <TelerikTextBox @bind-Value="@CurrentlyEditedItem.SomeNavigationProperty.Field1" Width="100%" />
-                }
-            </EditorTemplate>
-        </GridColumn>
-        <GridColumn Field="SomeNavigationProperty.OtherField">
-            <EditorTemplate>
-                @{
-                    CurrentlyEditedItem = context as SampleComplexObject;
-                    <TelerikTextBox @bind-Value="@CurrentlyEditedItem.SomeNavigationProperty.OtherField" Width="100%" />
-                }
-            </EditorTemplate>
-        </GridColumn>*@
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
-</TelerikGrid>
-
-
-@code {
-    SampleComplexObject CurrentlyEditedItem { get; set; }
-
-    public class SampleComplexObject
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public NestedObject SomeNavigationProperty { get; set; } // use this field name for data binding
-
-        // Solution 1:
-        // the parameterless constructor of the main model the grid uses instantiates the nested objects
-        public SampleComplexObject()
-        {
-            SomeNavigationProperty = new NestedObject();
-        }
-    }
-
-    public class NestedObject
-    {
-        public string Field1 { get; set; }
-        public string OtherField { get; set; }
-    }
-
-    public List<SampleComplexObject> MyData { get; set; } = Enumerable.Range(1, 50).Select(x =>
+    private IEnumerable<SampleComplexObject> GridData = Enumerable.Range(1, 5).Select(x =>
         new SampleComplexObject
         {
             ID = x,
@@ -213,42 +119,127 @@ The code snippet below demonstrates both approaches (the second option is commen
                 Field1 = "first " + x % 4,
                 OtherField = "second " + x % 6
             }
-        }).ToList();
+        }
+    );
+}
+````
 
 
-    async Task UpdateHandler(GridCommandEventArgs args)
+## Notes
+
+Grid editing requires nested models to be instantiated by the application code. Otherwise, the nested objects will be `null` for newly inserted items, or even for some existing items, depending on the data. As a result, the following may occur:
+* The Grid editors will not have an instance to bind to, and the typed values will be reset.
+* The Grid will throw an exception `System.ArgumentException: The provided expression must evaluate to a non-null value.`
+
+There are three alternative ways to solve this:
+
+1. Initialize the nested object in its property declaration in the main Grid model class.
+2. Initialize the nested object in the parent object constructor.
+3. Initialize the nested object in the [Grid `OnModelInit` event]({%slug grid-events%}#onmodelinit).
+
+The example below demonstrates all three options. Pick one, according to your preferences.
+
+>caption Editing and inserting complex nested (navigation) objects
+
+````CSHTML
+@* Three alternative ways to ensure nested objects can be edited and inserted.
+    1. Initialize the nested object in its property declaration in the main Grid model class.
+    2. Initialize the nested object in the parent object constructor.
+    3. Initialize the nested object in the Grid OnModelInit event.
+    You need just one of these options.
+    Otherwise an exception will occur if you try to add an item. *@
+
+<TelerikGrid Data="@GridData"
+             EditMode="@GridEditMode.Popup"
+             OnUpdate="@OnGridUpdate"
+             OnCreate="@OnGridCreate"
+             OnModelInit="@OnGridModelInit">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@nameof(SampleComplexObject.Id)" Editable="false"></GridColumn>
+        <GridColumn Field="@nameof(SampleComplexObject.Name)"></GridColumn>
+        <GridColumn Title="Nested 1" Field="SomeNavigationProperty.Field1"></GridColumn>
+        <GridColumn Title="Nested 2" Field="SomeNavigationProperty.OtherField"></GridColumn>
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<SampleComplexObject> GridData { get; set; } = new List<SampleComplexObject>();
+
+    private int LastId { get; set; }
+
+    private SampleComplexObject OnGridModelInit()
     {
-        SampleComplexObject item = (SampleComplexObject)args.Item;
-
-        // perform actual data source operations here through your service
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        var index = MyData.FindIndex(i => i.ID == item.ID);
-        if (index != -1)
+        return new SampleComplexObject()
         {
-            MyData[index] = item;
+            // Solution 3
+            SomeNavigationProperty = new NestedObject()
+        };
+    }
+
+    private void OnGridUpdate(GridCommandEventArgs args)
+    {
+        var updatedItem = (SampleComplexObject)args.Item;
+        var originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
+
+        if (originalItemIndex != -1)
+        {
+            GridData[originalItemIndex] = updatedItem;
         }
     }
 
-    async Task DeleteHandler(GridCommandEventArgs args)
+    private void OnGridCreate(GridCommandEventArgs args)
     {
-        SampleComplexObject item = (SampleComplexObject)args.Item;
+        var createdItem = (SampleComplexObject)args.Item;
 
-        // perform actual data source operation here through your service
-
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        MyData.Remove(item);
+        createdItem.Id = ++LastId;
+        GridData.Insert(0, createdItem);
     }
 
-    async Task CreateHandler(GridCommandEventArgs args)
+    protected override void OnInitialized()
     {
-        SampleComplexObject item = (SampleComplexObject)args.Item;
+        for (int i = 1; i <= 5; i++)
+        {
+            GridData.Add(new SampleComplexObject()
+            {
+                Id = ++LastId,
+                Name = $"Name {LastId}",
+                SomeNavigationProperty = new NestedObject
+                {
+                    Field1 = $"first {LastId % 4 + 1}",
+                    OtherField = $"second {LastId % 6 + 1}"
+                }
+            });
+        }
 
-        // perform actual data source operation here through your service
+        base.OnInitialized();
+    }
 
-        // if the grid Data is not tied to the service, you may need to update the local view data too
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
+    public class SampleComplexObject
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+
+        // Solution 1
+        public NestedObject SomeNavigationProperty { get; set; } = new NestedObject();
+
+        public SampleComplexObject()
+        {
+            // Solution 2
+            SomeNavigationProperty = new NestedObject();
+        }
+    }
+
+    public class NestedObject
+    {
+        public string Field1 { get; set; } = string.Empty;
+        public string OtherField { get; set; } = string.Empty;
     }
 }
 ````
