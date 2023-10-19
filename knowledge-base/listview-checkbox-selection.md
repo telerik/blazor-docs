@@ -55,7 +55,7 @@ ListBox <code>SelectionMode</code>:
                 SelectionMode="@RadioGroupValue"
                 @bind-SelectedItems="@ListBoxSelectedItems"
                 OnReorder="@( (ListBoxReorderEventArgs<ListBoxModel> args) => OnListBoxReorder(args) )"
-                Width="180px"
+                Width="190px"
                 Height="auto">
     <ListBoxToolBarSettings>
         <ListBoxToolBar>
