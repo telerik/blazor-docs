@@ -12,6 +12,7 @@ position: 20
 
 This article describes the ListBox selection feature, including the available selection modes, and how to use the `SelectedItems` parameter.
 
+
 ## Selection Modes
 
 The ListBox component provides users two ways to select items. This depends on the value of the [`SelectionMode` parameter]({%slug listbox-overview%}#listbox-parameters), which expects a member of the `ListBoxSelectionMode` enum.
@@ -105,6 +106,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 }
 ````
 
+
 ## Next Steps
 
 * [Connect Multiple ListBoxes]({%slug listbox-connect%})
@@ -112,7 +114,9 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 * [Implement ListBox templates]({%slug listbox-templates%})
 * [Handle ListBox events]({%slug listbox-events%})
 
+
 ## See Also
 
 * [Live Demo: ListBox Selection](https://demos.telerik.com/blazor-ui/listbox/selection)
 * [Live Demo: ListBox Keyboard Navigation](https://demos.telerik.com/blazor-ui/listbox/keyboard-navigation)
+* [KB: ListBox CheckBox Selection]({%slug listbox-kb-checkbox-selection%})
