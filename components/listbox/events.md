@@ -10,7 +10,7 @@ position: 60
 
 # ListBox Events
 
-The Telerik Blazor ListBox fires events that are related to toolbar button clicks and drag and drop user actions.This article describes all events and event arguments.
+The Telerik Blazor ListBox fires events that are related to toolbar button clicks and drag and drop user actions. This article describes all events and event arguments.
 
 * [How to define event handlers more easily](#using-titem)
 * [`OnDrop`](#ondrop)
@@ -133,6 +133,8 @@ The event argument is of type `IEnumerable<T>`. See the example below.
 ## Example
 
 All events in the example below are fired by the first ListBox, except `OnDrop`, which is fired by the originating (source) ListBox instance.
+
+Always [`Rebind()`]({%slug listbox-overview%}#listbox-reference-and-methods) the ListBox after making programmatic changes to its `Data`.
 
 >caption Using ListBox events
 

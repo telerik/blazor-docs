@@ -118,6 +118,11 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
 The [ListBox includes a toolbar with some built-in buttons]({%slug listbox-toolbar%}). These tools fire events, which are related to item removal, reordering, or transfer to another ListBox. The component supports removing some of the default buttons or adding custom ones. You can also control the toolbar position with regard to the ListBox item list, or hide the toolbar completely.
 
 
+## Reordering
+
+Item reordering is one of the core features of the ListBox component. Users can move one or multiple items up and down with built-in [toolbar buttons]({%slug listbox-toolbar%}). The ListBox will fire its [`OnReoder` event]({%slug listbox-events%}#onreorder), so that the app can apply the new item order in the ListBox `Data`. See an [example above](#creating-blazor-listbox) or on the [ListBox Events]({%slug listbox-events%}#example) page.
+
+
 ## Selection
 
 Users can [select just one ListBox item or multiple items]({%slug listbox-selection%}) with the mouse or keyboard. The behavior depends on the `SelectedItems` parameter value.
