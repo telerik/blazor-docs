@@ -32,6 +32,8 @@ The ListBox shows the `NoDataTemplate` when there are no items in the component 
 
 The following example shows how to place a Button inside the `NoDataTemplate`, which adds new items to the ListBox. Another option for such functionality is to use a [custom toolbar button]({%slug listbox-toolbar%}#custom-tools).
 
+Always [`Rebind()`]({%slug listbox-overview%}#listbox-reference-and-methods) the ListBox after making programmatic changes to its `Data`.
+
 >caption Using ListBox templates
 
 ````CSHTML
