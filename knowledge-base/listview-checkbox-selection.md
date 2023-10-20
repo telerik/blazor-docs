@@ -65,7 +65,7 @@ ListBox <code>SelectionMode</code>:
     </ListBoxToolBarSettings>
     <ItemTemplate>
         <span @onclick:stopPropagation class="checkbox-wrapper">
-            <TelerikCheckBox Value="@( ListBoxSelectedItems.FirstOrDefault(x => x.Id == context.Id) != null )"
+            <TelerikCheckBox Value="@( ListBoxSelectedItems.Contains(context) )"
                              ValueChanged="@( (bool newValue) => OnCheckBoxValueChanged(newValue, context) )" />
         </span>
         @context.Name
