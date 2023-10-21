@@ -120,7 +120,7 @@ The [ListBox includes a toolbar with some built-in buttons]({%slug listbox-toolb
 
 ## Reordering
 
-Item reordering is one of the core features of the ListBox component. Users can move one or multiple items up and down with built-in [toolbar buttons]({%slug listbox-toolbar%}). The ListBox will fire its [`OnReoder` event]({%slug listbox-events%}#onreorder), so that the app can apply the new item order in the ListBox `Data`. See an [example above](#creating-blazor-listbox) or on the [ListBox Events]({%slug listbox-events%}#example) page.
+The ListBox allows users to move one or multiple items up and down with built-in [toolbar buttons]({%slug listbox-toolbar%}). The component will fire its [`OnReoder` event]({%slug listbox-events%}#onreorder), so that the app can apply the new item order in the ListBox `Data`. See an [example above](#creating-blazor-listbox) or on the [ListBox Events]({%slug listbox-events%}#example) page.
 
 
 ## Selection
