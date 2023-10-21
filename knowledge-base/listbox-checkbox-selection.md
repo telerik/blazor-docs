@@ -27,7 +27,8 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to select ListBox items with checkboxes?
-* How to implement support for single and multiple checkbox selection in the Telerik Blazor ListBox?
+* Does the ListBox support single and multiple checkbox selection?
+* How to implement a checkbox multi select demo with the Blazor ListBox?
 
 
 ## Solution
@@ -143,6 +144,7 @@ ListBox <code>SelectionMode</code>:
     }
 }
 ````
+
 
 ## See Also
 
