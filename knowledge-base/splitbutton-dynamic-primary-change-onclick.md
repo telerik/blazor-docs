@@ -64,8 +64,7 @@ This KB article answers the following questions:
 Last click action: @SplitButtonLog
 
 @code {
-    private List<SplitButtonModel> AllSplitButtons { get; set; } = new List<SplitButtonModel>()
-    {
+    private List<SplitButtonModel> AllSplitButtons { get; set; } = new List<SplitButtonModel>() {
         new SplitButtonModel() { Id = 1, Text = "Paste", Icon = SvgIcon.Clipboard },
         new SplitButtonModel() { Id = 2, Text = "Paste as Plain Text", Icon = SvgIcon.ClipboardText },
         new SplitButtonModel() { Id = 3, Text = "Paste as HTML", Icon = SvgIcon.ClipboardHtml },
