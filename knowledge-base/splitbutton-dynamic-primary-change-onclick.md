@@ -61,8 +61,6 @@ This KB article answers the following questions:
     </SplitButtonItems>
 </TelerikSplitButton>
 
-<br /><br /><br /><br /><br />
-
 Last click action: @SplitButtonLog
 
 @code {
