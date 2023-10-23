@@ -180,3 +180,4 @@ Last action clicked: <strong> @LastActionClicked </strong>
 
 * [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
 * [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)
+* [KB: Change Primary SplitButton Action on Click]({%slug splitbutton-kb-change-primary-action-onclick%})
