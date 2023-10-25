@@ -120,3 +120,4 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 * [Live Demo: ListBox Selection](https://demos.telerik.com/blazor-ui/listbox/selection)
 * [Live Demo: ListBox Keyboard Navigation](https://demos.telerik.com/blazor-ui/listbox/keyboard-navigation)
 * [KB: ListBox CheckBox Selection]({%slug listbox-kb-checkbox-selection%})
+* [KB: Scroll to Selected ListBox Item]({%slug listbox-kb-scroll-to-selected-item%})
