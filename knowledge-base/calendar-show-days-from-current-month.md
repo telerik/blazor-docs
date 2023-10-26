@@ -1,11 +1,11 @@
 ---
 title: Shows Days from Current Calendar Month Only
-description: 
+description: How to hide days from the next and previous Calendar month and only show the days from the current month.
 type: how-to
-page_title: 
+page_title: Shows Days from Current Calendar Month Only
 slug: calendar-kb-show-days-from-current-month
 position: 
-tags: 
+tags: telerik, blazor, calendar, datepicker, datetimepicker, daterangepicker
 ticketid: 1628589, 1604089, 1586468, 1562312, 1562104, 1551940
 res_type: kb
 ---
