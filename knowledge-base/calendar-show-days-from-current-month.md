@@ -11,12 +11,9 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
     <tbody>
-        <tr>
-            <td>Product Version</td>
-            <td>2.26 +</td>
-        </tr>
         <tr>
             <td>Product</td>
             <td>
@@ -25,6 +22,10 @@ res_type: kb
                 DateRangePicker for Blazor, <br />
                 DateTimePicker for Blazor
             </td>
+        </tr>
+        <tr>
+            <td>Product Version</td>
+            <td>2.26 +</td>
         </tr>
     </tbody>
 </table>
