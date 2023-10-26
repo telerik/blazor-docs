@@ -10,7 +10,6 @@ ticketid: 1628589, 1604089, 1586468, 1562312, 1562104, 1551940
 res_type: kb
 ---
 
-
 ## Environment
 
 <table>
@@ -134,9 +133,11 @@ else
 }
 ````
 
+
 ## Notes
 
 The Calendar behavior changed in 2.26 and this is when the component started showing days from the next and previous month by design.
+
 
 ## See Also
 
