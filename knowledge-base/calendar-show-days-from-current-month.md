@@ -80,7 +80,7 @@ Use [custom CSS to override the component theme]({%slug themes-override%}) and h
     </label>
 </p>
 
-<h2>No days from other months:</h2>
+<h2>No Days From Other Months</h2>
 
 <TelerikCalendar Class="no-other-month" />
 
@@ -94,7 +94,7 @@ Use [custom CSS to override the component theme]({%slug themes-override%}) and h
                         @bind-EndValue="@EndDateValue"
                         PopupClass="no-other-month" />
 
-<h2>Default behavior:</h2>
+<h2>Default Behavior</h2>
 
 <TelerikCalendar />
 
