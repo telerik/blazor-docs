@@ -49,7 +49,7 @@ The Blazor TextBox provides various parameters to configure the component:
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Value` | `string` | Get/set the value of the input, can be used for binding. |
+| `AutoCapitalize` | `string` | A `string` that maps to the [`autocapitalize`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) attribute of the HTML element. It's applicable only for touch devices and virtual keyboards. |
 | `AutoComplete` | `string` | A `string` that maps to the [`autocomplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) attribute of the HTML element. You can use it to instruct the browser to turn `off` its autocompletion or to use specific settings for it (such as `new-password`). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textbox">` element. |
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
@@ -60,9 +60,11 @@ The Blazor TextBox provides various parameters to configure the component:
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Value` | `string` | The value of the input. Supports two-way binding. |
 | `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
 
 See also the [Input Validation]({%slug common-features/input-validation%}) article.

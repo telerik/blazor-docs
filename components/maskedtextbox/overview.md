@@ -66,6 +66,7 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `AriaDescribedBy` | `string` | The [`aria-describedby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) of the `input`. |
 | `AriaLabel` | `string` | The [`aria-label` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) of the `input`. |
 | `AriaLabelledBy` | `string` | The [`aria-labelledby` attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) of the `input`. |
+| `AutoCapitalize` | `string` | A `string` that maps to the [`autocapitalize`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) attribute of the HTML element. It's applicable only for touch devices and virtual keyboards. |
 | `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. |
 | `Enabled` | `bool` <br /> (`true`) | Controls if users can type in the component. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
@@ -73,6 +74,7 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Name` | `string` | The `name` attribute of the `input`. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. |
+| `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. |
 | `Title` | `string` | The `title` attribute of `input`. Use it to add a [tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
