@@ -179,7 +179,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 1. Use the `GanttColumnMenuChooserItem` to denote the columns that should be in the group
 
-    * You must use set the `ColumnId` parameter of the `GanttColumnMenuChooserItem` to the value of the [`Id`]({%slug components/gantt/columns/bound%}#gantt-bound-column-parameters) parameter of the corresponding Gantt Column.
+    * You must use set the `ColumnId` parameter of the `GanttColumnMenuChooserItem` to the value of the [`Id`] parameter of the corresponding Gantt Column.
     
     * If you set the `Title` parameter of the `GanttColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Gantt Column. 
 
