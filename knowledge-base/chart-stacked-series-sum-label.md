@@ -165,7 +165,7 @@ Here is how to display an additional custom label on the horizontal Chart axis b
 
 </TelerikChart>
 
-@* Move JavaScript to separate JS file in production *@
+@* Move JavaScript to a JS file in production apps *@
 <script suppress-error="BL9992">
     function cowboysLabel(context) {
         return "Cowboys";
