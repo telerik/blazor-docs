@@ -110,6 +110,7 @@ The Treelist columns are one of its main building blocks. They offer a rich set 
 * [Column display Format]({%slug treelist-columns-displayformat%}) for numeric and date values
 * [Column reodering]({%slug treelist-columns-reorder%})
 * [Column resizing]({%slug treelist-columns-resize%})
+* [Column Menu]({%slug treelist-column-menu%}) to control data operations and column visibility
 * [How column width works]({%slug treelist-columns-width%})
 * [CheckBox column]({%slug treelist-columns-checkbox%})
 * [Command column]({%slug treelist-columns-command%})

@@ -1,0 +1,404 @@
+---
+title: Column Menu
+page_title: Gantt - Column Menu
+description: Use the Column Menu for the Gantt
+slug: gantt-column-menu
+tags: telerik,blazor,gantt,column,columns,menu
+published: True
+position: 20
+---
+
+# Column Menu
+
+The Gantt allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting]({%slug gantt-sorting%}), [filtering]({%slug gantt-filtering-overview%}), [showing or hiding]({%slug gantt-columns-visible%}) columns.
+
+>caption In this article:
+* [Basics](#basics)
+* [Features](#features)
+    * [Column Chooser](#column-chooser)
+    * [Filtering](#filtering)
+    * [Frozen Columns](#frozen-columns)
+    * [Sections](#sections)
+    * [Sorting](#sorting)
+    * [Reorderable](#reorderable)
+* [Example](#example)
+* [Notes](#notes)
+
+## Basics
+
+To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikGantt>` tag to `true`. This will enable the menu for each column of the Gantt.
+
+To disable the Column Menu for a specific column in the Gantt, set the `ShowColumnMenu` parameter of the column to `false`.
+
+You can see what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
+
+>caption Enable the column menu for all Gantt columns.
+
+````CSHTML
+<TelerikGantt Data="@Data"
+              Width="900px"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId"
+              Navigable="true"
+              ColumnReorderable="true"
+              Sortable="true"
+              ColumnResizable="true"
+              ShowColumnMenu="true">
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="@nameof(FlatModel.Title)">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.PercentComplete)"
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.Start)">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.End)">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
+
+@code {
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = new List<FlatModel>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+                {
+                    Id = LastId,
+                    Title = "Employee  " + i.ToString(),
+                    Start = new DateTime(2020, 12, 10 + i),
+                    End = new DateTime(2020, 12, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new FlatModel()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Employee " + i + " : " + j.ToString(),
+                        Start = new DateTime(2020, 12, 20 + j),
+                        End = new DateTime(2020, 12, 21 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+
+}
+````
+
+## Features
+
+To control the common features of the `Column Menu` use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag:
+
+* [Column Chooser](#column-chooser)
+* [Filtering](#filtering)
+* [Groupable](#groupable)
+* [Frozen Columns](#frozen-columns)
+* [Sections](#sections)
+* [Sorting](#sorting)
+* [Reorderable](#reorderable)
+
+### Column Chooser
+
+The Column Chooser in the Column Menu allows you to toggle the visibility of Gantt columns. By default, all columns are visible under the **Columns** section of the Column Menu. To expand the menu, click the **Columns** item.
+
+The **Apply** button sets the column visibility according to the current checkbox values and closes the column menu. The **Reset** button reverts the checkbox values to their state when the column menu was opened. At this point, the user can start over, click **Apply**, or click outside the column menu to close it.
+
+* To disable the column chooser, set the `ShowColumnChooser` parameter of the `<GanttColumnMenuSettings>` to `false`.
+* To hide a column from the Column Chooser, set the `VisibleInColumnChooser` property of the column to `false`.
+
+### Filtering
+
+To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GanttColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+
+* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode]({%slug gantt-filter-row%}).
+* `FilterMenu`—enables a filter menu to apply filtering.
+
+### Groupable
+
+To group the Gantt from the Column Menu, set the `Groupable` parameter of the `GanttColumnMenuSettings` tag to `true`. This feature will group the component by the column you have opened the Column Menu from.
+
+### Frozen Columns
+
+To disable the locking and unlocking of a column from the Column Menu, set the `Lockable` parameter of the `GanttColumnMenuSettings` tag to `false`.
+
+### Sorting
+
+To remove the sorting option from the Column Menu, set the `Sortable` parameter of the `GanttColumnMenuSettings` tag to `false`.
+
+### Reorderable
+
+To allow column reordering from the Column Column, set the `Reorderable` parameter of the `GanttColumnMenuSettings` tag to `true`.
+
+### Sections
+
+You can organize the columns in the [Column Chooser](#column-chooser) in different sections. To group the columns in different sections:
+
+1. Use the `GanttColumnMenuChooser` tag (child to the `GanttColumnMenuSettings`)
+
+1. Add the [Template]({%slug gantt-templates-column-chooser%}) tag
+
+1. Provide `GanttColumnMenuChooserGroup` which is a collection of the columns that should be in the section
+    
+    * You can use the `Title` parameter to render a Title for the section
+
+1. Use the `GanttColumnMenuChooserItem` to denote the columns that should be in the group
+
+    * You must use set the `ColumnId` parameter of the `GanttColumnMenuChooserItem` to the value of the [`Id`]({%slug components/gantt/columns/bound%}#gantt-bound-column-parameters) parameter of the corresponding Gantt Column.
+    
+    * If you set the `Title` parameter of the `GanttColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Gantt Column. 
+
+
+### Column Menu Configuration Example
+
+The following example shows the basic configuration of the `ColumnMenuSettings`.
+
+The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Gantt can use a `FilterRow`. 
+
+````CSHTML
+<TelerikGantt Data="@Data"
+              Width="900px"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId"
+              Navigable="true"
+              ColumnReorderable="true"
+              Sortable="true"
+              FilterMode="@GanttFilterMode.FilterRow"
+              ColumnResizable="true"
+              ShowColumnMenu="true">
+    <GanttSettings>
+        <GanttColumnMenuSettings Lockable="false"
+                                 FilterMode="@ColumnMenuFilterMode.None">
+            <GanttColumnMenuChooser>
+                <Template>
+                    <GanttColumnMenuChooserGroup Title="Worker Information">
+                        <GanttColumnMenuChooserItem ColumnId="title-column-id" />
+                    </GanttColumnMenuChooserGroup>
+                    <GanttColumnMenuChooserGroup Title="Time-Frame Information">
+                        <GanttColumnMenuChooserItem ColumnId="percentcomplete-column-id" />
+                        <GanttColumnMenuChooserItem ColumnId="start-column-id" />
+                        <GanttColumnMenuChooserItem ColumnId="end-column-id" />
+                    </GanttColumnMenuChooserGroup>
+                </Template>
+            </GanttColumnMenuChooser>
+        </GanttColumnMenuSettings>
+    </GanttSettings>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="@nameof(FlatModel.Title)" Id="title-column-id">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.PercentComplete)" Id="percentcomplete-column-id">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.Start)" Id="start-column-id">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.End)" Id="end-column-id">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
+
+@code {
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = new List<FlatModel>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+                {
+                    Id = LastId,
+                    Title = "Employee  " + i.ToString(),
+                    Start = new DateTime(2020, 12, 10 + i),
+                    End = new DateTime(2020, 12, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new FlatModel()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Employee " + i + " : " + j.ToString(),
+                        Start = new DateTime(2020, 12, 20 + j),
+                        End = new DateTime(2020, 12, 21 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+}
+````
+
+### Column Menu Features Example
+
+>caption Use the GanttColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
+
+````CSHTML
+@* Disable filtering and locking columns, hide a column from the chooser (PercentComplete), disable the menu for a column (Title). *@
+
+<TelerikGantt Data="@Data"
+              Width="900px"
+              Height="600px"
+              IdField="Id"
+              ParentIdField="ParentId"
+              Navigable="true"
+              ColumnReorderable="true"
+              Sortable="true"
+              ColumnResizable="true"
+              FilterMode="@GanttFilterMode.FilterMenu"
+              ShowColumnMenu="true">
+    <GanttSettings>
+        <GanttColumnMenuSettings Lockable="false"
+                                 Reorderable="true"
+                                 FilterMode="@ColumnMenuFilterMode.None">
+        </GanttColumnMenuSettings>
+    </GanttSettings>
+    <GanttViews>
+        <GanttDayView></GanttDayView>
+        <GanttWeekView></GanttWeekView>
+        <GanttMonthView></GanttMonthView>
+        <GanttYearView></GanttYearView>
+    </GanttViews>
+    <GanttColumns>
+        <GanttColumn Field="@nameof(FlatModel.Title)" ShowColumnMenu="false">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.PercentComplete)" VisibleInColumnChooser="false">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.Start)">
+        </GanttColumn>
+        <GanttColumn Field="@nameof(FlatModel.End)">
+        </GanttColumn>
+    </GanttColumns>
+</TelerikGantt>
+
+@code {
+    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+
+    class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+    }
+
+    public int LastId { get; set; } = 1;
+    List<FlatModel> Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = new List<FlatModel>();
+        var random = new Random();
+
+        for (int i = 1; i < 6; i++)
+        {
+            var newItem = new FlatModel()
+                {
+                    Id = LastId,
+                    Title = "Employee  " + i.ToString(),
+                    Start = new DateTime(2020, 12, 10 + i),
+                    End = new DateTime(2020, 12, 11 + i),
+                    PercentComplete = Math.Round(random.NextDouble(), 2)
+                };
+
+            Data.Add(newItem);
+            var parentId = LastId;
+            LastId++;
+
+            for (int j = 0; j < 5; j++)
+            {
+                Data.Add(new FlatModel()
+                    {
+                        Id = LastId,
+                        ParentId = parentId,
+                        Title = "    Employee " + i + " : " + j.ToString(),
+                        Start = new DateTime(2020, 12, 20 + j),
+                        End = new DateTime(2020, 12, 21 + i + j),
+                        PercentComplete = Math.Round(random.NextDouble(), 2)
+                    });
+
+                LastId++;
+            }
+        }
+
+        base.OnInitialized();
+    }
+}
+````
+
+## Notes
+
+* Applying settings to a Gantt column like `Lockable="false"` will take precedence over the common settings applied in the `<GanttColumnMenuSettings>` and disable the above-mentioned functionalitiy for the corresponding column.
+
+* If you are using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Gantt Columns.
+
+## See Also
+  * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)
+  * [Live Demo: Gantt Custom Column Menu](https://demos.telerik.com/blazor-ui/gantt/custom-column-menu)

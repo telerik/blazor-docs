@@ -126,7 +126,7 @@ You can use the following properties on bound columns:
 ### Appearance
 
 * `Title` - the text that is rendered in the column header. See the Notes below for its behavior.
-* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article.
+* `DisplayFormat` - the C# format string that is used to render the field value in the cell when the treelist is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article.
 * `TextAlign` - specifies the horizontal alignment of the **data** cells. For example, you can use this property to right-align numeric columns. The property accepts `ColumnTextAlign` enum values (`Left`, `Right` or `Center`). If not set, the text alignment will depend on existing styles on the page, default browser behavior and the text direction. Header cell alignment requires a different approach with `HeaderClass` and [custom CSS]({%slug themes-override%}) - see [Center Grid column header text]({%slug grid-kb-center-column-header-content%}).
 * `Width` -  (defaults to `null`) - the width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [TreeList Column Width Behavior]({%slug treelist-columns-width%}) for detailed information about the TreeList behavior with different column width configurations.
 * `HeaderClass` - `string` - adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default TreeList styles]({%slug themes-override%}).
@@ -137,6 +137,8 @@ You can use the following properties on bound columns:
 * `Resizable` - (defaults to `true`) - whether the user can [resize]({%slug treelist-columns-resize%}) this column.
 * `Visible` - (defaults to `null`) - if this parameter is set to `false` it [hides]({%slug treelist-columns-visible%}) the column from the TreeList. Accepts both `bool` and `bool?` types, and `null` is treated like `true`.
 * `Columns` - a nested tag where you can declare [multiple column headers]({%slug treelist-columns-multiple-column-headers%}).
+* `ShowColumnMenu` - (defaults to `true`) - if set to false, disables the [column menu]({%slug treelist-column-menu%}) for that particular column.
+* `VisibleInColumnChooser` - (defaults to `true`) - if set to false, removes the column from the Column chooser of the [column menu]({%slug treelist-column-menu%}).
 
 ### Data Operations
 
