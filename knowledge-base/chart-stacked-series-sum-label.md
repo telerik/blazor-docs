@@ -308,7 +308,7 @@ Here is how to display an additional custom label on the horizontal Chart axis b
 
 ## Notes
 
-Chart label templates require a different configuration for product versions before 4.5.0. If you are using an older version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of the Chart Label Templates documentation](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
+Chart label templates require a different configuration for [Telerik UI for Blazor versions](https://www.telerik.com/support/whats-new/blazor-ui/release-history) before 4.5.0. If you are using an earlier version, then [download the PDF documentation](https://www.telerik.com/account/downloads/product-download?product=BLAZOR) for your version, or [browse an older version of the Chart Label Templates documentation](https://github.com/telerik/blazor-docs/blob/4.4.0/components/chart/labels-template-and-format.md#templates).
 
 
 ## See Also
