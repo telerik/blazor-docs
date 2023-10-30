@@ -23,15 +23,13 @@ There is an automated installer for:
 
 * Linux (`.sh` + `.tar.gz`). Pass `-s <path to the archive>` when running the script. Other arguments are `-d` for the location where the archive will be extracted (defaults to `${HOME}/telerik-blazor"`) and `-SkipNETCoreInstall` to skip the installation of .NET Core (note that the framework is required).
 
-> The `.pkg` installer for Mac will be discontinued in 2024 [after Visual Studio for Mac is discontinued](https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac). Afterwards, use the [ZIP archive]({%slug installation/zip%}) instead.
-
 The automated installer provides the following:
 
 * The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui/) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 * The [document processing]({%slug common-features-dpl%}) `.nupkg` files (in the `dpl` folder).
 * A shortcut to our [online demos](https://demos.telerik.com/blazor-ui/).
-* Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}).
+* Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}) (for Windows only).
     * We also have [extensions for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can install them from its own marketplace (<a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">direct link</a>).
 
 
