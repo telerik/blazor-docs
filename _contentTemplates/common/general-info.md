@@ -53,7 +53,7 @@ You can get the extension from:
 
 * The Visual Studio Marketplace (for [Visual Studio 2022 for Windows](https://marketplace.visualstudio.com/items?itemName=TelerikInc.ProgressTelerikBlazorVSExtensions) and [Visual Studio 2019 for Windows](https://marketplace.visualstudio.com/items?itemName=TelerikInc.TelerikBlazorVSExtensions)).
 * The [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac).
-* Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR). Download the `.mpack` file for Visual Studio for Mac and use the "Install from file..." button on the Visual Studio Extensions dialog.
+* Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) (for Mac only). Download the `.mpack` file and use the "Install from file..." button on the Visual Studio Extensions dialog.
 
 > Our extention for Visual Studio for Mac will be discontinued in 2024 [after Visual Studio for Mac is discontinued](https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac).
 
