@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: Gantt - Column Menu
-description: Use the Column Menu for the Gantt to show a menu that allows you to perform high-level column customization
+description: Use the Column Menu for the Gantt to show a menu that allows you to perform high-level column customization.
 slug: gantt-column-menu
 tags: telerik,blazor,gantt,column,columns,menu
 published: True
@@ -122,7 +122,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
 
 ## Features
 
-To control the common features of the Column Menu, use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag.
+To control the features of the Column Menu, use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag.
 
 By default, all Column Menu features are enabled.
 
@@ -392,7 +392,7 @@ When you configure the features of the Column Menu:
 
 ## Notes
 
-* Applying settings like `Lockable="false"` to a Gantt column takes precedence over the common settings applied in the `<GanttColumnMenuSettings>` and disables the above-mentioned functionality for the corresponding column.
+* The settings applied to a Gantt column take precedence over the settings applied to the Column Menu through the `<GanttColumnMenuSettings>` tag. For example, if you set `Lockable="false"` to a Gantt column and `Lockable="true"` to the Gantt Column Menu, the Frozen Columns functionality will be disabled.
 
 * When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all Gantt Columns.
 

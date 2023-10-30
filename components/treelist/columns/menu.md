@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: TreeList - Column Menu
-description: Use the Column Menu for the TreeList to show a menu that allows you to perform high-level column customization 
+description: Use the Column Menu for the TreeList to show a menu that allows you to perform high-level column customization.
 slug: treelist-column-menu
 tags: telerik,blazor,treelist,column,columns,menu
 published: True
@@ -120,7 +120,7 @@ To disable the Column Menu for a specific column in the TreeList, set the `ShowC
 
 ## Features
 
-To control the common features of the Column Menu, use the `<TreeListColumnMenuSettings>` tag, nested inside the `<TreeListSettings>` tag. By default, all Column Menu features are enabled.
+To control the features of the Column Menu, use the `<TreeListColumnMenuSettings>` tag, nested inside the `<TreeListSettings>` tag. By default, all Column Menu features are enabled.
 
 ### Column Chooser
 
@@ -307,7 +307,7 @@ When you configure the features of the Column Menu:
 
 ## Notes
 
-* Applying settings like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` to a TreeList column takes precedence over the common settings applied in the `<TreeListColumnMenuSettings>` and disables the above-mentioned functionalities for the corresponding column.
+* Settings applied to a TreeList column take precedence over the settings applied to the Column Menu through the `<TreeListColumnMenuSettings>` tag. For example, if you set `Filterable="false"` to a TreeList column and `Filterable="true"` to a TreeList Column Menu, the filtering functionality will be disabled.
 
 * When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all TreeList Columns.
 

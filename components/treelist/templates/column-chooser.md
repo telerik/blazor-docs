@@ -1,7 +1,7 @@
 ---
 title: Column Chooser
 page_title: TreeList - Column Chooser Template
-description: Use the Column Chooser Template of the TreeList to control the rendering and customize the content of the Column Chooser
+description: Use the Column Chooser Template of the TreeList to control the rendering and customize the content of the Column Chooser.
 slug: treelist-templates-column-chooser
 tags: telerik,blazor,treelist,templates,column,menu
 published: True
