@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The Gantt allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting]({%slug gantt-sorting%}), [filtering]({%slug gantt-filtering-overview%}), [showing or hiding]({%slug gantt-columns-visible%}) columns.
+The Gantt allows you to set up a menu for its columns. The Column Menu enables you to perform high-level customization like [sorting]({%slug gantt-sorting%}), [filtering]({%slug gantt-filtering-overview%}), and [showing or hiding]({%slug gantt-columns-visible%}) columns.
 
 >caption In this article:
 * [Basics](#basics)
@@ -30,7 +30,6 @@ To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikGa
 
 To disable the Column Menu for a specific column in the Gantt, set the `ShowColumnMenu` parameter of the column to `false`.
 
-You can see what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
 
 >caption Enable the column menu for all Gantt columns.
 
@@ -123,7 +122,9 @@ You can see what the column menu can do and how to control its settings in the [
 
 ## Features
 
-To control the common features of the `Column Menu` use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag:
+To control the common features of the Column Menu, use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag.
+
+By default, all Column Menu [features](#features) are enabled.
 
 * [Column Chooser](#column-chooser)
 * [Filtering](#filtering)
@@ -144,14 +145,14 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 ### Filtering
 
-To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GanttColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+To control whether filtering is possible from the Column Menu, set the `FilterMode` parameter of the `GanttColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
 * `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode]({%slug gantt-filter-row%}).
-* `FilterMenu`—enables a filter menu to apply filtering.
+* `FilterMenu`—enables filtering from a filter menu.
 
 ### Groupable
 
-To group the Gantt from the Column Menu, set the `Groupable` parameter of the `GanttColumnMenuSettings` tag to `true`. This feature will group the component by the column you have opened the Column Menu from.
+To allow grouping the Gantt from the Column Menu, set the `Groupable` parameter of the `GanttColumnMenuSettings` tag to `true`. This feature will group the component by the column you have opened the Column Menu from.
 
 ### Frozen Columns
 
@@ -163,32 +164,33 @@ To remove the sorting option from the Column Menu, set the `Sortable` parameter 
 
 ### Reorderable
 
-To allow column reordering from the Column Column, set the `Reorderable` parameter of the `GanttColumnMenuSettings` tag to `true`.
+To allow column reordering from the Column Menu, set the `Reorderable` parameter of the `GanttColumnMenuSettings` tag to `true`.
 
 ### Sections
 
-You can organize the columns in the [Column Chooser](#column-chooser) in different sections. To group the columns in different sections:
+The Gantt Column Menu lets you group the columns in the [Column Chooser](#column-chooser) into different sections:
 
-1. Use the `GanttColumnMenuChooser` tag (child to the `GanttColumnMenuSettings`)
+1. Use the `GanttColumnMenuChooser` tag (child to the `GanttColumnMenuSettings`).
 
-1. Add the [Template]({%slug gantt-templates-column-chooser%}) tag
+1. Add the [Template]({%slug gantt-templates-column-chooser%}) tag.
 
-1. Provide `GanttColumnMenuChooserGroup` which is a collection of the columns that should be in the section
+1. Provide a `GanttColumnMenuChooserGroup`, which is a collection of the columns that will be in the section. To render a title for the section, use the `Title` parameter.
     
-    * You can use the `Title` parameter to render a Title for the section
 
-1. Use the `GanttColumnMenuChooserItem` to denote the columns that should be in the group
+1. Use the `GanttColumnMenuChooserItem` to denote the columns that belong to the group.
 
-    * You must use set the `ColumnId` parameter of the `GanttColumnMenuChooserItem` to the value of the [`Id`] parameter of the corresponding Gantt Column.
+    * You must set the `ColumnId` parameter of the `GanttColumnMenuChooserItem` to the value of the [`Id`] parameter of the corresponding Gantt Column.
     
-    * If you set the `Title` parameter of the `GanttColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Gantt Column. 
+    * If you set the `Title` parameter of the `GanttColumnMenuChooserItem`, it will override the value of the `Title` parameter of the corresponding Gantt Column. 
 
 
 ### Column Menu Configuration Example
 
-The following example shows the basic configuration of the `ColumnMenuSettings`.
+The following example shows the basic configuration of the `ColumnMenuSettings`:
 
-The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Gantt can use a `FilterRow`. 
+* The columns in the Column Chooser are divided into sections.
+* The Lockable option is disabled from the Column Menu.
+* Filtering in the Column Menu is disabled so the Gantt can use a `FilterRow`. 
 
 ````CSHTML
 <TelerikGantt Data="@Data"
@@ -296,7 +298,9 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 ### Column Menu Features Example
 
->caption Use the GanttColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
+When you configure the features of the Column Menu:
+* Use the `GanttColumnMenuSettings` tag to control the common features of the Column Menu.
+* Use column parameters to affect its relationship with the column menu.
 
 ````CSHTML
 @* Disable filtering and locking columns, hide a column from the chooser (PercentComplete), disable the menu for a column (Title). *@
@@ -395,9 +399,9 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 ## Notes
 
-* Applying settings to a Gantt column like `Lockable="false"` will take precedence over the common settings applied in the `<GanttColumnMenuSettings>` and disable the above-mentioned functionalitiy for the corresponding column.
+* Applying settings like `Lockable="false"` to a Gantt column takes precedence over the common settings applied in the `<GanttColumnMenuSettings>` and disables the above-mentioned functionality for the corresponding column.
 
-* If you are using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Gantt Columns.
+* When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all Gantt Columns.
 
 ## See Also
   * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)

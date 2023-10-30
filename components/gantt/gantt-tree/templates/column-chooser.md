@@ -10,14 +10,14 @@ position: 40
 
 # Column Chooser Template
 
-The `Column Chooser Template` lets you control the rendering of the [ColumnChooser]({%slug gantt-column-menu%}#column-chooser). It exposes a `context` object that contains a List of all columns in the Gantt. 
+The Column Chooser Template lets you control the rendering of the [ColumnChooser]({%slug gantt-column-menu%}#column-chooser). It exposes a `context` object that contains a list of all columns in the Gantt. 
 
-When the Template is setup the list of columns, rendered by default, would not be present.
+When you set up the Column Chooser Template, the list of columns that are rendered by default will not be present.
 
->caption Use the Template to provide custom rendering
+>caption Using the Template to provide custom rendering
 
 ````CSHTML
-@* Use the Template to render the list of columns and add some custom styles *@ 
+@* Use the Template to render the list of columns and add some custom styles. *@ 
 
 <TelerikGantt Data="@Data"
               Width="900px"
@@ -124,7 +124,7 @@ When the Template is setup the list of columns, rendered by default, would not b
 
 >caption The result from the code snippet above
 
-![templated column chooser example](images/templates-column-chooser-example.png)
+![Templated Column Chooser example with the Gantt component for Blazor](images/templates-column-chooser-example.png)
 
 ## See Also
 
