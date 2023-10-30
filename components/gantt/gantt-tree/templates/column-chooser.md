@@ -1,7 +1,7 @@
 ---
 title: Column Chooser
 page_title: Gantt - Column Chooser Template
-description: Customize the content of the Column Chooser.
+description: Use the Column Chooser Template of the Gantt to control the rendering and customize the content of the Column Chooser
 slug: gantt-templates-column-chooser
 tags: telerik,blazor,gantt,templates,column,menu
 published: True

@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: TreeList - Column Menu
-description: Use the Column Menu for the TreeList
+description: Use the Column Menu for the TreeList to show a menu that allows you to perform high-level column customization 
 slug: treelist-column-menu
 tags: telerik,blazor,treelist,column,columns,menu
 published: True
@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The TreeList enables you to show a menu with quick actions for its columns. It enables you to perform high-level customization like [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [showing or hiding]({%slug treelist-columns-visible%}) columns and [freezing or unfreezing]({%slug treelist-columns-frozen%}) them.
+The TreeList enables you to show a menu with quick actions for its columns. The Column Menu enables you to perform high-level customization like [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [showing or hiding]({%slug treelist-columns-visible%}) columns and [freezing or unfreezing]({%slug treelist-columns-frozen%}) them.
 
 >caption In this article:
 * [Basics](#basics)
@@ -22,7 +22,7 @@ The TreeList enables you to show a menu with quick actions for its columns. It e
     * [Sections](#sections)
     * [Sorting](#sorting)
     * [Reorderable](#reorderable)
-* [Example](#example)
+* [Examples](#examples)
 * [Notes](#notes)
 
 ## Basics
@@ -30,8 +30,6 @@ The TreeList enables you to show a menu with quick actions for its columns. It e
 To enable the Column Menu, set the `ShowColumnMenu` parameter of the `<TelerikTreeList>` tag to `true`. This will enable the menu for each column of the TreeList.
 
 To disable the Column Menu for a specific column in the TreeList, set the `ShowColumnMenu` parameter of the column to `false`.
-
-You can see what the column menu can do and how to control its settings in the [Features](#features) section. By default, all of them are enabled.
 
 >caption Enable the column menu for all TreeList columns.
 
@@ -122,14 +120,7 @@ You can see what the column menu can do and how to control its settings in the [
 
 ## Features
 
-To control the common features of the `Column Menu` use the `<TreeListColumnMenuSettings>` tag, nested inside the `<TreeListSettings>` tag:
-
-* [Column Chooser](#column-chooser)
-* [Filtering](#filtering)
-* [Frozen Columns](#frozen-columns)
-* [Sections](#sections)
-* [Sorting](#sorting)
-* [Reorderable](#reorderable)
+To control the common features of the Column Menu, use the `<TreeListColumnMenuSettings>` tag, nested inside the `<TreeListSettings>` tag. By default, all Column Menu features are enabled.
 
 ### Column Chooser
 
@@ -142,10 +133,10 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 ### Filtering
 
-To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `TreeListColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
+To control whether filtering is possible from the Column Menu, set the `FilterMode` parameter of the `TreeListColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
 * `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode]({%slug treelist-filter-row%}).
-* `FilterMenu`—enables a filter menu to apply filtering.
+* `FilterMenu`—enables filtering from a filter menu.
 
 ### Frozen Columns
 
@@ -157,30 +148,29 @@ To remove the sorting option from the Column Menu, set the `Sortable` parameter 
 
 ### Reorderable
 
-To allow column reordering from the Column Column, set the `Reorderable` parameter of the `TreeListColumnMenuSettings` tag to `true`.
+To allow column reordering from the Column Menu, set the `Reorderable` parameter of the `TreeListColumnMenuSettings` tag to `true`.
 
 ### Sections
 
-You can organize the columns in the [Column Chooser](#column-chooser) in different sections. To group the columns in different sections:
+The TreeList Column Menu lets you group the columns in the [Column Chooser](#column-chooser) into different sections:
 
-1. Use the `TreeListColumnMenuChooser` tag (child to the `TreeListColumnMenuSettings`)
+1. Use the `TreeListColumnMenuChooser` tag (child to the `TreeListColumnMenuSettings`).
 
-1. Add the [Template]({%slug treelist-templates-column-chooser%}) tag
+1. Add the [Template]({%slug treelist-templates-column-chooser%}) tag.
 
-1. Provide `TreeListColumnMenuChooserGroup` which is a collection of the columns that should be in the section
+1. Provide a `TreeListColumnMenuChooserGroup` which is a collection of the columns that will be in the section. To render a title for the section, use the `Title` parameter.
+
+1. Use the `TreeListColumnMenuChooserItem` to denote the columns that belong to the group.
+
+    * You must set the `ColumnId` parameter of the `TreeListColumnMenuChooserItem` to the value of the `Id` parameter of the corresponding TreeList Column.
     
-    * You can use the `Title` parameter to render a Title for the section
+    * If you set the `Title` parameter of the `TreeListColumnMenuChooserItem`, it will override the value of the `Title` parameter of the corresponding TreeList Column. 
 
-1. Use the `TreeListColumnMenuChooserItem` to denote the columns that should be in the group
-
-    * You must use set the `ColumnId` parameter of the `TreeListColumnMenuChooserItem` to the value of the `Id` parameter of the corresponding TreeList Column.
-    
-    * If you set the `Title` parameter of the `TreeListColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding TreeList Column. 
-
+## Examples 
 
 ### Column Menu Configuration Example
 
-The following example shows the basic configuration of the `ColumnMenuSettings`.
+The following example shows the basic configuration of the `ColumnMenuSettings`:
 
 The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the TreeList can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
@@ -251,7 +241,9 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 ### Column Menu Features Example
 
->caption Use the TreeListColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
+When you configure the features of the Column Menu:
+* Use the `TreeListColumnMenuSettings` tag to control the features of the Column Menu.
+* Use column parameters to affect its relationship with the column menu.
 
 ````CSHTML
 @* Disable filtering and locking columns, enable sorting, hide a column from the chooser (Team), disable the menu for a column (Name). *@
@@ -315,9 +307,9 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 ## Notes
 
-* Applying settings to a TreeList column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precedence over the common settings applied in the `<TreeListColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
+* Applying settings like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` to a TreeList column takes precedence over the common settings applied in the `<TreeListColumnMenuSettings>` and disables the above-mentioned functionalities for the corresponding column.
 
-* If you are using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all TreeList Columns.
+* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all TreeList Columns.
 
 ## See Also
   * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)

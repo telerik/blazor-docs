@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: Gantt - Column Menu
-description: Use the Column Menu for the Gantt
+description: Use the Column Menu for the Gantt to show a menu that allows you to perform high-level column customization
 slug: gantt-column-menu
 tags: telerik,blazor,gantt,column,columns,menu
 published: True
@@ -21,7 +21,7 @@ The Gantt allows you to set up a menu for its columns. The Column Menu enables y
     * [Sections](#sections)
     * [Sorting](#sorting)
     * [Reorderable](#reorderable)
-* [Example](#example)
+* [Examples](#examples)
 * [Notes](#notes)
 
 ## Basics
@@ -124,15 +124,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
 
 To control the common features of the Column Menu, use the `<GanttColumnMenuSettings>` tag, nested inside the `<GanttSettings>` tag.
 
-By default, all Column Menu [features](#features) are enabled.
-
-* [Column Chooser](#column-chooser)
-* [Filtering](#filtering)
-* [Groupable](#groupable)
-* [Frozen Columns](#frozen-columns)
-* [Sections](#sections)
-* [Sorting](#sorting)
-* [Reorderable](#reorderable)
+By default, all Column Menu features are enabled.
 
 ### Column Chooser
 
@@ -183,6 +175,7 @@ The Gantt Column Menu lets you group the columns in the [Column Chooser](#column
     
     * If you set the `Title` parameter of the `GanttColumnMenuChooserItem`, it will override the value of the `Title` parameter of the corresponding Gantt Column. 
 
+## Examples
 
 ### Column Menu Configuration Example
 
@@ -299,7 +292,7 @@ The following example shows the basic configuration of the `ColumnMenuSettings`:
 ### Column Menu Features Example
 
 When you configure the features of the Column Menu:
-* Use the `GanttColumnMenuSettings` tag to control the common features of the Column Menu.
+* Use the `GanttColumnMenuSettings` tag to control the features of the Column Menu.
 * Use column parameters to affect its relationship with the column menu.
 
 ````CSHTML
