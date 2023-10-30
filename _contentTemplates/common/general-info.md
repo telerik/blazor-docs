@@ -55,6 +55,8 @@ You can get the extension from:
 * The [Telerik UI for Blazor automated installer]({%slug installation/msi%}) (for Windows and Mac).
 * Your [Telerik.com account](https://www.telerik.com/account/product-download?product=BLAZOR) - the `.mpack` file for VS for Mac.
 
+> Our extention for Visual Studio for Max be discontinued in 2024 [after Visual Studio for Mac is discontinued](https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac).
+
 #end
 
 
