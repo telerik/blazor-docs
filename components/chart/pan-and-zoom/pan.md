@@ -24,7 +24,7 @@ Charts can be panned in all directions.
 To perform panning, do either of the following: 
 
 * Drag the plot area of the Chart.
-* Hold the assigned panning key and drag the plot area. This method requires you to [specify a key for panning](#specifying-a-key-for-panning).
+* Hold the assigned panning key and drag the plot area. This method requires you to [specify a keyboard key for panning](#specifying-a-keyboard-key-for-panning).
 
 >caption Chart with enabled panning
 
@@ -82,9 +82,9 @@ To perform panning, do either of the following:
 }
 ````
 
-### Specifying a Key for Panning
+### Specifying a Keyboard Key for Panning
 
-To specify the key for panning, use the `Key` parameter within the `ChartPannable` tag and pass the `ChartPannableKey` enum, which provides the following options:
+To specify the keyboard key for panning, use the `Key` parameter within the `ChartPannable` tag and pass the `ChartPannableKey` enum, which provides the following options:
 
 * (default) `None`—No key is required
 * `Ctrl`
@@ -100,7 +100,7 @@ To specify an axis that user cannot pan, use the `Lock` parameter within the `Ch
 * `Y`—The Y axis is locked, users can pan only by X axis.
  
 
->caption Chart with specified panning key and locked axis
+>caption Chart with specified panning keyboard key and locked axis
 
 ````CSHTML
 @* This code snippet showcases an example of pannable Chart with specified modifier key and locked Axis. *@
