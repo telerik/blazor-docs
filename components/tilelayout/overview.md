@@ -91,7 +91,7 @@ The following table lists the Tile Layout parameters. Also check the [TileLayout
 | `RowHeight` | `string` | The height of one tile. If not set, the base tile height will be set by the component, based on the highest tile. |
 | `RowSpacing` | `string` <br /> (`"16px"`) | The empty space between rows. |
 | `Reorderable` | `bool` | Enables tile reordering. |
-| `Resizable` | `bool` | Enables tile resizing. |
+| `Resizable` | `bool` | Enables tile resizing. If set, values for both `RowHeight` and `ColumnWidth` should also be provided. |
 | `Width` | `string` | The Tile Layout width. If not set, the component will expand horizontally to fill its parent. |
 
 ### TileLayoutItem Parameters
