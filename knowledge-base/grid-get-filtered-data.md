@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-This KB article answers the following questions. All of them revolve around the Grid table rows, which the component is currently displaying and which the user sees.
+This KB article answers the following questions. All of them revolve around the Grid table rows, which the component is currently displaying to the user.
 
 * How to obtain the filtered data in the Grid? This applies to filtering and the `SearchBox`.
 * How do I know the filtered item count? How to get how many rows are in the filtered Grid?
