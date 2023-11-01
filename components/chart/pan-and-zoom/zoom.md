@@ -19,7 +19,7 @@ To enable zooming, set the boolean `Enabled` parameter in the corresponding `Cha
 To perform zooming, do either of the following:
 
 * Use the [Mouse-wheel](#mouse-wheel) on desktop devices or the pinch gesture on mobile devices.
-* When [Selection](#selection) is enabled, hold the `Shift` key or the [assigned key](#specifying-a-key-for-zooming) and select an area.
+* When [Selection](#selection) is enabled, hold the `Shift` key or the [assigned keyboard key](#specifying-a-keyboard-key-for-zooming) and select an area.
 
 >caption Zoomable Chart
 
@@ -174,11 +174,11 @@ To specify if users can zoom in and out on a selected area, set the boolean `Ena
 }
 ````
 
-### Specifying a Key for Zooming
+### Specifying a Keyboard Key for Zooming
 
->You can define a key for zooming only [selection zooming](#selection) is configured.
+>You can define a keyboard key for zooming only [selection zooming](#selection) is configured.
 
-To specify the key for zooming, use the `Key` parameter within the `ChartZoomableSelection` and pass the `ChartZoomableSelectionKey` enum, which provides the following options:
+To specify the keyboard key for zooming, use the `Key` parameter within the `ChartZoomableSelection` and pass the `ChartZoomableSelectionKey` enum, which provides the following options:
  * (default) `None`—No key is required
  * `Ctrl`
  * `Shift`
