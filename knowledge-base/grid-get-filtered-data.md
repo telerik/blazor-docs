@@ -1,122 +1,310 @@
 ---
-title: Get Filtered Data from Grid
-description: How to get the filtered and sorted data from the Blazor Grid
+title: Get Filtered and Sorted Data from Grid
+description: How to get the current filtered and sorted data from the Telerik Blazor Grid. How to get the correct table row index when the Grid data state doesn't match the order in the original data source.
 type: how-to
-page_title: Get Filtered Data from Grid
+page_title: How to Get the Filtered and Sorted Data from the Grid
 slug: grid-kb-get-filtered-data
 position: 
 tags: 
-ticketid: 1489807
+ticketid: 1629418, 1627421, 1626964, 1617119, 1561446, 1534078, 1489807
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
 
-I want to obtain the filtered and sorted rows / items in the grid. This applies to filtering, sorting and the searchbox.
+This KB article answers the following questions. All of them revolve around the Grid table rows, which the component is currently displaying and which the user sees.
+
+* How to obtain the filtered data in the Grid? This applies to filtering and the `SearchBox`.
+* How do I know the filtered item count? How to get how many rows are in the filtered Grid?
+* How to find only the used (displayed) items the Grid data list?
+* How can I get the Grid data after filtering or sorting?
+* How to get the sorted data in the Grid? How to get the Grid items in the order that is on the user screen?
+* Is a way to get current Grid state data?
+* How to find the next or previous data row if the user has sorted the Grid? In this case the original table row index doesn't match the index in the sorted data.
+* How to get the clicked row index if the Grid is sorted or filtered?
+
 
 ## Solution
 
-Use the [Grid `OnRead` event]({%slug components/grid/manual-operations%}) to get the `DataSourceRequest` object that contains a collection of filter and sort descriptors, as well as information for the current page and its size.
+The solution is different when:
 
-You can then fetch the desired page of filtered and sorted data. This is the same concept as when implementing your own data source operations. You can read more about this in the linked [Manual Data Operations article]({%slug components/grid/manual-operations%}).
+* [The Grid is databound with its `Data` parameter](#when-using-data-parameter)
+* [The Grid is databound with its `OnRead` event handler](#when-using-onread-event)
 
-If you already have all the data in the view-model, the Telerik extension methods can help you get the data in a specific sorted and filtered state at any time - see [`.ToDataSourceResult()`]({%slug components/grid/manual-operations%}#telerik-todatasourceresultrequest).
+Things to consider:
 
->caption Example of how to get the filtered and sorted data of the Grid, including from the SearchBox
+* When using `OnRead`, there will be less custom code and no need to repeat the internal Grid data operations manually.
+* When the Grid data is grouped, the `DataSourceResult.Data` collection contains members of type [`AggregateFunctionsGroup`](/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup) instead of Grid model class objects.
+
+### When Using Data Parameter
+
+1. Obtain the [Grid state]({%slug grid-state%}) in the [Grid `OnStateChanged` event]({%slug grid-state%}#events) or with the [Grid `GetState()` method]({%slug grid-state%}#methods). The exact approach depends on if you want to get the current visible Grid data automatically or on demand.
+1. Create a new [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest). Populate its properties with [the respective information from the `GridState` object]({%slug grid-state%}#information-in-the-grid-state). Note that the `Filters` property of the `DataSourceRequest` will have to include filter descriptors from two `GridState` properties - `FilterDescriptors` and `SearchFilter`.
+1. Execute the [`ToDataSourceResult()` extension method]({%slug common-features-data-binding-onread%}#todatasourceresult-method) on the Grid `Data` collection. You will need to import the `Telerik.DataSource.Extensions` namespace.
+1. The currently visible Grid data will be in the `Data` property of the `DataSourceResult` object, which is returned by `ToDataSourceResult()`. The total Grid item count (on all pages) will be in the `Total` property.
+
+The most important part is in the `RequestCurrentMainGridData()` method below.
+
+>caption Get current filtered and sorted Grid data when using Data parameter
 
 ````CSHTML
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid TItem="@Employee"
-             OnRead=@ReadItems
-             FilterMode="@GridFilterMode.FilterRow"
-             Sortable="true" Pageable="true">
+<TelerikButton OnClick="@GetCurrentMainGridData">Get Main Grid Data</TelerikButton>
+
+or
+
+<label>
+    <TelerikCheckBox @bind-Value="@ShouldUseOnStateChanged" />
+    Detect Main Grid Changes Automatically
+</label>
+
+<h2>Main Grid</h2>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             TItem="@Product"
+             Pageable="true"
+             PageSize="@GridPageSize"
+             Sortable="true"
+             FilterMode="GridFilterMode.FilterRow"
+             Groupable="true"
+             OnStateChanged="@OnGridStateChanged">
     <GridToolBarTemplate>
         <GridSearchBox />
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.ID) />
-        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
-        <GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.InProduction)" />
     </GridColumns>
 </TelerikGrid>
 
-@if (GridData != null && GridData.Any())
-{
-    <p>Search has @GridData.Count.ToString() items starting with item @GridData[0].ID
-            and ending with item @GridData[GridData.Count - 1].ID</p>
-}
+<h2>Current Page in Main Grid</h2>
+
+<p>Showing @( Math.Min(GridPageSize, CurrentMainGridTotal) ) item(s) out of @CurrentMainGridTotal.</p>
+
+<TelerikGrid Data="@CurrentMainGridData">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.InProduction)" />
+    </GridColumns>
+</TelerikGrid>
 
 @code {
-    public List<Employee> SourceData { get; set; }
-    public List<Employee> GridData { get; set; }
+    private TelerikGrid<Product> GridRef { get; set; } = null!;
 
-    protected async Task ReadItems(GridReadEventArgs args)
+    private List<Product> GridData { get; set; } = new List<Product>();
+    private List<Product> CurrentMainGridData { get; set; } = new List<Product>();
+    private int CurrentMainGridTotal { get; set; }
+
+    private int GridPageSize { get; set; } = 4;
+
+    private bool ShouldUseOnStateChanged { get; set; } = true;
+
+    private void OnGridStateChanged(GridStateEventArgs<Product> args)
     {
-        var datasourceResult = SourceData.ToDataSourceResult(args.Request);
+        if (ShouldUseOnStateChanged)
+        {
+            RequestCurrentMainGridData(args.GridState);
+        }
+    }
 
-        args.Data = datasourceResult.Data;
-        args.Total = datasourceResult.Total;
+    private void GetCurrentMainGridData()
+    {
+        RequestCurrentMainGridData(GridRef.GetState());
+    }
 
-        // get the filtered/sorted data on the current page only
-        //GridData = (datasourceResult.Data as IEnumerable<Employee>).ToList();
+    private void RequestCurrentMainGridData(GridState<Product> gridState)
+    {
+        var filterAndSearchDescriptors = new List<IFilterDescriptor>(gridState.FilterDescriptors);
+        filterAndSearchDescriptors.Add(gridState.SearchFilter);
 
-        // get the filtered/sorted data on all pages
-        // use a new DataSourceRequest OR reset args.Request.Page and args.Request.PageSize
-        var allPagesRequest = new DataSourceRequest();
-        allPagesRequest.Sorts = args.Request.Sorts;
-        allPagesRequest.Filters = args.Request.Filters;
-        // OR
-        //args.Request.Page = 1;
-        //args.Request.PageSize = SourceData.Count;
+        var request = new DataSourceRequest()
+        {
+            Filters = filterAndSearchDescriptors,
+            Groups = gridState.GroupDescriptors.ToList(),
+            Page = gridState.Page ?? 1,
+            PageSize = GridPageSize,
+            Sorts = gridState.SortDescriptors.ToList()
+        };
 
-        var datasourceResultAllPages = SourceData.ToDataSourceResult(allPagesRequest);
-        // OR
-        //var datasourceResultAllPages = SourceData.ToDataSourceResult(args.Request);
+        var result = GridData.ToDataSourceResult(request);
 
-        GridData = (datasourceResultAllPages.Data as IEnumerable<Employee>).ToList();
+        if (gridState.GroupDescriptors.Any())
+        {
+            var groups = result.Data.Cast<AggregateFunctionsGroup>();
+            CurrentMainGridData = new List<Product>();
+
+            foreach (var group in groups)
+            {
+                CurrentMainGridData.AddRange(group.Items.Cast<Product>().ToList());
+            }
+        }
+        else
+        {
+            CurrentMainGridData = result.Data.Cast<Product>().ToList();
+        }
+
+        CurrentMainGridTotal = result.Total;
     }
 
     protected override void OnInitialized()
     {
-        SourceData = GenerateData();
-    }
+        var rnd = new Random();
 
-    private List<Employee> GenerateData()
-    {
-        var result = new List<Employee>();
-        var rand = new Random();
-        for (int i = 1; i <= 100; i++)
+        for (int i = 1; i <= 30; i++)
         {
-            result.Add(new Employee()
+            GridData.Add(new Product()
             {
-                ID = i,
-                Name = "Name " + i,
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+                Id = i,
+                Name = $"Product {i}",
+                Price = (decimal)rnd.Next(1, 100),
+                Stock = rnd.Next(0, 50),
+                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                InProduction = i % 4 == 0
             });
         }
 
-        return result;
+        CurrentMainGridData = GridData.Take(GridPageSize).ToList();
+        CurrentMainGridTotal = GridData.Count;
     }
 
-    public class Employee
+    public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Stock { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool InProduction { get; set; }
     }
 }
 ````
 
+### When Using OnRead Event
+
+The visible data items in the Grid are in [the `args.Data` collection, which is set in the Grid `OnRead` event handler]({%slug common-features-data-binding-onread%}#event-argument). `args.Data` is a property of the `OnRead` event argument, so it's not accessible outside `OnRead`. That's why you can cache it in a separate variable, together with the total item count (`args.Total`).
+
+The most important part is in the `OnGridRead` handler below.
+
+>caption Get current filtered and sorted Grid data when using OnRead event
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<h2>Main Grid</h2>
+
+<TelerikGrid OnRead="@OnGridRead"
+             TItem="@Product"
+             Pageable="true"
+             PageSize="@GridPageSize"
+             Sortable="true"
+             FilterMode="GridFilterMode.FilterRow"
+             Groupable="true">
+    <GridToolBarTemplate>
+        <GridSearchBox />
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.InProduction)" />
+    </GridColumns>
+</TelerikGrid>
+
+<h2>Current Page in Main Grid</h2>
+
+<p>Showing @( Math.Min(GridPageSize, CurrentMainGridTotal) ) item(s) out of @CurrentMainGridTotal.</p>
+
+<TelerikGrid Data="@CurrentMainGridData">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(Product.InProduction)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Product> GridData { get; set; } = new List<Product>();
+    private List<Product> CurrentMainGridData { get; set; } = new List<Product>();
+    private int CurrentMainGridTotal { get; set; }
+
+    private int GridPageSize { get; set; } = 4;
+
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
+
+        args.Data = result.Data;
+        args.Total = CurrentMainGridTotal = result.Total;
+
+        if (args.Request.Groups.Any())
+        {
+            var groups = result.Data.Cast<AggregateFunctionsGroup>();
+            CurrentMainGridData = new List<Product>();
+
+            foreach (var group in groups)
+            {
+                CurrentMainGridData.AddRange(group.Items.Cast<Product>().ToList());
+            }
+        }
+        else
+        {
+            CurrentMainGridData = result.Data.Cast<Product>().ToList();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        var rnd = new Random();
+
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Product {i}",
+                Price = (decimal)rnd.Next(1, 100),
+                Stock = rnd.Next(0, 50),
+                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
+                InProduction = i % 4 == 0
+            });
+        }
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Stock { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public bool InProduction { get; set; }
+    }
+}
+````
+
+
+## See Also
+
+* [Grid State]({%slug grid-state%})
+* [Data Binding with OnRead Event]({%slug common-features-data-binding-onread%})
