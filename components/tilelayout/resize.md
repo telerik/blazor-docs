@@ -12,7 +12,11 @@ position: 15
 
 Resize tiles by dragging their bottom and right borders to change the dashboard to your liking.
 
-To enable resizing, set the `Resizable` parameter of the main `TelerikTileLayout` tag to `true`.
+To enable resizing:
+
+1. Set the `Resizable` parameter of the main `TelerikTileLayout` tag to `true`.
+
+2. Set the  `RowHeight` and `ColumnWidth` parameters of the `TelerikTileLayout`. The provided values should be in absolute units - this allows for the layout to correctly calculate the position of each tile during resizing.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
