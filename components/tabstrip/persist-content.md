@@ -10,9 +10,9 @@ position: 13
 
 # TabStrip Persist Content
 
-By default, the content of a Tab is rendered in the DOM when this Tab is active. Once it is deactivated, its content is disposed and re-initialized again when the user selects the corresponding tab.
+The TabStrip always renders the content of a Tab when this Tab becomes active. Once the Tab is deactivated, its content is disposed and re-initialized again when the user selects the corresponding Tab later.
 
-To keep the Tab content in the DOM at all times, set the `PersistContent` boolean attribute of the TabStrip to `true`. In this way the inactive TabStrip content will be hidden with CSS.
+To keep Tab content in the DOM after the Tab is deactivated, set the `PersistContent` boolean parameter of the TabStrip to `true`. In this way the inactive TabStrip content will be hidden with CSS.
 
 >caption Persist the TabStrip content
 
