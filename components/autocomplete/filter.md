@@ -87,3 +87,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 ## See Also
 
 * [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering)
+
+* [Custom filtering by multiple fields]({%slug dropdowns-kb-search-in-multiple-fields%})
+
+* [Filter by field that is not the ValueField]({%slug dropdowns-kb-search-in-multiple-fields%})

@@ -106,3 +106,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 ## See Also
 
 * [Live Demo: MultiColumnComboBox Filtering](https://demos.telerik.com/blazor-ui/multicolumncombobox/filtering)
+
+* [Custom filtering by multiple fields]({%slug dropdowns-kb-search-in-multiple-fields%})
+
+* [Filter by field that is not the TextField]({%slug dropdowns-kb-search-in-multiple-fields%})
