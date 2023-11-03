@@ -39,6 +39,8 @@ Here are two possible scenarios:
 * [Apply custom color to all borders in the Grid or TreeList](#set-color-to-all-borders)
 * [Customize specific borders only](#set-color-to-some-column-borders)
 
+The Grid and TreeList reuse the same CSS classes. As a result, the examples below work in the exact same way for the two components.
+
 ## Set Color to All Borders
 
 To change the color of all borders in the Grid or TreeList:
@@ -126,8 +128,6 @@ To change the border color of a specific Grid or TreeList column:
     * The specific data cell and the one after it (`td + td`).
 
 > The first column doesn't have a left border. If necessary, apply a custom border style to the header table and data table containers.
-
-The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code below works in the exact same way for the two components.
 
 >caption Apply custom styles to some Grid or TreeList borders
 
