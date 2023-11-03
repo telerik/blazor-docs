@@ -138,7 +138,7 @@ The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code 
                  Pageable="true"
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterMenu"
-                 Class="red-column-border">
+                 Class="red-left-border">
     <TreeListColumns>
         <TreeListColumn Expandable="true"
                         Field="FirstName"
@@ -166,8 +166,8 @@ The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code 
     /* The first column has no left border. */
     /* Use if the target column is the first one. */
     /*
-    .k-grid.red-column-border > .k-grid-header,
-    .k-grid.red-column-border > .k-grid-container {
+    .k-grid.red-left-border > .k-grid-header,
+    .k-grid.red-left-border > .k-grid-container {
         border-left: 1px solid red;
     }
     */
