@@ -5,20 +5,20 @@ type: how-to
 page_title: Change Blazor Grid Font Size
 slug: grid-kb-change-font-size
 position: 
-tags: grid, font, size, custom
-ticketid: 
+tags: telerik, blazor, grid, treelist, font, css, styles
+ticketid:
 res_type: kb
 ---
 
 # Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -113,3 +113,5 @@ How to change the Grid font size? How to set custom font styles?
 ## See Also
 
 * [Change Inputs and Buttons Font Size]({%slug inputs-kb-change-font-size%})
+* [Change Grid Border Color]({%slug grid-kb-change-border-color%})
+* [Customize CSS Theme Styles]({%slug themes-override%})
