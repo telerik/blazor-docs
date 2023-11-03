@@ -76,12 +76,12 @@ If the component `Data` is not set initially, set the `TItem` parameter to point
                  @bind-Value="@ComboValue" />
 
 @code {
-    int? ComboValue { get; set; }
+    private int? ComboValue { get; set; }
 
     public class SampleModel
     {
-        public int Id { get; set; }
-        public int Text { get; set; }
+        public int? Id { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
