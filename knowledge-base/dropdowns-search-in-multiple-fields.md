@@ -20,6 +20,7 @@ res_type: kb
                 AutoComplete for Blazor, <br />
                 ComboBox for Blazor, <br />
                 DropDownList for Blazor, <br />
+                MultiColumnComboBox for Blazor, <br />
                 MultiSelect for Blazor
             </td>
         </tr>
