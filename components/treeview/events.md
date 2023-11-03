@@ -20,6 +20,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 * [OnItemDoubleClick](#onitemdoubleclick)
 * [OnItemRender](#onitemrender)
 * [SelectedItemsChanged](#selecteditemschanged)
+* [Drag Events](#drag-events)
 
 ## CheckedItemsChanged
 
@@ -77,6 +78,16 @@ The event handler receives as an argument an `TreeViewItemRenderEventArgs` objec
 ## SelectedItemsChanged
 
 The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-selection-overview%}) is enabled and the user clicks on a new item.
+
+## Drag Events
+
+The TreeView enhances the drag and drop functionality through a few fundamental drag events:
+* The `DragStart` event is triggered when the user starts dragging a node.
+* The `OnDrag` event is triggered every few hundred milliseconds as a node is being dragged by the user.
+* The `DragEnd` event fires when a drag operation is ended by releasing a mouse button.
+* The `OnDrop` event fires when the user drops a node into a new location.
+
+Review the [drag and drop]({%slug treeview-drag-drop-overview%}) article for more details and examples on how he drag events work and what you can do with them
 
 ## Example
 
