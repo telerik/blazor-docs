@@ -125,6 +125,8 @@ To change the border color of a specific Grid or TreeList column:
     * The specific header cell and the one after it (`th + th`);
     * The specific data cell and the one after it (`td + td`).
 
+> The first column doesn't have a left border. If necessary, apply a custom border style to the header table and data table containers.
+
 The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code below works in the exact same way for the two components.
 
 >caption Apply custom styles to some Grid or TreeList borders
@@ -135,10 +137,14 @@ The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code 
                  ParentIdField="@nameof(Employee.ParentId)"
                  Pageable="true"
                  Sortable="true"
-                 FilterMode="@TreeListFilterMode.FilterMenu">
+                 FilterMode="@TreeListFilterMode.FilterMenu"
+                 Class="red-column-border">
     <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="FirstName" Title="First Name" />
-        <TreeListColumn Field="LastName" Title="Last Name"
+        <TreeListColumn Expandable="true"
+                        Field="FirstName"
+                        Title="First Name" />
+        <TreeListColumn Field="LastName"
+                        Title="Last Name"
                         HeaderClass="red-column-border"
                         OnCellRender="@OnLastNameCellRender" />
         <TreeListColumn Field="Position" />
@@ -156,6 +162,15 @@ The Grid and TreeList reuse the the same CSS classes. As a result, the CSS code 
     .k-grid td.red-column-border + td {
         border-color: red;
     }
+
+    /* The first column has no left border. */
+    /* Use if the target column is the first one. */
+    /*
+    .k-grid.red-column-border > .k-grid-header,
+    .k-grid.red-column-border > .k-grid-container {
+        border-left: 1px solid red;
+    }
+    */
 </style>
 
 @code {
