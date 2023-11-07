@@ -34,7 +34,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. [`Show()` notifications]({%slug notification-open-close-hide%}) that don't close automatically. To achive this, set `CloseAfter` to `0` in the `NotificationModel`.
+1. [`Show()` notifications]({%slug notification-open-close-hide%}) that don't close automatically. To achieve this, set `CloseAfter` to `0` in the `NotificationModel`.
 1. Define a collection that will store the currently open `NotificationModel` instances and the `DateTime` values when they should hide.
 1. Implement a `System.Timers.Timer` that will [`Hide()` notifications]({%slug notification-open-close-hide%}), according to the times from the previous step.
 1. Define a [Notification `Template`]({%slug notification-templates%}).
