@@ -38,7 +38,7 @@ This KB article answers the following questions:
 1. Define a collection that will store the currently open `NotificationModel` instances and the `DateTime` values that determine when they will be hidden.
 1. Implement a `System.Timers.Timer` that will [`Hide()` notifications]({%slug notification-open-close-hide%}) according to the times from the previous step.
 1. Define a [Notification `Template`]({%slug notification-templates%}).
-1. Wrap the template content in a `<div>` with [`@onmouseenter` and `@onmouseleave` directives](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling). The event handlers should enable or disable the hiding of that specific notification instance by the `Timer`.
+1. Wrap the template content in a `<div>` with [`@onmouseenter` and `@onmouseleave` directives](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling). The event handlers must enable or disable the hiding of that specific notification instance by the `Timer`.
 
 >caption Keep notifications visible on hover
 
