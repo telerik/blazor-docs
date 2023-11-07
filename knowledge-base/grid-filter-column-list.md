@@ -44,7 +44,7 @@ The required approach revolves around two milestones:
 
 Here are step-by-step instructions:
 
-1. Define a [`FilterCellTemplate` or a `FilterRowTemplate`]({%slug grid-templates-filter%}), depending on the Grid `FilterMode`. Add a [MultiSelect]({%slug multiselect-overview%}) or another dropdown component in the template, according to your preferences. It's also possible to use [CheckBoxes]({%slug checkbox-overview%}).
+1. Define a [`FilterCellTemplate` or a `FilterMenuTemplate`]({%slug grid-templates-filter%}), depending on the Grid `FilterMode`. Add a [MultiSelect]({%slug multiselect-overview%}) or another dropdown component in the template, according to your preferences. It's also possible to use [CheckBoxes]({%slug checkbox-overview%}).
 1. (only for `FilterRow` mode) Handle the [`ValueChanged` or `OnChange` event]({%slug multiselect-events%}) of the component inside the filter template. Pass the `FilterCellTemplateContext` to the handler and call its `FilterAsync()` method to trigger Grid rebind.
 1. (only for `FilterMenu` mode) Use a [`FilterMenuButtonsTemplate`]({%slug grid-templates-filter%}#filter-menu-buttons-template) for the Filter and Clear buttons inside the filter menu. Use [Button `OnClick`]({%slug button-events%}) handlers to call the `FilterAsync()` or `ClearFilterAsync()` methods of the `FilterMenuTemplateContext`. In the latter case, also clear the selected values of the filtering component.
 1. Use the Grid [`OnRead` event]({%slug common-features-data-binding-onread%}) to data bind the component, instead of the `Data` parameter.
