@@ -48,7 +48,7 @@ Programmatic autofitting works even if column resizing is disabled.
 
 ### Limitations
 
-List of the known limitations of the Autofit Columns feature:
+The known limitations of the Autofit Columns feature include:
 
 * Autofitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%}).
 
