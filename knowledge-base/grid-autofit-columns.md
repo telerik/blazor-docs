@@ -19,9 +19,15 @@ I would like to autofit the Grid columns on initial page load using the [AutoFit
 
 The Grid has [methods to autofit columns programmatically]({%slug components/grid/columns/resize%}#autofit-columns). I would like to achieve that behavior on initial load of the component, but can not find a suitable event to call the methods.
 
+If I call the autofit methods too early (e.g. on component initialization), I get a `NullReferenceException`.
+
 ## Solution
 
-There are two possible implementations to autofit Grid columns by default. They depend on whether the Grid is data-bound via [`Data` parameter](#data-parameter) or [`OnRead` event](#onread-event).
+Autofitting columns on initial load is a current limitation of the built-in autofit functionality. At the time of writing, the framework does not provide an option to know when the Grid rows are rendered. 
+
+While the autofitting feature includes fitting the headers, it also targets the data cells and the footers, so it needs all the rows in the process.
+
+There are two possible implementations to work this around and autofit the Grid columns as the component initializes. They depend on whether the Grid is data-bound with [`Data` parameter](#data-parameter) or [`OnRead` event](#onread-event).
 
 ### Data Parameter
 

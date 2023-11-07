@@ -48,13 +48,13 @@ Programmatic autofitting works even if column resizing is disabled.
 
 ### Limitations
 
-List of the known limitations of the AutoFit Columns feature:
+The known limitations of the Autofit Columns feature include:
 
-* Auto-fitting the columns on initial load of the Grid is not supported.
+* Autofitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%}).
 
-* Auto-fitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%})
+* Autofitting the columns on initial load of the Grid is not supported.
 
->note Check the [AutoFit all Grid columns on initial load knowledge-based article]({%slug grid-autofit-columns-on-initial-load%}) to see a possible solution to achieve this behavior. 
+>important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-based article]({%slug grid-autofit-columns-on-initial-load%}) to see a possible solution to achieve this behavior. 
 
 
 ## Example
