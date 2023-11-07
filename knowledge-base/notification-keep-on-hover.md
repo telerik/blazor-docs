@@ -26,7 +26,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* Is it possible to stop a notification from closing on mouseover?
+* Is it possible to stop a notification from closing on `mouseover`?
 * How to keep a notification from hiding automatically when the user moves their mouse over it?
 * How to persist a visible notification on the screen when the user hovers it?
 * How to prevent hiding of a notification when the mouse cursor is over it?
