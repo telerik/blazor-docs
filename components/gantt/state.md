@@ -556,7 +556,7 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 @[template](/_contentTemplates/gantt/state.md#expand-hierarchy-from-code)
 ````
 
-@[template](/_contentTemplates/gantt/state.md#filter-menu-default-filters)
+@[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
 
 ### Get and Override User Action That Changes The Gantt
 

@@ -194,12 +194,9 @@
 
 >note If you want to alter the filters for a specific column, do not use more than one `FilterDescriptor` in `FilterRow` mode, and more than two `FilterDescriptors` in `FilterMenu` mode. Otherwise additional descriptors will not show up in the UI. This means that you may need to replace or modify an existing descriptor, rather than add a new one.
 >
-> Inactive filter descriptors are distinguished by their `null` `Value`.
+> Inactive filter descriptors in `FilterMenu` mode are distinguished by their `null` `Value`.
 
 #end
-
-
-
 
 #group-from-code
 @using Telerik.DataSource;
