@@ -362,7 +362,7 @@ To observe the changes in the Grid state more easily, copy and run the following
 
 The `GetState` and `SetStateAsync` methods of the [Grid instance]({%slug grid-overview%}#grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
 
-* `GetState` returns the current Grid state, so you can save it or retrieve specific information. You can also use this method to get information about the current data state (filters, sorts, page number, etc.) if you are [binding the Grid via `Data` parameter]({%slug common-features-data-binding-overview%}) and not via [`OnRead` event]({%slug common-features-data-binding-onread%}).
+* `GetState` returns the current Grid state, so you can save it or [retrieve specific information](#information-in-the-grid-state). For example, you can [use `GetState` to get the current filters, sorts, and page number]({%slug grid-kb-get-filtered-data%}). Or, you can [get the current Grid column properties like order index, width, and others)]({%slug grid-kb-column-state%}).
 
 * `SetStateAsync` receives an instance of a `GridState<TItem>` object and applies it to the Grid. For example, you can have a button that puts the Grid in a certain configuration programmatically, for example sort or filter the data, enter or exit edit mode, expand or collapse groups or detail Grids, etc.
 
