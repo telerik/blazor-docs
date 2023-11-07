@@ -207,4 +207,5 @@ To hide all notifications, you use the `HideAll` method. This function enables y
 
 ## See Also
 
-  * [Notification Overview]({%slug notification-overview%})
+* [Keep Notifications Visible on Hover]({%slug notification-kb-keep-on-hover%})
+* [Notification Overview]({%slug notification-overview%})
