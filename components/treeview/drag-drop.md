@@ -15,10 +15,10 @@ The Drag and Drop functionality for the TreeView allows you to move a node or mu
 This article will be divided in the following sections:
 
 * [Basics](#basics)
-* [DragStart Event](#dragstart-event)
-* [OnDrag Event](#ondrag-event)
-* [OnDrop Event](#ondrop-event)
-* [DragEnd Event](#dragend-event)
+* [`DragStart` Event](#dragstart-event)
+* [`OnDrag` Event](#ondrag-event)
+* [`OnDrop` Event](#ondrop-event)
+* [`DragEnd` Event](#dragend-event)
 * [Examples](#examples)
     * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
     * [Flat Data](#flat-data)
@@ -39,10 +39,10 @@ The `DragStart` event fires when the user starts dragging a node. It provides de
 
 ### Event Arguments
 
-The `DragStart` event provides an object of type `TreeViewDragStartEventArgs` to it's event handler which exposes the following fields:
+The `DragStart` event handler receives as an argument an object of type `TreeViewDragStartEventArgs` that contains:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
-* `IsCancelled` - a boolean field indicating whether the event is to be prevented. Default value is `false`.
+* `IsCancelled` - a boolean field indicating whether the event is to be prevented. The default value is `false`.
 
 ## OnDrag Event
 
@@ -50,14 +50,14 @@ The `OnDrag` event fires continuously while the user is dragging a node.
 
 ### Event Arguments
 
-The `OnDrag` event provides an object of type `TreeViewDragEventArgs` to it's event handler which exposes the following fields:
+The `OnDrag` event handler receives as an argument an object of type `TreeViewDragEventArgs` that contains:
 
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `DestinationItem` - Represents the row over which the `Item` is dropped. You can cast this object to your model class.
 * `DestinationTreeView` - The reference of the TreeView in which the `Item` is dropped.
-* `DestinationIndex` - The index where the drop will happen in the second component.
-* `DestinationComponentId` - The `Id` of the second component in which the drop will happen.
-* `DropPosition` - Enumaration, Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`.
+* `DestinationIndex` - The index in the target component where the drop will happen.
+* `DestinationComponentId` - The `Id` of the target component in which the drop will happen.
+* `DropPosition` - Enumeration whose members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`.
 * `PageX` - Represents the X coordinate of the mouse.
 * `PageY` - Represents the Y coordinate of the mouse.
 
@@ -81,17 +81,17 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 ## DragEnd Event
 
-The `DragEnd` event fires when a drag operation is ended by releasing a mouse button. The event is triggered after the OnDrop Event.
+The `DragEnd` event fires when a drag operation is ended by releasing a mouse button. The event is triggered after the `OnDrop` Event.
 
 ### Event Arguments
 
-The `DragEnd` provides an object of type `TreeViewDragEndEventArgs` to it's event handler which exposes the following fields:
+The `DragEnd` event handler receives as an argument an object of type `TreeViewDragEndEventArgs` that contains:
 
 * `DestinationItem` - Represents the row over which the `Item` is dropped. You can cast this object to your model class.
 * `DestinationTreeView` - The reference of the TreeView in which the `Item` is dropped.
-* `DestinationIndex` - The index where the drop will happen in the second component.
-* `DestinationComponentId` - The `Id` of the second component in which the drop will happen.
-* `DropPosition` - Enumaration, Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`.
+* `DestinationIndex` - The index in the target component where the drop will happen.
+* `DestinationComponentId` - The `Id` of the target component in which the drop will happen.
+* `DropPosition` - Enumeration whose members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`.
 
 ## Examples
 

@@ -81,13 +81,13 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 
 ## Drag Events
 
-The TreeView enhances the drag and drop functionality through a few fundamental drag events:
+The TreeView implements the Drag and Drop functionality through the following drag events:
 * The `DragStart` event is triggered when the user starts dragging a node.
-* The `OnDrag` event is triggered every few hundred milliseconds as a node is being dragged by the user.
+* The `OnDrag` event is triggered continuously while a node is being dragged by the user.
 * The `DragEnd` event fires when a drag operation is ended by releasing a mouse button.
 * The `OnDrop` event fires when the user drops a node into a new location.
 
-Review the [drag and drop]({%slug treeview-drag-drop-overview%}) article for more details and examples on how he drag events work and what you can do with them
+For more details and examples, see the [Drag and Drop]({%slug treeview-drag-drop-overview%}) article.
 
 ## Example
 
