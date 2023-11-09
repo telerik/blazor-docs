@@ -135,7 +135,7 @@ The following table lists TreeView parameters, which are not related to other fe
 | --- | --- | --- |
 | `Class` | `string` | The additional CSS class that will be rendered on the `div.k-treeview` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Size` | `string` <br /> `"md"` | Affects the TreeView layout, for example the amount of space between items. The possible valid values are `"lg"` (large), `"md"` (medium) and `"sm"` (small). For easier setting, use the predefined string properties in class [`Telerik.Blazor.ThemeConstants.TreeView.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.TreeView.Size). |
-| `DragThrottleInterval` | `int` 0 | Determines the time interval (in milliseconds) between the firing of the `OnDrag` event handler during the dragging operations.  |
+| `DragThrottleInterval` | `int` 0 | Determines the time interval (in milliseconds) between the firing of the `OnDrag` event during the dragging operations.  |
 
 
 ## TreeView Reference and Methods
