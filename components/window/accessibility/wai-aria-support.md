@@ -25,7 +25,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
-| `.k-window` | `role=dialog` | Announces the dialog role of the component. |
+| `.k-window:not(.k-dialog)` | `role=dialog` | Announces the dialog role of the component. |
 |  | `aria-labelledby=.k-window-title id` | Associate the title of the dialog. |
 | `.k-overlay + .k-window` | `aria-modal=true` | Announces that the dialog is modal. Attribute is added only when the dialog is modal. |
 

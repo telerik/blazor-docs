@@ -43,7 +43,7 @@ The following table summarizes the selectors and attributes supported by the Mul
 |  | `aria-busy=true` | The attribute is rendered only when the MultiSelect is loading data. |
 |  | `tabindex=0` | The element must be focusable. |
 | `.k-disabled .k-input-inner` | `aria-disabled=true` | The attribute is rendered only when the MultiSelect is disabled. |
-| `.k-input-button` | `role=button` | The element must either be a `<button>` element or have the `role="button"` assigned. |
+| `.k-input-button` | `role=button` or `nodeName=button` | The element must either be a `<button>` element or have the `role="button"` assigned. |
 |  | `aria-label` | The button needs an accessible name that will be assigned to it. |
 |  | `tabindex=-1` | The button element must not be focusable. |
 
