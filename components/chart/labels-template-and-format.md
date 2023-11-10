@@ -82,21 +82,23 @@ The Blazor Chart uses client-side rendering and the label templates are JavaScri
 The JavaScript function for each label template will receive an argument that exposes different properties, depending on the template type. The mechanism is similar to the `context` of Blazor `RenderFragment`s. The sections below list the available method argument properties:
 
 * [Series labels](#series-label-template)
-* [Category axis labels](#category-axis-label-template)
-* [Value axis labels](#value-axis-label-template)
+* [Category axis labels](#category-axis-label-template) (for categorical Charts)
+* [X axis labels](#x-axis-label-template) (for numerical Charts)
+* [Value and Y axis labels](#value-and-y-axis-label-template)
 * [Legend item labels](#legend-item-label-template)
 * [How to add new lines to label templates](#new-line-in-the-label-template)
-* [Example for all types of label templates](#label-template-example)
+* [Example for categorical Charts](#label-template-in-categorical-charts)
+* [Example for numerical Charts](#label-template-in-numerical-charts)
 
 ### Series Label Template
 
 The `Template` function of `ChartSeriesLabels` exposes the following fields in the template context:
 
 * `category` - the category name. Available for Area, Bar, Column, Donut, Line, and Pie series.
-* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array. Sample syntax: `context.dataItem.MyModelPropertyName`.
+* `dataItem` - the original data item used to construct the point. Will be `null` if binding to array. Sample syntax: `context.dataItem.MyPropertyName`.
 * `percentage` - the point value represented as a percentage value. Available only for Donut, Pie and 100% stacked charts.
 * `stackValue` - the cumulative point value on the stack. Available only for stackable series.
-* `value` - the point value. Can be a number or object containing each bound field.
+* `value` - the point value. Can be a number for categorical series or an object with `x` and `y` properties for numerical series.
 
 <!--* `series` - the data series-->
 <!--* runningTotal - the sum of point values since the last "runningTotal" summary point. Available for waterfall series.
@@ -106,23 +108,40 @@ The `Template` function of `ChartSeriesLabels` exposes the following fields in t
 
 The `Template` function of `CategoryAxisLabels` exposes the following fields in the template context:
 
-* `value` - the category value
-* `format` - the default format of the label
+* `count` - the number of labels on the axis
+* `format` - the numeric or date format of the label
+* `index` - the order index of the label
+* `text` - the label string if no template is used
+* `value` - the category value as a string, number or JavaScript `Date` object
+
+### X Axis Label Template
+
+The `Template` function of `XAxisLabels` exposes the following fields in the template context:
+
+* `count` - the number of labels on the axis
+* `format` - the numeric or date format of the label
+* `index` - the order index of the label
+* `text` - the label string if no template is used
+* `value` - the label as a number or JavaScript `Date` object
 
 <!--* `dataItem` - the data item, in case a field has been specified. If the category does not have a corresponding item in the data then an empty object will be passed.-->
 <!--* culture - the default culture (if set) on the label-->
 
-### Value Axis Label Template
+### Value and Y Axis Label Template
 
-The `Template` function of `ValueAxisLabels` exposes the following fields in the template context:
+The `Template` function of `ValueAxisLabels` and `YAxisLabels` exposes the following fields in the template context:
 
-* `value` - the label value
+* `count` - the number of labels on the axis
+* `format` - the default or specified format of the label
+* `index` - the order index of the label
+* `text` - the label string if no template is used
+* `value` - the numeric representation of the label
 
 ### Legend Item Label Template
 
 The `Template` function of `ChartLegendLabels` exposes the following fields in the template context:
 
-* `text` - the text the legend item
+* `text` - the text of the legend item
 * `series` - the data series object
 * `value` - the data point value. Available only for Donut and Pie charts.
 * `percentage` - the data point value as a number between 0 and 1. Available only for Donut, Pie and 100% stacked charts.
@@ -139,9 +158,9 @@ function chartLabelFunction(context) {
 }
 ````
 
-### Label Template Example
+### Label Template in Categorical Charts
 
->caption Using Chart label templates for series, axes and legend
+>caption Using categorical Chart label templates for series, axes and legend
 
 ````CSHTML
 <TelerikChart>
@@ -284,6 +303,97 @@ function chartLabelFunction(context) {
         public string Category { get; set; }
         public double Value { get; set; }
         public string ExtraData { get; set; }
+    }
+}
+````
+
+### Label Template in Numerical Charts
+
+>caption Using numerical Chart label templates for series, axes and legend
+
+````CSHTML
+<TelerikChart>
+    <ChartTitle Text="Signal Level vs. Errors per Minute"></ChartTitle>
+
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@Series1Data"
+                     Name="APSK modulation"
+                     XField="@nameof(ChartModel.Signal)"
+                     YField="@nameof(ChartModel.Errors)"
+                     Color="red">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate" />
+        </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@Series2Data"
+                     Name="QAM modulation"
+                     XField="@nameof(ChartModel.Signal)"
+                     YField="@nameof(ChartModel.Errors)"
+                     Color="blue">
+            <ChartSeriesLabels Visible="true"
+                               Template="chartSeriesLabelTemplate" />
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartXAxes>
+        <ChartXAxis Min="-95" Max="-70" AxisCrossingValue="@(new object[] { -95 })">
+            <ChartXAxisLabels Template="chartXAxisLabelTemplate" />
+        </ChartXAxis>
+    </ChartXAxes>
+
+    <ChartYAxes>
+        <ChartYAxis Max="25" MajorUnit="5">
+            <ChartYAxisLabels Template="chartYAxisLabelTemplate" />
+        </ChartYAxis>
+    </ChartYAxes>
+
+    <ChartLegend Position="ChartLegendPosition.Top">
+        <ChartLegendLabels Template="chartLegendItemLabelTemplate"></ChartLegendLabels>
+    </ChartLegend>
+</TelerikChart>
+
+<!-- Move JavaScript code to a separate JS file in production -->
+<script suppress-error="BL9992">
+    function chartSeriesLabelTemplate(context) {
+        return "X Value: " + context.value.x + "\n" +
+            "Y Value: " + context.value.y + "\n" +
+            "Extra info: " + context.dataItem.ExtraData;
+    }
+
+    function chartXAxisLabelTemplate(context) {
+        return context.value + " dBm " +
+            "(" + (context.index + 1) + "/" + context.count +")";
+    }
+
+    function chartYAxisLabelTemplate(context) {
+        return context.value + " " +
+            "(" + (context.index + 1) + "/" + context.count +")";
+    }
+
+    function chartLegendItemLabelTemplate(context) {
+        return context.text + " (" + context.series.color + ")";
+    }
+</script>
+
+@code {
+    private List<ChartModel> Series1Data { get; set; } = new List<ChartModel>() {
+       new ChartModel() { Signal = -92, Errors = 15, ExtraData = "foo 1" },
+       new ChartModel() { Signal = -84, Errors = 7, ExtraData = "bar 1" },
+       new ChartModel() { Signal = -75, Errors = 1, ExtraData = "baz 1" }
+    };
+
+    private List<ChartModel> Series2Data { get; set; } = new List<ChartModel>() {
+       new ChartModel() { Signal = -88, Errors = 18, ExtraData = "foo 2" },
+       new ChartModel() { Signal = -78, Errors = 12, ExtraData = "bar 2" },
+    };
+
+    public class ChartModel
+    {
+        public decimal Signal { get; set; }
+        public int Errors { get; set; }
+        public string ExtraData { get; set; } = string.Empty;
     }
 }
 ````
