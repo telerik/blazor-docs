@@ -29,6 +29,8 @@ The CUD operations are implemented through dedicated events that let you alter t
 * `OnDelete` - fires when an item is deleted.
 * `OnCancel` - fires when the Cancel button is clicked.
 
+@[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
+
 >caption How to edit data in the ListView
 
 ````CSHTML
@@ -41,8 +43,8 @@ The CUD operations are implemented through dedicated events that let you alter t
                  OnEdit="@EditHandler" OnCancel="@CancelHandler">
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
-            <TelerikTextBox @bind-Value="@context.Name" /><br />
-            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
+            <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
+            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" DebounceDelay="0" />
             <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
         </div>

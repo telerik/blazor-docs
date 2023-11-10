@@ -200,7 +200,8 @@ In addition to the sample below, there is a [complete runnable project in GitHub
             var editItem = (IDictionary<string, object>)context;
             DateTime? dateValue = (DateTime?)(editItem[item.Key]);
             <TelerikDatePicker Value="@dateValue"
-                                ValueChanged="@( (DateTime? newValue) => editItem[item.Key] = newValue )" />
+                               ValueChanged="@( (DateTime? newValue) => editItem[item.Key] = newValue )"
+                               DebounceDelay="0" />
         }
     </EditorTemplate>
 </GridColumn>

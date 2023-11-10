@@ -35,7 +35,7 @@ Add the [Multi Select component]({%slug multiselect-overview%}) to the [EditorTe
                     <TelerikMultiSelect Data="@Roles" Placeholder="Select job to add" AutoClose="false"
                                          @bind-Value="@CurrentlyEditedTeam.VacantPositions"
                                          TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                                         Width="100%">
+                                         DebounceDelay="0">
                         <MultiSelectSettings>
                             <MultiSelectPopupSettings Height="auto" />
                         </MultiSelectSettings>

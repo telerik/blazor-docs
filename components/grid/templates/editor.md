@@ -30,7 +30,9 @@ If you need more complex logic inside the editor template, compared to simple da
 
 ## Notes
 
-* As of version 2.23.0 of Telerik UI for Blazor the Grid row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the **Notes** section of the [Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
+* @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
+
+* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
 
 * We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. Do not share a global variable within multiple templates, like column (cell) template and editor template. Variable sharing can lead to unexpected behavior.
 
@@ -85,7 +87,8 @@ The Grid will save changes and close the current edit row (or edit cell) when th
                     var item = (Product)context;
 
                     <div @onkeydown:stopPropagation>
-                        <TelerikTextArea @bind-Value="@item.Description"></TelerikTextArea>
+                        <TelerikTextArea @bind-Value="@item.Description"
+                                         DebounceDelay="0" />
                     </div>
                 }
             </EditorTemplate>
@@ -280,10 +283,12 @@ Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge b
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as Employee;
-                    <TelerikDropDownList Data="@Roles" DefaultText="Select Role"
+                    <TelerikDropDownList Data="@Roles"
                                          @bind-Value="@CurrentlyEditedEmployee.RoleId"
-                                         TextField="@nameof(Role.RoleName)" ValueField="@nameof(Role.RoleId)"
-                                         Width="100%">
+                                         TextField="@nameof(Role.RoleName)"
+                                         ValueField="@nameof(Role.RoleId)"
+                                         DebounceDelay="0"
+                                         DefaultText="Select Role">
                         <DropDownListSettings>
                             <DropDownListPopupSettings Height="auto" />
                         </DropDownListSettings>

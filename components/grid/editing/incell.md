@@ -218,69 +218,24 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 The incell editor template requires a focusable element to maintain the tab order when using the keyboard. If you prevent editing based on a runtime condition, you must provide some focusable element. (Setting `Editable=false` for the entire column does not require a focusable element.) Here is one way to add a focusable non-editable element:
 
-    **.razor**
+<div class="skip-repl"></div>
 
-    <EditorTemplate>
-        @{
-            if (myCurrentEditCondition)
-            {
-                <MyCustomEditor />
-            }
-            else
-            {
-                <div tabindex="0">editing not allowed</div>
-            }
-        }
-    </EditorTemplate>
-
->tip **All the information below applies up to UI for Blazor 2.29**. Starting from version **2.30**, the Grid captures a generic blur handler inside the editor template to detect when to fire `OnUpdate`. There is no longer a need to listen for a blur event and close the edit cell manually.
-
-When using an [editor template]({%slug components/grid/features/templates%}#edit-template), the grid cannot know what the custom editor needs to do, what it contains, and when it needs to close the cell and update the data, because this is up to the editor. This has the following implications:
-
-* The Grid will still capture `Enter` and `Tab` keypresses when the cell is focused, and will close the cell with the corresponding `OnUpdate` call. You can either use that (e.g., a standard input will let the keypress event propagate to the Grid cell), or you can prevent the event propagation and use only your business logic. If you don't do anything, you will get the default grid behavior for the keyboard navigation even with custom editors.
-
-* The Grid can no longer capture the `onblur` event in a custom editor like it does for built-in editors. It uses it to call `OnUpdate` when the user clicks away from the current row with the mouse. So, when an editor template is open, clicking away will not close it and save the row.
-
-    If you want to get this behavior, you can use the Grid [state]({%slug grid-state%}) to close the cell and you can also invoke the desired operations on the data according to your business logic. For example, a suitable event the Telerik input components provide is `OnBlur`.
-    
-    **.razor**
-    
-        <EditorTemplate>
-            @{
-                CurrentlyEditedLine = context as SampleData;
-                <TelerikTextBox OnBlur="@CloseEditorAndSave" 
-                    Width="100%" @bind-Value="@CurrentlyEditedLine.LastName">
-                </TelerikTextBox>
-
-            }
-        </EditorTemplate>
-
-
-    **C#**
-    
-        SampleData CurrentlyEditedLine { get; set; }
-        TelerikGrid<SampleData> Grid { get; set; }
-    
-        async Task CloseEditorAndSave()
+````CSHTML
+<EditorTemplate>
+    @{
+        if (myCurrentEditCondition)
         {
-            var state = Grid?.GetState();
-            if (state.EditItem != null)
-            {
-                // we can reuse the code from the OnUpdate handler
-                await UpdateHandler(new GridCommandEventArgs()
-                {
-                    Item = state.EditItem
-                });
-                
-                // use the state to remove the edited item (close the editor)
-                state.EditItem = null;
-                state.OriginalEditItem = null;
-                await Grid.SetStateAsync(state);
-            }
+            <MyCustomEditor />
         }
-
+        else
+        {
+            <div tabindex="0">editing not allowed</div>
+        }
+    }
+</EditorTemplate>
+````
 
 ## See Also
 
-  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
-  * [Grid Selection Documentation]({%slug components/grid/selection/overview%})
+* [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
+* [Grid Selection Documentation]({%slug components/grid/selection/overview%})

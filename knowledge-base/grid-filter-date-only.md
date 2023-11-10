@@ -243,7 +243,8 @@ This approach is suitable for both filter menu and filter row modes. It has the 
                 @{
                     var item = context as GridItem;
                 }
-                <TelerikDateTimePicker @bind-Value="@item.TaskStart" />
+                <TelerikDateTimePicker @bind-Value="@item.TaskStart"
+                                       DebounceDelay="0" />
             </EditorTemplate>
         </GridColumn>
     </GridColumns>
