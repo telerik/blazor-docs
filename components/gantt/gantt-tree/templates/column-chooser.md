@@ -66,9 +66,9 @@ When you set up the Column Chooser Template, the list of columns that are render
 </TelerikGantt>
 
 @code {
-    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+    private DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
-    class FlatModel
+    public class FlatModel
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
@@ -78,8 +78,8 @@ When you set up the Column Chooser Template, the list of columns that are render
         public DateTime End { get; set; }
     }
 
-    public int LastId { get; set; } = 1;
-    List<FlatModel> Data { get; set; }
+    private int LastId { get; set; } = 1;
+    private List<FlatModel> Data { get; set; }
 
     protected override void OnInitialized()
     {

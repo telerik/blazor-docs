@@ -64,9 +64,9 @@ You can read more details on how to tie the Gantt to your data fields and child 
 </TelerikGantt>
 
 @code {
-    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+    private DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
-    class FlatModel
+    public class FlatModel
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
@@ -76,8 +76,8 @@ You can read more details on how to tie the Gantt to your data fields and child 
         public DateTime End { get; set; }
     }
 
-    public int LastId { get; set; } = 1;
-    List<FlatModel> Data { get; set; }
+    private int LastId { get; set; } = 1;
+    private List<FlatModel> Data { get; set; }
 
     protected override void OnInitialized()
     {

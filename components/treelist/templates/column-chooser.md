@@ -55,9 +55,9 @@ When you set up the Column Chooser Template, the list of columns that are render
 </TelerikTreeList>
 
 @code {
-    public List<Employee> TreeListData { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
-    async Task<List<Employee>> GetTreeListData()
+    private async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 

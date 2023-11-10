@@ -62,9 +62,9 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
 </TelerikGantt>
 
 @code {
-    public DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
+    private DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
 
-    class FlatModel
+    public class FlatModel
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
@@ -74,8 +74,8 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
         public DateTime End { get; set; }
     }
 
-    public int LastId { get; set; } = 1;
-    List<FlatModel> Data { get; set; }
+    private int LastId { get; set; } = 1;
+    private List<FlatModel> Data { get; set; }
 
     protected override void OnInitialized()
     {
@@ -225,7 +225,7 @@ The example shows the following things:
 </TelerikGantt>
 
 @code {
-    class FlatModel
+    public class FlatModel
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }

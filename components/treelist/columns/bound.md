@@ -44,7 +44,7 @@ You can read more details on how to tie the treelist to your data fields and chi
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<Employee> Data { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -63,7 +63,7 @@ You can read more details on how to tie the treelist to your data fields and chi
         public string Team { get; set; } // in this example we don't use this field (in the treelist)
     }
 
-    async Task<List<Employee>> GetTreeListData()
+    private async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 
