@@ -1,7 +1,7 @@
 ---
 title: Column Menu
 page_title: TreeList - Column Menu
-description: Use the Column Menu for the TreeList to show a menu that allows you to perform high-level column customization.
+description: Use the Column Menu for the TreeList to show a menu that allows you to perform column customization.
 slug: treelist-column-menu
 tags: telerik,blazor,treelist,column,columns,menu
 published: True
@@ -17,12 +17,11 @@ The TreeList enables you to show a menu with quick actions for its columns. The 
 * [Features](#features)
     * [Column Chooser](#column-chooser)
     * [Filtering](#filtering)
-    * [Groupable](#groupable)
     * [Frozen Columns](#frozen-columns)
-    * [Sections](#sections)
+    * [Column Sections](#column-sections)
     * [Sorting](#sorting)
-    * [Reorderable](#reorderable)
-* [Examples](#examples)
+    * [Reordering](#reordering)
+* [Example](#example)
 * [Notes](#notes)
 
 ## Basics
@@ -48,16 +47,16 @@ To disable the Column Menu for a specific column in the TreeList, set the `ShowC
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" Width="320px" />
         <TreeListColumn Field="@nameof(Employee.Id)" Lockable="true"/>
-        <TreeListColumn Field="@nameof(Employee.ParentId)"/>
+        <TreeListColumn Field="@nameof(Employee.ParentId)" ShowColumnMenu="false"/>
         <TreeListColumn Field="@nameof(Employee.HireDate)"/>
         <TreeListColumn Field="@nameof(Employee.Salary)" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public List<Employee> TreeListData { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
-    async Task<List<Employee>> GetTreeListData()
+    private async Task<List<Employee>> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 
@@ -124,7 +123,7 @@ To control the features of the Column Menu, use the `<TreeListColumnMenuSettings
 
 ### Column Chooser
 
-The Column Chooser in the Column Menu allows you to toggle the visibility of TreeLis columns. By default, all columns are visible under the **Columns** section of the Column Menu. To expand the menu, click the **Columns** item.
+The Column Chooser in the Column Menu allows you to toggle the visibility of TreeList columns. By default, all columns are visible under the **Columns** section of the Column Menu. To expand the menu, click the **Columns** item.
 
 The **Apply** button sets the column visibility according to the current checkbox values and closes the column menu. The **Reset** button reverts the checkbox values to their state when the column menu was opened. At this point, the user can start over, click **Apply**, or click outside the column menu to close it.
 
@@ -146,11 +145,11 @@ To disable the locking and unlocking of a column from the Column Menu, set the `
 
 To remove the sorting option from the Column Menu, set the `Sortable` parameter of the `TreeListColumnMenuSettings` tag to `false`.
 
-### Reorderable
+### Reordering
 
 To allow column reordering from the Column Menu, set the `Reorderable` parameter of the `TreeListColumnMenuSettings` tag to `true`.
 
-### Sections
+### Column Sections
 
 The TreeList Column Menu lets you group the columns in the [Column Chooser](#column-chooser) into different sections:
 
@@ -166,13 +165,12 @@ The TreeList Column Menu lets you group the columns in the [Column Chooser](#col
     
     * If you set the `Title` parameter of the `TreeListColumnMenuChooserItem`, it will override the value of the `Title` parameter of the corresponding TreeList Column. 
 
-## Examples 
+## Example 
 
-### Column Menu Configuration Example
-
-The following example shows the basic configuration of the `ColumnMenuSettings`:
-
-The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the TreeList can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
+The example shows the following things: 
+* A custom `TreeListColumnChooser`
+* How to use the `TreeListColumnMenuSettings` tag to control the features of the Column Menu.
+* How to use column parameters to affect the column's relationship with the column menu.
 
 ````CSHTML
 <TelerikTreeList Data="@TreeListData"
@@ -180,34 +178,40 @@ The columns in the Column Chooser are divided into sections. The Lockable option
                  ParentIdField="@nameof(Employee.ParentId)"
                  Pageable="true"
                  Sortable="true"
+                 Reorderable="true"
                  FilterMode="@TreeListFilterMode.FilterRow"
                  ShowColumnMenu="true">
     <TreeListSettings>
         <TreeListColumnMenuSettings Lockable="false"
+                                    Reorderable="true"
+                                    Sortable="true"
                                     FilterMode="@ColumnMenuFilterMode.None">
             <TreeListColumnMenuChooser>
                 <Template>
                     <TreeListColumnMenuChooserGroup Title="Personal Information">
-                        <TreeListColumnMenuChooserItem ColumnId="firstname-column-id" />
-                        <TreeListColumnMenuChooserItem ColumnId="lastname-column-id" />
+                        <TreeListColumnMenuChooserItem ColumnId="first-name-column-id" />
+                        <TreeListColumnMenuChooserItem ColumnId="last-name-column-id" />
                     </TreeListColumnMenuChooserGroup>
                     <TreeListColumnMenuChooserGroup Title="Employee Information">
                         <TreeListColumnMenuChooserItem ColumnId="position-column-id" />
+                        <TreeListColumnMenuChooserItem ColumnId="hire-date-column-id" />
                     </TreeListColumnMenuChooserGroup>
                 </Template>
             </TreeListColumnMenuChooser>
         </TreeListColumnMenuSettings>
     </TreeListSettings>
     <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="@nameof(Employee.FirstName)" Title="First Name" Id="firstname-column-id" />
-        <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" Id="lastname-column-id" />
-        <TreeListColumn Field="@nameof(Employee.Position)" Id="position-column-id" />
+        <TreeListColumn Field="@nameof(Employee.Id)" Title="Id" Expandable="true" />
+        <TreeListColumn Field="@nameof(Employee.FirstName)" Title="First Name" Id="first-name-column-id" />
+        <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" Id="last-name-column-id" ShowColumnMenu="false" />
+        <TreeListColumn Field="@nameof(Employee.Position)" Id="position-column-id" Reorderable="false" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)" Id="hire-date-column-id" Sortable="false"/>
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
 
-    List<Employee> TreeListData { get; set; }
+    private List<Employee> TreeListData { get; set; }
 
     protected override void OnInitialized()
     {
@@ -219,70 +223,6 @@ The columns in the Column Chooser are divided into sections. The Lockable option
                 {
                     Id = i,
                     ParentId = i <= 3 ? null : i % 3 + 1,
-                    FirstName = "First " + i,
-                    LastName = "Last " + i,
-                    Position = i <= 3 ? "Team Lead" : "Software Engineer"
-                });
-        }
-
-        base.OnInitialized();
-    }
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
-    }
-}
-````
-
-### Column Menu Features Example
-
-When you configure the features of the Column Menu:
-* Use the `TreeListColumnMenuSettings` tag to control the features of the Column Menu.
-* Use column parameters to affect its relationship with the column menu.
-
-````CSHTML
-@* Disable filtering and locking columns, enable sorting, hide a column from the chooser (Team), disable the menu for a column (Name). *@
-
-<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 Pageable="true"
-                 Sortable="true"
-                 FilterMode="@TreeListFilterMode.FilterRow"
-                 ShowColumnMenu="true">
-    <TreeListSettings>
-        <TreeListColumnMenuSettings Lockable="false"
-                                    Reorderable="true"
-                                    Sortable="true"
-                                    FilterMode="@ColumnMenuFilterMode.None">
-        </TreeListColumnMenuSettings>
-    </TreeListSettings>
-    <TreeListColumns>
-        <TreeListColumn Expandable="true" Field="@nameof(Employee.FirstName)" Title="First Name"/>
-        <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" ShowColumnMenu="false" />
-        <TreeListColumn Field="@nameof(Employee.Position)" VisibleInColumnChooser="false"/>
-        <TreeListColumn Field="@nameof(Employee.HireDate)" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-
-    List<Employee> TreeListData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        TreeListData = new List<Employee>();
-
-        for (int i = 1; i <= 9; i++)
-        {
-            TreeListData.Add(new Employee()
-                {
-                    Id = i,
                     FirstName = "First " + i,
                     LastName = "Last " + i,
                     Position = i <= 3 ? "Team Lead" : "Software Engineer",

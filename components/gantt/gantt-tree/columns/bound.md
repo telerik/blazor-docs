@@ -143,7 +143,7 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Title` | `string` | The text that is rendered in the column header. See the Notes below for its behavior. |
-| `DisplayFormat` | `string` | The C# format string that is used to render the field value in the cell when the grid is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article. |
+| `DisplayFormat` | `string` | The C# format string that is used to render the field value in the cell when the Gantt is in display mode. Read more in the [Column Display Format]({%slug treelist-columns-displayformat%}) article. |
 | `TextAlign` | `ColumnTextAlign` enum <br /> (`Left`) | Specifies the horizontal alignment of the cell text. |
 | `Width` | `string` | The width of the column. See the [Dimensions]({%slug common-features/dimensions%}) article for information about the supported formats. See [Gantt Column Width Behavior]({%slug gantt-columns-width%}) for detailed information about the Gantt behavior with different column width configurations. |
 | `MinResizableWidth` | `int` <br /> (`30`) | The minimum allowed column width during [user resizing]({%slug gantt-columns-resize%}). Unlike the string `Width` property, this one is decimal and expects pixel values. |
