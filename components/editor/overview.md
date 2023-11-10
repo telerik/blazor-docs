@@ -54,6 +54,8 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 
 The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. [Read more about value binding and data binding...]({%slug get-started-value-vs-data-binding%})
 
+Be aware that [the Editor and the browser treat empty paragraphs differently]({%slug editor-kb-missing-br-tags-in-value%}).
+
 >important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
 
 ## Validation
