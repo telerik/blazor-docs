@@ -82,12 +82,13 @@ The `SelectedItemsChanged` event fires when the [selection]({%slug treeview-sele
 ## Drag Events
 
 The TreeView implements the Drag and Drop functionality through the following drag events:
-* The `OnDragStart` event is triggered when the user starts dragging a node.
-* The `OnDrag` event is triggered continuously while a node is being dragged by the user.
-* The `OnDrop` event fires when the user drops a node into a new location. The event is triggered only if the new location is a Telerik component.
-* The `OnDragEnd` event fires when a drag operation ends. Unlike the `OnDrop` event, `OnDragEnd` will trigger even if the new location is not a Telerik component.   
 
-For more details and examples, see the [Drag and Drop]({%slug treeview-drag-drop-overview%}) article.
+* The `OnDragStart` event fires when the user starts dragging a node.
+* The `OnDrag` event fires continuously while a node is being dragged by the user.
+* The `OnDrop` event fires when the user drops a node into a new location. The event fires only if the new location is a Telerik component.
+* The `OnDragEnd` event fires when a drag operation ends. Unlike the `OnDrop` event, `OnDragEnd` will fire even if the new location is not a Telerik component.   
+
+For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-drag-drop-overview%}) article.
 
 ## Example
 

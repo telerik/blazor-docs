@@ -12,7 +12,7 @@ position: 11
 
 The Drag and Drop functionality for the TreeView allows you to move a node or multitude of nodes between different parents in the same treeview or between different Telerik TreeView instances.
 
-This article will be divided in the following sections:
+This article is divided in the following sections:
 
 * [Basics](#basics)
 * [`OnDragStart` Event](#ondragstart-event)
@@ -36,14 +36,16 @@ To enable the Drag and Drop functionality:
 
 ## OnDragStart Event
 
-The `OnDragStart` event fires when the user starts dragging a node. It provides details for the dragged items and allows you to cancel the event.
+The `OnDragStart` event fires when the user starts dragging a node. It provides details for the dragged item and allows you to cancel the event.
 
 ### Event Arguments
 
 The `OnDragStart` event handler receives as an argument an object of type `TreeViewDragStartEventArgs` that contains:
 
-* `Item` - an object you can cast to your model class to obtain the current data item.
-* `IsCancelled` - a boolean field indicating whether the event is to be prevented. The default value is `false`.
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `IsCancelled`| `bool` | field indicating whether the event is to be prevented. The default value is `false`. |
 
 ## OnDrag Event
 
@@ -66,7 +68,7 @@ The `OnDrag` event handler receives as an argument an object of type `TreeViewDr
 
 ## OnDrop Event
 
-The `OnDrop` event fires when the user drops a node into a new location. It is triggered only if the new location is a Telerik component. The event allows you to manipulate your data collection based on where the user dropped the element. 
+The `OnDrop` event fires when the user drops a node to a new location. It is triggered only if the new location is a Telerik component. The event allows you to manipulate your data collection based on where the user dropped the element. 
 
 ### Event Arguments
 
@@ -84,7 +86,7 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 ## OnDragEnd Event
 
-The `OnDragEnd` event fires when a drag operation is ends. The event is triggered after the `OnDrop` Event and unlike it, `OnDragEnd` will fire even if the new location is not a Telerik component.
+The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component.
 
 ### Event Arguments
 
@@ -104,7 +106,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 * [Hierarchical Data](#hierarchical-data)
 * [Between Different TreeViews](#between-different-treeviews)
 
-### Events Example
+### TreeView Drag and Drop Events
 
 >caption Handle Blazor TreeView Drag Events
 
@@ -132,10 +134,12 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 </TelerikTreeView>
 
 @code {
-    public string CurrentItem;
-    public string DestinationItem;
-    public string Location;
-    public string Hint = "Documents and its children cannot be moved";
+    public string CurrentItem  { get; set; }
+    public string DestinationItem  { get; set; }
+    public string Location  { get; set; }
+    public string Hint { get; set; } = "Documents and its children cannot be moved";
+    public List<TreeItem> Data { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; }
 
     public class TreeItem
     {
@@ -167,6 +171,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
             CurrentItem = item.Text;
         }
     }
+
     public void OnDrag(TreeViewDragEventArgs args)
     {
         if (args.DestinationItem != null)
@@ -183,6 +188,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
             Location = "over";
         }
     }
+
     public void OnDragEnd(TreeViewDragEndEventArgs args)
     {
         var destination = args.DestinationItem as TreeItem;
@@ -198,9 +204,6 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         Location = "";
         DestinationItem = "";
     }
-
-    public List<TreeItem> Data { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; }
 
     protected override void OnInitialized()
     {
