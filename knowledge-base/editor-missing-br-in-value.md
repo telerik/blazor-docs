@@ -35,7 +35,7 @@ This KB article addresses the following questions or issues:
 * Why empty paragraphs in the Editor don't show afterwards on the web page?
 
 
-## Cause/Possible Causes
+## Cause
 
 By default, empty paragraphs do not occupy any space on the web page. Here is why empty paragraphs look different inside and outside the Editor:
 
