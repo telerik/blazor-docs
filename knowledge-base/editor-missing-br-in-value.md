@@ -39,7 +39,7 @@ This KB article addresses the following questions or issues:
 
 By default, empty paragraphs do not occupy any space on the web page. Here is why empty paragraphs look different inside and outside the Editor:
 
-Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By design, the engine inserts a `<br />` tag in every empty `<p></p>`. This ensures that each empty paragraph takes up visible space and the user can distinguish it, focus it and type inside. Since version 4.6.0, the Editor `Value` does not contain these "service" `<br />` tags anymore.
+Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By design, the engine inserts a `<br />` tag in every empty `<p></p>`. This ensures that each empty paragraph takes up visible space and the user can distinguish it, focus it, and type inside. Since version 4.6.0, the Editor `Value` does not contain these "service" `<br />` tags anymore.
 
 
 ## Suggested Workarounds
