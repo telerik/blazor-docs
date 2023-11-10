@@ -47,7 +47,7 @@ Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By 
 * Expand the empty paragraphs with CSS.
 * Add `&nbsp;` or `<br />` tags to the resulting HTML markup before rendering it on the web page.
 
-> The Editor will insert an additional `<br />` tag to empty paragraphs even if they already contains one, for example `<p><br /></p>`. So adding `<br />` to all empty paragraphs in the database may not be optimal for future editing.
+> The Editor will insert an additional `<br />` tag to empty paragraphs even if they already contains one, for example, `<p><br /></p>`. So adding `<br />` to all empty paragraphs in the database may not be optimal for future editing.
 
 >caption Render empty paragraphs from the Editor Value
 
