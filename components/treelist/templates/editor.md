@@ -16,7 +16,7 @@ You can data bind components in it to the current context, which is an instance 
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a custom edit form outside of the treelist.
 
-The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the notes section of [editing/overview](../editing/overview#notes) article).
+The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [Notes section of the Editing Overview]({%slug gantt-tree-editing%}#notes) article).
 
 @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
