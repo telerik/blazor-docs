@@ -51,7 +51,7 @@ There are three approaches you can take:
                     <TelerikDropDownList @bind-Value="@CurrentlyEditedEmployee.Field1"
                                          Data="@( Enumerable.Range(1, 5) )"
                                          OnChange="@CascadeSecondList"
-                                         Width="100%">
+                                         DebounceDelay="0">
                     </TelerikDropDownList>
                 }
             </EditorTemplate>
@@ -64,7 +64,7 @@ There are three approaches you can take:
                                          Data="@SecondFieldData"
                                          Enabled="@( CurrentlyEditedEmployee.Field1 > 0 )"
                                          DefaultText="Select something"
-                                         Width="100%">
+                                         DebounceDelay="0">
                     </TelerikDropDownList>
                 }
             </EditorTemplate>

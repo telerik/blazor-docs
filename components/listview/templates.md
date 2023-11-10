@@ -59,6 +59,7 @@ This is the main building block of the listview component. You define the layout
 
 This is the template that an item in edit or insert mode renders, instead of its item template. You can use it to add inputs or other editors so the user can modify the data. You can read more about editing data and see examples of using this template in the [ListView Editing]({%slug listview-editing%}) article.
 
+@[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
 >caption Declaring an edit template in the ListView. Note: The CUD operations are not implemented in this example.
 
@@ -70,7 +71,7 @@ https://docs.telerik.com/blazor-ui/components/listview/editing
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
     <EditTemplate>
-        <TelerikTextBox @bind-Value="@context.Name"></TelerikTextBox>
+        <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" />
         <ListViewCommandButton Command="Save">Save</ListViewCommandButton>
     </EditTemplate>
     <Template>

@@ -49,7 +49,9 @@ To reproduce, double click quickly a row in the `Role` column.
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as Employee;
-                    <TelerikDropDownList Data="@Roles" Width="100%" @bind-Value="@CurrentlyEditedEmployee.Role" />
+                    <TelerikDropDownList Data="@Roles"
+                                         @bind-Value="@CurrentlyEditedEmployee.Role"
+                                         DebounceDelay="0" />
                 }
             </EditorTemplate>
         </GridColumn>
@@ -147,7 +149,9 @@ The sample below demonstrates how to achieve the desired behavior by using the `
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as Employee;
-                    <TelerikDropDownList Data="@Roles" Width="100%" @bind-Value="@CurrentlyEditedEmployee.Role" />
+                    <TelerikDropDownList Data="@Roles"
+                                         @bind-Value="@CurrentlyEditedEmployee.Role"
+                                         DebounceDelay="0" />
                 }
             </EditorTemplate>
         </GridColumn>

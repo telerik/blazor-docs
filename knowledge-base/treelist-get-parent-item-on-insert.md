@@ -209,7 +209,7 @@ The approaches to handle this would depend of the type of data the component is 
                     var parent = context as Employee;
                     // One way to get the parent item from the Data based on the ID we provide, you can change as necessary 
                     <label>@parent.ParentData</label>
-                } change as necessary 
+                }
             </EditorTemplate>
         </TreeListColumn>
         <TreeListColumn Field="EmailAddress" Width="220px" />

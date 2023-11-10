@@ -16,9 +16,11 @@ You can data bind components in it to the current context, which is an instance 
 
 If you need to perform logic more complex than simple data binding, use the change event of the custom editor component to perform it. You can also consider using a custom edit form outside of the treelist.
 
->note As of version 2.23.0 of Telerik UI for Blazor the TreeList row creates `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the notes section of [editing/overview](../editing/overview#notes) article).
+The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [Notes section of the Editing Overview]({%slug gantt-tree-editing%}#notes) article).
 
->caption Sample edit template
+@[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
+
+>caption Using TreeList Editor Template
 
 ````CSHTML
 @* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
@@ -42,8 +44,10 @@ If you need to perform logic more complex than simple data binding, use the chan
             <EditorTemplate>
                 @{
                     CurrentlyEditedEmployee = context as Employee;
-                    <TelerikDropDownList Data="@Roles" @bind-Value="@CurrentlyEditedEmployee.Role"
-                                         Width="100%" DefaultText="Select Role...">
+                    <TelerikDropDownList Data="@Roles"
+                                         @bind-Value="@CurrentlyEditedEmployee.Role"
+                                         DebounceDelay="0"
+                                         DefaultText="Select Role...">
                         <DropDownListSettings>
                             <DropDownListPopupSettings Height="auto" />
                         </DropDownListSettings>
