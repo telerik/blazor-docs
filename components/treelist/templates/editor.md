@@ -46,7 +46,6 @@ The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`.
                     CurrentlyEditedEmployee = context as Employee;
                     <TelerikDropDownList Data="@Roles"
                                          @bind-Value="@CurrentlyEditedEmployee.Role"
-                                         DebounceDelay="0"
                                          DefaultText="Select Role...">
                         <DropDownListSettings>
                             <DropDownListPopupSettings Height="auto" />

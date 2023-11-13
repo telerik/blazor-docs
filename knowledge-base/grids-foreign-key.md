@@ -99,8 +99,7 @@ There are a few ways to implement the scenario:
                 <TelerikDropDownList Data="@Categories"
                                      @bind-Value="@product.CategoryId"
                                      ValueField="@nameof(Category.Id)"
-                                     TextField="@nameof(Category.Name)"
-                                     DebounceDelay="0" />
+                                     TextField="@nameof(Category.Name)" />
             </EditorTemplate>
             <FilterCellTemplate>
                 @* Filtering by single Category value *@

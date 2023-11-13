@@ -52,7 +52,7 @@ In the common case, you provide all the data to the listview's Data collection a
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
-            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" DebounceDelay="0" />
+            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
         </div>
@@ -219,7 +219,7 @@ In the common case, you provide all the data to the listview's Data collection a
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
-            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" DebounceDelay="0" />
+            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
         </div>
@@ -393,7 +393,7 @@ In the common case, you provide all the data to the listview's Data collection a
     <EditTemplate>
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
-            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" DebounceDelay="0" />
+            <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
             <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
             <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
         </div>

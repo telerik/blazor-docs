@@ -50,8 +50,7 @@ There are three approaches you can take:
                     CurrentlyEditedEmployee = context as SampleData;
                     <TelerikDropDownList @bind-Value="@CurrentlyEditedEmployee.Field1"
                                          Data="@( Enumerable.Range(1, 5) )"
-                                         OnChange="@CascadeSecondList"
-                                         DebounceDelay="0">
+                                         OnChange="@CascadeSecondList">
                     </TelerikDropDownList>
                 }
             </EditorTemplate>
@@ -63,8 +62,7 @@ There are three approaches you can take:
                     <TelerikDropDownList @bind-Value="@CurrentlyEditedEmployee.Field2"
                                          Data="@SecondFieldData"
                                          Enabled="@( CurrentlyEditedEmployee.Field1 > 0 )"
-                                         DefaultText="Select something"
-                                         DebounceDelay="0">
+                                         DefaultText="Select something">
                     </TelerikDropDownList>
                 }
             </EditorTemplate>

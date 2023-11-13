@@ -287,7 +287,6 @@ Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge b
                                          @bind-Value="@CurrentlyEditedEmployee.RoleId"
                                          TextField="@nameof(Role.RoleName)"
                                          ValueField="@nameof(Role.RoleId)"
-                                         DebounceDelay="0"
                                          DefaultText="Select Role">
                         <DropDownListSettings>
                             <DropDownListPopupSettings Height="auto" />
