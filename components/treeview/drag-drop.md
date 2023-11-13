@@ -12,11 +12,15 @@ position: 11
 
 The Drag and Drop functionality for the TreeView allows you to move a node or multitude of nodes between different parents in the same treeview or between different Telerik TreeView instances.
 
-This article will be divided in the following sections:
+This article is divided in the following sections:
 
 * [Basics](#basics)
-* [OnDrop Event](#ondrop-event)
+* [`OnDragStart` Event](#ondragstart-event)
+* [`OnDrag` Event](#ondrag-event)
+* [`OnDrop` Event](#ondrop-event)
+* [`OnDragEnd` Event](#ondragend-event)
 * [Examples](#examples)
+    * [Events Example](#events-example)
     * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
     * [Flat Data](#flat-data)
     * [Hierarchical Data](#hierarchical-data)
@@ -28,12 +32,43 @@ To enable the Drag and Drop functionality:
 
 1. Set the `Draggable` parameter of the `<TelerikTreeView>` to `true`
 
-1. Use the `OnDrop` event to handle the drag and drop operations and modify the data source as per your business logic.
+1. Use the Drag events to handle the drag and drop operations and modify the data source as per your business logic.
 
+## OnDragStart Event
+
+The `OnDragStart` event fires when the user starts dragging a node. It provides details for the dragged item and allows you to cancel the event.
+
+### Event Arguments
+
+The `OnDragStart` event handler receives as an argument an object of type `TreeViewDragStartEventArgs` that contains:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `IsCancelled`| `bool` | Whether the event is to be prevented. |
+
+## OnDrag Event
+
+The `OnDrag` event fires continuously while the user is dragging a node.
+
+### Event Arguments
+
+The `OnDrag` event handler receives as an argument an object of type `TreeViewDragEventArgs` that contains:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
+| `DestinationItem` | `object` | Represents the row over which the `Item` is. You can cast this object to your model class. |
+| `DestinationTreeView` | `object` | The reference of the TreeView in which the `Item` is dropped. |
+| `DestinationIndex` | `string` | The index in the target component where the drop will happen. |
+| `DestinationComponentId` | `string` | The `Id` of the target component in which the drop will happen. |
+| `DropPosition` | `enum` | Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`. |
+| `PageX` | `double` | Represents the X coordinate of the mouse. |
+| `PageY` | `double` | Represents the Y coordinate of the mouse. |
 
 ## OnDrop Event
 
-The `OnDrop` event fires when the user drops a node into a new location. It allows you to manipulate your data collection based on where the user dropped the element. 
+The `OnDrop` event fires when the user drops a node to a new location. It is triggered only if the new location is a Telerik component. The event allows you to manipulate your data collection based on where the user dropped the element. 
 
 ### Event Arguments
 
@@ -49,12 +84,214 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 | `DestinationIndex` | `string` | The index where the drop will happen in the second component. |
 | `DestinationComponentId` | `string` | The `Id` of the second component in which the drop will happen. |
 
+## OnDragEnd Event
+
+The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component. In this case, the non-aplicable event arguments will be null.
+
+### Event Arguments
+
+The `OnDragEnd` event handler receives as an argument an object of type `TreeViewDragEndEventArgs` that contains:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `DestinationItem` | `object` | Represents the row over which the `Item` is. You can cast this object to your model class. |
+| `DestinationTreeView` | `object` | The reference of the TreeView in which the `Item` is dropped. |
+| `DestinationIndex` | `string` | The index in the target component where the drop will happen. |
+| `DestinationComponentId` | `string` | The `Id` of the target component in which the drop will happen. |
+| `DropPosition` | `enum` | Its members allow you to determine the exact position of the dropped item relative to the position of the `DestinationItem`. |
+
 ## Examples
 
+* [Events Example](#events-example)
 * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
 * [Flat Data](#flat-data)
 * [Hierarchical Data](#hierarchical-data)
 * [Between Different TreeViews](#between-different-treeviews)
+
+### TreeView Drag and Drop Events
+
+>caption Handle Blazor TreeView Drag Events
+
+````CSHTML
+<div>
+    Current Item: @CurrentItem
+    <br />
+    Current Location: @Location @DestinationItem
+    <br />
+    @Hint
+</div>
+
+<TelerikTreeView Data="@Data"
+                 Id="TreeView"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 Draggable="true"
+                 OnDrop="@OnItemDrop"
+                 OnDragStart="@OnDragStart"
+                 DragThrottleInterval="150"
+                 OnDrag="@OnDrag"
+                 OnDragEnd="@OnDragEnd">
+    <TreeViewBindings>
+        <TreeViewBinding ParentIdField="Parent"></TreeViewBinding>
+    </TreeViewBindings>
+</TelerikTreeView>
+
+@code {
+    private string CurrentItem { get; set; }
+    private string DestinationItem { get; set; }
+    private string Location { get; set; }
+    private string Hint { get; set; } = "Documents and its children cannot be moved";
+    private List<TreeItem> Data { get; set; }
+    private IEnumerable<object> ExpandedItems { get; set; }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public int? Parent { get; set; }
+        public string Text { get; set; }
+        public ISvgIcon Icon { get; set; }
+        public bool HasChildren { get; set; }
+
+        public TreeItem(int id, int? parent, string text, ISvgIcon icon, bool hasChildren)
+        {
+            Id = id;
+            Parent = parent;
+            Text = text;
+            Icon = icon;
+            HasChildren = hasChildren;
+        }
+    }
+
+    private void OnDragStart(TreeViewDragStartEventArgs args)
+    {
+        var item = args.Item as TreeItem;
+        if (item.Parent == 1 || item.Id == 1)
+        {
+            args.IsCancelled = true;
+        }
+        else
+        {
+            CurrentItem = item.Text;
+        }
+    }
+
+    private void OnDrag(TreeViewDragEventArgs args)
+    {
+        if (args.DestinationItem != null)
+        {
+            var destination = args.DestinationItem as TreeItem;
+            DestinationItem = destination.Text;
+        }
+        if (args.DropPosition != null)
+        {
+            Location = args.DropPosition.Value.ToString().ToLower();
+        }
+        else
+        {
+            Location = "over";
+        }
+    }
+
+    private void OnDragEnd(TreeViewDragEndEventArgs args)
+    {
+        var destination = args.DestinationItem as TreeItem;
+        if (args.DestinationComponentId == "TreeView" && args.DropPosition!=null)
+        {
+            Hint = "Item was placed successfully";
+        }
+        else
+        {
+            Hint = "Invalid location";
+        }
+        CurrentItem = "";
+        Location = "";
+        DestinationItem = "";
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+
+        base.OnInitialized();
+    }
+
+    private void OnItemDrop(TreeViewDropEventArgs args)
+    {
+        var item = args.Item as TreeItem;
+        var destinationItem = args.DestinationItem as TreeItem;
+
+        if (destinationItem != null && IsChild(item, destinationItem))
+        {
+            return;
+        }
+
+        Data.Remove(item);
+
+        if (item.Parent != null && !Data.Any(x => item.Parent == x.Parent))
+        {
+            Data.FirstOrDefault(x => x.Id == item.Parent).HasChildren = false;
+        }
+
+        if (args.DropPosition == TreeViewDropPosition.Over)
+        {
+            item.Parent = destinationItem.Id;
+            destinationItem.HasChildren = true;
+
+            Data.Add(item);
+        }
+        else
+        {
+            var index = Data.IndexOf(destinationItem);
+
+            item.Parent = destinationItem.Parent;
+
+            if (args.DropPosition == TreeViewDropPosition.After)
+            {
+                index++;
+            }
+
+            Data.Insert(index, item);
+        }
+
+        // Refresh data
+        Data = new List<TreeItem>(Data);
+    }
+
+    private bool IsChild(TreeItem item, TreeItem destinationItem)
+    {
+        if (destinationItem?.Parent == null || item == null)
+        {
+            return false;
+        }
+        else if (destinationItem.Parent?.Equals(item.Id) == true)
+        {
+            return true;
+        }
+
+        var parentDestinationItem = Data.FirstOrDefault(e => e.Id.Equals(destinationItem.Parent));
+
+        return IsChild(item, parentDestinationItem);
+    }
+
+    private void LoadData()
+    {
+        Data = new List<TreeItem>()
+        {
+            new TreeItem(1, null, "Documents", SvgIcon.Folder, true),
+                new TreeItem(2, 1, "report.xlsx", SvgIcon.FileExcel, false),
+                new TreeItem(3, 1, "status.docx", SvgIcon.FileWord, false),
+                new TreeItem(4, 1, "conferences.xlsx", SvgIcon.FileExcel, false),
+                new TreeItem(5, 1, "performance.pdf", SvgIcon.FilePdf, false),
+            new TreeItem(6, null, "Pictures", SvgIcon.Folder, true),
+                new TreeItem(7, 6, "Camera Roll", SvgIcon.Folder, true),
+                    new TreeItem(8, 7, "team.png", SvgIcon.FileImage, false),
+                    new TreeItem(9, 7, "team-building.png", SvgIcon.FileImage, false),
+                    new TreeItem(10, 7, "friends.png", SvgIcon.FileImage, false),
+        };
+        ExpandedItems = Data.ToList();
+    }
+
+}
+````
 
 ### Drag and Drop between TreeView, Grid, TreeList and Scheduler
 
@@ -99,12 +336,12 @@ The functionality allows dragging items between TreeView, [Grid]({%slug grid-dra
 </TelerikTreeView>
 
 @code {
-    public List<Person> GridData { get; set; }
-    public TelerikGrid<Person> GridRef { get; set; }
+    private List<Person> GridData { get; set; }
+    private TelerikGrid<Person> GridRef { get; set; }
 
-    public TelerikTreeView TreeRef { get; set; }
-    public TreeViewObservableFlatDataService TreeService { get; set; }
-    public ObservableCollection<BaseFlatItem> TreeData { get; set; }
+    private TelerikTreeView TreeRef { get; set; }
+    private TreeViewObservableFlatDataService TreeService { get; set; }
+    private ObservableCollection<BaseFlatItem> TreeData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
