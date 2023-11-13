@@ -6,14 +6,14 @@ slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 4
+position: 1
 ---
 
 # Typical Workflow for Using the UI for Blazor Components
 
 This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
 
->tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}) and [WebAssembly]({%slug getting-started/client-side%}) apps.
+>tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}) and [Web App Template]({%slug getting-started/web-app-template%}) apps.
 
 To use the Telerik UI for Blazor, you need to:
 
@@ -72,8 +72,9 @@ The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-sty
 
    * For Client-Side and Blazor Hybrid apps, use the `wwwroot/index.html` file.
    * For Server-Side Blazor apps, use one of the following files:
-      * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
+      * `~/Pages/_Host.cshtml` for .NET 7
+      * `~/Components/App.razor` for .NET 8
 
 To add these client assets, use either the [static assets](#using-static-assets) or the [CDN](#using-cdn) method.
 
@@ -81,10 +82,7 @@ To add these client assets, use either the [static assets](#using-static-assets)
 
 You can add the [Telerik JS Interop file](#telerik-js-interop-file) and the [Telerik Stylesheet](#telerik-stylesheet) as [static assets](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your **Server** project (by default, this line is already present):
-
- * `Startup.cs` for .NET 3.x and .NET 5
- * `Program.cs` for .NET 6
+To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your **Server** project (by default, this line is already present)
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -122,6 +120,7 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
    * [Client-side (WASM)](#client-side-project-specifics)
    * [Server-side](#server-side-project-specifics)
+   * [Web App Template](#web-app-template)
    * [Blazor Hybrid](#blazor-hybrid-project-specifics)
 
 
@@ -155,13 +154,14 @@ The final step is to register the Telerik services. In a client-side Blazor proj
 
 ### Server-side Project Specifics
 
-The final step is to register the Telerik services. In a server-side Blazor project, you register services in the startup file of your project which varies depending on the used .NET version:
-
-* `Startup.cs` for .NET 3.x and .NET 5
-* `Program.cs` for .NET 6
+The final step is to register the Telerik services. In a server-side Blazor project, you register services in the `Program.cs` file of your project.
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
+
+### Web App Template Project Specifics
+
+
 
 ### Blazor Hybrid Project Specifics
 

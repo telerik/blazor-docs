@@ -5,7 +5,7 @@ description: Make your first steps with Telerik UI for Blazor and build an app t
 slug: getting-started/server-side
 tags: get,started,first,steps,server
 published: true
-position: 2
+position: 3
 ---
 
 # First Steps with Server-Side UI for Blazor

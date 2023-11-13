@@ -5,7 +5,7 @@ description: Make your first steps with Telerik UI for Blazor and build a .NET M
 slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
-position: 3
+position: 5
 ---
 
 # First Steps with Blazor Hybrid
