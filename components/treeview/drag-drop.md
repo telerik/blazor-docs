@@ -86,7 +86,7 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 ## OnDragEnd Event
 
-The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component. In this case, the non-aplicable event arguments will be null.
+The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component. In this case, the non-applicable event arguments will be `null`.
 
 ### Event Arguments
 
