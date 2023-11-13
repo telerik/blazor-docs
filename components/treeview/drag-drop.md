@@ -45,7 +45,7 @@ The `OnDragStart` event handler receives as an argument an object of type `TreeV
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `Item` | `object` | Represents the dragged row. You can cast this object to your model class. |
-| `IsCancelled`| `bool` | field indicating whether the event is to be prevented. The default value is `false`. |
+| `IsCancelled`| `bool` | Whether the event is to be prevented. |
 
 ## OnDrag Event
 
@@ -86,12 +86,14 @@ The `OnDrop` event provides an object of type `TreeViewDropEventArgs` to its eve
 
 ## OnDragEnd Event
 
-The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component.
+The `OnDragEnd` event fires when a drag operation ends. The event is triggered after `OnDrop` and unlike it, `OnDragEnd` will fire even if the drop location is not a Telerik component. In this case, the non-aplicable event arguments will be null.
 
 ### Event Arguments
 
 The `OnDragEnd` event handler receives as an argument an object of type `TreeViewDragEndEventArgs` that contains:
 
+| Parameter | Type | Description |
+| --- | --- | --- |
 | `DestinationItem` | `object` | Represents the row over which the `Item` is. You can cast this object to your model class. |
 | `DestinationTreeView` | `object` | The reference of the TreeView in which the `Item` is dropped. |
 | `DestinationIndex` | `string` | The index in the target component where the drop will happen. |
@@ -134,12 +136,12 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 </TelerikTreeView>
 
 @code {
-    public string CurrentItem  { get; set; }
-    public string DestinationItem  { get; set; }
-    public string Location  { get; set; }
-    public string Hint { get; set; } = "Documents and its children cannot be moved";
-    public List<TreeItem> Data { get; set; }
-    public IEnumerable<object> ExpandedItems { get; set; }
+    private string CurrentItem { get; set; }
+    private string DestinationItem { get; set; }
+    private string Location { get; set; }
+    private string Hint { get; set; } = "Documents and its children cannot be moved";
+    private List<TreeItem> Data { get; set; }
+    private IEnumerable<object> ExpandedItems { get; set; }
 
     public class TreeItem
     {
@@ -159,7 +161,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         }
     }
 
-    public void OnDragStart(TreeViewDragStartEventArgs args)
+    private void OnDragStart(TreeViewDragStartEventArgs args)
     {
         var item = args.Item as TreeItem;
         if (item.Parent == 1 || item.Id == 1)
@@ -172,7 +174,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         }
     }
 
-    public void OnDrag(TreeViewDragEventArgs args)
+    private void OnDrag(TreeViewDragEventArgs args)
     {
         if (args.DestinationItem != null)
         {
@@ -189,7 +191,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         }
     }
 
-    public void OnDragEnd(TreeViewDragEndEventArgs args)
+    private void OnDragEnd(TreeViewDragEndEventArgs args)
     {
         var destination = args.DestinationItem as TreeItem;
         if (args.DestinationComponentId == "TreeView" && args.DropPosition!=null)
@@ -212,7 +214,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         base.OnInitialized();
     }
 
-    public void OnItemDrop(TreeViewDropEventArgs args)
+    private void OnItemDrop(TreeViewDropEventArgs args)
     {
         var item = args.Item as TreeItem;
         var destinationItem = args.DestinationItem as TreeItem;
@@ -270,7 +272,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
         return IsChild(item, parentDestinationItem);
     }
 
-    public void LoadData()
+    private void LoadData()
     {
         Data = new List<TreeItem>()
         {
@@ -334,12 +336,12 @@ The functionality allows dragging items between TreeView, [Grid]({%slug grid-dra
 </TelerikTreeView>
 
 @code {
-    public List<Person> GridData { get; set; }
-    public TelerikGrid<Person> GridRef { get; set; }
+    private List<Person> GridData { get; set; }
+    private TelerikGrid<Person> GridRef { get; set; }
 
-    public TelerikTreeView TreeRef { get; set; }
-    public TreeViewObservableFlatDataService TreeService { get; set; }
-    public ObservableCollection<BaseFlatItem> TreeData { get; set; }
+    private TelerikTreeView TreeRef { get; set; }
+    private TreeViewObservableFlatDataService TreeService { get; set; }
+    private ObservableCollection<BaseFlatItem> TreeData { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
