@@ -60,7 +60,7 @@ The following table lists DropZone parameters. Check the [DropZone API Reference
 | `Enabled` | `bool` <br /> (`true`) | Specifies whether the DropZone is enabled. |
 | `HintText` | `string` | The text for the hint of the DropZone. If not provided, the DropZone will render a default value ("Drag and drop files here to upload"). The label text is also [localizable]({%slug globalization-localization%}).|
 | `NoteText` | `string` | Optional content inside the DropZone. Use it to render any additional information below the hint. The label text is also [localizable]({%slug globalization-localization%}). |
-| `Multiple` | `bool`<br />(`true`) | Enables the user to drop several files at the same time. If set to `false`, only one file can be dropped at a time. |
+| `Multiple` | `bool` <br /> (`true`) | Enables the user to drop several files at the same time. |
 
 ### Styling and Appearance
 
