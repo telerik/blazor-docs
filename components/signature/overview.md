@@ -86,7 +86,7 @@ To test with physical PNG files, uncomment the code below and run the example in
             // Substring(22) removes "data:image/png;base64," from SignatureValue
             byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(22));
 
-            // This code works in Blazor Server apps only
+            // This code works only in Blazor Server apps.
             // In WebAssembly apps, you need to send the Signature Value to a server first.
 
             //var imageSaveLocation = Path.Combine(HostingEnvironment.WebRootPath, SignaturePngFileName);
