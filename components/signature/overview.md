@@ -32,6 +32,78 @@ The Blazor Signature component provides an area where users can draw their signa
 }
 ````
 
+## Value Format
+
+The Signature produces a `Value`, which is a Base64-encoded PNG image. To display the image without saving it as a physical file, use the `Value` directly as a data URI. To save the `Value` and use it as a physical image, remove the Base64 meta data `data:image/png;base64,` from the beginning of the `Value` string.
+
+To test with physical PNG files, uncomment the code below and run the example in a Blazor Server app.
+
+>caption Using the Signature Value with images
+
+````CSHTML
+@*@inject IWebHostEnvironment HostingEnvironment*@
+
+<p>Draw something to see how the Signature Value looks like.</p>
+
+<TelerikSignature @bind-Value="@SignatureValue"
+                  Width="400px"
+                  Height="200px" />
+
+@if (!string.IsNullOrEmpty(SignatureValue))
+{
+    <p><TelerikButton OnClick="@SavePng">Save PNG Image</TelerikButton></p>
+
+    @if (ShowPng)
+    {
+        <h2>Signature Image as Saved PNG File</h2>
+        <p><strong>Test this in a Blazor Server app.</strong></p>
+        <p>The image source does not include <code>data:image/png;base64,</code></p>
+        <p><img src="signature.png?@CacheBuster" style="width:400px;" alt="Saved Signature PNG" /></p>
+    }
+
+    <h2>Signature Value</h2>
+    <div style="width:600px;height:5em;margin-top:2em;overflow:auto;word-break:break-all;">
+        @( new MarkupString(SignatureValue
+            .Replace("data:image/png;base64,", "<strong style=\"color:red\">data:image/png;base64,</strong>")) )
+    </div>
+
+    <h2>Signature Image as Data URI</h2>
+    <p>The <code>img src</code> attribute includes <code>data:image/png;base64,</code></p>
+    <p><img src="@SignatureValue" style="width:400px;" alt="Signature PNG as Data URI" /></p>
+}
+
+@code {
+    private string SignatureValue { get; set; } = string.Empty;
+
+    private bool ShowPng { get; set; }
+    private const string SignaturePngFileName = "signature.png";
+    private string CacheBuster { get; set; } = string.Empty;
+
+    private async Task SavePng()
+    {
+        if (!string.IsNullOrEmpty(SignatureValue))
+        {
+            // Substring(22) removes "data:image/png;base64," from SignatureValue
+            byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(22));
+
+            // This code works in Blazor Server apps only
+            // In WebAssembly apps, you need to send the Signature Value to a server first.
+
+            //var imageSaveLocation = Path.Combine(HostingEnvironment.WebRootPath, SignaturePngFileName);
+
+            //using (var imageFile = new FileStream(imageSaveLocation, FileMode.Create))
+            //{
+            //    await imageFile.WriteAsync(imageBytes, 0, imageBytes.Length);
+            //    await imageFile.FlushAsync();
+            //}
+
+            CacheBuster = DateTime.Now.Ticks.ToString();
+            ShowPng = true;
+        }
+    }
+}
+````
+
 ## Appearance
 
 The Signature component provides settings to control its appearance, for example colors and borders. [Read more about the Blazor Signature appearance settings...]({%slug signature-appearance%})
