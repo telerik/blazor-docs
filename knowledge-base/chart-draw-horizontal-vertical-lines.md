@@ -1,6 +1,6 @@
 ---
-title: Charts - Draw Horizontal and Vertical Lines
-description: How to draw horizontal lines in Charts. How to draw vertical lines in Charts.
+title: Draw Horizontal and Vertical Lines in a Blazor Chart
+description: How to draw horizontal and vertical lines in Charts. Draw vertical lines in Charts with line series. Draw horizontal lines in Charts with plot bands.
 type: how-to
 page_title: How to Draw Horizontal and Vertical Lines in Charts
 slug: chart-kb-draw-horizontal-and-vertical-lines
@@ -26,26 +26,21 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to draw horizontal lines in Telerik Blazor Charts?
-* How to draw vertical lines in Telerik Blazor Charts?
-* Is it possible to draw vertical or horizontal lines on the Telerik Blazor Chart?
-
+* How to draw horizontal and vertical lines in Telerik Blazor Charts?
+* How to put pins or markers in Telerik Blazor Charts?
+* Is it possible to add limits or thresholds on the Telerik Blazor Chart?
 
 ## Solution
 
-There are two ways to draw horizontal and vertical lines on the Telerik Blazor Charts.
+To configure the Chart for drawing horizontal and vertical lines, you can use [plot bands]({%slug chart-plot-bands%}) or additional [line series]({%slug components/chart/types/line%}).
 
 ### Using Plot Bands
 
-Steps for drawing vertical lines with plot bands:
+Steps for drawing vertical and horizontal lines with [plot bands]({%slug chart-plot-bands%}):
 
-1. Add `ChartXAxisPlotBands` instance inside the `ChartXAxis`.
-2. Add `ChartXAxisPlotBand` instances inside the `ChartXAxisPlotBands` based on the needed number of lines.
-
-Steps for drawing horizontal lines with plot bands:
-
-1. Add `ChartYAxisPlotBands` instance inside the `ChartYAxis`.
-2. Add `ChartYAxisPlotBand` instances inside the `ChartYAxisPlotBands` based on the needed number of lines.
+1. Add `PlotBand` instances inside the `PlotBands` collection of a Chart axis.
+2. Provide a valid CSS color to the `Color` parameter.
+3. [Set the `From` and `To`]({%slug chart-plot-bands%}#setting-from-and-to) plot band parameters.
 
 >caption Drawing Horizontal and Vertical lines with Plot Bands
 
@@ -66,7 +61,7 @@ Steps for drawing horizontal lines with plot bands:
         <ChartXAxis Max="-30" AxisCrossingValue="@(new object[] { -100 })">
             <ChartXAxisTitle Text="Signal Strength, dBm"></ChartXAxisTitle>
             <ChartXAxisPlotBands>
-                <ChartXAxisPlotBand From="-90" To="-89.5" Color="blue" />
+                <ChartXAxisPlotBand From="-89.7" To="-89.5" Color="blue" />
                 <ChartXAxisPlotBand From="-50" To="-49.5" Color="orange" />
             </ChartXAxisPlotBands>
         </ChartXAxis>
@@ -76,8 +71,8 @@ Steps for drawing horizontal lines with plot bands:
         <ChartYAxis Max="20">
             <ChartYAxisTitle Text="Error count"></ChartYAxisTitle>
             <ChartYAxisPlotBands>
-                <ChartYAxisPlotBand From="2.5" To="3" Color="green"></ChartYAxisPlotBand>
-                <ChartYAxisPlotBand From="18.5" To="19" Color="red"></ChartYAxisPlotBand>
+                <ChartYAxisPlotBand From="1.5" To="1.7" Color="green"></ChartYAxisPlotBand>
+                <ChartYAxisPlotBand From="18.5" To="18.6" Color="red"></ChartYAxisPlotBand>
             </ChartYAxisPlotBands>
         </ChartYAxis>
     </ChartYAxes>
@@ -114,14 +109,14 @@ Steps for drawing horizontal lines with plot bands:
 }
 `````
 
-### Using nested Lines Chart
+### Using Additional Line Series
 
-Steps for drawing horizontal and vertical lines with nested Lines Chart:
+Steps for drawing horizontal and vertical lines with additional [Lines Series]({%slug components/chart/types/line%}):
 
 1. Add `ChartSeries` instances of type `ChartSeriesType.Line` based on the needed number of lines.
 2. Set data for the lines based on the information shown from the main Chart.
 
->caption Drawing Horizontal and Vertical lines with nested Lines Chart
+>caption Drawing Horizontal and Vertical lines with additional Lines Chart
 
 ````CSHTML
 <TelerikChart>
