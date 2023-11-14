@@ -21,7 +21,7 @@ The nested `AppBarSection` tag exposes parameters:
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar section. You could use that class to cascade styles. |
-| `Visible` | `bool` <br /> `true` | Specifies if the section will be visible in the AppBar. |
+| `Visible` | `bool` <br /> (`true`) | Specifies if the section will be visible in the AppBar. |
 
 >caption The Telerik AppBar sections with its parameter
 
