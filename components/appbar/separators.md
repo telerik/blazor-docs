@@ -22,7 +22,7 @@ The nested `AppBarSeparator` tag exposes parameters:
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar separator. You could use that class to cascade styles. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar separator. Use that class to cascade styles. |
 | `Visible` | `bool` <br /> `true` | Specifies if the separator will be visible in the AppBar. |
 
 ## AppBar Spacer
