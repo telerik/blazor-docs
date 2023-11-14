@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 
 1. Add the `<TelerikAppBar>` tag to a Razor file.
 1. Use the `<AppBarSection>` child tag to add content to the AppBar component.
-(optional) Use [content dividers](#content-dividers) to add visual distinction between the sections in the AppBar.
+1. (optional) Use [spacers or separators](#content-dividers) to add visual distinction between the sections in the AppBar.
 1. (optional) Set the [position](#positioning) of the AppBar.
 
 >caption Basic configuration of the Telerik AppBar
