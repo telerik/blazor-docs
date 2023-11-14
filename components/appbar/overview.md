@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: AppBar Overview
-description: Overview of the AppBar component for Blazor.
+description: Discover the AppBar component for Blazor. Learn how to add the component to your app and explore its features like sections, dividers, positioning, and various styling options.
 slug: appbar-overview
 tags: telerik,blazor,appbar,navbar
 published: True
