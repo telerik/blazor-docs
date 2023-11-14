@@ -266,6 +266,8 @@ navigation:
         title: "Spreadsheet"
      "*gauges/arc":
         title: "Arc"
+     "*appbar":
+        title: "AppBar"
      "*autocomplete":
         title: "AutoComplete"
      "*avatar":
@@ -603,6 +605,7 @@ intro_columns:
   -
     title: "Layout"
     items:
+      "AppBar": "appbar-overview"
       "Animation Container": "components/animationcontainer/overview"
       "Card": "card-overview"
       "Carousel": "carousel-overview"
