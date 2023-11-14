@@ -20,7 +20,7 @@ The `Position` parameter accepts a member of the `AppBarPosition` enum and sets 
 
 | Enum members | Description |
 |---------------|--------|
-| `None` <br /> default value   | Does not set any values for the `top` and `bottom` CSS properties. |
+| `None` <br /> (default) | Does not set any values for the `top` and `bottom` CSS properties. |
 | `Top` | Sets the `top: 0` and `bottom: auto` CSS properties. |
 | `Bottom`   | Sets the `top: auto` and `bottom: 0` CSS properties. | 
 
