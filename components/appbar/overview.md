@@ -23,7 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 ````CSHTML
 <TelerikAppBar>
     <AppBarSection>
-        <span>Our Logo</span>
+        <span>Company Logo</span>
     </AppBarSection>
 
     <AppBarSpacer Size="25%"></AppBarSpacer>
