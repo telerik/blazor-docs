@@ -10,7 +10,7 @@ position: 5
 
 # Separators
 
-You can visually separate the items in the Telerik AppBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them.
+You can visually separate the items in the Telerik AppBar for Blazor. The component supports lines and empty space between its sections.
 
 ## AppBar Separator
 
