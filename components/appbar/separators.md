@@ -18,7 +18,7 @@ To separate two items with a solid line, add the `<AppBarSeparator>` tag between
 
 ### AppBar Separator Parameters
 
-The nested `AppBarSeparator` tag exposes parameters:
+The nested `AppBarSeparator` tag exposes the following parameters:
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
