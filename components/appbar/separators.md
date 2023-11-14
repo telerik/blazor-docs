@@ -10,7 +10,7 @@ position: 5
 
 # Separators
 
-You can visually separate the items in the Telerik AppBar for Blazor. The component supports lines and empty space between its sections.
+You can visually separate the items in the Telerik AppBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them.
 
 ## AppBar Separator
 
@@ -23,7 +23,7 @@ The nested `AppBarSeparator` tag exposes parameters:
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar separator. You could use that class to cascade styles. |
-| `Visible` | `bool` <br /> (`true`) | Specifies if the separator will be visible in the AppBar. |
+| `Visible` | `bool` <br /> `true` | Specifies if the separator will be visible in the AppBar. |
 
 ## AppBar Spacer
 
@@ -38,11 +38,10 @@ The nested `AppBarSpacer` tag exposes parameters:
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar spacer. You could use that class to cascade styles. |
-| `Size` | `string` | The width of the spacer. If you add an `AppBarSpacer` tag without Size the spacer will take all available space between the [Sections]({%slug appbar-sections%}). |
+| `Size` | `string` | The width of the spacer. All `AppBarSpacer` tags without Size will take up the same amount of the remaining space between the [Sections]({%slug appbar-sections%}). |
 | `Visible` | `bool` <br /> `true` | Specifies if the spacer will be visible in the AppBar. |
 
-
->caption Using AppBar separators
+>caption The AppBar separators
 
 ````CSHTML
 @* The AppBar content dividers with some of their parameters and values *@
