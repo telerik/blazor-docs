@@ -42,7 +42,7 @@ The nested `AppBarSpacer` tag exposes parameters:
 | `Visible` | `bool` <br /> `true` | Specifies if the spacer will be visible in the AppBar. |
 
 
->caption The AppBar separators
+>caption Using AppBar separators
 
 ````CSHTML
 @* The AppBar content dividers with some of their parameters and values *@
