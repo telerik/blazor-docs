@@ -1,6 +1,6 @@
 ---
 title: Web App (Tutorial)
-page_title: First Steps with UI for Blazor in Web App 
+page_title: First Steps with UI for Blazor in a Web App 
 description: Make your first steps with Telerik UI for Blazor and build a Web App that runs the UI for Blazor components.
 slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
@@ -8,7 +8,7 @@ published: true
 position: 4
 ---
 
-# First Steps with UI for Blazor in Web App
+# First Steps with UI for Blazor in a Web App
 
 This article explains how to use the Telerik UI for Blazor components in a <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">.NET 8 Blazor Web App</a> project template. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
@@ -28,16 +28,16 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 ## Step 3: Install the Telerik UI for Blazor Components
 
-1. Right-click  the Blazor Server project in the solution and select **Manage NuGet Packages**.
+1. Right-click the Blazor Server project in the solution and select **Manage NuGet Packages**.
 
 1. Install the Telerik Blazor NuGet package:
 
-  1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) user name and password.
-  1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders should install `Telerik.UI.for.Blazor`. Trial users should install `Telerik.UI.for.Blazor.Trial`.
+  1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) username and password.
+  1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders must install `Telerik.UI.for.Blazor`. Trial users must install `Telerik.UI.for.Blazor.Trial`.
 
 ## Step 4: Enable the Blazor UI Components
 
-To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application:
+To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
@@ -49,12 +49,12 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) in your `App.razor` file. Reference it as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn).
 
-3\. (optional - applicable if you are using static assets) To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` of your Blazor Server project (by default, this line is already present).
+3\. (Optional) To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` of your Blazor Server project (by default, this line is already present). This step is required only if your application uses static assets.
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
 
-###  4.2. Include @using Statements
+### 4.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
@@ -65,20 +65,20 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     @using Telerik.FontIcons
     @using Telerik.SvgIcons
 
-###  4.3. Add the TelerikRootComponent
+### 4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Add the component in the preferred layout file - could be the `MainLayout.razor` or a custom layout file. The important part is that `TelerikRootComponent` must be in a layout component with enabled interactive mode.
+Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Add the component in the preferred layout file, for example, the `MainLayout.razor` or a custom layout file.
 
-.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
+.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page with enabled interactive mode, for example, `MainLayout.razor`. At the time of writing, the default render mode is static and not interactive, so you need to make this change explicitly in your app.
 
 Here are two possible options to proceed:
-* [Configure the render mode of the whole app](#configure-the-render-mode-of-the-whole-app)
-* [Configure the render mode per page](#configure-the-render-mode-per-page)
+* [Configure the Render Mode of the Entire App](#configure-the-render-mode-of-the-entire-app)
+* [Configure the Render Mode per Page](#configure-the-render-mode-per-page)
 
 
-#### Configure the render mode of the whole app
+#### Configure the Render Mode of the Entire App
 
-Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will spare the need to set the render mode in every page and component.
+You can set the render mode for the entire app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will spare the need to set the render mode in every page and component.
 
 <div class="skip-repl"></div>
 ````App.razor
@@ -86,21 +86,14 @@ Set the render mode for the whole app as suggested in the [Blazor documentation]
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="BlazorWebApp.styles.css" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+    @* ... *@
+
     <HeadOutlet @rendermode="RenderMode.InteractiveServer" />
 </head>
 
 <body>
     <Routes @rendermode="RenderMode.InteractiveServer" />
-    <script src="_framework/blazor.web.js"></script>
+    @* ... *@
 </body>
 
 </html>
@@ -133,37 +126,6 @@ Set the render mode for the whole app as suggested in the [Blazor documentation]
     <a class="dismiss">🗙</a>
 </div>
 ````
-````NavMenu.razor
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">MyBlazorWeb</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-````
 ````Home.razor
 @page "/"
 
@@ -173,9 +135,11 @@ Set the render mode for the whole app as suggested in the [Blazor documentation]
 
 ````
 
-#### Configure the render mode per page
+#### Configure the Render Mode per Page
 
-Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is part of a component hierarchy that has interactive render mode. See the example below:
+As an alternative to setting the render mode for the entire app, you can set it only for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is part of a component hierarchy that has interactive render mode. 
+
+See the example below - the `TelerikRootComponent` must wrap all the content in the viewport, so the whole `<div class="page">` is moved from the `MainLayout.razor` to the `TelerikLayout.razor`.
 
 <div class="skip-repl"></div>
 
@@ -230,37 +194,6 @@ Set interactive render mode for specific pages and components. This is useful if
     [Parameter]
     public RenderFragment ChildContent {get;set;}
 }
-````
-````NavMenu.razor
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">MyBlazorWeb</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
 ````
 ````Home.razor
 @page "/"

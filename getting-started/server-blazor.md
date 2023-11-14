@@ -39,7 +39,7 @@ This article explains how to get the Telerik UI for Blazor components in your <a
 
 ## Step 4: Enable the Blazor UI Components
 
-To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application:
+To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
@@ -76,7 +76,7 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     @using Telerik.FontIcons
     @using Telerik.SvgIcons
 
-###  4.3. Add the TelerikRootComponent
+### 4.3. Add the TelerikRootComponent
 
 Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.
 

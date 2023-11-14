@@ -39,7 +39,7 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 ## Step 4: Enable the Blazor UI Components
 
-To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application:
+To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
@@ -76,7 +76,7 @@ Add a `TelerikRootComponent` component as a top-level component in the app and m
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-###  4.4. Register the Telerik Blazor Service
+### 4.4. Register the Telerik Blazor Service
 
 In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
 

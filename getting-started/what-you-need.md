@@ -13,7 +13,7 @@ position: 1
 
 This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
 
->tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}), [Web App]({%slug getting-started/web-app%}) and [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}) apps.
+>tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}), [.NET 8 Blazor Web App]({%slug getting-started/web-app%}) and [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}) apps.
 
 To use the Telerik UI for Blazor, you need to:
 
@@ -82,7 +82,7 @@ To add these client assets, use either the [static assets](#using-static-assets)
 
 You can add the [Telerik JS Interop file](#telerik-js-interop-file) and the [Telerik Stylesheet](#telerik-stylesheet) as [static assets](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your **Server** project (by default, this line is already present)
+To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your **Server** project (by default, this line is already present).
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -125,9 +125,9 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
 ### Common Configuration
 
-The following configurations ensure that the application will recognize the UI for Blazor components and they will function properly:
+To make sure that the application will recognize the UI for Blazor components and that they will function correctly, add the required `@using` statements and the `TelerikRootComponent`.
 
-#### Include `@using` Statements
+#### Include @using Statements
 
 You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
@@ -142,9 +142,9 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.SvgIcons
 ````
 
-#### Add the `TelerikRootComponent`
+#### Add the TelerikRootComponent
 
-To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikRootComponent` component at the root level of the DOM and configure the application layout to adopt that.
+To use popups (for example, dropdowns, menus, windows, grid filters, etc.), you must add the `TelerikRootComponent` component at the root level of the app and configure the app layout to adopt that.
 
 The configuration varies depending on the application type:
 
