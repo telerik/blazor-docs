@@ -37,7 +37,7 @@ The nested `AppBarSpacer` tag exposes parameters:
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar spacer. You could use that class to cascade styles. |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar spacer. Use that class to cascade styles. |
 | `Size` | `string` | The width of the spacer. All `AppBarSpacer` tags without Size will take up the same amount of the remaining space between the [Sections]({%slug appbar-sections%}). |
 | `Visible` | `bool` <br /> `true` | Specifies if the spacer will be visible in the AppBar. |
 
