@@ -130,6 +130,8 @@ To setup a local NuGet package source, so you can install the Telerik components
 
 
 #root-component-telerik-layout
+To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a component at the root level of the DOM:
+
 Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a Razor component called `TelerikLayout.razor` with the following content:
     
     @inherits LayoutComponentBase

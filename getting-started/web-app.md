@@ -1,16 +1,16 @@
 ---
-title: Web App Template (Tutorial)
-page_title: First Steps with UI for Blazor in Web App Template 
-description: Make your first steps with Telerik UI for Blazor and build a Web App Template app that runs the UI for Blazor components.
-slug: getting-started/web-app-template
+title: Web App (Tutorial)
+page_title: First Steps with UI for Blazor in Web App 
+description: Make your first steps with Telerik UI for Blazor and build a Web App that runs the UI for Blazor components.
+slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
 published: true
 position: 4
 ---
 
-# First Steps with UI for Blazor in Web App Template
+# First Steps with UI for Blazor in Web App
 
-This article explains how to get the Telerik UI for Blazor components in your <a href = "https://www.telerik.com/faqs/blazor-ui/what-is-the-difference-between-blazor-webassembly-vs-server" target="_blank">**Server-side** Blazor</a> project and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to get the Telerik UI for Blazor components in your <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">**Blazor Web App** Blazor</a> project and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
@@ -54,14 +54,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
 
-###  4.2. Register the Telerik Blazor Service
-
-In the `Program.cs` file of your Blazor Server project, register the Telerik Blazor Service.
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
-
-###  4.3. Include `@using` Statements
+###  4.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
@@ -72,18 +65,18 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     @using Telerik.FontIcons
     @using Telerik.SvgIcons
 
-###  4.4. Add the `TelerikRootComponent`
+###  4.3. Add the TelerikRootComponent
 
 Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.  Add the component in the preferred layout file - could be the `MainLayout.razor` or a custom layout file. The important part is to ensure that the layout component where the `TelerikRootComponent` is defined has interactive mode.
 
 .NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
 Here are two possible options to proceed:
-* [Configure the render moder of the whole app](#configure-the-render-moder-of-the-whole-app)
-* [Configure the render mode per page](#configure-the-render-moder-per-page)
+* [Configure the render mode of the whole app](#configure-the-render-mode-of-the-whole-app)
+* [Configure the render mode per page](#configure-the-render-mode-per-page)
 
 
-#### Configure the render moder of the whole app
+#### Configure the render mode of the whole app
 
 Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will spare the need to set the render mode in every page and component.
 
@@ -281,6 +274,52 @@ Set interactive render mode for specific pages and components. This is useful if
 </TelerikLayout>
 ````
 
+###  4.4. Register the Telerik Blazor Service
+
+In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
+
+For interactive render modes WebAssembly and Auto, register the service in the `Program.cs` file of both the server and client project.
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
+
 Now your Blazor Server project can use the Telerik UI for Blazor components.
 
 ## Step 5: Add a Component to a View
+
+The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
+
+1. In the `~/Components/Pages/Home.razor` view, add a `TelerikButton` component.
+
+
+    **RAZOR**
+    
+        <TelerikButton>Say Hello</TelerikButton>
+        
+1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
+
+    **RAZOR**
+    
+        @page "/"
+        
+        <TelerikButton OnClick="@SayHelloHandler" ThemeColor="primary">Say Hello</TelerikButton>
+        
+        <br />
+        
+        @helloString
+        
+        @code {
+           MarkupString helloString;
+        
+           void SayHelloHandler()
+           {
+               string msg = string.Format("Hello from <strong>Telerik Blazor</strong> at {0}.<br /> Now you can use C# to write front-end!", DateTime.Now);
+               helloString = new MarkupString(msg);
+           }
+        }
+
+1. Run the app in the browser by pressing `F5`. You should see something like this:
+
+    ![Blazor Web App in the browser](images/blazor-web-app-in-browser.png)
+
+Well done! Now you have you first Telerik UI for Blazor component running in your Blazor Web App.

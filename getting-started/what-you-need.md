@@ -13,7 +13,7 @@ position: 1
 
 This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
 
->tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}) and [Web App Template]({%slug getting-started/web-app-template%}) apps.
+>tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}), [Web App]({%slug getting-started/web-app%}) and [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}) apps.
 
 To use the Telerik UI for Blazor, you need to:
 
@@ -108,7 +108,6 @@ The JS Interop file provides features that cannot be implemented with native Bla
 
 >Telerik recommends using [static assets](#static-assets) instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package so you don't have to remember to update the CDN path when [upgrading to a newer version]({%slug upgrade-tutorial%}).
    
-   
 
 ## Configuring the Project
 
@@ -126,6 +125,10 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
 ### Common Configuration
 
+The following configurations ensure that the application will recognize the UI for Blazor components and they will function properly:
+
+#### Include `@using` Statements
+
 You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
 >caption _Imports.razor
@@ -139,11 +142,17 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.SvgIcons
 ````
 
-To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
+#### Add the `TelerikRootComponent`
 
-1\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikRootComponent` component at the root level of the DOM and configure the application layout to adopt that.
 
-2\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+The configuration varies depending on the application type:
+
+* [Server]({%slug getting-started/server-side%}#43-add-the-telerikrootcomponent)
+* [WebAssembly]({%slug getting-started/client-side%}#43-add-the-telerikrootcomponent)
+* [Web App]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent) 
+* [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}#4-add-the-telerikrootcomponent)
+
 
 ### Client-side Project Specifics
 
@@ -159,9 +168,14 @@ The final step is to register the Telerik services. In a server-side Blazor proj
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
-### Web App Template Project Specifics
+### Web App Project Specifics
 
+The final step is to register the Telerik services. In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
 
+For interactive render modes WebAssembly and Auto, register the service in the `Program.cs` file of both the server and client project.
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
 
 ### Blazor Hybrid Project Specifics
 

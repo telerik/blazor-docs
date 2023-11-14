@@ -41,15 +41,14 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application:
 
+### 4.1. Add the Telerik UI for Blazor Client Assets
+
 1\. Add the `telerik-blazor.js` file to your main index file&mdash;`wwwroot/index.html`.
 
 **HTML**
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your `.Server` project (by default, this line is already present):
-
-  * Use `Startup.cs` for .NET 3.x
-  * Use `Program.cs` for .NET 6 and .NET 7
+2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your `.Server` project (by default, this line is already present).
 
 **C#**  
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -58,12 +57,9 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-4\. In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
+###  4.2. Include @using Statements
 
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
-
-5\. In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
+In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
 **_Imports.razor**
     
@@ -72,10 +68,20 @@ To enable the Telerik UI for Blazor components, you must add several client-side
     @using Telerik.FontIcons
     @using Telerik.SvgIcons
 
+###  4.3. Add the TelerikRootComponent
 
-6\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.
 
-7\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+@[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+
+@[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+
+###  4.4. Register the Telerik Blazor Service
+
+In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
+
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
     
 Now your project can use the Telerik UI for Blazor components.
 
