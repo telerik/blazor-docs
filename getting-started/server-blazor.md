@@ -84,7 +84,7 @@ Add a `TelerikRootComponent` component as a top-level component in the app and m
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-###  4.4. Register the Telerik Blazor Service
+### 4.4. Register the Telerik Blazor Service
 
 In the `Program.cs` file of your Blazor Server project, register the Telerik Blazor Service:
 
