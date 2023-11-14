@@ -60,7 +60,7 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 
 ## AppBar Sections
 
-Use the AppBar Sections to render arbitrary HTML content to match the UI and UX needs of your application. [Read more about the Blazor AppBar sections]({%slug appbar-section%}).
+Use the AppBar Sections to render arbitrary HTML content to match the UI and UX needs of your application. [Read more about the Blazor AppBar sections]({%slug appbar-sections%}).
 
 ## Content Dividers
 
