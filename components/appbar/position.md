@@ -12,7 +12,7 @@ position: 35
 
 This article outlines the available AppBar parameters, which control its position.
 
->note Read the [CSS positioning MDN documentation article](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to get a better understanding of how the AppBar component positioning work.
+>note Read the [CSS positioning MDN documentation article](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to get a better understanding of how the AppBar component positioning works.
 
 ## Position
 
