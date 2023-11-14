@@ -57,7 +57,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-###  4.2. Include @using Statements
+### 4.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
