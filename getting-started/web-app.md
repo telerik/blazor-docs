@@ -274,7 +274,7 @@ Set interactive render mode for specific pages and components. This is useful if
 </TelerikLayout>
 ````
 
-###  4.4. Register the Telerik Blazor Service
+### 4.4. Register the Telerik Blazor Service
 
 In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
 
