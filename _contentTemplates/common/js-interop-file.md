@@ -48,7 +48,7 @@
 #end
 
 #enable-static-assets
-    To enable the use of static assets in your project, add the following line to the `Startup.cs` file in the **Server** project:
+    To enable the use of static assets in your project, add the following line to the `Program.cs` file in the **Server** project:
 
 
     **C#**
@@ -71,28 +71,11 @@ app.UseStaticFiles();
 
 app.Run();
 ````
-````Startup.cs
-namespace MyBlazorAppName
-{
-    public class Startup
-    {
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            // ...
-
-            //To enable static files from a package, make sure this is present.
-            app.UseStaticFiles();
-
-            // ...
-        }
-    }
-}
-````
 #end
 
 #register-telerik-service-server
 <div class="skip-repl"></div>
-````Program.cs
+````
 // ...
 
 var builder = WebApplication.CreateBuilder(args);
@@ -104,21 +87,6 @@ builder.Services.AddTelerikBlazor();
 // ...
 
 var app = builder.Build();
-````
-````Startup.cs
-namespace MyBlazorAppName
-{
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // ...
-            services.AddTelerikBlazor();
-        }
-
-        // ...
-    }
-}
 ````
 #end
 

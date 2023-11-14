@@ -16,15 +16,15 @@ Telerik UI for Blazor steps on Microsoft Blazor. You can host and run Telerik Bl
 
 ## .NET Versions Support
 
-Telerik UI for Blazor targets `netstandard2.1`. Thus, apps and libraries that reference our package must use one of the following target frameworks:
+The latest version of Telerik UI for Blazor (currently {{site.uiForBlazorLatestVersion}}) targets `net6.0`. Thus, apps and libraries that reference our package must use one of the following target frameworks:
 
-* `netstandard2.1`
-* `netcoreapp3.1`
-* `net5.0`
 * `net6.0`
 * `net7.0`
+* `net8.0`
 
 Razor Class Libraries may target `netstandard2.0` by default, so you need to update that.
+
+>warning If your application targets an older framework version, the latest Telerik UI for Blazor you can use is `4.6.0`.
 
 ### Supported .NET Versions
 
@@ -36,6 +36,7 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
+| .NET 8 | 5.0.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
@@ -43,13 +44,12 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 A **compatible .NET version** is one that is *no longer* (or *not yet*) officially supported by Microsoft. The Telerik Blazor components should work in apps with that .NET version. We don't expect any .NET-related issues, but if such issues occur, we have no commitment to fix them.
 
->warning Telerik UI for Blazor version `4.6.0` will be the last version compatible with `.NET Core 3.1` and `.NET 5`.
+>warning Telerik UI for Blazor version `4.6.0` is the last version compatible with `.NET Core 3.1` and `.NET 5`.
 
 >caption .NET versions that are compatible with Telerik UI for Blazor
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 8 RC 2 ([see specifics]({%slug troubleshooting-general-issues%}#telerikrootcomponent-is-missing-in-net-80)) | 4.6.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 5 | 2.19.0 | 4.6.0 |
 | .NET Core 3.1 | 2.5.0 | 4.6.0 |
 

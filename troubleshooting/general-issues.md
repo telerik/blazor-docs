@@ -26,115 +26,15 @@ This page provides solutions for common issues you may encounter while working w
 
 ## TelerikRootComponent is missing in .NET 8.0
 
-The latest UI for Blazor (4.6.0) provides [compatibility with .NET 8.0 RC 2]({%slug system-requirements%}#compatible-net-versions). This framework version [is not yet supported]({%slug system-requirements%}#supported-net-versions) and we do not recommend using our components with it until officially supported.
-
-If you need to start testing with .NET 8.0 RC 2 at this stage, be aware of the following error you may hit when using the new [Blazor Web App template](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-rc-1/#blazor-web-app-template-updates)
+Using a [Blazor Web App template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app), the following error occurs:
 
 >warning Error: System.Exception: A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.
 
 The root cause for this is a difference in the required configuration when using [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes).
 
-.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
+This error will be thrown if the `TelerikRootComponent` is placed in a layout page that does not have interactive mode enabled. 
 
-Here are two possible options to proceed:
-
-* Set the render mode for the whole app as suggested in the [Blazor documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-for-the-entire-app). This will spare the need to set the render mode in every page and component.
-
-* Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
-
-<div class="skip-repl"></div>
-
-````MainLayout.razor
-@inherits LayoutComponentBase
-
-@implements IDisposable
-
-@Body
-
-@code {
-    protected override Task OnInitializedAsync()
-    {
-        return base.OnInitializedAsync();
-    }
-
-    public void Dispose()
-    {
-    }
-}
-````
-````CustomLayout.razor
-@rendermode RenderMode.InteractiveServer
-
-<TelerikRootComponent>
-
-    <div class="page">
-        <div class="sidebar">
-            <NavMenu />
-        </div>
-
-        <main>
-            <div class="top-row px-4">
-                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-            </div>
-
-            <article class="content px-4">
-                @ChildContent
-            </article>
-        </main>
-    </div>
-
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-
-</TelerikRootComponent>
-````
-````NavMenu.razor
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">MyBlazorWeb</a>
-    </div>
-</div>
-
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
-
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-````
-````Home.razor
-@page "/"
-
-@rendermode RenderMode.InteractiveServer
-
-<CustomLayout>
-  
-    @* Telerik UI for Blazor components here *@
-
-</CustomLayout>
-````
-
->tip Consider and choose any configuration that best suits your application needs. The important part is to ensure that the layout component where the `TelerikRootComponent` is defined has interactive mode.
+The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. Read more in [Web App - Add TelerikRootComponent]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent).
 
 ## Popups Do Not Work
 

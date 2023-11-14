@@ -6,14 +6,14 @@ slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 4
+position: 1
 ---
 
 # Typical Workflow for Using the UI for Blazor Components
 
 This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
 
->tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}) and [WebAssembly]({%slug getting-started/client-side%}) apps.
+>tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}), [.NET 8 Blazor Web App]({%slug getting-started/web-app%}) and [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}) apps.
 
 To use the Telerik UI for Blazor, you need to:
 
@@ -72,8 +72,9 @@ The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-sty
 
    * For Client-Side and Blazor Hybrid apps, use the `wwwroot/index.html` file.
    * For Server-Side Blazor apps, use one of the following files:
-      * `~/Pages/_Host.cshtml` for .NET 3.x
       * `~/Pages/_Layout.cshtml` for .NET 6
+      * `~/Pages/_Host.cshtml` for .NET 7
+   * For Web App projects targeting .NET 8, use the `~/Components/App.razor`.
 
 To add these client assets, use either the [static assets](#using-static-assets) or the [CDN](#using-cdn) method.
 
@@ -81,10 +82,7 @@ To add these client assets, use either the [static assets](#using-static-assets)
 
 You can add the [Telerik JS Interop file](#telerik-js-interop-file) and the [Telerik Stylesheet](#telerik-stylesheet) as [static assets](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
 
-To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the startup file of your **Server** project (by default, this line is already present):
-
- * `Startup.cs` for .NET 3.x and .NET 5
- * `Program.cs` for .NET 6
+To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your **Server** project (by default, this line is already present).
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
@@ -110,7 +108,6 @@ The JS Interop file provides features that cannot be implemented with native Bla
 
 >Telerik recommends using [static assets](#static-assets) instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package so you don't have to remember to update the CDN path when [upgrading to a newer version]({%slug upgrade-tutorial%}).
    
-   
 
 ## Configuring the Project
 
@@ -122,10 +119,15 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
    * [Client-side (WASM)](#client-side-project-specifics)
    * [Server-side](#server-side-project-specifics)
+   * [Web App Template](#web-app-template)
    * [Blazor Hybrid](#blazor-hybrid-project-specifics)
 
 
 ### Common Configuration
+
+To make sure that the application will recognize the UI for Blazor components and that they will function correctly, add the required `@using` statements and the `TelerikRootComponent`.
+
+#### Include @using Statements
 
 You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
@@ -140,11 +142,17 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.SvgIcons
 ````
 
-To enable the use of detached popups (for example, dropdown lists, menus, grid filters, etc.), you must add a `TelerikLayout.razor` component at the root level of the DOM:
+#### Add the TelerikRootComponent
 
-1\. @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+To use popups (for example, dropdowns, menus, windows, grid filters, etc.), you must add the `TelerikRootComponent` component at the root level of the app and configure the app layout to adopt that.
 
-2\. @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+The configuration varies depending on the application type:
+
+* [Server]({%slug getting-started/server-side%}#43-add-the-telerikrootcomponent)
+* [WebAssembly]({%slug getting-started/client-side%}#43-add-the-telerikrootcomponent)
+* [Web App]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent) 
+* [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}#4-add-the-telerikrootcomponent)
+
 
 ### Client-side Project Specifics
 
@@ -155,10 +163,16 @@ The final step is to register the Telerik services. In a client-side Blazor proj
 
 ### Server-side Project Specifics
 
-The final step is to register the Telerik services. In a server-side Blazor project, you register services in the startup file of your project which varies depending on the used .NET version:
+The final step is to register the Telerik services. In a server-side Blazor project, you register services in the `Program.cs` file of your project.
 
-* `Startup.cs` for .NET 3.x and .NET 5
-* `Program.cs` for .NET 6
+**C#**
+@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
+
+### Web App Project Specifics
+
+The final step is to register the Telerik services. In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
+
+For interactive render modes WebAssembly and Auto, register the service in the `Program.cs` file of both the server and client project.
 
 **C#**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)

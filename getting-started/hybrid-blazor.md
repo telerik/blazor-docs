@@ -5,7 +5,7 @@ description: Make your first steps with Telerik UI for Blazor and build a .NET M
 slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
-position: 3
+position: 5
 ---
 
 # First Steps with Blazor Hybrid
@@ -31,7 +31,7 @@ Before adding the Telerik UI for Blazor components, ensure that the correspondin
 
 The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is similar to including the components in a [native Blazor app]({%slug getting-started/what-you-need%}) and involves the six steps listed below. 
 
-### 1. Get the `Telerik UI for Blazor` Package
+### 1. Get the Telerik UI for Blazor Package
 
 To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#getting-the-telerik-packages)
 
@@ -41,7 +41,7 @@ To have the Telerik Blazor components look and behave as expected, you need the 
 
 You can add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#using-static-assets) or reference them from a [cloud CDN]({%slug getting-started/what-you-need%}#using-cdn).
 
-### 3. Include `@using` Statements 
+### 3. Include @using Statements 
 
 You can set the project to recognize all Telerik components without explicit `@using` statements in every `.razor` file. To achieve this, add the code below to your `~/_Imports.razor` file. You can register one or both icon namespaces depending on the [icon type you will be using]({%slug general-information/font-icons%}).
 
@@ -56,7 +56,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.SvgIcons
 ````
 
-### 4. Add the `TelerikRootComponent`
+### 4. Add the TelerikRootComponent
 
 Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
 
