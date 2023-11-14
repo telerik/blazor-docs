@@ -26,19 +26,19 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
         <span>Company Logo</span>
     </AppBarSection>
 
-    <AppBarSpacer Size="25%"></AppBarSpacer>
+    <AppBarSpacer></AppBarSpacer>
 
     <AppBarSection>
         <span>Our Products</span>
     </AppBarSection>
 
-    <AppBarSpacer Size="50px"></AppBarSpacer>
+    <AppBarSeparator></AppBarSeparator>
 
     <AppBarSection>
         <span>Our Mission</span>
     </AppBarSection>
 
-    <AppBarSpacer Size="5vw"></AppBarSpacer>
+    <AppBarSeparator></AppBarSeparator>
 
     <AppBarSection>
         <span>Contact Us</span>
