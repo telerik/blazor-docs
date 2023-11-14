@@ -68,7 +68,7 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     @using Telerik.FontIcons
     @using Telerik.SvgIcons
 
-###  4.3. Add the TelerikRootComponent
+### 4.3. Add the TelerikRootComponent
 
 Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.
 
