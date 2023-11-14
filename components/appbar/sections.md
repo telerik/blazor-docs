@@ -12,7 +12,7 @@ position: 1
 
 The `<AppBarSection>` is a template-based component that allows you to render arbitrary HTML content in the AppBar component.
 
-## AppBar Section parameters
+## AppBar Section Parameters
 
 The nested `AppBarSection` tag exposes parameters:
 

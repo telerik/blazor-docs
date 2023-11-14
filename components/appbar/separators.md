@@ -1,49 +1,85 @@
 ---
 title: Separators
-page_title: ToolBar - Separators
-description: Separate items in the Telerik ToolBar for Blazor
-slug: toolbar-separators
-tags: telerik,blazor,toolbar,separator,spacer,tools
+page_title: AppBar - Separators
+description: Separate items in the Telerik AppBar for Blazor
+slug: appbar-separators
+tags: telerik,blazor,appbar,navbar,separator,spacer
 published: True
 position: 5
 ---
 
 # Separators
 
-You can visually separate the items in the Telerik ToolBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them:
+You can visually separate the items in the Telerik AppBar for Blazor. Depending on the needs of your application you can use of the following, or a combination of them.
 
-* `ToolBarSeparator` - to separate two items with a solid line, add the `<ToolBarSeparator>` tag between them. The separator exposes an `Overflow` parameter to specify whether the separator will be hidden when the adaptive ToolBar is resized. Its type is `ToolBarItemOverflow` enum and the default value is `Auto`.
+## AppBar Separator
 
-* `ToolBarSpacer` - defines empty space in the toolbar which separates the items. The space between the items is automatically calculated to fit the width of the ToolBar. For example, one spacer in the middle of the items will push the second part of items to the right-hand side of the toolbar.
+To separate two items with a solid line, add the `<AppBarSeparator>` tag between them.
 
-* `ToolBarButtonGroup` - you can combine built-in buttons into groups and those groups also add some spacing and separation around themselves. You can read more about them in the [Built-in Tools - ToolBarButtonGroup]({%slug toolbar-built-in-tools%}#toolbarbuttongroup) section.
+### AppBar Separator Parameters
+
+The nested `AppBarSeparator` tag exposes parameters:
+
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar separator. You could use that class to cascade styles. |
+| `Visible` | `bool` <br /> `true` | Specifies if the separator will be visible in the AppBar. |
+
+## AppBar Spacer
+
+To separate two items with a solid line, add the `<AppBarSeparator>` tag between them.
+
+Use the `<AppBarSpacer>` to define empty space in the AppBar which separates the items.
+
+### AppBar Spacer Parameters
+
+The nested `AppBarSpacer` tag exposes parameters:
+
+| Parameter | Type and Default Value | Description |
+| ----------- | ----------- | ----------- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AppBar spacer. You could use that class to cascade styles. |
+| `Size` | `string` | The width of the spacer. If you add an `AppBarSpacer` tag without Size the spacer will take all available space between the [Sections]({%slug appbar-sections%}). |
+| `Visible` | `bool` <br /> `true` | Specifies if the spacer will be visible in the AppBar. |
 
 
->caption Use ToolBarButtonGroup, ToolBarSeparator and ToolBarSpace to separate items in the ToolBar
-
-![toolbar spacers](images/toolbar-separators.png)
+>caption The AppBar separators
 
 ````CSHTML
-@* Use the ToolBarSpacer to add space between the button group and the rest and the separator to separate the toggle button and the undo button *@
+@* The AppBar content dividers with some of their parameters and values *@
 
-<TelerikToolBar>
-    <ToolBarButtonGroup>
-        <ToolBarButton Icon="@FontIcon.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@FontIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@FontIcon.Underline">Underline</ToolBarButton>
-    </ToolBarButtonGroup>
-    <ToolBarSpacer />
-    <ToolBarToggleButton @bind-Selected="@Selected">Toggle Button</ToolBarToggleButton>
-    <ToolBarSeparator />
-    <ToolBarButton Icon="@FontIcon.Undo">Undo</ToolBarButton>
-</TelerikToolBar>
+<TelerikAppBar>
+    <AppBarSection>
+        <span>Our Logo</span>
+    </AppBarSection>
 
-@code {
-    public bool Selected { get; set; } = true;
-}
+    <AppBarSpacer Size="25%"></AppBarSpacer>
+
+    <AppBarSection>
+        <span>Our Products</span>
+    </AppBarSection>
+
+    <AppBarSpacer Size="50px"></AppBarSpacer>
+
+    <AppBarSection>
+        <span>Our Mission</span>
+    </AppBarSection>
+
+    <AppBarSpacer></AppBarSpacer>
+
+    <AppBarSection>
+        <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
+    </AppBarSection>
+
+    <AppBarSeparator></AppBarSeparator>
+
+    <AppBarSection>
+        <TelerikSvgIcon Icon="@SvgIcon.Logout"></TelerikSvgIcon>
+    </AppBarSection>
+</TelerikAppBar>
 ````
+
 
 ## See Also
 
-  * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-  * [ToolBar Overview]({%slug toolbar-overview%})
+  * [Live Demo: AppBar Overview](https://demos.telerik.com/blazor-ui/appbar/overview)
+  * [AppBar Overview]({%slug appbar-overview%})
