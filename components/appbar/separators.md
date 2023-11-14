@@ -33,7 +33,7 @@ Use the `<AppBarSpacer>` to define empty space in the AppBar which separates the
 
 ### AppBar Spacer Parameters
 
-The nested `AppBarSpacer` tag exposes parameters:
+The nested `AppBarSpacer` tag exposes the following parameters:
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
