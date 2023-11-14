@@ -175,7 +175,7 @@ Set the render mode for the whole app as suggested in the [Blazor documentation]
 
 #### Configure the render mode per page
 
-Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is placed in a component hierarchy that has interactive render mode. See the example below:
+Set interactive render mode for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is part of a component hierarchy that has interactive render mode. See the example below:
 
 <div class="skip-repl"></div>
 
