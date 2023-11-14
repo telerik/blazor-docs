@@ -78,11 +78,8 @@ The Blazor AppBar provides parameters to configure the component. Also check the
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the AppBar component, which is `<div class="k-appbar">`. Use for [styling customizations]({%slug themes-override%}). |
-| `Height` | `string` | The height of the AppBar. |
 | `Position` | `AppBarPosition` <br /> (`None`) | The position of the AppBar on the page. [Read more about AppBar positioning.]({%slug appbar-position%}) |
 | `PositionMode` | `AppBarPosition` <br /> (`Static`) | Sets how the AppBar is positioned according to the flow of the document. [Read more about AppBar positioning.]({%slug appbar-position%}) |
-| `Width` | `string` | The width of the AppBar |
 
 ### Styling and Appearance
 
@@ -90,7 +87,10 @@ The following parameters enable you to customize the appearance of the Blazor Ap
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the AppBar component, which is `<div class="k-appbar">`. Use for [styling customizations]({%slug themes-override%}). |
+| `Height` | `string` | The height of the AppBar. |
 | `ThemeColor` | `Telerik.Blazor.ThemeConstants.AppBar.ThemeColor` | Adjust the color of the AppBar |
+| `Width` | `string` | The width of the AppBar. |
 
 You can find more information for customizing the AppBar appearance in the [Appearance article]({%slug appbar-appearance%}).
 
