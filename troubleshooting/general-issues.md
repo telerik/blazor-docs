@@ -26,7 +26,7 @@ This page provides solutions for common issues you may encounter while working w
 
 ## TelerikRootComponent is missing in .NET 8.0
 
-Using a [Blazor Web App template](https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-rc-1/#blazor-web-app-template-updates), the following error occurs:
+Using a [Blazor Web App template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app), the following error occurs:
 
 >warning Error: System.Exception: A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.
 

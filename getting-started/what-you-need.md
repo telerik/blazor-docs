@@ -74,7 +74,7 @@ The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-sty
    * For Server-Side Blazor apps, use one of the following files:
       * `~/Pages/_Layout.cshtml` for .NET 6
       * `~/Pages/_Host.cshtml` for .NET 7
-      * `~/Components/App.razor` for .NET 8
+   * For Web App projects targeting .NET 8, use the `~/Components/App.razor`.
 
 To add these client assets, use either the [static assets](#using-static-assets) or the [CDN](#using-cdn) method.
 
