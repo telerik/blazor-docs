@@ -34,7 +34,7 @@ The Blazor Signature component provides an area where users can draw their signa
 
 ## Value Format
 
-The Signature produces a `Value`, which is a Base64-encoded PNG image. To display the image without saving it as a physical file, use the `Value` directly as a data URI. To save the `Value` and use it as a physical image, remove the Base64 meta data `data:image/png;base64,` from the beginning of the `Value` string.
+The Signature produces a `Value`, which is a Base64-encoded PNG image. To display the image without saving it as a physical file, use the `Value` directly as a data URI. To save the `Value` and use it as a physical image, remove the data URI prefix `data:image/png;base64,` from the beginning of the `Value` string.
 
 To test with physical PNG files, uncomment the code below and run the example in a Blazor Server app.
 
@@ -57,18 +57,18 @@ To test with physical PNG files, uncomment the code below and run the example in
     {
         <h2>Signature Image as Saved PNG File</h2>
         <p><strong>Test this in a Blazor Server app.</strong></p>
-        <p>The image source does not include <code>data:image/png;base64,</code></p>
+        <p>The image source does not include <code>@PngBase64Prefix</code></p>
         <p><img src="signature.png?@CacheBuster" style="width:400px;" alt="Saved Signature PNG" /></p>
     }
 
     <h2>Signature Value</h2>
     <div style="width:600px;height:5em;margin-top:2em;overflow:auto;word-break:break-all;">
         @( new MarkupString(SignatureValue
-            .Replace("data:image/png;base64,", "<strong style=\"color:red\">data:image/png;base64,</strong>")) )
+            .Replace(PngBase64Prefix, $"<strong style=\"color:red\">{PngBase64Prefix}</strong>")) )
     </div>
 
     <h2>Signature Image as Data URI</h2>
-    <p>The <code>img src</code> attribute includes <code>data:image/png;base64,</code></p>
+    <p>The <code>img src</code> attribute includes <code>@PngBase64Prefix</code></p>
     <p><img src="@SignatureValue" style="width:400px;" alt="Signature PNG as Data URI" /></p>
 }
 
@@ -77,6 +77,7 @@ To test with physical PNG files, uncomment the code below and run the example in
 
     private bool ShowPng { get; set; }
     private const string SignaturePngFileName = "signature.png";
+    private const string PngBase64Prefix = "data:image/png;base64,";
     private string CacheBuster { get; set; } = string.Empty;
 
     private async Task SavePng()
@@ -84,7 +85,7 @@ To test with physical PNG files, uncomment the code below and run the example in
         if (!string.IsNullOrEmpty(SignatureValue))
         {
             // Substring(22) removes "data:image/png;base64," from SignatureValue
-            byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(22));
+            byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(PngBase64Prefix.Length));
 
             // This code works only in Blazor Server apps.
             // In WebAssembly apps, you need to send the Signature Value to a server first.
