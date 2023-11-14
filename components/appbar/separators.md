@@ -47,6 +47,12 @@ The nested `AppBarSpacer` tag exposes parameters:
 ````CSHTML
 @* The AppBar content dividers with some of their parameters and values *@
 
+<style>
+    .k-appbar .k-appbar-separator.thick-separator {
+        border-width: 0 0 0 20px;
+    }
+</style>
+
 <TelerikAppBar>
     <AppBarSection>
         <span>Our Logo</span>
@@ -70,7 +76,7 @@ The nested `AppBarSpacer` tag exposes parameters:
         <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
     </AppBarSection>
 
-    <AppBarSeparator></AppBarSeparator>
+    <AppBarSeparator Class="thick-separator"></AppBarSeparator>
 
     <AppBarSection>
         <TelerikSvgIcon Icon="@SvgIcon.Logout"></TelerikSvgIcon>
