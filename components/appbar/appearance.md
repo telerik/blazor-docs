@@ -12,7 +12,7 @@ position: 35
 
 This article outlines the available AppBar parameters, which control its appearance.
 
-## Size
+## ThemeColor
 
 You can change the color of the AppBar by setting the `ThemeColor` parameter to a member of the `Telerik.Blazor.ThemeConstants.AppBar.ThemeColor` class:
 
