@@ -10,7 +10,7 @@ position: 4
 
 # First Steps with UI for Blazor in a Web App
 
-This article explains how to use the Telerik UI for Blazor components in a <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">.NET 8 Blazor Web App</a> project template. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to use the Telerik UI for Blazor components into a <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">.NET 8 Blazor Web App</a> project template. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
@@ -56,7 +56,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.2. Include @using Statements
 
-In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
+In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug general-information/font-icons%}).
 
 **_Imports.razor**
     
@@ -67,11 +67,12 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Add the component in the preferred layout file, for example, the `MainLayout.razor` or a custom layout file.
+Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Add the component in the preferred layout file, for example, the `MainLayout.razor` or a custom layout file. The `TelerikRootComponent` must be placed in a layout page with enabled [interactive mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0), for example, `MainLayout.razor`. 
 
-.NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page with enabled interactive mode, for example, `MainLayout.razor`. At the time of writing, the default render mode is static and not interactive, so you need to make this change explicitly in your app.
+> .NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). At the time of writing, the default render mode is static and not interactive, so you need to make this change explicitly in your app.
 
-Here are two possible options to proceed:
+How you add the `TelerikRootComponent` to the app depends on which of the following approaches for configuring the render mode you chose:
+
 * [Configure the Render Mode of the Entire App](#configure-the-render-mode-of-the-entire-app)
 * [Configure the Render Mode per Page](#configure-the-render-mode-per-page)
 
