@@ -67,7 +67,7 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ###  4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.  Add the component in the preferred layout file - could be the `MainLayout.razor` or a custom layout file. The important part is to ensure that the layout component where the `TelerikRootComponent` is defined has interactive mode.
+Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Add the component in the preferred layout file - could be the `MainLayout.razor` or a custom layout file. The important part is that `TelerikRootComponent` must be in a layout component with enabled interactive mode.
 
 .NET 8.0 introduces [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. At the time of writing, the default render mode is `Static` and not interactive, so you need to make this change explicitly in your app.
 
