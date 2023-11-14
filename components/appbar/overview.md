@@ -123,7 +123,7 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 
 * [Explore the AppBar Sections]({%slug appbar-sections%})
 * [Use the AppBar Content]({%slug appbar-separators%})
-* [Customize the AppBar positioning options]({%slug appbar-position%})
+* [Customize the AppBar position]({%slug appbar-position%})
 
 ## See Also
 
