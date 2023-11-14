@@ -23,6 +23,7 @@ Telerik UI for Blazor targets `netstandard2.1`. Thus, apps and libraries that re
 * `net5.0`
 * `net6.0`
 * `net7.0`
+* `net8.0`
 
 Razor Class Libraries may target `netstandard2.0` by default, so you need to update that.
 
@@ -36,7 +37,7 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 8([see specifics]({%slug troubleshooting-general-issues%}#telerikrootcomponent-is-missing-in-net-80)) | 5.0.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET 8 | 5.0.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
