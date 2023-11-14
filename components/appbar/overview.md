@@ -96,7 +96,7 @@ You can find more information for customizing the AppBar appearance in the [Appe
 
 ## AppBar Reference and Methods
 
-To execute AppBar methods, obtain reference to the component instance via `@ref`.
+To execute AppBar methods, obtain reference to the component instance with `@ref`.
 
 | Method  | Description |
 |---------|-------------|
