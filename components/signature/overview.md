@@ -84,7 +84,7 @@ To test with physical PNG files, uncomment the code below and run the example in
     {
         if (!string.IsNullOrEmpty(SignatureValue))
         {
-            // Substring(22) removes "data:image/png;base64," from SignatureValue
+            // Remove "data:image/png;base64," from SignatureValue
             byte[] imageBytes = Convert.FromBase64String(SignatureValue.Substring(PngBase64Prefix.Length));
 
             // This code works only in Blazor Server apps.
