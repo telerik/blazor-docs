@@ -10,7 +10,7 @@ position: 4
 
 # First Steps with UI for Blazor in Web App
 
-This article explains how to get the Telerik UI for Blazor components in your <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">**Blazor Web App** Blazor</a> project and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to use the Telerik UI for Blazor components in a <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">.NET 8 Blazor Web App</a> project template. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
