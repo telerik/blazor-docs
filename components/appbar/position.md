@@ -32,9 +32,9 @@ The `PositionMode` parameter accepts a member of the `AppBarPositionMode` enum a
 
 | Enum member | Description |
 |---------------|--------|
-| `Static` <br /> default value   | The AppBar is positioned according to the normal flow of the document. |
-| `Fixed` | The AppBar is removed from the normal document flow, and no space is created for the element in the page layout. The component is positioned relatively to the viewport of the application. |
-| `Sticky`   | The AppBar is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor | 
+| `Static` <br /> default value   | The AppBar displays at the position where it is defined and scrolls together with the other page content. |
+| `Fixed` | The AppBar displays at a fixed place, which depends on the `Position` parameter. The component doesn't scroll with the other page content. |
+| `Sticky`   | The AppBar displays at the position where it is defined. It scrolls together with the other page content, until it reaches the top of the browser viewport. Then the component will remain there. Use the `Sticky` `PositionMode` together with `Top` `Position` .| 
 
 ## See Also
 
