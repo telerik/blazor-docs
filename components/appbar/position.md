@@ -1,51 +1,41 @@
 ---
-title: Appearance
-page_title: ToolBar Appearance
-description: Appearance settings of the ToolBar for Blazor.
-slug: toolbar-appearance
-tags: telerik,blazor,toolbar,appearance
+title: Position
+page_title: AppBar Position
+description: Position settings of the AppBar for Blazor.
+slug: appbar-position
+tags: telerik,blazor,appbar,navbar,position
 published: True
 position: 35
 ---
 
-# Appearance Settings
+# Position Settings
 
-This article outlines the available ToolBar parameters, which control its appearance.
+This article outlines the available AppBar parameters, which control its position.
 
-## Size
+>note Read the [CSS positioning MDN documentation article](https://developer.mozilla.org/en-US/docs/Web/CSS/position) to get a better understanding of how the AppBar component positioning work.
 
-You can increase or decrease the size of the ToolBar by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.ToolBar.Size` class:
+## Position
 
-| Class members | Manual declarations |
+The `Position` parameter accepts a member of the `AppBarPosition` enum and sets the `top` and `bottom` CSS properties:
+
+| Enum members | Description |
 |---------------|--------|
-| `Small`   |`sm`|
-| `Medium`<br /> default value   |`md`|
-| `Large`   |`lg`| 
+| `None` <br /> default value   | Does not set any values for the `top` and `bottom` CSS properties. |
+| `Top` | Sets the `top: 0` and `bottom: auto` CSS properties. |
+| `Bottom`   | Sets the `top: auto` and `bottom: 0` CSS properties. | 
 
->caption The built-in sizes
+>info The `Position` parameter takes effect when used with fixed [PositionMode](#positionmode).
 
-````CSHTML
-@{
-    var fields = typeof(Telerik.Blazor.ThemeConstants.ToolBar.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
-        .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
+## PositionMode
 
-    foreach (var field in fields)
-    {
-        string size = field.GetValue(null).ToString();
+The `PositionMode` parameter accepts a member of the `AppBarPositionMode` enum and sets how the AppBar is positioned according to the [flow of the document](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow):
 
-        <div style="float:left; margin: 20px;">
-            <TelerikToolBar Size="@size">
-                <ToolBarButton Icon="@SvgIcon.Cut">Cut</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Copy">Copy</ToolBarButton>
-                <ToolBarButton Icon="@SvgIcon.Clipboard">Paste</ToolBarButton>
-            </TelerikToolBar>
-        </div>
-    }
-}
-````
+| Enum members | Description |
+|---------------|--------|
+| `Static` <br /> default value   | The AppBar is positioned according to the normal flow of the document. |
+| `Fixed` | The AppBar is removed from the normal document flow, and no space is created for the element in the page layout. The component is positioned relatively to the viewport of the application. |
+| `Sticky`   | The AppBar is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor | 
 
 ## See Also
 
-  * [Live Demo: ToolBar Appearance](https://demos.telerik.com/blazor-ui/toolbar/appearance)
+  * [Live Demo: AppBar Position](https://demos.telerik.com/blazor-ui/appbar/position)
