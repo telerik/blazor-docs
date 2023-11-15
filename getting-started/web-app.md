@@ -49,6 +49,10 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) in your `App.razor` file. Reference it as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn).
 
+**HTML**
+
+@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
+
 3\. (Optional) To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` of your Blazor Server project (by default, this line is already present). This step is required only if your application uses static assets.
 
 **C#**
