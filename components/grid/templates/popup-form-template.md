@@ -27,7 +27,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 ## Specifics
 
 When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. This introduces the following specifics:
-* The default `Update` and `Cancel` buttons are removed. This means the [`OnUpdate` and `OnCancel`]({%slug components/grid/editing/overview%}#events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
+* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`]({%slug components/grid/editing/overview%}#events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
 * The [`<GridPopupEditFormSettings>` parameters]({%slug components/grid/editing/popup%}#edit-form-customization) do not apply to a custom `TelerikForm` that you may render inside the `<FormTemplate>` tag. Set the desired Form configurations such as `Columns`, `Orientation` and more on the [Form component]({%slug form-overview%}#form-parameters).
 
 ## Example
