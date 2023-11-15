@@ -11,13 +11,28 @@ position: 50
 
 # Popup Form Template
 
-With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`.
+With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid. 
 
-You can use the `Context` attribute of the `<FormTemplate>` tag to set the name of the context variable. The context variable is of type `object` and can be cast to the model type to which the Grid is bound.
+>caption In this article:
+* [Basics](#basics)
+* [Specifics](#specifics)
+* [Example](#example)
 
->When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. Consequently, the default `Update` and `Cancel` buttons are removed. This means the [`OnUpdate` and `OnCancel`]({%slug components/grid/editing/overview%}#events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
+## Using the Popup Form Template
 
->caption Using a `FormTemplate` to modify the Edit/Create Popup window.
+1. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`. For example, [`TelerikForm`]({%slug form-overview%}) or [`EditForm`](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-7.0).
+1. The `FormTemplate` provides `context` (`object`) which represents the data item object. Cast the `context` to your model, so you can pass it to the custom form.
+1. (optional) Use the `Context` attribute of the `<FormTemplate>` tag to set the name of the `context` variable.
+
+## Specifics
+
+When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. This introduces the following specifics:
+* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`]({%slug components/grid/editing/overview%}#events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions.
+* The [`<GridPopupEditFormSettings>` parameters]({%slug components/grid/editing/popup%}#edit-form-customization) do not apply to a custom `TelerikForm` that you may render inside the `<FormTemplate>` tag. Set the desired Form configurations such as `Columns`, `Orientation`, and more on the [Form component]({%slug form-overview%}#form-parameters).
+
+## Example
+
+Using a `FormTemplate` to modify the Edit/Create Popup window.
 
 ````CSHTML
 @using System.Collections.Generic;
@@ -35,30 +50,37 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
         <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridSettings>
-        <GridPopupEditSettings MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
-        <GridPopupEditFormSettings ColumnSpacing="20px" Orientation="@FormOrientation.Horizontal" Columns="2">
+        <GridPopupEditSettings Width="550px" MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
+        <GridPopupEditFormSettings Context="FormContext">
             <FormTemplate>
                 @{
-                    EditItem = context.Item as Person;
+                    EditItem = FormContext.Item as Person;
 
-                        <TelerikForm Model="@EditItem" OnValidSubmit="@OnValidSubmit">
-                            <FormItems>
-                                <FormItem Field="EmployeeId" Enabled="false"></FormItem>
-                                <FormItem Field="Name">
-                                </FormItem>
-                                <FormItem Field="AgeInYears" LabelText="Custom Age Label:"></FormItem>
-                            <FormItem Field="HireDate" LabelText="Custom Hire Date Label:"></FormItem>
+                    <TelerikForm Model="@EditItem"
+                                 ColumnSpacing="20px"
+                                 Columns="2"
+                                 ButtonsLayout="@FormButtonsLayout.Stretch"
+                                 OnValidSubmit="@OnValidSubmit">
+                        <FormItems>
+                            <FormItem Field="EmployeeId" Enabled="false"></FormItem>
+                            <FormItem Field="Name">
+                            </FormItem>
+                            <FormItem Field="HireDate" LabelText="Custom Hire Date Label"></FormItem>
                             <FormItem>
                                 <Template>
-                                    <TelerikDropDownList Data="@PositionsData" @bind-Value="@EditItem.Position"></TelerikDropDownList>
+                                    <label for="position">Custom Position Label</label>
+                                    <TelerikDropDownList Data="@PositionsData"
+                                                         @bind-Value="@EditItem.Position"
+                                                         Id="position">
+                                    </TelerikDropDownList>
                                 </Template>
                             </FormItem>
-                            </FormItems>
-                            <FormButtons>
-                                <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
-                                <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
-                            </FormButtons>
-                        </TelerikForm>
+                        </FormItems>
+                        <FormButtons>
+                            <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
+                            <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                        </FormButtons>
+                    </TelerikForm>
                 }
             </FormTemplate>
         </GridPopupEditFormSettings>
@@ -66,7 +88,6 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
     <GridColumns>
         <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" />
         <GridColumn Field=@nameof(Person.Name) />
-        <GridColumn Field=@nameof(Person.AgeInYears) Title="Age" />
         <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
         <GridColumn Field=@nameof(Person.Position) Title="Position" />
         <GridCommandColumn>
@@ -82,16 +103,15 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
         "Manager", "Developer", "QA"
     };
 
-    public TelerikGrid<Person> GridRef { get; set; }
-    public List<Person> GridData { get; set; }
-    public Person EditItem { get; set; }
+    private TelerikGrid<Person> GridRef { get; set; }
+    private List<Person> GridData { get; set; }
+    private Person EditItem { get; set; }
     private List<Person> _people;
 
     public class Person
     {
         public int EmployeeId { get; set; }
         public string Name { get; set; }
-        public int AgeInYears { get; set; }
         public DateTime HireDate { get; set; }
         public string Position { get; set; }
     }
@@ -159,22 +179,22 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
     }
 
     #region Service Methods
-    public List<Person> GetPeople()
+    private List<Person> GetPeople()
     {
         return People;
     }
 
-    public DataSourceResult GetPeople(DataSourceRequest request)
+    private DataSourceResult GetPeople(DataSourceRequest request)
     {
         return People.ToDataSourceResult(request);
     }
 
-    public void DeletePerson(Person person)
+    private void DeletePerson(Person person)
     {
         People.Remove(person);
     }
 
-    public void UpdatePerson(Person person)
+    private void UpdatePerson(Person person)
     {
         var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
         if (index != -1)
@@ -183,7 +203,7 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
         }
     }
 
-    public void CreatePerson(Person person)
+    private void CreatePerson(Person person)
     {
         person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
 
@@ -200,8 +220,8 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
                 {
                     EmployeeId = i,
                     Name = "Employee " + i.ToString(),
-                    AgeInYears = i,
                     HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
+                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
 
                 });
         }
