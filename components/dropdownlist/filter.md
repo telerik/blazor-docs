@@ -105,5 +105,3 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 * [Live Demo: DropDownList Filtering](https://demos.telerik.com/blazor-ui/dropdownlist/filtering)
 
 * [Custom Filtering by Multiple Fields]({%slug dropdowns-kb-search-in-multiple-fields%})
-
-* [Filter by field that is not the TextField]({%slug dropdowns-kb-search-in-multiple-fields%})
