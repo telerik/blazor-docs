@@ -18,7 +18,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 * [Specifics](#specifics)
 * [Example](#example)
 
-## Basics
+## Using the Popup Form Template
 
 1. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`. For example, [`TelerikForm`]({%slug form-overview%}) or [`EditForm`](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-7.0).
 1. The `FormTemplate` provides `context` of type `object`. Cast that to your model, so you can pass it to the custom form.
