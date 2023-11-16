@@ -16,6 +16,7 @@
 .jekyll-metadata
 .ruby-version
 .vs
+/.bundle/
 /_assets/
 /_build/
 /_buildApi/
