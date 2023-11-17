@@ -25,7 +25,7 @@ This article has the following sections:
 The drawer items provide the following features that you control through the corresponding fields in their data binding:
 
 * `Text` - the text that will be shown on the item.
-* `Icon` - the [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
+* `Icon` - the [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
 * `Url` - the view the item will navigate to by generating a link.
 * `Separator` - whether the item will be a separator line instead of a clickable item.
 

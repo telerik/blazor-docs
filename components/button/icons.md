@@ -10,7 +10,7 @@ position: 2
 
 # Button Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Button to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon]({%slug common-features-icons%}) to the Button to illustrate its purpose by using the `Icon` parameter.
 
 The `Icon` parameter type is `object` and it accepts:
 

@@ -30,7 +30,7 @@ Add a `Class` to the CheckBox component. [Override the theme styles]({%slug them
 
 You can replace the icons with different glyphs, even from a different font. You can also change the icon size and color.
 
-The `k-icon` CSS class applies the custom font, which contains all [built-in Telerik font icons]({%slug general-information/font-icons%}). If you will use a different font, remove `k-icon`.
+The `k-icon` CSS class applies the custom font, which contains all [built-in Telerik font icons]({%slug common-features-icons%}). If you will use a different font, remove `k-icon`.
 
 >caption How to change the checkbox icon
 

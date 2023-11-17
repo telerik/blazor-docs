@@ -14,8 +14,8 @@ The `<TelerikSplitButton>` and `<SplitButtonItem>` provide an `Icon` parameter t
 
 The `Icon` parameter type is `object` and it accepts:
 
-* a member of the [`FontIcon` enum]({%slug general-information/font-icons%}#icons-list)
-* a property of the static [`SvgIcon` class]({%slug general-information/font-icons%}#icons-list)
+* a member of the [`FontIcon` enum]({%slug common-features-icons%}#icons-list)
+* a property of the static [`SvgIcon` class]({%slug common-features-icons%}#icons-list)
 * a `string` that is a CSS class for a custom icon
 
 >caption How to use icons in Telerik Blazor SplitButton

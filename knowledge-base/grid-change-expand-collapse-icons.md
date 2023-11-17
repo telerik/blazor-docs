@@ -26,7 +26,7 @@ How to change the expand/collapse icons in a Hierarchical Grid?
 I want to change the built-in plus/minus icons in a Hierarchical Grid. 
 
 ## Solution
-You can change the expand/collapse [icons]({%slug general-information/font-icons%}) in the Hierarchical Grid by overriding the built-in plus/minus icons with other icons using custom CSS rules. In addition, you can use the Class parameter of the Grid to add custom CSS Class and modify a specific instance of the Grid, instead of all instances on the page. The code block below demonstrates how to achieve the described approach.
+You can change the expand/collapse [icons]({%slug common-features-icons%}) in the Hierarchical Grid by overriding the built-in plus/minus icons with other icons using custom CSS rules. In addition, you can use the Class parameter of the Grid to add custom CSS Class and modify a specific instance of the Grid, instead of all instances on the page. The code block below demonstrates how to achieve the described approach.
 
 ````CSHTML
 @*Change the icons in the Hierarchical Grid*@
@@ -147,4 +147,4 @@ To get the desired icons, you can use your dev tools to inspect the rendered ico
 
 ## See Also
 
-* [Font and SVG Icons]({%slug general-information/font-icons%})
+* [Font and SVG Icons]({%slug common-features-icons%})

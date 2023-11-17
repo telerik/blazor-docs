@@ -79,7 +79,7 @@ If the error occurs for the `Telerik.UI.for.Blazor` package, the [Telerik NuGet 
 * Missing configuration in the `NuGet.Config` file.
 * The correct `NuGet.Config` file is not used. This is common Docker scenario and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the build. For more information, see the [private NuGet feeds in Docker forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
 
-If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages]({%slug general-information/font-icons%}), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
+If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages]({%slug common-features-icons%}), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
 
 * The `nuget.org` source is disabled.
 * There is [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping), which forces the NuGet client to search for the icon packages in the `nuget.telerik.com` source. However, the icon packages are published on `nuget.org`.

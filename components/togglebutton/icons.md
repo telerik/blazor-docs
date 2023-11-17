@@ -18,7 +18,7 @@ You can put a Font or Svg Icon in the toggle button to illustrate its purpose fo
 
 | Parameter | Type and Default Value | Description |
 |---|---|---|
-| `Icon`| `object` | Use it to display a [Telerik Font and Svg Icons]({%slug general-information/font-icons%}). |
+| `Icon`| `object` | Use it to display a [Telerik Font and Svg Icons]({%slug common-features-icons%}). |
 
 The following example shows how to use the built-in Font and Svg icons.
 
