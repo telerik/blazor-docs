@@ -12,9 +12,13 @@ position: 15
 
 You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the ContextMenu items. The component also supports custom icons.
 
-To use ContextMenu item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the ContextMenu. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+To use ContextMenu item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the ContextMenu.
+
+@[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
 
 If the icon property name in the ContextMenu model is `Icon`, there is no need to set the `IconField` parameter.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Context Menu
 
@@ -46,22 +50,23 @@ If the icon property name in the ContextMenu model is `Icon`, there is no need t
     }
 </style>
 
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+
 @code {
-    public List<MenuItem> MenuData { get; set; }
+    private List<MenuItem> MenuData { get; set; }
 
     protected override void OnInitialized()
     {
-        MenuData = new List<MenuItem>()
-        {
+        MenuData = new List<MenuItem>() {
             new MenuItem()
             {
-                Text = "Font Icon",
+                Text = "SVG Icon",
                 Icon = SvgIcon.Envelope
             },
             new MenuItem()
             {
-                Text = "SVG Icon",
-                Icon = SvgIcon.Wrench,
+                Text = "Font Icon",
+                Icon = FontIcon.Wrench,
             },
             new MenuItem()
             {
