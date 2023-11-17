@@ -38,7 +38,7 @@ The `HeaderTemplate` allows you to control the rendering of the column's header.
         </MultiColumnComboBoxColumn>
         <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)">
             <HeaderTemplate>
-                <TelerikSvgIcon Icon="@SvgIcon.StarOutline"></TelerikIcon>
+                <TelerikSvgIcon Icon="@SvgIcon.StarOutline"></TelerikSvgIcon>
                 Employee Name
             </HeaderTemplate>
         </MultiColumnComboBoxColumn>

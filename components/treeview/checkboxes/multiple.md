@@ -62,7 +62,7 @@ You can use one-way binding to provide an initial node selection, and respond to
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikSvgIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
@@ -199,7 +199,7 @@ You can use two-way binding to get the node the user has selected. This can be u
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikSvgIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)

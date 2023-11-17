@@ -182,7 +182,7 @@ The `ValidationTooltip` allows you to control its rendering via a nested `<Templ
                     @foreach (var message in validationContext)
                     {
                         <div>
-                            <TelerikSvgIcon Icon="@SvgIcon.XOutline"></TelerikIcon>
+                            <TelerikSvgIcon Icon="@SvgIcon.XOutline"></TelerikSvgIcon>
                             <span>@message</span>
                         </div>
                     }

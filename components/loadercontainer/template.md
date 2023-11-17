@@ -29,7 +29,7 @@ This example shows how to change the contents of the loading text and animation 
     <Template>
         <TelerikLoader></TelerikLoader>
         <div>
-            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikIcon></span>
+            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon></span>
             <span>Please wait, the application is loading...</span>
         </div>
     </Template>
@@ -95,7 +95,7 @@ You can use CSS to target the DOM elements that create the Panel around the temp
     <Template>
         <TelerikLoader ThemeColor="light"></TelerikLoader>
         <div>
-            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikIcon></span>
+            <span><TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon></span>
             <span style="color:white">Loading...</span>
         </div>
     </Template>
