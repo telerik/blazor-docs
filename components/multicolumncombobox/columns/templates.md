@@ -32,13 +32,13 @@ The `HeaderTemplate` allows you to control the rendering of the column's header.
     <MultiColumnComboBoxColumns>
         <MultiColumnComboBoxColumn Field="@nameof(SampleData.Id)">
             <HeaderTemplate>
-                <TelerikFontIcon Icon="@FontIcon.InfoCircle"></TelerikFontIcon>
+                <TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon>
                 Unique identifier
             </HeaderTemplate>
         </MultiColumnComboBoxColumn>
         <MultiColumnComboBoxColumn Field="@nameof(SampleData.Name)">
             <HeaderTemplate>
-                <TelerikFontIcon Icon="@FontIcon.StarOutline"></TelerikIcon>
+                <TelerikSvgIcon Icon="@SvgIcon.StarOutline"></TelerikIcon>
                 Employee Name
             </HeaderTemplate>
         </MultiColumnComboBoxColumn>

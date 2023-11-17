@@ -28,7 +28,7 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
     <CardImage Src="https://docs.telerik.com/blazor-ui/components/card/images/rila_lakes.jpg"></CardImage>
 
     <CardActions Layout="CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat" Icon="@FontIcon.HeartOutline" Title="Like"></TelerikButton>
+        <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
         <TelerikButton Class="k-flat" Icon="@SvgIcon.Comment" Title="Comment"></TelerikButton>
         <TelerikButton Class="k-flat" Icon="@SvgIcon.Share" Title="Share"></TelerikButton>
     </CardActions>

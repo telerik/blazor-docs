@@ -98,7 +98,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
                  OnDelete="@DeleteHandlerWithDelay">
         <GridColumns>
             <GridCommandColumn>
-                <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+                <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
             </GridCommandColumn>
         </GridColumns>
     </TelerikGrid>

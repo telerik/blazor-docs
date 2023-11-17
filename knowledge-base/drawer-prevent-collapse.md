@@ -65,7 +65,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
         </div>
     </Template>
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu" />
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu" />
         <div class="m-5">Content for @SelectedItem?.Text - @SelectedItem?.Description</div>
     </DrawerContent>
 </TelerikDrawer>
@@ -76,10 +76,10 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public bool DrawerExpanded { get; set; } = true;
     public IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
     {
-        new DrawerItem {Text = "Shopping Cart", Icon = FontIcon.Cart, Description = "Items in shopping cart"},
-        new DrawerItem {Text = "Settings", Icon = FontIcon.Gear, Description = "My profile settings"},
-        new DrawerItem {Text = "Notifications", Icon = FontIcon.Bell, Description = "My profile notifications"},
-        new DrawerItem {Text = "Calendar", Icon = FontIcon.Calendar, Description = "My events"},
+        new DrawerItem {Text = "Shopping Cart", Icon = SvgIcon.Cart, Description = "Items in shopping cart"},
+        new DrawerItem {Text = "Settings", Icon = SvgIcon.Gear, Description = "My profile settings"},
+        new DrawerItem {Text = "Notifications", Icon = SvgIcon.Bell, Description = "My profile notifications"},
+        new DrawerItem {Text = "Calendar", Icon = SvgIcon.Calendar, Description = "My events"},
     };
 
     private void SelectAndNavigate(DrawerItem item)
@@ -98,7 +98,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Description { get; set; }
     }
 }

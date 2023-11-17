@@ -41,7 +41,7 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 <TelerikAvatar Type="AvatarType.Icon">
 
-    <TelerikFontIcon Icon="@FontIcon.User"></TelerikFontIcon>
+    <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
 
 </TelerikAvatar>
 ````

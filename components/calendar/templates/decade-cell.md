@@ -25,7 +25,7 @@ The template receives the `DateTime` corresponding to its cell.
     <DecadeCellTemplate>
         @if (yearsWithEvents.Contains(context.Year))
         {
-            <TelerikFontIcon Icon="@FontIcon.ExclamationCircle"></TelerikFontIcon>
+            <TelerikSvgIcon Icon="@SvgIcon.ExclamationCircle"></TelerikSvgIcon>
         }
         @context.Year
     </DecadeCellTemplate>

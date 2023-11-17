@@ -56,7 +56,7 @@ If the icon property name in the ContextMenu model is `Icon`, there is no need t
             new MenuItem()
             {
                 Text = "Font Icon",
-                Icon = FontIcon.Envelope
+                Icon = SvgIcon.Envelope
             },
             new MenuItem()
             {

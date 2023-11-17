@@ -23,10 +23,10 @@ The Stepper component allows you to set labels for the corresponding step indica
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -44,10 +44,10 @@ The Stepper component allows you to set labels for the corresponding step indica
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -65,10 +65,10 @@ The Stepper component allows you to set labels for the corresponding step indica
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

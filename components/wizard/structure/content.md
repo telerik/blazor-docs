@@ -20,21 +20,21 @@ The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is
 <div style="text-align:center" >
     <TelerikWizard Width="600px" Height="300px">
         <WizardSteps>
-            <WizardStep Label="Destination" Icon="@FontIcon.MapMarker">
+            <WizardStep Label="Destination" Icon="@SvgIcon.MapMarker">
                 <Content>
                     <TelerikDropDownList @bind-Value="@SelectedCity"
                                          Data="@Cities" DefaultText="Select City">
                     </TelerikDropDownList>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Dates" Icon="@FontIcon.Calendar">
+            <WizardStep Label="Dates" Icon="@SvgIcon.Calendar">
                 <Content>
                         <TelerikDateRangePicker @bind-StartValue="@StartValue"
                                                 @bind-EndValue="@EndValue">
                         </TelerikDateRangePicker>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Avalable flights" Icon="@FontIcon.GlobeOutline">
+            <WizardStep Label="Avalable flights" Icon="@SvgIcon.GlobeOutline">
                 <Content>
                     <div>
                         Checking if we can take you to <strong>@SelectedCity</strong> between <strong>@StartValue</strong> and <strong>@EndValue</strong>.

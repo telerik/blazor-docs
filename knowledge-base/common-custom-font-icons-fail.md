@@ -47,6 +47,7 @@ You can find the list of default values in the corresponding component's Data Bi
 ````CSHTML
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
+<link href="https://unpkg.com/@@progress/kendo-font-icons@latest/dist/index.css" rel="stylesheet" type="text/css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     
@@ -115,6 +116,7 @@ There are two ways to solve this:
 ````DummyIconFieldName
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
+<link href="https://unpkg.com/@@progress/kendo-font-icons@latest/dist/index.css" rel="stylesheet" type="text/css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
@@ -168,6 +170,7 @@ Make sure to use the correct way and resources for your actual project *@
 ````CustomFontClassFieldName
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
+<link href="https://unpkg.com/@@progress/kendo-font-icons@latest/dist/index.css" rel="stylesheet" type="text/css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 

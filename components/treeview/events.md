@@ -115,7 +115,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
     <div>
                 <span>Console</span>
                 <span>
-                    <TelerikButton OnClick="@OnClearClick" Icon="@FontIcon.X">Clear</TelerikButton>
+                    <TelerikButton OnClick="@OnClearClick" Icon="@SvgIcon.X">Clear</TelerikButton>
                 </span>
                 <div>
                     @(new MarkupString(EventLog))
@@ -247,7 +247,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
     #endregion
 
@@ -263,7 +263,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "Project",
                 ParentId = null,
                 HasChildren = true,
-                Icon = FontIcon.Folder
+                Icon = SvgIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -272,7 +272,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "Design",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = FontIcon.Brush
+                Icon = SvgIcon.Brush
             });
         items.Add(new TreeItem()
             {
@@ -280,7 +280,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "Implementation",
                 ParentId = 1,
                 HasChildren = true,
-                Icon = FontIcon.Folder
+                Icon = SvgIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -289,7 +289,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "site.psd",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.FilePsd
+                Icon = SvgIcon.FilePsd
             });
         items.Add(new TreeItem()
             {
@@ -297,7 +297,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "index.js",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = FontIcon.Js
+                Icon = SvgIcon.Js
             });
         items.Add(new TreeItem()
             {
@@ -305,7 +305,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "index.html",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = FontIcon.Html5
+                Icon = SvgIcon.Html5
             });
         items.Add(new TreeItem()
             {
@@ -313,7 +313,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
                 Text = "styles.css",
                 ParentId = 3,
                 HasChildren = false,
-                Icon = FontIcon.Css
+                Icon = SvgIcon.Css
             });
 
         TreeViewData = items;

@@ -49,10 +49,10 @@ The components are wrapped in a container with a `position:relative` style. This
 TelerikDateInput:
 <div class="picker-wrapper">
     <TelerikDateInput @bind-Value="@DateValue" />
-    <TelerikButton OnClick="@ToggleCalendar" Icon="@FontIcon.Calendar" Class="picker-button" />
+    <TelerikButton OnClick="@ToggleCalendar" Icon="@SvgIcon.Calendar" Class="picker-button" />
 
     <TelerikAnimationContainer @ref="@CalendarContainer" Class="picker-popup k-calendar">
-        <div class="close-button"><TelerikButton OnClick="@ToggleCalendar" Icon="@FontIcon.X" /></div>
+        <div class="close-button"><TelerikButton OnClick="@ToggleCalendar" Icon="@SvgIcon.X" /></div>
         <TelerikCalendar Value="@DateValue" ValueChanged="@CalendarValueChanged"></TelerikCalendar>
     </TelerikAnimationContainer>
 </div>

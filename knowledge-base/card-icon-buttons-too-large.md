@@ -71,8 +71,8 @@ There are two ways to prevent icon button expansion:
         <CardSubTitle>Custom CardActions Class</CardSubTitle>
     </CardHeader>
     <CardActions Orientation="@CardOrientation.Vertical" Class="no-icon-expand">
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
     </CardActions>
 </TelerikCard>
 
@@ -84,8 +84,8 @@ There are two ways to prevent icon button expansion:
         <CardSubTitle>Custom CardActions Class</CardSubTitle>
     </CardHeader>
     <CardActions Orientation="@CardOrientation.Horizontal" Layout="CardActionsLayout.Stretch" Class="no-icon-expand">
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
     </CardActions>
 </TelerikCard>
 
@@ -96,8 +96,8 @@ There are two ways to prevent icon button expansion:
         <CardTitle>Horizontal orientation / Center layout</CardTitle>
     </CardHeader>
     <CardActions Orientation="@CardOrientation.Horizontal" Layout="@CardActionsLayout.Center">
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
-        <TelerikButton FillMode="@FlatFillMode" Icon="@FontIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
+        <TelerikButton FillMode="@FlatFillMode" Icon="@SvgIcon.Comment"></TelerikButton>
     </CardActions>
 </TelerikCard>
 

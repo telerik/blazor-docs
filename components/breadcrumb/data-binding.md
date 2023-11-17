@@ -58,7 +58,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
     {
         public string Text { get; set; }
         public string Title { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
         public string Disabled { get; set; }
         public string Class { get; set; }

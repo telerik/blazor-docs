@@ -38,7 +38,7 @@ You can also style the entire appointments by adding a class to their wrapping e
                 var appointment = context as SchedulerAppointment;
                 @if (!string.IsNullOrEmpty(appointment.Icon.ToString()))
                 {
-                    <TelerikFontIcon Icon="@appointment.Icon" />
+                    <TelerikSvgIcon Icon="@appointment.Icon" />
                 }
                 <strong>@appointment.Title</strong>
                 // sample logic that determines if the appointment is large enough to accommodate more text
@@ -105,7 +105,7 @@ You can also style the entire appointments by adding a class to their wrapping e
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 11, 25, 9, 30, 0),
                 End = new DateTime(2019, 11, 25, 12, 45, 0),
-                Icon = FontIcon.ExclamationCircle
+                Icon = SvgIcon.ExclamationCircle
             },
 
             new SchedulerAppointment
@@ -126,7 +126,7 @@ You can also style the entire appointments by adding a class to their wrapping e
         public DateTime End { get; set; }
         public bool IsAllDay { get; set; }
 
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

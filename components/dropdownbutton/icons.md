@@ -21,8 +21,8 @@ The `Icon` parameter type is `object` and it accepts:
 >caption How to use icons in Telerik Blazor DropDownButton
 
 ````CSHTML
-<TelerikDropDownButton Icon="@FontIcon.User">
-    <DropDownButtonContent>Telerik Font Icon</DropDownButtonContent>
+<TelerikDropDownButton Icon="@SvgIcon.User">
+    <DropDownButtonContent>Telerik Svg Icon</DropDownButtonContent>
     <DropDownButtonItems>
         <DropDownButtonItem Icon="@SvgIcon.Gear">Telerik SVG Icon</DropDownButtonItem>
         <DropDownButtonItem Icon="@CustomIconClass">Custom Icon</DropDownButtonItem>

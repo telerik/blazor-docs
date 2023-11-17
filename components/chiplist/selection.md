@@ -48,19 +48,19 @@ Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -83,19 +83,19 @@ When you use the `@bind-SelectedItems` syntx, the ChipList will automatically up
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

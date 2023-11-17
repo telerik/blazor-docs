@@ -28,7 +28,7 @@ Telerik UI for Blazor components need the following exceptions to strict CSP. So
 
 * Allow inline styles to use component parameters such as `Width`, `Height`, `RowHeight`, `ItemHeight`, `Top`, `Left`, etc. In addition, some components rely on inline styles for their rich functionality and UX.
 * Allow `data` URIs for images that are embedded in the [CSS themes]({%slug general-information/themes%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
-* Allow `data` URIs for fonts to use font icons in the [`<TelerikFontIcon>` component]({%slug general-information/font-icons%}#fonticon-component), or to [configure all components to use font icons internally]({%slug general-information/font-icons%}#set-global-icon-type). The `WebComponentsIcons` font is embedded in the CSS theme, but [this will change in late 2023](#upcoming-enhancements).
+* Allow `data` URIs for fonts to use font icons in the [`<TelerikSvgIcon>` component]({%slug general-information/font-icons%}#fonticon-component), or to [configure all components to use font icons internally]({%slug general-information/font-icons%}#set-global-icon-type). The `WebComponentsIcons` font is embedded in the CSS theme, but [this will change in late 2023](#upcoming-enhancements).
 * Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN]({%slug getting-started/what-you-need%}#using-cdn) for styles or scripts.
 * *(up to version 4.4.0 only)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}). These templates used to rely on `eval()`. Since version 4.5.0, the Chart labels support a different template mechanism, which doesn't require `unsafe-eval`.
 

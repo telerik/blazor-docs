@@ -33,19 +33,19 @@ The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor 
         new ChipModel()
         {
             ChipText = "Audio",
-            ChipIcon = FontIcon.FileAudio
+            ChipIcon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             ChipText = "Video",
-            ChipIcon = FontIcon.FileVideo
+            ChipIcon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string ChipText { get; set; }
-        public FontIcon? ChipIcon { get; set; }
+        public ISvgIcon ChipIcon { get; set; }
     }
 }
 ````

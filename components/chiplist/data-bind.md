@@ -29,14 +29,14 @@ The ChipList has features that map to properties in the model. The following mod
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio,
+            Icon = SvgIcon.FileAudio,
             Disabled = false,
             Removable = true
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo,
+            Icon = SvgIcon.FileVideo,
             Disabled = true,
             Removable = false
         }
@@ -45,7 +45,7 @@ The ChipList has features that map to properties in the model. The following mod
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Disabled { get; set; }
         public bool Removable { get; set; }
     }
@@ -81,14 +81,14 @@ The table below lists the available data binding parameters for the Blazor ChipL
         new ChipModel()
         {
             ChipText = "Audio",
-            ChipIcon = FontIcon.FileAudio,
+            ChipIcon = SvgIcon.FileAudio,
             isChipDisabled = false,
             isChipRemovable = true
         },
         new ChipModel()
         {
             ChipText = "Video",
-            ChipIcon = FontIcon.FileVideo,
+            ChipIcon = SvgIcon.FileVideo,
             isChipDisabled = true,
             isChipRemovable = false
         }
@@ -97,7 +97,7 @@ The table below lists the available data binding parameters for the Blazor ChipL
     public class ChipModel
     {
         public string ChipText { get; set; }
-        public FontIcon? ChipIcon { get; set; }
+        public ISvgIcon ChipIcon { get; set; }
         public bool isChipDisabled { get; set; }
         public bool isChipRemovable { get; set; }
     }

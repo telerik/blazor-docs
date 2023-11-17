@@ -75,7 +75,7 @@ To customize the closing of a non-modal Window:
     </WindowContent>
     <WindowActions>
         <WindowAction Name="CustomClose"
-                      Icon="@FontIcon.X"
+                      Icon="@SvgIcon.X"
                       OnClick="@CustomCloseHandler" />
     </WindowActions>
 </TelerikWindow>
@@ -166,7 +166,7 @@ To customize the closing of a modal Window or Dialog:
     </WindowContent>
     <WindowActions>
         <WindowAction Name="CustomClose"
-                      Icon="@FontIcon.X"
+                      Icon="@SvgIcon.X"
                       OnClick="@CustomCloseHandler" />
     </WindowActions>
 </TelerikWindow>

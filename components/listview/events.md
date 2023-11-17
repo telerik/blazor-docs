@@ -53,20 +53,20 @@ In the common case, you provide all the data to the listview's Data collection a
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
-            <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
-            <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
+            <ListViewCommandButton Command="Save" Icon="@SvgIcon.Save">Save</ListViewCommandButton>
+            <ListViewCommandButton Command="Cancel" Icon="@SvgIcon.Cancel">Cancel</ListViewCommandButton>
         </div>
     </EditTemplate>
     <Template>
         <div style="border: 1px solid black; margin: 10px; padding: 10px; display: inline-block;">
             Employee: @context.Id <br />
             Name: @context.Name in team: @context.Team
-            <ListViewCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</ListViewCommandButton>
-            <ListViewCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</ListViewCommandButton>
+            <ListViewCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</ListViewCommandButton>
+            <ListViewCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</ListViewCommandButton>
         </div>
     </Template>
     <HeaderTemplate>
-        <ListViewCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</ListViewCommandButton>
+        <ListViewCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</ListViewCommandButton>
         <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
     </HeaderTemplate>
 </TelerikListView>
@@ -220,20 +220,20 @@ In the common case, you provide all the data to the listview's Data collection a
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
-            <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
-            <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
+            <ListViewCommandButton Command="Save" Icon="@SvgIcon.Save">Save</ListViewCommandButton>
+            <ListViewCommandButton Command="Cancel" Icon="@SvgIcon.Cancel">Cancel</ListViewCommandButton>
         </div>
     </EditTemplate>
     <Template>
         <div style="border: 1px solid black; margin: 10px; padding: 10px; display: inline-block;">
             Employee: @context.Id <br />
             Name: @context.Name in team: @context.Team
-            <ListViewCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</ListViewCommandButton>
-            <ListViewCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</ListViewCommandButton>
+            <ListViewCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</ListViewCommandButton>
+            <ListViewCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</ListViewCommandButton>
         </div>
     </Template>
     <HeaderTemplate>
-        <ListViewCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</ListViewCommandButton>
+        <ListViewCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</ListViewCommandButton>
         <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
     </HeaderTemplate>
 </TelerikListView>
@@ -394,20 +394,20 @@ In the common case, you provide all the data to the listview's Data collection a
         <div style="border: 1px solid green; margin: 10px; padding: 10px; display: inline-block;">
             <TelerikTextBox @bind-Value="@context.Name" DebounceDelay="0" /><br />
             <TelerikDropDownList Data="@Teams" @bind-Value="@context.Team" />
-            <ListViewCommandButton Command="Save" Icon="@FontIcon.Save">Save</ListViewCommandButton>
-            <ListViewCommandButton Command="Cancel" Icon="@FontIcon.Cancel">Cancel</ListViewCommandButton>
+            <ListViewCommandButton Command="Save" Icon="@SvgIcon.Save">Save</ListViewCommandButton>
+            <ListViewCommandButton Command="Cancel" Icon="@SvgIcon.Cancel">Cancel</ListViewCommandButton>
         </div>
     </EditTemplate>
     <Template>
         <div style="border: 1px solid black; margin: 10px; padding: 10px; display: inline-block;">
             Employee: @context.Id <br />
             Name: @context.Name in team: @context.Team
-            <ListViewCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</ListViewCommandButton>
-            <ListViewCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</ListViewCommandButton>
+            <ListViewCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</ListViewCommandButton>
+            <ListViewCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</ListViewCommandButton>
         </div>
     </Template>
     <HeaderTemplate>
-        <ListViewCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</ListViewCommandButton>
+        <ListViewCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</ListViewCommandButton>
         <p>In this sample, the first item will not open for editing because of the code in the OnEdit handler</p>
     </HeaderTemplate>
 </TelerikListView>

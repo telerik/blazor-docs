@@ -52,7 +52,7 @@ If the icon property name in the Menu model is `Icon`, there is no need to set t
             new MenuItem()
             {
                 Text = "Font Icon",
-                Icon = FontIcon.Envelope
+                Icon = SvgIcon.Envelope
             },
             new MenuItem()
             {

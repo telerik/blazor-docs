@@ -53,8 +53,8 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
                             </FormItem>
                         </FormItems>
                         <FormButtons>
-                            <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
-                            <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                            <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
+                            <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
                         </FormButtons>
                     </TelerikForm>
                 }

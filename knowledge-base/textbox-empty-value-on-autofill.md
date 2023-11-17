@@ -49,7 +49,7 @@ The issue occurs after an upgrade to version 2.30.
                 @bind-Value="@Password">
 </TelerikTextBox>
 
-<TelerikButton Id="commandSubmit" Icon="@FontIcon.Login" OnClick="@OnLogin">
+<TelerikButton Id="commandSubmit" Icon="@SvgIcon.Login" OnClick="@OnLogin">
     Login
 </TelerikButton>
 
@@ -100,7 +100,7 @@ The example below demonstrates the first approach - removing the default Debounc
                 DebounceDelay="0">
 </TelerikTextBox>
 
-<TelerikButton Id="commandSubmit" Icon="@FontIcon.Login" OnClick="@OnLogin">
+<TelerikButton Id="commandSubmit" Icon="@SvgIcon.Login" OnClick="@OnLogin">
     Login
 </TelerikButton>
 

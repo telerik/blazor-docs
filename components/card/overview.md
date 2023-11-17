@@ -43,7 +43,7 @@ The below snippet demonstrates the setup of a Card component with all building b
         </p>
     </CardBody>
     <CardActions Layout="@CardActionsLayout.Stretch">
-        <TelerikButton Class="k-flat" Icon="@FontIcon.HeartOutline" Title="Like"></TelerikButton>
+        <TelerikButton Class="k-flat" Icon="@SvgIcon.HeartOutline" Title="Like"></TelerikButton>
         <TelerikButton Class="k-flat" Icon="@SvgIcon.Comment" Title="Comment"></TelerikButton>
         <TelerikButton Class="k-flat">Read More</TelerikButton>
     </CardActions>

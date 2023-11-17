@@ -18,7 +18,7 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 <div>
     <TelerikFileSelect>
         <SelectFilesButtonTemplate>
-            <TelerikFontIcon Icon="@FontIcon.Upload" />
+            <TelerikSvgIcon Icon="@SvgIcon.Upload" />
             Click to Select Files for Upload
         </SelectFilesButtonTemplate>
     </TelerikFileSelect>

@@ -124,14 +124,14 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
 		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
 		<GridCommandColumn>
-			<GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-			<GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-			<GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-			<GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+			<GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+			<GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
 		</GridCommandColumn>
 	</GridColumns>
 	<GridToolBarTemplate>
-		<GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
+		<GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
 	</GridToolBarTemplate>
 </TelerikGrid>
 

@@ -56,12 +56,12 @@ Editing is cancelled for the first record.
                  Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
                  Width="850px">
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add</TreeListCommandButton>
+        <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
     </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListCommandColumn Width="200px">
-            <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

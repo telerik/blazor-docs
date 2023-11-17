@@ -17,14 +17,13 @@ You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}
 
 ````CSHTML
 @* This sample shows how you can use conditional logic to show different icons in the different states.
-It also shows how to use telerik icons, raster icons and sprite images*@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
-    <ButtonGroupToggleButton Icon="@( FontSelected ? FontIcon.VolumeUp : SvgIcon.VolumeDown )" @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
+    <ButtonGroupToggleButton Icon="@( Selected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )" @bind-Selected="@Selected">Font Icon</ButtonGroupToggleButton>
 </TelerikButtonGroup>
 
 @code{
-    bool FontSelected { get; set; }
+    bool Selected { get; set; }
 }
 ````
 

@@ -249,7 +249,7 @@ This article contains the following sections:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }                                                  
+        public ISvgIcon Icon { get; set; }                                                  
     }
 
     protected override void OnInitialized()
@@ -268,7 +268,7 @@ This article contains the following sections:
                 Text = "Project",
                 ParentIdValue = null,
                 HasChildren = true,
-                Icon = FontIcon.Folder
+                Icon = SvgIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -277,7 +277,7 @@ This article contains the following sections:
                 Text = "Design",
                 ParentIdValue = 1,
                 HasChildren = true,
-                Icon = FontIcon.Brush
+                Icon = SvgIcon.Brush
             });
         items.Add(new TreeItem()
             {
@@ -285,7 +285,7 @@ This article contains the following sections:
                 Text = "Implementation",
                 ParentIdValue = 1,
                 HasChildren = true,
-                Icon = FontIcon.Folder
+                Icon = SvgIcon.Folder
             });
 
         items.Add(new TreeItem()
@@ -294,7 +294,7 @@ This article contains the following sections:
                 Text = "site.psd",
                 ParentIdValue = 2,
                 HasChildren = false,
-                Icon = FontIcon.FilePsd
+                Icon = SvgIcon.FilePsd
             });
         items.Add(new TreeItem()
             {
@@ -302,7 +302,7 @@ This article contains the following sections:
                 Text = "index.js",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = FontIcon.Js
+                Icon = SvgIcon.Js
             });
         items.Add(new TreeItem()
             {
@@ -310,7 +310,7 @@ This article contains the following sections:
                 Text = "index.html",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = FontIcon.Html5
+                Icon = SvgIcon.Html5
             });
         items.Add(new TreeItem()
             {
@@ -318,7 +318,7 @@ This article contains the following sections:
                 Text = "styles.css",
                 ParentIdValue = 3,
                 HasChildren = false,
-                Icon = FontIcon.Css
+                Icon = SvgIcon.Css
             });
 
         InitialData = items;

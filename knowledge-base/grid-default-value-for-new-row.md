@@ -69,7 +69,7 @@ Click the <strong>Add</strong> button to see the default values for the HireDate
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
              OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
@@ -77,10 +77,10 @@ Click the <strong>Add</strong> button to see the default values for the HireDate
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date (has default value)" />
         <GridColumn Field=@nameof(SampleData.Salary) Title="Salary (has default value)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

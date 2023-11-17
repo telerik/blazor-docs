@@ -21,7 +21,9 @@ The `Icon` parameter type is `object` and it accepts:
 >caption How to use icons in Telerik Button
 
 ````CSHTML
-<TelerikButton Icon="@FontIcon.Filter">Font Icon</TelerikButton>
+<!-- below asset is necessary only if you use font icons -->
+<link href="https://unpkg.com/@@progress/kendo-font-icons@latest/dist/index.css" rel="stylesheet" type="text/css" />
+<TelerikButton Icon="@FontIconIcon.Filter">Font Icon</TelerikButton>
 
 <TelerikButton Icon="@SvgIcon.Export">SVG Icon</TelerikButton>
 

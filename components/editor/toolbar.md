@@ -200,7 +200,7 @@ When adding a built-in tool to the collection, you can set various parameters to
             {
                 Title = "My Custom Underline Title",
                 Class = "special-underine",
-                Icon = FontIcon.Gear,
+                Icon = SvgIcon.Gear,
             }
         );
         MyTools.Add(firstGroup);

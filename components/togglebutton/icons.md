@@ -29,6 +29,8 @@ The following example shows how to use the built-in Font and Svg icons.
 
 <TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.AlignCenter : SvgIcon.AlignBottom)" @bind-Selected="@SvgSelected">Svg Icon</TelerikToggleButton>
 
+<!-- below asset is necessary only if you use font icons -->
+<link href="https://unpkg.com/@@progress/kendo-font-icons@latest/dist/index.css" rel="stylesheet" type="text/css" />
 <TelerikToggleButton Icon="@( FontSelected ? FontIcon.VolumeDown : FontIcon.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
 
 @code {

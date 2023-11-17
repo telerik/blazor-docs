@@ -36,8 +36,8 @@ The example below shows how to:
     </GanttViews>
     <GanttColumns>
         <GanttCommandColumn Width="80px">
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"

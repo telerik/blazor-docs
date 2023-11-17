@@ -80,7 +80,7 @@ There are a few ways to implement the scenario:
         <GridAggregate Field="@nameof(Product.CategoryId)" Aggregate="@GridAggregateType.Count"></GridAggregate>
     </GridAggregates>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add New Product</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add New Product</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
@@ -151,10 +151,10 @@ There are a few ways to implement the scenario:
             </Template>
         </GridColumn>
         <GridCommandColumn Width="200px">
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
