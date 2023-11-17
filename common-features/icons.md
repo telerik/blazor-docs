@@ -114,14 +114,26 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
     <TelerikFontIcon Icon="@FontIcon.Save" Size="lg" Flip="@IconFlip.Vertical" />
 </span>
 
-<TelerikFontIcon IconClass="my-custom-icon" />
+<TelerikFontIcon IconClass="my-icon-base my-custom-icon" />
 
 <style>
+    .my-icon-base {
+        /* normally icon libraries have such a base class for the common styles */
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+    }
+
     .my-custom-icon {
+        /* this is the icon-specific CSS class */
         /* define a background image or a custom font icon here */
         background: purple;
     }
 </style>
+
+<!-- Register this stylesheet next to the component theme. -->
+<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````
 
 ### Set Custom Font Icon Size
@@ -144,24 +156,30 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 </div>
 
 <TelerikFontIcon Icon="@FontIcon.Filter"></TelerikFontIcon>
+
+<!-- Register this stylesheet next to the component theme. -->
+<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````
 
 ### Render Font Icons with HTML
 
 Telerik UI for Blazor shares the same [themes]({%slug general-information/themes%}) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
 
-You can use the built-in font icons directly via HTML tags, without the `<TelerikFontIcon>` helper component. Such direct HTML usage may make it easier for you to customize and style icons that you use in your own layouts.
+You can use the built-in font icons directly with HTML tags, without the `<TelerikFontIcon>` component. Such direct HTML usage may provide more flexibility, but if you don't really need it, we recommend using `FontIcon` objects and the `<TelerikFontIcon>` component instead.
 
-To use the icons directly, review the [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web) article. The `<TelerikFontIcon>` component simply drops the `k-i-` CSS class prefix to make it easier for you.
+To use the icons directly, refer to [List of all Telerik Icons](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) and obtain the desired CSS class. The `<TelerikFontIcon>` component simply drops the `k-i-` CSS class prefix to make it easier for you.
 
->caption Use Kendo font icons directly
+>caption Use Telerik font icons with plain HTML
 
 ````CSHTML
-<span class="k-icon k-i-check k-flip-h k-flip-v"></span>
+<span class="k-icon k-font-icon k-i-check k-flip-h k-flip-v"></span>
 
 is the same as
 
 <TelerikFontIcon Icon="@FontIcon.Check" Flip="@IconFlip.Both" />
+
+<!-- Register this stylesheet next to the component theme. -->
+<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````
 
 
