@@ -56,7 +56,7 @@ More details as well as a list of the available Telerik font icons you can find 
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Icon="@FontIcon.Globe" Label="Font Icon"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Globe" Label="Font Icon"></StepperStep>
             <StepperStep Icon="@SvgIcon.Pin" Label="Svg Icon"></StepperStep>
         </StepperSteps>
     </TelerikStepper>

@@ -17,7 +17,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -39,7 +39,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -48,7 +48,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -56,7 +56,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -65,7 +65,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -73,7 +73,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -81,7 +81,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -89,7 +89,7 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;

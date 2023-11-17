@@ -41,8 +41,8 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
     {
         Data = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { Title = "Home (Font)", Icon = FontIcon.Home },
-            new BreadcrumbItem { Text = "General", Icon = FontIcon.Globe, Disabled = true },
+            new BreadcrumbItem { Title = "Home (Font)", Icon = SvgIcon.Home },
+            new BreadcrumbItem { Text = "General", Icon = SvgIcon.Globe, Disabled = true },
             new BreadcrumbItem { Text = "Activities" },
             new BreadcrumbItem { Text = "Drawing (SVG)", Icon = SvgIcon.Palette },
             new BreadcrumbItem { Text = "Custom", Icon = "my-icon" },

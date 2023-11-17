@@ -23,7 +23,7 @@ The `<ItemTemplate>` allows you to control the rendering of the chips in the Chi
     <ItemTemplate>
         @{
             <div>
-                <TelerikFontIcon Icon="@context.Icon"></TelerikFontIcon>
+                <TelerikSvgIcon Icon="@context.Icon"></TelerikSvgIcon>
                 Item: @context.Text
             </div>
         }
@@ -38,19 +38,19 @@ The `<ItemTemplate>` allows you to control the rendering of the chips in the Chi
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

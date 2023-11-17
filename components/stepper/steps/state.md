@@ -30,11 +30,11 @@ The stepper component will also allow you to [localize]({%slug globalization-loc
 <div style="width:700px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Cart" Icon="@FontIcon.Cart"></StepperStep>
-            <StepperStep Label="Delivery address" Icon="@FontIcon.MapMarkerTarget"></StepperStep>
-            <StepperStep Label="Payment method" Icon="@FontIcon.Dollar"></StepperStep>
-            <StepperStep Optional="true" Label="Preview" Icon="@FontIcon.Eye"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="@FontIcon.TrackChangesAccept"></StepperStep>
+            <StepperStep Label="Cart" Icon="@SvgIcon.Cart"></StepperStep>
+            <StepperStep Label="Delivery address" Icon="@SvgIcon.MapMarkerTarget"></StepperStep>
+            <StepperStep Label="Payment method" Icon="@SvgIcon.Dollar"></StepperStep>
+            <StepperStep Optional="true" Label="Preview" Icon="@SvgIcon.Eye"></StepperStep>
+            <StepperStep Label="Finish Order" Icon="@SvgIcon.TrackChangesAccept"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -57,11 +57,11 @@ This feature serves to mark the desired step as disabled, so users cannot click 
 <div style="width:700px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Label="Cart" Icon="@FontIcon.Cart"></StepperStep>
-            <StepperStep Label="Delivery address" Icon="@FontIcon.MapMarkerTarget"></StepperStep>
-            <StepperStep Label="Payment method" Icon="@FontIcon.Dollar"></StepperStep>
-            <StepperStep Disabled="true" Label="Preview" Icon="@FontIcon.Eye"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="@FontIcon.TrackChangesAccept"></StepperStep>
+            <StepperStep Label="Cart" Icon="@SvgIcon.Cart"></StepperStep>
+            <StepperStep Label="Delivery address" Icon="@SvgIcon.MapMarkerTarget"></StepperStep>
+            <StepperStep Label="Payment method" Icon="@SvgIcon.Dollar"></StepperStep>
+            <StepperStep Disabled="true" Label="Preview" Icon="@SvgIcon.Eye"></StepperStep>
+            <StepperStep Label="Finish Order" Icon="@SvgIcon.TrackChangesAccept"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

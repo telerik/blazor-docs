@@ -82,10 +82,10 @@ The known limitations of the Autofit Columns feature include:
         <GridColumn Field=@nameof(SampleData.Name) Title="First Name" Id="NameColumn1" />
         <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="NameColumn2" />
         <GridCommandColumn Width="100px" Resizable="false">
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

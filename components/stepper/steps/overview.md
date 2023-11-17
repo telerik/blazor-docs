@@ -83,23 +83,23 @@ To include the desired steps for the Stepper component, you can either manually 
             new StepModel()
             {
                 Label = "Personal Info",
-                Icon = FontIcon.User
+                Icon = SvgIcon.User
             },
             new StepModel()
             {
                 Label = "Education",
-                Icon = FontIcon.Book,
+                Icon = SvgIcon.Book,
                 Disabled = true
             },
             new StepModel()
             {
                 Label = "Experience",
-                Icon = FontIcon.FlipVertical
+                Icon = SvgIcon.FlipVertical
             },
             new StepModel()
             {
                 Label = "Attachments",
-                Icon = FontIcon.FileAdd,
+                Icon = SvgIcon.FileAdd,
                 Optional = true
             }
         };
@@ -109,7 +109,7 @@ To include the desired steps for the Stepper component, you can either manually 
     public class StepModel
     {
         public string Label { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Disabled { get; set; }
         public bool Optional { get; set; }
     }

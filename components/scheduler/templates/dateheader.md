@@ -24,7 +24,7 @@ The `DateHeaderTemplate` can be defined for the [day and week Scheduler views]({
         <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd">
             <DateHeaderTemplate>
                 <div>
-                    <TelerikFontIcon Icon="@FontIcon.InfoCircle"></TelerikFontIcon>
+                    <TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon>
                     @context.ToShortDateString()
                 </div>
             </DateHeaderTemplate>
@@ -32,7 +32,7 @@ The `DateHeaderTemplate` can be defined for the [day and week Scheduler views]({
         <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" WorkDayStart="@WorkDayStart" WorkDayEnd="@WorkDayEnd">
             <DateHeaderTemplate>
                 <div>
-                    <TelerikFontIcon Icon="@FontIcon.InfoCircle"></TelerikFontIcon>
+                    <TelerikSvgIcon Icon="@SvgIcon.InfoCircle"></TelerikSvgIcon>
                     @context.ToShortDateString()
                 </div>
             </DateHeaderTemplate>

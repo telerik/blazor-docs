@@ -27,7 +27,7 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
                @ref="@DrawerRef"
                @bind-SelectedItem="@SelectedItem">
     <DrawerContent>
-        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu">Toggle drawer</TelerikButton>
+        <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
         <div class="m-5">
             Selected Item: @SelectedItem?.Text
         </div>
@@ -62,8 +62,8 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
 
     private IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>()
     {
-        new DrawerItem { Text = "Current Location", Icon = FontIcon.Pin },
-        new DrawerItem { Text = "Navigation", Icon = FontIcon.Globe },
+        new DrawerItem { Text = "Current Location", Icon = SvgIcon.Pin },
+        new DrawerItem { Text = "Navigation", Icon = SvgIcon.Globe },
         new DrawerItem { Text = "Favorites", Icon = "my-icon my-icon-purple" },
     };
 

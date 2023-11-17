@@ -77,7 +77,7 @@ Custom actions can call C# directly
 
 <TelerikWindow Visible="true">
 	<WindowActions>
-		<WindowAction Name="MyAction" Icon="@FontIcon.Gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Name="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
 	</WindowActions>
 	<WindowContent>
 		@result
@@ -110,10 +110,10 @@ You can mix custom actions with built-in actions, and you do not have to define 
 <TelerikWindow Visible="true">
     <WindowActions>
         <WindowAction Name="Minimize" />
-        <WindowAction Name="MyAction" Icon="@FontIcon.InfoCircle" OnClick="@MyCustomActionHandler" />
+        <WindowAction Name="MyAction" Icon="@SvgIcon.InfoCircle" OnClick="@MyCustomActionHandler" />
         <WindowAction Name="Maximize" />
         <WindowAction Hidden="@( string.IsNullOrEmpty(result) )"
-                      Icon="@FontIcon.ClearCss"
+                      Icon="@SvgIcon.ClearCss"
                       Name="CustomActionWithAllParameters"
                       Title="my custom title attribute that is a tooltip when you hover the action"
                       OnClick="@( () => result = string.Empty )" />

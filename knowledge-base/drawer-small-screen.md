@@ -41,7 +41,7 @@ To see the behavior, resize the browser window *@
                    OnChange="@OnChangeSmallScreenHandler">
 </TelerikMediaQuery>
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
 
 <TelerikDrawer Data="@Data"
                MiniMode="@isSmallScreen"
@@ -68,14 +68,14 @@ To see the behavior, resize the browser window *@
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout},
         };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

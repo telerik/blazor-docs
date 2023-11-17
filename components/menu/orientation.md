@@ -39,7 +39,7 @@ The default orientation is horizontal.
     public class MenuItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
         public List<MenuItem> Items { get; set; }
     }
@@ -51,25 +51,25 @@ The default orientation is horizontal.
             new MenuItem()
             {
                 Text = "Share",
-                Icon = FontIcon.Share,
+                Icon = SvgIcon.Share,
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = FontIcon.Facebook,
+                        Icon = SvgIcon.Facebook,
                         Url = "https://facebook.com"
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = FontIcon.Linkedin,
+                        Icon = SvgIcon.Linkedin,
                         Url = "https://linkedin.com"
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = FontIcon.Twitter,
+                        Icon = SvgIcon.Twitter,
                         Url = "https://twitter.com"
                     },
                 }
@@ -77,7 +77,7 @@ The default orientation is horizontal.
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = FontIcon.MapMarker,
+                Icon = SvgIcon.MapMarker,
                 Url = "https://maps.google.com"
             }
         };

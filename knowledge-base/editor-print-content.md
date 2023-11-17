@@ -54,7 +54,7 @@ The example below shows three possible techniques:
                    @bind-Value="@EditorValue">
         <EditorCustomTools>
             <EditorCustomTool Name="Print">
-                <TelerikButton OnClick="@PrintIframe" Icon="@FontIcon.Print">Print iframe</TelerikButton>
+                <TelerikButton OnClick="@PrintIframe" Icon="@SvgIcon.Print">Print iframe</TelerikButton>
             </EditorCustomTool>
         </EditorCustomTools>
     </TelerikEditor>
@@ -68,8 +68,8 @@ The example below shows three possible techniques:
                @bind-Value="@EditorValue">
     <EditorCustomTools>
         <EditorCustomTool Name="Print">
-            <TelerikButton OnClick="@PrintDiv" Icon="@FontIcon.Print">Print via CSS media</TelerikButton>
-            <TelerikButton OnClick="@PrintWindow" Icon="@FontIcon.Print">Print via popup window</TelerikButton>
+            <TelerikButton OnClick="@PrintDiv" Icon="@SvgIcon.Print">Print via CSS media</TelerikButton>
+            <TelerikButton OnClick="@PrintWindow" Icon="@SvgIcon.Print">Print via popup window</TelerikButton>
         </EditorCustomTool>
     </EditorCustomTools>
 </TelerikEditor>

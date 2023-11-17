@@ -105,7 +105,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
                   Data="@PdfSource">
     <PdfViewerToolBar>
         <PdfViewerToolBarCustomTool>
-            <TelerikButton OnClick="@OnButtonClick" Icon="@FontIcon.ArrowRotateCw">Rebind PDF Viewer</TelerikButton>
+            <TelerikButton OnClick="@OnButtonClick" Icon="@SvgIcon.ArrowRotateCw">Rebind PDF Viewer</TelerikButton>
         </PdfViewerToolBarCustomTool>
     </PdfViewerToolBar>
 </TelerikPdfViewer>

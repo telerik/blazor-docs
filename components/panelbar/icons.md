@@ -58,7 +58,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
             Text = "Home (Font Icon)",
             ParentId = null,
             HasChildren = false,
-            Icon = FontIcon.Home
+            Icon = SvgIcon.Home
         });
 
         Items.Add(new PanelBarItem()
@@ -76,7 +76,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
             Text = "Email",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.Envelope
+            Icon = SvgIcon.Envelope
         });
 
         Items.Add(new PanelBarItem()
@@ -85,7 +85,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
             Text = "LinkedIn",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.LinkedinBox
+            Icon = SvgIcon.LinkedinBox
         });
 
         Items.Add(new PanelBarItem()

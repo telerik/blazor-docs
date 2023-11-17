@@ -39,10 +39,10 @@ You can consider saving the current state of the component in events that it exp
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
 
-<TelerikButton OnClick="@SaveState" Icon="@FontIcon.Save" Class="mr-sm">Save State</TelerikButton>
-<TelerikButton OnClick="@ReloadPage" Icon="@FontIcon.ArrowRotateCw" Class="mr-sm">Reload the page</TelerikButton>
-<TelerikButton OnClick="@LoadState" Icon="@FontIcon.Download" Class="mr-sm">Load last State</TelerikButton>
-<TelerikButton OnClick="@SetExplicitState" Icon="@FontIcon.Gear" Class="mr-sm">Configure State</TelerikButton>
+<TelerikButton OnClick="@SaveState" Icon="@SvgIcon.Save" Class="mr-sm">Save State</TelerikButton>
+<TelerikButton OnClick="@ReloadPage" Icon="@SvgIcon.ArrowRotateCw" Class="mr-sm">Reload the page</TelerikButton>
+<TelerikButton OnClick="@LoadState" Icon="@SvgIcon.Download" Class="mr-sm">Load last State</TelerikButton>
+<TelerikButton OnClick="@SetExplicitState" Icon="@SvgIcon.Gear" Class="mr-sm">Configure State</TelerikButton>
 
 <TelerikTileLayout @ref="@TileLayoutInstance"
                    Columns="3"

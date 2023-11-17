@@ -19,7 +19,7 @@ The `Template` is a `RenderFragment` and allows you to add whatever custom conte
 ````CSHTML
 <TelerikDropZone Id="@DropZoneId">
     <Template>
-        <TelerikFontIcon Icon="@FontIcon.FileAdd" />
+        <TelerikSvgIcon Icon="@SvgIcon.FileAdd" />
         <span>Drop files here</span>
     </Template>
 </TelerikDropZone>

@@ -66,7 +66,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
                 @if (context.Start.TimeOfDay >= ControlDate.TimeOfDay
                 && context.End.AddSeconds(-1).TimeOfDay <= ControlDate.AddHours(1).TimeOfDay)
                 {
-                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikFontIcon>Lunch Break</div>
+                    <div style="color: green;"><TelerikSvgIcon Icon="@SvgIcon.Pause"></TelerikSvgIcon>Lunch Break</div>
                 }
             </SlotTemplate>
             <AllDaySlotTemplate>
@@ -81,7 +81,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
                 @if (context.Start.TimeOfDay >= ControlDate.TimeOfDay
                 && context.End.AddSeconds(-1).TimeOfDay <= ControlDate.AddHours(1).TimeOfDay)
                 {
-                    <div style="color: green;"><TelerikFontIcon Icon="@FontIcon.Pause"></TelerikFontIcon>Lunch Break</div>
+                    <div style="color: green;"><TelerikSvgIcon Icon="@SvgIcon.Pause"></TelerikSvgIcon>Lunch Break</div>
                 }
             </SlotTemplate>
             <AllDaySlotTemplate>

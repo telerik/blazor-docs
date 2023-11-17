@@ -21,8 +21,8 @@ The `Icon` parameter type is `object` and it accepts:
 >caption How to use icons in Telerik Blazor SplitButton
 
 ````CSHTML
-<TelerikSplitButton Icon="@FontIcon.Table">
-    <SplitButtonContent>Telerik Font Icon</SplitButtonContent>
+<TelerikSplitButton Icon="@SvgIcon.Table">
+    <SplitButtonContent>Telerik SVG Icon</SplitButtonContent>
     <SplitButtonItems>
         <SplitButtonItem Icon="@SvgIcon.Calculator">Telerik SVG Icon</SplitButtonItem>
         <SplitButtonItem Icon="@CustomIconClass">Custom Icon</SplitButtonItem>

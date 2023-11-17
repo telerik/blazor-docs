@@ -82,7 +82,7 @@ There are two ways to ensure that long form labels fit on a single line in the p
         <GridColumn Field=@nameof(Product.Name) Title="Product Name" />
         <GridColumn Field=@nameof(Product.Quantity) Title="Units in Stock" />
         <GridCommandColumn Width="120px">
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

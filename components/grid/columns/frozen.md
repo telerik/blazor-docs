@@ -43,7 +43,7 @@ This article you can observe Freezing different columns. The examples are separa
         <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" Width="150px" />
         <GridCommandColumn Width="250px" Locked="true">
             <GridCommandButton Command="CustomCommand"
-                               Icon="@FontIcon.InfoCircle"
+                               Icon="@SvgIcon.InfoCircle"
                                OnClick="@((GridCommandEventArgs  e) => Result = $" click from {(e.Item as Product).ProductName}" )">
                 Information
             </GridCommandButton>

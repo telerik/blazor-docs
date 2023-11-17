@@ -47,7 +47,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 
 <TelerikToolBar>
     <ToolBarButton Icon="@("bold")" Class="myBoldButton" Enabled="@true" Visible="true" Title="Bold Button" OnClick="@OnBold">Bold</ToolBarButton>
-    <ToolBarButton Icon="@FontIcon.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
+    <ToolBarButton Icon="@SvgIcon.Italic" Class="myItalicButton" Enabled="@false" Visible="true" Title="Italic Button" OnClick="@OnItalic">Italic</ToolBarButton>
     <ToolBarButton Icon="SvgIcon.Underline" Class="myUnderlineButton" Enabled="@true" Visible="true" Title="Underline Button" OnClick="@OnUnderline">Underline</ToolBarButton>
 </TelerikToolBar>
 
@@ -102,7 +102,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
     <ToolBarToggleButton @bind-Selected="@Selected"
                          Enabled="true"
                          Class="myToggleFullScreenButton"
-                         Icon="@FontIcon.ToggleFullScreenMode"
+                         Icon="@SvgIcon.ToggleFullScreenMode"
                          OnClick="@ToggleFullScreen">
         Toggle Fullscreen
     </ToolBarToggleButton>
@@ -159,7 +159,7 @@ The nested `ToolBarButtonGroup` tag exposes parameters that allow you to customi
                         Enabled="true">
         <ToolBarButton Icon="@("bold")">Bold</ToolBarButton>
         <ToolBarButton Icon="@SvgIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@FontIcon.Underline">Underline</ToolBarButton>
+        <ToolBarButton Icon="@SvgIcon.Underline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
 </TelerikToolBar>
 ````

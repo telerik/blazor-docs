@@ -34,11 +34,11 @@ The Stepper provides several features out of the box, including the ability to d
 <div style="width:700px">
     <TelerikStepper @bind-Value="@CurrentStepIndex">
         <StepperSteps>
-            <StepperStep Icon="@FontIcon.Cart" Label="Cart"></StepperStep>
-            <StepperStep Icon="@FontIcon.MapMarkerTarget" Label="Delivery Address"></StepperStep>
-            <StepperStep Icon="@FontIcon.Dollar" Label="Payment Method"></StepperStep>
-            <StepperStep Icon="@FontIcon.Eye" Label="Preview"></StepperStep>
-            <StepperStep Icon="@FontIcon.TrackChangesAccept" Label="Finish Order"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Cart" Label="Cart"></StepperStep>
+            <StepperStep Icon="@SvgIcon.MapMarkerTarget" Label="Delivery Address"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Dollar" Label="Payment Method"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Eye" Label="Preview"></StepperStep>
+            <StepperStep Icon="@SvgIcon.TrackChangesAccept" Label="Finish Order"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

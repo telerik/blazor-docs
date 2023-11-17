@@ -27,7 +27,6 @@ The following example demonstrates the [accessibility compliance of the Grid com
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using Telerik.SvgIcons
-@using Telerik.FontIcons
 
 <TelerikContextMenu @ref="@ContextMenuRef" 
                     Data="@MenuItems"
@@ -133,14 +132,14 @@ The following example demonstrates the [accessibility compliance of the Grid com
         </GridColumnMenuSettings>
     </GridSettings>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

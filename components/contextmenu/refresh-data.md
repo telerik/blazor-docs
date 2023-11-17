@@ -41,7 +41,7 @@ In this article:
 
 <TelerikContextMenu Data="@MenuData"
                     Selector="#context-menu-target"
-                    IconField="@nameof(MenuModel.TelerikFontIcon)">
+                    IconField="@nameof(MenuModel.Icon)">
 </TelerikContextMenu>
 
 @code {
@@ -53,7 +53,7 @@ In this article:
             new MenuModel()
                 {
                     Text = "Info",
-                    TelerikFontIcon = FontIcon.InfoCircle
+                    Icon = SvgIcon.InfoCircle
                 });
         MenuData = new List<MenuModel>(MenuData);
     }
@@ -74,12 +74,12 @@ In this article:
             new MenuModel()
             {
                 Text = "Copy",
-                TelerikFontIcon = FontIcon.Copy
+                Icon = SvgIcon.Copy
             },
             new MenuModel()
             {
                 Text = "Cut",
-                TelerikFontIcon = FontIcon.Cut
+                Icon = SvgIcon.Cut
             }
         };
         MenuData = new List<MenuModel>(MenuData);
@@ -92,17 +92,17 @@ In this article:
             new MenuModel()
             {
                 Text = "IconField",
-                TelerikFontIcon = FontIcon.Envelope
+                Icon = SvgIcon.Envelope
             },
             new MenuModel()
             {
                 Text = "Wrench Icon,
-                TelerikFontIcon = FontIcon.Wrench,
+                Icon = SvgIcon.Wrench,
             },
             new MenuModel()
              {
                 Text = "File Video Icon",
-                TelerikFontIcon = FontIcon.FileVideo
+                Icon = SvgIcon.FileVideo
              }
         };
     }
@@ -110,7 +110,7 @@ In this article:
     public class MenuModel
     {
         public string Text { get; set; }
-        public FontIcon? TelerikFontIcon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

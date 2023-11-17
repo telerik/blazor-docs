@@ -61,12 +61,12 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd" 
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="@FontIcon.Plus">
+                                   Icon="@SvgIcon.Plus">
                                     Add Child
             </TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
@@ -193,12 +193,12 @@ The approaches to handle this would depend of the type of data the component is 
         <TreeListCommandColumn Width="100px">
             <TreeListCommandButton Command="MyAdd"
                                    OnClick="@( (TreeListCommandEventArgs args) => AddItem(args) )"
-                                   Icon="@FontIcon.Plus">
+                                   Icon="@SvgIcon.Plus">
                                     Add Child
             </TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

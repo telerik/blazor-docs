@@ -46,7 +46,7 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
              OnDelete="DeleteProduct"
              OnCreate="CreateProduct">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Product</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Product</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" />
@@ -55,8 +55,8 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
         <GridColumn Field=@nameof(Product.CreatedAt) Title="Date created" />
         <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" Width="150px" />
         <GridCommandColumn Width="auto">
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <DetailTemplate Context="productItem">
@@ -73,7 +73,7 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
                          OnDelete="@((GridCommandEventArgs args) => DeleteOrder(args, product))"
                          OnCreate="@((GridCommandEventArgs args) => CreateOrder(args, product))">
                 <GridToolBarTemplate>
-                    <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Order</GridCommandButton>
+                    <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Order</GridCommandButton>
                 </GridToolBarTemplate>
                 <GridColumns>
                     <GridColumn Field=@nameof(OrderDetails.OrderId) Title="Order ID" Editable="false" />
@@ -85,8 +85,8 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
                     </GridColumn>
                     <GridColumn Field=@nameof(OrderDetails.Quantity) Title="Quantity" />
                     <GridCommandColumn Width="auto">
-                        <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-                        <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+                        <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+                        <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
                     </GridCommandColumn>
                 </GridColumns>
             </TelerikGrid>

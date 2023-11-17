@@ -28,7 +28,7 @@ To enable the Grid Excel Export, add a [command button]({%slug components/grid/c
 
 ````
 <GridToolBarTemplate>
-    <GridCommandButton Command="ExcelExport" Icon="@FontIcon.FileExcel">Export to Excel</GridCommandButton>
+    <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
 </GridToolBarTemplate>
 ````
 
@@ -48,7 +48,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
              FilterMode="@GridFilterMode.FilterRow" Groupable="true" >
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="@FontIcon.FileExcel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -124,7 +124,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
              Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="@FontIcon.FileExcel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 

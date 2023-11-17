@@ -35,7 +35,7 @@ public class TreeItem
     // Items for hierarchical data
     public IEnumerable<TreeItem> Items { get; set; }
 
-    public FontIcon? Icon { get; set; }
+    public ISvgIcon Icon { get; set; }
     public string Url { get; set; }
 }
 ```

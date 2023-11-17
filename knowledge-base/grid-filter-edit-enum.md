@@ -49,8 +49,8 @@ To control how each enum value will show in the filtering DropDownList, decorate
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridColumn Field=@nameof(SampleData.Role) Title="Position" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

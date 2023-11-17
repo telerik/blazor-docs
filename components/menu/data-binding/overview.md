@@ -73,7 +73,7 @@ public class MenuItem
 	public string Text { get; set; }
 	public int? ParentId { get; set; }
 	public bool HasChildren { get; set; }
-	public FontIcon? Icon { get; set; }
+	public ISvgIcon Icon { get; set; }
 	public string Url { get; set; }
 	public bool Disabled { get; set; }
 	public bool Separator { get; set; }
