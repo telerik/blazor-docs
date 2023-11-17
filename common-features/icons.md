@@ -114,6 +114,9 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
     <TelerikFontIcon Icon="@FontIcon.Save" Size="lg" Flip="@IconFlip.Vertical" />
 </span>
 
+<TelerikFontIcon Icon="@FontIcon.FileAudio"
+                 ThemeColor="@ThemeConstants.FontIcon.ThemeColor.Success" />
+
 <TelerikFontIcon IconClass="my-icon-base my-custom-icon" />
 
 <style>
