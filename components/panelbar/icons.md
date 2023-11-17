@@ -10,7 +10,7 @@ position: 15
 
 # PanelBar Icons
 
-You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the PanelBar items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the PanelBar items. The component also supports custom icons.
 
 To use PanelBar item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the PanelBar. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
 

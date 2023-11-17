@@ -10,7 +10,7 @@ position: 22
 
 # Drawer Icons
 
-You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the Drawer items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the Drawer items. The component also supports custom icons.
 
 To use Drawer item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Drawer. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
 

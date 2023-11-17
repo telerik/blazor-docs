@@ -32,7 +32,7 @@ Action buttons expose the following properties:
 | `Name` | `string` | The name of the action. Can be one of the built-in actions (see above), or a custom action name. |
 | `Hidden` | `bool` | Sets if the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internally, based on the component state. Check the example below for a possible alternative. |
 | `OnClick` | `EventCallback<MouseEventArgs>` | An event handler to respond to custom action clicks. |
-| `Icon` | `string` | The CSS class of the icon to be rendered. Use with the [Telerik font icons]({%slug general-information/font-icons%}), or set your own font icon class. |
+| `Icon` | `string` | The CSS class of the icon to be rendered. Use with the [Telerik font icons]({%slug common-features-icons%}), or set your own font icon class. |
 | `Title` | `string` | The `title` HTML attribute of the action button. |
 
 

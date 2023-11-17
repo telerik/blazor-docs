@@ -11,7 +11,7 @@ position: 15
 
 # ButtonGroup Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon]({%slug common-features-icons%}) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.
 
 >caption How to use icons in the Telerik ButtonGroup Button
 

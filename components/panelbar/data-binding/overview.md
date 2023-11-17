@@ -40,7 +40,7 @@ The PanelBar items provide the following features that you control through the c
 
 * `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`]({%slug panelbar-events%}#onitemclick) will not be fired if the item is disabled.
 
-* `Icon` - The [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
+* `Icon` - The [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
 
 * `Url` - the view the item will navigate to by generating a link.
 

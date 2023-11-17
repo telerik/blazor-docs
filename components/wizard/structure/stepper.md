@@ -116,7 +116,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 You can configure the content that will be rendered in the step indicators of the internal Stepper through the following parameters the `WizardStep` exposes:
 
 * `Text` - `string` - Specifies the step indicator text
-* `Icon` - `object` - Specifies the [Telerik Font or Svg icon]({%slug general-information/font-icons%}) which will be put inside the step indicator.
+* `Icon` - `object` - Specifies the [Telerik Font or Svg icon]({%slug common-features-icons%}) which will be put inside the step indicator.
 
 The priority and rules applied for their rendering is the same as for the [Stepper component indicators]({%slug stepper-indicators%}).
 
