@@ -16,16 +16,15 @@ This article explains how to provide data to a ChipList component, and the prope
 
 ## Data Binding Features
 
-The ChipList has features that map to properties in the model. The following model uses property names that will work automatically, with no additional ChipList configuration:
+The ChipList has features that map to properties in the component model class. The following example uses property names that will work automatically, with no additional ChipList configuration.
+
+>caption Using default property names in the ChipList model class
 
 ````CSHTML
-<TelerikChipList Data="@ChipListSource"></TelerikChipList>
+<TelerikChipList Data="@ChipListData"></TelerikChipList>
 
 @code {
-    private TelerikChipList<ChipModel> ChipListReference { get; set; }
-
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
+    private List<ChipModel> ChipListData { get; set; } = new List<ChipModel>() {
         new ChipModel()
         {
             Text = "Audio",
@@ -37,6 +36,13 @@ The ChipList has features that map to properties in the model. The following mod
         {
             Text = "Video",
             Icon = SvgIcon.FileVideo,
+            Disabled = false,
+            Removable = false
+        },
+        new ChipModel()
+        {
+            Text = "Image",
+            Icon = SvgIcon.FileImage,
             Disabled = true,
             Removable = false
         }
@@ -54,57 +60,73 @@ The ChipList has features that map to properties in the model. The following mod
 
 ### Data Binding Schema
 
-The table below lists the available data binding parameters for the Blazor ChipList component. Use them when your model property names are different than the default values.
+The table below lists the available data binding parameters for the Blazor ChipList component. Use them when your model property names are different from the default values.
 
-| ChipList Parameter | DEFAULT VALUE | Description |
+| ChipList Parameter | Default Value | Description |
 |----------|----------|----------|
 | `DisabledField`| `"Disabled"` | Defines if the chip is disabled (non-clickable). |
-| `IconField`| `"Icon"` | The icon that renders in the chip. |
-| `TextField`| `"Text"` | The text that renders in the chip. |
+| `IconField` | `"Icon"` | The icon that renders in the chip. |
+| `TextField` | `"Text"` | The text that renders in the chip. |
 | `RemovableField`| `"Removable"` | Defines if the users can remove the chip. |
 
->caption Databound ChipList with custom model property names
+#### Icons
+
+The `IconField` model property can hold:
+
+* A property of the static `SvgIcon` class;
+* A member of the `FontIcon` enum;
+* A `string` that is a CSS class for a custom icon.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
+
+>caption ChipList with custom model property names
 
 ````CSHTML
-<TelerikChipList Data="@ChipListSource"
+<TelerikChipList Data="@ChipListData"
                  TextField="@nameof(ChipModel.ChipText)"
                  IconField="@nameof(ChipModel.ChipIcon)"
-                 DisabledField="@nameof(ChipModel.isChipDisabled)"
-                 RemovableField="@nameof(ChipModel.isChipRemovable)">
+                 DisabledField="@nameof(ChipModel.ChipDisabled)"
+                 RemovableField="@nameof(ChipModel.ChipRemovable)">
 </TelerikChipList>
 
-@code {
-    private TelerikChipList<ChipModel> ChipListReference { get; set; }
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 
-    private List<ChipModel> ChipListSource { get; set; } = new List<ChipModel>()
-    {
+@code {
+    private List<ChipModel> ChipListData { get; set; } = new List<ChipModel>() {
         new ChipModel()
         {
-            ChipText = "Audio",
+            ChipText = "Audio (SVG icon)",
             ChipIcon = SvgIcon.FileAudio,
-            isChipDisabled = false,
-            isChipRemovable = true
+            ChipDisabled = false,
+            ChipRemovable = true
         },
         new ChipModel()
         {
-            ChipText = "Video",
-            ChipIcon = SvgIcon.FileVideo,
-            isChipDisabled = true,
-            isChipRemovable = false
+            ChipText = "Video (Font icon)",
+            ChipIcon = FontIcon.FileVideo,
+            ChipDisabled = false,
+            ChipRemovable = false
+        },
+        new ChipModel()
+        {
+            ChipText = "Image (disabled)",
+            ChipIcon = SvgIcon.FileImage,
+            ChipDisabled = true,
+            ChipRemovable = false
         }
     };
 
     public class ChipModel
     {
         public string ChipText { get; set; }
-        public ISvgIcon ChipIcon { get; set; }
-        public bool isChipDisabled { get; set; }
-        public bool isChipRemovable { get; set; }
+        public object ChipIcon { get; set; }
+        public bool ChipDisabled { get; set; }
+        public bool ChipRemovable { get; set; }
     }
 }
 ````
 
 ## See Also
 
-  * [ChipList Overview]({%slug chiplist-overview%})
-  * [Live Demo: ChipList](https://demos.telerik.com/blazor-ui/chiplist/overview)
+* [ChipList Overview]({%slug chiplist-overview%})
+* [Live Demo: ChipList](https://demos.telerik.com/blazor-ui/chiplist/overview)

@@ -12,9 +12,13 @@ position: 10
 
 You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the Breadcrumb items. The component also supports custom icons.
 
-To use Breadcrumb icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Breadcrumb. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+To use Breadcrumb icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Breadcrumb.
+
+@[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
 
 If the icon property name in the Breadcrumb model is `Icon`, there is no need to set the `IconField` parameter.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Breadcrumb
 
@@ -22,31 +26,28 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
 <TelerikBreadcrumb Data="@Data"></TelerikBreadcrumb>
 
 <style>
-    /* Third-party icon libraries should provide these styles out-of-the-box. */
-    /* You may need two CSS classes for the same element - 
-        one for base icon styles and one for the specific icon glyph. */
-
     .my-icon {
+        /* define a background image or a custom font icon here */
+        background: purple;
+        /* dimensions and other base styles will usually come from another class */
         width: 1em;
         height: 1em;
         font-size: 16px;
-        background: purple;
     }
 </style>
 
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+
 @code {
-    public IEnumerable<BreadcrumbItem> Data = new List<BreadcrumbItem>();
+    private IEnumerable<BreadcrumbItem> Data = new List<BreadcrumbItem>();
 
     protected override void OnInitialized()
     {
-        Data = new List<BreadcrumbItem>
-        {
-            new BreadcrumbItem { Title = "Home (Font)", Icon = SvgIcon.Home },
-            new BreadcrumbItem { Text = "General", Icon = SvgIcon.Globe, Disabled = true },
-            new BreadcrumbItem { Text = "Activities" },
-            new BreadcrumbItem { Text = "Drawing (SVG)", Icon = SvgIcon.Palette },
-            new BreadcrumbItem { Text = "Custom", Icon = "my-icon" },
-            new BreadcrumbItem { Icon = SvgIcon.Photos }
+        Data = new List<BreadcrumbItem>() {
+            new BreadcrumbItem() { Title = "Home", Icon = SvgIcon.Home },
+            new BreadcrumbItem() { Text = "Arts (SVG)", Icon = SvgIcon.Palette },
+            new BreadcrumbItem() { Text = "Photography (Font)", Icon = FontIcon.Photos },
+            new BreadcrumbItem() { Text = "(Custom)", Icon = "my-icon" }
         };
     }
 
@@ -55,7 +56,6 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
         public string Text { get; set; }
         public string Title { get; set; }
         public object Icon { get; set; }
-        public bool Disabled { get; set; }
     }
 }
 ````
@@ -63,4 +63,4 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
 
 ## See Also
 
-  * [Live Demo: Breadcrumb Items](https://demos.telerik.com/blazor-ui/breadcrumb/items)
+* [Live Demo: Breadcrumb Items](https://demos.telerik.com/blazor-ui/breadcrumb/items)

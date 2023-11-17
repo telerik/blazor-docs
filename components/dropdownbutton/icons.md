@@ -14,32 +14,36 @@ The `<TelerikDropDownButton>` and `<DropDownButtonItem>` provide an `Icon` param
 
 The `Icon` parameter type is `object` and it accepts:
 
-* a member of the [`FontIcon` enum]({%slug common-features-icons%}#icons-list)
-* a property of the static [`SvgIcon` class]({%slug common-features-icons%}#icons-list)
-* a `string` that is a CSS class for a custom icon
+* A property of the static [`SvgIcon` class]({%slug common-features-icons%}#icons-list)
+* A member of the [`FontIcon` enum]({%slug common-features-icons%}#icons-list)
+* A `string` that is a CSS class for a custom icon
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Blazor DropDownButton
 
 ````CSHTML
 <TelerikDropDownButton Icon="@SvgIcon.User">
-    <DropDownButtonContent>Telerik Svg Icon</DropDownButtonContent>
+    <DropDownButtonContent>SVG Icon</DropDownButtonContent>
     <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Gear">Telerik SVG Icon</DropDownButtonItem>
+        <DropDownButtonItem Icon="@FontIcon.Gear">Font Icon</DropDownButtonItem>
         <DropDownButtonItem Icon="@CustomIconClass">Custom Icon</DropDownButtonItem>
-        <DropDownButtonItem> <TelerikLoader /> Custom markup </DropDownButtonItem>
+        <DropDownButtonItem> <TelerikLoader /> Custom Markup </DropDownButtonItem>
     </DropDownButtonItems>
 </TelerikDropDownButton>
 
 <style>
-    /* Third-party icon libraries should provide these styles out-of-the-box. */
-
     .my-icon {
+        /* define a background image or a custom font icon here */
+        background: purple;
+        /* dimensions and other base styles will usually come from another class */
         width: 1em;
         height: 1em;
         font-size: 16px;
-        background: purple;
     }
 </style>
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 
 @code {
     private string CustomIconClass { get; set; } = "my-icon";
