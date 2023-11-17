@@ -41,7 +41,7 @@ Last clicked item: @ClickedItem?.Text
     public class MenuItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public List<MenuItem> Items { get; set; }
     }
 
@@ -52,30 +52,30 @@ Last clicked item: @ClickedItem?.Text
             new MenuItem()
             {
                 Text = "Share",
-                Icon = FontIcon.Share,
+                Icon = SvgIcon.Share,
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
                         Text = "FaceBook",
-                        Icon = FontIcon.Facebook
+                        Icon = SvgIcon.Facebook
                     },
                     new MenuItem()
                     {
                         Text = "LinkedIn",
-                        Icon = FontIcon.Linkedin
+                        Icon = SvgIcon.Linkedin
                     },
                     new MenuItem()
                     {
                         Text = "Twitter",
-                        Icon = FontIcon.Twitter
+                        Icon = SvgIcon.Twitter
                     },
                 }
             },
             new MenuItem()
             {
                 Text = "Map Location",
-                Icon = FontIcon.MapMarker
+                Icon = SvgIcon.MapMarker
             }
         };
 

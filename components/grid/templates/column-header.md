@@ -53,7 +53,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
         <GridColumn>
             <HeaderTemplate>
                 <span>
-                    <TelerikFontIcon Icon="@FontIcon.Image" />
+                    <TelerikSvgIcon Icon="@SvgIcon.Image" />
                     Column with Icon
                 </span>
             </HeaderTemplate>

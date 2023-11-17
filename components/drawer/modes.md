@@ -61,14 +61,14 @@ The drawer's height is dynamic based on the height of the content (you can chang
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout},
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout},
         };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -88,7 +88,7 @@ ComboBoxes, DropDownLists, DateTimePickers and similar popup-based components ar
 You may want to add padding to the left of the content so that it is not overlapped by the Drawer in its MiniMode. *@
 
 <div class="pl-4">
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@FontIcon.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
 </div>
 <TelerikDrawer @bind-Expanded="@Expanded"
                Data="@Data"
@@ -112,14 +112,14 @@ You may want to add padding to the left of the content so that it is not overlap
     public IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
             {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
             };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

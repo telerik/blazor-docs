@@ -11,17 +11,23 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Menu for Blazor, TreeView for Blazor, Drawer for Blazor, ContextMenu for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Menu for Blazor, TreeView for Blazor, Drawer for Blazor, ContextMenu for Blazor</td>
+        </tr>
+        <tr>
+            <td>Product Version</td>
+            <td>3.7.0 and older</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
+
 I would like to use the fontawesome icon library or open iconic. I'm trying to put an icon in front of the text of an menu item. As described in the help pages, this can be done by using `IconClassField` of the component. But if I use that, it will render a span with classes `k-icon k-i-fas fa-fog` instead of `fas fa-fog` (`<span class="k-icon k-i-fas fa-cog"></span>`).
 
 The result is an item with an empty `span` and I don't see the icons.
@@ -30,7 +36,7 @@ If I use similar code with the `IconClass` of a plain component like a `TelerikB
 
 ## Possible Cause
 
-The most common reason for such a problem is that the model field that carries the classes for the custom font matches the default name that the Telerik component uses for the built-in [Telerik icons]({%slug general-information/font-icons%}) - `Icon`.
+The most common reason for such a problem is that the model field that carries the classes for the custom font matches the default name that the Telerik component uses for the built-in [Telerik icons]({%slug common-features-icons%}) - `Icon`.
 
 The databinding settings of the databound components have default field names and they look for Telerik icons in the `Icon` field of the model, unless you specify otherwise.
 
@@ -40,9 +46,11 @@ You can find the list of default values in the corresponding component's Data Bi
 
 ## Steps to Reproduce
 
+![custom font icons fail](images/custom-font-icons-fail.png)
+
 >caption The following snippet shows an attempt to use custom icons that only renders one Telerik icon
 
-![custom font icons fail](images/custom-font-icons-fail.png)
+<div class="skip-repl"></div>
 
 ````CSHTML
 @* Just one example of including custom font icon libraries.
@@ -69,7 +77,7 @@ Make sure to use the correct way and resources for your actual project *@
             new MenuModel()
             {
                 Text = "TelerikIcon - easy",
-                Icon = FontIcon.Envelope
+                Icon = "email"
             },
             new MenuModel()
             {
@@ -92,11 +100,10 @@ Make sure to use the correct way and resources for your actual project *@
     public class MenuModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public string Icon { get; set; }
     }
 }
 ````
-
 
 
 ## Solution
@@ -138,7 +145,7 @@ Make sure to use the correct way and resources for your actual project *@
             new MenuModel()
             {
                 Text = "TelerikIcon - fail with custom fonts",
-                Icon = FontIcon.Envelope
+                Icon = "email"
             },
             new MenuModel()
             {
@@ -161,7 +168,7 @@ Make sure to use the correct way and resources for your actual project *@
     public class MenuModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public string Icon { get; set; }
     }
 }
 ````
@@ -217,4 +224,3 @@ Make sure to use the correct way and resources for your actual project *@
     }
 }
 ````
-

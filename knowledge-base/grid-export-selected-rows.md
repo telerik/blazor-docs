@@ -46,9 +46,9 @@ How to export custom Grid data (for example the Grid selection) to CSV?
              @bind-SelectedItems="@GridSelectedItems">
     <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport"
-                           Icon="@FontIcon.FileExcel">Export Selection to Excel</GridCommandButton>
+                           Icon="@SvgIcon.FileExcel">Export Selection to Excel</GridCommandButton>
         <GridCommandButton Command="CsvExport"
-                           Icon="@FontIcon.FileCsv">Export Selection to CSV</GridCommandButton>
+                           Icon="@SvgIcon.FileCsv">Export Selection to CSV</GridCommandButton>
     </GridToolBarTemplate>
     <GridSettings>
         <GridExcelExport OnBeforeExport="@OnBeforeGridExcelExport" FileName="grid-selection" />

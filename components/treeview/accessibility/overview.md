@@ -24,9 +24,6 @@ The following example demonstrates the [accessibility compliance of the TreeView
 ````CSHTML
 @*Evaluate the example with Axe Core or other accessibility tools*@
 
-@using Telerik.SvgIcons
-@using Telerik.FontIcons
-
 <TelerikContextMenu Data="@ContextMenuData"
                     @ref="ContextMenu"
                     OnClick="@((ContextMenuItem item) => ContextMenuClickHandler(item))">
@@ -158,7 +155,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
     public class ContextMenuItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Separator { get; set; }
         public string CommandName { get; set; }
     }
@@ -169,7 +166,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
 
         public TreeItem()
         {
@@ -203,25 +200,25 @@ The following example demonstrates the [accessibility compliance of the TreeView
             new ContextMenuItem
             {
                 Text = "Move before",
-                Icon = FontIcon.InsertTop,
+                Icon = SvgIcon.InsertTop,
                 CommandName = "MoveBefore"
             },
             new ContextMenuItem
             {
                 Text = "Move after",
-                Icon = FontIcon.InsertBottom,
+                Icon = SvgIcon.InsertBottom,
                 CommandName = "MoveAfter"
             },
             new ContextMenuItem
             {
                 Text = "Add to parent",
-                Icon = FontIcon.InsertMiddle,
+                Icon = SvgIcon.InsertMiddle,
                 CommandName = "AddToParent"
             },
             new ContextMenuItem
             {
                 Text = "Select",
-                Icon = FontIcon.CheckboxChecked,
+                Icon = SvgIcon.CheckboxChecked,
                 CommandName = "ToggleSelect"
             },
             new ContextMenuItem
@@ -231,7 +228,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = FontIcon.Trash,
+                Icon = SvgIcon.Trash,
                 CommandName = "InvokeDelete"
             }
         };
@@ -247,7 +244,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "Project",
             ParentId = null,
             HasChildren = true,
-            Icon = FontIcon.Folder,
+            Icon = SvgIcon.Folder,
         });
         items.Add(new TreeItem()
         {
@@ -255,7 +252,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "Design",
             ParentId = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush,
+            Icon = SvgIcon.Brush,
         });
         items.Add(new TreeItem()
         {
@@ -263,7 +260,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "Implementation",
             ParentId = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder,
+            Icon = SvgIcon.Folder,
         });
         items.Add(new TreeItem()
         {
@@ -271,7 +268,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "site.psd",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd,
+            Icon = SvgIcon.FilePsd,
         });
         items.Add(new TreeItem()
         {
@@ -279,7 +276,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "index.js",
             ParentId = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -287,7 +284,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "index.html",
             ParentId = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -295,7 +292,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
             Text = "styles.css",
             ParentId = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;

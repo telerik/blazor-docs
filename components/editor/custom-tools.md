@@ -96,7 +96,7 @@ In this section you can find the following examples:
 <TelerikEditor @ref="@EditorRef" Tools="@Tools" @bind-Value="@TheEditorContent">
     <EditorCustomTools>
         <EditorCustomTool Name="ImportantFragment">
-            <TelerikButton OnClick="@MarkImportant" Icon="@FontIcon.Star"></TelerikButton>
+            <TelerikButton OnClick="@MarkImportant" Icon="@SvgIcon.Star"></TelerikButton>
         </EditorCustomTool>
     </EditorCustomTools>
 </TelerikEditor>
@@ -137,7 +137,7 @@ You can call application code from the editor tools to, for example, save the cu
 <TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">
     <EditorCustomTools>
         <EditorCustomTool Name="Save">
-            <TelerikButton OnClick="@Save" Icon="@FontIcon.Save" />
+            <TelerikButton OnClick="@Save" Icon="@SvgIcon.Save" />
         </EditorCustomTool>
     </EditorCustomTools>
 </TelerikEditor>

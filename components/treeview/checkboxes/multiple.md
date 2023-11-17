@@ -62,7 +62,7 @@ You can use one-way binding to provide an initial node selection, and respond to
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikSvgIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
@@ -88,7 +88,7 @@ You can use one-way binding to provide an initial node selection, and respond to
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -110,7 +110,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -119,7 +119,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -127,7 +127,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -136,7 +136,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -144,7 +144,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -152,7 +152,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -160,7 +160,7 @@ You can use one-way binding to provide an initial node selection, and respond to
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;
@@ -199,7 +199,7 @@ You can use two-way binding to get the node the user has selected. This can be u
                 var checkedItem = item as TreeItem;
                 <li>
                     <span>
-                        <TelerikFontIcon Icon="@checkedItem.Icon"></TelerikIcon>
+                        <TelerikSvgIcon Icon="@checkedItem.Icon"></TelerikSvgIcon>
                     </span>
                     <span>
                         @(checkedItem.Text)
@@ -220,7 +220,7 @@ You can use two-way binding to get the node the user has selected. This can be u
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -247,7 +247,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -256,7 +256,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -264,7 +264,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -273,7 +273,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -281,7 +281,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -289,7 +289,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -297,7 +297,7 @@ You can use two-way binding to get the node the user has selected. This can be u
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;

@@ -30,7 +30,7 @@ If the Form validation is not satisfied, you can cancel the `OnChange` event of 
 {
     <TelerikWizard @bind-Value="@Value" OnFinish="@OnFinishHandler" Width="700px">
         <WizardSteps>
-            <WizardStep Label="Registration" Icon="@FontIcon.User" OnChange="@OnRegistrationStepChange" Valid="@IsRegistrationValid">
+            <WizardStep Label="Registration" Icon="@SvgIcon.User" OnChange="@OnRegistrationStepChange" Valid="@IsRegistrationValid">
                 <Content>
                     <TelerikForm Model="@UserModel"
                                  @ref="@RegisterForm">
@@ -60,7 +60,7 @@ If the Form validation is not satisfied, you can cancel the `OnChange` event of 
                     </TelerikForm>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Shipping address" Icon="@FontIcon.MapMarkerTarget" OnChange="@OnShippingStepChange" Valid="@IsShippingValid">
+            <WizardStep Label="Shipping address" Icon="@SvgIcon.MapMarkerTarget" OnChange="@OnShippingStepChange" Valid="@IsShippingValid">
                 <Content>
                     <TelerikForm Model="@ShippingModel"
                                  @ref="ShippingForm">

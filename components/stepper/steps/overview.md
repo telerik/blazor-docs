@@ -29,26 +29,26 @@ The [visual indicators]({%slug stepper-indicators%}) of the steps can include th
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default Value | Description |
+| Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Text` | `string` | Specifies the step indicator text. |
-| `Icon` | `object` | The icon which will be rendered inside the step indicator. |
+| `Icon` | `object` | The icon which will be rendered inside the step indicator. The parameter can accept [properties of the static `SvgIcon` class, members of the `FontIcon` enum]({%slug common-features-icons%}), or strings for custom icons. |
 
 ### State
 
 The steps can have one of the [states]({%slug stepper-state%}) below.
 
-| Parameter | Type and Default Value | Description |
+| Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Disabled` | `bool` <br /> (`false`) | Specifies if the step is disabled. |
-| `Optional` | `bool` <br /> (`false`) | Specifies if the step is optional. |
+| `Disabled` | `bool` | Specifies if the step is disabled. |
+| `Optional` | `bool` | Specifies if the step is optional. |
 
 ### Other parameters
 
-| Parameter | Type and Default Value | Description |
+| Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Label` | `string` | Specifies the [label text]({%slug stepper-labels%}) that will be rendered under the corresponding step indicator. |
-| `Valid` | `bool?` <br /> (`null`) | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
+| `Valid` | `bool?` | Specifies if the step is [valid]({%slug stepper-steps-validation%}) or not. |
 | `Class` | `string` | CSS class for the current step. |
 
 ## Steps Declaration
@@ -74,42 +74,42 @@ To include the desired steps for the Stepper component, you can either manually 
 </div>
 
 @code {
-    List<StepModel> Steps { get; set; }
+    private List<StepModel> Steps { get; set; }
 
     protected override void OnInitialized()
     {
-        Steps = new List<StepModel>()
-    {
+        Steps = new List<StepModel>() {
             new StepModel()
             {
                 Label = "Personal Info",
-                Icon = FontIcon.User
+                Icon = SvgIcon.User
             },
             new StepModel()
             {
                 Label = "Education",
-                Icon = FontIcon.Book,
+                Icon = SvgIcon.Book,
                 Disabled = true
             },
             new StepModel()
             {
                 Label = "Experience",
-                Icon = FontIcon.FlipVertical
+                Icon = SvgIcon.FlipVertical
             },
             new StepModel()
             {
                 Label = "Attachments",
-                Icon = FontIcon.FileAdd,
+                Icon = SvgIcon.FileAdd,
                 Optional = true
             }
         };
+
         base.OnInitialized();
     }
 
     public class StepModel
     {
         public string Label { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Disabled { get; set; }
         public bool Optional { get; set; }
     }
@@ -118,4 +118,4 @@ To include the desired steps for the Stepper component, you can either manually 
 
 ## See Also
 
-  * [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)
+* [Live Demo: Stepper Overview](https://demos.telerik.com/blazor-ui/stepper/overview)

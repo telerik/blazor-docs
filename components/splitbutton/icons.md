@@ -14,35 +14,39 @@ The `<TelerikSplitButton>` and `<SplitButtonItem>` provide an `Icon` parameter t
 
 The `Icon` parameter type is `object` and it accepts:
 
-* a member of the [`FontIcon` enum]({%slug general-information/font-icons%}#icons-list)
-* a property of the static [`SvgIcon` class]({%slug general-information/font-icons%}#icons-list)
-* a `string` that is a CSS class for a custom icon
+* A property of the static [`SvgIcon` class]({%slug common-features-icons%}#icons-list)
+* A member of the [`FontIcon` enum]({%slug common-features-icons%}#icons-list)
+* A `string` that is a CSS class for a custom icon
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Blazor SplitButton
 
 ````CSHTML
-<TelerikSplitButton Icon="@FontIcon.Table">
-    <SplitButtonContent>Telerik Font Icon</SplitButtonContent>
+<TelerikSplitButton Icon="@SvgIcon.Table">
+    <SplitButtonContent>SVG Icon</SplitButtonContent>
     <SplitButtonItems>
-        <SplitButtonItem Icon="@SvgIcon.Calculator">Telerik SVG Icon</SplitButtonItem>
+        <SplitButtonItem Icon="@FontIcon.Calculator">Font Icon</SplitButtonItem>
         <SplitButtonItem Icon="@CustomIconClass">Custom Icon</SplitButtonItem>
-        <SplitButtonItem> <TelerikLoader /> Custom markup </SplitButtonItem>
+        <SplitButtonItem> <TelerikLoader /> Custom Markup </SplitButtonItem>
     </SplitButtonItems>
 </TelerikSplitButton>
 
 <style>
-    /* Third-party icon libraries should provide these styles out-of-the-box. */
-
     .my-icon {
+        /* define a background image or a custom font icon here */
+        background: purple;
+        /* dimensions and other base styles will usually come from another class */
         width: 1em;
         height: 1em;
         font-size: 16px;
-        background: purple;
     }
 </style>
 
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+
 @code {
-    string CustomIconClass { get; set; } = "my-icon";
+    private string CustomIconClass { get; set; } = "my-icon";
 }
 ````
 

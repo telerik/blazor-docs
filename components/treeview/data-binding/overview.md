@@ -35,7 +35,7 @@ public class TreeItem
     // Items for hierarchical data
     public IEnumerable<TreeItem> Items { get; set; }
 
-    public FontIcon? Icon { get; set; }
+    public ISvgIcon Icon { get; set; }
     public string Url { get; set; }
 }
 ```
@@ -59,7 +59,7 @@ The above model properties have the following meaning for the TreeView:
 | `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarhical data.** |
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**]({%slug components/treeview/data-binding/hierarchical-data%}). The children's type can be different from the parent item type. |
 | [**Graphics**]({%slug treeview-icons%}) | |
-| `Icon` | Defines a [Telerik Font and Svg icon]({%slug general-information/font-icons%}) |
+| `Icon` | Defines a [Telerik Font and Svg icon]({%slug common-features-icons%}) |
 | [**Navigation**]({%slug treeview-navigation%}) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 

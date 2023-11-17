@@ -19,7 +19,7 @@ The Wizard uses a [Stepper component]({%slug stepper-overview%}) internally, so 
 1. Use the `TelerikWizard` tag
 1. Set the `Value` parameter to an `int`. The parameter supports one-way and two-way binding.
 1. Add some `WizardStep` instances inside a `WizardSteps` tag.
-1. Each `WizardStep` can define a `Label` and an [`Icon`]({%slug general-information/font-icons%}). Additional [stepper image or text indicators]({%slug wizard-structure-stepper%}#indicators) are discussed later.
+1. Each `WizardStep` can define a `Label` and an [`Icon`]({%slug common-features-icons%}). Additional [stepper image or text indicators]({%slug wizard-structure-stepper%}#indicators) are discussed later.
 
 >caption Basic Telerik Wizard
 

@@ -40,10 +40,10 @@ When validation icons are rendered inside the indicators, they will override the
 <div style="width:700px">
     <TelerikStepper Linear="true" Value="@StepperValue" ValueChanged="@HandleValueChanged">
         <StepperSteps>
-            <StepperStep Valid="@ValidStep" Label="Cart" Icon="@FontIcon.Cart" ></StepperStep>
-            <StepperStep Valid="@InvalidStep" Label="Delivery address" Icon="@FontIcon.MapMarkerTarget"></StepperStep>
-            <StepperStep Valid="@ValidStep2" Label="Payment method" Icon="@FontIcon.Dollar"></StepperStep>
-            <StepperStep Label="Finish Order" Icon="@FontIcon.TrackChangesAccept"></StepperStep>
+            <StepperStep Valid="@ValidStep" Label="Cart" Icon="@SvgIcon.Cart" ></StepperStep>
+            <StepperStep Valid="@InvalidStep" Label="Delivery address" Icon="@SvgIcon.MapMarkerTarget"></StepperStep>
+            <StepperStep Valid="@ValidStep2" Label="Payment method" Icon="@SvgIcon.Dollar"></StepperStep>
+            <StepperStep Label="Finish Order" Icon="@SvgIcon.TrackChangesAccept"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -90,10 +90,10 @@ If the Stepper uses the [`Labels`]({%slug stepper-display-modes%}#labels)display
     <TelerikStepper StepType="@StepperStepType.Labels" Linear="true" 
                     Value="@StepperValue" ValueChanged="@HandleValueChanged" >
         <StepperSteps>
-            <StepperStep Valid="@ValidStep"  Label="Personal Info" Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Valid="@InvalidStep" Label="Education" Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Valid="@ValidStep2" Label="Experience" Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Valid="@ValidStep"  Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Valid="@InvalidStep" Label="Education" Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Valid="@ValidStep2" Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

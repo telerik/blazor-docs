@@ -96,7 +96,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
     public class ContextMenuItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Separator { get; set; }
         public string CommandName { get; set; }
     }
@@ -119,7 +119,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
             new ContextMenuItem
             {
                 Text = "Info",
-                Icon = FontIcon.InfoCircle,
+                Icon = SvgIcon.InfoCircle,
                 CommandName = "info"
             },
             new ContextMenuItem
@@ -129,7 +129,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = FontIcon.Trash,
+                Icon = SvgIcon.Trash,
                 CommandName = "delete"
             }
         };

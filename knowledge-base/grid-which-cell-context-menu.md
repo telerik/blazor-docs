@@ -115,19 +115,19 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
             new ContextMenuItem
             {
                 Text = "More Info",
-                Icon = FontIcon.InfoCircle,
+                Icon = SvgIcon.InfoCircle,
                 CommandName = "info"
             },
             new ContextMenuItem
             {
                 Text = "Delete",
-                Icon = FontIcon.Trash,
+                Icon = SvgIcon.Trash,
                 CommandName = "delete"
             },
             new ContextMenuItem
             {
                 Text = "Report",
-                Icon = FontIcon.Cancel,
+                Icon = SvgIcon.Cancel,
                 CommandName = "report"
             }
         };
@@ -139,7 +139,7 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
     {
         public string Text { get; set; }
         public string CommandName { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public bool Disabled { get; set; }
         public List<ContextMenuItem> Items { get; set; }
     }

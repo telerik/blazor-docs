@@ -51,7 +51,7 @@ How to dynamically set the Grid popup edit Window title?
         <GridPopupEditSettings Title="@PopupTitle" />
     </GridSettings>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus"
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus"
                            OnClick="@( _ => { PopupTitle = "Adding New Product"; } )">
             Add Product
         </GridCommandButton>
@@ -59,7 +59,7 @@ How to dynamically set the Grid popup edit Window title?
     <GridColumns>
         <GridColumn Field=@nameof(Product.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

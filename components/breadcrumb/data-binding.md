@@ -29,7 +29,7 @@ The Breadcrumb items provide the following features that you control through the
 
 * `Text` - the text that will be shown on the item.
 * `Title` - the text that will be added to the `title` attribute of the html element.
-* `Icon` - The [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
+* `Icon` - The [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
 * `Url` - the view the item will navigate to by generating a link.
 * `Disabled` -  you can disable items by setting this field to `true`. Such items will keep rendering but will not be clickable.
 * `Class` - the CSS class that will be rendered on the main wrapping container of the item. You can use it to apply the desired styles to the separate Breadcrumb items.
@@ -58,7 +58,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
     {
         public string Text { get; set; }
         public string Title { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
         public string Disabled { get; set; }
         public string Class { get; set; }

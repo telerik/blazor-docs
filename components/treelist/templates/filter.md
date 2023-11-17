@@ -77,7 +77,7 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
                     </TelerikNumericTextBox>
                     <TelerikButton ButtonType="ButtonType.Button"
                                    Class="k-clear-button-visible ml-2"
-                                   Icon="@FontIcon.FilterClear"
+                                   Icon="@SvgIcon.FilterClear"
                                    Enabled="@( MinValue != null || MaxValue != null )"
                                    OnClick="@(async () =>
                                           {

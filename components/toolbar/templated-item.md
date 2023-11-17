@@ -23,9 +23,9 @@ You can use that item to add complex toolbars to your application, which have dr
 
 <TelerikToolBar>
     <ToolBarButtonGroup>
-        <ToolBarButton Icon="@FontIcon.Bold">Bold</ToolBarButton>
-        <ToolBarButton Icon="@FontIcon.Italic">Italic</ToolBarButton>
-        <ToolBarButton Icon="@FontIcon.Underline">Underline</ToolBarButton>
+        <ToolBarButton Icon="@SvgIcon.Bold">Bold</ToolBarButton>
+        <ToolBarButton Icon="@SvgIcon.Italic">Italic</ToolBarButton>
+        <ToolBarButton Icon="@SvgIcon.Underline">Underline</ToolBarButton>
     </ToolBarButtonGroup>
     <ToolBarSeparator />
 

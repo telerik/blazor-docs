@@ -10,20 +10,25 @@ position: 2
 
 # Button Icons
 
-You can add a [Telerik Font or SVG icon]({%slug general-information/font-icons%}) to the Button to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon]({%slug common-features-icons%}) to the Button to illustrate its purpose by using the `Icon` parameter.
+
+
+## Icon Parameter
 
 The `Icon` parameter type is `object` and it accepts:
 
-* a member of the `FontIcon` enum
-* a property of the static `SvgIcon` class
-* a `string` that is a CSS class for a custom icon
+* A property of the static `SvgIcon` class;
+* A member of the `FontIcon` enum;
+* A `string` that is a CSS class for a custom icon.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in Telerik Button
 
 ````CSHTML
-<TelerikButton Icon="@FontIcon.Filter">Font Icon</TelerikButton>
-
 <TelerikButton Icon="@SvgIcon.Export">SVG Icon</TelerikButton>
+
+<TelerikButton Icon="@FontIcon.Filter">Font Icon</TelerikButton>
 
 <TelerikButton Icon="@( "my-icon" )">Custom Icon</TelerikButton>
 
@@ -37,17 +42,22 @@ The `Icon` parameter type is `object` and it accepts:
         font-size: 16px;
     }
 </style>
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 ````
 
->tip If you don't add text to the button, the button will center the icon on all sides.
+## Notes
 
->tip You can also add custom icons and images with additional markup inside the Button content, where the text is.
+If you don't add text to the button, the button will center the icon on all sides.
 
->note Images used as icons should generally be small enough to fit in a line of text. The button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
->
-> * Define a `Class` on the button that provides `height` and `width`. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`,
-> * Attach an `@onclick` handler to an icon/`span`/`img` element instead of using a button,
-> * Adding your own HTML inside the button, something like: `<TelerikButton><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</TelerikButton>`
+You can also add custom icons and images with additional markup inside the Button content, where the text is.
+
+Images used as icons should generally be small enough to fit in a line of text. The button is an inline element and is not designed for large images. If you want to use big icon buttons, consider one of the following options:
+
+* Define a `Class` on the button that provides `height` and `width`. The width and height can be set in `px` sufficient to accommodate the icon or to `auto`,
+* Attach an `@onclick` handler to an icon/`span`/`img` element instead of using a button,
+* Add your own HTML inside the button, something like: `<TelerikButton><img style="width: 400px; height: 400px;" src="my-icon.svg" />some text</TelerikButton>`
+
 
 ## See Also
 

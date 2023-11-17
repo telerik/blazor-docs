@@ -129,7 +129,7 @@ To make sure that the application will recognize the UI for Blazor components an
 
 #### Include @using Statements
 
-You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug general-information/font-icons%}).
+You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug common-features-icons%}).
 
 >caption _Imports.razor
 

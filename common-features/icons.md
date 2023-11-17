@@ -2,7 +2,7 @@
 title: Icons
 page_title: Font and SVG Icons
 description: How to use the built-in font icons in the UI for Blazor suite.
-slug: general-information/font-icons
+slug: common-features-icons
 tags: telerik,blazor,icon,font,built-in
 published: True
 previous_url: /common-features/font-icons

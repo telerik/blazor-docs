@@ -74,7 +74,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -101,7 +101,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -110,7 +110,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -118,7 +118,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -127,7 +127,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -135,7 +135,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -143,7 +143,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -151,7 +151,7 @@ You can use one-way binding to provide an initial checked node, and respond to t
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;
@@ -198,7 +198,7 @@ You can use two-way binding to get the node the user has checked. This can be us
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<TreeItem> FlatData { get; set; }
@@ -220,7 +220,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -229,7 +229,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         });
         items.Add(new TreeItem()
         {
@@ -237,7 +237,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         });
 
         items.Add(new TreeItem()
@@ -246,7 +246,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         });
         items.Add(new TreeItem()
         {
@@ -254,7 +254,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         });
         items.Add(new TreeItem()
         {
@@ -262,7 +262,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         });
         items.Add(new TreeItem()
         {
@@ -270,7 +270,7 @@ You can use two-way binding to get the node the user has checked. This can be us
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         });
 
         FlatData = items;

@@ -76,7 +76,7 @@ You can customize the editors rendered in the Gantt Tree by providing the `Edito
               OnDelete="@DeleteItem"
               OnCreate="@CreateItem">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="@FontIcon.Plus">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView></GanttDayView>
@@ -106,8 +106,8 @@ You can customize the editors rendered in the Gantt Tree by providing the `Edito
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>
@@ -321,7 +321,7 @@ The example below shows how you can handle the events the Gantt component expose
               OnCreate="@CreateItem"
               OnEdit="@OnEditItem">
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="@FontIcon.Plus">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttViews>
         <GanttDayView></GanttDayView>
@@ -350,8 +350,8 @@ The example below shows how you can handle the events the Gantt component expose
                      Width="100px">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
 </TelerikGantt>

@@ -91,14 +91,14 @@ To achieve the desired result you can try the following:
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus},
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout}
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus},
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout}
         };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

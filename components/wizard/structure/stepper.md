@@ -48,17 +48,17 @@ Much like the Stepper component, the internal Stepper of the Wizard provides two
             </WizardStepperSettings>
         </WizardSettings>
         <WizardSteps>
-            <WizardStep Label="Cart" Icon="@FontIcon.Cart">
+            <WizardStep Label="Cart" Icon="@SvgIcon.Cart">
                 <Content>
                     <h2>Content for Wizard Step 1</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Delivery address" Icon="@FontIcon.Pin">
+            <WizardStep Label="Delivery address" Icon="@SvgIcon.Pin">
                 <Content>
                     <h2>Content for Wizard Step 2</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Payment method" Icon="@FontIcon.Dollar">
+            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
                 <Content>
                     <h2>Content for Wizard Step 3</h2>
                 </Content>
@@ -89,7 +89,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
             </WizardStepperSettings>
         </WizardSettings>
         <WizardSteps>
-            <WizardStep Label="Cart" Icon="@FontIcon.Cart">
+            <WizardStep Label="Cart" Icon="@SvgIcon.Cart">
                 <Content>
                     <h2>Content for Wizard Step 1</h2>
                 </Content>
@@ -99,7 +99,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
                     <h2>Content for Wizard Step 2</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Payment method" Icon="@FontIcon.Dollar">
+            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
                 <Content>
                     <h2>Content for Wizard Step 3</h2>
                 </Content>
@@ -116,7 +116,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 You can configure the content that will be rendered in the step indicators of the internal Stepper through the following parameters the `WizardStep` exposes:
 
 * `Text` - `string` - Specifies the step indicator text
-* `Icon` - `object` - Specifies the [Telerik Font or Svg icon]({%slug general-information/font-icons%}) which will be put inside the step indicator.
+* `Icon` - `object` - Specifies the [Telerik Font or Svg icon]({%slug common-features-icons%}) which will be put inside the step indicator.
 
 The priority and rules applied for their rendering is the same as for the [Stepper component indicators]({%slug stepper-indicators%}).
 
@@ -133,7 +133,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
                     <h2>Content for Wizard Step 1</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Icon="@FontIcon.Pin" Label="Icon">
+            <WizardStep Icon="@SvgIcon.Pin" Label="Icon">
                 <Content>
                     <h2>Content for Wizard Step 2</h2>
                 </Content>
@@ -165,7 +165,7 @@ The Wizard Stepper allows you to set labels for the corresponding step indicator
                     <h2>Content for Wizard Step 1</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Delivery address" Icon="@FontIcon.Pin">
+            <WizardStep Label="Delivery address" Icon="@SvgIcon.Pin">
                 <Content>
                     <h2>Content for Wizard Step 2</h2>
                 </Content>
@@ -209,7 +209,7 @@ To mark a Wizard step as optional, set the `Optional` parameter of the `WizardSt
                     <h2>Content for Wizard Step 3</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Payment method" Icon="@FontIcon.Dollar">
+            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
                 <Content>
                     <h2>Content for Wizard Step 4</h2>
                 </Content>
@@ -258,7 +258,7 @@ Respectively, if the previous step is disabled, the Previous button will be disa
                     <h2>Content for Wizard Step 3</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Payment method" Icon="@FontIcon.Dollar">
+            <WizardStep Label="Payment method" Icon="@SvgIcon.Dollar">
                 <Content>
                     <h2>Content for Wizard Step 4</h2>
                 </Content>
@@ -293,7 +293,7 @@ You can toggle the `Valid` parameter value based on your application logic to ac
 <div style="text-align:center">
     <TelerikWizard Width="600px" Height="300px">
         <WizardSteps>
-            <WizardStep Valid="@IsStep1Valid" OnChange="@OnChangeHandler1" Label="Cart" Icon="@FontIcon.Cart">
+            <WizardStep Valid="@IsStep1Valid" OnChange="@OnChangeHandler1" Label="Cart" Icon="@SvgIcon.Cart">
                 <Content>
                     <h2>Valid Step 1</h2>
                 </Content>
@@ -303,7 +303,7 @@ You can toggle the `Valid` parameter value based on your application logic to ac
                     <h2>Invalid step for Wizard Step 2</h2>
                 </Content>
             </WizardStep>
-            <WizardStep Label="Preview" Icon="@FontIcon.Pin">
+            <WizardStep Label="Preview" Icon="@SvgIcon.Pin">
                 <Content>
                     <h2>Content for Step 3</h2>
                 </Content>

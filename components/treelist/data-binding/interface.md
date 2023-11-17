@@ -30,7 +30,7 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
                  OnCreate="@CreateHandler"
                  OnModelInit="@(() => new Model1())">
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add</TreeListCommandButton>
+        <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
     </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="IntProperty" Expandable="true" />

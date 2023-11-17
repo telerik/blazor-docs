@@ -38,7 +38,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
     <label>
         Fixed Label
         <span class="tb-icon-container">
-            <TelerikFontIcon Icon="@FontIcon.Search" />
+            <TelerikSvgIcon Icon="@SvgIcon.Search" />
             <TelerikTextBox @bind-Value="@StringValue" Width="200px" />
         </span>
     </label>
@@ -46,7 +46,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
 
 <p>
     <span class="tb-icon-container with-label">
-        <TelerikFontIcon Icon="@FontIcon.Search" />
+        <TelerikSvgIcon Icon="@SvgIcon.Search" />
         <TelerikFloatingLabel Text="Floating Label">
             <TelerikTextBox @bind-Value="@StringValue" Width="200px" />
         </TelerikFloatingLabel>
@@ -102,7 +102,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
             <div class="input-group-prepend">
                 <label for="theTb">
                     <span class="input-group-text">
-                        <TelerikFontIcon Icon="@FontIcon.Home" />
+                        <TelerikSvgIcon Icon="@SvgIcon.Home" />
                         &nbsp;Home
                     </span>
                 </label>
@@ -122,7 +122,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
         @* Use the desired icons and styling here, 
             if you use a little more complex markup you could even 
             add event handlers to make this into a button *@
-        <TelerikFontIcon Icon="@FontIcon.Search" />
+        <TelerikSvgIcon Icon="@SvgIcon.Search" />
         <TelerikTextBox @bind-Value="@TheText" />
     </span>
 </label>
@@ -130,7 +130,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
 <br />
 <br />
 <span class="tb-icon-container with-label">
-    <TelerikFontIcon Icon="@FontIcon.Search" />
+    <TelerikSvgIcon Icon="@SvgIcon.Search" />
     <TelerikTextBox @bind-Value="@TheText" />
 </span>
 <style>

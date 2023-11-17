@@ -42,7 +42,7 @@ Here is an example of the described approach.
              Pageable="true" FilterMode="@GridFilterMode.FilterMenu"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => OnStateChangedHandler(args))">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GridCommandButton>
 
         @if (Grouped)
         {
@@ -56,8 +56,8 @@ Here is an example of the described approach.
         <GridColumn Field="@nameof(SampleData.IsOnLeave)" Title="On Vacation" />
         <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
         <GridCommandColumn>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
