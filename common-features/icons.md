@@ -135,8 +135,7 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
     }
 </style>
 
-<!-- Register this stylesheet next to the component theme. -->
-<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" />
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 ````
 
 ### Set Custom Font Icon Size
@@ -160,8 +159,7 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 
 <TelerikFontIcon Icon="@FontIcon.Filter"></TelerikFontIcon>
 
-<!-- Register this stylesheet next to the component theme. -->
-<link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" />
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 ````
 
 ### Render Font Icons with HTML
