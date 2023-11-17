@@ -32,10 +32,10 @@ The default Display mode of the Stepper is `Steps`. If labels are defined, with 
 <div style="width:500px">
     <TelerikStepper StepType="StepperStepType.Steps">
         <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>
@@ -55,10 +55,10 @@ If you want to display only labels for the steps, set the `StepType` parameter o
 <div style="width:500px">
     <TelerikStepper StepType="StepperStepType.Labels">
         <StepperSteps>
-            <StepperStep Label="Personal Info" Icon="@FontIcon.User"></StepperStep>
-            <StepperStep Label="Education" Icon="@FontIcon.Book"></StepperStep>
-            <StepperStep Label="Experience" Icon="@FontIcon.FlipVertical"></StepperStep>
-            <StepperStep Label="Attachments" Icon="@FontIcon.Paperclip"></StepperStep>
+            <StepperStep Label="Personal Info" Icon="@SvgIcon.User"></StepperStep>
+            <StepperStep Label="Education" Icon="@SvgIcon.Book"></StepperStep>
+            <StepperStep Label="Experience" Icon="@SvgIcon.FlipVertical"></StepperStep>
+            <StepperStep Label="Attachments" Icon="@SvgIcon.Paperclip"></StepperStep>
         </StepperSteps>
     </TelerikStepper>
 </div>

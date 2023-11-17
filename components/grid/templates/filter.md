@@ -78,7 +78,7 @@ The custom filter textboxes invoke filtering on Enter or blur through the OnChan
                 </TelerikNumericTextBox>
                 <TelerikButton ButtonType="ButtonType.Button"
                                Class="k-clear-button-visible ml-2"
-                               Icon="@FontIcon.FilterClear"
+                               Icon="@SvgIcon.FilterClear"
                                Enabled="@( MinValue != null || MaxValue != null )"
                                OnClick="@(async () =>
                                           {

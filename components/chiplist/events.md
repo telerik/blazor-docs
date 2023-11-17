@@ -58,13 +58,13 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
         new ChipModel()
         {
             ChipText = "Audio",
-            ChipIcon = FontIcon.FileAudio,
+            ChipIcon = SvgIcon.FileAudio,
             isChipRemovable = true
         },
         new ChipModel()
         {
             ChipText = "Video",
-            ChipIcon = FontIcon.FileVideo,
+            ChipIcon = SvgIcon.FileVideo,
             isChipRemovable = true
         }
     };
@@ -72,7 +72,7 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
     public class ChipModel
     {
         public string ChipText { get; set; }
-        public FontIcon? ChipIcon { get; set; }
+        public ISvgIcon ChipIcon { get; set; }
         public bool isChipRemovable { get; set; }
     }
 }

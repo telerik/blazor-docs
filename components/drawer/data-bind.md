@@ -25,7 +25,7 @@ This article has the following sections:
 The drawer items provide the following features that you control through the corresponding fields in their data binding:
 
 * `Text` - the text that will be shown on the item.
-* `Icon` - the [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
+* `Icon` - the [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug breadcrumb-icons%}).
 * `Url` - the view the item will navigate to by generating a link.
 * `Separator` - whether the item will be a separator line instead of a clickable item.
 
@@ -50,7 +50,7 @@ The properties of a drawer item match directly to a field of the model the drawe
 public class DrawerItem
 {
 	public string Text { get; set; }
-	public FontIcon? Icon { get; set; }
+	public ISvgIcon Icon { get; set; }
 	public string Url { get; set; }
 	public bool Separator { get;set; }
 }
@@ -75,14 +75,14 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
             {
-            new DrawerItem { ItemText = "Counter", ItemIcon = FontIcon.Plus, ItemUrl = "counter" },
-            new DrawerItem { ItemText = "FetchData", ItemIcon = FontIcon.GridLayout, ItemUrl = "fetchdata" },
+            new DrawerItem { ItemText = "Counter", ItemIcon = SvgIcon.Plus, ItemUrl = "counter" },
+            new DrawerItem { ItemText = "FetchData", ItemIcon = SvgIcon.GridLayout, ItemUrl = "fetchdata" },
             };
 
     public class DrawerItem
     {
         public string ItemText { get; set; }
-        public FontIcon? ItemIcon { get; set; }
+        public ISvgIcon ItemIcon { get; set; }
         public string ItemUrl { get; set; }
     }
 }

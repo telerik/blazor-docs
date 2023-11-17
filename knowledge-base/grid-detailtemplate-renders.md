@@ -95,17 +95,17 @@ NestedComponent<br />
              SortMode="@SortMode.Single"
              OnRowClick="@RowClickHandler">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Customer</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Customer</GridCommandButton>
         <GridSearchBox DebounceDelay="200"></GridSearchBox>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(Customer.Id)" />
         <GridColumn Field="@nameof(Customer.Name)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil"></GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash"></GridCommandButton>
-            <GridCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true"></GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true"></GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil"></GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true"></GridCommandButton>
+            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true"></GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <DetailTemplate>

@@ -62,7 +62,7 @@ The command column provides access to the data item via `context`. This may be u
         var product = context as ProductModel;
         if (product.Discontinued)
         {
-            <TreeListCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
         }
         else
         {
@@ -105,10 +105,10 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
     <TreeListColumns>
 
         <TreeListCommandColumn Width="250px">
-            <TreeListCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
-            <TreeListCommandButton Command="MyCustomCommand" Icon="@FontIcon.Gear" OnClick="@MyCustomCommandHandler">Custom Command</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true" OnClick="@CustomSaveClick">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="MyCustomCommand" Icon="@SvgIcon.Gear" OnClick="@MyCustomCommandHandler">Custom Command</TreeListCommandButton>
         </TreeListCommandColumn>
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />

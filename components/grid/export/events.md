@@ -57,7 +57,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="@FontIcon.FileExcel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -156,7 +156,6 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 @* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to CSV file. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
-@using Telerik.FontIcons
 
 @*This using is for the GridCsvExportColumn in the OnExcelBeforeExport method*@
 @using Telerik.Blazor.Components.Grid
@@ -168,7 +167,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="CsvExport" Icon="@FontIcon.FileCsv">Export to CSV</GridCommandButton>
+        <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -263,7 +262,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="@FontIcon.FileExcel">Export to Excel</GridCommandButton>
+        <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 
@@ -338,7 +337,7 @@ The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) even
              FilterMode="@GridFilterMode.FilterRow" Groupable="true">
 
     <GridToolBarTemplate>
-        <GridCommandButton Command="CsvExport" Icon="@FontIcon.FileCsv">Export to CSV</GridCommandButton>
+        <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
     </GridToolBarTemplate>
 

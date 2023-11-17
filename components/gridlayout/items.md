@@ -269,7 +269,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                                MiniMode="true"
                                Mode="DrawerMode.Push"
                                @ref="@DrawerRef"
-                               IconField="@nameof(DrawerItem.TelerikFontIcon)"
+                               IconField="@nameof(DrawerItem.Icon)"
                                @bind-SelectedItem="@SelectedItem">
                 </TelerikDrawer>
             </div>
@@ -293,7 +293,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
         <GridLayoutItem Column="3" Row="2">
             <TelerikTreeView Data="@TreeViewData">
                 <TreeViewBindings>
-                    <TreeViewBinding IconField="@nameof(TreeViewModel.TelerikFontIcon)" />
+                    <TreeViewBinding IconField="@nameof(TreeViewModel.Icon)" />
                 </TreeViewBindings>
             </TelerikTreeView>
         </GridLayoutItem>
@@ -324,7 +324,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                 Text = "Company",
                 ParentId = null,
                 HasChildren = true,
-                TelerikFontIcon = FontIcon.Home
+                Icon = SvgIcon.Home
             });
 
         TreeViewData.Add(new TreeViewModel()
@@ -333,7 +333,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                 Text = "Contact us",
                 ParentId = 1,
                 HasChildren = false,
-                TelerikFontIcon = FontIcon.Envelope
+                Icon = SvgIcon.Envelope
             });
 
         TreeViewData.Add(new TreeViewModel()
@@ -341,7 +341,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
                 Id = 3,
                 Text = "Audio",
                 ParentId = null,
-                TelerikFontIcon = FontIcon.FileAudio
+                Icon = SvgIcon.FileAudio
             });
     }
 
@@ -351,7 +351,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
         public string Text { get; set; }
         public bool HasChildren { get; set; }
         public int? ParentId { get; set; }
-        public FontIcon? TelerikFontIcon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
@@ -375,14 +375,14 @@ You can use the exposed parameters of the GridLayout items to create more comple
     IEnumerable<DrawerItem> DrawerData { get; set; } =
         new List<DrawerItem>
                 {
-            new DrawerItem { Text = "Counter", TelerikFontIcon = FontIcon.Plus },
-            new DrawerItem { Text = "FetchData", TelerikFontIcon = FontIcon.GridLayout },
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
                     };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon TelerikFontIcon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

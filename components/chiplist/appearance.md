@@ -58,19 +58,19 @@ The `FillMode` controls how the individual chip is filled. You can set it to a m
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -117,19 +117,19 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the chip to achi
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -173,19 +173,19 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
         new ChipModel()
         {
             Text = "Audio",
-            Icon = FontIcon.FileAudio
+            Icon = SvgIcon.FileAudio
         },
         new ChipModel()
         {
             Text = "Video",
-            Icon = FontIcon.FileVideo
+            Icon = SvgIcon.FileVideo
         }
     };
 
     public class ChipModel
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

@@ -47,26 +47,26 @@ To use the Context Menu for navigating between pages:
             {
                 Text = "Contact us",
                 Url = "/contacts",
-                Icon = FontIcon.Envelope
+                Icon = SvgIcon.Envelope
             },
             new MenuModel()
             {
                 Text = "Settings",
                 Url = "/settings",
-                Icon = FontIcon.Gear,
+                Icon = SvgIcon.Gear,
                 Items = new List<MenuModel>()
                 {
                     new MenuModel()
                     {
                         Text = "Profile Settings",
                         Url = "/profile",
-                        Icon = FontIcon.User
+                        Icon = SvgIcon.User
                     },
                     new MenuModel()
                     {
                         Text = "Language Settings",
                         Url = "/language",
-                        Icon = FontIcon.Globe
+                        Icon = SvgIcon.Globe
                     }
                 }
             }
@@ -77,7 +77,7 @@ To use the Context Menu for navigating between pages:
     {
         public string Text { get; set; }
         public string Url { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public List<MenuModel> Items { get; set; }
     }
 }

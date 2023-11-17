@@ -18,28 +18,32 @@ You can put a Font or Svg Icon in the toggle button to illustrate its purpose fo
 
 | Parameter | Type and Default Value | Description |
 |---|---|---|
-| `Icon`| `object` | Use it to display a [Telerik Font and Svg Icons]({%slug general-information/font-icons%}). |
+| `Icon`| `object` | Use it to display a [Telerik Font and Svg Icons]({%slug common-features-icons%}). |
 
-The following example shows how to use the built-in Font and Svg icons.
+The following example shows how to use SVG and Font icons. If you don't add text to the button, the button will center the icon on all sides.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik Toggle Button
 
 ````CSHTML
 @* This sample shows how you can use conditional logic to show different icons in the different states.*@
 
-<TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.AlignCenter : SvgIcon.AlignBottom)" @bind-Selected="@SvgSelected">Svg Icon</TelerikToggleButton>
+<TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )"
+                     @bind-Selected="@SvgSelected">Svg Icon</TelerikToggleButton>
 
-<TelerikToggleButton Icon="@( FontSelected ? FontIcon.VolumeDown : FontIcon.VolumeUp )" @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+<TelerikToggleButton Icon="@( FontSelected ? FontIcon.VolumeUp : FontIcon.VolumeDown )"
+                     @bind-Selected="@FontSelected">Font Icon</TelerikToggleButton>
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 
 @code {
     private bool SvgSelected { get; set; }
+
     private bool FontSelected { get; set; }
 }
 ````
 
->tip You can use relative paths to your images in the `wwwroot` folder. The example above uses absolute paths to make it easy for you to see the results without preparing images.
-
->tip If you don't add text to the button, the button will center the icon on all sides.
 
 ## Icon Size
 

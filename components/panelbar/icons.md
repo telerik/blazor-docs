@@ -10,16 +10,20 @@ position: 15
 
 # PanelBar Icons
 
-You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the PanelBar items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the PanelBar items. The component also supports custom icons.
 
-To use PanelBar item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the PanelBar. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+To use PanelBar item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the PanelBar.
+
+@[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
 
 If the icon property name in the PanelBar model is `Icon`, there is no need to set the `IconField` parameter.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik PanelBar
 
 ````CSHTML
-<TelerikPanelBar Data="@Items">
+<TelerikPanelBar Data="@PanelBarData">
     <PanelBarBindings>
         <PanelBarBinding IconField="@nameof(PanelBarItem.Icon)"></PanelBarBinding>
     </PanelBarBindings>
@@ -43,52 +47,50 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
     }
 </style>
 
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+
 @code {
-    public List<PanelBarItem> Items { get; set; }
+    private List<PanelBarItem> PanelBarData { get; set; } = new List<PanelBarItem>();
 
     protected override void OnInitialized()
     {
-        Items = new List<PanelBarItem>();
-
-        List<PanelBarItem> items = new List<PanelBarItem>();
-
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 1,
-            Text = "Home (Font Icon)",
+            Text = "Home (SVG Icon)",
             ParentId = null,
             HasChildren = false,
-            Icon = FontIcon.Home
+            Icon = SvgIcon.Home
         });
 
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 2,
-            Text = "Contact Us (SVG Icon)",
+            Text = "Contact Us (Font Icon)",
             ParentId = null,
             HasChildren = true,
-            Icon = SvgIcon.Book
+            Icon = FontIcon.Book
         });
 
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 3,
             Text = "Email",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.Envelope
+            Icon = SvgIcon.Envelope
         });
 
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 4,
             Text = "LinkedIn",
             ParentId = 2,
             HasChildren = false,
-            Icon = FontIcon.LinkedinBox
+            Icon = SvgIcon.LinkedinBox
         });
 
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 5,
             Text = "Custom Icon",
@@ -97,7 +99,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
             Icon = "my-icon my-icon-purple"
         });
 
-        Items.Add(new PanelBarItem()
+        PanelBarData.Add(new PanelBarItem()
         {
             Id = 6,
             Text = "Empty Icon",

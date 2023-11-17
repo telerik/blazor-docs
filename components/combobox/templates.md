@@ -61,7 +61,7 @@ The ComboBox component allows you to change what is rendered in its items, heade
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikFontIcon>
+            <TelerikSvgIcon Size="@ThemeConstants.SvgIcon.Size.Large" Icon="@SvgIcon.FilesError"></TelerikSvgIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>

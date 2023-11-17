@@ -30,8 +30,8 @@ By default columns display the name of the corresponding field or their `Title` 
     </GanttViews>
     <GanttColumns>
         <GanttCommandColumn Width="80px">
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"
@@ -63,7 +63,7 @@ By default columns display the name of the corresponding field or their `Title` 
                      Width="100px">
             <HeaderTemplate>
                 <span>
-                    <TelerikFontIcon Icon="@FontIcon.Image" />
+                    <TelerikSvgIcon Icon="@SvgIcon.Image" />
                     Column with Icon
                 </span>
             </HeaderTemplate>

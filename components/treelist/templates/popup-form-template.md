@@ -32,7 +32,7 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
                      EditMode="@TreeListEditMode.Popup"
                      OnDelete="@DeleteItem">
         <TreeListToolBarTemplate>
-            <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add</TreeListCommandButton>
+            <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
         </TreeListToolBarTemplate>
             <TreeListSettings>
                 <TreeListPopupEditFormSettings>
@@ -47,8 +47,8 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
                                     <FormItem Field="HireDate" LabelText="Custom HireDate editor:"></FormItem>
                                 </FormItems>
                                 <FormButtons>
-                                    <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
-                                    <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                                    <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
+                                    <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
                                 </FormButtons>
                             </TelerikForm>
                         }
@@ -62,11 +62,11 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
             <TreeListColumn Field="HireDate" Width="300px"></TreeListColumn>
             <TreeListColumn Field="OutOfOffice" Width="100px"></TreeListColumn>
             <TreeListCommandColumn>
-                <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add Child</TreeListCommandButton>
-                <TreeListCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</TreeListCommandButton>
-                <TreeListCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</TreeListCommandButton>
-                <TreeListCommandButton Command="Save" Icon="@FontIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
-                <TreeListCommandButton Command="Cancel" Icon="@FontIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+                <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
+                <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
+                <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
+                <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+                <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
             </TreeListCommandColumn>
         </TreeListColumns>
     </TelerikTreeList>

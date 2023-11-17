@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 ## Creating Blazor ToolBar
 
 1. Add the `<TelerikToolBar>` tag to a Razor file.
-2. Use child tags to add [tools]({%slug toolbar-built-in-tools%}) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`]({%slug general-information/font-icons%}#icons-list).
+2. Use child tags to add [tools]({%slug toolbar-built-in-tools%}) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`]({%slug common-features-icons%}#icons-list).
 3. Define `OnClick` handlers for the buttons.
 4. Set the `Selected` parameter of the toggle buttons. It supports two-way binding.
 5. (optional) Place related buttons in a `<ToolBarButtonGroup>` to display them together.

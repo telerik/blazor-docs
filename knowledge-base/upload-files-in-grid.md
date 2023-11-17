@@ -71,7 +71,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         <GridPopupEditSettings Width="600px" />
     </GridSettings>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add New</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add New</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(Product.ImageUrl)" Width="160px" Title="Product Image">
@@ -94,7 +94,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
                             <img src="@editDataItem.ImageUrl" alt="@editDataItem.Name" class="product-image" />
                             <br />
                             <TelerikButton ButtonType="@ButtonType.Button"
-                                           Icon="@FontIcon.Trash"
+                                           Icon="@SvgIcon.Trash"
                                            OnClick="@( () => OnRemoveButtonClick(editDataItem) )">
                                 Delete Current Image
                             </TelerikButton>
@@ -113,8 +113,8 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         </GridColumn>
         <GridColumn Field="@nameof(Product.Name)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

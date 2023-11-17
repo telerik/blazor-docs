@@ -32,7 +32,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@FontIcon.Menu">
+               Icon="@SvgIcon.Menu">
     Toggle drawer
 </TelerikButton>
 
@@ -47,14 +47,14 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
             {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
             };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -131,7 +131,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
-               Icon="@FontIcon.Menu">
+               Icon="@SvgIcon.Menu">
     Toggle drawer
 </TelerikButton>
 
@@ -146,14 +146,14 @@ The Drawer methods are accessible through it's reference. These methods change t
     IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
             {
-            new DrawerItem { Text = "Counter", Icon = FontIcon.Plus },
-            new DrawerItem { Text = "FetchData", Icon = FontIcon.GridLayout },
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
             };
 
     public class DrawerItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````

@@ -56,7 +56,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = FontIcon.Gears
+                Icon = SvgIcon.Gears
             });
 
         TreeViewRef.Rebind();
@@ -82,7 +82,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
        new TreeItem()
        {
@@ -90,7 +90,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         },
         new TreeItem()
         {
@@ -98,7 +98,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
         new TreeItem()
         {
@@ -106,7 +106,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         },
         new TreeItem()
         {
@@ -114,7 +114,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         },
         new TreeItem()
         {
@@ -122,7 +122,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         },
         new TreeItem()
         {
@@ -130,7 +130,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         }
     };
     }
@@ -141,7 +141,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -184,7 +184,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = FontIcon.Gears
+                Icon = SvgIcon.Gears
             });
     }
 
@@ -206,7 +206,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
        new TreeItem()
        {
@@ -214,7 +214,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         },
         new TreeItem()
         {
@@ -222,7 +222,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
         new TreeItem()
         {
@@ -230,7 +230,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         },
         new TreeItem()
         {
@@ -238,7 +238,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         },
         new TreeItem()
         {
@@ -246,7 +246,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         },
         new TreeItem()
         {
@@ -254,7 +254,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         }
     };
     }
@@ -265,7 +265,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 }
 ````
@@ -303,7 +303,7 @@ In this article:
                 Text = "Testing",
                 ParentIdValue = 1,
                 HasChildren = false,
-                Icon = FontIcon.Gears
+                Icon = SvgIcon.Gears
             });
 
         Items = new List<TreeItem>(Items);
@@ -328,7 +328,7 @@ In this article:
             Text = "New root item",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
             new TreeItem()
         {
@@ -336,7 +336,7 @@ In this article:
             Text = "New child item 1",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         },
             new TreeItem()
         {
@@ -344,7 +344,7 @@ In this article:
             Text = "New child item 2",
             ParentIdValue = 1,
             HasChildren = false,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
             new TreeItem()
         {
@@ -352,7 +352,7 @@ In this article:
             Text = "Child of item 1",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.Gears
+            Icon = SvgIcon.Gears
         }
         };
         Items = new List<TreeItem>(Items);
@@ -364,7 +364,7 @@ In this article:
         public string Text { get; set; }
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     public List<TreeItem> Items { get; set; } = new List<TreeItem>() {
@@ -375,7 +375,7 @@ In this article:
             Text = "Project",
             ParentIdValue = null,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
        new TreeItem()
        {
@@ -383,7 +383,7 @@ In this article:
             Text = "Design",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Brush
+            Icon = SvgIcon.Brush
         },
         new TreeItem()
         {
@@ -391,7 +391,7 @@ In this article:
             Text = "Implementation",
             ParentIdValue = 1,
             HasChildren = true,
-            Icon = FontIcon.Folder
+            Icon = SvgIcon.Folder
         },
         new TreeItem()
         {
@@ -399,7 +399,7 @@ In this article:
             Text = "site.psd",
             ParentIdValue = 2,
             HasChildren = false,
-            Icon = FontIcon.FilePsd
+            Icon = SvgIcon.FilePsd
         },
         new TreeItem()
         {
@@ -407,7 +407,7 @@ In this article:
             Text = "index.js",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Js
+            Icon = SvgIcon.Js
         },
         new TreeItem()
         {
@@ -415,7 +415,7 @@ In this article:
             Text = "index.html",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Html5
+            Icon = SvgIcon.Html5
         },
         new TreeItem()
         {
@@ -423,7 +423,7 @@ In this article:
             Text = "styles.css",
             ParentIdValue = 3,
             HasChildren = false,
-            Icon = FontIcon.Css
+            Icon = SvgIcon.Css
         }
     };
 }

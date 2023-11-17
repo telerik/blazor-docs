@@ -10,9 +10,9 @@ position: 15
 
 # Breadcrumb Separator
 
-The Breadcrumb component renders a [Telerik font icon]({%slug general-information/font-icons%}) as a separator between its items. By default the separator icon is `chevron-right`.
+The Breadcrumb component renders a [Telerik font icon]({%slug common-features-icons%}) as a separator between its items. By default the separator icon is `chevron-right`.
 
-You can define a separator icon of your choice through the `SeparatorIcon` attribute of the `TelerikBreadcrumb`. It accepts an `object` with the [Telerik icon]({%slug general-information/font-icons%}) name.
+You can define a separator icon of your choice through the `SeparatorIcon` attribute of the `TelerikBreadcrumb`. It accepts an `object` with the [Telerik icon]({%slug common-features-icons%}) name.
 
 Furthermore, you can take full control over the Separator rendering with the [SeparatorTemplate]({%slug breadcrumb-templates%}#separatortemplate) the Breadcrumb component provides.
 
@@ -23,7 +23,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
 ````CSHTML
 @* This example demonstrates how to change the default Telerik icon used as a Breadcrumb Separator*@
 
-<TelerikBreadcrumb SeparatorIcon="@FontIcon.CaretDoubleAltRight"
+<TelerikBreadcrumb SeparatorIcon="@SvgIcon.CaretDoubleAltRight"
                    Data="@Items">
 </TelerikBreadcrumb>
 
@@ -34,7 +34,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
     {
         Items = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { Text = "Home", Icon = FontIcon.Home },
+            new BreadcrumbItem { Text = "Home", Icon = SvgIcon.Home },
             new BreadcrumbItem { Text = "Products"},
             new BreadcrumbItem { Text = "Computer peripherals"},
             new BreadcrumbItem { Text = "Keyboards"}
@@ -44,7 +44,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
     }
 }

@@ -62,8 +62,8 @@ Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data
     <GridColumns>
         <GridCheckboxColumn Width="90px">
             <HeaderTemplate>
-                <TelerikButton OnClick="@FilterSelected" Icon="FontIcon.Filter" ThemeColor="@(selectedOnly? "primary" : "base")"></TelerikButton>
-                <TelerikButton OnClick="@ClearFilter" Icon="FontIcon.FilterClear" Enabled="@selectedOnly"></TelerikButton>
+                <TelerikButton OnClick="@FilterSelected" Icon="SvgIcon.Filter" ThemeColor="@(selectedOnly? "primary" : "base")"></TelerikButton>
+                <TelerikButton OnClick="@ClearFilter" Icon="SvgIcon.FilterClear" Enabled="@selectedOnly"></TelerikButton>
             </HeaderTemplate>
         </GridCheckboxColumn>
         <GridColumn Field=@nameof(Employee.Name) />
@@ -170,8 +170,8 @@ Depending on the flag value, you can make the request based on the corresponding
     <GridColumns>
         <GridCheckboxColumn Width="90px">
             <HeaderTemplate>
-                <TelerikButton OnClick="@FilterSelected" Icon="FontIcon.Filter" ThemeColor="@(selectedOnly? "primary" : "base")"></TelerikButton>
-                <TelerikButton OnClick="@ClearFilter" Icon="FontIcon.FilterClear" Enabled="@selectedOnly"></TelerikButton>
+                <TelerikButton OnClick="@FilterSelected" Icon="SvgIcon.Filter" ThemeColor="@(selectedOnly? "primary" : "base")"></TelerikButton>
+                <TelerikButton OnClick="@ClearFilter" Icon="SvgIcon.FilterClear" Enabled="@selectedOnly"></TelerikButton>
             </HeaderTemplate>
         </GridCheckboxColumn>
         <GridColumn Field=@nameof(Employee.Name) />

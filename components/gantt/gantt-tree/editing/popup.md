@@ -465,13 +465,13 @@ Parameter | Type | Description
         </GanttPopupEditFormSettings>
     </GanttSettings>
     <GanttToolBarTemplate>
-        <GanttCommandButton Command="Add" Icon="@FontIcon.Plus">Add</GanttCommandButton>
+        <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GanttCommandButton>
     </GanttToolBarTemplate>
     <GanttColumns>
         <GanttCommandColumn Width="110px">
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Edit" Icon="@FontIcon.Pencil"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Edit" Icon="@SvgIcon.Pencil"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
         <GanttColumn Field="Title"
                      Expandable="true"

@@ -40,7 +40,7 @@ The PanelBar items provide the following features that you control through the c
 
 * `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`]({%slug panelbar-events%}#onitemclick) will not be fired if the item is disabled.
 
-* `Icon` - The [Telerik Font or SVG icon]({%slug general-information/font-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
+* `Icon` - The [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
 
 * `Url` - the view the item will navigate to by generating a link.
 
@@ -84,7 +84,7 @@ public class PanelBarItem
 	public int? ParentId { get; set; }
 	public bool Disabled { get; set; }
 	public bool HasChildren { get; set; }
-	public FontIcon? Icon { get; set; }
+	public ISvgIcon Icon { get; set; }
 	public string Url { get; set; }
 }
 ````
@@ -110,7 +110,7 @@ The following **Example** shows how to define simple binding to match item field
         public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
     }
 
@@ -124,7 +124,7 @@ The following **Example** shows how to define simple binding to match item field
                 Text = "Project",
                 ParentId = null,
                 HasChildren = false,
-                Icon = FontIcon.Folder,
+                Icon = SvgIcon.Folder,
                 Url = "projectURL.url"
             });
 
@@ -134,7 +134,7 @@ The following **Example** shows how to define simple binding to match item field
                 Text = "Implementation",
                 ParentId = null,
                 HasChildren = true,
-                Icon = FontIcon.Code
+                Icon = SvgIcon.Code
             });
 
         items.Add(new PanelBarItem()
@@ -143,7 +143,7 @@ The following **Example** shows how to define simple binding to match item field
                 Text = "C#",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Cs
+                Icon = SvgIcon.Cs
             });
 
         items.Add(new PanelBarItem()
@@ -152,7 +152,7 @@ The following **Example** shows how to define simple binding to match item field
                 Text = "HTML 5",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Html5
+                Icon = SvgIcon.Html5
             });
 
         items.Add(new PanelBarItem()
@@ -161,7 +161,7 @@ The following **Example** shows how to define simple binding to match item field
                 Text = "CSS",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Css
+                Icon = SvgIcon.Css
             });
 
         return items;
@@ -229,7 +229,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
         public string SecondLevelText { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
     }
 
@@ -243,7 +243,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
                 Text = "Project",
                 ParentId = null,
                 HasChildren = false,
-                Icon = FontIcon.Folder,
+                Icon = SvgIcon.Folder,
                 Url = "projectURL.url"
             });
 
@@ -253,7 +253,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
                 Text = "Implementation",
                 ParentId = null,
                 HasChildren = true,
-                Icon = FontIcon.Code
+                Icon = SvgIcon.Code
             });
 
         items.Add(new PanelBarItem()
@@ -262,7 +262,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
                 SecondLevelText = "C#",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Cs
+                Icon = SvgIcon.Cs
             });
 
         items.Add(new PanelBarItem()
@@ -271,7 +271,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
                 SecondLevelText = "HTML 5",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Html5
+                Icon = SvgIcon.Html5
             });
 
         items.Add(new PanelBarItem()
@@ -280,7 +280,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
                 SecondLevelText = "CSS",
                 ParentId = 2,
                 HasChildren = false,
-                Icon = FontIcon.Css
+                Icon = SvgIcon.Css
             });
 
         return items;

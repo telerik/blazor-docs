@@ -65,7 +65,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
         Include <strong>@context.Title</strong>
     </ItemTemplate>
     <TagTemplate>
-        <TelerikFontIcon Icon="@context.Icon"></TelerikFontIcon>
+        <TelerikSvgIcon Icon="@context.Icon"></TelerikSvgIcon>
         @context.Title
     </TagTemplate>
     <FooterTemplate>
@@ -73,7 +73,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikFontIcon>
+            <TelerikSvgIcon Size="@ThemeConstants.SvgIcon.Size.Large" Icon="@SvgIcon.FilesError"></TelerikSvgIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>
@@ -88,21 +88,21 @@ The MultiSelect component allows you to change what is rendered in its items, he
 
     private List<Role> SourceData { get; set; } = new List<Role>()
     {
-        new Role(){Id = 1, Title = "Manager", Icon = FontIcon.User},
-        new Role(){Id = 2, Title = "Developer", Icon = FontIcon.Code},
-        new Role(){Id = 3, Title = "QA", Icon = FontIcon.ValidationXhtml},
-        new Role(){Id = 4, Title = "Technical Writer", Icon = FontIcon.Js},
-        new Role(){Id = 5, Title = "Support Engineer", Icon = FontIcon.QuestionCircle},
-        new Role(){Id = 6, Title = "Sales Agent", Icon = FontIcon.Dollar},
-        new Role(){Id = 7, Title = "Architect", Icon = FontIcon.BuildingBlocks},
-        new Role(){Id = 8, Title = "Designer", Icon = FontIcon.Brush},
+        new Role(){Id = 1, Title = "Manager", Icon = SvgIcon.User},
+        new Role(){Id = 2, Title = "Developer", Icon = SvgIcon.Code},
+        new Role(){Id = 3, Title = "QA", Icon = SvgIcon.ValidationXhtml},
+        new Role(){Id = 4, Title = "Technical Writer", Icon = SvgIcon.Js},
+        new Role(){Id = 5, Title = "Support Engineer", Icon = SvgIcon.QuestionCircle},
+        new Role(){Id = 6, Title = "Sales Agent", Icon = SvgIcon.Dollar},
+        new Role(){Id = 7, Title = "Architect", Icon = SvgIcon.BuildingBlocks},
+        new Role(){Id = 8, Title = "Designer", Icon = SvgIcon.Brush},
     };
 
     public class Role
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public FontIcon Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     protected override void OnInitialized()

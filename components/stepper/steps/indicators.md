@@ -46,7 +46,7 @@ Stepper component allows you to use Font and Svg icons for its step indicators. 
 
 * `Icon` - defines the name of the desired Telerik font icon.
 
-More details as well as a list of the available Telerik font icons you can find in the [Built-in Icons article]({%slug general-information/font-icons%}).
+More details as well as a list of the available Telerik font icons you can find in the [Built-in Icons article]({%slug common-features-icons%}).
 
 ![Icon Indicators](images/icon-indicators-example.png)
 
@@ -56,7 +56,7 @@ More details as well as a list of the available Telerik font icons you can find 
 <div style="width:500px">
     <TelerikStepper>
         <StepperSteps>
-            <StepperStep Icon="@FontIcon.Globe" Label="Font Icon"></StepperStep>
+            <StepperStep Icon="@SvgIcon.Globe" Label="Font Icon"></StepperStep>
             <StepperStep Icon="@SvgIcon.Pin" Label="Svg Icon"></StepperStep>
         </StepperSteps>
     </TelerikStepper>

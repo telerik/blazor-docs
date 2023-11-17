@@ -76,7 +76,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
                 if (task.ParentId != null)
                 {
-                    <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+                    <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
                 }
                 else
                 {
@@ -124,9 +124,9 @@ The following code example demonstrates declarations and handling of the built-i
                      DisplayFormat="{0:d}">
         </GanttColumn>
         <GanttCommandColumn>
-            <GanttCommandButton OnClick="@((args) => GetTaskDetails(args))" Icon="@FontIcon.InfoCircle"></GanttCommandButton>
-            <GanttCommandButton Command="Add" Icon="@FontIcon.Plus"></GanttCommandButton>
-            <GanttCommandButton Command="Delete" Icon="@FontIcon.Trash"></GanttCommandButton>
+            <GanttCommandButton OnClick="@((args) => GetTaskDetails(args))" Icon="@SvgIcon.InfoCircle"></GanttCommandButton>
+            <GanttCommandButton Command="Add" Icon="@SvgIcon.Plus"></GanttCommandButton>
+            <GanttCommandButton Command="Delete" Icon="@SvgIcon.Trash"></GanttCommandButton>
         </GanttCommandColumn>
     </GanttColumns>
     <GanttViews>

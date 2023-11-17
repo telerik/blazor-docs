@@ -27,7 +27,7 @@ How can I also include more than one icon in the Button?
 
 ## Solution
 
-You can change the position of the [icons]({%slug general-information/font-icons%}) and add more icons in the button by nesting the `TelerikIcon` in the `TelerikButton` content.
+You can change the position of the [icons]({%slug common-features-icons%}) and add more icons in the button by nesting the `TelerikIcon` in the `TelerikButton` content.
 
 >caption Reposition the Button icon and add more than one icon to the component
 
@@ -36,8 +36,8 @@ You can change the position of the [icons]({%slug general-information/font-icons
 ````CSHTML
 @*This button has two icons, one on the left and one on the right side of the text*@
 <TelerikButton>
-    <TelerikFontIcon Icon="@FontIcon.CheckOutline" />
+    <TelerikSvgIcon Icon="@SvgIcon.CheckOutline" />
     Check it
-    <TelerikFontIcon Icon="@FontIcon.CheckOutline" />
+    <TelerikSvgIcon Icon="@SvgIcon.CheckOutline" />
 </TelerikButton>
 ````

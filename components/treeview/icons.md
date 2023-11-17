@@ -10,16 +10,21 @@ position: 15
 
 # TreeView Icons
 
-You can add [Telerik Font or SVG icons]({%slug general-information/font-icons%}) to the TreeView items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the TreeView items. The component also supports custom icons.
 
-To use TreeView item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the respective `TreeViewBinding`. The model property can hold a `FontIcon` enum, an `ISvgIcon`, or a `string` that signifies a CSS class.
+To use TreeView item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the respective `TreeViewBinding`.
+
+@[template](/_contentTemplates/common/icons.md#icon-property-supported-types)
 
 If the icon property name in the TreeView model is `Icon`, there is no need to set the `IconField` parameter.
+
+@[template](/_contentTemplates/common/icons.md#font-icons-css-note)
 
 >caption How to use icons in the Telerik TreeView
 
 ````CSHTML
-<TelerikTreeView Data="@TreeViewData">
+<TelerikTreeView Data="@TreeViewData"
+                 @bind-ExpandedItems="@TreeViewExpandedItems">
     <TreeViewBindings>
         <TreeViewBinding IconField="@nameof(TreeItem.Icon)" />
     </TreeViewBindings>
@@ -44,26 +49,28 @@ If the icon property name in the TreeView model is `Icon`, there is no need to s
     }
 </style>
 
+@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+
 @code {
-    private List<TreeItem> TreeViewData { get; set; }
+    private List<TreeItem> TreeViewData { get; set; } = new List<TreeItem>();
+
+    private IEnumerable<object> TreeViewExpandedItems { get; set; } = new List<TreeItem>();
 
     protected override void OnInitialized()
     {
-        TreeViewData = new List<TreeItem>();
-
         TreeViewData.Add(new TreeItem()
         {
             Id = 1,
-            Text = "Font Icon",
+            Text = "SVG Icon",
             ParentId = null,
             HasChildren = true,
-            Icon = FontIcon.Home
+            Icon = SvgIcon.Home
         });
 
         TreeViewData.Add(new TreeItem()
         {
             Id = 2,
-            Text = "SVG Icon",
+            Text = "Font Icon",
             ParentId = 1,
             HasChildren = false,
             Icon = FontIcon.Envelope
@@ -84,6 +91,8 @@ If the icon property name in the TreeView model is `Icon`, there is no need to s
             ParentId = 1,
             Icon = "my-icon"
         });
+
+        ((List<TreeItem>)TreeViewExpandedItems).Add(TreeViewData.First());
     }
 
     public class TreeItem

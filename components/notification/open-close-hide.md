@@ -73,7 +73,7 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
             Text = "My Notification",
             ThemeColor = "success",
             ShowIcon = true,
-            Icon = FontIcon.Star,
+            Icon = SvgIcon.Star,
             Closable = false
         });
     }
@@ -117,7 +117,7 @@ You can also let the user dismiss a notification message before that timer elaps
             ThemeColor = "success",
             Closable = false,
             CloseAfter = 2000,
-            Icon = FontIcon.Star
+            Icon = SvgIcon.Star
         });
     }
 }
@@ -147,7 +147,7 @@ You can prevent the notification from closing automatically and let the user clo
             ThemeColor = "success",
             Closable = true,
             CloseAfter = 0,
-            Icon = FontIcon.Star
+            Icon = SvgIcon.Star
         });
     }
 }
@@ -188,7 +188,7 @@ To hide all notifications, you use the `HideAll` method. This function enables y
             Text = "My First Notification",
             ThemeColor = "success",
             Closable = true,
-            Icon = FontIcon.Star
+            Icon = SvgIcon.Star
         });
     }
 
@@ -199,7 +199,7 @@ To hide all notifications, you use the `HideAll` method. This function enables y
             Text = "My Second Notification",
             ThemeColor = "error",
             Closable = true,
-            Icon = FontIcon.Star
+            Icon = SvgIcon.Star
         });
     }
 }

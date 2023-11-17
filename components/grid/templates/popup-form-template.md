@@ -47,7 +47,7 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
              PageSize="5"
              OnDelete="@DeleteItem">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridSettings>
         <GridPopupEditSettings Width="550px" MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
@@ -75,12 +75,12 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
                                     </TelerikDropDownList>
                                 </Template>
                             </FormItem>
-                        </FormItems>
-                        <FormButtons>
-                            <TelerikButton Icon="@nameof(FontIcon.Save)">Save</TelerikButton>
-                            <TelerikButton Icon="@nameof(FontIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
-                        </FormButtons>
-                    </TelerikForm>
+                            </FormItems>
+                            <FormButtons>
+                                <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
+                                <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                            </FormButtons>
+                        </TelerikForm>
                 }
             </FormTemplate>
         </GridPopupEditFormSettings>
@@ -91,8 +91,8 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
         <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
         <GridColumn Field=@nameof(Person.Position) Title="Position" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@FontIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>

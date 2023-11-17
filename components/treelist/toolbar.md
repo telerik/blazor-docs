@@ -43,7 +43,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
 
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="@FontIcon.InfoCircle">Fire My Command</TreeListCommandButton>
+        <TreeListCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="@SvgIcon.InfoCircle">Fire My Command</TreeListCommandButton>
     </TreeListToolBarTemplate>
 
     <TreeListColumns>
@@ -163,7 +163,7 @@ You can add your own HTML and components to create a more complex layout in the 
                 we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
 
             <div style="background:yellow">
-                <TreeListCommandButton Command="Add" Icon="@FontIcon.Plus">Add Employee</TreeListCommandButton>
+                <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</TreeListCommandButton>
             </div>
             <div style="background: green;">
                 <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>

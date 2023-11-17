@@ -31,7 +31,7 @@ The built-in delete confirmation dialog triggers before item deletion. You can e
                  ConfirmDelete="true">
     <TreeListColumns>
         <TreeListCommandColumn>
-            <TreeListCommandButton Command="Delete" Icon="@FontIcon.Trash">Delete</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
         </TreeListCommandColumn>
         <TreeListColumn Field="Name" Expandable="true" />
         <TreeListColumn Field="Id" />

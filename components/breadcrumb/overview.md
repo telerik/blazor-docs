@@ -45,7 +45,7 @@ To use a Telerik Breadcrumb for Blazor:
     {
         Items = new List<BreadcrumbItem>
         {
-            new BreadcrumbItem { Text = "Home", Icon = FontIcon.Home },
+            new BreadcrumbItem { Text = "Home", Icon = SvgIcon.Home },
             new BreadcrumbItem { Text = "Products"},
             new BreadcrumbItem { Text = "Computer peripherals"},
             new BreadcrumbItem { Text = "Keyboards"},
@@ -56,7 +56,7 @@ To use a Telerik Breadcrumb for Blazor:
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
     } 
 }
@@ -87,7 +87,7 @@ To use a Telerik Breadcrumb for Blazor:
     public class BreadcrumbItem
     {
         public string Text { get; set; }
-        public FontIcon? Icon { get; set; }
+        public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
     }
 }

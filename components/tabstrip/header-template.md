@@ -31,7 +31,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 <TelerikTabStrip>
     <TabStripTab>
         <HeaderTemplate>            
-            <TelerikFontIcon Icon="@FontIcon.Envelope" />
+            <TelerikSvgIcon Icon="@SvgIcon.Envelope" />
             <strong>Icon and text</strong>
         </HeaderTemplate>
         <Content>            
@@ -40,7 +40,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
     </TabStripTab>
     <TabStripTab Title="History">        
         <HeaderTemplate>
-            <TelerikFontIcon Icon="@FontIcon.Clock" />
+            <TelerikSvgIcon Icon="@SvgIcon.Clock" />
             <strong>Icon and text 2</strong>
         </HeaderTemplate>
         <Content>

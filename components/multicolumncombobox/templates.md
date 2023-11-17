@@ -74,7 +74,7 @@ You can access the `context` object and cast it to the bound model to employ som
     </FooterTemplate>
     <NoDataTemplate>
         <div class="no-data-template">
-            <TelerikFontIcon Class="k-icon k-icon-lg" Icon="@FontIcon.FilesError"></TelerikIcon>
+            <TelerikSvgIcon Size="@ThemeConstants.SvgIcon.Size.Large" Icon="@SvgIcon.FilesError"></TelerikSvgIcon>
             <p>No items available</p>
         </div>
     </NoDataTemplate>

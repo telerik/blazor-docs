@@ -32,7 +32,7 @@ Action buttons expose the following properties:
 | `Name` | `string` | The name of the action. Can be one of the built-in actions (see above), or a custom action name. |
 | `Hidden` | `bool` | Sets if the action button is rendered. Do not use for `Minimize` and `Maximize` actions - the Window manages their visibility internally, based on the component state. Check the example below for a possible alternative. |
 | `OnClick` | `EventCallback<MouseEventArgs>` | An event handler to respond to custom action clicks. |
-| `Icon` | `string` | The CSS class of the icon to be rendered. Use with the [Telerik font icons]({%slug general-information/font-icons%}), or set your own font icon class. |
+| `Icon` | `string` | The CSS class of the icon to be rendered. Use with the [Telerik font icons]({%slug common-features-icons%}), or set your own font icon class. |
 | `Title` | `string` | The `title` HTML attribute of the action button. |
 
 
@@ -77,7 +77,7 @@ Custom actions can call C# directly
 
 <TelerikWindow Visible="true">
 	<WindowActions>
-		<WindowAction Name="MyAction" Icon="@FontIcon.Gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Name="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
 	</WindowActions>
 	<WindowContent>
 		@result
@@ -110,10 +110,10 @@ You can mix custom actions with built-in actions, and you do not have to define 
 <TelerikWindow Visible="true">
     <WindowActions>
         <WindowAction Name="Minimize" />
-        <WindowAction Name="MyAction" Icon="@FontIcon.InfoCircle" OnClick="@MyCustomActionHandler" />
+        <WindowAction Name="MyAction" Icon="@SvgIcon.InfoCircle" OnClick="@MyCustomActionHandler" />
         <WindowAction Name="Maximize" />
         <WindowAction Hidden="@( string.IsNullOrEmpty(result) )"
-                      Icon="@FontIcon.ClearCss"
+                      Icon="@SvgIcon.ClearCss"
                       Name="CustomActionWithAllParameters"
                       Title="my custom title attribute that is a tooltip when you hover the action"
                       OnClick="@( () => result = string.Empty )" />
