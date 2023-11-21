@@ -21,6 +21,7 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 ````CSHTML
 @* Add a Clear Button to the Telerik Form. We also add a Submit button *@
 
+@inject IServiceProvider ServiceProvider
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
@@ -33,37 +34,38 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 </TelerikForm>
 
 @code {
+    private Person person { get; set; } = new Person();
+
+    private EditContext theEditContext { get; set; }
+
     private void ClearButton()
     {
         person = new Person();
         CreatedEditContext(person);
     }
 
-    void CreatedEditContext(Person model)
+    private void CreatedEditContext(Person model)
     {
         theEditContext = new EditContext(model);
 
         // we add the validation like this instead of in the markup
         // because changing the model and context does not otherwise attach the validator
         // and using the Clear button to new-up the model will leave you without validation
-        theEditContext.AddDataAnnotationsValidation();
+        theEditContext.EnableDataAnnotationsValidation(ServiceProvider);
     }
-
-    Person person { get; set; } = new Person();
-    EditContext theEditContext { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         person = new Person()
-        {
-            FirstName = "John",
-            DOB = DateTime.Now.AddYears(-37)
-        };
+            {
+                FirstName = "John",
+                DOB = DateTime.Now.AddYears(-37)
+            };
 
         CreatedEditContext(person);
     }
 
-    async Task OnValidSubmitHandler()
+    private async Task OnValidSubmitHandler()
     {
         Console.WriteLine($"SAVING {person.FirstName} {person.LastName} who was born on {person.DOB}");
     }
