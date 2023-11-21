@@ -271,7 +271,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 The following example demonstrates how the Grid can edit, filter, and group nullable `ExpandoObject` data. The example covers multiple different scenarios at the same time, so remove any code and settings that you don't need.
 
->caption Using ExpandoObject with nullable data, CheckBoxList and LoadGroupsOnDemand
+>caption Using ExpandoObject with nullable data, CheckBoxList, and LoadGroupsOnDemand
 
 <div class="skip-repl"></div>
 
