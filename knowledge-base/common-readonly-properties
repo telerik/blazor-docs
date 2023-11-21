@@ -1,6 +1,6 @@
 ---
 title: Error when using read-only model properties and editing
-description: How to successfully edit an item when using a model with read-only properties
+description: The editing fails when the bound model has read-only properties
 type: troubleshooting
 page_title: Error when using read-only model properties and editing
 slug: grid-kb-read-only-properties
