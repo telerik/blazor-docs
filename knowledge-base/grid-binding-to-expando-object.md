@@ -265,7 +265,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 ### Nested Properties
 
-* You can use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
+* You can use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting, and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
 
 ### Example
 
