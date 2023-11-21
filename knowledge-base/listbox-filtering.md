@@ -48,7 +48,7 @@ This KB article answers the following questions:
 
 >tip If the filtering operator is fixed (for example, `Contains`), you can replace steps 2 and 3 with a standard LINQ expression:
 >
-> `ListBoxData = AllData.Where(x => x.Text.Contains(ListBoxFilterString)).ToList();`
+> `ListBoxData = AllData.Where(x => x.Name.Contains(ListBoxFilterString)).ToList();`
 
 >caption ListBox Filtering
 
