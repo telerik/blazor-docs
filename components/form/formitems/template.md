@@ -70,17 +70,18 @@ In this article you can find the following examples:
 
 
 @code {
-    public TemplateModel MyModel { get; set; } = new TemplateModel();
+    private TemplateModel MyModel { get; set; } = new TemplateModel();
 
-    public EditContext EditContext { get; set; }
+    private EditContext EditContext { get; set; }
 
-    public List<string> DropDownData { get; } = new List<string>()
+    private List<string> DropDownData { get; } = new List<string>()
     {
         "Bulgaria",
         "Italy",
         "Greece"
     };
-    public List<string> CityData
+
+    private List<string> CityData
     {
         get
         {
@@ -120,15 +121,6 @@ In this article you can find the following examples:
 
         [Range(typeof(bool), "true", "true", ErrorMessage = "You must confirm first time.")]
         public bool FirstTime { get; set; }
-    }
-
-    private void Clear()
-    {
-        MyModel = new TemplateModel();
-
-        EditContext = new EditContext(MyModel);
-
-        EditContext.AddDataAnnotationsValidation();
     }
 }
 ````
@@ -187,17 +179,18 @@ You can render validation messages for templated Form items by using the [Teleri
 
 
 @code {
-    public TemplateModel MyModel { get; set; } = new TemplateModel();
+    private TemplateModel MyModel { get; set; } = new TemplateModel();
 
-    public EditContext EditContext { get; set; }
+    private EditContext EditContext { get; set; }
 
-    public List<string> DropDownData { get; } = new List<string>()
-{
+    private List<string> DropDownData { get; } = new List<string>()
+    {
         "Bulgaria",
         "Italy",
         "Greece"
     };
-    public List<string> CityData
+
+    private List<string> CityData
     {
         get
         {
@@ -229,23 +222,14 @@ You can render validation messages for templated Form items by using the [Teleri
 
         }
 
-        [Required(ErrorMessage ="Select a Country")]
+        [Required(ErrorMessage = "Select a Country")]
         public string Country { get; set; }
 
-        [Required(ErrorMessage ="Select a City")]
+        [Required(ErrorMessage = "Select a City")]
         public string City { get; set; }
 
         [Range(typeof(bool), "true", "true", ErrorMessage = "You must confirm first time.")]
         public bool FirstTime { get; set; }
-    }
-
-    private void Clear()
-    {
-        MyModel = new TemplateModel();
-
-        EditContext = new EditContext(MyModel);
-
-        EditContext.AddDataAnnotationsValidation();
     }
 }
 ````
