@@ -269,7 +269,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 ### Example
 
-The following example demonstrates how the Grid can edit, filter and group nullable `ExpandoObject` data. The example covers multiple different scenarios at the same time, so remove any code and settings that you don't need.
+The following example demonstrates how the Grid can edit, filter, and group nullable `ExpandoObject` data. The example covers multiple different scenarios at the same time, so remove any code and settings that you don't need.
 
 >caption Using ExpandoObject with nullable data, CheckBoxList and LoadGroupsOnDemand
 
