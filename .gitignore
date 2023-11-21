@@ -27,6 +27,7 @@
 /_plugins/
 /_site
 /_templates/
+/_tools/RemoveHtmlExtensionFromApiRefSitemap/
 /api/
 /docs-watcher/
 /favicon.ico
