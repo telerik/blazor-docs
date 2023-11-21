@@ -189,7 +189,7 @@ The following list contains information about requirements and limitations when 
 
 ### Editing
 
-* If any non-string property in the `ExpandoObject` is `nullable`, then do not set [`EditorType`]({%slug components/grid/editing/overview%}#customize-the-editor-fields) for the column. Instead, use a [Grid column `EditorTemplate`]({%slug grid-templates-editor%}). The following code snippet is part of the full example below.
+If any non-string property in the `ExpandoObject` is `nullable`, then do not set [`EditorType`]({%slug components/grid/editing/overview%}#customize-the-editor-fields) for the column. Instead, use a [Grid column `EditorTemplate`]({%slug grid-templates-editor%}). The following code snippet is part of the full example below.
 
 <div class="skip-repl"></div>
 
@@ -213,21 +213,21 @@ The following list contains information about requirements and limitations when 
 
 * Filtering in nullable data requires you to use [`OnRead` data binding]({%slug common-features-data-binding-onread%}). Populate the missing `MemberType` properties in the `CompositeFilterDescriptor`s in the [`OnRead` event argument]({%slug common-features-data-binding-onread%}#event-argument), namely in `args.Request.Filters`. Also see the [related public item](https://feedback.telerik.com/blazor/1499221-incorrect-filter-operators-when-the-fieldtype-is-set-to-a-nullable-numeric-data-type). The following code snippet is part of the full example below.
 
-<div class="skip-repl"></div>
+    <div class="skip-repl"></div>
 
-````CS
-private async Task OnGridRead(GridReadEventArgs args)
-{
-    args.Request.Filters.OfType<CompositeFilterDescriptor>()
-        .Each(x =>
-        {
-            x.FilterDescriptors.OfType<FilterDescriptor>()
-                .Each(y => y.MemberType = GetPropertyType(y.Member, true));
-        });
+    ````CS
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        args.Request.Filters.OfType<CompositeFilterDescriptor>()
+            .Each(x =>
+            {
+                x.FilterDescriptors.OfType<FilterDescriptor>()
+                    .Each(y => y.MemberType = GetPropertyType(y.Member, true));
+            });
 
-    // ...
-}
-````
+        // ...
+    }
+    ````
 
 * [Row filtering]({%slug grid-filter-row%}) in nullable data requires [`FilterCellTemplate`]({%slug grid-templates-filter%}) for numeric and boolean properties. See columns `PropertyInt` and `PropertyBool` in the example below.
 
@@ -237,35 +237,36 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 * `CheckboxList` filtering in grouped data with `OnRead` event requires a [`FilterMenuTemplate`]({%slug grid-templates-filter%}). You can use a [`TelerikCheckBoxListFilter` component with custom data]({%slug grid-checklist-filter%}#custom-data). The following code snippet is part of the full example below. See column `PropertyBool`.
 
-<div class="skip-repl"></div>
+    <div class="skip-repl"></div>
 
-````HTML
-<div>Bool FilterMenuTemplate</div>
-<TelerikCheckBoxListFilter Data="@BoolCheckBoxListData"
-                            Field="@nameof(BoolCheckBoxModel.PropertyBool)"
-                            @bind-FilterDescriptor="@context.FilterDescriptor" />
-````
+    ````HTML
+    <div>Bool FilterMenuTemplate</div>
+    <TelerikCheckBoxListFilter Data="@BoolCheckBoxListData"
+                                Field="@nameof(BoolCheckBoxModel.PropertyBool)"
+                                @bind-FilterDescriptor="@context.FilterDescriptor" />
+    ````
+
 ### Grouping
 
 * [Loading groups on demand]({%slug grid-group-lod%}) requires you to bind the Grid with [`OnRead` event]({%slug common-features-data-binding-onread%}). Then, set the `MemberType` of the group-related `FilterDescriptor` in the `OnRead` handler. Otherwise the expanded group will show only one item. Also see the [related public item for built-in support](https://feedback.telerik.com/blazor/1535071-loadgroupsondemand-does-not-let-you-group-with-an-expandoobject-as-data-source). The following code snippet is part of the full example below.
 
-<div class="skip-repl"></div>
+    <div class="skip-repl"></div>
 
-````CS
-private async Task OnGridRead(GridReadEventArgs args)
-{
-    args.Request.Filters.OfType<FilterDescriptor>()
-        .Each(x => x.MemberType = GetPropertyType(x.Member, true));
+    ````CS
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        args.Request.Filters.OfType<FilterDescriptor>()
+            .Each(x => x.MemberType = GetPropertyType(x.Member, true));
 
-    // ...
-}
-````
+        // ...
+    }
+    ````
 
 * [Loading groups on demand doesn't support grouping by nullable property](https://feedback.telerik.com/blazor/1543814-loading-groups-on-demand-in-a-column-with-a-nullable-data-type-groups-all-records-under-the-null-group).
 
 ### Nested Properties
 
-* You can use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting, and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
+You can use [nested Grid model properties]({%slug grid-use-navigation-properties%}) that are `ExpandoObject`s. However, data operations like filtering, sorting, and grouping are not supported for those nested properties. [Disable these features per column]({%slug components/grid/columns/bound%}#data-operations) if they are enabled for the Grid.
 
 ### Example
 
