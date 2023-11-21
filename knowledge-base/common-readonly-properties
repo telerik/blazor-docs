@@ -1,9 +1,9 @@
 ---
-title: Error when using read-only model properties and editing
+title: Error When Using Read-Only Model Properties and Editing
 description: The editing fails when the bound model has read-only properties
 type: troubleshooting
-page_title: Error when using read-only model properties and editing
-slug: grid-kb-read-only-properties
+page_title: Error When Using Read-Only Model Properties and Editing
+slug: common-kb-read-only-properties
 position: 
 tags: grid, scheduler, edit, telerik, blazor
 ticketid: 1631052
@@ -23,16 +23,18 @@ res_type: kb
 
 ## Description
 
-Editing does not work, and the OnUpdate event does not fire when a property in my bound model does not have a setter or is read-only.  
+Editing does not work, and the `OnUpdate` event does not fire when a property in my bound model does not have a setter or is read-only.  
 
 ## Error Message
 
 If the Telerik source code is attached to the app, the following exception is thrown: 
- - `System.ArgumentException`: Property set method not found.
+```
+System.ArgumentException: Property set method not found.
+```
 
-## Cause/Possible Causes
+## Cause
 
-By design, the component clones the edited data item, so the user can cancel editing and restore the original value. When it clones the item, the component creates a new model instance and tries to set their properties. However, when some properties are read-only, the component is unable to set their properties, and an exception is thrown. 
+By design, the component clones the edited data item, so the user can cancel editing and restore the original value. When the Grid clones the item, the component creates a new model instance and tries to set its properties. However, when some properties are read-only, the component is unable to set their properties, and an exception is thrown. 
 
 ## Solution
 
