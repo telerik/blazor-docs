@@ -25,7 +25,9 @@ I am using the Telerik Form for Blazor and I would like to justify the [FormButt
 
 ## Solution
 
-You can customize the appearance of the Telerik Form by using CSS. To justify the FormButtons in a single instance of the Telerik Form you can take advantage of the `Class` parameter that the component provides and cascade the necessary CSS rules to the FormButton HTML element. The example below showcases a sample implementation that you can use as a base in your application.
+>tip As of [UI for Blazor 3.1.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-1-0) the Form exposes a [`ButtonsLayout` parameter]({%slug form-overview%}#form-layout-customization) that you can use to configure the position of the buttons.
+
+For versions before UI for Blazor 3.1.0, you can customize the appearance of the Telerik Form by using CSS. To justify the FormButtons in a single instance of the Telerik Form you can take advantage of the `Class` parameter that the component provides and cascade the necessary CSS rules to the FormButton HTML element. The example below showcases a sample implementation that you can use as a base in your application.
 
 ````CSHTML
 @* Justify the FormButtons to the right side of the Form via CSS *@
@@ -36,6 +38,7 @@ You can customize the appearance of the Telerik Form by using CSS. To justify th
     }
 </style>
 
+@inject IServiceProvider ServiceProvider
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px" Class="my-form">
@@ -61,7 +64,7 @@ You can customize the appearance of the Telerik Form by using CSS. To justify th
         // we add the validation like this instead of in the markup
         // because changing the model and context does not otherwise attach the validator
         // and using the Clear button to new-up the model will leave you without validation
-        theEditContext.AddDataAnnotationsValidation();
+        theEditContext.EnableDataAnnotationsValidation(ServiceProvider);
     }
 
     Person person { get; set; } = new Person();
@@ -92,5 +95,4 @@ You can customize the appearance of the Telerik Form by using CSS. To justify th
         public DateTime DOB { get; set; }
     }
 }
-
 ````

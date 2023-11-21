@@ -222,7 +222,7 @@ You can find more information for customizing the Form appearance in the [Appear
 
 ## Form Reference and Methods
 
-Use the Form reference to get access to its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - `FormReference.EditContext.AddDataAnnotationsValidation()`.
+Use the Form reference to get access to its `EditContext`. The Form generates this object, no matter if the component uses a `Model` or an `EditContext` parameter. You can validate the `EditContext` manually or re-attach validation when you change the model - [`FormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontextdataannotationsextensions.enabledataannotationsvalidation?view=aspnetcore-8.0#microsoft-aspnetcore-components-forms-editcontextdataannotationsextensions-enabledataannotationsvalidation(microsoft-aspnetcore-components-forms-editcontext-system-iserviceprovider)).
 
 The Form also exposes a `Refresh()` method that calls `StateHasChanged()` only for the component itself.
 
