@@ -13,8 +13,8 @@ position: 25
 This article explains the events available in the Telerik Drawer for Blazor:
 
 * [`SelectedItemChanged`](#selecteditemchanged)
-* [ExpandedChanged](#expandedchanged)
-* [OnItemRender](#onitemrender)
+* [`ExpandedChanged`](#expandedchanged)
+* [`OnItemRender`](#onitemrender)
 
 
 
