@@ -24,7 +24,7 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 @inject IServiceProvider ServiceProvider
 @using System.ComponentModel.DataAnnotations
 
-<TelerikForm EditContext="@theEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
+<TelerikForm EditContext="@FormEditContext" OnValidSubmit="@OnValidSubmitHandler" Width="200px">
 
     <FormButtons>
         <TelerikButton ButtonType="@ButtonType.Submit" ThemeColor="primary">Submit</TelerikButton>
@@ -36,7 +36,7 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 @code {
     private Person person { get; set; } = new Person();
 
-    private EditContext theEditContext { get; set; }
+    private EditContext FormEditContext { get; set; }
 
     private void ClearButton()
     {
@@ -46,12 +46,12 @@ You can provide a standard [TelerikButton]({%slug components/button/overview%}) 
 
     private void CreatedEditContext(Person model)
     {
-        theEditContext = new EditContext(model);
+        FormEditContext = new EditContext(model);
 
         // we add the validation like this instead of in the markup
         // because changing the model and context does not otherwise attach the validator
         // and using the Clear button to new-up the model will leave you without validation
-        theEditContext.EnableDataAnnotationsValidation(ServiceProvider);
+        FormEditContext.EnableDataAnnotationsValidation(ServiceProvider);
     }
 
     protected override async Task OnInitializedAsync()
