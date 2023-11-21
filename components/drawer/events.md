@@ -12,7 +12,7 @@ position: 25
 
 This article explains the events available in the Telerik Drawer for Blazor:
 
-* [SelectedItemChanged](#selecteditemchanged)
+* [`SelectedItemChanged`](#selecteditemchanged)
 * [ExpandedChanged](#expandedchanged)
 * [OnItemRender](#onitemrender)
 
@@ -136,16 +136,16 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 ## OnItemRender
 
-The OnItemRender event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all built-in features of the Drawer.
+The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all built-in features of the Drawer.
 
-The event handler receives as an argument an object of type `DrawerItemRenderEventArgs` that contains: 
+As an argument, the event handler receives an object of type `DrawerItemRenderEventArgs` that contains the following properties: 
 
 | Property | Type | Description |
 | --- | --- | --- |
 | `Item`   | `object` |The current item that renders in the Drawer. |
 | `Class`  | `string` |The custom CSS class that will be added to the item. |
 
->caption The example shows you how to Customize the appearance of the Drawer items depending on the Drawer Mode.
+>caption Customizing the appearance of the Drawer items based on the Drawer mode.
 
 ````CSHTML
 @* Click on the Toggle button to change the items' classes and Drawer mode. *@
