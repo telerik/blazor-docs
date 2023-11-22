@@ -133,8 +133,6 @@ You can set the render mode for the entire app as suggested in the [Blazor docum
 ````
 ````Home.razor
 @page "/"
-
-@rendermode RenderMode.InteractiveServer
   
 @* Telerik UI for Blazor components here *@
 
