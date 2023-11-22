@@ -5,7 +5,7 @@
 #end
 
 #font-icons-css-code
-<!-- Load this stylesheet only if using font icons -->
+<!-- Load this stylesheet only if using Telerik font icons -->
 <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
 #end
 
