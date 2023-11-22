@@ -417,6 +417,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
     * Another case when you may need to insert items through the grid state is when you use [OnRead with grouping]({%slug components/grid/manual-operations%}#grouping-with-onread). In such cases the Grid is bound to an `object`, not to a particular model. As a result, it can't create new items for you and errors may be thrown. A workaround might be [invoking Edit/Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
 
 * While editing, the Grid creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler. The `OnEdit` event receives the original item from the pristine `Data` collection, because it is a cancellable event and fires before the grid logic creates the copy. The built-in editors and [editor templates]({%slug grid-templates-editor%}) receive the copy for their `context` that the grid will create after `OnEdit`.
+    * For the Grid to successfully create a copy of the original object, all properties must have а setter and must not be `readonly`. Otherwise, editing may stop working.
 
 * If you want to pre-populate values to the user, see the [Setting default values in new row]({%slug grid-kb-default-value-for-new-row%}) KnowledgeBase article.
 
