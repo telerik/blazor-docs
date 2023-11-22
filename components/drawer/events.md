@@ -12,8 +12,10 @@ position: 25
 
 This article explains the events available in the Telerik Drawer for Blazor:
 
-* [SelectedItemChanged](#selecteditemchanged)
-* [ExpandedChanged](#expandedchanged)
+* [`SelectedItemChanged`](#selecteditemchanged)
+* [`ExpandedChanged`](#expandedchanged)
+* [`OnItemRender`](#onitemrender)
+
 
 
 ## SelectedItemChanged
@@ -131,3 +133,73 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
+## OnItemRender
+
+The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all item related built-in features of the Drawer.
+
+As an argument, the event handler receives an object of type `DrawerItemRenderEventArgs` that contains the following properties: 
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | The current item that renders in the Drawer. |
+| `Class` | `string` | The custom CSS class that will be added to the item. |
+
+>caption Customizing the appearance of the Drawer items based on the Drawer mode.
+
+````CSHTML
+@* Click on the Toggle button to change the items' classes and Drawer mode. *@
+
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
+               Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
+<TelerikDrawer @ref="@DrawerRef"
+               Data="@Data"
+               MiniMode="true"
+               Mode="@DrawerMode.Push"
+               OnItemRender="OnItemRenderHandler">
+</TelerikDrawer>
+
+<style>
+    .mini-class {
+        background-color: dodgerblue;
+    }
+    .default-class {
+        background-color: crimson;
+    }
+    .mini-class:hover{
+        background-color: aqua;
+    }
+    .default-class:hover{
+        background-color: red;
+    }
+</style>
+
+@code {
+    private TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+
+    private IEnumerable<DrawerItem> Data { get; set; } =
+        new List<DrawerItem>
+        {
+            new DrawerItem { Text = "Counter", Icon = SvgIcon.Plus },
+            new DrawerItem { Text = "FetchData", Icon = SvgIcon.GridLayout },
+        };
+
+    private void OnItemRenderHandler(DrawerItemRenderEventArgs args)
+    {
+        if(DrawerRef.Expanded)
+        {
+            args.Class = "mini-class";
+        }
+        else
+        {
+            args.Class = "default-class";    
+        }
+    }
+
+    public class DrawerItem
+    {
+        public string Text { get; set; }
+        public ISvgIcon Icon { get; set; }
+    }
+}
+````
