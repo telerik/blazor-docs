@@ -229,5 +229,5 @@ This KB article answers the following questions:
 ## See Also
 
 * [`ToDataSourceResult` Method]({%slug common-features-data-binding-onread%}#todatasourceresult-method)
-* [DataSourceRequest](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
+* [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
 * [ListBox Overview]({%slug listbox-overview%})
