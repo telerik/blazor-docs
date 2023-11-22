@@ -136,7 +136,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all built-in features of the Drawer.
+The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all item related built-in features of the Drawer.
 
 As an argument, the event handler receives an object of type `DrawerItemRenderEventArgs` that contains the following properties: 
 
