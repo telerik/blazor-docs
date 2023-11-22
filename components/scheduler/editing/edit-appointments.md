@@ -308,7 +308,7 @@ The example below shows the signature of the event handlers so you can copy the 
 ## Notes 
 
 * While editing, the Scheduler creates a copy of your original object. The copy has a different reference than the original object. You receive that copy in the `OnUpdate` event handler. The `OnEdit` event receives the original item from the pristine `Data` collection because it is a cancellable event and fires before the Scheduler logic creates the copy.
-    * For the Scheduler to successfully create a copy of the original object, all properties must have both a getter and setter and must not be read-only. Otherwise, editing may stop working.
+    * For the Scheduler to successfully create a copy of the original object, all properties must have а setter and must not be `readonly`. Otherwise, editing may stop working.
 
 
 ## See Also
