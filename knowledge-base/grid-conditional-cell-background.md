@@ -198,7 +198,7 @@ If you want to change the default row and alternating row backgrounds to match y
         background-color: red;
     }
 
-        .custom-row-colors .k-grid-table .k-master-row:hover {
+        .custom-row-colors .k-grid-table .k-table-row.k-master-row:hover {
             background-color: pink;
         }
 
