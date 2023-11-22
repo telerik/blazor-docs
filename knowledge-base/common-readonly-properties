@@ -1,12 +1,12 @@
 ---
-title: Error When Using Read-Only Model Properties and Editing
+title: Editing does not Work When Model Properties are Read-Only or Without Setters
 description: The editing fails when the bound model has read-only properties
 type: troubleshooting
-page_title: Error When Using Read-Only Model Properties and Editing
+page_title: Editing does not Work When Model Properties are Read-Only or Without Setters
 slug: common-kb-read-only-properties
 position: 
-tags: grid, scheduler, edit, telerik, blazor
-ticketid: 1631052
+tags: grid, scheduler, edit, telerik, blazor, readonly, setter
+ticketid: 1631052, 1620193, 1621413
 res_type: kb
 ---
 
@@ -28,6 +28,7 @@ Editing does not work, and the `OnUpdate` event does not fire when a property in
 ## Error Message
 
 If the Telerik source code is attached to the app, the following exception is thrown: 
+
 ```
 System.ArgumentException: Property set method not found.
 ```
