@@ -142,15 +142,16 @@ As an argument, the event handler receives an object of type `DrawerItemRenderEv
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Item`   | `object` |The current item that renders in the Drawer. |
-| `Class`  | `string` |The custom CSS class that will be added to the item. |
+| `Item` | `object` | The current item that renders in the Drawer. |
+| `Class` | `string` | The custom CSS class that will be added to the item. |
 
 >caption Customizing the appearance of the Drawer items based on the Drawer mode.
 
 ````CSHTML
 @* Click on the Toggle button to change the items' classes and Drawer mode. *@
 
-<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
+<TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
+               Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
 <TelerikDrawer @ref="@DrawerRef"
                Data="@Data"
                MiniMode="true"
@@ -158,8 +159,24 @@ As an argument, the event handler receives an object of type `DrawerItemRenderEv
                OnItemRender="OnItemRenderHandler">
 </TelerikDrawer>
 
+<style>
+    .mini-class {
+        background-color: dodgerblue;
+    }
+    .default-class {
+        background-color: crimson;
+    }
+    .mini-class:hover{
+        background-color: aqua;
+    }
+    .default-class:hover{
+        background-color: red;
+    }
+</style>
+
 @code {
     private TelerikDrawer<DrawerItem> DrawerRef { get; set; }
+
     private IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
         {
@@ -185,19 +202,4 @@ As an argument, the event handler receives an object of type `DrawerItemRenderEv
         public ISvgIcon Icon { get; set; }
     }
 }
-
-<style>
-    .mini-class {
-        background-color: dodgerblue;
-    }
-    .default-class {
-        background-color: crimson;
-    }
-    .mini-class:hover{
-        background-color: aqua;
-    }
-    .default-class:hover{
-        background-color: red;
-    }
-</style>
 ````
