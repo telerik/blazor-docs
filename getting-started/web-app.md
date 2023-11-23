@@ -204,7 +204,9 @@ See the example below - the `TelerikRootComponent` must wrap all the content in 
 @rendermode RenderMode.InteractiveServer
 
 <TelerikLayout>
-  
+    @* <TelerikLayout> must be recognized as a Razor component. *@
+    @* You may need a @using statement in this file or in _Imports.razor. *@
+
     @* Telerik UI for Blazor components here *@
 
 </TelerikLayout>
