@@ -50,6 +50,8 @@ To count the total number of selected, valid and uploaded files in multiple user
 
 >caption Track and count the number of all selected and uploaded files
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @inject NavigationManager NavigationManager
 
@@ -61,6 +63,7 @@ To count the total number of selected, valid and uploaded files in multiple user
                                Min="1"
                                Max="@MaxUploadedFiles"
                                Width="70px" /> allowed
+        (<strong>@string.Join(", ", UploadAllowedExtensions)</strong>)
     </li>
     <li>
         Uploaded Files: @UploadedFiles out of
@@ -85,7 +88,7 @@ To count the total number of selected, valid and uploaded files in multiple user
                AutoUpload="@UploadAutoUpload"
                MaxFileSize="@( 16 * 1024 * 1024 )"
                MinFileSize="@( 1 * 1024 )"
-               AllowedExtensions="@( new List<string>() { ".jpg", ".pdf", ".txt" } )"
+               AllowedExtensions="@UploadAllowedExtensions"
                OnCancel="@OnUploadCancel"
                OnClear="@OnUploadClear"
                OnRemove="@OnUploadRemove"
@@ -98,6 +101,8 @@ To count the total number of selected, valid and uploaded files in multiple user
     private string UploadSaveUrl => ToAbsoluteUrl("api/upload/save");
 
     private string UploadRemoveUrl => ToAbsoluteUrl("api/upload/remove");
+
+    private List<string> UploadAllowedExtensions => new List<string>() { ".jpg", ".pdf", ".txt" };
 
     private bool UploadMultiple { get; set; } = true;
 
