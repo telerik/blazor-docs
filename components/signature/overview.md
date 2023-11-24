@@ -134,7 +134,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `DebounceDelay` | `int` <br /> `(150)` | The time in milliseconds between the last drawn line and the value change event. Increase the debounce delay to optimize the number of client-server requests while the user is drawing, especially when the `Width` and `Height` are larger. |
 | `Enabled` | `bool` <br /> `(true)` | Defines if the component is enabled. |
 | `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the export scale when converting the signature to an image. If you don't need to save a high-precision signature of the user, or if the `Width` and `Height` are large, reduce the export scale to optimize the [`Value` size](#signalr-message-size). |
-| `Height` | `string` | Defines the height of the component. Set it in `px`. |
+| `Height` | `string` | Defines the height of the component. Set it in `px`. If you need to use relative units, see how to [resize the Signature with the browser]({%slug signature-kb-relative-width-height%}). |
 | `HideLine` | `bool` | Whether the dotted line is rendered. |
 | `Maximizable` | `bool` | Whether the Signature can be maximized via a button at the top-right corner. When maximized, the component will show a modal popup dialog. Also see `PopupScale`. |
 | `PopupScale` | `double` <br /> `(3)` | The `Width` and `Height` of the component will be multiplied by the `PopupScale` value when maximizing the Blazor Signature. Also see `Maximizable`. |
@@ -143,7 +143,7 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `StrokeWidth` | `double?` | The drawn lines' thickness in pixels. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the Tab key. |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `Width` | `string` | Defines the width of the component. Set the it in `px`. |
+| `Width` | `string` | Defines the width of the component. Set the it in `px`. If you need to use relative units, see how to [resize the Signature at runtime]({%slug signature-kb-relative-width-height%}). |
 
 ## Signature Reference and Methods
 
