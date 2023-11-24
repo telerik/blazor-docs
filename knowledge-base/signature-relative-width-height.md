@@ -108,8 +108,8 @@ A possible workaround is to change the component `Width` and `Height` at runtime
         // Optionally reset the Signature Value.
         //SignatureValue = string.Empty;
 
-        SignatureWidth = $"{viewportWidth - 40}px";
-        SignatureHeight = $"{viewportHeight - 40}px";
+        SignatureWidth = $"{viewportWidth - 60}px";
+        SignatureHeight = $"{viewportHeight - 60}px";
 
         ShowSignature = true;
         StateHasChanged();
