@@ -42,4 +42,6 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 | `MaxHeight` | `string` | The maximum height of the popup. |
 | `MaxWidth` | `string` | The maximum width of the popup. |
 | `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
+
+>If the **Virtualization** feature is enabled, the dropdown popup width does not depend on the data items. Thus, using virtualization alongside long items requires a fixed popup `Width`, e.g., '300px'. You can determine this fixed width value by identifying the longest item in the dropdown collection and calculating the required pixel width based on it.
 #end
