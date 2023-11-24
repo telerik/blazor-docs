@@ -10,16 +10,16 @@ position: 20
 
 # Events
 
-This article explains the events available in the Telerik Menu for Blazor:
+This article describes the events available in the Telerik Menu for Blazor:
 
 * [`OnClick`](#onclick)
 * [`OnItemRender`](#onitemrender)
 
 ## OnItemRender
 
-The `OnItemRender` event fires when Menu items or Menu popup items render. It allows you to customize the appearance of an item.
+The `OnItemRender` event fires when each Menu item renders. It allows you to customize the appearance of an item.
 
-As an argument, the event handler receives an object of type `MenuItemRenderEventArgs` that contains the following properties: 
+The event handler receives an argument object of type `MenuItemRenderEventArgs` that contains the following properties: 
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ As an argument, the event handler receives an object of type `MenuItemRenderEven
 
 <style>
     .custom-item {
-        background-color: #bbbbbb;
+        background-color: #bbb;
     }
 
     .popup-item {
