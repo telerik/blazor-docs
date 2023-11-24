@@ -10,9 +10,122 @@ position: 20
 
 # Events
 
-This article explains the events available in the Telerik Menu for Blazor:
+This article describes the events available in the Telerik Menu for Blazor:
 
-* [OnClick](#onclick)
+* [`OnClick`](#onclick)
+* [`OnItemRender`](#onitemrender)
+
+## OnItemRender
+
+The `OnItemRender` event fires when each Menu item renders. It allows you to customize the appearance of an item.
+
+The event handler receives an argument object of type `MenuItemRenderEventArgs` that contains the following properties: 
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | The current item that renders in the Menu. |
+| `Class` | `string` | The custom CSS class that will be added to the item. |
+
+>caption Customizing the appearance of the Menu items.
+
+````CSHTML
+<TelerikMenu Data="@MenuItems"
+             ParentIdField="@nameof(MenuItem.SectionId)"
+             IdField="@nameof(MenuItem.Id)"
+             TextField="@nameof(MenuItem.Section)"
+             OnItemRender="@OnMenuItemRender">
+</TelerikMenu>
+
+<style>
+    .custom-item {
+        background-color: #bbb;
+    }
+
+    .popup-item {
+        background-color: #ff6358;
+        color: white;
+    }
+</style>
+
+@code {
+    private List<MenuItem> MenuItems { get; set; }
+
+    private void OnMenuItemRender(MenuItemRenderEventArgs args)
+    {
+        var item = args.Item as MenuItem;
+
+        if (item.SectionId == null)
+        {
+            args.Class = "custom-item";
+        }
+        else
+        {
+            args.Class = "popup-item";         
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<MenuItem>()
+        {
+            new MenuItem()
+            {
+                Id = 1,
+                Section = "Overview"
+            },
+            new MenuItem()
+            {
+                Id = 2,
+                Section = "Demos"
+            },
+            new MenuItem()
+            {
+                Id = 3,
+                Section = "Roadmap"
+            },
+            new MenuItem()
+            {
+                Id = 4,
+                SectionId = 3,
+                Section = "What's new"
+            },
+            new MenuItem()
+            {
+                Id = 5,
+                SectionId = 3,
+                Section = "Roadmap"
+            },
+            new MenuItem()
+            {
+                Id = 6,
+                SectionId = 3,
+                Section = "Release History"
+            },
+            new MenuItem()
+            {
+                Id = 7,
+                SectionId = 2,
+                Section = "Grid"
+            },
+            new MenuItem()
+            {
+                Id = 8,
+                SectionId = 2,
+                Section = "Charts"
+            }
+        };
+
+        base.OnInitialized();
+    }
+
+    public class MenuItem
+    {
+        public int Id { get; set; }
+        public int? SectionId { get; set; }
+        public string Section { get; set; }
+    }
+}
+````
 
 ## OnClick
 
