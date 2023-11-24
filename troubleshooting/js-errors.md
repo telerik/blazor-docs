@@ -13,7 +13,7 @@ position: 2
 This page provides solutions for JavaScript errors that you may encounter while working with Telerik UI for Blazor components.
 
 * [`TelerikBlazor` was undefined](#telerikblazor-was-undefined)
-* [`init[Component]` was undefined](#initcomponent-was-undefined)
+* [`init[Component]` was undefined](#initcomponent-was-undefined) (also applies to errors about missing Telerik JavaScript functions)
 * [Cannot read properties of null (reading `addEventListener`)](#cannot-read-properties-of-null-reading-addeventlistener)
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
