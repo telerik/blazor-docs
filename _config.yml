@@ -738,6 +738,11 @@ defaults:
         product: "blazor"
         editable: true
         description_suffix: "Read more in our Blazor Knowledge Base articles."
+-
+    scope:
+        path: "web.config"
+    values:
+        layout: null
 
 #- 
 #    scope:
