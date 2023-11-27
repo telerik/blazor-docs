@@ -6,7 +6,7 @@ page_title: How to Change the Border Color of Grid Columns
 slug: grid-kb-change-border-color
 position: 
 tags: telerik, blazor, grid, treelist, css, styles
-ticketid: 1629660
+ticketid: 1629660, 1632430
 res_type: kb
 ---
 
@@ -29,6 +29,7 @@ This KB article answers the following questions:
 * How to change the border color of specific Grid or TreeList columns?
 * How to customize the border color of header cells?
 * How to set the border color of data table cells?
+* How to change the grid lines color?
 
 ## Solution
 
