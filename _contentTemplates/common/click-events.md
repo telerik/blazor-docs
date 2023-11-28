@@ -63,6 +63,7 @@ Use `OnRowContextMenu` to [integrate the Context menu]({%slug contextmenu-integr
 | Property | Type | Description |
 |---|---|---|
 | `EventArgs` | `EventArgs` | This object maps to `MouseEventArgs` or `KeyboardEventArgs` depending on the user action. |
+| `Field` | `string` | The `Field` property corresponds to the column where the user clicked. If the user clicks on a GridCommandColumn, GridCheckBoxColumn, or columns lacking a `Field` parameter, the `Field` property will be an empty string. |
 | `Item` | `object` | The data item. Cast the object to your model type to access its members. |
 | `ShouldRender` | `bool` | Sets if the component will re-render after the event via `StateHasChanged()` call. This can be useful if you need to change the component parameters or state during the event execution, and especially if you need to execute async logic in the event handler. |
 
