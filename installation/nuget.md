@@ -1,7 +1,7 @@
 ---
 title: Telerik Private NuGet Feed
 page_title: Telerik NuGet Feed
-description: How to add and use the Telerik private NuGet source.
+description: Explore the different ways to add the Telerik private NuGet source to your system, and start using NuGet packages to install the Telerik Blazor components.
 slug: installation/nuget
 tags: get,started,installation,nuget,feed
 published: True
