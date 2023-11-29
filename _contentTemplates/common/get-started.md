@@ -98,7 +98,7 @@ Well done! Now you have you first Telerik UI for Blazor component running in you
 
 
 #after-install
-Once you have the NuGet feed set up, follow the instructions to create either a [Client-side Blazor app]({%slug getting-started/client-side%}), or a [Server-side Blazor app]({%slug getting-started/server-side%}).
+Once you have the Telerik NuGet source set up, follow the instructions to [create a Telerik Blazor app]({%slug blazor-overview%}#getting-started).
 #end
 
 #setup-local-feed-vs

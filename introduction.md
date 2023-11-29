@@ -10,14 +10,11 @@ position: 1
 
 Thank you for choosing <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik® UI for Blazor</a>!
 
-The <a href="https://blazor.net/" target="_blank">Blazor framework by Microsoft</a> allows you to create rich web UIs by using .NET and C#. The Telerik® UI for Blazor components facilitate the front-end development by providing ready-made UI components.
-
->tip Telerik UI for Blazor supports both client-side (WebAssembly) and server-side Blazor apps.
+The <a href="https://blazor.net/" target="_blank">Blazor framework by Microsoft</a> allows you to create rich web user interfaces with .NET and C#. The Telerik® UI for Blazor components facilitate the front-end development by providing ready-made UI components.
 
 The UI for Blazor suite has the same HTML rendering and Theme stylesheets as the <a href="https://www.telerik.com/all-products" target="_blank">Kendo UI suites</a>, so previous experience with them can be helpful. The components in UI for Blazor are *native Blazor components* and not wrappers over jQuery widgets.
 
-To read more about the benefits of using Telerik UI for Blazor, visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">product overview page</a>.
-
+Visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik UI for Blazor product overview page</a> to learn the benefits of using our components.
 
 {% if site.has_cta_panels == true %}
 {% include cta-panel-introduction.html %}
@@ -26,11 +23,12 @@ To read more about the benefits of using Telerik UI for Blazor, visit the <a hre
 
 ## Getting Started
 
-If you are new to Telerik UI for Blazor, visit the Get Started tutorials that demonstrate how to add the Telerik components to your application:
+If you are new to Telerik UI for Blazor, visit the Getting Started tutorials that demonstrate how to add the Telerik components to your application:
 
-* [Get Started with Client-side (WebAssembly) Blazor]({%slug getting-started/client-side%})
-
-* [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+* [Get Started with a Blazor Server app]({%slug getting-started/server-side%})
+* [Get Started with a Blazor WebAssembly app]({%slug getting-started/client-side%})
+* [Get Started with a .NET 8 Blazor Web App]({%slug getting-started/web-app%})
+* [Get Started with Blazor Hybrid]({%slug getting-started/hybrid-blazor%})
 
 >tip This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](#learning-resources) for the required older product version.
 
@@ -55,12 +53,13 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 ## List of Components
 
-<!-- see the config file for the this declaration -->
 {% include intro-page-table.html %}
 
 Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which components you want us to create and how you intend to use them with Blazor.
+
 
 ## Trial Version and Commercial License
 
@@ -81,6 +80,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * You may still need a tailor-made solution for your project. In such cases, go straight to [Progress Services](https://www.progress.com/services).
 
+
 ## Learning Resources
 
 * <a href="https://demos.telerik.com/blazor-ui/" target="_blank">Online Demos</a> - also available as a project that you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
@@ -98,19 +98,10 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 ## Next Steps
 
-* [First steps with Client-side Blazor]({%slug getting-started/client-side%}) (online guide)
-
-* [First steps with Server-side Blazor]({%slug getting-started/server-side%}) (online guide)
-
-* [Typical workflow for using the Telerik UI for Blazor components]({%slug getting-started/what-you-need%})—concise version of the tutorials above
-
-* [Create custom styles by using ThemeBuilder]({%slug themebuilder%})
-
+* [First Steps with Blazor Server]({%slug getting-started/server-side%})
+* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})
+* [First Steps with Blazor Hybrid]({%slug getting-started/hybrid-blazor%})
+* [Typical workflow for using the Telerik UI for Blazor components]({%slug getting-started/what-you-need%}) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
-
 * [Convert an existing project to a Telerik-enabled project]({%slug getting-started-vs-integration-convert-project%})
-
-* [Upgrade to a newer version of Telerik UI for Blazor]({%slug upgrade-tutorial%})
-
-
-
+* [Style the Telerik Blazor Components]({%slug general-information/themes%})
