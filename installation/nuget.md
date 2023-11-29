@@ -18,7 +18,7 @@ You can set up the remote Telerik NuGet feed in the following ways:
 * [Use the .NET CLI](#use-the-net-cli)
 * [Edit the Nuget.Config file](#edit-the-nugetconfig-file)
 
->tip When working with the .NET CLI or editing the `NuGet.Config` manually, you can use your Telerik account credentials or a [NuGet API Key](#use-nuget-api-key). If you are logging at telerik.com through single sign on (SSO), use a [NuGet API Key](#use-nuget-api-key).
+>tip When working with the .NET CLI or editing the `NuGet.Config` manually, you can use your Telerik account credentials or a [NuGet API Key](#use-nuget-api-key). If you are logging in to telerik.com through single sign-on (SSO), use a [NuGet API Key](#use-nuget-api-key).
 
 For NuGet-related issues, see [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}).
 
