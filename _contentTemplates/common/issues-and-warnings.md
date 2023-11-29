@@ -32,5 +32,5 @@ You may find useful the following Microsoft articles on securing your NuGet feed
 
 * <a href="https://docs.microsoft.com/en-us/nuget/concepts/security-best-practices" target="_blank">Best practices for a secure software supply chain - MSDN docs</a>
 
-Telerik is working on providing signed packages that you can verify, you can Follow the status of this enhancement <a href="https://feedback.telerik.com/blazor/1510495-provide-signed-nuget-packages" target="_blank">here</a>.
+Telerik provides signed NuGet packages that you can verify.
 #end
