@@ -45,7 +45,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 1. Rebuild the solution.
 
 1. A Windows prompt will ask for the Telerik feed credentials. Enter your Telerik email and password.
-    * Check "Remember my password".
+    * Check **Remember my password**.
     
 1. Your project should now build and restore all packages - including those from nuget.org and from Telerik.
     * If you experience issues, see the [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}) article.
