@@ -411,7 +411,7 @@ The tabs below show how to set the Grid state and control filtering, sorting and
 
 ## Equals Comparison
 
-State properties that pertain to data items (for example, edited item or selected items) are typed according to the Grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the `.Equals()` check for a class (object) is a reference check and the reference from the restored state is very unlikely to match the current reference in the Grid data. Thus, you may want to [override the `.Equals()` method of the Grid model class]({%slug grid-kb-save-load-state-localstorage%}), so that it compares by ID, or otherwise re-populate the models in the state object with the new model references from the Grid data.
+State properties that pertain to data items (for example, edited item or selected items) are typed according to the Grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the [`.Equals()`](https://learn.microsoft.com/en-us/dotnet/api/system.object.equals) check for a class (object) is a reference check and the reference from the restored state is very unlikely to match the current reference in the Grid data. Thus, you may want to [override the `.Equals()` method of the Grid model class]({%slug grid-kb-save-load-state-localstorage%}), so that it compares by ID, or otherwise re-populate the models in the state object with the new model references from the Grid data.
 
 
 ## Examples
