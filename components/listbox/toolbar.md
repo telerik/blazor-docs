@@ -75,7 +75,7 @@ The example below omits all required event handlers for brevity. Consult the [Li
                 Width="max-content"
                 Height="auto">
     <ListBoxToolBarSettings>
-        <ListBoxToolBar>
+        <ListBoxToolBar Visible="true">
             <ListBoxToolBarMoveUpTool />
             <ListBoxToolBarMoveDownTool />
             <ListBoxToolBarTransferToTool />
