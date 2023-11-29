@@ -33,7 +33,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 1. Open Visual Studio and go to Tools > NuGet Package Manager > Package Manager Settings > Package Sources.
 
-1. Click the `[+]` button at the top right hand side.
+1. Click the **+** button at the top right-hand side.
 
 1. Add the Telerik Feed URL `https://nuget.telerik.com/v3/index.json` and choose a Name for that package source (for example, "TelerikOnlineFeed").
 
