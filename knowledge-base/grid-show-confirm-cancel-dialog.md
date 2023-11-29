@@ -59,9 +59,9 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
              Height="500px"
              OnCancel="@CancelHandler"
              ShowColumnMenu="true">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
@@ -140,9 +140,9 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
              Height="500px"
              OnCancel="@CancelHandler"
              ShowColumnMenu="true">
-    <GridToolBar>
+    <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBar>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
