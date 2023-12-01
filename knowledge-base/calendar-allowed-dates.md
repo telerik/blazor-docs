@@ -1,11 +1,11 @@
 ---
-title: Allowed dates for Calendar
-description: How to set small list of allowed dates in Calendar.
+title: How to set small list of allowed dates in Calendar.
+description: How to disable all dates in a Calendar, except for a small list of allowed dates.
 type: how-to
-page_title: Allowed dates for Calendar
+page_title: How to set small list of allowed dates in Calendar.
 slug: calendar-kb-allowed-dates
 position: 
-tags: telerik, blazor, calendar
+tags: telerik, blazor, calendar, disable, allowed, dates
 res_type: kb
 ---
 
@@ -21,40 +21,24 @@ How to disable all dates that are not included in the `AllowedDates` collection 
 1. Define a `ViewChanged` Handler that will refresh the `DisabledDates` when the current View is changed.
 
 ````CSHTML
-<TelerikCalendar Min="@min"
-                 Max="@max"
+<TelerikCalendar Date="@InitialDate"
+                 Min="@MinDate"
+                 Max="@MaxDate"
                  Views="@NumOfViews"
-                 Date="@InitialDate"
-                 DateChanged="@DateChangedHandler"
                  DisabledDates="@DisabledDates"
+                 DateChanged="@DateChangedHandler"
                  SelectionMode="CalendarSelectionMode.Multiple" />
 
 @code{
     private DateTime InitialDate { get; set; } = DateTime.Now;
-    private DateTime min { get; set; }
-    private DateTime max { get; set; }
+    private DateTime MinDate { get; set; }
+    private DateTime MaxDate { get; set; }
     private int NumOfViews { get; set; } = 3;
-
-    // set dates the user can't select
-    private List<DateTime> DisabledDates = new List<DateTime>() { };
 
     private List<DateTime> AllowedDates = new List<DateTime>() { };
 
-    protected override void OnInitialized()
-    {
-        min = new DateTime(InitialDate.AddYears(-5).Year, 1, 1);
-        max = new DateTime(InitialDate.AddYears(5).Year, 12, 31);
-
-        //Populate a list of allowed dates
-        for (DateTime i = new DateTime(InitialDate.Year, 01, 01); i < new DateTime(InitialDate.AddYears(1).Year, 01, 01); i = i.AddDays(1))
-        {
-            if (i.Date.Day % 2 is 0)
-                AllowedDates.Add(i);
-        }
-
-        //Call to fill initial dispaly page with disabled/allowed
-        DisableDates(InitialDate);
-    }
+    // set dates the user can't select
+    private List<DateTime> DisabledDates = new List<DateTime>() { };
 
     private void DateChangedHandler(DateTime firstDateOfNewRange)
     {
@@ -70,7 +54,7 @@ How to disable all dates that are not included in the `AllowedDates` collection 
         var disabledDates = GetDisabledDates(currentDate);
         DisabledDates = new List<DateTime>(disabledDates);
     }
-
+ 
     private IEnumerable<DateTime> GetDisabledDates(DateTime rangeStart)
     {
         //Start date of currently displayed month(s)
@@ -86,6 +70,22 @@ How to disable all dates that are not included in the `AllowedDates` collection 
             .Except(AllowedDates);
 
         return dateRange;
+    }
+
+    protected override void OnInitialized()
+    {
+        MinDate = new DateTime(InitialDate.AddYears(-5).Year, 1, 1);
+        MaxDate = new DateTime(InitialDate.AddYears(5).Year, 12, 31);
+
+        //Populate a list of allowed dates
+        for (DateTime i = new DateTime(InitialDate.Year, 01, 01); i < new DateTime(InitialDate.AddYears(1).Year, 01, 01); i = i.AddDays(1))
+        {
+            if (i.Date.Day % 2 is 0)
+                AllowedDates.Add(i);
+        }
+
+        //Call to fill initial dispaly page with disabled/allowed
+        DisableDates(InitialDate);
     }
 }
 ````
