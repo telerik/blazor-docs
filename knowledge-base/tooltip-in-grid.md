@@ -1,6 +1,6 @@
 ---
 title: Tooltip in Grid
-description: How to add Tooltips in Grid columns.
+description: Learn how to add Tooltips in Grid columns and explore an example that additionally shows how to load content on demand.
 page_title: Tooltip in Grid
 slug: tooltip-kb-in-grid
 position: 
@@ -19,26 +19,26 @@ This KB article answers the following question:
 ## Solution
 
 1. Use a [Column(cell) Template]({%slug grid-templates-column%}) to wrap the cell's value in a `<span>`.
-1. Attach the [`TelerikToolTip`]({%slug tooltip-overview%}) to the `<span>`.
+1. Use the `TargetSelector` of the [`TelerikToolTip`]({%slug tooltip-overview%}) to attach it to the `<span>`.
 1. Use the [Tooltip's Template]({%slug tooltip-template%}) and its context to load Data on demand.
 
 ````CSHTML
 <p>This example shows how to load content on demand for a tooltip that targets elements inside a grid. Hover over an employee name</p>
 
-<TelerikGrid Data="@GridData" 
+<TelerikGrid Data="@GridData"
              Height="400px"
              Pageable="true">
     <GridColumns>
-        <GridColumn Field="@(nameof(BasicEmployee.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(BasicEmployee.Name))" Title="Employee Name">
+        <GridColumn Field="@(nameof(Employee.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name">
             <Template>
                 @{
-                    BasicEmployee employee = context as BasicEmployee;
+                    Employee employee = context as Employee;
                     <span data-employeeId="@employee.Id" class="tooltip-target">@employee.Name</span>
                 }
             </Template>
         </GridColumn>
-        <GridColumn Field="@(nameof(BasicEmployee.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(Employee.Team))" Title="Team" />
     </GridColumns>
 </TelerikGrid>
 
@@ -67,19 +67,20 @@ This KB article answers the following question:
 </TelerikTooltip>
 
 @code {
-    private List<BasicEmployee> GridData { get; set; }
+    private List<Employee> GridData { get; set; }
 
+    // This shows that the Tooltip will work even if the Grid is bound after the Tooltip is initialized.
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         GridData = await GetEmployees();
         StateHasChanged();
     }
 
-    private async Task<List<BasicEmployee>> GetEmployees()
+    private async Task<List<Employee>> GetEmployees()
     {
         if (GridData == null)
         {
-            GridData = Enumerable.Range(1, 90).Select(x => new BasicEmployee
+            GridData = Enumerable.Range(1, 90).Select(x => new Employee
                 {
                     Id = x,
                     Name = "name " + x,
@@ -90,37 +91,25 @@ This KB article answers the following question:
         return await Task.FromResult(GridData);
     }
 
-    private EmployeeDetailsModel GetEmplyeeDetails(int employeeId)
+    private Employee GetEmplyeeDetails(int employeeId)
     {
         Random rnd = new Random();
-        BasicEmployee employee = GridData.Where(empl => empl.Id == employeeId).FirstOrDefault();
-        EmployeeDetailsModel details = new EmployeeDetailsModel(employee);
-        details.Salary = rnd.Next(1000, 5000);
-        details.ActiveProjects = rnd.Next(2, 10);
-        details.HireDate = DateTime.Now.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10));
+        Employee employee = GridData.Where(empl => empl.Id == employeeId).FirstOrDefault();
+        employee.Salary = rnd.Next(1000, 5000);
+        employee.ActiveProjects = rnd.Next(2, 10);
+        employee.HireDate = DateTime.Now.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10));
 
-        return details;
+        return employee;
     }
 
-    public class BasicEmployee
+    public class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Team { get; set; }
-    }
-
-    public class EmployeeDetailsModel : BasicEmployee
-    {
         public DateTime HireDate { get; set; }
         public int ActiveProjects { get; set; }
         public decimal Salary { get; set; }
-
-        public EmployeeDetailsModel(BasicEmployee basicEmployee)
-        {
-            this.Id = basicEmployee.Id;
-            this.Name = basicEmployee.Name;
-            this.Team = basicEmployee.Team;
-        }
     }
 }
 ````
