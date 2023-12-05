@@ -150,4 +150,4 @@ The following example demonstrates both options.
 ## See Also
 * [Grid Paging]({%slug components/grid/features/paging%})
 * [TreeList Paging]({%slug treelist-paging%})
-* [Customize Telerik Blazor components with CSS]({%slug themes-override%})
+* [Customize Telerik Blazor Components with CSS]({%slug themes-override%})
