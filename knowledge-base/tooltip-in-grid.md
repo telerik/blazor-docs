@@ -25,7 +25,7 @@ This KB article answers the following question:
 >caption Using a Tooltip in the Grid
 
 ````CSHTML
-<p>This example shows how to load content on demand for a tooltip that targets elements inside a grid. Hover over an employee name</p>
+<p>This example shows how to load content on demand for a tooltip that targets elements inside a Grid. Hover over an employee name.</p>
 
 <TelerikGrid Data="@GridData"
              Height="400px"
