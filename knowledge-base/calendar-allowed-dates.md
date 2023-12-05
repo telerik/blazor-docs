@@ -5,7 +5,7 @@ type: how-to
 page_title: How to set small list of allowed dates in Calendar.
 slug: calendar-kb-allowed-dates
 position: 
-tags: telerik, blazor, calendar, disable, allowed, dates
+tags: telerik, blazor, calendar
 res_type: kb
 ---
 
