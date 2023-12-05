@@ -22,6 +22,8 @@ This KB article answers the following question:
 1. Use the `TargetSelector` of the [`TelerikToolTip`]({%slug tooltip-overview%}) to attach it to the `<span>`.
 1. Use the [Tooltip's Template]({%slug tooltip-template%}) and its context to load Data on demand.
 
+>caption Using a Tooltip in the Grid
+
 ````CSHTML
 <p>This example shows how to load content on demand for a tooltip that targets elements inside a grid. Hover over an employee name</p>
 
