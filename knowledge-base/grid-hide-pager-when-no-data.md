@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-The following information applies to the TreeList as well. The Grid and the TreeList reuse CSS classes and styles.
+The following information applies to the Grid and TreeList. The two components reuse CSS classes and styles.
 
 When `Pageable="true"`, the Grid renders a pager at all times, no matter how many items the component shows.
 
