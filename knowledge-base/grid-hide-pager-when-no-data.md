@@ -39,7 +39,7 @@ When `Pageable="true"`, the Grid renders a pager at all times, no matter how man
 
 If there are no items, the Grid pager will show "Page 1 of 0" and "0 - 0 of 0 items".
 
-It is possible to hide the pager or some pager elements when there are no items. There are two ways to do this:
+When the Grid has no items, you can hide the pager or some pager elements in two ways:
 
 * Enable and disable [`Pageable`]({%slug components/grid/features/paging%}) conditionally.
 * Apply a CSS `Class` conditionally and use it to [hide parts of the pager or the whole pager]({%slug themes-override%}).
