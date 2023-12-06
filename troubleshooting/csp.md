@@ -30,6 +30,7 @@ Telerik UI for Blazor components need the following exceptions to strict CSP. So
 * Allow `data` URIs for images that are embedded in the [CSS themes]({%slug general-information/themes%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
 * Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN]({%slug getting-started/what-you-need%}#using-cdn) for styles or scripts.
 * *(up to version 4.4.0 only)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}). These templates used to rely on `eval()`. Since version 4.5.0, the Chart labels support a different template mechanism, which doesn't require `unsafe-eval`.
+* *(up to version 4.6.0 only)* Allow `data:` URIs for `font-src` to use [font icons]({%slug common-features-icons%}). Later versions use a separate file for the `WebComponentsIcons` icon font. This font file is referenced by the [font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet).
 
 ## Example
 
@@ -44,10 +45,6 @@ The CSP policy directives below ensure that the Telerik Blazor components look a
       script-src 'self' https://blazor.cdn.telerik.com;
       style-src 'self' 'unsafe-inline' https://blazor.cdn.telerik.com;
       img-src 'self' data:;
-      font-src 'self' data:;
+      font-src 'self' https://blazor.cdn.telerik.com;
 " />
 ````
-
-## Upcoming Enhancements
-
-In late 2023 we will move the font icon styles and the custom font `WebComponentsIcons` to two additional separate files. This will avoid the need to set `font-src data:` even when using font icons.
