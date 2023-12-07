@@ -36,7 +36,7 @@ You can also style the entire appointments by adding a class to their wrapping e
         <div style="padding: 10px;">
             @{
                 var appointment = context as SchedulerAppointment;
-                @if (!string.IsNullOrEmpty(appointment.Icon.ToString()))
+                @if (appointment.Icon != null)
                 {
                     <TelerikSvgIcon Icon="@appointment.Icon" />
                 }
