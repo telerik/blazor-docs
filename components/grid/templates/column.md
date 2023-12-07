@@ -10,19 +10,18 @@ position: 5
 
 # Column Template
 
-By default, the grid renders the value of the field in the column, as it is provided from the data source. You can change this behavior by using the `Template` of the column and add your own content and/or logic to make a string out of the object.
+By default, each Grid cell renders the value of the respective column `Field` of the current data item (row). You can change this behavior by using the `Template` of the column and adding your own content or logic.
 
-The column template (the `<Template>` tag under the column definition) is what the grid uses to show the "view" representation of the cell. This also includes a column that is marked as `Editable="false"` and is in edit mode.
+The column template (the `<Template>` tag under the column definition) is what the Grid uses to show the "view" representation of the cell. This also includes a column that is marked as `Editable="false"` and is in edit mode.
 
 >tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature]({%slug grid-columns-displayformat%}) without the need to declare a template.
 
 The example below shows how to:
 
 * Set the `Template` (make sure to use the tag with a capital `T`. The Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context).
-* Access the `context` of the model item and employ your own logic.
+* Access the template `context`, which is a data item object from the Grid `Data`. You need to cast the `context` to access the data item properties.
 * Render HTML or nest components in the column template.
 * Use inline or multi-line template.
-* Get data item values from the model.
 
 >caption Using Grid cell (column) template
 
