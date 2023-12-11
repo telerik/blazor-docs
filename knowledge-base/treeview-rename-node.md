@@ -1,12 +1,12 @@
 ---
 title: How to Rename a TreeView Node
-description: Learn how to edit the name (text) of a treeview node and explore the example that demonstrates a possible approach with an ItemTemplate. 
+description: Learn how to edit the name (text) of a Treeview node and explore the example that demonstrates a possible approach with an ItemTemplate. 
 type: how-to
 page_title: How to Rename a TreeView Node?
 slug: treeview-kb-rename-node
 position: 
 tags: edit, rename, tree, treeview, node, item
-ticketid: 1525532
+ticketid: 1525532, 1540469, 1629878, 1602035
 res_type: kb
 ---
 
@@ -22,12 +22,13 @@ res_type: kb
 
 
 ## Description
-This KB article answers the following question:
- - Is there any way I can edit the node text within a Blazor TreeView? 
+This KB article answers the following questions:
+ - Is there any way I can edit the node text within a Blazor TreeView?
+ - How can I let the user rename a node? 
 
 
 ## Solution
-Use the `ItemTemplate` to define the desired UI and UX for editing and how the node text will render. For example a button to initiate editing, a TextBox to modify the name of the node, a button to save the changes.
+Use the `ItemTemplate` to determine the node text's rendering and customize the editing UI. For example, you can define a button that initiates editing, a TextBox that modifies the node's name, and another button that saves the changes.
 
 ````CSHTML
 <TelerikTreeView Data="@FlatData">
