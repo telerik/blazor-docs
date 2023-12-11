@@ -14,11 +14,20 @@ This article explains how to bind the TreeView for Blazor to hierarchical data.
 @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 
-Hierarchical data means that the collection child items is provided in a field of its parent's model. By default, this is the `Items` field. If there are items for a certain node, it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for hierarchical data binding.
+Hierarchical data means that the child items are provided in a property of the parent item. By default, the TreeView expects this property to be called `Items`, otherwise set the property name in the `ItemsField` parameter. If a certain node has children, it will render an expand icon. The `HasChildren` model property can override this, but it is not required for hierarchical data binding.
 
-This approach of providing nodes lets you gather separate collections of data and/or use different models at each different level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
+The hierarchical data binding approach allows you have separate collections of data or different model types at each TreeView level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
 
->caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
+Consider the following examples:
+
+* [Hierarchical data with different types at each level](#different-types-at-each-level)
+* [Hierarchical data with the same type at all levels](#same-model-type-on-all-levels)
+
+## Different Types at Each Level
+
+The example below uses two levels of hierarchy, but the same idea applies to any number of levels. You will likely need a separate `TreeViewBinding` tag for each level with its own field name configuration.
+
+>caption TreeView with different model type at each all level
 
 ````CSHTML
 Hierarchical data hold collections of the child items
@@ -76,6 +85,95 @@ Hierarchical data hold collections of the child items
 
 		HierarchicalData = roots;
 	}
+}
+````
+
+## Same Model Type on All Levels
+
+The example below uses the default property names in the model (`Id`, `Text`, `Items`), so there is no need to set field parameters in the TreeView configuration.
+
+Experiment with the `TreeLevels`, `RootItems` and `ItemsPerLevel` values below.
+
+>caption TreeView with random number of levels and same model type on all levels
+
+````CSHTML
+<TelerikTreeView Data="@HierarchicalData"
+                 CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
+                 CheckChildren="true"
+                 CheckParents="true"
+                 SelectionMode="@TreeViewSelectionMode.Multiple"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 @bind-CheckedItems="@CheckedItems"
+                 @bind-SelectedItems="@SelectedItems" />
+
+@code {
+    private List<TreeItem> HierarchicalData { get; set; } = new();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> CheckedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+
+    private int TreeLevels { get; set; } = 4;
+    private int RootItems { get; set; } = 3;
+    private int ItemsPerLevel { get; set; } = 2;
+    private int IdCounter { get; set; }
+
+    protected override void OnInitialized()
+    {
+        HierarchicalData = LoadHierarchical();
+
+        // Select, check and expand the root items.
+        ExpandedItems = new List<TreeItem>(HierarchicalData);
+        // CheckChildren and CheckParents don't affect programmatic checking.
+        CheckedItems = new List<TreeItem>(HierarchicalData);
+        SelectedItems = new List<TreeItem>(HierarchicalData);
+    }
+
+    private List<TreeItem> LoadHierarchical()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        PopulateItems(items, 1);
+
+        return items;
+    }
+
+    private void PopulateItems(List<TreeItem> items, int level)
+    {
+        for (int i = 1; i <= (level == 1 ? RootItems : ItemsPerLevel); i++)
+        {
+            var itemId = ++IdCounter;
+
+            var newItem = new TreeItem()
+            {
+                Id = itemId,
+                Text = $"Level {level} Item {i} Id {itemId}"
+            };
+
+            items.Add(newItem);
+
+            if (level < TreeLevels)
+            {
+                PopulateChildren(items, level + 1);
+            }
+        }
+    }
+
+    private void PopulateChildren(List<TreeItem> items, int level)
+    {
+        foreach (var item in items)
+        {
+            item.Items = new List<TreeItem>();
+
+            PopulateItems(item.Items, level);
+        }
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public List<TreeItem>? Items { get; set; }
+    }
 }
 ````
 
