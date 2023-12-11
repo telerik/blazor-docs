@@ -56,17 +56,17 @@ Steps 4 and 5 are optional, but strongly recommended.
 ### Implement Controller Methods
 
 * **Save** action method
-    * Its argument should be `IFormFile` or `IEnumerable<IFormFile>`. The Upload always sends files one by one, but both argument types can work.
+    * Its argument must be `IFormFile` or `IEnumerable<IFormFile>`. The Upload always sends files one by one, but both argument types can work.
     * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
-    * The method name should match the last part of the `SaveUrl` value.
+    * The method name must match the last part of the `SaveUrl` value.
     * The correct binding source attribute for the file argument is `[FromForm]`. Normally, .NET will infer and set it automatically.
 * **Remove** action method
-    * Its argument should be `string` or `IEnumerable<string>`.
+    * Its argument must be `string` or `IEnumerable<string>`.
     * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
-    * The method name should match the last part of the `RemoveUrl` value.
+    * The method name must match the last part of the `RemoveUrl` value.
     * The correct binding source attribute for the file name argument is `[FromForm]`. Set it explicitly if you are using an [`[ApiController]` attribute](https://learn.microsoft.com/en-gb/aspnet/core/web-api/).
 
-Both action methods should accept `POST` requests. Correct request routing depends on the application.
+Both action methods must accept `POST` requests. Correct request routing depends on the application.
 
 The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
 
