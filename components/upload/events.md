@@ -248,7 +248,7 @@ If you cancel the event, the Upload component will not send the file deletion re
 ````
 ````Controller
 [HttpPost]
-public async Task<IActionResult> Remove(string files)
+public async Task<IActionResult> Remove([FromForm] string files)
 {
     // ...
 
