@@ -247,14 +247,28 @@ If you cancel the event, the Upload component will not send the file deletion re
 }
 ````
 ````Controller
+// Get the custom data and header values from additional method arguments
+[HttpPost]
+public async Task<IActionResult> Remove([FromForm] string files, [FromForm] string dataKey, [FromHeader] string headerKey)
+{
+    // ...
+
+    string customData = dataKey;
+    string customHeader = headerKey;
+
+    // ...
+}
+
+// OR
+
+// Get the custom data and header values from the Request object
 [HttpPost]
 public async Task<IActionResult> Remove([FromForm] string files)
 {
     // ...
 
-    // Get the custom data and header values
-    string formData = Request.Form["dataKey"];
-    string headerValue = Request.Headers["headerKey"];
+    string customData = Request.Form["dataKey"];
+    string customHeader = Request.Headers["headerKey"];
 
     // ...
 }
