@@ -10,9 +10,93 @@ position: 30
 
 # Events
 
-This article explains the events available in the Telerik Context Menu for Blazor:
+This article describes the events available in the Telerik Context Menu for Blazor:
 
-* [OnClick](#onclick)
+* [`OnClick`](#onclick)
+* [`OnItemRender`](#onitemrender)
+
+## OnItemRender
+
+The `OnItemRender` event fires when each Context Menu item renders. It allows you to customize the appearance of an item.
+
+The event handler receives an argument object of type `MenuItemRenderEventArgs` that contains the following properties: 
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Item` | `object` | The current item that renders in the Context Menu. |
+| `Class` | `string` | The custom CSS class that will be added to the item. |
+
+>caption Customizing the appearance of the Context Menu items.
+
+````CSHTML
+<div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
+    Right-click (or tap and hold on a touch device) for a Context Menu.
+</div>
+
+<TelerikContextMenu Data="@MenuItems" Selector=".context-menu-target" OnItemRender="@RenderItemHandler">
+</TelerikContextMenu>
+
+<style>
+    .orange {
+        background: orange;
+    }
+</style>
+
+@code {
+    public List<ContextMenuItem> MenuItems { get; set; }
+
+    private void RenderItemHandler(MenuItemRenderEventArgs args)
+    {
+        var item = args.Item as ContextMenuItem;
+
+        args.Class = "orange";
+    }
+
+    protected override void OnInitialized()
+    {
+
+        MenuItems = new List<ContextMenuItem>()
+        {
+            new ContextMenuItem
+            {
+                Text = "More Info",
+                Icon = SvgIcon.InfoCircle,
+                CommandName = "info"
+            },
+            new ContextMenuItem
+            {
+                Text = "Advanced",
+                Items = new List<ContextMenuItem>()
+                {
+                    new ContextMenuItem
+                    {
+                        Text = "Delete",
+                        Icon = SvgIcon.Trash,
+                        CommandName = "delete"
+                    },
+                    new ContextMenuItem
+                    {
+                        Text = "Report",
+                        Icon = SvgIcon.Cancel,
+                        CommandName = "report"
+                    }
+                }
+            }
+        };
+
+        base.OnInitialized();
+    }
+
+    public class ContextMenuItem
+    {
+        public string Text { get; set; }
+        public string CommandName { get; set; }
+        public ISvgIcon Icon { get; set; }
+        public bool Separator { get; set; }
+        public List<ContextMenuItem> Items { get; set; }
+    }
+}
+````
 
 ## OnClick
 
