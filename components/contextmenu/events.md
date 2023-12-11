@@ -26,7 +26,7 @@ The event handler receives an argument object of type `MenuItemRenderEventArgs` 
 | `Item` | `object` | The current item that renders in the Context Menu. |
 | `Class` | `string` | The custom CSS class that will be added to the item. |
 
->caption Customizing the appearance of the Context Menu items
+>caption Customizing the appearance of the Context Menu items.
 
 ````CSHTML
 <div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
