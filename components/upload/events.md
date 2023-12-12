@@ -743,7 +743,7 @@ namespace TelerikBlazorUpload.Controllers
                     {
                         System.IO.File.Delete(fileLocation);
 
-                        Response.StatusCode = 204;
+                        Response.StatusCode = 200;
                         await Response.WriteAsync($"Delete successful.");
                     }
                 }
