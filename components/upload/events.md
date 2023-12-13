@@ -247,14 +247,28 @@ If you cancel the event, the Upload component will not send the file deletion re
 }
 ````
 ````Controller
+// Get the custom data and header values from additional method arguments
 [HttpPost]
-public async Task<IActionResult> Remove(string files)
+public async Task<IActionResult> Remove([FromForm] string files, [FromForm] string dataKey, [FromHeader] string headerKey)
 {
     // ...
 
-    // Get the custom data and header values
-    string formData = Request.Form["dataKey"];
-    string headerValue = Request.Headers["headerKey"];
+    string customData = dataKey;
+    string customHeader = headerKey;
+
+    // ...
+}
+
+// OR
+
+// Get the custom data and header values from the Request object
+[HttpPost]
+public async Task<IActionResult> Remove([FromForm] string files)
+{
+    // ...
+
+    string customData = Request.Form["dataKey"];
+    string customHeader = Request.Headers["headerKey"];
 
     // ...
 }
@@ -428,14 +442,28 @@ To send **cookies** with the upload request, set the [`WithCredentials` componen
 }
 ````
 ````Controller
+// Get the custom data and header values from additional method arguments
+[HttpPost]
+public async Task<IActionResult> Save(IFormFile files, [FromForm] string dataKey, [FromHeader] string headerKey)
+{
+    // ...
+
+    string customData = dataKey;
+    string customHeader = headerKey;
+
+    // ...
+}
+
+// OR
+
+// Get the custom data and header values from the Request object
 [HttpPost]
 public async Task<IActionResult> Save(IFormFile files)
 {
     // ...
 
-    // Get the custom data and header values
-    string formData = Request.Form["dataKey"];
-    string headerValue = Request.Headers["headerKey"];
+    string customData = Request.Form["dataKey"];
+    string customHeader = Request.Headers["headerKey"];
 
     // ...
 }
@@ -646,7 +674,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TelerikBlazorUpload.Controllers
 {
     [Route("api/[controller]/[action]")]
-    public class UploadController : Controller
+    public class UploadController : ControllerBase
     {
         public IWebHostEnvironment HostingEnvironment { get; set; }
 
@@ -693,7 +721,7 @@ namespace TelerikBlazorUpload.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Remove(string files) // "files" matches the Upload RemoveField value
+        public async Task<IActionResult> Remove([FromForm] string files) // "files" matches the Upload RemoveField value
         {
             bool shouldSucceed = Convert.ToBoolean(Request.Form["successData"])
                 && Convert.ToBoolean(Request.Headers["successHeader"]);
@@ -715,7 +743,7 @@ namespace TelerikBlazorUpload.Controllers
                     {
                         System.IO.File.Delete(fileLocation);
 
-                        Response.StatusCode = 204;
+                        Response.StatusCode = 200;
                         await Response.WriteAsync($"Delete successful.");
                     }
                 }
