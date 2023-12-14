@@ -127,14 +127,37 @@ There are several key aspects in implementing this:
 
 ### Per-Input Validation Popups
 
-This sample uses a tooltip component and mimics clicks on its targets to make it show up. Comments in the code provide more details on the implementation approach and ideas for next steps in the implementation.
+This sample uses a Tooltip component and mimics clicks on its targets to make it show up. Comments in the code provide more details on the implementation approach and ideas for enhancements.
 
 >caption Tooltips for validated inputs
 
 ````CSHTML
-@* This sample shows one way programatically show tooltips and display the validation summary in it. *@
+@using System.ComponentModel.DataAnnotations
 
 @inject IJSRuntime JS
+
+<EditForm Model="@ValidationModel" OnInvalidSubmit="@ShowTooltip">
+    <DataAnnotationsValidator />
+
+    <TelerikTooltip TargetSelector="#required-field" ShowOn="@TooltipShowEvent.Click">
+        <Template Context="RequiredContext">
+            The field is required
+        </Template>
+    </TelerikTooltip>
+    <TelerikTooltip TargetSelector="#length-field" ShowOn="@TooltipShowEvent.Click">
+        <Template Context="Length">
+            That text is too long
+        </Template>
+    </TelerikTooltip>
+
+    <TelerikTextBox @bind-Value="@ValidationModel.RequiredField" Id="required-field"></TelerikTextBox>
+    <br /><br />
+    <TelerikTextBox @bind-Value="@ValidationModel.LengthField" Id="length-field"></TelerikTextBox>
+    <br /><br />
+    <span @onmouseover="@(() => ShowTooltip())">
+        <TelerikButton ThemeColor="primary">Submit</TelerikButton>
+    </span>
+</EditForm>
 
 <script suppress-error="BL9992">
     // the scripts should be extracted in a separate js file
@@ -143,54 +166,24 @@ This sample uses a tooltip component and mimics clicks on its targets to make it
     }
 </script>
 
-@using System.ComponentModel.DataAnnotations
-@* this is for the validation model only *@
-
-<style>
-    /* implement desired styling, here we just add white background so the default red text pops out */
-    .ValidationTooltip .k-tooltip-content {
-        background: white;
-    }
-</style>
-
-<EditForm Model="@validationModel" OnInvalidSubmit="@ShowTooltip">
-    <DataAnnotationsValidator />
-
-    <TelerikTooltip TargetSelector="#required-field" ShowOn="@TooltipShowEvent.Click">
-        <Template Context="RequiredContext">The field is required</Template>
-    </TelerikTooltip>
-    <TelerikTooltip TargetSelector="#length-field" ShowOn="@TooltipShowEvent.Click">        
-        <Template Context="Length">That text is too long</Template>
-    </TelerikTooltip>
-
-    <TelerikTextBox @bind-Value="@validationModel.RequiredField" Id="required-field"></TelerikTextBox>
-    <br /><br />
-    <TelerikTextBox @bind-Value="@validationModel.LengthField" Id="length-field"></TelerikTextBox>
-    <br /><br />
-    <span @onmouseover="@(() => ShowTooltip())">
-        <TelerikButton ThemeColor="primary">Submit</TelerikButton>
-    </span>
-</EditForm>
-
 @code {
-    //model and validation
-    class TextValidationModel
+    private TextValidationModel ValidationModel = new TextValidationModel() { LengthField = "Too long text" };
+
+    private async Task ShowTooltip()
     {
-        [Required]
-        public string RequiredField { get; set; }
-
-        [StringLength(10, ErrorMessage = "That text is too long")]
-        public string LengthField { get; set; }
-    }
-
-    TextValidationModel validationModel = new TextValidationModel() { LengthField = "Too long text" };
-
-    async Task ShowTooltip()
-    {
-        // this will trigger manual click to the element with the passed id
-        // you can filter and show the tooltips only for the fields that failed validation check
+        // Trigger programmatic click on the element with the passed id.
+        // You can filter and show tooltips only for the fields that failed validation.
         await JS.InvokeVoidAsync("triggerClick", "required-field");
         await JS.InvokeVoidAsync("triggerClick", "length-field");
+    }
+
+    public class TextValidationModel
+    {
+        [Required]
+        public string RequiredField { get; set; } = string.Empty;
+
+        [StringLength(10, ErrorMessage = "That text is too long")]
+        public string LengthField { get; set; } = string.Empty;
     }
 }
 ````
