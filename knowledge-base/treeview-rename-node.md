@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Rename a TreeView Node?
 slug: treeview-kb-rename-node
 position: 
-tags: edit, rename, tree, treeview, node, item
+tags: telerik, treeview, tree, edit, template
 ticketid: 1525532, 1540469, 1629878, 1602035
 res_type: kb
 ---
@@ -62,9 +62,9 @@ Use the `ItemTemplate` to determine the node text's rendering and customize the 
 </TelerikTreeView>
 
 @code {
-    private TelerikTextBox TextBoxRef { get; set; }
-
     private List<TreeItem> FlatData { get; set; }
+
+    private TelerikTextBox TextBoxRef { get; set; }
 
     private TreeItem Item { get; set; }
 
