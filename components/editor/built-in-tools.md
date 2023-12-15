@@ -40,6 +40,8 @@ Here is a simple example that demonstrates how to use class names, command names
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <TelerikButton OnClick="@InsertParagraph">Insert Paragraph in the Editor</TelerikButton>
 
@@ -55,9 +57,9 @@ Here is a simple example that demonstrates how to use class names, command names
 
     // "Bold", "Italic" and "Underline" are class names
     private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() {
-        new Bold(),
-        new Italic(),
-        new Underline()
+        new EditorNS.Bold(),
+        new EditorNS.Italic(),
+        new EditorNS.Underline()
     };
 
     private async Task InsertParagraph()
@@ -237,6 +239,8 @@ The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) a
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <TelerikEditor @bind-Value="@EditorValue"
                Tools="@EditorTools">
@@ -247,7 +251,7 @@ The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) a
 
     private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>()
     {
-        new FontFamily()
+        new EditorNS.FontFamily()
         {
             DefaultText = "Font Family",
             Data = new List<EditorDropDownListItem>()
@@ -256,7 +260,7 @@ The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) a
                 new EditorDropDownListItem("Lucida Console", "'lucida console'")
             }
         },
-        new FontSize()
+        new EditorNS.FontSize()
         {
             DefaultText = "Text Size",
             Data = new List<EditorDropDownListItem>()

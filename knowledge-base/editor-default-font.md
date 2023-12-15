@@ -86,6 +86,8 @@ This example showcases how to set a default font for the content area of the Edi
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <style>
     .myTelerikEditor div.k-editor-content div.k-content {
@@ -94,14 +96,14 @@ This example showcases how to set a default font for the content area of the Edi
 </style>
 
 <TelerikEditor @bind-Value="@TheEditorValue"
-               Width="650px" 
+               Width="650px"
                Height="400px"
                EditMode="@EditorEditMode.Div"
                Tools="@MyTools"
                Class="myTelerikEditor">
 </TelerikEditor>
 
-@code{
+@code {
     string TheEditorValue { get; set; }
     public List<IEditorTool> MyTools { get; set; }
 
@@ -113,12 +115,12 @@ This example showcases how to set a default font for the content area of the Edi
         //add the typeface to the default list of fonts
         List<EditorDropDownListItem> fontFamilyChoices = new List<EditorDropDownListItem>(EditorDropDownListToolItems.FontFamilyItems);
         fontFamilyChoices.Add(new EditorDropDownListItem()
-        {
-            Text = "Arial Black",
-            Value = "Arial Black"
-        });
+            {
+                Text = "Arial Black",
+                Value = "Arial Black"
+            });
 
-        MyTools.Add(new FontFamily() { Data = fontFamilyChoices });
+        MyTools.Add(new EditorNS.FontFamily() { Data = fontFamilyChoices });
 
         TheEditorValue = @"
             <p>

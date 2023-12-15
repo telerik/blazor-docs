@@ -83,10 +83,12 @@ This example shows how to start from the existing `Default` toolbar collection o
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <TelerikEditor Tools="@customTools" @bind-Value="@TheEditorValue"></TelerikEditor>
 
-@code{
+@code {
     string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
     public List<IEditorTool> customTools { get; set; }
 
@@ -98,8 +100,8 @@ This example shows how to start from the existing `Default` toolbar collection o
 
         // create a tool group
         var UndoRedoGroup = new EditorButtonGroup(
-                new Undo(), // add individual tools to the group
-                new Redo()
+                new EditorNS.Undo(), // add individual tools to the group
+                new EditorNS.Redo()
             );
 
 
@@ -137,10 +139,12 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 ````
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <TelerikEditor Tools="@MyTools" @bind-Value="@TheEditorValue"></TelerikEditor>
 
-@code{
+@code {
     string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
     public List<IEditorTool> MyTools { get; set; }
 
@@ -151,9 +155,9 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
         // add a button group
         EditorButtonGroup firstGroup = new EditorButtonGroup(
-            new Bold(),
-            new Italic(),
-            new Underline()
+            new EditorNS.Bold(),
+            new EditorNS.Italic(),
+            new EditorNS.Underline()
         );
         MyTools.Add(firstGroup);
 
@@ -178,10 +182,12 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
+@* Avoid ambiguous reference with SVG icons *@
+@using EditorNS = Telerik.Blazor.Components.Editor;
 
 <TelerikEditor Tools="@MyTools" @bind-Value="@TheEditorValue"></TelerikEditor>
 
-@code{
+@code {
     string TheEditorValue { get; set; } = "<p>Lorem ipsum</p><p>Dolor sit amet.</p>";
     public List<IEditorTool> MyTools { get; set; }
 
@@ -189,39 +195,38 @@ When adding a built-in tool to the collection, you can set various parameters to
     {
         // initialize the toolbar collection
         MyTools = new List<IEditorTool>();
-
         // add a button group
         EditorButtonGroup firstGroup = new EditorButtonGroup(
-            new Bold(),
-            new Italic(),
+            new EditorNS.Bold(),
+            new EditorNS.Italic(),
             // this is how to customize settings for a button. Intellisense will show you all the options
             // you should avoid customizing things like OnClick event handlers and CommandName
-            new Underline()
-            {
-                Title = "My Custom Underline Title",
-                Class = "special-underine",
-                Icon = SvgIcon.Gear,
-            }
+            new EditorNS.Underline()
+                {
+                    Title = "My Custom Underline Title",
+                    Class = "special-underine",
+                    Icon = SvgIcon.Gear,
+                }
         );
         MyTools.Add(firstGroup);
 
         // this is how to customize settings for a dropdown. Intellisense will show you all the options
         // you should avoid customizing things like event handlers, and CommandName
         MyTools.Add(new Format()
-        {
-            DefaultText = "Choose Style",
-            Width = "200px",
-            Data = new List<EditorDropDownListItem>
+            {
+                DefaultText = "Choose Style",
+                Width = "200px",
+                Data = new List<EditorDropDownListItem>
             {
                 new EditorDropDownListItem { Text = "heading", Value = "h1" },
                 new EditorDropDownListItem { Text = "separated block", Value = "blockquote" },
             }
-        });
+            });
 
         // this is how you can get the default data sources - in this example, the font size
         // the EditorDropDownListToolItems static class holds the appropriate default collections
         List<EditorDropDownListItem> fontSizeChoices = EditorDropDownListToolItems.FontSizeItems.Skip(4).Take(3).ToList();
-        MyTools.Add(new FontSize() { Data = fontSizeChoices });
+        MyTools.Add(new EditorNS.FontSize() { Data = fontSizeChoices });
 
 
 
@@ -234,9 +239,9 @@ When adding a built-in tool to the collection, you can set various parameters to
 }
 
 <style>
-    .special-underine.k-button{
-       background: green;
-       background-image:none;
+    .special-underine.k-button {
+        background: green;
+        background-image: none;
     }
 </style>
 ````
