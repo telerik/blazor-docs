@@ -96,9 +96,9 @@ The steps below assume that the ListView data items are of type `TItem`.
         padding: 1em 2em;
     }
 
-    .listview-item h3 {
-        flex: 0 0 160px;
-    }
+        .listview-item h3 {
+            flex: 0 0 160px;
+        }
 
     :nth-child(2n+1) > .listview-item {
         background: rgba(0, 0, 0, .04);
@@ -141,14 +141,7 @@ The steps below assume that the ListView data items are of type `TItem`.
     private void OnEditClick(Product dataItem)
     {
         // Clone the data item, so that users can cancel editing.
-        ProductInEditMode = new Product()
-        {
-            Id = dataItem.Id,
-            InProduction = dataItem.InProduction,
-            Name = dataItem.Name,
-            Price = dataItem.Price,
-            ReleaseDate = dataItem.ReleaseDate
-        };
+        ProductInEditMode = dataItem.Clone();
 
         EditWindowVisible = true;
     }
@@ -182,18 +175,31 @@ The steps below assume that the ListView data items are of type `TItem`.
     {
         [Editable(false)]
         public int Id { get; set; }
-        
+
         public string Name { get; set; } = string.Empty;
-        
+
         public decimal Price { get; set; }
-        
+
         public int Stock { get; set; }
-        
+
         [Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }
-        
+
         [Display(Name = "In Production")]
         public bool InProduction { get; set; }
+
+        public Product Clone()
+        {
+            return new Product()
+            {
+                Id = Id,
+                Name = Name,
+                Price = Price,
+                Stock = Stock,
+                ReleaseDate = ReleaseDate,
+                InProduction = InProduction
+            };
+        }
     }
 }
 ````
