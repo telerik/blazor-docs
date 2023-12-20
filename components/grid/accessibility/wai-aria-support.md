@@ -88,7 +88,7 @@ If the Grid is composed of a single table (there is no separate `<table>` elemen
 | `.k-grid-header-wrap>table>thead` | `role=rowgroup` | Required as the owner `<table>` element has its semantic role removed. |
 | `.k-grid-header-wrap>table>thead>tr` | `role=row` | Required as the owner `<table>` element has its semantic role removed. |
 |  | `aria-rowindex` | Row number including all headers, data (including master and detail) rows, and footers starting from 1. Needed only when Paging (and more that 1 page is present in the component), Virtual rows, or Master/Detail rows (Hierarchical Grid, Detail Template Grid) are enabled. If data is also Grouped, the proper indexing could not be calculated. Hence, the attribute must not be set. |
-| `.k-grid-header-wrap>table>thead>tr>th` | `role=columnheader` | Required as the owner `<table>` element has its semantic role removed. |
+| `.k-grid-header-wrap>table>thead>tr>th:not(.k-hierarchy-cell):not(.k-group-cell):not(.k-drag-cell)` | `role=columnheader` | Required as the owner `<table>` element has its semantic role removed. |
 |  | `aria-sort=none/ascending/descending` | Present if sorting is enabled for that column. |
 |  | `title` or `aria-label` | Present on the element or its child if sorting is enabled for that field. |
 |  | `aria-colindex` | Col number, based on leaf columns, starting from 1. Needed only for Virtual columns and Hidden columns scenarios, when not all columns are rendered in the DOM. Otherwise, can be interpreted from the DOM structure. Can be calculated by summing previous columns colspans. |
