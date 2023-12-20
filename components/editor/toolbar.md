@@ -213,15 +213,15 @@ When adding a built-in tool to the collection, you can set various parameters to
         // this is how to customize settings for a dropdown. Intellisense will show you all the options
         // you should avoid customizing things like event handlers, and CommandName
         MyTools.Add(new Format()
-            {
-                DefaultText = "Choose Style",
-                Width = "200px",
-                Data = new List<EditorDropDownListItem>
-            {
-                new EditorDropDownListItem { Text = "heading", Value = "h1" },
-                new EditorDropDownListItem { Text = "separated block", Value = "blockquote" },
-            }
-            });
+        {
+            DefaultText = "Choose Style",
+            Width = "200px",
+            Data = new List<EditorDropDownListItem>
+        {
+            new EditorDropDownListItem { Text = "heading", Value = "h1" },
+            new EditorDropDownListItem { Text = "separated block", Value = "blockquote" },
+        }
+        });
 
         // this is how you can get the default data sources - in this example, the font size
         // the EditorDropDownListToolItems static class holds the appropriate default collections
