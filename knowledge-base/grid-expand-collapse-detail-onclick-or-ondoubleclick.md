@@ -157,7 +157,7 @@ In the event handlers, get the [Grid State]({%slug grid-state%}) and modify its 
             state.ExpandedItems.Add(currItem);
         }
 
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     protected override void OnInitialized()
