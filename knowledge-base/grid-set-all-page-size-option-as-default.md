@@ -4,20 +4,20 @@ description: How to set the "All" option for the PageSize as default in Telerik 
 type: how-to
 page_title: How to Set "All" PageSize Option as Default
 slug: grid-kb-set-all-pagesize-option-as-default
-tags: 
-  - Telerik Grid
-  - Blazor
-  - Page Size
-  - All Option
-  - Default
+tags: grid, page, size, all, option, default
 ticketid: 1624891
 res_type: kb
 ---
 
 ## Environment
-| Property | Value |
-| --- | --- |
-| Product | Grid for Blazor |
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Grid for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Description
 
@@ -32,7 +32,7 @@ The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To 
 3. Bind the `PageSize` property to the `@bind-PageSize` attribute of the `TelerikGrid` component.
 4. Specify the `PageSizes` collection in the `GridPagerSettings` component to display the dropdown with the available page sizes.
 
-Here's an example implementation:
+>caption Set "All" PageSize Option as Default
 
 ```
 Page size: @PageSize
