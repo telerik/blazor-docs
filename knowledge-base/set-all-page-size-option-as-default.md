@@ -25,7 +25,7 @@ I want to set the default selected entry in the Pager of the Telerik Grid to be 
 
 ## Solution
 
-The  `PageSize` property of the Grid accepts a non-nullable `int` by design. To set the "All" option as the default for the page size in the Telerik Grid, use a custom approach as follows:
+The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To set the "All" option as the default for the page size in the Telerik Grid, use a custom approach as follows:
 
 1. In the component's initialization method (`OnInitializedAsync`), load the data and set the `PageSize` property to the total count of the records.
 2. Add the "All" option (`null`) to the `PageSizes` collection.
