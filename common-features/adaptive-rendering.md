@@ -40,7 +40,7 @@ To enable the adaptive rendering use the `AdaptiveMode` parameter. It takes a me
 * `None` (default)
 * `Auto`
 
-Optionally, you may set the `Title` parameter to provide custom header text for the popup on small and medium devices.
+Optionally, you may set the `Title` and `Subtitle` parameters to provide custom header and subtitle text for the popup on small and medium devices.
 
 >caption Enable the adaptive rendering
 
