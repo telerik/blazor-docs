@@ -148,7 +148,7 @@ You can use the built-in `DataAnnotationsValidator` that comes with the Blazor f
 
 ### Validate a Complex Model
 
-You can use the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#nested-models-collection-types-and-complex-types" target="_blank">ObjectGraphDataAnnotationsValidator</a>  inside the Telerik Form for Blazor to validate a nested model.
+You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-8.0#nested-models-collection-types-and-complex-types" target="_blank">ObjectGraphDataAnnotationsValidator</a> inside the Telerik Form for Blazor to validate a nested model.
 
 When using a model with nested objects and fields, specify their `Field` setings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
