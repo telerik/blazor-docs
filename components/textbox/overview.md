@@ -37,6 +37,8 @@ The TextBox component provides settings to control its appearance. [Read more ab
 
 >tip To learn more about the appearance, anatomy, and accessibility of the TextBox, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/textbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
+
 ## Events
 
 The Blazor TextBox generates blur and value change events for further customizing its behavior. [Read more about the Blazor TextBox events]({%slug components/textbox/events%}).

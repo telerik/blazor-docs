@@ -5,7 +5,7 @@ description: How dimensions work and are set in the Telerik UI for Blazor compon
 slug: common-features/dimensions
 tags: telerik,blazor,dimensions,width,height,percent,pixel
 published: True
-position: 3
+position: 7
 ---
 
 # Dimensions

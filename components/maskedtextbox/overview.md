@@ -35,6 +35,8 @@ The component value is: @MaskedValue
 }
 ````
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
+
 ## Validation
 
 You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox).

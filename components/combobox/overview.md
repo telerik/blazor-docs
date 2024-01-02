@@ -57,6 +57,8 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#filteri
 
 The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor ComboBox grouping...]({% slug components/combobox/grouping %}).
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
+
 ## Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor ComboBox templates...]({% slug components/combobox/templates %}).

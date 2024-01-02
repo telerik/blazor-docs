@@ -51,10 +51,12 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#dat
 ## Filtering
 
 The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor AutoComplete filter...]({%slug autocomplete-filter%})
-
+ 
 ## Grouping
 
 The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor AutoComplete grouping...]({%slug components/autocomplete/grouping%})
+
+@[template](/_contentTemplates/common/inputs.md#adornments)
 
 ## Templates
 
