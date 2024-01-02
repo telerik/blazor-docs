@@ -2,7 +2,7 @@
 title: Set "All" PageSize Option as Default
 description: How to set the "All" option for the PageSize as default in Telerik Grid for Blazor.
 type: how-to
-page_title: Set "All" PageSize option as default | Telerik Grid for Blazor
+page_title: How to Set "All" PageSize Option as Default
 slug: set-all-page-size-option-as-default
 tags: 
   - Telerik Grid
