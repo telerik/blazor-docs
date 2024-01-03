@@ -199,7 +199,7 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 ### Form Layout Customization
 
-The Blazor Form exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components]({%slug form-formitems-formitemstemplate%}).
+The [Blazor Form](https://www.telerik.com/blazor-ui/form) exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components]({%slug form-formitems-formitemstemplate%}).
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
@@ -210,7 +210,7 @@ The Blazor Form exposes multiple parameters that allow you to customize its layo
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor Form:
+The following parameters enable you to customize the appearance of the [Blazor Form](https://www.telerik.com/blazor-ui/form):
 
 | Parameter | Type | Description |
 | --- | --- | --- |

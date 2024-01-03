@@ -12,7 +12,7 @@ previous_url: /components/editor/custom-tool
 
 # Editor Custom Tools
 
-The Blazor Editor component lets you add custom tools to its [toolbar]({%slug editor-toolbar%}). In those tools, you can use both the [built-in tools and commands]({%slug editor-built-in-tools%}) the editor provides, and also your own custom logic.
+The [Blazor Editor](https://www.telerik.com/blazor-ui/editor) component lets you add custom tools to its [toolbar]({%slug editor-toolbar%}). In those tools, you can use both the [built-in tools and commands]({%slug editor-built-in-tools%}) the editor provides, and also your own custom logic.
 
 In this article:
 
