@@ -261,3 +261,7 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
     ![Blazor Web App in the browser](images/blazor-web-app-in-browser.png)
 
 Well done! Now you have your first Telerik UI for Blazor component running in your Blazor Web App.
+
+## See Also
+
+* [Using .NET 8 Blazor Sections inside Telerik Components]({%slug common-kb-net8-sections%})
