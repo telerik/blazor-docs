@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDownList Overview
-description: Discover the Blazor DropdownList for Blazor and explore the examples.
+description: Explore the Blazor DropDownList component and see code examples. Read more in the Telerik UI documentation for Blazor.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
@@ -10,12 +10,12 @@ position: 0
 
 # Blazor DropDownList Overview
 
-The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
+The <a href="https://www.telerik.com/blazor-ui/dropdownlist" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
 ## Creating the DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
-1. Populate its `Data` property with the collection of items you want to appear in the dropdown.
+1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
 1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) Set the `Value` property to the initial value of the model.
@@ -43,6 +43,10 @@ Selected value: @selectedValue
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
+
+>caption The rendered DropDownList component from the code snippet above:
+
+![Blazor DropDown List component](images/dropdownlist-basic-screenshot.jpg)
 
 ## Data Binding
 
@@ -92,8 +96,8 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 | `Id` | `string` | The `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
 | `TItem` | `Type`| The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
-| `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
-| `TabIndex` | `int?` | The `tabindex` attribute rendered on the dropdown. |
+| `Title` | `string` | The title text rendered in the header of the dropdown list popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
+| `TabIndex` | `int?` | The `tabindex` attribute rendered on the dropdown list. |
 | `TextField` | `string` <br /> (`Text`)| The name of the field from the model that will be shown to the user. |
 | `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will be the underlying `value`. |
 |`Value` and `bind-Value`| `TValue` | Gets/sets the value of the component, can be used for binding. If you set it to a value allowed by the model class value field, the corresponding item from the data collection will be pre-selected. Use the `bind-Value` syntax for two-way binding, for example, to a variable of your own. |
@@ -101,7 +105,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the [appearance]({%slug dropdownlist-appearance%}) of the Blazor DropDownList:
+The following parameters enable you to customize the [appearance]({%slug dropdownlist-appearance%}) of the Blazor DropDownList component:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 

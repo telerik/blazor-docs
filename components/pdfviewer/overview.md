@@ -15,13 +15,13 @@ The <a href = "https://www.telerik.com/blazor-ui/pdf-viewer" target="_blank">Pdf
 
 ## Creating Blazor PdfViewer
 
-To use a Telerik PDF Viewer for Blazor:
+To use a Telerik [Blazor PDF Viewer](https://www.telerik.com/blazor-ui/pdf-viewer):
 
 1. Add the `TelerikPdfViewer` tag.
-1. Set the `Data` parameter to a byte array (`byte[]`) that holds the PDF file contents.
-1. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
-1. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, use the `OnDownload` event to set the name of the downloaded file.
-1. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
+2. Set the `Data` parameter to a byte array (`byte[]`) that holds the PDF file contents.
+3. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
+4. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, use the `OnDownload` event to set the name of the downloaded file.
+5. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer
 

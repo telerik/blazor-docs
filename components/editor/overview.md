@@ -80,7 +80,7 @@ Images in the content area of the Editor are resizable. To grab the resize handl
 
 ## Dependencies
 
-The Telerik UI for Blazor Editor uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
+The Telerik UI for [Blazor Editor](https://www.telerik.com/blazor-ui/editor) uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
 
 ## Editor Parameters
 
