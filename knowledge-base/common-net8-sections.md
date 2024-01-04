@@ -101,7 +101,7 @@ Use `SectionOutlet` inside Telerik Blazor components only inside officially docu
 
 ## Notes
 
-We don't recommend and don't officially support custom markup or custom components inside our components, unless the custom content is placed inside a documented template (such as the ToolBar `ToolBarTemplateItem`) or containers that are intended for arbitrary content (such as the Window `WindowContent`). Currently it is possible to place invalid custom content inside Telerik components because [Blazor RenderFragments](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/render-fragments) don't support restrictions for child components and tags.
+We don't recommend and don't officially support custom markup or custom components inside our components, unless the custom content is placed inside a documented template (such as the ToolBar `ToolBarTemplateItem`) or containers that are intended for random content (such as the Window `WindowContent`). Currently it is possible to place invalid custom content inside Telerik components because [Blazor RenderFragments](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/render-fragments) don't support restrictions for child components and tags.
 
 
 ## See Also
