@@ -58,7 +58,7 @@ The `ToolBarButton` inside the `SectionOutlet` below doesn't render. How to use 
 
 Some of the Telerik Blazor components rely on internal [cascading values and parameters](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters) to send component instances and configuration settings from parent components (for example, the ToolBar) to child components (for example, the `ToolBarButton`).
 
-Matching `Section` and `Outlet` components can reside anywhere in the app, including in different files. For the [transfer of cascading values and parameters, it matters where the `SectionContent` is](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/sections?view=aspnetcore-8.0#section-interaction-with-other-blazor-features).
+Matching `Section` and `Outlet` components can reside anywhere in the app, including in different files. For the [transfer of cascading values and parameters, the placement of the `SectionContent` is crucial](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/sections?view=aspnetcore-8.0#section-interaction-with-other-blazor-features).
 
 The above means that a `ToolBarButton` inside a `SectionContent` is effectively outside the ToolBar and cannot receive cascading values from it.
 
