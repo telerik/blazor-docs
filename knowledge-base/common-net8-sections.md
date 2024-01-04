@@ -58,9 +58,7 @@ The `ToolBarButton` inside the `SectionOutlet` below doesn't render. How to use 
 
 Some of the Telerik Blazor components rely on internal [cascading values and parameters](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters) to send component instances and configuration settings from parent components (for example, the ToolBar) to child components (for example, the `ToolBarButton`).
 
-Matching `Section` and `Outlet` components can reside anywhere in the app, including in different files. For the [transfer of cascading values and parameters, the placement of the `SectionContent` is crucial](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/sections?view=aspnetcore-8.0#section-interaction-with-other-blazor-features).
-
-The above means that a `ToolBarButton` inside a `SectionContent` is effectively outside the ToolBar and cannot receive cascading values from it.
+Matching `Section` and `Outlet` components can reside anywhere in the app, including in different files. For the [transfer of cascading values and parameters, the placement of the `SectionContent` is crucial](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/sections?view=aspnetcore-8.0#section-interaction-with-other-blazor-features). This means that a `ToolBarButton` inside a `SectionContent` is effectively outside the ToolBar and cannot receive cascading values from it.
 
 As a result, Telerik Blazor components cannot support such configurations. The same problem will occur with a similar setup with Grid columns, Form items, TabStrip tabs, Wizard steps and any other component, which defines items as a declarative collection of child tags.
 
@@ -103,7 +101,7 @@ Use `SectionOutlet` inside Telerik Blazor components only inside officially docu
 
 ## Notes
 
-We don't recommend and don't officially support custom markup or custom components inside our components, unless the custom content is placed inside an officially documented template (such as the `ToolBarTemplateItem`). The only reason why this is possible now is because [Blazor RenderFragments](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/render-fragments) don't support restrictions for child components and tags.
+We don't recommend and don't officially support custom markup or custom components inside our components, unless the custom content is placed inside a documented template (such as the ToolBar `ToolBarTemplateItem`) or containers that are intended for arbitrary content (such as the Window `WindowContent`). Currently it is possible to place invalid custom content inside Telerik components because [Blazor RenderFragments](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/render-fragments) don't support restrictions for child components and tags.
 
 
 ## See Also
