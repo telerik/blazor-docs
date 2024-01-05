@@ -40,13 +40,15 @@ This approach of providing items lets you gather separate collections of data th
                     DateCreatedField="DateCreated"
                     DateCreatedUtcField="DateCreatedUtc"
                     DateModifiedField="DateModified"
-                    DateModifiedUtcField="DateModifiedUtc" 
-                    OnModelInit="@OnModelInitHandler" />
+                    DateModifiedUtcField="DateModifiedUtc"
+                    OnModelInit="@OnModelInitHandler">
+</TelerikFileManager>
 
 @code {
     private List<HierarchicalFileEntry> FileManagerData = new List<HierarchicalFileEntry>();
 
-    private string DirectoryPath { get; set; } = string.Empty;
+    private string RootPath { get; set; } = "root-folder-path";
+    private string DirectoryPath { get; set; } = "directory-folder-path";
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
@@ -90,106 +92,103 @@ This approach of providing items lets you gather separate collections of data th
     }
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
-
     private async Task<List<HierarchicalFileEntry>> GetHierarchicalFileEntries()
     {
         var root = new HierarchicalFileEntry()
-            {
-                MyModelId = "1",
-                Name = "Work Files",
-                IsDirectory = true,
-                HasDirectories = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("Work Files"),
-                Size = 3 * 1024 * 1024,
-            };
+        {
+            MyModelId = "1",
+            Name = "Work Files",
+            IsDirectory = true,
+            HasDirectories = true,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(RootPath, "Work Files"),
+            Size = 3 * 1024 * 1024,
+        };
 
         var Documents = new HierarchicalFileEntry()
-            {
-                MyModelId = "2",
-                Name = "Documents",
-                IsDirectory = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(root.Path, "Documents"),
-                Size = 1024 * 1024
-            };
+        {
+            MyModelId = "2",
+            Name = "Documents",
+            IsDirectory = true,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(root.Path, "Documents"),
+            Size = 1024 * 1024
+        };
 
         var specification = new HierarchicalFileEntry()
-            {
-                MyModelId = "3",
-                Name = "Specification",
-                IsDirectory = false,
-                Extension = ".docx",
-                DateCreated = new DateTime(2022, 1, 5),
-                DateCreatedUtc = new DateTime(2022, 1, 5),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "Specification.docx"),
-                Size = 462 * 1024
-            };
+        {
+            MyModelId = "3",
+            Name = "Specification",
+            IsDirectory = false,
+            Extension = ".docx",
+            DateCreated = new DateTime(2022, 1, 5),
+            DateCreatedUtc = new DateTime(2022, 1, 5),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(Documents.Path, "Specification.docx"),
+            Size = 462 * 1024
+        };
 
         var report = new HierarchicalFileEntry()
-            {
-                MyModelId = "4",
-                Name = "Report",
-                IsDirectory = false,
-                Extension = ".xlsx",
-                DateCreated = new DateTime(2022, 1, 20),
-                DateCreatedUtc = new DateTime(2022, 1, 20),
-                DateModified = new DateTime(2022, 1, 25),
-                DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "Report.xlsx"),
-                Size = 538 * 1024
-            };
+        {
+            MyModelId = "4",
+            Name = "Report",
+            IsDirectory = false,
+            Extension = ".xlsx",
+            DateCreated = new DateTime(2022, 1, 20),
+            DateCreatedUtc = new DateTime(2022, 1, 20),
+            DateModified = new DateTime(2022, 1, 25),
+            DateModifiedUtc = new DateTime(2022, 1, 25),
+            Path = Path.Combine(Documents.Path, "Report.xlsx"),
+            Size = 538 * 1024
+        };
 
         var Images = new HierarchicalFileEntry()
-            {
-                MyModelId = "5",
-                Name = "Images",
-                IsDirectory = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(root.Path, "Images"),
-                Size = 2 * 1024 * 1024
-            };
+        {
+            MyModelId = "5",
+            Name = "Images",
+            IsDirectory = true,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(root.Path, "Images"),
+            Size = 2 * 1024 * 1024
+        };
 
         var dashboardDesign = new HierarchicalFileEntry()
-            {
-                MyModelId = "6",
-                Name = "Dashboard",
-                IsDirectory = false,
-                Extension = ".png",
-                DateCreated = new DateTime(2022, 1, 10),
-                DateCreatedUtc = new DateTime(2022, 1, 10),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Dashboard.png"),
-                Size = 1024
-            };
+        {
+            MyModelId = "6",
+            Name = "Dashboard",
+            IsDirectory = false,
+            Extension = ".png",
+            DateCreated = new DateTime(2022, 1, 10),
+            DateCreatedUtc = new DateTime(2022, 1, 10),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "Dashboard.png"),
+            Size = 1024
+        };
 
         var gridDesign = new HierarchicalFileEntry()
-            {
-                MyModelId = "7",
-                Name = "Design",
-                IsDirectory = false,
-                Extension = ".png",
-                DateCreated = new DateTime(2022, 1, 12),
-                DateCreatedUtc = new DateTime(2022, 1, 12),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Design.png"),
-                Size = 1024
-            };
-
-
+        {
+            MyModelId = "7",
+            Name = "Design",
+            IsDirectory = false,
+            Extension = ".png",
+            DateCreated = new DateTime(2022, 1, 12),
+            DateCreatedUtc = new DateTime(2022, 1, 12),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "Design.png"),
+            Size = 1024
+        };
 
         Documents.Items = new List<HierarchicalFileEntry>() { specification, report };
         Images.Items = new List<HierarchicalFileEntry>() { dashboardDesign, gridDesign };
