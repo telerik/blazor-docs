@@ -65,6 +65,7 @@ Action buttons expose the following properties:
 }
 ````
 
+>Setting a custom icon for a built-in action is not supported - the Window will override it and use the default SVG icon for the corresponding built-in action. If you need to specify a custom icon, use a [custom action](#custom-actions) instead of the built-in one. 
 
 ## Custom Actions
 
@@ -75,9 +76,12 @@ You can create a custom action icon and you must provide its `OnClick` handler.
 ````CSHTML
 Custom actions can call C# directly
 
-<TelerikWindow Visible="true">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+<TelerikWindow Visible="@WindowVisible">
 	<WindowActions>
-		<WindowAction Name="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Name="MyAction" Title="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Name="CustomClose" Title="CustomClose" Icon="@("fas fa-x")" OnClick="@(()=> WindowVisible = false)" />
 	</WindowActions>
 	<WindowContent>
 		@result
@@ -86,9 +90,17 @@ Custom actions can call C# directly
 	</WindowContent>
 </TelerikWindow>
 
+@if (!WindowVisible)
+{
+	<TelerikButton OnClick="@( () => WindowVisible=true )">Show the Window</TelerikButton>
+}
+
 @code {
-	string result;
-	public void MyCustomActionHandler()
+	private bool WindowVisible { get; set; } = true;
+
+	private string result;
+
+	private void MyCustomActionHandler()
 	{
 		result = "custom action button clicked on: " + DateTime.Now.ToString();
 
