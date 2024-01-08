@@ -320,7 +320,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 }
 ````
 
->Each `FileManagerEntry`'s `Path` needs to finish with the data item's `Name`, following the style used in real file systems. Also, there should be a constant root path as the topmost path segment to show the Breadcrumb right. If there's no root path given, we consider the first folder is the root. However, this causes an issue because the Breadcrumb doesn't recognize it and shows the `Home` icon instead.
+>Each `FileManagerEntry`'s `Path` needs to finish with the data item's `Name`, following the style used in real file systems. Also, there should be a predefined root path as the topmost path segment.
 
 ## Data Binding
 
