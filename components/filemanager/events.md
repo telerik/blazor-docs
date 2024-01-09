@@ -339,7 +339,7 @@ The files are downloaded with the help of a Base64 data URL, which is sent to th
 * Start the Microsoft JSInterop algorithm from the FileManager's `OnDownload` handler, but cancel the event to prevent duplicate downloads.
 * Vote for the [FileManager feature request to expose a Proxy Url](https://feedback.telerik.com/blazor/1633629) for serving files from the server to the browser.
 
-#### Downloading Server Files in WebAssembly apps
+#### Downloading Server Files in WebAssembly Apps
 
 A FileManager in a WebAssembly app is likely to display files that exist on a remote server. In such cases, downloading can use the following algorithm:
 
