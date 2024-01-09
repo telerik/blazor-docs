@@ -320,7 +320,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 }
 ````
 
->Each `FileManagerEntry`'s `Path` needs to finish with the data item's `Name`, following the style used in real file systems. Also, there should be a predefined root path as the topmost path segment.
+>Each `FileManagerEntry`'s `Path` needs to finish with the data item's `Name`, following the style used in real file systems. Also, ensure the top-level directories and files start with a predefined root path.
 
 ## Data Binding
 
