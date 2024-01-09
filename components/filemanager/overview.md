@@ -40,7 +40,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
     private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
 
     private string RootPath { get; set; } = "root-folder-path";
-    private string DirectoryPath { get; set; } = "directory-folder-path";
+    private string DirectoryPath { get; set; } = "root-folder-path";
 
     private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
