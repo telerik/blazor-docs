@@ -24,6 +24,7 @@ Using vector graphics ensures that:
 
 * The browser zoom does not degrade the image.
 * The prints are crisp regardless of the resolution.
+* The SVG Chart provides accessibility features such as [general description]({%slug components/chart/overview%}#chart-title) and [aria label templates]({%slug components/chart/label-template-format%}#series-label-aria-template), which the Canvas Chart does not.
 
 Since `SVG` is the default rendering mode of the Chart, you don't need to explicitly define it.
 
@@ -66,10 +67,11 @@ The browser does not have to maintain a live DOM tree for the Chart which result
 * Quicker screen updates.
 * Lower memory usage.
 
-On the downside, rendering to a fixed resolution bitmap results in:
+On the downside, rendering a fixed resolution bitmap results in:
 
 * Blurry images on zoom.
 * Poorer print quality.
+* No built-in accessibility features.
 
 >caption Bar Chart rendered as Canvas.
 

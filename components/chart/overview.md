@@ -74,7 +74,17 @@ Basic chart and common settings/elements
 
 ## Chart Title
 
-You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter.
+You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter. In addition, the `ChartTitle` `Description` parameter allows the app to provide accessible text content, which screen readers will announce when the Chart gains focus.
+
+>caption Using ChartTitle
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<TelerikChart>
+    <ChartTitle Text="Product Sales" Description="Product Sales by Year and Country"></ChartTitle>
+</TelerikChart>
+````
 
 ## Chart Subtitle
 
