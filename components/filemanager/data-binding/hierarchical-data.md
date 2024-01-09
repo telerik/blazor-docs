@@ -48,7 +48,7 @@ This approach of providing items lets you gather separate collections of data th
     private List<HierarchicalFileEntry> FileManagerData = new List<HierarchicalFileEntry>();
 
     private string RootPath { get; set; } = "root-folder-path";
-    private string DirectoryPath { get; set; } = "directory-folder-path";
+    private string DirectoryPath { get; set; } = "root-folder-path";
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()

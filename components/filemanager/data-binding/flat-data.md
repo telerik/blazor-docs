@@ -43,7 +43,7 @@ You must also provide the correct value for the `HasDirectories` field - for the
     private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
 
     private string RootPath { get; set; } = "root-folder-path";
-    private string DirectoryPath { get; set; } = "directory-folder-path";
+    private string DirectoryPath { get; set; } = "root-folder-path";
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()

@@ -51,7 +51,8 @@ The example below demonstrates how to handle successful upload on the FileManage
 @code {
     private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
 
-    private string DirectoryPath { get; set; } = string.Empty;
+    private string RootPath { get; set; } = "root-folder-path";
+    private string DirectoryPath { get; set; } = "root-folder-path";
 
     private async Task OnUploadUpload(UploadEventArgs args)
     {
@@ -150,7 +151,7 @@ The example below demonstrates how to handle successful upload on the FileManage
                 DateCreatedUtc = new DateTime(2022, 1, 2),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("Work Files"),
+                Path = Path.Combine(RootPath, "Work Files"),
                 Size = 3 * 1024 * 1024
             };
 
