@@ -34,7 +34,6 @@ The following two configurations will produce the same result.
 ````HTML
 <TelerikSplitButton FillMode="@ThemeConstants.SplitButton.FillMode.Solid"
                     Rounded="@ThemeConstants.SplitButton.Rounded.Large"
-                    Shape="@ThemeConstants.SplitButton.Shape.Square"
                     Size="@ThemeConstants.SplitButton.Size.Large"
                     ThemeColor="@ThemeConstants.SplitButton.ThemeColor.Primary">
     <SplitButtonContent> Foo </SplitButtonContent>
@@ -45,7 +44,6 @@ The following two configurations will produce the same result.
 
 <TelerikSplitButton FillMode="solid"
                     Rounded="lg"
-                    Shape="square"
                     Size="lg"
                     ThemeColor="primary">
     <SplitButtonContent> Foo </SplitButtonContent>
