@@ -329,15 +329,18 @@ The `OnModelInit` event fires when a new instance of the model is about to be cr
 
 ### OnDownload
 
-The `OnDownload` event fires before a file is to be downloaded. The event is cancellable. The event handler argument is an `FileManagerDownloadEventArgs` object. See the [example](#example).
+The `OnDownload` event fires before a file download starts. The event is cancellable. The event handler argument is an `FileManagerDownloadEventArgs` object. See the [example](#example).
 
 #### Downloading Large Files
 
-The files are downloaded with the help of a Base64 data URL, which is sent to the browser through `JSInterop`. JavaScript code generates an `<a>` tag with an [object URL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static) on the web page and the tag is clicked programmatically, so that the browser shows its Save File dialog. Large files (tens or hundreds of megabytes) may hit the browser's max data URL length or some memory threshold. In such cases:
+The files are downloaded with the help of a Base64 data URL, which is sent to the browser through `JSInterop`. JavaScript code generates an `<a>` tag with an [object URL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static) on the web page and the tag is clicked programmatically, so that the browser shows its **Save File** dialog.
+
+Large files (tens or hundreds of megabytes) may hit the browser's max data URL length or some memory threshold. In such cases, perfom the following steps:
 
 * Use the [Microsoft JSInterop approach and serve the file directly from the server to the user](https://learn.microsoft.com/en-us/aspnet/core/blazor/file-downloads?view=aspnetcore-6.0#download-from-a-url).
 * Start the Microsoft JSInterop algorithm from the FileManager's `OnDownload` handler, but cancel the event to prevent duplicate downloads.
-* Vote for the [FileManager feature request to expose a Proxy Url](https://feedback.telerik.com/blazor/1633629) for serving files from the server to the browser.
+
+>tip You can also vote for the [FileManager feature request to expose a Proxy Url](https://feedback.telerik.com/blazor/1633629) for serving files from the server to the browser.
 
 #### Downloading Server Files in WebAssembly Apps
 
