@@ -341,7 +341,7 @@ The files are downloaded with the help of a Base64 data URL, which is sent to th
 
 #### Downloading Server Files in WebAssembly Apps
 
-A FileManager in a WebAssembly app is likely to display files that exist on a remote server. In such cases, downloading can use the following algorithm:
+A FileManager in a WebAssembly app usually displays files from a remote server. In such cases, use the following download approach:
 
 1. The `OnDownload` handler serializes and sends `args.Item` to the remote server. Do not try to serialize and send `args.Stream`.
 1. The server returns the file content.
