@@ -16,6 +16,8 @@ You can reference the built-in Telerik assets like the JS Interop file and the t
    * The [Telerik UI for Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn) distributes the most common [swatches]({%slug themes-swatches%}) for each base theme.
    * The additional Themes CDN distributes [all available swatches for the built-in themes]({%slug themes-swatches%}#built-in-themes-and-swatches-list).
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 <!DOCTYPE html>
 <html>
