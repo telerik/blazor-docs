@@ -103,11 +103,11 @@ The most common problem you will encounter when upgrading is wrong references to
 
 ## I Still See the Trial Watermark and Banner
 
-When using a trial license, a watermark will be rendered over the components and you will see a banner with the following message:
+While using a trial license, a watermark will be rendered over the components and you will see a banner with the following message:
 
 > Thank you for using the Trial Version of Telerik UI for Blazor to build more powerful applications faster. Purchase the Commercial Version now to get access to all product updates and the Telerik expert support.
 
-If you have a license, but you still see the trial watermark and banner, especially after publishing an app to a staging or live server, your build has used the trial `Telerik.Blazor.dll` assembly.
+If you have a commercial license, but you still see the trial watermark and banner, especially after publishing an app to a staging or live server, your build has used the trial `Telerik.Blazor.dll` assembly.
 
 The most common reason for the problem is that the framework decides to incorrectly copy a trial version of our assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework, and hopefully it will get fixed in future versions.
 
