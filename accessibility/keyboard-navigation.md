@@ -48,6 +48,7 @@ The following table lists the available Telerik UI for Blazor components with th
 | [ButtonGroup](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation) | Standard | |
 | [Calendar](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation) | **Enhanced** | |
 | [Carousel](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation) | **Enhanced** | |
+| [Chart](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation) | **Enhanced** | |
 | [CheckBox](https://demos.telerik.com/blazor-ui/checkbox/overview) | Standard | |
 | [Chip](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation) | **Enhanced** | |
 | [ChipList](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation) | **Enhanced** | |

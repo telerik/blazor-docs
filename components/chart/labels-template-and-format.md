@@ -10,7 +10,7 @@ position: 22
 
 # Label Template and Format
 
-The Chart for Blazor can render labels on the axes, series data points, and legend. You can control those labels through the values in the Chart `Data`, but also through [format strings](#format-strings) and [templates](#templates).
+The Chart for Blazor can render labels on the axes, series data points, and legend. You can control those labels through the values in the Chart `Data`, but also through [format strings](#format-strings) and [templates](#templates), including [accessible aria templates](#series-label-aria-template).
 
 To turn on series labels, set their `Visible` property to `true` under the corresponding `ChartSeriesLabels` tag. The series labels are turned off by default to avoid clutter and to make the Chart easier to read.
 
@@ -82,6 +82,7 @@ The Blazor Chart uses client-side rendering and the label templates are JavaScri
 The JavaScript function for each label template will receive an argument that exposes different properties, depending on the template type. The mechanism is similar to the `context` of Blazor `RenderFragment`s. The sections below list the available method argument properties:
 
 * [Series labels](#series-label-template)
+    * [Aria template](#series-label-aria-template)
 * [Category axis labels](#category-axis-label-template) (for categorical Charts)
 * [X axis labels](#x-axis-label-template) (for numerical Charts)
 * [Value and Y axis labels](#value-and-y-axis-label-template)
@@ -103,6 +104,14 @@ The `Template` function of `ChartSeriesLabels` exposes the following fields in t
 <!--* `series` - the data series-->
 <!--* runningTotal - the sum of point values since the last "runningTotal" summary point. Available for waterfall series.
 * total - the sum of all previous series values. Available for waterfall series.-->
+
+### Series Label Aria Template
+
+The `AriaTemplate` parameter of `ChartSeriesLabels` allows the app to provide a unique accessible description for each Chart data point. The idea of `AriaTemplate` is to provide more detailed and contextual information to the user, compared to the default series labels. For example, the `AriaTemplate` can mention the data point category, rather than just the value. The accessible `AriaTemplate` renders as an `aria-label` HTML attribute, which screen readers will announce when the [respective Chart series data point is focused](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation). The JavaScript function exposes the same fields in the template context, as the [series label template](#series-label-template) above.
+
+When `AriaTemplate` is not defined, the Chart renders accessible data point labels that match the [series label template](#series-label-template). If a series label template is also not defined, the Chart renders an accessible data point label that matches the default series label.
+
+`AriaTemplate` requires the [Chart to render as SVG]({%slug chart-rendering-modes%}) (the default behavior).
 
 ### Category Axis Label Template
 
@@ -173,7 +182,8 @@ function chartLabelFunction(context) {
                      Field="@nameof(ChartModel.Value)"
                      CategoryField="@nameof(ChartModel.Category)">
             <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
+                               Template="chartSeriesLabelTemplate"
+                               AriaTemplate="chartSeriesAriaTemplate"></ChartSeriesLabels>
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@LaptopSales"
@@ -183,7 +193,8 @@ function chartLabelFunction(context) {
                      Field="@nameof(ChartModel.Value)"
                      CategoryField="@nameof(ChartModel.Category)">
             <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
+                               Template="chartSeriesLabelTemplate"
+                               AriaTemplate="chartSeriesAriaTemplate"></ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -213,7 +224,8 @@ function chartLabelFunction(context) {
                      Field="@nameof(ChartModel.Value)"
                      CategoryField="@nameof(ChartModel.Category)">
             <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate"></ChartSeriesLabels>
+                               Template="chartSeriesLabelTemplate"
+                               AriaTemplate="chartSeriesAriaTemplate"></ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -229,6 +241,12 @@ function chartLabelFunction(context) {
     function chartSeriesLabelTemplate(context) {
         return "Value: " + context.value + " mln\n" +
             "Category: " + context.category + "\n" +
+            "Extra info: " + context.dataItem.ExtraData;
+    }
+
+    function chartSeriesAriaTemplate(context) {
+        return "Value " + context.value + " mln, " +
+            "Category: " + context.category + ", " +
             "Extra info: " + context.dataItem.ExtraData;
     }
 
@@ -254,8 +272,7 @@ function chartLabelFunction(context) {
 </script>
 
 @code {
-    private List<ChartModel> PhoneSales = new List<ChartModel>()
-    {
+    private List<ChartModel> PhoneSales = new List<ChartModel>() {
         new ChartModel
         {
             Category = "First",
@@ -276,8 +293,7 @@ function chartLabelFunction(context) {
         }
     };
 
-    private List<ChartModel> LaptopSales = new List<ChartModel>()
-    {
+    private List<ChartModel> LaptopSales = new List<ChartModel>() {
         new ChartModel
         {
             Category = "First",
@@ -300,9 +316,9 @@ function chartLabelFunction(context) {
 
     public class ChartModel
     {
-        public string Category { get; set; }
+        public string Category { get; set; } = string.Empty;
         public double Value { get; set; }
-        public string ExtraData { get; set; }
+        public string ExtraData { get; set; } = string.Empty;
     }
 }
 ````
@@ -323,7 +339,8 @@ function chartLabelFunction(context) {
                      YField="@nameof(ChartModel.Errors)"
                      Color="red">
             <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate" />
+                               Template="chartSeriesLabelTemplate"
+                               AriaTemplate="chartSeriesAriaTemplate" />
         </ChartSeries>
 
         <ChartSeries Type="ChartSeriesType.Scatter"
@@ -333,7 +350,8 @@ function chartLabelFunction(context) {
                      YField="@nameof(ChartModel.Errors)"
                      Color="blue">
             <ChartSeriesLabels Visible="true"
-                               Template="chartSeriesLabelTemplate" />
+                               Template="chartSeriesLabelTemplate"
+                               AriaTemplate="chartSeriesAriaTemplate" />
         </ChartSeries>
     </ChartSeriesItems>
 
@@ -359,6 +377,12 @@ function chartLabelFunction(context) {
     function chartSeriesLabelTemplate(context) {
         return "X Value: " + context.value.x + "\n" +
             "Y Value: " + context.value.y + "\n" +
+            "Extra info: " + context.dataItem.ExtraData;
+    }
+
+    function chartSeriesAriaTemplate(context) {
+        return "X Value: " + context.value.x + ", " +
+            "Y Value: " + context.value.y + ", " +
             "Extra info: " + context.dataItem.ExtraData;
     }
 
@@ -473,7 +497,7 @@ To do that, you need to:
     {
         public double Value1 { get; set; }
         public double Value2 { get; set; }
-        public string Category { get; set; }
+        public string Category { get; set; } = string.Empty;
     }
 }
 ````

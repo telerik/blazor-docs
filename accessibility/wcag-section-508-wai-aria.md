@@ -103,7 +103,7 @@ The following table lists the Section 508 and WCAG 2 compliance levels of suppor
 |`Calendar`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/calendar/keyboard-navigation) | [Documentation]({%slug calendar-wai-aria-support%}) |
 |`Card`|`No`|`n/a`| `n/a` | `n/a` |
 |`Carousel`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation) | [Documentation]({%slug carousel-wai-aria-support%}) |
-|`Charts`|`No`|`n/a`| `n/a` | `n/a` |
+|`Charts`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation) | Documentation |
 |`CheckBox`|`Yes`|`AA`| `n/a` | [Documentation]({%slug checkbox-wai-aria-support%}) |
 |`ChunkProgressBar`|`Yes`|`AA`| `n/a` | [Documentation]({%slug chunkprogressbar-wai-aria-support%}) |
 |`ColorGradient`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) | [Documentation]({%slug colorgradient-wai-aria-support%}) |
