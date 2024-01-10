@@ -18,7 +18,7 @@ The Chart for Blazor supports two modes for rendering its data. You can set the 
 
 ## SVG
 
-The default rendering mode of the Chart is SVG(Scalable Vector Graphics) and it is recommended for general use.
+The default rendering mode of the Chart is SVG (Scalable Vector Graphics) and it is recommended for general use.
 
 Using vector graphics ensures that:
 
@@ -27,13 +27,9 @@ Using vector graphics ensures that:
 
 In addition, the SVG Chart provides accessibility features such as [general description]({%slug components/chart/overview%}#chart-title) and [aria label templates]({%slug components/chart/label-template-format%}#series-label-aria-template) out of the box.
 
-Since `SVG` is the default rendering mode of the Chart, you don't need to explicitly define it.
-
->caption Bar Chart rendered as SVG.
+>caption Bar Chart rendered as SVG
 
 ````CSHTML
-@* SVG Bar Chart *@
-
 <TelerikChart Width="700px" Height="400px">
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
@@ -74,11 +70,9 @@ On the downside, rendering a fixed resolution bitmap results in:
 * Poorer print quality.
 * No built-in accessibility features.
 
->caption Bar Chart rendered as Canvas.
+>caption Bar Chart rendered as Canvas
 
 ````CSHTML
-@* Canvas Bar Chart *@
-
 <TelerikChart RenderAs="@RenderingMode.Canvas" Width="700px" Height="400px">
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
