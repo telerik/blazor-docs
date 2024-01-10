@@ -65,7 +65,7 @@ Action buttons expose the following properties:
 }
 ````
 
->Setting a custom icon for a built-in action is not supported - the Window will override it and use the default SVG icon for the corresponding built-in action. If you need to specify a custom icon, use a [custom action](#custom-actions) instead of the built-in one. 
+>Setting a custom icon for a built-in action is not supported - the Window will override it and use the default icon for the corresponding built-in action. If you need to specify a custom icon, use a [custom action](#custom-actions) instead of the built-in one. 
 
 ## Custom Actions
 
