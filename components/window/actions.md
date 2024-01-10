@@ -65,7 +65,7 @@ Action buttons expose the following properties:
 }
 ````
 
->Setting a custom icon for a built-in action is not supported - the Window will override it and use the default icon for the corresponding built-in action. If you need to specify a custom icon, use a [custom action](#custom-actions) instead of the built-in one. 
+>Setting a custom icon for a built-in action is not supported as the Window will override it and use the default icon for the corresponding built-in action. If you need to specify a custom icon, use a [custom action](#custom-actions) instead of the built-in one. 
 
 ## Custom Actions
 
@@ -80,8 +80,8 @@ Custom actions can call C# directly
 
 <TelerikWindow Visible="@WindowVisible">
 	<WindowActions>
-		<WindowAction Name="MyAction" Title="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
-		<WindowAction Name="CustomClose" Title="CustomClose" Icon="@("fas fa-x")" OnClick="@(()=> WindowVisible = false)" />
+		<WindowAction Title="MyAction" Icon="@SvgIcon.Gear" OnClick="@MyCustomActionHandler" />
+		<WindowAction Title="CustomClose" Icon="@("fas fa-x")" OnClick="@(()=> WindowVisible = false)" />
 	</WindowActions>
 	<WindowContent>
 		@result
