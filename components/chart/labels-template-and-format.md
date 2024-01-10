@@ -82,7 +82,7 @@ The Blazor Chart uses client-side rendering and the label templates are JavaScri
 The JavaScript function for each label template will receive an argument that exposes different properties, depending on the template type. The mechanism is similar to the `context` of Blazor `RenderFragment`s. The sections below list the available method argument properties:
 
 * [Series labels](#series-label-template)
-    * [Aria Template](#series-label-aria-template)
+    * [Aria template](#series-label-aria-template)
 * [Category axis labels](#category-axis-label-template) (for categorical Charts)
 * [X axis labels](#x-axis-label-template) (for numerical Charts)
 * [Value and Y axis labels](#value-and-y-axis-label-template)
