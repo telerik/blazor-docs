@@ -63,7 +63,7 @@ Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which 
 
 ## Trial Version and Commercial License
 
-UI for Blazor is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. After the trial period expires, components will be functional but a trial watermark and banner will appear.
+UI for Blazor is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. After the trial period expires, a trial watermark and banner will appear over the rendered components.
 
 To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> to get acquainted with the full terms of use.
 
