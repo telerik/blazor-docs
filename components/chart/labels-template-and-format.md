@@ -111,7 +111,7 @@ The `AriaTemplate` parameter of `ChartSeriesLabels` allows the app to provide a 
 
 When `AriaTemplate` is not defined, the Chart renders accessible data point labels that match the [series label template](#series-label-template). If a series label template is also not defined, the Chart renders an accessible data point label that matches the default series label.
 
-`AriaTemplate` requires the [Chart to render as SVG]({%slug chart-rendering-modes%}), which is by default.
+`AriaTemplate` requires the [Chart to render as SVG]({%slug chart-rendering-modes%}) (the default behavior).
 
 ### Category Axis Label Template
 
