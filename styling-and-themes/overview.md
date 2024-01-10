@@ -42,6 +42,8 @@ Static assets are part of the NuGet package and the framework will copy them to 
 
 >caption Reference the Telerik theme from the static assets
 
+<div class="skip-repl"></div>
+
 ````HTML
 <!DOCTYPE html>
 <html>
@@ -162,6 +164,8 @@ For the Telerik Material theme to closely implement the <a href="https://materia
 By default, the Material theme uses the Roboto font family but the font itself is not included in the Telerik theme - it is not our property and it will also add bloat to our package.
 
 You can add the font to the page from Google Fonts in the following way:
+
+<div class="skip-repl"></div>
 
 ````HTML
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
