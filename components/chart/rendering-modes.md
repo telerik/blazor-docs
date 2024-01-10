@@ -24,7 +24,8 @@ Using vector graphics ensures that:
 
 * The browser zoom does not degrade the image.
 * The prints are crisp regardless of the resolution.
-* The SVG Chart provides accessibility features such as [general description]({%slug components/chart/overview%}#chart-title) and [aria label templates]({%slug components/chart/label-template-format%}#series-label-aria-template), which the Canvas Chart does not.
+
+In addition, the SVG Chart provides accessibility features such as [general description]({%slug components/chart/overview%}#chart-title) and [aria label templates]({%slug components/chart/label-template-format%}#series-label-aria-template) out of the box.
 
 Since `SVG` is the default rendering mode of the Chart, you don't need to explicitly define it.
 
