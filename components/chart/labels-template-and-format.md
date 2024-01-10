@@ -109,7 +109,7 @@ The `Template` function of `ChartSeriesLabels` exposes the following fields in t
 
 The `AriaTemplate` parameter of `ChartSeriesLabels` allows the app to provide a unique accessible description for each Chart data point. The idea of `AriaTemplate` is to provide more detailed and contextual information to the user, compared to the default series labels. For example, the `AriaTemplate` can mention the data point category, rather than just the value. The accessible `AriaTemplate` renders as an `aria-label` HTML attribute, which screen readers will announce when the [respective Chart series data point is focused](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation). The JavaScript function exposes the same fields in the template context, as the [series label template](#series-label-template) above.
 
-If `AriaTemplate` is not defined, the Chart will render accessible data point labels that match the [series label template](#series-label-template). If a series label template is not defined either, then the Chart will render an accessible data point label that matches the default series label.
+When `AriaTemplate` is not defined, the Chart renders accessible data point labels that match the [series label template](#series-label-template). If a series label template is also not defined, the Chart renders an accessible data point label that matches the default series label.
 
 `AriaTemplate` requires the [Chart to render as SVG]({%slug chart-rendering-modes%}), which is by default.
 
