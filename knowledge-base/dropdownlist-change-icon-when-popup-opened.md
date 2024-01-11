@@ -34,7 +34,7 @@ To change the DropDownList icon when the popup is opened, follow these steps:
 3. Toggle the flag value in the `OnOpen` and `OnClose` event handlers.
 4. Use CSS to change the icon based on the flag value. Conditionally add a `<style>` tag to achieve this.
    - All components, including the DropDownList, use SVG icons. To change the icon, you can alter the `path` of the `<svg>` element.
-   - To get the path of the [desired icon](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list), render a [`SvgIcon`]({%slug common-features-icons%}#svgicon-component) component, inspect it, and copy its path.
+   - To get the path of the [desired icon](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list), render an [`SvgIcon`]({%slug common-features-icons%}#svgicon-component) component, inspect it, and copy its path.
 
 >caption Change the DropDownList icon when expanded
 
