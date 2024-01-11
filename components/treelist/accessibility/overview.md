@@ -217,7 +217,7 @@ The following example demonstrates the [accessibility compliance of the TreeList
         {
             if (RowBefore != default)
             {
-                int indexOfRowBefore = (RowBefore ?? 0) - 1;
+                int indexOfRowBefore = (RowBefore ?? 0);
                 InsertItemAtDestination(TreeListData, indexOfRowBefore, ReorderItem);
 
                 RefreshDropDownListData();
@@ -337,67 +337,35 @@ The following example demonstrates the [accessibility compliance of the TreeList
         return false;
     }
 
-    private void InsertItemAtDestination(List<Employee> employees, int destinationIndex, Employee reorderItem)
+    private void InsertItemAtDestination(List<Employee> employees, int destinationId, Employee reorderItem)
     {
-        if (destinationIndex < employees.Count)
+        for (int i = 0; i < employees.Count; i++)
         {
-            RemoveItemAtOriginalPosition(TreeListData, reorderItem);
-            employees.Insert(destinationIndex, reorderItem);
-            ResetAllIds(TreeListData, 1);
-        }
-        else
-        {
-            // Traverse the employees recursively
-            foreach (var employee in employees)
+            if (employees[i].Id == destinationId)
             {
-                if (destinationIndex == 0)
-                {
-                    if (employee.DirectReports != null)
-                    {
-                        // Insert the item at the correct position in the employee's children
-                        employee.DirectReports.Insert(0, reorderItem);
-
-                        RemoveItemAtOriginalPosition(TreeListData, reorderItem);
-                    }
-
-                    ResetAllIds(TreeListData, 1);
-
-                    return;
-                }
-
-                if (destinationIndex > 0 && destinationIndex <= employee.DirectReports.Count)
-                {
-                    if (employee.DirectReports != null)
-                    {
-                        // Recursively insert into the child employees
-                        InsertItemAtDestination(employee.DirectReports, destinationIndex - 1, reorderItem);
-
-                        // Check if the item is still present in its original position and remove it
-                        RemoveItemAtOriginalPosition(TreeListData, reorderItem);
-                    }
-
-                    ResetAllIds(TreeListData, 1);
-
-                    return;
-                }
-
-                if (employee.DirectReports != null)
-                {
-                    // Adjust the destination index for the current employee
-                    destinationIndex -= employee.DirectReports.Count;
-                }
+                RemoveItemAtOriginalPosition(TreeListData, reorderItem);
+                employees.Insert(i, reorderItem);
+                ResetAllIds(TreeListData, 1);
+                return;
             }
 
-            // If the destination index is still not reached, add it to the end
-            employees.Add(reorderItem);
+            if (employees[i].DirectReports?.Count > 0)
+            {
+                InsertItemAtDestination(employees[i].DirectReports, destinationId, reorderItem);
 
-            RemoveItemAtOriginalPosition(TreeListData, reorderItem);
+                // If the item has been inserted in child reports, we need to refresh the IDs
+                ResetAllIds(TreeListData, 1);
 
-            ResetAllIds(TreeListData, 1);
+                return;
+            }
         }
+
+        // If the destination ID is not found, we add the item at the end
+        employees.Add(reorderItem);
+        RemoveItemAtOriginalPosition(TreeListData, reorderItem);
+        ResetAllIds(TreeListData, 1);
     }
 
-    // show the context menu for a particular row
     private async Task OnContextMenu(TreeListRowClickEventArgs args)
     {
         var argsItem = args.Item as Employee;
@@ -530,7 +498,7 @@ The following example demonstrates the [accessibility compliance of the TreeList
         }
     }
 
-    Employee FindItemRecursive(List<Employee> items, int? id)
+    private Employee FindItemRecursive(List<Employee> items, int? id)
     {
         foreach (var item in items)
         {
