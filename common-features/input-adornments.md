@@ -16,7 +16,10 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 
 * [Basics](#basics)
 * [Supported components](#supported-components)
-* [Adding prefix and suffix in UI for Blazor components](#adding-prefix-and-suffix-in-ui-for-blazor-components)
+* [Adding Prefix in UI for Blazor Components](#adding-prefix-in-ui-for-blazor-components)
+* [Adding Suffix in UI for Blazor Components](#adding-suffix-in-ui-for-blazor-components)
+* [Managing separators](#managing-separators)
+* [TextArea Specifics](#textarea-specifics)
 
 ## Basics
 
@@ -26,17 +29,24 @@ What are prefix and suffix. Example use cases. Information about separator?
 
 The prefix and suffix adornments are supported by the following components:
 
-* [AutoComplete]({%slug autocomplete-overview%})
-* [ComboBox]({%slug components/combobox/overview%})
-* [MaskedTextbox]({%slug maskedtextbox-overview%})
-* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-* [MultiSelect]({%slug multiselect-overview%})
-* [NumericTextBox]({%slug components/numerictextbox/overview%})
-* [TextArea]({%slug textarea-overview%})
-* [TextBox]({%slug components/textbox/overview%})
+* Simple inputs:
+    * [MaskedTextbox]({%slug maskedtextbox-overview%})
+    * [NumericTextBox]({%slug components/numerictextbox/overview%})
+    * [TextArea]({%slug textarea-overview%})
+    * [TextBox]({%slug components/textbox/overview%})
 
-## Adding prefix and suffix in UI for Blazor components
+* Selects:
+    * [AutoComplete]({%slug autocomplete-overview%})
+    * [ComboBox]({%slug components/combobox/overview%})
+    * [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
+    * [MultiSelect]({%slug multiselect-overview%})
+
+## Adding Prefix in UI for Blazor Components
 
 Include information and example/s on how to add prefix and suffix.
 
-<!-- Depending the adornmens syntax complexity, it may be better to include dedicated examples for the separate components.  -->
+## Adding Suffix in UI for Blazor Components
+
+## Managing Separators
+
+## TextArea Specifics
