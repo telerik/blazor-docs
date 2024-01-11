@@ -1,5 +1,5 @@
 ---
-title: Changing the DropDownList Icon When the Popup is Opened
+title: Change the DropDownList Icon When the Popup is Opened
 description: Learn how to change the icon of the DropDownList when the popup is opened.
 type: how-to
 page_title: How to Change the Icon of the DropDownList When the Popup is Opened
@@ -53,17 +53,17 @@ Desired icon to include conditionally: <TelerikSvgIcon Icon="@SvgIcon.CaretAltDo
 <br />
 
 <TelerikDropDownList Class="custom-dropdown-icon"
-                     Data="@Items"
+                     Data="@DropDownListData"
                      OnOpen="OnDropDownListPopupOpen"
                      OnClose="@OnDropDownListPopupClose"
-                     ValueField="@nameof(ItemDescriptor.ItemId)"
-                     TextField="@nameof(ItemDescriptor.ItemText)"
                      @bind-Value="@DropDownListValue"
                      Width="300px">
 </TelerikDropDownList>
 
 @code {
-    private int DropDownListValue { get; set; }
+    private string DropDownListValue { get; set; }
+
+    private List<string> DropDownListData { get; set; } = new List<string>() { "first", "second", "third" };
 
     private bool isPopupOpen { get; set; }
 
@@ -75,18 +75,6 @@ Desired icon to include conditionally: <TelerikSvgIcon Icon="@SvgIcon.CaretAltDo
     private void OnDropDownListPopupClose(DropDownListCloseEventArgs args)
     {
         isPopupOpen = false;
-    }
-
-    private List<ItemDescriptor> Items { get; set; } = Enumerable.Range(1, 50).Select(x => new ItemDescriptor()
-        {
-            ItemId = x,
-            ItemText = $"Item {x}"
-        }).ToList();
-
-    public class ItemDescriptor
-    {
-        public int ItemId { get; set; }
-        public string ItemText { get; set; }
     }
 }
 ````
