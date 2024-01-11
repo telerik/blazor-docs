@@ -6,7 +6,7 @@ page_title: How to Upload File in Grid
 slug: upload-kb-upload-files-in-grid
 position: 
 tags: telerik, blazor, grid, upload
-ticketid: 1544295, 1585763, 1590409, 1600123
+ticketid: 1544295, 1585763, 1590409, 1600123, 1636473
 res_type: kb
 ---
 
@@ -45,7 +45,7 @@ Here are the required steps to implement file uploading inside the Telerik Blazo
 1. [Implement the Upload controller methods]({%slug upload-overview%}#implement-controller-methods), which receive and delete the uploaded files. File deletion is optional.
 1. Handle the [`OnSuccess` event of the Upload]({%slug upload-events%}#onsuccess) to confirm successful uploads or file deletions, and update the Grid data item, which is the `<EditorTemplate>` `context`.
 1. The name of the saved file on the server can depend on the Razor UI or on the controller. If it depends on the UI, send it to the controller via the `OnUpload` event arguments (`args.RequestData`). If the file name depends on the controller, receive it in the `OnSuccess` event arguments via `args.Request.ResponseText`.
-1. Handle the [Grid `OnUpdate`, `OnCreate` and `OnDelete` events]({%slug components/grid/editing/overview%}#events) to commit changes to the Grid data source. Optionally, delete the respective saved files in `OnDelete`.
+1. Handle the [Grid `OnUpdate`, `OnCreate` and `OnDelete` events]({%slug components/grid/editing/overview%}#events) to commit changes to the Grid data source. Optionally, delete the respective saved files in `OnDelete`. The example below uses `OnAdd` to provide the `Id` of the new Grid data item, which also affects the uploaded file name.
 1. Display the uploaded files as images or download links in a [Grid column `<Template>`]({%slug grid-templates-column%}).
 
 
@@ -64,6 +64,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
 <TelerikGrid Data="@GridData"
              TItem="@Product"
              EditMode="@GridEditMode.Popup"
+             OnAdd="@OnGridAdd"
              OnUpdate="@OnGridUpdate"
              OnCreate="@OnGridCreate"
              OnDelete="@OnGridDelete">
@@ -74,6 +75,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add New</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
+        <GridColumn Field="@nameof(Product.Id)" Width="120px" Editable="false" />
         <GridColumn Field="@nameof(Product.ImageUrl)" Width="160px" Title="Product Image">
             <Template>
                 @{
@@ -112,7 +114,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
             </EditorTemplate>
         </GridColumn>
         <GridColumn Field="@nameof(Product.Name)" />
-        <GridCommandColumn>
+        <GridCommandColumn Width="240px">
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
@@ -126,6 +128,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         max-width: 100px;
         max-height: 100px;
     }
+
     td a.download-link {
         display: block;
         text-align: center;
@@ -134,11 +137,13 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
 </style>
 
 @code {
-    private List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     private string UploadSaveUrl => ToAbsoluteUrl("api/upload/save/");
 
     private string UploadRemoveUrl => ToAbsoluteUrl("api/upload/remove/");
+
+    private int LastId { get; set; }
 
     private void OnUploadUpload(UploadEventArgs args, int productId)
     {
@@ -168,6 +173,8 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
     {
+        await Task.Delay(1); // simulate network delay
+
         var updatedItem = (Product)args.Item;
         var originalItemIndex = GridData.FindIndex(x => x.Id == updatedItem.Id);
         if (originalItemIndex >= 0)
@@ -176,8 +183,19 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         }
     }
 
+    private async Task OnGridAdd(GridCommandEventArgs args)
+    {
+        await Task.Delay(100); // simulate network delay
+
+        var addedItem = (Product)args.Item;
+
+        addedItem.Id = ++LastId;
+    }
+
     private async Task OnGridCreate(GridCommandEventArgs args)
     {
+        await Task.Delay(100); // simulate network delay
+
         var createdItem = (Product)args.Item;
 
         GridData.Insert(0, createdItem);
@@ -215,8 +233,8 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
         {
             GridData.Add(new Product()
             {
-                Id = i,
-                Name = $"Product {i}"
+                Id = ++LastId,
+                Name = $"Product {LastId}"
             });
         }
     }
@@ -229,69 +247,89 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string ImageUrl { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
     }
 }
 ````
-````Save
-[HttpPost]
-public async Task<IActionResult> Save(IFormFile files) // "files" must match Upload SaveField
+````Controller
+[Route("api/[controller]/[action]")]
+public class UploadController : Controller
 {
-    if (files != null)
-    {
-        try
-        {
-            var productId = Request.Form["productId"];
-            var savedFileName = $"product-{productId}{Path.GetExtension(files.FileName)}";
-            // Blazor Server (wwwroot)
-            var saveLocation = Path.Combine(HostingEnvironment.WebRootPath, savedFileName);
-            // Blazor WebAssembly or Blazor Server (project root)
-            //var saveLocation = Path.Combine(HostingEnvironment.ContentRootPath, savedFileName);
+    public IWebHostEnvironment HostingEnvironment { get; set; }
 
-            using (var fileStream = new FileStream(saveLocation, FileMode.Create))
-            {
-                await files.CopyToAsync(fileStream);
-                await Response.WriteAsync(savedFileName);
-            }
-        }
-        catch (Exception ex)
-        {
-            Response.StatusCode = 500;
-            await Response.WriteAsync($"Upload failed: {ex.Message}");
-        }
+    public UploadController(IWebHostEnvironment hostingEnvironment)
+    {
+        HostingEnvironment = hostingEnvironment;
     }
 
-    return new EmptyResult();
+    [HttpPost]
+    public async Task<IActionResult> Save(IFormFile files, [FromForm] int productId) // "files" must match Upload SaveField
+    {
+        if (files != null)
+        {
+            try
+            {
+                var savedFileName = $"product-{productId}{Path.GetExtension(files.FileName)}";
+                // Blazor Server (wwwroot)
+                var saveLocation = Path.Combine(HostingEnvironment.WebRootPath, savedFileName);
+                // Blazor WebAssembly or Blazor Server (project root)
+                //var saveLocation = Path.Combine(HostingEnvironment.ContentRootPath, savedFileName);
+
+                using (var fileStream = new FileStream(saveLocation, FileMode.Create))
+                {
+                    await files.CopyToAsync(fileStream);
+                    await Response.WriteAsync(savedFileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                await Response.WriteAsync($"Upload failed: {ex.Message}");
+            }
+        }
+
+        return new EmptyResult();
+    }
+
+    [HttpPost]
+    public ActionResult Remove(string files) // "files" must match Upload RemoveField
+    {
+        if (files != null)
+        {
+            try
+            {
+                // Blazor Server (wwwroot)
+                var fileLocation = Path.Combine(HostingEnvironment.WebRootPath, files);
+                // Blazor WebAssembly or Blazor Server (project root)
+                //var fileLocation = Path.Combine(HostingEnvironment.ContentRootPath, files);
+
+                if (System.IO.File.Exists(fileLocation))
+                {
+                    System.IO.File.Delete(fileLocation);
+                }
+            }
+            catch
+            {
+                Response.StatusCode = 500;
+                Response.WriteAsync("File deletion failed.");
+            }
+        }
+
+        return new EmptyResult();
+    }
 }
 ````
-````Remove
-[HttpPost]
-public ActionResult Remove(string files) // "files" must match Upload RemoveField
-{
-    if (files != null)
-    {
-        try
-        {
-            // Blazor Server (wwwroot)
-            var fileLocation = Path.Combine(HostingEnvironment.WebRootPath, files);
-            // Blazor WebAssembly or Blazor Server (project root)
-            //var fileLocation = Path.Combine(HostingEnvironment.ContentRootPath, files);
+````Program.cs
+// ...
 
-            if (System.IO.File.Exists(fileLocation))
-            {
-                System.IO.File.Delete(fileLocation);
-            }
-        }
-        catch
-        {
-            Response.StatusCode = 500;
-            Response.WriteAsync("File deletion failed.");
-        }
-    }
+builder.Services.AddHttpClient();
 
-    return new EmptyResult();
-}
+// ...
+
+app.MapDefaultControllerRoute();
+
+app.Run();
 ````
 
 
