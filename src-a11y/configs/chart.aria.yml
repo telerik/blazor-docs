@@ -1,0 +1,12 @@
+title: Wai-Aria Support
+component: Chart
+from: /aria/chart_aria.md
+dest: ../components/chart/accessibility/wai-aria-support.md
+slug: chart-wai-aria-support
+position: 50
+after:  |
+    ## See Also
+
+    * [Blazor Chart Overview (Demo)](https://demos.telerik.com/blazor-ui/chart/overview)
+    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
+    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
