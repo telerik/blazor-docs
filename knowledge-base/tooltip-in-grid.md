@@ -35,7 +35,7 @@ This KB article answers the following question:
         <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name">
             <Template>
                 @{
-                    Employee employee = context as Employee;
+                    Employee employee = (Employee)context;
                     <span data-employeeId="@employee.Id" class="tooltip-target">@employee.Name</span>
                 }
             </Template>
@@ -45,18 +45,19 @@ This KB article answers the following question:
 </TelerikGrid>
 
 <TelerikTooltip TargetSelector=".tooltip-target"
-                Width="250px" Height="250px" Position="@TooltipPosition.Right">
+                Width="250px" Height="250px"
+                Position="@TooltipPosition.Right">
     <Template Context="ttipContext">
         <h6>Employee Details</h6>
         <hr />
         @{
             // in a real app, add defensive checks here or extract into a separate component
             // the key names is the data attribute, lowercase
-            int EmployeeId = int.Parse(ttipContext.DataAttributes?["employeeid"]);
+            int EmployeeId = int.Parse(ttipContext.DataAttributes?["employeeid"] ?? string.Empty);
 
             var EmployeeDetailsData = GetEmplyeeDetails(EmployeeId);
 
-            <div style="float:left; margin-left: 20px;">
+            <div>
                 <p><strong>Name</strong>: @EmployeeDetailsData.Name</p>
                 <p><strong>Team</strong>: @EmployeeDetailsData.Team</p>
                 <p><strong>Salary</strong>: $@EmployeeDetailsData.Salary</p>
@@ -69,25 +70,28 @@ This KB article answers the following question:
 </TelerikTooltip>
 
 @code {
-    private List<Employee> GridData { get; set; }
+    private List<Employee> GridData { get; set; } = new();
 
     // This shows that the Tooltip will work even if the Grid is bound after the Tooltip is initialized.
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        GridData = await GetEmployees();
-        StateHasChanged();
+        if (firstRender)
+        {
+            GridData = await GetEmployees();
+            StateHasChanged();
+        }
     }
 
     private async Task<List<Employee>> GetEmployees()
     {
-        if (GridData == null)
+        if (GridData == null || !GridData.Any())
         {
             GridData = Enumerable.Range(1, 90).Select(x => new Employee
-                {
-                    Id = x,
-                    Name = "name " + x,
-                    Team = "team " + x % 5,
-                }).ToList();
+            {
+                Id = x,
+                Name = "name " + x,
+                Team = "team " + x % 5,
+            }).ToList();
         }
 
         return await Task.FromResult(GridData);
@@ -96,7 +100,7 @@ This KB article answers the following question:
     private Employee GetEmplyeeDetails(int employeeId)
     {
         Random rnd = new Random();
-        Employee employee = GridData.Where(empl => empl.Id == employeeId).FirstOrDefault();
+        Employee employee = GridData.First(empl => empl.Id == employeeId);
         employee.Salary = rnd.Next(1000, 5000);
         employee.ActiveProjects = rnd.Next(2, 10);
         employee.HireDate = DateTime.Now.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10));
@@ -107,8 +111,8 @@ This KB article answers the following question:
     public class Employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
         public int ActiveProjects { get; set; }
         public decimal Salary { get; set; }
