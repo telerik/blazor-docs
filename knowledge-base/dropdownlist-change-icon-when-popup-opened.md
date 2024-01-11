@@ -4,7 +4,7 @@ description: Learn how to change the icon of the DropDownList when the popup is 
 type: how-to
 page_title: How to Change the Icon of the DropDownList When the Popup is Opened
 slug: dropdownlist-kb-change-icon-when-popup-opened
-tags: dropdownlist, default, icon, popup, open, close
+tags: dropdownlist, icon
 ticketid: 1636055
 res_type: kb
 ---
