@@ -26,7 +26,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to limit the TextArea auto size area and have scrollbar when the component needs to expand more.
+* How to limit the TextArea auto size area and have a scrollbar when the component needs to expand more.
 * How to use TextArea `AutoSize` up to a point, and have a vertical scrollbar if the text grows beyond that.
 * How to make the TelerikTextArea show a scrollbar if a max height is hit.
 
