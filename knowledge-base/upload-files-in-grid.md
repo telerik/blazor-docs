@@ -39,7 +39,7 @@ How to upload photos and files as an attachment in a Blazor Grid?
 
 Here are the required steps to implement file uploading inside the Telerik Blazor Grid.
 
-1. The Upload occupies more space than a simple textbox. Consider [Grid popup editing]({%slug components/grid/editing/popup%}) with a [wider popup edit form]({%slug components/grid/editing/popup%}#customization).
+1. The Upload occupies more space than a simple textbox. Use [Grid popup editing]({%slug components/grid/editing/popup%}) with a [wider popup edit form]({%slug components/grid/editing/popup%}#customization).
 1. [Configure an Upload component]({%slug upload-overview%}#creating-blazor-upload) inside a [Grid column `<EditorTemplate>`]({%slug grid-templates-editor%}).
 1. Handle the [`OnUpload` event of the Upload]({%slug upload-events%}#onupload) to send custom information to the Upload controller, for example, information about the Grid data item.
 1. [Implement the Upload controller methods]({%slug upload-overview%}#implement-controller-methods), which receive and delete the uploaded files. File deletion is optional.
