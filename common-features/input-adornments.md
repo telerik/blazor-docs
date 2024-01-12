@@ -14,7 +14,6 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 
 >caption In this article:
 
-* [Basics](#basics)
 * [Supported components](#supported-components)
 * [Adding Prefix in UI for Blazor Components](#adding-prefix-in-ui-for-blazor-components)
 * [Adding Suffix in UI for Blazor Components](#adding-suffix-in-ui-for-blazor-components)
@@ -22,10 +21,6 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 * [TextArea Specifics](#textarea-specifics)
 * [FloatingLabel Specifics](#floatinglabel-specifics)
 
-
-## Basics
-
-What are prefix and suffix. Example use cases. Information about separator?
 
 ## Supported components
 
@@ -48,8 +43,6 @@ The prefix and suffix adornments are supported by the following components:
 To add a prefix, declare `<*ComponentName*PrefixTemplate>` tag as direct child of the `<Telerik*ComponentName*>` tag.
 
 The `PrefixTemplate` is a `RenderFragment` which allows you to declare any desired content as a prefix - be that simple text, HTML elements or components.
-
-> Note about prefix size
 
 >caption Prefix in UI for Blazor inputs and selects 
 
@@ -197,8 +190,6 @@ To add a suffix, declare `<*ComponentName*SuffixTemplate>` tag as direct child o
 
 The `SuffixTemplate` is a `RenderFragment` which allows you to declare any desired content as a prefix - be that simple text, HTML elements or components.
 
-> Note about suffix size
-
 >caption Suffix in UI for Blazor inputs and selects
 
 ````CSHTML
@@ -345,7 +336,7 @@ By default, the prefix and suffix are visually divided from the input element of
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter    | Type  | Description |
+| Parameter   | Type and Default Value | Description |
 | ----------- | ----------- | -------|
 | `ShowPrefixSeparator` | `bool` <br /> (`true`) | Specifies whether the prefix separator is rendered. If a prefix template is not declared, the separator will not be rendered, regardless of the parameter value. |
 | `ShowSuffixSeparator` | `bool` <br /> (`true`) | Specifies whether the suffix separator is rendered. If a prefix template is not declared, the separator will not be rendered, regardless of the parameter value |
@@ -356,7 +347,7 @@ In addition to the above-listed configuration settings, the TextArea exposes a c
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter    | Type  | Description |
+| Parameter   | Type and Default Value | Description |
 | ----------- | ----------- | -------|
 | `AdornmentsOrientation` | `TextAreaAdornmentsOrientation` <br /> (`TextAreaAdornmentsOrientation.Vertical`) | Configures the positioning of the TextArea prefix and suffix templates. The possible values are Horizontal and Vertical. If the value is set to Horizontal, the templates will appear above (prefix) and below (suffix) the TextArea. If the value is set to Vertical, the templates will be displayed on the left (prefix) and on the right (suffix). By default, the templates are positioned vertically. |
 | `AdornmentsFlow` | `TextAreaAdornmentsFlow` <br /> (`TextAreaAdornmentsFlow.Horizontal`) | Configures the flow of the elements in the TextArea prefix and suffix templates, determining whether the elements will be ordered in a row or column. The possible values are Horizontal (in a row) and Vertical (in a column). By default, the elements (adornments) within the templates are positioned horizontally. |

@@ -15,9 +15,9 @@ The component allows adding custom elements as prefix and suffix. [Read more abo
 #end
 
 #floating-label-and-preffix
-When using the `PrefixTemplate` for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
+When using the [`PrefixTemplate`]({%slug common-features/input-adornments%}#adding-prefix-in-ui-for-blazor-components) for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
 
-To ensure both the FloatingLabel and the prefix content will be properly displayed, configure the label position like so:
+To ensure both the FloatingLabel and the prefix content are properly displayed, configure the label position like so:
 
 ````CSHTML
 <style>
