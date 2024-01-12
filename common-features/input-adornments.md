@@ -20,6 +20,8 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 * [Adding Suffix in UI for Blazor Components](#adding-suffix-in-ui-for-blazor-components)
 * [Managing separators](#managing-separators)
 * [TextArea Specifics](#textarea-specifics)
+* [FloatingLabel Specifics](#floatinglabel-specifics)
+
 
 ## Basics
 
@@ -131,7 +133,7 @@ The `PrefixTemplate` is a `RenderFragment` which allows you to declare any desir
     <h5>MultiColumnComboBox</h5>
 
     <TelerikMultiColumnComboBox Data="@ProductModels"
-                                @bind-Value="@SelectedProduct"
+                                @bind-Value="@SelectedProductId"
                                 ValueField="@nameof(Product.ProductId)"
                                 TextField="@nameof(Product.ProductName)"
                                 Placeholder="Search a product..."
@@ -161,16 +163,16 @@ The `PrefixTemplate` is a `RenderFragment` which allows you to declare any desir
 </div>
 
 @code {
+    private string TextValue { get; set; }
+    private string SelectedProduct { get; set; }
+    private int SelectedProductId { get; set; }
+    private int Height { get; set; }
+
     private List<string> Products = Enumerable.Range(1, 20).Select(x => $"Product {x}").ToList();
 
     private List<Product> ProductModels = Enumerable.Range(1, 20).Select(x => new Product { ProductId = x, ProductName = "Product " + x }).ToList();
 
     private List<string> SelectedProducts { get; set; }
-
-    private string TextValue { get; set; }
-    private string SelectedProduct { get; set; }
-
-    private int Height { get; set; }
 
     public class Product
     {
@@ -279,7 +281,7 @@ The `SuffixTemplate` is a `RenderFragment` which allows you to declare any desir
     <h5>MultiColumnComboBox</h5>
 
     <TelerikMultiColumnComboBox Data="@ProductModels"
-                                @bind-Value="@SelectedProduct"
+                                @bind-Value="@SelectedProductId"
                                 ValueField="@nameof(Product.ProductId)"
                                 TextField="@nameof(Product.ProductName)"
                                 Placeholder="Search a product..."
@@ -309,16 +311,16 @@ The `SuffixTemplate` is a `RenderFragment` which allows you to declare any desir
 </div>
 
 @code {
+    private string TextValue { get; set; }
+    private string SelectedProduct { get; set; }
+    private int SelectedProductId { get; set; }
+    private int Height { get; set; }
+
     private List<string> Products = Enumerable.Range(1, 20).Select(x => $"Product {x}").ToList();
 
     private List<Product> ProductModels = Enumerable.Range(1, 20).Select(x => new Product { ProductId = x, ProductName = "Product " + x }).ToList();
 
     private List<string> SelectedProducts { get; set; }
-
-    private string TextValue { get; set; }
-    private string SelectedProduct { get; set; }
-
-    private int Height { get; set; }
 
     public class Product
     {
@@ -339,7 +341,7 @@ The `SuffixTemplate` is a `RenderFragment` which allows you to declare any desir
 
 ## Managing Separators
 
-By default, the prefix and suffix are visually divided from the input element of the components by a separator. You can control whether the separator for the prefix and suffix will be visible through the following parameters:
+By default, the prefix and suffix are visually divided from the input element of the components by a separator. You can control whether the prefix and suffix separator will be visible through the following parameters:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -350,7 +352,7 @@ By default, the prefix and suffix are visually divided from the input element of
 
 ## TextArea Specifics
 
-In addition to the above-listed configuration settings, the TextArea exposes a couple of other options that allow you to control the position of the adornments.
+In addition to the above-listed configuration settings, the TextArea exposes a couple of additional options that allow you to control the position of the adornments.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -358,6 +360,10 @@ In addition to the above-listed configuration settings, the TextArea exposes a c
 | ----------- | ----------- | -------|
 | `AdornmentsOrientation` | `TextAreaAdornmentsOrientation` <br /> (`TextAreaAdornmentsOrientation.Vertical`) | Configures the positioning of the TextArea prefix and suffix templates. The possible values are Horizontal and Vertical. If the value is set to Horizontal, the templates will appear above (prefix) and below (suffix) the TextArea. If the value is set to Vertical, the templates will be displayed on the left (prefix) and on the right (suffix). By default, the templates are positioned vertically. |
 | `AdornmentsFlow` | `TextAreaAdornmentsFlow` <br /> (`TextAreaAdornmentsFlow.Horizontal`) | Configures the flow of the elements in the TextArea prefix and suffix templates, determining whether the elements will be ordered in a row or column. The possible values are Horizontal (in a row) and Vertical (in a column). By default, the elements (adornments) within the templates are positioned horizontally. |
+
+## FloatingLabel Specifics
+
+@[template](/_contentTemplates/common/inputs.md#floating-label-and-preffix)
 
 ## See also
 

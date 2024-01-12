@@ -13,3 +13,30 @@ Consider setting `DebounceDelay="0"` to the component inside the editor template
 
 The component allows adding custom elements as prefix and suffix. [Read more about how to render custom adornments before and after the input element...]({%slug common-features/input-adornments%})
 #end
+
+#floating-label-and-preffix
+When using the `PrefixTemplate` for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
+
+To ensure both the FloatingLabel and the prefix content will be properly displayed, configure the label position like so:
+
+````CSHTML
+<style>
+    .custom-label-class .k-label {
+        margin-left: 30px;
+    }
+</style>
+
+<TelerikFloatingLabel Class="custom-label-class" Text="Enter email">
+    <TelerikTextBox @bind-Value="@TextValue"
+                    Width="300px">
+        <TextBoxPrefixTemplate>
+            <TelerikSvgIcon Icon="@SvgIcon.Envelop" />
+        </TextBoxPrefixTemplate>
+    </TelerikTextBox>
+</TelerikFloatingLabel>
+
+@code{
+    public string TextValue { get; set; }
+}
+````
+#end
