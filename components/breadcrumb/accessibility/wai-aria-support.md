@@ -1,7 +1,7 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Breadcrumb Documentation | Breadcrumb  Accessibility
-description: "Get started with the Telerik UI for Blazor Breadcrumb and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
+page_title: Telerik UI for Blazor Breadcrumb Documentation | Breadcrumb Accessibility
+description: "Get started with the Telerik UI for Blazor Breadcrumb and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.2."
 tags: telerik,blazor,accessibility,wai-aria,wcag
 slug: breadcrumb-wai-aria-support 
 position: 50 
