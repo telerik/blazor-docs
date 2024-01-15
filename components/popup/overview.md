@@ -36,7 +36,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 <style>
     .styled-container {
         width: 200px;
-        height: 200px;
+        height: 30px;
         background-color: yellowgreen;
     }
 </style>
@@ -113,7 +113,7 @@ To execute Popup methods, obtain reference to the component instance with `@ref`
 <style>
     .styled-container {
         width: 200px;
-        height: 200px;
+        height: 30px;
         background-color: yellowgreen;
     }
 </style>
