@@ -28,7 +28,7 @@ This knowledge base article discusses the following scenarios:
 
 * How to make the animations of the Telerik dropdowns faster for fast data entry?
 * How to remove all animations for Telerik Blazor ComboBox, DropDownList, DateTimePicker and other selection components?
-* I don't want animations for the dropdowns to accommodate users who prefer no animations (e.g., for accessibility reasons).
+* I want to remove animations for the dropdowns to accommodate users who prefer no animations (e.g., for accessibility reasons).
 
 
 ## Solution
