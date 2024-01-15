@@ -93,7 +93,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Step` | `TValue`* <br /> (`1`) | The decimal value with which the component value changes when using the arrows. Must match the `Value` type. |
 | `Value` | `TValue`* | The component value. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
-| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validastion Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 
 \* `TValue` can be [any numeric type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), except `nint` and `nuint`. Note that all `TValue` parameters must be of the same type.
