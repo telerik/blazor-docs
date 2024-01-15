@@ -87,7 +87,7 @@ You can use a [CSS rule override]({%slug themes-override%}) to change or disable
 
 You can also wrap the custom CSS in a `@media` query to capture users who have configured their devices to display fewer animations.
 
->caption CSS that targets disabled animations (motion) in device accessibility settings
+>caption CSS that targets disabled animations (motion) in the device accessibility settings
 
 <div class="skip-repl"></div>
 
