@@ -1,6 +1,6 @@
 ---
 title: Wai-Aria Support
-page_title: Telerik UI for Blazor Chart Documentation | Chart  Accessibility
+page_title: Telerik UI for Blazor Chart Documentation | Chart Accessibility
 description: "Get started with the Telerik UI for Blazor Chart and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 tags: telerik,blazor,accessibility,wai-aria,wcag
 slug: chart-wai-aria-support 
