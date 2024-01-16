@@ -24,14 +24,14 @@ All values default to `1` to provide every possible option. If you set a value l
 >caption Change the steps (intervals) in the date picker
 
 ````CSHTML
-@selectedDateTime.ToString("yyyy MMM dd, HH:mm:ss tt")
+@selectedDate.ToString("yyyy MMM dd")
 
 <TelerikDatePicker Format="yyyy MMM dd" @bind-Value="@selectedDate" Width="250px">
     <DatePickerSteps Year="10" Month="6" Day="3" />
-</TelerikDateInput>
+</TelerikDatePicker>
 
 @code {
-    DateTime selectedDate { get; set; } = DateTime.Now;
+    private DateTime selectedDate { get; set; } = DateTime.Now;
 }
 ````
 
