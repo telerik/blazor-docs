@@ -47,7 +47,7 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
     * Inject `AntiforgeryStateProvider` to use its `GetAntiforgeryToken()` method
     * Inject `IAntiforgery` to use its `GetAndStoreTokens(httpContext)` method
     * Inject `IHttpContextAccessor` to use its `HttpContext` property in the `GetAndStoreTokens()` method
-    * Execute `GetAndStoreTokens()` and/or `GetAntiforgeryToken()` in `OnInitialized` to obtain the required anti-forgery information.
+    * Execute `GetAndStoreTokens()` and/or `GetAntiforgeryToken()` in `OnInitialized` to obtain the required antiforgery information.
     * Add the required antiforgery information in the Upload component's [`OnUpload` and `OnRemove` event handlers]({%slug upload-events%}).
 
 The code snippets below assume that the application name is `BlazorAppName`.
