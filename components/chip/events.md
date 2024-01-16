@@ -26,8 +26,7 @@ The `OnRemove` event fires when the user clicks the remove icon of the Chip. The
 
 ## SelectedChanged
 
-The `SelectedChanged` event fires every time the `Selected` parameter changes.
-
+The `SelectedChanged` event fires when the `Selectable` parameter is `true` and the user clicks or taps the Chip to select/deselect it.
 
 ## Example
 
