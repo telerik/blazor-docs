@@ -25,7 +25,6 @@ The `FillMode` affects the presence of a background and borders. You can set it 
 |------------|--------|
 |`Solid` <br /> default value|`solid`|
 |`Outline`|`outline`|
-|`None`|`none`|
 
 >caption The built-in Fill modes
 
