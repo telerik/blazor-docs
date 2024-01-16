@@ -51,6 +51,11 @@ The server does not return any response. The browser console shows connection er
 This means that the uploaded file size [exceeds the web server's maximum]({%slug upload-overview%}#large-file-uploads).
 
 
+## Antiforgery Validation Blocks the Upload Requests
+
+If the upload controller is decorated with a `[ValidateAntiForgeryToken]` attribute, then the Upload component must include antiforgery tokens in its upload and delete requests. Use the [`OnUpload` and `OnRemove`]({%slug upload-events%}) events to [add the required antiforgery tokens]({%slug upload-kb-validateantiforgerytoken%}).
+
+
 ## See Also
 
 * [How to implement Upload controller methods]({%slug upload-overview%}#implement-controller-methods)
