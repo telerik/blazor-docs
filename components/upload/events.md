@@ -416,7 +416,7 @@ If you cancel the event, the file upload will not start. If `AutoUpload="false"`
 Use the `OnUpload` and [`OnRemove`](#onremove) event handlers to send additional custom data and request headers to the server, together with the file. For example, the data may be related to:
 
 * Authentication
-* CSRF cross-site or [anti forgery tokens]({%slug upload-kb-validateantiforgerytoken%})
+* [CSRF/XSRF cross-site antiforgery tokens]({%slug upload-kb-validateantiforgerytoken%})
 * Any metadata related to the app business logic
 
 To send **cookies** with the upload request, set the [`WithCredentials` component parameter]({%slug upload-overview%}#upload-parameters) to `true`.
