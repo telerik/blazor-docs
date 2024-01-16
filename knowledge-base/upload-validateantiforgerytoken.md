@@ -42,7 +42,7 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
     * Verify that `app.UseAntiforgery();` is present
     * Add `app.MapDefaultControllerRoute();` to configure routing
 1. [Implement the `Save` and `Remove` controller methods]({%slug upload-overview%}#implement-controller-methods).
-1. Decorate the controler class or specific action methods with `[ValidateAntiForgeryToken]`.
+1. Decorate the controller class or specific action methods with `[ValidateAntiForgeryToken]`
 1. Configure the Razor component, which contains the Telerik Blazor Upload:
     * Inject `AntiforgeryStateProvider` to use its `GetAntiforgeryToken()` method
     * Inject `IAntiforgery` to use its `GetAndStoreTokens(httpContext)` method
