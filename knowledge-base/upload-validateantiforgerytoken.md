@@ -35,7 +35,7 @@ This KB article answers the following questions:
 
 Here are the suggested steps to configure .NET Core Blazor antiforgery validation and integrate it with the Telerik Upload component.
 
-1. Edit `Program.cs`:
+1. Add services and configurations to `Program.cs`:
     * Add `builder.Services.AddRazorPages();`
     * Add `builder.Services.AddHttpContextAccessor();`
     * (optional) Add `builder.Services.AddAntiforgery()` with custom `HeaderName` or `FormFieldName`.
