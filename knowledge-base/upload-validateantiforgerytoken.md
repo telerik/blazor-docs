@@ -38,7 +38,7 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
 1. Edit `Program.cs`:
     * Add `builder.Services.AddRazorPages();`
     * Add `builder.Services.AddHttpContextAccessor();`
-    * (optional) Add `builder.Services.AddAntiforgery()` with custom `HeaderName` or `FormFieldName`
+    * (optional) Add `builder.Services.AddAntiforgery()` with custom `HeaderName` or `FormFieldName`.
     * Verify that `app.UseAntiforgery();` is present.
     * Add `app.MapDefaultControllerRoute();` to configure routing.
 1. [Implement the `Save` and `Remove` controller methods]({%slug upload-overview%}#implement-controller-methods).
