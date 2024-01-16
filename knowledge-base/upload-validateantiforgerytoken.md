@@ -50,7 +50,7 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
     * Execute `GetAndStoreTokens()` and/or `GetAntiforgeryToken()` in `OnInitialized` to obtain the required anti-forgery information.
     * Add the required anti-forgery information in the Upload component's [`OnUpload` and `OnRemove` event handlers]({%slug upload-events%}).
 
-The code snippets bellow assume that the application name is `BlazorAppName`.
+The code snippets below assume that the application name is `BlazorAppName`.
 
 >caption Using Telerik Blazor Upload with antiforgery validation
 
