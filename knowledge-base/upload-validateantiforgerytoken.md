@@ -26,7 +26,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to use the Telerik Blazor Upload component with controllers that are decorated with `[ValidateAntiForgeryToken]` attribute?
+* How to use the Telerik Blazor Upload component with controllers that are decorated with the `[ValidateAntiForgeryToken]` attribute?
 * How to upload files to controllers that require antiforgery validation?
 * How to set antiforgery tokens in the Upload's `OnUpload` and `OnRemove` events?
 
