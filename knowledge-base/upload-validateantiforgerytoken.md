@@ -216,6 +216,9 @@ namespace BlazorAppName.Controllers
 }
 ````
 
+
+## Disclaimer
+
 > This article contains code snippets and suggestions that relate to general .NET programming and antiforgery setup of a Blazor application. The provided implementation is just an example and is strictly outside the Telerik support scope. The primary resource for antiforgery configuration is the Microsoft documentation. See [Blazor authentication and authorization](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/).
 
 
