@@ -1,6 +1,6 @@
 ---
 title: Upload Files with Antiforgery Validation
-description: Learn how to setup the Telerik Blazor Upload to work with .NET controllers that use ValidateAntiForgeryToken attribute. Configure Blazor apps with antiforgery validation.
+description: Learn how to setup the Telerik Blazor Upload to work with .NET controllers that use the ValidateAntiForgeryToken attribute. Configure Blazor apps with antiforgery validation.
 type: how-to
 page_title: How to Upload Files with Antiforgery Validation
 slug: upload-kb-validateantiforgerytoken
