@@ -52,7 +52,7 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
 
 The code snippets bellow assume that the application name is `BlazorAppName`.
 
->caption Using Telerik Blazor Upload with Antiforgery validation
+>caption Using Telerik Blazor Upload with antiforgery validation
 
 <div class="skip-repl"></div>
 
