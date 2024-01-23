@@ -33,7 +33,7 @@ You can change the way the Popup component flows in and out of the screen by set
 
 See the [example](#example) below to customize the available parameters and see how they reflect the Popup component.
 
-## AnimationDuration
+## Duration
 
 Set the `AnimationDuration` parameter in milliseconds as `int` to control how long the animation will take until the component is fully displayed.
 
