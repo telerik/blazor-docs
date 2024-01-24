@@ -37,7 +37,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 Set the `AnimationDuration` parameter in milliseconds as `int` to control how long the animation will take until the component is fully displayed.
 
-See the [example](#example) below to customize the available parameters and see how they reflect the Popup component.
+See the [example](#example) below to customize the available parameters and see how they affect the Popup component.
 
 ## Example
 
