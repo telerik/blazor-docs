@@ -44,7 +44,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 ## Popup Positioning and Collision
 
-Use the available positioning and collision settings to customize how the Popup positions and reacts to unsufficient space in the viewport. [Read more about the Blazor Popup Positioning and Collision...]({%slug popup-position-collision%})
+Use the available positioning and collision settings to customize how the Popup positions and reacts to insufficient space in the viewport. [Read more about the Blazor Popup Positioning and Collision...]({%slug popup-position-collision%})
 
 ## Popup Animations 
 
