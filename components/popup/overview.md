@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Popup Overview
-description: Discover the Telerik Popup component for Blazor. Learn how to add the component to your app and explore its features like positioning, alignment, and animation customization.
+description: Discover the Blazor Popup. Learn how to add the component to your app and explore its features like positioning, alignment, and animation customization.
 slug: popup-overview
 tags: telerik,blazor,popup
 published: True
