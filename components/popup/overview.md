@@ -60,7 +60,7 @@ The Blazor Popup provides parameters to configure the component. Also check the 
 | ----------- | ----------- | ----------- |
 | `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Defines how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.]({%slug popup-position-collision%})|
 | `AnchorSelector` | `string` | Specifies the CSS selector targeting the element that the Popup uses as an anchor. |
-| `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Define how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.]({%slug popup-position-collision%}). |
+| `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Defines how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.]({%slug popup-position-collision%}). |
 | `AnimationDuration` | `int` | Defines the duration of the animation in milliseconds. [Read more about Popup animations.]({%slug popup-animation%}) |
 | `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | Sets the type of animation when the component displays and hides. [Read more about Popup animations.]({%slug popup-animation%}) |
 | `HorizontalAlign` | `PopupHorizontalAlign ` enum <br /> (`Left`) | Determines if the left or the right side of the popup will touch it's anchor. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
