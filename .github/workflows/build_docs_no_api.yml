@@ -15,7 +15,7 @@ jobs:
       SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
 
     container:
-      image: ghcr.io/telerik/blazor-build:dev
+      image: ghcr.io/telerik/blazor-build:latest
       credentials:
          username: ${{ github.actor }}
          password: ${{ github.token }}
