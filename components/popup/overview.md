@@ -58,7 +58,7 @@ The Blazor Popup provides parameters to configure the component. Also check the 
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Define how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.]({%slug popup-position-collision%})|
+| `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Defines how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.]({%slug popup-position-collision%})|
 | `AnchorSelector` | `string` | The CSS selector that targets the element that the popup uses as an anchor. |
 | `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Define how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.]({%slug popup-position-collision%}). |
 | `AnimationDuration` | `int` | Defines the duration of the animation in milliseconds. [Read more about Popup animations.]({%slug popup-animation%}) |
