@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 ## Creating Blazor Popup
 
 1. Add the `<TelerikPopup>` tag to a Razor file.
-1. Obtain a `@ref` of the component
+1. Obtain a `@ref` of the component.
 1. Use the [Show](#popup-reference-and-methods) method to display the `<TelerikPopup>`
 
 >caption Basic configuration of the Telerik Popup
