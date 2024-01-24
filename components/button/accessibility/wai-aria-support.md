@@ -26,7 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
 | `.k-button` | `role=button` or `nodeName=button` | If the used element is not `<button>`, explicitly set its `role` to `button`. |
-|  | `aria-label` | If no text has been provided to an Icon Button, announces the purpose of the Button. |
+| `.k-button.k-icon-button` | `label for` or `aria-label` or `aria-labelledby` | If no text has been provided to an Icon Button, announces the purpose of the Button. |
 
 ## Resources
 
