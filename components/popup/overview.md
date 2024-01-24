@@ -48,7 +48,7 @@ Use the available positioning and collision settings to customize how the Popup 
 
 ## Popup Animations 
 
-Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popup animations...]({%slug popup-amination%}).
+Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popup animations...]({%slug popup-animation%}).
 
 ## Popup Parameters
 
