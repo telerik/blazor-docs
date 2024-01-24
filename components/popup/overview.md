@@ -72,7 +72,7 @@ The Blazor Popup provides parameters to configure the component. Also check the 
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor AppBar:
+The following parameters enable you to customize the appearance of the Blazor Popup:
 
 | Parameter | Type | Description |
 | --- | --- | --- |
