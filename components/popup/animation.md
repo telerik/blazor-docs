@@ -1,7 +1,7 @@
 ---
 title: Animation
 page_title: Popup Animation
-description: Animation settings of the Popup for Blazor.
+description: Explore the animation settings of the Popup for Blazor. Discover how to adjust the way the Popup appears and disappears on the screen.
 slug: popup-animation
 tags: telerik,blazor,popup,animation
 published: True
