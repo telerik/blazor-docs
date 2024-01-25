@@ -14,7 +14,7 @@ This article outlines the available settings which enable you to control the pos
 
 ## Position
 
-You can customize how the popup and it's anchor align with each other. You can use the available parameters to control the position of the component.
+You can customize how the popup and its anchor align with each other. You can use the available parameters to control the position of the component.
 
 ### Anchor Alignment
 
