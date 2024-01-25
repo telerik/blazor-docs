@@ -47,7 +47,7 @@ There are two collision modes available for the Popup component:
 * `Fit`&mdash;The Popup will be shifted until it is fully visible on the screen.
 * `Flip`&mdash;The Popup will render on the other side of the anchor.
 
-Use the available parameters to control how the Popup behaves to insufficient screen space.
+Use the available parameters to control how the Popup reacts to insufficient screen space.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
