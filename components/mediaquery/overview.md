@@ -73,8 +73,6 @@ The MediaQuery component facilitates the usage of CSS media queries in your C# c
 
 * The MediaQuery component makes it easy to use C# logic based on the breakpoint that matches - such as changing parameter values, replacing a component with a different component or even not rendering a part of the layout (with CSS alone you can resize parts of the app or hide them visually, but they still render).
 
-* You should have default values for the flags in your application that define the preferred state or layout. Depending on the browser and the media query setup, it is possible that no `OnChange` event will fire when the app initializes, so the app should have a reasonable default state.
-
 ## Next Steps
 
 * [Explore the MediaQuery events]({%slug mediaquery-events%})
