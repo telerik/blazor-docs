@@ -82,7 +82,7 @@ The following parameters enable you to customize the appearance of the Blazor Po
 
 ## Popup Reference and Methods
 
-To execute Popup methods, obtain reference to the component instance with `@ref`.
+To execute Popup methods, obtain a reference to the component instance with `@ref`.
 
 | Method  | Description |
 |---------|-------------|
