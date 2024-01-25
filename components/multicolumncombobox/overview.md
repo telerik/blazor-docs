@@ -124,6 +124,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 | `Filterable` | `bool` | Enables [filtering]({% slug multicolumncombobox-filter %}) for the end user. |
 | `FilterOperator` | `StringFilterOperator` enum <br /> (`StartsWith`) | The [filtering method]({% slug multicolumncombobox-filter %}). |
 | `Id` | `string` | The `id` attribute of the `<input class="k-input-inner" />` element. Use it to attach a `<label for="...">` to the input. |
+| `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
 | `Placeholder` | `string` | The hint text the user sees when no item is selected. The placeholder will shown when the `Value` is set to the default value of the `ValueField` type. For example, `0` for `int`, and `null` for `int?` or `string`. |
 | `TItem` | `Type` | The type of the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the `ValueField` from the model. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (`int`, `double`, etc.)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
