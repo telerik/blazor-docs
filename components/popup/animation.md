@@ -31,7 +31,7 @@ You can change the way the Popup component flows in and out of the screen by set
 * `ZoomIn`
 * `ZoomOut`
 
-See the [example](#example) below to customize the available parameters and see how they reflect the Popup component.
+See the [example](#example) below to customize the available parameters and see how they affect the Popup component.
 
 ## Duration
 
