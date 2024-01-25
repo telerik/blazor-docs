@@ -8,7 +8,7 @@ published: True
 position: 35
 ---
 
-# Animation Settings
+# Popup Animation Settings
 
 This article outlines the available settings that allow you to customize the animations when the Popup displays and hides.
 
