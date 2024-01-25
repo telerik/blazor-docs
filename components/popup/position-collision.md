@@ -1,7 +1,7 @@
 ---
 title: Position and Collision
 page_title: Popup Position and Collision
-description: Animation settings of the Popup for Blazor.
+description: Discover the placement settings of the Popup for Blazor. Learn how to configure the Popup position and handle collisions.
 slug: popup-position-collision
 tags: telerik,blazor,popup,position,collision
 published: True
