@@ -31,7 +31,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 ### Popup Alignment
 
-Use the available parameters to control which part of the anchor touches the popup.
+Use the available parameters to control which side of the Popup is in contact with the anchor.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
