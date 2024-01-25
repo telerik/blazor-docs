@@ -101,11 +101,13 @@ The Trial version of our assembly has the `Telerik.Blazor Trial version` Title. 
 
 The most common problem you will encounter when upgrading is wrong references to our JS Interop file. You can read more about fixing them in the [Troubleshoot JavaScript Errors]({%slug troubleshooting-js-errors%}) article.
 
-## I Still See the Trial Message
+## I Still See the Trial Watermark and Banner
 
-If you have a license, but you still see the trial message, especially after publishing an app to a staging or live server, the `Telerik.Blazor.dll` assembly that the build used is still the trial one.
+While using a trial license, a watermark will be rendered over the components and you will see a banner with the following message:
 
 > Thank you for using the Trial Version of Telerik UI for Blazor to build more powerful applications faster. Purchase the Commercial Version now to get access to all product updates and the Telerik expert support.
+
+If you have a commercial license, but you still see the trial watermark and banner, especially after publishing an app to a staging or live server, your build has used the trial `Telerik.Blazor.dll` assembly.
 
 The most common reason for the problem is that the framework decides to incorrectly copy a trial version of our assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework, and hopefully it will get fixed in future versions.
 
@@ -122,6 +124,8 @@ To fix this in the meantime, try the following process (you can try a new test b
 1. Clean the projects.
 
 1. Delete the `bin` and `obj` folders where packages and assemblies may be cached.
+
+1. Re-build your project.
 
 
 ## See Also
