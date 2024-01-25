@@ -45,7 +45,7 @@ Use the available parameters to control which side of the Popup is in contact wi
 There are two collision modes available for the Popup component:
 
 * `Fit`&mdash;The Popup will be shifted until it is fully visible on the screen.
-* `Flip` - The Popup will render on the other side of the anchor.
+* `Flip`&mdash;The Popup will render on the other side of the anchor.
 
 Use the available parameters to control how the Popup behaves to insufficient screen space.
 
