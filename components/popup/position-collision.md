@@ -18,7 +18,7 @@ You can customize how the popup and its anchor align with each other. You can us
 
 ### Anchor Alignment
 
-Use the available parameters to control which part of the popup touches the anchor.
+Use the available parameters to control which part of the Popup touches the anchor.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
