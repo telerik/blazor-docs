@@ -10,65 +10,84 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
 
-This article showcases how to **Create**, **Update** and **Delete** items in both the main and nested Grids in a [hierarchy]({%slug components/grid/features/hierarchy%}).
+This article shows how to create, update, and delete items in the main (master) and nested (detail) Grids in a [hierarchy]({%slug components/grid/features/hierarchy%}).
 
 
 ## Solution
 
-The [CRUD operations]({%slug components/grid/editing/overview%}) are independent from the Hierarchy. Each Grid has it`s own handlers.
+The Grid CRUD operations are independent from the Hierarchy. Each Grid performs editing separately and has its own handlers.
 
-The example below showcases those separate handlers and also how you can get the parent model from the nested grid handlers in case you need information from it - the `UpdateOrder`, `CreateOrder` and `DeleteOrder` handlers are getting the context in order to access the Data from the parent. If you do not need access to the main Grid you should not pass the context through a lambda function.
+1. [Configure editing for the main Grid]({%slug components/grid/editing/overview%}).
+1. Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) and configure the nested Grid inside it, including editing.
+1. To persist the expanded state of a `DetailTemplate` while editing its parent item, override the `Equals()` method of the master data item class. This is supported from version **5.1.0**.
 
-You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Incell`. By default it is `Inline`.
+The example below shows the separate CUD event handlers and also how to get the parent data item in the nested Grid handlers in case you need this information. The `UpdateOrder`, `CreateOrder` and `DeleteOrder` handlers receive the `productItem` in order to access the data item from the parent Grid. If you don't need access to the main Grid data, there is no need to pass the context through a lambda function.
 
->caption How to do CRUD operations in hierarchy grid - get the parent item from inside the child grid
+>caption Implement CRUD operations in a hierarchy Grid
 
-````
-@* If the data in the nested models is sufficient for your operations, you do not need the lambda functions *@
+````CSHTML
+@* The events in the detail Grid are defined with lambda functions, so that the handler can receive the master product object.
+    This approach is optional. *@
+
+@* Hierarchy expand persistence during edit requires version 5.1.0 + *@
+
+Grid <code>EditMode</code>:
+<TelerikRadioGroup Data="@GridEditModes"
+                   @bind-Value="@GridEditMode"
+                   Layout="@RadioGroupLayout.Horizontal" />
 
 <TelerikGrid Data="@GridData"
+             TItem="@Product"
              Pageable="true"
              PageSize="10"
              Sortable="true"
-             EditMode="GridEditMode.Popup"
+             EditMode="@GridEditMode"
+             Navigable="true"
              OnUpdate="UpdateProduct"
              OnDelete="DeleteProduct"
-             OnCreate="CreateProduct">
+             OnCreate="CreateProduct"
+             OnStateInit="@OnProductGridStateInit">
     <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Product</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field=@nameof(Product.ProductName) Title="Product Name" />
         <GridColumn Field=@nameof(Product.UnitPrice) Title="Unit Price" />
-        <GridColumn Field=@nameof(Product.UnitsInStock) Title="Units in stock" />
-        <GridColumn Field=@nameof(Product.CreatedAt) Title="Date created" />
+        <GridColumn Field=@nameof(Product.UnitsInStock) Title="Units in Stock" />
+        <GridColumn Field=@nameof(Product.CreatedAt) Title="Date Created" />
         <GridColumn Field=@nameof(Product.Discontinued) Title="Discontinued" Width="150px" />
-        <GridCommandColumn Width="auto">
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+        <GridCommandColumn Width="200px">
+            @if (GridEditMode != GridEditMode.Incell)
+            {
+                <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+                <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
+                <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            }
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <DetailTemplate Context="productItem">
         @{
-            Product product = productItem as Product;
+            Product product = (Product)productItem;
 
             <TelerikGrid Data="@product.OrderDetails"
-                         Height="auto"
                          Pageable="true"
                          Sortable="true"
                          PageSize="5"
-                         EditMode="GridEditMode.Popup"
+                         EditMode="@GridEditMode"
+                         Navigable="true"
                          OnUpdate="@((GridCommandEventArgs args) => UpdateOrder(product, args))"
                          OnDelete="@((GridCommandEventArgs args) => DeleteOrder(args, product))"
                          OnCreate="@((GridCommandEventArgs args) => CreateOrder(args, product))">
@@ -80,12 +99,17 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
                     <GridColumn Field=@nameof(OrderDetails.UnitPrice) Title="Price" />
                     <GridColumn Field=@nameof(OrderDetails.Discount) Title="Discount">
                         <Template Context="order">
-                            @(String.Format("{0:0.00}%", (order as OrderDetails).Discount))
+                            @(String.Format("{0:0.00}%", ((OrderDetails)order).Discount))
                         </Template>
                     </GridColumn>
                     <GridColumn Field=@nameof(OrderDetails.Quantity) Title="Quantity" />
-                    <GridCommandColumn Width="auto">
-                        <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+                    <GridCommandColumn>
+                        @if (GridEditMode != GridEditMode.Incell)
+                        {
+                            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+                            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
+                            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+                        }
                         <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
                     </GridCommandColumn>
                 </GridColumns>
@@ -95,13 +119,13 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
 </TelerikGrid>
 
 @code {
-    //CUD operations for the main Grid
-    #region CUD operation for the main Grid
+    #region CUD operations for the main Grid
+
     private void UpdateProduct(GridCommandEventArgs args)
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as Product;
+        var item = (Product)args.Item;
         var index = GridData.FindIndex(x => x.ProductId == item.ProductId);
         if (index != -1)
         {
@@ -112,9 +136,9 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as Product;
+        var item = (Product)args.Item;
 
-        item.ProductId = GridData.Count + 1;
+        item.ProductId = ++LastId;
 
         GridData.Insert(0, item);
         item.OrderDetails = GenerateOrderDetails(item);
@@ -124,19 +148,20 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as Product;
+        var item = (Product)args.Item;
 
         GridData.Remove(item);
     }
-    #endregion
 
-    //CUD operations for the nested Grid
-    #region CUD operations for the nested Grid
+    #endregion CUD operations for the main Grid
+
+    #region CUD operations for the detail Grid
+
     private void UpdateOrder(Product product, GridCommandEventArgs args)
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as OrderDetails;
+        var item = (OrderDetails)args.Item;
         var data = product.OrderDetails;
         int index = data.FindIndex(x => x.OrderId == item.OrderId);
         if (index != -1)
@@ -149,7 +174,7 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as OrderDetails;
+        var item = (OrderDetails)args.Item;
         var data = product.OrderDetails;
 
         item.OrderId = data.Count + 1;
@@ -161,19 +186,39 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     {
         // perform actual data source operations here through your service
 
-        var item = args.Item as OrderDetails;
+        var item = (OrderDetails)args.Item;
         var data = product.OrderDetails;
 
         data.Remove(item);
     }
-    #endregion
 
-    public List<Product> GridData { get; set; }
-    DateTime StartDate = new DateTime(2018, 1, 1);
-    static Random RandomGenerator = new Random();
+    #endregion CUD operations for the detail Grid
 
-    //Sample data and models
-    #region Sample data and models
+    private List<Product> GridData { get; set; } = new();
+    private DateTime StartDate = new DateTime(2018, 1, 1);
+    private static Random RandomGenerator = new Random();
+
+    #region Product Grid State
+
+    private void OnProductGridStateInit(GridStateEventArgs<Product> args)
+    {
+        args.GridState.ExpandedItems = GridData.Where(x => x.ProductId == 1).ToList();
+    }
+
+    private GridEditMode GridEditMode { get; set; } = GridEditMode.Inline;
+
+    private IEnumerable<GridEditMode> GridEditModes { get; set; } = new List<GridEditMode> {
+            GridEditMode.Incell,
+            GridEditMode.Inline,
+            GridEditMode.Popup
+        };
+
+    #endregion Product Grid State
+
+    #region Sample Data and Models
+
+    private int LastId { get; set; }
+
     protected override void OnInitialized()
     {
         GridData = GenerateProducts();
@@ -183,12 +228,12 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     {
         List<Product> products = new List<Product>();
 
-        for (int i = 1; i <= 100; i++)
+        for (int i = 1; i <= 3; i++)
         {
             var product = new Product()
             {
-                ProductId = i,
-                ProductName = "Product " + i.ToString(),
+                ProductId = ++LastId,
+                ProductName = $"Product {LastId}",
                 SupplierId = i,
                 UnitPrice = (decimal)(i * 3.14),
                 UnitsInStock = (short)(i * 1),
@@ -210,7 +255,7 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
         double maxDiscount = 0.2;
         var orderDetails = new List<OrderDetails>();
 
-        for (int i = 1; i <= 40; i++)
+        for (int i = 1; i <= 2; i++)
         {
             orderDetails.Add(new OrderDetails()
             {
@@ -234,13 +279,26 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
     public class Product
     {
         public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public string ProductName { get; set; } = string.Empty;
         public int SupplierId { get; set; }
         public decimal UnitPrice { get; set; }
         public short UnitsInStock { get; set; }
         public bool Discontinued { get; set; }
         public DateTime CreatedAt { get; set; }
-        public List<OrderDetails> OrderDetails { get; set; }
+        public List<OrderDetails> OrderDetails { get; set; } = new();
+
+        // Persist Product expand/collapse state during editing
+        public override bool Equals(object? obj) => Equals(obj as Product);
+
+        public bool Equals(Product? obj)
+        {
+            return obj != null && obj.ProductId == ProductId;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     public class OrderDetails
@@ -251,7 +309,12 @@ You can set the `EditMode` of the nesting grid to either `Popup`, `Inline`, `Inc
         public float Discount { get; set; }
         public int ProductId { get; set; }
     }
-    #endregion
+
+    #endregion Sample Data and Models
 }
 ````
 
+## See Also
+
+* [Grid Editing]({%slug components/grid/editing/overview%})
+* [Grid Hierarchy]({%slug components/grid/features/hierarchy%})

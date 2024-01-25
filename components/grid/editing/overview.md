@@ -449,6 +449,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
 @[template](/_contentTemplates/common/grid-treelist-editing-notes.md#grid-treelist-data-operations-while-editing)
 
+* When editing a master row in a [hierarchy Grid]({%slug components/grid/features/hierarchy%}), the respective `DetailTemplate` will collapse unless you [override the `Equals()` method of the master data item class]({%slug grid-kb-editing-in-hierarchy%}).
 
 ## See Also
 
