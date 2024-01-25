@@ -121,7 +121,7 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 
 ## Next Steps
 
-* [Explore the Popup Positioning and Collision settings]({%slug popup-position-collision%})
+* [Explore the Popup Positioning and Collision Settings]({%slug popup-position-collision%})
 * [Customize the Popup Animations]({%slug popup-animation%})
 
 ## See Also
