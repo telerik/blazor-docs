@@ -66,7 +66,7 @@ The Blazor Popup provides parameters to configure the component. Also check the 
 | `HorizontalAlign` | `PopupHorizontalAlign ` enum <br /> (`Left`) | Determines if the left or the right side of the Popup will touch its anchor. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
 | `HorizontalCollision` | `PopupCollision  ` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}) |
 | `HorizontalOffset` | `double` | Sets the horizontal space between the Popup and its anchor in `pixels`. |
-| `VerticalAlign` | `PopupVerticalAlign ` enum <br /> (`Top`) | Determines if the popup will touch the anchor with it's top, bottom, or center. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
+| `VerticalAlign` | `PopupVerticalAlign ` enum <br /> (`Top`) | Determines if the Popup will touch the anchor with its top, bottom, or center. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
 | `VerticalCollision` | `PopupCollision  ` enum <br /> (`Flip`) | Sets the behavior of the popup when it does fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}) |
 | `VerticalOffset` | `double` | Sets the vertical space between the Popup and its anchor in `pixels`. |
 
