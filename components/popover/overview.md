@@ -33,21 +33,11 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
     </PopoverActions>
 </TelerikPopover>
 
-<div class="popover-target styled-container" @onclick="@(_ => PopoverReference.Show())">
-    Popover target. Click in the element to show the Popover.
-</div>
+<TelerikButton OnClick="@(() => PopoverReference.Show())" Class="popover-target">Show the Popover</TelerikButton>
 
 @code{
     private TelerikPopover PopoverReference { get; set; }
 }
-
-<style>
-    .styled-container {
-        width: 300px;
-        height: 50px;
-        background-color: yellowgreen;
-    }
-</style>
 ````
 
 ## Popover Positioning and Collision
@@ -92,7 +82,7 @@ To execute Popover methods, obtain a reference to the component instance with `@
 
 | Method  | Description |
 |---------|-------------|
-| `Refresh` | Use this method to programmatically re-render the Popover. |
+| `Refresh` | Use this method to programmatically re-render the Popover. <br /> The Popover is rendered as a child of the `TelerikRootComponent`, instead of where it is declared. As a result, it doesn't automatically refresh when its content is updated. In such cases, the `Refresh` method comes in handy to ensure that the Popover content is up-to-date. |
 | `Show` | Use this method to display the Popover. |
 | `Hide` | Use this method to close the Popover. |
 
@@ -107,21 +97,11 @@ To execute Popover methods, obtain a reference to the component instance with `@
     </PopoverActions>
 </TelerikPopover>
 
-<div class="popover-target styled-container" @onclick="@(_ => PopoverReference.Show())">
-    Popover target. Click in the element to show the Popover.
-</div>
+<TelerikButton OnClick="@(() => PopoverReference.Show())" Class="popover-target">Show the Popover</TelerikButton>
 
 @code{
     private TelerikPopover PopoverReference { get; set; }
 }
-
-<style>
-    .styled-container {
-        width: 300px;
-        height: 50px;
-        background-color: yellowgreen;
-    }
-</style>
 ````
 
 ## Next Steps
