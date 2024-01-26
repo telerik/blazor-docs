@@ -52,7 +52,7 @@ Use the available parameters to customize the animation type and its duration. [
 
 ## Popup Parameters
 
-The Blazor Popup provides parameters to configure the component. Also check the [Popup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPopup) for a full list of properties.
+The Blazor Popup provides parameters to configure the component. Also check the [Popup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPopup) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
