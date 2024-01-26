@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 1. Obtain a `@ref` of the component.
 1. Add the content to the `<PopoverContent>` child tag.
 1. Use the [`Show`](#popover-reference-and-methods) method to display the `<TelerikPopover>`.
-1. (optional) Add a title inside a `PopoverHeader` tag. HTML markup and child components are supported, too.
+1. (optional) Add a title inside a `<PopoverHeader>` tag. HTML markup and child components are supported, too.
 
 >caption Basic configuration of the Telerik Popover for Blazor
 
