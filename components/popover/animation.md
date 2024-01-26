@@ -31,7 +31,7 @@ You can change the way the Popover component flows in and out of the screen by s
 * `ZoomIn`
 * `ZoomOut`
 
-See the [example](#example) below to customize the available parameters and see how they affect the Popover component.
+The [example](#example) below lets you customize the available `AnimationType` parameters and see how they affect the Popover component.
 
 ## Duration
 
