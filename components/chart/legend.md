@@ -19,7 +19,7 @@ The Telerik Chart for Blazor can show a visual guide with details about the seri
 
 ## Chart Legend Customization
 
-You can customize the legend of the Telerik Chart for Blazor by adding nested (child) tags to the `<ChartLegend>` and use their parameters for fine-tuning. 
+You can customize the Chart legend by adding nested (child) tags to the `<ChartLegend>` and use their parameters for fine tuning. 
 
 The structure of the nested tags is `<ChartLegend*Specifics*>`, where the specifics can be:
 
