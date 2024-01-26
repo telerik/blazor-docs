@@ -33,7 +33,7 @@ The Grid CRUD operations are independent of the hierarchy. Each Grid performs ed
 1. Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) and configure the nested Grid inside it, including editing.
 1. To persist the expanded state of a `DetailTemplate` while editing its parent item, override the `Equals()` method of the master data item class. This is supported from version **5.1.0**.
 
-The example below shows the separate CUD event handlers and also how to get the parent data item in the nested Grid handlers in case you need this information. The `UpdateOrder`, `CreateOrder` and `DeleteOrder` handlers receive the `productItem` in order to access the data item from the parent Grid. If you don't need access to the main Grid data, there is no need to pass the context through a lambda function.
+The example below shows the separate CUD event handlers and also how to get the parent data item in the nested Grid handlers. The `UpdateOrder`, `CreateOrder`, and `DeleteOrder` handlers receive the `productItem` in order to access the data item from the parent Grid. If you don't need access to the main Grid's data, don't pass the context through a lambda function.
 
 >caption Implement CRUD operations in a hierarchy Grid
 
