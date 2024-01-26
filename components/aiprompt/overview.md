@@ -95,7 +95,7 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AIPromptViews` | `RenderFragment` | Allows control over the views of the content. Use it to set visibility of a predefined view or to create custom views. If a render fragment is not provided, the AIPrompt will display its default views. |
-| `AIPromptToolbarItems` | `RenderFragment` | Any additional buttons that are to be rendered within the toolbar. This parameter will append the new items, rather than override buttons related to existing views. |
+| `AIPromptToolBarItems` | `RenderFragment` | Any additional buttons that are to be rendered within the toolbar. This parameter will append the new items, rather than override buttons related to existing views. |
 | `PromptText` | `string` | The value of the text within the prompt view. Use when you need to add some form of transformation to the prompt. The parameter supports two-way binding. |
 | `PromptTextChanged` | `EventCallback<string>` | The handler called whenever the `PromptText` changes. |
 | `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the prompt view. |

@@ -8,24 +8,24 @@ published: True
 position: 20
 ---
 
-# AIPrompt Toolbar
+# AIPrompt ToolBar
 
 The AIPrompt toolbar always renders buttons for the currently visible predefined views (Prompt, Output, and optionally, Command). These built-in buttons activate the appropriate view they represent. Any custom buttons will always appear after the view-related buttons. This article shows how to add custom tools to the AIPrompt's toolbar, which may invoke arbitrary commands or handlers.
 
 
 ## Custom Tools
 
-To define custom tools within the toolbar, use the `<AIPromptToolbarItems>` tag, which is a standard Blazor `RenderFragment`.
+To define custom tools within the toolbar, use the `<AIPromptToolBarItems>` tag, which is a standard Blazor `RenderFragment`.
 
 The example below omits any event handlers for brevity. Custom buttons are to be used for arbitrary logic which is not part of the AIPrompt component, thus feel free to attach the handlers you need.
 
->caption Setting up the AIPrompt Toolbar
+>caption Setting up the AIPrompt ToolBar
 
 ````CSHTML
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
-    <AIPromptToolbarItems>
-        <ToolBarButton @OnClick="@OnCustomButtonClick">Custom Button</ToolBarButton>
-    </AIPromptToolbarItems>
+    <AIPromptToolBarItems>
+        <TelerikButton @OnClick="@OnCustomButtonClick">Custom Button</TelerikButton>
+    </AIPromptToolBarItems>
 </TelerikAIPrompt>
 
 @code {
