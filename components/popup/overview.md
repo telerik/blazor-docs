@@ -25,21 +25,11 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
     I am a Telerik Popup.
 </TelerikPopup>
 
-<div class="popup-target styled-container" @onclick="@(_ => PopupRef.Show())">
-    Popup target
-</div>
+<TelerikButton OnClick="@(() => PopupRef.Show())" Class="popup-target">Show the Popup</TelerikButton>
 
 @code {
     private TelerikPopup PopupRef { get; set; }
 }
-
-<style>
-    .styled-container {
-        width: 200px;
-        height: 30px;
-        background-color: yellowgreen;
-    }
-</style>
 ````
 
 ## Popup Positioning and Collision
@@ -86,20 +76,16 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 
 | Method  | Description |
 |---------|-------------|
-| `Refresh` | Use this method to programmatically re-render the Popup. |
+| `Refresh` | Use this method to programmatically re-render the Popup. <br /> The Popup is rendered as a child of the `TelerikRootComponent`, instead of where it is declared. As a result, it doesn't automatically refresh when its content is updated. In such cases, the `Refresh` method comes in handy to ensure that the Popup content is up-to-date. |
 | `Show` | Use this method to display the Popup. |
 | `Hide` | Use this method to close the Popup. |
 
 ````CSHTML
-<TelerikButton OnClick="@ShowPopup">Show the Popup</TelerikButton>
+<TelerikButton OnClick="@ShowPopup" Class="popup-target">Show the Popup</TelerikButton>
 
 <TelerikPopup AnchorSelector=".popup-target" @ref="@PopupRef">
     I am a Telerik Popup! 
 </TelerikPopup>
-
-<div class="popup-target styled-container">
-    Popup target
-</div>
 
 @code {
     private TelerikPopup PopupRef { get; set; }
@@ -109,14 +95,6 @@ To execute Popup methods, obtain a reference to the component instance with `@re
         PopupRef.Show();
     }
 }
-
-<style>
-    .styled-container {
-        width: 200px;
-        height: 30px;
-        background-color: yellowgreen;
-    }
-</style>
 ````
 
 ## Next Steps
