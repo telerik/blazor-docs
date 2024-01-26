@@ -29,7 +29,7 @@ The structure of the nested tags is `<ChartLegend*Specifics*>`, where the specif
 
 >note Use the IntelliSense to explore the nested tags.
 
-## Chart Legend Series Customization
+## Legend Settings in the Chart Series
 
 You can customize individual items in the legend for a specific Chart series by adding the `<ChartSeriesLegendItem>` (child tag of `<ChartSeries>`) and its nested tag settings and parameters.
 
