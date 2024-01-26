@@ -14,7 +14,7 @@ This article outlines the available settings that allow you to customize the ani
 
 ## Type
 
-You can change the way the Popup component flows in and out of the screen by setting the `AnimationType` parameter to a member of the `AnimationType` enum:
+You can change the way the Popup component shows and hides by setting the `AnimationType` parameter to a member of the `AnimationType` enum:
 
 * `None`
 * `Fade`
