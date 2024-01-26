@@ -21,7 +21,7 @@ To customize how the popover aligns with its anchor element, use the `Position` 
 * `Left`
 * `Right`
 
-See the [example](#example) below to customize the available parameters and see how they affect the Popover component.
+The [example](#example) below lets you customize the available `Position` parameters and see how they affect the Popover component.
 
 ## Collision
 
