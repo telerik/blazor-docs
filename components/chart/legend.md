@@ -1,7 +1,7 @@
 ---
 title: Legend
 page_title: Chart Legend
-description: Discover the possibilities of the Legend for the Blazor Chart. Learn how to show it, and explore the customization options.
+description: Discover the capabilities of the Chart Legend in Telerik UI for Blazor. Learn how to show it, and explore the customization options.
 slug: chart-legend
 tags: telerik,blazor,chart,legend,customizations
 published: True
