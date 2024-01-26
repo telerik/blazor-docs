@@ -56,7 +56,7 @@ Use the available positioning and collision settings to customize how the Popove
 
 ## Popover Animations 
 
-Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popover animations...]({%slug popover-animation%})
+Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popover Animations...]({%slug popover-animation%})
 
 ## Popover Parameters
 
