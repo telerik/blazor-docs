@@ -41,12 +41,11 @@ The **Create New Project** wizard provides two options to start you project:
 The wizard allows you to configure the following options:
 
 * Location and name for your app.
-* Hosting model type - WebApp, WebAssembly, Server-Side Blazor or hybrid Blazor MAUI app.
+* Hosting model type - [WebApp]({%slug getting-started/web-app%}), [WebAssembly]({%slug getting-started/client-side%}), [Server-Side]({%slug getting-started/server-side%}) or [Hybrid Blazor MAUI]({%slug getting-started/hybrid-blazor%}) app.
 * Your Telerik license (trial or commercial, depending on what you have). 
 * Whether to use localization in the project or not.
 * Whether to use font icons in the project or not.
 * The .NET version you want to use.
-* The Telerik UI for Blazor version.
 * Sample pages that you can add to get started (available for `Start from Blank Project` option).
 * The theme you want to apply - the main window provides a list of the [built-in (base) themes]({%slug general-information/themes%}) (Default, Bootstrap and Material). The `See All Swatches` button opens a separate menu with a list of [color swatches]({%slug themes-swatches%}) under the corresponding base theme.
 
