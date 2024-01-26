@@ -52,7 +52,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 
 ## Popover Positioning and Collision
 
-Use the available positioning and collision settings to customize how the Popover positions and reacts to insufficient space in the viewport. [Read more about the Blazor Popover Positioning and Collision...]({%slug popover-position-collision%})
+Use the available positioning and collision settings to customize how the Popover positions itself and reacts to insufficient space in the viewport. [Read more about the Blazor Popover Positioning and Collision...]({%slug popover-position-collision%})
 
 ## Popover Animations 
 
