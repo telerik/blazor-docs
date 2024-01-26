@@ -16,11 +16,18 @@ Trendline series use the data from the main series. When the main series employs
 
 ## Trendline Types
 
-The Chart supports two fundamental types of trendlines - the `Linear Trendline` and the `Moving Average Trendline`.
+The Chart supports the following fundamental types of trendlines:
+
+* [`Linear Trendline`](#linear-trendline)
+* [`Moving Average Trendline`](#moving-average-trendline)
+* [`Exponential Trendline`](#exponential-trendline)
+* [`Logarithmic Trendline`](#logarithmic-trendline)
+* [`Power Trendline`](#power-trendline)
+* [`Polynomial Trendline`](#polynomial-trendline)
 
 ### Linear Trendline
 
-The Linear Trendline serves the purpose of indicating whether a specific quantity is on the rise or decline over time.
+The `Linear Trendline` serves the purpose of indicating whether a specific quantity is on the rise or decline over time.
 
 >caption Linear trendline in scatter line Chart series
 
@@ -174,7 +181,7 @@ The Linear Trendline serves the purpose of indicating whether a specific quantit
 
 ### Moving Average Trendline
 
-The Moving Average Trendline smoothens out data fluctuations by computing an average of all data points over a specified period. By default, this period is set to `2` chart intervals.
+The `Moving Average Trendline` smoothens out data fluctuations by computing an average of all data points over a specified period. By default, this period is set to `2` chart intervals.
 
 >caption Line Chart with a moving average trendline
 
@@ -313,12 +320,758 @@ The Moving Average Trendline smoothens out data fluctuations by computing an ave
 }
 `````
 
+### Exponential Trendline
+
+The `Exponential Trendline` shows data with rapidly accelerating growth or decay over time. It's used to emphasize trends that follow an exponential pattern, and it requires positive `Y` values.
+
+>caption Chart with an Exponential Trendline
+
+`````CSHTML
+<TelerikChart>
+    <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
+    <ChartZoomable Enabled="true" />
+    <ChartLegend Visible="true" Position="@ChartLegendPosition.Bottom" />
+    <ChartTooltip Visible="true" Shared="false" />
+
+    <ChartSeriesItems>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Name="Stock Price Trend"
+                     Data="@ChartData"
+                     XField="@nameof(StockPriceTrend.NumericPeriod)"
+                     YField="@nameof(StockPriceTrend.Price)">
+        </ChartSeries>
+
+        <ChartSeries Type="@ChartSeriesType.ExponentialTrendline"
+                     Name="Stock Price (EXPONENTIAL)"
+                     For="Stock Price Trend"
+                     Color="blue">
+            <ChartSeriesTrendline Period="4">
+                <ChartSeriesTrendlineForecast Before="0" After="3" />
+            </ChartSeriesTrendline>
+        </ChartSeries>
+
+    </ChartSeriesItems>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Price" />
+            <ChartYAxisLabels Format="C0" />
+        </ChartYAxis>
+    </ChartYAxes>
+
+</TelerikChart>
+
+@code {
+    private List<StockPriceTrend> ChartData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ChartData = GetTrendlineData();
+    }
+
+    private List<StockPriceTrend> GetTrendlineData()
+    {
+        return new List<StockPriceTrend>()
+        {
+            new StockPriceTrend()
+            {
+                Period = "Q1 2019",
+                NumericPeriod = 10,
+                Date = new DateTime(2019, 1, 1),
+                Price = 10.28m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2019",
+                NumericPeriod = 20,
+                Date = new DateTime(2019, 4, 1),
+                Price = 20.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2019",
+                NumericPeriod = 30,
+                Date = new DateTime(2019, 7, 1),
+                Price = 29.33m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2019",
+                NumericPeriod = 40,
+                Date = new DateTime(2019, 10, 1),
+                Price = 69.81m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2020",
+                NumericPeriod = 50,
+                Date = new DateTime(2020, 1, 1),
+                Price = 45.5m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2020",
+                NumericPeriod = 60,
+                Date = new DateTime(2020, 4, 1),
+                Price = 57.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2020",
+                NumericPeriod = 70,
+                Date = new DateTime(2020, 7, 1),
+                Price = 68.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2020",
+                NumericPeriod = 80,
+                Date = new DateTime(2020, 10, 1),
+                Price = 70.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2021",
+                NumericPeriod = 90,
+                Date = new DateTime(2021, 1, 1),
+                Price = 68.15m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2021",
+                NumericPeriod = 100,
+                Date = new DateTime(2021, 4, 1),
+                Price = 76.24m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2021",
+                NumericPeriod = 110,
+                Date = new DateTime(2021, 7, 1),
+                Price = 52.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2021",
+                NumericPeriod = 120,
+                Date = new DateTime(2021, 10, 1),
+                Price = 75.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2022",
+                NumericPeriod = 130,
+                Date = new DateTime(2022, 1, 1),
+                Price = 84.25m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2022",
+                NumericPeriod = 140,
+                Date = new DateTime(2022, 4, 1),
+                Price = 85.4m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2022",
+                NumericPeriod = 150,
+                Date = new DateTime(2022, 7, 1),
+                Price = 79.93m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2022",
+                NumericPeriod = 160,
+                Date = new DateTime(2022, 10, 1),
+                Price = 80.76m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2023",
+                NumericPeriod = 170,
+                Date = new DateTime(2023, 1, 1),
+                Price = 128.36m
+            },
+        };
+    }
+
+    private class StockPriceTrend
+    {
+        public string Period { get; set; }
+        public int NumericPeriod { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+`````
+
+### Logarithmic Trendline
+
+The `Logarithmic Trendline` is applied to data that displays rapid initial growth that slows over time or vice versa. It emphasizes trends with a logarithmic pattern, and it requires positive `X` values.
+
+>caption Chart with a Logarithmic Trendline
+
+`````CSHTML
+<TelerikChart>
+    <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
+    <ChartZoomable Enabled="true" />
+    <ChartLegend Visible="true" Position="@ChartLegendPosition.Bottom" />
+    <ChartTooltip Visible="true" Shared="false" />
+
+    <ChartSeriesItems>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Name="Stock Price Trend"
+                     Data="@ChartData"
+                     XField="@nameof(StockPriceTrend.NumericPeriod)"
+                     YField="@nameof(StockPriceTrend.Price)">
+        </ChartSeries>
+
+        <ChartSeries Type="@ChartSeriesType.LogarithmicTrendline"
+                     Name="Stock Price (LOGARITHMIC)"
+                     For="Stock Price Trend"
+                     Color="green">
+            <ChartSeriesTrendline Period="4">
+                <ChartSeriesTrendlineForecast Before="0" After="3" />
+            </ChartSeriesTrendline>
+        </ChartSeries>
+
+    </ChartSeriesItems>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Price" />
+            <ChartYAxisLabels Format="C0" />
+        </ChartYAxis>
+    </ChartYAxes>
+
+</TelerikChart>
+
+@code {
+    private List<StockPriceTrend> ChartData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ChartData = GetTrendlineData();
+    }
+
+    private List<StockPriceTrend> GetTrendlineData()
+    {
+        return new List<StockPriceTrend>()
+        {
+            new StockPriceTrend()
+            {
+                Period = "Q1 2019",
+                NumericPeriod = 10,
+                Date = new DateTime(2019, 1, 1),
+                Price = 10.28m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2019",
+                NumericPeriod = 20,
+                Date = new DateTime(2019, 4, 1),
+                Price = 20.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2019",
+                NumericPeriod = 30,
+                Date = new DateTime(2019, 7, 1),
+                Price = 29.33m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2019",
+                NumericPeriod = 40,
+                Date = new DateTime(2019, 10, 1),
+                Price = 69.81m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2020",
+                NumericPeriod = 50,
+                Date = new DateTime(2020, 1, 1),
+                Price = 45.5m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2020",
+                NumericPeriod = 60,
+                Date = new DateTime(2020, 4, 1),
+                Price = 57.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2020",
+                NumericPeriod = 70,
+                Date = new DateTime(2020, 7, 1),
+                Price = 68.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2020",
+                NumericPeriod = 80,
+                Date = new DateTime(2020, 10, 1),
+                Price = 70.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2021",
+                NumericPeriod = 90,
+                Date = new DateTime(2021, 1, 1),
+                Price = 68.15m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2021",
+                NumericPeriod = 100,
+                Date = new DateTime(2021, 4, 1),
+                Price = 76.24m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2021",
+                NumericPeriod = 110,
+                Date = new DateTime(2021, 7, 1),
+                Price = 52.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2021",
+                NumericPeriod = 120,
+                Date = new DateTime(2021, 10, 1),
+                Price = 75.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2022",
+                NumericPeriod = 130,
+                Date = new DateTime(2022, 1, 1),
+                Price = 84.25m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2022",
+                NumericPeriod = 140,
+                Date = new DateTime(2022, 4, 1),
+                Price = 85.4m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2022",
+                NumericPeriod = 150,
+                Date = new DateTime(2022, 7, 1),
+                Price = 79.93m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2022",
+                NumericPeriod = 160,
+                Date = new DateTime(2022, 10, 1),
+                Price = 80.76m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2023",
+                NumericPeriod = 170,
+                Date = new DateTime(2023, 1, 1),
+                Price = 128.36m
+            },
+        };
+    }
+
+    private class StockPriceTrend
+    {
+        public string Period { get; set; }
+        public int NumericPeriod { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+`````
+
+### Power Trendline
+
+The `Power Trendline` is used for data that follows a power-law relationship, indicating that one variable's change is proportional to a power of another variable. It helps highlight trends where the rate of change isn't constant. The `Y` and `X` require positive values.
+
+>caption Chart with a Power Trendline
+
+`````CSHTML
+<TelerikChart>
+    <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
+    <ChartZoomable Enabled="true" />
+    <ChartLegend Visible="true" Position="@ChartLegendPosition.Bottom" />
+    <ChartTooltip Visible="true" Shared="false" />
+
+    <ChartSeriesItems>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Name="Stock Price Trend"
+                     Data="@ChartData"
+                     XField="@nameof(StockPriceTrend.NumericPeriod)"
+                     YField="@nameof(StockPriceTrend.Price)">
+        </ChartSeries>
+
+        <ChartSeries Type="@ChartSeriesType.PowerTrendline"
+                     Name="Stock Price (POWER)"
+                     For="Stock Price Trend"
+                     Color="teal">
+            <ChartSeriesMarkers Visible="true" />
+            <ChartSeriesTrendline Period="4">
+                <ChartSeriesTrendlineForecast Before="0" After="3" />
+            </ChartSeriesTrendline>
+        </ChartSeries>
+
+    </ChartSeriesItems>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Price" />
+            <ChartYAxisLabels Format="C0" />
+        </ChartYAxis>
+    </ChartYAxes>
+
+</TelerikChart>
+
+@code {
+    private List<StockPriceTrend> ChartData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ChartData = GetTrendlineData();
+    }
+
+    private List<StockPriceTrend> GetTrendlineData()
+    {
+        return new List<StockPriceTrend>()
+        {
+            new StockPriceTrend()
+            {
+                Period = "Q1 2019",
+                NumericPeriod = 10,
+                Date = new DateTime(2019, 1, 1),
+                Price = 10.28m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2019",
+                NumericPeriod = 20,
+                Date = new DateTime(2019, 4, 1),
+                Price = 20.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2019",
+                NumericPeriod = 30,
+                Date = new DateTime(2019, 7, 1),
+                Price = 29.33m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2019",
+                NumericPeriod = 40,
+                Date = new DateTime(2019, 10, 1),
+                Price = 69.81m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2020",
+                NumericPeriod = 50,
+                Date = new DateTime(2020, 1, 1),
+                Price = 45.5m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2020",
+                NumericPeriod = 60,
+                Date = new DateTime(2020, 4, 1),
+                Price = 57.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2020",
+                NumericPeriod = 70,
+                Date = new DateTime(2020, 7, 1),
+                Price = 68.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2020",
+                NumericPeriod = 80,
+                Date = new DateTime(2020, 10, 1),
+                Price = 70.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2021",
+                NumericPeriod = 90,
+                Date = new DateTime(2021, 1, 1),
+                Price = 68.15m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2021",
+                NumericPeriod = 100,
+                Date = new DateTime(2021, 4, 1),
+                Price = 76.24m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2021",
+                NumericPeriod = 110,
+                Date = new DateTime(2021, 7, 1),
+                Price = 52.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2021",
+                NumericPeriod = 120,
+                Date = new DateTime(2021, 10, 1),
+                Price = 75.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2022",
+                NumericPeriod = 130,
+                Date = new DateTime(2022, 1, 1),
+                Price = 84.25m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2022",
+                NumericPeriod = 140,
+                Date = new DateTime(2022, 4, 1),
+                Price = 85.4m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2022",
+                NumericPeriod = 150,
+                Date = new DateTime(2022, 7, 1),
+                Price = 79.93m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2022",
+                NumericPeriod = 160,
+                Date = new DateTime(2022, 10, 1),
+                Price = 80.76m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2023",
+                NumericPeriod = 170,
+                Date = new DateTime(2023, 1, 1),
+                Price = 128.36m
+            },
+        };
+    }
+
+    private class StockPriceTrend
+    {
+        public string Period { get; set; }
+        public int NumericPeriod { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+`````
+
+### Polynomial Trendline
+
+The `Polynomial Trendline` is applied to data with complex patterns that cannot be captured by simpler trendlines. It fits a polynomial equation to the data points, allowing for a more flexible representation of trends with multiple turning points.
+
+>caption Chart with a Polynomial Trendline
+
+`````CSHTML
+<TelerikChart>
+    <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
+    <ChartZoomable Enabled="true" />
+    <ChartLegend Visible="true" Position="@ChartLegendPosition.Bottom" />
+    <ChartTooltip Visible="true" Shared="false" />
+
+    <ChartSeriesItems>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Name="Stock Price Trend"
+                     Data="@ChartData"
+                     XField="@nameof(StockPriceTrend.NumericPeriod)"
+                     YField="@nameof(StockPriceTrend.Price)">
+        </ChartSeries>
+
+        <ChartSeries Type="@ChartSeriesType.PolynomialTrendline"
+                     Name="Stock Price (POLYNOMIAL)"
+                     For="Stock Price Trend"
+                     Color="brown">
+            <ChartSeriesTrendline Period="4">
+                <ChartSeriesTrendlineForecast Before="0" After="3" />
+            </ChartSeriesTrendline>
+        </ChartSeries>
+
+    </ChartSeriesItems>
+
+    <ChartYAxes>
+        <ChartYAxis>
+            <ChartYAxisTitle Text="Price" />
+            <ChartYAxisLabels Format="C0" />
+        </ChartYAxis>
+    </ChartYAxes>
+
+</TelerikChart>
+
+@code {
+    private List<StockPriceTrend> ChartData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ChartData = GetTrendlineData();
+    }
+
+    private List<StockPriceTrend> GetTrendlineData()
+    {
+        return new List<StockPriceTrend>()
+        {
+            new StockPriceTrend()
+            {
+                Period = "Q1 2019",
+                NumericPeriod = 10,
+                Date = new DateTime(2019, 1, 1),
+                Price = 10.28m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2019",
+                NumericPeriod = 20,
+                Date = new DateTime(2019, 4, 1),
+                Price = 20.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2019",
+                NumericPeriod = 30,
+                Date = new DateTime(2019, 7, 1),
+                Price = 29.33m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2019",
+                NumericPeriod = 40,
+                Date = new DateTime(2019, 10, 1),
+                Price = 69.81m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2020",
+                NumericPeriod = 50,
+                Date = new DateTime(2020, 1, 1),
+                Price = 45.5m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2020",
+                NumericPeriod = 60,
+                Date = new DateTime(2020, 4, 1),
+                Price = 57.54m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2020",
+                NumericPeriod = 70,
+                Date = new DateTime(2020, 7, 1),
+                Price = 68.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2020",
+                NumericPeriod = 80,
+                Date = new DateTime(2020, 10, 1),
+                Price = 70.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2021",
+                NumericPeriod = 90,
+                Date = new DateTime(2021, 1, 1),
+                Price = 68.15m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2021",
+                NumericPeriod = 100,
+                Date = new DateTime(2021, 4, 1),
+                Price = 76.24m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2021",
+                NumericPeriod = 110,
+                Date = new DateTime(2021, 7, 1),
+                Price = 52.3m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2021",
+                NumericPeriod = 120,
+                Date = new DateTime(2021, 10, 1),
+                Price = 75.73m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2022",
+                NumericPeriod = 130,
+                Date = new DateTime(2022, 1, 1),
+                Price = 84.25m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q2 2022",
+                NumericPeriod = 140,
+                Date = new DateTime(2022, 4, 1),
+                Price = 85.4m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q3 2022",
+                NumericPeriod = 150,
+                Date = new DateTime(2022, 7, 1),
+                Price = 79.93m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q4 2022",
+                NumericPeriod = 160,
+                Date = new DateTime(2022, 10, 1),
+                Price = 80.76m
+            },
+            new StockPriceTrend()
+            {
+                Period = "Q1 2023",
+                NumericPeriod = 170,
+                Date = new DateTime(2023, 1, 1),
+                Price = 128.36m
+            },
+        };
+    }
+
+    private class StockPriceTrend
+    {
+        public string Period { get; set; }
+        public int NumericPeriod { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Price { get; set; }
+    }
+}
+`````
+
 ## Chart Trendlines Parameters
 
 The following table lists Chart Trendlines parameters.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+| `ChartSeriesMarkers.Visible` | `bool` | The visibility of the trendline markers. |
 | `ChartSeries.For` | `string` | The name of the parent series of the trendline. |
 | `ChartSeriesTrendline` | `object` | The trendline configuration options. |
 | `ChartSeriesTrendlineForecast` | `object` | The trendline forecast settings. By default, the trendline does not display a forecast. |
