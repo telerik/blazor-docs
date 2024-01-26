@@ -14,7 +14,7 @@ This article outlines the available settings which enable you to control the pos
 
 ## Position
 
-To customize how the popover aligns with its anchor element use the `Position` parameter and set its value to a member of the `PopoverPosition` enum:
+To customize how the popover aligns with its anchor element, use the `Position` parameter and set its value to a member of the `PopoverPosition` enum:
 
 * `Top` (default value)
 * `Bottom`
