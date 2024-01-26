@@ -27,7 +27,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 To define how the Popover reacts to insufficient screen space, set the `Collision` parameter to a member of the `PopoverCollision` enum:
 
-* `Fit`&mdash;The Popover will be shifted until it is fully visible on the screen.
+* `Fit`&mdash;The Popover will shift until it is fully visible on the screen.
 * `Flip`&mdash;The Popover will render on the other side of the anchor.
 
 ## Example
