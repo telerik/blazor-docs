@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Popover Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor Popover component</a> helps you to easily display additional information to your users with a tooltip-like behavior. This article explains how to start using the component and describes its features.
+The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor Popover component</a> behaves much as a tooltip and helps you to easily display additional information to your users. This article explains how to start using the component and describes its features.
 
 ## Creating Blazor Popover
 
