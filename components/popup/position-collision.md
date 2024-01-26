@@ -8,7 +8,7 @@ published: True
 position: 10
 ---
 
-# Popup Position and Collision Settings
+# Popup Position and Collision
 
 This article outlines the available settings which enable you to control the position of the Popup based on its anchor and dictate how the component responds to insufficient screen space.
 
