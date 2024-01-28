@@ -18,16 +18,47 @@ Trendline series use the data from the main series. When the main series employs
 
 The Chart supports the following fundamental types of trendlines:
 
-* [`Linear Trendline`](#linear-trendline)
-* [`Moving Average Trendline`](#moving-average-trendline)
-* [`Exponential Trendline`](#exponential-trendline)
-* [`Logarithmic Trendline`](#logarithmic-trendline)
-* [`Power Trendline`](#power-trendline)
-* [`Polynomial Trendline`](#polynomial-trendline)
+* [Linear Trendline](#linear-trendline)
+* [Moving Average Trendline](#moving-average-trendline)
+* [Exponential Trendline](#exponential-trendline)
+* [Logarithmic Trendline](#logarithmic-trendline)
+* [Power Trendline](#power-trendline)
+* [Polynomial Trendline](#polynomial-trendline)
+
+## Supported Series Types
+
+Trendlines are supported for the following chart types:
+
+ * Area
+ * Bar
+ * BoxPlot
+ * Candlestick
+ * Column
+ * Line
+ * OHLC
+ * RangeArea
+ * RangeColumn
+ * Scatter
+ * ScatterLine
+
+## Chart Trendlines Parameters
+
+The following table lists Chart Trendlines parameters.
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `ChartSeriesMarkers.Visible` | `bool` | The visibility of the trendline markers. |
+| `ChartSeries.For` | `string` | The name of the parent series of the trendline. |
+| `ChartSeriesTrendline` | `object` | The trendline configuration options. |
+| `ChartSeriesTrendlineForecast` | `object` | The trendline forecast settings. By default, the trendline does not display a forecast. |
+| `ChartSeriesTrendlineForecast.Before` | `int` | The number of intervals to extend the trendline before the first data point. |
+| `ChartSeriesTrendlineForecast.After` | `int` | The number of intervals to extend the trendline after the last data point. |
+| `ChartSeriesTrendline.Period` | `int` | The number of intervals to take when calculating averages. The value must be an integer greater than `2`. |
+| `Type` | `ChartSeriesType` enum | The type of the series. |
 
 ### Linear Trendline
 
-The `Linear Trendline` serves the purpose of indicating whether a specific quantity is on the rise or decline over time.
+Use the Linear Trendline to visualize the rise or decline of a specific quantity over time.
 
 >caption Linear trendline in scatter line Chart series
 
@@ -181,7 +212,7 @@ The `Linear Trendline` serves the purpose of indicating whether a specific quant
 
 ### Moving Average Trendline
 
-The `Moving Average Trendline` smoothens out data fluctuations by computing an average of all data points over a specified period. By default, this period is set to `2` chart intervals.
+Use the Moving Average Trendline to smoothen out data fluctuations. This trendline computes and visualizes an average of all data points over a specified period. By default, this period is set to two chart intervals.
 
 >caption Line Chart with a moving average trendline
 
@@ -322,7 +353,7 @@ The `Moving Average Trendline` smoothens out data fluctuations by computing an a
 
 ### Exponential Trendline
 
-The `Exponential Trendline` shows data with rapidly accelerating growth or decay over time. It's used to emphasize trends that follow an exponential pattern, and it requires positive `Y` values.
+Use the Exponential Trendline to visualize data with rapidly accelerating growth or decay over time. This trendline helps you to emphasize trends that follow an exponential pattern, and it requires positive `Y` values.
 
 >caption Chart with an Exponential Trendline
 
@@ -508,7 +539,7 @@ The `Exponential Trendline` shows data with rapidly accelerating growth or decay
 
 ### Logarithmic Trendline
 
-The `Logarithmic Trendline` is applied to data that displays rapid initial growth that slows over time or vice versa. It emphasizes trends with a logarithmic pattern, and it requires positive `X` values.
+Use the Logarithmic Trendline to visualize data with rapid initial growth that slows over time or vice versa. This trendline emphasizes trends with a logarithmic pattern, and it requires positive `X` values.
 
 >caption Chart with a Logarithmic Trendline
 
@@ -694,7 +725,7 @@ The `Logarithmic Trendline` is applied to data that displays rapid initial growt
 
 ### Power Trendline
 
-The `Power Trendline` is used for data that follows a power-law relationship, indicating that one variable's change is proportional to a power of another variable. It helps highlight trends where the rate of change isn't constant. The `Y` and `X` require positive values.
+Use the Power Trendline to visualize data that follows a power-law relationship, indicating that one variable's change is proportional to a power of another variable. This trendline helps you to highlight trends where the rate of change isn't constant. It requires positive `Y` and `X` values.
 
 >caption Chart with a Power Trendline
 
@@ -881,7 +912,7 @@ The `Power Trendline` is used for data that follows a power-law relationship, in
 
 ### Polynomial Trendline
 
-The `Polynomial Trendline` is applied to data with complex patterns that cannot be captured by simpler trendlines. It fits a polynomial equation to the data points, allowing for a more flexible representation of trends with multiple turning points.
+Use the Polynomial Trendline to visualize complex data patterns not fitting the other trendlines. This trendline fits a polynomial equation to the data points, allowing for a more flexible representation of trends with multiple turning points.
 
 >caption Chart with a Polynomial Trendline
 
@@ -1064,37 +1095,6 @@ The `Polynomial Trendline` is applied to data with complex patterns that cannot 
     }
 }
 `````
-
-## Chart Trendlines Parameters
-
-The following table lists Chart Trendlines parameters.
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `ChartSeriesMarkers.Visible` | `bool` | The visibility of the trendline markers. |
-| `ChartSeries.For` | `string` | The name of the parent series of the trendline. |
-| `ChartSeriesTrendline` | `object` | The trendline configuration options. |
-| `ChartSeriesTrendlineForecast` | `object` | The trendline forecast settings. By default, the trendline does not display a forecast. |
-| `ChartSeriesTrendlineForecast.Before` | `int` | The number of intervals to extend the trendline before the first data point. |
-| `ChartSeriesTrendlineForecast.After` | `int` | The number of intervals to extend the trendline after the last data point. |
-| `ChartSeriesTrendline.Period` | `int` | The number of intervals to take when calculating averages. The value must be an integer greater than `2`. |
-| `Type` | `ChartSeriesType` enum | The type of the series. |
-
-## Supported Series Types
-
-Trendlines are supported for the following chart types:
-
- * `Area`
- * `Bar`
- * `BoxPlot`
- * `Candlestick`
- * `Column`
- * `Line`
- * `OHLC`
- * `RangeArea`
- * `RangeColumn`
- * `Scatter`
- * `ScatterLine`
 
 ## See Also
 
