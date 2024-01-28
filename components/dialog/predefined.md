@@ -38,23 +38,31 @@ The alert dialog usually shows the user that something went wrong, such as a maj
 
 <TelerikButton OnClick="@ShowAlert">Show Alert</TelerikButton>
 <TelerikButton OnClick="@ShowAlertWithTitle">Show Alert with Custom Title</TelerikButton>
+<TelerikButton OnClick="@ShowAlertWithTitleAndButton">Show Alert with Custom Title and Custom Button</TelerikButton>
 
 @code {
     [CascadingParameter]
-    public DialogFactory Dialogs { get; set; }
+    private DialogFactory Dialogs { get; set; }
 
-    public async Task ShowAlert()
+    private async Task ShowAlert()
     {
         await Dialogs.AlertAsync("Something went wrong!");
 
         Console.WriteLine("The user dismissed the alert box.");
     }
 
-    async Task ShowAlertWithTitle()
+    private async Task ShowAlertWithTitle()
     {
         await Dialogs.AlertAsync("Something went wrong!", "Read this!");
 
         Console.WriteLine("The user dismissed the alert box with the custom title.");
+    }
+    
+    private async Task ShowAlertWithTitleAndButton()
+    {
+        await Dialogs.AlertAsync("Something went wrong!", "Read this!", "DONE");
+
+        Console.WriteLine("The user dismissed the alert box with the custom title and custom button.");
     }
 }
 ````
@@ -72,12 +80,13 @@ The confirm dialog returns a `bool` value that indicates which button the user c
 
 <TelerikButton OnClick="@ShowConfirm">Show Confirm</TelerikButton>
 <TelerikButton OnClick="@ShowConfirmWithTitle">Show Confirm with Custom Title</TelerikButton>
+<TelerikButton OnClick="@ShowConfirmWithTitleAndButtons">Show Confirm with Custom Title and Custom Buttons</TelerikButton>
 
 @code {
     [CascadingParameter]
-    public DialogFactory Dialogs { get; set; }
+    private DialogFactory Dialogs { get; set; }
 
-    public async Task ShowConfirm()
+    private async Task ShowConfirm()
     {
         bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?");
 
@@ -91,9 +100,16 @@ The confirm dialog returns a `bool` value that indicates which button the user c
         }
     }
 
-    async Task ShowConfirmWithTitle()
+    private async Task ShowConfirmWithTitle()
     {
         bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?", "Confirmation!");
+
+        Console.WriteLine($"The user is sure: {isConfirmed}.");
+    }
+    
+    private async Task ShowConfirmWithTitleAndButtons()
+    {
+        bool isConfirmed = await Dialogs.ConfirmAsync("Are you sure?", "Confirmation!", "YES, I'm sure", "NO, I'm not sure");
 
         Console.WriteLine($"The user is sure: {isConfirmed}.");
     }
@@ -115,12 +131,13 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 <TelerikButton OnClick="@ShowPrompt">Show Prompt</TelerikButton>
 <TelerikButton OnClick="@ShowPromptWithTitle">Show Prompt with Custom Title</TelerikButton>
 <TelerikButton OnClick="@ShowPromptWithTitleAndDefaultText">Show Prompt with Title and Default Input Text</TelerikButton>
+<TelerikButton OnClick="@ShowPromptWithTitleDefaultTextAndButtons">Show Prompt with Title, Default Input Text and Custom Buttons</TelerikButton>
 
 @code {
     [CascadingParameter]
-    public DialogFactory Dialogs { get; set; }
+    private DialogFactory Dialogs { get; set; }
 
-    public async Task ShowPrompt()
+    private async Task ShowPrompt()
     {
         string userInput = await Dialogs.PromptAsync("Enter your answer.");
 
@@ -134,16 +151,23 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
         }
     }
 
-    async Task ShowPromptWithTitle()
+    private async Task ShowPromptWithTitle()
     {
         string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed");
 
         Console.WriteLine($"The user answer: {userInput}");
     }
 
-    async Task ShowPromptWithTitleAndDefaultText()
+    private async Task ShowPromptWithTitleAndDefaultText()
     {
         string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed", "Default Text");
+
+        Console.WriteLine($"The user answer: {userInput}");
+    }
+    
+    private async Task ShowPromptWithTitleDefaultTextAndButtons()
+    {
+        string userInput = await Dialogs.PromptAsync("Enter answer:", "Input needed", "Default Text", "READY", "REJECT");
 
         Console.WriteLine($"The user answer: {userInput}");
     }
