@@ -350,7 +350,7 @@ In addition to the common configuration settings listed in this article, the Tex
 | Parameter   | Type and Default Value | Description |
 | ----------- | ----------- | -------|
 | `AdornmentsOrientation` | `TextAreaAdornmentsOrientation` <br /> (`TextAreaAdornmentsOrientation.Vertical`) | Configures the positioning of the TextArea prefix and suffix templates. The possible values are `Horizontal` and `Vertical`. If the value is set to `Horizontal`, the templates will appear above (prefix) and below (suffix) the TextArea. If the value is set to `Vertical`, the templates will be displayed on the left (prefix) and on the right (suffix). By default, the templates are positioned vertically. |
-| `AdornmentsFlow` | `TextAreaAdornmentsFlow` <br /> (`TextAreaAdornmentsFlow.Horizontal`) | Configures the flow of the elements in the TextArea prefix and suffix templates, determining whether the elements will be ordered in a row or column. The possible values are Horizontal (in a row) and Vertical (in a column). By default, the elements (adornments) within the templates are positioned horizontally. |
+| `AdornmentsFlow` | `TextAreaAdornmentsFlow` <br /> (`TextAreaAdornmentsFlow.Horizontal`) | Configures the flow of the elements in the TextArea prefix and suffix templates, determining whether the elements will be ordered in a row or column. The possible values are `Horizontal` (in a row) and `Vertical` (in a column). By default, the elements (adornments) within the templates are positioned horizontally. |
 
 ## FloatingLabel Specifics
 
