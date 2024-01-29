@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-* To successfully complete the steps in this tutorial, make sure that you have installed a <a href="https://visualstudio.microsoft.com/vs/" target="_blank">current Visual Studio</a> version.
+* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the tutorial [Typical Workflow]({%slug getting-started/what-you-need%}).
 
 * To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
 

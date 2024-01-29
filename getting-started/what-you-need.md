@@ -117,9 +117,9 @@ To use the Telerik components, you must add a few items to your projects. Some o
 
 2. Follow the section for your project type:
 
-   * [Client-side (WASM)](#client-side-project-specifics)
-   * [Server-side](#server-side-project-specifics)
-   * [Web App Template](#web-app-template)
+   * [Client-side (WebAssembly)](#client-side-project-specifics)
+   * [Server-side (up to .NET 7)](#server-side-project-specifics)
+   * [Blazor Web App template](#web-app-template)
    * [Blazor Hybrid](#blazor-hybrid-project-specifics)
 
 
