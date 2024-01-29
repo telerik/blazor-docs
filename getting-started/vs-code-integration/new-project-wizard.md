@@ -29,10 +29,10 @@ To create a Telerik-enabled Blazor project:
 
 The **Create New Project** wizard provides two options to start you project:
 
-* **Start from Blank Project** - allows you to create a blank project that is pre-configured for the Progress® Telerik® UI for Blazor components. You can select and add sample pages to get started (a Grid with CRUD operations form a service, a Form, Charts).
+* **Start from Blank App** - allows you to create a blank project that is pre-configured for the Progress® Telerik® UI for Blazor components. You can select and add sample pages to get started (a Grid with CRUD operations form a service, a Form, Charts).
 
 * **Start from Template** - the wizard provides a set of predefined project templates:
-    * **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and forms validation. The Grid also uses a basic CRUD service which is a common pattern for data updates in real applications.
+    * **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and Form validation. The Data Grid also uses a basic CRUD service (a common pattern for data updates in production-ready applications).
     * **Dashboard**&mdash;A basic dashboard that showcases the Telerik UI TileLayout component and how individual blocks (tiles) can fetch data.
     * **Admin**&mdash;A small app that showcases a dashboard for administrators. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
 
@@ -40,7 +40,7 @@ The **Create New Project** wizard provides two options to start you project:
 
 The wizard allows you to configure the following options:
 
-* Location and name for your app.
+* Name and output path for your app.
 * Hosting model type&mdash;[**WebApp**]({%slug getting-started/web-app%}), [**Client** (also: WebAssembly)]({%slug getting-started/client-side%}), [**Server**]({%slug getting-started/server-side%}), or [**Hybrid** (a hybrid Blazor MAUI)]({%slug getting-started/hybrid-blazor%}) app.
 * Your Telerik license (trial or commercial, depending on what you have). 
 * Whether to use localization in the project or not.
