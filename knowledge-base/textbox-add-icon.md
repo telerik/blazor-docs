@@ -29,7 +29,7 @@ Is there anyway to do an 'addon' button with the TelerikTextBox?
 
 ## Solution 1
 
-As of **UI for Blazor 5.1.0**, you may use [Prefix and Suffix templates]({%slug common-features/input-adornments%}) to add the desired content as prefix or suffix to the TextBox. 
+As of **UI for Blazor 5.1.0**, you can use [Prefix and Suffix templates]({%slug common-features/input-adornments%}) to add the desired content as a prefix or suffix to the TextBox. 
 
 ## Solution 2
 
