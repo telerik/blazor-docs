@@ -343,7 +343,7 @@ By default, the prefix and suffix are visually divided from the input element of
 
 ## TextArea Specifics
 
-In addition to the above-listed configuration settings, the TextArea exposes a couple of additional options that allow you to control the position of the adornments.
+In addition to the common configuration settings listed in this article, the TextArea exposes a couple of additional options that allow you to control the position of the adornments.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
