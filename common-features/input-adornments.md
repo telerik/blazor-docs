@@ -16,7 +16,7 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 
 * [Supported components](#supported-components)
 * [Adding a prefix adornment](#adding-a-prefix-adornment)
-* [Adding Suffix in UI for Blazor Components](#adding-suffix-in-ui-for-blazor-components)
+* [Adding a suffix adornment](#adding-a-suffix-adornment)
 * [Managing separators](#managing-separators)
 * [TextArea Specifics](#textarea-specifics)
 * [FloatingLabel Specifics](#floatinglabel-specifics)
