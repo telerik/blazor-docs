@@ -59,10 +59,10 @@ The following example lets you experiment with the available settings that contr
                            Width="100px" />
 </label>
 
-<TelerikButton OnClick="@(() => PopoverReference.Show())">Show Popover</TelerikButton>
-<TelerikButton OnClick="@(() => PopoverReference.Hide())">Hide Popover</TelerikButton>
+<TelerikButton OnClick="@(() => PopoverRef.Show())">Show Popover</TelerikButton>
+<TelerikButton OnClick="@(() => PopoverRef.Hide())">Hide Popover</TelerikButton>
 
-<TelerikPopover @ref="@PopoverReference"
+<TelerikPopover @ref="@PopoverRef"
               AnchorSelector=".popover-target"
               AnimationType="@SelectedAnimationType"
               AnimationDuration="@SelectedAnimationDuration"
@@ -76,7 +76,7 @@ The following example lets you experiment with the available settings that contr
 </div>
 
 @code {
-    private TelerikPopover PopoverReference { get; set; }
+    private TelerikPopover PopoverRef { get; set; }
 
     private List<AnimationType> AnimationTypes { get; set; }
 
@@ -86,11 +86,11 @@ The following example lets you experiment with the available settings that contr
 
     private void OnDropDownValueChanged(AnimationType newAnimationType)
     {
-        PopoverReference.Hide();
+        PopoverRef.Hide();
 
         SelectedAnimationType = newAnimationType;
 
-        PopoverReference.Show();
+        PopoverRef.Show();
     }
 
     protected override void OnInitialized()

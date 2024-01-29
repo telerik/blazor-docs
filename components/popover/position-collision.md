@@ -48,7 +48,7 @@ The following example lets you experiment with the available settings that contr
     </label>
 </div>
 
-<TelerikPopover @ref="@PopoverReference"
+<TelerikPopover @ref="@PopoverRef"
                 AnchorSelector=".popover-target" 
                 Collision="@PopoverCollisionType"
                 Position="@PopoverPositionType">
@@ -56,16 +56,16 @@ The following example lets you experiment with the available settings that contr
         I am a Telerik Popover
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverReference.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<div class="popover-target styled-container" @onclick="@(_ => PopoverReference.Show())">
+<div class="popover-target styled-container" @onclick="@(_ => PopoverRef.Show())">
     Popover target. Click in the element to show the Popover.
 </div>
 
 @code{
-    private TelerikPopover PopoverReference { get; set; }
+    private TelerikPopover PopoverRef { get; set; }
     private PopoverCollision PopoverCollisionType { get; set; } = PopoverCollision.Fit;
     private PopoverPosition PopoverPositionType { get; set; } = PopoverPosition.Top;
 

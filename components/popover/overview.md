@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Popover Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor Popover component</a> behaves much as a tooltip and helps you to easily display additional information to your users. This article explains how to start using the component and describes its features.
+The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor Popover component</a> behaves much like a tooltip, as it helps you display additional information in a container that shows on top of the other page content. The major differences between the Popover and the [Tooltip]({%slug tooltip-overview%}) components is that the Popover has built-in support for action buttons and provides more configuration options about its animation and placement on the screen. This article explains how to start using the component and describes its features.
 
 ## Creating Blazor Popover
 
@@ -23,20 +23,20 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 >caption Basic configuration of the Telerik Popover for Blazor
 
 ````CSHTML
-<TelerikPopover @ref="@PopoverReference"
+<TelerikPopover @ref="@PopoverRef"
                 AnchorSelector=".popover-target">
     <PopoverContent>
         I am a Telerik Popover
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverReference.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<TelerikButton OnClick="@(() => PopoverReference.Show())" Class="popover-target">Show the Popover</TelerikButton>
+<TelerikButton OnClick="@(() => PopoverRef.Show())" Class="popover-target">Show the Popover</TelerikButton>
 
 @code{
-    private TelerikPopover PopoverReference { get; set; }
+    private TelerikPopover PopoverRef { get; set; }
 }
 ````
 
@@ -56,13 +56,13 @@ The Blazor Popover provides parameters to configure the component. Also check th
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `ActionsLayout` | `PopoverActionsLayoutAlign ` enum <br /> (`Stretch`) | Defines the positioning of the elements in the `<PopoverActions>` child tag. The possible values are `Stretch`, `Start`, `Center`, and `End`. |
-| `AnchorSelector` | `string` | Specifies the CSS selector targeting the element that the Popover uses as an anchor. |
-| `AnimationDuration` | `int` | Defines the duration of the animation in milliseconds. [Read more about Popover animations...]({%slug popover-animation%}) |
-| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | Sets the type of animation when the component displays and hides. [Read more about Popover animations...]({%slug popover-animation%}) |
-| `Collision` | `PopoverCollision` enum <br /> (`Fit`) | Sets the behavior of the Popover when it doesn't fit in the viewport. [Read more about Popover collision...]({%slug popover-position-collision%}) |
-| `Offset` | `double ` | Sets the space between the Popover and its anchor in `pixels`. |
-| `Position` | `PopoverPosition  ` enum <br /> (`Top`) | Defines the position relative to the target element at which the Popover will be shown. [Read more about Popover position...]({%slug popover-position-collision%}) |
+| `ActionsLayout` | `PopoverActionsLayoutAlign ` enum <br /> (`Stretch`) | The positioning of the elements in the `<PopoverActions>` child tag. The possible values are `Stretch`, `Start`, `Center`, and `End`. |
+| `AnchorSelector` | `string` | The CSS selector targeting the element that the Popover uses as an anchor. |
+| `AnimationDuration` | `int` | The duration of the animation in milliseconds. [Read more about Popover animations...]({%slug popover-animation%}) |
+| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The type of animation when the component displays and hides. [Read more about Popover animations...]({%slug popover-animation%}) |
+| `Collision` | `PopoverCollision` enum <br /> (`Fit`) | The behavior of the Popover when it doesn't fit in the viewport. [Read more about Popover collision...]({%slug popover-position-collision%}) |
+| `Offset` | `double ` | The space between the Popover and its anchor in pixels. |
+| `Position` | `PopoverPosition  ` enum <br /> (`Top`) | The position relative to the target element at which the Popover will be shown. [Read more about Popover position...]({%slug popover-position-collision%}) |
 | `ShowCallout` | `bool` <br /> (`true`) | Defines if the callout is rendered. |
 | `ShowOn` | `PopoverShowEvent` enum <br /> (`Click`) | The browser event that will display the Popover (`MouseEnter` or `Click`). When you set the `ShowOn` parameter to `Click`, the Popover will hide when the user clicks outside the component. If the parameter's value is `MouseEnter`, the Popover will hide when the mouse pointer leaves. |
 
@@ -87,20 +87,20 @@ To execute Popover methods, obtain a reference to the component instance with `@
 | `Hide` | Use this method to close the Popover. |
 
 ````CSHTML
-<TelerikPopover @ref="@PopoverReference"
+<TelerikPopover @ref="@PopoverRef"
                 AnchorSelector=".popover-target">
     <PopoverContent>
         I am a Telerik Popover
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverReference.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<TelerikButton OnClick="@(() => PopoverReference.Show())" Class="popover-target">Show the Popover</TelerikButton>
+<TelerikButton OnClick="@(() => PopoverRef.Show())" Class="popover-target">Show the Popover</TelerikButton>
 
 @code{
-    private TelerikPopover PopoverReference { get; set; }
+    private TelerikPopover PopoverRef { get; set; }
 }
 ````
 
