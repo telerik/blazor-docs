@@ -11,7 +11,7 @@ Consider setting `DebounceDelay="0"` to the component inside the editor template
 #adornments
 ## Adornments
 
-The component allows adding custom elements as prefix and suffix. [Read more about how to render custom adornments before and after the input element...]({%slug common-features/input-adornments%})
+The component allows you to add custom elements as prefixes and suffixes. [Read more about how to render custom adornments before and after the input element...]({%slug common-features/input-adornments%})
 #end
 
 #floating-label-and-preffix
