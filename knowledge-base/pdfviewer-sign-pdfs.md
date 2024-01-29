@@ -1,5 +1,5 @@
 ---
-title: Signing PDFs with PdfPRocessing in DdfViewer
+title: Signing PDFs with PdfPRocessing in PdfViewer
 description: Learn how to use PdfProcessing to sign PDFs using the Telerik PdfViewer in a web application.
 type: how-to
 page_title: How to Sign PDFs in Telerik PDF Viewer
@@ -24,7 +24,7 @@ I want to be able to apply a digital signature to a document in the Telerik UI f
 The PdfViewer does not currently have the capability to manage digitial signatures of the document. However, this is still possible using the Telerik Document Processing Libraries PdfProcessing to programmatically manage the signature and the certificate of the document, while the PdfViewer's sole responsibility is to display the document.
 
 1. Create a custom button in the Blazor PdfViewer to handle the logic for applying the digital signature to the PDF. See [PdfViewer - Custom Toolbar Button](https://docs.telerik.com/blazor-ui/components/pdfviewer/toolbar#custom-tools) for instructions.
-2. Use the PdfProcessing tool to add a digital signature programmatically to the PDF. See [Document Processing - Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/security/digital-signatures) for instructions.
+2. Use the PdfProcessing tool to add a digital signature programmatically to the PDF. See [Document Processing - Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature) for instructions.
 3. Reload the document into the PdfViewer. See [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview) for instructions.
 
 
@@ -51,7 +51,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
         args.FileName = "My.pdf";
     }
 
-        private async Task OnSignPdfClick()
+    private async Task OnSignPdfClick()
     {
         var unsignedDocument = this.PdfSource;
 
@@ -79,7 +79,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
 		x509Store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
 		var validCerts = x509Store.Certificates.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
 		
-		// IMPORTANT: This example is just taking the very first valid cert. In a real app, you will selected the cert you want to sign the document with
+		// IMPORTANT: This example is taking the very first valid certificate. In a real app, you will selected the cert you want to sign the document with.
 		certificate = validCerts.FirstOrDefault();
 
 
@@ -92,7 +92,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
 		var signatureField = new SignatureField(signatureName);
 		signatureField.Signature = new Telerik.Windows.Documents.Fixed.Model.DigitalSignatures.Signature(certificate);
 
-        // close the local cert store now that we're done
+        // Close the local cert store now that you're done
         x509Store.Close();
 
 
@@ -100,7 +100,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
 
         var document = new PdfFormatProvider().Import(unsignedDocumentBytes);
 
-        // For the sake of this demo, we are adding a new page and adding a new signature field there, if your document already has a signature field, you can search for it instead
+        // This demo adds a new page and adding a new signature field there. If your document already has a signature field, you can search for it instead.
         RadFixedPage page = document.Pages.AddPage();
 
         // This is the Form XObject element that represents the contents of the signature field.
@@ -109,7 +109,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
             FormSource = new FormSource { Size = new Size(220, 220) }
         };
 
-        // We will use the editor to fill the Form XObject.
+        // This demo uses the editor to fill the Form XObject.
         var formEditor = new FixedContentEditor(form.FormSource);
         form.Position.Translate(10, 10);
         formEditor.DrawCircle(new Point(50, 50), 20);
@@ -122,7 +122,7 @@ The PdfViewer does not currently have the capability to manage digitial signatur
 		widget.Content.NormalContentSource = form.FormSource;
 		widget.RecalculateContent();
 
-        // Finally add the SignatureWidget to the page's annotations
+        // Finally, add the SignatureWidget to the page's annotations.
 		page.Annotations.Add(widget);
 
 		var editor = new FixedContentEditor(page);
@@ -142,11 +142,10 @@ The PdfViewer does not currently have the capability to manage digitial signatur
 
 ## Notes
 
-- The Telerik Blazor PdfViewer does not currently support digital signature management in the UI.
-- You can use Telerik PdfProcessing to digitally sign the PDF on the server-side.
+- You can use Telerik PdfProcessing to digitally sign the PDF on the server side.
 - The web application cannot access the user's guest operating system's X509 Certificate Store due to security restrictions in modern web browsers. Your application will only have access to X509 certificates installed on the server side. 
 
 ## See Also
 
 - [PdfViewer - Overview](https://docs.telerik.com/blazor-ui/components/pdfviewer/overview)
-- [Document Processing Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/security/digital-signatures)
+- [Document Processing Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature)
