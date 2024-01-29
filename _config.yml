@@ -273,6 +273,8 @@ navigation:
         title: "AIPrompt"
      "*appbar":
         title: "AppBar"
+     "*popup":
+        title: "Popup"
      "*autocomplete":
         title: "AutoComplete"
      "*avatar":
@@ -633,6 +635,7 @@ intro_columns:
       "Progress Bar": "progressbar-overview"
       "Chunk Progress Bar": "chunkprogressbar-overview"
       "Tooltip": "tooltip-overview"
+      "Popup": "popup-overview"
   -
     title: "Documents"
     items:
