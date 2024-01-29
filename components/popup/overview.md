@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Popup Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor Popup component</a> helps you easily display a popup for a target element (anchor) in your application. You can use to Telerik UI for Blazor Popup to display additional information. This article explains how to start using the component and describes its features.
+The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor Popup component</a> helps you easily display a popup for a target element (anchor) in your application. You can use the Telerik UI for Blazor Popup to display additional information. This article explains how to start using the component and describes its features.
 
 ## Creating Blazor Popup
 
