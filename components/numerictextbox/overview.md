@@ -32,6 +32,8 @@ The new value is: @theValue
 
 The Numeric TextBox component is generic, meaning that it takes the type of its value parameter as an argument. It can take `int`, `long`, `float`, `double` and `decimal` values. Therefore, the values for the `Min`, `Max` and `Step` properties must be of the same type as the `Value`, and the `ValueChanged` handler must also accommodate the corresponding value type.
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
+
 ## Events
 
 The Blazor Numeric TextBox generates events that you can handle and further customize its behavior. [Read more about the Blazor Numeric TextBox events...]({%slug components/numerictextbox/events%}).

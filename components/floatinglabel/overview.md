@@ -77,6 +77,9 @@ If a Telerik component has both a `Placeholder` and a floating label, the behavi
 * When the floating label is **over the component**, then the placeholder is **not rendered**.
 * When the floating label is **outside the component** and the focused component has no value, the placeholder **is visible**.
 
+## Integration with Prefix Adornment
+
+@[template](/_contentTemplates/common/inputs.md#floating-label-and-preffix)
 
 ## FloatingLabel Parameters
 

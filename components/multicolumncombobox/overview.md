@@ -65,38 +65,33 @@ The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_bla
 }
 ````
 
-
 ## Data Binding
 
 The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiColumnComboBox data binding...]({% slug multicolumncombobox-data-binding %}).
 
 The linked article also explains how the component behaves when the current value is not present in the data.
 
-
 ## Columns
 
 The MultiColumnComboBox renders its dropdown items in a grid-like column layout. [Learn how to define and configure the Blazor MultiColumnComboBox columns...]({%slug multicolumncombobox-columns-overview%})
-
 
 ## Filtering
 
 The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiComboBoxComboBox filtering...]({% slug multicolumncombobox-filter %}).
 
-
 ## Grouping
 
 The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiColumnComboBox grouping...]({% slug multicolumncombobox-grouping %}).
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
 
 ## Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiColumnComboBox templates...]({% slug multicolumncombobox-templates %}).
 
-
 ## Validation
 
 @[template](/_contentTemplates/dropdowns/features.md#validation)
-
 
 ## Virtualization
 
@@ -141,7 +136,6 @@ The following parameters enable you to customize the appearance of the Blazor Mu
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
 You can find more options for customizing the MultiColumnComboBox styling in the [Appearance article]({%slug multicolumncombobox-appearance%}).
-
 
 ### Popup settings
 
@@ -239,13 +233,11 @@ The table below lists the MultiComboBox methods. Also consult the [MultiColumnCo
 }
 ````
 
-
 ## Next Steps
 
 * [Bind the MultiColumnComboBox to data]({%slug multicolumncombobox-data-binding%})
 * [Enable MultiColumnComboBox filtering]({%slug multicolumncombobox-filter%})
 * [Allow custom MultiColumnComboBox value]({%slug multicolumncombobox-custom-value%})
-
 
 ## See Also
 

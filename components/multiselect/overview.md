@@ -71,6 +71,8 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#filt
 
 The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiSelect grouping...]({% slug components/multiselect/grouping %})
 
+@[template](/_contentTemplates/common/inputs.md#adornments)
+
 ## Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiSelect templates...]({% slug multiselect-templates %})
