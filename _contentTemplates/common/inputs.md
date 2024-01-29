@@ -17,7 +17,7 @@ The component allows you to add custom elements as prefixes and suffixes. [Read 
 #floating-label-and-preffix
 When using the [`PrefixTemplate`]({%slug common-features/input-adornments%}#adding-prefix-in-ui-for-blazor-components) for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
 
-To ensure both the FloatingLabel and the prefix content are properly displayed, configure the label position like so:
+To ensure both the FloatingLabel and the prefix content are properly displayed, move the label with CSS:
 
 ````CSHTML
 <style>
