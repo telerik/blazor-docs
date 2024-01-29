@@ -56,7 +56,7 @@ The Blazor Popover provides parameters to configure the component. Also check th
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `ActionsLayout` | `PopoverActionsLayoutAlign ` enum <br /> (`Stretch`) | Defines the positioning of the elements in the `<PopoverActions>` child tag. The other possible values for are `Start`, `Center`, and `End`. |
+| `ActionsLayout` | `PopoverActionsLayoutAlign ` enum <br /> (`Stretch`) | Defines the positioning of the elements in the `<PopoverActions>` child tag. The possible values are `Stretch`, `Start`, `Center`, and `End`. |
 | `AnchorSelector` | `string` | Specifies the CSS selector targeting the element that the Popover uses as an anchor. |
 | `AnimationDuration` | `int` | Defines the duration of the animation in milliseconds. [Read more about Popover animations...]({%slug popover-animation%}) |
 | `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | Sets the type of animation when the component displays and hides. [Read more about Popover animations...]({%slug popover-animation%}) |
