@@ -40,7 +40,7 @@ The following input components support prefix and suffix adornments:
 
 ## Adding a Prefix Adornment
 
-To add a prefix, declare `<*ComponentName*PrefixTemplate>` tag as direct child of the `<Telerik*ComponentName*>` tag.
+To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct child of the `<Telerik*ComponentName*>` tag. The `PrefixTemplate` is a `RenderFragment`, which allows you to declare any desired content as a prefix—simple text, HTML elements, or components.
 
 The `PrefixTemplate` is a `RenderFragment` which allows you to declare any desired content as a prefix - be that simple text, HTML elements or components.
 
