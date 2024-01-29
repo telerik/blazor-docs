@@ -187,7 +187,6 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
 
 To add a suffix, declare `<*ComponentName*SuffixTemplate>` tag as direct child of the `<Telerik*ComponentName*>` tag.
 
-The `SuffixTemplate` is a `RenderFragment` which allows you to declare any desired content as a prefix - be that simple text, HTML elements or components.
 
 >caption Suffix in UI for Blazor inputs and selects
 
