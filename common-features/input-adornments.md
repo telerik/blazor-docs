@@ -22,6 +22,7 @@ A prefix input adornment refers to an element placed before the user input field
 * [Using Separators](#using-separators)
 * [TextArea Specifics](#textarea-specifics)
 * [FloatingLabel Specifics](#floatinglabel-specifics)
+* [DropDowns Specifics](#dropdowns-specifics)
 
 
 ## Supported Components
@@ -351,6 +352,57 @@ In addition to the common configuration settings listed in this article, the Tex
 ## FloatingLabel Specifics
 
 @[template](/_contentTemplates/common/inputs.md#floating-label-and-preffix)
+
+## DropDowns Specifics
+
+This section applies to the components that incorporate popup element:
+
+* [AutoComplete]({%slug autocomplete-overview%})
+* [ComboBox]({%slug components/combobox/overview%})
+* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
+* [MultiSelect]({%slug multiselect-overview%})
+
+By design, `Alt` + `Down` key combination opens the popup element when the component is focused. If you have added another dropdown component as a prefix or suffix adornment, focusing that component and pressing `Alt` + `Down` keys will open both popup elements - the one that belongs to the main component and the other associated with the dropdown in the prefix/suffix template.
+
+To prevent that behavior, you may wrap the content of the prefix/suffix template and stop the `keydown` event propagation.
+
+>caption Stop the `keydown` event propagation
+
+````CSHTML
+<TelerikAutoComplete Data="@Roles"
+                     @bind-Value="@SelectedRole"
+                     Placeholder="Enter your role (can be free text)"
+                     ClearButton="true">
+    <AutoCompletePrefixTemplate>
+        <div class="test" onkeydown="event.stopPropagation()">
+            <TelerikDropDownList Data="@Teams"
+                                 @bind-Value="SelectedTeam">
+            </TelerikDropDownList>
+        </div>
+    </AutoCompletePrefixTemplate>
+    <AutoCompleteSuffixTemplate>
+        <div class="test" onkeydown="event.stopPropagation()">
+            <TelerikDropDownList Data="@Teams"
+                                 @bind-Value="SelectedTeam">
+            </TelerikDropDownList>
+        </div>
+    </AutoCompleteSuffixTemplate>
+</TelerikAutoComplete>
+
+@code {
+    private string SelectedTeam { get; set; } = "Team 1";
+
+    private string SelectedRole { get; set; }
+
+    private List<string> Roles { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
+    };
+
+    private List<string> Teams { get; set; } = new List<string> {
+        "Team 1", "Team 2", "Team 3"
+    };
+}
+````
 
 ## See also
 
