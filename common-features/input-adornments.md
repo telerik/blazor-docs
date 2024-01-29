@@ -24,7 +24,7 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 
 ## Supported Components
 
-The prefix and suffix adornments are supported by the following components:
+The following input components support prefix and suffix adornments:
 
 * Simple inputs:
     * [MaskedTextbox]({%slug maskedtextbox-overview%})
