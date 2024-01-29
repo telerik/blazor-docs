@@ -44,7 +44,7 @@ By default, the Output View is rendered and is part of the predefined views. How
 @code {
     private string Prompt { get; set; }
 
-    private void OnOutputRateHandler(AIPromptOutputRatingEventArgs args)
+    private void OnOutputRateHandler(AIPromptOutputRateEventArgs args)
     {
         // Handle the output rate event here
     }

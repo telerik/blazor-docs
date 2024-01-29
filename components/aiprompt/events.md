@@ -54,7 +54,7 @@ The event handler receives an argument of type [`AIPromptCommandDescriptorExecut
 
 The `OnOutputRate` event fires when the user rates an output.
 
-The event handler receives an argument of type [`AIPromptOutputRateEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputRatingEventArgs). See the [example below](#example).
+The event handler receives an argument of type [`AIPromptOutputRateEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputRateEventArgs). See the [example below](#example).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

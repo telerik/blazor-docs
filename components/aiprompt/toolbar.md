@@ -23,9 +23,9 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 ````CSHTML
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
-    <AIPromptToolBarItems>
-        <TelerikButton @OnClick="@OnCustomButtonClick">Custom Button</TelerikButton>
-    </AIPromptToolBarItems>
+    <AIPromptToolbarItems>
+        <TelerikButton OnClick="@OnCustomButtonClick">Custom Button</TelerikButton>
+    </AIPromptToolbarItems>
 </TelerikAIPrompt>
 
 @code {

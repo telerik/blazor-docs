@@ -58,7 +58,7 @@ The available built-in views are:
     <AIPromptViews>
         <AIPromptPromptView ButtonText="Custom Prompt" ButtonIcon="@SvgIcon.Star" />
         <AIPromptOutputView ButtonText="Custom Output" ButtonIcon="@SvgIcon.Clipboard" />
-        <AIPromptCommandDescriptorView ButtonText="Custom Commands" ButtonIcon="@SvgIcon.Grid" />
+        <AIPromptCommandView ButtonText="Custom Commands" ButtonIcon="@SvgIcon.Grid" />
     </AIPromptViews>
 </TelerikAIPrompt>
 
