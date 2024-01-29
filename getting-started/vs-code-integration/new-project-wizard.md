@@ -41,7 +41,7 @@ The **Create New Project** wizard provides two options to start you project:
 The wizard allows you to configure the following options:
 
 * Location and name for your app.
-* Hosting model type - [WebApp]({%slug getting-started/web-app%}), [WebAssembly]({%slug getting-started/client-side%}), [Server-Side]({%slug getting-started/server-side%}) or [Hybrid Blazor MAUI]({%slug getting-started/hybrid-blazor%}) app.
+* Hosting model type&mdash;[**WebApp**]({%slug getting-started/web-app%}), [**Client** (also: WebAssembly)]({%slug getting-started/client-side%}), [**Server**]({%slug getting-started/server-side%}), or [**Hybrid** (a hybrid Blazor MAUI)]({%slug getting-started/hybrid-blazor%}) app.
 * Your Telerik license (trial or commercial, depending on what you have). 
 * Whether to use localization in the project or not.
 * Whether to use font icons in the project or not.
