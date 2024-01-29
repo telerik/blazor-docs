@@ -657,10 +657,10 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "5.0.1"
+uiForBlazorLatestVersion: "5.1.0"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "7.0.2"
+themeCdnVersion: "7.2.0"
 
 ## Product
 product: "Telerik UI for Blazor"
@@ -671,7 +671,7 @@ has_cta_panels: true
 
 ## CTA overrides for docs-seed
 cta_panels_data_overwrites:
-   message: "professional grade UI library with 100+ native components for building modern and feature-rich applications."
+   message: "professional grade UI library with 110+ native components for building modern and feature-rich applications."
 
 ## Color Scheme
 main_theme: blazor
