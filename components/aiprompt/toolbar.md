@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: AIPrompt - Toolbar
-description: Configure and use the Blazor AIPrompt toolbar and its buttons. How to define custom toolbar buttons.
+description: Learn how to configure and use the Blazor AIPrompt toolbar and its buttons, and see how to define custom toolbar buttons.
 slug: aiprompt-toolbar
 tags: telerik,blazor,aiprompt,ai,prompt,toolbar
 published: True
@@ -10,12 +10,13 @@ position: 20
 
 # AIPrompt ToolBar
 
-The AIPrompt toolbar always renders buttons for the currently visible predefined views (Prompt, Output, and optionally, Command). These built-in buttons activate the appropriate view they represent. Any custom buttons will always appear after the view-related buttons. This article shows how to add custom tools to the AIPrompt's toolbar, which may invoke arbitrary commands or handlers.
+The AIPrompt ToolBar renders buttons for the predefined views (Prompt, Output, and Command) and also allows you to add custom tools, which may invoke arbitrary commands or handlers.
+The toolbar buttons for the Prompt and Output views are always available, while the one for the Commands view is optional. Any custom buttons that you add will always appear after the view-related buttons.
 
 
 ## Custom Tools
 
-To define custom tools within the toolbar, use the `<AIPromptToolBarItems>` tag, which is a standard Blazor `RenderFragment`.
+To define custom tools within the ToolBar, use the `<AIPromptToolBarItems>` tag, which is a standard Blazor `RenderFragment`.
 
 The example below omits any event handlers for brevity. Custom buttons are to be used for arbitrary logic which is not part of the AIPrompt component, thus feel free to attach the handlers you need.
 
@@ -44,9 +45,9 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 ## Next Steps
 
-* [Customize the AIPrompt views]({%slug aiprompt-views-overview%})
-* [Implement AIPrompt templates]({%slug aiprompt-templates%})
-* [Handle AIPrompt events]({%slug aiprompt-events%})
+* [Customize the AIPrompt Views]({%slug aiprompt-views-overview%})
+* [Implement AIPrompt Templates]({%slug aiprompt-templates%})
+* [Handle AIPrompt Events]({%slug aiprompt-events%})
 
 ## See Also
 

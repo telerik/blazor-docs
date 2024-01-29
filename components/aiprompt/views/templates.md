@@ -1,7 +1,7 @@
 ---
 title: Templates
-page_title: AIPrompt Views Templates
-description: View Templates in AIPrompt for Blazor. Learn how to customize the appearance of individual views.
+page_title: AIPrompt - Views Templates
+description: Explore the View Templates in the AIPrompt component for Blazor. Learn how to use them to customize the appearance of the individual views.
 slug: aiprompt-views-templates
 tags: telerik,blazor,aiprompt,ai,prompt,templates
 published: True
@@ -10,18 +10,17 @@ position: 40
 
 # AIPrompt Views Templates
 
-This article explains the available templates for the Views of the AIPrompt for Blazor.
+This article explains the available templates for the views of the AIPrompt for Blazor.
 
-- [AIPrompt Views Templates](#aiprompt-views-templates)
-  - [ViewTemplate](#viewtemplate)
-  - [FooterTemplate](#footertemplate)
+- [View Template](#viewtemplate)
+- [Footer Template](#footertemplate)
 
 
-## ViewTemplate
+## View Template
 
-The `ViewTemplate` allows you to control the rendering of view's content. You can define it for each of the predefined Views:
+The `ViewTemplate` allows you to control the rendering of view's content. You can define it for each of the predefined views:
 
->caption Use the ViewTemplate to alter the appearance of the prompt view
+>caption Using the `ViewTemplate` to alter the appearance of the Prompt view
 
 ````CSHTML
 <TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
@@ -43,11 +42,11 @@ The `ViewTemplate` allows you to control the rendering of view's content. You ca
 }
 ````
 
-## FooterTemplate
+## Footer Template
 
 The `FooterTemplate` allows you to control the rendering of the footer within individual views.
 
->caption Use the FooterTemplate to define a custom button.
+>caption Using the `FooterTemplate` to define a custom button.
 
 ````CSHTML
 <TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
@@ -69,7 +68,7 @@ The `FooterTemplate` allows you to control the rendering of the footer within in
 
     private void HandlePromptRequest()
     {
-        // dummy data intentionally used. Replace the hard-coded string with a call to your AI API.
+        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
         AIPromptRef.AddOutput(
             output: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             title: "Generated response",

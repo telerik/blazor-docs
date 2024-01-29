@@ -1,7 +1,7 @@
 ---
 title: Prompt View
-page_title: AIPrompt Prompt View
-description: Explore the AIPrompt Prompt View. Learn how to pass a set of prompt suggestions.
+page_title: AIPrompt - Prompt View
+description: Explore the AIPrompt Prompt view that allows users to type their queries, and learn how to pass a set of prompt suggestions.
 slug: aiprompt-views-prompt
 tags: telerik,blazor,aiprompt,prompt
 published: True
@@ -10,11 +10,11 @@ position: 10
 
 # AIPrompt Prompt View
 
-The Prompt View features the prompt input, where users can type their query. It also contains a button to trigger a response request.
+The Prompt view features the prompt input, where users can type their query. It also contains a button to trigger a response request.
 
-Additionally, the Prompt View can contain prompt suggestions related to the prompt itself through the `PromptSuggestions` parameter. The user can select any of the available suggestions, which in turn will populate the prompt input with the selected suggestion. This interaction will not trigger a response request right away - the user can modify the suggestion first.
+Additionally, the Prompt view can display prompt suggestions related to the prompt itself. To control these suggestions, use the `PromptSuggestions` parameter. The user can select any of the available suggestions, which in turn will populate the prompt input with the selected suggestion. This interaction will not trigger a response request right away—the user can modify the suggestion first.
 
->caption Use the `PromptSuggestions` to display a set of predefined prompts or hints.
+>caption Using `PromptSuggestions` to display a set of predefined prompts or hints.
 
 ````CSHTML
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest" PromptSuggestions="PromptSuggestions"></TelerikAIPrompt>
@@ -29,7 +29,7 @@ Additionally, the Prompt View can contain prompt suggestions related to the prom
 
     private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
     {
-        // dummy data intentionally used. Replace the hard-coded string with a call to your AI API.
+        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
         args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
     }
 }

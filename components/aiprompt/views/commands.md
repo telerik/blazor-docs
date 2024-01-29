@@ -1,7 +1,7 @@
 ---
 title: Commands View
-page_title: AIPrompt Commands View
-description: Explore the AIPrompt Commands View. Learn how to define custom commands.
+page_title: AIPrompt - Commands View
+description: Explore the AIPrompt's  Commands view that displays a set of predefined commands and learn how to define your custom commands.
 slug: aiprompt-views-commands
 tags: telerik,blazor,aiprompt,ai,prompt,commands
 published: True
@@ -22,12 +22,12 @@ The following properties enable you to customize each command:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Id` | `string` | The Id of the command.
-| `Title` | `string` | The title of the command. Rendered as text within the Command View. |
-| `Icon` | `object` | The [Telerik Font or SVG icon]({%slug common-features-icons%}) rendered before the title within the Command View. |
-| `Children` | `List<AIPromptCommandDescriptor>` | The nested commands(if any) of the command. |
+| `Id` | `string` | The `Id` of the command. |
+| `Title` | `string` | The title of the command. Rendered as text within the Command view. |
+| `Icon` | `object` | The [Telerik Font or SVG icon]({%slug common-features-icons%}) rendered before the title within the Command view. |
+| `Children` | `List<AIPromptCommandDescriptor>` | The nested commands (if any) of the command. |
 
->caption Use the `Commands` parameter to pass a collection of predefined commands to the AIPrompt for Blazor
+>caption Using the `Commands` parameter to pass a collection of predefined commands to the AIPrompt for Blazor
 
 ````CSHTML
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"
@@ -71,13 +71,13 @@ The following properties enable you to customize each command:
 
     private void HandlePromptRequest(AIPromptPromptRequestEventArgs args)
     {
-        // dummy data intentionally used. Replace the hard-coded string with a call to your AI API.
+        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
         args.Output = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in.";
     }
 
     private void HandleCommandExecute(AIPromptCommandExecuteEventArgs args)
     {
-        // dummy data intentionally used. Replace the hard-coded string with a call to your AI API.
+        // The example uses dummy data intentionally. Replace the hard-coded string with a call to your AI API.
         args.Output = "Nisl pretium fusce id velit ut tortor pretium. A pellentesque sit amet porttitor eget dolor. Lectus mauris ultrices eros in cursus turpis massa tincidunt.";
     }
 }
