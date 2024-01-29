@@ -44,7 +44,6 @@ The event handler receives an argument of type [`AIPromptCommandDescriptorExecut
 | Property | Type | Description |
 | --- | --- | --- |
 | `Command` | `AIPromptCommandDescriptor` | The executed command. |
-| `ParentCommand` | `AIPromptCommandDescriptor` | The parent of the executed command. |
 | `Output` | `string` | The output based on the executed command. |
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
 | `OutputItem` | `AIPromptOutputItem` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItem`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |

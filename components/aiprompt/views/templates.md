@@ -12,8 +12,8 @@ position: 40
 
 This article explains the available templates for the views of the AIPrompt for Blazor.
 
-- [View Template](#viewtemplate)
-- [Footer Template](#footertemplate)
+- [View Template](#view-template)
+- [Footer Template](#footer-template)
 
 
 ## View Template
