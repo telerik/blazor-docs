@@ -401,6 +401,8 @@ navigation:
         title: "Notification"
      "*popup":
         title: "Popup"
+     "*popover":
+        title: "Popover"
      "*numerictextbox":
         title: "NumericTextBox"
      "*pdfviewer":
@@ -634,6 +636,7 @@ intro_columns:
       "Notification": "notification-overview"
       "Progress Bar": "progressbar-overview"
       "Chunk Progress Bar": "chunkprogressbar-overview"
+      "Popover": "popover-overview"
       "Tooltip": "tooltip-overview"
       "Popup": "popup-overview"
   -
