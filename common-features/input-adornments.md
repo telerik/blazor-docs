@@ -22,7 +22,7 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 * [FloatingLabel Specifics](#floatinglabel-specifics)
 
 
-## Supported components
+## Supported Components
 
 The prefix and suffix adornments are supported by the following components:
 
