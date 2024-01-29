@@ -184,7 +184,7 @@ The `PrefixTemplate` is a `RenderFragment` which allows you to declare any desir
 </style>
 ````
 
-## Adding Suffix in UI for Blazor Components
+## Adding a Suffix Adornment.
 
 To add a suffix, declare `<*ComponentName*SuffixTemplate>` tag as direct child of the `<Telerik*ComponentName*>` tag.
 
