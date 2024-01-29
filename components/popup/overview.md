@@ -49,16 +49,16 @@ The Blazor Popup provides parameters to configure the component. Also check the 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Defines how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.]({%slug popup-position-collision%})|
-| `AnchorSelector` | `string` | Specifies the CSS selector targeting the element that the Popup uses as an anchor. |
+| `AnchorSelector` | `string` | The CSS selector for the anchor element of the Popup. |
 | `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Defines how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.]({%slug popup-position-collision%}). |
-| `AnimationDuration` | `int` | Defines the duration of the animation in milliseconds. [Read more about Popup animations.]({%slug popup-animation%}) |
-| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | Sets the type of animation when the component displays and hides. [Read more about Popup animations.]({%slug popup-animation%}) |
+| `AnimationDuration` | `int` | The duration of the animation in milliseconds. [Read more about Popup animations.]({%slug popup-animation%}) |
+| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The type of animation when the component displays and hides. [Read more about Popup animations.]({%slug popup-animation%}) |
 | `HorizontalAlign` | `PopupHorizontalAlign ` enum <br /> (`Left`) | Determines if the left or the right side of the Popup will touch its anchor. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
 | `HorizontalCollision` | `PopupCollision  ` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}) |
-| `HorizontalOffset` | `double` | Sets the horizontal space between the Popup and its anchor in `pixels`. |
+| `HorizontalOffset` | `double` | The horizontal space between the Popup and its anchor in pixels. |
 | `VerticalAlign` | `PopupVerticalAlign ` enum <br /> (`Top`) | Determines if the Popup will touch the anchor with its top, bottom, or center. [Read more about Popup Positioning.]({%slug popup-position-collision%}) |
-| `VerticalCollision` | `PopupCollision  ` enum <br /> (`Flip`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}) |
-| `VerticalOffset` | `double` | Sets the vertical space between the Popup and its anchor in `pixels`. |
+| `VerticalCollision` | `PopupCollision  ` enum <br /> (`Flip`) | Defines the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}) |
+| `VerticalOffset` | `double` | The vertical space between the Popup and its anchor in `pixels`. |
 
 ### Styling and Appearance
 
