@@ -10,14 +10,16 @@ position: 2
 
 # Input Adornments
 
-Telerik UI for Blazor supports adornments for some of the components that incorporate input element. This functionality allows you to add custom elements as [prefix and suffix adornments](#basics).
+Telerik UI for Blazor supports adornments for some of the components that incorporate input element. Using adornments allows you to enhance the Telerik UI for Blazor components by adding custom prefix and suffix elements.
+
+A prefix input adornment refers to an element placed before the user input field. You may use it to provide clarity on the expected data in the input such as currency symbols or unit indicators. Conversely, a suffix input adornment is an element positioned after the user input field. It often serves to provide direct functionality for the entered data like password visibility toggles, formatting or clearing the input.
 
 >caption In this article:
 
-* [Supported components](#supported-components)
-* [Adding a prefix adornment](#adding-a-prefix-adornment)
-* [Adding a suffix adornment](#adding-a-suffix-adornment)
-* [Using separators](#using-separators)
+* [Supported Components](#supported-components)
+* [Adding a Prefix Adornment](#adding-a-prefix-adornment)
+* [Adding a Suffix Adornment](#adding-a-suffix-adornment)
+* [Using Separators](#using-separators)
 * [TextArea Specifics](#textarea-specifics)
 * [FloatingLabel Specifics](#floatinglabel-specifics)
 
@@ -26,17 +28,14 @@ Telerik UI for Blazor supports adornments for some of the components that incorp
 
 The following input components support prefix and suffix adornments:
 
-* Simple inputs:
-    * [MaskedTextbox]({%slug maskedtextbox-overview%})
-    * [NumericTextBox]({%slug components/numerictextbox/overview%})
-    * [TextArea]({%slug textarea-overview%})
-    * [TextBox]({%slug components/textbox/overview%})
-
-* Selects:
-    * [AutoComplete]({%slug autocomplete-overview%})
-    * [ComboBox]({%slug components/combobox/overview%})
-    * [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-    * [MultiSelect]({%slug multiselect-overview%})
+* [AutoComplete]({%slug autocomplete-overview%})
+* [ComboBox]({%slug components/combobox/overview%})
+* [MaskedTextbox]({%slug maskedtextbox-overview%})
+* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
+* [MultiSelect]({%slug multiselect-overview%})
+* [NumericTextBox]({%slug components/numerictextbox/overview%})
+* [TextArea]({%slug textarea-overview%})
+* [TextBox]({%slug components/textbox/overview%})
 
 ## Adding a Prefix Adornment
 
@@ -183,10 +182,9 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
 </style>
 ````
 
-## Adding a Suffix Adornment.
+## Adding a Suffix Adornment
 
 To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct child of the `<Telerik*ComponentName*>` tag. The `SuffixTemplate` is a `RenderFragment`, which allows you to declare any desired content as a prefix—a simple text, HTML elements, or components.
-
 
 >caption Adding a suffix adornment in UI for Blazor
 
@@ -328,7 +326,7 @@ To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct chi
 </style>
 ````
 
-## Managing Separators
+## Using Separators
 
 By default, the prefix and suffix are visually divided from the input element of the components by a separator. You can control whether the prefix and suffix separator will be visible through the following parameters:
 
@@ -356,11 +354,11 @@ In addition to the common configuration settings listed in this article, the Tex
 
 ## See also
 
-* [Live Demo: TextArea Adornments](https://demos.telerik.com/blazor-ui/textarea/adornments)
-* [Live Demo: TextBox Adornments](https://demos.telerik.com/blazor-ui/textbox/adornments)
-* [Live Demo: MaskedTextBox Adornments](https://demos.telerik.com/blazor-ui/maskedtextBox/adornments)
-* [Live Demo: NumericTextBox Adornments](https://demos.telerik.com/blazor-ui/numerictextBox/adornments)
 * [Live Demo: AutoComplete Adornments](https://demos.telerik.com/blazor-ui/autocomplete/adornments)
 * [Live Demo: ComboBox Adornments](https://demos.telerik.com/blazor-ui/combobox/adornments)
+* [Live Demo: MaskedTextBox Adornments](https://demos.telerik.com/blazor-ui/maskedtextBox/adornments)
 * [Live Demo: MultiColumnComboBox Adornments](https://demos.telerik.com/blazor-ui/multicolumncombobox/adornments)
 * [Live Demo: MultiSelect Adornments](https://demos.telerik.com/blazor-ui/multiselect/adornments)
+* [Live Demo: NumericTextBox Adornments](https://demos.telerik.com/blazor-ui/numerictextBox/adornments)
+* [Live Demo: TextArea Adornments](https://demos.telerik.com/blazor-ui/textarea/adornments)
+* [Live Demo: TextBox Adornments](https://demos.telerik.com/blazor-ui/textbox/adornments)

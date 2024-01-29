@@ -27,10 +27,13 @@ I would like to add a icon in the TextBox, like a search icon, or email or phone
 
 Is there anyway to do an 'addon' button with the TelerikTextBox?
 
-## Solution
+## Solution 1
 
->important **UI for Blazor 5.1.0** includes [Prefix and Suffix templates]({%slug common-features/input-adornments%}). Use that instead.
+As of **UI for Blazor 5.1.0**, you may use [Prefix and Suffix templates]({%slug common-features/input-adornments%}) to add the desired content as prefix or suffix to the TextBox. 
 
+## Solution 2
+
+This solution applies to **UI for Blazor 5.0.x or earlier**.
 
 TextBoxes (`<input>` elements) can only hold plain text. It is possible to render an icon next to the textbox and position it over the textbox. The `<input>` element itself will need some left padding to free space for the icon.
 
