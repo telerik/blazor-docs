@@ -10,7 +10,7 @@ position: 35
 
 # Popup Animation
 
-This article outlines the available settings that allow you to customize the animations when the Popup displays and hides.
+This article outlines how to customize the animations when the Popup displays and hides.
 
 ## Type
 
