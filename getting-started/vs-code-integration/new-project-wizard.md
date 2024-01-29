@@ -46,7 +46,7 @@ The wizard allows you to configure the following options:
 * Whether to use localization in the project or not.
 * Whether to use font icons in the project or not.
 * The .NET version you want to use.
-* Sample pages that you can add to get started (available for `Start from Blank Project` option).
+* Sample pages that you can add to get started (available when `Start from Blank App` is selected).
 * The theme you want to apply - the main window provides a list of the [built-in (base) themes]({%slug general-information/themes%}) (Default, Bootstrap and Material). The `See All Swatches` button opens a separate menu with a list of [color swatches]({%slug themes-swatches%}) under the corresponding base theme.
 
 >caption Create New Project wizard
