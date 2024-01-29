@@ -38,7 +38,7 @@ The following input components support prefix and suffix adornments:
     * [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
     * [MultiSelect]({%slug multiselect-overview%})
 
-## Adding Prefix in UI for Blazor Components
+## Adding a Prefix Adornment
 
 To add a prefix, declare `<*ComponentName*PrefixTemplate>` tag as direct child of the `<Telerik*ComponentName*>` tag.
 
