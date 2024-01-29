@@ -166,7 +166,7 @@ See the example below - the Telerik components in `Home.razor` are wrapped by a 
 <div class="skip-repl"></div>
 
 ````TelerikContainer.razor
-@* 
+@*
     The TelerikContainer allows you to use Telerik Blazor components in the interactive parts of a static app.
     Place the TelerikContainer in interactive Razor components, which are children of static parents.
 
