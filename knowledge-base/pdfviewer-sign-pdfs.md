@@ -10,10 +10,14 @@ res_type: kb
 
 ## Environment
 
-| Product | Version |
-| --- | --- |
-| RadPdfProcessing for Document Processing | 2023.3 |
-| Telerik UI for Blazor PdfViewer | 2023.3 |
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>RadPdfProcessing for Document Processing, <br /> PdfViewer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
