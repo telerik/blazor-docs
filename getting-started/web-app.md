@@ -161,7 +161,9 @@ You can set the render mode for the entire app as suggested in the [Blazor docum
 
 Instead of setting the interactive render mode for the entire app, you can also set it only for specific pages and components. This is useful if you want to have different render modes in the app. In this case, make sure that the `TelerikRootComponent` is part of a component hierarchy that is interactive.
 
-See the example below - the Telerik components in `Home.razor` are wrapped by a `TelerikContainer.razor` component, which includes the `TelerikRootComponent` and can be reused, so that the `TelerikRootComponent` is defined only once in the whole app.
+The Telerik components in `Home.razor` below are wrapped by a `TelerikContainer.razor` component, which includes the `TelerikRootComponent` and can be reused, so that the `TelerikRootComponent` is defined only once in the whole app.
+
+Also check this [.NET 8 Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer), which shows different ways to use the `TelerikRootComponent` and Telerik UI for Blazor in a static Blazor app.
 
 <div class="skip-repl"></div>
 
@@ -206,7 +208,6 @@ See the example below - the Telerik components in `Home.razor` are wrapped by a 
     @* Telerik UI for Blazor components here *@
 
 </TelerikContainer>
-
 ````
 
 ### 4.4. Register the Telerik Blazor Service
