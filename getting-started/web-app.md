@@ -31,7 +31,7 @@ Take into account the following notes when choosing the *Interactivity location*
 * We recommend *global* interactivity location for easier setup and usage of the Telerik components.
 * Most Telerik Blazor components require interactivity. They will not respond to user actions and the Blazor framework will not refresh their UI in static render mode. Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static mode at all.
 * The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components will not work in this section.
-* The `TelerikRootComponent` requires interactivity as well. Normally, this component should be in a layout file. Layout files are interactive only if the *Interactivity location* is *Global*. If the *Interactivity location* is set to *Per page / component*, then there are three options:
+* The [`TelerikRootComponent` requires interactivity as well]({%slug rootcomponent-overview%}#net-8-notes). Normally, this component should be in a layout file. Layout files are interactive only if the *Interactivity location* is *Global*. If the *Interactivity location* is set to *Per page / component*, then there are three options:
     * Enable global interactivity at runtime when the user navigates to a page (component) with Telerik components inside. To do this, [set the `@rendermode` conditionally in `App.razor`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-by-component-instance). Blazor Web Apps with identity use the same approach to disable interactivity in the `Account` section.
     * Add a `TelerikRootComponent` on all interactive `.razor` pages, instead of using it in the layout component. A possible side effect may be [wrong popup position]({%slug troubleshooting-general-issues%}#wrong-popup-position).
     * Have a regular layout (`MainLayout.razor`) for static pages and one empty layout (`EmptyLayout.razor`) for interactive pages with Telerik components. Copy the contents for `MainLayout.razor` to a standard non-layout `.razor` file and use it to wrap the page-specific content. Replace `@Body` with `@ChildContent` in the copied layout content. This approach and code duplication require more effort to maintain, but avoids possible issues with popup position.
@@ -91,9 +91,9 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Normally, `TelerikRootComponent` is placed in a layout component, for example `MainLayout.razor` or a custom layout. `TelerikRootComponent` requires enabled [interactive mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0), which is true for layout components only if the application's *Interactivity location* is *Global*.
+Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content. Normally, `TelerikRootComponent` is placed in a layout component, for example `MainLayout.razor`. `TelerikRootComponent` requires enabled [interactive mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0), which is true for layout components only if the application's *Interactivity location* is *Global*.
 
-> .NET 8.0 introduced [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The default render mode is static and not interactive, so you need to make this change explicitly in your app. Make sure to review section [Interactivity Considerations](#interactivity-considerations) above if you are adding Telerik components to an existing .NET 8 Blazor web application.
+> .NET 8.0 introduced [new render modes for the Blazor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0). The default render mode is static and not interactive, so you need to make this change explicitly in your app. Make sure to review sections [Interactivity Considerations](#interactivity-considerations) and [`TelerikRootComponent` .NET 8 Notes]({%slug rootcomponent-overview%}#net-8-notes) if you are adding Telerik components to an existing .NET 8 Blazor web application.
 
 The `TelerikRootComponent` placement in the app depends on the selected *Interactivity location* during app creation:
 
@@ -171,8 +171,8 @@ See the example below - the Telerik components in `Home.razor` are wrapped by a 
     Place the TelerikContainer in interactive Razor components, which are children of static parents.
 
     The main purpose of the TelerikContainer component is to reuse a
-    TelerikRootComponent with the same settings. If you don't have any parameters for the TelerikRootComponent,
-    then you don't need a TelerikContainer.
+    TelerikRootComponent with the same settings. If you do not have any parameters for the TelerikRootComponent,
+    then you do not need a TelerikContainer.
 *@
 
 <TelerikRootComponent IconType="@IconType.Svg"
@@ -189,12 +189,6 @@ See the example below - the Telerik components in `Home.razor` are wrapped by a 
 @page "/"
 
 @rendermode InteractiveServer
-
-<p>
-    This part of the page is not nested in a TelerikRootComponent.
-    The Telerik Blazor components that do not use popups will work here,
-    but this approach is not officially supported or recommended.
-</p>
 
 <TelerikContainer>
     @* <TelerikContainer> must be recognized as a Razor component.
