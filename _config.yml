@@ -427,6 +427,8 @@ navigation:
         title: "PivotGrid"
      "*/radiogroup":
         title: "RadioGroup"
+     "*rootcomponent":
+        title: "RootComponent"
      "*scheduler":
         title: "Scheduler"
      "*scrollview":
