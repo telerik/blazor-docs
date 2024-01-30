@@ -140,7 +140,7 @@ The Window component can adapt to different screen sizes by making it responsive
 
 ### Important Notes
 
-The Telerik Window component renders as a child of the `TelerikRootComponent` at the root of the Blazor app. This is required, so it can show over the other page content, and have correct position.
+The Telerik Window component renders as a child of the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) at the root of the Blazor app. This is required, so it can show over the other page content, and have correct position.
 
 In Blazor, however, the render tree structure may be important. In some cases, the special Window placement may put you in one of the following situations:
 

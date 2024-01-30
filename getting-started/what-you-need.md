@@ -144,7 +144,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 #### Add the TelerikRootComponent
 
-To use popups (for example, dropdowns, menus, windows, grid filters, etc.), you must add the `TelerikRootComponent` component at the root level of the app and configure the app layout to adopt that.
+To use Telerik popups and global component settings, you must add the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component at the root level of the app and configure the app layout to adopt that.
 
 The configuration varies depending on the application type:
 

@@ -32,7 +32,7 @@ Using a [Blazor Web App template](https://learn.microsoft.com/en-us/aspnet/core/
 
 The root cause for this is a difference in the required configuration when using [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes).
 
-This error will be thrown if the `TelerikRootComponent` is placed in a layout page that does not have interactive mode enabled. 
+This error will be thrown if the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) is placed in a layout page that does not have interactive mode enabled. 
 
 The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. Read more in [Web App - Add TelerikRootComponent]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent).
 
@@ -66,7 +66,7 @@ app {
 
 The position of popups (Window, various dropdowns such as DropDownList, ComboBox, DatePicker) can be wrong or offset.
 
-The most common reason for such a problem is that the [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#configuring-the-project) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
+The most common reason for such a problem is that the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
 
 There are several common cases when such a mismatch occurs:
 
