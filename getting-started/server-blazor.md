@@ -80,7 +80,7 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.
+Add a [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
 

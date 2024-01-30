@@ -281,7 +281,7 @@ Circles:
 
 It is possible to configure the icon type for the whole application:
 
-1. Locate the `<TelerikRootComponent>` tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
+1. Locate the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
 2. Set the `TelerikRootComponent` `IconType` parameter to an `IconType` enum value - `Svg` or `Font`.
 
 >tip The default icon type is `Font`. We plan to switch it to `Svg` in mid 2023 for better display.
