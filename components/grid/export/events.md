@@ -244,7 +244,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 ## OnAfterExport
 
-The `OnAfterExport` event fires after the [OnBeforeExport](#onbeforeexport) event, and before the actual file is provided to the user. You can use the event to configurate the file. The event handler receives a `GridAfterExcelExportEventArgs` or `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
+The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and before the generated file is provided to the user. You can use the event to make changes to the exported file. The event handler receives a `GridAfterExcelExportEventArgs` or `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
 
 ### For Excel Export
 
