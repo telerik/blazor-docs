@@ -33,8 +33,8 @@ This knowledge base article answers the following questions:
 ## Solution
 
 1. [Call a JavaScript function](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet) in `OnAfterRenderAsync` when `firstRender` is true.
-1. Use JavaScript code (for example, [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)) to locate the first selected item in all ListBox components on the page (`div.k-listbox`).
-1. Execute [`scrollIntoView`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) for one selected item (`li.k-list-item.k-selected`) in each ListBox instance.
+1. Use JavaScript code (for example, [`querySelector`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)) to locate the ListBox component(s) on the page. Use the ListBox `Class` parameter to set a unique custom CSS class, or use a selector with a built-in class `.k-listbox`.
+1. Execute [`scrollIntoView`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) for one selected item (`li.k-list-item.k-selected`) in the desired ListBox instance(s).
 1. (optional) Apply a [`smooth` `scroll-behavior` CSS style](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) to all ListBoxes for better scrolling UX.
 
 >caption Scrolling to the first selected item in each ListBox
@@ -47,7 +47,8 @@ This knowledge base article answers the following questions:
                 SelectionMode="@ListBoxSelectionMode.Multiple"
                 @bind-SelectedItems="@ListBoxSelectedItems1"
                 Width="250px"
-                Height="200px">
+                Height="200px"
+                Class="listbox1">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false">
         </ListBoxToolBar>
@@ -59,7 +60,8 @@ This knowledge base article answers the following questions:
                 SelectionMode="@ListBoxSelectionMode.Multiple"
                 @bind-SelectedItems="@ListBoxSelectedItems2"
                 Width="250px"
-                Height="200px">
+                Height="200px"
+                Class="listbox2">
     <ListBoxToolBarSettings>
         <ListBoxToolBar Visible="false">
         </ListBoxToolBar>
@@ -68,15 +70,13 @@ This knowledge base article answers the following questions:
 
 @* Move JavaScript to an external JS file in production *@
 <script suppress-error="BL9992">
-    function scrollListBox() {
-        var listBoxes = document.querySelectorAll(".k-listbox");
-        if (listBoxes) {
-            listBoxes.forEach(listBox => {
-                var selectedItem = listBox.querySelector(".k-list-item.k-selected");
-                if (selectedItem) {
-                    selectedItem.scrollIntoView();
-                }
-            });
+    function scrollListBox(selector) {
+        var listBox = document.querySelector(selector);
+        if (listBox) {
+            var selectedItem = listBox.querySelector(".k-list-item.k-selected");
+            if (selectedItem) {
+                selectedItem.scrollIntoView();
+            }
         }
     }
 </script>
@@ -101,7 +101,8 @@ This knowledge base article answers the following questions:
             // The delay duration doesn't matter.
             await Task.Delay(1);
 
-            await js.InvokeVoidAsync("scrollListBox");
+            await js.InvokeVoidAsync("scrollListBox", ".listbox1");
+            await js.InvokeVoidAsync("scrollListBox", ".listbox2");
         }
 
         await base.OnAfterRenderAsync(firstRender);
