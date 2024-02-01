@@ -30,14 +30,14 @@ The event handler receives an argument of type [`AIPromptPromptRequestEventArgs`
 | `Prompt` | `string` | The prompt text of the request. |
 | `Output` | `string` | The output of the request. The output is based on the prompt text. |
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
-| `OutputItem` | `AIPromptOutputItem` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItem`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |
+| `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
 
 ## OnCommandExecute
 
 The `OnCommandExecute` event fires when the user clicks on a command within the Commands view.
 
-The event handler receives an argument of type [`AIPromptCommandDescriptorExecuteEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptCommandDescriptorExecuteEventArgs). See the [example below](#example).
+The event handler receives an argument of type [`AIPromptCommandExecuteEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptCommandExecuteEventArgs). See the [example below](#example).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -46,7 +46,7 @@ The event handler receives an argument of type [`AIPromptCommandDescriptorExecut
 | `Command` | `AIPromptCommandDescriptor` | The executed command. |
 | `Output` | `string` | The output based on the executed command. |
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
-| `OutputItem` | `AIPromptOutputItem` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItem`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |
+| `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
 
 ## OnOutputRate
@@ -59,7 +59,7 @@ The event handler receives an argument of type [`AIPromptOutputRateEventArgs`](/
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `OutputItem` | `AIPromptOutputItem` | Specifies the output item that is being rated. See [`AIPromptOutputItem`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |
+| `OutputItem` | `AIPromptOutputItemDescriptor` | Specifies the output item that is being rated. See [`AIPromptOutputItemDescriptor`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |
 
 ## PromptTextChanged
 
