@@ -131,4 +131,4 @@ The DropDownList popup setting `Class` lets you define a CSS class that will be 
 
 ## See Also
 
-[Override Theme Styles]({%slug override-theme-styles%})
+[Override Theme Styles]({%slug themes-override%})
