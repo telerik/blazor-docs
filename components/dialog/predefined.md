@@ -14,6 +14,8 @@ Telerik UI for Blazor provides styled substitutes to the standard confirm, alert
 
 To use these dialogs, receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. It exposes the methods you can use in your method calls.
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 [CascadingParameter]
 public DialogFactory Dialogs { get; set; }
