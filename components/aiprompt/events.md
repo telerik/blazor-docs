@@ -59,7 +59,7 @@ The event handler receives an argument of type [`AIPromptOutputRateEventArgs`](/
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `OutputItem` | `AIPromptOutputItemDescriptor` | Specifies the output item that is being rated. See [`AIPromptOutputItemDescriptor`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItem). |
+| `OutputItem` | `AIPromptOutputItemDescriptor` | Specifies the output item that is being rated. See [`AIPromptOutputItemDescriptor`](/blazor-ui/api/Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
 ## PromptTextChanged
 
