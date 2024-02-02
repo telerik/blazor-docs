@@ -1,5 +1,5 @@
 ---
-title: No data text in DropDownList popup
+title: No Data Text in DropDownList Popup
 description: Is there a way to have the "No data" text vertically aligned based on the popup height in order to have it always visible?
 type: troubleshooting
 page_title: No data text not visible in DropDownList popup
