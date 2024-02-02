@@ -17,7 +17,7 @@ The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its 
 
 The `TelerikRootComponent` is responsible for the following tasks:
 
-* It provides settings to all its child Telerik components, for example about the [icon type]({%slug common-features-icons%}#set-global-icon-type) or [right-to-left (RTL) support]({%slug rtl-support%}).
+* It provides settings to all its child Telerik components, for example, for the [icon type]({%slug common-features-icons%}#set-global-icon-type) or [right-to-left (RTL) support]({%slug rtl-support%}).
 * It renders all Telerik popups, which has the following benefits:
     * It's more reliable that the popups will display on top of the other page content.
     * There is no risk for the popups to be trapped by scrollable containers, or clipped by containers with an `overflow:hidden` style.
@@ -40,7 +40,7 @@ The above approach has the following benefits:
 * There is a separation of concerns and the `TelerikRootComponent` can be a parent of multiple other layouts.
 * You can use `DialogFactory` (predefined Telerik dialogs) in `MainLayout.razor`.
 
-However, it is also possible to [add `<TelerikRootComponent>` directly to the existing application layout(s)](#adding-telerikrootcomponent-to-existing-layout).
+However, you can also [add `<TelerikRootComponent>` directly to the existing application layouts](#adding-telerikrootcomponent-to-existing-layout).
 
 >caption Adding TelerikRootComponent to a new layout
 
@@ -80,7 +80,7 @@ However, it is also possible to [add `<TelerikRootComponent>` directly to the ex
 .NET 8 introduced the concept of static Blazor apps with optional interactive components. The following requirements and considerations apply to the `TelerikRootComponent`:
 
 * The `TelerikRootComponent` must reside in an interactive layout or component.
-* Application layouts are interactive only if the whole app is interactive. To achieve this, set *Interactivity location* of the app to *Global* during app creation.
+* Application layouts are interactive only if the whole app is interactive. To achieve this, set **Interactivity location** of the app to **Global** during app creation.
 * When the whole app is interactive and the `TelerikRootComponent` is in an (interactive) layout file, the component provides cascading values to all other Telerik components in the app.
 * When the app is static and the `TelerikRootComponent` is in a (static) layout file, its cascading values cannot reach other Telerik components, because [cascading values cannot pass data across render mode boundaries](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-8.0#cascading-valuesparameters-and-render-mode-boundaries). As a result, you need to add the `TelerikRootComponent` on each interactive page (component). Component interactivity is inherited.
 * When the `TelerikRootComponent` is added to a `.razor` file, you cannot reference the `DialogFactory` and use [predefined dialogs]({%slug dialog-predefined%}) in the same `.razor` file (but a [workaround exists](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)). The `DialogFactory` will be available to child components of the `TelerikRootComponent`. See section [Using TelerikRootComponent](#using-telerikrootcomponent) above for more information and examples.
@@ -99,8 +99,8 @@ See the following resources for more details and examples of using Telerik Blazo
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `EnableRtl` | `bool` | Enables [right-to-left (RTL) support]({%slug rtl-support%}). |
-| `IconType` | `IconType` enum <br /> (`Svg`) | The icon type, which other Telerik components will use to render internal icons. Regardless of this parameter value, you can use freely the [`<TelerikFontIcon>`]({%slug common-features-icons%}#fonticon-component) and [`<TelerikSvgIcon>`]({%slug common-features-icons%}#svgicon-component) components, and [set the `Icon` parameter of other Telerik components]({%slug button-icons%}) to any type that you wish. |
-| `Localizer` | `Telerik.Blazor.Services.ITelerikStringLocalizer` | The Telerik localization service. Normally, the [localizer should be defined as a service in `Program.cs`]({%slug globalization-localization%}). Use the `Localizer` parameter only in special cases when this is not possible. |
+| `IconType` | `IconType` enum <br /> (`Svg`) | The icon type, which other Telerik components will use to render internal icons. Regardless of this parameter value, you can freely use the [`<TelerikFontIcon>`]({%slug common-features-icons%}#fonticon-component) and [`<TelerikSvgIcon>`]({%slug common-features-icons%}#svgicon-component) components, and [set the `Icon` parameter of other Telerik components]({%slug button-icons%}) to any type that you wish. |
+| `Localizer` | `Telerik.Blazor.Services.ITelerikStringLocalizer` | The Telerik localization service. The recommended approach is to [define the localizer as a service in `Program.cs`]({%slug globalization-localization%}). Use the `Localizer` parameter only in special cases when this is not possible. |
 
 
 ## See Also
