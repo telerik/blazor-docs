@@ -56,8 +56,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 ````CSHTML
 @using System.IO
 
-<TelerikFileManager Data="@FileManagerData"
-                    @bind-Path="@DirectoryPath"
+<TelerikFileManager @bind-Path="@DirectoryPath"
                     Height="400px"
                     IdField="MyModelId"
                     NameField="Name"
@@ -79,19 +78,18 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 </TelerikFileManager>
 
 @code {
-    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
-    
+    private List<FlatFileEntry> SourceData = new List<FlatFileEntry>();
+
     private string RootPath { get; set; } = "root-folder-path";
     private string DirectoryPath { get; set; } = "root-folder-path";
 
     private async Task OnRead(FileManagerReadEventArgs args)
     {
-        await GetFlatFileEntries();
+        await Task.Delay(500);
 
-        args.Data = FileManagerData;
-        args.Total = FileManagerData.Count;
-
-        await Task.Yield();
+        //here you can pass only the files for the current directory, so you don't load the whole data collection
+        args.Data = SourceData;
+        args.Total = SourceData.Count;
     }
 
     private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
@@ -111,7 +109,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
                 name : $"{name}{extension}";
 
-            var updatedItem = FileManagerData.FirstOrDefault(x => x.MyModelId == item.MyModelId);
+            var updatedItem = SourceData.FirstOrDefault(x => x.MyModelId == item.MyModelId);
 
             updatedItem.Name = item.Name;
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
@@ -137,10 +135,10 @@ The `OnRead` event fires when the data source is read. Its event handler receive
     {
         var currItem = args.Item as FlatFileEntry;
 
-        var itemToDelete = FileManagerData.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
+        var itemToDelete = SourceData.FirstOrDefault(x => x.MyModelId == currItem.MyModelId);
 
         //simulate item deletion
-        FileManagerData.Remove(itemToDelete);
+        SourceData.Remove(itemToDelete);
 
         RefreshData();
     }
@@ -163,13 +161,13 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
     private void RefreshData()
     {
-        FileManagerData = new List<FlatFileEntry>(FileManagerData);
+        SourceData = new List<FlatFileEntry>(SourceData);
     }
 
     // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
-        FileManagerData = await GetFlatFileEntries();
+        SourceData = await GetFlatFileEntries();
     }
 
     // a model to bind the FileManager. Should usually be in its own separate location.
