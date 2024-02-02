@@ -86,17 +86,17 @@ The Slider provides various parameters that allow you to configure the component
 
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
-| `Decimals` | `int` | Specifies the number precision for the steps.
-| `Enabled` | `bool` | whether the component is enabled.
-| `LabelTemplate` | `RenderFragment<TValue>` | lets you render your own custom labels for the major ticks.
-| `LargeStep` | `TValue` | defines where the larger (longer) ticks lie - they are rendered on every n-th occurrence of the `LargeStep`. Required. read more in ...
-| `Max` | `TValue` | the maximum value on the slider. Required.
+| `Decimals` | `int` | The number precision for the steps.
+| `Enabled` | `bool` | Sets if the component accepts user interaction.
+| `LabelTemplate` | `RenderFragment<TValue>` | A container for custom labels for the major ticks.
+| `LargeStep` | `TValue` | The numeric interval between the large ticks. Read more in [Slider Steps]({%slug slider-steps%}).
+| `Max` | `TValue` | The maximum value on the slider. Required.
 | `Min` | `TValue` | the minimum value on the slider. Required. Must be lower than the `Max`.
-| `SmallStep` | `TValue` | defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected. Required.
-| `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | whether the slider will be horizontal (the default) or vertical.
-| `TickPosition` | `SliderTickPosition` <br/> (`Both`) | controls the position of the ticks.
-| `ShowButtons` | `bool` | whether there will be increase and decrease buttons at the ends of the slider. Defaults to `true`.
-|`Value` and `bind-Value`| `TValue` | the value of the slider. Can be a numerical type (such as `int`, `decimal`, `double` and so on). When the user moves the drag handle of the slider, it changes with the `SmallStep`, but you can set a value programmatically that will land the handle between the ticks and between those steps.
+| `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks. Read more in [Slider Steps]({%slug slider-steps%}).
+| `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | Defines whether the Slider is horizontal or vertical.
+| `TickPosition` | `SliderTickPosition` <br/> (`Both`) | Sets which side of the Slider shows ticks.
+| `ShowButtons` | `bool` <br /> (`true`) | Sets is the Slider renders increase and decrease buttons
+| `Value` | `TValue` | The Slider value. Can be a numerical type (such as `int`, `decimal`, `double` and so on).
 
 ### Styling and Appearance
 
