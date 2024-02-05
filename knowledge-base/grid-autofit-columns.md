@@ -216,7 +216,7 @@ This approach is simpler than the above, because it doesn't require JavaScript a
         args.Total = result.Total;
         args.AggregateResults = result.AggregateResults;
 
-        if (FirstGridBindFlag)
+        if (FirstGridBindFlag && result.Total > 0)
         {
             // it is also possible to auto fit Grid columns on every rebind
             FirstGridBindFlag = false;
