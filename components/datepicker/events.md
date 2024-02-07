@@ -22,7 +22,7 @@ This article explains the events available in the Telerik DatePicker for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
+The `ValueChanged` event fires immediately upon every change in the input (for example, keystroke, after date selection in the Calendar popup).
 
 >caption Handle ValueChanged and provide initial value
 
@@ -50,6 +50,8 @@ model value: @thePickerValue
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 
 ## OnChange
@@ -84,7 +86,7 @@ model value: @thePickerValue
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
->tip The `OnChange` event is a custom event. You can use it together with two-way binding for the `Value` parameter.
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
 
 ## OnOpen
@@ -180,7 +182,10 @@ The `OnBlur` event fires when the component loses focus.
 
 ## OnCalendarCellRender
 
-The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to:
+* Find out the current view.
+* Find out the cell date.
+* Set a custom CSS class for the `<td>` element.
 
 The event handler receives as an argument an `DatePickerCalendarCellRenderEventArgs` object that contains:
 
