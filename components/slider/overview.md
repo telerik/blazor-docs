@@ -92,7 +92,7 @@ The Slider provides various parameters that allow you to configure the component
 | `LargeStep` | `TValue` | The numeric interval between the large ticks. Read more in [Slider Steps]({%slug slider-steps%}).
 | `Max` | `TValue` | The maximum value of the Slider. Required.
 | `Min` | `TValue` | The minimum value on the Slider. Required and must be less than `Max`.
-| `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks. Read more in [Slider Steps]({%slug slider-steps%}).
+| `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks, but such a value can only be set programmatically. Read more in [Slider Steps]({%slug slider-steps%}).
 | `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | Defines whether the Slider is horizontal or vertical.
 | `TickPosition` | `SliderTickPosition` <br/> (`Both`) | Sets which side of the Slider shows ticks.
 | `ShowButtons` | `bool` <br /> (`true`) | Sets if the Slider renders buttons to increase and decrease the `Value`.
