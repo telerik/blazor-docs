@@ -90,7 +90,7 @@ The Slider provides various parameters that allow you to configure the component
 | `Enabled` | `bool` | Sets if the component accepts user interaction.
 | `LabelTemplate` | `RenderFragment<TValue>` | A container for custom labels for the major ticks.
 | `LargeStep` | `TValue` | The numeric interval between the large ticks. Read more in [Slider Steps]({%slug slider-steps%}).
-| `Max` | `TValue` | The maximum value on the slider. Required.
+| `Max` | `TValue` | The maximum value of the Slider. Required.
 | `Min` | `TValue` | The minimum value on the slider. Required. Must be lower than the `Max`.
 | `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks. Read more in [Slider Steps]({%slug slider-steps%}).
 | `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | Defines whether the Slider is horizontal or vertical.
