@@ -53,7 +53,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 ## Use the .NET CLI
 
-When adding NuGet sources from the .NET CLI, the credentials are stored inside the `NuGet.Config` file. The [password will be encrypted only on Windows](#store-encrypted-credentials). On other platforms, store the password in plain text or use a [NuGet API Key](#use-nuget-api-key) instead of a password.
+When adding NuGet sources from the .NET CLI, the credentials are stored in the `NuGet.Config` file. The [password can be encrypted on Windows, but with limitations](#store-encrypted-credentials). You can use a plain text password, but better [generate a NuGet API Key](#use-nuget-api-key) and use it with the .NET CLI instead of a password.
 
 To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. This command creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file).
 
@@ -85,7 +85,7 @@ dotnet nuget update source "TelerikOnlineFeed" \
 
 ### Store Encrypted Credentials
 
-NuGet password encryption is not supported by the .NET CLI on non-Windows platforms.
+The .NET CLI supports NuGet password encryption only on the Windows platform. Note that [the encrypted password in the `NuGet.Config` file will work only for one user and one machine](https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file#packagesourcecredentials).
 
 If you [add the Telerik package source in Visual Studio](#use-visual-studio), the credentials will be encrypted and stored in the Windows Credential Manager on Windows and in the Keychain on macOS.
 
@@ -135,9 +135,31 @@ You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik
 > Always use the NuGet API Key in plain text.
 
 
+## Package Source Mapping
+
+The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on `nuget.telerik.com`. On the other hand, the [Telerik icon packages]({%slug common-features-icons%}) reside on `nuget.org`. The correct [package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) configuration should be similar to:
+
+>caption packageSourceMapping configuration for Telerik UI for Blazor
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<packageSourceMapping>
+  <packageSource key="nuget.org">
+    <package pattern="*" />
+    <package pattern="Telerik.FontIcons" />
+    <package pattern="Telerik.SvgIcons" />
+  </packageSource>
+  <packageSource key="TelerikOnlineFeed">
+    <package pattern="Telerik.*" />
+  </packageSource>
+</packageSourceMapping>
+````
+
+
 ## Troubleshooting
 
-For tips about common pitfalls when working with the Telerik NuGet feed, see the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article.
+See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article for tips about common pitfalls when working with the Telerik NuGet feed.
 
 
 ## Next Steps

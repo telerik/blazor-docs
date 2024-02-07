@@ -20,6 +20,7 @@ Regardless of the cause for the issue, it is recommended that you start from the
 * [Error `Unable to find package`](#unable-to-find-package)
 * [Error `503 Service Unavailable`](#error-503-service-unavailable)
 * [Message about package `version not found`](#package-version-not-found)
+* [Error `Unable to resolve ... . PackageSourceMapping is enabled`](#unable-to-resolve-package-due-to-packagesourcemapping)
 
 ## Tips for Handling Common NuGet Issues
 
@@ -97,6 +98,14 @@ You may encounter an error similar to `ProjectName depends on Telerik.UI.for.Bla
 This error means that version `3.6.1` is outside the subscription period of your license.
 
 To solve the issue, use a different version or ask the license holder at your company to assign you another license that includes the desired product version.
+
+## Unable to Resolve Package due to PackageSourceMapping
+
+Incorrect package source mapping can result in errors similar to:
+
+`NU1100 Unable to resolve 'Telerik... (>= ...)' for 'net...'. PackageSourceMapping is enabled, the following source(s) were not considered: ...`
+
+The solution is to check the **Package Source Mapping** settings in Visual Studio, or [review all applicable `NuGet.Config` files](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses) on the machine. Then, [adjust the package source mapping configuration]({%slug installation/nuget%}#package-source-mapping).
 
 ## See Also
 
