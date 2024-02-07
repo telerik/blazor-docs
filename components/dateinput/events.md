@@ -12,89 +12,13 @@ position: 20
 
 This article explains the events available in the Telerik DateInput for Blazor:
 
-* [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
 * [OnBlur](#onblur)
-
-## OnChange
-
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
-The date input is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
-
->caption Handle OnChange
-
-````CSHTML
-@result
-<br />
-
-<TelerikDateInput T="DateTime" OnChange="@MyOnChangeHandler"></TelerikDateInput>
-
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle OnChange and use two-way binding
-
-````CSHTML
-@result
-<br />
-model value: @theInputValue
-<br />
-
-<TelerikDateInput @bind-Value="@theInputValue" OnChange="@MyOnChangeHandler"></TelerikDateInput>
-
-@code {
-    string result;
-
-    DateTime? theInputValue { get; set; } = DateTime.Now;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (theUserInput as DateTime?).Value);
-    }
-}
-````
+* [OnChange](#onchange)
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
-
->caption Handle ValueChanged
-
-````CSHTML
-@result
-<br />
-
-<TelerikDateInput ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+The `ValueChanged` event fires immediately upon every change in the input (for example, keystroke).
 
 >caption Handle ValueChanged and provide initial value
 
@@ -107,9 +31,9 @@ model value: @theInputValue
 <TelerikDateInput Value="@theInputValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
 
 @code {
-    string result;
+    private string result = string.Empty;
 
-    DateTime theInputValue { get; set; } = DateTime.Now;
+    private DateTime theInputValue { get; set; } = DateTime.Now;
 
     private void MyValueChangeHandler(DateTime theUserInput)
     {
@@ -121,7 +45,9 @@ model value: @theInputValue
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 ## OnBlur
 
@@ -132,19 +58,53 @@ The `OnBlur` event fires when the component loses focus.
 ````CSHTML
 @* You do not have to use OnChange to react to loss of focus *@
 
-<TelerikDateInput @bind-Value="@TheDate"
+<TelerikDateInput @bind-Value="@theDate"
                   OnBlur="@OnBlurHandler">
 </TelerikDateInput>
 
 @code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheDate}.");
-    }
+    private DateTime? theDate { get; set; } = DateTime.Now;
 
-    DateTime? TheDate { get; set; } = DateTime.Now;
+    private void OnBlurHandler()
+    {
+        Console.WriteLine($"BLUR fired, current value is {theDate}.");
+    }
 }
 ````
+
+## OnChange
+
+The `OnChange` event represents an user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
+
+The date input is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+
+>caption Handle OnChange and use two-way binding
+
+````CSHTML
+@result
+<br />
+model value: @theInputValue
+<br />
+
+<TelerikDateInput @bind-Value="@theInputValue" OnChange="@MyOnChangeHandler"></TelerikDateInput>
+
+@code {
+    private string result = string.Empty;
+
+    private DateTime? theInputValue { get; set; } = DateTime.Now;
+
+    private void MyOnChangeHandler(object theUserInput)
+    {
+        // the handler receives an object that you may need to cast to the type of the component
+        // if you do not provide a Value, you must provide the Type parameter to the component
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (theUserInput as DateTime?).Value);
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
 ## See Also
 
