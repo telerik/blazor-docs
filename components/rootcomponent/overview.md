@@ -28,19 +28,17 @@ The `TelerikRootComponent` achieves all these tasks with the help of [cascading 
 
 ## Using TelerikRootComponent
 
+This section applies to:
+
+* .NET 6 and .NET 7 Blazor apps
+* .NET 8 Blazor Web Apps with **Global** interactivity location. If your app has **Per page/component** interactivity, then refer to section [Interactivity Considerations](#interactivity-considerations) below.
+
 The recommended way to add `TelerikRootComponent` to a Blazor app is to:
 
 1. Create a new layout file in the app, for example, `TelerikLayout.razor`.
 1. (optional) Place the new layout in the same folder as the default application layout (usually `MainLayout.razor`).
 1. Add a `<TelerikRootComponent>` tag to the new layout and set `@Body` as the root component's child content.
 1. Make the new layout a parent of the default application layout.
-
-The above approach has the following benefits:
-
-* There is a separation of concerns and the `TelerikRootComponent` can be a parent of multiple other layouts.
-* You can use `DialogFactory` (predefined Telerik dialogs) in `MainLayout.razor`.
-
-However, you can also [add `<TelerikRootComponent>` directly to the existing application layouts](#adding-telerikrootcomponent-to-existing-layout).
 
 >caption Adding TelerikRootComponent to a new layout
 
@@ -60,7 +58,12 @@ However, you can also [add `<TelerikRootComponent>` directly to the existing app
 @* The other MainLayout.razor content remains the same. *@
 ````
 
-### Adding TelerikRootComponent to Existing Layout
+The above approach has the following benefits:
+
+* There is a separation of concerns and a single `TelerikRootComponent` can be a parent of multiple other layouts.
+* You can use `DialogFactory` (predefined Telerik dialogs) in `MainLayout.razor`.
+
+However, you can also add `<TelerikRootComponent>` directly to an existing application layout, instead of creating a new one.
 
 >caption Adding TelerikRootComponent to MainLayout.razor
 
@@ -75,21 +78,14 @@ However, you can also [add `<TelerikRootComponent>` directly to the existing app
 ````
 
 
-## .NET 8 Notes
+## Interactivity Considerations
 
-.NET 8 introduced the concept of static Blazor apps with optional interactive components. The following requirements and considerations apply to the `TelerikRootComponent`:
+.NET 8 introduced new [render modes for Blazor web apps](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes) and the concept of static Blazor apps with optional interactive components. The following requirements and considerations apply to the `TelerikRootComponent`:
 
 * The `TelerikRootComponent` must reside in an interactive layout or component.
 * Application layouts are interactive only if the whole app is interactive. To achieve this, set **Interactivity location** of the app to **Global** during app creation.
-* When the whole app is interactive and the `TelerikRootComponent` is in an (interactive) layout file, the component provides cascading values to all other Telerik components in the app.
-* When the app is static and the `TelerikRootComponent` is in a (static) layout file, its cascading values cannot reach other Telerik components, because [cascading values cannot pass data across render mode boundaries](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-8.0#cascading-valuesparameters-and-render-mode-boundaries). As a result, you need to add the `TelerikRootComponent` on each interactive page (component). Component interactivity is inherited.
-* When the `TelerikRootComponent` is added to a `.razor` file, you cannot reference the `DialogFactory` and use [predefined dialogs]({%slug dialog-predefined%}) in the same `.razor` file (but a [workaround exists](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)). The `DialogFactory` will be available to child components of the `TelerikRootComponent`. See section [Using TelerikRootComponent](#using-telerikrootcomponent) above for more information and examples.
 
-See the following resources for more details and examples of using Telerik Blazor components and `TelerikRootComponent` in .NET 8 apps.
-
-* [Interactivity Considerations]({%slug getting-started/web-app%}#interactivity-considerations)
-* [Adding `TelerikRootComponent` to Blazor Web App]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent)
-* [.NET 8 Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)
+If you are using Telerik components in a Blazor app with **Per page/component** interactivity location, then learn [how to correctly add the `TelerikRootComponent`]({%slug rootcomponent-percomponent%}) in this case.
 
 
 ## TelerikRootComponent Parameters
