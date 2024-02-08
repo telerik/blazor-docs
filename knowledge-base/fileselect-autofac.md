@@ -29,7 +29,7 @@ res_type: kb
 
 This knowledge base article deals with the following issues:
 
-* FileSelect component file stream `ReadAsync` method throws `Microsoft.JSInterop.JSException`
+* The FileSelect component's file stream `ReadAsync` method throws `Microsoft.JSInterop.JSException`.
 * FileSelect file stream reading fails when using `builder.Host.UseServiceProviderFactory`
 * An exception occurs when trying to upload files through Blazor FileSelect with Autofac dependency injection enabled.
 
