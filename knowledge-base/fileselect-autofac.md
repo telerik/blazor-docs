@@ -49,7 +49,7 @@ This knowledge base article deals with the following issues:
 
 ## Cause
 
-The problem can occurs when an Inversion of Control (IoC) container interferes with the SignalR hub operation. For example, we have received reports about Autofac:
+The problem can occur when an Inversion of Control (IoC) container interferes with the SignalR hub operation. For example, we have received reports about Autofac:
 
 >caption Program.cs
 
