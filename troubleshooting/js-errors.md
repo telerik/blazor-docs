@@ -32,6 +32,7 @@ If you get such errors, the reason may be:
 * [The `defer` attribute causes the script to load and execute too late](#defer-attribute)
 * [The Blazor framework initializes too early](#blazor-autostart)
 * [TypeScript `exports` workaround break Telerik Blazor](#typescript)
+* [A result of a syntax error in old browser](#syntaxerror-unexpected-token)
 
 ### Missing File
 
@@ -87,6 +88,7 @@ By default, TypeScript results in compiled code that needs the `exports` object,
 
 The error message may mention a component or feature initialization method, for example:
 
+* `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor.initCard' ('initCard' was undefined)`.
 * `Error: Microsoft.JSInterop.JSException: Could not find 'initGrid' in 'window.TelerikBlazor'.`
 * `Error: Could not find 'TelerikBlazorPopup' in 'window'.`
 * `Error: Could not find 'TelerikBlazor.columnResizableSetColumns' ('columnResizableSetColumns' was undefined).`
@@ -121,6 +123,8 @@ This section applies to JavaScript errors similar to `Unexpected token` or `Inva
 
 Such errors indicate an outdated browser version, WebView, or emulator, which doesn't support recent ECMAScript standards.
 [Microsoft Blazor supports only current browsers](https://learn.microsoft.com/en-us/aspnet/core/blazor/supported-platforms). The [browser support policy for Telerik UI for Blazor]({%slug system-requirements%}) is the same.
+
+A syntax error will cause the browser to discard the whole `telerik-blazor.js` file, which will also lead to error `Could not find 'TelerikBlazor.initMediaQuery' ('TelerikBlazor' was undefined)`.
 
 ## KeyNotFoundException: The given key inputElementValue was not present
 
