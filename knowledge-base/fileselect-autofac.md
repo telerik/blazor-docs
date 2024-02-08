@@ -1,6 +1,6 @@
 ---
 title: FileSelect ReadAsync Method Throws JsonException
-description: Learn how to resolve an exception about JSON serialization is attempting to deserialize an unexpected byte array when using the Telerik Blazor FileSelect.
+description: Learn how to resolve an exception about JSON serialization attempting to deserialize an unexpected byte array when using the Telerik Blazor FileSelect.
 type: troubleshooting
 page_title: FileSelect ReadAsync Method Throws JsonException
 slug: fileselect-kb-autofac
