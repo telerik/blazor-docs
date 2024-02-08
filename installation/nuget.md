@@ -53,7 +53,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 ## Use the .NET CLI
 
-When adding NuGet sources from the .NET CLI, the credentials are stored in the `NuGet.Config` file. The [password can be encrypted on Windows, but with limitations](#store-encrypted-credentials). You can use a plain text password, but better [generate a NuGet API Key](#use-nuget-api-key) and use it with the .NET CLI instead of a password.
+When adding NuGet sources from the .NET CLI, the credentials are stored in the `NuGet.Config` file. The [password can be encrypted on Windows, but with limitations](#store-encrypted-credentials). You can use a plain text password, but for better security, [generate a NuGet API Key](#use-nuget-api-key), and use it with the .NET CLI instead of a password.
 
 To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. This command creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file).
 
