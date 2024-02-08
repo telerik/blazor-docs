@@ -59,7 +59,7 @@ The problem can occur when an Inversion of Control (IoC) container interferes wi
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 ````
 
-The problem does not occur in older FileSelect versions before 5.0.0, because the component used a slower legacy file management mechanism with `string` instead of `byte[]`.
+The problem does not occur in FileSelect versions before 5.0.0, because the component used a slower legacy file management mechanism with `string` instead of `byte[]`.
 
 The following resources provide additional details:
 
