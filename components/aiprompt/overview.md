@@ -10,7 +10,7 @@ position: 0
 
 # Blazor AIPrompt Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/aiprompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response. 
+The <a href = "https://www.telerik.com/blazor-ui/ai-prompt" target="_blank">Blazor AIPrompt component</a> helps you write input (prompt) instructing the Generative AI to produce the desired response. 
 
 The component allows you to interact with the output from the AI and execute a set of predefined commands. Furthermore, the AIPrompt comes with three predefined views—Prompt, Output, and Command, as well as the option to define custom views. Users can navigate the views through the AIPrompt's ToolBar.
 
