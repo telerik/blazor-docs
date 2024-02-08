@@ -70,7 +70,7 @@ The following resources provide additional details:
 
 ## Solution
 
-To avoid the error, disable implicit parameters from services in Blazor hub configuration:
+To avoid the error, disable implicit parameters from services in the Blazor hub configuration:
 
 >caption Program.cs
 
