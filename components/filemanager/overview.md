@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 1. Add the `TelerikFileManager` tag.
 2. Set FileManager `Data` attribute to an `IEnumerable<TItem>`. [Read more for the component data binding]({%slug filemanager-data-binding-overview%}).
 3. Set the `Path` parameter via one-way or two-way binding.
-4. Handle the FileManager [events]({%slug filemanager-events%}) ([OnModelInit]({%slug filemanager-events%}#onmodelinit), [OnCreate]({%slug filemanager-events%}#oncreate), [OnUpdate]({%slug filemanager-events%}#onupdate), [OnDelete]({%slug filemanager-events%}#ondelete), [OnDownload]({%slug filemanager-events%}#ondownload)) to allow file operations such as rename, delete, create new folder.
+4. To allow file operations such as rename, delete, and create new folder, handle the following FileManager [events]({%slug filemanager-events%}): ([`OnModelInit`]({%slug filemanager-events%}#onmodelinit), [`OnCreate`]({%slug filemanager-events%}#oncreate), [`OnUpdate`]({%slug filemanager-events%}#onupdate), [`OnDelete`]({%slug filemanager-events%}#ondelete), [`OnDownload`]({%slug filemanager-events%}#ondownload)).
 
 >caption Telerik Blazor FileManager
 
