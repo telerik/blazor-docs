@@ -22,7 +22,7 @@ This article explains the events available in the Telerik DatePicker for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event fires immediately upon every change in the input (for example, keystroke, after date selection in the Calendar popup).
+The `ValueChanged` event fires upon every change in the input (for example, keystroke, after date selection in the Calendar popup).
 
 >caption Handle ValueChanged and provide initial value
 
