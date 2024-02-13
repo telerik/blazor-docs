@@ -22,29 +22,9 @@ This article explains the events available in the Telerik DateTimePicker for Bla
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input, and upon clicking the `Set` or `Now` buttons in the time dropdown.
-
->caption Handle ValueChanged
-
-````CSHTML
-@result
-<br />
-
-<TelerikDateTimePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+The `ValueChanged` event fires upon:
+* Every change in the input (for example, keystroke).
+* Clicking the `Set` or `Now` buttons in the time dropdown.
 
 >caption Handle ValueChanged and provide initial value
 
@@ -57,13 +37,13 @@ model value: @thePickerValue
 <TelerikDateTimePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateTimePicker>
 
 @code {
-    string result;
+    private string result = string.Empty;
 
-    DateTime thePickerValue { get; set; } = DateTime.Now;
+    private DateTime thePickerValue { get; set; } = DateTime.Now;
 
     private void MyValueChangeHandler(DateTime theUserInput)
     {
-        result = $"The user entered: {theUserInput}";
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", theUserInput);
 
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
         thePickerValue = theUserInput;
@@ -71,35 +51,18 @@ model value: @thePickerValue
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
+
+
 ## OnChange
 
 The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
+## can be added that Clicking the `Set` or `Now` buttons in the time dropdown.
 
 The datetime picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
-
->caption Handle OnChange
-
-````CSHTML
-@result
-<br />
-
-<TelerikDateTimePicker T="DateTime" OnChange="@MyOnChangeHandler"></TelerikDateTimePicker>
-
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (DateTime)theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
 >caption Handle OnChange and use two-way binding
 
@@ -112,18 +75,24 @@ model value: @thePickerValue
 <TelerikDateTimePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikDateTimePicker>
 
 @code {
-    string result;
+    private string result = string.Empty;
 
-    DateTime? thePickerValue { get; set; } = DateTime.Now;
+    private DateTime? thePickerValue { get; set; } = DateTime.Now;
 
     private void MyOnChangeHandler(object theUserInput)
     {
         // the handler receives an object that you may need to cast to the type of the component
         // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (theUserInput as DateTime?).Value);
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (theUserInput as DateTime?).Value);
     }
 }
 ````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+
+
 
 ## OnOpen
 
@@ -168,6 +137,7 @@ The event handler receives as an argument an `DateTimePickerCloseEventArgs` obje
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
+## to do - the calednar does not close - why - should it works like this
 ````CSHTML
 @* Cancel the OnClose event based on a condition *@
 
@@ -199,7 +169,7 @@ The event handler receives as an argument an `DateTimePickerCloseEventArgs` obje
 The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
-
+## is it ok to make it as a result to be render in the page - not to be writen in the console
 ````CSHTML
 @* You do not have to use OnChange to react to loss of focus *@
 
@@ -208,12 +178,12 @@ The `OnBlur` event fires when the component loses focus.
 </TelerikDateTimePicker>
 
 @code{
-    async Task OnBlurHandler()
+    private DateTime? TheDate { get; set; } = DateTime.Now;
+
+    private void OnBlurHandler()
     {
         Console.WriteLine($"BLUR fired, current value is {TheDate}.");
     }
-
-    DateTime? TheDate { get; set; } = DateTime.Now;
 }
 ````
 
@@ -239,6 +209,14 @@ The event handler receives as an argument an `DateTimePickerCalendarCellRenderEv
                    Width="295px">
 </TelerikDateTimePicker>
 
+<style>
+    .special {
+        color: white;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+</style>
+
 @code {
     private DateTime DateTimePickerValue { get; set; } = DateTime.Now;
 
@@ -254,14 +232,6 @@ The event handler receives as an argument an `DateTimePickerCalendarCellRenderEv
         }
     }
 }
-
-<style>
-    .special {
-        color: white;
-        background-color: greenyellow;
-        font-weight: bold;
-    }
-</style>
 ````
 
 ## See Also
