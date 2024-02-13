@@ -18,7 +18,7 @@ This article explains the events available in the Telerik DateInput for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event fires immediately upon every change in the input (for example, keystroke).
+The `ValueChanged` event fires upon every change in the input (for example, keystroke).
 
 >caption Handle ValueChanged and provide initial value
 
