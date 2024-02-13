@@ -459,3 +459,4 @@ There are a few considerations to keep in mind with the CUD operations of the gr
   * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
   * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
   * [Batch Editing Example](https://github.com/telerik/blazor-ui/tree/master/grid/batch-editing)
+  * [Enter and Exit Grid Edit Mode Programmatically]({%slug grid-kb-add-edit-state%})
