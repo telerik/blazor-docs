@@ -9,6 +9,20 @@ tags:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Dialog for Blazor,<br />
+                Window for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Description
 

@@ -15,7 +15,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Telerik® UI for Blazor AnimationContainer</td>
+            <td>AnimationContainer for Blazor</td>
         </tr>
     </tbody>
 </table>

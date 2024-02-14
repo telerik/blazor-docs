@@ -9,6 +9,17 @@ tags: grid, pin, rows, sticky, frozen, locked
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I would like to pin one or more rows on top of the Grid so that they are always visible to the users.

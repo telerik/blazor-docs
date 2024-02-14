@@ -10,6 +10,20 @@ ticketid:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Grid for Blazor,<br />
+                TreeList for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I have a Grid that displays numeric data. The numbers in the data cells are aligned to the right with the `TextAlign` column attribute. How do I align the text content of Grid header cells to the right?

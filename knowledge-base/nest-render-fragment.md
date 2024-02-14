@@ -17,7 +17,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>UI for Blazor - all components that expose `RenderFragment`s (templates) with `context`</td>
+            <td>UI for Blazor</td>
         </tr>
     </tbody>
 </table>

@@ -10,7 +10,19 @@ ticketid: 1520791, 1520425
 res_type: kb
 ---
 
+## Environment
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                ContextMenu for Blazor, <br />
+                Window for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 If I click a link to spawn a window and I'm currently scrolled up to the top of the page, the pop-up appears centered in the viewport (as desired), but if I am scrolled down, the browser (Edge & Chrome) scrolls up and places the window in the center of the viewport scrolled up (not where I was).

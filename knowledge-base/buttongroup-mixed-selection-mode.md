@@ -15,7 +15,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Telerik® UI for Blazor ButtonGroup</td>
+            <td>ButtonGroup for Blazor</td>
         </tr>
     </tbody>
 </table>

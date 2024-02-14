@@ -10,6 +10,18 @@ ticketid: 1483634
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## Description
 
 Using TypeScript to write (and generate) JavaScript code used in the Blazor application can cause two types of errors - one where the default compiled result throws exceptions, an if a common workaround for that is added - it can lead to issues with the Telerik JS Interop file.

@@ -10,6 +10,17 @@ ticketid: 1470173, 1496248, 1501053, 1534242, 1554788
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>MultiSelect for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Description
 

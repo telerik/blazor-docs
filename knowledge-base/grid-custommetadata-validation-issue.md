@@ -10,11 +10,23 @@ ticketid: 1506280
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
+
 All of our Models are Generated via EF Scaffolding. We need to be able to specify our Validation criteria using the [MetadataTypeAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.metadatatypeattribute?view=net-5.0) and partial classes, but the validation is not honored in the Telerik components.
 
 ## Possible Cause
+
 The grid needs to create a new instance of the model for inserting or editing, and the only way to do that is to use `Activator.CreateInstance()`. This does not take into account the custom metadata type from the partial classes however, so the model that it returns does not have data annotations at all, and so - no validation or other attributes.
 
 >caption You can reproduce this behavior with the following simplistic markup without any Telerik components.
@@ -75,4 +87,3 @@ The Telerik components cannot get an instance of the model in any other way, so 
 * Create a custom edit form ([inline](https://demos.telerik.com/blazor-ui/grid/editing-custom-form) or [popup](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)) where you can implement the model generation and validation as required in a way that works for your project.
 
 * If you have the same models and can create an instance that has the desired validation, you can try setting it through the [grid state]({%slug grid-state%}) to initiate insertion or editing for a particular model instance, rather than let the grid create it.
-

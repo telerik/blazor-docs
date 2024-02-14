@@ -10,6 +10,20 @@ ticketid:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Grid for Blazor,<br/>
+                MultiSelect for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I want to use a MultiSelect for a column editor in the Grid to let the user select and edit multiple values from a list in a single column. I want a multiselect column.

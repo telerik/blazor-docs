@@ -10,6 +10,17 @@ ticketid: 1522796, 1524154
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I have a Window with no fixed width and the `Draggable` property is set to true. The Window contains a Grid. Initially the Window is rendered to be as wide as its content.

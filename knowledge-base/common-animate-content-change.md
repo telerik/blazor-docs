@@ -10,9 +10,19 @@ ticketid: 1505799
 res_type: kb
 ---
 
+## Environment
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
+
 We want to do some animations to show the flow between some razor components.
 
 I want to change content on my page with an animation.
