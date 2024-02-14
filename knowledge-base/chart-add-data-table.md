@@ -11,20 +11,23 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Charts for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 
 ## Description
+
 Is there an easy way to put the data table below the chart? Chart with data table. How to add a data table to the Chart?
 
 ## Solution
+
 You can use Grid for data table below the Chart. By using the same data from the Chart in the Grid below it, you can achieve the desired result.
 
 >caption Added Grid in the role of data table below the Chart. The result from the snippet below.

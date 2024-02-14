@@ -16,7 +16,16 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>All textbox, input and button components in Telerik UI for Blazor</td>
+            <td>
+                AutoComplete for Blazor,<br />
+                ComboBox for Blazor,<br />
+                DatePicker for Blazor,<br />
+                DateTimePicker for Blazor,<br />
+                DropDownList for Blazor,<br />
+                MultiColumnComboBox for Blazor,<br />
+                MultiSelect for Blazor,<br />
+                TimePicker for Blazor
+            </td>
         </tr>
         <tr>
             <td>Product Version</td>

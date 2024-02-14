@@ -11,13 +11,18 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Blazor application type</td>
-			<td>WebAssembly</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+        <tr>
+            <td>Blazor application type</td>
+            <td>WebAssembly</td>
+        </tr>
+    </tbody>
 </table>
 
 

@@ -15,16 +15,16 @@ res_type: kb
 <table>
     <tbody>
         <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+        <tr>
             <td>Product Version</td>
             <td>2.10.0</td>
         </tr>
         <tr>
-            <td>Product</td>
-            <td>Charts for Blazor</td>
-        </tr>
-        <tr>
             <td>Blazor application type</td>
-            <td>Client-side</td>
+            <td>WebAssembly</td>
         </tr>
     </tbody>
 </table>

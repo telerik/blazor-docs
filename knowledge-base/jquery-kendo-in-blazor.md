@@ -10,13 +10,25 @@ ticketid: 1422791
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
+
 While migrating an application to Blazor, you may not have time to implement all components, or there may yet be no native Blazor counterpart in the Telerik UI for Blazor suite. In such cases you may want to keep using jQuery widgets from Kendo UI in your Blazor project.
 
 We advise that you consider using only native Blazor components like the UI for Blazor suite, because this is how the framework is designed to operate. Widgets based on jQuery (such as Kendo UI) rely on direct DOM manipulation and this is something Blazor controls instead of you.
 
 ## Solution
+
 One approach may be to [use Blazor components in an ASP.NET Core 3 application](https://www.telerik.com/blogs/integrating-blazor-components-with-asp-net-core-views). Whether this is feasible depends on your project path and if/how you are migrating from an older project. You can read more details about this in the [Telerik Blazor in ASP.NET Web Application]({%slug telerik-blazor-in-asp-net-app%}) article.
 
 Should you decide to use jQuery widgets from the Kendo UI suite, here are the things to keep in mind:
@@ -33,6 +45,3 @@ Should you decide to use jQuery widgets from the Kendo UI suite, here are the th
 The project references a commercial version of UI for Blazor. If you only have a trial license, replace the reference to the NuGet package and to the JS Interop file [accordingly]({%slug getting-started/what-you-need%}).
 
 >note Such an integration is not supported by Telerik.
-
-
-

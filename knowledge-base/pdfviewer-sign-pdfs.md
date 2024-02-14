@@ -14,7 +14,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>RadPdfProcessing for Document Processing, <br /> PdfViewer for Blazor</td>
+            <td>PdfViewer for Blazor</td>
         </tr>
     </tbody>
 </table>

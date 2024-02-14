@@ -10,6 +10,17 @@ ticketid: 1547117
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>RadioGroup for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 How to implement RadioGroup behavior, but style the label and radio input pairs like toggle buttons in a ButtonGroup? Similar to a radio group, only one button should be selected at a time.

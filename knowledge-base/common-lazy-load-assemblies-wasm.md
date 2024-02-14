@@ -15,7 +15,11 @@ res_type: kb
 <table>
     <tbody>
         <tr>
-            <td>UI for Blazor version</td>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
             <td>2.19.0 and above</td>
         </tr>
         <tr>

@@ -10,6 +10,17 @@ ticketid: 1541661, 1544088
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Wizard for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 How to skip one or more Wizard steps, based on the results of another step?

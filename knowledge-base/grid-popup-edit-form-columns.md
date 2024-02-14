@@ -10,11 +10,28 @@ ticketid: 1534563,1536862
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 How do I display the Grid popup edit form in a multiple-column layout? How do I show a scrollbar if the number of Grid columns to edit is too large and overflows the page?
 
 ## Solution
+
+Customize the Grid edit from through the [`GridPopupEditFormSettings` tag]({%slug components/grid/editing/popup%}#edit-form-customization).
+
+https://docs.telerik.com/blazor-ui/components/grid/editing/popup#edit-form-customization
+
+## Versions before 3.1.0
 
 Use the [`column-count` CSS style](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns) to apply a column-based layout in the Grid popup edit form. The following CSS rule targets TelerikForms inside TelerikWindows:
 

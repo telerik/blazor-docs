@@ -12,14 +12,16 @@ res_type: kb
 ## Environment
 
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Progress® Telerik® UI for Blazor Window<br />Progress® Telerik® UI for Blazor Dialog</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Dialog for Blazor,<br />
+                Window for Blazor
+            </td>
+        </tr>
+    </tbody>
 </table>
-
 
 ## Description
 

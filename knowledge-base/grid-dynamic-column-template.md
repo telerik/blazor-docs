@@ -11,13 +11,18 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Any Blazor component with a RenderFragment template, example with Telerik Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Grid for Blazor,<br />
+                TreeList for Blazor,<br />
+                UI for Blazor
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 

@@ -10,6 +10,16 @@ ticketid: 1442823
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 You may want to change the Telerik Blazor Theme during runtime on the fly - for example, to allow your users to choose the application theme.
