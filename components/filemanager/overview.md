@@ -18,10 +18,9 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 1. Add the `TelerikFileManager` tag.
 2. Set FileManager `Data` attribute to an `IEnumerable<TItem>`. [Read more for the component data binding]({%slug filemanager-data-binding-overview%}).
 3. Set the `Path` parameter via one-way or two-way binding.
-4. Handle the FileManager [events]({%slug filemanager-events%}) ([OnModelInit]({%slug filemanager-events%}#onmodelinit), [OnCreate]({%slug filemanager-events%}#oncreate)
-, [OnUpdate]({%slug filemanager-events%}#onupdate), [OnDelete]({%slug filemanager-events%}#ondelete), [OnDownload]({%slug filemanager-events%}#ondownload)) to allow file operations such as rename, delete, create new folder.
+4. To allow file operations such as rename, delete, and create new folder, handle the following FileManager [events]({%slug filemanager-events%}): ([`OnModelInit`]({%slug filemanager-events%}#onmodelinit), [`OnCreate`]({%slug filemanager-events%}#oncreate), [`OnUpdate`]({%slug filemanager-events%}#onupdate), [`OnDelete`]({%slug filemanager-events%}#ondelete), [`OnDownload`]({%slug filemanager-events%}#ondownload)).
 
->caption Using FileManager
+>caption Telerik Blazor FileManager
 
 ````CSHTML
 @using System.IO
@@ -315,7 +314,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
             gridDesign
         };
 
-        return await Task.FromResult(files);
+        return files;
     }
 }
 ````
@@ -340,6 +339,9 @@ The following list of resources provides details and examples for data binding a
 
 * Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`]({%slug filemanager-events%}#onread).
 
+## Views
+
+The FileManager can [show files and folders in a Grid or in a ListView]({%slug filemanager-views%}). The default mode is ListView, which displays files and folders as thumbnails.
 
 ## Toolbar
 
@@ -387,6 +389,7 @@ The following table lists the FileManager parameters. Also check the [FileManage
 | `Data` | `IEnumerable<TItem>` | Allows providing data source to the component. See [data bindnig]({%slug filemanager-data-binding-overview%}).
 | `EnableLoaderContainer` | `bool` |  Specifies if loader container should be shown on slow async operations
 | `Path` | `string` | The current path. Updated when the user navigates. Two-way bindale. Handle the [`PathChanged`]({%slug filemanager-events%}#pathchanged) event if you need to react to the user navigation.
+| `View` | `FileManagerViewType` enum <br /> (`ListView`) | The layout of the FileManager main section. It can [show the files and folders as table rows or as thumbnails]({%slug filemanager-views%}). |
 
 ### Styling and Appearance
 

@@ -22,6 +22,7 @@ This article explains the events available in the Telerik FileManager for Blazor
     * [OnModelInit](#onmodelinit)
     * [OnDownload](#ondownload)
     * [SelectedItemsChanged](#selecteditemschanged)
+    * [ViewChanged](#viewchanged)
 
 ## CUD Events
 
@@ -191,128 +192,127 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
     private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
-
         var workFiles = new FlatFileEntry()
-            {
-                MyModelId = "1",
-                ParentId = null,
-                Name = "Work Files",
-                IsDirectory = true,
-                HasDirectories = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(RootPath, "Work Files"),
-                Size = 3 * 1024 * 1024
-            };
+        {
+            MyModelId = "1",
+            ParentId = null,
+            Name = "Work Files",
+            IsDirectory = true,
+            HasDirectories = true,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(RootPath, "Work Files"),
+            Size = 3 * 1024 * 1024
+        };
 
         var Documents = new FlatFileEntry()
-            {
-                MyModelId = "2",
-                ParentId = workFiles.MyModelId,
-                Name = "Documents",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "Documents"),
-                Size = 1024 * 1024
-            };
+        {
+            MyModelId = "2",
+            ParentId = workFiles.MyModelId,
+            Name = "Documents",
+            IsDirectory = true,
+            HasDirectories = false,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(workFiles.Path, "Documents"),
+            Size = 1024 * 1024
+        };
 
         var Images = new FlatFileEntry()
-            {
-                MyModelId = "3",
-                ParentId = workFiles.MyModelId,
-                Name = "Images",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "Images"),
-                Size = 2 * 1024 * 1024
-            };
+        {
+            MyModelId = "3",
+            ParentId = workFiles.MyModelId,
+            Name = "Images",
+            IsDirectory = true,
+            HasDirectories = false,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(workFiles.Path, "Images"),
+            Size = 2 * 1024 * 1024
+        };
 
         var specification = new FlatFileEntry()
-            {
-                MyModelId = "4",
-                ParentId = Documents.MyModelId,
-                Name = "Specification",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".docx",
-                DateCreated = new DateTime(2022, 1, 5),
-                DateCreatedUtc = new DateTime(2022, 1, 5),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "Specification.docx"),
-                Size = 462 * 1024
-            };
+        {
+            MyModelId = "4",
+            ParentId = Documents.MyModelId,
+            Name = "Specification",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".docx",
+            DateCreated = new DateTime(2022, 1, 5),
+            DateCreatedUtc = new DateTime(2022, 1, 5),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(Documents.Path, "Specification.docx"),
+            Size = 462 * 1024
+        };
 
         var report = new FlatFileEntry()
-            {
-                MyModelId = "5",
-                ParentId = Documents.MyModelId,
-                Name = "Monthly report",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".xlsx",
-                DateCreated = new DateTime(2022, 1, 20),
-                DateCreatedUtc = new DateTime(2022, 1, 20),
-                DateModified = new DateTime(2022, 1, 25),
-                DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
-                Size = 538 * 1024
-            };
+        {
+            MyModelId = "5",
+            ParentId = Documents.MyModelId,
+            Name = "Monthly report",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".xlsx",
+            DateCreated = new DateTime(2022, 1, 20),
+            DateCreatedUtc = new DateTime(2022, 1, 20),
+            DateModified = new DateTime(2022, 1, 25),
+            DateModifiedUtc = new DateTime(2022, 1, 25),
+            Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
+            Size = 538 * 1024
+        };
 
         var dashboardDesign = new FlatFileEntry()
-            {
-                MyModelId = "6",
-                ParentId = Images.MyModelId,
-                Name = "Dashboard Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".png",
-                DateCreated = new DateTime(2022, 1, 10),
-                DateCreatedUtc = new DateTime(2022, 1, 10),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
-                Size = 1024
-            };
+        {
+            MyModelId = "6",
+            ParentId = Images.MyModelId,
+            Name = "Dashboard Design",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".png",
+            DateCreated = new DateTime(2022, 1, 10),
+            DateCreatedUtc = new DateTime(2022, 1, 10),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "Dashboard Design.png"),
+            Size = 1024
+        };
 
         var gridDesign = new FlatFileEntry()
-            {
-                MyModelId = "7",
-                ParentId = Images.MyModelId,
-                Name = "Grid Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".jpg",
-                DateCreated = new DateTime(2022, 1, 12),
-                DateCreatedUtc = new DateTime(2022, 1, 12),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
-                Size = 1024
-            };
+        {
+            MyModelId = "7",
+            ParentId = Images.MyModelId,
+            Name = "Grid Design",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".jpg",
+            DateCreated = new DateTime(2022, 1, 12),
+            DateCreatedUtc = new DateTime(2022, 1, 12),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "Grid Design.jpg"),
+            Size = 1024
+        };
 
         var files = new List<FlatFileEntry>()
-            {
-                workFiles,
+        {
+            workFiles,
 
-                Documents,
-                specification,
-                report,
+            Documents,
+            specification,
+            report,
 
-                Images,
-                dashboardDesign,
-                gridDesign
-            };
+            Images,
+            dashboardDesign,
+            gridDesign
+        };
 
         return await Task.FromResult(files);
     }
@@ -352,6 +352,10 @@ A FileManager in a WebAssembly app usually displays files from a remote server. 
 
 The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way binding of the `SelectedItems` parameter to respond to user selection.
 
+### ViewChanged
+
+The `ViewChanged` event fires when the user toggles between the [two FileManager views (`Grid` and `ListView`)]({%slug filemanager-views%}). If you are using the event, make sure to update the value of the `View` parameter, otherwise the user action will have no effect.
+
 ## Example
 
 >caption Handle FileManager events.
@@ -361,6 +365,8 @@ The `SelectedItemChanged` event fires every time the user clicks on a new file/f
 
 <TelerikFileManager Data="@Files"
                     @bind-Path="@DirectoryPath"
+                    View="@CurrentView"
+                    ViewChanged="@OnViewChanged"
                     Height="400px"
                     OnCreate="@OnCreateHandler"
                     OnUpdate="@OnUpdateHandler"
@@ -377,6 +383,13 @@ The `SelectedItemChanged` event fires every time the user clicks on a new file/f
     private string DirectoryPath { get; set; } = string.Empty;
 
     private IEnumerable<FlatFileEntry> SelectedItems { get; set; } = new List<FlatFileEntry>();
+
+    private FileManagerViewType CurrentView { get; set; }
+
+    private void OnViewChanged(FileManagerViewType newView)
+    {
+        CurrentView = newView;
+    }
 
     private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
@@ -533,133 +546,131 @@ The `SelectedItemChanged` event fires every time the user clicks on a new file/f
 
     // the next lines are hardcoded data generation so you can explore the FileManager freely
 
-    async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
-
         var workFiles = new FlatFileEntry()
-            {
-                Id = "1",
-                ParentId = null,
-                Name = "Work Files",
-                IsDirectory = true,
-                HasDirectories = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine("files"),
-                Size = 3 * 1024 * 1024
-            };
+        {
+            Id = "1",
+            ParentId = null,
+            Name = "Work Files",
+            IsDirectory = true,
+            HasDirectories = true,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine("files"),
+            Size = 3 * 1024 * 1024
+        };
 
         var Documents = new FlatFileEntry()
-            {
-                Id = "2",
-                ParentId = workFiles.Id,
-                Name = "Documents",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "documents"),
-                Size = 1024 * 1024
-            };
+        {
+            Id = "2",
+            ParentId = workFiles.Id,
+            Name = "Documents",
+            IsDirectory = true,
+            HasDirectories = false,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(workFiles.Path, "documents"),
+            Size = 1024 * 1024
+        };
 
         var Images = new FlatFileEntry()
-            {
-                Id = "3",
-                ParentId = workFiles.Id,
-                Name = "Images",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "images"),
-                Size = 2 * 1024 * 1024
-            };
+        {
+            Id = "3",
+            ParentId = workFiles.Id,
+            Name = "Images",
+            IsDirectory = true,
+            HasDirectories = false,
+            DateCreated = new DateTime(2022, 1, 2),
+            DateCreatedUtc = new DateTime(2022, 1, 2),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(workFiles.Path, "images"),
+            Size = 2 * 1024 * 1024
+        };
 
         var specification = new FlatFileEntry()
-            {
-                Id = "4",
-                ParentId = Documents.Id,
-                Name = "Specification",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".docx",
-                DateCreated = new DateTime(2022, 1, 5),
-                DateCreatedUtc = new DateTime(2022, 1, 5),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
-                Size = 462 * 1024
-            };
+        {
+            Id = "4",
+            ParentId = Documents.Id,
+            Name = "Specification",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".docx",
+            DateCreated = new DateTime(2022, 1, 5),
+            DateCreatedUtc = new DateTime(2022, 1, 5),
+            DateModified = new DateTime(2022, 2, 3),
+            DateModifiedUtc = new DateTime(2022, 2, 3),
+            Path = Path.Combine(Documents.Path, "specification.docx"),
+            Size = 462 * 1024
+        };
 
         var report = new FlatFileEntry()
-            {
-                Id = "5",
-                ParentId = Documents.Id,
-                Name = "Monthly report",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".xlsx",
-                DateCreated = new DateTime(2022, 1, 20),
-                DateCreatedUtc = new DateTime(2022, 1, 20),
-                DateModified = new DateTime(2022, 1, 25),
-                DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
-                Size = 538 * 1024
-            };
+        {
+            Id = "5",
+            ParentId = Documents.Id,
+            Name = "Monthly report",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".xlsx",
+            DateCreated = new DateTime(2022, 1, 20),
+            DateCreatedUtc = new DateTime(2022, 1, 20),
+            DateModified = new DateTime(2022, 1, 25),
+            DateModifiedUtc = new DateTime(2022, 1, 25),
+            Path = Path.Combine(Documents.Path, "monthly-report.xlsx"),
+            Size = 538 * 1024
+        };
 
         var dashboardDesign = new FlatFileEntry()
-            {
-                Id = "6",
-                ParentId = Images.Id,
-                Name = "Dashboard Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".png",
-                DateCreated = new DateTime(2022, 1, 10),
-                DateCreatedUtc = new DateTime(2022, 1, 10),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "dashboard-design.png"),
-                Size = 1024
-            };
+        {
+            Id = "6",
+            ParentId = Images.Id,
+            Name = "Dashboard Design",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".png",
+            DateCreated = new DateTime(2022, 1, 10),
+            DateCreatedUtc = new DateTime(2022, 1, 10),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "dashboard-design.png"),
+            Size = 1024
+        };
 
         var gridDesign = new FlatFileEntry()
-            {
-                Id = "7",
-                ParentId = Images.Id,
-                Name = "Grid Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".jpg",
-                DateCreated = new DateTime(2022, 1, 12),
-                DateCreatedUtc = new DateTime(2022, 1, 12),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "grid-design.jpg"),
-                Size = 1024
-            };
+        {
+            Id = "7",
+            ParentId = Images.Id,
+            Name = "Grid Design",
+            IsDirectory = false,
+            HasDirectories = false,
+            Extension = ".jpg",
+            DateCreated = new DateTime(2022, 1, 12),
+            DateCreatedUtc = new DateTime(2022, 1, 12),
+            DateModified = new DateTime(2022, 2, 13),
+            DateModifiedUtc = new DateTime(2022, 2, 13),
+            Path = Path.Combine(Images.Path, "grid-design.jpg"),
+            Size = 1024
+        };
 
         var files = new List<FlatFileEntry>()
-            {
-                workFiles,
+        {
+            workFiles,
 
-                Documents,
-                specification,
-                report,
+            Documents,
+            specification,
+            report,
 
-                Images,
-                dashboardDesign,
-                gridDesign
-            };
+            Images,
+            dashboardDesign,
+            gridDesign
+        };
 
-        return await Task.FromResult(files);
-
+        return files;
     }
 }
 ````
