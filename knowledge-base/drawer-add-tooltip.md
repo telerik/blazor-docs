@@ -6,24 +6,24 @@ page_title: Drawer tooltips
 slug: drawer-kb-tooltips
 position:
 tags:
+ticketid: 1640720
 res_type: kb
 ---
 
 ## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Drawer for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Drawer for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
 I would like to add [Tooltips]({%slug tooltip-overview%}) to the [Drawer's]({%slug drawer-overview%}) navigation icons.
-
 
 ## Solution
 
@@ -34,12 +34,10 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
 >caption Add a tooltip to the Drawer navigation icons
 
 ````CSHTML
-@* Add a Telerik Tooltip to the Drawer *@
-
-<TelerikTooltip TargetSelector=".k-drawer-items span.k-icon[title]" />
+<TelerikTooltip TargetSelector=".k-drawer-items span.icon-container[title]" />
 
 <p>
-    <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
+    <TelerikButton OnClick="@( () => DrawerRef.ToggleAsync() )" Icon="@SvgIcon.Menu">Toggle drawer</TelerikButton>
 </p>
 
 <TelerikDrawer Data="@Data"
@@ -47,21 +45,21 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
                Mode="@DrawerMode.Push"
                @ref="@DrawerRef">
     <ItemTemplate Context="item">
-        <span class="k-icon k-i-@item.Icon" title="@item.Title"></span>
+        <span class="icon-container" title="@item.Title">
+            <TelerikSvgIcon Icon="@item.Icon" />
+        </span>
         <span class="k-item-text">@item.Text</span>
     </ItemTemplate>
 </TelerikDrawer>
 
-
-
 @code {
-    public TelerikDrawer<DrawerItem> DrawerRef { get; set; }
-    public IEnumerable<DrawerItem> Data { get; set; } =
-        new List<DrawerItem>
-        {
-            new DrawerItem { Title="Counter Title", Text = "Counter", Icon = SvgIcon.Plus, Url = "counter" },
-            new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = SvgIcon.GridLayout, Url = "fetchdata" },
-         };
+    private TelerikDrawer<DrawerItem>? DrawerRef { get; set; }
+
+    private IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>
+    {
+        new DrawerItem { Title="Counter Title", Text = "Counter", Icon = SvgIcon.Plus, Url = "counter" },
+        new DrawerItem { Title="FetchData Title", Text = "FetchData", Icon = SvgIcon.GridLayout, Url = "fetchdata" },
+    };
 
     public class DrawerItem
     {
@@ -72,4 +70,3 @@ If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview
     }
 }
 ````
-
