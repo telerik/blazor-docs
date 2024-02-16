@@ -14,12 +14,12 @@ res_type: kb
 <table>
     <tbody>
         <tr>
-            <td>Product Version</td>
-            <td>4.6.0</td>
+            <td>Product</td>
+            <td>UI for Blazor</td>
         </tr>
         <tr>
-            <td>Product</td>
-            <td>Progress® Telerik® UI for Blazor</td>
+            <td>Product Version</td>
+            <td>4.6.0</td>
         </tr>
     </tbody>
 </table>

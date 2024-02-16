@@ -11,15 +11,15 @@ res_type: kb
 ---
 
 ## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>UI for Blazor, ThemeBuilder</td>
-		</tr>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

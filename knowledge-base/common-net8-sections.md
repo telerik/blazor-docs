@@ -15,7 +15,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Telerik UI for Blazor</td>
+            <td>UI for Blazor</td>
         </tr>
         <tr>
             <td>Version</td>

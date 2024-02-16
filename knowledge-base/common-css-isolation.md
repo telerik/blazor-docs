@@ -10,8 +10,20 @@ ticketid: 1489739
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
-I'm wanting to leverage CSS isolation in my projects but am finding that it doesn't work with Telerik components.
+
+I want to leverage CSS isolation in my projects but am finding that it doesn't work with Telerik components.
 
 ## Steps to Reproduce
 

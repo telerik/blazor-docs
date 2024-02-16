@@ -11,13 +11,14 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Telerik REPL for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 

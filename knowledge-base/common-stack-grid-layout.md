@@ -9,7 +9,18 @@ tags:
 res_type: kb
 ---
 
+## Environment
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
+## Description
 
 I want to make grid and stack layouts like in XAML (WPF, Xamarin, UWP) and WinForms. In those frameworks, we use specific components for this. How do I do the same in Blazor?
 

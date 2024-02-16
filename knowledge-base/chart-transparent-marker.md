@@ -11,13 +11,14 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Charts for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Chart for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 

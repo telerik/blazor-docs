@@ -15,10 +15,12 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Arc Gauge for Blazor,<br />
-                Circular Gauge for Blazor,<br />
-                Linear Gauge for Blazor,<br />
-                Radial Gauge for Blazor</td>
+            <td>
+                ArcGauge for Blazor,<br />
+                CircularGauge for Blazor,<br />
+                LinearGauge for Blazor,<br />
+                RadialGauge for Blazor
+            </td>
         </tr>
     </tbody>
 </table>

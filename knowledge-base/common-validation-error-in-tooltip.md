@@ -10,6 +10,17 @@ ticketid: 1454018
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Description
 

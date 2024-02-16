@@ -11,11 +11,15 @@ res_type: kb
 ---
 
 ## Environment
-<table>
-	<tbody>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 Is there a good equivalent in your control set or plans for new controls as a replacement for the Web Forms Panel control? We are trying to replicate UI that we had in our Web Forms project and we cannot find a good replacement for a panel.

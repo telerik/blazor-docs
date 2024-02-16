@@ -9,6 +9,17 @@ tags:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I want to use the web assembly server-side pre-rendering feature in .NET 5 - the `WebAssemblyPrerendered` mode.
@@ -42,6 +53,3 @@ There are a couple of things specific to the Telerik components that you need to
 * Add other specific services to the `Server` project as well (such as localization services for the Telerik components, or other services for your app like data retrieval logic) and ensure they have an appropriate implementation that can work on the server.
 
 The last three steps are required so the server can also work with the Telerik components and render them. This is similar to using a server-side Blazor application - the first render happens on the server, like with a server-side Blazor app.
-
-
-

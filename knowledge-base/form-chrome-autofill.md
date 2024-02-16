@@ -10,13 +10,18 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Form for Blazor, all inputs (textboxes)</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Form for Blazor,<br />
+                TextBox for Blazor, <br />
+                TextArea for Blazor
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description

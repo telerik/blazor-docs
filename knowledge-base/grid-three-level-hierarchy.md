@@ -10,6 +10,17 @@ ticketid: 1432878
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 I'm trying to see more than 1 level of hierarchy in my grid but i don't know how i would to such a thing with the current infrastructure.

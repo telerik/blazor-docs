@@ -10,14 +10,22 @@ ticketid: 1494633
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Description
 I am using [localization]({%slug globalization-localization%}) for my components, but some strings (texts) are not translated. 
 
 For example, the column menu stays in English, or is missing its texts altogether. Or, the filter option messages are not translated. 
-
-
 
 Symptoms include:
 

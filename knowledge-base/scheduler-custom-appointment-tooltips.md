@@ -9,6 +9,16 @@ tags:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Scheduler for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

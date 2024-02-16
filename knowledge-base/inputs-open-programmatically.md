@@ -14,21 +14,21 @@ res_type: kb
 <table>
     <tbody>
         <tr>
-            <td>Product Version</td>
-            <td><strong>2.25</strong> and later</td>
-        </tr>
-        <tr>
             <td>Product</td>
             <td>
-                AutoComplete <br />
-                ComboBox <br />
-                DatePicker <br />
-                DateTimePicker <br />
-                DropDownList <br />
-                MultiColumnComboBox <br />
-                MultiSelect <br />
-                TimePicker <br />
+                AutoComplete for Blazor,<br />
+                ComboBox for Blazor,<br />
+                DatePicker for Blazor,<br />
+                DateTimePicker for Blazor,<br />
+                DropDownList for Blazor,<br />
+                MultiColumnComboBox for Blazor,<br />
+                MultiSelect for Blazor,<br />
+                TimePicker for Blazor
             </td>
+        </tr>
+        <tr>
+            <td>Product Version</td>
+            <td><strong>2.25</strong> and later</td>
         </tr>
     </tbody>
 </table>
