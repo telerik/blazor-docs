@@ -29,6 +29,7 @@ When bound to local data, the Pivot Grid requires its `Data` parameter to provid
 
 >caption PivotGrid bound to Local data provider
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikPivotGrid Data="@PivotData">
     <PivotGridColumns>
