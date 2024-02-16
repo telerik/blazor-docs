@@ -18,7 +18,8 @@ To use the Drawer for navigating between pages:
 * Put the `@Body` tag in the `<DrawerContent>` tag of the drawer.
 * Provide a collection of models that describe the pages you want the user to navigate to.
 
->tip You can find a runnable sample that showcases this in the [Drawer as Side Navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav) sample project.
+@[template](/_contentTemplates/common/navigation-components.md#navman-used)
+@[template](/_contentTemplates/common/navigation-components.md#double-navigation)
 
 >caption Use the Drawer for Navigation in `MainLayout.razor`
 
@@ -41,14 +42,13 @@ To use the Drawer for navigating between pages:
 </TelerikRootComponent>
 
 @code{ 
-    List<DrawerItem> NavigablePages { get; set; } =
-        new List<DrawerItem>
-        {
-            new DrawerItem { Text = "Home", Url = "/", Icon = SvgIcon.Home },
-            new DrawerItem { Separator = true },
-            new DrawerItem { Text = "Counter", Url = "counter", Icon = SvgIcon.PlusOutline },
-            new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = SvgIcon.Grid }
-        };
+    List<DrawerItem> NavigablePages { get; set; } = new List<DrawerItem>
+    {
+        new DrawerItem { Text = "Home", Url = "/", Icon = SvgIcon.Home },
+        new DrawerItem { Separator = true },
+        new DrawerItem { Text = "Counter", Url = "counter", Icon = SvgIcon.PlusOutline },
+        new DrawerItem { Text = "FetchData", Url = "fetchdata", Icon = SvgIcon.Grid }
+    };
 
     public class DrawerItem
     {
@@ -60,13 +60,11 @@ To use the Drawer for navigating between pages:
 }
 ````
 
+## Additional Examples
 
-## Notes
+* A GitHub sample project that showcases [Drawer as side navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav).
+* KB article on [how to select a Drawer item when the page loads]({%slug drawer-kb-sync-selected-item%}).
 
-@[template](/_contentTemplates/common/navigation-components.md#navman-used)
-@[template](/_contentTemplates/common/navigation-components.md#double-navigation)
-
-* You may also find useful [this article on selecting a Drawer item when a page loads]({%slug drawer-kb-sync-selected-item%}).
 
 ## See Also
 
