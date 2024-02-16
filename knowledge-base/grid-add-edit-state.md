@@ -1,5 +1,5 @@
 ---
-title: Enter Grid Edit Mode Programmatically
+title: Enter and Exit Grid Edit Mode Programmatically
 description: How to add and edit Grid rows programmatically or with custom buttons.
 type: how-to
 page_title: Enter and Exit Grid Edit Mode from Code
