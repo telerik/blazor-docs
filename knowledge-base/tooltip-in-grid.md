@@ -8,6 +8,20 @@ tags: telerik, blazor, grid, tooltip
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Grid for Blazor, <br />
+                Tooltip for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Description
 

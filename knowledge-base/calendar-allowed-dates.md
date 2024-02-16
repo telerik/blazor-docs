@@ -9,6 +9,16 @@ tags: telerik, blazor, calendar
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Calendar for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 

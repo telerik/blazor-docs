@@ -10,6 +10,21 @@ ticketid:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>3.x</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 If you have used the obsolete `Telerik.Blazor.IconName` class, here is the list of icon names in its stead. The [Built-in Icons page]({%slug common-features-icons%}#icons-list) provides an up-to-date list of all available font icons in our themes.

@@ -11,13 +11,19 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>AutoComplete, ComboBox, DropDownList, MultiSelect for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                AutoComplete for Blazor,<br />
+                ComboBox for Blazor,<br />
+                DropDownList for Blazor,<br />
+                MultiSelect for Blazor
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 

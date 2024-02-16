@@ -10,10 +10,21 @@ ticketid: 1475025
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>UI for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## Description
 
 When running a Telerik Blazor application I receive an error similar to the following:
-
 
 >warning `System.NullReferenceException` <br />
 >   `at Telerik.Blazor.Components.RootComponent.TelerikRootComponentFragment.Dispose()`
@@ -24,12 +35,11 @@ When running a Telerik Blazor application I receive an error similar to the foll
 
 >warning `Object reference not set to an instance of an object.`
 >   `at Telerik.Blazor.Components.TelerikRootComponentFragmentBase.OnInitAsync()`
-   
 
 
 ## Possible Cause
 
-The origin of this behavior is a missing `<TelerikRootComponent>` from the `MainLayout.razor` file in the project. 
+The origin of this behavior is a missing [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) from the `MainLayout.razor` file in the project. 
 
 You can reproduce this with the following snippet:
 

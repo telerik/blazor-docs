@@ -16,7 +16,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Charts for Blazor</td>
+            <td>Chart for Blazor</td>
         </tr>
         <tr>
             <td>Version</td>

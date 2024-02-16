@@ -10,6 +10,17 @@ ticketid: 1539464
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Switch for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 
 How do I stretch the Switch horizontally, in order to see the whole dynamic on/off text labels? The goal is to expand the component and fit the complete text automatically inside the TelerikSwitch dynamically at runtime. Setting the width to a fixed value is not a viable solution.

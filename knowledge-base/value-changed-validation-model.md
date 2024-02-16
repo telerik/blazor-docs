@@ -10,12 +10,23 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>The inputs from UI for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>
+                AutoComplete for Blazor,<br />
+                ComboBox for Blazor,<br />
+                DatePicker for Blazor,<br />
+                DateTimePicker for Blazor,<br />
+                DropDownList for Blazor,<br />
+                Form for Blazor,<br />
+                MultiColumnComboBox for Blazor,<br />
+                MultiSelect for Blazor,<br />
+                TimePicker for Blazor
+            </td>
+        </tr>
     </tbody>
 </table>
 

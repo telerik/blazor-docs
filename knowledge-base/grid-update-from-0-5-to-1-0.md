@@ -10,6 +10,17 @@ ticketid:
 res_type: kb
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
 There are some changes in the events and API of the Telerik Blazor Grid component between the 0.5.0 pre-release version and the 1.0.0 official version. We made them in order to provide better functionality, consistency and semantics of the way the component works.
 
 Here is a list of the changes:
