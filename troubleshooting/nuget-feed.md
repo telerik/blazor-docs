@@ -77,8 +77,8 @@ Add-Type -AssemblyName System.Web
 
 If the error occurs for the `Telerik.UI.for.Blazor` package, the [Telerik NuGet source]({%slug installation/nuget%}) may not be added or enabled. The possible causes are:
 
-* Missing configuration in the `NuGet.Config` file.
-* The correct `NuGet.Config` file is not used. This is common Docker scenario and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the build. For more information, see the [private NuGet feeds in Docker forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
+* Missing NuGet source configuration in the `NuGet.Config` file.
+* The correct `NuGet.Config` file is not used, because it is missing or misplaced. This is common Docker scenario and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the Docker image build. You can also [reference the `NuGet.Config` file path explicitly in the `dotnet restore` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#options). For more information, see the [private NuGet feeds in Docker forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
 
 If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages]({%slug common-features-icons%}), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
 
