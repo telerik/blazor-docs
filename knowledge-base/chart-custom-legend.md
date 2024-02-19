@@ -40,8 +40,6 @@ To use a custom Chart legend, you need to:
 >caption Custom Chart Legend with a ListView
 
 ````CSHTML
-@*Chart with custom legend*@
-
 <TelerikChart Height="400px">
 
     <ChartTitle Text="Revenue per product per year"></ChartTitle>
