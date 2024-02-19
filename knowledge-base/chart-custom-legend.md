@@ -22,6 +22,7 @@ res_type: kb
 </table>
 
 ## Description
+
 How to change the Chart Legend graphics and apply my own design? I want to have different Chart Legend Title and Icons. How to customize the Chart Legend UI.
 
 ## Solution
