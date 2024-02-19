@@ -28,8 +28,10 @@ How to change the Chart Legend graphics and apply my own design? I want to have 
 ## Solution
 
 Change the Chart Legend design with HTML/CSS. You need to:
-* Disable the built-in legend
-* Use HTML markup or any other components to create the custom legend content
+1. Disable the built-in legend with `<ChartLegend Visible="false" />`
+1. Define specific colors for the Chart series or data points [through `Color` or `ColorField`]({%slug components/chart/types/column%}).
+1. Implement the custom legend UI outside the Chart.
+1. Use the same Chart series or data point colors in custom Chart legend.
 
 >caption Custom Chart Legend with ListView
 
