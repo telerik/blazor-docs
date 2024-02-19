@@ -30,7 +30,8 @@ This knowledge base article answers the following questions:
 
 ## Solution
 
-Change the Chart Legend design with HTML/CSS. You need to:
+To use a custom Chart legend, you need to:
+
 1. Disable the built-in legend with `<ChartLegend Visible="false" />`
 1. Define specific colors for the Chart series or data points [through `Color` or `ColorField`]({%slug components/chart/types/column%}).
 1. Implement the custom legend UI outside the Chart.
