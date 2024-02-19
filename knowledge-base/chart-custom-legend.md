@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Create a Custom Chart Legend
 slug: chart-kb-custom-legend
 position: 
-tags: telerik, blazor, chart, legend, css, html
+tags: telerik, blazor, chart, legend
 ticketid: 1637556, 1640086
 res_type: kb
 ---
