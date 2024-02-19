@@ -33,7 +33,7 @@ Change the Chart Legend design with HTML/CSS. You need to:
 1. Implement the custom legend UI outside the Chart.
 1. Use the same Chart series or data point colors in custom Chart legend.
 
->caption Custom Chart Legend with ListView
+>caption Custom Chart Legend with a ListView
 
 ````CSHTML
 @*Chart with custom legend*@
