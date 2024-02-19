@@ -1,6 +1,6 @@
 ---
 title: Custom Chart Legend
-description: How to design my own chart legend
+description: How to create a custom Chart legend that is outside the component and includes rich HTML and additional components.
 type: how-to
 page_title: design custom chart legend diffent from the built-in 
 slug: chart-custom-legend
