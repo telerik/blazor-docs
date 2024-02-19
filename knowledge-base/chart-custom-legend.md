@@ -227,4 +227,5 @@ Change the Chart Legend design with HTML/CSS. You need to:
 
 ## See Also
 
-[Override Theme Styles]({%slug themes-override%})
+* [Chart Legend Documentation]({%slug chart-legend%})
+* [Chart Legend Customization Demo](https://demos.telerik.com/blazor-ui/chart/legend-customization)
