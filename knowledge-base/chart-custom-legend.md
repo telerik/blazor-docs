@@ -33,67 +33,85 @@ Change the Chart Legend design with HTML/CSS. You need to:
 ````CSHTML
 @*Chart with custom legend*@
 
-<TelerikChart>
+<TelerikChart Height="400px">
+
+    <ChartTitle Text="Revenue per product per year"></ChartTitle>
+
+    <ChartLegend Visible="false" />
+
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@Phones"
                      Field="@nameof(ProductModel.Value)"
+                     CategoryField="@nameof(ProductModel.Year)"
                      ColorField="@nameof(ProductModel.Color)">
             <ChartSeriesStack Enabled="true"></ChartSeriesStack>
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@Tablets"
                      Field="@nameof(ProductModel.Value)"
+                     CategoryField="@nameof(ProductModel.Year)"
                      ColorField="@nameof(ProductModel.Color)">
             <ChartSeriesStack Enabled="true"></ChartSeriesStack>
         </ChartSeries>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@Computers"
                      Field="@nameof(ProductModel.Value)"
+                     CategoryField="@nameof(ProductModel.Year)"
                      ColorField="@nameof(ProductModel.Color)">
             <ChartSeriesStack Enabled="true"></ChartSeriesStack>
         </ChartSeries>
     </ChartSeriesItems>
 
-    <ChartTitle Text="Revenue per product per year"></ChartTitle>
-
-    <ChartLegend Visible="false" />
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
 </TelerikChart>
 
-@* custom legend *@
-@* custom legend header*@
-<div style="display: inline-flex; gap: 6em; font-weight: bold">
-    <div style="flex: 1 0">Name</div>
-    <div style="flex: 1 0">Year</div>
-    <div style="flex: 1 0">Value</div>
-</div>
-@* custom legend content*@
-<TelerikListView TItem="@ProductModel"
-                 OnRead="@OnListRead"
+<TelerikListView OnRead="@OnListViewRead"
+                 TItem="@ProductModel"
                  Width="400px">
+    <HeaderTemplate>
+        <div class="legend-row legend-header">
+            <div>Product</div>
+            <div>Year</div>
+            <div>Value</div>
+        </div>
+    </HeaderTemplate>
     <Template>
         @{
             var item = (ProductModel)context;
         }
-        <div style="display: flex; gap: .4em;">
-            <div style="flex: 1 0">
-                <span style="color: @item.Color;">&#9733;</span>
-                <span>@item.Name</span>
+        <div class="legend-row">
+            <div>
+                <span style="color: @item.Color;">&#9733;</span> @item.Name
             </div>
-            <div style="flex: 1 0">@item.Year</div>
-            <div style="flex: 1 0">@item.Value.ToString("C2")</div>
+            <div>@item.Year</div>
+            <div>@item.Value.ToString("C2")</div>
         </div>
     </Template>
 </TelerikListView>
 
-@code {
-    private string[] XAxisItems = new string[] { (DateTime.Now.Year - 1).ToString(), (DateTime.Now.Year).ToString(), (DateTime.Now.Year + 1).ToString() };
+<style>
 
-    private List<ProductModel> ListViewData { get; set; } = new List<ProductModel>();
+    .legend-header {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    .legend-row {
+        display: flex;
+    }
+
+    .legend-row > div {
+        flex: 0 0 30%;
+    }
+
+        .legend-row > div:first-child {
+            flex: 0 0 40%;
+        }
+
+</style>
+
+@code {
+    private List<ProductModel> ListViewData { get; set; } = new();
 
     private List<ProductModel> Phones = new List<ProductModel>
     {
@@ -170,7 +188,7 @@ Change the Chart Legend design with HTML/CSS. You need to:
         }
     };
 
-    private async Task OnListRead(ListViewReadEventArgs args)
+    private async Task OnListViewRead(ListViewReadEventArgs args)
     {
         args.Data = await GenerateData();
     }
