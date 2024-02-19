@@ -26,6 +26,7 @@ res_type: kb
 How to change the Chart Legend graphics and apply my own design? I want to have different Chart Legend Title and Icons. How to customize the Chart Legend UI.
 
 ## Solution
+
 Change the Chart Legend design with HTML/CSS. You need to:
 * Disable the built-in legend
 * Use HTML markup or any other components to create the custom legend content
