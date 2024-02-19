@@ -90,4 +90,4 @@ Customize the legend items by using nested tag settings.
 
 ## See Also
 
-[Live Chart Legend Customization Demo](https://demos.telerik.com/blazor-ui/chart/legend-customization)
+* [Live Chart Legend Customization Demo](https://demos.telerik.com/blazor-ui/chart/legend-customization)
