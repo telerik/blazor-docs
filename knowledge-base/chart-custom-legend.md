@@ -23,7 +23,10 @@ res_type: kb
 
 ## Description
 
-How to change the Chart Legend graphics and apply my own design? I want to have different Chart Legend Title and Icons. How to customize the Chart Legend UI.
+This knowledge base article answers the following questions:
+
+* How to customize the Chart legend UI?
+* How to change the Chart legend graphics? I want to use custom markers and define the color of the legend item labels.
 
 ## Solution
 
