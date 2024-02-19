@@ -53,6 +53,8 @@ To customize the cell format of the exported file before it reaches the client, 
 
 7. Pass that `MemoryStream` to the `args.Stream` of the `GridAfterExcelExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
+<div class="skip-repl"></div>
+
 ````CSHTML
 @*Use RadSpreadProcessing to set background to table headers*@
 
