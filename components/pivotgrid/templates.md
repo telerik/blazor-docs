@@ -44,6 +44,7 @@ All template components expose an optional `Context` parameter. Set it in scenar
 
 >caption Using PivotGrid header and data cell templates
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikPivotGrid Data="@PivotData">
     <ColumnHeaderTemplate>
