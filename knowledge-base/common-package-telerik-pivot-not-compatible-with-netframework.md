@@ -1,5 +1,5 @@
 ---
-title: Package Telerik.Pivot.Core is not compatible with net80
+title: Package Telerik.Pivot.Core not Compatible with Net80
 description: Learn how to resolve an exception about Telerik.Pivot packages not compatible with certain .NET versions.
 type: troubleshooting
 page_title: How to Fix Error Package Telerik.Pivot.Core is not compatible with net80
