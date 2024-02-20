@@ -12,67 +12,90 @@ position: 5
 
 This article explains how to customize the editor of a single Form item. To customize the rendering and item structure of the whole Form, check the article [Form Template for All Items]({%slug form-formitems-formitemstemplate%}).
 
-You can provide your own custom editors instead of the [default editors the form can generate]({%slug form-overview%}#automatic-generation-of-fields). To do that, use the the `Template` of the [FormItem]({%slug form-formitems%}).
+## Basics
 
-When the Template is used, the built-in validation messages from the Form will not be rendered. Instead you can use the [Telerik Validation tools]({%slug validation-tools-overview%}) to provide validation messages, or any other suitable component such as the `ValidationMessage` that comes with the framework.
+Use a `<Template>` tag inside the [FormItem]({%slug form-formitems%}) definition to provide custom editor components instead of the [default editors that the Form generates]({%slug form-overview%}#automatic-generation-of-fields).
 
-In this article you can find the following examples:
+When using a Form item template, the following `FormItem` parameters are ignored, because the Form expects the template content to provide suitable replacements:
 
-* [Use Template to provide custom editors](#use-template-to-provide-custom-editor)
-* [Add validation messages to templated Form Items](#add-validation-messages-to-templated-form-items)
+* `EditorType`
+* `Hint`
+* `Id`
+* `LabelText`
 
-## Use Template to Provide Custom Editor
+## Validation Messages and Styling
+
+The `FormItem` `Template` replaces all the Form item's built-in rendering, which includes validation messages and form item labels. You can use the [Telerik validation tools]({%slug validation-tools-overview%}) to display the desired validation UI, or even use the standard Blazor `ValidationMessage` component.
+
+The Telerik Blazor Form applies red color to the labels of invalid Form items. To preserve this behavior in Form item templates:
+
+1. Set the `FormItem` `Field` parameter, which is otherwise not required when using a `Template`.
+1. Set `class="k-label k-form-label"` to the `<label>` element inside the `<Template>`
+
+## Example
+
+The sample below shows how to:
+
+* Define custom editor components inside a `FormItem` `Template`.
+* (optional) Preserve the built-in HTML rendering inside the template for consistent form item layout (`<label>` and `<div>` tags).
+* (optional) Preserve the built-in label styling for invalid form items (`FormItem` `Field` parameters and `<label>` classes).
+* (optional) Use validation messages inside Form item templates (`<TelerikValidationMessage>`).
+
+>caption Using Form Item Templates
 
 ````CSHMTL
-@* Use the Template to change the default editors *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@EditContext">
+<TelerikForm Model="@FormModel">
     <FormValidation>
         <DataAnnotationsValidator></DataAnnotationsValidator>
-        <ValidationSummary />
     </FormValidation>
     <FormItems>
-        <FormItem>
+        <FormItem Field="@nameof(TravelDestination.Country)">
             <Template>
-                <label for="country">Destination country:</label>
-                <TelerikDropDownList @bind-Value="@MyModel.Country"
-                                     DefaultText="Choose a country"
-                                     Data="@DropDownData"
-                                     Id="country">
-                    <DropDownListSettings>
-                        <DropDownListPopupSettings Height="auto" />
-                    </DropDownListSettings>
-                </TelerikDropDownList>
+                <label for="country" class="k-label k-form-label">Destination Country</label>
+                <div class="k-form-field-wrap">
+                    <TelerikDropDownList @bind-Value="@FormModel.Country"
+                                         DefaultText="Select Country"
+                                         Data="@DropDownData"
+                                         Id="country">
+                        <DropDownListSettings>
+                            <DropDownListPopupSettings Height="auto" />
+                        </DropDownListSettings>
+                    </TelerikDropDownList>
+                    <TelerikValidationMessage For="@(() => FormModel.Country)" />
+                </div>
             </Template>
         </FormItem>
-        <FormItem>
+        <FormItem Field="@nameof(TravelDestination.City)">
             <Template>
-                <label for="city">Destination city:</label>
-                <TelerikComboBox @bind-Value="@MyModel.City"
-                                 Data="@CityData"
-                                 Id="city">
-                    <ComboBoxSettings>
-                        <ComboBoxPopupSettings Height="auto" />
-                    </ComboBoxSettings>
-                </TelerikComboBox>
+                <label for="city" class="k-label k-form-label">Destination City</label>
+                <div class="k-form-field-wrap">
+                    <TelerikComboBox Data="@CityData"
+                                     @bind-Value="@FormModel.City"
+                                     Placeholder="Select City"
+                                     Id="city">
+                        <ComboBoxSettings>
+                            <ComboBoxPopupSettings Height="auto" />
+                        </ComboBoxSettings>
+                    </TelerikComboBox>
+                    <TelerikValidationMessage For="@(() => FormModel.City)" />
+                </div>
             </Template>
         </FormItem>
-        <FormItem>
+        <FormItem Field="@nameof(TravelDestination.FirstTime)">
             <Template>
-                <label for="visited">First time to visit:</label>
-                <TelerikSwitch @bind-Value="@MyModel.FirstTime"></TelerikSwitch>
+                <label for="firsttime" class="k-label k-form-label">First Time Visit</label>
+                <div class="k-form-field-wrap">
+                    <TelerikSwitch @bind-Value="@FormModel.FirstTime"
+                                   OnLabel="Yes"
+                                   OffLabel="No" />
+                </div>
             </Template>
         </FormItem>
     </FormItems>
 </TelerikForm>
 
-
 @code {
-    private TemplateModel MyModel { get; set; } = new TemplateModel();
-
-    private EditContext EditContext { get; set; }
+    private TravelDestination FormModel { get; set; } = new();
 
     private List<string> DropDownData { get; } = new List<string>()
     {
@@ -85,7 +108,7 @@ In this article you can find the following examples:
     {
         get
         {
-            switch (MyModel.Country)
+            switch (FormModel.Country)
             {
                 case "Bulgaria":
                     return new List<string>() { "Sofia", "Plovdiv", "Varna", "Burgas" };
@@ -95,140 +118,18 @@ In this article you can find the following examples:
                     return new List<string>() { "Athens", "Thessaloniki", "Patras", "Piraeos" };
                 default:
                     return new List<string>();
-                    break;
             }
         }
     }
 
-    protected override void OnInitialized()
+    public class TravelDestination
     {
-        EditContext = new EditContext(MyModel);
-        base.OnInitialized();
-    }
-
-    public class TemplateModel
-    {
-        public TemplateModel()
-        {
-
-        }
-
-        [Required]
+        [Required(ErrorMessage = "Country is required")]
         public string Country { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
 
-        [Range(typeof(bool), "true", "true", ErrorMessage = "You must confirm first time.")]
-        public bool FirstTime { get; set; }
-    }
-}
-````
-
-
-## Add Validation Messages to Templated Form Items
-
-You can render validation messages for templated Form items by using the [TelerikValidationMessage]({%slug validation-tools-message%}).
-
-````CSHTML
-@* Use the TelerikValidationMessage to render validation messages *@
-
-@using System.ComponentModel.DataAnnotations
-
-<TelerikForm EditContext="@EditContext">
-    <FormValidation>
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-    </FormValidation>
-    <FormItems>
-        <FormItem>
-            <Template>
-                <label for="country">Destination country:</label>
-                <TelerikDropDownList @bind-Value="@MyModel.Country"
-                                     DefaultText="Choose a country"
-                                     Data="@DropDownData"
-                                     Id="country">
-                    <DropDownListSettings>
-                        <DropDownListPopupSettings Height="auto" />
-                    </DropDownListSettings>
-                </TelerikDropDownList>
-                <TelerikValidationMessage For="@(() => MyModel.Country)" />
-            </Template>
-        </FormItem>
-        <FormItem>
-            <Template>
-                <label for="city">Destination city:</label>
-                <TelerikComboBox @bind-Value="@MyModel.City"
-                                 Data="@CityData"
-                                 Id="city">
-                    <ComboBoxSettings>
-                        <ComboBoxPopupSettings Height="auto" />
-                    </ComboBoxSettings>
-                </TelerikComboBox>
-                <TelerikValidationMessage For="@(() => MyModel.City)" />
-            </Template>
-        </FormItem>
-        <FormItem>
-            <Template>
-                <label for="visited">First time to visit:</label>
-                <TelerikSwitch @bind-Value="@MyModel.FirstTime"></TelerikSwitch>
-                <TelerikValidationMessage For="@(() => MyModel.FirstTime)" />
-            </Template>
-        </FormItem>
-    </FormItems>
-</TelerikForm>
-
-
-@code {
-    private TemplateModel MyModel { get; set; } = new TemplateModel();
-
-    private EditContext EditContext { get; set; }
-
-    private List<string> DropDownData { get; } = new List<string>()
-    {
-        "Bulgaria",
-        "Italy",
-        "Greece"
-    };
-
-    private List<string> CityData
-    {
-        get
-        {
-            switch (MyModel.Country)
-            {
-                case "Bulgaria":
-                    return new List<string>() { "Sofia", "Plovdiv", "Varna", "Burgas" };
-                case "Italy":
-                    return new List<string>() { "Rome", "Milan", "Naples", "Turin" };
-                case "Greece":
-                    return new List<string>() { "Athens", "Thessaloniki", "Patras", "Piraeos" };
-                default:
-                    return new List<string>();
-                    break;
-            }
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-        EditContext = new EditContext(MyModel);
-        base.OnInitialized();
-    }
-
-    public class TemplateModel
-    {
-        public TemplateModel()
-        {
-
-        }
-
-        [Required(ErrorMessage = "Select a Country")]
-        public string Country { get; set; }
-
-        [Required(ErrorMessage = "Select a City")]
-        public string City { get; set; }
-
-        [Range(typeof(bool), "true", "true", ErrorMessage = "You must confirm first time.")]
         public bool FirstTime { get; set; }
     }
 }
@@ -236,9 +137,7 @@ You can render validation messages for templated Form items by using the [Teleri
 
 ## See Also
 
-  * [Overview]({%slug form-overview%})
-  * [FormItems]({%slug form-formitems%})
-  * [FormGroups]({%slug form-formgroups%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
-   
+* [Live Demo: Form Item Templates](https://demos.telerik.com/blazor-ui/form/templates)
+* [Form Items]({%slug form-formitems%})
+* [Form Groups]({%slug form-formgroups%})
+* [Form Events]({%slug form-events%})
