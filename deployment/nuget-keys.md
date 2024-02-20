@@ -108,7 +108,7 @@ If you just start using the Telerik NuGet server in your CI or inter-department 
 
 * [Announcing NuGet Keys](https://www.telerik.com/blogs/announcing-nuget-keys)
 
-When restoring NuGet packages through CLI, make sure to [use `dotnet restore` rather than `nuget restore` in order to avoid compatibility errors]({%slug common-kb-package-telerik-pivot-not-compatible-with-netframework%}).
+When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors]({%slug common-kb-package-telerik-pivot-not-compatible-with-netframework%}).
 
 
 ## See Also
