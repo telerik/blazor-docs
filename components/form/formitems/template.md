@@ -14,7 +14,12 @@ This article explains how to customize the editor of a single Form item. To cust
 
 ## Basics
 
-Use a `<Template>` tag inside the [FormItem]({%slug form-formitems%}) definition to provide custom editor components instead of the [default editors that the Form generates]({%slug form-overview%}#automatic-generation-of-fields).
+Form item templates enables the app to:
+
+* Replace the [default editor that the Form generates for a given data type]({%slug form-overview%}#automatic-generation-of-fields) with a different component.
+* Use the usual editor component for a given data type, but customize the editor or handle additional events.
+
+To use a form item template, add a `<Template>` tag inside the [FormItem]({%slug form-formitems%}).
 
 When using a Form item template, the following `FormItem` parameters are ignored, because the Form expects the template content to provide suitable replacements:
 
@@ -29,8 +34,8 @@ The `FormItem` `Template` replaces all the Form item's built-in rendering, which
 
 The Telerik Blazor Form applies red color to the labels of invalid Form items. To preserve this behavior in Form item templates:
 
-1. Set the `FormItem` `Field` parameter, which is otherwise not required when using a `Template`.
-1. Set `class="k-label k-form-label"` to the `<label>` element inside the `<Template>`
+1. Set the `FormItem` [`Field` parameter]({%slug form-formitems%}#formitem-parameters), which is otherwise not required when using a `Template`.
+1. Use a `<label class="k-label k-form-label">` element inside the `<Template>`.
 
 ## Example
 
