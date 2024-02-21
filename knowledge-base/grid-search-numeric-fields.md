@@ -180,9 +180,11 @@ Here is an overview of the major steps in the example:
 
 <span class="k-grid-search k-textbox k-input k-input-solid k-rounded-md k-input-md">
     <span class="k-icon k-input-icon k-i-search"></span>
-    <input @oninput="@OnInput"
+    <span onkeydown="event.stopPropagation()">
+        <input @oninput="@OnInput"
            value="@SearchBoxValue"
            type="text" class="k-input-inner" />
+    </span>
     @if (!string.IsNullOrEmpty(SearchBoxValue))
     {
         <span @onclick="@ClearSearch"
