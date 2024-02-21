@@ -33,16 +33,16 @@ The default `min-height` of the `.k-nodata` class is 140px. The default `min-hei
 
 ## Solution
 
-The DropDownList popup setting `Class` lets you define a CSS class that will be rendered on the popup element.
+You need to change the default minimum height of the popup element. The DropDownList [popup setting `Class`]({%slug components/dropdownlist/overview%}#popup-settings) lets you define a CSS class. The defined rules from the CSS will change the appearance and properties of the popup element. With the CSS rule `min-height: auto` the popup element's height is flexible and adjusts dynamically based on its content.
 
 >caption Use a Class to set the min-height of the .k-nodata class to auto.
 
 ````CSHTML
 <div>
-    Select a country (set Height):
+    Popup with set Height:
     <TelerikDropDownList @bind-Value="@SelectedValue"
                          Data="@Countries"
-                         Filterable="@Filterable">
+                         Filterable="true">
         <DropDownListSettings>
             <DropDownListPopupSettings Height="100px" Class="no-data-min-height"></DropDownListPopupSettings>
         </DropDownListSettings>
@@ -50,10 +50,10 @@ The DropDownList popup setting `Class` lets you define a CSS class that will be 
 </div>
 
 <div>
-    Select a country (set MaxHeight):
+    Popup with set MaxHeight:
     <TelerikDropDownList @bind-Value="@SelectedValue"
                          Data="@Countries"
-                         Filterable="@Filterable">
+                         Filterable="true">
         <DropDownListSettings>
             <DropDownListPopupSettings MaxHeight="100px" Class="no-data-min-height"></DropDownListPopupSettings>
         </DropDownListSettings>
@@ -68,8 +68,6 @@ The DropDownList popup setting `Class` lets you define a CSS class that will be 
 
 
 @code {
-    private bool Filterable { get; set; } = true;
-
     private string SelectedValue { get; set; } = "Austria";
 
     private List<string> Countries = new List<string>()
