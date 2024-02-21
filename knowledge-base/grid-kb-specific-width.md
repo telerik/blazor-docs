@@ -1,10 +1,10 @@
 ---
 title: Grid Column specific Width
-description: How to distribute the available Grid Width to some columns only? 
+description: How to distribute the available Grid Width to some columns only?
 type: how-to
 page_title: Available Grid Width distributed to some Columns
 slug: grid-kb-specific-width
-position: 
+position:
 tags: telerik, blazor, grid, column, width
 ticketid: 1635964
 res_type: kb
@@ -35,7 +35,7 @@ so the remaining Grid `Width` to be distributed only to some columns, alternativ
 
 Here are three possible solutions:
 
-1. You can leave the columns you are fine to grow without width.
+1\. You can leave the columns you are fine to grow without width.
 
 >important Notes:
 >
@@ -94,12 +94,6 @@ Here are three possible solutions:
     }
 }
 ````
-
->important Notes:
->
-* You may get a horizontal scrollbar on the page if the browser viewport is too narrow.
-* The `min-width` style should be more than the sum of the all set column widths. The width-less N number of columns will receive 1/N of the remaining space.
-
 
 3\. Leave the columns you are fine to grow without width and set a `min-width` style for the Grid Tables.
 
