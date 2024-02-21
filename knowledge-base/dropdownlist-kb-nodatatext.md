@@ -39,7 +39,7 @@ You need to change the default minimum height of the popup element. The DropDown
 
 ````CSHTML
 <div>
-    Popup with set Height:
+    Popup with Height:
     <TelerikDropDownList @bind-Value="@SelectedValue"
                          Data="@Countries"
                          Filterable="true">
@@ -50,7 +50,7 @@ You need to change the default minimum height of the popup element. The DropDown
 </div>
 
 <div>
-    Popup with set MaxHeight:
+    Popup with MaxHeight:
     <TelerikDropDownList @bind-Value="@SelectedValue"
                          Data="@Countries"
                          Filterable="true">
