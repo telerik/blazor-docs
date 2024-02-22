@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-When the popup is smaller than the default `min-height` of the no data template, the "No data" text is not visible.
+When the dropdown is smaller than the default `min-height` of the no data template, the "No Data" text is not visible.
 
 
 ## Cause
