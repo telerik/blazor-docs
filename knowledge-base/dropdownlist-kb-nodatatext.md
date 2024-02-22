@@ -28,7 +28,7 @@ When the dropdown is smaller than the default `min-height` of the no data templa
 
 ## Cause
 
-The default `min-height` of the `.k-nodata` class is 140px. The default `min-height` of the popup is 200px. If the `Height` or `MaxHeight` of the popup is equal to or smaller than 100px, the "No data" text is not visible.
+The default `min-height` of the `.k-nodata` class is `140px`. The default `height` of the dropdown is `200px`. If the `Height` or `MaxHeight` of the dropdown is equal to or smaller than `100px`, the "No Data" text is not visible.
 
 
 ## Solution
