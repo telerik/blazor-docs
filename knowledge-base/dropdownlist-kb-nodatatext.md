@@ -1,8 +1,8 @@
 ---
-title: 'No Data' Text Missing in DropDownList Popup
+title: No Data Text Missing in DropDownList Popup
 description: How to make the "No Data" text vertically aligned based on the dropdown height in order to have it always visible?
 type: troubleshooting
-page_title: 'No Data' Text Not Visible in the DropDownList Popup
+page_title: No Data Text Not Visible in the DropDownList Popup
 slug: dropdownlist-kb-nodatatext
 tags: telerik, blazor, dropdownlist, popup, dropdownlistpopupsettings, css
 ticketid: 1635198
