@@ -18,6 +18,7 @@ This page provides solutions for JavaScript errors that you may encounter while 
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
+* [Microsoft.JSInterop.JSException: Maximum call stack size exceeed](#maximum-call-stack-size-exceed)
 
 ## TelerikBlazor was undefined
 
@@ -135,3 +136,25 @@ This error indicates that [the app is using an old or wrong version of the `tele
 ## Object doesn't support property or method 'assign'
 
 Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug system-requirements%}#browser-support), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+
+## Maximum call stack size exceeed
+
+Some common causes for the `Maximum call stack size exceeed` error are:
+
+* Update from older to newer .NET version
+* Old version of the `Telerik.UI.for.Blazor` (4.6.0 and older) with .NET 8
+* All references to `Telerik.UI.for.Blazor` in your app are not for latest `Telerik.UI.for.Blazor` version 
+* The project is runnable in one browser and not in another
+
+The solution is:
+
+1. Close the opened project of the app from Visual Studio.
+1. Delete all the `bin` and `obj` files in all projects in the solution.
+1. Clear the browser cache.
+1. Reopen Visual Studio and rebuild the app. 
+
+By clearing the browser cache, the `the telerik-blazor.js` file will reload and the error should go away.
+
+You can also add a cache buster for your end users, which will have the same effect:
+
+`<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version501"></script>`
