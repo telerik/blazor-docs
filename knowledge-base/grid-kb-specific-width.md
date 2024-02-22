@@ -5,7 +5,7 @@ type: how-to
 page_title: Available Grid Width distributed to some Columns
 slug: grid-kb-specific-width
 position:
-tags: telerik, blazor, grid, column, width
+tags: telerik, blazor, grid, column, css
 ticketid: 1635964
 res_type: kb
 ---
