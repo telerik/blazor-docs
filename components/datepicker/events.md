@@ -31,18 +31,18 @@ The `OnBlur` event fires when the component loses focus.
 
 @result
 
-<TelerikDatePicker @bind-Value="@ТheInputValue"
+<TelerikDatePicker @bind-Value="@TheDate"
                    OnBlur="@OnBlurHandler">
 </TelerikDatePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime? ТheInputValue { get; set; } = DateTime.Now;
+    private DateTime? TheDate { get; set; } = DateTime.Now;
 
     private void OnBlurHandler()
     {
-        result = string.Format("BLUR fired, current value is {0:dd/MMM/yyyy}", ТheInputValue);
+        result = $"BLUR fired, current value is {TheDate}.";
     }
 }
 ````
@@ -139,7 +139,6 @@ model value: @ThePickerValue
 
 
 ## OnClose
-
 
 The `OnClose` event fires before the DatePicker popup closes.
 
