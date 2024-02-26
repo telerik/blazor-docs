@@ -1,5 +1,5 @@
 ---
-title: Grid Column specific Width
+title: Horizontal Grid Scrolling without Column Widths
 description: How to distribute the available Grid Width to some columns only?
 type: how-to
 page_title: Available Grid Width distributed to some Columns
