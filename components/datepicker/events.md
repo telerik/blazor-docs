@@ -38,11 +38,11 @@ The `OnBlur` event fires when the component loses focus.
 @code {
     private string result = string.Empty;
 
-    private DateTime? TheDate { get; set; } = DateTime.Now;
+    private DateTime? TheDate { get; set; } = DateTime.Today;
 
     private void OnBlurHandler()
     {
-        result = $"BLUR fired, current value is {TheDate}.";
+        result = string.Format("BLUR fired, current value is {0:dd/MMM/yyyy}", TheDate);
     }
 }
 ````
@@ -84,7 +84,7 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
 </style>
 
 @code {
-    private DateTime? DatePickerValue { get; set; } = DateTime.Now;
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
 
     private void OnCalendarCellRenderHandler(DatePickerCalendarCellRenderEventArgs args)
     {
@@ -115,14 +115,14 @@ The DatePicker is a generic component, so you must provide either a `Value`, or 
 model value: @ThePickerValue
 <br />
 
-<TelerikDatePicker @bind-Value="@ThePickerValue" 
+<TelerikDatePicker @bind-Value="@ThePickerValue"
                    OnChange="@MyOnChangeHandler">
 </TelerikDatePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime? ThePickerValue { get; set; } = DateTime.Now;
+    private DateTime? ThePickerValue { get; set; } = DateTime.Today;
 
     private void MyOnChangeHandler(object theUserInput)
     {
@@ -190,7 +190,7 @@ The event handler receives as an argument an `DatePickerOpenEventArgs` object th
 </TelerikDatePicker>
 
 @code {
-    private DateTime? DatePickerValue { get; set; } = DateTime.Now;
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
 
     private void OnDatePickerPopupOpen(DatePickerOpenEventArgs args)
     {
@@ -222,7 +222,7 @@ model value: @ThePickerValue
 @code {
     private string result = string.Empty;
 
-    private DateTime ThePickerValue { get; set; } = DateTime.Now;
+    private DateTime ThePickerValue { get; set; } = DateTime.Today;
 
     private void MyValueChangeHandler(DateTime theUserInput)
     {
