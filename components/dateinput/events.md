@@ -50,7 +50,7 @@ The `OnBlur` event fires when the component loses focus.
 
 The `OnChange` event represents an user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
 
-The date input is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+The DateInput is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange and use two-way binding
 
@@ -60,7 +60,9 @@ The date input is a generic component, so you must provide either a `Value`, or 
 model value: @ТheInputValue
 <br />
 
-<TelerikDateInput @bind-Value="@ТheInputValue" OnChange="@MyOnChangeHandler"></TelerikDateInput>
+<TelerikDateInput @bind-Value="@ТheInputValue" 
+                  OnChange="@MyOnChangeHandler">
+</TelerikDateInput>
 
 @code {
     private string result = string.Empty;
@@ -93,7 +95,9 @@ The `ValueChanged` event fires upon every valid change in the input (for example
 model value: @ТheInputValue
 <br />
 
-<TelerikDateInput Value="@ТheInputValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDateInput>
+<TelerikDateInput Value="@ТheInputValue" 
+                  ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )">
+</TelerikDateInput>
 
 @code {
     private string result = string.Empty;

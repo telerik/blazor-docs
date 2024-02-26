@@ -28,23 +28,25 @@ The `OnBlur` event fires when the component loses focus.
 
 ````CSHTML
 @* You do not have to use OnChange to react to loss of focus *@
+
 @result
 
-<TelerikDatePicker @bind-Value="@TheDate"
+<TelerikDatePicker @bind-Value="@ТheInputValue"
                    OnBlur="@OnBlurHandler">
 </TelerikDatePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime? TheDate { get; set; } = DateTime.Now;
+    private DateTime? ТheInputValue { get; set; } = DateTime.Now;
 
-    private async Task OnBlurHandler()
+    private void OnBlurHandler()
     {
-        result = string.Format("BLUR fired, last value was: {0:dd/MMM/yyyy}", ( (DateTime?)theDate).Value);
+        result = string.Format("BLUR fired, current value is {0:dd/MMM/yyyy}", ТheInputValue);
     }
 }
 ````
+
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
 
@@ -68,8 +70,8 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
 ````CSHTML
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
-<TelerikDatePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
-                   @bind-Value="@DatePickerValue"
+<TelerikDatePicker @bind-Value="@DatePickerValue"
+                   OnCalendarCellRender="@OnCalendarCellRenderHandler"
                    Width="295px">
 </TelerikDatePicker>
 
@@ -101,9 +103,7 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when:
-* The user presses `Enter` in the input.
-* The input loses focus.
+The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
 
 The DatePicker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
 
@@ -112,10 +112,12 @@ The DatePicker is a generic component, so you must provide either a `Value`, or 
 ````CSHTML
 @result
 <br />
-model value: @thePickerValue
+model value: @ThePickerValue
 <br />
 
-<TelerikDatePicker @bind-Value="@ThePickerValue" OnChange="@MyOnChangeHandler"></TelerikDatePicker>
+<TelerikDatePicker @bind-Value="@ThePickerValue" 
+                   OnChange="@MyOnChangeHandler">
+</TelerikDatePicker>
 
 @code {
     private string result = string.Empty;
@@ -126,7 +128,7 @@ model value: @thePickerValue
     {
         // the handler receives an object that you may need to cast to the type of the component
         // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", ( (DateTime?)theUserInput).Value);
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)theUserInput);
     }
 }
 ````
@@ -138,7 +140,6 @@ model value: @thePickerValue
 
 ## OnClose
 
-//public EventCallback<DatePickerCloseEventArgs> OnClose { get; set; }
 
 The `OnClose` event fires before the DatePicker popup closes.
 
@@ -152,31 +153,27 @@ The event handler receives as an argument an `DatePickerCloseEventArgs` object t
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikDatePicker @bind-Value="@DatePickerValue"
-                   OnClose="@OnDatePickerPopupClose"
-                   Format="dd MMMM yyyy"
-                   Min="@Min" Max="@Max">
+                   OnClose="@OnDatePickerPopupClose">
 </TelerikDatePicker>
 
 @code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Today;
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
 
     private void OnDatePickerPopupClose(DatePickerCloseEventArgs args)
     {
         //cancel the OnClose event based on a condition
         if (DatePickerValue > DateTime.Today)
         {
-            args.IsCancelled = true; 
+            args.IsCancelled = true;
         }
     }
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
 
 ## OnOpen
-
-//public EventCallback<DatePickerOpenEventArgs> OnOpen { get; set; }
 
 The `OnOpen` event fires before the DatePicker popup renders. 
 
@@ -190,15 +187,11 @@ The event handler receives as an argument an `DatePickerOpenEventArgs` object th
 
 ````CSHTML
 <TelerikDatePicker @bind-Value="@DatePickerValue"
-                   OnOpen="@OnDatePickerPopupOpen"
-                   Format="dd MMMM yyyy"
-                   Min="@Min" Max="@Max">
+                   OnOpen="@OnDatePickerPopupOpen">
 </TelerikDatePicker>
 
 @code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Now;
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+    private DateTime? DatePickerValue { get; set; } = DateTime.Now;
 
     private void OnDatePickerPopupOpen(DatePickerOpenEventArgs args)
     {
@@ -208,32 +201,38 @@ The event handler receives as an argument an `DatePickerOpenEventArgs` object th
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change in the input (for example, keystroke, after date selection in the Calendar popup).
+The `ValueChanged` event fires upon every valid change in the input (for example, keystroke, after date selection in the Calendar popup).
 
 >caption Handle ValueChanged and provide initial value
 
 ````CSHTML
 @result
 <br />
-model value: @thePickerValue
+model value: @ThePickerValue
 <br />
 
-<TelerikDatePicker Value="@thePickerValue" ValueChanged="@( (DateTime inputDate) => MyValueChangeHandler(inputDate) )"></TelerikDatePicker>
+<TelerikDatePicker Value="@ThePickerValue" 
+                   ValueChanged="@( (DateTime inputDate) => MyValueChangeHandler(inputDate) )">
+</TelerikDatePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime thePickerValue { get; set; } = DateTime.Now;
+    private DateTime ThePickerValue { get; set; } = DateTime.Now;
 
     private void MyValueChangeHandler(DateTime theUserInput)
     {
+        // the handler receives a generic type <T>
+
         result = string.Format("The user entered: {0:dd/MMM/yyyy}", theUserInput);
 
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        thePickerValue = theUserInput;
+        ThePickerValue = theUserInput;
     }
 }
 ````
