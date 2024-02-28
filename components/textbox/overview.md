@@ -27,7 +27,7 @@ You can control [various attributes](#features) of the `input` element and turn 
 <TelerikTextBox @bind-Value="@StringValue" />
 
 @code {
-    string StringValue { get; set; }
+    private string StringValue { get; set; }
 }
 ````
 
@@ -58,6 +58,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `Enabled` | `bool` <br /> `true` | Whether the `input` is enabled. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Id` | `string` | Renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `MaxLength` | `int?` | Maps to the `maxlength` attribute of the HTML `<input />` element. |
 | `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
