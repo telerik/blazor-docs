@@ -52,6 +52,8 @@ The example below uses [binding]({%slug components/dropdownlist/databind%}) to p
 
     private void OnDropDownValueChanged(string newValue)
     {
+        //handling the ValueChanged event does not let you use @bind-Value
+        //one-way binding requires manual value update
         DropDownValue = newValue;
 
         EventLog = string.Format("The user selected: {0}", newValue);
