@@ -53,8 +53,8 @@ How to change the Grid font size? How to set custom font styles?
     .k-popup .k-picker,
     .k-popup .k-button,
 
-    /* dropdowns */
-    .k-popup .k-list {
+    /*column menu dropdowns */
+    .k-columnmenu-item {
         font-size: 12px;
     }
 </style>
