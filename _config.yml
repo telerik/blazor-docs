@@ -501,6 +501,7 @@ intro_columns:
       "ListView": "listview-overview"
       "Pager": "pager-overview"
       "PivotGrid": "pivotgrid-overview"
+      "Spreadsheet": "spreadsheet-overview"
       "TreeList": "treelist-overview"
   -
     title: "File Management"
