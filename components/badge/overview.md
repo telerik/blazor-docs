@@ -16,7 +16,7 @@ The component will allow the users to change the [background color]({%slug badge
 
 ## Creating Blazor Badge
 
-1. Add the `<TelerikBadge>` tag to a container that the Badge will annotate/relate to/attach.
+1. Add the `<TelerikBadge>` tag to a container that the Badge will attach to.
 1. Use the `ChildContent` to add content.
 1. (optional) Customize the [appearance]({%slug badge-appearance%}) and fine-tune the [positioning and alignment]({%slug badge-position-alignment%}) of the Telerik Blazor Badge.
 

@@ -1,20 +1,65 @@
 ---
 title: Appearance
-page_title: AppBar Appearance
-description: Appearance settings of the AppBar for Blazor.
-slug: appbar-appearance
-tags: telerik,blazor,appbar,navbar,appearance
+page_title: Badge Appearance
+description: Appearance settings of the Badge for Blazor. See the available options that allow you to fully customize the look of the Badge component. 
+slug: badge-appearance
+tags: telerik,blazor,badge,navbar,appearance
 published: True
 position: 35
 ---
 
 # Appearance Settings
 
-This article outlines the available AppBar parameters, which control its appearance.
+This article outlines the available Badge parameters, which control its appearance.
+
+## FillMode
+
+You can control how the Badge is filled by setting the `FillMode` parameter to a member of the `Telerik.Blazor.ThemeConstants.Badge.FillMode` class:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Class members | Manual declarations |
+|---------------|--------|
+| `Solid` (default value) | `solid`   |
+| `Flat` | `flat`|
+| `Outline` | `outline`|
+
+See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+
+## Rounded
+
+The `Rounded` parameter applies the `border-radius` CSS rule to the Badge to achieve curving of the edges.  You can set it to a member of the `Telerik.Blazor.ThemeConstants.Badge.Rounded` class:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Class members | Manual declarations |
+|---------------|--------|
+| `Small` | `sm`   |
+| `Medium` | `md`|
+| `Large` | `lg`|
+| `Full` (default value) | `full`|
+
+See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+
+## Size
+
+You can increase or decrease the size of the Badge by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.Badge.Size` class:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Class members | Manual declarations |
+|---------------|--------|
+| `Small` | `sm`   |
+| `Medium` (default value) | `md`|
+| `Large` | `lg`|
+
+See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
 
 ## ThemeColor
 
-You can change the color of the AppBar by setting the `ThemeColor` parameter to a member of the `Telerik.Blazor.ThemeConstants.AppBar.ThemeColor` class:
+You can change the color of the Badge by setting the `ThemeColor` parameter to a member of the `Telerik.Blazor.ThemeConstants.Badge.ThemeColor` class:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Class members | Manual declarations |
 |---------------|--------|
@@ -30,44 +75,58 @@ You can change the color of the AppBar by setting the `ThemeColor` parameter to 
 | `Light` | `light`  |
 | `Inverse` | `inverse`|
 
->caption The built-in AppBar colors
+See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+
+## Example
+
+The following example lets you experiment with the available settings that control the appearance of the Badge. It starts with the default component behavior.
 
 ````CSHTML
-<TelerikDropDownList Data="@ThemeColors" @bind-Value="@SelectedColor" Width="150px"></TelerikDropDownList>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <label>
+                Theme Color
+                <TelerikDropDownList Data="@ThemeColors" @bind-Value="@ThemeColor"></TelerikDropDownList>
+            </label>
+        </div>
+        <div class="col-md-3">
+            <label>
+                FillMode
+                <TelerikDropDownList Data="@FillModes" @bind-Value="@FillMode"></TelerikDropDownList>
+            </label>
+        </div>
+        <div class="col-md-3">
+            <label>
+                Rounded
+                <TelerikDropDownList Data="@RoundedValues" @bind-Value="@Rounded"></TelerikDropDownList>
+            </label>
+        </div>
+        <div class="col-md-3">
+            <label>
+                Size
+                <TelerikDropDownList Data="@Sizes" @bind-Value="@Size"></TelerikDropDownList>
+            </label>
+        </div>
+    </div>
 
-<TelerikAppBar ThemeColor="@SelectedColor">
-    <AppBarSection>
-        <span>Our Logo</span>
-    </AppBarSection>
-
-    <AppBarSpacer Size="25%"></AppBarSpacer>
-
-    <AppBarSection>
-        <span>Our Products</span>
-    </AppBarSection>
-
-    <AppBarSpacer Size="50px"></AppBarSpacer>
-
-    <AppBarSection>
-        <span>Our Mission</span>
-    </AppBarSection>
-
-    <AppBarSpacer></AppBarSpacer>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
-    </AppBarSection>
-
-    <AppBarSeparator></AppBarSeparator>
-
-    <AppBarSection>
-        <TelerikSvgIcon Icon="@SvgIcon.Logout"></TelerikSvgIcon>
-    </AppBarSection>
-</TelerikAppBar>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <TelerikButton>
+                Notifications
+                <TelerikBadge ThemeColor="@ThemeColor"
+                              Rounded="@Rounded"
+                              FillMode="@FillMode"
+                              Size="@Size">
+                    10
+                </TelerikBadge>
+            </TelerikButton>
+        </div>
+    </div>
+</div>
 
 @code {
-    private string SelectedColor { get; set; } = "base";
-
+    private string ThemeColor { get; set; } = ThemeConstants.Badge.ThemeColor.Primary;
     private List<string> ThemeColors { get; set; } = new List<string>()
     {
         "base",
@@ -81,6 +140,31 @@ You can change the color of the AppBar by setting the `ThemeColor` parameter to 
         "dark",
         "light",
         "inverse"
+    };
+
+    private string FillMode { get; set; } = ThemeConstants.Badge.FillMode.Solid;
+    private List<string> FillModes { get; set; } = new List<string>()
+    {
+        "solid",
+        "flat",
+        "outline"
+    };
+
+    private string Rounded { get; set; } = ThemeConstants.Badge.Rounded.Full;
+    private List<string> RoundedValues { get; set; } = new List<string>()
+    {
+        "sm",
+        "md",
+        "lg",
+        "full"
+    };
+
+    private string Size { get; set; } = ThemeConstants.Badge.Size.Medium;
+    private List<string> Sizes { get; set; } = new List<string>()
+    {
+        "sm",
+        "md",
+        "lg"
     };
 }
 ````
