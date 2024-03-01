@@ -141,7 +141,7 @@ model value: @DateTimePickerValue
 
 The `OnClose` event fires before the DateTimePicker popup closes.
 
-The event handler receives as an argument an `DateTimePickerCloseEventArgs` object that contains:
+The event handler receives as an argument an [`DateTimePickerCloseEventArgs` object](/blazor-ui/api/telerik.blazor.components.datetimepickercloseeventargs) that contains:
 
 | Property | Description |
 | --- | --- |
@@ -174,7 +174,7 @@ The event handler receives as an argument an `DateTimePickerCloseEventArgs` obje
 
 The `OnOpen` event fires before the DateTimePicker popup renders. 
 
-The event handler receives as an argument an `DateTimePickerOpenEventArgs` object that contains:
+The event handler receives as an argument an [`DateTimePickerOpenEventArgs` object](/blazor-ui/api/telerik.blazor.components.datetimepickeropeneventargs) that contains:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
