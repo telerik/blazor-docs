@@ -279,6 +279,8 @@ navigation:
         title: "AutoComplete"
      "*avatar":
         title: "Avatar"
+     "*badge":
+        title: "Badge"
      "*barcodes":
         title: "Barcodes"
      "*barcode":
@@ -568,6 +570,7 @@ intro_columns:
     title: "Labels"
     items:
       "FloatingLabel": "floatinglabel-overview"
+      "Badge": "badge-overview"
 
 -
   categories:
