@@ -28,18 +28,18 @@ The `OnBlur` event fires when the component loses focus.
 
 @result
 
-<TelerikNumericTextBox @bind-Value="@TheValue"
+<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue"
                        OnBlur="@OnBlurHandler">
 </TelerikNumericTextBox>
 
 @code {
     private string result = string.Empty;
 
-    private decimal TheValue { get; set; } = 12.34m;
+    private decimal NumericTextBoxValue { get; set; } = 12.34m;
 
     private void OnBlurHandler()
     {
-        result = $"BLUR fired, current value is {TheValue}.";
+        result = $"BLUR fired, current value is {NumericTextBoxValue}.";
     }
 }
 ````
@@ -56,23 +56,23 @@ The NumericTextBox is a generic component, so you must either provide a `Value`,
 ````CSHTML
 @result
 <br />
-model value: @TheTbValue
+model value: @NumericTextBoxValue
 <br />
 
-<TelerikNumericTextBox @bind-Value="@TheTbValue" 
+<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue" 
                        OnChange="@MyOnChangeHandler">
 </TelerikNumericTextBox>
 
 @code {
     private string result = string.Empty;
 
-    private double TheTbValue { get; set; } = 1.2345;
+    private double NumericTextBoxValue { get; set; } = 1.2345;
 
-    private void MyOnChangeHandler(object theUserInput)
+    private void MyOnChangeHandler(object userInput)
     {
         // the handler receives an object that you may need to cast to the type of the component
         // when a Value is provided, the type is taken from it
-        result = string.Format("The user entered: {0}", (double)theUserInput);
+        result = string.Format("The user entered: {0}", (double)userInput);
     }
 }
 ````
@@ -91,7 +91,7 @@ The `ValueChanged` event fires upon every valid change in the input (for example
 ````CSHTML
 @result
 <br />
-<TelerikNumericTextBox Value="@NumericValue"
+<TelerikNumericTextBox Value="@NumericTextBoxValue"
                        ValueChanged="@( (double newValue) => NumericValueChanged(newValue) )"
                        Width="200px">
 </TelerikNumericTextBox>
@@ -99,16 +99,16 @@ The `ValueChanged` event fires upon every valid change in the input (for example
 @code {
     private string result { get; set; } = string.Empty;
 
-    private double NumericValue { get; set; } = 1.23;
+    private double NumericTextBoxValue { get; set; } = 1.23;
 
     private void NumericValueChanged(double newValue)
     {
         // the handler receives a generic type <T>
 
         // one-way binding requires manual value update
-        NumericValue = newValue;
+        NumericTextBoxValue = newValue;
 
-        result = $"The new value is: {NumericValue}";
+        result = $"The new value is: {NumericTextBoxValue}";
     }
 }
 ````
