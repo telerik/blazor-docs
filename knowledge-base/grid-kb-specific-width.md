@@ -99,44 +99,43 @@ Here are three possible solutions:
 
 ````CSHTML
 <TelerikGrid Data="@GridData"
-             Class="table-min-width">
+             Class="grid-min-width"
+             Height="400px">
     <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" Width="400px" />
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" Width="200px" />
         <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
         <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
-     </GridColumns>
+    </GridColumns>
 </TelerikGrid>
 
 <style>
-    .table-min-width .k-table {
-        min-width: 900px;
+    .grid-min-width .k-table {
+        min-width: 600px;
     }
 </style>
 
 @code {
-    private List<Product> GridData { get; set; } = new ();
+    private List<Product> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        GridData = new ();
-
         var rnd = new Random();
 
         for (int i = 1; i <= 30; i++)
         {
             GridData.Add(new Product
-                {
-                    Id = i,
-                    Name = "Product name " + i,
-                    Price = (decimal)(rnd.Next(1, 50) * 3.14),
-                    Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
-                });
+            {
+                Id = i,
+                Name = "Product name " + i,
+                Price = (decimal)(rnd.Next(1, 50) * 3.14),
+                Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)),
+            });
         }
 
         base.OnInitialized();
     }
 
-    private class Product
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
