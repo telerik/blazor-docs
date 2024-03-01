@@ -1,12 +1,12 @@
 ---
-title: Horizontal Grid Scrolling without Column Widths
-description: How to distribute the available Grid Width to some columns only?
+title: Horizontal Grid Scrolling without Column Width
+description: How to Avoid Shrink or Disappear of Grid Columns and Get Horizontal Scrollbar?
 type: how-to
-page_title: Available Grid Width distributed to some Columns
+page_title: Getting Horizontal Scrollbar and Not Losing Grid Columns
 slug: grid-kb-specific-width
 position:
 tags: telerik, blazor, grid, column, css
-ticketid: 1635964
+ticketid: 1588667, 1576220, 1615618
 res_type: kb
 ---
 
@@ -24,78 +24,29 @@ res_type: kb
 
 ## Description
 
-How to modify the [Grid Column Width Behavior]({%slug grid-columns-width%}) in this case:
+This knowledge base article gives solution to the the following scenarios:
 
-* When all column widths are explicitly set and the cumulative column width is less than the available Grid width, the remaining width is distributed evenly between all columns
+1\. Scenario 1:
+* Some of the Grid Columns have `Width`.
+* The Grid gets a horizontal scrollbar.
+* The Columns without `Width` disappear or shrink when:
+    * There are too many columns.
+    * Some or all Columns `Width`s are too big.
+    * The browser viewport becomes too narrow.
 
-so the remaining Grid `Width` to be distributed only to some columns, alternatively lock the `Width` for some columns?
+2\. Scenario 2:
+* None of the Grid Colums have `Width`.
+* The Grid does not get a horizontal scrollbar.
+* There are a lot of Columns and they shrink too much.
 
+
+How can we keep the above implementations and:
+* The Colums without `Width` not to disapear or shrink.
+* Get a horizontal Grid scrollbar.
 
 ## Solution
 
-Here are three possible solutions:
-
-1\. You can leave the columns you are fine to grow without width.
-
->important Notes:
->
-* If the cumulative width of columns with set widths is less than the available Grid width, the widths of the columns with a set width are respected and the remaining width is distributed evenly between the other columns.
-* If the cumulative width of columns with set widths is more or near as size to the available Grid width, the columns without width will dissapear or shrink.
-
-
-2\. Leave the columns you are fine to grow without width and set a `min-width` style for the Grid.
-
-````CSHTML
-<TelerikGrid Data="@GridData"
-             Class="min900">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" Width="400px" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
-        <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
-     </GridColumns>
-</TelerikGrid>
-
-<style>
-    .min900  {
-        min-width: 900px;
-    }
-</style>
-
-@code {
-    private List<Product> GridData { get; set; } = new ();
-
-    protected override void OnInitialized()
-    {
-        GridData = new ();
-
-        var rnd = new Random();
-
-        for (int i = 1; i <= 30; i++)
-        {
-            GridData.Add(new Product
-                {
-                    Id = i,
-                    Name = "Product name " + i,
-                    Price = (decimal)(rnd.Next(1, 50) * 3.14),
-                    Released = DateTime.Now.AddDays(-rnd.Next(1, 365)).AddYears(-rnd.Next(1, 10)).Date,
-                });
-
-        }
-
-        base.OnInitialized();
-    }
-
-    private class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public DateTime Released { get; set; }
-    }
-}
-````
-
-3\. Leave the columns you are fine to grow without width and set a `min-width` style for the Grid Tables.
+Use the Grid's [`Class` parameter]({%slug grid-overview%}#grid-parameters) to set a custom CSS style. Set the `min-width` style for the Grid Tables. The `min-width` should be more than the sum of the all set Column [`Width` s]({%slug grid-columns-width%}). The width-less N number of columns will receive 1/N of the remaining space. So if you set enough `min-width` this will ensure the width-less columns do not disappear or shrink and you will get a horizontal Grid scrollbar.
 
 ````CSHTML
 <TelerikGrid Data="@GridData"
@@ -145,8 +96,6 @@ Here are three possible solutions:
 }
 ````
 
->important Notes:
->
-* You may get a horizontal scrollbar in the Grid if the browser viewport is too narrow.
-* If you have hierarchy, the style will apply to the detail tables as well.
-* The `min-width` style should be more than the sum of the all set column widths. The width-less N number of columns will receive 1/N of the remaining space.
+## Notes
+
+If you have hierarchy, the style will apply to the detail tables as well. 
