@@ -176,7 +176,7 @@ The event handler receives as an argument an `DatePickerCloseEventArgs` object t
 
 The `OnOpen` event fires before the DatePicker popup renders. 
 
-The event handler receives as an argument an `DatePickerOpenEventArgs` object that contains:
+The event handler receives a [`DatePickerOpenEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.DatePickerOpenEventArgs) as an argument, that contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
