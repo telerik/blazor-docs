@@ -57,7 +57,7 @@ The `OnCalendarCellRender` event fires when each calendar cell in each view is a
 * Find out the cell date.
 * Set a custom CSS class for the `<td>` element.
 
-The event handler receives a `DatePickerCalendarCellRenderEventArgs` object as an argument, which contains the following properties:
+The event handler receives a [`DatePickerCalendarCellRenderEventArgs` object](/blazor-ui/api/telerik.blazor.components.datepickercalendarcellrendereventargs) as an argument, which contains the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
