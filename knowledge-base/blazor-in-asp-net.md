@@ -21,11 +21,11 @@ res_type: kb
 
 ## Description
 
-How can I modernize my ASP.NET Core 3 web application by adding Blazor components in it, and eventually migrate the project to Blazor?
+How can I modernize my ASP.NET Core web application by adding Blazor components in it, and eventually migrate the project to Blazor?
 
 ## Considerations
 
-You can use an ASP.NET Core 3 web application to render Blazor components by following the requirements, considerations, and steps below:
+You can use an ASP.NET Core web application to render Blazor components by following the requirements, considerations, and steps below:
 
 1. Add Blazor to the project. This includes the client-side assets, the service, and the SignalR hub. In the sample project linked below, these are added to the layout so that all pages can use them. Make sure you don't add them twice on a certain page.
 1. [Add the Telerik components as usual]({%slug getting-started/what-you-need%}). Add the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) around the contents of every Blazor component. Otherwise, it is not possible to render it in a shared location like in an actual Blazor app.
