@@ -31,18 +31,18 @@ The `OnBlur` event fires when the component loses focus.
 
 @result
 
-<TelerikDateTimePicker @bind-Value="@TheDate"
+<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
                        OnBlur="@OnBlurHandler">
 </TelerikDateTimePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime? TheDate { get; set; } = DateTime.Now;
+    private DateTime? DateTimePickerValue { get; set; } = DateTime.Now;
 
     private void OnBlurHandler()
     {
-        result = $"BLUR fired, current value is {TheDate}.";
+        result = $"BLUR fired, current value is {DateTimePickerValue}.";
     }
 }
 ````
@@ -57,7 +57,7 @@ The `OnCalendarCellRender` event fires when each calendar cell in each view is a
 * Find out the cell date.
 * Set a custom CSS class for the `<td>` element.
 
-The event handler receives as an argument an `DateTimePickerCalendarCellRenderEventArgs` object that contains:
+The event handler receives as an argument an [`DateTimePickerCalendarCellRenderEventArgs` object](/blazor-ui/api/telerik.blazor.components.datetimepickercalendarcellrendereventargs) that contains:
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ The event handler receives as an argument an `DateTimePickerCalendarCellRenderEv
 ````CSHTML
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
-<TelerikDateTimePicker @bind-Value="DateTimePickerValue"
+<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
                        OnCalendarCellRender="@OnCalendarCellRenderHandler"
                        Width="295px">
 </TelerikDateTimePicker>
@@ -104,30 +104,30 @@ The event handler receives as an argument an `DateTimePickerCalendarCellRenderEv
 
 The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
 
-The DateTimePicker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
+The DateTimePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange and use two-way binding
 
 ````CSHTML
 @result
 <br />
-model value: @ThePickerValue
+model value: @DateTimePickerValue
 <br />
 
-<TelerikDateTimePicker @bind-Value="@ThePickerValue"
+<TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
                        OnChange="@MyOnChangeHandler">
 </TelerikDateTimePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime? ThePickerValue { get; set; } = DateTime.Now;
+    private DateTime? DateTimePickerValue { get; set; } = DateTime.Now;
 
-    private void MyOnChangeHandler(object theUserInput)
+    private void MyOnChangeHandler(object userInput)
     {
         // the handler receives an object that you may need to cast to the type of the component
         // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (DateTime)theUserInput);
+        result = string.Format("The user entered: {0}", (DateTime)userInput);
     }
 }
 ````
@@ -209,26 +209,26 @@ The `ValueChanged` event fires upon every valid change in the input (for example
 ````CSHTML
 @result
 <br />
-model value: @ThePickerValue
+model value: @DateTimePickerValue
 <br />
 
-<TelerikDateTimePicker Value="@ThePickerValue" 
+<TelerikDateTimePicker Value="@DateTimePickerValue" 
                        ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )">
 </TelerikDateTimePicker>
 
 @code {
     private string result = string.Empty;
 
-    private DateTime ThePickerValue { get; set; } = DateTime.Now;
+    private DateTime DateTimePickerValue { get; set; } = DateTime.Now;
 
-    private void MyValueChangeHandler(DateTime theUserInput)
+    private void MyValueChangeHandler(DateTime userInput)
     {
         //the handler receives a generic type <T>
 
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", theUserInput);
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", userInput);
 
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        ThePickerValue = theUserInput;
+        DateTimePickerValue = userInput;
     }
 }
 ````
