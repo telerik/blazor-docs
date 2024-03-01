@@ -30,23 +30,23 @@ This knowledge base article gives solution to the the following scenarios:
 * Some of the Grid Columns have `Width`.
 * The Grid gets a horizontal scrollbar.
 * The Columns without `Width` disappear or shrink when:
-    * There are too many columns.
+    * There are too many Columns.
     * Some or all Columns `Width`s are too big.
     * The browser viewport becomes too narrow.
 
 2\. Scenario 2:
-* None of the Grid Colums have `Width`.
+* None of the Grid Columns have `Width`.
 * The Grid does not get a horizontal scrollbar.
 * There are a lot of Columns and they shrink too much.
 
 
 How can we keep the above implementations and:
-* The Colums without `Width` not to disapear or shrink.
+* The Columns without `Width` not to disapear or shrink.
 * Get a horizontal Grid scrollbar.
 
 ## Solution
 
-Use the Grid's [`Class` parameter]({%slug grid-overview%}#grid-parameters) to set a custom CSS style. Set the `min-width` style for the Grid Tables. The `min-width` should be more than the sum of the all set Column [`Width` s]({%slug grid-columns-width%}). The width-less N number of columns will receive 1/N of the remaining space. So if you set enough `min-width` this will ensure the width-less columns do not disappear or shrink and you will get a horizontal Grid scrollbar.
+Use the Grid's [`Class` parameter]({%slug grid-overview%}#grid-parameters) to set a custom CSS style. Set the `min-width` style for the Grid Tables. The `min-width` should be more than the sum of the all set Column [`Width` s]({%slug grid-columns-width%}). The width-less N number of Columns will receive 1/N of the remaining space. So if you set enough `min-width` this will ensure the width-less Columns do not disappear or shrink and you will get a horizontal Grid scrollbar.
 
 ````CSHTML
 <TelerikGrid Data="@GridData"
