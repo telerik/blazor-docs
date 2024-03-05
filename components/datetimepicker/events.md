@@ -174,7 +174,7 @@ As an artgument, the event handler receives a [`DateTimePickerCloseEventArgs` ob
 
 The `OnOpen` event fires before the DateTimePicker popup renders. 
 
-The event handler receives as an argument an [`DateTimePickerOpenEventArgs` object](/blazor-ui/api/telerik.blazor.components.datetimepickeropeneventargs) that contains:
+As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` object](/blazor-ui/api/telerik.blazor.components.datetimepickeropeneventargs), which contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
