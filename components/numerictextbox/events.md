@@ -84,7 +84,7 @@ model value: @NumericTextBoxValue
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every valid change in the input (for example, keystroke). Using this event requires one-way binding for the `Value` parameter and manual update of the value in the handler. If the value is not updated, this will effective cancel the event.
+The `ValueChanged` event fires upon every valid change in the input (for example, keystroke). Using this event requires one-way binding for the `Value` parameter and manual updating of the value in the handler. If the value is not updated, this will effectively cancel the event.
 
 >caption Handle ValueChanged
 
