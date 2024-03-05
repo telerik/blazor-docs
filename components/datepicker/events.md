@@ -103,7 +103,7 @@ As an argument, the event handler receives a [`DatePickerCalendarCellRenderEvent
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
+The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
 
 The DatePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
