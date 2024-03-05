@@ -1,8 +1,8 @@
 ---
-title: Use Filter Operator Drop Down in Filter Template
+title: Use Filter Operator Drop-Down in Filter Template
 description: Learn how to implement and reuse a filter operator selector in a filter row template, as well as a button that clears the current column filter.
 type: how-to
-page_title: How to Use Filter Operator Drop Down in Filter Template
+page_title: How to Use Filter Operator Drop-Down in Filter Template
 slug: grid-kb-filter-operator-dropdown
 position: 
 tags: telerik, blazor, grid, treelist, filter
@@ -26,13 +26,13 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to implement a filter operator dropdown in a [Grid filter row template (`FilterCellTemplate`)]({%slug grid-templates-filter%})?
+* How to implement a filter operator dropdown list in a [Grid filter row template (`FilterCellTemplate`)]({%slug grid-templates-filter%})?
 * How to reuse the filter operator logic and the clear filter button logic across multiple filter cell templates?
 
 
 ## Solution
 
-The example below shows how to mimic built-in features, which exist in the `FilterRow` `FilterMode` of the Grid and TreeList:
+The example below shows how to mimic the following built-in features, which exist in the `FilterRow` `FilterMode` of the Grid and TreeList:
 
 * Operator DropDownList, which allows users to select fitler operators like "equal to", "starts with", etc.
 * Clear Button, which allows users to clear the column's filter.
