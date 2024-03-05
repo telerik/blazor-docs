@@ -43,7 +43,7 @@ The example below shows a custom filter that:
 * Shows how you can store a reference to the context or use it inline in the template.
 * Showcases building a filter descriptor with two filters and sample logic that always filters the data even if one of the inputs is empty.
 
-You can find more examples in the [Live Demo: Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row) that is available in your local installation under the `demos` folder.
+You can find more examples in the [Live Demo: Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row) that is available in your local installation under the `demos` folder. Also check [How to implement a filter operator dropdown list in a Filter Row Template]({%slug grid-kb-filter-operator-dropdown%}) in order to mimic the default filter row UI.
 
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
@@ -405,6 +405,6 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 
 ## See Also
 
- * [Live Demo: Grid Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row)
- * [Live Demo: Grid Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu)
-
+* [Live Demo: Grid Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row)
+* [Live Demo: Grid Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu)
+* [KB: Use Filter Operator DropDown List in Filter Row Template]({%slug grid-kb-filter-operator-dropdown%})
