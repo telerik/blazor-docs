@@ -202,7 +202,7 @@ As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` obje
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every valid change in the input (for example, keystroke, after date and time selection in the Calendar popup).
+The `ValueChanged` event fires upon every valid change in the input (for example, keystroke or after date and time selection in the Calendar popup).
 
 >caption Handle ValueChanged and provide initial value
 
