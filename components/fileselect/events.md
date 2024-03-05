@@ -84,6 +84,8 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
     private async Task UploadFile(FileSelectFileInfo file)
     {
+        // This code will work in Blazor Server apps.
+        // Saving files on the user device is not allowed in WebAssembly apps.
         Tokens.Add(file.Id, new CancellationTokenSource());
         var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
         await using FileStream fs = new FileStream(path, FileMode.Create);
