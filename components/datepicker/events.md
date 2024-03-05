@@ -205,7 +205,7 @@ As an argument, the event handler receives a [`DatePickerOpenEventArgs` object](
 
 ## ValueChanged
 
-The `ValueChanged` event fires on every change in the component value, that occurs after typing or selection in the Calendar popup. If the `Value` parameter is nullable and the user types a value that is outside the `Min` and `Max` range, the handler will receive a `null` argument.
+The `ValueChanged` event fires on every change in the component value that occurs after typing or selecting in the Calendar popup. If the `Value` parameter is nullable and the user types a value that is outside the `Min` and `Max` range, the handler will receive a `null` argument.
 
 >caption Handle ValueChanged and provide initial value
 
