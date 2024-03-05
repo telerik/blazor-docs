@@ -53,7 +53,7 @@ The `OnBlur` event fires when the component loses focus.
 ## OnCalendarCellRender
 
 The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to:
-* Find out the current view.
+* Identify the current view.
 * Find out the cell date.
 * Set a custom CSS class for the `<td>` element.
 
