@@ -64,7 +64,7 @@ You can find more information for customizing the Badge appearance in the [Appea
 
 * [Explore the Badge Positioning and Alignment Settings]({%slug badge-position-alignment%})
 * [Customize the Badge Appearance]({%slug badge-appearance%})
-* [Knowledge-Base article: Add a Badge to a container that cannot have children]({slug kb-badge-container-no-children})
+* [Add a Badge to a Container that Cannot Have Children (Knowledge-Base Article)]({slug kb-badge-container-no-children})
 
 ## See Also
 
