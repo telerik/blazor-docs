@@ -53,7 +53,7 @@ You can increase or decrease the size of the Badge by setting the `Size` paramet
 | `Medium` (default value) | `md`|
 | `Large` | `lg`|
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## ThemeColor
 
