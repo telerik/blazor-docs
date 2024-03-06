@@ -28,7 +28,7 @@ Refer to the [example](#example) below to customize the available parameters and
 
 ## Alignment
 
-Use the available parameters to control which side of the Badge touches the parent container.
+Use the available alignment parameters to control which side of the Badge touches the parent container.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
