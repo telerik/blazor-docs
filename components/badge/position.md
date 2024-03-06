@@ -14,7 +14,7 @@ You can position and align the Blazor Badge component relative to its parent con
 
 ## Position
 
-The `Position` parameter accepts a member of the `BadgePosition` enum and controls where the badge displays based on the parent container:
+The Position parameter accepts a member of the BadgePosition enum and controls the placement of the badge in relation to its parent container:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
