@@ -20,7 +20,7 @@ The Position parameter accepts a member of the BadgePosition enum and controls t
 
 | Enum member | Description |
 |---------------|--------|
-| `Edge` <br /> (default) | The center of the Badge will touch the edge of the parent container. |
+| `Edge` <br /> (default) | The center of the Badge touches the edge of the parent container. |
 | `Inside` | The Badge renders entirely inside the parent container. |
 | `Outside`   | The Badge renders entirely outside the parent container. | 
 
