@@ -10,7 +10,7 @@ position: 35
 
 # Appearance Settings
 
-This article outlines the available Badge parameters, which control its appearance.
+The Badge component features built-in appearance parameters that allow you to customize virtually every aspect of its look and feel.
 
 ## FillMode
 
