@@ -10,7 +10,7 @@ position: 35
 
 # Position Settings
 
-This article outlines the available Badge parameters, which control its position and alignment.
+You can position and align the Blazor Badge component relative to its parent container by using the available parameters.
 
 ## Position
 
