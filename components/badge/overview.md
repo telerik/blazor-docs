@@ -20,7 +20,7 @@ The Badge comes with built-in customization features that allow the developer to
 1. Use the `ChildContent` to add content.
 1. (optional) Customize the [appearance]({%slug badge-appearance%}) and fine-tune the [positioning and alignment]({%slug badge-position-alignment%}) of the Telerik Blazor Badge.
 
->caption Basic configuration of the Telerik Badge
+>caption Basic configuration of the Blazor Badge
 
 ````CSHTML
 <TelerikButton>
