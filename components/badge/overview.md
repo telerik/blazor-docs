@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Badge Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/badge" target="_blank">Blazor Badge component</a> is a visual element that will display additional information to the users such as status indicators, notification icons, short text, and others.
+The <a href = "https://www.telerik.com/blazor-ui/badge" target="_blank">Blazor Badge component</a> is a visual element that displays additional information, such as status indicators, notification icons, short text, and others.
 
 The component will allow the users to change the [background color]({%slug badge-appearance%}#themecolor), customize the [fill mode]({%slug badge-appearance%}#fillmode), toggle the presence of a cutout border, and fine-tune the [positioning and alignment]({%slug badge-position-alignment%}) of the component.
 
