@@ -29,7 +29,7 @@ The Badge comes with built-in customization features that allow the developer to
 </TelerikButton>
 ````
 
-## Badge Positioning and Alignment
+## Positioning and Alignment
 
 Use can control how the Badge is positioned in relation to the associated container. [Read more about the Blazor Badge positioning...]({%slug badge-position-alignment%})
 
