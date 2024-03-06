@@ -39,7 +39,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the Badge and le
 | `Large` | `lg`|
 | `Full` (default value) | `full`|
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## Size
 
