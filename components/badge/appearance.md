@@ -1,7 +1,7 @@
 ---
 title: Appearance
 page_title: Badge Appearance
-description: Appearance settings of the Badge for Blazor. See the available options that allow you to fully customize the look of the Badge component. 
+description: Explore the appearance settings of the Badge for Blazor. See the available options that allow you to fully customize the look of the Badge component. 
 slug: badge-appearance
 tags: telerik,blazor,badge,navbar,appearance
 published: True
