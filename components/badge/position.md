@@ -24,7 +24,7 @@ The Position parameter accepts a member of the BadgePosition enum and controls t
 | `Inside` | The Badge renders entirely inside the parent container. |
 | `Outside`   | The Badge renders entirely outside the parent container. | 
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## Alignment
 
