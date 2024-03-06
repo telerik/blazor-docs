@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Badge Overview
-description: Discover the Badge component for Blazor. Learn how to add the component to your app and explore its features like positioning and alignment.
+description: Discover the Badge component for Blazor. Learn how to add the component to your app and explore its configuration options, such as positioning and alignment.
 slug: badge-overview
 tags: telerik,blazor,badge,navbar
 published: True
