@@ -37,7 +37,7 @@ Use the available alignment parameters to control which side of the Badge touche
 | `HorizontalAlign` | `BadgeHorizontalAlign` | `Start` <br /> `End` (default value) |
 | `VerticalAlign` | `BadgeVerticalAlign` | `Top` (default value) <br /> `Bottom` |
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## Example
 
