@@ -24,7 +24,7 @@ You can control how the Badge is filled by setting the `FillMode` parameter to a
 | `Flat` | `flat`|
 | `Outline` | `outline`|
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## Rounded
 
