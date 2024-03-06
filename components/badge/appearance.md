@@ -75,7 +75,7 @@ You can change the color of the Badge by setting the `ThemeColor` parameter to a
 | `Light` | `light`  |
 | `Inverse` | `inverse`|
 
-See the [example](#example) below to customize the available parameters and see how they affect the Badge component.
+Refer to the [example](#example) below to customize the available parameters and observe their impact on the Badge component.
 
 ## Example
 
