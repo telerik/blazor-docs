@@ -56,7 +56,7 @@ The following parameters enable you to customize the appearance of the Blazor Ba
 | `FillMode` | `Telerik.Blazor.ThemeConstants.Badge.FillMode.Solid` | Controls how the Badge is filled. |
 | `Rounded` | `Telerik.Blazor.ThemeConstants.Badge.Rounded.Full` | Defines how rounded the borders of the Badge are. |
 | `Size` | `Telerik.Blazor.ThemeConstants.Badge.Size.Medium` | Sets the size of the Badge. |
-| `ThemeColor` | `Telerik.Blazor.ThemeConstants.Badge.ThemeColor.Primary` | Adjust the background color of the Badge. |
+| `ThemeColor` | `Telerik.Blazor.ThemeConstants.Badge.ThemeColor.Primary` | Adjusts the background color of the Badge. |
 
 You can find more information for customizing the Badge appearance in the [Appearance article]({%slug badge-appearance%}).
 
