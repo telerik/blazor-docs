@@ -28,7 +28,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 ## Rounded
 
-The `Rounded` parameter applies the `border-radius` CSS rule to the Badge to achieve curving of the edges.  You can set it to a member of the `Telerik.Blazor.ThemeConstants.Badge.Rounded` class:
+The `Rounded` parameter applies the `border-radius` CSS rule to the Badge and lets you curve its edges. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Badge.Rounded` class:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
