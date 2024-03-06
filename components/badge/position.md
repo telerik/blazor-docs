@@ -1,7 +1,7 @@
 ---
 title: Position
 page_title: Badge Position
-description: Explore the position and alignment settings of the Badge for Blazor. The example in the bottom of the page lets you experiment with the available parameters.
+description: Explore the position and alignment settings of the Badge for Blazor. The example at the bottom of the page lets you experiment with the available parameters.
 slug: badge-position-alignment
 tags: telerik,blazor,badge,position,align,alignment
 published: True
