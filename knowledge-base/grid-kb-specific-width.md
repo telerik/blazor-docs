@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-This knowledge base article gives solution to the the following scenarios:
+This knowledge base article gives solution to the following scenario:
 
 1\. Scenario 1:
 * Some of the Grid Columns have `Width`.
