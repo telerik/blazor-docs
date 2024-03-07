@@ -28,9 +28,6 @@ This knowledge base article gives solution to the following scenario:
 
 * Some or none of the Grid columns have a `Width`.
 * The columns without a `Width` shrink too much or disappear when the browser window or the Grid become narrow. This phenomenon occurs no matter if the Grid shows a horizontal scrollbar or not.
-    * There are too many Columns.
-    * Some or all Columns `Width`s are too big.
-    * The browser viewport becomes too narrow.
 
 2\. Scenario 2:
 * None of the Grid Columns have `Width`.
