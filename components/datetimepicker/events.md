@@ -202,7 +202,16 @@ As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` obje
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every valid change in the input (for example, keystroke or after date and time selection in the Calendar popup).
+The `ValueChanged` event fires on every change in the component value that occurs after typing or selecting in the Calendar popup and if:
+* the input is valid.
+The handler will receive the valid input.
+
+The event also fires when the component loses focus and if:
+* the `Value` parameter is nullable and
+* the user changes the existing `Value` (default or valid updated) as:
+    * types a value that is outside the `Min` and `Max` range (even for a single date segment) or
+    * leaves an empty format segments.
+The handler will receive a `null` argument.
 
 >caption Handle ValueChanged and provide initial value
 
@@ -223,8 +232,6 @@ model value: @DateTimePickerValue
 
     private void MyValueChangeHandler(DateTime userInput)
     {
-        //the handler receives a generic type <T>
-
         result = string.Format("The user entered: {0:dd/MMM/yyyy}", userInput);
 
         //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
