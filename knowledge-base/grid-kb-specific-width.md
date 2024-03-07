@@ -1,5 +1,5 @@
 ---
-title: Horizontal Grid Scrolling without Column Width
+title: Horizontal Grid Scrolling without Column Widths
 description: How to Avoid Shrink or Disappear of Grid Columns and Get Horizontal Scrollbar?
 type: how-to
 page_title: Getting Horizontal Scrollbar and Not Losing Grid Columns
