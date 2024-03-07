@@ -104,6 +104,26 @@ As an argument, the event handler receives a [`DateTimePickerCalendarCellRenderE
 
 The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
 
+If:
+* the `Value` parameter is nullable and
+* the input is invalid and
+* the event fires
+Then:
+* the event handler receives a `null` argument and
+* the `Value` parameter is `null`.
+
+If:
+* the `Value` parameter is not nullable and
+* the input is invalid and
+* the event fires
+Then:
+* the event handler receives the default value of the `Value` parameter and
+* the `Value` parameter gets the default value.
+
+In all other cases:
+* the event handler receives the valid input as an object that you may need to cast to the type of the component.
+
+
 The DateTimePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange and use two-way binding
@@ -125,7 +145,6 @@ model value: @DateTimePickerValue
 
     private void MyOnChangeHandler(object userInput)
     {
-        // the handler receives an object that you may need to cast to the type of the component
         // if you do not provide a Value, you must provide the Type parameter to the component
         result = string.Format("The user entered: {0}", (DateTime)userInput);
     }
