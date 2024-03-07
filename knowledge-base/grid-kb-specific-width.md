@@ -26,7 +26,6 @@ res_type: kb
 
 This knowledge base article gives solution to the following scenario:
 
-1\. Scenario 1:
 * Some of the Grid Columns have `Width`.
 * The Grid gets a horizontal scrollbar.
 * The Columns without `Width` disappear or shrink when:
