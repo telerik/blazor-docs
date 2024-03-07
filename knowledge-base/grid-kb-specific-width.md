@@ -96,6 +96,6 @@ The Grid will show a horizontal scrollbar when its width is less than the table 
 }
 ````
 
-## Notes
+## See Also
 
-If you have hierarchy, the style will apply to the detail tables as well. 
+* [Grid column width behavior]({%slug grid-columns-width%})
