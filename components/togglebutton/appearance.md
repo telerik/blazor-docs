@@ -29,6 +29,7 @@ The `FillMode` controls how the TelerikToggleButton is filled. You can set it to
 |`Flat`|`flat`|
 |`Outline`|`outline`|
 |`Link`|`link`|
+|`Clear`|`clear`|
 
 >caption The built-in Fill modes
 
