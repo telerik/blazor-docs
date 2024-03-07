@@ -30,7 +30,8 @@ This knowledge base article gives solution to the following scenario:
 * The columns without a `Width` shrink too much or disappear when the browser window or the Grid become narrow. This phenomenon occurs no matter if the Grid shows a horizontal scrollbar or not.
 
 
-How can we keep the above implementations and:
+How to keep the above column `Width` configuration and:
+
 * The Columns without `Width` not to disapear or shrink.
 * Get a horizontal Grid scrollbar.
 
