@@ -59,6 +59,10 @@ The Grid will show a horizontal scrollbar when its width is less than the table 
     .grid-min-width .k-table {
         min-width: 600px;
     }
+    /* optional - reset the min-width for detail Grids */
+    .grid-min-width .k-table .k-table {
+        min-width: auto;
+    }
 </style>
 
 @code {
