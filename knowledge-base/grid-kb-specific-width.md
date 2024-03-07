@@ -2,7 +2,7 @@
 title: Horizontal Grid Scrolling without Column Widths
 description: How to avoid shrinking or disappearing of Grid columns that have no column widths? How to get a horizontal scrollbar when the Grid columns have no widths?
 type: how-to
-page_title: Getting Horizontal Scrollbar and Not Losing Grid Columns
+page_title: How to Get Horizontal Scrollbar With no Grid Column Widths
 slug: grid-kb-specific-width
 position:
 tags: telerik, blazor, grid, column, css
