@@ -32,7 +32,7 @@ This knowledge base article gives solution to the following scenario:
 
 How to keep the above column `Width` configuration and:
 
-* The Columns without `Width` not to disapear or shrink.
+* The width-less columns remain visible and do not shrink or disappear.
 * Get a horizontal Grid scrollbar.
 
 ## Solution
