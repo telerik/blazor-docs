@@ -1,6 +1,6 @@
 ---
 title: Horizontal Grid Scrolling without Column Widths
-description: How to Avoid Shrink or Disappear of Grid Columns and Get Horizontal Scrollbar?
+description: How to avoid shrinking or disappearing of Grid columns that have no column widths? How to get a horizontal scrollbar when the Grid columns have no widths?
 type: how-to
 page_title: Getting Horizontal Scrollbar and Not Losing Grid Columns
 slug: grid-kb-specific-width
