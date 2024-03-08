@@ -21,6 +21,11 @@ The `ZIP` archive provides the following:
 * The [document processing]({%slug common-features-dpl%}) `.nupkg` files (in the `dpl` folder).
 * The [built-in themes]({%slug general-information/themes%}) and some of their most commonly used [swatches]({%slug themes-swatches%}). You can find them in the `styles` folder in the archive.
 
+   * Is available in the [Downloads section of Your Telerik Account](https://www.telerik.com/account/downloads).
+   * Provides an offline runnable version of the [Telerik Blazor demos](https://demos.telerik.com/blazor-ui/).
+   * Does not provide information about new versions and does not require installation.
+
+
 
 ## How to Download the ZIP Archive
 

@@ -55,12 +55,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 **HTML**
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your `.Server` project (by default, this line is already present).
-
-**C#**  
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
-3\. In the `~/wwwroot/index.html` file of the client web application, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn). The theme allows you to select the appearance and color scheme for the Telerik Blazor components.
+2\. In the `~/wwwroot/index.html` file of the client web application, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn). The theme allows you to select the appearance and color scheme for the Telerik Blazor components.
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
@@ -72,14 +67,12 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     
     @using Telerik.Blazor
     @using Telerik.Blazor.Components
-    @using Telerik.FontIcons
     @using Telerik.SvgIcons
+    @using Telerik.FontIcons
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a `TelerikRootComponent` component as a top-level component in the app and make sure it wraps all content.
-
-@[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+Use a single `TelerikRootComponent` component as a top-level component in the app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 

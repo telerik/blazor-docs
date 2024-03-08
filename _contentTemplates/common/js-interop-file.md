@@ -1,11 +1,10 @@
 #add-js-interop-file-to-getting-started-client
- Add the `telerik-blazor.js` file to your main index file - `wwwroot/index.html`:
+ Add the `telerik-blazor.js` file to the `<head>` of your main index file - `wwwroot/index.html`:
 
     **HTML**
     
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
 
 #add-js-interop-file-to-getting-started-server
@@ -18,17 +17,16 @@
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets)
 #end
 
 #js-interop-file-snippet
 ````
 <head>
     . . .
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
 
     <!-- For Trial licenses, use
-      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>
+      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js"></script>
     -->
 </head>
 ````
@@ -44,32 +42,6 @@
         <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
       -->
 </head>
-````
-#end
-
-#enable-static-assets
-    To enable the use of static assets in your project, add the following line to the `Program.cs` file in the **Server** project:
-
-
-    **C#**
-    
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
-#end
-
-#enable-static-assets-snippet
-<div class="skip-repl"></div>
-````Program.cs
-var app = builder.Build();
-
-// ...
-
-//To enable static files from a package, make sure this is present.
-app.UseStaticFiles();
-
-// ...
-
-app.Run();
 ````
 #end
 
