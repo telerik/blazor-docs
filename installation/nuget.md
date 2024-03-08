@@ -12,6 +12,8 @@ position: 1
 
 This article explains how to add the private Telerik NuGet package source to your environment. You can use it to obtain the Telerik UI for Blazor components instead of [setting up a local NuGet feed]({%slug installation/zip%}#set-up-a-local-nuget-feed-in-visual-studio).
 
+The benefit of using an online NuGet source is that you will receive notifications for newer component versions.
+
 You can set up the remote Telerik NuGet feed in the following ways:
 
 * [Use Visual Studio](#use-visual-studio)

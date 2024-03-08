@@ -18,9 +18,7 @@ While the most common way to install the Telerik UI for Blazor components is to 
 There is an automated installer for:
 
 * Windows (`.msi`)
-
 * MacOS (`.pkg`)
-
 * Linux (`.sh` + `.tar.gz`). Pass `-s <path to the archive>` when running the script. Other arguments are `-d` for the location where the archive will be extracted (defaults to `${HOME}/telerik-blazor"`) and `-SkipNETCoreInstall` to skip the installation of .NET Core (note that the framework is required).
 
 The automated installer provides the following:
@@ -32,6 +30,11 @@ The automated installer provides the following:
 * Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}).
     * We also have [extensions for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can install them from its own marketplace (<a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">direct link</a>).
 
+   * Is available in the [Downloads section of Your Telerik Account](https://www.telerik.com/account/downloads).
+   * Allows you to install the [Telerik Blazor Visual Studio extension]({%slug getting-started-vs-integration-overview%}) and use various [Telerik project templates]({%slug getting-started-vs-integration-new-project%}), or [convert existing projects to use Telerik Blazor components]({%slug getting-started-vs-integration-convert-project%}).
+   * Provides an offline runnable version of the [Telerik Blazor demos](https://demos.telerik.com/blazor-ui/).
+   * Does not provide information about new versions.
+   * May require elevated privileges to run the installation wizard, depending on your setup.
 
 
 ## How to Download the Automated Installer

@@ -11,197 +11,256 @@ position: 1
 
 # Typical Workflow for Using the UI for Blazor Components
 
-This article describes the steps in the typical workflow for using the Telerik UI for Blazor components&mdash;getting the Telerik UI for Blazor components and configuring your project to use them.
+This article describes the required steps to use the Telerik UI for Blazor components in any kind of Blazor application and any .NET version. The content below describes how to obtain the Telerik UI for Blazor components and configure your project to use them.
 
->tip The information in this article is also available as step-by-step tutorials for Blazor [Server]({%slug getting-started/server-side%}), [WebAssembly]({%slug getting-started/client-side%}), [.NET 8 Blazor Web App]({%slug getting-started/web-app%}) and [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}) apps.
-
-To use the Telerik UI for Blazor, you need to:
-
-1. Get the [Telerik Blazor packages](#telerik-specific-packages) in your project.
-
-1. Add the [client assets](#adding-the-client-assets).
-
-1. [Set up the project](#configuring-the-project) to recognize the Telerik components.
-
-
-## Telerik-Specific Packages
-
-Telerik UI for Blazor is distributed through [NuGet packages]({%slug installation/nuget%}). The following table represents the NuGet packages that comprise the Telerik UI for Blazor components suite.
-
-|NuGet Package Name|Description|
-|---|---|
-| `Telerik.UI.for.Blazor` | The main package that contains the code for the UI components and the only package that you must reference explicitly. Adding the package to your project will automatically add the other necessary dependencies. |
-| `Telerik.DataSource` | Contains code for working with data and is needed for data binding the UI for Blazor components. |
-| `Telerik.Recurrence` | Contains code for working with recurring appointments, for example, in the [Scheduler]({%slug scheduler-overview%}) UI component. |
-| `Telerik.Documents.SpreadsheetStreaming` | Contains code for working with spreadsheet documents and is used for exporting. |
-| `Telerik.Zip` | Contains code for working with zip archives and excel files. Excel files are actually archives and this packages is required for exporting them. |
-
->note If you use a trial license, these package names have a `.Trial` suffix, for example `Telerik.UI.for.Blazor.Trial`, `Telerik.DataSource.Trial`, and `Telerik.Recurrence.Trial`.
-
-## Getting the Telerik Packages
-
-You can obtain the required UI for Blazor packages in four ways:
-
-* The [private Telerik NuGet feed]({%slug installation/nuget%}):
-
-   * Requires an Internet connection and authentication. 
-   * It also informs you about updates and new versions.
-   
-* The [Automated MSI installer]({%slug installation/msi%}):
-
-   * You can download it once from your [Telerik account](https://www.telerik.com/account/) and then use it without an Internet connection.
-   * It allows you to install the [VS extensions]({%slug getting-started-vs-integration-overview%}) and use various [templates for creating new projects]({%slug getting-started-vs-integration-new-project%}) and a [wizard for enabling existing projects to use Telerik components]({%slug getting-started-vs-integration-convert-project%}).
-   * It does not provide information about new versions.
-   * Depending on your setup, it may require elevated privileges to run the installation wizard.
-   * It provides an offline version of the [demos](https://demos.telerik.com/blazor-ui/).
-
-* The [ZIP archive]({%slug installation/zip%}) package:
-
-   * You can download it once from your [Telerik account](https://www.telerik.com/account/) and then use it without an Internet connection.
-   * It does not provide information about new versions and does not require installation. 
-   * It provides an offline version of the [demos](https://demos.telerik.com/blazor-ui/).
-
-* The standalone `.nupkg` files:
-
-   * They are the bare minimum that is required. 
-   * To use them, follow the instructions for using the [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
-
-## Adding the Client Assets
-
-The Telerik UI for Blazor components require a [Telerik stylesheet](#telerik-stylesheet) and a [JS Interop file](#telerik-js-interop-file) in the app's main index file. Depending on the Blazor hosting model and framework version, this index file will differ:
-
-   * For Client-Side and Blazor Hybrid apps, use the `wwwroot/index.html` file.
-   * For Server-Side Blazor apps, use one of the following files:
-      * `~/Pages/_Layout.cshtml` for .NET 6
-      * `~/Pages/_Host.cshtml` for .NET 7
-   * For Web App projects targeting .NET 8, use the `~/Components/App.razor`.
-
-To add these client assets, use either the [static assets](#using-static-assets) or the [CDN](#using-cdn) method.
-
-### Using Static Assets
-
-You can add the [Telerik JS Interop file](#telerik-js-interop-file) and the [Telerik Stylesheet](#telerik-stylesheet) as [static assets](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-6.0&tabs=visual-studio#consume-content-from-a-referenced-rcl). Static assets (the `_content` folder) are automatically included in the solution from the NuGet package during build, so all you need is to enable static assets as shown in the snippet below. The `_content` folder is expanded by the framework into the local NuGet cache, and the project copies it from there.
-
-To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your **Server** project (by default, this line is already present).
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
-#### Telerik Stylesheet
-
-The stylesheet allows you to use one of the built-in [Themes]({%slug general-information/themes%}), for example, the Default theme:
-
-@[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
+>tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
+>
+> * [Blazor Server apps]({%slug getting-started/server-side%}) in .NET 6 or 7
+> * [Blazor WebAssembly apps]({%slug getting-started/client-side%})
+> * [Blazor Web App]({%slug getting-started/web-app%}) template in .NET 8
+> * [Blazor Hybrid (MAUI) apps]({%slug getting-started/hybrid-blazor%})
+>
+> The differences between the above tutorials and this page are:
+>
+> * The above tutorials are simpler to follow and are suitable for first-time Blazor or Telerik component users.
+> * The current article assumes some Blazor experience and knowledge about the Blazor application structure.
+> * The above tutorials describe the fastest and simplest way to get started with Telerik UI for Blazor.
+> * The current article provides more setup options and suggests possible enhancements.
+>
+> It's best for first-time users to start from the above tutorials and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
 
 
-#### Telerik JS Interop File
+## In This Article
 
-The JS Interop file provides features that cannot be implemented with native Blazor.
+The required milestones to obtain and use Telerik UI for Blazor are:
 
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-
-### Using CDN
-
-@[template](/_contentTemplates/common/general-info.md#cdn)
-
-
->Telerik recommends using [static assets](#static-assets) instead of a CDN. This approach relies on the static assets feature from the framework and takes the correct file from the package so you don't have to remember to update the CDN path when [upgrading to a newer version]({%slug upgrade-tutorial%}).
-   
-
-## Configuring the Project
-
-To use the Telerik components, you must add a few items to your projects. Some of these items are common, while others depend on the project type (server-side or client-side), and the steps differ slightly in syntax. To configure the project:
-
-1. Follow the [Common Configuration](#common-configuration) instructions.
-
-2. Follow the section for your project type:
-
-   * [Client-side (WebAssembly)](#client-side-project-specifics)
-   * [Server-side (up to .NET 7)](#server-side-project-specifics)
-   * [Blazor Web App template](#web-app-template)
-   * [Blazor Hybrid](#blazor-hybrid-project-specifics)
+1. Install the [Telerik Blazor NuGet packages](#nuget-packages) in your Blazor application.
+1. Register the [required namespaces](#namespaces).
+1. Add the [Telerik Blazor service](#service).
+1. Add the [CSS theme and JavaScript file](#css-theme-and-javascript-files).
+1. Add the [`<TelerikRootComponent>`](#telerikrootcomponent).
+1. [Add components to a view](#add-telerik-components-to-a-view)
 
 
-### Common Configuration
+## NuGet Packages
 
-To make sure that the application will recognize the UI for Blazor components and that they will function correctly, add the required `@using` statements and the `TelerikRootComponent`.
+Telerik UI for Blazor is distributed through several private and public NuGet packages.
 
-#### Include @using Statements
+`Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies.
 
-You can set the project to recognize all Telerik components without explicit `@using` statements on every `.razor` file. To achieve this, add the following to your `~/_Imports.razor` file. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug common-features-icons%}).
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| NuGet Package Name | Description |
+| --- | --- |
+| `Telerik.UI.for.Blazor` | Contains the main code of the UI components. |
+| [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) | Contains all Telerik SVG icons. Available on `nuget.org`. |
+| [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons) | Contains all Telerik font icons. Available on `nuget.org`. |
+| `Telerik.DataSource` | Adds support for data operations. All databound UI components use it for paging, sorting, filtering, or grouping. |
+| `Telerik.Recurrence` | Adds support for recurring appointments in the [Scheduler component]({%slug scheduler-overview%}). |
+| `Telerik.Documents.SpreadsheetStreaming` | Adds support for working with spreadsheet documents, and exporting to Excel or CSV. This package is part of [Telerik Document Processing]({%slug common-features-dpl%}). |
+| `Telerik.Zip` | Contains code for working with ZIP archives and Excel files. Excel files are actually ZIP archives and this package takes part in the exporting process. This package is part of [Telerik Document Processing]({%slug common-features-dpl%}). |
+| `Telerik.Pivot.Core` | Contains base code for the [PivotGrid component]({%slug pivotgrid-overview%}). |
+| `Telerik.Pivot.DataProviders.Xmla` | Adds support for [data binding the PivotGrid component to XMLA]({%slug pivotgrid-data-binding%}). |
+
+>note If you use a trial license, the private package names have a `.Trial` suffix, for example, `Telerik.UI.for.Blazor.Trial`.
+
+### Getting the Telerik NuGet Packages
+
+To get the two public icon packages, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
+
+* [Telerik.SvgIcons](https://www.nuget.org/packages/Telerik.SvgIcons)
+* [Telerik.FontIcons](https://www.nuget.org/packages/Telerik.FontIcons)
+
+You can get the private Telerik UI for Blazor packages in four ways:
+
+* [Private Telerik NuGet source]({%slug installation/nuget%}). This is usually the most convenient option, and your NuGet client will notify you about new component versions. The other options below can be useful as an emergency alternative, or in environments with restricted Internet connection.
+* [Automated installer]({%slug installation/msi%})
+* [ZIP archive]({%slug installation/zip%})
+* As standalone `.nupkg` files. To use them, follow the instructions at [ZIP archive]({%slug installation/zip%}), but download the `.nupkg` files instead.
+
+> Always check the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) when updating the components. New [major versions can contain breaking changes]({%slug versions-with-breaking-changes%}).
+
+
+## Namespaces
+
+The .NET compiler requires several Telerik namespaces in order to recognize the Telerik Blazor components and set some of the component parameters.
+
+There are a few other optional namespaces that may be needed often. You can import them globally for your convenience.
 
 >caption _Imports.razor
 
 <div class="skip-repl"></div>
 
 ````CSHTML
-@using Telerik.Blazor
-@using Telerik.Blazor.Components
-@using Telerik.FontIcons
-@using Telerik.SvgIcons
+@* required *@
+@using Telerik.Blazor // set component parameters
+@using Telerik.Blazor.Components // recognize components tags
+@using Telerik.SvgIcons // use SVG icons
+@using Telerik.FontIcons // use font icons
+
+@* optional *@
+@using Telerik.DataSource // implement data-related programmatic customizations
+@using Telerik.DataSource.Extensions // use OnRead events and ToDataSourceResult()
 ````
 
-#### Add the TelerikRootComponent
+To avoid the need to register Telerik namespaces in `.cs` files, use [`global using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier):
 
-To use Telerik popups and global component settings, you must add the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component at the root level of the app and configure the app layout to adopt that.
+>caption Program.cs or MauiProgram.cs
 
-The configuration varies depending on the application type:
-
-* [Server]({%slug getting-started/server-side%}#43-add-the-telerikrootcomponent)
-* [WebAssembly]({%slug getting-started/client-side%}#43-add-the-telerikrootcomponent)
-* [Web App]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent) 
-* [Blazor Hybrid]({%slug getting-started/hybrid-blazor%}#4-add-the-telerikrootcomponent)
-
-
-### Client-side Project Specifics
-
-The final step is to register the Telerik services. In a client-side Blazor project, you register services in the `Program.cs` file of the WebAssembly (Client) project:
-
-@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
-
-
-### Server-side Project Specifics
-
-The final step is to register the Telerik services. In a server-side Blazor project, you register services in the `Program.cs` file of your project.
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
-
-### Web App Project Specifics
-
-The final step is to register the Telerik services. In a Blazor Web App project with interactive render mode Server, you register services in the `Program.cs` file of your project.
-
-For interactive render modes WebAssembly and Auto, register the service in the `Program.cs` file of both the server and client project.
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-server)
-
-### Blazor Hybrid Project Specifics
-
-The final step is to register the Telerik services. In a Hybrid Blazor project, you register services in the `MauiProgram.cs` file of the project:
-
-**C#**
 <div class="skip-repl"></div>
-````MauiProgram.cs
-public static MauiApp CreateMauiApp()
-{
-   var builder = MauiApp.CreateBuilder();
-   builder
-      .UseMauiApp<App>()
-      .ConfigureFonts(fonts =>
-      {
-            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+
+````CS
+// required
+global using Telerik.Blazor; // use component parameter values
+global using Telerik.Blazor.Components; // use component types and instances
+global using Telerik.SvgIcons; // use SVG icons
+global using Telerik.FontIcons; // use font icons
+
+// optional
+global using Telerik.DataSource; // implement data-related programmatic customizations
+global using Telerik.DataSource.Extensions; // use OnRead events and ToDataSourceResult()
+````
+
+
+## Service
+
+The Telerik Blazor service provides [component localization]({%slug globalization-localization%}) and registers the default service that implements [`ITelerikStringLocalizer`](/blazor-ui/api/Telerik.Blazor.Services.ITelerikStringLocalizer).
+
+The Telerik Blazor components render all their built-in labels through this localization mechanism for consistency, even when .NET localization is not used.
+
+Register the Telerik service in all projects that will use Telerik Blazor components.
+
+>caption Program.cs or MauiProgram.cs
+
+<div class="skip-repl"></div>
+
+````CS
+builder.Services.AddTelerikBlazor();
+````
+
+> To [localize the Telerik Blazor components]({%slug globalization-localization%}), always register your own `ITelerikStringLocalizer` service **after** `builder.Services.AddTelerikBlazor();`.
+
+
+## CSS Theme and JavaScript Files
+
+The Telerik UI for Blazor components require a [theme stylesheet](#css-theme) and a [JSInterop file](#javascript-file) in the app's root HTML markup. This markup can reside in a different file, depending on the .NET version and Blazor hosting model, for example:
+
+* `App.razor` (.NET 8)
+* `index.html` (WebAssembly or Hybrid)
+* `_Host.cshtml` (.NET 7 Server)
+* `_Layout.cshtml` (.NET 6 Server)
+
+To use static CSS and JS assets from the NuGet package, make sure that the project that holds the root HTML markup has [`app.UseStaticFiles();` in its `Program.cs`](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-8.0&tabs=visual-studio#consume-content-from-a-referenced-rcl) file. This is true by default.
+
+### CSS Theme
+
+Register the [Telerik theme stylesheet]({%slug general-information/themes%}) before the application stylesheet and the [CSS isolation stylesheet](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation). This CSS file order will allow you to [override Telerik theme styles]({%slug themes-override%}) more easily, if necessary.
+
+Register the [Telerik font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet) only if the app uses [Telerik font icons]({%slug common-features-icons%}).
+
+>caption Adding the Telerik Blazor CSS files
+
+<div class="skip-repl"></div>
+
+````HTML
+<head>
+    <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
+    <!-- When using a Trial license -->
+    <!--<link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />-->
+
+    <!-- Add only if using font icons -->
+    <!--<link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />-->
+    <!-- When using a Trial license -->
+    <!--<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />-->
+
+    <!-- main application stylesheet -->
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- CSS isolation stylesheet -->
+    <link rel="stylesheet" href="AppName.styles.css"  />
+</head>
+````
+
+### JavaScript File
+
+Telerik Blazor components rely on a JavaScript JSInterop file for some interactive features, and communication between the .NET runtime and the web page.
+
+The recommended way to register the Telerik Blazor JS file for better loading performance and reliable [Blazor startup](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup) is:
+
+1. Register `telerik-blazor.js` in the `<head>` of the web page with a `defer` attribute. This will allow the JavaScript file to load as a non-blocking resource together with the rest of the web page.
+1. Set `autostart="false"` to the Blazor framework `<script>` tag.
+1. [Start the Blazor client-side framework in the `DOMContentLoaded` event](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-8.0#initialize-blazor-when-the-document-is-ready).
+
+>caption Adding the Telerik Blazor JavaScript file
+
+<div class="skip-repl"></div>
+
+````HTML
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+   <!-- When using a Trial license -->
+   <!--<script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>-->
+</head>
+<body>
+   <script src="_framework/blazor.web.js" autostart="false"></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         Blazor.start();
       });
+   </script>
+</body>
+</html>
+````
 
-   builder.Services.AddMauiBlazorWebView();
-      
-   // Register the Telerik services.
-   builder.Services.AddTelerikBlazor();
+>tip All the information in this section also applies when using the [Telerik CDN](). However, Telerik recommends using static assets, as shown above. Remote asset URLs require a [CDN fallback]({%slug common-kb-cdn-fallback%}) and manual maintenance during [component version updates]({%slug upgrade-tutorial%}).
 
-   var host = builder.Build();
 
-   return host;
+## TelerikRootComponent
+
+The [`TelerikRootComponent` is a special component]({%slug rootcomponent-overview%}#purpose) in Telerik UI for Blazor:
+
+* It can apply settings to all other Telerik Blazor components in the application.
+* It renders all component popups. All Telerik Blazor components that use popups will throw an exception if they cannot detect the `TelerikRootComponent`.
+
+The `TelerikRootComponent` placement depends on the interactivity location of the Blazor app. The component should reside in a layout file, but only if the layout file supports interactive render mode.
+
+> The instructions and code example below apply to:
+>
+> * .NET 8 Blazor Web Apps with **Global** interactivity location
+> * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
+>
+> If you have a .NET 8 Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a layout file. Refer to section [Interactivity Considerations]({%slug rootcomponent-overview%}#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity]({%slug rootcomponent-percomponent%}).
+
+### Optimal TelerikRootComponent Usage
+
+Add a `<TelerikRootComponent>` component in the topmost layout file of the Blazor application. The `TelerikRootComponent` should enclose all the layout file content and all visible content on the web page. This setup ensures correct popup position and correct propagation of global settings to all Telerik Blazor components in the app.
+
+@[template](/_contentTemplates/rootcomponent/setup.md#define-in-teleriklayout)
+
+Check the [`TelerikRootComponent` documentation]({%slug rootcomponent-overview%}) for more information about its purpose and usage.
+
+
+## Add Telerik Components to a View
+
+The Blazor application is ready to use Telerik components.
+
+>caption Home.razor
+
+````CSHTML
+<TelerikButton OnClick="@OnButtonClick">
+    Telerik Blazor Button
+</TelerikButton>
+
+@ButtonClickLog
+
+@code {
+    private string ButtonClickLog { get; set; } = string.Empty;
+
+    private void OnButtonClick()
+    {
+        ButtonClickLog = $"Button clicked at {DateTime.Now.ToString("HH:mm:ss.fff")}.";
+    }
 }
 ````
 

@@ -52,13 +52,13 @@ You can set the project to recognize all Telerik components without explicit `@u
 ````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
-@using Telerik.FontIcons
 @using Telerik.SvgIcons
+@using Telerik.FontIcons
 ````
 
 ### 4. Add the TelerikRootComponent
 
-Add a [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
+Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
 
 * `Shared/MainLayout.razor` for MAUI apps
 * `Main.razor` for WPF and WinForms apps

@@ -57,11 +57,6 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-3\. (Optional) To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` of your Blazor Server project (by default, this line is already present). This step is required only if your application uses static assets.
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
 ### 4.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
@@ -75,36 +70,9 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a `<TelerikRootComponent>` as a top-level component in the app and make sure it wraps all other content, especially all other Telerik components. Normally, the `TelerikRootComponent` resides in a layout component, for example, `MainLayout.razor` or its parent.
+Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app.
 
-Create a `TelerikLayout.razor` file in the same folder as `MainLayout.razor`:
-
->caption TelerikLayout.razor
-
-<div class="skip-repl"></div>
-
-````CSHTML
-@inherits LayoutComponentBase
-
-<TelerikRootComponent>
-    @Body
-</TelerikRootComponent>
-````
-
-Then, reference the new `TelerikLayout` in `MainLayout`, so that the `TelerikRootComponent` wraps the `MainLayout` content.
-
->caption MainLayout.razor
-
-<div class="skip-repl"></div>
-
-````CSHTML
-@inherits LayoutComponentBase
-@layout TelerikLayout
-
-@* The other MainLayout.razor content remains the same. *@
-````
-
-You can learn more about the [`TelerikRootComponent` purpose and usage]({%slug rootcomponent-overview%}) in its dedicated documentation.
+@[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 > The `TelerikRootComponent` requires an [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). Layout components are interactive only in applications with **Global** Interactivity location. This section 4.3 applies only to apps with **Global** interactivity. If your app is using **Per page/component** interactivity, then check [Using TelerikRootComponent in apps with per component interactivity]({%slug rootcomponent-percomponent%}) instead.
 

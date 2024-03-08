@@ -10,7 +10,7 @@ position: 0
 
 # TelerikRootComponent Overview
 
-The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its placement and configuration will affect all its child Telerik Blazor components. This article describes the purpose and usage of `TelerikRootComponent`.
+The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its placement and configuration affects all other Telerik Blazor components. This article describes the purpose and usage of `TelerikRootComponent`.
 
 
 ## Purpose
@@ -30,33 +30,12 @@ The `TelerikRootComponent` achieves all these tasks with the help of [cascading 
 
 This section applies to:
 
-* .NET 6 and .NET 7 Blazor apps
 * .NET 8 Blazor Web Apps with **Global** interactivity location. If your app has **Per page/component** interactivity, then refer to section [Interactivity Considerations](#interactivity-considerations) below.
+* Blazor Server, WebAssembly and Hybrid apps in all .NET versions
 
 The recommended way to add `TelerikRootComponent` to a Blazor app is to:
 
-1. Create a new layout file in the app, for example, `TelerikLayout.razor`.
-1. (optional) Place the new layout in the same folder as the default application layout (usually `MainLayout.razor`).
-1. Add a `<TelerikRootComponent>` tag to the new layout and set `@Body` as the root component's child content.
-1. Make the new layout a parent of the default application layout.
-
->caption Adding TelerikRootComponent to a new layout
-
-<div class="skip-repl"></div>
-
-````TelerikLayout.razor
-@inherits LayoutComponentBase
-
-<TelerikRootComponent>
-    @Body
-</TelerikRootComponent>
-````
-````MainLayout.razor
-@inherits LayoutComponentBase
-@layout TelerikLayout
-
-@* The other MainLayout.razor content remains the same. *@
-````
+@[template](/_contentTemplates/rootcomponent/setup.md#define-in-teleriklayout)
 
 The above approach has the following benefits:
 
