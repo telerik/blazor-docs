@@ -90,7 +90,6 @@ The `ValueChanged` event fires:
  * During typing when the resulting input value is valid.
  * On input blur if the input value is not valid and the `Value` type is nullable.
 
-The event also fires if the input is invalid and when the input loses focus and the `Value` parameter is nullable. The handler will receive a `null` argument.
 
 >caption Handle ValueChanged and provide initial value
 
