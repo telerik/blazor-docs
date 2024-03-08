@@ -90,16 +90,9 @@ model value: @DateInputValue
 
 ## ValueChanged
 
-The `ValueChanged` event fires on every change in the component value that occurs after typing and if:
-* the input is valid.
-The handler will receive the valid input.
+The `ValueChanged` event fires on every typing in the input and if the input is valid. The handler will receive the valid input.
 
-The event also fires when the component loses focus and if:
-* the `Value` parameter is nullable and
-* the user changes the existing `Value` (default or valid updated) as:
-    * types a value that is outside the `Min` and `Max` range (even for a single date segment) or
-    * leaves an empty format segments.
-The handler will receive a `null` argument.
+The event also fires if the input is invalid and when the input loses focus and the `Value` parameter is nullable. The handler will receive a `null` argument.
 
 >caption Handle ValueChanged and provide initial value
 
