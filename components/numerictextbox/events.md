@@ -49,6 +49,8 @@ The `OnBlur` event fires when the component loses focus.
 
 The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
 
+The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
 The NumericTextBox is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange and use two-way binding
@@ -84,7 +86,11 @@ model value: @NumericTextBoxValue
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every valid change in the input (for example, keystroke). Using this event requires one-way binding for the `Value` parameter and manual updating of the value in the handler. If the value is not updated, this will effectively cancel the event.
+The `ValueChanged` event fires during typing.
+
+The event handler argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
+Using this event requires one-way binding for the `Value` parameter and manual updating of the value in the handler. If the value is not updated, this will effectively cancel the event.
 
 >caption Handle ValueChanged
 

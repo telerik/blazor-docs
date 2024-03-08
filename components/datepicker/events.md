@@ -105,11 +105,7 @@ As an argument, the event handler receives a [`DatePickerCalendarCellRenderEvent
 
 The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
 
-| Validation of input | Event handler argument | Nullable of not `Value` parameter |
-| --- | --- | --- |
-| Invalid input | `Null` | Nullable |
-| Invalid input | Default value of the `Value` parameter | Not nullable |
-| Valid input | The valid input as an object that needs to be cast to the type of the component | Nullable or not nullable |
+The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
 
 The DatePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
@@ -210,9 +206,10 @@ As an argument, the event handler receives a [`DatePickerOpenEventArgs` object](
 
 ## ValueChanged
 
-The `ValueChanged` event fires on every typing in the input or selecting in the Calendar popup and if the input is valid. The handler will receive the valid input.
+The `ValueChanged` event fires:
 
-The event also fires if the input is invalid and when the input loses focus and the `Value` parameter is nullable. The handler will receive a `null` argument.
+ * On Calendar selection and during typing when the resulting input value is valid.
+ * On input blur if the input value is not valid and the `Value` type is nullable.
 
 >caption Handle ValueChanged and provide initial value
 
