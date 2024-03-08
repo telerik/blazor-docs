@@ -51,13 +51,6 @@ The `OnBlur` event fires when the component loses focus.
 The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
 
 The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
-
-| Validation of input | Event handler argument | Nullable of not `Value` parameter |
-| --- | --- | --- |
-| Invalid input | `Null` | Nullable |
-| Invalid input | Default value of the `Value` parameter | Not nullable |
-| Valid input | The valid input as an object that needs to be cast to the type of the component | Nullable or not nullable |
-
 The DateInput is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
 
 >caption Handle OnChange and use two-way binding
