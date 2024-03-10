@@ -79,7 +79,7 @@ The following table lists the available Telerik UI for Blazor components with th
 | GridLayout | - | |
 | Icons | - | |
 | LinearGauge | - | |
-| ListView | - | | The built-in [Pager component provides keyboard navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation). |
+| [ListView](https://demos.telerik.com/blazor-ui/listview/keyboard-navigation) | **Enhanced** | | The built-in [Pager component provides keyboard navigation](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation). |
 | Loader | - | |
 | LoaderContainer | - | |
 | [Map](https://demos.telerik.com/blazor-ui/map/overview) | **Enhanced** | |

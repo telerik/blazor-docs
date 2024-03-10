@@ -129,7 +129,7 @@ The following table lists the Section 508 and WCAG 2 compliance levels of suppor
 |`Gauges`|`No`|`n/a`| `n/a` | `n/a` |
 |`Grid`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) | [Documentation]({%slug grid-wai-aria-support%}) |
 |`Grid Layout`|`No`|`n/a`| `n/a` | `n/a` |
-|`ListView`|`Yes`|`AAA`| `n/a` | [Documentation]({%slug listview-wai-aria-support%}) |
+|`ListView`|`Yes`|`AAA`| [Demo](https://demos.telerik.com/blazor-ui/listview/keyboard-navigation) | [Documentation]({%slug listview-wai-aria-support%}) |
 |`Loader`|`No`|`n/a`| `n/a` | `n/a` |
 |`LoaderContainer`|`No`|`n/a`| `n/a` | `n/a` |
 |`Map`|`No`|`n/a`| `n/a` | `n/a` |
