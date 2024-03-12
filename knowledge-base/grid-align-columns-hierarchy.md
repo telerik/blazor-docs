@@ -1,172 +1,200 @@
 ---
-title: Align Columns in Hierarchical Grid
-description: How to align columns in nested detail template of a hierarchical grid.
+title: Align Column Headers in Grid Hierarchy
+description: How to align column headers in the nested detail template of a hierarchy Grid.
 type: how-to
-page_title: Align Columns in Hierarchical Grid
+page_title: How to Align Columns Headers at Different Grid Hierarchy Levels
 slug: grid-kb-align-columns-hierarchy
 position: 
 tags: 
-ticketid: 1468988
+ticketid: 1468988, 1522877, 1644195
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
-I want to showcase hierarchical data in the grid and to make the DetailTemplate columns match the main column headers.
+
+This KB article answers the following questions:
+
+* How to configure a hierarchy Grid and make the `DetailTemplate` Grid column headers align with the master Grid column headers?
+* How to define the detail Grid columns, so that they match the master Grid columns?
+* How to align the column borders of nested child Grids with the column borders of the parent Grid?
 
 ## Solution
-While generally a task for a treelist type of component, you can show self-referencing data in a grid through its detail templates and if the field names match, you can even use the only the headers from the main grid.
 
-To align the columns of nested grid detail templates, you need to:
+The best reason to align Grid column headers across hierarchy levels is when the Grid displays a self-referencing hierarchy. There are two ways to achieve the desired appearance and aligned columns:
 
-* set a width to the grid that matches the width of its columns
-* set width to the columns of the nested grids that match the column widths of the main grid
-    * the first column of each child grid must have width smaller than the first column of the main grid with the size of the hierarchy expand column times the levels of hierarchy that you have
-* add styles that remove the scrollbars from the grid to clean out the UI and reduce distortions that they can cause
-* optionally, hide the headers of the nested grids
+* Use a [TreeList component]({%slug treelist-overview%}). It may be a better option than the Grid, because the TreeList supports a random number of hierarchy levels and there is no need to define and configure each level separately. The TreeList uses the same column and column header for each data item property at any level.
+* Use a Grid with [additional CSS code]({%slug themes-override%}) to align the columns at all hierarchy levels.
 
->caption The result from the code snippet below
+The steps below describe how to align columns when using a Grid hierarchy.
 
-![Align Hierarchical Grid Columns](images/grid-align-hierarchical-columns.png)
-
+1. Set a [custom CSS `Class`]({%slug grid-overview%}#grid-parameters) to the master (parent) Grid, so that the custom styles do not affect other Grid instances.
+1. Use the custom CSS class to:
+    1. Remove the padding of the `DetailTemplate` container (`td.k-detail-cell`).
+    1. Disable the vertical scrollbar of the Grid data area (`div.k-grid-content`).
+    1. Remove the empty space in the Grid header area, which is above the vertical scrollbar (`div.k-grid-header`).
+    1. Remove the right border of the detail Grids (`.k-grid`).
+1. Set the same column `Width` to the columns from all hierarchy levels, that should align with one another.
+1. Set widths to all columns, except the first one of each Grid. This will allow the first column to expand and collapse automatically, depending on the hierarchy level and the available space.
+1. If the number of hierarchy levels is greater than two, use [named `context` variables for the Grid `DetailTemplate`]({%slug nest-renderfragment%}).
+1. (optional) Remove the header area of the detail Grids. This makes sense only if the detail Grids have no enabled features that rely on column headers, for example, sorting or filtering.
 
 >caption Align the columns in hierarchical grids
 
 ````CSHTML
-@* Three levels of grids - note how the first columns of the nested grids have the width of the detail expand cell subtracted twice
-    for the Default Theme, it is 2*32px but that can vary between themes and based on the font-size of the page.
-    Also, the main grid has a width that matches closely the sum of the column widths and the horizontal scrollbars
-    are hidden in order to produce cleaner UX *@
-
-<style>
-    /* remove the default padding from the detail template cell to facilitate column alignment */
-    .no-detail-padding.k-grid .k-detail-cell {
-        padding: 0;
-    }
-
-        /*  */
-        .no-detail-padding.k-grid .k-detail-cell .k-header {
-            display: none;
-        }
-
-    /* hide horizontal scrollbars on the grids to produce cleaner UI for the user */
-    .no-detail-padding.k-grid .k-grid-content {
-        overflow-x: hidden;
-    }
-
-    /* hide vertical scrollbars to simplify UI, also reduces the chance of mismatch between column headers */
-    .no-detail-padding.k-grid > .k-grid-header {
-        padding-right: 0 !important;
-    }
-
-    .no-detail-padding.k-grid .k-grid-content {
-        overflow-y: hidden;
-    }
-</style>
-
-<TelerikGrid Data="@MainLevelsData" Class="no-detail-padding" Width="820px" Pageable="true">
+<TelerikGrid Data="@GridData.Where(x => x.ParentId == null)"
+             TItem="@GridItem"
+             OnStateInit="@OnGridStateInit"
+             Class="align-hierarchy">
+    <GridToolBarTemplate>
+        <label><TelerikCheckBox @bind-Value="@HideDetailHeaders" /> Hide Detail Grid Headers</label>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="Id" Width="200px"></GridColumn>
-        <GridColumn Field="Field1" Width="300px"></GridColumn>
-        <GridColumn Field="Field2" Width="300px"></GridColumn>
+        <GridColumn Field="@nameof(GridItem.Text)" />
+        <GridColumn Field="@nameof(GridItem.Quantity)"
+                    Width="120px" />
+        <GridColumn Field="@nameof(GridItem.Date)"
+                    Width="260px"
+                    DisplayFormat="{0:D}" />
     </GridColumns>
-    <DetailTemplate Context="firstLevelItem">
-        @{
-            var currGridData = GetLevelData(firstLevelItem.Id);
-            <TelerikGrid Data="@currGridData" Pageable="true" PageSize="5">
-                <GridColumns>
-                    <GridColumn Field="Id" Width="168px"></GridColumn>
-                    <GridColumn Field="Field1" Width="300px"></GridColumn>
-                    <GridColumn Field="Field2" Width="300px"></GridColumn>
-                </GridColumns>
-                <DetailTemplate Context="secondLevelItem">
-                    @{
-                        var currGridData = GetLevelData(secondLevelItem.Id);
-                        <TelerikGrid Data="@currGridData" Pageable="true" PageSize="5">
-                            <GridColumns>
-                                <GridColumn Field="Id" Width="168px"></GridColumn>
-                                <GridColumn Field="Field1" Width="300px"></GridColumn>
-                                <GridColumn Field="Field2" Width="300px"></GridColumn>
-                            </GridColumns>
-                        </TelerikGrid>
-                    }
-                </DetailTemplate>
-            </TelerikGrid>
-        }
+    <DetailTemplate Context="contextLevel1">
+        <TelerikGrid Data="@GridData.Where(x => x.ParentId == contextLevel1.Id)">
+            <GridColumns>
+                <GridColumn Field="@nameof(GridItem.Text)" />
+                <GridColumn Field="@nameof(GridItem.Quantity)"
+                            Width="120px" />
+                <GridColumn Field="@nameof(GridItem.Date)"
+                            Width="260px"
+                            DisplayFormat="{0:D}" />
+            </GridColumns>
+            <DetailTemplate Context="contextLevel2">
+                <TelerikGrid Data="@GridData.Where(x => x.ParentId == contextLevel2.Id)">
+                    <GridColumns>
+                        <GridColumn Field="@nameof(GridItem.Text)" />
+                        <GridColumn Field="@nameof(GridItem.Quantity)"
+                                    Width="120px" />
+                        <GridColumn Field="@nameof(GridItem.Date)"
+                                    Width="260px"
+                                    DisplayFormat="{0:D}" />
+                    </GridColumns>
+                </TelerikGrid>
+            </DetailTemplate>
+        </TelerikGrid>
     </DetailTemplate>
 </TelerikGrid>
 
+<style>
+    /* remove the DetailTemplate container padding */
+    .align-hierarchy td.k-table-td.k-detail-cell {
+        padding: 0;
+    }
+
+    /* remove the vertical Grid scrollbars */
+    .align-hierarchy .k-grid-content {
+        overflow-y: visible;
+    }
+    /* remove the empty space above the vertical Grid scrollbar */
+    .align-hierarchy .k-grid-header {
+        padding-inline-end: 0;
+    }
+
+    /* remove the detail Grid right border */
+    .align-hierarchy .k-grid {
+        border-right-width: 0;
+    }
+</style>
+
+@if (HideDetailHeaders)
+{
+    <style>
+        /* remove the detail Grid column headers */
+        .align-hierarchy .k-grid .k-grid-header {
+            display: none;
+        }
+    </style>
+}
 
 @code {
-    List<SelfReferencingHierarchyModel> MainLevelsData { get; set; }
-    List<SelfReferencingHierarchyModel> AllData { get; set; }
+    private List<GridItem> GridData { get; set; } = new();
 
-    public class SelfReferencingHierarchyModel
+    private bool HideDetailHeaders { get; set; }
+
+    private void OnGridStateInit(GridStateEventArgs<GridItem> args)
     {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Field1 { get; set; }
-        public string Field2 { get; set; }
+        // Expand the master Grid rows automatically
+        args.GridState.ExpandedItems = GridData.Where(x => x.ParentId == null).ToList();
     }
 
     protected override void OnInitialized()
     {
-        AllData = new List<SelfReferencingHierarchyModel>();
+        GridData = LoadFlat();
 
-        //generate top level items
-        for (int i = 0; i < 35; i++)
-        {
-            AllData.Add(new SelfReferencingHierarchyModel
-            {
-                Id = i,
-                Field1 = $"main level {i}",
-                Field2 = $"main level field 2 - {i}"
-            });
-
-            for (int j = 0; j < 12; j++)
-            {
-                //generate first level items - note the Id and ParentId logic
-                AllData.Add(new SelfReferencingHierarchyModel
-                {
-                    Id = 100 + j,
-                    ParentId = i,
-                    Field1 = $"first level {j}",
-                    Field2 = $"first level field 2 - {j}"
-                });
-
-                for (int k = 0; k < 12; k++)
-                {
-                    //generate second level items - note the Id and ParentId logic
-                    AllData.Add(new SelfReferencingHierarchyModel
-                    {
-                        Id = 6000 * j + k, // does not really produce unique IDs here, but for this sample it does not matter
-                        ParentId = 100 + j,
-                        Field1 = $"second level {j}",
-                        Field2 = $"second level field 2 - {j}"
-                    });
-                }
-            }
-        }
-
-        MainLevelsData = AllData.Where(itm => itm.ParentId == null).ToList();
+        base.OnInitialized();
     }
 
-    List<SelfReferencingHierarchyModel> GetLevelData(int parentId)
+    #region Grid Data Generation
+
+    private const int TreeLevels = 3;
+    private int RootItems { get; set; } = 2;
+    private int ItemsPerLevel { get; set; } = 2;
+    private int IdCounter { get; set; } = 1;
+
+    private List<GridItem> LoadFlat()
     {
-        return AllData.Where(itm => itm.ParentId == parentId).ToList();
+        List<GridItem> items = new List<GridItem>();
+
+        PopulateChildren(items, null, 1);
+
+        return items;
+    }
+
+    private void PopulateChildren(List<GridItem> items, int? parentId, int level)
+    {
+        var itemCount = level == 1 ? RootItems : ItemsPerLevel;
+        for (int i = 1; i <= itemCount; i++)
+        {
+            var itemId = IdCounter++;
+            items.Add(new GridItem()
+            {
+                Id = itemId,
+                ParentId = parentId,
+                Text = $"Level {level} Item {i}",
+                Quantity = Random.Shared.Next(0, 1000),
+                Date = new DateTime(Random.Shared.Next(2000, 2030), Random.Shared.Next(1, 13), Random.Shared.Next(1, 29))
+            });
+
+            if (level < TreeLevels)
+            {
+                PopulateChildren(items, itemId, level + 1);
+            }
+        }
+    }
+
+    #endregion Grid Data Generation
+
+    public class GridItem
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+        public DateTime Date { get; set; }
     }
 }
 ````
 
+## See Also
 
-
+* [Grid Hierarchy]({%slug components/grid/features/hierarchy%})
+* [Using custom CSS with Telerik Blazor components]({%slug themes-override%})
+* [TreeList component documentation]({%slug treelist-overview%})
