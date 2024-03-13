@@ -213,7 +213,7 @@ The recommended way to register the Telerik Blazor JS file for better loading pe
 </html>
 ````
 
->tip All the information in this section also applies when using the [Telerik CDN](). However, Telerik recommends using static assets, as shown above. Remote asset URLs require a [CDN fallback]({%slug common-kb-cdn-fallback%}) and manual maintenance during [component version updates]({%slug upgrade-tutorial%}).
+>tip All the information in this section also applies when using the [Telerik CDN]({%slug common-features-cdn%}). However, Telerik recommends using static assets, as shown above. Remote asset URLs require a [CDN fallback]({%slug common-kb-cdn-fallback%}) and manual maintenance during [component version updates]({%slug upgrade-tutorial%}).
 
 
 ## TelerikRootComponent

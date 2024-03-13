@@ -54,7 +54,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn).
+2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets).
 
  * Use the `~/Pages/_Host.cshtml` index file for .NET 7
  * Use the `~/Pages/_Layout.cshtml` index file for .NET 6
