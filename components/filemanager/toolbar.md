@@ -19,7 +19,7 @@ The FileManager includes a built-in Toolbar that contains several commands. You 
 
 ## Default Toolbar
 
-The default Toolbar will be automatically rendered when you declare the component. If you want to use that version, no further action is required. 
+The default Toolbar will be automatically rendered when you declare the FileManager component. If you want to use the default version, you do not need additional Toolbar configuration.
 
 The default Toolbar contains the following built-in tools (rendered in this exact order):
 
@@ -59,18 +59,18 @@ To add the desired built-in tools, declare the corresponding tool components in 
 
 | Tool Component | Description |
 |------|-------------|
-| `FileManagerToolBarNewFolderTool` | Renders the button for creating a new folder |
-| `FileManagerToolBarUploadTool` | Renders the button for the upload window |
-| `FileManagerToolBarSortDirectionTool` | Renders a button group for the sort direction |
-| `FileManagerToolBarSortTool` | Renders the split button for choosing which field to sort by |
-| `FileManagerToolBarFileViewTool` | Renders a button group to toggle between Grid and ListView views |
-| `FileManagerToolBarSpacer` | Renders a spacer element |
-| `FileManagerToolBarViewDetailsTool` | Renders a switch to toggle the extra details for a file |
-| `FileManagerToolBarSearchTool` | Renders a search box | 
+| `FileManagerToolBarNewFolderTool` | Renders the button for creating a new folder. |
+| `FileManagerToolBarUploadTool` | Renders the button for the upload window. |
+| `FileManagerToolBarSortDirectionTool` | Renders a ButtonGroup for the sort direction. |
+| `FileManagerToolBarSortTool` | Renders the SplitButton for choosing which field to sort by. |
+| `FileManagerToolBarFileViewTool` | Renders a ButtonGroup to toggle between Grid and ListView views. |
+| `FileManagerToolBarSpacer` | Renders a spacer element. Use that if you need to add some space between the declared tools. |
+| `FileManagerToolBarViewDetailsTool` | Renders a Switch to toggle the Preview Pane for the selected file. |
+| `FileManagerToolBarSearchTool` | Renders a search box. | 
 
 ### Custom tools
 
-To create a custom tool, declare a `<FileManagerToolBarCustomTool>` inside `<FileManagerToolBar>` tag and specify the content of your tool.
+To create a custom tool, declare a `<FileManagerToolBarCustomTool>` inside `<FileManagerToolBar>` tag. Place the content of your tool inside the `<FileManagerToolBarCustomTool>` tag.
 
 <div class="skip-repl"></div>
 
