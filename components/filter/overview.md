@@ -26,7 +26,7 @@ The component gives a unified way to build filter descriptors using its [fields]
 
 @using Telerik.DataSource
 
-<TelerikFilter @ref="FilterRef" @bind-Value="@Value">
+<TelerikFilter @ref="FilterRef" @bind-Value="@FilterValue">
     <FilterFields>
         <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
@@ -35,14 +35,16 @@ The component gives a unified way to build filter descriptors using its [fields]
 </TelerikFilter>
 
 @code {
-    TelerikFilter FilterRef { get; set; }
-    public CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
+
+    private TelerikFilter? FilterRef { get; set; }
+
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
 
     public class Person
     {
         public int EmployeeId { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public int AgeInYears { get; set; }
     }
@@ -59,6 +61,253 @@ The Blazor Filter provides parameters that allow you to configure the component:
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The class that will be rendered on the outermost element. |
 | `Value` | `CompositeFilterDescriptor` | Sets the value of the filter component. |
+
+## Reference and Methods
+
+The Filter methods are accessible through its reference.
+
+| Method | Description | Use-case
+| --- | --- | --- |
+| `Refresh` | Redraws the component. | Update the component when programmatically changing it during runtime. |
+
+>caption Get a reference to the Filter and use its methods.
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikFilter @ref="FilterRef" Value="@FilterValue" ValueChanged="@OnValueChanged">
+    <FilterFields>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+<TelerikGrid Data="@GridData"
+             Height="400px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(Person.EmployeeId))" Title="Id" />
+        <GridColumn Field="@(nameof(Person.Name))" Title="First Name" />
+        <GridColumn Field="@(nameof(Person.AgeInYears))" Title="Age" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    private List<Person> GridData { get; set; } = new();
+
+    private List<Person> InitialData { get; set; } = new();
+
+    private TelerikFilter? FilterRef { get; set; }
+
+    private int TimesRendered { get; set; } = 1;
+
+    private CompositeFilterDescriptor FilterValue { get; set; } = new()
+    {
+            LogicalOperator = FilterCompositionLogicalOperator.Or,
+            FilterDescriptors = new FilterDescriptorCollection(){
+                new FilterDescriptor
+                {
+                    Member = "EmployeeId",
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                }
+            }
+    };
+
+    private void OnValueChanged(CompositeFilterDescriptor value)
+    {
+        FilterValue = value;
+        ProcessGridData(FilterValue);
+    }
+
+    private void ProcessGridData(CompositeFilterDescriptor filter)
+    {
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+
+        var dataSourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
+
+        GridData = dataSourceResult.Data.Cast<Person>().ToList();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (TimesRendered == 1 && !firstRender)
+        {
+            FilterValue.FilterDescriptors.Clear();
+            FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            FilterValue.FilterDescriptors = new FilterDescriptorCollection(){
+                new FilterDescriptor
+                {
+                    Member = "EmployeeId",
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = "Name",
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = "AgeInYears",
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                },
+            };
+            TimesRendered++;
+            await Task.Delay(1);
+            FilterRef?.Refresh();
+            ProcessGridData(FilterValue);
+        }
+
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+        base.OnInitialized();
+    }
+
+    private void LoadData()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            InitialData.Add(new Person
+                {
+                    EmployeeId = i,
+                    Name = "Name" + i,
+                    AgeInYears = i + 20
+                });
+        }
+        ProcessGridData(FilterValue);
+    }
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+
+        public int AgeInYears { get; set; }
+    }
+}
+````
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikButton OnClick="@SetFilters">Set filters</TelerikButton>
+
+<br />
+
+<TelerikFilter @ref="FilterRef" Value="@FilterValue" ValueChanged="@OnValueChanged">
+    <FilterFields>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+<TelerikGrid Data="@GridData"
+             Height="400px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(Person.EmployeeId))" Title="Id"/>
+        <GridColumn Field="@(nameof(Person.Name))" Title="First Name"/>
+        <GridColumn Field="@(nameof(Person.AgeInYears))" Title="Age"/>
+    </GridColumns>
+</TelerikGrid>
+
+
+@code {
+
+    private List<Person> GridData { get; set; } = new();
+
+    private List<Person> InitialData { get; set; } = new();
+
+    private TelerikFilter? FilterRef { get; set; }
+
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
+
+    private void OnValueChanged(CompositeFilterDescriptor value)
+    {
+        FilterValue = value;
+        ProcessGridData(FilterValue);
+    }
+
+    private void ProcessGridData(CompositeFilterDescriptor filter)
+    {
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+
+        var dataSourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
+
+        GridData = dataSourceResult.Data.Cast<Person>().ToList();
+    }
+
+    private async Task SetFilters()
+    {
+        FilterValue.FilterDescriptors.Clear();
+        FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
+        FilterValue.FilterDescriptors = new FilterDescriptorCollection(){
+                new FilterDescriptor
+                {
+                    Member = "EmployeeId",
+                    MemberType = typeof(int),
+                    Value = 1,
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = "Name",
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = "AgeInYears",
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                }
+            };
+        await Task.Delay(1);
+        FilterRef?.Refresh();
+        ProcessGridData(FilterValue);
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+        base.OnInitialized();
+    }
+
+    private void LoadData()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            InitialData.Add(new Person
+                {
+                    EmployeeId = i,
+                    Name = "Name" + i,
+                    AgeInYears = i + 20
+                });
+        }
+        ProcessGridData(FilterValue);
+    }
+    
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+
+        public int AgeInYears { get; set; }
+    }
+}
+````
+
 
 ## Events
 The Blazor Filter generates events that you can handle and further customize its behavior. [Read more about the Blazor Filter events...]({%slug filter-events%}).

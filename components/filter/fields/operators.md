@@ -5,7 +5,7 @@ description: Discover the Blazor Filter Fields Operators and explore the example
 slug: filter-operators
 tags: telerik,blazor,filter,fields,operators
 published: True
-position: 4
+position: 5
 ---
 
 # Filter Fields Operators
