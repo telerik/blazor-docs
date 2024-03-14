@@ -2,7 +2,7 @@
 title: Add a Badge to a Container that Cannot Have Children
 description: How to add a Telerik Badge to a container that cannot have children.
 type: how-to
-page_title: Add a Badge to a Container that Cannot Have Children
+page_title: How To Add a Badge to a Container that Cannot Have Children
 slug: kb-badge-container-no-children
 tags: telerik, badge, avatar, container
 res_type: kb
