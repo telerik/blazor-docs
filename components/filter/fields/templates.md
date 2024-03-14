@@ -18,7 +18,7 @@ The `FilterField` provides the following templates:
 
 ## Value Template
 
-The `ValueTemplate` allows you to customize the default value input field of a single Filter Field. You can replace the value input field with a different component.
+The `ValueTemplate` allows you to customize the default value editor of a single Filter Field. You can replace the default editor component or change the component settings.
 
 The `context` of the`ValueTemplate` is of type FilterFieldValueTemplateContext. You can get and set the `FilterDescriptor`, associated with the FilterField, through the `context` of the`ValueTemplate`.
 
