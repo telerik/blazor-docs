@@ -16,8 +16,6 @@ The `FilterField` provides the following templates:
 
 * [Value Template](#value-template)
 
-
-
 ## Value Template
 
 The `ValueTemplate` allows you to customize the default value input field of a single Filter Field. You can replace the value input field with a different component.
