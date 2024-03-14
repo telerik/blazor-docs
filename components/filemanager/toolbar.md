@@ -70,7 +70,7 @@ To add the desired built-in tools, declare the corresponding tool components in 
 
 ### Custom tools
 
-To create a custom tool, declare a `<FileManagerToolBarCustomTool>` inside `<FileManagerToolBar>` tag. Place the content of your tool inside the `<FileManagerToolBarCustomTool>` tag.
+To create a custom tool, declare a `<FileManagerToolBarCustomTool>` inside the `<FileManagerToolBar>` tag. Place the content of your tool inside the `<FileManagerToolBarCustomTool>` tag.
 
 <div class="skip-repl"></div>
 
