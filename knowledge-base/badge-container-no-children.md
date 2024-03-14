@@ -1,5 +1,5 @@
 ---
-title: Add a Badge to a Container that Cannot Have Children
+title: Add Badge to Container With No Children
 description: How to add a Telerik Badge to a container that cannot have children.
 type: how-to
 page_title: How To Add a Badge to a Container that Cannot Have Children
