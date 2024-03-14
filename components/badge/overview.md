@@ -41,7 +41,7 @@ The Blazor Badge provides various parameters that allow you to configure the com
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `ShowCutoutBorder` | `bool` | Controls whether there is a margin between the Badge and the container when they overlap. |
+| `ShowCutoutBorder` | `bool` | Controls whether there is a small visual separation between the Badge and the container when they overlap. |
 | `Position` | `BadgePosition ` <br /> (`Edge`) | Specifies the position of the Badge relative to the container. [Read more about Badge positioning.]({%slug badge-position-alignment%}) |
 | `HorizontalAlign` | `BadgeHorizontalAlign ` <br /> (`End`) | Determines if the left or the right side of the Badge will touch its parent container. [Read more about Badge positioning.]({%slug badge-position-alignment%}) |
 | `VerticalAlign` | `BadgeVerticalAlign  ` <br /> (`Top`) | Determines if the Badge will touch the parent container with its top or bottom side. [Read more about Badge positioning.]({%slug badge-position-alignment%}) |
