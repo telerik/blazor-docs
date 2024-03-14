@@ -60,7 +60,7 @@ The following example lets you experiment with the available settings that contr
         </div>
         <div class="col-md-4">
             <label>
-                Vertical Position
+                Vertical Alignment
                 <TelerikDropDownList Data="@BadgeVerticalAlignSettings" @bind-Value="@BadgeVerticalAlignSetting"></TelerikDropDownList>
             </label>
         </div>
