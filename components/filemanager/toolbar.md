@@ -131,7 +131,7 @@ The following example demonstrates the customization of the FileManager Toolbar.
 
     private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
-        // the new item data is hardcoded for the purpose of the example
+        // The new item data is hard-coded for the purpose of the example.
         var newFolder = args.Item as FlatFileEntry;
 
         var parent = GetParent(newFolder, DirectoryPath);
