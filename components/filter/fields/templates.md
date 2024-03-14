@@ -20,7 +20,7 @@ The `FilterField` provides the following templates:
 
 The `ValueTemplate` allows you to customize the default value editor of a single Filter Field. You can replace the default editor component or change the component settings.
 
-The `context` of the`ValueTemplate` is of type FilterFieldValueTemplateContext. You can get and set the `FilterDescriptor`, associated with the FilterField, through the `context` of the`ValueTemplate`.
+The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext`](/blazor-ui/api/telerik.blazor.components.filterfieldvaluetemplatecontext). You can get and set the its `FilterDescriptor` property, which is of type [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
 
 To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField]({%slug filter-fields%}).
 
