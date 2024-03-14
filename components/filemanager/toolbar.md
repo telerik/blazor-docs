@@ -10,7 +10,7 @@ position: 15
 
 # FileManager Toolbar
 
-The FileManager includes a built-in Toolbar that contains several commands. You may use it as is or customize it to include your desired tools.
+The FileManager includes a built-in Toolbar that contains commands for adding new files and folders, sorting and changing the view, and more. You can use the toolbar as is or customize it to include the desired built-in or custom tools.
 
 >caption In this article:
 * [Default Toolbar](#default-toolbar)
