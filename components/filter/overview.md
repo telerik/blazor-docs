@@ -70,7 +70,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 | --- | --- |
 | `Refresh` | Calls `StateHasChanged` inside the Filter component. |
 
->caption Get a reference to the Filter and use its methods.
+>caption Get a reference to the Filter component and use its methods.
 
 ````CSHTML
 @using Telerik.DataSource
