@@ -66,9 +66,9 @@ The Blazor Filter provides parameters that allow you to configure the component:
 
 The Filter exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
-| Method | Description | Use-case
-| --- | --- | --- |
-| `Refresh` | Redraws the component. | Update the component when programmatically changing it during runtime. |
+| Method | Description |
+| --- | --- |
+| `Refresh` | Calls `StateHasChanged` inside the Filter component. |
 
 >caption Get a reference to the Filter and use its methods.
 
