@@ -28,7 +28,7 @@ I want to add the Telerik Badge to the [Telerik Avatar component]({%slug avatar-
 
 ## Solution
 
-To add the Telerik Badge for Blazor to the Avatar component or any other container that cannot have children, you need to wrap both the Badge and the container in an HTML element with the `position: relative`, `overflow: visible;`, and `display: inline-block;` CSS styles.
+To add the Badge to the Avatar component or any other container that cannot have children, you need to wrap both the Badge and the container in an HTML element with the `position: relative`, `overflow: visible;`, and `display: inline-block;` CSS styles.
 
 >caption Add the Telerik Badge to the Avatar component
 
