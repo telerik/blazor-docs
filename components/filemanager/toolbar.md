@@ -27,7 +27,7 @@ The default FileManager Toolbar contains the following built-in tools (rendered 
 
 | Tool | Description |
 | --- | --- |
-| New Folder| A button that allows creating of a new folder in the current location. Read how to handle the creation in the [FileManager - Events]({%slug filemanager-events%}). |
+| New Folder | A button that creates a new folder in the current location. Read how to handle the creation at [FileManager Events]({%slug filemanager-events%}). |
 | Upload | A button that allows updloading of new files. Clicking the button will open a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager - Upload]({%slug filemanager-upload%}) article. |
 | Sort Direction | A ButtonGroup with ToggleButtons that allows selecting the sort direction(ascending or descending) to sort the files in the current location. Read more in the [FileManager - Sort]({%slug filemanager-sort%}) article. |
 | Sort By | A SplitButton that provides an option to select the desired sort member to sort by. Read more in the [FileManager - Sort]({%slug filemanager-sort%}) article. |
