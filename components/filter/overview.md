@@ -64,7 +64,7 @@ The Blazor Filter provides parameters that allow you to configure the component:
 
 ## Reference and Methods
 
-The Filter methods are accessible through its reference.
+The Filter exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
 | Method | Description | Use-case
 | --- | --- | --- |
