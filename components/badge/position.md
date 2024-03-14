@@ -54,7 +54,7 @@ The following example lets you experiment with the available settings that contr
         </div>
         <div class="col-md-4">
             <label>
-                Horizontal Position
+                Horizontal Alignment
                 <TelerikDropDownList Data="@BadgeHorizontalAlignSettings" @bind-Value="@BadgeHorizontalAlignSetting"></TelerikDropDownList>
             </label>
         </div>
