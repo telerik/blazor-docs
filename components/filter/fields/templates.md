@@ -12,7 +12,7 @@ position: 10
 
 You can customize the `FilterFiled` appearance and behavior through its templates.
 
-The FilterField can use templates for:
+The `FilterField` provides the following templates:
 
 * [Value Template](#value-template)
 
