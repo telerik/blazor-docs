@@ -10,255 +10,92 @@ position: 15
 
 # FileManager Toolbar
 
-The FileManager includes a built-in Toolbar that contains commands for adding new files and folders, sorting and changing the view, and more. You can use the toolbar as is or customize it to include the desired built-in or custom tools.
+The Blazor FileManager Toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.
 
->caption In this article:
-* [Default Toolbar](#default-toolbar)
-* [Custom Toolbar](#custom-toolbar)
-    * [Example](#example)
+## Built-in Tools
 
-## Default Toolbar
-
-The default Toolbar renders automatically when you declare the FileManager component. Additional Toolbar configuration is not required.
-
-The default FileManager Toolbar contains the following built-in tools (rendered in this exact order):
+By default, the Blazor FileManager displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Tool | Description |
-| --- | --- |
-| New Folder | A button that creates a new folder in the current location. Read how to handle the creation at [FileManager Events]({%slug filemanager-events%}). |
-| Upload | A button that allows updloading of new files. Clicking the button will open a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager Upload]({%slug filemanager-upload%}) article. |
-| Sort Direction | A ButtonGroup with ToggleButtons that allows selecting the sort direction(ascending or descending) to sort the files in the current location. Read more in the [FileManager Sort]({%slug filemanager-sort%}) article. |
-| Sort By | A SplitButton that provides an option to select the desired sort member to sort by. Read more in the [FileManager Sort]({%slug filemanager-sort%}) article. |
-| Views | A ButtonGroup with ToggleButtons that [toggles the file and folder visualization between a ListView and a Grid]({%slug filemanager-views%}). |
-| View Details | A Switch that toggles the visibility of the [FileManager Preview Pane]({%slug filemanager-preview-pane%}). By default the preview pane is hidden. |
-| Search | A TextBox that allows you to filter the files by name. Read more in the [FileManager - Search]({%slug filemanager-search%}) article. |
+| Tool Name | Tool Tag | Description |
+| --- | --- | --- |
+| New Folder | `FileManagerToolBarNewFolderTool` | A button that creates a new folder in the current location. Read how to handle the creation at [FileManager Events]({%slug filemanager-events%}). |
+| Upload | `FileManagerToolBarUploadTool` | A button that opens a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager Upload]({%slug filemanager-upload%}) article. |
+| Sort Direction | `FileManagerToolBarSortDirectionTool` | A ButtonGroup with ToggleButtons that selects the [sort direction(ascending or descending) to sort the files in the current location]({%slug filemanager-sort%}). |
+| Sort By | `FileManagerToolBarSortTool` | A SplitButton that selects the desired [sort member to sort by]({%slug filemanager-sort%}). |
+| Views | `FileManagerToolBarFileViewTool` | A ButtonGroup with ToggleButtons that [toggles the file and folder visualization between a ListView and a Grid]({%slug filemanager-views%}). |
+| View Details | `FileManagerToolBarViewDetailsTool` | A Switch that toggles the visibility of the [FileManager Preview Pane]({%slug filemanager-preview-pane%}). By default the preview pane is hidden. |
+| Search | `FileManagerToolBarSearchTool` | A TextBox that [filters the files by name]({%slug filemanager-search%}). |
 
-## Custom Toolbar
+By default, the FileManager Toolbar also includes a spacer (`<FileManagerToolBarSpacer />`). This spacer consumes the available empty space and pushes the rest of the tools next to one another.
 
-To customize the Toolbar, add the `<FileManagerToolBar>` tag as a direct child of the `<TelerikFileManager>`. Inside the `<FileManagerToolBar>` you can include your desired [built-in tools](#built-in-tools), manage their order and add [custom tools](#custom-tools).
+## Custom tools
 
-### Built-in tools
+In addition to built-in tools, the FileManager also supports custom tools. Use the `<FileManagerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
-To add the desired built-in tools, declare the corresponding tool components in the `<FileManagerToolBar>`. The tools will be rendered in the order that you declare them in.
+## Toolbar Configuration
 
-<div class="skip-repl"></div>
+Add a `<FileManagerToolBar>` tag inside `<TelerikFileManager>` to configure a custom toolbar, for example:
 
-````CSHTML
-<TelerikFileManager Data="@FileManagerData">
-                   <FileManagerToolBar>
-                       <FileManagerToolBarSearchTool/>
-                   </FileManagerToolBar>
-</TelerikFileManager>
-````
+* Arrange the FileManager tools in a specific order;
+* Remove some of the built-in tools;
+* Add custom tools.
 
->caption Built-in tool components:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Tool Component | Description |
-|------|-------------|
-| `FileManagerToolBarNewFolderTool` | Renders the button for creating a new folder. |
-| `FileManagerToolBarUploadTool` | Renders the button for the upload window. |
-| `FileManagerToolBarSortDirectionTool` | Renders a ButtonGroup for the sort direction. |
-| `FileManagerToolBarSortTool` | Renders the SplitButton for choosing which field to sort by. |
-| `FileManagerToolBarFileViewTool` | Renders a ButtonGroup to toggle between Grid and ListView views. |
-| `FileManagerToolBarSpacer` | Renders a spacer element. Use that if you need to add some space between the declared tools. |
-| `FileManagerToolBarViewDetailsTool` | Renders a Switch to toggle the Preview Pane for the selected file. |
-| `FileManagerToolBarSearchTool` | Renders a search box. | 
-
-### Custom tools
-
-To create a custom tool, declare a `<FileManagerToolBarCustomTool>` inside the `<FileManagerToolBar>` tag. Place the content of your tool inside the `<FileManagerToolBarCustomTool>` tag.
-
-<div class="skip-repl"></div>
-
-````CSHTML
-<TelerikFileManager Data="@FileManagerData">
-                   <FileManagerToolBar>
-                       <FileManagerToolBarCustomTool>
-                           <TelerikButton>Custom tool</TelerikButton>
-                       </FileManagerToolBarCustomTool>
-                   </FileManagerToolBar>
-</TelerikFileManager>
-````
-
-### Example
-
-The following example demonstrates the customization of the FileManager Toolbar. The Toolbar includes some built-in and custom tools.
+>caption Customize the FileManager Toolbar
 
 ````CSHTML
 @using System.IO
-@inject IJSRuntime jsInterop
 
-<TelerikFileManager Data="@FileManagerData"
+<TelerikFileManager @ref="@FileManagerRef"
+                    Data="@FileManagerData"
                     @bind-Path="@DirectoryPath"
-                    Height="400px"
-                    OnCreate="@OnCreateHandler"
-                    OnUpdate="@OnUpdateHandler"
-                    OnModelInit="@OnModelInitHandler"
-                    OnDownload="@OnDownloadHandler"
-                    OnDelete="@OnDeleteHandler">
-                   <FileManagerToolBar>
-                       <FileManagerToolBarSearchTool/>
-                       <FileManagerToolBarFileViewTool/>
-                       <FileManagerToolBarSpacer/>
-                       <FileManagerToolBarCustomTool>
-                           <TelerikButton Icon="@SvgIcon.Copy" OnClick="@CopyPath">Copy path</TelerikButton>
-                       </FileManagerToolBarCustomTool>
-                   </FileManagerToolBar>
+                    @bind-SelectedItems="@SelectedItems"
+                    Height="400px">
+    <FileManagerToolBar>
+        <FileManagerToolBarSearchTool />
+        <FileManagerToolBarFileViewTool />
+        <FileManagerToolBarSpacer />
+        <FileManagerToolBarCustomTool>
+            <TelerikButton Icon="@SvgIcon.Trash"
+                           OnClick="@DeleteSelected"
+                           Enabled="@SelectedItems.Any()">Delete</TelerikButton>
+        </FileManagerToolBarCustomTool>
+    </FileManagerToolBar>
 </TelerikFileManager>
 
-<!-- Move JavaScript code to a separate JS file in production -->
-<script suppress-error="BL9992">
-    function copyPath(pathValue) {
-        navigator.clipboard.writeText(pathValue);
-    }
-</script>
-
 @code {
+    private TelerikFileManager<FlatFileEntry> FileManagerRef;
+
     private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
 
+    private IEnumerable<FlatFileEntry> SelectedItems { get; set; } = new List<FlatFileEntry>();
+
     private string RootPath { get; set; } = "root-folder-path";
-    
-    private string DirectoryPath { get; set; } = "root-folder-path";
 
-    private async Task CopyPath()
-    {
-        await jsInterop.InvokeVoidAsync("copyPath", DirectoryPath);
-    }
+    private string DirectoryPath { get; set; } = "root-folder-path\\Work Files\\Documents";
 
-    private async Task OnCreateHandler(FileManagerCreateEventArgs args)
-    {
-        // The new item data is hard-coded for the purpose of the example.
-        var newFolder = args.Item as FlatFileEntry;
+    private FlatFileEntry ItemToRemove { get; set; }
 
-        var parent = GetParent(newFolder, DirectoryPath);
-
-        newFolder.Id = DirectoryPath + newFolder.Name.ToString();
-        newFolder.ParentId = parent != null ? parent.Id : null;
-        newFolder.Name = "New folder";
-        newFolder.IsDirectory = true;
-        newFolder.HasDirectories = false;
-        newFolder.DateCreated = DateTime.Now;
-        newFolder.DateCreatedUtc = DateTime.Now;
-        newFolder.DateModified = DateTime.Now;
-        newFolder.DateModifiedUtc = DateTime.Now;
-        newFolder.Path = Path.Combine(DirectoryPath, newFolder.Name);
-        newFolder.Extension = null;
-
-        var parentDirectory = GetDirectory(DirectoryPath) ?? GetParent(newFolder, DirectoryPath);
-
-        if (parentDirectory != null)
-        {
-            // simulate add in file system
-            newFolder.ParentId = parentDirectory.Id;
-            FileManagerData.Add(newFolder);
-            parentDirectory.HasDirectories = FileManagerData.Count(x => x.ParentId == parentDirectory.Id) > 0;
-        }
-        else
-        {
-            // create a folder in the root dir
-            FileManagerData.Add(newFolder);
-        }
-
-        RefreshData();
-    }
-
-    private FlatFileEntry GetDirectory(string path)
-    {
-        var directory = FileManagerData.FirstOrDefault(x => x.IsDirectory && x.Path == path);
-
-        return directory;
-    }
-
-    private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
-    {
-        var parentItem = FileManagerData
-            .FirstOrDefault(x => x.IsDirectory == true && x.Path == currDirectory);
-
-        return parentItem;
-    }
-
-
-    private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
-    {
-        var item = args.Item as FlatFileEntry;
-
-        if (item.IsDirectory)
-        {
-            // prevent renaming of directories. If you allow that, make sure
-            // to also update the Path of the children
-        }
-        else
-        {
-            // the name prop is updated, but update the path to the file as well
-            var name = item.Name ?? string.Empty;
-            var extension = item.Extension ?? string.Empty;
-            var fullName = extension.Length > 0 && name.EndsWith(extension) ?
-                name : $"{name}{extension}";
-
-            var updatedItem = FileManagerData.FirstOrDefault(x => x.Id == item.Id);
-
-            updatedItem.Name = item.Name;
-            updatedItem.Path = Path.Combine(DirectoryPath, fullName);
-            Console.WriteLine(updatedItem.Path);
-        }
-    }
-
-    private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
-    {
-        var selectedItem = args.Item as FlatFileEntry;
-
-        //the Filemanager does not have the actual file.
-        //To download it, find the selected file through args.Item and
-        //assign the actual file to the argument as follows:
-
-        //args.Stream = the file stream of the actual selected file;
-        //args.MimeType = the mime type of the actual file, so it can be downloaded;
-        //args.FileName = allows overriding the name of the downloaded file;
-    }
-
-    private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
-    {
-        var currItem = args.Item as FlatFileEntry;
-
-        var itemToDelete = FileManagerData.FirstOrDefault(x => x.Id == currItem.Id);
-
-        FileManagerData.Remove(itemToDelete);
-
-        RefreshData();
-    }
-
-    private FlatFileEntry OnModelInitHandler()
-    {
-        var item = new FlatFileEntry();
-        item.Name = $"New folder";
-        item.Size = 0;
-        item.Path = Path.Combine(DirectoryPath, item.Name);
-        item.IsDirectory = true;
-        item.HasDirectories = false;
-        item.DateCreated = DateTime.Now;
-        item.DateCreatedUtc = DateTime.Now;
-        item.DateModified = DateTime.Now;
-        item.DateModifiedUtc = DateTime.Now;
-
-        return item;
-    }
-
-    private void RefreshData()
-    {
-        FileManagerData = new List<FlatFileEntry>(FileManagerData);
-    }
-
-    // fetch the FileManager data
+    // Fetch the FileManager data.
     protected override async Task OnInitializedAsync()
     {
         FileManagerData = await GetFlatFileEntries();
     }
 
-    // a model to bind the FileManager. Should usually be in its own separate location.
+    private void DeleteSelected()
+    {
+        foreach (var item in SelectedItems)
+        {
+            ItemToRemove = FileManagerData.FirstOrDefault(x => x.Id == item.Id);
+
+            FileManagerData.Remove(ItemToRemove);
+
+            FileManagerRef.Rebind();
+        }
+    }
+
+    // Model to bind the FileManager. Should usually be in its own separate location.
     public class FlatFileEntry
     {
         public string Id { get; set; }
@@ -275,11 +112,9 @@ The following example demonstrates the customization of the FileManager Toolbar.
         public DateTime DateModifiedUtc { get; set; }
     }
 
-    // the next lines are hardcoded data generation so you can explore the FileManager freely
-
+    // The next lines are hardcoded data generation so you can explore the FileManager freely.
     private async Task<List<FlatFileEntry>> GetFlatFileEntries()
     {
-
         var workFiles = new FlatFileEntry()
             {
                 Id = "1",
@@ -337,7 +172,7 @@ The following example demonstrates the customization of the FileManager Toolbar.
                 DateCreatedUtc = new DateTime(2022, 1, 5),
                 DateModified = new DateTime(2022, 2, 3),
                 DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "specification.docx"),
+                Path = Path.Combine(Documents.Path, "Specification.docx"),
                 Size = 462 * 1024
             };
 
@@ -402,10 +237,15 @@ The following example demonstrates the customization of the FileManager Toolbar.
             gridDesign
         };
 
-        return await Task.FromResult(files);
+        return files;
     }
 }
 ````
+
+## Next Steps
+
+* [Handle FileManager Events]({%slug filemanager-events%})
+
 
 ## See Also
 
