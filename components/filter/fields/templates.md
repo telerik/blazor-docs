@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: Filter Field Templates
-description: Templates for the FilterField
+description: Learn how to configure and use Templates for the Filter component FilterField. The ValueTemplate allows users to input a filtering value in custom UI.
 slug: filter-filterfield-templates
 tags: telerik,blazor,filter,filterfields,templates
 published: True
