@@ -24,6 +24,8 @@ The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext
 
 To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField]({%slug filter-fields%}).
 
+>caption Using FilterField ValueTemplate
+
 ````CSHMTL
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
