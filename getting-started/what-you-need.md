@@ -15,9 +15,9 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 
 >tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
 >
+> * [Blazor Web App]({%slug getting-started/web-app%}) template in .NET 8
 > * [Blazor Server apps]({%slug getting-started/server-side%}) in .NET 6 or 7
 > * [Blazor WebAssembly apps]({%slug getting-started/client-side%})
-> * [Blazor Web App]({%slug getting-started/web-app%}) template in .NET 8
 > * [Blazor Hybrid (MAUI) apps]({%slug getting-started/hybrid-blazor%})
 >
 > The differences between the above tutorials and this page are:
@@ -28,9 +28,6 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 > * The current article provides more setup options and suggests possible enhancements.
 >
 > It's best for first-time users to start from the above tutorials and then come back to this article. Developers who have already setup Telerik Blazor apps can use directly this article.
-
-
-## In This Article
 
 The required milestones to obtain and use Telerik UI for Blazor are:
 
@@ -143,18 +140,13 @@ builder.Services.AddTelerikBlazor();
 
 ## CSS Theme and JavaScript Files
 
-The Telerik UI for Blazor components require a [theme stylesheet](#css-theme) and a [JSInterop file](#javascript-file) in the app's root HTML markup. This markup can reside in a different file, depending on the .NET version and Blazor hosting model, for example:
+The Telerik UI for Blazor components require a [theme stylesheet](#css-theme) and a [JSInterop file](#javascript-file).
 
-* `App.razor` (.NET 8)
-* `index.html` (WebAssembly or Hybrid)
-* `_Host.cshtml` (.NET 7 Server)
-* `_Layout.cshtml` (.NET 6 Server)
-
-To use static CSS and JS assets from the NuGet package, make sure that the project that holds the root HTML markup has [`app.UseStaticFiles();` in its `Program.cs`](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-8.0&tabs=visual-studio#consume-content-from-a-referenced-rcl) file. This is true by default.
+To use static CSS and JS assets from the NuGet package in a project, make sure that the project has [`app.UseStaticFiles();` in its `Program.cs`](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-8.0&tabs=visual-studio#consume-content-from-a-referenced-rcl) file. This is true by default.
 
 ### CSS Theme
 
-Register the [Telerik theme stylesheet]({%slug general-information/themes%}) before the application stylesheet and the [CSS isolation stylesheet](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation). This CSS file order will allow you to [override Telerik theme styles]({%slug themes-override%}) more easily, if necessary.
+Register the [Telerik theme stylesheet]({%slug general-information/themes%}) in the `<head>` of the web page. Add the theme before the application stylesheet and the [CSS isolation stylesheet](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation). This CSS file order will allow you to [override Telerik theme styles]({%slug themes-override%}) more easily, if necessary.
 
 Register the [Telerik font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet) only if the app uses [Telerik font icons]({%slug common-features-icons%}).
 

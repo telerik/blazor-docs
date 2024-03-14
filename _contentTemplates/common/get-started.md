@@ -140,7 +140,7 @@ Add a `<TelerikRootComponent>` to the app layout file (by default, `MainLayout.r
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>
-    ... Existing MainLayout.razor content ...
+    @* existing MainLayout.razor content here *@
 </TelerikRootComponent>
 ````
 
