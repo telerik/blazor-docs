@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: FilterField - Templates
+page_title: Filter Field Templates
 description: Templates for the FilterField
 slug: filter-filterfield-templates
 tags: telerik,blazor,filter,filterfields,templates
