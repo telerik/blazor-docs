@@ -14,7 +14,7 @@ The Badge component features built-in appearance parameters that allow you to cu
 
 ## FillMode
 
-You can control how the Badge is filled by setting the `FillMode` parameter to a member of the `Telerik.Blazor.ThemeConstants.Badge.FillMode` class:
+You can toggle the Badge border and background by setting the `FillMode` parameter to a member of the `Telerik.Blazor.ThemeConstants.Badge.FillMode` class:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
