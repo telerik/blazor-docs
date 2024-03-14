@@ -21,7 +21,7 @@ The FileManager includes a built-in Toolbar that contains commands for adding ne
 
 The default Toolbar renders automatically when you declare the FileManager component. Additional Toolbar configuration is not required.
 
-The default Toolbar contains the following built-in tools (rendered in this exact order):
+The default FileManager Toolbar contains the following built-in tools (rendered in this exact order):
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
