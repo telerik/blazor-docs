@@ -1,6 +1,6 @@
 ---
-title: Server-Side Blazor (Tutorial)
-page_title: First Steps with Server-Side Blazor
+title: Blazor Server (Tutorial)
+page_title: First Steps with Blazor Server Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build an app that runs the UI components server-side in Blazor server.
 slug: getting-started/server-side
 tags: get,started,first,steps,server
@@ -103,6 +103,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 ## See Also
 
-* [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
-* [Telerik Private NuGet Feed]({%slug installation/nuget%})
+* [Typical Workflow for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
+* [First Steps with Blazor Web App]({%slug getting-started/web-app%})
+* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})

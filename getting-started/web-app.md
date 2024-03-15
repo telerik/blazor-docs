@@ -1,6 +1,6 @@
 ---
 title: Blazor Web App (Tutorial)
-page_title: First Steps with UI for Blazor in a Web App 
+page_title: First Steps with Blazor Web Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build a Web App that runs the UI for Blazor components.
 slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
@@ -128,4 +128,8 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 
 ## See Also
 
+* [Typical Workflow for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
 * [Using .NET 8 Blazor Sections inside Telerik Components]({%slug common-kb-net8-sections%})
+* [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
+* [First Steps with Blazor Server]({%slug getting-started/server-side%})
+* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})
