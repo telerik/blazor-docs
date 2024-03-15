@@ -54,7 +54,7 @@ You can check if this is the case by inspecting the Network tab of your browser 
 
 Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
 
-One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by not making the script a blocking resource. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
+One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by loading the script asynchronously. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
 
 ### TypeScript
 
