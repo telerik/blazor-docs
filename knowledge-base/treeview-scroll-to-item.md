@@ -85,19 +85,19 @@ Here are two examples:
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
-                item.scrollIntoView();
+                item.scrollIntoView({ block: "nearest" });
             }
         }, 300);
     }
 </script>
 
 @code {
-    List<TreeItem> TreeData { get; set; }
-    IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private List<TreeItem> TreeData { get; set; }
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    int? TreeItemId { get; set; } = 37;
-    bool ShouldScroll { get; set; }
+    private int? TreeItemId { get; set; } = 37;
+    private bool ShouldScroll { get; set; }
 
     void SelectAndScroll()
     {
@@ -223,21 +223,21 @@ The example uses simplified logic for parent-child item relationship. In product
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
-                item.scrollIntoView();
+                item.scrollIntoView({ block: "nearest" });
             }
         }, 300);
     }
 </script>
 
 @code {
-    List<TreeItem> TreeData { get; set; }
-    IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private List<TreeItem> TreeData { get; set; }
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    int? RootItemId { get; set; } = 3;
-    int? ChildItemId { get; set; } = 25;
-    int LoadingDelay { get; set; } = 500;
-    bool ShouldScroll { get; set; }
+    private int? RootItemId { get; set; } = 3;
+    private int? ChildItemId { get; set; } = 25;
+    private int LoadingDelay { get; set; } = 500;
+    private bool ShouldScroll { get; set; }
 
     async Task SelectAndScroll()
     {
