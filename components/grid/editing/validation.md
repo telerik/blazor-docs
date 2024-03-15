@@ -215,7 +215,7 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 </TelerikGrid>
 
 @code {
-    public List<SampleData> GridData { get; set; } = new();
+    private List<SampleData> GridData { get; set; } = new();
 
     private SampleDataValidator Validator = new();
 
