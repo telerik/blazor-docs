@@ -74,13 +74,12 @@ Here are two examples:
     .scrollable-treeview {
         height: 300px;
         overflow: auto;
-        scroll-behavior: smooth;
         border: 1px solid #ccc;
         margin: 1em;
     }
 </style>
 
-@* Move the JavaScript to a separate JS file *@
+@* ! Move the JavaScript code to its proper place ! *@
 <script suppress-error="BL9992">
     function scrollToItem(treeSelector) {
         setTimeout(function() {
@@ -88,34 +87,37 @@ Here are two examples:
             if (item) {
                 item.scrollIntoView({ block: "nearest" });
             }
-        });
+        }, 300);
     }
 </script>
 
 @code {
-    private List<TreeItem> TreeData { get; set; } = new();
+    private List<TreeItem> TreeData { get; set; }
     private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
     private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    private int TreeItemId { get; set; } = 44;
+    private int? TreeItemId { get; set; } = 37;
     private bool ShouldScroll { get; set; }
 
     void SelectAndScroll()
     {
-        // get the item
-        TreeItem? itemToSelect = TreeData.FirstOrDefault(x => x.Id == TreeItemId);
-
-        if (itemToSelect != null)
+        if (TreeItemId.HasValue)
         {
-            if (itemToSelect?.ParentId != null)
+            // get the item
+            var itemToSelect = TreeData.First(x => x.Id == TreeItemId);
+
+            // get and expand the parent
+            if (itemToSelect != null && itemToSelect.ParentId != null)
             {
-                // get and expand the parent
                 var parentItem = TreeData.First(x => x.Id == itemToSelect.ParentId);
-                ExpandedItems = ExpandedItems.Append(parentItem);
+                if (parentItem != null)
+                {
+                    ExpandedItems = ExpandedItems.Append(parentItem);
+                }
             }
 
             // select the item
-            SelectedItems = new List<TreeItem>() { itemToSelect! };
+            SelectedItems = new List<TreeItem>() { itemToSelect };
 
             // raise flag for JavaScript scrolling
             ShouldScroll = true;
@@ -127,13 +129,8 @@ Here are two examples:
         if (ShouldScroll)
         {
             ShouldScroll = false;
-
-            // wait for the TreeView item to select
-            await Task.Delay(1);
-
             await js.InvokeVoidAsync("scrollToItem", ".scrollable-treeview");
         }
-
         await base.OnAfterRenderAsync(firstRender);
     }
 
@@ -152,9 +149,9 @@ Here are two examples:
             items.Add(new TreeItem()
             {
                 Id = i,
-                Text = $"Item {i}",
+                Text = "Item " + i.ToString(),
                 ParentId = i > 3 ? rnd.Next(1, 4) : null,
-                HasChildren = i <= 3
+                HasChildren = i > 3 ? false : true
             });
         }
 
@@ -164,7 +161,179 @@ Here are two examples:
     public class TreeItem
     {
         public int Id { get; set; }
-        public string Text { get; set; } = string.Empty;
+        public string Text { get; set; }
+        public int? ParentId { get; set; }
+        public bool HasChildren { get; set; }
+    }
+}
+````
+
+### Load Data on Demand
+
+The example uses simplified logic for parent-child item relationship. In production scenarios, you may need to find the correct parent item to expand.
+
+````CSHTML
+@inject IJSRuntime js
+
+<p>
+    <label>
+        Root Item (1 - 5):
+        <TelerikNumericTextBox @bind-Value="@RootItemId" Min="1" Max="5" Decimals="0" Width="80px" />
+    </label>
+</p>
+
+<p>
+    <label>
+        Child Item (1 - 50):
+        <TelerikNumericTextBox @bind-Value="@ChildItemId" Min="1" Max="30" Decimals="0" Width="80px" />
+    </label>
+</p>
+
+<p>
+    <label>
+        Simulate item load delay (1 - 5000 ms):
+        <TelerikNumericTextBox @bind-Value="@LoadingDelay" Min="1" Max="5000" Decimals="0" Width="100px" />
+    </label>
+</p>
+
+<TelerikButton OnClick="@SelectAndScroll">Select and Scroll</TelerikButton>
+
+<TelerikTreeView Data="@TreeData" OnExpand="@OnTreeViewExpand"
+                 SelectionMode="@TreeViewSelectionMode.Single"
+                 @bind-SelectedItems="@SelectedItems"
+                 @bind-ExpandedItems="@ExpandedItems"
+                 Class="scrollable-treeview">
+    <TreeViewBindings>
+        <TreeViewBinding />
+    </TreeViewBindings>
+</TelerikTreeView>
+
+<style>
+    .scrollable-treeview {
+        height: 300px;
+        overflow: auto;
+        border: 1px solid #ccc;
+        margin: 1em;
+    }
+</style>
+
+@* ! Move the JavaScript code to its proper place ! *@
+<script suppress-error="BL9992">
+    function scrollToItem(treeSelector) {
+        setTimeout(function() {
+            var item = document.querySelector(treeSelector + " .k-selected");
+            if (item) {
+                item.scrollIntoView({ block: "nearest" });
+            }
+        }, 300);
+    }
+</script>
+
+@code {
+    private List<TreeItem> TreeData { get; set; }
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+
+    private int? RootItemId { get; set; } = 3;
+    private int? ChildItemId { get; set; } = 25;
+    private int LoadingDelay { get; set; } = 500;
+    private bool ShouldScroll { get; set; }
+
+    async Task SelectAndScroll()
+    {
+        if (RootItemId.HasValue && ChildItemId.HasValue)
+        {
+            // get the item
+            var parentItem = TreeData.First(x => x.Id == RootItemId);
+            var itemId = RootItemId * 100 + ChildItemId;
+            var itemToSelect = TreeData.FirstOrDefault(x => x.Id == itemId);
+
+            // load data if necessary
+            if (itemToSelect == null)
+            {
+                await LoadChildren(parentItem);
+                itemToSelect = TreeData.FirstOrDefault(x => x.Id == itemId);
+            }
+
+            // expand the parent
+            ExpandedItems = ExpandedItems.Append(parentItem);
+
+            // refresh TreeView after loading children
+            TreeData = new List<TreeItem>(TreeData);
+
+            // select the item
+            SelectedItems = new List<TreeItem>() { itemToSelect };
+
+            // raise flag for JavaScript scrolling
+            ShouldScroll = true;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (ShouldScroll)
+        {
+            ShouldScroll = false;
+            await js.InvokeVoidAsync("scrollToItem", ".scrollable-treeview");
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    async Task OnTreeViewExpand(TreeViewExpandEventArgs args)
+    {
+        var item = args.Item as TreeItem;
+
+        if (args.Expanded && !TreeData.Any(x => x.ParentId == item.Id))
+        {
+            await LoadChildren(item);
+        }
+    }
+
+    async Task LoadChildren(TreeItem item)
+    {
+        var parentId = item.Id;
+
+        // simulate network delay
+        await Task.Delay(LoadingDelay);
+
+        for (int i = parentId * 100 + 1; i <= parentId * 100 + 30; i++)
+        {
+            TreeData.Add(new TreeItem()
+            {
+                Id = i,
+                Text = $"Item {parentId} - {i}",
+                ParentId = parentId
+            });
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        TreeData = LoadFlat();
+    }
+
+    List<TreeItem> LoadFlat()
+    {
+        List<TreeItem> items = new List<TreeItem>();
+
+        for (int i = 1; i <= 5; i++)
+        {
+            items.Add(new TreeItem()
+            {
+                Id = i,
+                Text = "Item " + i.ToString(),
+                ParentId = null,
+                HasChildren = true
+            });
+        }
+
+        return items;
+    }
+
+    public class TreeItem
+    {
+        public int Id { get; set; }
+        public string Text { get; set; }
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
     }
