@@ -26,7 +26,7 @@ The component gives a unified way to build filter descriptors using its [fields]
 
 @using Telerik.DataSource
 
-<TelerikFilter @ref="FilterRef" @bind-Value="@Value">
+<TelerikFilter @ref="FilterRef" @bind-Value="@FilterValue">
     <FilterFields>
         <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
@@ -35,14 +35,16 @@ The component gives a unified way to build filter descriptors using its [fields]
 </TelerikFilter>
 
 @code {
-    TelerikFilter FilterRef { get; set; }
-    public CompositeFilterDescriptor Value { get; set; } = new CompositeFilterDescriptor();
+
+    private TelerikFilter? FilterRef { get; set; }
+
+    private CompositeFilterDescriptor FilterValue { get; set; } = new CompositeFilterDescriptor();
 
     public class Person
     {
         public int EmployeeId { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public int AgeInYears { get; set; }
     }
@@ -52,16 +54,16 @@ The component gives a unified way to build filter descriptors using its [fields]
 ## Fields
 The fields are responsible for setting up the Filter information. [Read more about the supported Blazor Filter fields...]({%slug filter-fields%})
 
-## Parameters
+## Events
+The Blazor Filter generates events that you can handle and further customize its behavior. [Read more about the Blazor Filter events...]({%slug filter-events%}).
+
+## Filter Parameters
 The Blazor Filter provides parameters that allow you to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The class that will be rendered on the outermost element. |
 | `Value` | `CompositeFilterDescriptor` | Sets the value of the filter component. |
-
-## Events
-The Blazor Filter generates events that you can handle and further customize its behavior. [Read more about the Blazor Filter events...]({%slug filter-events%}).
 
 ## Next Steps
 [Configure the Filter Fields]({%slug filter-fields%})
