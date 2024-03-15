@@ -8,7 +8,7 @@
 @* Conditional styling/formatting for a cell and row *@
 
 <style>
-    .highlightCellBackGroud {
+    .highlightCellBackGround {
         background-color: lightyellow;
     }
 
@@ -42,7 +42,7 @@
 @code {
     void OnCellRenderHandler(GridCellRenderEventArgs args)
     {
-        args.Class = "highlightCellBackGroud";
+        args.Class = "highlightCellBackGround";
     }
     
     void OnRowRenderHandler(GridRowRenderEventArgs args)
