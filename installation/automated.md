@@ -13,7 +13,7 @@ position: 3
 
 This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
-While the most common way to install the Telerik UI for Blazor components is to use the [Telerik private NuGet feed]({%slug installation/nuget%}), you can also use a wizard installer, or a [zip archive]({%slug installation/zip%}).
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed]({%slug installation/nuget%}). However, you can also use a wizard installer, or a [ZIP archive]({%slug installation/zip%}).
 
 There is an automated installer for:
 

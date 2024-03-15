@@ -12,7 +12,7 @@ position: 4
 
 This article explains what the `zip` archive for Telerik UI for Blazor components includes, and how to get it.
 
-While the most common way to install the Telerik UI for Blazor components is to use the [Telerik private NuGet feed]({%slug installation/nuget%}), you can also use a [wizard installer]({%slug installation/msi%}), or a zip archive.
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed]({%slug installation/nuget%}). However, you can also use a [wizard installer]({%slug installation/msi%}), or a ZIP archive.
 
 The `ZIP` archive provides the following:
 

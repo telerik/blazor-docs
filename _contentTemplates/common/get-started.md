@@ -1,5 +1,5 @@
 #prerequisites-download
->tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Typical Workflow]({%slug getting-started/what-you-need%}) article. The Workflow article provides more setup options and suggests possible enhancements.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Typical Workflow]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
 
 ## Prerequisites
 
