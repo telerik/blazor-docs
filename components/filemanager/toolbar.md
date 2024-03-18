@@ -30,7 +30,7 @@ By default, the Blazor FileManager displays all its built-in tools in the order 
 
 By default, the FileManager Toolbar also includes a spacer (`<FileManagerToolBarSpacer />`). This spacer consumes the available empty space and pushes the rest of the tools next to one another.
 
-## Custom tools
+## Custom Tools
 
 In addition to built-in tools, the FileManager also supports custom tools. Use the `<FileManagerToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
