@@ -20,7 +20,7 @@ By default, the Blazor FileManager displays all its built-in tools in the order 
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| New Folder | `FileManagerToolBarNewFolderTool` | A button that creates a new folder in the current location. Read how to handle the creation at [FileManager Events]({%slug filemanager-events%}). |
+| New Folder | `FileManagerToolBarNewFolderTool` | A button that creates a new folder in the current location. Read how to handle the creation in the [FileManager Events]({%slug filemanager-events%}) article.|
 | Upload | `FileManagerToolBarUploadTool` | A button that opens a dialog with integrated [Upload component]({%slug upload-overview%}). Read more in the [FileManager Upload]({%slug filemanager-upload%}) article. |
 | Sort Direction | `FileManagerToolBarSortDirectionTool` | A ButtonGroup with ToggleButtons that selects the [sort direction(ascending or descending) to sort the files in the current location]({%slug filemanager-sort%}). |
 | Sort By | `FileManagerToolBarSortTool` | A SplitButton that selects the desired [sort member to sort by]({%slug filemanager-sort%}). |
