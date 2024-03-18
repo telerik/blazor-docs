@@ -25,7 +25,7 @@ By default, the Blazor FileManager displays all its built-in tools in the order 
 | Sort Direction | `FileManagerToolBarSortDirectionTool` | A ButtonGroup with ToggleButtons that selects the [sort direction(ascending or descending) to sort the files in the current location]({%slug filemanager-sort%}). |
 | Sort By | `FileManagerToolBarSortTool` | A SplitButton that selects the desired [sort member to sort by]({%slug filemanager-sort%}). |
 | Views | `FileManagerToolBarFileViewTool` | A ButtonGroup with ToggleButtons that [toggles the file and folder visualization between a ListView and a Grid]({%slug filemanager-views%}). |
-| View Details | `FileManagerToolBarViewDetailsTool` | A Switch that toggles the visibility of the [FileManager Preview Pane]({%slug filemanager-preview-pane%}). By default the preview pane is hidden. |
+| View Details | `FileManagerToolBarViewDetailsTool` | A Switch that toggles the visibility of the [FileManager Preview Pane]({%slug filemanager-preview-pane%}). By default, the preview pane is hidden. |
 | Search | `FileManagerToolBarSearchTool` | A TextBox that [filters the files by name]({%slug filemanager-search%}). |
 
 By default, the FileManager Toolbar also includes a spacer (`<FileManagerToolBarSpacer />`). This spacer consumes the available empty space and pushes the rest of the tools next to one another.
