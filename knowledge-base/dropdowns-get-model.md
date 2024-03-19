@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, AutoCopmlete for Blazor, MultiSelect for Blazor</td>
+			<td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, MultiSelect for Blazor</td>
 		</tr>
 	</tbody>
 </table>
