@@ -29,7 +29,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
 
 1. Use .NET 5 version that supports CSS isolation (like RC2 at the time of writing).
 
-1. Add a CSS rule to the scoped styles, such as a font size change.
+2. Add a CSS rule to the scoped styles, such as a font size change.
 
     **CSS**
     
@@ -38,7 +38,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
         }
 
 
-1. Apply that class to a Telerik component
+3. Apply that class to a Telerik component
 
 <div class="skip-repl"></div>
 ````CSHTML
@@ -63,7 +63,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
 </button>
 @code {
     [Parameter]
-    public string Class { get; set; }
+    private string Class { get; set; }
 }
 ````
 
@@ -91,15 +91,17 @@ There are two ways to go around this:
 
 >caption Sample CSS selector that uses `::deep` to cascade for nested components
 
-````CSS
-.my-component-button-class,
-::deep .my-component-button-class {
+**CSS**
+
+    .my-component-button-class,
+    ::deep .my-component-button-class {
     font-size: 20px !important;
-}
-````
+    }
+
 
 >caption Sample way to wrap nested components in HTML elements from the current component so `::deep` rules can affect them
 
+<div class="skip-repl"></div>
 ````CSHTML
 <p>This button's class is defined in the component's scoped css file. It's applied to the wrapping element from this component (a span in this case, make sure to use an appropriate one to have valid HTML) and the ::deep pseudoselector applies it to the button.</p>
 <span>
