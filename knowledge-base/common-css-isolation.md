@@ -38,7 +38,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
         }
 
 
-3. Apply that class to a Telerik component
+3. Apply that class to a Telerik component.
 
 <div class="skip-repl"></div>
 ````CSHTML
