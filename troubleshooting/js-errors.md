@@ -139,7 +139,7 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 
 ## Maximum call stack size exceeded
 
-Some common causes for the `Maximum call stack size exceeed` error are:
+Some common causes for the `Maximum call stack size exceeded` error are:
 
 * Update from older to newer .NET version
 * Old version of the `Telerik.UI.for.Blazor` (4.6.0 and older) with .NET 8
