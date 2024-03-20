@@ -148,7 +148,7 @@ Some common causes for the `Maximum call stack size exceeded` error are:
 
 The solution is:
 
-1. Close the opened project of the app from Visual Studio.
+1. Close Visual Studio.
 1. Delete all the `bin` and `obj` files in all projects in the solution.
 1. Clear the browser cache.
 1. Reopen Visual Studio and rebuild the app. 
