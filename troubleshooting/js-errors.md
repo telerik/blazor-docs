@@ -157,4 +157,4 @@ By clearing the browser cache, the `the telerik-blazor.js` file will reload and 
 
 You can also add a cache buster for your end users, which will have the same effect:
 
-`<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version501"></script>`
+`<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version{{site.uiForBlazorLatestVersion}}"></script>`
