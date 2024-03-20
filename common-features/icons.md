@@ -35,13 +35,13 @@ This article contains the following sections:
 
 The Telerik Blazor icons have three prerequisites to work:
 
-* [Install icon NuGet packages](#icon-nuget-packages)
-* [Import icon namespaces](#icon-namespaces)
-* [Register font icon stylesheet](#font-icon-stylesheet) (SVG icons don't need it)
+* [NuGet packages](#icon-nuget-packages)
+* [Icon namespaces](#icon-namespaces)
+* [Font icon stylesheet](#font-icon-stylesheet) (SVG icons don't need it)
 
 ### Icon NuGet Packages
 
-The Telerik Blazor components use built-in icons with the help of two NuGet packages. They are installed *automatically* as dependencies of the `Telerik.UI.for.Blazor` package:
+The Telerik Blazor components use built-in icons with the help of two NuGet packages. They are installed **automatically** as dependencies of the `Telerik.UI.for.Blazor` package:
 
 * `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** icons
 * `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in **SVG** icons
