@@ -41,16 +41,19 @@ You can use aggregates in the following templates:
 * [`GroupHeaderTemplate`]({%slug grid-templates-group-header%}) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
 * [`FooterTemplate`]({%slug grid-templates-column-footer%}) of a `GridColumn` - a grand total row of footers for the entire grid.
 
+## Aggregates Value
+
+Use the aggregate result in the templates that support it. The templates receive a `context`, which is a data item object from the Grid `Data`. Through the `context` you can access the aggregates for the respective field. The `context` has an `AggregateResults` property. In the `GroupFooterTemplate` and in the `GroupHeaderTemplate` the `AggregateResults` property is of a type Dictionary and you can access the aggregates available for each field in the Grid.
+
 ## How to Enable Aggregates
 
 To enable aggregates:
 
 1. Under the `GridAggregates` tag, define the `GridAggregate` entries to enable the aggregations per field you want to use.
 1. If the Grid is bound to a [dynamic object (Expando)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/walkthrough-creating-and-using-dynamic-objects), set the `FieldType` attribute of the `GridAggregate` tag (it is of type `Type`).
-1. Use the aggregate result in the templates that support it - their `context` is strongly typed and carries the aggregate values in the respective fields.
 1. Set the grid's `Groupable` property to `true`.
     * If you will be using only `FooterTemplate`s - grouping is not required.
-1. Group the grid to see the effect on group-specific templates
+1. Group the grid to see the effect on group-specific templates.
 
 
 ## Example
@@ -58,38 +61,38 @@ To enable aggregates:
 >caption Use Aggregates in the Telerik Blazor Grid
 
 ````CSHTML
-Enable and use aggregates. To see the full effect, group by a column - "Team" and then "Active Projects".
-
-<TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="700px">
+<TelerikGrid Data=@GridData Groupable="true" Height="700px">
     <GridAggregates>
         <GridAggregate Field=@nameof(Employee.Name) Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field=@nameof(Employee.Team) Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Max" />
         <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Sum" />
+        <GridAggregate Field=@nameof(Employee.Salary) Aggregate="@GridAggregateType.Average" />
+        <GridAggregate Field=@nameof(Employee.ActiveProjects) Aggregate="@GridAggregateType.Sum" />
     </GridAggregates>
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Name) Groupable="false">
             <FooterTemplate>
-                Total: @context.Count employees.
+                Total: @context.Count employees
                 <br />
                 @{
                     // you can use aggregates for other fields/columns by extracting the desired one by its
                     // field name and aggregate function from the AggregateResults collection
                     // The type of its Value is determined by the type of its field - decimal for the Salary field here
                     decimal salaries = (decimal)context.AggregateResults
-                        .FirstOrDefault(r => r.AggregateMethodName == "Sum" && r.Member == "Salary")?.Value;
+                    .FirstOrDefault(r => r.AggregateMethodName == nameof(GridAggregateType.Sum) && r.Member == nameof(Employee.Salary))?.Value;
                 }
                 Total salaries: @salaries.ToString("C0")
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Team) Title="Team">
+            <GroupHeaderTemplate>
+                @context.Value @* the default text you would get without the template *@              
+                <span>Team size: @context.Count</span>
+            </GroupHeaderTemplate>
             <GroupFooterTemplate>
                 Team Members: <strong>@context.Count</strong>
             </GroupFooterTemplate>
-            <GroupHeaderTemplate>
-                @context.Value @* the default text you would get without the template *@
-                &nbsp;<span>Team size: @context.Count</span>
-            </GroupHeaderTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Salary) Title="Salary" Groupable="false">
             <GroupFooterTemplate>
@@ -111,17 +114,27 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
                     }
                 }
             </GroupHeaderTemplate>
+            <GroupFooterTemplate>
+                @*access all fields aggregates*@
+                Total employees and teams: @(context.AggregateResults[nameof(Employee.Team)].Count + context.AggregateResults[nameof(Employee.Name)].Count)
+                <br />
+                Total teams: @context.AggregateResults[nameof(Employee.Team)].Count
+                <br />
+                Total employees: @context.AggregateResults[nameof(Employee.Name)].Count
+                <br />
+                Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")
+                <br />
+                All active projects: @context.Sum
+            </GroupFooterTemplate>
         </GridColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public List<Employee> GridData { get; set; }
+    private List<Employee> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        GridData = new List<Employee>();
-        var rand = new Random();
         for (int i = 0; i < 15; i++)
         {
             Random rnd = new Random();
@@ -156,7 +169,7 @@ Enable and use aggregates. To see the full effect, group by a column - "Team" an
 
 * You should define only aggregates that you will use to avoid unnecessary calculations that may be noticeable on large data sets.
 
-* If you try to use an aggregate that is not defined, or an aggregate over an unsupported field type, a runtime error will be thrown.
+* If you try to use an aggregate that is not defined, or an aggregate over an unsupported field type, a runtime error will be thrown or you will not get the result from the aggregation.
 
 * If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection]({%slug grid-refresh-data%}) yourself, or fetching it anew from the service (example [here]({%slug components/grid/editing/overview%}), see how the Create/Update/Delete events fetch data anew).
 
