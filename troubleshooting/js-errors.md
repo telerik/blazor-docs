@@ -18,7 +18,7 @@ This page provides solutions for JavaScript errors that you may encounter while 
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
-* [Microsoft.JSInterop.JSException: Maximum call stack size exceeed](#maximum-call-stack-size-exceed)
+* [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
 
 ## TelerikBlazor was undefined
 
