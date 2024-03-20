@@ -151,6 +151,6 @@ To localize selected keys with custom strings:
     </ItemGroup>
     ````
 
-# See Also
+## See Also
 
 * [Localization]({%slug globalization-localization%})
