@@ -1,8 +1,8 @@
 ---
-title: How to change the FileSelect button's caption and disable it during selection
-description: Hot to change FileSelect button's caption, while selecting and uploading. How to disable it during selection.
+title: Change the FileSelect Button Caption and Disable It During Selection
+description: Learn how to notify the user about the status of the process during selection, through changing button caption and disabling the FileSelect component.
 type: how-to
-page_title: How to disable the FileSelect, while selecting and changing its caption's button.
+page_title: How to Change the FileSelect Button Caption and Disable It During Selection.
 slug: fileselect-disable-onselect
 position:
 tags: fileselect, upload, select, disable, loader
@@ -29,16 +29,16 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to change the FileSelect's button caption, when the user select or upload multiple files?
+* How to change the FileSelect's button caption, when the user selects or uploads multiple files?
 * How to disable the FileSelect during upload of multiple files?
-* How to notify the user about the status of the process during file selection and prevent disruption?
-
+* How to notify the user about the status of the process during the upload?
+* How to prevent the user from disrupting the upload process?
 
 ## Solution
 
-To achieve this configuration, you have to change the `Enabled` parameter to `false`, change button's caption and re-render the `FileSelect` during the `OnSelect` event. The specificity of this approach is that file selection is a synchronous operation that waits for the files to be uploaded, and this prevents the re-rendering during the process. The solution is to include another asynchronous operation in the handler of the `OnSelect` event during which to change the button's caption, disable the `FileSelect` and re-render it. The described approach is shown in the example below.
+To achieve this configuration, you have to change the `Enabled` parameter of the `FileSelect` component to `false`, change its button caption, and re-render the component during the `OnSelect` event. However, file selection is a synchronous operation that waits for the files to be uploaded, and this prevents the re-rendering during the process. To work around this limitation, you need to include another asynchronous operation in the handler of the `OnSelect` event. This async operation will change the button caption, disable the `FileSelect`, and re-render it. The described approach is shown in the example below.
 
->caption OnSelect disable the FileSelect and changes the button's caption.
+>caption OnSelect disables the FileSelect and changes the button caption.
 
 ```CSHTML
 <div class="row">
