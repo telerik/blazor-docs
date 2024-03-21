@@ -97,7 +97,6 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 </TelerikGrid>
 
 @code {
-
     private List<Person> GridData { get; set; } = new();
 
     private List<Person> InitialData { get; set; } = new();
