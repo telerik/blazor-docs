@@ -156,6 +156,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
     protected override void OnInitialized()
     {
         LoadData();
+
         base.OnInitialized();
     }
 
