@@ -36,7 +36,7 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 1. Add the [Telerik Blazor service](#service).
 1. Add the [CSS theme and JavaScript file](#css-theme-and-javascript-files).
 1. Add the [`<TelerikRootComponent>`](#telerikrootcomponent).
-1. [Add components to a view](#add-telerik-components-to-a-view)
+1. [Add components to a view](#add-telerik-components-to-a-view).
 
 
 ## NuGet Packages
