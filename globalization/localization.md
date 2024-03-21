@@ -298,4 +298,4 @@ Make sure to:
 ## See Also
 
 * [Globalization Overview]({%slug globalization-overview%})
-* [Localize Selected Localization Keys]({%slug common-kb-localize-selected-localization-keys%})
+* [Localize Only Some Component Labels]({%slug common-kb-localize-selected-localization-keys%})
