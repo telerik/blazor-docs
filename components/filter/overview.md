@@ -73,7 +73,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 | --- | --- |
 | `Rebind` | Processes the component `Value` and updates the component UI. |
 
->caption Get a reference to the Filter component and use its methods.
+>caption Using the Filter component reference and methods
 
 ````CSHTML
 @using Telerik.DataSource
