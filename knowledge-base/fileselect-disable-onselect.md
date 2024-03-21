@@ -30,7 +30,7 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to change the FileSelect's button caption, when the user selects or uploads multiple files?
-* How to disable the FileSelect during upload of multiple files?
+* How to disable the FileSelect component during upload of multiple files?
 * How to notify the user about the status of the process during the upload?
 * How to prevent the user from disrupting the upload process?
 
