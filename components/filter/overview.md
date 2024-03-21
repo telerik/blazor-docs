@@ -97,13 +97,13 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 </TelerikGrid>
 
 @code {
-    private List<Person> GridData { get; set; } = new();
-
-    private List<Person> InitialData { get; set; } = new();
-
     private TelerikFilter? FilterRef { get; set; }
 
     private CompositeFilterDescriptor FilterValue { get; set; } = new();
+
+    private List<Person> GridData { get; set; } = new();
+
+    private List<Person> InitialData { get; set; } = new();
 
     private void OnValueChanged(CompositeFilterDescriptor value)
     {
