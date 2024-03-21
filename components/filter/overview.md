@@ -65,6 +65,123 @@ The Blazor Filter provides parameters that allow you to configure the component:
 | `Class` | `string` | The class that will be rendered on the outermost element. |
 | `Value` | `CompositeFilterDescriptor` | Sets the value of the filter component. |
 
+## Reference and Methods
+
+The Filter exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
+
+| Method | Description |
+| --- | --- |
+| `Rebind` | Calls `StateHasChanged` inside the Filter component. |
+
+>caption Get a reference to the Filter component and use its methods.
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikFilter @ref="FilterRef" Value="@FilterValue" ValueChanged="@OnValueChanged">
+    <FilterFields>
+        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
+        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
+        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
+    </FilterFields>
+</TelerikFilter>
+
+<TelerikGrid Data="@GridData"
+             Height="400px">
+    <GridColumns>
+        <GridColumn Field="@(nameof(Person.EmployeeId))" Title="Id" />
+        <GridColumn Field="@(nameof(Person.Name))" Title="First Name" />
+        <GridColumn Field="@(nameof(Person.AgeInYears))" Title="Age" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+
+    private List<Person> GridData { get; set; } = new();
+
+    private List<Person> InitialData { get; set; } = new();
+
+    private TelerikFilter? FilterRef { get; set; }
+
+    private CompositeFilterDescriptor FilterValue { get; set; } = new();
+
+    private void OnValueChanged(CompositeFilterDescriptor value)
+    {
+        FilterValue = value;
+        ProcessGridData(FilterValue);
+    }
+
+    private void ProcessGridData(CompositeFilterDescriptor filter)
+    {
+        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor> { filter } };
+
+        var dataSourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
+
+        GridData = dataSourceResult.Data.Cast<Person>().ToList();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            FilterValue.FilterDescriptors.Clear();
+            FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            FilterValue.FilterDescriptors = new FilterDescriptorCollection(){
+                new FilterDescriptor
+                {
+                    Member = nameof(Person.EmployeeId),
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = nameof(Person.Name),
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo
+                },
+                new FilterDescriptor
+                {
+                    Member = nameof(Person.AgeInYears),
+                    MemberType = typeof(int),
+                    Operator = FilterOperator.IsEqualTo
+                },
+            };
+            FilterRef.Rebind();
+            ProcessGridData(FilterValue);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+        base.OnInitialized();
+    }
+
+    private void LoadData()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            InitialData.Add(new Person
+                {
+                    EmployeeId = i,
+                    Name = "Name" + i,
+                    AgeInYears = i + 20
+                });
+        }
+
+        ProcessGridData(FilterValue);
+    }
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; } 
+        public int AgeInYears { get; set; }
+    }
+}
+````
+
 ## Next Steps
 [Configure the Filter Fields]({%slug filter-fields%})
 
