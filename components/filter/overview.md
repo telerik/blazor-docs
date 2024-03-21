@@ -83,7 +83,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
     <FilterFields>
         <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
         <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
-        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
+        <FilterField Name="@(nameof(Person.HireDate))" Type="@(typeof(DateTime))" Label="Hire Date"></FilterField>
     </FilterFields>
 </TelerikFilter>
 
@@ -92,7 +92,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
     <GridColumns>
         <GridColumn Field="@(nameof(Person.EmployeeId))" Title="Id" />
         <GridColumn Field="@(nameof(Person.Name))" Title="First Name" />
-        <GridColumn Field="@(nameof(Person.AgeInYears))" Title="Age" />
+        <GridColumn Field="@(nameof(Person.HireDate))" Title="Hire Date" />
     </GridColumns>
 </TelerikGrid>
 
@@ -127,7 +127,8 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
             FilterValue.FilterDescriptors.Clear();
             FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
 
-            FilterValue.FilterDescriptors = new FilterDescriptorCollection() {
+            FilterValue.FilterDescriptors = new FilterDescriptorCollection() 
+            {
                 new FilterDescriptor
                 {
                     Member = nameof(Person.EmployeeId),
@@ -142,8 +143,8 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
                 },
                 new FilterDescriptor
                 {
-                    Member = nameof(Person.AgeInYears),
-                    MemberType = typeof(int),
+                    Member = nameof(Person.HireDate),
+                    MemberType = typeof(DateTime),
                     Operator = FilterOperator.IsEqualTo
                 },
             };
@@ -162,13 +163,15 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 
     private void LoadData()
     {
+        Random rnd = new Random();
+
         for (int i = 1; i <= 30; i++)
         {
             InitialData.Add(new Person
                 {
                     EmployeeId = i,
                     Name = "Name" + i,
-                    AgeInYears = i + 20
+                    HireDate = DateTime.Today.AddYears(-rnd.Next(1, 10)).AddMonths(-rnd.Next(0, 10)).AddDays(-rnd.Next(0, 10))
                 });
         }
 
@@ -179,7 +182,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
     {
         public int EmployeeId { get; set; }
         public string Name { get; set; } 
-        public int AgeInYears { get; set; }
+        public DateTime HireDate { get; set; }
     }
 }
 ````
