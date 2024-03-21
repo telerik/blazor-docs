@@ -41,9 +41,9 @@ The required milestones to obtain and use Telerik UI for Blazor are:
 
 ## NuGet Packages
 
-Telerik UI for Blazor is distributed through several private and public NuGet packages.
+Telerik UI for Blazor is distributed through several private and public NuGet packages. The content below lists them all and explains how to obtain them.
 
-`Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies.
+>tip `Telerik.UI.for.Blazor` is the only NuGet package that you must reference in the app. This package references all others as dependencies.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -80,7 +80,7 @@ You can get the private Telerik UI for Blazor packages in four ways:
 
 ## Namespaces
 
-The .NET compiler requires several Telerik namespaces in order to recognize the Telerik Blazor components and set some of the component parameters.
+The .NET compiler requires several Telerik namespaces to recognize the Telerik Blazor components and set some of the component parameters.
 
 There are a few other optional namespaces that may be needed often. You can import them globally for your convenience.
 

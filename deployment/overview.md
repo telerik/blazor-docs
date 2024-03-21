@@ -48,13 +48,13 @@ The framework is responsible for copying them from the local NuGet cache to the 
 
 The following articles provide information on the most common issues and questions related to deployment:
 
-* [Deployment Troubleshooting]({%slug deployment-troubleshooting%}) - the most common problems and solutions related to deploying Telerik-enabled applications.
+* [Deployment Troubleshooting]({%slug deployment-troubleshooting%}) describes the most common problems and solutions related to deploying Telerik-enabled applications.
 
-* [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) - guidance on setting up continuous integration, continuous delivery and automated builds. Mostly related to using the Telerik NuGet packages as this is the only specific thing that we require.
+* [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) provides guidance on setting up continuous integration, continuous delivery and automated builds. Mostly related to using the Telerik NuGet packages as this is the only specific thing that we require.
 
-* [Telerik NuGet Feed]({%slug installation/nuget%}) - general guidance on setting up our private NuGet feed for local use
+* [Telerik NuGet Feed]({%slug installation/nuget%}) shows how to set up our private NuGet feed for local use.
 
-* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}) - troubleshooting the most common issues with our nuget feed.
+* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}) provides troubleshooting tips for the most common issues with our NuGet feed.
 
 
 ## See Also
