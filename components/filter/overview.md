@@ -71,7 +71,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 
 | Method | Description |
 | --- | --- |
-| `Rebind` | Calls `StateHasChanged` inside the Filter component. |
+| `Rebind` | Processes the component `Value` and updates the component UI. |
 
 >caption Get a reference to the Filter component and use its methods.
 
