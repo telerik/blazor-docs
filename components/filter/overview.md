@@ -126,7 +126,8 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
         {
             FilterValue.FilterDescriptors.Clear();
             FilterValue.LogicalOperator = FilterCompositionLogicalOperator.Or;
-            FilterValue.FilterDescriptors = new FilterDescriptorCollection(){
+
+            FilterValue.FilterDescriptors = new FilterDescriptorCollection() {
                 new FilterDescriptor
                 {
                     Member = nameof(Person.EmployeeId),
