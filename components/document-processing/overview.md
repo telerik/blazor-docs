@@ -44,7 +44,7 @@ The Telerik Document Processing libraries for .NET Core support the following fi
 
 ## Available NuGet Packages
 
-You can take the required packages from the [Telerik NuGet feed]({%slug installation/nuget%}), your Telerik UI for Blazor [automated installation]({%slug installation/msi%}) or [zip archive]({%slug installation/zip%}).
+You can take the required packages from the [Telerik NuGet feed]({%slug installation/nuget%}), your Telerik UI for Blazor [automated installation]({%slug installation/msi%}) or the [ZIP archive]({%slug installation/zip%}).
 
 The following list shows the [available Document Processing packages](https://docs.telerik.com/devtools/document-processing/getting-started/installation/nuget-packages) and a short summary of their purpose, you can read more about their features and how to use them from their overview articles, linked in the Related Articles section on the side, and more detailed articles linked from the Learning Resources section below.
 
