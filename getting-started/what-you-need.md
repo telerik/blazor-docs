@@ -178,7 +178,7 @@ Telerik Blazor components rely on a JavaScript JSInterop file for some interacti
 
 The recommended way to register the Telerik Blazor JS file for better loading performance and reliable [Blazor startup](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup) is:
 
-1. Register `telerik-blazor.js` in the `<head>` of the web page with a `defer` attribute. This will allow the JavaScript file to load as a non-blocking resource together with the rest of the web page.
+1. Register `telerik-blazor.js` in the `<head>` of the web page with a `defer` attribute. This allows the JavaScript file to load as a non-blocking resource together with the rest of the web page.
 1. Set `autostart="false"` to the Blazor framework `<script>` tag.
 1. [Start the Blazor client-side framework in the `DOMContentLoaded` event](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-8.0#initialize-blazor-when-the-document-is-ready).
 
