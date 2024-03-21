@@ -139,22 +139,4 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 
 ## Maximum call stack size exceeded
 
-Some common causes for the `Maximum call stack size exceeded` error are:
-
-* Update from older to newer .NET version
-* Old version of the `Telerik.UI.for.Blazor` (4.6.0 and older) with .NET 8
-* All references to `Telerik.UI.for.Blazor` in your app are not for latest `Telerik.UI.for.Blazor` version 
-* The project is runnable in one browser and not in another
-
-The solution is:
-
-1. Close Visual Studio.
-1. Delete all `bin` and `obj` folders in all projects in the solution.
-1. Clear the browser cache.
-1. Reopen Visual Studio and rebuild the app. 
-
-By clearing the browser cache, the `the telerik-blazor.js` file will reload and the error should go away.
-
-You can also add a cache buster for your end users, which will have the same effect:
-
-`<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version{{site.uiForBlazorLatestVersion}}"></script>`
+The error indicates that a [.NET 8 app is using an old version (<= 4.5.0) of the `telerik-blazor.js` file]({%slug troubleshooting-kb-js-errors-maximum-call%}). If the `Telerik UI for Blazor` package version is up-to-date, a possible cause for the error is browser caching.
