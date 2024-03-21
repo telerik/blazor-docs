@@ -65,7 +65,7 @@ The Blazor Filter provides parameters that allow you to configure the component:
 | `Class` | `string` | The class that will be rendered on the outermost element. |
 | `Value` | `CompositeFilterDescriptor` | Sets the value of the filter component. |
 
-## Reference and Methods
+## Filter Reference and Methods
 
 The Filter exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
