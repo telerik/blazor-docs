@@ -10,7 +10,7 @@ position: 100
 
 # Telerik UI for Blazor CDN
 
-The Telerik Blazor CDN is a complimentary service that can be used in development and production environment. This article describes the CDN URLs and what to keep in mind when using CDN in general.
+The Telerik Blazor CDN is a complimentary service that can be used in development and production environments. This article describes the CDN URLs and what to keep in mind when using CDN in general.
 
 The CDN hosts two kinds of static client assets for the Telerik UI for Blazor components:
 
