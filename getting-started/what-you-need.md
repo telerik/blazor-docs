@@ -174,7 +174,7 @@ Register the [Telerik font icon stylesheet]({%slug common-features-icons%}#font-
 
 ### JavaScript File
 
-Telerik Blazor components rely on a JavaScript JSInterop file for some interactive features, and communication between the .NET runtime and the web page.
+Telerik Blazor components rely on a JavaScript JSInterop file for some interactive features and communication between the .NET runtime and the web page.
 
 The recommended way to register the Telerik Blazor JS file for better loading performance and reliable [Blazor startup](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup) is:
 
