@@ -1,5 +1,5 @@
 #prerequisites-download
->tip This step-by-step tutorial starts with the basics. If you are already familiar with the Telerik NuGet Feed and Blazor in general, you may prefer the [Telerik UI for Blazor workflow]({%slug getting-started/what-you-need%}) article.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Typical Workflow]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
 
 ## Prerequisites
 
@@ -129,31 +129,22 @@ To setup a local NuGet package source, so you can install the Telerik components
 #end
 
 
-#root-component-telerik-layout
-To use popups (for example, dropdowns, menus, windows, grid filters, etc.), you must add the `TelerikRootComponent` component at the root level of the app:
-
-Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a Razor component called `TelerikLayout.razor` with the following content:
-    
-    @inherits LayoutComponentBase
-                
-    <TelerikRootComponent>
-        @Body
-    </TelerikRootComponent>
-        
-#end
-
-
 #root-component-main-layout
-In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
-  
-    @layout TelerikLayout
-    @inherits LayoutComponentBase
+Add a `<TelerikRootComponent>` to the app layout file (by default, `MainLayout.razor`). Make sure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
 
-    @* @Body and other code will be present here depending on your project *@
+>caption MainLayout.razor
 
+<div class="skip-repl"></div>
 
->Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but it must [wrap all the other content, otherwise popups may display at the wrong position]({%slug troubleshooting-general-issues%}#wrong-popup-position). Placing the `TelerikRootComponent` in a separate Razor file helps for a better separation of concerns.
+````CSHTML
+@inherits LayoutComponentBase
 
+<TelerikRootComponent>
+    @* existing MainLayout.razor content here *@
+</TelerikRootComponent>
+````
+
+You can learn more about the [`TelerikRootComponent` purpose and usage]({%slug rootcomponent-overview%}) in its dedicated documentation.
 #end
 
 

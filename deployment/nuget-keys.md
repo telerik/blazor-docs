@@ -113,6 +113,5 @@ When restoring NuGet packages through the CLI, [use `dotnet restore` rather than
 
 ## See Also
 
-* [Telerik Private NuGet Feed]({% slug installation/nuget %})
-
+* [Telerik NuGet Feed]({% slug installation/nuget %})
 * [CI, CD, Build Server Setup]({% slug deployment-ci-cd-build-pc %})
