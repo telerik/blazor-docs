@@ -49,7 +49,7 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 
 | NuGet Package Name | Description |
 | --- | --- |
-| `Telerik.UI.for.Blazor` | Contains the main code of the UI components. |
+| `Telerik.UI.for.Blazor` | Contains the main code of the UI components. Required for all Telerik UI for Blazor applications. |
 | [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) | Contains all Telerik SVG icons. Available on `nuget.org`. |
 | [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons) | Contains all Telerik font icons. Available on `nuget.org`. |
 | `Telerik.DataSource` | Adds support for data operations. All databound UI components use it for paging, sorting, filtering, or grouping. |
