@@ -147,6 +147,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
                     Operator = FilterOperator.IsEqualTo
                 },
             };
+            await Task.Delay(1000);
             FilterRef.Rebind();
             ProcessGridData(FilterValue);
         }
