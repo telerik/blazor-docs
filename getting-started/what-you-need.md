@@ -125,7 +125,7 @@ The Telerik Blazor service provides [component localization]({%slug globalizatio
 
 The Telerik Blazor components render all their built-in labels through this localization mechanism for consistency, even when .NET localization is not used.
 
-Register the Telerik service in all projects that will use Telerik Blazor components.
+Register the Telerik service in all projects that use Telerik Blazor components.
 
 >caption Program.cs or MauiProgram.cs
 
