@@ -60,7 +60,7 @@ You can make the Window component responsive and allow it to adapt to different 
 
 You can set the position of the Window with the `Top` and `Left` parameters. The component features a boolean `Centered` parameter, which is `true` by default when `Top` and `Left` are not set. The Window component also provides a `ContainmentSelector` parameter that can limit resizing and dragging within the boundaries of a specified container.
 
-Read more about the [Blazor Window position]({%slug components/window/position%}).
+Read more about the [Blazor Window position...]({%slug components/window/position%})
 
 ## Actions
 
