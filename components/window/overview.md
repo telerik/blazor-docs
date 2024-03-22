@@ -52,7 +52,6 @@ The Window component displays a popup with a title bar and shows custom content.
 
 The Window can occupy a predefined size on the screen or expand automatically based on the content. By default, users can resize the Window. [Read more about the Blazor Window size...]({%slug components/window/size%})
 
-### Responsiveness
 
 You can make the Window component responsive and allow it to adapt to different screen sizes and changes in the browser window. Here is an [example that shows the two possible ways to achieve responsive Window behavior]({%slug window-kb-responsive%}). The first method involves utilizing the `Width` and `Height` parameters of the component. The second method is to apply custom CSS styles.
 
