@@ -22,8 +22,7 @@ res_type: kb
 
 ## Description
 
-This knowledge base article deals with the following issues:
-* Getting `Maximum call stack size exceeded` error.
+This knowledge base article deals with the `Maximum call stack size exceeded` error.
 
 ## Error Message
 
