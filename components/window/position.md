@@ -16,7 +16,7 @@ The Window offers several ways to control its position:
 * [`ContainmentSelector` parameter](#containmentselector)
 * [`Top` and `Left` parameters](#top-and-left)
 
-The Window renders [in the root of the application]({%slug window-overview%}#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window]({%slug troubleshooting-general-issues%}#wrong-popup-position).
+The Window renders [in the root of the application]({%slug window-overview%}#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window]({%slug troubleshooting-general-issues%}#wrong-popup-position).
 
 
 ## Centered
