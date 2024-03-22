@@ -4,7 +4,7 @@ description: Learn what causes the Maximum call stack size exceeded error and ho
 type: troubleshooting
 page_title: How to Fix JSException Maximum Call Stack Size Exceeded
 slug: common-kb-maximum-call-stack-exceeded
-tags: telerik, blazor, troubleshooting, js-errors, maximum call stack size exceeded
+tags: telerik, blazor, troubleshooting, javascript, js-error, exception
 ticketid: 1641599, 1638959, 1639186, 1638288, 1642561, 1645266, 1641021
 res_type: kb
 ---
