@@ -64,7 +64,6 @@ If the Telerik UI for Blazor version is up-to-date and the error persists, then 
 1. Clear the browser cache.
 1. Reopen Visual Studio and rebuild the app.
 
-By clearing the browser cache, the `the telerik-blazor.js` file will reload and the error should go away.
 
 You can also add a cache buster for your end users, which will have the same effect:
 
