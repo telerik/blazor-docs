@@ -157,7 +157,7 @@ The Window methods are accessible through its reference.
 
 ## Important Notes
 
-When [`ContainmentSelector`]({%slug components/window/position%}#containmentselector) is not set, the Telerik Window component renders as a child of the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) at the root of the Blazor app. This placement ensures that the Window can show over all the other page content in all scenarios, and have a correct position.
+When [`ContainmentSelector`]({%slug components/window/position%}#containmentselector) is not set, the Telerik Window component renders as a child of the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) at the root of the Blazor app. This placement ensures that the Window can show over all the other page content in all scenarios and have a correct position.
 
 In Blazor, however, the render tree structure may be important. In some cases, the special Window placement may put you in one of the following situations:
 
