@@ -30,14 +30,6 @@ This knowledge base article deals with the `Maximum call stack size exceeded` er
 >
 > RangeError: Maximum call stack size exceeded
 
-If the error message is
-
->warning Unhandled exception rendering component: Maximum call stack size exceeded
->
-> RangeError: Maximum call stack size exceeded
-
-after you follow the steps in this article and remove the `Maximum call stack size exceeded` error, you will get a `('TelerikBlazor' was undefined)` error. You can follow the steps in our troubleshooting article about this error [`TelerikBlazor` was undefined]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined).
-
 ## Cause
 
 The possible causes for the `Maximum call stack size exceeded` error are:
@@ -68,6 +60,10 @@ If the Telerik UI for Blazor version is up-to-date and the error persists, then 
 You can also add a cache buster for your end users, which will have the same effect:
 
 `<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version{{site.uiForBlazorLatestVersion}}"></script>`
+
+## Notes
+
+If you receive a `('TelerikBlazor' was undefined)` error after you clear the browser cache, then refer to [`TelerikBlazor` was undefined]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined).
 
 ## See Also
 
