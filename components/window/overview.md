@@ -54,7 +54,7 @@ The Window can occupy a predefined size on the screen or expand automatically ba
 
 ### Responsiveness
 
-The Window component can adapt to different screen sizes by making it responsive to changes in the browser window. Here is an [example that shows the two possible ways to achieve responsive Window behavior]({%slug window-kb-responsive%}). The first method involves utilizing the `Width` and `Height` parameters of the component. The second method is to apply custom CSS styles.
+You can make the Window component responsive and allow it to adapt to different screen sizes and changes in the browser window. Here is an [example that shows the two possible ways to achieve responsive Window behavior]({%slug window-kb-responsive%}). The first method involves utilizing the `Width` and `Height` parameters of the component. The second method is to apply custom CSS styles.
 
 ## Position
 
