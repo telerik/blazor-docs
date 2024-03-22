@@ -55,6 +55,10 @@ To resolve the error, do the following:
 * Use a Telerik UI for Blazor version, which is [compatible with .NET 8]({%slug system-requirements%}#supported-net-versions).
 * Clear the browser cache.
 
+Clearing the browser cache will reload the `the telerik-blazor.js` file and the error should go away.
+
+If the Telerik UI for Blazor version is up-to-date and the error persists, then clean the solution:
+
 1. Close Visual Studio.
 1. Delete all `bin` and `obj` folders in all projects in the solution.
 1. Clear the browser cache.
