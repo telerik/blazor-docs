@@ -1,6 +1,6 @@
 ---
-title: Server-Side Blazor (Tutorial)
-page_title: First Steps with Server-Side Blazor
+title: Blazor Server (Tutorial)
+page_title: First Steps with Blazor Server Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build an app that runs the UI components server-side in Blazor server.
 slug: getting-started/server-side
 tags: get,started,first,steps,server
@@ -45,7 +45,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to your main index file:
+1\. Add the `telerik-blazor.js` file to the `<head>` of your main index file:
 
   * `~/Pages/_Host.cshtml` for .NET 7
   * `~/Pages/_Layout.cshtml` for .NET 6
@@ -54,13 +54,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To enable the use of static assets in your project, add the `app.UseStaticFiles();` line to the `Program.cs` file of your Blazor Server project (by default, this line is already present).
-
-**C#**
-@[template](/_contentTemplates/common/js-interop-file.md#enable-static-assets-snippet)
-
-
-3\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets) or from a [CDN]({%slug general-information/themes%}#cdn).
+2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet]({%slug general-information/themes%}) as a [static asset]({%slug general-information/themes%}#static-assets).
 
  * Use the `~/Pages/_Host.cshtml` index file for .NET 7
  * Use the `~/Pages/_Layout.cshtml` index file for .NET 6
@@ -75,14 +69,12 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
     
     @using Telerik.Blazor
     @using Telerik.Blazor.Components
-    @using Telerik.FontIcons
     @using Telerik.SvgIcons
+    @using Telerik.FontIcons
 
 ### 4.3. Add the TelerikRootComponent
 
-Add a [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content.
-
-@[template](/_contentTemplates/common/get-started.md#root-component-telerik-layout)
+Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
@@ -111,6 +103,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 ## See Also
 
-* [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
-* [Telerik Private NuGet Feed]({%slug installation/nuget%})
+* [Typical Workflow for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
+* [First Steps with Blazor Web App]({%slug getting-started/web-app%})
+* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})
