@@ -12,7 +12,7 @@ position: 0
 
 This article provides basic information about the <a href="https://www.telerik.com/blazor-ui/window" target="_blank">Blazor Window component</a> and its core features.
 
-The Window component displays a popup with a titlebar, which shows users custom content. The component provides predefined titlebar actions such as Close, Minimize, Maximize, and Restore. The Window component also supports custom actions, modality, resizing, dragging, and position control.
+The Window component displays a popup with a title bar and shows custom content. The component provides predefined title bar actions, such as Close, Minimize, Maximize, and Restore. The Window component also supports custom actions, modality, resizing, dragging, and position control.
 
 ## Creating Blazor Window
 
