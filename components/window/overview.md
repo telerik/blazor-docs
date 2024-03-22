@@ -89,7 +89,7 @@ The following table lists the Window parameters. Also check the [Window API](/bl
 | `Centered` | `string` <br /> (`true`) | Determines if the Window displays in the middle of the viewport. This parameter is ignored if `Top` or `Left` is set to a non-empty string. |
 | `Class` | `string` | The custom CSS class of the `<div class="k-window">` element. Use it to [override theme styles]({%slug themes-override%}). Here is a [custom Window styling example]({%slug window-kb-custom-css-styling%}). |
 | `CloseOnOverlayClick` | `bool` | Sets if a modal Window will close when the user clicks on the modal overlay that covers the rest of the page content. |
-| `ContainmentSelector` | `string` | A CSS selector that points to a unique HTML element on the page. The Window will render inside 's resizing and dragging will be restricted to the boundaries of the specified container, so the the component visually inside. Do not use with modal Windows. |
+| `ContainmentSelector` | `string` | A CSS selector that points to a unique HTML element on the page. The Window will render inside the specified container. Window resizing and dragging will be restricted by the boundaries of the specified container. Do not use `ContainmentSelector` with modal Windows. |
 | `Draggable` | `bool` | Sets if the Window allows moving. |
 | `FooterLayoutAlign` | `WindowFooterLayoutAlign` enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
 | `Height` | `string` | The `height` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
