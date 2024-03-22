@@ -41,9 +41,13 @@ You can use aggregates in the following templates:
 * [`GroupHeaderTemplate`]({%slug grid-templates-group-header%}) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
 * [`FooterTemplate`]({%slug grid-templates-column-footer%}) of a `GridColumn` - a grand total row of footers for the entire grid.
 
-## Aggregates Value
+## Access The Aggregate Values
 
-Use the aggregate result in the templates that support it. The templates receive a `context`, which is a data item object from the Grid `Data`. Through the `context` you can access the aggregates for the respective field. The `context` has an `AggregateResults` property. In the `GroupFooterTemplate` and in the `GroupHeaderTemplate` the `AggregateResults` property is of a type Dictionary and you can access the aggregates available for each field in the Grid.
+You can access the aggregate values through the template `context`.
+
+In all templates, you can access the aggregate values available for the column, in which the template is nested.
+
+In both the `GroupHeaderTemplate` and the `GroupFooterTemplate`, the `context` has an `AggregateResults` property of a type Dictionary. This allows you to access the aggregates available for each column in the Grid.
 
 ## How to Enable Aggregates
 
@@ -105,7 +109,7 @@ To enable aggregates:
         <GridColumn Field=@nameof(Employee.ActiveProjects) Title="Active Projects">
             <GroupHeaderTemplate>
                 @{
-                    <span>Currently active projects: @context.Value &nbsp;</span>
+                    <span>Currently active projects: @context.Value</span>
 
                     //sample of conditional logic in the group header
                     if ((int)context.Value > 3) // in a real case, you may want to ensure type safety and add defensive checks
@@ -115,16 +119,17 @@ To enable aggregates:
                 }
             </GroupHeaderTemplate>
             <GroupFooterTemplate>
-                @*access all fields aggregates*@
+                @*access the aggregates of the column in which the template is*@
+                All active projects: @context.Sum
+                <br />
+                @*access the aggregates of all columns*@
                 Total employees and teams: @(context.AggregateResults[nameof(Employee.Team)].Count + context.AggregateResults[nameof(Employee.Name)].Count)
                 <br />
                 Total teams: @context.AggregateResults[nameof(Employee.Team)].Count
                 <br />
                 Total employees: @context.AggregateResults[nameof(Employee.Name)].Count
                 <br />
-                Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")
-                <br />
-                All active projects: @context.Sum
+                Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")             
             </GroupFooterTemplate>
         </GridColumn>
     </GridColumns>
