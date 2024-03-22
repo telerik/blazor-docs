@@ -1,5 +1,5 @@
 ---
-title: Causes and Solution for Maximum Call Stack Size Exceeded Error
+title: JSException Maximum Call Stack Size Exceeded
 description: Learn what are the common reasons to get the Maximum call stack size exceeded error and how to fix it
 type: troubleshooting
 page_title: Maximum Call Stack Size Exceeded Error Causes and Solution
