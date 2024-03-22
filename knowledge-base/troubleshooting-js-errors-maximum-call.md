@@ -44,7 +44,7 @@ The possible causes for the `Maximum call stack size exceeded` error are:
 
 * Using an old version of Telerik UI for Blazor (4.5.0 and older) in .NET 8.
 * Updating an existing app to .NET 8 without updating Telerik UI for Blazor.
-* All references to `Telerik.UI.for.Blazor` in your app are not for latest `Telerik.UI.for.Blazor` version.
+* Using different versions of Telerik UI for Blazor in different projects in your solution. Some of the versions are older than 4.6.0.
 * For `Mac` users the problem can be reproduced with `Telerik.UI.for.Blazor` version 4.5.0 in .NET 6.
 * The project is runnable in one browser and not in another.
 
