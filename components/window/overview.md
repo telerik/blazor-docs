@@ -95,7 +95,7 @@ The following table lists the Window parameters. Also check the [Window API](/bl
 | `Height` | `string` | The `height` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
 | `Left` | `string` | The `left` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the left position is with regard to the defined container. |
 | `MaxHeight` | `string` | The maximum height of the Window during resizing or initial display. For example, if there is a lot of content and a fixed `Height` is not set. |
-| `MaxWidth` | `string` | The maximum width of the Window during resizing or initial display, for example if there is a lot of content and a fixed `Width` is not set. |
+| `MaxWidth` | `string` | The maximum width of the Window during resizing or initial display. For example, if there is a lot of content and a fixed `Width` is not set. |
 | `MinHeight` | `string` | The minimum height of the Window during resizing or initial display. |
 | `MinWidth` | `string` | The maximum width of the Window during resizing or initial display. |
 | `Modal` | `bool` | Determines if the Window covers the other page content with a semi-transparent overlay. Do not use modality with `ContainmentSelector`. |
