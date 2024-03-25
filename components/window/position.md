@@ -126,3 +126,4 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 ## See Also
 
 * [Live Demo: Window Position](https://demos.telerik.com/blazor-ui/window/position)
+* [Live Demo: Constrain Window Movement](https://demos.telerik.com/blazor-ui/window/constrain-movement)
