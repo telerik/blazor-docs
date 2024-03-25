@@ -1,15 +1,15 @@
 ---
-title: Typical Workflow
-page_title: Typical Workflow for Using the Telerik UI for Blazor Components
+title: Workflow Details
+page_title: Workflow Details for Using the Telerik UI for Blazor Components
 description: Learn about the packages and assets that you need to use the Telerik UI for Blazor components, how to get them, and how to configure your project to include the Telerik Blazor components.
 slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 1
+position: 20
 ---
 
-# Typical Workflow for Using the UI for Blazor Components
+# Workflow Details for Using the Telerik UI for Blazor Components
 
 This article describes the required steps to use the Telerik UI for Blazor components in any kind of Blazor application and any .NET version. The content below describes how to obtain the Telerik UI for Blazor components and configure your project to use them.
 

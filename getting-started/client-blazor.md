@@ -5,7 +5,7 @@ description: Make your first steps with Telerik UI for Blazor and build an app t
 slug: getting-started/client-side
 tags: get,started,first,steps,client
 published: true
-position: 2
+position: 5
 ---
 
 # First Steps with Client-Side UI for Blazor
@@ -100,7 +100,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 ## See Also
 
-* [Typical Workflow for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
+* [Workflow Details for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Blazor Web App]({%slug getting-started/web-app%})
 * [First Steps with Blazor Server]({%slug getting-started/server-side%})

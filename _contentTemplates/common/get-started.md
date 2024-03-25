@@ -1,9 +1,9 @@
 #prerequisites-download
->tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Typical Workflow]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
 
 ## Prerequisites
 
-* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the tutorial [Typical Workflow]({%slug getting-started/what-you-need%}).
+* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial]({%slug getting-started/what-you-need%}).
 
 * To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
 
@@ -35,7 +35,9 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
   ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
->tip For alternative download options, check the [Workflow article]({%slug getting-started/what-you-need%}).
+1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use your Telerik account email and password.
+
+>tip For alternative NuGet package download options, check the [Workflow article]({%slug getting-started/what-you-need%}). You can also [authenticate with `nuget.telerik.com` with an API key]({%slug installation/nuget%}#use-nuget-api-key).
 
 #end
 
