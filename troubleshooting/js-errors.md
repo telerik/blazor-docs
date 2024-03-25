@@ -18,6 +18,7 @@ This page provides solutions for JavaScript errors that you may encounter while 
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
+* [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
 
 ## TelerikBlazor was undefined
 
@@ -111,3 +112,7 @@ This error indicates that [the app is using an old or wrong version of the `tele
 ## Object doesn't support property or method 'assign'
 
 Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug system-requirements%}#browser-support), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+
+## Maximum call stack size exceeded
+
+The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache.
