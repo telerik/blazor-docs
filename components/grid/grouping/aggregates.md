@@ -46,7 +46,7 @@ You can use aggregates in the following templates:
 You can access the aggregate values through the template `context`:
 
 * All templates expose the aggregate values for the current column.
-* The `context` of the `GroupHeaderTemplate` and the `GroupFooterTemplate` has an `AggregateResults` property of a type `Dictionary<string, object>`. This dictionary allows you to access the aggregates for the other columns in the Grid.
+* The `context` of the `GroupHeaderTemplate` and the `GroupFooterTemplate` has an `AggregateResults` property of a type `Dictionary<string, GridGroupAggregateResult>`. This dictionary allows you to access the aggregates for the other columns in the Grid.
 
 ## How to Enable Aggregates
 
