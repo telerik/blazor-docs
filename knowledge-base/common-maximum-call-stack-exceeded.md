@@ -63,7 +63,7 @@ You can also add a cache buster to the `telerik-blazor.js` script, which will ha
 
 ## Notes
 
-If you receive a `('TelerikBlazor' was undefined)` error after you clear the browser cache, then refer to [`TelerikBlazor` was undefined]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined).
+If you receive a `TelerikBlazor was undefined` JavaScript error after you clear the browser cache, then refer to the [documentation about `TelerikBlazor was undefined`]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined).
 
 ## See Also
 
