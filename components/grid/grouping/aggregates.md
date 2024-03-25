@@ -123,8 +123,6 @@ To enable aggregates:
                 All active projects: @context.Sum
                 <br />
                 @*access the aggregates of the other columns*@
-                Total employees and teams: @(context.AggregateResults[nameof(Employee.Team)].Count + context.AggregateResults[nameof(Employee.Name)].Count)
-                <br />
                 Total teams: @context.AggregateResults[nameof(Employee.Team)].Count
                 <br />
                 Total employees: @context.AggregateResults[nameof(Employee.Name)].Count
