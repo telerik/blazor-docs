@@ -47,7 +47,7 @@ To resolve the error:
 * Use a Telerik UI for Blazor version, which is [compatible with .NET 8]({%slug system-requirements%}#supported-net-versions).
 * Clear the browser cache.
 
-Clearing the browser cache will reload the `the telerik-blazor.js` file and the error should go away.
+Clearing the browser cache will reload the `telerik-blazor.js` file and the error should go away.
 
 If the Telerik UI for Blazor version is up-to-date and the error persists, then clean the solution:
 
