@@ -57,7 +57,7 @@ If the Telerik UI for Blazor version is up-to-date and the error persists, then 
 1. Reopen Visual Studio and rebuild the app.
 
 
-You can also add a cache buster for your end users, which will have the same effect:
+You can also add a cache buster to the `telerik-blazor.js` script, which will have a similar effect for the end users, as clearing their cache:
 
 `<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js?version{{site.uiForBlazorLatestVersion}}"></script>`
 
