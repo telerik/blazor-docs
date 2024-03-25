@@ -5,7 +5,7 @@ description: Make your first steps with Telerik UI for Blazor and build a .NET M
 slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
-position: 5
+position: 15
 ---
 
 # First Steps with Blazor Hybrid
@@ -127,7 +127,7 @@ Refer to the following articles for more information on each technology stack:
 
 ## See Also
 
-* [Typical Workflow for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
+* [Workflow Details for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Blazor Web App]({%slug getting-started/web-app%})
 * [First Steps with Blazor Server]({%slug getting-started/server-side%})
