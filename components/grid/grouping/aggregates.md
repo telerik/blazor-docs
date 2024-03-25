@@ -119,7 +119,7 @@ To enable aggregates:
                 }
             </GroupHeaderTemplate>
             <GroupFooterTemplate>
-                @*access the aggregates of the column in which the template is*@
+                @*access the aggregates of the ActiveProjects column*@
                 All active projects: @context.Sum
                 <br />
                 @*access the aggregates of all columns*@
