@@ -36,7 +36,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-To achieve this configuration, you have to change the `Enabled` parameter of the `FileSelect` component to `false`, change its button caption, and re-render the component during the `OnSelect` event. However, file selection is a synchronous operation that waits for the files to be uploaded, and this prevents the re-rendering during the process. To work around this limitation, you need to include another asynchronous operation in the handler of the `OnSelect` event. This async operation will change the button caption, disable the `FileSelect`, and re-render it. The described approach is shown in the example below.
+To achieve this configuration, change the `Enabled` parameter of the `FileSelect` component to `false`, change its button caption, and re-render the component during the `OnSelect` event. However, file selection is a synchronous operation that waits for the files to be uploaded, and this prevents the re-rendering during the process. To work around this limitation, include another asynchronous operation in the handler of the `OnSelect` event. This async operation will change the button caption, disable the `FileSelect`, and re-render it. The described approach is shown in the example below.
 
 >caption OnSelect disables the FileSelect and changes the button caption.
 
