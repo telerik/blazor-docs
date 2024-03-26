@@ -27,14 +27,16 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to show progress to end users when using the FileSelect component? Users can select a large number of files at once.
-* How to display a loading animation when handling bigger files in the FileSelecr? The selection process is slow so how to indicate that the process is ongoing?
+* How to display a loading animation when handling bigger files in the FileSelect? The selection process is slow so how to indicate that the process is ongoing?
 * How to show users a progress indicator during file selection?
 
 ## Solution
 
-You can use the [`Loader`]({%slug loader-overview%}). Set the Loader `Visible` parameter to `true` in the FileSelect `OnSelect` event. The Loader will display while the files are being handled, so that the app is more user-friendly.
+You can use the [`Loader`]({%slug loader-overview%}). Set the [Loader `Visible` parameter]({%slug loader-overview%}#loader-parameters) to `true` in the [FileSelect `OnSelect` event]({%slug fileselect-events%}#onselect). The Loader will display while the files are being handled, so that the app is more user-friendly.
 
 When you show the Loader in a method, which is blocking the UI thread with synchronous operations, the Loader may not appear when expected. To avoid this, add a small delay, which helps Blazor refresh the UI during the `OnSelect` handler execution.
+
+Another option is to use the [`LoaderContainer`]({%slug loadercontainer-overview%}). The benefit is that it can cover the whole page or [cover just the FileSelect]({%slug loadercontainer-overview%}#fill-a-parent-container).
 
 ````CSHTML
 <TelerikLoader Visible="@LoaderVisible" />
@@ -66,3 +68,8 @@ When you show the Loader in a method, which is blocking the UI thread with synch
     }
 }
 ````
+
+## See Also
+
+* [FileSelect Events]({%slug fileselect-events%})
+* [Loader Overview]({%slug loader-overview%})
