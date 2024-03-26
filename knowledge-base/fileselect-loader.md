@@ -2,7 +2,7 @@
 title: How to Show Progress During File Select
 description: How to show that a file selection process is ongoing? How to display loading progress to users when selecting a large number of files at once?
 type: how-to
-page_title: How to show the users that a file selection process is ongoing?
+page_title: How to Show Progress Animation When Using FileSelect
 slug: fileselect-kb-loader
 position:
 tags: telerik, blazor, fileselect, loader, progress
