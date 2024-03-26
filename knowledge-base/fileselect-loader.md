@@ -1,6 +1,6 @@
 ---
 title: How to Show Progress During File Select
-description: Is there a predefined method to show that a file selection process is ongoing? How to display progress to users when selecting a large number of files at once?
+description: How to show that a file selection process is ongoing? How to display loading progress to users when selecting a large number of files at once?
 type: how-to
 page_title: How to show the users that a file selection process is ongoing?
 slug: fileselect-kb-loader
