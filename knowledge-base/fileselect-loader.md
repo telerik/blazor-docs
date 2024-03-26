@@ -36,7 +36,7 @@ You can use the [`Loader`]({%slug loader-overview%}). Set the [Loader `Visible` 
 
 When you show the Loader in a method, which is blocking the UI thread with synchronous operations, the Loader may not appear when expected. To avoid this, add a small delay, which helps Blazor refresh the UI during the `OnSelect` handler execution.
 
-Another option is to use the [`LoaderContainer`]({%slug loadercontainer-overview%}). The benefit is that it can cover the whole page or [cover just the FileSelect]({%slug loadercontainer-overview%}#fill-a-parent-container).
+Another option is to use the [`LoaderContainer`]({%slug loadercontainer-overview%}). The benefit is that it can overlay the whole page or [cover part of the page that contains the FileSelect]({%slug loadercontainer-overview%}#fill-a-parent-container).
 
 ````CSHTML
 <TelerikLoader Visible="@LoaderVisible" />
