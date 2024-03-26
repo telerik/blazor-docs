@@ -16,7 +16,7 @@ res_type: kb
   <tbody>
     <tr>
       <td>Product</td>
-      <td>FileSelect for Blazor
+      <td>FileSelect for Blazor</td>
     </tr>
   </tbody>
 </table>
