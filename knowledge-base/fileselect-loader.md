@@ -32,7 +32,9 @@ This KB article answers the following questions:
 
 ## Solution
 
-You can use the [`Loader`]({%slug loader-overview%}). Set the Loader `Visible` parameter to `true` in the FileSelect `OnSelect` event. The Loader will display while the files are being handled, so that the app is more user-friendly when using larger files. When you show the Loader in a method, which is blocking the UI thread with synchronous operations, the Loader may not appear when expected. This is why you can add a small delay, which helps Blazor refresh the UI while the `OnSelect` handler is executing.
+You can use the [`Loader`]({%slug loader-overview%}). Set the Loader `Visible` parameter to `true` in the FileSelect `OnSelect` event. The Loader will display while the files are being handled, so that the app is more user-friendly.
+
+When you show the Loader in a method, which is blocking the UI thread with synchronous operations, the Loader may not appear when expected. To avoid this, add a small delay, which helps Blazor refresh the UI during the `OnSelect` handler execution.
 
 ````CSHTML
 <TelerikLoader Visible="@LoaderVisible" />
