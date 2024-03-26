@@ -48,7 +48,7 @@ When you show the Loader in a method, which is blocking the UI thread with synch
     {
         LoaderVisible = true;
 
-        // allow Blazor to stop execution and re-render the UI
+        // allow Blazor to re-render the UI
         await Task.Delay(1);
 
         foreach (var file in args.Files)
