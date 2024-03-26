@@ -24,7 +24,11 @@ res_type: kb
 
 ## Description
 
-How to show progress to end-users when using FileSelect and a large number of files are being selected at once? When it comes to bigger files the selection process is slow so how to indicate that the process is ongoing?
+This KB article answers the following questions:
+
+* How to show progress to end users when using the FileSelect component? Users can select a large number of files at once.
+* How to display a loading animation when handling bigger files in the FileSelecr? The selection process is slow so how to indicate that the process is ongoing?
+* How to show users a progress indicator during file selection?
 
 ## Solution
 
