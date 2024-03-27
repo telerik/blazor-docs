@@ -62,8 +62,10 @@ The Tooltip provides the following configuration parameters. Also check the [Too
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-animation-container">` element, which is an ancestor (but not parent) of the `<div class="k-tooltip>` element. The former element is responsible for the Tooltip's `position` and `z-index` styles. The latter element applies the theme styling (borders, background, etc.). Use a CSS class to [override theme styles]({%slug themes-override%}). Here is a [custom Tooltip styling example]({%slug tooltip-kb-custom-styles%}). |
 | `Height` | `string` | Applies a height style in [any supported unit]({%slug common-features/dimensions%}). @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior) |
+| `HideDelay` | `int` <br/> (0) | The Tooltip hiding delay in milliseconds. |
 | `Id` | `string` | Renders an `id` attribute to the `<div class="k-tooltip>` element. To improve accessibility and screen reader behavior, set the same string as Tooltip `Id` and `aria-described-by` attribute of all Tooltip targets. |
 | `Position` | `TooltipPosition` enum <br /> (`Top`) | Sets the [Tooltip popup direction]({%slug tooltip-position%}), with regard to its target. |
+| `ShowDelay` | `int` <br/> (0) | The Tooltip opening delay in milliseconds. |
 | `ShowOn` | `TooltipShowEvent` enum <br /> (`Hover`) | Sets the [browser event, which will trigger the Tooltip to display]({%slug tooltip-show-event%}). |
 | `TargetSelector` | `string` | The CSS [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) or [combinator](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators), which points to one or multiple Tooltip targets. |
 | `Width` | `string` | Applies a width style in [any supported unit]({%slug common-features/dimensions%}). @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior) |
