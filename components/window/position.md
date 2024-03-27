@@ -51,7 +51,7 @@ If the `Top` or `Left` parameters are set and not empty, they take precedence ov
 
 ## ContainmentSelector
 
-By default, users can drag and resize the Window without constraints. It is possible to restrict the Window's visual position to the boundaries of a specific container:
+By default, users can drag and resize the Window without constraints. You can restrict the Window's visual position to the boundaries of a specific container:
 
 1. Define a non-modal Window component inside the desired container.
 1. Set the Window `ContainmentSelector` parameter to a unique CSS selector, which points to the container.
