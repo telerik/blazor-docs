@@ -21,7 +21,7 @@ The `<ItemTemplate>` controls the rendering of the [data bound items]({%slug dra
 
 This template receives a `context` argument that is of the data model type and represents the current item.
 
-When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a popuplated `Url` property]({%slug drawer-navigation%}).
+When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a populated `Url` property]({%slug drawer-navigation%}).
 
 >caption Use ItemTemplate to control the rendering of the items in the Drawer.
 
