@@ -10,7 +10,7 @@ position: 15
 
 # Visible Columns
 
-The TreeList allows you to programatically hide some of its columns. 
+The TreeList allows you to programmatically hide some of its columns. 
 
 In this article:
 * [Basics](#basics)
