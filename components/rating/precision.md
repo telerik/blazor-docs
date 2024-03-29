@@ -1,7 +1,7 @@
 ---
 title: Precision
 page_title: Rating Precision
-description: Discover the Rating component for Blazor. Learn how to add the component to your app and explore its configuration options, such as selection, precision, templates and label.
+description: Learn how to adjust the precision setting of the Rating component for Blazor. This setting lets you choose between full and half stars for your Rating.
 slug: rating-precision
 tags: telerik,blazor,rating,precision
 published: True

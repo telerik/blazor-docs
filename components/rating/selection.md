@@ -1,7 +1,7 @@
 ---
 title: Selection
 page_title: Rating Selection
-description: Discover the Rating component for Blazor. Learn how to add the component to your app and explore its configuration options, such as selection, precision, templates and label.
+description: Configure the selection mode of your Rating component for Blazor. Let users select all items from the start to end of the scale, or limit their selection to a single item.
 slug: rating-selection
 tags: telerik,blazor,rating,selection
 published: True

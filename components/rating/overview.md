@@ -33,19 +33,19 @@ The <a href = "https://www.telerik.com/blazor-ui/rating" target="_blank">Blazor 
 
 ## Selection
 
-Users can choose from `Continuous` and `Single` selection. The behavior depends on the `SelectionMode` parameter value. [Read more about the selection options of the Rating...]({%slug rating-selection%})
+You can choose between `Continuous` and `Single` selection. The behavior depends on the `SelectionMode` parameter value. [Read more about the selection options of the Rating...]({%slug rating-selection%})
 
 ## Precision
 
-Users can choose from `Full` and `Half` precision. The behavior depends on the `PrecisionMode` parameter value. [Read more about the selection precision options of the Rating...]({%slug rating-precision%})
+You can choose between `Full` and `Half` precision. The behavior depends on the `PrecisionMode` parameter value. [Read more about the selection precision options of the Rating...]({%slug rating-precision%})
 
 ## Label
 
-Users can set label via the `Label` parameter value. [Read more about the label of the Rating...]({%slug rating-label%})
+You can set a label with the `Label` parameter value. [Read more about the label of the Rating...]({%slug rating-label%})
 
 ## Templates
 
-The Rating component provides templates to enable developers to customize the rendering and appearance of the component. [Read more about the templates of the Rating...]({%slug rating-templates%})
+You can use templates to customize the rendering and appearance of the component. [Read more about the templates of the Rating...]({%slug rating-templates%})
 
 ## Events
 
@@ -63,7 +63,7 @@ The Blazor Rating provides various parameters that allow you to configure the co
 | `AriaLabelledBy` | `string` | The `aria-labelledby` attribute of the `<span class="telerik-blazor k-rating">` element that represents the Rating component. |
 | `Class` | `string` | The `class` attribute of the `<span class="telerik-blazor k-rating">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Enabled` | `bool` <br /> (`true`) | Defines if the Rating allows selection. |
-| `HoverThrottleInterval` | `int` | Defines how rapidly the newly hovered value is transferred to the component. |
+| `HoverThrottleInterval` | `int` | Determines the delay between hovering and applying the hover value to the component. |
 | `Label` | `string` | If set, renders an additional HTML element next to the rating with arbitrary content. |
 | `Max` | `int` <br /> (`5`) | Defines the number of items (icons). |
 | `PrecisionMode` | `RatingPrecisionMode` <br /> (`Full`) | Controls the [precision mode]({%slug rating-precision%}) of the component selection. |

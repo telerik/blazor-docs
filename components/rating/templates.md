@@ -1,7 +1,7 @@
 ---
 title: Templates
 page_title: Rating Templates
-description: Discover the Rating component for Blazor. Learn how to add the component to your app and explore its configuration options, such as selection, precision, templates and label.
+description: Learn how to use the ItemTemplate to customize the styling and appearance of your Rating component for Blazor. 
 slug: rating-templates
 tags: telerik,blazor,rating,templates
 published: True

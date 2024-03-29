@@ -12,11 +12,11 @@ position: 14
 
 This article explains the events available in the Telerik Rating for Blazor:
 
-* [ValueChanged](#valuechanged) - fires when the user selects item (icon).
+* [ValueChanged](#valuechanged) - fires when the user selects an item (icon).
 
 ## ValueChanged
 
-The `ValueChanged` event fires when the user clicks an item.
+The `ValueChanged` event fires when the user clicks an item or uses the keyboard to select it.
 
 Make sure to update the currently selected item when using the event.
 

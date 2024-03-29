@@ -1,7 +1,7 @@
 ---
 title: Label
 page_title: Rating Label
-description: Discover the Rating component for Blazor. Learn how to add the component to your app and explore its configuration options, such as selection, precision, templates and label.
+description: Display a label for your Rating component for Blazor. Use it to guide your users through the rating process or be explicit about a read-only value. The Rating label shows the currently selected value compared to the max value.
 slug: rating-label
 tags: telerik,blazor,rating,label
 published: True
