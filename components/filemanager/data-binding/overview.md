@@ -244,7 +244,7 @@ The above model properties have the following meaning for the FileManager:
 | `DateModifiedUtc` | The modification date of the file in UTC. Required.
 | **Item relations** | |
 | `Id `| The unique identifier of the file. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}).
-| `ParentId` | Identifies the file's parent. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}). Set to `null` for root items. Do *not* use `ParentId` with hierarhical data.
+| `ParentId` | Identifies the file's parent. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}). Set to `null` for root items. Do *not* use `ParentId` with hierarchical data.
 | `HasDirectories` | Determines whether the item has subdirectories. Required for binding to [**flat data**]({%slug filemanager-data-binding-flat-data%}) If `true`, the directory will show an expand arrow. With [**hierarchical data**]({%slug filemanager-data-binding-hierarchical-data%}), the FileManager renders expand icons based on `Directories`, but `HasDirectories` will take precedence.
 | `Directories` | Defines the item subdirectories. Required for [binding to **hierarchical data**]({%slug filemanager-data-binding-hierarchical-data%}).
 | `Items` | Defines all the subitems (directories and files) of the item.
