@@ -22,7 +22,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
 
 >caption Toggle Preview Pane using the Switch.
 
-![Blazor Filemanager Preview Pane](images/filemanager-preview-pane.png)
+![Blazor FileManager Preview Pane](images/filemanager-preview-pane.png)
 
 ````CSHTML
 @using System.IO
