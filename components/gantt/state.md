@@ -536,7 +536,7 @@ The [knowledge base article for saving the Gantt state in a WASM application] ex
 
 ### Set Gantt Options Through State
 
-The Gantt state allows you to control the behavior of the Gantt programmatically - you can, for example, set sorts, filteres, expand hierarhical items.
+The Gantt state allows you to control the behavior of the Gantt programmatically - you can, for example, set sorts, filteres, expand hierarchical items.
 
 >tip The individual tabs below show how you can use the state to programmatically set the Gantt filtering, sorting and other features.
 
