@@ -415,6 +415,8 @@ navigation:
         title: "QRCode"
      "*/radiobutton":
         title: "RadioButton"
+     "*rating":
+        title: "Rating"
      "*gauges/radial":
         title: "Radial"
      "*rangeslider":
