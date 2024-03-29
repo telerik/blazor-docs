@@ -272,7 +272,7 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 | `DirectoriesField`| `"Directories"`
 | `EntriesField`| `"Entries"`
 
->important Do not use `ParentId` with hierarhical data. This will confuse the FileManager that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` to a non-existent property.
+>important Do not use `ParentId` with hierarchical data. This will confuse the FileManager that it is bound to flat data and the component may not render any items. If the model must have a `ParentId` property, set `ParentIdField` to a non-existent property.
 
 ## Next Steps
 
