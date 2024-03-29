@@ -1,14 +1,14 @@
 ---
-title: Overview
+title: Blazor DatePicker Overview | Telerik UI for Blazor
 page_title: Date Picker Overview
-description: Learn more about the Date Picker component for Blazor by checking the examples and its key features.
+description: Blazor datepicker enables easy date selection in web applications with an interactive date input interface.
 slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview
 published: True
 position: 0
 ---
 
-# Blazor Date Picker Overview
+# Blazor DatePicker Overview
 
 The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual Gregorian [calendar]({%slug components/calendar/overview%}) or type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the date format of the input, how the user navigates through the calendar, and which dates the user cannot select.
 
@@ -59,7 +59,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Header Template
 
-The DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
+The Blazor DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
 
 ## Adaptive Rendering
 
@@ -102,7 +102,7 @@ The Date Picker is, essentially, a [DateInput]({%slug components/dateinput/overv
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor Date Picker:
+The following parameters enable you to customize the appearance of the Blazor DatePicker:
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
@@ -128,7 +128,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 | `Open` | Opens the Calendar popup. |
 | `Refresh` | Re-renders the Calendar popup. |
 
->caption Using DatePicker methods
+>caption Using Blazor DatePicker methods
 
 ````CSHTML
 <TelerikDatePicker @ref="@DatePickerRef"

@@ -1,5 +1,5 @@
 ---
-title: Navigation
+title: Blazor Navigation Menu | Telerik UI for Blazor
 page_title: Menu - Navigation
 description: Using the Blazor Menu for navigating between pages.
 slug: menu-navigation
@@ -14,12 +14,12 @@ The Menu can be used to navigate between different pages in the applicaiton. It 
 
 ## Basics
 
-To use the Menu for navigating between pages:
+To use the Blazor Menu for navigating between pages:
 
 * Add the Menu to your application.
     * You may want to add it in the `MainLayout.razor` outside of the `@Body`, for example, in the header section of your app.
 * Provide a collection of models that describe the pages you want the user to navigate to.
-* Set the `Url` property of the Menu model to the desired destination page. Alternatively, use a different property and set it to the `UrlField` parameter of the Menu component.
+* Set the `Url` property of the Menu model to the desired destination page. Alternatively, use a different property and set it to the `UrlField` parameter of the Blazor Menu component.
 
 ## Example
 

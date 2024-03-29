@@ -1,7 +1,7 @@
 ---
-title: Predefined Dialogs
+title: Blazor Dialogs - Alert, Confirm, Prompt | Telerik UI for Blazor
 page_title: Predefined Dialogs - Alert, Confirm, Prompt
-description: Predefined Dialogs (alert, confirm, prompt) for Blazor.
+description: Predefined dialogs for Blazor - popup message, alert, confirm, and prompt. Explore the Telerik UI documentation.
 slug: dialog-predefined
 tags: telerik,blazor,dialog,predefined,alert,confirm,prompt
 published: true

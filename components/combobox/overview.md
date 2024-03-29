@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: ComboBox Overview
-description: Discover the Blazor ComboBox and explore the examples.
+description: Blazor ComboBox is a web component that combines a drop-down list with text input for user-friendly selection.
 slug: components/combobox/overview
 tags: telerik,blazor,combobox,combo,overview
 published: True
@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor ComboBox component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown popup. You can also allow them to enter [custom values]({%slug components/combobox/custom-value%}) and to [filter]({%slug components/combobox/filter%}) the available items. You can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/combobox/templates%}).
 
-## Creating ComboBox
+## Creating Blazor ComboBox
 
 1. Use the `TelerikComboBox` tag to add the component to your razor page.
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
@@ -77,7 +77,7 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 ## Parameters
 
->caption The ComboBox provides various parameters that allow you to configure the component:
+>caption The Blazor ComboBox provides various parameters that allow you to configure the component:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

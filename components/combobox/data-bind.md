@@ -188,5 +188,5 @@ The ComboBox is a generic component and its type comes from the model it is boun
 
 ## See Also
 
-  * [ComboBox Overview]({%slug components/combobox/overview%})
+  * [Blazor ComboBox Overview]({%slug components/combobox/overview%})
   * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
