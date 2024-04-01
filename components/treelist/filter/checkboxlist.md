@@ -101,12 +101,12 @@ You can also change the filter menu behavior for a particular column - its own `
 
 >caption The result from the snippet above
 
-![checbox list filter in action](images/checklist-filter-overview.gif)
+![checkbox list filter in action](images/checklist-filter-overview.gif)
 
 
 ## Custom Data
 
-By default, the treelist takes the `Distinct` values from its `Data` to populate the chekcbox list filter for each field.
+By default, the treelist takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
 To customize the checkbox list behavior, you should use the [filter menu template]({%slug treelist-templates-filter%}#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default treelist UI. It provides the following settings:
 
@@ -116,7 +116,7 @@ To customize the checkbox list behavior, you should use the [filter menu templat
 
 * `Field` - the field from the data that will be used to take the `Distinct` options. It must match the name and type of the column field for which this filter is defined. This lets you use the same models that the treelist uses, or to define smaller models to reduce the data you fetch for the filter lists.
 
->caption Reduce filering options for a specific column (Team)
+>caption Reduce filtering options for a specific column (Team)
 
 ````CSHTML
 @* The Team column has a custom set of filtering options (only the root-level "CEO Team" option) *@
