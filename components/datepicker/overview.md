@@ -41,7 +41,7 @@ The selected date is: @datePickerValue.ToShortDateString()
 
 ## Date Input Typing Settings
 
-The DatePicker
+The Blazor DatePicker
 @[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
 DatePicker.
 
