@@ -63,7 +63,7 @@ Last action: <strong> @LastAction </strong>
 The primary SplitButton action and each secondary item in the dropdown can [display a font icon or an image]({%slug splitbutton-icons%}) for better looks and user experience.
 
 
-## Apperance
+## Appearance
 
 The SplitButton provides a [variety of settings to control its visual appearance]({%slug splitbutton-appearance%}), for example the colors, borders, and size. This spares the need to use custom CSS code.
 
