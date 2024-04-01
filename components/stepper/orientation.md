@@ -40,7 +40,7 @@ Since `horizontal` is the default value for the Stepper `Orientation` parameter,
 
 ## Vertical Stepper
 
-Set the `Orientation` parameter of the Stepper to `vertical` to change its default orioentation.
+Set the `Orientation` parameter of the Stepper to `vertical` to change its default orientation.
 
 >caption Vertical Stepper. The result from the snippet below.
 
