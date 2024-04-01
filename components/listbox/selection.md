@@ -57,7 +57,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
         <ListBoxToolBar>
             <ListBoxToolBarCustomTool>
                 <TelerikButton Icon="@SvgIcon.StripAllFormatting"
-                               Title="Unselect All"
+                               Title="Deselect All"
                                OnClick="@( () => ListBoxSelectedItems = new List<ListBoxModel>() )"
                                Enabled="@( ListBoxSelectedItems.Count() > 0 )" />
             </ListBoxToolBarCustomTool>
