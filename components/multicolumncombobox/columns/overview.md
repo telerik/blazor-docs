@@ -25,7 +25,7 @@ To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This 
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `Field` | `string` | Points to the name of field in the data source that the column will render as a string (case-sensitive). |
-| `Width` | `string` | Defines the width of the MultiColumnComboBoxColumn. |
+| `Width` | `string` | Defines the width of the MultiColumnComboBox column. |
 | `Class` | `string` | The CSS class that will be rendered on the column's content cells. |
 | `HeaderClass` | `string` | The CSS class that will be rendered on the column's header cell. |
 | `Title` | `string` | The string title rendered in the column header. If it is not explicitly declared the value of the `Field` will be rendered. |
