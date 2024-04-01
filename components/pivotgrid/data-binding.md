@@ -18,7 +18,7 @@ This article describes the PivotGrid data binding mechanism and the supported da
 The PivotGrid supports different data sources via its `DataProviderType` parameter. The parameter type is `PivotGridDataProviderType` enum and its members are:
 
 * [`Local`](#local) (default)
-* [`Xmla`](#xmla)
+* [`XMLA`](#xmla)
 
 
 ## Local
@@ -84,7 +84,7 @@ When bound to local data, the Pivot Grid requires its `Data` parameter to provid
 ````
 
 
-## Xmla
+## XMLA
 
 The PivotGrid supports binding to [XML for Analysis](https://learn.microsoft.com/en-us/analysis-services/xmla/xml-for-analysis-xmla-reference) data, for example an [OLAP cube](https://en.wikipedia.org/wiki/OLAP_cube). For more information about OLAP cubes, check [Just What Are Cubes Anyway? A Painless Introduction to OLAP Technology](https://learn.microsoft.com/en-us/previous-versions/office/developer/office-xp/aa140038(v=office.10)) by Microsoft.
 
