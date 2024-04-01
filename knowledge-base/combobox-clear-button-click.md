@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-Is there any event that fires when you click the clear button on the combox box?
+Is there any event that fires when you click the clear button on the combo box?
 
 There doesn't seem to be any event attached to the clear action, I would like to catch this event to reset the list, but there is nothing to catch it appear until you click outside of the box (Blur).
 
