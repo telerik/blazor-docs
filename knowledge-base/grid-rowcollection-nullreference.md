@@ -32,7 +32,7 @@ I upgraded the version of the Telerik UI from Blazor components from `<3.0.0` to
 
 ## Cause
 
-The Telerik Grid for Blazor throws a NullReferenceException from the GridRowCollection class when both the `Data` paramater and `OnRead` event handler are defined:
+The Telerik UI Grid for Blazor throws a `NullReferenceException` from the `GridRowCollection` class when both the `Data` parameter and `OnRead` event handler are defined:
 
 ````CSHTML
 
