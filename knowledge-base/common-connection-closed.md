@@ -57,7 +57,7 @@ The PDF Viewer doesn't display PDF files, which are assigned to its `Data` param
 
 ### Import XSLX Files
 
-Cannot import XSLX files which have a lot of records. It works for few records. It's a random behaviour.
+Cannot import XSLX files which have a lot of records. It works for few records. It's a random behavior.
 
 ## Error Message
 

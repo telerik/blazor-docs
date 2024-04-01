@@ -169,7 +169,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 * `FilterAsync` - applies the defined filters in the Filter Menu to the Grid component.
 * `ClearFilterAsync` - clears the applied filters.
 
-You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as a nargument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
+You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as an argument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
 
 ### Examples
 

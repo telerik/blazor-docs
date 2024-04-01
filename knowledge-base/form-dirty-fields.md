@@ -28,7 +28,7 @@ res_type: kb
 
 ## Description
 
-You could implementy dirty field tracking by implementing `INotifyPropertyChanged` interface for your model. Then, track the PropertyChanged event to store the dirty fields in a collection.
+You could implement dirty field tracking by implementing `INotifyPropertyChanged` interface for your model. Then, track the PropertyChanged event to store the dirty fields in a collection.
 
 ``` razor 
 

@@ -64,7 +64,7 @@ The format strings are culture aware (see [Globalization - Overview]({%slug glob
 
 >caption AM, PM and 12/24 Hour Formats
 
-The AM/PM desginators and 12/24 formats are also taken into account as explained in the table below, and they also affect the rendering of the time pickers.
+The AM/PM designators and 12/24 formats are also taken into account as explained in the table below, and they also affect the rendering of the time pickers.
 
 
 | Custom Format Contains | Culture Does Not Support AM/PM | Culture Supports AM/PM |

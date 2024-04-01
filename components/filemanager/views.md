@@ -26,7 +26,7 @@ The List view is achieved with the help of the [Blazor ListView]({%slug listview
 
 >caption FileManager change views using the Toolbar buttons.
 
-![Blazor Filemanager Views](images/filemanager-views.png)
+![Blazor FileManager Views](images/filemanager-views.png)
 
 ````CSHTML
 @using System.IO

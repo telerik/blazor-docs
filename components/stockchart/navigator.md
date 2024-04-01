@@ -161,7 +161,7 @@ To enable data navigation you have to:
  
 The Navigator is defined closely to the way the charts are. As such you can use the nested tags settings to apply different customizations.
 
-To programatically set a time interval to the `Navigator` upon initialization use the `From` and `To` parameters of the `<StockChartNavigatorSelect>` and pass valid `DateTime` values according to your data.
+To programmatically set a time interval to the `Navigator` upon initialization use the `From` and `To` parameters of the `<StockChartNavigatorSelect>` and pass valid `DateTime` values according to your data.
 
 To control whether the Navigator renders below or on top of the Stock Chart, set the `Position` parameter to a member of the `StockChartNavigatorPosition` enum.
 

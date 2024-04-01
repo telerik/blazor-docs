@@ -13,7 +13,7 @@ This article provides information on the provided support for earlier UI for Bla
 The support policy includes the way bug fixes, feature enhancements, and browser compatibility are updated and applied across the Progress&reg; Telerik&reg; UI for Blazor suite.
 
 * [Bug Fixes](#bug-fixes)
-* [New Features and Compontents](#new-features-and-components)
+* [New Features and Components](#new-features-and-components)
 * [Browser Compatibility](#browser-compatibility)
 * [Implementation Support](#implementation-support)
 

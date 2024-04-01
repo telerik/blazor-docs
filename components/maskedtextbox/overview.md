@@ -131,7 +131,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 * **ZIP code** - Uses rules for numbers.
 
-* **ZIP+4 code** - Riteral for the dash between the rules for numbers.
+* **ZIP+4 code** - Literal for the dash between the rules for numbers.
 
 * **percentage** - Rules for numbers with a literal for the decimal separator taken from the current culture and a literal for the percentage sign. The example also shows how you can parse that to a `double` value.
 

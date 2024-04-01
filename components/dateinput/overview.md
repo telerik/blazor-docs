@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateInput Overview
 
-The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hin the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
+The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hint the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
 
 
 ## Creating Blazor DateInput

@@ -27,7 +27,7 @@ I want to specify a debounce time for filtering. This way I can (for example) se
 
 This can be useful for filtering with remote data - it invokes a filter on every keystroke and network/service delays can cause wrong data display or confusion, in addition to increased service load.
 
-I also want to implement a minimum filter length, if the input is below that length, the servive won't be called.
+I also want to implement a minimum filter length, if the input is below that length, the service won't be called.
 
 ## Solution
 

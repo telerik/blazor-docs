@@ -19,7 +19,7 @@ This article explains the available templates for the Columns of the MultiColumn
 
 ## HeaderTemplate
 
-The `HeaderTemplate` allows you to control the rendering of the column's header. You can define it for each of the columns of the MultiColumnCombobox.
+The `HeaderTemplate` allows you to control the rendering of the column's header. You can define it for each of the columns of the MultiColumnComboBox.
 
 >caption Use the HeaderTemplate to add an icon to the header cells
 
@@ -64,7 +64,7 @@ The `HeaderTemplate` allows you to control the rendering of the column's header.
 
 ## Template
 
-The `Template` (Cell Template) allows you to control the rendering of the cells in the MultiComboBoxColumn. You can access the `context` object and cast it to the bound model to employ some custom business logic. The `contenxt` represents the current data item in the cell.
+The `Template` (Cell Template) allows you to control the rendering of the cells in the MultiColumnComboBox column. You can access the `context` object and cast it to the bound model to employ some custom business logic. The `contenxt` represents the current data item in the cell.
 
 >caption Use the Template to visually distinguish some Ids
 

@@ -77,7 +77,7 @@ The MultiColumnComboBox renders its dropdown items in a grid-like column layout.
 
 ## Filtering
 
-The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiComboBoxComboBox filtering...]({% slug multicolumncombobox-filter %}).
+The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiColumnComboBox filtering...]({% slug multicolumncombobox-filter %}).
 
 ## Grouping
 

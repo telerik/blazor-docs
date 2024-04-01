@@ -40,7 +40,7 @@ When I use a `RenderFragment` that comes as a parameter (for example, because I 
 
 ## Possible Cause
 
-`RenderFragment` parameters are `null` by default and there is no really suitable place to make a check when passing the paramter as a property. You can read more here: [https://github.com/dotnet/aspnetcore/issues/10270](https://github.com/dotnet/aspnetcore/issues/10270)
+`RenderFragment` parameters are `null` by default and there is no really suitable place to make a check when passing the parameter as a property. You can read more here: [https://github.com/dotnet/aspnetcore/issues/10270](https://github.com/dotnet/aspnetcore/issues/10270)
 
 So, for example, with a Telerik component such as the ComboBox, such templates (fragments) will throw exceptions if you pass them as a property.
 

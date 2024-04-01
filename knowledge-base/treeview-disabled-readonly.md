@@ -27,7 +27,7 @@ How to disable a TreeView with checkboxes and selection? The goal is to restrict
 
 * Expand and collapse items;
 * Check and uncheck item checkboxes;
-* Select and unselect items.
+* Select and deselect items.
 
 How to enable and disable the TreeView conditionally and programmatically?
 

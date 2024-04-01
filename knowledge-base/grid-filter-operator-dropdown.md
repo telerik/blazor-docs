@@ -34,7 +34,7 @@ This KB article answers the following questions:
 
 The example below shows how to mimic the following built-in features, which exist in the `FilterRow` `FilterMode` of the Grid and TreeList:
 
-* Operator DropDownList, which allows users to select fitler operators like "equal to", "starts with", etc.
+* Operator DropDownList, which allows users to select filter operators like "equal to", "starts with", etc.
 * Clear Button, which allows users to clear the column's filter.
 
 The sample also shows a few additional optional features:

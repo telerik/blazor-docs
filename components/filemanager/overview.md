@@ -351,16 +351,16 @@ The FileManger allows navigating through the file system in a couple ways - Tree
 
 ## Preview Pane
 
-A dedicated Preview Pane can be toggled to display details for the selected file or folder. Its visibility is controlled via a Switch in the Toolbar. [Read more abot the FileManager Preview Pane...]({%slug filemanager-preview-pane%})
+A dedicated Preview Pane can be toggled to display details for the selected file or folder. Its visibility is controlled via a Switch in the Toolbar. [Read more about the FileManager Preview Pane...]({%slug filemanager-preview-pane%})
 
 ## Context Menu
 
-The FileManaged displays a Context Menu on right click of an item. The menu provides several built-in commands. [Read more about the Context Menu options...]({%slug filemanager-context-menu%})
+The FileManager displays a Context Menu on right click of an item. The menu provides several built-in commands. [Read more about the Context Menu options...]({%slug filemanager-context-menu%})
 
 
 ## Reference and Methods
 
-To use the FileManager methods, define a reference to the component instance with the `@ref` attribute (example below). The Filemanager is a generic component and its type comes from the model it is bound to.
+To use the FileManager methods, define a reference to the component instance with the `@ref` attribute (example below). The FileManager is a generic component and its type comes from the model it is bound to.
 
 The available FileManager methods are:
 

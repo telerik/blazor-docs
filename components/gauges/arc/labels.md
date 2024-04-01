@@ -122,7 +122,7 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 
 ## Visible
 
-The `Visible` (`bool`) parameter controls wether the labels will be rendered. By default the labels would not be rendered.
+The `Visible` (`bool`) parameter controls whether the labels will be rendered. By default the labels would not be rendered.
 
 >caption Show the labels by using the Visible parameter. The result from the code snippet below
 

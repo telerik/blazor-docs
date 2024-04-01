@@ -47,7 +47,7 @@ You can use the ranges to visually distinguish multiple pointers from the others
 
 ## Labels
 
-The labels are rendered on the scale of the Radial Gauge to give inforation to the users about the value of the pointers. [See the Labels article for more information...]({%slug radial-gauge-labels%})
+The labels are rendered on the scale of the Radial Gauge to give information to the users about the value of the pointers. [See the Labels article for more information...]({%slug radial-gauge-labels%})
 
 ## Radial Gauge Parameters
 

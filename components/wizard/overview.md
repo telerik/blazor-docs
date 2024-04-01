@@ -69,7 +69,7 @@ The [Wizard can contain a Form component with validation]({%slug form-overview%}
 
 ## Events
 
-The [Wizard component fires events]({%slug wizard-events%}) when the current step changes or when the user completes all steps. Step changes can be cancelled.
+The [Wizard component fires events]({%slug wizard-events%}) when the current step changes or when the user completes all steps. Step changes can be canceled.
 
 ## Layout
 
