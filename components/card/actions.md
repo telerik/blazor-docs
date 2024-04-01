@@ -39,7 +39,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
 
 >caption Change the orientation of the action buttons. The result from the snippet below.
 
-![Verical orientation of the action buttons](images/buttons-orientation-example.png)
+![Vertical orientation of the action buttons](images/buttons-orientation-example.png)
 
 ````CSHTML
 @* Change the orientation of the action buttons *@

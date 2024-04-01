@@ -46,7 +46,7 @@ Let's assume that the Grid has a `Stock` column which is not sorted, but it shou
 1. Set a helper variable that will keep the previous sort state of the `Stock` column. If the column is unsorted by default, then the helper variable can be equal to `null`.
 1. Subscribe to the [Grid `OnStateChanged` Event]({%slug grid-state%}#onstatechanged).
 1. Check if the user has changed the sort state by checking if `args.PropertyName` is `"SortDescriptors"`.
-1. If yes, then iterate `args.GridState.SortDescriptors` and check if the `Stock` column is now sorted, what is the sort direction, and what was the prevous sort direction.
+1. If yes, then iterate `args.GridState.SortDescriptors` and check if the `Stock` column is now sorted, what is the sort direction, and what was the previous sort direction.
 1. Depending on the current situation, either override the `SortDirection` property of the [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor), or add a new `SortDescriptor` to the `args.GridState.SortDescriptors`. The logic will vary, depending on the Grid `SortMode` (`Single` or `Multiple`).
 1. Use the [Grid `SetStateAsync` method]({%slug grid-state%}#setstateasync) to apply the modified Grid state to the component instance.
 

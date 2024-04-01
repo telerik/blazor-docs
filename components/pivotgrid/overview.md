@@ -15,7 +15,7 @@ The <a href="https://www.telerik.com/blazor-ui/pivotgrid" target="_blank">Blazor
 
 ## Definitions
 
-The PivotGrid component and this documentation use terms *row*, *column*, and *measure*. Each of these terms signifes one field in the data source:
+The PivotGrid component and this documentation use terms *row*, *column*, and *measure*. Each of these terms signifies one field in the data source:
 
 * The *rows* and *columns* represent categories or date periods.
 * The *distinct* values of a *row* field display in *rows headers*. The number of rendered rows will match the number of distinct values of the *row* field.
@@ -129,7 +129,7 @@ The PivotGrid component supports different [data binding options and data provid
 
 ## Configurator
 
-In the simpler case, the PivotGrid supports fixed configuraton of its rows, columns, and measures. However, most scenarios and users may require greater flexibility where one can [use the PivotGrid Configurator to change, filter and sort the displayed fields and aggregations]({%slug pivotgrid-configurator%}).
+In the simpler case, the PivotGrid supports fixed configuration of its rows, columns, and measures. However, most scenarios and users may require greater flexibility where one can [use the PivotGrid Configurator to change, filter and sort the displayed fields and aggregations]({%slug pivotgrid-configurator%}).
 
 
 ## Templates

@@ -201,7 +201,7 @@ or
 
 ### When Using OnRead Event
 
-1. Implement the [Grid `OnRead` event hander]({%slug common-features-data-binding-onread%}) as usual. More Grid-specific examples are available in the [Grid Manual Operations]({%slug components/grid/manual-operations%}) article.
+1. Implement the [Grid `OnRead` event handler]({%slug common-features-data-binding-onread%}) as usual. More Grid-specific examples are available in the [Grid Manual Operations]({%slug components/grid/manual-operations%}) article.
 1. The visible data items on the current Grid page are in [the `args.Data` collection, which is set in the Grid `OnRead` handler]({%slug common-features-data-binding-onread%}#event-argument). `args.Data` is a property of the `GridReadEventArgs` event argument, so it's not accessible outside `OnRead`. That's why you can cache it in a separate variable, together with the total item count (`args.Total`).
 
 Optionally, if you want to get the currently filtered and sorted data from all Grid pages:

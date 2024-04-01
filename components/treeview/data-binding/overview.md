@@ -56,7 +56,7 @@ The above model properties have the following meaning for the TreeView:
 | `Text` | Sets the item content as plain text. For rich content and nested components, use an [item template]({%slug components/treeview/templates%}) |
 | **Item relations** | |
 | `HasChildren` | Determines whether the item has children, no matter if they are loaded or not. Required for binding to **flat data** and for [**load on demand**]({%slug components/treeview/data-binding/load-on-demand%}). If `true`, the item will show an expand arrow. With **hierarchical data**, the TreeView renders expand icons based on `Items`, but `HasChildren` will take precedence. |
-| `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarhical data.** |
+| `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarchical data.** |
 | `Items` | Defines the item's children. Required for [binding to **hierarchical data**]({%slug components/treeview/data-binding/hierarchical-data%}). The children's type can be different from the parent item type. |
 | [**Graphics**]({%slug treeview-icons%}) | |
 | `Icon` | Defines a [Telerik Font and Svg icon]({%slug common-features-icons%}) |

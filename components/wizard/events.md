@@ -81,7 +81,7 @@ Next targeted step index: @TargetIndex
 
 ## ValueChanged
 
-The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the latter has not been cancelled. The handler receives the new Wizard value (step index) as an event argument. Make sure to set it to the `Value` parameter, so that the new step content is rendered.
+The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the latter has not been canceled. The handler receives the new Wizard value (step index) as an event argument. Make sure to set it to the `Value` parameter, so that the new step content is rendered.
 
 >caption Handle the `ValueChanged` event of the Wizard
 

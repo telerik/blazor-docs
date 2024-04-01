@@ -50,7 +50,7 @@ The component provides [tile layers]({%slug components/map/layers/tile%}), [shap
 
 ## Layers
 
-Tha layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...]({%slug components/map/layers%})
+The layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...]({%slug components/map/layers%})
 
 ## Markers
 

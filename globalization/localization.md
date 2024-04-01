@@ -54,7 +54,7 @@ You can also find an example server-side implementation in our offline demos pro
 
 ### Walkthrough - How to Add Globalization and Localization to a Server-side Blazor App
 
->note This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, chek out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx). The majority of the code is to enable localization in the app itself, the Telerik-specific portion is the same in both WebAssembly and server-side Blazor apps - implementing a service to return the translated strings.
+>note This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, check out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx). The majority of the code is to enable localization in the app itself, the Telerik-specific portion is the same in both WebAssembly and server-side Blazor apps - implementing a service to return the translated strings.
 
 The necessary steps are to:
 

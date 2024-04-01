@@ -139,7 +139,7 @@ This sample contains a solution for calculating them on the server over all data
 When using a `DataTable` as the grid data source, aggregates are not supported, they require using a model so they can extract the type of the field - the grid itself is strongly typed.
 
 ## Solution
-For such scecnarios you can pass the desired aggregation functions through the `DataSourceRequest` object to use it with the `.ToDataSourceResult()` method, and get the desired aggregations through fields in the view-model:
+For such scenarios you can pass the desired aggregation functions through the `DataSourceRequest` object to use it with the `.ToDataSourceResult()` method, and get the desired aggregations through fields in the view-model:
 
 ````CSHTML
 @using System.Data

@@ -48,7 +48,7 @@ There are a couple of things specific to the Telerik components that you need to
 
 * Add a package reference to the `Telerik.UI.for.Blazor` package in the `Server` project as well.
 
-* Add the Telerik services in the `Server` projet as well.
+* Add the Telerik services in the `Server` project as well.
 
 * Add other specific services to the `Server` project as well (such as localization services for the Telerik components, or other services for your app like data retrieval logic) and ensure they have an appropriate implementation that can work on the server.
 

@@ -218,7 +218,7 @@ You can refresh the data of the MultiSelect by using the `Rebind` method exposed
 
 The `Value` parameter also accepts a collection but it does not support observable data. If you want to change the Value, make sure you are providing a collection of items that are included in the data source (not random ones).
 
->caption Set/change the selected values or clear the selection programatically.
+>caption Set/change the selected values or clear the selection programmatically.
 
 ````CSHTML
 <h4>Set or change selected values</h4>

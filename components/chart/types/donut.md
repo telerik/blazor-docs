@@ -74,7 +74,7 @@ Donut series
 
 ## Donut Chart Specific Appearance Settings
 
-The following sections explain speciifc configuration options to the donut charts:
+The following sections explain specific configuration options to the donut charts:
 
 * [Rotation](#rotation)
 * [Color Field](#color-field)
@@ -86,7 +86,7 @@ The following sections explain speciifc configuration options to the donut chart
 
 ### Rotation
 
-By default, the firt segment starts at the top. You can change that by using the `StartAngle` property of the series.
+By default, the first segment starts at the top. You can change that by using the `StartAngle` property of the series.
 
 ### Color Field
 

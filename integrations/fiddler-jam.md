@@ -12,7 +12,7 @@ position: 0
 
 [Fiddler Jam](https://www.telerik.com/fiddler-jam) is Telerik's new tool designed to facilitate the information exchange between the support and end-user. A simple capture log can provide a lot of useful information to the support team:
 
-* Video recording and screenshots, along with sharable link
+* Video recording and screenshots, along with shareable link
 * Captured user actions such as mouse and keyboard interactions
 * Captured console logs and errors
 * Captured network traffic

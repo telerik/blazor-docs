@@ -20,7 +20,7 @@ Sections in this article:
 
 ## Basics
 
-This section explains the available events that you need to use for creating and deleting the Gannt dependencies. After that, you will find a code example.
+This section explains the available events that you need to use for creating and deleting the Gantt dependencies. After that, you will find a code example.
 
 List of the available events:
 
