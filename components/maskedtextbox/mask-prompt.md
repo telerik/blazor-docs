@@ -171,7 +171,7 @@ The `PromptPlaceholder` is useful when you need to process the user input at a l
 
 >important You should not set the `PromptPlaceholder` to a character that can be valid for the user input in the current mask. Doing so can result in those characters showing up in the user input without the user writing them.
 >
->For example, if you have a mask `00-00` and `PromptPlaceholder` is `4`, when the user writes `1` in the input, the actual `Value` will become `14-44` even though the user sees `1_-__`, and when the component re-renders (for example, because an `EventCallback` fired), the user wil see `14-44` which is not what they entered or expected.
+>For example, if you have a mask `00-00` and `PromptPlaceholder` is `4`, when the user writes `1` in the input, the actual `Value` will become `14-44` even though the user sees `1_-__`, and when the component re-renders (for example, because an `EventCallback` fired), the user will see `14-44` which is not what they entered or expected.
 
 ## See Also
 
