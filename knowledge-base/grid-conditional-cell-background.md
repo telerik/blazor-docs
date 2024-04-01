@@ -116,7 +116,7 @@ You can use a particular column's [cell template]({%slug grid-templates-column%}
 
 ### Row Template
 
-You can fully control the row rendering through a [row template]({%slug grid-templates-row%}) and apply the classes or inline rules you require to individual cells, or to all cells. Review the requirements and limitations of the row temlates and if they suit you needs.
+You can fully control the row rendering through a [row template]({%slug grid-templates-row%}) and apply the classes or inline rules you require to individual cells, or to all cells. Review the requirements and limitations of the row templates and if they suit you needs.
 
 >caption Use a row template to style individual cells or the entire row conditionally
 
