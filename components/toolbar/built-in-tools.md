@@ -127,7 +127,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 
 ## ToolBarButtonGroup
 
-The button group is a container for one or more buttons that renders them together and spaces them out from the adacent buttons or groups.
+The button group is a container for one or more buttons that renders them together and spaces them out from the adjacent buttons or groups.
 
 You can add one or more group of buttons to the Toolbar. To do that you should add the `<ToolBarButtonGroup>` to the `<TelerikToolBar>`. In the button group you can place either the `ToolBarButton` or the `ToolBarToggleButton`.
 
