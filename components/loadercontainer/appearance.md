@@ -17,7 +17,7 @@ The LoaderContainer component provides multiple parameters that control its appe
 * [OverlayThemeColor](#overlaythemecolor)
 * [LoaderPosition](#loaderposition)
 
-The LoaderContainer uses a nested internal [Loader component]({%slug loader-overview%}) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's apparance:
+The LoaderContainer uses a nested internal [Loader component]({%slug loader-overview%}) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's appearance:
 
 * [LoaderType](#loadertype)
 * [Size](#size)
@@ -167,4 +167,4 @@ The following example shows [how to override the CSS styles in the theme]({%slug
 
 ## See Also
 
-* [Live Demo: LoaderContainer Apprearance](https://demos.telerik.com/blazor-ui/loadercontainer/appearance)
+* [Live Demo: LoaderContainer Appearance](https://demos.telerik.com/blazor-ui/loadercontainer/appearance)
