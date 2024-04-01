@@ -36,7 +36,7 @@ There are two different cases:
 
 ### Automatic operations
 
-For general cases, to refresh the rendeded data in the Grid, [use an `ObservableCollection`](https://demos.telerik.com/blazor-ui/grid/observable-data). To change the entire data collection, `.Clear()` the collection first to notify the grid that this old data is gone, then create a new one with the new data.
+For general cases, to refresh the rendered data in the Grid, [use an `ObservableCollection`](https://demos.telerik.com/blazor-ui/grid/observable-data). To change the entire data collection, `.Clear()` the collection first to notify the grid that this old data is gone, then create a new one with the new data.
 
 If you don't use an `ObservableCollection`, then [create a `new` instance of the collection and set it to the `Data` parameter]({%slug grid-refresh-data%}#new-collection-reference). A `new` instance provides a new reference, which fires the `OnParametersSet` event from the framework. This lets the Grid redraw. If you only add/remove items from the same collection, the reference to the entire data collection stays the same and the Grid is not notified of the change.
 
