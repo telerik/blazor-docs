@@ -29,7 +29,7 @@ How to make the GridColumn title text wrap around and be centered?
 
 Use [custom CSS to override the default Grid styles]({%slug themes-override%}). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter]({%slug components/grid/columns/bound%}) that can help to target specific columns.
 
-The custom CSS should align headaer text to the center and enable text wrapping.
+The custom CSS should align header text to the center and enable text wrapping.
 
 For older product versions, or to target all columns, use `.k-header` instead of a custom CSS class.
 
