@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-How to implement a ListView seach box, similar to the [SearchBox in the Blazor Grid](https://demos.telerik.com/blazor-ui/grid/searchbox)? I would like to use a single input to search and filter in all data fields of the ListView data.
+How to implement a ListView search box, similar to the [SearchBox in the Blazor Grid](https://demos.telerik.com/blazor-ui/grid/searchbox)? I would like to use a single input to search and filter in all data fields of the ListView data.
 
 ## Solution
 
