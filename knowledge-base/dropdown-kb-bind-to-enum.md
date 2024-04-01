@@ -91,7 +91,7 @@ Here are examples of both.
 
 An enum is, effectively, an integer. Thus, its default value is `0` and that can conflict with the concept of a combobox and its placeholder - the placeholder shows when the `Value` matches the `default` for its type and indicate no selection. On the other hand, an enum always has a selection, so a DropDownList component might be more suitable.
 
-Nevertheless, if you want to use both an enum and a placehlder, you should use `nullable` types so that their `default` value is `null` and does not interfere with the options possible from the `enum` itself.
+Nevertheless, if you want to use both an enum and a placeholder, you should use `nullable` types so that their `default` value is `null` and does not interfere with the options possible from the `enum` itself.
 
 >caption Show Placeholder in the combo box when binding to an enum - done through nullable fields
 
