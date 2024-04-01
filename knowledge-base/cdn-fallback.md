@@ -102,6 +102,6 @@ A server-side Blazor app is bootstrapped in a Razor page (`_Host.cshtml`) and so
 ## Notes
 You may want to consider using [static assets]({%slug getting-started/what-you-need%}#adding-the-client-assets) as the primary way to obtain the necessary resources. They provide the following benefits in a Blazor app:
 
-* For server-side Blazor - the necessity for a low-latency connection makes this flavor suitable for Intranet apps, and in such cases the user is likely to be closer to the server than to the cloud. Thus, downloading the files from the app server is likely to be faster than donwloading from the CDN.
+* For server-side Blazor - the necessity for a low-latency connection makes this flavor suitable for Intranet apps, and in such cases the user is likely to be closer to the server than to the cloud. Thus, downloading the files from the app server is likely to be faster than downloading from the CDN.
 
 * For client-side Blazor - Using the static assets that come with the packages make your app independent of third party services, so it is easier to bundle together (for example, for offline support and PWAs), and those assets are available in `wwwroot` upon build anyway.
