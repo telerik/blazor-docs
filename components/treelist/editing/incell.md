@@ -325,7 +325,7 @@ Editing is cancelled for the first record.
 
 * If there is a cell that is being edited at the moment, clicking on another cell will first close the current cell and fire `OnUpdate`. To start editing the new cell, you need a second click. When the user removes focus from the TreeList or the current row, the `OnUpdate` event fires, where the data-access logic can move it to the actual data source.
 
-* The `OnCancel` event works only when pressing `Esc`. The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger `OnUpdate` and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event, because an update has already occured.
+* The `OnCancel` event works only when pressing `Esc`. The `Cancel` command button is not supported. Clicking outside the currently edited cell will trigger `OnUpdate` and thus, clicking on the `Cancel` command button will not fire the `OnCancel` event, because an update has already occurred.
 
 
 ## Incell Editing and Selection
