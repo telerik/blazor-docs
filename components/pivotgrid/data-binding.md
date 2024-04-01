@@ -18,7 +18,7 @@ This article describes the PivotGrid data binding mechanism and the supported da
 The PivotGrid supports different data sources via its `DataProviderType` parameter. The parameter type is `PivotGridDataProviderType` enum and its members are:
 
 * [`Local`](#local) (default)
-* [`XMLA`](#xmla)
+* [`Xmla`](#xmla)
 
 
 ## Local
