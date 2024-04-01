@@ -36,7 +36,7 @@ This section contains the following examples:
 
 ### Selection of a single node using one-way data binding
 
-You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively cancelled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
+You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
 
 ````CSHTML
 @* Handle single node selection with one-way data binding *@
