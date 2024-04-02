@@ -49,5 +49,5 @@ Remove either the `Data` parameter or the `OnRead` event handler.
 
 * [Changes in the `OnRead` event in version 3.0]({%slug changes-in-3-0-0%}#onread)
 * [Common OnRead Documentation]({%slug common-features-data-binding-onread%})
-* [Common How to Provide Data Documentation]({%slug common-features-data-binding-overview%})
+* [How to provide data to Telerik Blazor components]({%slug common-features-data-binding-overview%}#how-to-provide-data)
 
