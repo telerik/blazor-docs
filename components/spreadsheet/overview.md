@@ -43,9 +43,11 @@ To use a Telerik Spreadsheet for Blazor:
 }
 ````
 
-## Toolbar
 
-The Spreadsheet provides tools to style the cells, format the cell values, insert images and links, and merge cells. You can also add custom tools. Learn how to [configure and customize the Blazor Spreadsheet tools]({%slug spreadsheet-toolbar%}).
+## Tools
+
+The Spreadsheet provides built-in tools that style the cells, format the cell values, insert images and links, and merge cells. You can also add custom tools. Learn how to [configure and customize the Blazor Spreadsheet tools]({%slug spreadsheet-tools%}).
+
 
 ## Functions and Formulas
 
@@ -75,7 +77,7 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 | `RowHeaderWidth` | `double` <br /> (`32`) | The pixel width of the row headers that display the row numbers. The default width fits up to 3 digits comfortably. |
 | `RowHeight` | `double` <br /> (`20`) | The initial pixel height of the rows. |
 | `RowsCount` | `int` <br /> (`200`) | The initial number of rows to render. Users can add and delete rows at runtime. |
-| `ToolSet` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default. |
+| `ToolSet` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
 | `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. The [built-in themes]({%slug general-information/themes%}) apply `"800px"` by default. |
 
 
@@ -106,7 +108,7 @@ The Spreadsheet exposes methods for programmatic operation. To use them, define 
     {
         if (SpreadsheetRef !=null)
         {
-            byte[] newExcelFile = await SpreadsheetRef.ExportToExcelAsync();
+            byte[] excelFileToSave = await SpreadsheetRef.ExportToExcelAsync();
 
             Console.WriteLine($"The Excel file size is {newExcelFile.Length} bytes.");
         }
@@ -117,6 +119,7 @@ The Spreadsheet exposes methods for programmatic operation. To use them, define 
 
 ## Next Steps
 
+* [Customize the Spreadsheet tools]({%slug spreadsheet-tools%})
 * [Learn about the supported Spreadsheet functions and formulas]({%slug spreadsheet-functions-formulas%})
 * [Handle Spreadsheet events]({%slug spreadsheet-events%})
 

@@ -19,10 +19,13 @@ A Spreadsheet formula starts with the equal sign `=` and can include:
 
 * References to cells and ranges
 * Constants and literals
-* Arithmetic operators
+* Operators
 * [Functions](#function-list)
 
-For more information, you can refer to the [Microsoft Formula documentation](https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173).
+For more information, you can refer to:
+
+* [Microsoft Formula documentation](https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173)
+* [Microsoft Operator documentation](https://support.microsoft.com/en-gb/office/calculation-operators-and-precedence-in-excel-48be406d-4975-4d31-b2b8-7af9e0e2878a)
 
 To use `=` as a string at the beginning of a cell, start with an apostrophe: `'=`.
 
