@@ -47,7 +47,7 @@ Remove either the `Data` parameter or the `OnRead` event handler.
 
 ## See Also
 
-* [Changes in the OnRead Event in 3.0.0]({%slug changes-in-3-0-0%}#onread)
+* [Changes in the `OnRead` event in version 3.0]({%slug changes-in-3-0-0%}#onread)
 * [Common OnRead Documentation]({%slug common-features-data-binding-onread%})
 * [Common How to Provide Data Documentation]({%slug common-features-data-binding-overview%})
 
