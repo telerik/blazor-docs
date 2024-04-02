@@ -1,5 +1,5 @@
 ---
-title: Null Reference Expection from the GridRowCollection
+title: NullReferenceException for GridRowCollection
 description: Fixing a Null Reference Exception Thrown from the GridRowCollection.
 type: troubleshooting
 page_title: Null Reference Expection from the GridRowCollection
