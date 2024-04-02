@@ -32,7 +32,7 @@ I upgraded the version of the Telerik UI from Blazor components from `<3.0.0` to
 
 ## Cause
 
-The Telerik UI Grid for Blazor throws a `NullReferenceException` from the `GridRowCollection` class when both the `Data` parameter and `OnRead` event handler are defined:
+The Telerik UI Grid for Blazor throws a `NullReferenceException` for the `GridRowCollection` property when using both the `Data` parameter and `OnRead` event handler:
 
 <div class="skip-repl"></div>
 
