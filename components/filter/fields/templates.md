@@ -20,7 +20,10 @@ The `FilterField` provides the following templates:
 
 The `ValueTemplate` allows you to customize the default value editor of a single Filter Field. You can replace the default editor component or change the component settings.
 
-The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext`](/blazor-ui/api/telerik.blazor.components.filterfieldvaluetemplatecontext). You can get and set the its `FilterDescriptor` property, which is of type [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
+The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext`](/blazor-ui/api/telerik.blazor.components.filterfieldvaluetemplatecontext). You can get and set its `FilterDescriptor` property, which is of type [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
+
+When the `FilterDescriptor`'s Value is not of type `string`, the type has to be nullable, as any newly created filter's value can be null.
+
 
 To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField]({%slug filter-fields%}).
 
@@ -41,7 +44,15 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
                 </TelerikAutoComplete>
             </ValueTemplate>
         </FilterField>
-        <FilterField Name="@(nameof(Food.Price))" Type="@(typeof(decimal))" Label="Price" />
+        <FilterField Name="@(nameof(Food.Price))" Type="@(typeof(decimal))" Label="Price">
+            <ValueTemplate>
+                <TelerikNumericTextBox Value="@((decimal?)context.FilterDescriptor.Value)"
+                                       Format="C"
+                                       Step="0.01m"
+                                       ValueChanged="@( (decimal? value) => NumericValueChanged(context.FilterDescriptor, value) )">
+                </TelerikNumericTextBox>
+            </ValueTemplate>
+        </FilterField>
         <FilterField Name="@(nameof(Food.IsAvailable))" Type="@(typeof(bool))" Label="Is Available" />
     </FilterFields>
 </TelerikFilter>
@@ -65,9 +76,15 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 
     private CompositeFilterDescriptor FilterValue { get; set; } = new();
 
-    private List<string> Suggestions { get; set; } = new () { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
+    private List<string> Suggestions { get; set; } = new() { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
 
     private void OnFilterValueChanged(FilterDescriptor fd, string value)
+    {
+        fd.Value = value;
+        ProcessGridData(FilterValue);
+    }
+
+    private void NumericValueChanged(FilterDescriptor fd, decimal? value)
     {
         fd.Value = value;
         ProcessGridData(FilterValue);
