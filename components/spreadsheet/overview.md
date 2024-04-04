@@ -116,7 +116,7 @@ The Spreadsheet exposes methods for programmatic operation. To use them, define 
         {
             byte[] excelFileToSave = await SpreadsheetRef.ExportToExcelAsync();
 
-            Console.WriteLine($"The Excel file size is {newExcelFile.Length} bytes.");
+            Console.WriteLine($"The Excel file size is {excelFileToSave.Length} bytes.");
         }
     }
 }
