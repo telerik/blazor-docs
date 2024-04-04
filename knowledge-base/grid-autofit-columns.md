@@ -189,7 +189,7 @@ This approach is simpler than the above, because it doesn't require JavaScript a
 
 <TelerikButton OnClick="@AutoFit">AutoFit All Columns Manually</TelerikButton>
 
-<TelerikGrid @ref="@Grid"
+<TelerikGrid @ref="@GridRef"
              OnRead="@OnGridRead"
              TItem="@Product"
              Pageable="true"
@@ -205,9 +205,9 @@ This approach is simpler than the above, because it doesn't require JavaScript a
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<Product> Grid { get; set; }
+    private TelerikGrid<Product>? GridRef { get; set; }
 
-    private List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     private bool AutoFitFlag { get; set; }
 
@@ -215,11 +215,15 @@ This approach is simpler than the above, because it doesn't require JavaScript a
 
     private async Task AutoFit()
     {
-        Grid.AutoFitAllColumns();
+        if (GridRef != null)
+        {
+            await GridRef.AutoFitAllColumnsAsync();
+        }
     }
 
     private async Task OnGridRead(GridReadEventArgs args)
     {
+        await Task.Delay(100); // simulate async operation
         DataSourceResult result = GridData.ToDataSourceResult(args.Request);
 
         args.Data = result.Data;
@@ -239,8 +243,11 @@ This approach is simpler than the above, because it doesn't require JavaScript a
         if (AutoFitFlag)
         {
             AutoFitFlag = false;
-            await Task.Delay(200);
-            Grid.AutoFitAllColumns();
+            await Task.Delay(1);
+            if (GridRef != null)
+            {
+                await GridRef.AutoFitAllColumnsAsync();
+            }
         }
 
         await base.OnAfterRenderAsync(firstRender);
@@ -267,7 +274,7 @@ This approach is simpler than the above, because it doesn't require JavaScript a
     public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
         public bool Active { get; set; }
