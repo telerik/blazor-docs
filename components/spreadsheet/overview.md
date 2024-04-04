@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Spreasheet Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/spreadsheet" target="_blank">Spreadsheet for Blazor</a> is ...
+The <a href = "https://www.telerik.com/blazor-ui/spreadsheet" target="_blank">Spreadsheet for Blazor</a> enables users to view and edit tabular data with an Excel-like user experience. The component supports cell styling, value formatting, links, images, formulas, and a rich collection of mathematical functions.
 
 
 ## Creating Blazor Spreadsheet
@@ -19,13 +19,12 @@ To use a Telerik Spreadsheet for Blazor:
 
 1. Add the `TelerikSpreadsheet` tag.
 1. (optional) Set the `Data` parameter to a byte array to load an existing Excel file.
-1. (optional) Set the `Width` parameter to a [valid CSS unit]({%slug common-features/dimensions%}). The default component width is `"800px"`.
+1. (optional) Set the `Width` parameter to a [valid CSS unit]({%slug common-features/dimensions%}).
 
 >caption Basic Blazor Spreadsheet
 
 ````CSHML
-<TelerikSpreadsheet @ref="@SpreadsheetRef"
-                    Data="@SpreadsheetData"
+<TelerikSpreadsheet Data="@SpreadsheetData"
                     Width="100%">
 </TelerikSpreadsheet>
 
@@ -46,17 +45,24 @@ To use a Telerik Spreadsheet for Blazor:
 
 ## Tools
 
-The Spreadsheet provides built-in tools that style the cells, format the cell values, insert images and links, and merge cells. You can also add custom tools. Learn how to [configure and customize the Blazor Spreadsheet tools]({%slug spreadsheet-tools%}).
+The Spreadsheet provides built-in tools that perform various actions such as:
+
+* Style the cells,
+* Format the cell values
+* Insert images and links
+* Merge cells or toggle the visibility of the cell borders.
+
+You can also add custom tools. Learn how to [configure and customize the Blazor Spreadsheet tools]({%slug spreadsheet-tools%}).
 
 
 ## Functions and Formulas
 
-The Spreadsheet support formulas and a large variety of functions. See the complete list of available [Spreadsheet function names and descriptions]({%slug spreadsheet-functions-formulas%}).
+The Spreadsheet support formulas and a large variety of Excel functions. See the complete list of available [Spreadsheet function names]({%slug spreadsheet-functions-formulas%}).
 
 
 ## Events
 
-The various [Spreadsheet events]({%slug spreadsheet-events%}) allow you to implement custom functionality and handle user interactions with the component.
+The [Spreadsheet events]({%slug spreadsheet-events%}) allow you to implement custom functionality and handle user interactions with the component.
 
 
 ## Spreadsheet Parameters
@@ -78,7 +84,7 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 | `RowHeight` | `double` <br /> (`20`) | The initial pixel height of the rows. |
 | `RowsCount` | `int` <br /> (`200`) | The initial number of rows to render. Users can add and delete rows at runtime. |
 | `ToolSet` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
-| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. The [built-in themes]({%slug general-information/themes%}) apply `"800px"` by default. |
+| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. |
 
 
 ## Spreadsheet Reference and Methods
@@ -87,7 +93,7 @@ The Spreadsheet exposes methods for programmatic operation. To use them, define 
 
 | Method | Description |
 | --- | --- |
-| `ExportToExcelAsync` | Returns the current Spreadsheet Excel file content as `byte[]`. | 
+| `ExportToExcelAsync` | Returns the current Spreadsheet Excel file content as `byte[]`. The application can save the file or pass it to [Telerik Document Processing]({%slug common-features-dpl%}) for further manipulation. |
 | `Rebind` | Refreshes the Spreadsheet and ensures it displays the current `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
 | `Refresh` | Calls `StateHasChanged()` for the Spreadsheet component. |
 

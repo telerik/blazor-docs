@@ -62,9 +62,12 @@ The following table lists all Spreadsheet tools, sorted by their default tool se
 | Vertical Align | `SpreadsheetVerticalAlignTool` | Home |
 | Text Wrap | `SpreadsheetTextWrapTool` | Home |
 | Number and Date Format | `SpreadsheetNumberFormatTool` | Format |
+| Decrease Decimals | `SpreadsheetDecreaseDecimalTool` | Format |
+| Increase Decimals | `SpreadsheetIncreaseDecimalTool` | Format |
 | Insert Link | `SpreadsheetInsertLinkTool` | Insert |
 | Insert Image | `SpreadsheetInsertImageTool` | Insert |
 | Merge Cells | `SpreadsheetMergeCellsTool` | View |
+| Toggle Grid Lines | `SpreadsheetGridLinesTool` | View |
 
 ### Additional Tools
 
@@ -275,4 +278,4 @@ The `SpreadsheetCustomTool` type has a `Template` property that is a RenderFragm
 
 ## See Also
 
-* [Live Demo: Spreadsheet Events](https://demos.telerik.com/blazor-ui/spreadsheet/events)
+* [Live Demo: Spreadsheet Tools](https://demos.telerik.com/blazor-ui/spreadsheet/tools)

@@ -67,7 +67,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
         SpreadSheetEventLog = $"<code>OnDownload</code> for file <strong>{args.FileName}</strong>.";
 
-        args.IsCancelled = false;
+        //args.IsCancelled = true;
     }
 
     private void OnSpreadsheetOpen(SpreadsheetOpenEventArgs args)
@@ -76,7 +76,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
         SpreadSheetEventLog = $"<code>OnOpen</code> for file <strong>{file.Name}</strong> with size <strong>{file.Size.ToString("n0")}</strong> bytes.";
 
-        args.IsCancelled = false;
+        //args.IsCancelled = true;
     }
 }
 ````

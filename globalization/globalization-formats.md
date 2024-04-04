@@ -8,7 +8,6 @@ published: True
 position: 3
 ---
 
-
 # Globalization of Date And Number Formats
 
 The Telerik UI for Blazor components use the culture of the current thread to render the appropriate culture-specific format for dates, numbers, and currency.
@@ -26,10 +25,11 @@ The Telerik UI for Blazor components use the culture of the current thread to re
 | [RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/globalization) | The labels on the large ticks are formatted according to the current culture and its default decimals. |
 | [Scheduler](https://demos.telerik.com/blazor-ui/scheduler/globalization) | Date formats are taken from the culture, in the week view the first day of the week is also taken from the culture even if it does not match the `Date`. The various inputs and editors in the edit form are Telerik components and respond to the culture. |
 | [Slider](https://demos.telerik.com/blazor-ui/slider/globalization) | The labels on the large ticks are formatted according to the current culture and its default decimals. |
+| [Spreadsheet](https://demos.telerik.com/blazor-ui/spreadsheet/globalization) | Foo. |
 | [TimePicker](https://demos.telerik.com/blazor-ui/timepicker/globalization) | @[template](/_contentTemplates/common/general-info.md#date-format-per-culture) |
 | [TreeList](https://demos.telerik.com/blazor-ui/treelist/globalization) | The various inputs and editors are Telerik components and respond to the culture. Custom code and format strings in the templates will also default to using the current culture unless you explicitly use a certain culture in them. |
 
 ## See Also
 
-  * [Localization]({%slug globalization-localization%})
-  * [Supported Date Formats]({%slug components/dateinput/supported-formats%})
+* [Localization]({%slug globalization-localization%})
+* [Supported Date Formats]({%slug components/dateinput/supported-formats%})
