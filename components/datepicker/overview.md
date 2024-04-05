@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Date Picker Overview
+page_title: DatePicker Overview
 description: The Blazor DatePicker enables easy date selection in web applications with an interactive date input interface.
 slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview
