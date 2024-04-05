@@ -1,5 +1,5 @@
 ---
-title: Blazor Navigation Menu | Telerik UI for Blazor
+title: Navigation
 page_title: Menu - Navigation
 description: Using the Blazor Menu for navigating between pages.
 slug: menu-navigation
