@@ -83,7 +83,7 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 | `RowHeaderWidth` | `double` <br /> (`32`) | The pixel width of the row headers that display the row numbers. The default width fits up to 3 digits comfortably. |
 | `RowHeight` | `double` <br /> (`20`) | The initial pixel height of the rows. |
 | `RowsCount` | `int` <br /> (`200`) | The initial number of rows to render. Users can add and delete rows at runtime. |
-| `ToolSet` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
+| `Tools` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
 | `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. |
 
 

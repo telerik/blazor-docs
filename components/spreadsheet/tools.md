@@ -99,18 +99,18 @@ The example below shows how to:
 @using Telerik.Blazor.Resources
 @using Telerik.Blazor.Services
 
-<TelerikSpreadsheet ToolSet="@DefaultToolSetWithCustomizations"
+<TelerikSpreadsheet Tools="@DefaultToolsWithCustomizations"
                     Width="100%">
 </TelerikSpreadsheet>
 
 @code {
-    private SpreadsheetToolSet DefaultToolSetWithCustomizations { get; set; } = SpreadsheetToolSets.All;
+    private SpreadsheetToolSet DefaultToolsWithCustomizations { get; set; } = SpreadsheetToolSets.All;
 
     protected override void OnInitialized()
     {
         // This code finds the built-in Home tab by its localized title.
         // You can hard-code the title string (for example, "Home"), if the application is using just one language.
-        SpreadsheetToolSetItem? homeToolSet = DefaultToolSetWithCustomizations.Items
+        SpreadsheetToolSetItem? homeToolSet = DefaultToolsWithCustomizations.Items
             .FirstOrDefault(x => x.Title == Localizer[nameof(Messages.Spreadsheet_ToolBar_HomeMenu)]);
 
         var fontFamilyTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetFontFamilyTool) as SpreadsheetFontFamilyTool;
@@ -182,16 +182,16 @@ The example below shows how to define a custom tool set from scratch. You can al
 ````CSHTML
 @using Telerik.Blazor.Components.Spreadsheet
 
-<TelerikSpreadsheet ToolSet="@SpreadsheetCustomToolSet"
+<TelerikSpreadsheet Tools="@SpreadsheetTools"
                     Width="100%">
 </TelerikSpreadsheet>
 
 @code {
-    private SpreadsheetToolSet SpreadsheetCustomToolSet { get; set; } = new SpreadsheetToolSet();
+    private SpreadsheetToolSet SpreadsheetTools { get; set; } = new SpreadsheetToolSet();
 
     protected override void OnInitialized()
     {
-        SpreadsheetCustomToolSet.Items = new List<SpreadsheetToolSetItem>()
+        SpreadsheetTools.Items = new List<SpreadsheetToolSetItem>()
         {
             new SpreadsheetToolSetItem()
             {
@@ -235,18 +235,18 @@ The `SpreadsheetCustomTool` type has a `Template` property that is a RenderFragm
 @using Telerik.Blazor.Components.Spreadsheet
 
 <TelerikSpreadsheet Data="@SpreadsheetData"
-                    ToolSet="@SpreadsheetToolSetWithCustomTool"
+                    Tools="@SpreadsheetToolsWithCustomTool"
                     Width="100%">
 </TelerikSpreadsheet>
 
 @code {
     private byte[]? SpreadsheetData { get; set; }
 
-    private SpreadsheetToolSet SpreadsheetToolSetWithCustomTool { get; set; } = SpreadsheetToolSets.All;
+    private SpreadsheetToolSet SpreadsheetToolsWithCustomTool { get; set; } = SpreadsheetToolSets.All;
 
     protected override void OnInitialized()
     {
-        SpreadsheetToolSetItem fileToolSetItem = SpreadsheetToolSetWithCustomTool.Items.First();
+        SpreadsheetToolSetItem fileToolSetItem = SpreadsheetToolsWithCustomTool.Items.First();
 
         // Add a custom tool to the first tool set item
         fileToolSetItem.Tools.Add(new SpreadsheetCustomTool()
