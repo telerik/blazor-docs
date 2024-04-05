@@ -12,7 +12,7 @@ position: 2
 
 Telerik UI for Blazor provides styled substitutes to the standard confirm, alert, and prompt dialogs. These Blazor popup messages match the Theme of the components to make it obvious to the user that the modal dialog is coming from your application.
 
-To use these dialogs, receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. It exposes the methods you can use in your method calls.
+To use these dialogs (popup messages), receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. It exposes the methods you can use in your method calls.
 
 <div class="skip-repl"></div>
 
