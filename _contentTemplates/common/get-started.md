@@ -1,9 +1,9 @@
 #prerequisites-download
->tip This step-by-step tutorial starts with the basics. If you are already familiar with the Telerik NuGet Feed and Blazor in general, you may prefer the [Telerik UI for Blazor workflow]({%slug getting-started/what-you-need%}) article.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
 
 ## Prerequisites
 
-* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the tutorial [Typical Workflow]({%slug getting-started/what-you-need%}).
+* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial]({%slug getting-started/what-you-need%}).
 
 * To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
 
@@ -35,7 +35,9 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
   ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
->tip For alternative download options, check the [Workflow article]({%slug getting-started/what-you-need%}).
+1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use your Telerik account email and password.
+
+>tip For alternative NuGet package download options, check the [Workflow article]({%slug getting-started/what-you-need%}). You can also [authenticate with `nuget.telerik.com` with an API key]({%slug installation/nuget%}#use-nuget-api-key).
 
 #end
 
@@ -129,31 +131,22 @@ To setup a local NuGet package source, so you can install the Telerik components
 #end
 
 
-#root-component-telerik-layout
-To use popups (for example, dropdowns, menus, windows, grid filters, etc.), you must add the `TelerikRootComponent` component at the root level of the app:
-
-Next to your main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add a Razor component called `TelerikLayout.razor` with the following content:
-    
-    @inherits LayoutComponentBase
-                
-    <TelerikRootComponent>
-        @Body
-    </TelerikRootComponent>
-        
-#end
-
-
 #root-component-main-layout
-In the main layout file (by default, the `~/Shared/MainLayout.razor` file in the Blazor project), add `@layout TelerikLayout` as the *first line* in the file. This will ensure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
-  
-    @layout TelerikLayout
-    @inherits LayoutComponentBase
+Add a `<TelerikRootComponent>` to the app layout file (by default, `MainLayout.razor`). Make sure that the `TelerikRootComponent` wraps all the content in the `MainLayout`.
 
-    @* @Body and other code will be present here depending on your project *@
+>caption MainLayout.razor
 
+<div class="skip-repl"></div>
 
->Alternatively, the `TelerikRootComponent` can reside directly in the `MainLayout`, but it must [wrap all the other content, otherwise popups may display at the wrong position]({%slug troubleshooting-general-issues%}#wrong-popup-position). Placing the `TelerikRootComponent` in a separate Razor file helps for a better separation of concerns.
+````CSHTML
+@inherits LayoutComponentBase
 
+<TelerikRootComponent>
+    @* existing MainLayout.razor content here *@
+</TelerikRootComponent>
+````
+
+You can learn more about the [`TelerikRootComponent` purpose and usage]({%slug rootcomponent-overview%}) in its dedicated documentation.
 #end
 
 

@@ -67,7 +67,7 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 ## Events
 
-The Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+The Calendar generates events that you can handle and further customize its behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
 ## Week Numbers
 

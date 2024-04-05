@@ -23,7 +23,7 @@ The component uses the Telerik UI for Blazor ContextMenu and provides the follow
 
 The `Rename` command of the FileManager ContextMenu allows renaming the selected file or folder. Users can rename one item at a time - the one they open the ContextMenu for.
 
-Clicking the command will fire the [`OnEdit`]({%slug filemanager-events%}#onedit) event. An input with the file/folder name will be rendered, so the user can edit it. Pressing `Enter` or bluring the input will fire the [`OnUpdate`]({%slug filemanager-events%}#onupdate) event allowing you can handle the name update of the actual item in your data source.
+Clicking the command will fire the [`OnEdit`]({%slug filemanager-events%}#onedit) event. An input with the file/folder name will be rendered, so the user can edit it. Pressing `Enter` or blurring the input will fire the [`OnUpdate`]({%slug filemanager-events%}#onupdate) event allowing you can handle the name update of the actual item in your data source.
 
 When an item is renamed, make sure to also update its `Path`. Renaming a directory that has children will require updating their `Path` as well. If the actual file system is modified, then this will be handled out of the box.
 
@@ -44,7 +44,7 @@ In addition, you can also provide a custom file name through the `FileName` fiel
 
 The `Delete` command of the FileManager ContextMenu allows deleting of the selected files. Multiple file deletion is supported. It does not matter which item the ContextMenu for, the `Delete` command will handle the deletion of all selected files.
 
-Clicking the command will open a delete confirmation dialog. Pressing the `OK` button wil fire the [`OnDelete`]({%slug filemanager-events%}#ondelete) event, so you can handle the deletion of the actual files in the data source. Plessing the `Cancel` button will close the dialog and prevent the deletion.
+Clicking the command will open a delete confirmation dialog. Pressing the `OK` button will fire the [`OnDelete`]({%slug filemanager-events%}#ondelete) event, so you can handle the deletion of the actual files in the data source. Pressing the `Cancel` button will close the dialog and prevent the deletion.
 
 # Example
 

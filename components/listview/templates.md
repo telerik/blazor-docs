@@ -133,7 +133,7 @@ This piece of code renders just above the items, but within the main listview wr
 }
 ````
 
->caption The result from the code snippe above
+>caption The result from the code snippet above
 
 ![listview header template](images/listview-header-template.png)
 

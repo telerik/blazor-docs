@@ -36,7 +36,7 @@ This section explains the connection between the [ChunkCount, Value, and MaxValu
 
 ### Matching Values
 
-When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are hightlighted.
+When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are highlighted.
 
 ````CSHTML
 <TelerikChunkProgressBar Value="2"

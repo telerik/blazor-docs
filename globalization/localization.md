@@ -54,7 +54,7 @@ You can also find an example server-side implementation in our offline demos pro
 
 ### Walkthrough - How to Add Globalization and Localization to a Server-side Blazor App
 
->note This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, chek out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx). The majority of the code is to enable localization in the app itself, the Telerik-specific portion is the same in both WebAssembly and server-side Blazor apps - implementing a service to return the translated strings.
+>note This section will show a tutorial on how to add globalization and localization to a server-side Blazor app. For a WebAssemly app, check out the [ClientLocalizationResx sample project](https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx). The majority of the code is to enable localization in the app itself, the Telerik-specific portion is the same in both WebAssembly and server-side Blazor apps - implementing a service to return the translated strings.
 
 The necessary steps are to:
 
@@ -126,6 +126,8 @@ app.Run();
 ````
 
 >caption Step 2 - Sample controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework)
+
+<div class="skip-repl"></div>
 
 ````CS
 [Route("[controller]/[action]")]
@@ -209,14 +211,14 @@ public class CultureController : Controller
         public string Value { get; set; }
     }
 
-    public List<CultureData> Cultures { get; set; } = new List<CultureData>()
+    private List<CultureData> Cultures { get; set; } = new List<CultureData>()
     {
         new  CultureData() { Text = "English", Value = "en-US" },
         new  CultureData() { Text = "French", Value = "fr-FR" },
         new  CultureData() { Text = "Bulgarian", Value = "bg-BG" },
     };
 
-    public string SelectedCulture { get; set; } = Thread.CurrentThread.CurrentUICulture.Name;
+    private string SelectedCulture { get; set; } = Thread.CurrentThread.CurrentUICulture.Name;
 
     public void OnValueChanged(string eventArgs)
     {
@@ -239,6 +241,8 @@ public class CultureController : Controller
 >caption Step 4 - Sample Telerik localization service implementation - this example relies on a `~/Resources` folder with the necessary `.resx` files.
 
 >tip You must implement the indexer only. You can obtain the needed strings from any source you prefer and that matches your application needs, such as database, `resx` files, `json` files, hash tables, and so on.
+
+<div class="skip-repl"></div>
 
 ````CS
 using Telerik.Blazor.Services;
@@ -294,3 +298,4 @@ Make sure to:
 ## See Also
 
 * [Globalization Overview]({%slug globalization-overview%})
+* [Localize Only Some Component Labels]({%slug common-kb-localize-selected-localization-keys%})

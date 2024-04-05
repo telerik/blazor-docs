@@ -84,7 +84,7 @@ NestedComponent<br />
 }
 ````
 
->caption sample grid - actual data and CRUD operatiosn are not implemented for brevity
+>caption sample grid - actual data and CRUD operations are not implemented for brevity
 
 ````CSHTML
 <TelerikGrid Data="@Customers"
@@ -222,7 +222,7 @@ There are a few factors at play:
 
 There are a few options you can consider:
 
-* Consider caching data locally, or in a memory cache in the service. This will make such data resquests cheaper and faster even when they happen multiple times.
+* Consider caching data locally, or in a memory cache in the service. This will make such data requests cheaper and faster even when they happen multiple times.
 
 * Consider showing details in a popup Window instead of the detail template, so they are not actually inside the grid and will, therefore, not be affected by its re-renders.
 

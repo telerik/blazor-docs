@@ -51,11 +51,11 @@ services.AddMvc().AddNewtonsoftJson();
 
 ## Error Message
 
-The API call from the grid returns a status code `400` or `500` with an eror similar to
+The API call from the grid returns a status code `400` or `500` with an error similar to
 
 > Could not create an instance of type Telerik.DataSource.IFilterDescriptor. Type is an interface or abstract class and cannot be instantiated. Path 'filters[0].member', line 1, position 65.
 
-**If I remove Newtonsoft JSON**, other things in my project break, such as the reporting service becoming inaccesbile with errors like when displaying a report:
+**If I remove Newtonsoft JSON**, other things in my project break, such as the reporting service becoming inaccessible with errors like when displaying a report:
 
 > Cannot access the Reporting REST service. (serviceUrl = '/api/reports'). Make sure the service address is correct and enable CORS if needed. (https://enable-cors.org)
 

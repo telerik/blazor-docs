@@ -272,7 +272,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 ### Color
 
-The `Color` parameter controls the general color pallete for the markers of the Heatmap. The invidual marker color set to the markers depends the value bound to the `Field` - the higher the value the darker the color. 
+The `Color` parameter controls the general color palette for the markers of the Heatmap. The individual marker color set to the markers depends the value bound to the `Field` - the higher the value the darker the color. 
 
 >caption Change the Color of the Heatmap.
 

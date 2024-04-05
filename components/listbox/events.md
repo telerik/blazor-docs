@@ -125,7 +125,7 @@ The event handler receives an argument of type [`ListBoxTransferEventArgs<T>`](/
 
 ## SelectedItemsChanged
 
-The `SelectedItemsChanged` event fires when the user selects or unselects ListBox item(s). Use the event to update the ListBox selection when the `SelectedItems` parameter is set with one-way binding, otherwise the user action will be ignored.
+The `SelectedItemsChanged` event fires when the user selects or deselects ListBox item(s). Use the event to update the ListBox selection when the `SelectedItems` parameter is set with one-way binding, otherwise the user action will be ignored.
 
 The event argument is of type `IEnumerable<T>`. See the example below.
 

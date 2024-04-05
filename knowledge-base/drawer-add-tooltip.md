@@ -31,7 +31,7 @@ To add a tooltip to the drawer navigation icons you have to use the [ItemTemplat
 
 If using a [TelerikTooltip](https://demos.telerik.com/blazor-ui/tooltip/overview), add a suitable CSS selector, which targets the span with the icon, to the `TargetSelector` parameter of the component.
 
-When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a popuplated `Url` property]({%slug drawer-navigation%}).
+When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a populated `Url` property]({%slug drawer-navigation%}).
 
 >caption Add a tooltip to the Drawer navigation icons
 

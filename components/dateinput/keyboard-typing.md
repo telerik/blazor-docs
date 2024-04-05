@@ -88,7 +88,7 @@ This setting applies only to scenarios with a **two-digit year `Format` (`yy`)**
 
 `TwoDigitYearMax` defines the maximum year value that is considered part of the **current century**. The default value is `68`.
 
-For example, a user input of `68` will be treated as `2068`, but `69` will be treated as `1969`. The paremeter supports both two-digit or four-digit integers.
+For example, a user input of `68` will be treated as `2068`, but `69` will be treated as `1969`. The parameter supports both two-digit or four-digit integers.
 
 * To allow only years from the *current century*, set to `100`.
 * To allow only years from the *previous century*, set to `0`.

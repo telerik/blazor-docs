@@ -1215,6 +1215,6 @@ The `ViewChanged` event fires when the user chooses a new [View]({%slug schedule
 
 * [Scheduler Overview]({%slug scheduler-overview%})
 * [Views Overview]({%slug scheduler-views-overview%})
-* [Scheduler Naviation]({%slug scheduler-navigation%})
+* [Scheduler Navigation]({%slug scheduler-navigation%})
 * [Data Binding]({%slug scheduler-appointments-databinding%})
 * [Appointments Editing]({%slug scheduler-appointments-edit%})

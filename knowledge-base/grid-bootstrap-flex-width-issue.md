@@ -31,7 +31,7 @@ Setting the width of the grid to 100% and providing widths for the columns which
 
 ## Steps to Reproduce
 
-The simplest way you can reproduce this is to add some layout that you expect to be 100% wide, and a grid with columns wider than that - it will stretch the layout and the scollbar will come out on the main app element or the body, instead of the grid/layout container:
+The simplest way you can reproduce this is to add some layout that you expect to be 100% wide, and a grid with columns wider than that - it will stretch the layout and the scrollbar will come out on the main app element or the body, instead of the grid/layout container:
 
 ````CSHTML
 @* Sample layout that stretches unexpectedly when you add the grid **@

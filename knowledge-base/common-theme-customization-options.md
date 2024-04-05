@@ -39,7 +39,7 @@ Is there a simple and streamlined way to customize all component styles?
 Generally, there are **three** ways to customize the appearance of the Telerik Blazor components. Each approach adds an extra step to **every** UI for Blazor version update.
 
 1. [Use the ThemeBuilder to create a custom theme]({%slug themes-custom%}#using-themebuilder).
-    * This option allows [customization of the theme **colors** with the free version, or **full controll** with the Pro version](https://docs.telerik.com/themebuilder/introduction#themebuilder-tiers).
+    * This option allows [customization of the theme **colors** with the free version, or **full control** with the Pro version](https://docs.telerik.com/themebuilder/introduction#themebuilder-tiers).
     * Upgrading the custom theme is straight-forward via [manual](https://docs.telerik.com/themebuilder/web-app/migrating-projects) or [automatic](https://docs.telerik.com/themebuilder/web-app/automatic-migrations) approach.
 2. [Build a custom theme from our SASS source]({%slug themes-custom%}#manual-alternative).
     * This option provides **full control** over the resulting CSS code.

@@ -100,7 +100,7 @@ Handling such "unexpected" values is up to the application - for example, throug
 
 The RadioGroup component will not select an item by default if the initial value of the `Value` field in the view-model does not match any of the values in its data source.
 
-You should avoide values in the data that match the `default` of their type (such as `0` for an `int`) because that can result in an item being selected by default even if you do not intend that, or in validation passing without the user choosing a correct option.
+You should avoid values in the data that match the `default` of their type (such as `0` for an `int`) because that can result in an item being selected by default even if you do not intend that, or in validation passing without the user choosing a correct option.
  
 ### Component Reference
 

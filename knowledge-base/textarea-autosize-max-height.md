@@ -60,4 +60,4 @@ This KB article answers the following questions:
 ## See Also
 
 * [TextArea Overview]({%slug textarea-overview%})
-* [TextArea Appearace]({%slug TextArea-appearance%})
+* [TextArea Appearance]({%slug TextArea-appearance%})

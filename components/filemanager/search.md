@@ -14,7 +14,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
 
 >caption Search for a file in the FileManager Toolbar input box.
 
-![Blazor Filemanager Search](images/filemanager-search.png)
+![Blazor FileManager Search](images/filemanager-search.png)
 
 ````CSHTML
 @using System.IO

@@ -25,7 +25,7 @@ Often enough, you would want to set up Continuous Integration and/or Continuous 
 
 There are a couple of common ways people implement CI/CD automated builds.
 
-* You can [restore the Telerik NuGet packages]({%slug installation/nuget-keys%}) by downloading them from the Telerik NuGet server. You can achieve this by using the more secure token-based authentication with the Telerik NuGet server. If you prefer the basic authentication with a username and password, you can use your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the `nuget.config` of the build machine/pipeline. In this case, make sure that your credentials are encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue. See more on setting up the [Telerik Private NuGet feed]({%slug installation/nuget%}).
+* You can [restore the Telerik NuGet packages]({%slug installation/nuget-keys%}) by downloading them from the Telerik NuGet server. You can achieve this by using the more secure token-based authentication with the Telerik NuGet server. If you prefer the basic authentication with a username and password, you can use your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the `nuget.config` of the build machine/pipeline. In this case, make sure that your credentials are encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue. See more on setting up the [Telerik NuGet package source]({%slug installation/nuget%}).
 
 * Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated]({%slug installation/msi%}) and from the [zip archive]({%slug installation/zip%})).
 
@@ -38,7 +38,7 @@ When using Azure pipelines, we encourage you to review the following resources o
 
 * Blog post: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 
-* Sample Repo and Video Tutorial: [Telerik DevOpsExamples by LanceMcCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
+* Sample Repo and Video Tutorial: [Telerik DevOpsExamples by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 
 >caption There are a couple of common questions and issues:
 
@@ -78,7 +78,7 @@ jobs:
 
 ````
 
->tip Even though you are copying secrets into Environment Variables on the runner, Github Actions will continue to treat the values as protected string and mask the values in all output.
+>tip Even though you are copying secrets into Environment Variables on the runner, GitHub Actions will continue to treat the values as protected string and mask the values in all output.
 
 Finally, you need a `nuget.config` file that lists the Telerik server in the `packageSources`, as well as an accompanying `packageSourceCredentials` that uses those named environment variables for the `Username` and `ClearTextPassword` keys.
 

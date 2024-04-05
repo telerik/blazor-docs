@@ -76,7 +76,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 
     private CompositeFilterDescriptor FilterValue { get; set; } = new();
 
-    private List<string> Suggestions { get; set; } = new() { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
+    private List<string> Suggestions { get; set; } = new () { "Pasta", "Burger", "Pizza", "Kebab", "Steak", "Ice Cream" };
 
     private void OnFilterValueChanged(FilterDescriptor fd, string value)
     {
@@ -89,7 +89,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
         fd.Value = value;
         ProcessGridData(FilterValue);
     }
-
+    
     private void OnValueChanged(CompositeFilterDescriptor value)
     {
         FilterValue = value;

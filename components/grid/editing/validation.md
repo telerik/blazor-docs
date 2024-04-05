@@ -184,19 +184,19 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 
 
 ````CSHTML
-@* Use a custom validator in the Grid *@
-
 @using Blazored.FluentValidation
 @using FluentValidation
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             EditMode="@GridEditMode.Inline"
+             OnCreate="@CreateHandler"
+             OnUpdate="@UpdateHandler"
+             Height="500px">
     <GridSettings>
         <GridValidationSettings>
             <ValidatorTemplate>
-                <FluentValidationValidator Validator=@Validator>
-
-                </FluentValidationValidator>
+                <FluentValidationValidator Validator="@Validator" />
             </ValidatorTemplate>
         </GridValidationSettings>
     </GridSettings>
@@ -204,18 +204,19 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" Width="80px" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+        <GridCommandColumn Width="240px">
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
+    private List<SampleData> GridData { get; set; } = new();
+
     private SampleDataValidator Validator = new();
 
     public class SampleDataValidator : AbstractValidator<SampleData>
@@ -223,24 +224,10 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         public SampleDataValidator()
         {
             RuleFor(item => item.Name).NotEmpty().MaximumLength(50);
-
         }
     }
 
-    void EditHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // prevent opening for edit based on condition
-        if (item.ID < 3)
-        {
-            args.IsCancelled = true;// the general approach for cancelling an event
-        }
-
-        Console.WriteLine("Edit event is fired.");
-    }
-
-    async Task UpdateHandler(GridCommandEventArgs args)
+    private async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -253,20 +240,7 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         Console.WriteLine("Update event is fired.");
     }
 
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Delete event is fired.");
-    }
-
-    async Task CreateHandler(GridCommandEventArgs args)
+    private async Task CreateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -279,27 +253,9 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         Console.WriteLine("Create event is fired.");
     }
 
-    async Task CancelHandler(GridCommandEventArgs args)
+    private async Task GetGridData()
     {
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        Console.WriteLine("Cancel event is fired.");
-    }
-
-
-    public class SampleData
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
+        GridData = await MyService.Read();
     }
 
     protected override async Task OnInitializedAsync()
@@ -307,10 +263,14 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         await GetGridData();
     }
 
+    public class SampleData
+    {
+        public int ID { get; set; }
 
+        public string Name { get; set; } = string.Empty;
+    }
 
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
+    // The following static class mimics an actual data service.
     public static class MyService
     {
         private static List<SampleData> _data { get; set; } = new List<SampleData>();
@@ -325,13 +285,13 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
         {
             if (_data.Count < 1)
             {
-                for (int i = 1; i < 50; i++)
+                for (int i = 1; i <= 50; i++)
                 {
                     _data.Add(new SampleData()
-                        {
-                            ID = i,
-                            Name = "Name " + i.ToString()
-                        });
+                    {
+                        ID = i,
+                        Name = $"Name {i}"
+                    });
                 }
             }
 
@@ -357,5 +317,4 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 
 ## See Also
 
-  * [Grid Editing]({%slug components/grid/editing/overview%})
-   
+* [Grid Editing]({%slug components/grid/editing/overview%})
