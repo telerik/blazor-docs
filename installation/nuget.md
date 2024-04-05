@@ -157,7 +157,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 </packageSourceMapping>
 ````
 
-> Make sure you update the names `nuget.org` and `TelerikOnlineFeed` to match what you are using in the `packageSources` section. If these do not match, you will get a "Package not found" error, because the incorrectly named source does not exist.
+> Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
 
 ## Troubleshooting
 
