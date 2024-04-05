@@ -10,7 +10,7 @@ position: 3
 
 # Menu for Navigation
 
-The Menu can be used to navigate between different pages in the applicaiton. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/menu/data-binding/overview%}).
+The Menu can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/menu/data-binding/overview%}).
 
 ## Basics
 

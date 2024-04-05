@@ -25,12 +25,12 @@ The Wizard provides the following default buttons:
 
 * `Next` - navigates to the next step of the Wizard. If the next step is <strong>disabled</strong>, the button will also appear as disabled. If the next step is <strong>enabled</strong> the following process will be triggered:
     * Invoke [`OnStepChange`]({%slug wizard-events%}#onchange),
-    * Go to the next page (if the event is not cancelled from `event args`)
+    * Go to the next page (if the event is not canceled from `event args`)
     * Invoke [`ValueChanged`]({%slug wizard-events%}#valuechanged) after the step is changed
 
 * `Previous` - navigates to the previous step of the Wizard. If the previous step is <strong>disabled</strong>, the button will also appear as disabled. If the previous step is <strong>enabled</strong> the following process will be triggered:
     * Invoke [`OnStepChange`]({%slug wizard-events%}#onchange),
-    * Go to the previous page (if the event is not cancelled from `event args`)
+    * Go to the previous page (if the event is not canceled from `event args`)
     * Invoke [`ValueChanged`]({%slug wizard-events%}#valuechanged) after the step is changed
 
 * `Done` - allows the user to complete the wizard. Invokes the [OnFinish]({%slug wizard-events%}#onfinish) event.

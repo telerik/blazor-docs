@@ -643,7 +643,7 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
 
 ### RadioGroup
 
-The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annottation attributes on the validated class. Note that required field validation needs nullable fields.
+The radio group acts in a way similar to a dropdownlist - there is a collection of items that have values, and those values are used to populate a field in the model that is being validated. This lets you define the necessary data annotation attributes on the validated class. Note that required field validation needs nullable fields.
 
 >caption Sample required and range validation in the RadioGroup
 

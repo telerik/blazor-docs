@@ -22,7 +22,7 @@ You can control it through the `Position` parameter, which takes a member of the
 
 ![tooltip positions](images/tooltip-positions.png)
 
->caption Exlore the possible tooltip positions
+>caption Explore the possible tooltip positions
 
 ````CSHTML
 @* Setting a position is not mandatory, it defaults to Top *@

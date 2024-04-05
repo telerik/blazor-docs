@@ -16,7 +16,7 @@ The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [L
 
 There are three patterns for showing a loading indicator:
 
-* Some components add a large busy indicator that covers the entire data portion of the comopnent when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
+* Some components add a large busy indicator that covers the entire data portion of the component when they detect a slow-running `async` **data operation** (when it takes more than 600ms). For example, when the user inserts a record in the grid and the data service operation takes longer than that, there will be a loading indicator over the grid.
 
 * Some components and scenarios show placeholder items until the actual items are fetched/rendered. For example, virtualized rows in a grid, or dropdowns while being filtered. At the moment, these placeholders do not have any delay and show up immediately.
 
@@ -501,7 +501,7 @@ Make sure to have the proper cascade so that you do not break other components o
 
 ### Loading Sign Does Not Hide
 
-In some situations, peforming a certain action will show a loading indicator that will appear to never hide. There are two common reasons for such behavior:
+In some situations, performing a certain action will show a loading indicator that will appear to never hide. There are two common reasons for such behavior:
 
 * **Reason**: The operation is actually very slow, it may take minutes to return the data in some complex scenarios. 
 

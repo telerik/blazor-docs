@@ -186,7 +186,7 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
 
 ## Filter Menu Template
 
-By default, the filter menu contains two filter values that are tied with a logical operator - OR or AND, with filgering being triggered through a dedicated Filter button and a Clear button removes the filter.
+By default, the filter menu contains two filter values that are tied with a logical operator - OR or AND, with filtering being triggered through a dedicated Filter button and a Clear button removes the filter.
 
 To customize the filter menu, use the `<FilterMenuTemplate>` tag of the `<TreeListColumn>`. The `Filter` and `Clear` buttons are still available below the template.
 
@@ -194,7 +194,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 
 * `FilterDescriptor` - the object that describes the column filter. By default it has two filters with the type and name of the field, and you can add more to its `FilterDescriptors` collection, or change its `LogicalOperator` from the default `AND`.
 
-You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as a nargument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main treelist markup and code.
+You can store a reference to each column's context in a field in the view-model, so you can reference it from event handlers in the standard C# code, instead of passing it as an argument to lambdas in the markup only. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main treelist markup and code.
 
 ### Examples
 

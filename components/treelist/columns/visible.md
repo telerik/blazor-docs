@@ -10,7 +10,7 @@ position: 15
 
 # Visible Columns
 
-The TreeList allows you to programatically hide some of its columns. 
+The TreeList allows you to programmatically hide some of its columns. 
 
 In this article:
 * [Basics](#basics)
@@ -122,7 +122,7 @@ Non-visible columns (`Visible="false"`) will have the following behavior:
 
 * Will not be [editable]({%slug treelist-editing-overview%}).
 * [Templates]({%slug treelist-templates-overview%}) will not be rendered.
-    * When using [Row Template]({%slug treelist-templates-row%}) the visiblity of the column should be implemented by the application in the row template itself - the treelist can only toggle the visibility of the header.
+    * When using [Row Template]({%slug treelist-templates-row%}) the visibility of the column should be implemented by the application in the row template itself - the treelist can only toggle the visibility of the header.
 
 
 ## Examples
@@ -234,7 +234,7 @@ The application can later the value of the `Visible` parameter and that will tog
 
 ### Hidden TreeList Column With Template
 
-When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
+When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visibility there as well.
 
 ````CSHTML
 @* The Template for the Name column will not be rendered *@

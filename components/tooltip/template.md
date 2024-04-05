@@ -22,7 +22,7 @@ This article contains the following examples for generating the tooltip content:
 
 * [Markup generated from a string through a method](#markup-from-generated-string). Shows how you can loop over all the keys in the metadata and render markup from a function call.
 
-* [Separate component consumes the metadata and can even load content on demand](#separate-component-and-load-on-demand) from a database or other service. Load on demand is not mantadory, you can simply use the metadata in a fashion similar to the two other examples.
+* [Separate component consumes the metadata and can even load content on demand](#separate-component-and-load-on-demand) from a database or other service. Load on demand is not mandatory, you can simply use the metadata in a fashion similar to the two other examples.
 
 ## Basic Example - Inline Markup
 
@@ -97,7 +97,7 @@ This article contains the following examples for generating the tooltip content:
 
 ## Separate Component and Load on Demand
 
-This examle shows how you can use a standalone component to generate the tooltip contents. It can also be used to load content on demand and you can find a more complete example in the [Tooltips with Load-on-demand in a Grid Row](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) sample project.
+This example shows how you can use a standalone component to generate the tooltip contents. It can also be used to load content on demand and you can find a more complete example in the [Tooltips with Load-on-demand in a Grid Row](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) sample project.
 
 >caption Generate tooltip content through a separate component
 

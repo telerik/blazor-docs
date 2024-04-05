@@ -86,4 +86,4 @@ The `AnimationType` parameter controls the type of animation for the Skeleton. T
 
 ## See Also
 
-* [Live Demo: Skeleton Apprearance](https://demos.telerik.com/blazor-ui/skeleton/appearance)
+* [Live Demo: Skeleton Appearance](https://demos.telerik.com/blazor-ui/skeleton/appearance)

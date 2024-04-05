@@ -14,7 +14,7 @@ The **OHLC** (open-high-low-close) chart is typically used to illustrate movemen
 
 >caption OHLC series in a stock chart. Results from the first code snippet below.
 
-![Blazor Basic Ohlc Chart](images/basic-ohlc-chart.png)
+![Blazor Basic OHLC Chart](images/basic-ohlc-chart.png)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#understand-basics-and-databinding-first)
 

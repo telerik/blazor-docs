@@ -72,7 +72,7 @@ The wizard provides you with the following options:
 
 ## Troubleshooting
 
-When converting a project, you may encounter the following most common issuess:
+When converting a project, you may encounter the following most common issues:
 
 * The conversion wizard fails with an [error screen](#error-screen).
 * The [Telerik components do not work](#components-fail) after you run the converted project.

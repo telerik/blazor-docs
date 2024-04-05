@@ -203,7 +203,7 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 
 ## CardSubTitle
 
-Use the `CardSubTitle` tag to render sub title. Although the header area is suitable for placing title and sub title, it is not required and you can use the `CardSubTitle` as desired. It can also be used along with the `CardTitle` or as a standalone element. The below sample demontstrates both approaches.
+Use the `CardSubTitle` tag to render sub title. Although the header area is suitable for placing title and sub title, it is not required and you can use the `CardSubTitle` as desired. It can also be used along with the `CardTitle` or as a standalone element. The below sample demonstrates both approaches.
 
 >caption Use `CardSubTitle` in the Card component. The result from the snippet below.
 

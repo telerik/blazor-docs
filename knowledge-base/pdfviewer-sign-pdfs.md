@@ -25,7 +25,7 @@ I want to be able to apply a digital signature to a document in the Telerik UI f
 
 ## Solution
 
-The PdfViewer does not currently have the capability to manage digitial signatures of the document. However, this is still possible using the Telerik Document Processing Libraries PdfProcessing to programmatically manage the signature and the certificate of the document, while the PdfViewer's sole responsibility is to display the document.
+The PdfViewer does not currently have the capability to manage digital signatures of the document. However, this is still possible using the Telerik Document Processing Libraries PdfProcessing to programmatically manage the signature and the certificate of the document, while the PdfViewer's sole responsibility is to display the document.
 
 1. Create a custom button in the Blazor PdfViewer to handle the logic for applying the digital signature to the PDF. See [PdfViewer - Custom Toolbar Button](https://docs.telerik.com/blazor-ui/components/pdfviewer/toolbar#custom-tools) for instructions.
 2. Use the PdfProcessing tool to add a digital signature programmatically to the PDF. See [Document Processing - Digital Signature documentation](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/features/digital-signature) for instructions.

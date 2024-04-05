@@ -32,7 +32,7 @@ If you are new to Telerik UI for Blazor, visit the Getting Started tutorials tha
 
 >tip This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](#learning-resources) for the required older product version.
 
-Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details]({%slug getting-started/what-you-need%}) article. It is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
+Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details]({%slug getting-started/what-you-need%}) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
 <!--
 If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:

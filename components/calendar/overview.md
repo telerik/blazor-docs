@@ -69,6 +69,7 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 The Blazor Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
 
+
 ## Week Numbers
 
 The Calendar component can display the ISO week number on each row of date cells. See the [`ShowWeekNumbers` parameter](#calendar-parameters) below.
