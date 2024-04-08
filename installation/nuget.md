@@ -124,7 +124,6 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
     </configuration>
     ````
 
-
 ## Use NuGet API Key
 
 There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nugetconfig-file):
@@ -158,6 +157,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 </packageSourceMapping>
 ````
 
+> Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
 
 ## Troubleshooting
 
