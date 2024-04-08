@@ -30,22 +30,21 @@ This KB article answers the following questions:
 
 ## Solution
 
-To achieve the desired outcome, ensure that you apply in your configuration the following points:
+To display only all-day events in the Scheduler, apply the following points in your configuration:
 
-1. Use Timeline View of the `Scheduler`.
-2. Set `SlotDuration` parameter of the `SchedulerTimelineView` to 1440 minutes (one day).
+1. Use the Timeline View of the `Scheduler`.
+2. Set the `SlotDuration` parameter of the `SchedulerTimelineView` to 1440 minutes (one day).
 3. Set the `IsAllDay` property of the appointment model to `true`.
 
 >caption Scheduler with a Timeline View displaying only all-day appointments
 
 ````CSHTML
-// A multiday scheduler that displays only the all-day events
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
     <SchedulerViews>
         <SchedulerTimelineView StartTime="@DayStart"
                                EndTime="@DayEnd"
                                NumberOfDays="10"
-                               SlotDuration="1440" // minutes equals to one day / 24 hours
+                               SlotDuration="1440" // the equivalent of one day (24 hours) in minutes
                                WorkDayStart="@WorkDayStart"
                                WorkDayEnd="@WorkDayEnd" />
     </SchedulerViews>
@@ -63,14 +62,14 @@ To achieve the desired outcome, ensure that you apply in your configuration the 
             new SchedulerAppointment
             {
                 Title = "Trip to Hawaii",
-                IsAllDay = true, // set to true to show as an all-day appointment 
+                IsAllDay = true, // set to 'true' to show as an all-day appointment 
                 Start = new DateTime(2019, 11, 27),
                 End = new DateTime(2019, 12, 05)
             },
             new SchedulerAppointment
             {
                 Title = " Meeting with Client",
-                IsAllDay = true, // set to true to show as an all-day appointment 
+                IsAllDay = true, // set to 'true' to show as an all-day appointment 
                 Start = new DateTime(2019, 12, 07),
                 End = new DateTime(2019, 12, 08)
             }
