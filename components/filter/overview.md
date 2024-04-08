@@ -187,6 +187,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 }
 ````
 
+
 ## Next Steps
 [Configure the Filter Fields]({%slug filter-fields%})
 
