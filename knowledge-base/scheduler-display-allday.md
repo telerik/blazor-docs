@@ -1,10 +1,9 @@
 ---
-title: Display Only the All-Day Appointments in the Scheduler
-description: How to display all-day appointments
+title: Display Only All-Day Appointments in the Scheduler
+description: Learn how to customize your Scheduler for Blazor to exclusively display all-day events in a multiday timeline view, ensuring optimal scheduling clarity.
 type: how-to
-page_title: How to Display Only the All-Day Appointments in the Scheduler, using Timeline View.
+page_title: Display Only All-Day Appointments in the Scheduler
 slug: scheduler-display-allday
-position:
 tags: scheduler, timeline, all-day
 ticketid: 1576096
 res_type: kb
@@ -23,27 +22,30 @@ res_type: kb
 
 ## Description
 
+This KB article answers the following questions:
+
 * How to display only all-day events in the Scheduler?
 * How to show only all-day appointments in a [Timeline View]({%slug scheduler-views-timeline%}) of the Scheduler?
 * How to create a multiday scheduler view that only displays the all-day events?
 
 ## Solution
 
-To achieve the desired outcome, ensure that your configuration applies the points from below:
+To achieve the desired outcome, ensure that you apply in your configuration the following points:
 
-* Use Timeline View of the `Scheduler`
-* `SlotDuration` parameter of the `SchedulerTimelineView` is set to 1440 minutes (one day)
-* Your appointment model has `IsAllDay` property set to `true`
+1. Use Timeline View of the `Scheduler`.
+2. Set `SlotDuration` parameter of the `SchedulerTimelineView` to 1440 minutes (one day).
+3. Set the `IsAllDay` property of the appointment model to `true`.
 
->caption Timeline View Scheduler displaying only all-day appointments
+>caption Scheduler with a Timeline View displaying only all-day appointments
 
 ````CSHTML
+// A multiday scheduler that displays only the all-day events
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
     <SchedulerViews>
         <SchedulerTimelineView StartTime="@DayStart"
                                EndTime="@DayEnd"
                                NumberOfDays="10"
-                               SlotDuration="1440"
+                               SlotDuration="1440" // minutes equals to one day / 24 hours
                                WorkDayStart="@WorkDayStart"
                                WorkDayEnd="@WorkDayEnd" />
     </SchedulerViews>
@@ -61,14 +63,14 @@ To achieve the desired outcome, ensure that your configuration applies the point
             new SchedulerAppointment
             {
                 Title = "Trip to Hawaii",
-                IsAllDay = true,
+                IsAllDay = true, // set to true to show as an all-day appointment 
                 Start = new DateTime(2019, 11, 27),
                 End = new DateTime(2019, 12, 05)
             },
             new SchedulerAppointment
             {
                 Title = " Meeting with Client",
-                IsAllDay = true,
+                IsAllDay = true, // set to true to show as an all-day appointment 
                 Start = new DateTime(2019, 12, 07),
                 End = new DateTime(2019, 12, 08)
             }
@@ -79,7 +81,7 @@ To achieve the desired outcome, ensure that your configuration applies the point
         public string Title { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        public bool IsAllDay { get; set; }
+        public bool IsAllDay { get; set; } 
     }
 }
 ````
