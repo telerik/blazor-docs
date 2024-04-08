@@ -22,7 +22,7 @@ The `ValueTemplate` allows you to customize the default value editor of a single
 
 The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext`](/blazor-ui/api/telerik.blazor.components.filterfieldvaluetemplatecontext). You can get and set its `FilterDescriptor` property, which is of type [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
 
-When the `FilterDescriptor`'s Value is not of type `string`, the type has to be nullable, as any newly created filter's value can be null.
+> The `FilterDescriptor` `Value` property is of type `object` and is `null` by default. As a result, the `Value` of the component inside the `ValueTemplate` must be `nullable` for all types, except `string`.
 
 
 To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField]({%slug filter-fields%}).
