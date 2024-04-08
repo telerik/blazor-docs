@@ -57,11 +57,14 @@ Steps 4 and 5 are optional, but strongly recommended.
 
 * **Save** action method
     * Its argument must be `IFormFile` or `IEnumerable<IFormFile>`. The Upload always sends files one by one, but both argument types can work.
+    * Use the Upload [`OnUpload` event]({%slug upload-events%}#onupload) to [send additional custom data with the file]({%slug upload-events%}#send-custom-data-with-the-file) as argument to the **Save** Controller Method.
     * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
     * The method name must match the last part of the `SaveUrl` value.
     * The correct binding source attribute for the file argument is `[FromForm]`. Normally, .NET will infer and set it automatically.
+
 * **Remove** action method
     * Its argument must be `string` or `IEnumerable<string>`.
+    * Use the Upload [`OnRemove` event]({%slug upload-events%}#onremove) to [send additional custom data with the file]({%slug upload-events%}#send-custom-data-with-the-file) as argument to the **Remove** Controller Method.
     * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
     * The method name must match the last part of the `RemoveUrl` value.
     * The correct binding source attribute for the file name argument is `[FromForm]`. Set it explicitly if you are using an [`[ApiController]` attribute](https://learn.microsoft.com/en-gb/aspnet/core/web-api/).
