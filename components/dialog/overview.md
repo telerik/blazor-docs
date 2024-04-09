@@ -53,7 +53,7 @@ The Dialog component and its [predefined options]({%slug dialog-predefined%}) ai
 
 Predefined Dialogs are styled substitutes to the standard browser dialogs - confirm, alert and prompt. [Read more about the Blazor Predefined Dialogs]({%slug dialog-predefined%}).
 
-## Integration with other components
+## Integration With Other Components
 
 You can implement other components (such as [`Filter`]({%slug filter-overview%}), [`CheckBox`]({%slug checkbox-overview%})) as `DialogContent`. In this case, the two-way binding for the `Value` of these components, will not work as expected. The Dialog needs to [`Refresh`](#dialog-reference-and-methods) to reflect UI changes. You can invoke the Dialog's `Refresh` method:
 * When using two-way binding - in the `OnChange` event of the component, used as `DialogContent`.
