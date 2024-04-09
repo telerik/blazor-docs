@@ -20,7 +20,7 @@ You can control whether a button is selected (it is in its `Primary` state) thro
 
 ## Single Selection
 
-When you click a button, it becomes selected. When you click another button, the first one will become de-selected and the second one will be selected.
+When you click a button, it becomes selected. When you click another button, the first one will become deselected and the second one will be selected.
 
 >caption Single Selection in the ButtonGroup
 

@@ -54,9 +54,9 @@ When nesting components, you will usually do that under tags of type `RenderFrag
 
 ## Solution
 
-Use **named** `context` variables, as the exception message suggests. Each `RenderFragment` should expose a `Context` parameter that lets you choose a name for the variable that you will use instead of the defautl `context`. This lets you nest the same tags inside one another, and it also resolves the type of the `context` data.
+Use **named** `context` variables, as the exception message suggests. Each `RenderFragment` should expose a `Context` parameter that lets you choose a name for the variable that you will use instead of the default `context`. This lets you nest the same tags inside one another, and it also resolves the type of the `context` data.
 
-The example below uses three-level Grid hierarhcy with different `RenderFragment`s with a `Context` parameter: `DetailTemplate`, column `Template` and `GridCommandColumn`.
+The example below uses three-level Grid hierarchy with different `RenderFragment`s with a `Context` parameter: `DetailTemplate`, column `Template` and `GridCommandColumn`.
 
 >caption Use nested RenderFragments with Telerik UI for Blazor
 

@@ -10,7 +10,7 @@ position: 2
 
 # Swatch Distribution
 
-Telerik UI for Blazor distributes the most commonly used swatches. While it is possiblle to get them from the [Themes CDN]({%slug themes-swatches%}#buit-in-themes-and-swatches-list), the [Sass Theme Builder]({%slug themes-custom%}#using-themebuilder) or the [kendo-themes repository](https://github.com/telerik/kendo-themes), this article lists a couple other ways of distribution.
+Telerik UI for Blazor distributes the most commonly used swatches. While it is possible to get them from the [Themes CDN]({%slug themes-swatches%}#buit-in-themes-and-swatches-list), the [Sass Theme Builder]({%slug themes-custom%}#using-themebuilder) or the [kendo-themes repository](https://github.com/telerik/kendo-themes), this article lists a couple other ways of distribution.
 
 >caption In this article:
 

@@ -42,7 +42,7 @@ Stepper component allows you to use text for its step indicators. You can define
 
 ## Indicator Icon
 
-Stepper component allows you to use Font and Svg icons for its step indicators. You can define the desired visual content through the following parameters of the `StepperStep`:
+Stepper component allows you to use Font and SVG icons for its step indicators. You can define the desired visual content through the following parameters of the `StepperStep`:
 
 * `Icon` - defines the name of the desired Telerik font icon.
 

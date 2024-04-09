@@ -74,50 +74,48 @@ Here are two examples:
     .scrollable-treeview {
         height: 300px;
         overflow: auto;
+        scroll-behavior: smooth;
         border: 1px solid #ccc;
         margin: 1em;
     }
 </style>
 
-@* ! Move the JavaScript code to its proper place ! *@
+@* Move the JavaScript to a separate JS file *@
 <script suppress-error="BL9992">
     function scrollToItem(treeSelector) {
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
-                item.scrollIntoView();
+                item.scrollIntoView({ block: "nearest" });
             }
-        }, 300);
+        });
     }
 </script>
 
 @code {
-    List<TreeItem> TreeData { get; set; }
-    IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private List<TreeItem> TreeData { get; set; } = new();
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    int? TreeItemId { get; set; } = 37;
-    bool ShouldScroll { get; set; }
+    private int TreeItemId { get; set; } = 44;
+    private bool ShouldScroll { get; set; }
 
     void SelectAndScroll()
     {
-        if (TreeItemId.HasValue)
-        {
-            // get the item
-            var itemToSelect = TreeData.First(x => x.Id == TreeItemId);
+        // get the item
+        TreeItem? itemToSelect = TreeData.FirstOrDefault(x => x.Id == TreeItemId);
 
-            // get and expand the parent
-            if (itemToSelect != null && itemToSelect.ParentId != null)
+        if (itemToSelect != null)
+        {
+            if (itemToSelect?.ParentId != null)
             {
+                // get and expand the parent
                 var parentItem = TreeData.First(x => x.Id == itemToSelect.ParentId);
-                if (parentItem != null)
-                {
-                    ExpandedItems = ExpandedItems.Append(parentItem);
-                }
+                ExpandedItems = ExpandedItems.Append(parentItem);
             }
 
             // select the item
-            SelectedItems = new List<TreeItem>() { itemToSelect };
+            SelectedItems = new List<TreeItem>() { itemToSelect! };
 
             // raise flag for JavaScript scrolling
             ShouldScroll = true;
@@ -129,8 +127,13 @@ Here are two examples:
         if (ShouldScroll)
         {
             ShouldScroll = false;
+
+            // wait for the TreeView item to select
+            await Task.Delay(1);
+
             await js.InvokeVoidAsync("scrollToItem", ".scrollable-treeview");
         }
+
         await base.OnAfterRenderAsync(firstRender);
     }
 
@@ -149,9 +152,9 @@ Here are two examples:
             items.Add(new TreeItem()
             {
                 Id = i,
-                Text = "Item " + i.ToString(),
+                Text = $"Item {i}",
                 ParentId = i > 3 ? rnd.Next(1, 4) : null,
-                HasChildren = i > 3 ? false : true
+                HasChildren = i <= 3
             });
         }
 
@@ -161,7 +164,7 @@ Here are two examples:
     public class TreeItem
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
         public int? ParentId { get; set; }
         public bool HasChildren { get; set; }
     }
@@ -223,21 +226,21 @@ The example uses simplified logic for parent-child item relationship. In product
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
-                item.scrollIntoView();
+                item.scrollIntoView({ block: "nearest" });
             }
         }, 300);
     }
 </script>
 
 @code {
-    List<TreeItem> TreeData { get; set; }
-    IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
-    IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
+    private List<TreeItem> TreeData { get; set; }
+    private IEnumerable<object> SelectedItems { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
-    int? RootItemId { get; set; } = 3;
-    int? ChildItemId { get; set; } = 25;
-    int LoadingDelay { get; set; } = 500;
-    bool ShouldScroll { get; set; }
+    private int? RootItemId { get; set; } = 3;
+    private int? ChildItemId { get; set; } = 25;
+    private int LoadingDelay { get; set; } = 500;
+    private bool ShouldScroll { get; set; }
 
     async Task SelectAndScroll()
     {

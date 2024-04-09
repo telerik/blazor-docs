@@ -37,7 +37,7 @@ The TreeView renders `div.k-animation-container` elements with an `overflow: hid
 
 1. Set a custom CSS class to the TreeView via the `Class` parameter. Alternatively, you can use the default `.k-treeview` class to target all TreeView instances on the page or in the app.
 1. Override the `overflow: hidden` style of the `div.k-animation-container` elements **inside** the TreeView. Set it to the default value of `overflow: visible`.
-1. Apply dimesions to trigger scrolling:
+1. Apply dimensions to trigger scrolling:
     * If you want the TreeView itself to show scrollbars, set `width` or `height` styles to it.
     * If you want the TreeView container to show scrollbars, set `width`, `height` and `overflow` styles to the container.
 

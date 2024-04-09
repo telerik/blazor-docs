@@ -141,7 +141,7 @@ Examples of both follow below, see the code comments for details.
 
 >caption Sample column declaration so it is not visible in the grid
 
-The key thing is to set `Visible=false`, the other settings are to ensure it cannot be shown, resized, edited, moved or otherwise interracted with. Hiding it from the column chooser will also prevent the user from showing it on their own, the other settings are to showcase you can disable them, and to limit the options in case your other state modifications require that you show it at some point. You can tweak this as necessary.
+The key thing is to set `Visible=false`, the other settings are to ensure it cannot be shown, resized, edited, moved or otherwise interacted with. Hiding it from the column chooser will also prevent the user from showing it on their own, the other settings are to showcase you can disable them, and to limit the options in case your other state modifications require that you show it at some point. You can tweak this as necessary.
 
 ````CSHTML
     <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="0px" VisibleInColumnChooser="false" Visible="false"

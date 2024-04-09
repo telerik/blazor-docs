@@ -53,7 +53,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 ## PlaceholderColor
 
-The `PlaceholderColor` (`string`) parameter controls the background color of the ponter. It accepts **CSS**, **HEX** and **RGB** colors.
+The `PlaceholderColor` (`string`) parameter controls the background color of the pointer. It accepts **CSS**, **HEX** and **RGB** colors.
 
 >caption Change the background color of the pointer. The result from the code snippet below:
 

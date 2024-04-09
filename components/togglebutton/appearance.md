@@ -21,7 +21,7 @@ You can use all of them together to achieve the desired appearance. This article
 
 ## FillMode
 
-The `FillMode` controls how the TelerikToggleButton is filled. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
+The `FillMode` toggles the background and border of the TelerikToggleButton. You can set the parameter to a member of the `Telerik.Blazor.ThemeConstants.Button.FillMode` class:
 
 | Class members | Manual declarations |
 |------------|--------|
@@ -29,6 +29,7 @@ The `FillMode` controls how the TelerikToggleButton is filled. You can set it to
 |`Flat`|`flat`|
 |`Outline`|`outline`|
 |`Link`|`link`|
+|`Clear`|`clear`|
 
 >caption The built-in Fill modes
 

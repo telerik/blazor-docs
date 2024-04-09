@@ -52,7 +52,7 @@ Things to consider:
 
 1. Obtain the [Grid state]({%slug grid-state%}) in the [Grid `OnStateChanged` event]({%slug grid-state%}#events) or with the [Grid `GetState()` method]({%slug grid-state%}#methods). The exact approach depends on if you want to get the current visible Grid data automatically or on demand.
 1. Create a new [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest). Populate its properties with [the respective information from the `GridState` object]({%slug grid-state%}#information-in-the-grid-state). Note that the `Filters` property of the `DataSourceRequest` will have to include filter descriptors from two [`GridState` properties](/blazor-ui/api/Telerik.Blazor.Components.GridState-1) - `FilterDescriptors` and `SearchFilter`.
-1. (optional) If you want to get the currently filtered and sorted data from all Grid pages, do not set the `Page` and `PageSize` properties of the `DataSourceRequest` object.
+1. (optional) If you want to get the currently filtered and sorted data from all Grid pages, do not set the `Page`, `PageSize`, and `Skip` properties of the `DataSourceRequest` object.
 1. Execute the [`ToDataSourceResult()` extension method]({%slug common-features-data-binding-onread%}#todatasourceresult-method) on the Grid `Data` collection. You will need to import the `Telerik.DataSource.Extensions` namespace.
 1. The currently visible Grid data will be in the `Data` property of the `DataSourceResult` object, which is returned by `ToDataSourceResult()`. The total Grid item count (on all pages) will be in the `Total` property.
 
@@ -141,8 +141,9 @@ or
         {
             Filters = filterAndSearchDescriptors,
             Groups = gridState.GroupDescriptors.ToList(),
-            Page = gridState.Page ?? 1,
+            Page = gridState.Page ?? 1, // for paging
             PageSize = GridPageSize,
+            Skip = gridState.Skip ?? 0, // for virtual scrolling
             Sorts = gridState.SortDescriptors.ToList()
         };
 
@@ -201,13 +202,13 @@ or
 
 ### When Using OnRead Event
 
-1. Implement the [Grid `OnRead` event hander]({%slug common-features-data-binding-onread%}) as usual. More Grid-specific examples are available in the [Grid Manual Operations]({%slug components/grid/manual-operations%}) article.
+1. Implement the [Grid `OnRead` event handler]({%slug common-features-data-binding-onread%}) as usual. More Grid-specific examples are available in the [Grid Manual Operations]({%slug components/grid/manual-operations%}) article.
 1. The visible data items on the current Grid page are in [the `args.Data` collection, which is set in the Grid `OnRead` handler]({%slug common-features-data-binding-onread%}#event-argument). `args.Data` is a property of the `GridReadEventArgs` event argument, so it's not accessible outside `OnRead`. That's why you can cache it in a separate variable, together with the total item count (`args.Total`).
 
 Optionally, if you want to get the currently filtered and sorted data from all Grid pages:
 
 1. Execute `ToDataSourceResult()` over the Grid datasource as usual. This will produce the data items on the current Grid page.
-1. Reset the `Page` and `PageSize` properties of the `DataSourceRequest` object in the `GridReadEventArgs` event argument.
+1. Reset the `Page`, `PageSize`, and `Skip` properties of the `DataSourceRequest` object in the `GridReadEventArgs` event argument.
 1. Repeat the `ToDataSourceResult()` call over the Grid datasource. This will produce the data items from all Grid pages.
 
 The most important part of the example below is in the `OnGridRead` handler.

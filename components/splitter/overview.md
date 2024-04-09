@@ -65,7 +65,7 @@ This example shows how the splitter can fill up the entire container (marked wit
 
 ## Size
 
-You can control the Splitter size through its `Width` and `Height` parameters. Additioanlly, the component allows you specify the desired size for each pane. [Read about for the Splitter sizing specifics...]({%slug splitter-size%})
+You can control the Splitter size through its `Width` and `Height` parameters. Additionally, the component allows you specify the desired size for each pane. [Read about for the Splitter sizing specifics...]({%slug splitter-size%})
 
 ## Orientation
 

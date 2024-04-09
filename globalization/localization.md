@@ -122,6 +122,8 @@ app.Run();
 
 Sample controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework):
 
+<div class="skip-repl"></div>
+
 ````CS
 [Route("[controller]/[action]")]
 public class CultureController : Controller
@@ -211,14 +213,14 @@ Optionally, create a UI component to allow the user change the culture.
         public string Value { get; set; }
     }
 
-    public List<CultureData> Cultures { get; set; } = new List<CultureData>()
+    private List<CultureData> Cultures { get; set; } = new List<CultureData>()
     {
         new  CultureData() { Text = "English", Value = "en-US" },
         new  CultureData() { Text = "French", Value = "fr-FR" },
         new  CultureData() { Text = "Bulgarian", Value = "bg-BG" },
     };
 
-    public string SelectedCulture { get; set; } = Thread.CurrentThread.CurrentUICulture.Name;
+    private string SelectedCulture { get; set; } = Thread.CurrentThread.CurrentUICulture.Name;
 
     public void OnValueChanged(string eventArgs)
     {
@@ -303,3 +305,4 @@ public class SampleResxLocalizer : ITelerikStringLocalizer
 ## See Also
 
 * [Globalization Overview]({%slug globalization-overview%})
+* [Localize Only Some Component Labels]({%slug common-kb-localize-selected-localization-keys%})

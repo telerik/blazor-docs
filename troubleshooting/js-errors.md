@@ -18,6 +18,7 @@ This page provides solutions for JavaScript errors that you may encounter while 
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
 * [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
+* [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
 
 ## TelerikBlazor was undefined
 
@@ -30,7 +31,6 @@ If you get such errors, the reason may be:
 
 * [The `telerik-blazor.js` JS Interop file is missing or the URL is wrong](#missing-file)
 * [The `defer` attribute causes the script to load and execute too late](#defer-attribute)
-* [The Blazor framework initializes too early](#blazor-autostart)
 * [TypeScript `exports` workaround break Telerik Blazor](#typescript)
 * [A result of a syntax error in old browser](#syntaxerror-unexpected-token)
 
@@ -55,30 +55,7 @@ You can check if this is the case by inspecting the Network tab of your browser 
 
 Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
 
-The solution is to:
-
-1. Remove the `defer` attribute of the `<script>` tag.
-1. Move the `<script>` tag *after* the Blazor framework script (`_framework/blazor.server.js` or `_framework/blazor.webassembly.js`).
-
-Generally, `defer` improves the performance of your app by not making the script a blocking resource.
-
->caption Remove defer and move the Telerik Blazor script tag
-
-<div class="skip-repl"></div>
-
-````HTML
-<head>
-    <!--<script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>-->
-<head>
-<body>
-    <script src="_framework/blazor.....js"></script>
-    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
-</body>
-````
-
-### Blazor Autostart
-
-If removing the `defer` attribute above does not help, you can [disable the automatic client-side initialization of Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-7.0#initialize-blazor-when-the-document-is-ready).
+One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by loading the script asynchronously. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
 
 ### TypeScript
 
@@ -135,3 +112,7 @@ This error indicates that [the app is using an old or wrong version of the `tele
 ## Object doesn't support property or method 'assign'
 
 Under IE, you may get errors similar to `Object doesn't support property or method 'assign'` or errors that relate other modern JS features that are not supported under IE. The reason is that we use modern code that may not work under IE - it is not one of the [browsers we support]({%slug system-requirements%}#browser-support), and WebAssembly does not work on it anyway, so modern Blazor apps won't run on IE regardless.
+
+## Maximum call stack size exceeded
+
+The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache.

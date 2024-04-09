@@ -65,11 +65,11 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 ## Rows
 
-Defining a new `GridLayoutRow` tag to the GridLayout renders a new row in the component. You can set their heights by using the `Height` paramter exposed on the `<GridLayoutRow>` tag.
+Defining a new `GridLayoutRow` tag to the GridLayout renders a new row in the component. You can set their heights by using the `Height` parameter exposed on the `<GridLayoutRow>` tag.
 
 ## Columns
 
-Defining a new `GridLayoutColumn` tag to the GridLayout renders a new column in the component. You can set their widths by using the `Width` paramter exposed on the `<GridLayoutColumn>`.
+Defining a new `GridLayoutColumn` tag to the GridLayout renders a new column in the component. You can set their widths by using the `Width` parameter exposed on the `<GridLayoutColumn>`.
 
 ## Items
 

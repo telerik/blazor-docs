@@ -10,187 +10,15 @@ position: 20
 
 # Events
 
-This article explains the events available in the Telerik DatePicker for Blazor:
+This article describes the events of the Telerik DatePicker for Blazor.
 
-* [ValueChanged](#valuechanged)
-* [OnChange](#onchange)
-* [OnOpen](#onopen)
-* [OnClose](#onclose)
 * [OnBlur](#onblur)
 * [OnCalendarCellRender](#oncalendarcellrender)
+* [OnChange](#onchange)
+* [OnClose](#onclose)
+* [OnOpen](#onopen)
+* [ValueChanged](#valuechanged)
 
-
-## ValueChanged
-
-The `ValueChanged` event fires upon every change (for example, keystroke) in the input.
-
->caption Handle ValueChanged
-
-````CSHTML
-@result
-<br />
-
-<TelerikDatePicker ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDatePicker>
-
-@code {
-    string result;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = string.Format("The user entered: {0}", theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
-
->caption Handle ValueChanged and provide initial value
-
-````CSHTML
-@result
-<br />
-model value: @thePickerValue
-<br />
-
-<TelerikDatePicker Value="@thePickerValue" ValueChanged="@( (DateTime d) => MyValueChangeHandler(d) )"></TelerikDatePicker>
-
-@code {
-    string result;
-
-    DateTime thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyValueChangeHandler(DateTime theUserInput)
-    {
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", theUserInput);
-
-        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
-        thePickerValue = theUserInput;
-    }
-}
-````
-
-## OnChange
-
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
-The date picker is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
-
->caption Handle OnChange
-
-````CSHTML
-@result
-<br />
-
-<TelerikDatePicker T="DateTime" OnChange="@MyOnChangeHandler"></TelerikDatePicker>
-
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle OnChange and use two-way binding
-
-````CSHTML
-@result
-<br />
-model value: @thePickerValue
-<br />
-
-<TelerikDatePicker @bind-Value="@thePickerValue" OnChange="@MyOnChangeHandler"></TelerikDatePicker>
-
-@code {
-    string result;
-
-    DateTime? thePickerValue { get; set; } = DateTime.Now;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (theUserInput as DateTime?).Value);
-    }
-}
-````
-
-## OnOpen
-
-The `OnOpen` event fires before the DatePicker popup renders. 
-
-The event handler receives as an argument an `DatePickerOpenEventArgs` object that contains:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-| Property | Description |
-| --- | --- |
-| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
-
-````CSHTML
-<TelerikDatePicker @bind-Value="@DatePickerValue"
-                   OnOpen="@OnDatePickerPopupOpen"
-                   Format="dd MMMM yyyy"
-                   Min="@Min" Max="@Max">
-</TelerikDatePicker>
-
-@code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Now;
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-
-    private void OnDatePickerPopupOpen(DatePickerOpenEventArgs args)
-    {
-        //set the IsCancelled to true to cancel the OnOpen event
-        args.IsCancelled = false;
-    }
-}
-````
-
-## OnClose
-
-The `OnClose` event fires before the DatePicker popup closes.
-
-The event handler receives as an argument an `DatePickerCloseEventArgs` object that contains:
-
-| Property | Description |
-| --- | --- |
-| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
-
-````CSHTML
-@* Cancel the OnClose event based on a condition *@
-
-<TelerikDatePicker @bind-Value="@DatePickerValue"
-                   OnClose="@OnDatePickerPopupClose"
-                   Format="dd MMMM yyyy"
-                   Min="@Min" Max="@Max">
-</TelerikDatePicker>
-
-@code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Today;
-    private DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    private DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
-
-    private void OnDatePickerPopupClose(DatePickerCloseEventArgs args)
-    {
-        //cancel the OnClose event based on a condition
-        if (DatePickerValue > DateTime.Today)
-        {
-            args.IsCancelled = true; 
-        }
-    }
-}
-````
 
 ## OnBlur
 
@@ -201,25 +29,35 @@ The `OnBlur` event fires when the component loses focus.
 ````CSHTML
 @* You do not have to use OnChange to react to loss of focus *@
 
-<TelerikDatePicker @bind-Value="@TheDate"
+@result
+
+<TelerikDatePicker @bind-Value="@DatePickerValue"
                    OnBlur="@OnBlurHandler">
 </TelerikDatePicker>
 
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheDate}.");
-    }
+@code {
+    private string result = string.Empty;
 
-    DateTime? TheDate { get; set; } = DateTime.Now;
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
+
+    private void OnBlurHandler()
+    {
+        result = string.Format("BLUR fired, current value is {0:dd/MMM/yyyy}", DatePickerValue);
+    }
 }
 ````
 
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+
 ## OnCalendarCellRender
 
-The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to find out the current view and cell date. You can also set a custom CSS class for the `<td>` element.
+The `OnCalendarCellRender` event fires when each calendar cell in each view is about to render. The event allows you to:
+* Identify the current view.
+* Find out the cell date.
+* Set a custom CSS class for the `<td>` element.
 
-The event handler receives as an argument an `DatePickerCalendarCellRenderEventArgs` object that contains:
+As an argument, the event handler receives a [`DatePickerCalendarCellRenderEventArgs` object](/blazor-ui/api/telerik.blazor.components.datepickercalendarcellrendereventargs), which contains the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -232,13 +70,21 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
 ````CSHTML
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
-<TelerikDatePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"
-                   @bind-Value="DatePickerValue"
+<TelerikDatePicker @bind-Value="@DatePickerValue"
+                   OnCalendarCellRender="@OnCalendarCellRenderHandler"
                    Width="295px">
 </TelerikDatePicker>
 
+<style>
+    .special {
+        color: white;
+        background-color: greenyellow;
+        font-weight: bold;
+    }
+</style>
+
 @code {
-    private DateTime DatePickerValue { get; set; } = DateTime.Now;
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
 
     private void OnCalendarCellRenderHandler(DatePickerCalendarCellRenderEventArgs args)
     {
@@ -252,15 +98,150 @@ The event handler receives as an argument an `DatePickerCalendarCellRenderEventA
         }
     }
 }
-
-<style>
-    .special {
-        color: white;
-        background-color: greenyellow;
-        font-weight: bold;
-    }
-</style>
 ````
+
+
+## OnChange
+
+The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
+
+The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
+The DatePicker is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
+
+>caption Handle OnChange and use two-way binding
+
+````CSHTML
+@result
+<br />
+model value: @DatePickerValue
+<br />
+
+<TelerikDatePicker @bind-Value="@DatePickerValue"
+                   OnChange="@MyOnChangeHandler">
+</TelerikDatePicker>
+
+@code {
+    private string result = string.Empty;
+
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
+
+    private void MyOnChangeHandler(object userInput)
+    {
+        // if you do not provide a Value, you must provide the Type parameter to the component
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", (DateTime)userInput);
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+
+
+## OnClose
+
+The `OnClose` event fires before the DatePicker popup closes.
+
+The event handler receives as an argument an [`DatePickerCloseEventArgs` object](/blazor-ui/api/telerik.blazor.components.datepickercloseeventargs) that contains:
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
+
+````CSHTML
+@* Cancel the OnClose event based on a condition *@
+
+<TelerikDatePicker @bind-Value="@DatePickerValue"
+                   OnClose="@OnDatePickerPopupClose">
+</TelerikDatePicker>
+
+@code {
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
+
+    private void OnDatePickerPopupClose(DatePickerCloseEventArgs args)
+    {
+        //cancel the OnClose event based on a condition
+        if (DatePickerValue > DateTime.Today)
+        {
+            args.IsCancelled = true;
+        }
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+
+## OnOpen
+
+The `OnOpen` event fires before the DatePicker popup renders. 
+
+As an argument, the event handler receives a [`DatePickerOpenEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.DatePickerOpenEventArgs), which contains the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+| --- | --- |
+| `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
+
+````CSHTML
+<TelerikDatePicker @bind-Value="@DatePickerValue"
+                   OnOpen="@OnDatePickerPopupOpen">
+</TelerikDatePicker>
+
+@code {
+    private DateTime? DatePickerValue { get; set; } = DateTime.Today;
+
+    private void OnDatePickerPopupOpen(DatePickerOpenEventArgs args)
+    {
+        //set the IsCancelled to true to cancel the OnOpen event
+        args.IsCancelled = false;
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+
+## ValueChanged
+
+The `ValueChanged` event fires:
+
+ * On Calendar selection and during typing when the resulting input value is valid.
+ * On input blur if the input value is not valid and the `Value` type is nullable.
+
+>caption Handle ValueChanged and provide initial value
+
+````CSHTML
+@result
+<br />
+model value: @DatePickerValue
+<br />
+
+<TelerikDatePicker Value="@DatePickerValue" 
+                   ValueChanged="@( (DateTime inputDate) => MyValueChangeHandler(inputDate) )">
+</TelerikDatePicker>
+
+@code {
+    private string result = string.Empty;
+
+    private DateTime DatePickerValue { get; set; } = DateTime.Today;
+
+    private void MyValueChangeHandler(DateTime userInput)
+    {
+        result = string.Format("The user entered: {0:dd/MMM/yyyy}", userInput);
+
+        //you have to update the model manually because handling the ValueChanged event does not let you use @bind-Value
+        DatePickerValue = userInput;
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
+
 
 ## See Also
 

@@ -12,7 +12,7 @@ position: 2
 
 This article describes the configuration parameters of the Blazor `TreeListCheckboxColumn`.
 
-The `TreeListCheckboxColumn` provides an additional way for users to [select TreeList rows]({%slug treelist-selection-overview%}). By default, users can select and unselect rows by clicking anywhere on them.
+The `TreeListCheckboxColumn` provides an additional way for users to [select TreeList rows]({%slug treelist-selection-overview%}). By default, users can select and deselect rows by clicking anywhere on them.
 
 ## Parameters
 

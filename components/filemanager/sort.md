@@ -22,7 +22,7 @@ The dropdown in the toolbar exposes several more options to sort by:
 
 >caption Choose a Sort option from the toolbar dropdown.
 
-![Blazor Filemanager Sort](images/filemanager-sort.png)
+![Blazor FileManager Sort](images/filemanager-sort.png)
 
 ````CSHTML
 @using System.IO

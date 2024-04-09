@@ -29,13 +29,13 @@ The `TreeListWidthChanged` event fires as a response to the user changing the wi
 
 ## OnExpand and OnCollapse
 
-The `OnExpand` and `OnCollapse` events fire as a response to the user expanding and collapsing an item of the Gant Tree.
+The `OnExpand` and `OnCollapse` events fire as a response to the user expanding and collapsing an item of the Gantt Tree.
 
 The event handlers receive arguments of type `GanttExpandEventArgs` and `GanttCollapseEventArgs` respectively which exposes the following fields:
 * `Item` - an object you can cast to your model class to obtain the current data item.
 * `ShouldRender` - a boolean field indicating whether the component will re-render.
 
-The `OnCollapse` event fires as a response to the user collapsing an item of the Gant Tree.
+The `OnCollapse` event fires as a response to the user collapsing an item of the Gantt Tree.
 
 
 >caption Handle OnExpand and OnCollapse events

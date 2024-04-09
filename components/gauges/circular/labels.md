@@ -124,7 +124,7 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 
 ## Visible
 
-The `Visible` (`bool`) parameter controls wether the labels will be rendered. Its default value is `false`. If you want to display the labels include the `<CircularGaugeScaleLabels>` tag in the `<CircularGaugeScale>` and set its `Visible` parameter to `true`.
+The `Visible` (`bool`) parameter controls whether the labels will be rendered. Its default value is `false`. If you want to display the labels include the `<CircularGaugeScaleLabels>` tag in the `<CircularGaugeScale>` and set its `Visible` parameter to `true`.
 
 >caption Show the labels by using the Visible parameter. The result from the code snippet below
 

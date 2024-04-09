@@ -21,7 +21,7 @@ The ListBox component provides users two ways to select items. This depends on t
 
 | Selection&nbsp;Mode | Description |
 | --- | --- |
-| `Single` | Users can select only one ListBox item. They can change the selected item, but cannot unselect the selected one. You can [use a custom toolbar button]({%slug listbox-toolbar%}#custom-tools) to clear the selection. See the [example below](#example). |
+| `Single` | Users can select only one ListBox item. They can change the selected item, but cannot deselect the selected one. You can [use a custom toolbar button]({%slug listbox-toolbar%}#custom-tools) to clear the selection. See the [example below](#example). |
 | `Multiple` | Users can select any number of items. The ListBox supports selection of adjacent items with `Shift` or non-adjacent items with `Ctrl` (`Cmd` on a Mac). Use mouse clicks or the arrow keys, as described on the [ListBox Keyboard Navigation demo](https://demos.telerik.com/blazor-ui/listbox/keyboard-navigation). |
 
 
@@ -34,7 +34,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 
 ## Example
 
->caption Using ListBox SelectionMode and Custom Unselect Tool
+>caption Using ListBox SelectionMode and Custom Deselect Tool
 
 ````CSHTML
 @* Resetting ListBoxSelectedItems on SelectionMode change is optional *@
@@ -57,7 +57,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
         <ListBoxToolBar>
             <ListBoxToolBarCustomTool>
                 <TelerikButton Icon="@SvgIcon.StripAllFormatting"
-                               Title="Unselect All"
+                               Title="Deselect All"
                                OnClick="@( () => ListBoxSelectedItems = new List<ListBoxModel>() )"
                                Enabled="@( ListBoxSelectedItems.Count() > 0 )" />
             </ListBoxToolBarCustomTool>

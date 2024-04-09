@@ -12,96 +12,9 @@ position: 20
 
 This article explains the events available in the Telerik NumericTextbox for Blazor:
 
+* [OnBlur](#onblur)
 * [OnChange](#onchange)
 * [ValueChanged](#valuechanged)
-* [OnBlur](#onblur)
-
-## OnChange
-
-The `OnChange` event represents a user action - confirmation of the current value. It fires when the user presses `Enter` in the input, or when the input loses focus.
-
-The numeric textbox is a generic component, so you must provide either a `Value`, or a type to the `T` parameter of the component.
-
->caption Handle OnChange
-
-````CSHTML
-@result
-<br />
-
-<TelerikNumericTextBox T="decimal" OnChange="@MyOnChangeHandler"></TelerikNumericTextBox>
-
-@code {
-    string result;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // if you do not provide a Value, you must provide the Type parameter to the component
-        result = string.Format("The user entered: {0}", (decimal)theUserInput);
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
->tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
-
->caption Handle OnChange and use two-way binding
-
-````CSHTML
-@result
-<br />
-model value: @theTbValue
-<br />
-
-<TelerikNumericTextBox @bind-Value="@theTbValue" OnChange="@MyOnChangeHandler"></TelerikNumericTextBox>
-
-@code {
-    string result;
-
-    double theTbValue { get; set; } = 1.2345;
-
-    private void MyOnChangeHandler(object theUserInput)
-    {
-        // the handler receives an object that you may need to cast to the type of the component
-        // when a Value is provided, the type is taken from it
-        result = string.Format("The user entered: {0}", (double)theUserInput);
-    }
-}
-````
-
-## ValueChanged
-
-The `ValueChanged` event fires on every change (keystroke) in the input. Using this event requires one-way binding for the `Value` parameter and manual update of the value in the handler. If the value is not updated, this will effective cancel the event.
-
->caption Handle ValueChanged
-
-````CSHTML
-<TelerikNumericTextBox Value="@NumericValue"
-                       ValueChanged="@( (double newValue) => NumericValueChanged(newValue) )"
-                       Width="200px">
-</TelerikNumericTextBox>
-
-<p> @Result </p>
-
-@code {
-    private double NumericValue { get; set; } = 1.23;
-
-    private string Result { get; set; }
-
-    private void NumericValueChanged(double newValue)
-    {
-        // one-way binding requires manual value update
-        NumericValue = newValue;
-
-        Result = $"The new value is: {NumericValue}";
-    }
-}
-````
-
-@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
-@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 
 ## OnBlur
@@ -113,19 +26,102 @@ The `OnBlur` event fires when the component loses focus.
 ````CSHTML
 @* You do not have to use OnChange to react to loss of focus *@
 
-<TelerikNumericTextBox @bind-Value="@TheValue"
+@result
+
+<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue"
                        OnBlur="@OnBlurHandler">
 </TelerikNumericTextBox>
 
-@code{
-    async Task OnBlurHandler()
-    {
-        Console.WriteLine($"BLUR fired, current value is {TheValue}.");
-    }
+@code {
+    private string result = string.Empty;
 
-    decimal TheValue { get; set; } = 12.34m;
+    private decimal NumericTextBoxValue { get; set; } = 12.34m;
+
+    private void OnBlurHandler()
+    {
+        result = $"BLUR fired, current value is {NumericTextBoxValue}.";
+    }
 }
 ````
+
+
+## OnChange
+
+The `OnChange` event represents a user action that confirms the current value. It fires when the user presses `Enter` in the input or when the input loses focus.
+
+The event handler receives an `object` argument that you need to cast to the actual `Value` type. The argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
+The NumericTextBox is a generic component, so you must either provide a `Value`, or a type to the `T` parameter of the component.
+
+>caption Handle OnChange and use two-way binding
+
+````CSHTML
+@result
+<br />
+model value: @NumericTextBoxValue
+<br />
+
+<TelerikNumericTextBox @bind-Value="@NumericTextBoxValue" 
+                       OnChange="@MyOnChangeHandler">
+</TelerikNumericTextBox>
+
+@code {
+    private string result = string.Empty;
+
+    private double NumericTextBoxValue { get; set; } = 1.2345;
+
+    private void MyOnChangeHandler(object userInput)
+    {
+        // the handler receives an object that you may need to cast to the type of the component
+        // when a Value is provided, the type is taken from it
+        result = string.Format("The user entered: {0}", (double)userInput);
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+>tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
+
+
+## ValueChanged
+
+The `ValueChanged` event fires during typing.
+
+The event handler argument can hold a value or be `null`, depending on the user input and the `Value` type.
+
+Using this event requires one-way binding for the `Value` parameter and manual updating of the value in the handler. If the value is not updated, this will effectively cancel the event.
+
+>caption Handle ValueChanged
+
+````CSHTML
+@result
+<br />
+<TelerikNumericTextBox Value="@NumericTextBoxValue"
+                       ValueChanged="@( (double newValue) => NumericValueChanged(newValue) )"
+                       Width="200px">
+</TelerikNumericTextBox>
+
+@code {
+    private string result { get; set; } = string.Empty;
+
+    private double NumericTextBoxValue { get; set; } = 1.23;
+
+    private void NumericValueChanged(double newValue)
+    {
+        // the handler receives a generic type <T>
+
+        // one-way binding requires manual value update
+        NumericTextBoxValue = newValue;
+
+        result = $"The new value is: {NumericTextBoxValue}";
+    }
+}
+````
+
+@[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
+
+@[template](/_contentTemplates/common/issues-and-warnings.md#valuechanged-lambda-required)
 
 
 ## See Also
