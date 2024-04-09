@@ -55,7 +55,7 @@ Predefined Dialogs are styled substitutes to the standard browser dialogs - conf
 
 ## Integration With Other Components
 
-You can implement other components (such as [`Filter`]({%slug filter-overview%}), [`CheckBox`]({%slug checkbox-overview%})) as `DialogContent`. In this case, the two-way binding for the `Value` of these components, will not work as expected. The Dialog needs to [`Refresh`](#dialog-reference-and-methods) to reflect UI changes. You can invoke the Dialog's `Refresh` method:
+You can use other components inside the `DialogContent`. In this case, the two-way binding for the parameters of these components may not work as expected. The Dialog needs to [`Refresh`](#dialog-reference-and-methods) to reflect UI changes. You can invoke the Dialog's `Refresh` method:
 * When using two-way binding - in the `OnChange` event of the component, used as `DialogContent`.
 * When using one-way binding - in the `ValueChanged` event of the component, used as `DialogContent`. In this case do not forget to [manually update the `Value` of the component in the `ValueChanged` event]({%slug get-started-value-vs-data-binding%}#one-way-binding).
 
