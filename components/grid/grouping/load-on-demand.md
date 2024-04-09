@@ -19,6 +19,7 @@ In this article:
 * [Examples](#examples)
 	* [Regular Paging and Group Load On Demand](#regular-paging-and-group-load-on-demand)
 	* [Virtual Scrolling, Group Load On Demand and Server Data Operations](#virtual-scrolling-group-load-on-demand-and-server-side-data-operations)
+    * [Toggle Group Load Mode at Runtime](#toggle-group-load-mode-at-runtime)
 * [Limitations](#limitations)
 
 ## Basics
@@ -263,6 +264,98 @@ Scroll through the groups or expand them to load their data on demand
 ````
 
 
+### Toggle Group Load Mode at Runtime
+
+To toggle how the Grid loads groups:
+
+1. [Obtain reference to the Grid instance with `@ref`]({%slug grid-overview%}#grid-reference-and-methods).
+1. Change the `LoadGroupsOnDemand` parameter value.
+1. [Rebind()]({%slug common-features-data-binding-overview%}#refresh-data) the Grid.
+
+>caption Switch the Grid group load mode
+
+````CSHTML
+@using Telerik.DataSource
+
+<p>
+    <label>
+        <TelerikCheckBox Value="@GridLoadGroupsOnDemand"
+                         ValueChanged="@GridLoadGroupsOnDemandChanged"
+                         TValue="@bool" /> Load Groups On Demand
+    </label>
+</p>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             TItem="@Employee"
+             Pageable="true"
+             Sortable="true"
+             Groupable="true"
+             LoadGroupsOnDemand="@GridLoadGroupsOnDemand"
+             FilterMode="GridFilterMode.FilterRow"
+             OnStateInit="@OnGridStateInit">
+    <GridColumns>
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.Team)" />
+        <GridColumn Field="@nameof(Employee.Salary)" />
+        <GridColumn Field="@nameof(Employee.OnVacation)" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private TelerikGrid<Employee>? GridRef { get; set; }
+
+    private List<Employee> GridData { get; set; } = new();
+
+    private bool GridLoadGroupsOnDemand { get; set; }
+
+    private void GridLoadGroupsOnDemandChanged(bool newValue)
+    {
+        GridLoadGroupsOnDemand = newValue;
+
+        GridRef?.Rebind();
+    }
+
+    private void OnGridStateInit(GridStateEventArgs<Employee> args)
+    {
+        args.GridState.GroupDescriptors = new List<GroupDescriptor>();
+
+        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
+        {
+            Member = nameof(Employee.Team),
+            MemberType = typeof(string)
+        });
+    }
+
+    protected override void OnInitialized()
+    {
+        var rnd = new Random();
+
+        for (int i = 1; i <= 20; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                Id = i,
+                Name = "Name " + i,
+                Team = "Team " + (i % 4 + 1),
+                Salary = (decimal)rnd.Next(1000, 3000),
+                OnVacation = i % 3 == 0
+            });
+        }
+    }
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
+        public decimal Salary { get; set; }
+        public bool OnVacation { get; set; }
+    }
+}
+````
+
+
 ## Limitations
 
 * The expanded state of the groups is preserved during paging only, but not if sorting or filtering is applied.
@@ -277,8 +370,7 @@ Scroll through the groups or expand them to load their data on demand
 
 * When exporting only the current Grid page (`AllPages="false"`), the exported file will not contain child data for collapsed groups.
 
+
 ## See Also
 
-  * [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-loadondemand)
-   
-  
+* [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-loadondemand)
