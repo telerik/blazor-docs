@@ -1,6 +1,6 @@
 ﻿<div id="footer" class="container-fluid pb-40">
-                <input id="hidden-sheet-id" type="hidden" value="0c41d166-7ba6-3500-20d5-609d41442f92">
-  {{>partials/feedback}}
+    <feedback-form product-code="BLAZOR" icon-url="../assets/Avatar-Ninja-big.svg">
+    </feedback-form>
   <div class="row mt-60">
     <div class="col-lg-8 col-lg-offset-2">
       <div class="row">
