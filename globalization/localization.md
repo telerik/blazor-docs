@@ -59,7 +59,7 @@ This section will show a tutorial on how to add globalization and localization t
 
 >note When following this tutorial to add localization to an existing app, make sure to compare the configuration you are copying so that you do not remove configuration necessary for your app. Code comments and regions explain details.
 
-### Step 1: Enable the .NET Core localization services
+### Step 1: Enable the .NET Core Localization Services
 
 Here is an example for enabling localization in the app:
 
@@ -118,7 +118,7 @@ app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationO
 app.Run();
 ````
 
-### Step 2: Implement the UI culture storage (for example, a cookie)
+### Step 2: Implement the UI Culture Storage (for example, a cookie)
 
 Sample controller for changing the thread UI culture and redirecting the user (a redirect is required by the framework):
 
@@ -180,9 +180,11 @@ Use a cookie to store the culture choice of the user. Add the cookie in the inde
 </body>
 ````
 
-### Step 3(optional): Add UI for changing the culture
+### Step 3(optional): Add UI for Changing the Culture
 
 Optionally, create a UI component to allow the user change the culture.
+
+<div class="skip-repl"></div>
 
 ````
 @using System.Threading
@@ -240,7 +242,7 @@ Optionally, create a UI component to allow the user change the culture.
 }
 ````
 
-### Step 4: Add .resx files to the ~/Resources folder
+### Step 4: Add .resx Files to the ~/Resources Folder
 
 In this example the files must be named `~/Resources/TelerikMessages.<culture-locale>.resx`, for example `TelerikMessages.bg-BG.resx`. You can use different names (for example, in our demos we use `TelerikMessages.resx`). The file names affect the static class that is generated and how you use it in your code (for example, to localize other elements you define yourself, such as grid command buttons or your own buttons).
 
@@ -269,13 +271,15 @@ Make sure to:
         </ItemGroup>
 
 
-### Step 5: Implement a service for localizing the Telerik components
+### Step 5: Implement a Service for Localizing the Telerik Components
 
 This service must return the desired string based on the current culture and the requested key (see the explanations above).
 
 Here is a sample Telerik localization service implementation - this example relies on [a `~/Resources` folder with the necessary `.resx` files]({%slug globalization-localization%}#step-4-add-resx-files-to-the-resources-folder).
 
 >tip You must implement the indexer only. You can obtain the needed strings from any source you prefer and that matches your application needs, such as database, `resx` files, `json` files, hash tables, and so on.
+
+<div class="skip-repl"></div>
 
 ````CS
 using Telerik.Blazor.Services;
