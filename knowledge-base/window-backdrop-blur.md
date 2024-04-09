@@ -1,8 +1,8 @@
 ---
-title: Apply a backdrop filter with a blur effect to the Modal Window background
+title: Apply a Backdrop Filter with a Blur Effect to the Modal Window Background
 description: How to apply a backdrop filter with a blur effect to the background content of the Modal Window.
 type: how-to
-page_title: Apply a backdrop filter with a blur effect to the Modal Window background
+page_title: Apply a Backdrop Filter with a Blur Effect to the Modal Window Background
 slug: window-kb-backdrop-blur
 position: 
 tags: 
@@ -22,14 +22,16 @@ res_type: kb
 
 ## Description
 
-* How do I blur the background in Windows?
+This knowledge base article answers the following questions:
+
+* How do I blur the background in a Modal Window component?
 * Is it possible to apply a backdrop filter with a blur effect on the background content of the Window?
 
 ## Solution
 
-Override the built-in CSS styles of the background with the code below to adjust the blur amount. 
+To adjust the blur amount, override the built-in CSS styles of the background. Use the code below to achieve the desired results.
 
->caption This code will affect all modal Dialogs and Windows on the web page.
+This code will affect all modal Dialogs and Windows on the web page.
 
 ````CSHTML
 <style>
