@@ -53,12 +53,6 @@ The Dialog component and its [predefined options]({%slug dialog-predefined%}) ai
 
 Predefined Dialogs are styled substitutes to the standard browser dialogs - confirm, alert and prompt. [Read more about the Blazor Predefined Dialogs]({%slug dialog-predefined%}).
 
-## Integration With Other Components
-
-You can use other components inside the `DialogContent`. In this case, the two-way binding for the parameters of these components may not work as expected. The Dialog needs to [`Refresh`](#dialog-reference-and-methods) to reflect UI changes. You can invoke the Dialog's `Refresh` method:
-* When using two-way binding - in the `OnChange` event of the component, used as `DialogContent`.
-* When using one-way binding - in the `ValueChanged` event of the component, used as `DialogContent`. In this case do not forget to [manually update the `Value` of the component in the `ValueChanged` event]({%slug get-started-value-vs-data-binding%}#one-way-binding).
-
 ## Header
 
 The Dialog allows header customization and gives the option to toggle the close button. [Read more about the Dialog Header]({%slug dialog-header%}).
