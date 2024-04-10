@@ -16,7 +16,7 @@ When you add that template, the form will no longer render the built-in submit b
 
 ### How to add a Reset (Clear) button to the form
 
-You can provide a standard [TelerikButton]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form. See the code and its comments for some more details.
+You can provide a standard [Telerik UI for Blazor Button]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form. See the code and its comments for some more details.
 
 ````CSHTML
 @* Add a Clear Button to the Telerik Form. We also add a Submit button *@

@@ -38,7 +38,7 @@ The `TreeListCommandButton` tag offers the following features:
 * `OnClick` - the event handler that the button will fire. If used on a built-in command, this handler will fire before the [corresponding CRUD event]({%slug treelist-editing-overview%}). Cancelling it will prevent the built-in CRUD event from firing.
 * `ShowInEdit` - a boolean property indicating whether the button is only visible while the user is editing/inserting data.
 * `ChildContent` - the text the button will render. You can also place it between the command button's opening and closing tags.
-* Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Button Component features]({%slug components/button/overview%}).
+* Appearance properties like `Icon`, `Class`, `Enabled` that are come from the underlying [Telerik UI for Blazor Button Component features]({%slug components/button/overview%}).
 
 ### Built-in Commands
 

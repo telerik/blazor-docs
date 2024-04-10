@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Button Overview
-description: Discover the Blazor Button and explore the examples.
+description: Blazor Buttons serve as interactive elements that trigger actions in web apps when clicked and allow for user engagement.
 slug: components/button/overview
 tags: telerik,blazor,button,overview
 published: True
@@ -84,7 +84,7 @@ Add a reference to the component instance to use the [Button methods](/blazor-ui
 
 | Method | Description |
 | --- | --- |
-| `FocusAsync` | Focuses the Button component. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
+| `FocusAsync` | Focuses the Blazor Button component. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
 ````CSHTML
 <TelerikButton @ref="ButtonRef">Hello!</TelerikButton>
