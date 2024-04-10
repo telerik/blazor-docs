@@ -76,6 +76,7 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Name` | `string` | The `name` attribute of the `input`. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. |
+| `ShowClearButton` | `bool` | Defines if the user will have the option to clear the component value with an "**x**" button inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. |
 | `Title` | `string` | The `title` attribute of `input`. Use it to add a [tooltip]({%slug tooltip-overview%}). |

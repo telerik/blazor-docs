@@ -63,6 +63,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
 | `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
+| `ShowClearButton` | `bool` | Defines if the user will have the option to clear the component value with an "**x**" button inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [tooltip]({%slug tooltip-overview%}). |

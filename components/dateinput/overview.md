@@ -101,6 +101,7 @@ The following section lists some Date Input parameters and links to other pages 
 | `Max` | `DateTime` <br /> (`new DateTime(2099, 12, 31)`)| The latest allowed date that the user can type. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1)`)| The earliest allowed date that the user can type. |
 | `Placeholder` | `string` | The [`placeholder` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder) of the `input`. The placeholder will appear only if the component is bound to nullable `DateTime?` object, the `Value` is `null` and the component is not focused. Once the user focuses it to start typing, the `FormatPlaceholder` (default or [custom one](#format-placeholder)) will override the `Placeholder` to indicate the expected date format. |
+| `ShowClearButton` | `bool` | Defines if the user will have the option to clear the component value with an "**x**" button inside the input. |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. Use it to control the tabbing order of the inputs on the page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
 | `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler]({%slug components/dateinput/events%}#valuechanged). |
