@@ -28,6 +28,12 @@ To control when the filter list appears, set the `MinLength` parameter. This can
 
 By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multiselect-overview%}#parameters) parameter of the component.
 
+## Persist Filter
+
+By default, the filter value will be cleared when the user selects an item. You can configure the MultiSelect to keep the filter value upon selection. This can be useful if you want to allow the user select multiple values that match the same filtering criteria (for example, select several people with the same last name).
+
+To keep the filter upon selection, set the `PersistFilterOnSelect` parameter to `true`. It only applies when `Filterable="true"` and `AutoClose="false"`.
+
 ## Filtering Example
 
 >caption Filtering in the MultiSelect
@@ -54,6 +60,12 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
             <TelerikNumericTextBox @bind-Value="@DebounceDelay" Min="0" Width="120px" />
         </label>
     </li>
+    <li>
+        <label>
+            Persist filter:
+            <TelerikCheckBox @bind-Value="@PersistFilter"/>
+        </label>
+    </li>
 </ul>
 
 <br />
@@ -66,11 +78,13 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
                     FilterOperator="@FilterOperator"
                     MinLength="@FilterMinLength"
                     DebounceDelay="@DebounceDelay"
+                    PersistFilterOnSelect="@PersistFilter"
+                    AutoClose="false"
                     Placeholder="Type digits to see filtering in action"
                     Width="600px">
 </TelerikMultiSelect>
 
-@code{
+@code {
     private List<Product> ProductList { get; set; }
 
     private List<int> SelectedProducts { get; set; }
@@ -84,6 +98,8 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
     private int DebounceDelay { get; set; } = 150;
 
+    private bool PersistFilter { get; set; } = true;
+
     protected override void OnInitialized()
     {
         ProductList = new List<Product>();
@@ -91,10 +107,10 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
         for (int i = 1; i <= 30; i++)
         {
             ProductList.Add(new Product()
-            {
-                Id = i,
-                Name = $"{i} Product {i * 111}"
-            });
+                {
+                    Id = i,
+                    Name = $"{i} Product {i * 111}"
+                });
         }
 
         base.OnInitialized();
