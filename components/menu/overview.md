@@ -96,7 +96,7 @@ A menu is often used to list pages, views, or sections in an application so the 
 * Use the built-in `UrlField` in the [bound data]({%slug components/menu/data-binding/overview%}#data-bindings) to populate the URLs in the anchors that the menu will generate if you provide a URL for the given item. This approach is demonstrated in the [Creating Blazor Menu](#creating-blazor-menu) example.
 * Use a [Template]({%slug components/menu/templates%}) to generate the desired links (e.g., `NavLink` components) with your own code to enable fine-tuning.
 
-[Read more about the Blazor Menu navigation...]({%slug menu-navigation%})
+[Read more about the Blazor navigation Menu...]({%slug menu-navigation%})
 
 ## Orientation
 

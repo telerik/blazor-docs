@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Calendar Overview
-description: Discover the Calendar component for Blazor by checking the examples, and learn about its key features.
+description: The Blazor Calendar facilitates date selection and display in web apps, improving UX for date-related tasks.
 slug: components/calendar/overview
 tags: telerik,blazor,calendar,overview
 published: True
@@ -51,7 +51,7 @@ The selected date is: @selectedDate
 
 ## Navigation
 
-The Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
+The Blazor Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
 
 ## Selection
 
@@ -59,7 +59,7 @@ The Calendar allows you to configure every aspect of the date selection. You can
 
 ## Templates
 
-The Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates]({%slug calendar-templates-overview%}).
+The Blazor Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates]({%slug calendar-templates-overview%}).
 
 ## Multiple Views
 
@@ -67,7 +67,8 @@ You can display a wider range of dates by rendering multiple instances of the Ca
 
 ## Events
 
-The Calendar generates events that you can handle and further customize its behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+The Blazor Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+
 
 ## Week Numbers
 
@@ -107,7 +108,7 @@ The following parameters enable you to customize the appearance of the Blazor Ca
 
 ## Calendar Reference and Methods
 
-Add a reference to the component instance to use the [Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+Add a reference to the component instance to use the [Blazor Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

@@ -27,7 +27,7 @@ The `ButtonGroupToggleButton` inherits the parameters and behavior of the [`Tele
 
 The `ButtonGroupButton` does not change its visual state when clicked. It behaves as a regular button and does not support selection.
 
-The `ButtonGroupButton` inherits the parameters and behavior of the [`TelerikButton`]({%slug components/button/overview%}) component.
+The `ButtonGroupButton` inherits the parameters and behavior of the [Telerik UI for Blazor Button]({%slug components/button/overview%}) component.
 
 ## Disabled State
 
