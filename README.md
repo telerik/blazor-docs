@@ -33,7 +33,7 @@ If you want to keep the local documentation alive after closing the prompt, you 
 
 ## License
 
-The **Telerik® UI for Blazor Documentation is licensed under the Apache 2.0 license**. See the [`LICENSE` file](LICENSE) for the full terms. This license applies to the markdown (`.md`) files in this site **ONLY**, and does not convey, override or modify any existing licenses covering the runtime source and components of Telerik® UI for Blazor. For information about [available licenses for the Telerik® UI for Blazor click here](https://www.telerik.com/purchase/license-agreement/blazor-ui).
+The **Telerik® UI for Blazor Documentation** is licensed under the **Apache 2.0** license. See the [`LICENSE` file](LICENSE) for the full terms. This license applies to the markdown (`.md`) files in this site **ONLY**, and does not convey, override or modify any existing licenses covering the runtime source and components of Telerik® UI for Blazor. For information about [available licenses for the Telerik® UI for Blazor click here](https://www.telerik.com/purchase/license-agreement/blazor-ui).
 
 If you don't have a license, [start a free trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) and then follow the first steps articles for:
 
