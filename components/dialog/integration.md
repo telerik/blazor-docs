@@ -8,7 +8,7 @@ published: True
 position: 9
 ---
 
-# Blazor Dialog Integration
+# Integrating Components into the Blazor Dialog
 
 You can use other components inside the `DialogContent`. In this case, the two-way binding for the parameters of these components may not work as expected. The Dialog needs to [`Refresh`]({%slug dialog-overview%}#dialog-reference-and-methods) to reflect UI changes.
 
