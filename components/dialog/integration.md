@@ -58,7 +58,7 @@ To integrate the Filter in the Dialog:
 1. Invoke the Dialog's `Refresh` method in the [`ValueChanged` event]({%slug filter-events%}#valuechanged) of the Filter.
 1. Update the `Value` parameter of the Filter manually in the `ValueChanged` event of the Filter.
 
->caption Use Filter in Dialog.
+>caption Using Filter in Dialog
 
 ````CSHTML
 @using Telerik.DataSource
