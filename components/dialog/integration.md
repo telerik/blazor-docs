@@ -1,7 +1,7 @@
 ---
 title: Integration
 page_title: Dialog Integration
-description: Discover the Blazor Dialog Integration and explore the examples.
+description: Learn how to integrate Blazor components like the Checkbox and the Filter into the Blazor Dialog and explore the practical sample code.
 slug: dialog-integration
 tags: telerik,blazor,dialog,integration
 published: True
