@@ -96,7 +96,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
 | `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
 | `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
-| `ShowWeekNumbers` | `bool` | Sets if the Calendar will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
+| `ShowWeekNumbers` | `bool` | Sets if the Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 
 ### Styling and Appearance
 

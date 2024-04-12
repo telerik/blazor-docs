@@ -94,6 +94,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `SelectOnFocus` | `bool` | When set to `true`, the NumericTextBox will select its value when the component receives focus. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `Step` | `TValue`* <br /> (`1`) | The decimal value with which the component value changes when using the arrows. Must match the `Value` type. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
