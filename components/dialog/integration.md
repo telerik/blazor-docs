@@ -51,7 +51,7 @@ To integrate the Checkbox in the Dialog:
 
 ## Filter in a Dialog
 
-**To integrate the Filter in the Dialog, you can:**
+To integrate the Filter in the Dialog:
 
 1. Include the [Telerik Filter]({%slug filter-overview%}) as `DialogContent`.
 1. Set the [`Value` parameter]({%slug filter-overview%}#filter-parameters) of the Filter via one-way binding.
