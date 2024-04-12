@@ -25,7 +25,7 @@ To integrate the Checkbox in the Dialog:
 1. Set the [`Value` parameter]({%slug checkbox-overview%}#checkbox-parameters) of the Checkbox via two-way binding.
 1. Invoke the Dialog's `Refresh` method in the [`OnChange` event]({%slug checkbox-events%}#onchange) of the Checkbox.
 
->caption Use Checkbox in Dialog.
+>caption Using Checkbox in Dialog
 
 ````CSHTML
 @using Telerik.DataSource
