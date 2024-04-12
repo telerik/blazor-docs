@@ -19,7 +19,7 @@ This article contains the following examples:
 
 ## Checkbox in a Dialog
 
-**To integrate the Checkbox in the Dialog, you can:**
+To integrate the Checkbox in the Dialog:
 
 1. Include the [Telerik Checkbox]({%slug checkbox-overview%}) as `DialogContent`.
 1. Set the [`Value` parameter]({%slug checkbox-overview%}#checkbox-parameters) of the Checkbox via two-way binding.
