@@ -21,7 +21,7 @@ In this article:
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 | `ColumnWidth` | `decimal` | The width of each time column in pixels.
-| `NumberOfDays` | `int` <br/> `1` | How many days will be shown side by side in the view.
+| `NumberOfDays` | `int` <br/> `1` | How many days to show side by side in the view.
 
 @[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 
