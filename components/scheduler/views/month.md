@@ -14,19 +14,27 @@ The Month view of the Scheduler for Blazor shows an entire month to the user.
 
 The `Date` parameter of the Scheduler controls which month is displayed. It's the one containing the date.
 
-Each day slot shows up to two appointments. If there are more appointments for a day, an ellipsis button will provide access to the DayView for the specific day. This avoids cluttering. You can also access the day view from the day number. Of course, you must also [define a day view]({%slug scheduler-views-day%}) so the user can see it.
-
-Here is how the Scheduler determines which two appointments to display in a month view slot:
-
-1. The Scheduler sorts all appointments in the current month by start date (ascending) and then by end date (descending).
-1. It takes the first two appointments for each day from the sorted collection.
-1. The component sorts the two appointments for each day by start time (ascending) and then by end time (descending).
 
 In this article:
 
+* [SchedulerMonthView Parameters](#schedulermonthview-parameters)
 * [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-month-view)
 
+## SchedulerMonthView Parameters
+
+The following parameters allow you to configure the SchedulerMonthView:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `ItemsPerSlot` | `int` <br /> (`2`) | Indicates the number of appointments that can be displayed per day. |
+
+
+If there are more appointments for a day than set in the `ItemsPerSlot` parameter, an ellipsis button will provide access to the DayView for the specific day. You must [define a day view]({%slug scheduler-views-day%}) so the user can see it. The Scheduler sorts and displays the number of appointments set in the `ItemsPerSlot` parameter for each day by start time (ascending) and then by end time (descending).
+
+If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOfRangeException` will be thrown.
 
 ## Example
 
@@ -35,21 +43,23 @@ In this article:
 >tip You can declare other views as well, this example adds only the month and day views for brevity.
 
 ````CSHTML
-@* Define the month view. The screenshot above is the result from this code snippet
-    This example also shows how to add a day view so the user can see details for busy days with more than 2 events*@
-
-<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@selectedView" Height="600px">
+<TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@SelectedView" Height="600px">
     <SchedulerViews>
-        <SchedulerMonthView />
-        <SchedulerDayView StartTime="@( new DateTime(2000, 1, 1, 8, 0, 0) )" />
+        <SchedulerMonthView ItemsPerSlot="@ItemsPerSlot"/>
+        <SchedulerDayView StartTime="@StartTime" />
     </SchedulerViews>
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
-    SchedulerView selectedView { get; set; } = SchedulerView.Month;
+    private DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
 
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private DateTime StartTime { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+
+    private SchedulerView SelectedView { get; set; } = SchedulerView.Month;
+
+    private int ItemsPerSlot = 5;
+
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
@@ -61,10 +71,34 @@ In this article:
 
             new SchedulerAppointment
             {
-                Title = "Dentist Appointment",
-                Description = "Get that cavity fixed.",
+                Title = "Interview with new recruit",
+                Description = "See if John will be a suitable match for our team.",
                 Start = new DateTime(2019, 12, 5, 13, 00, 0),
                 End = new DateTime(2019, 12, 5, 13, 30, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Zoom call",
+                Description = "Everyone assemble! We will also have clients on the call from a later time zone.",
+                Start = new DateTime(2019, 12, 5, 14, 00, 0),
+                End = new DateTime(2019, 12, 5, 14, 30, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Performance review",
+                Description = "Performance evaluation of the new recruit.",
+                Start = new DateTime(2019, 12, 5, 14, 30, 0),
+                End = new DateTime(2019, 12, 5, 15, 45, 0)
+            },
+
+            new SchedulerAppointment
+            {
+                Title = "Dentist Appointment",
+                Description = "Get that cavity fixed.",
+                Start = new DateTime(2019, 12, 5, 16, 00, 0),
+                End = new DateTime(2019, 12, 5, 17, 30, 0)
             },
 
             new SchedulerAppointment
@@ -89,7 +123,7 @@ In this article:
                 Description = "An unforgettable holiday!",
                 IsAllDay = true,
                 Start = new DateTime(2019, 11, 27),
-                End = new DateTime(2019, 12, 05)
+                End = new DateTime(2019, 12, 4)
             }
     };
 
@@ -103,6 +137,7 @@ In this article:
     }
 }
 ````
+
 ## Resource Grouping in the Month View
 
 You can configure the Month view to display appointments that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
