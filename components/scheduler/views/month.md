@@ -29,12 +29,12 @@ The following parameters allow you to configure the month view:
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `ItemsPerSlot` | `int` <br /> (`2`) | Indicates the number of appointments that can be displayed per day. |
+| `ItemsPerSlot` | `int` <br /> (`2`) | Indicates the number of appointments that are displayed per day. |
 
 
-If there are more appointments for a day than per the `ItemsPerSlot` parameter, an ellipsis button will provide access to the DayView for the specific day. You must [define a day view]({%slug scheduler-views-day%}) so the user can see it. The Scheduler sorts and displays the number of appointments per the `ItemsPerSlot` parameter, by start time (ascending) and then by end time (descending).
+If there are more appointments for a day than per the `ItemsPerSlot` parameter, an ellipsis button provides access to the DayView for the specific day. You must [define a day view]({%slug scheduler-views-day%}) so the user can see it. The Scheduler sorts and displays the number of appointments per the `ItemsPerSlot` parameter, by start time (ascending) and then by end time (descending).
 
-If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOfRangeException` will be thrown.
+If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOfRangeException` is thrown.
 
 ## Example
 
