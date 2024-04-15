@@ -118,7 +118,7 @@ To show any items, the Blazor PanelBar requires a data source that you can provi
 
 Each item in the PanelBar consists of a `Header` and `Content`. The image below illustrates the concept.
 
-The `Header` contains the Text of the correponding data item (model). The `Content` represents the items in the hierarchy that do not have children.
+The `Header` contains the Text of the corresponding data item (model). The `Content` represents the items in the hierarchy that do not have children.
 
 ![panelbar parts](images/panelbar-parts-overview.png)
 

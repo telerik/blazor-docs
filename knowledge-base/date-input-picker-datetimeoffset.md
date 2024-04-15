@@ -76,7 +76,7 @@ You can find some examples of working with `DateTime` and `DateTimeOffset` objec
 
 ### TelerikDatePicker
 
-The TelerikDatePicker component has no time portion and thus using time offsets is not relevant to such UI. Thus, it requires a `DateTime` field. It sets the time to `00:00` hours when choosing a date from it, and you must take that into account when calculating the offset and `DateTimeOffset` object, even when usung the `.Date` or `.DateTime` field of the `DateTimeOffset` object.
+The TelerikDatePicker component has no time portion and thus using time offsets is not relevant to such UI. Thus, it requires a `DateTime` field. It sets the time to `00:00` hours when choosing a date from it, and you must take that into account when calculating the offset and `DateTimeOffset` object, even when using the `.Date` or `.DateTime` field of the `DateTimeOffset` object.
 
 The example below shows how you can use the ValueChanged event of the TelerikDatePicker to apply the time portion so that the offset does not alter the dates. While this prevents you from using two-way binding (`@bind-Value`), it will still update the view-model at the same time. You can, of course, use any other suitable logic for your scenario (including creating a separate `DateTime` field in the view-model).
 

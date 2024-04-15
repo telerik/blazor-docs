@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to format numbers and detes in the exported CSV file. For example, set specific currency format. How to achieve this?
+I want to format numbers and dates in the exported CSV file. For example, set specific currency format. How to achieve this?
 
 ## Solution
 
@@ -35,7 +35,7 @@ You can copy the bytes from this stream and import them in a [`RadSpreadProcessi
 
 To format numeric and date cells of the exported file before it reaches the client, do the following:
 
-1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import, so you can then access tha data of the exported CSV file and modify its format.
+1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import, so you can then access the data of the exported CSV file and modify its format.
 
 1. Handle the [OnAfterExport]({%slug grid-export-events%}#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 

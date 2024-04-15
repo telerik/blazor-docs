@@ -61,4 +61,4 @@ Images used as icons should generally be small enough to fit in a line of text. 
 
 ## See Also
 
-* [Button Overview]({%slug components/button/overview%})
+* [Telerik UI for Blazor Button Overview]({%slug components/button/overview%})

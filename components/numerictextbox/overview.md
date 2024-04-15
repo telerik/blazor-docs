@@ -92,12 +92,14 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Max` | `TValue`* <br /> (`T.MaxValue`) | The maximum value the input can accept. Must match the `Value` type. |
 | `Min` | `TValue`* <br /> (`T.MinValue`) | The minimum value the input can accept. Must match the `Value` type. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
+
+| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `SelectOnFocus` | `bool` | When set to `true`, the NumericTextBox will select its value when the component receives focus. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `Step` | `TValue`* <br /> (`1`) | The decimal value with which the component value changes when using the arrows. Must match the `Value` type. |
-| `Value` | `TValue`* | The component value. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
-| `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
+| `Value` | `TValue`* | The component value. |
 
 \* `TValue` can be [any numeric type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), except `nint` and `nuint`. Note that all `TValue` parameters must be of the same type.
 
@@ -139,7 +141,7 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 
 ## Notes
 
-* If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimalr separators (more on [globalization in the Telerik components]({%slug globalization-overview%})).
+* If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimal separators (more on [globalization in the Telerik components]({%slug globalization-overview%})).
 
 * You may want to match the decimal places available in the `Format` and in the `Decimals` parameters. This will unify the rounding of the numbers when the input is focused and when it is not. For example, if you start with a value `12.3m` and `Step=0.1m` it will render as `12.3` due to the `Math.Round()` behavior in .NET. Changing the value with the spinner icons up and then down will result in `12.30` because the value had had a second decimal digit at some point and that precision is added to the number already.
 

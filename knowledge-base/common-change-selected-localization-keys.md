@@ -42,6 +42,9 @@ To localize selected keys with custom strings:
     * [Getting Started with server-side Blazor](/blazor-ui/getting-started/server-blazor)
 2. Create a `Services` folder and implement the Telerik localization service with a list of all needed localization keys and their corresponding custom strings. The service also relies on a `~/Resources` folder with the necessary `.resx` files. You can find an up-to-date list of the used strings in the [Blazor API documentation](/blazor-ui/api/Telerik.Blazor.Resources.Messages) and the [offline version](https://www.telerik.com/account/my-downloads) of the [Blazor Demo solution](https://demos.telerik.com/blazor-ui). Telerik updates the main `TelerikMessages.resx` file (in English) with each new release.
     >caption ResxLocalizer.cs
+    
+    <div class="skip-repl"></div>
+
     ````CSHTML
     using Telerik.Blazor.Services;
 
@@ -79,6 +82,9 @@ To localize selected keys with custom strings:
     ````
 3. Modify the `Program.cs` file and register the custom localizer.
     >caption Program.cs
+
+    <div class="skip-repl"></div>
+
     ````CSHTML
     var builder = WebApplication.CreateBuilder(args);
 
@@ -125,6 +131,9 @@ To localize selected keys with custom strings:
     * Mark the `.resx` files as `Embedded Resource` (right click > Properties > Build Action).
     * Have the following in your `ProjectName.csproj` file so the designer file is generated. It should be added when you add the main messages file, or when you open and save it. Copy the snippet in case it is not added. If the Designer file does not get generated, open the `.resx` file in Visual Studio and toggle its `Access Modifier` to `Public`.
     >caption XML
+
+    <div class="skip-repl"></div>
+
     ````CSHTML
     <ItemGroup>
         <Compile Update="Resources\TelerikMessages.designer.cs">
@@ -142,6 +151,6 @@ To localize selected keys with custom strings:
     </ItemGroup>
     ````
 
-# See Also
+## See Also
 
 * [Localization]({%slug globalization-localization%})

@@ -1,16 +1,16 @@
 ---
 title: Overview
-page_title: Date Picker Overview
-description: Learn more about the Date Picker component for Blazor by checking the examples and its key features.
+page_title: DatePicker Overview
+description: The Blazor DatePicker enables easy date selection in web applications with an interactive date input interface.
 slug: components/datepicker/overview
 tags: telerik,blazor,date,picker,datepicker,overview
 published: True
 position: 0
 ---
 
-# Blazor Date Picker Overview
+# Blazor DatePicker Overview
 
-The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual Gregorian [calendar]({%slug components/calendar/overview%}) or type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the date format of the input, how the user navigates through the calendar, and which dates the user cannot select.
+The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazor Date Picker component</a> allows the user to choose a date from a visual Gregorian [Telerik UI for Blazor Calendar]({%slug components/calendar/overview%}) or type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the date format of the input, how the user navigates through the calendar, and which dates the user cannot select.
 
 
 ## Creating Blazor Date Picker
@@ -41,7 +41,7 @@ The selected date is: @datePickerValue.ToShortDateString()
 
 ## Date Input Typing Settings
 
-The DatePicker
+The Blazor DatePicker
 @[template](/_contentTemplates/date-inputs/general.md#dateinput-typing-settings)
 DatePicker.
 
@@ -59,7 +59,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Header Template
 
-The DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
+The Blazor DatePicker allows you to customize the rendering of the Calendar popup header. Learn more from the [Header Template article]({%slug datepicker-header-template%}).
 
 ## Adaptive Rendering
 
@@ -89,12 +89,13 @@ The Blazor Date Picker provides various parameters that allow you to configure t
 | `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`)| The latest date that the user can select. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`)| The earliest date that the user can select. |
 | `Placeholder` | `string` | Maps to the `placeholder` attribute of the HTML element. The `Placeholder` will appear if the component is bound to a **nullable** DateTime object - `DateTime?`. It will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
+| `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
 | `ValidateOn` |`ValidationEvent` enum <br/> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
 | `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
-| `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 
 The Date Picker is, essentially, a [DateInput]({%slug components/dateinput/overview%}) and a [Calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.
 
@@ -102,7 +103,7 @@ The Date Picker is, essentially, a [DateInput]({%slug components/dateinput/overv
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the Blazor Date Picker:
+The following parameters enable you to customize the appearance of the Blazor DatePicker:
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
@@ -128,7 +129,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 | `Open` | Opens the Calendar popup. |
 | `Refresh` | Re-renders the Calendar popup. |
 
->caption Using DatePicker methods
+>caption Using Blazor DatePicker methods
 
 ````CSHTML
 <TelerikDatePicker @ref="@DatePickerRef"

@@ -1079,7 +1079,7 @@ using System.Threading.Tasks;
 
 ### Between Different TreeViews
 
-When you drap and drop items from one instance of the TreeView to another, the `OnDrop` event fires for the TreeView where the item originally was.
+When you drag and drop items from one instance of the TreeView to another, the `OnDrop` event fires for the TreeView where the item originally was.
 
 <div class="skip-repl"></div>
 ````Component

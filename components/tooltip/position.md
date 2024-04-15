@@ -22,7 +22,7 @@ You can control it through the `Position` parameter, which takes a member of the
 
 ![tooltip positions](images/tooltip-positions.png)
 
->caption Exlore the possible tooltip positions
+>caption Explore the possible tooltip positions
 
 ````CSHTML
 @* Setting a position is not mandatory, it defaults to Top *@
@@ -59,5 +59,5 @@ You can control it through the `Position` parameter, which takes a member of the
 
 ## See Also
 
-* [Tooltip Overview]({%slug tooltip-overview%})
+* [Blazor Tooltip Overview]({%slug tooltip-overview%})
 * [Live Demo: Tooltip Position](https://demos.telerik.com/blazor-ui/tooltip/position)

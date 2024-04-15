@@ -89,7 +89,7 @@ The scale of the linear gauge renders the values, pointers and labels. You can c
 
 ## Mirror
 
-If you set the `Mirror` (`bool`) parameter to `true` the scale will render the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale for a verical gauge and to the botton if the gauge is [horizontal](#reverse).
+If you set the `Mirror` (`bool`) parameter to `true` the scale will render the labels and the unit divisions to the right of the scale. By default the labels and unit divisions are rendered to the left side of the scale for a vertical gauge and to the bottom if the gauge is [horizontal](#reverse).
 
 >caption Render the labels and the ticks of the scale to the right. The result from the code snippet below
 

@@ -277,6 +277,10 @@ The following example demonstrates how the Grid can edit, filter, and group null
 <div class="skip-repl"></div>
 
 ````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+@using System.Dynamic
+
 <TelerikToolBar>
     <ToolBarButtonGroup>
         <ToolBarToggleButton Selected="@( GridFilterMode == GridFilterMode.FilterRow )"

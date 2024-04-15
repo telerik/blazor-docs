@@ -40,7 +40,7 @@ The Blazor Gantt Command Column provides various parameters to configure the com
 | `ShowInEdit` | Defines if the button is visible only when the user is editing or inserting data. |
 | `ChildContent` | The text of the button. You can also place it between the command button's opening and closing tags. |
 
-See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Button Component features]({%slug components/button/overview%}).
+See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Telerik UI for Blazor Button Component features]({%slug components/button/overview%}).
 
 ### Built-in Commands
 

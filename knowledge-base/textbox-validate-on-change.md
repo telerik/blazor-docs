@@ -25,7 +25,7 @@ res_type: kb
 
 Why does the TelerikTextBox activate the `<ValidationSummary />` while typing in the field?
 
-Is there a way to disable this behaviour?
+Is there a way to disable this behavior?
 
 ## Description
 
@@ -49,11 +49,11 @@ Perhaps a parameter could be exposed that prevents this, something like `Validat
 
 A way to change the default behavior would be to:
 
-1. Remove the two-way bindig (`@bind-Value` -> `Value`),
+1. Remove the two-way binding (`@bind-Value` -> `Value`),
 1. use the `OnChange` event of the Telerik component to alter the model value,
 1. re-validate the form by using an `EditContext` object.
 
->caption Fire Validataion on Blur and Enter with Telerik Textbox
+>caption Fire Validation on Blur and Enter with Telerik Textbox
 
 ```CSHTML
 @using System.ComponentModel.DataAnnotations

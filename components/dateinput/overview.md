@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateInput Overview
 
-The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hin the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
+The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hint the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
 
 
 ## Creating Blazor DateInput
@@ -101,6 +101,7 @@ The following section lists some Date Input parameters and links to other pages 
 | `Max` | `DateTime` <br /> (`new DateTime(2099, 12, 31)`)| The latest allowed date that the user can type. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1)`)| The earliest allowed date that the user can type. |
 | `Placeholder` | `string` | The [`placeholder` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder) of the `input`. The placeholder will appear only if the component is bound to nullable `DateTime?` object, the `Value` is `null` and the component is not focused. Once the user focuses it to start typing, the `FormatPlaceholder` (default or [custom one](#format-placeholder)) will override the `Placeholder` to indicate the expected date format. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. Use it to control the tabbing order of the inputs on the page. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
 | `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler]({%slug components/dateinput/events%}#valuechanged). |

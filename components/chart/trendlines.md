@@ -212,7 +212,7 @@ Use the Linear Trendline to visualize the rise or decline of a specific quantity
 
 ### Moving Average Trendline
 
-Use the Moving Average Trendline to smoothen out data fluctuations. This trendline computes and visualizes an average of all data points over a specified period. By default, this period is set to two chart intervals.
+Use the Moving Average Trendline to smooth out data fluctuations. This trendline computes and visualizes an average of all data points over a specified period. By default, this period is set to two chart intervals.
 
 >caption Line Chart with a moving average trendline
 

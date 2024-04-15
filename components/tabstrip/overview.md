@@ -42,7 +42,7 @@ By default, the initially selected tab is the first one. You can programmaticall
 
 ## Tabs Configuration
 
-The Tabs are the building blocks of the TabStrip. The component allows individual configuration of the declared `<TabStripTab>` tags - you can set their title and visibiity or put them in disabled state. [Read more about the available Tabs configuration options...]({%slug tabstrip-tabs-configuration%})
+The Tabs are the building blocks of the TabStrip. The component allows individual configuration of the declared `<TabStripTab>` tags - you can set their title and visibility or put them in disabled state. [Read more about the available Tabs configuration options...]({%slug tabstrip-tabs-configuration%})
 
 ## Position of the Tabs
 
@@ -54,7 +54,7 @@ The Blazor TabStrip component can persist the content of the tabs. When the user
 
 ## Scrollable Tabs
 
-The Blazor TabStrip allows you to scroll only its tabs. This is useful for scenarious where a lot of tabs are defined. [Read more about the Scrollable Tabs...]({%slug tabstrip-scroll-tabs%})
+The Blazor TabStrip allows you to scroll only its tabs. This is useful for scenarios where a lot of tabs are defined. [Read more about the Scrollable Tabs...]({%slug tabstrip-scroll-tabs%})
 
 ## Events
 

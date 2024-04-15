@@ -120,7 +120,7 @@ The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank
 
 ### DownColor
 
-Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField` is greater than the `CloseField` by setting the `DownColor` property of the `ChartSeries`. This can be passed throught the data model and bound to the `DownColorField`.
+Set the color - a valid CSS, RGB, RGBA color - of the series when the `OpenField` is greater than the `CloseField` by setting the `DownColor` property of the `ChartSeries`. This can be passed through the data model and bound to the `DownColorField`.
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#color-field-column-ohlc-candlestick)
 

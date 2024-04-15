@@ -209,11 +209,11 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
 }
 ````
 
->caption The result from the snippet above, asuming the current page URL is `/counter`
+>caption The result from the snippet above, assuming the current page URL is `/counter`
 
 ![Blazor Menu Template Distinguish Item](images/menu-template-distinguish-item.png)
 
 ## See Also
 
 * [Data Binding a Menu]({%slug components/menu/data-binding/overview%})
-* [Live Demo: Menu Temlate](https://demos.telerik.com/blazor-ui/menu/template)
+* [Live Demo: Menu Template](https://demos.telerik.com/blazor-ui/menu/template)

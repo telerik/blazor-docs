@@ -15,11 +15,11 @@ The ButtonGroup component supports two types of buttons that have different beha
 * [`ButtonGroupToggleButton`](#buttongroup-togglebutton)
 * [`ButtonGroupButton`](#buttongroup-button)
 
-You can add the desired button instances by declaring the dedicated button tags. Additionally, you can individually confire their [appearance]({%slug buttongroup-appearance%}), [enabled/disabled state](#disabled-state) and [visibility](#visibility) through the paramaters each button tag exposes.
+You can add the desired button instances by declaring the dedicated button tags. Additionally, you can individually configure their [appearance]({%slug buttongroup-appearance%}), [enabled/disabled state](#disabled-state) and [visibility](#visibility) through the parameters each button tag exposes.
 
 ## ButtonGroup ToggleButton
 
-The `ButtonGroupToggleButton` becomes selected when clicked and de-selects when another one is clicked. If multiple selection is enabled, the user can select more than one `ButtonGroupToggleButton` at a time. Clicking on a selected button in this case will de-select it. Read more in the [Selection]({%slug buttongroup-selection%}) article.
+The `ButtonGroupToggleButton` becomes selected when clicked and deselects when another one is clicked. If multiple selection is enabled, the user can select more than one `ButtonGroupToggleButton` at a time. Clicking on a selected button in this case will deselect it. Read more in the [Selection]({%slug buttongroup-selection%}) article.
 
 The `ButtonGroupToggleButton` inherits the parameters and behavior of the [`TelerikToggleButton`]({%slug togglebutton-overview%}) component.
 
@@ -27,7 +27,7 @@ The `ButtonGroupToggleButton` inherits the parameters and behavior of the [`Tele
 
 The `ButtonGroupButton` does not change its visual state when clicked. It behaves as a regular button and does not support selection.
 
-The `ButtonGroupButton` iherits the parameters and behavior of the [`TelerikButton`]({%slug components/button/overview%}) component.
+The `ButtonGroupButton` inherits the parameters and behavior of the [Telerik UI for Blazor Button]({%slug components/button/overview%}) component.
 
 ## Disabled State
 

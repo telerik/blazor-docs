@@ -76,9 +76,10 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Name` | `string` | The `name` attribute of the `input`. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. |
-| `Title` | `string` | The `title` attribute of `input`. Use it to add a [tooltip]({%slug tooltip-overview%}). |
+| `Title` | `string` | The `title` attribute of `input`. Use it to add a [Blazor Tooltip]({%slug tooltip-overview%}). |
 | `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
 | `Value` | `string` | The value of the component. Supports two-way binding. |
 
@@ -131,7 +132,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 * **ZIP code** - Uses rules for numbers.
 
-* **ZIP+4 code** - Riteral for the dash between the rules for numbers.
+* **ZIP+4 code** - Literal for the dash between the rules for numbers.
 
 * **percentage** - Rules for numbers with a literal for the decimal separator taken from the current culture and a literal for the percentage sign. The example also shows how you can parse that to a `double` value.
 

@@ -77,7 +77,7 @@ Pie series
 
 ### Rotation
 
-By default, the firt segment starts at the top. You can change that by using the `StartAngle` property of the series.
+By default, the first segment starts at the top. You can change that by using the `StartAngle` property of the series.
 
 ### Color Field
 

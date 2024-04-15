@@ -1,7 +1,7 @@
 ---
 title: Predefined Dialogs
-page_title: Predefined Dialogs - Alert, Confirm, Prompt
-description: Predefined Dialogs (alert, confirm, prompt) for Blazor.
+page_title: Dialogs - Alert, Confirm, Prompt
+description: Predefined dialogs for Blazor - popup message, alert, confirm, and prompt. Explore the Telerik UI documentation.
 slug: dialog-predefined
 tags: telerik,blazor,dialog,predefined,alert,confirm,prompt
 published: true
@@ -10,9 +10,9 @@ position: 2
 
 # Predefined Dialogs - Alert, Confirm, Prompt
 
-Telerik UI for Blazor provides styled substitutes to the standard confirm, alert and prompt dialogs. They match the Theme of the components to make it obvious to the user that the modal dialog is coming from your application.
+Telerik UI for Blazor provides styled substitutes to the standard confirm, alert, and prompt dialogs. These Blazor popup messages match the Theme of the components to make it obvious to the user that the modal dialog is coming from your application.
 
-To use these dialogs, receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. It exposes the methods you can use in your method calls.
+To use these dialogs (popup messages), receive a cascading parameter of type `Telerik.Blazor.DialogFactory`. It exposes the methods you can use in your method calls.
 
 <div class="skip-repl"></div>
 
@@ -31,7 +31,7 @@ There are three available ready-made dialogs:
 
 ## Alert
 
-The alert dialog usually shows the user that something went wrong, such as a major error that requires their attention and blocks the UI, as opposed to a [notification]({%slug notification-overview%}) that is not modal and is small.
+The alert dialog is a Blazor popup message. It shows the user that something went wrong, such as a major error that requires their attention and blocks the UI, as opposed to a [notification]({%slug notification-overview%}) that is not modal and is small.
 
 >caption Use an Alert dialog
 
@@ -128,7 +128,7 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 >caption Use a Prompt dialog
 
 ````CSHTML
-@* Use Prompt dialogs, monitor the console for when and how the code continues *@
+@* Use Prompt as Blazor popup message, monitor the console for when and how the code continues *@
 
 <TelerikButton OnClick="@ShowPrompt">Show Prompt</TelerikButton>
 <TelerikButton OnClick="@ShowPromptWithTitle">Show Prompt with Custom Title</TelerikButton>

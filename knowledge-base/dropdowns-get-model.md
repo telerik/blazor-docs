@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>DropDownList for Blazor, ComboBox for Blazor, AutoCopmlete for Blazor, MultiSelect for Blazor</td>
+			<td>DropDownList for Blazor, ComboBox for Blazor, AutoComplete for Blazor, MultiSelect for Blazor</td>
 		</tr>
 	</tbody>
 </table>
@@ -320,4 +320,4 @@ The example below copies the Telerik DropDownList rendering and uses a grid to p
 }
 ````
 
->tip You may want to Vote for and Follow the implementation of a ready-made Telerik component that will let you pust custom content in the dropdown [here](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
+>tip You may want to vote for and follow the implementation of a ready-made Telerik component that will let you nest custom content in the dropdown [here](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).

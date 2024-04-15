@@ -1,6 +1,6 @@
 ---
-title: NuGet Feed
-page_title: Troubleshooting NuGet Feed Issues
+title: NuGet Source
+page_title: Troubleshooting Telerik NuGet Feed Issues
 description: Learn how to handle various issues that may occur when you work with the Telerik UI for Blazor library and the NuGet installation approach.
 slug: troubleshooting-nuget
 tags: telerik, nuget, blazor, ui, troubleshooting, installation
@@ -8,9 +8,9 @@ published: True
 position: 7
 ---
 
-# NuGet Feed Troubleshooting
+# Telerik NuGet Feed Troubleshooting
 
-This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the [online Telerik private NuGet feed]({%slug installation/nuget%}), and their solutions.
+This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the online [Telerik NuGet feed]({%slug installation/nuget%}), and their solutions.
 
 Regardless of the cause for the issue, it is recommended that you start from the section on the commonly occurring issues.
 

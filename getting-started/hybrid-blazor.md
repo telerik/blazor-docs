@@ -1,11 +1,11 @@
 ---
 title: Blazor Hybrid with .NET MAUI
-page_title: First Steps with Blazor Hybrid
+page_title: First Steps with Blazor Hybrid Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build a .NET MAUI Blazor Hybrid app that runs the UI for Blazor components.
 slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
-position: 5
+position: 15
 ---
 
 # First Steps with Blazor Hybrid
@@ -39,7 +39,7 @@ To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` packag
 
 To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#adding-the-client-assets). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
-You can add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#using-static-assets) or reference them from a [cloud CDN]({%slug getting-started/what-you-need%}#using-cdn).
+You can add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#using-static-assets).
 
 ### 3. Include @using Statements 
 
@@ -52,13 +52,13 @@ You can set the project to recognize all Telerik components without explicit `@u
 ````CSHTML
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
-@using Telerik.FontIcons
 @using Telerik.SvgIcons
+@using Telerik.FontIcons
 ````
 
 ### 4. Add the TelerikRootComponent
 
-Add a [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
+Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
 
 * `Shared/MainLayout.razor` for MAUI apps
 * `Main.razor` for WPF and WinForms apps
@@ -124,3 +124,11 @@ Refer to the following articles for more information on each technology stack:
 ## Next Steps
 
 * [Explore the specifics of Telerik UI for Blazor in native MAUI]({%slug hybrid-blazor-apps%})
+
+## See Also
+
+* [Workflow Details for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
+* [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
+* [First Steps with Blazor Web App]({%slug getting-started/web-app%})
+* [First Steps with Blazor Server]({%slug getting-started/server-side%})
+* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})

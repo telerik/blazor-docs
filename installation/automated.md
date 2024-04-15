@@ -13,14 +13,12 @@ position: 3
 
 This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
-While the most common way to install the Telerik UI for Blazor components is to use the [Telerik private NuGet feed]({%slug installation/nuget%}), you can also use a wizard installer, or a [zip archive]({%slug installation/zip%}).
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed]({%slug installation/nuget%}). However, you can also use a wizard installer, or a [ZIP archive]({%slug installation/zip%}).
 
 There is an automated installer for:
 
 * Windows (`.msi`)
-
 * MacOS (`.pkg`)
-
 * Linux (`.sh` + `.tar.gz`). Pass `-s <path to the archive>` when running the script. Other arguments are `-d` for the location where the archive will be extracted (defaults to `${HOME}/telerik-blazor"`) and `-SkipNETCoreInstall` to skip the installation of .NET Core (note that the framework is required).
 
 The automated installer provides the following:
@@ -29,9 +27,7 @@ The automated installer provides the following:
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui/) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 * The [document processing]({%slug common-features-dpl%}) `.nupkg` files (in the `dpl` folder).
 * A shortcut to our [online demos](https://demos.telerik.com/blazor-ui/).
-* Our [Visual Studio Extensions]({%slug getting-started-vs-integration-overview%}).
-    * We also have [extensions for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can install them from its own marketplace (<a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">direct link</a>).
-
+* Our [Visual Studio extension]({%slug getting-started-vs-integration-overview%}). We also have an [extension for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">install it from the VS Code marketplace</a>.
 
 
 ## How to Download the Automated Installer

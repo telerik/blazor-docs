@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateRange Picker Component Overview
 
-The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank">Blazor DateRange Picker component</a> allows the user to select a date range (start and end date) - both from a visual list ([calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, and dates the user cannot select, as well as implement validation and respond to events.
+The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank">Blazor DateRange Picker component</a> allows the user to select a date range (start and end date) - both from a visual list ([Telerik UI for Blazor Calendar]({%slug components/calendar/overview%})) or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only dates. You can control the format shown in the input, and dates the user cannot select, as well as implement validation and respond to events.
 
 ## Creating Blazor Date Range Picker
 
@@ -88,10 +88,11 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `Min` | `DateTime`  <br /> (`DateTime(1900, 1, 1)`)| The earliest date that the user can select. |
 | `Orientation` | `CalendarOrientation`enum <br /> (`Horizontal`) | The orientation of the calendar popup. The available options are `Horizontal` and `Vertical`. |
 | `Placeholder` |`string` | The `placeholder` attribute of the two `<input />` elements. The `Placeholder` will appear if the component is bound to **nullable** DateTime objects - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime objects. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
+| `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
+| `ShowWeekNumbers` | `bool` | Sets if the popup Calendars will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
 | `TabIndex` | `int?` | The `tabindex` attribute of both `input` HTML elements in the component. They both will have the same `tabindex`. Use it to customize the tabbing (focus) order of the inputs on your page. |
 | `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
-| `ShowWeekNumbers` | `bool` | Sets if the popup Calendars will display week numbers, according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `View` | ` CalendarView` enum <br/> (`Month`) | The current view that will be displayed in the popup calendar. |
 
 The date range picker is, essentially, two [DateInputs]({%slug components/dateinput/overview%}) and a [Calendar]({%slug components/calendar/overview%}) and the properties it exposes are mapped to the corresponding properties of these two components. You can read more about their behavior in the respective components' documentation.

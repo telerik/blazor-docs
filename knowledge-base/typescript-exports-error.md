@@ -93,7 +93,7 @@ you will get an error similar to
 
 ## Possible Cause
 
-The cause for the first error is that TypeScript, by default, produces JavaScript code that is designed for use through various package managers that cater to the `exports` and `modules`. Such tools are usully `Node.js` or `WebPack`. Thus, the very first meaninful line of code (`Object.defineProperty(exports, "__esModule", { value: true });`) relies on the presence of the `exports` object in the current (or global) scope. By default, that's not available in Blazor.
+The cause for the first error is that TypeScript, by default, produces JavaScript code that is designed for use through various package managers that cater to the `exports` and `modules`. Such tools are usually `Node.js` or `WebPack`. Thus, the very first meaningful line of code (`Object.defineProperty(exports, "__esModule", { value: true });`) relies on the presence of the `exports` object in the current (or global) scope. By default, that's not available in Blazor.
 
 The cause for the second error is that the override of the commonly used `exports` object affects the JS Interop code used by the Telerik components and can also harm other code that relies on this object - its name is used by convention and can impact various packages.
 

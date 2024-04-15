@@ -133,7 +133,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 
 ### Dialog Component
 
-Using the [Dialog component]({%slug dialog-overview%}) will let you have fully cusomized Delete Confirmation Dialog. To handle the scenario:
+Using the [Dialog component]({%slug dialog-overview%}) will let you have fully customized Delete Confirmation Dialog. To handle the scenario:
 
 * Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least two buttons - for confirmation and cancelling the delete operation.
 * Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid to cancel the built-in delete, show the custom Dialog and get the current item (save the current item, so you can then use its details in the dialog if needed).

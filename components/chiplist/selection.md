@@ -67,7 +67,7 @@ Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event
 
 ## Two way Binding
 
-When you use the `@bind-SelectedItems` syntx, the ChipList will automatically update the `SelectedItems` collection when the user change the selection.
+When you use the `@bind-SelectedItems` syntax, the ChipList will automatically update the `SelectedItems` collection when the user change the selection.
 
 ````CSHTML
 <TelerikChipList Data="@ChipListSource"

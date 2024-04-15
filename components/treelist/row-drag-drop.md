@@ -281,7 +281,7 @@ public class Employee
 
 ### Drag and Drop a Row between TreeLists
 
-When you drap and drop items from one instance of the TreeList to another, the `OnRowDrop` event fires for both instances of the component so you can update both their data sources. All instances must be bound to the same model.
+When you drag and drop items from one instance of the TreeList to another, the `OnRowDrop` event fires for both instances of the component so you can update both their data sources. All instances must be bound to the same model.
 
 <div class="skip-repl"></div>
 ````Component

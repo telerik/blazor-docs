@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Map Overview
-description: Discover the Blazor Map and explore the examples.
+description: The Blazor maps are interactive web maps using the Blazor framework, which seamlessly integrate C# and NET.
 slug: components/map/overview
 tags: telerik,blazor,map,overview
 published: True
@@ -50,7 +50,7 @@ The component provides [tile layers]({%slug components/map/layers/tile%}), [shap
 
 ## Layers
 
-Tha layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...]({%slug components/map/layers%})
+The layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...]({%slug components/map/layers%})
 
 ## Markers
 
@@ -64,7 +64,7 @@ The end user can pan the control by simply holding the left mouse button and dra
 
 Raster maps are divided into images (tiles) for serving over the web. Tiles are typically 256px squares. The top level (zoom level 0) displays the whole world as a single tile. Each progressive zoom level doubles the size of the Map.
 
-Blazor Map also incorporates a navigation tool allowing the end to user to easily zoom, pan and change the current view. You can change the navigation tool position by using the `MapControlsNavigator.Position` enum.
+Blazor Map also incorporates a navigation tool allowing the end user to easily zoom, pan and change the current view. You can change the navigation tool position by using the `MapControlsNavigator.Position` enum.
 
 ## Events
 

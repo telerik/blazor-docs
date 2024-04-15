@@ -10,48 +10,86 @@ position: 15
 
 # Header Template
 
-The `<HeaderTemplate>` allows you to customize the header of the calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the calendar header area.
+The DatePicker `<HeaderTemplate>` allows you to customize the header of the Calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the Calendar header area.
 
-The example below is using a [DatePicker reference and methods]({%slug components/datepicker/overview%}#datepicker-reference-and-methods).
+The example below is using a [Blazor DatePicker reference and methods]({%slug components/datepicker/overview%}#datepicker-reference-and-methods).
 
->caption Header template with custom content in the DatePicker Calendar header
+>caption Using DatePicker header template with custom content in the Calendar header
 
 ````CSHTML
-<TelerikDatePicker @bind-Value="@PickerValue" @ref="Picker">
+<TelerikDatePicker @ref="@PickerRef"
+                   Value="@DatePickerValue"
+                   ValueChanged="@DatePickerValueChanged"
+                   T="@DateTime"
+                   Min="@PickerMin"
+                   Max="@PickerMax"
+                   Width="200px">
     <HeaderTemplate>
-
         <span>
-            <TelerikButton OnClick="@GoToPrevious" Icon="@SvgIcon.ArrowLeft" Title="Go to Previous Month"></TelerikButton>
-            <TelerikButton OnClick="@SelectToday">Today</TelerikButton>
-            <TelerikButton OnClick="@GoToNext" Icon="@SvgIcon.ArrowRight" Title="Go to Next Month"></TelerikButton>
+            <TelerikButton OnClick="@GoToPrevious"
+                           Icon="@SvgIcon.ArrowLeft"
+                           Title="Go to Previous Month"
+                           Size="@ThemeConstants.Button.Size.Small" />
+            <TelerikButton OnClick="@SelectToday" Size="@ThemeConstants.Button.Size.Small">Today</TelerikButton>
+            <TelerikButton OnClick="@GoToNext"
+                           Icon="@SvgIcon.ArrowRight"
+                           Title="Go to Next Month"
+                           Size="@ThemeConstants.Button.Size.Small"></TelerikButton>
         </span>
         <span style="padding-right: .6em;">
-            <TelerikSvgIcon Icon="@SvgIcon.ParameterDateTime" /> @ViewDate.Month / @ViewDate.Year
+            @DatePickerViewDate.ToString("MMM")
+            <TelerikNumericTextBox Value="@DatePickerViewDate.Year"
+                                   ValueChanged="@NumericTextBoxValueChanged"
+                                   T="@int"
+                                   Min="@NumericTextBoxMin"
+                                   Max="@NumericTextBoxMax"
+                                   Width="6em"
+                                   Size="@ThemeConstants.NumericTextBox.Size.Small" />
         </span>
     </HeaderTemplate>
 </TelerikDatePicker>
 
 @code {
-    TelerikDatePicker<DateTime> Picker { get; set; }
-    DateTime PickerValue { get; set; } = DateTime.Now.AddMonths(-2);
-    DateTime ViewDate { get; set; } = DateTime.Now.AddMonths(-2);
+    private TelerikDatePicker<DateTime>? PickerRef { get; set; }
 
-    void GoToPrevious()
+    private DateTime DatePickerValue { get; set; } = DateTime.Today;
+    private DateTime DatePickerViewDate { get; set; } = DateTime.Today;
+    private DateTime PickerMin { get; set; } = DateTime.Today.AddYears(-10);
+    private DateTime PickerMax { get; set; } = DateTime.Today.AddYears(10);
+
+    private int NumericTextBoxMin => PickerMin.Year;
+    private int NumericTextBoxMax => PickerMax.Year;
+
+    private void DatePickerValueChanged(DateTime newValue)
     {
-        ViewDate = ViewDate.AddMonths(-1);
-        Picker.NavigateTo(ViewDate, CalendarView.Month);
+        DatePickerValue = DatePickerViewDate = newValue;
     }
 
-    void SelectToday()
+    private void NumericTextBoxValueChanged(int newYear)
     {
-        PickerValue = DateTime.Today;
-        Picker.Close();
+        if (NumericTextBoxMin <= newYear && newYear <= NumericTextBoxMax)
+        {
+            DatePickerViewDate = new DateTime(newYear, DatePickerViewDate.Month, DatePickerViewDate.Day);
+            PickerRef?.NavigateTo(DatePickerViewDate, CalendarView.Month);
+        }
     }
 
-    void GoToNext()
+    private void GoToPrevious()
     {
-        ViewDate = ViewDate.AddMonths(1);
-        Picker.NavigateTo(ViewDate, CalendarView.Month);
+        DatePickerViewDate = DatePickerViewDate.AddMonths(-1);
+        PickerRef?.NavigateTo(DatePickerViewDate, CalendarView.Month);
+    }
+
+    private void SelectToday()
+    {
+        DatePickerValue = DateTime.Today;
+        PickerRef?.Close();
+    }
+
+    private void GoToNext()
+    {
+        DatePickerViewDate = DatePickerViewDate.AddMonths(1);
+        PickerRef?.NavigateTo(DatePickerViewDate, CalendarView.Month);
     }
 }
 ````
