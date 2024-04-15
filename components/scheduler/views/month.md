@@ -17,17 +17,17 @@ The `Date` parameter of the Scheduler controls which month is displayed. It's th
 
 In this article:
 
-* [SchedulerMonthView Parameters](#schedulermonthview-parameters)
+* [View Parameters](#view-parameters)
 * [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-month-view)
 
-## SchedulerMonthView Parameters
+## View Parameters
 
-The following parameters allow you to configure the SchedulerMonthView:
+The following parameters allow you to configure the month view:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default&nbsp;Value | Description |
+| Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `ItemsPerSlot` | `int` <br /> (`2`) | Indicates the number of appointments that can be displayed per day. |
 
@@ -43,6 +43,8 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 >tip You can declare other views as well, this example adds only the month and day views for brevity.
 
 ````CSHTML
+@* Define the month view. *@
+
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@SelectedView" Height="600px">
     <SchedulerViews>
         <SchedulerMonthView ItemsPerSlot="@ItemsPerSlot"/>

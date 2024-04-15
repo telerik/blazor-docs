@@ -16,11 +16,16 @@ The `Date` parameter of the scheduler controls which date is displayed.
 
 In this article:
 
-* [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
+* [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-day-view)
 
+@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
+
+@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Example
 
@@ -29,7 +34,7 @@ In this article:
 >tip You can declare other views as well, this example adds only the day view for brevity.
 
 ````CSHTML
-@* Define the day view. The screenshot above is the result from this code snippet *@
+@* Define the day view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
     <SchedulerViews>
@@ -38,13 +43,13 @@ In this article:
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    private DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
     //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
+    private DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
+    private DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
@@ -90,12 +95,6 @@ In this article:
     }
 }
 ````
-
-@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
-
-@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
-
-@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Resource Grouping in the Day View
 

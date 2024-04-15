@@ -16,11 +16,17 @@ The `Date` parameter of the scheduler controls which is the first rendered date,
 
 In this article:
 
-* [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
+* [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-multiday-view)
 
+@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+* `NumberOfDays` - how many days will be rendered side-by-side in the view.
+
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
+
+@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Example
 
@@ -30,7 +36,7 @@ In this article:
 
 
 ````CSHTML
-@* Define the multiday view. The screenshot above is the result from this code snippet *@
+@* Define the multiday view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
     <SchedulerViews>
@@ -39,13 +45,13 @@ In this article:
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
+    private DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
     //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
+    private DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
+    private DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
     {
             new SchedulerAppointment
             {
@@ -91,14 +97,6 @@ In this article:
     }
 }
 ````
-
-
-@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
-* `NumberOfDays` - how many days will be rendered side-by-side in the view.
-
-@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
-
-@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Resource Grouping in the MultiDay View
 

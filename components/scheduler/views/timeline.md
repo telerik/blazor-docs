@@ -14,10 +14,18 @@ The Timeline view displays appointments in a continuous horizontal direction.
 
 In this article:
 
-* [Example](#example)
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
+* [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-timeline-view)
+
+@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+| `ColumnWidth` | `decimal` | The width of each time column in pixels.
+| `NumberOfDays` | `int` <br/> `1` | How many days will be shown side by side in the view.
+
+@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
+
+@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Example
 
@@ -37,13 +45,13 @@ In this article:
 </TelerikScheduler>
 
 @code {
-    public DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
+    private DateTime StartDate { get; set; } = new DateTime(2019, 12, 2);
     //the time portions are important
-    public DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
-    public DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
-    public DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
-    public DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
-    List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
+    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 8, 0, 0);
+    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 20, 0, 0);
+    private DateTime WorkDayStart { get; set; } = new DateTime(2000, 1, 1, 9, 0, 0);
+    private DateTime WorkDayEnd { get; set; } = new DateTime(2000, 1, 1, 17, 0, 0);
+    private List<SchedulerAppointment> Appointments = new List<SchedulerAppointment>()
 {
             new SchedulerAppointment
             {
@@ -89,14 +97,6 @@ In this article:
     }
 }
 ````
-
-@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
-| `ColumnWidth` | `decimal` | The width of each time column in pixels.
-| `NumberOfDays` | `int` <br/> `1` | How many days will be shown side by side in the view.
-
-@[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
-
-@[template](/_contentTemplates/scheduler/views.md#day-slots-explanation)
 
 ## Resource Grouping in the Timeline View
 
