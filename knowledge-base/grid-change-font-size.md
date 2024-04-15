@@ -28,7 +28,7 @@ res_type: kb
 
 ## Solution
 
-1. Set a custom CSS class to the Grid through the `Class` parameter. This configuration will allow you to target specific Grid instances.
+1. Set a custom CSS class to the Grid through the `Class` parameter. This configuration allows you to target specific Grid instances.
 2. Use the defined class to [Override the theme styles]({%slug themes-override%}) and set the desired font size to the Grid and its child components.
 
 >caption Change Blazor Grid Font Size
