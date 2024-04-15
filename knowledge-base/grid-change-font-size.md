@@ -6,7 +6,7 @@ page_title: Change Blazor Grid Font Size
 slug: grid-kb-change-font-size
 position: 
 tags: telerik, blazor, grid, treelist, font, css, styles
-ticketid:
+ticketid: 1648462, 1646767, 1642310
 res_type: kb
 ---
 
@@ -23,11 +23,13 @@ res_type: kb
 
 ## Description
 
-How to change the Grid font size? How to set custom font styles?
+* How to change the Grid font size? 
+* How to set custom font styles?
 
 ## Solution
 
-[Override the theme styles]({%slug themes-override%}) and set the desired font size to the Grid and its child components.
+1. Set a custom CSS class to the Grid through the `Class` parameter. This configuration allows you to target specific Grid instances.
+2. Use the defined class to [Override the theme styles]({%slug themes-override%}) and set the desired font size to the Grid and its child components.
 
 >caption Change Blazor Grid Font Size
 
@@ -39,20 +41,18 @@ How to change the Grid font size? How to set custom font styles?
     .k-grid.font-size .k-toolbar,
     /* grid cells */
     .k-grid.font-size table,
-
     /* textboxes */
     .k-grid.font-size .k-input,
     /* date pickers */
     .k-grid.font-size .k-picker,
     /* buttons */
     .k-grid.font-size .k-button,
-
+    .k-grid.font-size .k-button-text,
     /* column and filter menu */
     .k-popup,
     .k-popup .k-input,
     .k-popup .k-picker,
     .k-popup .k-button,
-
     /*column menu dropdowns */
     .k-columnmenu-item {
         font-size: 12px;
@@ -65,7 +65,6 @@ How to change the Grid font size? How to set custom font styles?
              Sortable="true"
              Groupable="true"
              ShowColumnMenu="true"
-             EditMode="GridEditMode.Inline"
              FilterMode="@GridFilterMode.FilterMenu">
     <GridToolBarTemplate>
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</GridCommandButton>
@@ -76,25 +75,24 @@ How to change the Grid font size? How to set custom font styles?
         <GridColumn Field="@(nameof(Product.Released))" />
         <GridColumn Field="@(nameof(Product.Discontinued))" />
         <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton>Command Button</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; }
 
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 20).Select(x => new Product
-        {
-            Id = x,
-            Name = "Product name " + x,
-            Price = (decimal)(x * 3.14),
-            Released = DateTime.Now.AddMonths(-x).Date,
-            Discontinued = x % 5 == 0
-        }).ToList();
+            {
+                Id = x,
+                Name = "Product name " + x,
+                Price = (decimal)(x * 3.14),
+                Released = DateTime.Now.AddMonths(-x).Date,
+                Discontinued = x % 5 == 0
+            }).ToList();
 
         base.OnInitialized();
     }
