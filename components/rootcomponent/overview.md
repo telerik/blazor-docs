@@ -23,7 +23,7 @@ The `TelerikRootComponent` is responsible for the following tasks:
     * There is no risk for the popups to be trapped by scrollable containers, or clipped by containers with an `overflow:hidden` style.
 * It exposes the `DialogFactory` for using [predefined dialogs]({%slug dialog-predefined%}).
 
-The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the root component to wrap all other Telerik components in the app. To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
+The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the root component to wrap all other Telerik components in the app, otherwise an [exception may occur]({%slug common-kb-component-requires-telerikrootcomponent%}). To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
 
 
 ## Using TelerikRootComponent
@@ -82,3 +82,4 @@ If you are using Telerik components in a Blazor app with **Per page/component** 
 
 * [Popup Troubleshooting]({%slug troubleshooting-general-issues%})
 * [Setting up Telerik Blazor apps]({%slug getting-started/what-you-need%})
+* [Exception: Telerik component requires a TelerikRootComponent]({%slug common-kb-component-requires-telerikrootcomponent%})

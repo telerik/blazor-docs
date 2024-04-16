@@ -222,7 +222,7 @@ The `TelerikRootComponent` placement depends on the interactivity location of th
 > * .NET 8 Blazor Web Apps with **Global** interactivity location
 > * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
 >
-> If you have a .NET 8 Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a layout file. Refer to section [Interactivity Considerations]({%slug rootcomponent-overview%}#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity]({%slug rootcomponent-percomponent%}).
+> If you have a .NET 8 Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a static layout file, because the [other Telerik component will not detect it]({%slug common-kb-component-requires-telerikrootcomponent%}). Refer to section [Interactivity Considerations]({%slug rootcomponent-overview%}#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity]({%slug rootcomponent-percomponent%}).
 
 ### Optimal TelerikRootComponent Usage
 
