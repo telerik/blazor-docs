@@ -19,13 +19,11 @@ To use a Telerik Spreadsheet for Blazor:
 
 1. Add the `TelerikSpreadsheet` tag.
 1. (optional) Set the `Data` parameter to a byte array to load an existing Excel file.
-1. (optional) Set the `Width` parameter to a [valid CSS unit]({%slug common-features/dimensions%}).
 
 >caption Basic Blazor Spreadsheet
 
 ````CSHML
-<TelerikSpreadsheet Data="@SpreadsheetData"
-                    Width="100%">
+<TelerikSpreadsheet Data="@SpreadsheetData">
 </TelerikSpreadsheet>
 
 @code {
@@ -73,8 +71,8 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The custom CSS classes to render in the `<div class="k-spreadsheet">` element. |
-| `ColumnHeaderHeight` | `double` <br /> (`20`) | The pixel height of the column headers that display the letters A, B, C, etc. |
+| `Class` | `string` | The custom CSS classes to render for the `<div class="k-spreadsheet">` element. Use the parameter to [override the theme styles]({%slug themes-override%}) of some or all Spreadsheet instances. |
+| `ColumnHeaderHeight` | `double` <br /> (`20`) | The pixel height of the column headers that display the letters A, B, C, and so on. |
 | `ColumnsCount` | `int`  <br /> (`50`) | The initial number of columns to render. Users can add and delete columns at runtime. |
 | `ColumnWidth` | `double` <br /> (`64`) | The initial pixel width of the columns. |
 | `Data` | `byte[]` | The Excel file to display in the Spreadsheet component. |
@@ -84,7 +82,7 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 | `RowHeight` | `double` <br /> (`20`) | The initial pixel height of the rows. |
 | `RowsCount` | `int` <br /> (`200`) | The initial number of rows to render. Users can add and delete rows at runtime. |
 | `Tools` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
-| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. |
+| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. The [built-in CSS themes]({%slug general-information/themes%}) apply `"100%"` by default. |
 
 
 ## Spreadsheet Reference and Methods
@@ -100,8 +98,7 @@ The Spreadsheet exposes methods for programmatic operation. To use them, define 
 >caption Using the Spreadsheet reference and methods
 
 ````CSHTML
-<TelerikSpreadsheet @ref="@SpreadsheetRef"
-                    Width="100%">
+<TelerikSpreadsheet @ref="@SpreadsheetRef">
 </TelerikSpreadsheet>
 
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"

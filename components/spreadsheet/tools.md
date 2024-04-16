@@ -17,7 +17,7 @@ The Telerik Blazor Spreadsheet organizes all its tools in a tool set with one or
 * [What are the building blocks of the Spreadsheet tool set](#tool-set)
 * [What are the built-in Spreadsheet tools](#built-in-tools)
 * [How to customize a built-in tool set](#customize-built-in-tool-sets)
-* [How to define a custom tool set](#create-a-custom-tool-set)
+* [How to define a custom tool set from scratch](#create-a-custom-tool-set)
 * [How to create a custom tool](#define-custom-tools)
 
 
@@ -26,7 +26,7 @@ The Telerik Blazor Spreadsheet organizes all its tools in a tool set with one or
 The top of the Spreadsheet component displays a Menu and a ToolBar:
 
 * The Menu and the ToolBar make up the Spreadsheet **tool set** (`SpreadsheetToolSet`).
-* The **tool set** has an `Items` property and includes one or more **tool set items** (`SpreadsheetToolSetItem`).
+* The tool set has an `Items` property and includes one or more **tool set items** (`SpreadsheetToolSetItem`). Each Menu item points to one tool set item.
 * Each **tool set item** includes one or more **tools** (`SpreadsheetTool`).
 
 The `SpreadsheetToolSetItem` class has the following properties:
@@ -81,9 +81,12 @@ The Spreadsheet component provides a few tools that have no specific action:
 
 ## Customize Built-in Tool Sets
 
+The Spreadsheet uses Telerik Blazor components to create its built-in tool sets and tools. You can add, remove, and reorder tools in the built-in tool sets. You can also customize the exposed tool properties.
+
 The example below shows how to:
 
-* Get the **Home** tool set item. The built-in tool set items are distinguishable by their `Title`. The title can change in localized applications, so you may need to use the [`ITelerikStringLocalizer` service]({%slug globalization-localization%}) to search for the localized `Title` string.
+* Get the **File** and **Home** tool set items. The built-in tool set items are distinguishable by their index or `Title`. The title can change in localized applications, so you may need to use the [`ITelerikStringLocalizer` service]({%slug globalization-localization%}) to search for the localized `Title` string.
+* Change the label of the **File** tool set item.
 * Obtain reference to a few built-in tools inside the **Home** tool set item. You can find tools by their type or order index. Using order index is not future-proof, as the built-in tool sets can change.
 * Set the `Data` property of the **Font Family** and **Font Size** tools to change the available drop down options.
 * Set the `Colors` property of the **Text Color** and **Background Color** tools to change the available color palettes.
@@ -92,15 +95,14 @@ The example below shows how to:
 >caption Customizing tools from the default Spreadsheet tool set
 
 ````CSHTML
-@inject ITelerikStringLocalizer Localizer
-
 @using Telerik.Blazor.Components.Spreadsheet
 @using Telerik.Blazor.Components.Spreadsheet.ToolBar.ToolTypes
 @using Telerik.Blazor.Resources
 @using Telerik.Blazor.Services
 
-<TelerikSpreadsheet Tools="@DefaultToolsWithCustomizations"
-                    Width="100%">
+@inject ITelerikStringLocalizer Localizer
+
+<TelerikSpreadsheet Tools="@DefaultToolsWithCustomizations">
 </TelerikSpreadsheet>
 
 @code {
@@ -108,12 +110,21 @@ The example below shows how to:
 
     protected override void OnInitialized()
     {
-        // This code finds the built-in Home tab by its localized title.
-        // You can hard-code the title string (for example, "Home"), if the application is using just one language.
-        SpreadsheetToolSetItem? homeToolSet = DefaultToolsWithCustomizations.Items
+        // Find the built-in File tool set item by its index.
+        SpreadsheetToolSetItem? fileToolSetItem = DefaultToolsWithCustomizations.Items.FirstOrDefault();
+
+        // Rename the File tool set item
+        if (fileToolSetItem != null)
+        {
+            fileToolSetItem.Title = "Custom File Label";
+        }
+
+        // Find the built-in Home tool set item by its localized title.
+        // You can hard-code the title string (for example, "Home") if the application is using just one language.
+        SpreadsheetToolSetItem? homeToolSetItem = DefaultToolsWithCustomizations.Items
             .FirstOrDefault(x => x.Title == Localizer[nameof(Messages.Spreadsheet_ToolBar_HomeMenu)]);
 
-        var fontFamilyTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetFontFamilyTool) as SpreadsheetFontFamilyTool;
+        var fontFamilyTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetFontFamilyTool) as SpreadsheetFontFamilyTool;
 
         if (fontFamilyTool != null)
         {
@@ -127,10 +138,13 @@ The example below shows how to:
             };
         }
 
-        var fontSizeTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetFontSizeTool) as SpreadsheetFontSizeTool;
+        var fontSizeTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetFontSizeTool) as SpreadsheetFontSizeTool;
 
         if (fontSizeTool != null)
         {
+            // Change the Font Size tool width.
+            fontSizeTool.Width = "6em";
+
             // Change the Font Size tool data.
             fontSizeTool.Data = new List<SpreadsheetDropDownListToolItem>()
             {
@@ -141,7 +155,7 @@ The example below shows how to:
             };
         }
 
-        var textColorTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
+        var textColorTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
 
         if (textColorTool != null)
         {
@@ -149,7 +163,7 @@ The example below shows how to:
             textColorTool.Colors = ColorPalettePresets.Basic;
         }
 
-        var backgroundColorTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
+        var backgroundColorTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextColorTool) as SpreadsheetTextColorTool;
 
         if (backgroundColorTool != null)
         {
@@ -157,7 +171,7 @@ The example below shows how to:
             backgroundColorTool.Colors = ColorPalettePresets.Office;
         }
 
-        var wrapTool = homeToolSet?.Tools.FirstOrDefault(x => x is SpreadsheetTextWrapTool) as SpreadsheetTextWrapTool;
+        var wrapTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetTextWrapTool) as SpreadsheetTextWrapTool;
 
         if (wrapTool != null)
         {
@@ -165,7 +179,7 @@ The example below shows how to:
             //wrapTool.Enabled = false;
 
             // Or remove the Wrap tool.
-            homeToolSet?.Tools.Remove(wrapTool);
+            homeToolSetItem?.Tools.Remove(wrapTool);
         }
 
         base.OnInitialized();
@@ -182,8 +196,7 @@ The example below shows how to define a custom tool set from scratch. You can al
 ````CSHTML
 @using Telerik.Blazor.Components.Spreadsheet
 
-<TelerikSpreadsheet Tools="@SpreadsheetTools"
-                    Width="100%">
+<TelerikSpreadsheet Tools="@SpreadsheetTools">
 </TelerikSpreadsheet>
 
 @code {
@@ -195,7 +208,7 @@ The example below shows how to define a custom tool set from scratch. You can al
         {
             new SpreadsheetToolSetItem()
             {
-                Title = "Custom Tool Set",
+                Title = "Custom Tool Set Item",
                 Tools = new List<SpreadsheetTool>()
                 {
                     new SpreadsheetOpenFileTool(),
@@ -224,7 +237,7 @@ The example below shows how to define a custom tool set from scratch. You can al
 
 ## Define Custom Tools
 
-The `SpreadsheetCustomTool` type has a `Template` property that is a RenderFragment. Generally, custom tools can perform do one of the following:
+The `SpreadsheetCustomTool` type has a `Template` property that is a `RenderFragment`. Generally, custom tools can do one of the following:
 
 * Perform actions that relate to the Spreadsheet component, loaded Excel document, or app business logic.
 * Modify the Excel document programmatically with the help of [RadSpreadProcessing]({%slug spreadprocessing-overview%}).
@@ -234,9 +247,10 @@ The `SpreadsheetCustomTool` type has a `Template` property that is a RenderFragm
 ````CSHTML
 @using Telerik.Blazor.Components.Spreadsheet
 
+<p>Click on <strong>File</strong> to see and use the custom tool.</p>
+
 <TelerikSpreadsheet Data="@SpreadsheetData"
-                    Tools="@SpreadsheetToolsWithCustomTool"
-                    Width="100%">
+                    Tools="@SpreadsheetToolsWithCustomTool">
 </TelerikSpreadsheet>
 
 @code {

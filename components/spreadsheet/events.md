@@ -49,15 +49,18 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 >caption Using the Spreadsheet events
 
 ````CSHTML
+<p><label><TelerikCheckBox @bind-Value="@ShouldCancelEvents" /> Cancel Spreadsheet Events</label></p>
+
 <p>Spreadsheet Event Log: @( new MarkupString(SpreadSheetEventLog) )</p>
 
 <TelerikSpreadsheet OnDownload="@OnSpreadsheetDownload"
-                    OnOpen="@OnSpreadsheetOpen"
-                    Width="100%">
+                    OnOpen="@OnSpreadsheetOpen">
 </TelerikSpreadsheet>
 
 @code {
     private string SpreadSheetEventLog { get; set; } = string.Empty;
+
+    private bool ShouldCancelEvents { get; set; }
 
     private void OnSpreadsheetDownload(SpreadsheetDownloadEventArgs args)
     {
@@ -67,7 +70,11 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
         SpreadSheetEventLog = $"<code>OnDownload</code> for file <strong>{args.FileName}</strong>.";
 
-        //args.IsCancelled = true;
+        if (ShouldCancelEvents)
+        {
+            args.IsCancelled = true;
+            SpreadSheetEventLog = SpreadSheetEventLog.Insert(0, "<strong>Cancelled</strong> ");
+        }
     }
 
     private void OnSpreadsheetOpen(SpreadsheetOpenEventArgs args)
@@ -76,7 +83,11 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
         SpreadSheetEventLog = $"<code>OnOpen</code> for file <strong>{file.Name}</strong> with size <strong>{file.Size.ToString("n0")}</strong> bytes.";
 
-        //args.IsCancelled = true;
+        if (ShouldCancelEvents)
+        {
+            args.IsCancelled = true;
+            SpreadSheetEventLog = SpreadSheetEventLog.Insert(0, "<strong>Cancelled</strong> ");
+        }
     }
 }
 ````
