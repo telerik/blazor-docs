@@ -33,19 +33,9 @@ If you want to keep the local documentation alive after closing the prompt, you 
 
 ## License
 
-The Telerik® UI for Blazor Documentation is licensed under an MIT license. This license applies to the markdown (.md) files in this site **ONLY**, and does not convey, override or modify any existing licenses covering the runtime source and components of Telerik® UI for Blazor. For information about available licenses for the Telerik® UI for Blazor click [here](https://www.telerik.com/purchase/license-agreement/blazor-ui).
+The Telerik® UI for Blazor Documentation is licensed under the Apache 2.0 license. See the [`LICENSE` file](LICENSE) for the full terms. This license applies to the markdown (`.md`) files in this site ONLY and does not convey, override, or modify any existing licenses covering the runtime source and components of Telerik® UI for Blazor. For more information, see the [Telerik® UI for Blazor license agreement](https://www.telerik.com/purchase/license-agreement/blazor-ui).
 
 If you don't have a license, [start a free trial](https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github) and then follow the first steps articles for:
 
 * [Client-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/client-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
 * [Server-side Blazor](https://docs.telerik.com/blazor-ui/getting-started/server-blazor?utm_medium=referral&utm_source=github&utm_campaign=blazor-awareness-docs-github)
-
-### MIT License
-
-Copyright (c) 2012-2022 Telerik
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software" ), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
