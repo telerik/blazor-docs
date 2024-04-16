@@ -24,7 +24,7 @@ The TextBox is compliant with the [Web Content Accessibility Guidelines (WCAG) 2
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
 
-No role attribute is implemented as the `html input type="text"` element is sufficient for defining the purpose of the component.
+No role attribute is implemented as the `html input type="text"` element is sufficient for definining the purpose of the component.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

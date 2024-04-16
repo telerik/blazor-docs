@@ -27,7 +27,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 The `PageSize` select must be implemented either as a DropDownList component with no filtering or through a native `<select>` element.
 
 
-The `Page` select, which is present for mobile devices and smaller screens with limited space for page links, must be a native `<select>` element.
+The `Page` select, which is present for mobile devices and smaller screens with kimited space for page links, must be a native `<select>` element.
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |

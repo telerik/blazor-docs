@@ -57,7 +57,7 @@ The Numeric inputs must implement the **NumericTextBox** specification.
 [NumericTextBox accessibility specification]({{numerictextbox_a11y_link}})
 
 
-Here is one additional requirement for those numerics as their visible labels have only a single letter as a text:
+Here is one additional requirement for those numerics as their visible labels have only a single letter as a tex:
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
