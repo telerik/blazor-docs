@@ -1,6 +1,6 @@
 ---
 title: Telerik Component Requires a TelerikRootComponent
-description: Learn how to fix the exception: А Telerik component on the requested view requires a TelerikRootComponent in MainLayout or a parent component.
+description: Learn how to fix the exception А Telerik component on the requested view requires a TelerikRootComponent in MainLayout or a parent component.
 type: troubleshooting
 page_title: Telerik Component Requires a TelerikRootComponent
 slug: common-kb-component-requires-telerikrootcomponent
