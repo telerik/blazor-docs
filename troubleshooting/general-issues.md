@@ -12,36 +12,25 @@ position: 1
 
 This page provides solutions for common issues you may encounter while working with Telerik UI for Blazor components.
 
-* [TelerikRootComponent is missing in .NET 8.0](#telerikrootcomponent-is-missing-in-net-80)
-* [Popups Do Not Work](#popups-do-not-work)
-* [Wrong Popup Position](#wrong-popup-position)
+* [TelerikRootComponent is missing]({%slug common-kb-component-requires-telerikrootcomponent%})
+* [Popups do not work](#popups-do-not-work)
+* [Wrong popup position](#wrong-popup-position)
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
-* [JavaScript Errors]({%slug troubleshooting-js-errors%})
-* [Issues After Deployment]({%slug deployment-troubleshooting%})
+* [JavaScript errors]({%slug troubleshooting-js-errors%})
+* [Issues after deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})
-* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
-* [Upload Troubleshooting]({%slug upload-troubleshooting%})
+* [NuGet feed troubleshooting]({%slug troubleshooting-nuget%})
+* [Upload troubleshooting]({%slug upload-troubleshooting%})
 
-## TelerikRootComponent is missing in .NET 8.0
-
-Using a [Blazor Web App template](https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app), the following error occurs:
-
->warning Error: System.Exception: A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.
-
-The root cause for this is a difference in the required configuration when using [interactive render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#enable-support-for-interactive-render-modes).
-
-This error will be thrown if the [`TelerikRootComponent`]({%slug rootcomponent-overview%}) is placed in a layout page that does not have interactive mode enabled. 
-
-The `TelerikRootComponent` must be placed in a layout page (e.g. `MainLayout.razor`) with enabled interactive mode. Read more in [Web App - Add TelerikRootComponent]({%slug getting-started/web-app%}#43-add-the-telerikrootcomponent).
 
 ## Popups Do Not Work
 
 There are three common reasons for this
-* Missing [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#configuring-the-project) from the app.
-* [Missing JS Interop file]({%slug troubleshooting-js-errors%}#microsoftjsinteropjsexception-could-not-find-)
-* Special positioning on the `<app>` element.
+* Missing [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#telerikrootcomponent) from the app.
+* [Missing `telerik-blazor.js` file]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined)
+* Special positioning on the `<app>` element or any other parent of the `TelerikRootComponent`.
 
 The `<app>` element is the topmost component that a developer can access in Blazor. This means that we cannot place our popups higher than that in the DOM. Thus, their position and visibility depend on the position of the `<app>` element matching the position of the `<body>` element.
 
