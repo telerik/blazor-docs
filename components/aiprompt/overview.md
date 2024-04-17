@@ -86,7 +86,7 @@ The various AIPrompt events allow you to implement custom functionality and hand
 
 The table below lists the AIPrompt parameters. For a full list of the AIPrompt API members (parameters, methods, and events), check the [AIPrompt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAIPrompt).
 
-<!-- Do not use auto-layout as the table below doesn't render correctly on small screens -->
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -98,9 +98,6 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
 | `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
 | `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `OnPromptRequest` | `EventCallback<AIPromptPromptRequestEventArgs>` | The event handler called when the user requests an output for a given prompt. |
-| `OnCommandExecute` | `EventCallback<AIPromptCommandExecuteEventArgs>` | The event handler called when a user clicks on a command within the Command view. |
-| `OnOutputRate` | `EventCallback<AIPromptOutputRateEventArgs>` | The event handler called when a user rates an output item. |
 | `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Height` | `string` | The `height` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default AIPrompt dimensions depend on the CSS theme. |
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default AIPrompt dimensions depend on the CSS theme. |
