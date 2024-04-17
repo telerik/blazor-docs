@@ -63,7 +63,6 @@ The below table lists the ARIA requirements for the TreeList which are not prese
 
 [WAI-ARIA specification for tree grid](https://www.w3.org/TR/wai-aria-1.2/#treegrid)
 
-
 ## Section 508
 
 

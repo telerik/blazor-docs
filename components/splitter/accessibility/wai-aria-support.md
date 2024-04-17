@@ -23,7 +23,7 @@ The Splitter is compliant with the [Web Content Accessibility Guidelines (WCAG) 
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-### Splitter Pane
+### Slitter Pane
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
