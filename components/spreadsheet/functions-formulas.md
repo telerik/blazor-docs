@@ -10,7 +10,7 @@ position: 30
 
 # Spreadsheet Functions and Formulas
 
-This article lists the supported built-in functions and formulas by Telerik Spreadsheet for Blazor.
+This article lists the built-in functions and formulas supported by the Spreadsheet for Blazor.
 
 
 ## Formulas
