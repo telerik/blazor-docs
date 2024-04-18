@@ -55,7 +55,7 @@ You can also add custom tools. Learn how to [configure and customize the Blazor 
 
 ## Functions and Formulas
 
-The Spreadsheet support formulas and a large variety of Excel functions. See the complete list of available [Spreadsheet function names]({%slug spreadsheet-functions-formulas%}).
+The Spreadsheet supports formulas and a large variety of Excel functions. See the complete list of available [Spreadsheet functions]({%slug spreadsheet-functions-formulas%}).
 
 
 ## Events
