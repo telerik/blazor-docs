@@ -438,7 +438,7 @@ You can also use the `ColorField` property to define a field with the segments' 
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-axis-free)
 
->caption Configuring Title Margin, changing Font and adding Borders to the Labels.
+>caption Customize Chart Title Margin, Series Label Font, and Borders
 
 ````CSHTML
 @* Add margin to the Title, changing the Font and Borders of the labels. *@
@@ -457,7 +457,6 @@ You can also use the `ColorField` property to define a field with the segments' 
             <ChartSeriesLabels Position="ChartSeriesLabelsPosition.OutsideEnd"
                                Visible="true"
                                Background="transparent"
-                               Template="#= dataItem.Category # - #= percentage*100 #%"
                                Font="20px 'Helvetica'">
                 <ChartSeriesLabelsBorder Width="1"
                                                Color="#0000FF"
