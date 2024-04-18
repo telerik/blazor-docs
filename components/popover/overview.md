@@ -113,3 +113,4 @@ To execute Popover methods, obtain a reference to the component instance with `@
 
 * [Live Popover Demos](https://demos.telerik.com/blazor-ui/popover/overview)
 * [Popover API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPopover)
+* [Comparison between all popup components]({%slug common-kb-popup-component-comparison%})
