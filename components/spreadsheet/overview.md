@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/spreadsheet" target="_blank">Sp
 
 ## Creating Blazor Spreadsheet
 
-To use a Telerik Spreadsheet for Blazor:
+To use the Telerik Spreadsheet for Blazor:
 
 1. Add the `TelerikSpreadsheet` tag.
 1. (optional) Set the `Data` parameter to a byte array to load an existing Excel file.
