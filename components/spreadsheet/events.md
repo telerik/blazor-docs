@@ -25,7 +25,7 @@ The `OnDownload` event fires when the user clicks on the **Download** button in 
 | Property Name | Type | Description |
 | --- | --- | --- |
 | `FileName` | `string` | The filename, which will appear in the browser's file save dialog. |
-| `IsCancelled` | `bool` | Sets if the download action should be prevented. |
+| `IsCancelled` | `bool` | Sets if the download action will be prevented. |
 
 See the [example below](#example).
 
