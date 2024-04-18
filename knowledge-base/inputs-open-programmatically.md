@@ -48,9 +48,9 @@ This Knowledge Base article covers multiple scenarios:
 
 To begin with, all Telerik inputs and dropdowns have an `Open` method.
 
-The **DropDownList** and **MultiSelect** open automatically on click. They need JavaScript code only to open on focus.
+The DropDownList and MultiSelect open automatically on click. They need JavaScript code only to open on focus.
 
-The **AutoComplete**, **ComboBox** and **Date/Time Pickers** do not open automatically and need JavaScript for all use cases - focus and click.
+The AutoComplete, ComboBox and Date/Time Pickers do not open automatically and need JavaScript for all use cases - focus and click.
 
 Review the `attachFocusHandler` JavaScript function below. It is called in `OnAfterRenderAsync` and attaches a focus handler to each component textbox. The handler simulates an *Alt + Down* keyboard shortcut, which opens the dropdowns as a standard accessibility and usability feature.
 
