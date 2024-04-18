@@ -45,7 +45,7 @@ To use the Telerik Spreadsheet for Blazor:
 
 The Spreadsheet provides built-in tools that perform various actions such as:
 
-* Style the cells,
+* Style the cells
 * Format the cell values
 * Insert images and links
 * Merge cells or toggle the visibility of the cell borders.
