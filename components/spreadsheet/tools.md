@@ -49,7 +49,7 @@ The following table lists all Spreadsheet tools, sorted by their default tool se
 | --- | --- | --- |
 | Open | `SpreadsheetOpenFileTool` | File |
 | Download | `SpreadsheetDownloadFileTool` | File |
-| Undo | `SpreadsheetUndoTool` Home |
+| Undo | `SpreadsheetUndoTool` | Home |
 | Redo | `SpreadsheetRedoTool` | Home |
 | Font Family | `SpreadsheetFontFamilyTool` | Home |
 | Font Size | `SpreadsheetFontSizeTool` | Home |
