@@ -27,7 +27,7 @@ The top of the Spreadsheet component displays a Menu and a ToolBar:
 
 * The Menu and the ToolBar make up the Spreadsheet *tool set* (`SpreadsheetToolSet`).
 * The tool set has an `Items` property and includes one or more *tool set items* (`SpreadsheetToolSetItem`). Each Menu item points to one tool set item.
-* Each **tool set item** includes one or more **tools** (`SpreadsheetTool`).
+* Each tool set item includes one or more *tools* (`SpreadsheetTool`).
 
 The `SpreadsheetToolSetItem` class has the following properties:
 
