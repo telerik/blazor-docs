@@ -15,6 +15,8 @@ This article explains the available events for the Telerik Map for Blazor:
 * [OnClick](#onclick)
 * [OnMarkerClick](#onmarkerclick)
 * [OnShapeClick](#onshapeclick)
+* [OnZoomEnd](#onzoomend)
+* [OnPanEnd](#onpanend)
 
 ## OnClick
 
@@ -321,4 +323,39 @@ The `OnShapeClick` event fires when the user clicks on a shape. Its `EventCallba
         public int Revenue { get; set; }
     }
 }
+````
+
+## OnZoomEnd 
+
+The `OnZoomEnd` is an `EventCallback` that fires when the user clicks on a shape. The `OnZoomEnd` event handler receives a `MapZoomEndEventArgs` argument, which has the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| ---------| ---- | ----------- |
+| `Zoom` | `double` | The new zoom level of the Map. |
+| `Center` | `double[]` | The lat / lang of the Map's center. |
+| `Extent` | `double[]` | The NW and SE lat / lang of the Map. |
+
+>caption Handle OnZoomEnd.
+
+````CSHTML
+
+````
+
+## OnPanEnd
+
+The `OnPanEnd` event fires when the user clicks on a shape. The `OnPanEnd` event handler receives a `MapPanEndEventArgs` argument, which has the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Type | Description |
+| ---------| ---- | ----------- |
+| `Center` | `double[]` | The lat / lang of the Map's center. |
+| `Extent` | `double[]` | The NW and SE lat / lang of the Map. |
+
+>caption Handle OnPanEnd.
+
+````CSHTML
+
 ````
