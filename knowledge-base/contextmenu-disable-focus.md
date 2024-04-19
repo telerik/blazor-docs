@@ -33,7 +33,7 @@ This Knowledge Base article answers the following questions:
 1. Set a custom CSS class to the ContextMenu through the `Class` parameter. This configuration will allow you to target specific ContextMenu instances.
 2. Use the defiend class to [Override the theme styles](https://docs.telerik.com/blazor-ui/styling-and-themes/override-theme-styles) by setting the CSS property `box-shadow` to `none`.
 
-> Removing that focus is not recommended becasue its violate the accessibility compliance of your application. The ContextMenu receives focus automatically when it shows. This behavior is a [requirement for accessible user experience](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role). If the ContextMenu doesn't receive focus automatically, keyboard users will be unable to navigate the items. 
+> Removing the ContextMenu focus is not recommended because this violates the accessibility compliance of your application. The ContextMenu receives focus automatically when it shows. This behavior is a [requirement for accessible user experience](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role). If the ContextMenu doesn't receive focus automatically, keyboard users will be unable to navigate the items. 
 
 >caption ContextMenu with disabled shadow of the first item
 
