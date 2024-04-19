@@ -22,7 +22,7 @@ res_type: kb
 
 ## Description
 
-This knowledge base article deals with the `Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...` error.
+I get the `Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...` error after upgrading Telerik.UI.forBlazor Nuget package in my Blazor WebAssembly and publishing the app.
 
 ## Error Message
 
