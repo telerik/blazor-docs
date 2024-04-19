@@ -76,7 +76,7 @@ Note that the Date/Time Pickers move focus to their popup once it is opened. Thi
         var element = document.getElementById(id);
         if (element) {
             element.addEventListener("focus", (event) => {
-                dotNet.invokeMethodAsync("OpenDropDownList", id);
+                dotNet.invokeMethodAsync("OpenComponent", id);
             });
         }
     }
@@ -138,21 +138,20 @@ MultiSelect:
                     Width="350px" />
 <br />
 <br />
-TimePicker:
-<TelerikTimePicker @ref="@TimePickerRef"
-                   Id="TP1"
-                   @bind-Value="@DateValue"
-                   Width="300px" />
-<br />
-<br />
 DatePicker:
 <TelerikDatePicker @ref="@DatePickerRef"
                    Id="DP1"
                    @bind-Value="@DateValue"
                    Width="300px" />
+<br />
+<br />
+TimePicker:
+<TelerikTimePicker @ref="@TimePickerRef"
+                   Id="TP1"
+                   @bind-Value="@DateValue"
+                   Width="300px" />
 
 @code {
-    #nullable enable
     private DotNetObjectReference<OnFocusKB>? DotNetRef { get; set; }
 
     private List<Product> ValueCollection { get; set; } = new();
@@ -161,20 +160,20 @@ DatePicker:
     private string StringValue { get; set; }
     private DateTime DateValue { get; set; } = DateTime.Now;
 
-    private Dictionary<string, Action> ComponentsRefs { get; set; } = new();
+    private Dictionary<string, Action> ComponentRefs { get; set; } = new();
 
-    private TelerikMultiSelect<Product, int>? MultiSelectRef { get; set; } 
-    private TelerikAutoComplete<Product>? AutoCompleteRef { get; set; } 
-    private TelerikComboBox<Product, int>? ComboBoxRef { get; set; } 
-    private TelerikMultiColumnComboBox<Product, int>? MultiComboBoxRef { get; set; } 
-    private TelerikDropDownList<Product, int>? DropDownListRef { get; set; } 
-    private TelerikDatePicker<DateTime>? DatePickerRef { get; set; } 
-    private TelerikTimePicker<DateTime>? TimePickerRef { get; set; } 
+    private TelerikMultiSelect<Product, int>? MultiSelectRef { get; set; }
+    private TelerikAutoComplete<Product>? AutoCompleteRef { get; set; }
+    private TelerikComboBox<Product, int>? ComboBoxRef { get; set; }
+    private TelerikMultiColumnComboBox<Product, int>? MultiComboBoxRef { get; set; }
+    private TelerikDropDownList<Product, int>? DropDownListRef { get; set; }
+    private TelerikDatePicker<DateTime>? DatePickerRef { get; set; }
+    private TelerikTimePicker<DateTime>? TimePickerRef { get; set; }
 
-    [JSInvokable("OpenDropDownList")]
-    public void OpenDropDownList(string id)
+    [JSInvokable("OpenComponent")]
+    public void OpenComponent(string id)
     {
-        Action action = ComponentsRefs[id];
+        Action action = ComponentRefs[id];
 
         action.Invoke();
     }
@@ -200,25 +199,24 @@ DatePicker:
 
     protected override void OnInitialized()
     {
-
-        ComponentsRefs = new Dictionary<string, Action>()
-    {
-        { "AC1", () => AutoCompleteRef.Open() },
-        { "CB1", () => ComboBoxRef.Open() },
-        { "MCCB1", () => MultiComboBoxRef.Open() },
-        { "DDL1", () => DropDownListRef.Open() },
-        { "MS1",  () => MultiSelectRef.Open() },
-        { "DP1",  () => DatePickerRef.Open() },
-        { "TP1",  () => TimePickerRef.Open() },
-    };
+        ComponentRefs = new Dictionary<string, Action>()
+        {
+            { "AC1", () => AutoCompleteRef.Open() },
+            { "CB1", () => ComboBoxRef.Open() },
+            { "MCCB1", () => MultiComboBoxRef.Open() },
+            { "DDL1", () => DropDownListRef.Open() },
+            { "MS1", () => MultiSelectRef.Open() },
+            { "DP1", () => DatePickerRef.Open() },
+            { "TP1", () => TimePickerRef.Open() },
+        };
 
         for (int i = 1; i <= 10; i++)
         {
             ValueCollection.Add(new Product()
-                {
-                    ID = i,
-                    Name = "Product Name " + i.ToString()
-                });
+            {
+                ID = i,
+                Name = "Product Name " + i.ToString()
+            });
         }
 
         DotNetRef = DotNetObjectReference.Create(this);
