@@ -32,7 +32,7 @@ This knowledge base article deals with the `Failed to find a valid digest in the
 
 ## Cause
 
-The error `Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...` is a general Blazor WebAssembly issue, which can result from the build process, publish process or browser cache. The Telerik UI for Blazor components are not the cause.
+The error `Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...` is a general Blazor WebAssembly issue, which can result from the build process, publishing process, or browser cache. The Telerik UI for Blazor components are not the cause.
 
 ## Solution
 
