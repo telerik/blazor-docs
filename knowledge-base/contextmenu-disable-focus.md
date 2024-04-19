@@ -21,18 +21,19 @@ res_type: kb
 </table>
 
 ## Description
+This Knowledge Base article answers the following questions:
 
 * How to remove autofocus from the first menu item?
 * How to prevent focus on the first item of the menu?
-* How to disable the focus on first context menu item?
-* How to stop ContextMenu recieves focus automaticallly when it shows?
+* How to disable the focus on the first ContextMenu item?
+* How to prevent the ContextMenu from automaticallly receiving focus when it shows?
 
 ## Solution
 
 1. Set a custom CSS class to the ContextMenu through the `Class` parameter. This configuration will allow you to target specific ContextMenu instances.
-2. Use the defiend class to [Override the theme styles](https://docs.telerik.com/blazor-ui/styling-and-themes/override-theme-styles) by setting the CSS property **box-shadow** to **none**.
+2. Use the defiend class to [Override the theme styles](https://docs.telerik.com/blazor-ui/styling-and-themes/override-theme-styles) by setting the CSS property `box-shadow` to `none`.
 
-> The ContextMenu receives focus automatically when it shows. This behavior is a [requirement for accessible user experience](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role). If the ContextMenu doesn't receive focus automatically, keyboard users will be unable to navigate the items. Removing that focus is **not recommended becasue its violate the accessibility compliance of your application**. 
+> Removing that focus is not recommended becasue its violate the accessibility compliance of your application. The ContextMenu receives focus automatically when it shows. This behavior is a [requirement for accessible user experience](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role). If the ContextMenu doesn't receive focus automatically, keyboard users will be unable to navigate the items. 
 
 >caption ContextMenu with disabled shadow of the first item
 
