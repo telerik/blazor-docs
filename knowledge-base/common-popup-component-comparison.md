@@ -54,7 +54,7 @@ The following table provides another point of view for easier comparison.
 
 | Component | Rendering Location * | Position Relative To | Anchor Elements | Built-in Styled Content | Modality | Resizing and Dragging |
 | --- | --- | --- | --- | --- | --- | --- |
-| AnimationContainer | **in-place** | **depends** on positioned containers and [`Top` and `Left`]({%slug components/animationcontainer/overview%}#position) | 0, but can be simulated | **none** | no | no |
+| AnimationContainer | in-place | depends on positioned containers and [`Top` and `Left`]({%slug components/animationcontainer/overview%}#position) | 0, but can be simulated | none | no | no |
 | Dialog | root | page | 0 | header with [optional close button]({%slug dialog-overview%}#dialog-parameters), footer with action buttons | **yes** | no |
 | Popover | root | anchor element | 1, [limited support for multiple](https://demos.telerik.com/blazor-ui/popover/overview) | header, footer with action buttons, callout | no | no |
 | Popup | root | anchor element | 1 | **none** | no | no |
