@@ -145,4 +145,4 @@ The Dialog methods are accessible through its reference.
 
 * [Live Dialog Demos](https://demos.telerik.com/blazor-ui/dialog/overview)
 * [Dialog API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)
-* [Comparison between all popup components]({%slug common-kb-popup-component-comparison%})
+* [Comparison between All Popup Components]({%slug common-kb-popup-component-comparison%})
