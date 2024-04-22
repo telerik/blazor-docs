@@ -92,6 +92,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Max` | `TValue`* <br /> (`T.MaxValue`) | The maximum value the input can accept. Must match the `Value` type. |
 | `Min` | `TValue`* <br /> (`T.MinValue`) | The minimum value the input can accept. Must match the `Value` type. |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to a **nullable** value type and there is no value set. |
+
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `SelectOnFocus` | `bool` | When set to `true`, the NumericTextBox will select its value when the component receives focus. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |

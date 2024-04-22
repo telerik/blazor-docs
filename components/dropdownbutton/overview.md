@@ -76,6 +76,7 @@ The following table lists the DropDownButton parameters, except those related to
 | `Class` | `string` | Renders a custom CSS class to the main component element `<div class="k-dropdown-button">`. Use it to [override the theme styles]({%slug themes-override%}) and achieve a specific appearance if none of the [DropDownButton appearance settings]({%slug dropdownbutton-appearance%}) can do this. |
 | `Enabled` | `bool`<br />(`true`) | Defines whether the primary button is enabled. |
 | `Id` | `string` | Sets the `id` attribute of the primary button element `<button class="k-button">`. |
+| `ShowArrowButton` | `bool` | Sets the visibility of the Arrow button that displays the popup of the component. |
 | `TabIndex`| `int` | Sets the `tabindex` attribute of the primary button element `<button class="k-button">`. |
 | `Title`| `string` | Sets the `title` attribute of the primary button element `<button class="k-button">`. |
 
