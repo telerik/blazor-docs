@@ -29,8 +29,8 @@ This knowledge base article answers the following questions:
 
 ## Solution
 
-1. Create a bool flag and set it within the Drawer's [`ExpandedChanged`]({%slug drawer-events%}#expandedchanged) handler to indicate when the Chart needs to be refreshed
-2. Call the Chart's [`Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) within the `OnAfterRenderAsync` lifecycle method after a brief delay that allows the Drawer to finish expanding
+1. To indicate when the Chart requires a refresh, create a bool flag and set it within the Drawer's [`ExpandedChanged`]({%slug drawer-events%}#expandedchanged) handler.
+2. Call the Chart's [`Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) within the `OnAfterRenderAsync` lifecycle method. Set a brief delay to allow the Drawer to finish expanding before the refresh.
 
 ````CSHTML
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle Drawer</TelerikButton>
@@ -145,3 +145,9 @@ This knowledge base article answers the following questions:
     #endregion
 }
 ````
+
+## See Also
+
+* [Drawer Events]({%slug drawer-events%})
+* [Charts Overview]({%slug components/chart/overview%})
+* [Prevent Drawer from collapsing on item click]({%slug drawer-kb-prevent-collapse%})
