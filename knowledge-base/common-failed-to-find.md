@@ -36,7 +36,7 @@ The error `Failed to find a valid digest in the 'integrity' attribute for resour
 
 ## Solution
 
-It's hard to provide a specific advice, but here are some online documentation and discussions on the matter, which suggest possible solutions:
+The fix for the exception can vary, depending on the cause. Here are some online documentation and discussions on the matter, which suggest possible solutions:
 
 * https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-5.0#resolve-integrity-check-failures
 * https://stackoverflow.com/questions/69926878/failed-to-find-a-valid-digest-in-the-integrity-attribute-for-resource-in-blazo
