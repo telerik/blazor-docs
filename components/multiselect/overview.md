@@ -108,7 +108,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering]({%slug multiselect-filter%}). |
 | `Id` | `string` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
 | `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
-| `MinLength` | `int` | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug multiselect-filter%}). |
+| `MinLength` | `int` | How many characters the user must type before the suggestion list appears. Often works together with [filtering]({%slug multiselect-filter%}). |
 | `Placeholder` | `string` | The text the user sees as a hint when there is no selection. |
 | `TextField` | `string` <br /> (`Text`)| The field in the model from which the text of the items is taken. |
 | `TItem` | `Type` | The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
