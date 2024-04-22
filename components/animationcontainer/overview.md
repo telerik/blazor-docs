@@ -194,4 +194,5 @@ The Animation Container provides methods for programmatic operation. To use them
 
 * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/index)
 * [AnimationContainer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAnimationContainer)
-* [Hide the AnimationContainer on outside click]({%slug animationcontainer-kb-close-on-outside-click%})
+* [Hide the AnimationContainer on Outside Click]({%slug animationcontainer-kb-close-on-outside-click%})
+* [Comparison between All Popup Components]({%slug common-kb-popup-component-comparison%})

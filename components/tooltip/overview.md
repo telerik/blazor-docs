@@ -83,3 +83,4 @@ The Blazor Tooltip provides the following configuration parameters. Also check t
 ## See Also
 
 * [Live Demo: Tooltip](https://demos.telerik.com/blazor-ui/tooltip/overview)
+* [Comparison between All Popup Components]({%slug common-kb-popup-component-comparison%})
