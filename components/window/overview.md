@@ -152,14 +152,13 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 
 ## Next Steps
 
-* [Using the Window Events]({%slug window-events%})
+* [Define Window actions]({%slug components/window/actions%})
+* [Configure the Window position]({%slug components/window/position%})
+* [Set the Window size, minimized, and maximized state]({%slug components/window/size%})
+* [Handle Window events]({%slug window-events%})
 
 ## See Also
 
 * [Live Demo: Window](https://demos.telerik.com/blazor-ui/window/index)
-* [Window Size, Maximize, Minimize]({%slug components/window/size%})
-* [Window Actions]({%slug components/window/actions%})
-* [Window Events]({%slug window-events%})
-* [Window Position]({%slug components/window/position%})
-* [Modal Window]({%slug components/window/modal%})
 * [Window API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)
+* [Comparison between All Popup Components]({%slug common-kb-popup-component-comparison%})
