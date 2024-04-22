@@ -18,6 +18,7 @@ This page provides solutions for common issues you may encounter while working w
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
+* [Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...](#failed-to-find-a-valid-digest-in-the-integrity-attribute-for-resource--with-computed-sha-256-integrity)
 * [JavaScript errors]({%slug troubleshooting-js-errors%})
 * [Issues after deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})
@@ -127,6 +128,10 @@ There are also certain measures a web app should take to improve its performance
 * Loading content on demand (such as a cell value) should be done through a nested component and its `OnParemetersSetAsync` method. A similar example is available in the [load tooltip content on demand](https://github.com/telerik/blazor-ui/tree/master/tooltip/in-grid) and [load hierarchy data on demand](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy) sample projects. You should not use an async method in a component's `Template` (or any `RenderFragment`) directly, because their execution is awaited by the framework before the fragment can render at all (`Templates` and `RenderFragment` instances are basically synchronous).
 
 * If you need to generate documents or prepare some data, try to offload this task to the server. You can create an HTTP request and gather the processed information. With this approach, you will gain from the better server-side performance and won't download all the data on the client-side. You can find an example of the approach in the <a href="https://github.com/telerik/blazor-ui/tree/master/grid/pdf-export-server" target="_blank">Export Grid to PDF on the Server</a> sample project.
+
+## Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...
+
+The error is a [general Blazor WebAssembly issue]({%slug common-failed-to-find%}), which can result from the build process, publishing process, or browser cache. There are online documentation and discussions on the matter, which suggest possible solutions.
 
 
 ## See Also
