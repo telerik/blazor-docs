@@ -26,13 +26,27 @@ I get a `Failed to find a valid digest in the 'integrity' attribute for resource
 
 ## Error Message
 
->warning Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ... The resource has been blocked.
+>warning Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Recurrence.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Documents.SpreadsheetStreaming.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.DataSource.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Zip.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Blazor.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.FontIcons.dll' with computed SHA-256 integrity ... The resource has been blocked.
+>
+>Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.SvgIcons.dll' with computed SHA-256 integrity ... The resource has been blocked.
 >
 > Unknown error occured while trying to verify integrity.
+>
+>Error: Failed to start platform. Reason: TypeError: Failed to fetch
 
 ## Cause
 
-The error `Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...` is a general Blazor WebAssembly issue, which can result from the build process, publishing process, or browser cache. The Telerik UI for Blazor components are not related to the problem.
+The exception is a general Blazor WebAssembly issue, which can result from the build process, publishing process, or browser cache. The Telerik UI for Blazor components are not related to the problem.
 
 ## Solution
 
