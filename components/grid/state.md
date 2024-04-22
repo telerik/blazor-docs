@@ -373,12 +373,13 @@ If you want to make changes to the current Grid state:
 1. Set the modified state object via the `SetStateAsync` method.
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetStateAsync()` in `OnStateInit`. Instead, get or set the `GridState` property of the event argument.
-
-If you want to put the Grid in a certain configuration without preserving the old one, create a `new GridState<T>()` and apply the settings there. Then pass the state object to `SetStateAsync()`.
+>
+> Avoid calling `SetStateAsync` in the Grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [`OnRead`]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 >tip To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
+>
+> To reset the Grid state to a completely new configuration, create a `new GridState<T>()` and apply the settings there. Then pass the state object to `SetStateAsync()`.
 
-Avoid calling `SetStateAsync` in the Grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 ### SetStateAsync Examples
 
