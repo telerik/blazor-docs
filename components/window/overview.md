@@ -176,4 +176,4 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 
 * [Live Demo: Window](https://demos.telerik.com/blazor-ui/window/index)
 * [Window API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)
-* [Comparison between all popup components]({%slug common-kb-popup-component-comparison%})
+* [Comparison between All Popup Components]({%slug common-kb-popup-component-comparison%})

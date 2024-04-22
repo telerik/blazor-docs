@@ -55,11 +55,11 @@ The following table provides another point of view for easier comparison.
 | Component | Rendering Location * | Position Relative To | Anchor Elements | Built-in Styled Content | Modality | Resizing and Dragging |
 | --- | --- | --- | --- | --- | --- | --- |
 | AnimationContainer | in-place | depends on positioned containers and [`Top` and `Left`]({%slug components/animationcontainer/overview%}#position) | 0, but can be simulated | none | no | no |
-| Dialog | root | page | 0 | header with [optional close button]({%slug dialog-overview%}#dialog-parameters), footer with action buttons | **yes** | no |
+| Dialog | root | page | 0 | header with [optional close button]({%slug dialog-overview%}#dialog-parameters), footer with action buttons | yes | no |
 | Popover | root | anchor element | 1, [limited support for multiple](https://demos.telerik.com/blazor-ui/popover/overview) | header, footer with action buttons, callout | no | no |
-| Popup | root | anchor element | 1 | **none** | no | no |
-| Tooltip | root | anchor element | **unlimited** | icons, callout | no | no |
-| Window | **depends** on [`ContainmentSelector`]({%slug components/window/position%}#containmentselector) | page | 0 | header with actions | **depends** on [`Modal`]({%slug components/window/modal%}) | **yes** |
+| Popup | root | anchor element | 1 | none | no | no |
+| Tooltip | root | anchor element | unlimited | icons, callout | no | no |
+| Window | depends on [`ContainmentSelector`]({%slug components/window/position%}#containmentselector) | page | 0 | header with actions | depends on [`Modal`]({%slug components/window/modal%}) | yes |
 
 \* **Root** rendering location means as a direct child of the [`TelerikRootComponent`]({%slug rootcomponent-overview%}). **In-place** is how Blazor components normally work.
 
