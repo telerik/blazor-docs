@@ -374,7 +374,7 @@ If you want to make changes to the current Grid state:
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetStateAsync()` in `OnStateInit`. Instead, get or set the `GridState` property of the event argument.
 >
-> Avoid calling `SetStateAsync` in the Grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [OnRead]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
+> Avoid calling `SetStateAsync` in the Grid [CRUD methods]({%slug components/grid/editing/overview%}) (such as [`OnRead`]({%slug components/grid/manual-operations%}), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 >tip To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
 >
