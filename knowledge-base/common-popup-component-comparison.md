@@ -41,7 +41,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-Here are the unique features and distinguishing characteristics of all Telerik Blazor popup components:
+Here are the unique features and distinguishing characteristics of all Telerik UI for Blazor popup components:
 
 * The [AnimationContainer]({%slug components/animationcontainer/overview%}) is a blank animated element that [renders at the same place where it is declared]({%slug components/animationcontainer/overview%}#position). The rendering location can matter a lot in some cases, for example, in scenarios with scrollable conatiners.
 * The [Dialog]({%slug dialog-overview%}) and [Window]({%slug window-overview%}) are very similar. Basically, the Dialog is a modal Window that cannot be resized or dragged. The Dialog has [built-in layouts for action buttons in its footer]({%slug dialog-action-buttons%}).
