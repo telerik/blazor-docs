@@ -36,7 +36,7 @@ This KB article answers the following questions:
 
 * What are the differences between the Dialog vs the Window component?
 * What are the differences between the Popover and the Tooltip?
-* When you should use one popup component over another?
+* When should you use one popup component over another?
 
 
 ## Solution
