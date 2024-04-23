@@ -16,14 +16,14 @@ This article explains the different ways to provide data to a MultiSelect compon
 
 There are two key ways to bind data:
 
-* [Primitive Types](#primitive-types)
+* [Strings and Value Types](#strings-and-value-types)
 * [Model](#bind-to-a-model)
 
 There are also some [considerations](#considerations) to keep in mind.
 
-## Primitive Types
+## Strings and Value Types
 
-You can data bind the MultiSelect to a simple collection of data (number - such as `int`, `double` and so on, `string`, `Guid`, `Enum`). When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
+You can data bind the MultiSelect to a collection of `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data (such as `int`, `decimal`, `bool`, `Guid`, and `Enum`). When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
 
 To bind the MultiSelect, you need to:
 
@@ -132,43 +132,50 @@ The MultiSelect component attempts to infer the type of its model and value base
 
 ### Reference
 
-The MultiSelect component is generic and its type depends on the type of the model you provide as its `Data` collection.
+The MultiSelect is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````Primitive
-@*Reference type when binding to primitive collections*@
+````String
+@*Reference type when binding to a string collection*@
 
-<TelerikMultiSelect @ref="@MultiSelectRef" Data="@Options" @bind-Value="@TheValues" />
+<TelerikMultiSelect @ref="@MultiSelectRef"
+                    Data="@MultiSelectData"
+                    @bind-Value="@MultiSelectValue" />
 
+@code {
+    private TelerikMultiSelect<string, string>? MultiSelectRef { get; set; }
 
-@code{
-    TelerikMultiSelect<string, string> MultiSelectRef { get; set; }
+    private List<string> MultiSelectValue { get; set; } = new();
 
-    List<string> TheValues { get; set; }
-    List<string> Options { get; set; } = new List<string> { "first", "second", "third" };
+    private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
 ````Model
-@*Reference when binding to model collections*@
+@*Reference when binding to a model collection*@
 
-<TelerikMultiSelect @ref="@MultiSelectRef" Data="@Options" @bind-Value="@TheValues"
-                    TextField="StringRepresentation" ValueField="MyValueField" />
+<TelerikMultiSelect @ref="@MultiSelectRef"
+                    Data="@MultiSelectData"
+                    @bind-Value="@MultiSelectValue"
+                    TextField="@nameof(MultiSelectItem.Text)"
+                    ValueField="@nameof(MultiSelectItem.Value)" />
 
-@code{
-    TelerikMultiSelect<OptionsModel, int> MultiSelectRef { get; set; }
+@code {
+    private TelerikMultiSelect<MultiSelectItem, int>? MultiSelectRef { get; set; }
 
-    List<int> TheValues { get; set; }
-    List<OptionsModel> Options { get; set; } = new List<OptionsModel>
+    private List<int> MultiSelectValue { get; set; } = new();
+
+    private List<MultiSelectItem> MultiSelectData { get; set; } = new List<MultiSelectItem>()
     {
-        new OptionsModel { StringRepresentation = "first",  MyValueField = 1 },
-        new OptionsModel { StringRepresentation = "second", MyValueField = 2 },
-        new OptionsModel { StringRepresentation = "third",  MyValueField = 3 }
+        new MultiSelectItem { Text = "first",  Value = 1 },
+        new MultiSelectItem { Text = "second", Value = 2 },
+        new MultiSelectItem { Text = "third",  Value = 3 }
     };
 
-    public class OptionsModel
+    public class MultiSelectItem
     {
-        public string StringRepresentation { get; set; }
-        public int MyValueField { get; set; } // this determines the type of the values list
+        public string Text { get; set; } = string.Empty;
+    
+        public int Value { get; set; }
     }
 }
 ````
@@ -180,26 +187,30 @@ In case you cannot provide either of a `Value`, or `Data`, or both when the comp
 >caption MultiSelect configuration if you cannot provide Value or Data
 
 ````CSHTML
-@*How to declare the multiselect if no Value or Data are provided*@
+@*How to declare the MultiSelect if no Value or Data are provided*@
 
-<TelerikMultiSelect Data="@MyOptions" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
+<TelerikMultiSelect Data="@MultiSelectData"
+                    TItem="@MultiSelectItem"
+                    TValue="@int"
+                    TextField="@nameof(MultiSelectItem.Text)"
+                    ValueField="@nameof(MultiSelectItem.Value)">
 </TelerikMultiSelect>
 
 @code {
-    public class MyDdlModel //TItem matches the type of the model
+    //The same configuration applies if MultiSelectData is null initially and is populated later
+    private IEnumerable<MultiSelectItem> MultiSelectData = Enumerable.Range(1, 20)
+        .Select(x => new MultiSelectItem { Text = "item " + x, Value = x });
+
+    public class MultiSelectItem
     {
-        public int MyValueField { get; set; } //TValue matches the type of the value field
-        public string MyTextField { get; set; }
+        public string Text { get; set; } = string.Empty;
+
+        public int Value { get; set; }
     }
-
-    IEnumerable<MyDdlModel> MyOptions = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    //the same configuration applies if the "MyOptions" object is null initially and is populated on some event
 }
 ````
 
 
 ## See Also
 
-  * [AutoComplete Overview]({%slug autocomplete-overview%})
-  * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
+* [Live Demo: MultiSelect](https://demos.telerik.com/blazor-ui/multiselect/overview)

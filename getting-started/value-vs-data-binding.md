@@ -56,7 +56,7 @@ There is no two-way binding in this case, the flow of the data is from the paren
 
 Data binding includes the following steps:
 
-* Creating a collection with the desired set of models/primitive types in the view-model. You would usually get it from a data service specific to the app.
+* Creating a collection with the desired set of [reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types) or [value](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) types in the view-model. You would usually get it from a data service specific to the app.
 
 * Pointing the `Data` parameter of the Telerik component to that collection.
 

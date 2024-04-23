@@ -15,28 +15,27 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 ## Creating AutoComplete
 
 1. Use the `TelerikAutoComplete` tag to add the component to your razor page.
-
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
-
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to the same type as the member of the `ValueField` parameter.
-
 1. (Optional) Enable features like placeholder text and [clear button](#clear-button).
 
->caption AutoComplete with two-way value binding and data binding to a primitive type
+>caption AutoComplete with two-way value binding and data binding to collection of strings
 
 ````CSHTML
-@* AutoComplete with two-way value binding and data binding to a primitive type *@
+@* AutoComplete with two-way value binding and data binding to a collection of strings *@
 
-User input: @TheValue
+User input: @AutoCompleteValue
 <br />
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue"
-    Placeholder="Enter your role (can be free text)" ClearButton="true" />
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoComplete"
+                     Placeholder="Enter your role (can be free text)"
+                     ClearButton="true" />
 
 @code{
     //Current value is null (no item is selected) which allows the Placeholder to be displayed.
-    string TheValue { get; set; }
+    private string AutoComplete { get; set; }
 
-    List<string> Suggestions { get; set; } = new List<string> {
+    private List<string> Suggestions { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
     };
 }

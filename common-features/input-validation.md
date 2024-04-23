@@ -294,7 +294,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 @* This Using is for the model class attributes only *@
 @* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
 
-@*You can still use a full model, primitive types are used for brevity here*@
+@*You can still use a full model. Strings are used for brevity here*@
 
 <EditForm Model="@person" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />

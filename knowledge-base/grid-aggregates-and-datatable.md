@@ -90,7 +90,7 @@ This sample contains a solution for calculating them on the server over all data
                 x =>
                 {
                     // This is mandatory if you are having some data with empty values (nulls)
-                    // DBNull is not parsable to other primitive types and we should convert it manually
+                    // DBNull is not parsable to other value types and we should convert it manually
                     if (x.Value == DBNull.Value)
                     {
                         return null;
@@ -216,7 +216,7 @@ You can, however, add the desired aggregate functions and let .ToDataSourceResul
                 x =>
                 {
                     // This is mandatory if you are having some data with empty values (nulls)
-                    // DBNull is not parsable to other primitive types and we should convert it manually
+                    // DBNull is not parsable to other value types and we should convert it manually
                     if (x.Value == DBNull.Value)
                     {
                         return null;

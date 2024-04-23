@@ -16,42 +16,41 @@ This article explains the different ways to provide data to a ComboBox component
 
 There are two key ways to bind data:
 
-* [Primitive Types](#primitive-types)
+* [Strings and Value Types](#strings-and-value-types)
 * [Model](#bind-to-a-model)
 
-and some considerations you may find useful, such as showing the `Placeholder` when the value is out of the data source range:
+There are also some considerations you may find useful, such as showing the `Placeholder` when the value is out of the data source range:
 
 * [Considerations](#considerations)
 	* [Value Out of Range](#value-out-of-range)
 	* [Component Reference](#component-reference)
 	* [Missing Value or Data](#missing-value-or-data)
 
-## Primitive Types
+## Strings and Value Types
 
-You can data bind the ComboBox to a simple collection of data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models. 
+You can data bind the ComboBox to a collection of `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data (such as `int`, `decimal`, `bool`, `Guid`, and `Enum`). When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models. 
 
-To bind the combobox to a primitive type (like `int`, `string`, `double`), you need to
+To bind the combobox to string or value type data, you need to:
 
 1. provide an `IEnumerable<TItem>` of the desired type to its `Data` property
 1. set a corresponding `Value`. If the `Value` is `null`, it will be populated with the first item from the data source.
 
->caption Data binding a ComboBox to a primitive type
+>caption Data binding a ComboBox to string data
 
 ````CSHTML
-@*Bind to a List of a primitive type (string, int,...)*@
-
-<TelerikComboBox Data="@MyList" @bind-Value="MyItem">
+<TelerikComboBox Data="@ComboBoxData"
+                 @bind-Value="ComboBoxValue">
 </TelerikComboBox>
 
 @code {
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    private List<string> ComboBoxData = new List<string>() { "first", "second", "third" };
 
-    protected string MyItem { get; set; }
+    private string ComboBoxValue { get; set; } = string.Empty;
 
     //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        MyItem = "second";
+        ComboBoxValue = "second";
     }
 }
 ````
@@ -66,34 +65,39 @@ To bind the ComboBox to a model:
 1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
 1. Set the `Value` property to the initial value of the component (optional).
 
-> The `TextField` and `ValueField` parameters must point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types must match and also be primitive.
+> The `TextField` and `ValueField` parameters must point to `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) properties. The `Value` parameter type must match the type of the `ValueField` property.
 
 >caption Data binding a ComboBox to a model
 
 ````CSHTML
-@selectedValue
-
-<TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
+@ComboBoxValue
+<br />
+<TelerikComboBox Data="@ComboBoxData"
+                 @bind-Value="ComboBoxValue"
+                 TextField="MyTextField"
+                 ValueField="MyValueField"
+                 Width="200px">
 </TelerikComboBox>
 
 @code {
-    //in a real case, the model is usually in a separate file
-    //the model type and value field type must be provided to the dropdpownlist
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
+        .Select(x => new ComboBoxItem { MyTextField = $"Item {x}", MyValueField = x });
 
-    int selectedValue { get; set; }
+    private int ComboBoxValue { get; set; }
 
     //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        selectedValue = 3;
+        ComboBoxValue = 3;
     }
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    //In a real case, the model is usually in a separate file.
+    //The model type and value field type must be provided to the ComboBox
+    public class ComboBoxItem
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; } = string.Empty;
+    }
 }
 ````
 
@@ -117,76 +121,94 @@ When `AllowCustom="true"`, what the user types in the input will be set to the `
 
 ### Component Reference
 
-The ComboBox is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
+The ComboBox is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````Primitive
-@*Reference type when binding to primitive values*@
+````String
+@*ComboBox reference when binding to a string collection*@
 
-<TelerikComboBox @ref="myComboRef" Data="@MyList" Value="@initialValue">
+<TelerikComboBox @ref="ComboBoxRef"
+                 Data="@ComboBoxData"
+                 Value="@ComboBoxValue">
 </TelerikComboBox>
 
 @code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikComboBox<string, string> myComboRef;
+    private TelerikComboBox<string, string>? ComboBoxRef { get; set; }
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    private List<string> ComboBoxData = new List<string>() { "first", "second", "third" };
 
-    string initialValue { get; set; }
+    private string ComboBoxValue { get; set; } = string.Empty;
 
-    //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        initialValue = "third";
+        ComboBoxValue = "third";
     }
 }
 ````
 ````Model
-@*Reference when binding to model collections*@
+@*ComboBox reference when binding to a model collection*@
 
-<TelerikComboBox @ref="@myComboRef" Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" Value="3">
+<TelerikComboBox @ref="@ComboBoxRef"
+                 Data="@ComboBoxData"
+                 @bind-Value="@ComboBoxValue"
+                 TextField="@nameof(ComboBoxItem.MyTextField)"
+                 ValueField="@nameof(ComboBoxItem.MyValueField)">
 </TelerikComboBox>
+
 @code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikComboBox<MyDdlModel, int> myComboRef;
+    private TelerikComboBox<ComboBoxItem, int>? ComboBoxRef { get; set; }
 
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
+        .Select(x => new ComboBoxItem { MyTextField = "Item " + x, MyValueField = x });
 
-    public class MyDdlModel
+    private int ComboBoxValue { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ComboBoxValue = 3;
+    }
+
+    public class ComboBoxItem
     {
         public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
+        public string MyTextField { get; set; } = string.Empty;
     }
 }
 ````
 
 ### Missing Value or Data
 
- In case you cannot provide either of a `Value`, or `Data`, or both when the component initializes, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
+In case you cannot provide strongly-typed `Value` or `Data` at compile time, you need to set the corresponding type properties to the `TItem` and `TValue` properties as shown below.
 
 >caption ComboBox configuration if you cannot provide Value or Data
 
 ````CSHTML
 @*How to declare the combobox if no Value or Data are provided*@
 
-<TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
+<TelerikComboBox @ref="@ComboBoxRef"
+                 Data="@ComboBoxData"
+                 TItem="@ComboBoxItem"
+                 TValue="@int"
+                 TextField="@nameof(ComboBoxItem.MyTextField)"
+                 ValueField="@nameof(ComboBoxItem.MyValueField)">
 </TelerikComboBox>
 
 @code {
-    public class MyDdlModel //TItem matches the type of the model
+    private TelerikComboBox<ComboBoxItem, int>? ComboBoxRef { get; set; }
+
+    private IEnumerable<ComboBoxItem> ComboBoxData = Enumerable.Range(1, 20)
+        .Select(x => new ComboBoxItem { MyTextField = "Item " + x, MyValueField = x });
+
+    public class ComboBoxItem
     {
-        public int MyValueField { get; set; } //TValue matches the type of the value field
-        public string MyTextField { get; set; }
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; } = string.Empty;
     }
-
-    IEnumerable<MyDdlModel> myComboData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-
-    //the same configuration applies if the "myComboData" object is null initially and is populated on some event
 }
 ````
 
 
 ## See Also
 
-  * [Blazor ComboBox Overview]({%slug components/combobox/overview%})
-  * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
+* [Blazor ComboBox Overview]({%slug components/combobox/overview%})
+* [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)

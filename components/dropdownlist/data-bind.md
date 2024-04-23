@@ -16,42 +16,36 @@ This article explains the different ways to provide data to a DropDownList compo
 
 There are two key ways to bind data:
 
-* [Bind to Primitive Types](#primitive-types)
+* [Bind to Strings or Value Types](#strings-or-value-types)
 * [Bind to a Model](#bind-to-a-model)
 
-and some considerations you may find useful, such as showing the `DefaultText` when the value is out of the data source range:
+There are also some considerations you may find useful, such as showing the `DefaultText` when the value is out of the data source range:
 
   * [Considerations](#considerations)
     * [Value Out of Range](#value-out-of-range)
     * [Component Reference](#component-reference)
     * [Missing Value or Data](#missing-value-or-data)
 
-## Primitive Types
+## Strings or Value Types
 
-You can data bind the DropDownList to a simple collection of data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models. 
+You can data bind the DropDownList to a collection of `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data (such as `int`, `decimal`, `bool`, and `Enum`). When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
 
-To bind the dropdownlist to a primitive type (like `int`, `string`, `double`), you need to
+1. Provide an `IEnumerable<TItem>` of the desired type to its `Data` property.
+1. Set a corresponding `Value`. If the `Value` is `null`, it will be populated with the first item from the data source.
 
-1. provide an `IEnumerable<TItem>` of the desired type to its `Data` property
-1. set a corresponding `Value`. If the `Value` is `null`, it will be populated with the first item from the data source.
-
->caption Data binding a DropDownList to a primitive type
+>caption Data binding a DropDownList to strings
 
 ````CSHTML
-Bind to a List of a primitive type (stirng, int,...)
-
-<TelerikDropDownList Data="@MyList" @bind-Value="MyItem">
-</TelerikDropDownList>
+<TelerikDropDownList Data="@DropDownListData" @bind-Value="DropDownListValue" />
 
 @code {
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    private List<string> DropDownListData = new List<string>() { "first", "second", "third" };
 
-    protected string MyItem { get; set; }
+    private string DropDownListValue { get; set; } = string.Empty;
 
-    //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        MyItem = "second";
+        DropDownListValue = "second";
     }
 }
 ````
@@ -66,34 +60,32 @@ To bind the DropDownList to a model:
 1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
 1. Set the `Value` property to the initial value of the component (optional).
 
-> The `TextField` and `ValueField` parameters must point to model properties, which are of **primitive** type (`int`, `string`, etc.). The `Value` and `ValueField` types must match and also be primitive.
+> The `TextField` and `ValueField` parameters must point to `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) properties. The `Value` parameter type must match the type of the `ValueField` property.
 
 >caption Data binding a DropDownList to a model
 
 ````CSHTML
-Bind to a collection of models
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue">
-</TelerikDropDownList>
+<TelerikDropDownList Data="@DropDownListData"
+                     @bind-Value="DropDownListValue"
+                     TextField="@nameof(DropDownListItem.Text)"
+                     ValueField="@nameof(DropDownListItem.Value)" />
 
 @code {
-    //in a real case, the model is usually in a separate file
-    //the model type and value field type must be provided to the dropdpownlist
-    public class MyDdlModel
-    {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
+    private int DropDownListValue { get; set; }
 
-    int selectedValue { get; set; }
+    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
+        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
 
-    //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        selectedValue = 3;
+        DropDownListValue = 3;
     }
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
+    public class DropDownListItem
+    {
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
+    }
 }
 ````
 
@@ -113,45 +105,51 @@ Handling such "unexpected" values is up to the application - for example, throug
  
 ### Component Reference
 
-The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
+The DropDownList is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````Primitive
-Reference type when binding to primitive values
-
-<TelerikDropDownList @ref="myDdlRef" Data="@MyList" Value="@initialValue">
-</TelerikDropDownList>
+````String
+<TelerikDropDownList @ref="@DropDownListRef"
+                     Data="@DropDownListData"
+                     @bind-Value="DropDownListValue" />
 
 @code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikDropDownList<string, string> myDdlRef;
+    private TelerikDropDownList<string, string>? DropDownListRef { get; set; }
 
-    protected List<string> MyList = new List<string>() { "first", "second", "third" };
+    private List<string> DropDownListData = new List<string>() { "first", "second", "third" };
 
-    string initialValue { get; set; }
+    private string DropDownListValue { get; set; } = string.Empty;
 
-    //Define a preselected value when the component initializes
     protected override void OnInitialized()
     {
-        initialValue = "third";
+        DropDownListValue = "second";
     }
 }
 ````
 ````Model
-Reference when binding to model collections
+<TelerikDropDownList @ref="@DropDownListRef"
+                     Data="@DropDownListData"
+                     @bind-Value="DropDownListValue"
+                     TextField="@nameof(DropDownListItem.Text)"
+                     ValueField="@nameof(DropDownListItem.Value)" />
 
-<TelerikDropDownList @ref="myDdlRef" Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" Value="3">
-</TelerikDropDownList>
 @code {
-    //the type of the generic component is determined by the type of the model you pass to it, and the type of its value field
-    Telerik.Blazor.Components.TelerikDropDownList<MyDdlModel, int> myDdlRef;
+    private TelerikDropDownList<DropDownListItem, int>? DropDownListRef { get; set; }
 
-    IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-    
-    public class MyDdlModel
+    private int DropDownListValue { get; set; }
+
+    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
+        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
+
+    protected override void OnInitialized()
     {
-        public int MyValueField { get; set; }
-        public string MyTextField { get; set; }
+        DropDownListValue = 3;
+    }
+
+    public class DropDownListItem
+    {
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
@@ -163,26 +161,25 @@ Reference when binding to model collections
 >caption DropDownList configuration if you cannot provide Value or Data
 
 ````CSHTML
-How to declare the dropdown if no Value or Data are provided
-
-<TelerikDropDownList Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" TValue="int" TItem="MyDdlModel">
-</TelerikDropDownList>
+<TelerikDropDownList Data="@DropDownListData"
+                     TItem="@DropDownListItem"
+                     TValue="@int"
+                     TextField="@nameof(DropDownListItem.Text)"
+                     ValueField="@nameof(DropDownListItem.Value)" />
 
 @code {
-	public class MyDdlModel //TItem matches the type of the model
-	{
-		public int MyValueField { get; set; } //TValue matches the type of the value field
-		public string MyTextField { get; set; }
-	}
+    private IEnumerable<DropDownListItem> DropDownListData = Enumerable.Range(1, 20)
+        .Select(x => new DropDownListItem { Text = $"Item {x}", Value = x });
 
-	IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
-	
-	//the same configuration applies if the "myDdlData" object is null initially and is populated on some event
+    public class DropDownListItem
+    {
+        public int Value { get; set; }
+        public string Text { get; set; } = string.Empty;
+    }
 }
 ````
 
-
 ## See Also
 
-  * [DropDownList Overview]({%slug components/dropdownlist/overview%})
-  * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/index)
+* [DropDownList Overview]({%slug components/dropdownlist/overview%})
+* [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/overview)

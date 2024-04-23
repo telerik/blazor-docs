@@ -51,7 +51,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The example below uses [binding]({%slug radiogroup-databind%}) to primitive types for brevity, you can use full models as well.
+The example below uses [binding]({%slug radiogroup-databind%}) to string data for brevity. You can use a model class as well.
 
 >caption Handle ValueChanged
 

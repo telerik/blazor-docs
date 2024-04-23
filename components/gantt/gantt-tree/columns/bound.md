@@ -155,7 +155,7 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 
 * For advanced operations such as filtering and sorting, you *must* set a `Field` to the column, and the field it points to must be a string or a value type (such as a number, string, DateTime, boolean).
     * If a `Field` is not set the column will not allow filtering, sorting and editing for the column.
-    * If the `Field` points to a custom object or something like an `IDictionary`, errors will be thrown upon those actions because there are no known data operations on non-primitive types in .NET.
+    * If the `Field` points to a custom object or something like an `IDictionary`, errors will be thrown upon those actions because there are no known data operations for reference types in .NET, except for strings.
 
 * If you don't set a `Title` for a column, the Gantt will take the `[Display(Name = "My Column Title")]` data annotation attribute from the model field. If that's not available either, the name of the field will be shown.
 

@@ -16,7 +16,7 @@ This article explains the different ways to provide data to a RadioGroup compone
 
 There are two key ways to bind data:
 
-* [Bind to Primitive Types](#primitive-types)
+* [Bind to Strings or Value Types](#strings-or-value-types)
 * [Bind to a Model](#bind-to-a-model)
 
 and some considerations you may find useful, such as handling values not in the list, or when the value is out of the data source range:
@@ -26,24 +26,24 @@ and some considerations you may find useful, such as handling values not in the 
 	* [Component Reference](#component-reference)
 	* [Missing Value or Data](#missing-value-or-data)
 
-## Primitive Types
+## Strings or Value Types
 
-You can data bind the RadioGroup to a simple collection of data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models. 
-
-To bind the RadioGroup to a primitive type (like `int`, `string`, `double`), you need to
+You can data bind the RadioGroup to a collection of `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data (such as `int`, `decimal`, `bool`, and `Enum`). When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
 
 1. Provide an `IEnumerable<TItem>` of the desired type to its `Data` property
 1. Set a corresponding `Value`.
 
->caption Data binding a RadioGroup to a primitive type
+>caption Data binding a RadioGroup to strings
 
 ````CSHTML
-@SelectedValue
+RadioGroupValue: @RadioGroupValue
 <br />
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue"></TelerikRadioGroup>
-@code{
-    string SelectedValue { get; set; }
-    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
+<TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@RadioGroupValue" />
+
+@code {
+    private string RadioGroupValue { get; set; } = string.Empty;
+
+    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
 
@@ -60,30 +60,28 @@ To bind the RadioGroup to a model:
 >caption Data binding a RadioGroup to a model and collection of models
 
 ````CSHTML
-Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
+Selected Gender Id: @( RadioGroupValue == default ? "None yet" : RadioGroupValue.ToString() )
 <br />
+<TelerikRadioGroup Data="@RadioGroupData"
+                   @bind-Value="@RadioGroupValue"
+                   ValueField="@nameof(Gender.Id)"
+                   TextField="@nameof(Gender.Text)" />
 
-<TelerikRadioGroup Data="@GenderOptions"
-                   @bind-Value="@ChosenGender"
-                   ValueField="@nameof(GenderModel.GenderId)"
-                   TextField="@nameof(GenderModel.GenderText)">
-</TelerikRadioGroup>
+@code {
+    private int RadioGroupValue { get; set; }
 
-@code{
-    int ChosenGender { get; set; }
-
-    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
+    private List<Gender> RadioGroupData { get; set; } = new List<Gender>()
     {
-        new GenderModel { GenderId = 1, GenderText = "Female" },
-        new GenderModel { GenderId = 2, GenderText = "Male" },
-        new GenderModel { GenderId = 3, GenderText = "Other" },
-        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
+        new Gender { Id = 1, Text = "Female" },
+        new Gender { Id = 2, Text = "Male" },
+        new Gender { Id = 3, Text = "Other" },
+        new Gender { Id = 4, Text = "Prefer Not to Say" },
     };
 
-    public class GenderModel
+    public class Gender
     {
-        public int GenderId { get; set; }
-        public string GenderText { get; set; }
+        public int Id { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
@@ -104,48 +102,45 @@ You should avoid values in the data that match the `default` of their type (such
  
 ### Component Reference
 
-The RadioGroup is a generic component and its type comes from the model it is bound to and from the value field type. When bound to a primitive type, the reference is of that primitive type only.
+The RadioGroup is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````Primitive
-Reference type when binding to primitive values
+````String
+<TelerikRadioGroup @ref="@RadioGroupRef"
+                   Data="@RadioGroupData"
+                   @bind-Value="@RadioGroupValue" />
+@code {
+    private TelerikRadioGroup<string, string>? RadioGroupRef { get; set; }
 
-<TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" @ref="@RadioGroupRef"></TelerikRadioGroup>
-@code{
-    TelerikRadioGroup<string, string> RadioGroupRef { get; set; }
+    private string RadioGroupValue { get; set; } = string.Empty;
 
-    string SelectedValue { get; set; }
-    IEnumerable<string> Data { get; set; } = new List<string> { "first", "second", "third" };
+    private IEnumerable<string> RadioGroupData { get; set; } = new List<string> { "first", "second", "third" };
 }
-
 ````
 ````Model
-Reference when binding to model collections
+<TelerikRadioGroup @ref="@RadioGroupRef"
+                   Data="@RadioGroupData"
+                   @bind-Value="@RadioGroupValue"
+                   ValueField="@nameof(Gender.Id)"
+                   TextField="@nameof(Gender.Text)" />
 
-<TelerikRadioGroup Data="@GenderOptions"
-                   @bind-Value="@ChosenGender"
-                   @ref="@RadioGroupRef"
-                   ValueField="@nameof(GenderModel.GenderId)"
-                   TextField="@nameof(GenderModel.GenderText)">
-</TelerikRadioGroup>
+@code {
+    private TelerikRadioGroup<Gender, int>? RadioGroupRef { get; set; }
 
-@code{
-    TelerikRadioGroup<GenderModel, int> RadioGroupRef { get; set; }
+    private int RadioGroupValue { get; set; }
 
-    int ChosenGender { get; set; }
-
-    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
+    private List<Gender> RadioGroupData { get; set; } = new List<Gender>()
     {
-        new GenderModel { GenderId = 1, GenderText = "Female" },
-        new GenderModel { GenderId = 2, GenderText = "Male" },
-        new GenderModel { GenderId = 3, GenderText = "Other" },
-        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
+        new Gender { Id = 1, Text = "Female" },
+        new Gender { Id = 2, Text = "Male" },
+        new Gender { Id = 3, Text = "Other" },
+        new Gender { Id = 4, Text = "Prefer Not to Say" },
     };
 
-    public class GenderModel
+    public class Gender
     {
-        public int GenderId { get; set; }
-        public string GenderText { get; set; }
+        public int Id { get; set; }
+        public string Text { get; set; }
     }
 }
 ````
@@ -157,39 +152,30 @@ Reference when binding to model collections
 >caption RadioGroup configuration if you cannot provide Value or Data
 
 ````CSHTML
-How to declare the radio button list if no Value or Data are provided
+<TelerikRadioGroup Data="@RadioGroupData"
+                   TItem="@Gender"
+                   TValue="@int"
+                   ValueField="@nameof(Gender.Id)"
+                   TextField="@nameof(Gender.Text)" />
 
-<TelerikRadioGroup Data="@GenderOptions"
-                   TItem="GenderModel" TValue="int"
-                   ValueField="@nameof(GenderModel.GenderId)"
-                   TextField="@nameof(GenderModel.GenderText)">
-</TelerikRadioGroup>
-
-@code{
-    TelerikRadioGroup<GenderModel, int> RadioGroupRef { get; set; }
-
-    int ChosenGender { get; set; }
-
-    List<GenderModel> GenderOptions { get; set; } = new List<GenderModel>
+@code {
+    private List<Gender> RadioGroupData { get; set; } = new List<Gender>()
     {
-        new GenderModel { GenderId = 1, GenderText = "Female" },
-        new GenderModel { GenderId = 2, GenderText = "Male" },
-        new GenderModel { GenderId = 3, GenderText = "Other" },
-        new GenderModel { GenderId = 4, GenderText = "Prefer not to say" },
+        new Gender { Id = 1, Text = "Female" },
+        new Gender { Id = 2, Text = "Male" },
+        new Gender { Id = 3, Text = "Other" },
+        new Gender { Id = 4, Text = "Prefer Not to Say" },
     };
 
-    public class GenderModel //TItem matches the type of the model
+    public class Gender
     {
-        public int GenderId { get; set; } //TValue matches the type of the value field
-        public string GenderText { get; set; }
+        public int Id { get; set; }
+        public string Text { get; set; }
     }
-
-    //the same configuration applies if the "myDdlData" object is null initially and is populated on some event
 }
 ````
 
-
 ## See Also
 
-  * [RadioGroup Overview]({%slug radiogroup-overview%})
-  * [Live Demo: RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/overview)
+* [RadioGroup Overview]({%slug radiogroup-overview%})
+* [Live Demo: RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/overview)

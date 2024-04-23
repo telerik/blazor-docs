@@ -44,7 +44,7 @@ Then, follow these steps:
 1. Subscribe to the [Grid `OnStateInit` event]({%slug grid-state%}#onstatechanged) to configure the initial state of the Grid programmatically.
 1. Obtain the previously saved Grid state information from `localStorage`, deserialize it and set it to the `args.GridState` property of the `OnStateInit` event argument.
     * Using `localStorage` requires JavaScript. Blazor doesn't allow JSInterop calls during pre-rendering. To avoid runtime exceptions, wrap the JSInterop call in `OnStateInit` in a try-catch block. 
-1. Some aspects of the Grid state depend on data item references, for example selected items, expanded hierarchy items, or edited items. To restore these successfully, override the `Equals` method of the Grid model class. This will allow .NET to compare data items by a primitive value (ID), rather than by reference. Reference comparison will always return `false` after serialization and deserialization.
+1. Some aspects of the Grid state depend on data item references, for example selected items, expanded hierarchy items, or edited items. To restore these successfully, override the `Equals` method of the Grid model class. This will allow .NET to [compare data items by a value (ID), rather than by reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types). Reference comparison will always return `false` (except for strings) after serialization and deserialization.
 
 For more information about `localStorage`, see:
 
@@ -181,7 +181,7 @@ For more information about `localStorage`, see:
 
         public List<Assignment> Assignments { get; set; }
 
-        // Example for comparing data items by primitive values (ID), rather than by reference.
+        // Example for comparing data items by value (ID), rather than by reference.
         // Used for Grid state operations that are related to items (e.g. editing, selection, hierarchy).
         public override bool Equals(object obj)
         {

@@ -26,7 +26,7 @@ The examples in this article use `string` values and simple data sources for bre
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The example below uses [binding]({%slug components/dropdownlist/databind%}) to primitive types for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
+The example below uses [binding]({%slug components/dropdownlist/databind%}) to string data for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle DropDownList ValueChanged
 

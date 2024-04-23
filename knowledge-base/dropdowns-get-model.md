@@ -1,8 +1,8 @@
 ---
-title: Get model from dropdown
-description: how to get a model from a dropdown instead of a primitive value.
+title: Get Model from Drop Down
+description: How to get a model from a drop down instead of a primitive or value-type value.
 type: how-to
-page_title: Get model from dropdown
+page_title: Get Model from Drop Down
 slug: dropdowns-get-model
 position: 
 tags: 
@@ -23,11 +23,11 @@ res_type: kb
 
 ## Problem
 
-I want to get an instance of my model when I select an item from a dropdown (such as a DropDownList, ComboBox, AutoComplete, MultiSelect). I can get only a primitive type that is the type of the `Value` and `ValueField`.
+I want to get an instance of my model when I select an item from a dropdown (such as a DropDownList, ComboBox, AutoComplete, MultiSelect). I can get only a string or a value type that is the type of the `Value` and `ValueField`.
 
 ## Description
 
-The dropdowns provide a primitive `Value` so that [validation]({%slug common-features/input-validation%}) can work, and so that other data source operations (such as filtering) can work. The Value and Text cannot be classes (models) because that would prevent validation from working and filtering/comparing entire classes is an operation that is not defined.
+All Telerik UI for Blazor dropdown components support a string and [built-in value-type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) `Value` so that [validation]({%slug common-features/input-validation%}) and filtering can work. The Value and Text cannot be classes (models) because that would prevent validation from working and filtering/comparing entire classes is an operation that is not defined.
 
 ## Solution
 

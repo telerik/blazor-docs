@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-I bind the Grid to Data with complex objects in its model, not only primitive types.
+I bind the Grid to Data with complex objects in its model, not only strings, primitive and value types.
 
 How to use complex objects in my model and show nested (navigation) properties information in the Grid?
 

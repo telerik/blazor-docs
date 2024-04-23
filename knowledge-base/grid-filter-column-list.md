@@ -257,7 +257,7 @@ The example below includes two Grids - one for each `FilterMode`.
 
 ## Notes
 
-.NET doesn't provide a built-in mechanism for filtering or comparing collections. As a result, built-in Grid data operations exist only for primitive types like `string`, `int`, `bool`, `DateTime`.
+.NET doesn't provide a built-in mechanism for filtering or comparing collections. As a result, built-in Grid data operations exist only for `string` and [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) like `int`, `bool`, `DateTime`, and so on.
 
 
 ## See Also
