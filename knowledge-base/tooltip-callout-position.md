@@ -1,8 +1,8 @@
 ---
-title: Hide the Tooltip Callout or Change its Position
+title: Hide the Tooltip Callout or Change Its Position
 description: Learn how to customize the appearance and behavior of the Tooltip small arrow, including adjusting the callout position and hiding it when necessary.
 type: how-to
-page_title: Hide the Tooltip Callout or Change its Position
+page_title: Hide the Tooltip Callout or Change Its Position
 slug: tooltip-kb-callout-position
 tags: tooltip, styling, callout
 ticketid: 1628953, 1565205
@@ -23,17 +23,17 @@ res_type: kb
 ## Description
 This Knowledge Base article answers the following questions:
 
-* How to customize the Tooltip callout ?
-* How to change the positon of the Tooltip callout ?
-* How to modify the position of the small arrow of a Tooltip ?
-* How to hide the Tooltip callout ?
+* How to customize the Tooltip callout?
+* How to change the position of the Tooltip callout?
+* How to modify the position of the small arrow of a Tooltip?
+* How to hide the Tooltip callout?
 
 ## Solution
 
-1. Set a custom CSS class to the Tooltip through the `Class` parameter. This configuration will allow you to target specific Tooltip instances.
-2. Use the defiend class to [Override the theme styles](https://docs.telerik.com/blazor-ui/styling-and-themes/override-theme-styles).
+1. Set a custom CSS class to the Tooltip through the `Class` parameter. This configuration allows you to target specific Tooltip instances.
+2. Use the defined class to [Override the theme styles]({%slug themes-override%}).
 3. Customize the callout (small arrow) position by using this CSS combinator `.your-class .k-callout`, to suit your specific requirements.
-3. Set a value of the TargetSelector parameter of the Tooltip.
+3. Set a value for the `TargetSelector` parameter of the Tooltip.
 
 >caption Blazor Tooltip with custom callouts positions
 
@@ -77,3 +77,7 @@ This Knowledge Base article answers the following questions:
     }
 </style>
 ````
+
+## See Also
+* [Tooltip Overview]({%slug tooltip-overview%})
+* [Tooltip Position]({%slug tooltip-position%})
