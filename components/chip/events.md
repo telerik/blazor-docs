@@ -68,5 +68,5 @@ The `SelectedChanged` event fires when the `Selectable` parameter is `true` and 
 
 ## See Also
 
-* [Live Demo: Chip Events](http://demos.telerik.com/blazor-ui/chip/events)
+* [Live Demo: Chip Events](https://demos.telerik.com/blazor-ui/chip/events)
 * [Chip OverView]({%slug chip-overview%})
