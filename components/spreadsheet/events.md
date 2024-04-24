@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Spreadsheet - Events
-description: Description of the Spreadsheet events and event arguments. Complete runnable example with all Spreadsheet events.
+description: Discover and handler the Spreadsheet events and event arguments. Find complete runnable example with all Spreadsheet events.
 slug: spreadsheet-events
 tags: telerik,blazor,spreadsheet
 published: True
@@ -10,7 +10,7 @@ position: 60
 
 # Spreadsheet Events
 
-The Telerik Blazor Spreadsheet fires events that are related to ... This article describes all events and event arguments.
+The Telerik Blazor Spreadsheet fires events that are related to different user actions. This article describes all events and event arguments.
 
 * [`OnDownload`](#ondownload)
 * [`OnOpen`](#onopen)
@@ -24,7 +24,7 @@ The `OnDownload` event fires when the user clicks on the **Download** button in 
 
 | Property Name | Type | Description |
 | --- | --- | --- |
-| `FileName` | `string` | The filename, which will appear in the browser's file save dialog. |
+| `FileName` | `string` | The filename, which will appear in the browser's save file dialog. |
 | `IsCancelled` | `bool` | Sets if the download action will be prevented. |
 
 See the [example below](#example).
@@ -66,7 +66,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
     {
         var now = DateTime.Now;
 
-        args.FileName = $"telerik-spreasheet-{now.ToString("HH-mm-ss")}";
+        args.FileName = $"telerik-spreadsheet-{now.ToString("HH-mm-ss")}";
 
         SpreadSheetEventLog = $"<code>OnDownload</code> for file <strong>{args.FileName}</strong>.";
 

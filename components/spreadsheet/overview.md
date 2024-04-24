@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Spreadsheet - Overview
-description: Overview of the Spreadsheet for Blazor and its features and parameters.
+description: Get familiar with the Spreadsheet for Blazor and its features and parameters. Learn how to quickly run a Spreadsheet component.
 slug: spreadsheet-overview
 tags: telerik,blazor,spreadsheet
 published: True

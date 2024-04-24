@@ -14,8 +14,8 @@ The Telerik Blazor Spreadsheet organizes all its tools in a tool set with one or
 
 >caption In this article:
 
-* [What are the building blocks of the Spreadsheet tool set](#tool-set)
-* [What are the built-in Spreadsheet tools](#built-in-tools)
+* [The building blocks of the Spreadsheet tool set](#tool-set)
+* [The built-in Spreadsheet tools](#built-in-tools)
 * [How to customize a built-in tool set](#customize-built-in-tool-sets)
 * [How to define a custom tool set from scratch](#create-a-custom-tool-set)
 * [How to create a custom tool](#define-custom-tools)
@@ -68,8 +68,6 @@ The following table lists all Spreadsheet tools, sorted by their default tool se
 | Insert Image | `SpreadsheetInsertImageTool` | Insert |
 | Merge Cells | `SpreadsheetMergeCellsTool` | View |
 | Toggle Grid Lines | `SpreadsheetGridLinesTool` | View |
-
-### Additional Tools
 
 The Spreadsheet component provides a few tools that have no specific action:
 
@@ -189,7 +187,12 @@ The example below shows how to:
 
 ## Create a Custom Tool Set
 
-The example below shows how to define a custom tool set from scratch. You can also [set the available properties of each tool](#customize-built-in-tool-sets), such as `Class`, `Enabled`, `Icon`, and `Title`.
+Here is how to define a custom tool set from scratch. You can also [set the available properties of each tool](#customize-built-in-tool-sets), such as `Class`, `Enabled`, `Icon`, and `Title`.
+
+1. Set the Spreadsheet `Tools` parameter to a new `SpreadsheetToolSet` instance, for example, `SpreadsheetTools`.
+1. Set the `Items` property of `SpreadsheetTools` to a `new List<SpreadsheetToolSetItem>()`.
+1. Add one or more `SpreadsheetToolSetItem` objects to the `Items` list.
+1. Populate each `SpreadsheetToolSetItem` object with [built-in tools](#built-in-tools) or [custom tools](#define-custom-tools).
 
 >caption Creating a custom tool set collection from scratch
 
