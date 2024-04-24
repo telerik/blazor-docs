@@ -105,7 +105,7 @@ The [example below](#example) demonstrates the second and third option. Also che
 
 The Blazor framework will fire `OnParametersSet` of a component only when it detects a change in the component's parameter values (such as `Data`). The change detection works like this:
 
-* For strings and [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) (numbers, dates, booleans), the detection occurs when the **value** changes.
+* For strings and [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) (numbers, dates, booleans), the detection occurs when the value changes.
 * For [reference types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types) (such as `IEnumerable` and any application-specific objects), the detection occurs when the **object reference** changes.
 
 Thus, you will usually need to create a new reference for `Data` value in order to refresh the component.
