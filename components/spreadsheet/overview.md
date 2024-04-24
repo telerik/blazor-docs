@@ -8,7 +8,7 @@ published: True
 position: 0
 ---
 
-# Blazor Spreasheet Overview
+# Blazor Spreadsheet Overview
 
 The <a href = "https://www.telerik.com/blazor-ui/spreadsheet" target="_blank">Spreadsheet for Blazor</a> enables users to view and edit tabular data with an Excel-like user experience. The component supports cell styling, value formatting, links, images, formulas, and a rich collection of mathematical functions.
 
