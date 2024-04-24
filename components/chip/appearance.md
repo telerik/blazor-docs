@@ -181,4 +181,4 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 
 ## See Also
 
-* [Live Demo: Chip Appearance](http://demos.telerik.com/blazor-ui/chip/appearance)
+* [Live Demo: Chip Appearance](https://demos.telerik.com/blazor-ui/chip/appearance)
