@@ -11,12 +11,12 @@ position: 0
 
 As the Telerik UI for Blazor matures we will continuously optimize the rendering and the usage of CSS classes. The rendering changes will affect the styling of the components if the business application overrode the built-in CSS rules. This article will track the version where such changes are introduced.
 
-* [3.4.0]({%slug changes-in-3-4-0%})
-* [3.6.0]({%slug changes-in-3-6-0%})
-* [4.0.0]({%slug changes-in-4-0-0%})
-* [4.3.0]({%slug changes-in-4-3-0%})
-* [4.6.0]({%slug changes-in-4-6-0%})
 * [5.2.0]({%slug changes-in-5-2-0%})
+* [4.6.0]({%slug changes-in-4-6-0%})
+* [4.3.0]({%slug changes-in-4-3-0%})
+* [4.0.0]({%slug changes-in-4-0-0%})
+* [3.6.0]({%slug changes-in-3-6-0%})
+* [3.4.0]({%slug changes-in-3-4-0%})
 
 ## Good Styling Practices
 
