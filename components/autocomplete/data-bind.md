@@ -16,14 +16,14 @@ This article explains the different ways to provide data to an AutoComplete comp
 
 There are two key ways to bind data:
 
-* [Primitive Type](#primitive-type)
+* [Strings and Value Types](#strings-and-value-types)
 * [Model](#bind-to-a-model)
 
 There are also some [considerations](#considerations) to keep in mind.
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
-## Primitive Types
+## Strings and Value Types
 
 You can data bind the AutoComplete to a simple collection of `string` data. When you have a concrete list of options for the user to choose from, their string representation is often suitable for display and you do not need special models.
 
@@ -37,9 +37,9 @@ To bind the AutoComplete, you need to:
 ````CSHTML
 @*Bind to an IEnumerable<string>*@
 
-User input 1: @TheValue
+User input 1: @FirstValue
 <br />
-<TelerikAutoComplete Data="@Suggestions" @bind-Value="@TheValue" />
+<TelerikAutoComplete Data="@Suggestions" @bind-Value="@FirstValue" />
 
 <br />
 User input 2: @SecondValue
@@ -47,11 +47,11 @@ User input 2: @SecondValue
 <TelerikAutoComplete Data="@ArraySuggestions" @bind-Value="@SecondValue" />
 
 @code{
-    string TheValue { get; set; }
-    List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+    private string FirstValue { get; set; }
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 
-    string SecondValue { get; set; }
-    string[] ArraySuggestions = new string[] { "one", "two", "three" };
+    private string SecondValue { get; set; }
+    private string[] ArraySuggestions = new string[] { "one", "two", "three" };
 }
 ````
 
@@ -68,14 +68,16 @@ To bind the AutoComplete to a model:
 >caption Data binding an AutoComplete to a model
 
 ````CSHTML
-@TheValue
+@AutoComplete
 <br />
-<TelerikAutoComplete Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+<TelerikAutoComplete Data="@Suggestions"
+                     @bind-Value="@AutoComplete"
+                     ValueField="@( nameof(SuggestionsModel.Suggestion) )" />
 
 @code{
-    string TheValue { get; set; }
+    private string AutoComplete { get; set; }
 
-    List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
+    private List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
     {
         new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
         new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
@@ -94,32 +96,38 @@ To bind the AutoComplete to a model:
 
 ### Reference
 
-The AutoComplete component is generic and its type depends on the type of the model you provide as its `Data` collection.
+The AutoComplete is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````Primitive
-@*Reference type when binding to primitive collections*@
+````String
+@*Reference when binding to a string collection*@
 
-<TelerikAutoComplete @ref="@AutoCompleteRefWithPrimitiveData" Data="@Suggestions" @bind-Value="@TheValue" />
+<TelerikAutoComplete @ref="@AutoCompleteRef"
+                     Data="@Suggestions"
+                     @bind-Value="@AutoCompleteValue" />
 
 @code{
-    TelerikAutoComplete<string> AutoCompleteRefWithPrimitiveData { get; set; }
+    private TelerikAutoComplete<string> AutoCompleteRef { get; set; }
 
-    string TheValue { get; set; }
-    List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
+    private string AutoCompleteValue { get; set; }
+
+    private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
 ````Model
-@*Reference when binding to model collections*@
+@*Reference when binding to a model collection*@
 
-<TelerikAutoComplete @ref="@AutoCompleteRefWithModel" Data="@Suggestions" ValueField="@( nameof(SuggestionsModel.Suggestion) )" @bind-Value="@TheValue" />
+<TelerikAutoComplete @ref="@AutoCompleteRef"
+                     Data="@Suggestions" 
+                     @bind-Value="@AutoCompleteValue"
+                     ValueField="@( nameof(SuggestionsModel.Suggestion) )" />
 
 @code{
-    TelerikAutoComplete<SuggestionsModel> AutoCompleteRefWithModel { get; set; }
+    private TelerikAutoComplete<SuggestionsModel> AutoCompleteRef { get; set; }
 
-    string TheValue { get; set; }
+    private string AutoCompleteValue { get; set; }
 
-    List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
+    private List<SuggestionsModel> Suggestions { get; set; } = new List<SuggestionsModel>
     {
         new SuggestionsModel { Suggestion = "first", SomeOtherField = 1 },
         new SuggestionsModel { Suggestion = "second", SomeOtherField = 2 },
@@ -133,7 +141,6 @@ The AutoComplete component is generic and its type depends on the type of the mo
     }
 }
 ````
-
 
 ### Missing Data
 
@@ -151,8 +158,7 @@ The AutoComplete is, essentially, a textbox. This means that its `Value` is alwa
 }
 ````
 
-
 ## See Also
 
-  * [AutoComplete Overview]({%slug autocomplete-overview%})
-  * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
+* [AutoComplete Overview]({%slug autocomplete-overview%})
+* [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)

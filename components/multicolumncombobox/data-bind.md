@@ -17,7 +17,7 @@ This article explains how to provide data to the MultiColumnComboBox component, 
 
 ## Bind to a Model
 
-Bind the MultiColumnComboBox to a model in your application. Unlike other dropdown components such as ComboBox or DropDownList, binding to a collection of primitive types is not supported.
+Bind the MultiColumnComboBox to a model in your application. Unlike other drop down components such as ComboBox or DropDownList, binding to a collection of strings, primitives, or value types is not supported.
 
 Consult the [MultiColumnComboBox basic usage example]({%slug multicolumncombobox-overview%}#creating-multiColumnComboBox).
 

@@ -39,17 +39,17 @@ Why the component matches all items to the selected one?
 Such unexpected behavior may occur if the ComboBox or DropDownList component are bound to a collection of objects. The possible reasons are related to incorrect configuration:
 
 * There is no `ValueField` set. Without it, the component cannot compare items.
-* `Value` and `TValue` are not of **primitive** type, while they should be (e.g. `int`, `string`, `Guid`, etc.)
+* `Value` and `TValue` are not strings or value types, while they should be (for example, `int`, `string`, `Guid`).
 * The `ValueField` points to a model property, which is not unique for all items.
-* The `ValueField` points to a model property, which is equal to the default value for its type (`null`, `0`, `String.Empty`, etc.)
+* The `ValueField` points to a model property, which is equal to the default value for its type (for example, `null`, `0`, `String.Empty`).
 
 
 ## Solution
 
 When the ComboBox or DropDownList are data bound to a collection of complex objects, make sure that:
 
-* The component `Value` is of primitive type.
-* `ValueField` is set and points to a primitive property of the model.
+* The component `Value` is a `string` or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types).
+* `ValueField` is set and points to a string property or a value-type property of the model class.
 * The `Value` and `ValueField` property types match.
 * The `ValueField` property value should be unique for each item.
 * If `TItem` is set, it must match the model type.
@@ -65,7 +65,7 @@ The test page below demonstrates several incorrect and correct configurations fo
 ````CSHTML
 <div id="dropdown-container">
     <div>
-        Incorrect (no ValueField, Value is not primitive): <br />
+        Incorrect (no ValueField, Value is a not a string or value type): <br />
         <TelerikDropDownList @ref="@DropDownRef1"
                                 Data="@ListItems"
                                 @bind-Value="@SelectedListItem1"
@@ -91,7 +91,7 @@ The test page below demonstrates several incorrect and correct configurations fo
     </div>
 
     <div class="correct">
-        <strong>Correct (ValueField is unique and primitive):</strong> <br />
+        <strong>Correct (ValueField is unique and value type):</strong> <br />
         <TelerikDropDownList @ref="@DropDownRef4"
                                 Data="@ListItems"
                                 @bind-Value="@SelectedIntValue4"

@@ -30,9 +30,7 @@ In order for the ComboBox to function properly, the `Value` parameter should be 
 
 ### Problematic Setup
 
-The following example demonstrates the described problematic behavior caused by different data types provided to `Value` and `ValueField` parameters - the `ValueField`is of type `int` and the `Value` is bound to an instance of the model (`MyDdlModel`).
-
-* Note: This behavior is observed when dealing with data where the difference is of type primitive data - model. If you try working just with different primitive types ( for example `int` - `string`) the application will not run.
+The following example demonstrates the described problematic behavior caused by different data types provided to the `Value` and `ValueField` parameters. The `ValueField` property is of type `int` and the `Value` is bound to an instance of `MyDdlModel`.
 
 ````CSHTML
 @* Try selecting an item - selection is not done and the popup is not closed until it loses focus *@

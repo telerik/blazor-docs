@@ -19,7 +19,7 @@ To use a Telerik ListBox for Blazor:
 
 1. Add the `TelerikListBox` tag.
 1. Set the `Data` parameter to an `IEnumerable<T>`.
-1. Set `TextField` to the property name that holds the string values to display in the ListBox. Skip this step when [binding the component to a collection of primitive values](#data-binding).
+1. Set `TextField` to the property name that holds the string values to display in the ListBox. Skip this step when [binding the component to a collection of strings or value type data](#data-binding).
 1. Set `SelectedItems` to an `IEnumerable<T>` to store or change the component selection. Optionally, [enable multiple selection]({%slug listbox-selection%}).
 1. Configure the [ListBox toolbar]({%slug listbox-toolbar%}) in `<ListBoxToolBarSettings>` and specify which buttons will be visible. By default, the toolbar shows all buttons. Each button requires an [event handler]({%slug listbox-events%}) to work.
 1. (optional) Set the `Width` and `Height` parameters, based on the number of toolbar buttons and desired number of visible items. The component will automatically show a vertical scrollbar if needed. Long items will wrap.
@@ -83,7 +83,7 @@ To use a Telerik ListBox for Blazor:
 
 ## Data Binding
 
-The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting the [`TextField` parameter, unless the property name is `"Text"`](#listbox-parameters). Another option is to bind the component to a collection of primitive strings.
+The ListBox supports [binding to a model class](#creating-blazor-listbox), which requires setting the [`TextField` parameter, unless the property name is `"Text"`](#listbox-parameters). Another option is to bind the component to a collection of strings or [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data.
 
 >caption Bind ListBox to List&lt;string&gt;
 

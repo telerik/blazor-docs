@@ -19,9 +19,9 @@ The Observable collections fire the `CollectionChanged` event only when their `A
 #refresh-data
 In Blazor, the framework will fire the `OnParametersSet` event of a child component (which is how child components can react to outside changes) only when it can detect a change in the object it receives through the corresponding parameter (like `Data` for the data sources of Telerik components). This detection works as follows:
 
-  * For primitive types (such as numbers, strings), this happens when their value changes.
+  * For strings and [value types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types), this happens when their value changes.
 
-  * For complex types (such as data collections like `List`, or any `IEnumerable`, and application-specific models/objects), this happens when the object reference changes.
+  * For [reference types](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-types) (such as data collections like `List`, or any `IEnumerable`, and application-specific objects), this happens when the object reference changes.
 
     Thus, you would usually need to create a `new` reference for the view-model field (such as `TreeViewData = new List<MyTreeViewItem>(theUpdatedDataCollection);`) when you want the component to update.
 #end

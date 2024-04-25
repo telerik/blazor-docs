@@ -57,7 +57,7 @@ Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString
 
 ## Data Binding
 
-The Blazor RadioGroup supports data binding to primitive types and a model. [Read more about the Blazor RadioGroup data binding]({%slug radiogroup-databind%}).
+The Blazor RadioGroup supports data binding to strings, [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data, and a model collection. [Read more about the Blazor RadioGroup data binding]({%slug radiogroup-databind%}).
 
 ## Layout
 
