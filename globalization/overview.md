@@ -91,6 +91,7 @@ Each Telerik UI for Blazor component supports a different set of internationaliz
 | Slider | [Supported](https://demos.telerik.com/blazor-ui/slider/globalization) | [Supported](https://demos.telerik.com/blazor-ui/slider/globalization) | [Supported](https://demos.telerik.com/blazor-ui/slider/rtl) |
 | SplitButton | N/A | Supported | [Supported](https://demos.telerik.com/blazor-ui/splitbutton/rtl) |
 | Splitter | N/A | N/A | [Supported](https://demos.telerik.com/blazor-ui/splitter/rtl) |
+| Spreadsheet | [Supported](https://demos.telerik.com/blazor-ui/spreadsheet/globalization) | [Supported](https://demos.telerik.com/blazor-ui/spreadsheet/globalization) | Supported |
 | StackLayout | N/A | N/A | Supported |
 | Stepper | N/A | [Supported](https://demos.telerik.com/blazor-ui/stepper/localization) | [Supported](https://demos.telerik.com/blazor-ui/stepper/rtl) |
 | SvgIcon | N/A | N/A | N/A |

@@ -8,7 +8,6 @@ published: True
 position: 3
 ---
 
-
 # Globalization of Date And Number Formats
 
 The Telerik UI for Blazor components use the culture of the current thread to render the appropriate culture-specific format for dates, numbers, and currency.
@@ -31,5 +30,5 @@ The Telerik UI for Blazor components use the culture of the current thread to re
 
 ## See Also
 
-  * [Localization]({%slug globalization-localization%})
-  * [Supported Date Formats]({%slug components/dateinput/supported-formats%})
+* [Localization]({%slug globalization-localization%})
+* [Supported Date Formats]({%slug components/dateinput/supported-formats%})
