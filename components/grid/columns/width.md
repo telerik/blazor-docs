@@ -14,7 +14,7 @@ This article explains how the grid column width behaves depending on the setting
 
 You can set the grid column `Width` parameter in any CSS unit, such as `px`, `%`, `vw`, `em`, `rem`. You can read more on how to set sizes in Telerik components in the [Dimensions]({%slug common-features/dimensions%}) article. You must, however, provide the unit so that the browser can understand it.
 
-With regard to the widths of its columns, the scrollable (default) Grid typically behaves as any regular HTML table with a `table-layout: fixed`.
+With regard to the widths of its columns, the scrollable (default) Grid typically behaves as any regular HTML table with a `table-layout: fixed` and `width: 100%`.
 
 * When all column widths are explicitly set and the cumulative column width is greater than the available Grid width, a horizontal scrollbar appears and all set column widths are respected.
 
