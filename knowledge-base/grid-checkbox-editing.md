@@ -26,17 +26,14 @@ res_type: kb
 
 ## Description
 
-To edit a checkbox in a Grid cell, users need to click once to put the row (or cell) in edit mode. They they need another click to change the checkbox value. How to do this with only one click?
+This KB article answers the following questions:
 
-How to update boolean values in the Grid with no edit mode?
-
-How to toggle checkboxes in the Grid directly without using the built-in editing feature?
-
-The Grid is not editable, but it should allow users to check and uncheck check box values.
-
-How to use a single click on Grid checkboxes to set the opposite value?
-
-How to get a checkbox value in the Grid for update action on button click?
+* To edit a checkbox in a Grid cell, users need to click once to put the row (or cell) in edit mode. They they need another click to change the checkbox value. How to do this with only one click?
+* How to update boolean values in the Grid with no edit mode?
+* How to toggle checkboxes in the Grid directly without using the built-in editing feature?
+* The Grid is not editable, but it should allow users to check and uncheck check box values.
+* How to use a single click on Grid checkboxes to set the opposite value?
+* How to get a checkbox value in the Grid for update action on button click?
 
 ## Solution
 
@@ -51,7 +48,11 @@ How to get a checkbox value in the Grid for update action on button click?
 <TelerikGrid OnRead="@OnGridRead"
              TItem="@User"
              EditMode="@GridEditMode.Incell"
-             OnUpdate="@OnGridUpdate">
+             OnUpdate="@OnGridUpdate"
+             OnCreate="@OnGridCreate">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add">Add</GridCommandButton>
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(User.Name)" />
         <GridColumn Field="@nameof(User.Admin)" Title="No Template" />
@@ -78,7 +79,9 @@ How to get a checkbox value in the Grid for update action on button click?
 </TelerikGrid>
 
 @code {
-    private List<User> Users { get; set; }
+    private List<User> Users { get; set; } = new();
+
+    private int LastId { get; set; }
 
     private async Task OnAdminValueChanged(bool newValue, User user)
     {
@@ -125,6 +128,17 @@ How to get a checkbox value in the Grid for update action on button click?
         }
     }
 
+    private async Task OnGridCreate(GridCommandEventArgs args)
+    {
+        // simulate network delay
+        await Task.Delay(100);
+
+        var user = (User)args.Item;
+        user.Id = ++LastId;
+
+        Users.Insert(0, user);
+    }
+
     private async Task OnGridRead(GridReadEventArgs args)
     {
         // simulate network delay
@@ -144,9 +158,9 @@ How to get a checkbox value in the Grid for update action on button click?
         {
             Users.Add(new User()
             {
-                Id = i,
-                Name = "User Name " + i,
-                Admin = i % 2 == 0
+                Id = ++LastId,
+                Name = "User Name " + LastId,
+                Admin = LastId % 2 == 0
             });
         }
 
@@ -156,7 +170,7 @@ How to get a checkbox value in the Grid for update action on button click?
     public class User
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public bool Admin { get; set; }
     }
 }
