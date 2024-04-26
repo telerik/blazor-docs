@@ -1,12 +1,12 @@
 ---
 title: Introduction
-page_title: Complete Blazor Components Documentation
-description: Creating web apps with .NET, while using C# for the front-end part has never been easier. Check Telerik UI for Blazor documentation for guidance and examples.
+page_title: Blazor Documentation for UI Components - Telerik UI for Blazor
+description: Check out the Telerik UI for Blazor documentation for guidance and examples on creating web applications with .NET using C# for the front-end.
 slug: blazor-overview
 position: 1
 ---
 
-# Welcome to UI for Blazor
+# Welcome to UI for Blazor Documentation
 
 Thank you for choosing <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik® UI for Blazor</a>!
 
@@ -30,7 +30,7 @@ If you are new to Telerik UI for Blazor, visit the Getting Started tutorials tha
 * [Get Started with a .NET 8 Blazor Web App]({%slug getting-started/web-app%})
 * [Get Started with Blazor Hybrid]({%slug getting-started/hybrid-blazor%})
 
->tip This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](#learning-resources) for the required older product version.
+>tip This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
 Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details]({%slug getting-started/what-you-need%}) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 

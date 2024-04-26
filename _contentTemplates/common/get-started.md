@@ -1,7 +1,11 @@
-#prerequisites-download
+#prerequisites-tip
 >tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
 
+#end
+
 ## Prerequisites
+
+#prerequisites-download
 
 * To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial]({%slug getting-started/what-you-need%}).
 
