@@ -37,12 +37,15 @@ Autofitting columns on initial load is a current limitation of the built-in auto
 
 While the autofitting feature includes fitting the headers, it also targets the data cells and the footers, so it needs all the rows in the process.
 
-There are two possible implementations to work this around and autofit the Grid columns as the component initializes. They depend on whether the Grid is data-bound with [`Data` parameter](#data-parameter) or [`OnRead` event](#onread-event).
+There are two possible implementations to work this around and autofit the Grid columns as the component initializes. They depend on whether the Grid is data-bound with [`Data` parameter](#data-parameter) or [`OnRead` event](#onread-event). In both cases the Grid [`Resizable` parameter]({%slug components/grid/columns/resize%}) has to be `true`.
 
 ### Data Parameter
 
-To AutoFit the Grid columns on initial load of the component you have to use a provision like the `MutationObserver`. This JavaScript tool notifies about DOM changes. The code snippet below uses the MutationObserver to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case). 
-
+To AutoFit the Grid columns on initial load of the component you have to:
+* Use the Grid [`Class` parameter]({%slug grid-overview%}#grid-parameters) to identify the Grid that you want to autofit.
+* When the Grid is rendered for the first time, call a JS function in the `OnAfterRenderAsync` method.
+* The JS function `observeTarget` in the second tab in the example below sets up the `MutationObserver`. This is a JavaScript tool, which listens for DOM changes.
+* Use the `MutationObserver` to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case).
 
 <div class="skip-repl"></div>
 ````C#
