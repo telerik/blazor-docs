@@ -14,6 +14,10 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 > This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using .NET 8, then follow the [tutorial about .NET 8 Blazor Web App]({%slug getting-started/web-app%}).
 
+@[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
+
+## Prerequisites
+
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
 ## Step 1: Create a New Project

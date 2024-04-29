@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Grid Overview
-description: Discover the Blazor Data Grid. Explore the features and examples.
+description: The Blazor Grid provides a comprehensive set of ready-to-use features that cover everything - paging, sorting, filtering, editing and more.
 slug: grid-overview
 tags: telerik,blazor,grid,datagrid,overview
 published: True
@@ -17,7 +17,7 @@ The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use featur
 The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a highly customizable Grid that delivers lighting fast performance.
 
 
-## Creating Blazor Data Grid
+## Creating Blazor Grid
 
 1. Use the `TelerikGrid` tag.
 1. Assign the Grid `Data` parameter to an `IEnumerable<T>` property, **or** use the [`OnRead` event]({%slug common-features-data-binding-onread%}). We'll go with `Data` this time. The [Grid Data Binding article]({%slug grid-data-binding%}) compares the two alternatives.
@@ -77,7 +77,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 }
 ````
 
-## Video Tutorial
+## Blazor Grid Video Tutorial
 
 If you prefer video instructions, watch this short Blazor Grid video tutorial. It covers to following topics:
 
@@ -142,7 +142,7 @@ The Grid columns offer a rich set of functionality to enable immense flexibility
 The Grid supports custom content in various parts of the component such as data cells, headers, footers, editors and more. See [Grid Templates]({%slug components/grid/features/templates%}).
 
 
-## More Grid Features
+## More Blazor Grid Features
 
 * [Selection]({%slug components/grid/selection/overview%}) - select one or multiple rows via clicks or checkboxes
 * [State]({%slug grid-state%}) - get or set the Grid configuration programmatically
@@ -167,7 +167,7 @@ The following table lists Grid parameters, which are not discussed elsewhere in 
 | `Width` | `string` | A width style in [any supported CSS unit]({%slug common-features/dimensions%}). The Grid has no default width, but expands horizontally to fill its container. |
 
 
-## Grid Reference and Methods
+## Blazor Grid Reference and Methods
 
 The Grid has methods to execute actions such as:
 

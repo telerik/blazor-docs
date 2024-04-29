@@ -1,14 +1,14 @@
 ---
 title: Blazor WebAssembly (Tutorial)
-page_title: First Steps with Blazor WebAssembly Apps and Telerik UI for Blazor
-description: Make your first steps with Telerik UI for Blazor and build an app that hosts the Blazor UI components client-side (by using Blazor WebAssembly, WASM).
+page_title: First Steps with Blazor WebAssembly Apps
+description: Make your first steps with Telerik UI for Blazor client-side by using Blazor WebAssembly (WASM). Read more!
 slug: getting-started/client-side
 tags: get,started,first,steps,client
 published: true
 position: 5
 ---
 
-# First Steps with Client-Side UI for Blazor
+# First Steps with Blazor Client-Side
 
 This article explains how to get the <a href = "https://www.telerik.com/blazor-ui" target="_blank">Telerik UI for Blazor components</a> in your <a href = "https://www.telerik.com/faqs/blazor-ui/what-is-the-difference-between-blazor-webassembly-vs-server" target="_blank">Blazor WebAssembly app</a> and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
@@ -18,6 +18,10 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 > * **Blazor WebAssembly Standalone App** for .NET 8.
 >
 > If you prefer the .NET 8 **Blazor Web App** template, then follow the [tutorial about .NET 8 Blazor Web App]({%slug getting-started/web-app%}).
+
+@[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
+
+## Blazor Client Prerequisites
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
@@ -33,7 +37,7 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 
 ## Step 3: Install the Telerik UI for Blazor Components
 
-1. Right-click  the `.Client` project in the solution and select **Manage NuGet Packages**.
+1. Right-click the `.Client` project in the solution and select **Manage NuGet Packages**.
 
    ![Manage NuGet Packages](images/manage-nuget-packages-for-client-app.png)
 
@@ -72,7 +76,7 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 
 ### 4.3. Add the TelerikRootComponent
 
-Use a single `TelerikRootComponent` component as a top-level component in the app.
+Use a single `TelerikRootComponent` component as a top-level component in the Blazor client-side app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
