@@ -37,7 +37,15 @@ After executing one of the options the wizard must appear like this:
 
  ![Configure Document Processing Wizard](images/DPLWizardBlazor.png "Configure Document Processing Wizard")
 
- The Telerik Document Processing Configuration wizard allows you to select which libraries your project would use. Also have options to use `Dev` or `Trial` license and selection of the `.csproj` file, in which you want the installation to be provded. This option is useful in cases, when the user have many opened projects in the workspace. If a library you selected has any dependencies, they are automatically checked. In the table below there is a list of the assemblies that will be selected for each library:
+## Using the Wizard
+
+The Telerik Document Processing Configuration wizard allows you to:
+
+* Select which libraries to use.
+* Use the commercial or trial versions of the libraries.
+* Select the project (`.csproj` file), in which you want to install the libraries. This option is useful when the user has many open projects in the workspace. If a library has any dependencies, they are automatically checked.
+
+The table below lists the assemblies that will be selected for each library:
 
 |Library  |Packages |
 |---------|---------|
