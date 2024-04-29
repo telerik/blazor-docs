@@ -33,7 +33,7 @@ This KB article answers the following questions:
 * How to toggle checkboxes in the Grid directly without using the built-in editing feature?
 * The Grid is not editable, but it should allow users to check and uncheck check box values.
 * How to use a single click on Grid checkboxes to set the opposite value?
-* How to get a checkbox value in the Grid for update action on button click?
+* How to get the value of a checkbox and use it for an update action on button click?
 
 ## Solution
 
