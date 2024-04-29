@@ -1,14 +1,14 @@
 ---
-title: Configure Document Processing Libraries 
-page_title: Document Processing Libraries Integration
-description: Learn how to add a reference to the Telerik Document Processing Libraries (DPL) packages in an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard.
+title: Telerik Document Processing Libraries
+page_title: Integration with Telerik Document Processing
+description: Learn how to add a reference to the Telerik Document Processing packages to an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard.
 slug: getting-started-vs-code-integration-dpl
-position: 5
+position: 23
 ---
 
-# Configuring Document Processing Libraries
+# Telerik Document Processing Libraries
 
-This article demonstrates how to add a reference to the [Telerik Document Processing Libraries (DPL)](https://www.telerik.com/document-processing-libraries) packages in an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard. The wizard is included in the [Telerik UI for Blazor Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) and enables you to easily add the required packages when working with the Telerik Document Processing Library.
+The [Telerik Document Processing Libraries (DPL)](https://www.telerik.com/document-processing-libraries) are UI-independent and cross-platform libraries which enable you to process content between different formats and work with archive files. This article demonstrates how to add a reference to the DPL packages in an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard. The wizard is included in the extension [Telerik UI for Blazor Productivity Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard) and enables you to easily add the required packages when working with the Telerik Document Processing Library.
 
 ## Getting the Wizard
 
@@ -18,26 +18,23 @@ To use the Document Processing Libraries Wizard, install the [Telerik UI for Bla
 
 ### Using the File Explorer Context Menu
 
-To use **Document Processing Libraries Configuration Wizard** from the **VS Code**'s file explorer's context menu:
- - Right-click on a file in the files tree.
+ - Right-click on a file in the **VS Code** file explorer.
  - Select **Telerik UI for Blazor: Add Document Processing Libraries**.
 
   ![Configure Document Processing Wizard, Context Menu](images/DPLBlazor_ContextMenu.png)
 
 ### Using the Code Editor Command Palette
 
-To use **Document Processing Libraries Configuration Wizard** from the **VS Code** command palette:
+1. Open a `.razor` file or a `Razor` language in the code editor.
+1. Select **Telerik UI for Blazor: Add Document Processing Libraries** in the **VS Code** command palette.
 
- - Open a `.razor` file or a `Razor` language in the code editor.
- - Select **Telerik UI for Blazor: Add Document Processing Libraries**.
-
- ![Configure Document Processing Wizard, Command Palette](images/DPLBlazor_Pallete.png)
-
-After executing one of the options the wizard must appear like this: 
-
- ![Configure Document Processing Wizard](images/DPLWizardBlazor.png "Configure Document Processing Wizard")
+![Configure Document Processing Wizard, Command Palette](images/DPLBlazor_Pallete.png)
 
 ## Using the Wizard
+
+Upon successful completion of the above steps, the wizard must appear like this:
+
+![Configure Document Processing Wizard](images/DPLWizardBlazor.png "Configure Document Processing Wizard")
 
 The Telerik Document Processing Configuration wizard allows you to:
 
