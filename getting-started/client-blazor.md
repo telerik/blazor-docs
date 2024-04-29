@@ -1,6 +1,6 @@
 ---
 title: Blazor WebAssembly (Tutorial)
-page_title: First Steps with Blazor WebAssembly Apps - Telerik UI for Blazor
+page_title: First Steps with Blazor WebAssembly Apps
 description: Make your first steps with Telerik UI for Blazor client-side by using Blazor WebAssembly (WASM). Read more!
 slug: getting-started/client-side
 tags: get,started,first,steps,client
