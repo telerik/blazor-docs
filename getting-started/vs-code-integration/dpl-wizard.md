@@ -24,7 +24,7 @@ To use **Document Processing Libraries Configuration Wizard** from the **VS Code
 
   ![Configure Document Processing Wizard, Context Menu](images/DPLBlazor_ContextMenu.png)
 
-`Using the Code Editor Command Palette`
+### Using the Code Editor Command Palette
 
 To use **Document Processing Libraries Configuration Wizard** from the **VS Code** command palette:
 
