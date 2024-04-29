@@ -32,7 +32,7 @@ This KB article answers the following questions:
 * How to update boolean values in the Grid with no edit mode?
 * How to toggle checkboxes in the Grid directly without using the built-in editing feature?
 * How to allow users to check and uncheck checкbox values when the Grid is not editable?
-* How to use a single click on Grid checkboxes to set the opposite value?
+* How to use a single click on Grid checkboxes to set the reverse (opposite) value?
 * How to get the value of a checkbox and use it for an update action on button click?
 
 ## Solution
