@@ -131,7 +131,7 @@ There are also certain measures a web app should take to improve its performance
 
 ## Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...
 
-The error is a [general Blazor WebAssembly issue]({%slug common-failed-to-find%}), which can result from the build process, publishing process, or browser cache. There are online documentation and discussions on the matter, which suggest possible solutions.
+The error is a [general Blazor WebAssembly issue]({%slug common-kb-failed-to-find%}), which can result from the build process, publishing process, or browser cache. There are online documentation and discussions on the matter, which suggest possible solutions.
 
 
 ## See Also
