@@ -20,7 +20,7 @@ To use the Document Processing Libraries Wizard, install the [Telerik UI for Bla
 
 To use **Document Processing Libraries Configuration Wizard** from the **VS Code**'s file explorer's context menu:
  - Right-click on a file in the files tree.
- - Select the `Telerik UI for Blazor: Add Document Processing Libraries`.
+ - Select **Telerik UI for Blazor: Add Document Processing Libraries**.
 
   ![Configure Document Processing Wizard, Context Menu](images/DPLBlazor_ContextMenu.png)
 
