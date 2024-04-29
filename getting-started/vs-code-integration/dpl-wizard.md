@@ -29,7 +29,7 @@ To use **Document Processing Libraries Configuration Wizard** from the **VS Code
 To use **Document Processing Libraries Configuration Wizard** from the **VS Code** command palette:
 
  - Open a `.razor` file or a `Razor` language in the code editor.
- - Select the `Telerik UI for Blazor: Add Document Processing Libraries`.
+ - Select **Telerik UI for Blazor: Add Document Processing Libraries**.
 
  ![Configure Document Processing Wizard, Command Palette](images/DPLBlazor_Pallete.png)
 
