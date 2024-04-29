@@ -1,6 +1,6 @@
 ---
 title: Introduction
-page_title: Blazor Documentation for UI Components - Telerik UI for Blazor
+page_title: Blazor Documentation for UI Components
 description: Check out the Telerik UI for Blazor documentation for guidance and examples on creating web applications with .NET using C# for the front-end.
 slug: blazor-overview
 position: 1
