@@ -1,7 +1,7 @@
 ---
 title: Configure Document Processing Libraries 
 page_title: Document Processing Libraries Integration
-description: Learn how to add a reference to the Telerik Document Processing Libraries(DPL) packages in an existing Telerik Ui for Blazor application using the Document Processing Libraries Wizard.
+description: Learn how to add a reference to the Telerik Document Processing Libraries (DPL) packages in an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard.
 slug: getting-started-vs-code-integration-dpl
 position: 5
 ---
