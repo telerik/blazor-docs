@@ -31,7 +31,7 @@ This KB article answers the following questions:
 * To edit a checkbox in a Grid cell, users need to click once to put the row (or cell) in edit mode. Then they need another click to change the checkbox value. How to do this with only one click?
 * How to update boolean values in the Grid with no edit mode?
 * How to toggle checkboxes in the Grid directly without using the built-in editing feature?
-* The Grid is not editable, but it should allow users to check and uncheck check box values.
+* How to allow users to check and uncheck checкbox values when the Grid is not editable?
 * How to use a single click on Grid checkboxes to set the opposite value?
 * How to get the value of a checkbox and use it for an update action on button click?
 
