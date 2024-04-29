@@ -1,6 +1,6 @@
 ---
 title: Telerik Document Processing Libraries
-page_title: Integration with Telerik Document Processing
+page_title: Telerik Document Processing Libraries
 description: Learn how to add a reference to the Telerik Document Processing packages to an existing Telerik UI for Blazor application using the Document Processing Libraries Wizard.
 slug: getting-started-vs-code-integration-dpl
 position: 23
@@ -16,12 +16,14 @@ To use the Document Processing Libraries Wizard, install the [Telerik UI for Bla
 
 ## Starting the Wizard
 
+There are a couple of ways to start the Document Processing Libraries Wizard.
+
 ### Using the File Explorer Context Menu
 
- - Right-click on a file in the **VS Code** file explorer.
- - Select **Telerik UI for Blazor: Add Document Processing Libraries**.
+1. Right-click on a file in the **VS Code** file explorer.
+1. Select **Telerik UI for Blazor: Add Document Processing Libraries**.
 
-  ![Configure Document Processing Wizard, Context Menu](images/DPLBlazor_ContextMenu.png)
+![Configure Document Processing Wizard, Context Menu](images/DPLBlazor_ContextMenu.png)
 
 ### Using the Code Editor Command Palette
 
@@ -46,11 +48,12 @@ The table below lists the assemblies that will be selected for each library:
 
 | Library | Packages |
 | --- | --- |
-| RadPdfProcessing | Documents.Core <br /> Documents.Fixed <br /> Zip <br /> Documents.ImageUtils <br /> Documents.Fixed.FormatProviders.Image.Skia <br /> Documents.CMapUtils |
-| RadSpreadProcessing | Documents.Core <br /> Documents.Fixed <br /> Documents.Spreadsheet <br /> Documents.SpreadSheet.FormatProviders.OpenXml <br /> Documents.SpreadSheet.FormatProviders.Pdf <br /> Documents.Spreadsheet.FormatProviders.Xls <br /> Documents.ImageUtils <br /> Zip |
-| RadWordsProcessing | Documents.Core <br /> Documents.Fixed <br /> Documents.Flow <br /> Documents.Flow.FormatProviders.Pdf <br /> Documents.ImageUtils <br /> Documents.Flow.FormatProviders.Doc <br /> Documents.DrawingML <br /> Zip |
+| [RadPdfProcessing]({%slug pdfprocessing-overview%}) | Documents.Core <br /> Documents.Fixed <br /> Zip <br /> Documents.ImageUtils <br /> Documents.Fixed.FormatProviders.Image.Skia <br /> Documents.CMapUtils |
+| [RadSpreadProcessing]({%slug spreadprocessing-overview%}) | Documents.Core <br /> Documents.Fixed <br /> Documents.Spreadsheet <br /> Documents.SpreadSheet.FormatProviders.OpenXml <br /> Documents.SpreadSheet.FormatProviders.Pdf <br /> Documents.Spreadsheet.FormatProviders.Xls <br /> Documents.ImageUtils <br /> Zip |
+| [RadWordsProcessing]({%slug wordsprocessing-overview%}) | Documents.Core <br /> Documents.Fixed <br /> Documents.Flow <br /> Documents.Flow.FormatProviders.Pdf <br /> Documents.ImageUtils <br /> Documents.Flow.FormatProviders.Doc <br /> Documents.DrawingML <br /> Zip |
 
 
 ## See Also
 
+* [Telerik Document Processing Overview]({%slug common-features-dpl%})
 * [Visual Studio Code Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-code-integration-overview %})
