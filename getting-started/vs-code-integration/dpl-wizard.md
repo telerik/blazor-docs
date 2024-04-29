@@ -16,7 +16,7 @@ To use the Document Processing Libraries Wizard, install the [Telerik UI for Bla
 
 ## Starting the Wizard
 
-`Using the File Explorer Context Menu`
+### Using the File Explorer Context Menu
 
 To use **Document Processing Libraries Configuration Wizard** from the **VS Code**'s file explorer's context menu:
  - Right-click on a file in the files tree.
