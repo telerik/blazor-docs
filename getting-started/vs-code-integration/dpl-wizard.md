@@ -47,11 +47,11 @@ The Telerik Document Processing Configuration wizard allows you to:
 
 The table below lists the assemblies that will be selected for each library:
 
-|Library  |Packages |
-|---------|---------|
-|RadPdfProcessing    |Documents.Core<br>Documents.Fixed<br>Zip<br>Documents.ImageUtils<br>Documents.Fixed.FormatProviders.Image.Skia<br>Documents.CMapUtils         |
-|RadSpreadProcessing     |    Documents.Core<br>Documents.Fixed<br>Documents.Spreadsheet<br>Documents.SpreadSheet.FormatProviders.OpenXml<br>Documents.SpreadSheet.FormatProviders.Pdf<br>Documents.Spreadsheet.FormatProviders.Xls<br>Documents.ImageUtils<br>Zip     |
-|RadWordsProcessing     |   Documents.Core<br>Documents.Fixed<br>Documents.Flow<br>Documents.Flow.FormatProviders.Pdf<br>Documents.ImageUtils<br>Documents.Flow.FormatProviders.Doc<br>Documents.DrawingML<br>Zip      |
+| Library | Packages |
+| --- | --- |
+| RadPdfProcessing | Documents.Core <br /> Documents.Fixed <br /> Zip <br /> Documents.ImageUtils <br /> Documents.Fixed.FormatProviders.Image.Skia <br /> Documents.CMapUtils |
+| RadSpreadProcessing | Documents.Core <br /> Documents.Fixed <br /> Documents.Spreadsheet <br /> Documents.SpreadSheet.FormatProviders.OpenXml <br /> Documents.SpreadSheet.FormatProviders.Pdf <br /> Documents.Spreadsheet.FormatProviders.Xls <br /> Documents.ImageUtils <br /> Zip |
+| RadWordsProcessing | Documents.Core <br /> Documents.Fixed <br /> Documents.Flow <br /> Documents.Flow.FormatProviders.Pdf <br /> Documents.ImageUtils <br /> Documents.Flow.FormatProviders.Doc <br /> Documents.DrawingML <br /> Zip |
 
 
 ## See Also
