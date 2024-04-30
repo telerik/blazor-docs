@@ -27,7 +27,7 @@ res_type: kb
 This KB article discusses the following scenarios and questions:
 
 * I expand a TreeView parent item and select a child item. The child item may be outside the visible part of the page viewport. How to find and automatically scroll to the selected TreeView node, even if it is not visible on the screen?
-* Sometimes I may load additional TreeView data and refresh the TreeView. Then, I need to scroll to a specific item. Users should not scroll manually in this case.
+* Sometimes I may load additional TreeView data and refresh the TreeView. Then, I need to scroll to a specific TreeView item automatically and without a need for manual user interaction.
 * How to implement behavior like `scrollIntoView` in Javascript, or `BringIntoView` in WPF, or `EnsureVisible` in Windows UI?
 * How to focus a TreeView node, so that the user doesn't have to scroll to it?
 
