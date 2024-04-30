@@ -41,7 +41,7 @@ There are two possible implementations to work this around and autofit the Grid 
 
 ### Data Parameter
 
-To AutoFit the Grid columns on initial load of the component you have to:
+To autofit the Grid columns on the initial load of the component:
 * Use the Grid [`Class` parameter]({%slug grid-overview%}#grid-parameters) to identify the Grid that you want to autofit.
 * When the Grid is rendered for the first time, call a JS function in the `OnAfterRenderAsync` method.
 * The JS function `observeTarget` in the second tab in the example below sets up the `MutationObserver`. This is a JavaScript tool, which listens for DOM changes.
