@@ -42,9 +42,10 @@ There are two possible implementations to work this around and autofit the Grid 
 ### Data Parameter
 
 To autofit the Grid columns on the initial load of the component:
+
 * Use the Grid [`Class` parameter]({%slug grid-overview%}#grid-parameters) to identify the Grid that you want to autofit.
-* When the Grid is rendered for the first time, call a JS function in the `OnAfterRenderAsync` to observe the Grid.
-* Listen for DOM changes using JS and invoke the `AutoFitAllColumns` method when the table rows in the Grid have rendered.
+* When the Grid is rendered for the first time, call a JavaScript function in `OnAfterRenderAsync` to observe the Grid.
+* Listen for DOM changes using JavaScript and invoke the `AutoFitAllColumns` method after the table rows in the Grid have rendered.
 
 The **JavaScript** tab in the following example implements a JS function and sets up the `MutationObserver` tool to listen for DOM changes.
 
