@@ -45,7 +45,7 @@ To autofit the Grid columns on the initial load of the component:
 * Use the Grid [`Class` parameter]({%slug grid-overview%}#grid-parameters) to identify the Grid that you want to autofit.
 * When the Grid is rendered for the first time, call a JS function in the `OnAfterRenderAsync` method.
 * The JS function `observeTarget` in the second tab in the example below sets up the `MutationObserver`. This is a JavaScript tool, which listens for DOM changes.
-* Use the `MutationObserver` to trigger the `AutoFitAllColumns` method when the nodes in the content of Grid have mutated (rendered in this case).
+* Use the `MutationObserver` to trigger the `AutoFitAllColumns` method when the table rows in the Grid have rendered.
 
 <div class="skip-repl"></div>
 ````C#
