@@ -43,7 +43,7 @@ The whole process involves these steps:
 1. [Select the item]({%slug treeview-selection-overview%}) or implement some way to find it in the DOM.
 1. Set a boolean flag and use it in `OnAfterRenderAsync` to execute the JavaScript.
 1. Execute the JavaScript code with [some timeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) to ensure that the new HTML markup has been rendered by the browser. The timeout value will depend on the server-client latency and number of newly rendered items.
-1. (optional) Focus the TreeView item element (`<li class="k-treeview-item">`) to continue the keyboard navigation from that item.
+1. (Optional) Focus the TreeView item element (`<li class="k-treeview-item">`) to continue the keyboard navigation from that item.
 
 Here are two examples:
 
