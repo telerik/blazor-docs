@@ -33,12 +33,12 @@ I get a `Failed to find a valid digest in the 'integrity' attribute for resource
 >Error: Failed to start platform. Reason: TypeError: Failed to fetch
 
 Other possible resources that may be referred to in the error:
-* https://.../_framework/Telerik.Documents.SpreadsheetStreaming.dll
-* https://.../_framework/Telerik.DataSource.dll
-* https://.../_framework/Telerik.Zip.dll
-* https://.../_framework/Telerik.Blazor.dll
-* https://.../_framework/Telerik.FontIcons.dll
-* https://.../_framework/Telerik.SvgIcons.dll
+* Telerik.Documents.SpreadsheetStreaming.dll
+* Telerik.DataSource.dll
+* Telerik.Zip.dll
+* Telerik.Blazor.dll
+* Telerik.FontIcons.dll
+* Telerik.SvgIcons.dll
 
 
 ## Cause
