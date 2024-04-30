@@ -6,7 +6,7 @@ page_title: Scroll to TreeView Item
 slug: treeview-kb-scroll-to-item
 position: 
 tags: treeview, scroll, item, node, scrollintoview, javascript
-ticketid: 1552684, 1552385, 1549637, 1545970
+ticketid: 1650374, 1552684, 1552385, 1549637, 1545970
 res_type: kb
 ---
 
@@ -24,11 +24,12 @@ res_type: kb
 
 ## Description
 
-I expand a TreeView parent item and select a child item. The child item may be outside the visible part of the page viewport. How to find and automatically scroll to the selected TreeView node, even if it is not visible on the screen?
+This KB article discusses the following scenarios and questions:
 
-Sometimes I may load additional TreeView data and refresh the TreeView. Then, I need to scroll to a specific item. Users should not scroll manually in this case.
-
-How to implement behavior like `scrollIntoView` in Javascript, or `BringIntoView` in WPF, or `EnsureVisible` in Windows UI?
+* I expand a TreeView parent item and select a child item. The child item may be outside the visible part of the page viewport. How to find and automatically scroll to the selected TreeView node, even if it is not visible on the screen?
+* Sometimes I may load additional TreeView data and refresh the TreeView. Then, I need to scroll to a specific item. Users should not scroll manually in this case.
+* How to implement behavior like `scrollIntoView` in Javascript, or `BringIntoView` in WPF, or `EnsureVisible` in Windows UI?
+* How to focus a TreeView node, so that the user doesn't have to scroll to it?
 
 ## Solution
 
@@ -42,6 +43,7 @@ The whole process involves these steps:
 1. [Select the item]({%slug treeview-selection-overview%}) or implement some way to find it in the DOM.
 1. Set a boolean flag and use it in `OnAfterRenderAsync` to execute the JavaScript.
 1. Execute the JavaScript code with [some timeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) to ensure that the new HTML markup has been rendered by the browser. The timeout value will depend on the server-client latency and number of newly rendered items.
+1. (optional) Focus the TreeView item element (`<li class="k-treeview-item">`) to continue the keyboard navigation from that item.
 
 Here are two examples:
 
@@ -86,7 +88,10 @@ Here are two examples:
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
+                // scroll to item
                 item.scrollIntoView({ block: "nearest" });
+                // focus item for keyboard navigation
+                item.closest(".k-treeview-item").focus();
             }
         });
     }
@@ -100,7 +105,7 @@ Here are two examples:
     private int TreeItemId { get; set; } = 44;
     private bool ShouldScroll { get; set; }
 
-    void SelectAndScroll()
+    private void SelectAndScroll()
     {
         // get the item
         TreeItem? itemToSelect = TreeData.FirstOrDefault(x => x.Id == TreeItemId);
@@ -142,7 +147,7 @@ Here are two examples:
         TreeData = LoadFlat();
     }
 
-    List<TreeItem> LoadFlat()
+    private List<TreeItem> LoadFlat()
     {
         List<TreeItem> items = new List<TreeItem>();
 
@@ -226,7 +231,10 @@ The example uses simplified logic for parent-child item relationship. In product
         setTimeout(function() {
             var item = document.querySelector(treeSelector + " .k-selected");
             if (item) {
+                // scroll to item
                 item.scrollIntoView({ block: "nearest" });
+                // focus item for keyboard navigation
+                item.closest(".k-treeview-item").focus();
             }
         }, 300);
     }
@@ -242,7 +250,7 @@ The example uses simplified logic for parent-child item relationship. In product
     private int LoadingDelay { get; set; } = 500;
     private bool ShouldScroll { get; set; }
 
-    async Task SelectAndScroll()
+    private async Task SelectAndScroll()
     {
         if (RootItemId.HasValue && ChildItemId.HasValue)
         {
@@ -282,7 +290,7 @@ The example uses simplified logic for parent-child item relationship. In product
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    async Task OnTreeViewExpand(TreeViewExpandEventArgs args)
+    private async Task OnTreeViewExpand(TreeViewExpandEventArgs args)
     {
         var item = args.Item as TreeItem;
 
@@ -292,7 +300,7 @@ The example uses simplified logic for parent-child item relationship. In product
         }
     }
 
-    async Task LoadChildren(TreeItem item)
+    private async Task LoadChildren(TreeItem item)
     {
         var parentId = item.Id;
 
@@ -315,7 +323,7 @@ The example uses simplified logic for parent-child item relationship. In product
         TreeData = LoadFlat();
     }
 
-    List<TreeItem> LoadFlat()
+    private List<TreeItem> LoadFlat()
     {
         List<TreeItem> items = new List<TreeItem>();
 
