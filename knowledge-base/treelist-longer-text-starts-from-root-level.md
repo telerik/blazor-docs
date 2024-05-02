@@ -48,10 +48,10 @@ To align all lines of text to the same level do the following:
         height: 50px;
     }
 
-    .MyTreeList .defaultHeight .k-icon.k-i-none {
-        float: left;
-        height: 100%;
-    }
+        .MyTreeList .defaultHeight .k-svg-icon {
+            float: left;
+            height: 100%;
+        }
 </style>
 
 <TelerikTreeList Data="@Data"
@@ -60,7 +60,7 @@ To align all lines of text to the same level do the following:
                  Pageable="true"
                  Class="MyTreeList">
     <TreeListColumns>
-        <TreeListColumn OnCellRender="@( (TreeListCellRenderEventArgs e) => e.Class="defaultHeight" )"  
+        <TreeListColumn OnCellRender="@OnCellRenderHandler"
                         Field="FirstName" Expandable="true">
         </TreeListColumn>
         <TreeListColumn Field="EmployeeId"></TreeListColumn>
@@ -68,7 +68,17 @@ To align all lines of text to the same level do the following:
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<Employee> Data { get; set; }
+
+    private void OnCellRenderHandler(TreeListCellRenderEventArgs args)
+    {
+        var item = args.Item as Employee;
+
+        if (item.ReportsTo != null)
+        {
+            args.Class = "defaultHeight";
+        }
+    }
 
     public class Employee
     {
@@ -86,11 +96,11 @@ To align all lines of text to the same level do the following:
         for (int i = 1; i < 3; i++)
         {
             Data.Add(new Employee()
-            {
-                EmployeeId = currentId,
-                ReportsTo = null,
-                FirstName = "Employee  " + i.ToString()
-            });
+                {
+                    EmployeeId = currentId,
+                    ReportsTo = null,
+                    FirstName = "Employee  " + i.ToString()
+                });
 
             currentId++;
         }
@@ -99,11 +109,11 @@ To align all lines of text to the same level do the following:
             for (int j = 0; j < 2; j++)
             {
                 Data.Add(new Employee()
-                {
-                    EmployeeId = currentId,
-                    ReportsTo = i,
-                    FirstName = "Employee " + j.ToString() + " : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-                });
+                    {
+                        EmployeeId = currentId,
+                        ReportsTo = i,
+                        FirstName = "Employee " + j.ToString() + " : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+                    });
                 currentId++;
             }
         }
