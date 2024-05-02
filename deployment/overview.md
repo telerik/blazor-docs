@@ -11,8 +11,7 @@ position: 1
 
 # Blazor Deployment Overview
 
-This article explains the basics about deploying a Telerik-enabled Blazor web application. It consists of the following sections:
-
+This article explains the basics of deploying a Telerik-enabled Blazor web application. It consists of the following sections:
 
 * [Prerequisites](#prerequisites)
 * [Telerik Components](#telerik-components)
@@ -37,7 +36,7 @@ The Telerik UI for Blazor components consist of:
 * assemblies
 * static assets
 
-Both of these resources are distributed in our [NuGet packages]({%slug getting-started/what-you-need%}#telerik-specific-packages).
+Both of these resources are distributed in our [NuGet packages]({%slug getting-started/what-you-need%}#nuget-packages).
 
 The framework is responsible for copying them from the local NuGet cache to the build/publish target during the build.
 

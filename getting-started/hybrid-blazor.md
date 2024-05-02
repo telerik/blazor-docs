@@ -37,9 +37,9 @@ To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` packag
 
 ### 2. Add the Telerik Client Assets
 
-To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#adding-the-client-assets). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
+To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
-You can add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#using-static-assets).
+You can add the Telerik resources as [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
 
 ### 3. Include @using Statements 
 
@@ -65,7 +65,7 @@ Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component
 
 Make sure that the `TelerikRootComponent` matches the web view viewport and remove the default margin of the `<body>` HTML element.
 
-Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#common-configuration)).
+Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#telerikrootcomponent)).
 
 ### 5. Register the Telerik Services
 

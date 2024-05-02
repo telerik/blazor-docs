@@ -248,7 +248,7 @@ NavigationManager
 NestedFormItem
 NoDataTemplate
 NotificationModel
-nuget.config
+NuGet.Config
 nuget.org
 nuget.telerik.com
 NullReferenceException
