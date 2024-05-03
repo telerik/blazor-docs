@@ -48,7 +48,7 @@ To align all lines of text to the same level do the following:
         height: 50px;
     }
 
-        .MyTreeList .defaultHeight .k-svg-icon {
+        .MyTreeList .defaultHeight .k-icon {
             float: left;
             height: 100%;
         }
