@@ -73,7 +73,7 @@ Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagati
                 }
                 @item.Text
                 <div @onclick:stopPropagation>
-                    <TelerikTextBox PlaceHolder="Type..." Width="140px" />
+                    <TelerikTextBox Placeholder="Type..." Width="140px" />
                 </div>
             </ItemTemplate>
         </TreeViewBinding>
