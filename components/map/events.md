@@ -20,14 +20,14 @@ This article explains the available events for the Telerik Map for Blazor:
 
 ## OnClick
 
-The `OnClick` event fires when the user clicks on the map. The `OnClick` event handler receives an argument of type `MapClickEventArgs`, which exposes the following properties:
+The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick` event handler receives an argument of type `MapClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
 | `EventArgs` | `EventArgs` |  The native DOM event (browser event). |
-| `Location` | `MapLocation` | The location of the click on the map (`MapLocation` has `Latitude` and `Longitude` props). |
+| `Location` | `MapLocation` | The location of the click on the Map (`MapLocation` has `Latitude` and `Longitude` props). |
 
 >caption Handle OnClick.
 
@@ -127,7 +127,7 @@ The `OnClick` event fires when the user clicks on the map. The `OnClick` event h
 
 ## OnMarkerClick
 
-The `OnMarkerClick` event fires when the user clicks on a marker. The `OnMarkerClick` event handler receives an argument of type `MapMarkerClickEventArgs`, which exposes the following properties:
+The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMarkerClick` event handler receives an argument of type `MapMarkerClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -234,7 +234,7 @@ The `OnMarkerClick` event fires when the user clicks on a marker. The `OnMarkerC
 
 ## OnShapeClick
 
-The `OnShapeClick` event fires when the user clicks on a shape. The `OnShapeClick` event handler receives an argument of type `MapShapeClickEventArgs`, which exposes the following properties:
+The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShapeClick` event handler receives an argument of type `MapShapeClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -457,8 +457,8 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `Center` | `double[]` | The lat / lang of the Map's center. |
-| `Extent` | `double[]` | The NW and SE lat / lang of the Map. |
+| `Center` | `double[]` | The latitude and longitude of the Map's center. |
+| `Extent` | `double[]` | The NW and SE latitude and longitude of the Map. |
 
 >caption Handle OnPanEnd.
 
