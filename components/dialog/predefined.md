@@ -43,7 +43,7 @@ The `DialogFactory` methods must be awaited. Do not use them with [discard varia
 
 ### Showing Multiple Predefined Dialogs
 
-The `DialogFactory` supports only one open popup dialog at a time. Showing multiple predefined dialogs simultaneously can result in unexpected app behavior. If a long asyncronous operation can end with the display of a `DialogFactory` popup, the application should prevent the user from triggering additional predefined dialogs before the time consuming operation completes. Consider a [LoaderContainer]({%slug loadercontainer-overview%}) to block the whole user interface or a [specific component]({%slug loadercontainer-overview%}#fill-a-parent-container).
+The `DialogFactory` supports only one open popup dialog at a time. Showing multiple predefined dialogs simultaneously can result in unexpected app behavior. If a long asynchronous operation can end with the display of a `DialogFactory` popup, the application should prevent the user from triggering additional predefined dialogs before the time consuming operation completes. Consider a [LoaderContainer]({%slug loadercontainer-overview%}) to block the whole user interface or a [specific component]({%slug loadercontainer-overview%}#fill-a-parent-container).
 
 
 ## Alert
