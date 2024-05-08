@@ -37,7 +37,7 @@ The `DialogFactory` cascading parameter can only be consumed inside child Razor 
 * To show predefined dialogs in `MainLayout.razor`, [add the `TelerikRootComponent` in a parent layout]({%slug rootcomponent-overview%}#using-telerikrootcomponent).
 * When [using UI for Blazor in ASP.NET apps]({%slug telerik-blazor-in-asp-net-app%}), an additional child component is needed.
 
-### Using `await`
+### Using await
 
 The `DialogFactory` methods must be awaited. Do not use them with [discard variables (`_`)](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/discards). If you don't need to await the user response, then [use the `<TelerikDialog>` component]({%slug dialog-overview%}) declaratively. 
 
