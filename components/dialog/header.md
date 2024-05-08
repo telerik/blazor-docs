@@ -26,10 +26,6 @@ You can control the close action via the `ShowCloseButton` parameter. Its defaul
 
 The following example demonstrates how to set up the title through a template. The close action button is also hidden.
 
->caption The result from the code snippet.
-
-![Blazor Dialog Header](images/dialog-header.png)
-
 >caption Title template and no close button in the Telerik Dialog.
 
 ````CSHTML
