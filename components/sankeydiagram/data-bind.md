@@ -5,7 +5,7 @@ description: Data Binding of the Sankey Diagram for Blazor.
 slug: sankey-diagram-data-binding
 tags: telerik,blazor,sankey,diagram,chart,data,binding
 published: True
-position: 5
+position: 3
 ---
 
 # Sankey Diagram Data Binding
