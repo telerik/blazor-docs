@@ -72,7 +72,25 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 }
 ````
 
+## Notes
 
+There are several things to keep in mind when using virtual scrolling:
+
+* The `RowHeight` is a decimal value that is always considered as pixel values. The TreeList `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
+
+    * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
+
+        The default TreeList rendering has padding in the cells, and the loading sign has a line height set in order to render. This may impose some minimum heights that can vary with the theme and/or custom styles on the page.
+
+    * The `RowHeight` must not change at runtime, because the new dimensions will cause issues with the scrolling logic.
+
+    * Browser zoom or monitor DPI settings can cause the browser to render different dimensions than the expected and/or non-integer values, which can break the virtualization logic.
+
+* Do not mix virtualization with paging, as they are alternatives to the same feature.
+
+* Provide for a `PageSize` of the TreeList that is large enough, so that the loaded table rows do not fit in the scrollable data area, otherwise the vertical virtual scrollbar will not be created and scrolling will not work. To do this, take into account the `Height` of the TreeList and the `RowHeight`.
+
+    * The `PageSize` controls how many rows are rendered at any given time, and how many items are requested from the data source when loading data on demand (see below). You should avoid setting large page sizes, you need to only fill up the TreeList data viewport.
 
 ## See Also
 
