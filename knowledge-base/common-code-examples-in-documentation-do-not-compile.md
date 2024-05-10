@@ -29,7 +29,7 @@ I am trying to run the code snippets in the documentation but they do not compil
 
 ## Error Message
 
->warning Unhandled Exception: System.MissingMethodException: Method not found: Microsoft.Extensions.DependencyInjection.IServiceCollection
+`Unhandled Exception: System.MissingMethodException: Method not found: Microsoft.Extensions.DependencyInjection.IServiceCollection`
 
 
 ## Solution

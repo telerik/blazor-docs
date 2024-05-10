@@ -24,7 +24,7 @@ The latest version of Telerik UI for Blazor (currently {{site.uiForBlazorLatestV
 
 Razor Class Libraries may target `netstandard2.0` by default, so you need to update that.
 
->warning If your application targets an older framework version, the latest Telerik UI for Blazor you can use is `4.6.0`.
+> If your application targets an [older framework version, the latest Telerik UI for Blazor you can use is `4.6.0`](#compatible-net-versions).
 
 ### Supported .NET Versions
 
@@ -42,9 +42,7 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 
 ### Compatible .NET Versions
 
-A **compatible .NET version** is one that is *no longer* (or *not yet*) officially supported by Microsoft. The Telerik Blazor components should work in apps with that .NET version. We don't expect any .NET-related issues, but if such issues occur, we have no commitment to fix them.
-
->warning Telerik UI for Blazor version `4.6.0` is the last version compatible with `.NET Core 3.1` and `.NET 5`.
+A **compatible .NET version** is one that is no longer (or not yet) officially supported by Microsoft. The Telerik Blazor components should work in apps with that .NET version. We don't expect any .NET-related issues, but if such issues occur, we have no commitment to fix them.
 
 >caption .NET versions that are compatible with Telerik UI for Blazor
 
@@ -53,7 +51,7 @@ A **compatible .NET version** is one that is *no longer* (or *not yet*) official
 | .NET 5 | 2.19.0 | 4.6.0 |
 | .NET Core 3.1 | 2.5.0 | 4.6.0 |
 
->warning We recommend using only **supported** .NET versions in production applications. This enables stability, maintenance, security patches and performance improvements.
+> We recommend using only **supported** .NET versions in production applications. This enables stability, maintenance, security patches and performance improvements.
 
 ### Preview .NET Versions
 
@@ -66,7 +64,7 @@ Telerik UI for Blazor can include features from newer .NET versions in its sourc
 
 ## Browser Support
 
-Use these browsers to access web applications with Telerik UI for Blazor.
+Use the following browsers to access web applications with Telerik UI for Blazor. The Telerik browser support policy is similar to the [Microsoft Blazor browser support policy](https://docs.microsoft.com/en-us/aspnet/core/blazor/supported-platforms).
 
 >caption Browsers supported by Telerik UI for Blazor
 
