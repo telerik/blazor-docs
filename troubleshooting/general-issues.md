@@ -79,7 +79,7 @@ You can check the application for such issues and ensure that the `<app>` elemen
 
 When attempting to restore packages or build a solution with the `Telerik.UI.for.Blazor` NuGet package, you may get an error similar to
 
->warning `Unable to find package Telerik.Documents.SpreadsheetStreaming. No packages exist with this id in source(s) Microsoft Visual Studio Offline Packages, nuget.org, Telerik, MyOfflinePackages`
+`Unable to find package Telerik.Documents.SpreadsheetStreaming. No packages exist with this id in source(s) Microsoft Visual Studio Offline Packages, nuget.org, Telerik, MyOfflinePackages`
 
 The `Telerik.Documents.SpreadsheetStreaming` package is used internally for exporting and the main package references it. It is also available from our online feed and it is in the `dpl` folder of your offline installation.
 
@@ -97,7 +97,7 @@ The most common reasons and solutions for seeing this error (being unable to res
 
 If you get an error similar to this one:
 
->warning `InvalidOperationException: Cannot provide a value for property 'Localizer' on type 'Telerik.Blazor.Components.TelerikMenu[[TelerikBlazorApp1.Models.MenuItem, TelerikBlazorApp1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. There is no registered service of type 'Telerik.Blazor.Services.ITelerikStringLocalizer'.`
+`InvalidOperationException: Cannot provide a value for property 'Localizer' on type 'Telerik.Blazor.Components.TelerikMenu[[TelerikBlazorApp1.Models.MenuItem, TelerikBlazorApp1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'. There is no registered service of type 'Telerik.Blazor.Services.ITelerikStringLocalizer'.`
 
 There can be two common causes for the problem:
 

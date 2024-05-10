@@ -28,7 +28,7 @@ This knowledge base article explains how to avoid or fix the exception about a m
 
 ## Error Message
 
->warning Exception: A Telerik component on the requested view requires a TelerikRootComponent in MainLayout or a parent component.
+`Exception: A Telerik component on the requested view requires a TelerikRootComponent in MainLayout or a parent component.`
 
 
 ## Cause

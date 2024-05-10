@@ -26,11 +26,11 @@ I get a `Failed to find a valid digest in the 'integrity' attribute for resource
 
 ## Error Message
 
->warning Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Recurrence.dll' with computed SHA-256 integrity ... The resource has been blocked.
->
-> Unknown error occured while trying to verify integrity.
->
->Error: Failed to start platform. Reason: TypeError: Failed to fetch
+`Failed to find a valid digest in the 'integrity' attribute for resource 'https://.../_framework/Telerik.Recurrence.dll' with computed SHA-256 integrity ... The resource has been blocked.`
+
+`Unknown error occured while trying to verify integrity.`
+
+`Error: Failed to start platform. Reason: TypeError: Failed to fetch`
 
 Other possible resources that may be referred to in the error:
 * Telerik.Documents.SpreadsheetStreaming.dll

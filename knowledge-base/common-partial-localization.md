@@ -65,6 +65,6 @@ The following repository contains translations provided by the community. You ca
 
 Apart from missing localization strings, you may occasionally experience an error, similar to this one:
 
->warning Unhandled exception rendering component: Value cannot be null. (Parameter 'format')
+`Unhandled exception rendering component: Value cannot be null. (Parameter 'format')`
 
 See knowledge base article [Value cannot be null. (Parameter 'format')]({%slug common-kb-null-value-parameter-format%}) for more details.

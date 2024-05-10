@@ -30,9 +30,10 @@ The FileSelect `Stream` (`FileInfoStream`) has exposed methods that are "not imp
 
 ## Error Message
 
->warning System.NotImplementedException: The method or operation is not implemented.
->
-at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.Read()
+```
+System.NotImplementedException: The method or operation is not implemented.
+    at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.Read()
+```
 
 The same exception will occur for the following methods and properties:
 

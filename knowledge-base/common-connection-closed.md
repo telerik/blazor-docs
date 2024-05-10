@@ -63,15 +63,11 @@ Cannot import XSLX files which have a lot of records. It works for few records. 
 
 The exceptions may be similar to:
 
->warning Connection disconnected with error 'Error: Server returned an error on close: Connection closed with an error.'
->
-Attempting to reconnect to the server...
+`Connection disconnected with error 'Error: Server returned an error on close: Connection closed with an error.' Attempting to reconnect to the server...`
 
 Or:
 
->warning `System.Threading.Tasks.TaskCanceledException`
->
-> `A task was canceled.`
+`System.Threading.Tasks.TaskCanceledException. A task was canceled.`
 
 ## Possible Cause
 
