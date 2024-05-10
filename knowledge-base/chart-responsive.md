@@ -32,7 +32,7 @@ This works well for the initial rendering and the Chart will be "responsive" imm
 
 When the page layout changes dynamically at runtime, you have to call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods). 
 
-## Sample project
+### Sample Project
 
 You can find an example in the following sample project: [https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart)
 
