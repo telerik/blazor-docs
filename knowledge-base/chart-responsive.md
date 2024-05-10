@@ -34,7 +34,7 @@ When the page layout changes dynamically at runtime, you have to call the [Chart
 
 ### Sample Project
 
-You can find an example in the following sample project: [https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart)
+You can find an example in the [Responsive Chart GitHub project](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart)
 
 The project is a Blazor Web App developed on the .NET 8 framework. It is created by following the [steps in the Telerik Blazor Web App (Tutorial)]({%slug getting-started/web-app%}). It features server interactive render mode and a global interactivity location. The sample project offers an exemplary project structure. While individual projects may vary, it's crucial to ensure that correct naming conventions and references are used. 
 
