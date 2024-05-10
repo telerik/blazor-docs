@@ -30,7 +30,7 @@ Generally, the `Width` and `Height` parameters of the Chart can take values in `
 
 This works well for the initial rendering and the Chart will be "responsive" immediately according to your layout, regardless of the display (desktop, tablet, phone).
 
-When the layout changes dynamically at runtime, you have to call its `.Refresh()` method. 
+When the page layout changes dynamically at runtime, you have to call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods). 
 
 ## Sample project
 
