@@ -23,9 +23,89 @@ res_type: kb
 
 ## Description
 
-How to print the rendered Blazor Chart?
+How to print the rendered Blazor Chart? I want to print single or separate Chart components.
 
 
 ## Solution
 
-An example is available in the following project: [https://github.com/telerik/blazor-ui/tree/master/chart/print-chart-only](https://github.com/telerik/blazor-ui/tree/master/chart/print-chart-only).
+By using the browser printing engine and some custom CSS while printing you can hide everything else on the page and print only the Chart:
+
+1. Add the `media="print"` attribute in the `<style>` tag to ensure that the defined styles are applied only when printing the page.
+1. Use the `display: none` CSS rule to hide the elements that will not be printed.
+1. Set the [Chart `Class` parameter]({%slug components/chart/overview%}%#chart-parameters) under the condition that the page is printing.
+1. Set the Chart `Width` and `Height` parameters to fit the printing page.
+1. Use JS Interop to call the browser print method that does the actual printing. Ensure that the browser is printing background graphics (this is a checkbox on the browser's Print dialog) so that you can get the proper colors on the chart and/or other elements.
+
+````CSHTML
+@inject IJSRuntime JSRuntime
+
+<TelerikButton OnClick="@Print" Icon="@SvgIcon.Print" Class="@(isPrinting ? "non-printable-element" : "")">Print this chart</TelerikButton>
+
+    <TelerikChart Width="700px" Height="400px" Class="@(isPrinting ? "" : "non-printable-element")">
+    <ChartSeriesItems>
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
+        </ChartSeries>
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
+            <ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartValueAxes>
+        <ChartValueAxis Color="red"></ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
+
+    <ChartLegend Position="@ChartLegendPosition.Bottom">
+    </ChartLegend>
+</TelerikChart>
+
+
+<style media="print">
+    .top-row,
+    .sidebar,
+    .non-printable-element {
+        display: none;
+    }
+</style>
+
+
+@code {
+    private bool isPrinting { get; set; }
+
+    private List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
+
+    private string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    private async Task Print()
+    {
+        isPrinting = true;
+        await InvokeAsync(StateHasChanged);
+        await Task.Delay(20);
+        await JSRuntime.InvokeVoidAsync("print");
+        isPrinting = false;
+    }
+
+    public List<MyDataModel> modelData = new List<MyDataModel>()
+    {
+        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
+        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
+        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
+        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
+    };
+
+    public class MyDataModel
+    {
+        public int SecondSeriesValue { get; set; }
+        public string ExtraData { get; set; }
+    }
+}
+````
+
+## See Also
+
+* [Print responsive Charts]({%slug chart-kb-responsive%})
