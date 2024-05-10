@@ -59,7 +59,7 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](/
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `AriaLabel` | `string` | Maps to the `aria-label` attribute of the `<div class="...">` element. Use this parameter if the text that labels the component is not visible. |
+| `AriaLabel` | `string` | Maps to the `aria-label` attribute of the `<div class="k-chip">` element. Use this parameter if the text that labels the component is not visible. |
 | `Class` | `string` | An additional CSS class for the `<div class="k-chip">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
 | `Disabled` | `bool` | Specifies if the Chip is disabled. |
 | `Icon` | `object` | Use this parameter to render an icon in the chip. |
