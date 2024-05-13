@@ -56,8 +56,8 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 | `Telerik.Recurrence` | Adds support for recurring appointments in the [Scheduler component]({%slug scheduler-overview%}). |
 | `Telerik.Documents.SpreadsheetStreaming` | Adds support for working with spreadsheet documents, and exporting to Excel or CSV. This package is part of [Telerik Document Processing]({%slug common-features-dpl%}). |
 | `Telerik.Zip` | Contains code for working with ZIP archives and Excel files. Excel files are actually ZIP archives and this package takes part in the exporting process. This package is part of [Telerik Document Processing]({%slug common-features-dpl%}). |
-| `Telerik.Pivot.Core` | Contains base code for the [PivotGrid component]({%slug pivotgrid-overview%}). |
-| `Telerik.Pivot.DataProviders.Xmla` | Adds support for [data binding the PivotGrid component to XMLA]({%slug pivotgrid-data-binding%}). |
+| `Telerik.Pivot.Core` | Contains base code for the [PivotGrid component]({%slug pivotgrid-overview%}). This NuGet package must not be used separately without the Telerik PivotGrid component. |
+| `Telerik.Pivot.DataProviders.Xmla` | Adds support for [data binding the PivotGrid component to XMLA]({%slug pivotgrid-data-binding%}). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 
 >note If you use a trial license, the private package names have a `.Trial` suffix, for example, `Telerik.UI.for.Blazor.Trial`.
 
