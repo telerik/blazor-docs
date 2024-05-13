@@ -10,7 +10,7 @@ position: 5
 
 # Sankey Diagram Labels
 
-The Sankey Diagram Lables are the names of the [nodes]{%slug sankey-diagram-nodes%} that can be displayed on the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. The listed settings will be applied to all labels in the Sankey Diagram.
+The Sankey Diagram Labels represent the [node]{%slug sankey-diagram-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. Each setting applies to all labels in the Sankey Diagram.
 
 ## Basic Customization
 
