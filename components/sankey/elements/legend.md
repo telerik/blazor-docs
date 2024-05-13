@@ -5,7 +5,7 @@ description: Legend of the Sankey Diagram for Blazor.
 slug: sankey-legend
 tags: telerik,blazor,sankey,diagram,chart,legend
 published: True
-position: 9
+position: 11
 ---
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
