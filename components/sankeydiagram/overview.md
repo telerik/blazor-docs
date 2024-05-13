@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Bl
 
 ...
 
-## DataBinding
+## Data Binding
 
 ...
 
