@@ -25,7 +25,7 @@ res_type: kb
 When using the combo box component when the desired data is list of readonly structs there is a null reference exception and the combo box does not work.
 
 ## Error Message
-A typical error would be null reference exception like the one below
+A typical error would be null reference exception like the one below:
 
 ```
 NullReferenceException: Object reference not set to an instance of an object.
