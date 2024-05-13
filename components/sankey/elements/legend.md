@@ -11,7 +11,7 @@ position: 9
 
 # Sankey Legend
 
-The Telerik Sankey Diagram for Blazor can show a visual guide with details about the nodes. The Sankey renders a legend by design. This article explores how to customize the Sankey Legend.
+The Telerik Sankey Diagram for Blazor can show a visual guide with details about the nodes. The Sankey renders a legend by design. This article explores how to customize the Sankey legend.
 
 ## Basic Customization
 
@@ -34,18 +34,25 @@ To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a
 
 ## Nested Customization Tags
 
-The `<SankeyLegend>` tag exposes nested settings for further customization of the separate legend elements:
-* Border
-* Item
-* Labels
-* Title
-* and others
+The `<SankeyLegend>` tag exposes nested tags for further customization of the separate legend elements. The structure of the nested tags is `<SankeyLegend*Specifics*>`, where the specifics can be:
+
+* [`Border`](/blazor-ui/api/telerik.blazor.components.sankeylegendborder)
+* [`Item`](/blazor-ui/api/telerik.blazor.components.sankeylegenditem)
+* [`Labels`](/blazor-ui/api/telerik.blazor.components.sankeylegendlabels) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendLabels*Specifics*>`, where the specifics can be:
+    * [`Margin`](/blazor-ui/api/telerik.blazor.components.sankeylegendlabelsmargin)
+    * [`Padding`](/blazor-ui/api/telerik.blazor.components.sankeylegendlabelspadding)
+* [`Margin`](/blazor-ui/api/telerik.blazor.components.sankeylegendmargin)
+* [`Padding`](/blazor-ui/api/telerik.blazor.components.sankeylegendpadding)
+* [`Title`](/blazor-ui/api/telerik.blazor.components.sankeylegendtitle) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendTitle*Specifics*>`, where the specifics can be:
+    * [`Border`](/blazor-ui/api/telerik.blazor.components.sankeylegendtitleborder)
+    * [`Margin`](/blazor-ui/api/telerik.blazor.components.sankeylegendtitlemargin)
+    * [`Padding`](/blazor-ui/api/telerik.blazor.components.sankeylegendtitlepadding)  
 
 >tip Use the IntelliSense to explore the nested tags and their properties.
 
 ## Example
 
-Customize the Sankey legend items by using nested tag settings.
+Customize the Sankey legend by using nested tag settings.
 
 ````CSHTML
 <TelerikSankey Data="@Data"
