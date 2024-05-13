@@ -14,7 +14,7 @@ The Sankey Diagram Labels represent the [node]{%slug sankey-diagram-nodes%} name
 
 ## Basic Customization
 
-To customize the labels, declare the `<SankeyLabels>` tag as a direct child of `<TelerikSankey>`. It exposes the following parameters:
+To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLabels>` tag has the following parameters:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
