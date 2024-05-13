@@ -44,8 +44,6 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 
     protected override void OnInitialized()
     {
-        TreeListData = new List<Employee>();
-
         for (int i = 1; i <= 1000; i++)
         {
             TreeListData.Add(new Employee()
