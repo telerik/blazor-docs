@@ -2,7 +2,7 @@
 title: Labels
 page_title: Sankey Diagram Labels
 description: Sankey Diagram Labels
-slug: sankey-diagram-labels
+slug: sankey-labels
 tags: telerik,blazor,sankey,diagram,chart,labels
 published: True
 position: 5
@@ -10,7 +10,7 @@ position: 5
 
 # Sankey Diagram Labels
 
-The Sankey Diagram Labels represent the [node]{%slug sankey-diagram-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. Each setting applies to all labels in the Sankey Diagram.
+The Sankey Diagram Labels represent the [node]{%slug sankey-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. Each setting applies to all labels in the Sankey Diagram.
 
 ## Basic Customization
 

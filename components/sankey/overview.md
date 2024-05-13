@@ -2,7 +2,7 @@
 title: Overview
 page_title: Sankey Diagram Overview
 description: Overview of the Sankey Diagram for Blazor.
-slug: sankey-diagram-overview
+slug: sankey-overview
 tags: telerik,blazor,sankey,diagram,chart,overview
 published: True
 position: 0

@@ -1,32 +1,32 @@
 ---
-title: Nodes
-page_title: Sankey Diagram Nodes
-description: Sankey Diagram Nodes
-slug: sankey-diagram-nodes
-tags: telerik,blazor,sankey,diagram,chart,nodes
+title: Links
+page_title: Sankey Diagram Links
+description: Sankey Diagram Links
+slug: sankey-links
+tags: telerik,blazor,sankey,diagram,chart,links
 published: True
-position: 0
+position: 3
 ---
 
-# Sankey Diagram Nodes
+# Sankey Diagram Links
 
-The Sankey Diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]{%slug sankey-diagram-links%}. This article explains how to customize the nodes in the UI for Blazor Sankey Diagram. The listed settings will be applied to all nodes in the Sankey Diagram.
+The Sankey Diagram Links are the lines that connect the [nodes]{%slug sankey-nodes%} to each other. The greater the value of the link, the greater the width of the link will be. This article explains how to customize the links in the UI for Blazor Sankey Diagram. The listed settings will be applied to all links in the Sankey Diagram.
 
 ## Basic Customization
 
-To customize the nodes, declare the `<SankeyNodes>` tag as a direct child of `<TelerikSankey>`. It exposes the following parameters:
+To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLinks>` tag exposes the following parameters:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| `Align` | `SankeyNodesAlign` enum <br/> (`SankeyNodesAlign.stretch`) | The nodes alignment. Supports `stretch`, `right` and `left` values. |
-| `Padding` | `double?` | The vertical space between the nodes. |
-| `Width` | `double?` | The width of the nodes. |
+| `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
+| `Color` | `string` | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
+| `Opacity` | `double?` | The opacity of the links. |
 
 ## Nested Customization Tags
 
-The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows you to control the offset of the nodes from the `<div class="k-sankey">` container. It provides the following parameters:
+The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows you to control the offset of the nodes from the `<div class="k-sankey">` container. It provides the following parameters:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -37,21 +37,21 @@ The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows yo
 
 ## Example
 
-Here is an example customization of the nodes in the Sankey Diagram.
+Here is an example customization of the links in the Sankey Diagram.
 
 ````CSHTML
 <TelerikSankey Data="@Data"
                Width="700px"
                Height="400px">
-    <SankeyNodes Align="SankeyNodesAlign.left" Padding="40" Width="50">
-       <SankeyNodesOffset Left="50" Top="50"></SankeyNodesOffset>       
-   </SankeyNodes>
+    <SankeyLinks ColorType="@SankeyLinksColorType.Target" Opacity="0.5">
+               <SankeyLinksHighlight Opacity="0.7" InactiveOpacity="0.2"></SankeyLinksHighlight>
+    </SankeyLinks>
 </TelerikSankey>
 
 @code {
     private SankeyData Data { get; set; }
     private string EventLog { get; set; } = string.Empty;
-    
+
     #region Data generation
 
     protected override void OnInitialized()

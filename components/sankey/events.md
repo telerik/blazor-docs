@@ -2,7 +2,7 @@
 title: Events
 page_title: Sankey Diagram Events
 description: Events of the Sankey Diagram for Blazor.
-slug: sankey-diagram-events
+slug: sankey-events
 tags: telerik,blazor,sankey,diagram,chart,events
 published: True
 position: 9
