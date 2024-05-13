@@ -38,18 +38,24 @@ I see errors when I load the Grid state at initialization (`OnStateInit` event h
 
 The exception messages can vary, for example:
 
->warning System.NullReferenceException: Object reference not set to an instance of an object.
-at Telerik.Blazor.Common.Filter.FilterOperatorFactory.GetFilterOperatorsForType(Type type, ITelerikStringLocalizer localizer)
+```
+System.NullReferenceException: Object reference not set to an instance of an object.
+    at Telerik.Blazor.Common.Filter.FilterOperatorFactory.GetFilterOperatorsForType(Type type, ITelerikStringLocalizer localizer)
+```
 
 Or alternatively:
 
->warning System.NullReferenceException: Object reference not set to an instance of an object.
-at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
-at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()
+```
+System.NullReferenceException: Object reference not set to an instance of an object.
+    at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
+    at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()
+```
 
 If the Grid is bound to **OData**, the OData query may be incorrect and the following exception may occur:
 
->warning A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
+```
+A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
+```
 
 
 ## Possible Cause

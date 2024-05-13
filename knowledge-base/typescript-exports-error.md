@@ -89,7 +89,7 @@ Then, if you add a workaround that is commonly offered on the Internet for that,
 
 you will get an error similar to
 
->warning `Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor' in 'window'.`
+`Microsoft.JSInterop.JSException: Could not find 'TelerikBlazor' in 'window'.`
 
 ## Possible Cause
 

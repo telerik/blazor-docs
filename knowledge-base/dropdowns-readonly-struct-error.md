@@ -24,6 +24,13 @@ res_type: kb
 ## Description
 When using the combo box component when the desired data is list of readonly structs there is a null reference exception and the combo box does not work.
 
+## Error Message
+A typical error would be null reference exception like the one below:
+
+```
+NullReferenceException: Object reference not set to an instance of an object.
+Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b__70_0(ListDataItem item)
+```
 
 ## Steps to Reproduce
 
@@ -52,12 +59,6 @@ Selected value: @selectedValue
     IEnumerable<ModelData> myComboData = Enumerable.Range(1, 20).Select(x => new ModelData("item " + x, x));
 }
 ````
-
-## Error Message
-A typical error would be null reference exception like the one below
-
->warning NullReferenceException: Object reference not set to an instance of an object.
-Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b__70_0(ListDataItem item)
 
 ## Possible Cause
 The components require a model when binding so it can be instantiated with a parameterless constructor. This is a requirement that comes down to the forms validation that they must support and getting the `Default` value and object. Structs do not have a parameterless constructor.

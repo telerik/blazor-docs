@@ -26,9 +26,9 @@ This knowledge base article deals with the `Maximum call stack size exceeded` er
 
 ## Error Message
 
->warning Microsoft.JSInterop.JSException: Maximum call stack size exceeded
->
-> RangeError: Maximum call stack size exceeded
+`Microsoft.JSInterop.JSException: Maximum call stack size exceeded`
+
+`RangeError: Maximum call stack size exceeded`
 
 ## Cause
 

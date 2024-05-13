@@ -26,15 +26,21 @@ res_type: kb
 
 When running a Telerik Blazor application I receive an error similar to the following:
 
->warning `System.NullReferenceException` <br />
->   `at Telerik.Blazor.Components.RootComponent.TelerikRootComponentFragment.Dispose()`
->   `at Microsoft.AspNetCore.Components.Rendering.ComponentState.Dispose()`
+```
+System.NullReferenceException
+   at Telerik.Blazor.Components.RootComponent.TelerikRootComponentFragment.Dispose()
+   at Microsoft.AspNetCore.Components.Rendering.ComponentState.Dispose()
+```
 
->warning `NullReferenceException: Object reference not set to an instance of an object.`
->   `at Telerik.Blazor.Components.RootComponent.TelerikRootComponentFragmentBase.Dispose()`
+```
+NullReferenceException: Object reference not set to an instance of an object.
+    at Telerik.Blazor.Components.RootComponent.TelerikRootComponentFragmentBase.Dispose()
+```
 
->warning `Object reference not set to an instance of an object.`
->   `at Telerik.Blazor.Components.TelerikRootComponentFragmentBase.OnInitAsync()`
+```
+Object reference not set to an instance of an object.
+    at Telerik.Blazor.Components.TelerikRootComponentFragmentBase.OnInitAsync()
+```
 
 
 ## Possible Cause

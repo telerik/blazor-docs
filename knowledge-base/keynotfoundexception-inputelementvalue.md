@@ -33,7 +33,7 @@ When I set the focus on a DatePicker or DateInput and tab to switch to another c
 
 ## Error Message
 
->warning System.Collections.Generic.KeyNotFoundException: The given key 'inputElementValue' was not present in the dictionary.
+`System.Collections.Generic.KeyNotFoundException: The given key 'inputElementValue' was not present in the dictionary.`
 
 
 ## Possible Cause

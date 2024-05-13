@@ -32,19 +32,19 @@ The Blazor app produces exceptions when using `RenderFragment` templates in Tele
 
 The exception message can vary by component name, but the common wording will be similar to:
 
->warning The child content element `ChildContent` of component `GridCommandColumn` uses the same parameter name (`context`) as enclosing child content element `ChildContent` of component `EditForm`. Specify the parameter name like: `<ChildContent Context="another_name">` to resolve the ambiguity.
+`The child content element ChildContent of component GridCommandColumn uses the same parameter name (context) as enclosing child content element ChildContent of component EditForm. Specify the parameter name like: <ChildContent Context="another_name"> to resolve the ambiguity.`
 
 or
 
->warning The child content element `DetailTemplate` of component `TelerikGrid` uses the same parameter name (`context`) as enclosing child content element `DetailTemplate` of component `TelerikGrid`. Specify the parameter name like: `<DetailTemplate Context="another_name">` to resolve the ambiguity.
+`The child content element DetailTemplate of component TelerikGrid uses the same parameter name (context) as enclosing child content element DetailTemplate of component TelerikGrid. Specify the parameter name like: <DetailTemplate Context="another_name"> to resolve the ambiguity.`
 
 or
 
->warning RZ9999: The child content element `Template` of component `GridColumn` uses the same parameter name (`context`) as enclosing child content element ... of component .... Specify the parameter name like `<Template Context="another_name">` to resolve the ambiguity.
+`RZ9999: The child content element Template of component GridColumn uses the same parameter name (context) as enclosing child content element ... of component .... Specify the parameter name like <Template Context="another_name"> to resolve the ambiguity.`
 
 You may also see the following error:
 
->warning Cannot convert lambda expression to intended delegate type because some of the return types in the block are not implicitly convertible to the delegate return type.
+`Cannot convert lambda expression to intended delegate type because some of the return types in the block are not implicitly convertible to the delegate return type.`
 
 
 ## Possible Cause
