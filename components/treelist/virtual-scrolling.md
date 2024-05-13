@@ -39,7 +39,6 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 </TelerikTreeList>
 
 @code {
-
     private List<Employee> TreeListData { get; set; } = new();
 
     protected override void OnInitialized()
