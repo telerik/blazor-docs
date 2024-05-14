@@ -17,7 +17,7 @@ The Telerik Sankey Diagram for Blazor can show a visual guide with details about
 
 To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLegend>` tag has the following parameters:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Align` | `SankeyLegendAlign` enum | The alignment of the legend. |
 | `Background` | `string`  | The background color of the legend. |

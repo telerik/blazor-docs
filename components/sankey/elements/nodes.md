@@ -19,7 +19,7 @@ The Sankey diagram Nodes are rectangular elements that are being connected. They
 
 To customize the nodes, declare the `<SankeyNodes>` tag as a direct child of `<TelerikSankey>`. The `<SankeyNodes>` tag exposes the following parameters:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Align` | `SankeyNodesAlign` enum <br/> (`SankeyNodesAlign.stretch`) | The nodes alignment. Supports `stretch`, `right` and `left` values. |
 | `Padding` | `double?` | The vertical space between the nodes. |

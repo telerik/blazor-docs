@@ -26,7 +26,7 @@ You can customize the title through the parameter of the `<SankeyTitle>` tag and
 
 The `<SankeyTitle>` tag  exposes the following parameters for customization of the title:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Align` | `SankeyTitleAlign` enum | The alignment of the title. |
 | `Background` | `string`  | The background color of the title. |

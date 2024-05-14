@@ -27,7 +27,7 @@ The Sankey diagram for Blazor requires its `Data` parameter to provide all the d
 
 The `SankeyDataLink` object contains all the information for the link. It exposes the following properties:
 
-| Property | Type | Description |
+| Property | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
 | `Color` | `string` | The color of the link. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
@@ -43,7 +43,7 @@ The `SankeyDataLink` object contains all the information for the link. It expose
 
 The `SankeyDataNode` object contains all the information for the node and its label. It exposes the following properties:
 
-| Property | Type | Description |
+| Property | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the node. Accepts a valid CSS color string, including hex and rgb. |
 | `Id` | `object` | The ID of the node. The ID is used to connect the nodes with the links. Required. |

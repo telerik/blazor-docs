@@ -19,7 +19,7 @@ The Sankey diagram Labels represent the [node]{%slug sankey-nodes%} names. The l
 
 To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLabels>` tag has the following parameters:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Align` | `string` | The alignment of the labels. |
 | `Color` | `string` | The color of the labels. |
@@ -36,7 +36,7 @@ The `<SankeyLabels>` tag exposes child tags for customization of the labels' bor
 
 By design, the labels do not have border. You may add border by declaring the `<SankeyLabelsBorder>` tag inside the `<SankeyLabels>` and specifying the desired settings. The  `<SankeyLabelsBorder>` provides the following parameters:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
 | `DashType` | `DashType` enum <br/> (`DashType.Solid`) | The type of the border. |
