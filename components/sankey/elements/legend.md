@@ -11,7 +11,7 @@ position: 11
 
 # Sankey Legend
 
-The Telerik Sankey Diagram for Blazor can show a visual guide with details about the nodes. The Sankey renders a legend by design. This article explores how to customize the Sankey legend.
+The Telerik Sankey Diagram for Blazor can show a legend, which is a visual guide with details about the nodes. This article explores how to customize the Sankey legend.
 
 ## Basic Customization
 
