@@ -46,7 +46,7 @@ Generally, there are **four** ways to customize the appearance of the Telerik Bl
 1. [Use the ThemeBuilder to create a custom theme]({%slug themes-custom%}#using-themebuilder).
     * This option allows [customization of the theme **colors** with the free version, or **full control** with the Pro version](https://docs.telerik.com/themebuilder/introduction#themebuilder-tiers).
     * Upgrading the custom theme is straight-forward via [manual](https://docs.telerik.com/themebuilder/web-app/migrating-projects) or [automatic](https://docs.telerik.com/themebuilder/web-app/automatic-migrations) approach.
-2. [Build a custom theme from our SASS source]({%slug themes-custom%}#manual-alternative).
+2. [Build a custom theme from the SASS source]({%slug themes-custom%}#building-themes-from-source-code).
     * This option provides **full control** over the resulting CSS code.
     * Upgrading requires you to pull the changes from the [**`kendo-themes`** repo](https://github.com/telerik/kendo-themes) and **rebuild** the custom theme. Ideally, make only [variable and style overrides](https://github.com/telerik/kendo-themes/wiki/Core-Code-Concepts) with minimal edits to our source code itself. However, major customizations may require more changes and maintenance.
 3. [Override theme styles with additional CSS code]({%slug themes-override%}).

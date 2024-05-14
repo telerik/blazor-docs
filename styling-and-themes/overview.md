@@ -66,7 +66,7 @@ The easiest option is to use a theme as a static asset from the NuGet package. T
 </html>
 ````
 
-An alternative option is to load a theme from the [Telerik CDN]({%slug common-features/cdn.md}). The URLs for the theme swatches are listed in the [Theme Swatches]({%slug themes-swatches%}) article.
+An alternative option is to load a theme from the [Telerik CDN]({%slug common-features-cdn%}). The URLs for the theme swatches are listed in the [Theme Swatches]({%slug themes-swatches%}) article.
 
 
 ## Optional Dependency Management
@@ -144,7 +144,7 @@ The Kendo UI Sass-based themes are located on the Progress NPM registry:
 * **Kendo UI Bootstrap v4 Theme**&mdash;Available as @progress/kendo-theme-bootstrap.
 * **Kendo UI Material Theme**&mdash;Available as @progress/kendo-theme-material.
 
-You can read more about using this approach in the [Custom Theme - Manual Process]({%slug themes-custom%}#manual-alternative) article.
+You can read more about using this approach at [Building Custom Themes]({%slug themes-custom%}#building-themes-from-source-code).
 
 
 ## Material Notes
