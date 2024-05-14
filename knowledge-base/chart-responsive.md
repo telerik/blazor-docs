@@ -34,7 +34,7 @@ When the page layout changes dynamically at runtime, you have to call the [Chart
 
 ### Sample Project
 
-You can find an example in the [Responsive Chart GitHub project](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart)
+You can find an example in the [Responsive Chart GitHub project](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart).
 
 ### Implementation Guidelines
 
