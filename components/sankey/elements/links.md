@@ -11,7 +11,7 @@ position: 3
 
 # Sankey Links
 
-The Sankey Diagram Links are the lines that connect the [nodes]{%slug sankey-nodes%} to each other. The greater the value of the link, the greater the width of the link will be. This article explains how to customize the links in the UI for Blazor Sankey Diagram.
+The Sankey Diagram Links are the lines that connect the [nodes]({%slug sankey-nodes%}) to each other. The greater the value of the link, the greater the width of the link will be. This article explains how to customize the links in the UI for Blazor Sankey Diagram.
 
 >tip Each setting applies to all links in the Sankey Diagram. If you want to provide different settings for the separate links, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
 
