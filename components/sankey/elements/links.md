@@ -19,7 +19,7 @@ The Sankey Diagram Links are the lines that connect the [nodes]({%slug sankey-no
 
 To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLinks>` tag exposes the following parameters:
 
-| Parameter | Type | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
 | `Color` | `string` | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
