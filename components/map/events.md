@@ -32,7 +32,7 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 >caption Handle OnClick.
 
 ````CSHTML
-@* This code snippet showcases an example of how to handle the OnClick event. *@
+@* This code snippet showcases an example of how to handle the Map OnClick event. *@
 
 <TelerikMap Center="@Center"
             Zoom="3"
@@ -127,19 +127,19 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 
 ## OnMarkerClick
 
-The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMarkerClick` event handler receives an argument of type `MapMarkerClickEventArgs`, which exposes the following properties:
+The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMarkerClick` event handler argument is of type `MapMarkerClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `EventArgs` | `EventArgs` | The native DOM event (browser event). |
+| `EventArgs` | `EventArgs` | The properties of the native browser event. Cast it to [`MouseEventArgs`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs). |
 | `DataItem` | `object` | The data item (object) of the bound marker. | 
 
 >caption Handle OnMarkerClick.
 
 ````CSHTML
-@* This code snippet showcases an example of how to handle the OnMarkerClick event. *@
+@* This code snippet showcases an example of how to handle the Map OnMarkerClick event. *@
 
 <TelerikMap Center="@Center"
             Zoom="3"
@@ -234,20 +234,20 @@ The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMa
 
 ## OnShapeClick
 
-The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShapeClick` event handler receives an argument of type `MapShapeClickEventArgs`, which exposes the following properties:
+The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShapeClick` event handler argument is of type `MapShapeClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `EventArgs` | `EventArgs` | The native DOM event (browser event). |
+| `EventArgs` | `EventArgs` | The properties of the native browser event. Cast it to [`MouseEventArgs`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs). |
 | `DataItem` | `object` | The data item when the shape is from a Bubble layer, or `null` when the shape is from a Shape layer. |
 | `GeoJsonDataItem` | `Dictionary<string, object>` | The data item as GeoJSON object when the layer is a Shape layer (`null` for Bubble layer). |
 
 >caption Handle OnShapeClick.
 
 ````CSHTML
-@* This code snippet showcases an example of how to handle the OnShapeClick event. *@
+@* This code snippet showcases an example of how to handle the Map OnShapeClick event. *@
 
 <TelerikMap Center="@Center"
             Zoom="3"
@@ -342,7 +342,7 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
 
 ## OnZoomEnd 
 
-The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZoomEnd` event handler receives an argument of type `MapZoomEndEventArgs`, which exposes the following properties:
+The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZoomEnd` event handler argument is of type `MapZoomEndEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -355,7 +355,7 @@ The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZ
 >caption Handle OnZoomEnd.
 
 ````CSHTML
-@* This code snippet showcases an example of how to handle the OnZoomEnd event. *@
+@* This code snippet showcases an example of how to handle the Map OnZoomEnd event. *@
 
 <TelerikMap Center="@Center"
             Zoom="3" 
@@ -451,7 +451,7 @@ The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZ
 
 ## OnPanEnd
 
-The `OnPanEnd` event fires when the user has finished moving (panning) the Map. The `OnPanEnd` event handler receives an argument of type `MapPanEndEventArgs` argument, which exposes the following properties:
+The `OnPanEnd` event fires when the user has finished moving (panning) the Map. The `OnPanEnd` event handler argument is of type `MapPanEndEventArgs` argument, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -463,7 +463,7 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 >caption Handle the Map OnPanEnd event
 
 ````CSHTML
-@* This code snippet showcases an example of how to handle the OnPanEnd event. *@
+@* This code snippet showcases an example of how to handle the Map OnPanEnd event. *@
 
 <TelerikMap Center="@Center"
             Zoom="3"
