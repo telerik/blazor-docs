@@ -58,4 +58,84 @@ You can use these properties to [provide custom settings for the separate nodes 
 
 ## Customize Elements Through Data
 
+The example below showcases binding the Sankey data and adding some specific options for the separate nodes, links and labels.
 
+````CSHTML
+<TelerikSankey Data="@Data"
+               Width="1000px"
+               Height="400px">
+    <SankeyLinks ColorType="@SankeyLinksColorType.Source"/>
+    <SankeyLabels>
+        <SankeyLabelsStroke Color="none"/>
+    </SankeyLabels>
+</TelerikSankey>
+
+@code {
+    private SankeyData Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Data = new SankeyData()
+            {
+                Nodes = new SankeyDataNodes()
+                {
+                    new SankeyDataNode()
+                    {
+                        Id = 1,
+                        Color = "#CC8DD6",
+                        Label = new SankeyDataNodeLabel() { Text = "Tablet (12%)", Font="bold 14px sans-serif" }
+                    },
+                    new SankeyDataNode()
+                    {
+                        Id = 2,
+                        Color = "#2D73F5",
+                        Label = new SankeyDataNodeLabel() { Text = "Mobile (40%)", Font="bold 14px sans-serif" }
+                    },
+                     new SankeyDataNode()
+                    {
+                        Id = 3,
+                        Color = "#28B4C8",
+                        Label = new SankeyDataNodeLabel() { Text = "Desktop (48%)", Font="bold 14px sans-serif" }
+                    },
+                    new SankeyDataNode()
+                    {
+                        Id = 4,
+                        Color = "#78D237",
+                        Label = new SankeyDataNodeLabel() { Text = "< 18 years (8%)" }
+                    },
+                     new SankeyDataNode()
+                    {
+                        Id = 5,
+                        Color = "#FFD246",
+                        Label = new SankeyDataNodeLabel() { Text = "18-26 years (35%)" }
+                    },
+                     new SankeyDataNode()
+                    {
+                        Id = 6,
+                        Color = "#FF6358",
+                        Label = new SankeyDataNodeLabel() { Text = "27-40 years (38%)" }
+                    },
+                     new SankeyDataNode()
+                    {
+                        Id = 7,
+                        Color = "#E7607B",
+                        Label = new SankeyDataNodeLabel() {  Text = "> 40 years (19%)" }
+                    },
+                },
+
+                Links = new SankeyDataLinks()
+                {
+                    new SankeyDataLink() { SourceId = 1, TargetId = 4, Value = 4, Opacity = 0.3},
+                    new SankeyDataLink() { SourceId = 1, TargetId = 7, Value = 8, Opacity = 0.5 },
+                    new SankeyDataLink() { SourceId = 2, TargetId = 4, Value = 4, Opacity = 0.3 },
+                    new SankeyDataLink() { SourceId = 2, TargetId = 5, Value = 24, Opacity = 0.8 },
+                    new SankeyDataLink() { SourceId = 2, TargetId = 6, Value = 10, Opacity = 0.6 },
+                    new SankeyDataLink() { SourceId = 2, TargetId = 7, Value = 2, Opacity = 0.2 },
+                    new SankeyDataLink() { SourceId = 3, TargetId = 5, Value = 11, Opacity = 0.6 },
+                    new SankeyDataLink() { SourceId = 3, TargetId = 6, Value = 28, Opacity = 0.8 },
+                    new SankeyDataLink() { SourceId = 3, TargetId = 7, Value = 9, Opacity = 0.5 }
+                }
+            };
+    }
+}
+````
