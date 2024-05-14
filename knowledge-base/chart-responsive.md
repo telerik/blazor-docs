@@ -22,7 +22,7 @@ res_type: kb
 
 ## Description
 
-When the user resizes the browser window or some layout change happens (for example, a navigation panel is expanded or collapsed), you may want to have the Chart redraws with the new dimensions.
+When the user resizes the browser window or some layout change happens (for example, a navigation panel is expanded or collapsed), you may want to have the Chart redraw with the new dimensions.
 
 ## Solution
 
