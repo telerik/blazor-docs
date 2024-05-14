@@ -10,45 +10,6 @@ Make sure that you have a NuGet feed source with the version you want to upgrade
 The `Format` is culture-specific and the same format may produce different results depending on the culture. You can find more information and examples in the [Supported Date Formats]({%slug components/dateinput/supported-formats%}) article.
 #end
 
-#cdn
-You can reference the built-in Telerik assets like the JS Interop file and the theme stylesheets from a cloud CDN instead of a local resource on your server.
-
-   * The [Telerik UI for Blazor CDN]({%slug themes-swatch-distribution%}#telerik-blazor-cdn) distributes the most common [swatches]({%slug themes-swatches%}) for each base theme.
-   * The additional Themes CDN distributes [all available swatches for the built-in themes]({%slug themes-swatches%}#built-in-themes-and-swatches-list).
-
-<div class="skip-repl"></div>
-
-````CSHTML
-<!DOCTYPE html>
-<html>
-<head>
-    . . .
-    <!-- Choose only one of the themes -->
-    
-    <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/all.css" />
-    
-    <!-- 
-        <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/all.css" rel="stylesheet" />
-        <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/all.css" rel="stylesheet" />
-    -->
-    
-    <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
-</head>
-
- . . .
- 
-</html>
-````
-
-
->important Make sure that the version in the URLs matches the version of the Telerik UI for Blazor package.
-
->tip If you decide to use a CDN over static assets, you may want to implement a [fallback]({%slug common-kb-cdn-fallback%}) if the CDN is unavailable to your users.
-
-
-#end
-
-
 
 #vsx-download
 You can get the extension from:
