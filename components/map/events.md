@@ -20,7 +20,7 @@ This article explains the available events for the Telerik Map for Blazor:
 
 ## OnClick
 
-The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick` event handler receives an argument of type `MapClickEventArgs`, which exposes the following properties:
+The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick` event handler argument is of type `MapClickEventArgs`, which exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
