@@ -17,7 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/sankey-diagram" target="_blank"
 
 1. Add the `<TelerikSankey>` tag to your razor page.
 1. [Bind the Sankey Data]({%slug sankey-data-binding%}).
-1. Set the [`ColorType` of the `SankeyLinks`]({%slug sankey-links%}) - if you choose `SankeyLinksColorType.Static`, also set the `Color` property of the `SankeyLinks`.
+1. (Optional) Set the [`ColorType` of the `SankeyLinks`]({%slug sankey-links%}).
 1. (Optional) Set `Width` and `Height` of the Sankey chart.
 
 >caption Sankey diagram with width, height and link colors based on the source nodes
