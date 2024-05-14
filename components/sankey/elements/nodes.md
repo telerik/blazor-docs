@@ -11,7 +11,7 @@ position: 0
 
 # Sankey Nodes
 
-The Sankey diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]{%slug sankey-links%}. This article explains how to customize the nodes in the UI for Blazor Sankey diagram. 
+The Sankey diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]({%slug sankey-links%}). This article explains how to customize the nodes in the UI for Blazor Sankey diagram. 
 
 >tip Each setting applies to all nodes in the Sankey diagram. If you want to provide different settings for the separate nodes, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
 
