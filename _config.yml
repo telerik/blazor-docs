@@ -168,6 +168,9 @@ navigation:
      "*components/chart/tooltip":
         title: "Tooltips"
         position: 31
+     "*components/sankey/elements":
+        title: "Elements"
+        position: 5  
      "*components/stockchart/types":
         title: "Types"
         position: 12
@@ -433,6 +436,8 @@ navigation:
         title: "RadioGroup"
      "*rootcomponent":
         title: "RootComponent"
+     "*sankey":
+        title: "Sankey"
      "*scheduler":
         title: "Scheduler"
      "*scrollview":
