@@ -33,7 +33,7 @@ The `<SankeyTitle>` tag  exposes the following parameters for customization of t
 | `Color` | `string`  | The text color of the title. |
 | `Description` | `string`  | The accessible description of the Sankey. Added as `aria-label` to the `<div class="k-sankey">` element. |
 | `Font` | `string`  | The font of the title. |
-| `Position` |  | The position of the title. |
+| `Position` | `SankeyTitlePosition` enum | The position of the title. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the title is visible.|
 
 ### Nested Customization Tags
