@@ -31,17 +31,16 @@ How to print the rendered Blazor Chart? I want to print single or separate Chart
 By using the browser printing engine and some custom CSS while printing you can hide everything else on the page and print only the Chart:
 
 1. Add the `media="print"` attribute in the `<style>` tag to ensure that the defined styles are applied only when printing the page.
-1. Use the `display: none` CSS rule to hide the elements that will not be printed.
-1. Set the [Chart `Class` parameter]({%slug components/chart/overview%}%#chart-parameters) under the condition that the page is printing.
+1. Set a `Class` parameter to the elements that will not be printed and apply the CSS `display:none` rule to hide them.
 1. Set the Chart `Width` and `Height` parameters to fit the printing page.
 1. Use JS Interop to call the browser print method that does the actual printing. Ensure that the browser is printing background graphics (this is a checkbox on the browser's Print dialog) so that you can get the proper colors on the chart and/or other elements.
 
 ````CSHTML
 @inject IJSRuntime JSRuntime
 
-<TelerikButton OnClick="@Print" Icon="@SvgIcon.Print" Class="@(isPrinting ? "non-printable-element" : "")">Print this chart</TelerikButton>
+<TelerikButton OnClick="@Print" Icon="@SvgIcon.Print" Class="non-printable-element">Print this chart</TelerikButton>
 
-    <TelerikChart Width="700px" Height="400px" Class="@(isPrinting ? "" : "non-printable-element")">
+    <TelerikChart Width="700px" Height="400px">
     <ChartSeriesItems>
         <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
         </ChartSeries>
