@@ -125,7 +125,7 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 1. Run the app in the browser by pressing `F5`. You should see something like this:
 
-    ![Blazor Web App in the browser](images/blazor-web-app-in-browser.png)
+    ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
 
 Well done! Now you have your first Telerik UI for Blazor component running in your Blazor Web App.
 

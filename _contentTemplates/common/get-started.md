@@ -74,7 +74,7 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 1. Run the app in the browser by pressing `F5`. You should see something like this:
 
-    ![App in the browser](images/app-in-browser.png)
+    ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
 
 Well done! Now you have you first Telerik UI for Blazor component running in your Blazor app.
 
