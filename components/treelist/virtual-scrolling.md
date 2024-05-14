@@ -11,7 +11,7 @@ position: 25
 # TreeList Virtual Scrolling
 
 
-Virtual scrolling provides an alternative to paging. Instead of utilizing a pager, the user vertically scrolls through all records in the data source.
+Virtual scrolling provides an alternative to paging. Instead of utilizing a pager, the user scrolls vertically through all records in the data source.
 
 To enhance rendering performance, the TreeList reuses the same set of HTML elements. As the next data loads, a loading indicator appears on the cells. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
