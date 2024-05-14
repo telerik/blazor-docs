@@ -18,13 +18,11 @@ The Sankey diagram for Blazor allows you to specify a title for the diagram. Thi
 1. Declare a `<SankeyTitle>` tag as a direct child of `<TelerikSankey>`.
 1. Set the `Text` parameter of the `<SankeyTitle>` tag.
 
-## Customizing the Title
-
 You can customize the title through the parameter of the `<SankeyTitle>` tag and through the nested tags it exposes.
 
 ### Basic Customization
 
-The `<SankeyTitle>` tag  exposes the following parameters for customization of the title:
+The `<SankeyTitle>` tag exposes the following parameters for customization of the title:
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |

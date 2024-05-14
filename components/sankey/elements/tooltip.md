@@ -12,14 +12,14 @@ position: 9
 # Sankey Tooltip
 
 The Sankey Diagram for Blazor displays Tooltips when the user hovers the links and nodes. You can customize the rendering of these Tooltips through dedicated templates:
-* [`LinkTemplate`](#link-template)
-* [`NodeTemplate`](#node-template)
+* [`LinkTemplate`](#link-tooltip-template)
+* [`NodeTemplate`](#node-tooltip-template)
 
 To use the templates, declare a `<SankeyTooltip>` tag as a direct child of `<TelerikSankey>`. Add the desired template inside the `<SankeyTooltip>` tag. 
 
 >tip The Sankey chart also exposes the [`SquareSymbol`](/blazor-ui/api/Telerik.Blazor.Components.Sankey.Tooltip.SquareSymbol) from the default Tooltip as a standalone component in case you want to include that in the template.
 
-## Link Template
+## Link Tooltip Template
 
 The `LinkTemplate` controls the content of the Tooltip that will appear when the user hovers a link. The `NodeTemplate` exposes a `context` of type 
 [`SankeyLinkTooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.SankeyLinkTooltipTemplateContext) which provides the following properties:
@@ -30,7 +30,7 @@ The `LinkTemplate` controls the content of the Tooltip that will appear when the
 | `Target` | `SankeyDataNode` | The target of the hovered link. Provides details for the target node such as its label, opacity, color, width, offset, alignment and more.   | 
 | `Value` | `double?` | The hovered link value.  | 
 
-## Node Template
+## Node Tooltip Template
 
 The `NodeTemplate` controls the content of the Tooltip that will appear when the user hovers a node. The `NodeTemplate` exposes a `context` of type [`SankeyNodeTooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.SankeyNodeTooltipTemplateContext) which provides the following properties:
 

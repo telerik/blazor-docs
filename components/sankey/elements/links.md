@@ -22,17 +22,17 @@ To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<T
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `ColorType` | `SankeyLinksColorType` enum <br /> (`Static`) | The origin of the link color: <ul><li>`Static` - the link color is based on the `Color` property;</li><li>`Source` - the link color is based on the source node color; </li><li>`Target` - the link color is based on the target node color; </li></ul> |
-| `Color` | `string` | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
-| `Opacity` | `double?` | The opacity of the links. |
+| `Color` | `string` <br/> (`#666666`) | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
+| `Opacity` | `double?` <br/> (`0.4`) | The opacity of the links. |
 
 ## Nested Customization Tags
 
-The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows you to control the offset of the nodes from the `<div class="k-sankey">` container. It provides the following parameters:
+The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows you to control the opacity of the links when the user hovers a link. It provides the following parameters:
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| `Left` | `double?` | The left offset of the node. |
-| `Top` | `double?` | The top offset of the node. |
+| `Opacity` | `double?` <br/> (`0.8`) | The opacity of the link when the user hovers it. |
+| `InactiveOpacity` | `double?` <br/> (`0.2`) | The opacity of the non-hovered (inactive) links when the user hovers a link. |
 
 ## Example
 

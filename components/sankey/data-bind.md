@@ -20,8 +20,8 @@ The Sankey diagram for Blazor requires its `Data` parameter to provide all the d
 
 | Property | Type | Description |
 | --------- | ---- | ----------- |
-| `Links` | `SankeyDataLinks` | A collection of [`SankeyDataLink` objects that describe the links](#link). |
-| `Nodes` | `SankeyDataNodes ` | A collection of [`SankeyDataNode` objects that describe the nodes and their labels](#node). |
+| `Links` | `SankeyDataLinks` | A [`List<SankeyDataLink>` that describes the links](#link). |
+| `Nodes` | `SankeyDataNodes ` | A [`List<SankeyDataNode>` that describes the nodes and their labels](#node). |
 
 ### Link
 
