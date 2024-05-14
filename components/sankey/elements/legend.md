@@ -112,5 +112,5 @@ Customize the Sankey legend by using nested tag settings.
 * [Sankey Links]({%slug sankey-links%})
 * [Sankey Nodes]({%slug sankey-nodes%})
 * [Sankey Labels]({%slug sankey-labels%})
-* [Sankey Tooltip]({%slug sankey-sankey-tooltip%})
+* [Sankey Tooltip]({%slug sankey-tooltip%})
 * [Sankey Title]({%slug sankey-title%})
