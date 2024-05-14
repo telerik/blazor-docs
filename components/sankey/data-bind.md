@@ -20,7 +20,7 @@ The Sankey diagram for Blazor requires its `Data` parameter to provide all the d
 
 | Property | Type | Description |
 | --------- | ---- | ----------- |
-| `Links` | `SankeyDataLinks` | A collection of [`SankeyDataLink` that objects that describe the links](#link). |
+| `Links` | `SankeyDataLinks` | A collection of [`SankeyDataLink` objects that describe the links](#link). |
 | `Nodes` | `SankeyDataNodes ` | A collection of [`SankeyDataNode` objects that describe the nodes and their labels](#node). |
 
 ### Link
@@ -33,11 +33,11 @@ The `SankeyDataLink` object contains all the information for the link. It expose
 | `Color` | `string` | The color of the link. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
 | `Highlight` | [`SankeyDataLinkHighlight`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataLinkHighlight) | The opacity of the active and inactive links when the user hovers a link. |
 | `Opacity` | `double?` | The opacity of the link. |
-| `SourceId` | `object` | The source node ID of the link. The source node is the node from which the link originates. |
-| `TargetId` | `object` | The target node ID of the link. The target node is the node to which the link points. |
-| `Value` | `double?` | The value of the link. The value represents the weight of the link and determines the width of the link. |
+| `SourceId` | `object` | The source node ID of the link. The source node is the node from which the link originates. Required. |
+| `TargetId` | `object` | The target node ID of the link. The target node is the node to which the link points. Required. |
+| `Value` | `double?` | The value of the link. The value represents the weight of the link and determines the width of the link. Required. |
 
-You can use these properties to [provide custom settings for the separate links through the data](#customize-elements-through-data) or customize all links through the [Sankey component options]({%slug sankey-links%}).
+>tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate links through the data](#customize-elements-through-data). If you want to apply the same settings for all the links in the Sankey use the [component options]({%slug sankey-links%}).
 
 ### Node
 
@@ -46,7 +46,7 @@ The `SankeyDataNode` object contains all the information for the node and its la
 | Property | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the node. Accepts a valid CSS color string, including hex and rgb. |
-| `Id` | `object` | The ID of the node. The ID is used to connect the nodes with the links. |
+| `Id` | `object` | The ID of the node. The ID is used to connect the nodes with the links. Required. |
 | `Label` | [`SankeyDataNodeLabel`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataNodeLabel) | Contains all the information for the node label - text, alignment, color, border and more. |
 | `Offset` | [`SankeyDataNodeOffset`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataNodeOffset)| The left and top offset of the node from the `<div class="k-sankey">` container. |
 | `Opacity` | `double?` | The opacity of the node. |
@@ -54,7 +54,7 @@ The `SankeyDataNode` object contains all the information for the node and its la
 | `Width` | `double?` | The width of the node. |
 | `Align` | `SankeyNodesAlign?` enum <br/> (`SankeyNodesAlign.Stretch`) | The alignment of the node. Supports the following values - `Stretch`, `Left`, and `Right`.|
 
-You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data) or customize all links through the [Sankey component options]({%slug sankey-nodes%}).
+>tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data).  If you want to apply the same settings for all the nodes and labels in the Sankey use the component options for [nodes]({%slug sankey-nodes%}) and [labels]({%slug sankey-labels%}).
 
 ## Customize Elements Through Data
 

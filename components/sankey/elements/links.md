@@ -1,14 +1,15 @@
 ---
 title: Links
-page_title: Sankey Diagram Links
-description: Sankey Diagram Links
+page_title: Sankey Links
+description: Links in the Sankey Diagram for Blazor.
 slug: sankey-links
 tags: telerik,blazor,sankey,diagram,chart,links
 published: True
 position: 3
 ---
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-# Sankey Diagram Links
+# Sankey Links
 
 The Sankey Diagram Links are the lines that connect the [nodes]{%slug sankey-nodes%} to each other. The greater the value of the link, the greater the width of the link will be. This article explains how to customize the links in the UI for Blazor Sankey Diagram.
 
@@ -17,8 +18,6 @@ The Sankey Diagram Links are the lines that connect the [nodes]{%slug sankey-nod
 ## Basic Customization
 
 To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLinks>` tag exposes the following parameters:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -29,8 +28,6 @@ To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<T
 ## Nested Customization Tags
 
 The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows you to control the offset of the nodes from the `<div class="k-sankey">` container. It provides the following parameters:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |

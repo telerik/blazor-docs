@@ -1,24 +1,23 @@
 ---
 title: Labels
-page_title: Sankey Diagram Labels
-description: Sankey Diagram Labels
+page_title: Sankey Labels
+description: Node labels in the Sankey Diagram for Blazor.
 slug: sankey-labels
 tags: telerik,blazor,sankey,diagram,chart,labels
 published: True
 position: 5
 ---
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-# Sankey Diagram Labels
+# Sankey Labels
 
-The Sankey Diagram Labels represent the [node]{%slug sankey-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. Each setting applies to all labels in the Sankey Diagram.
+The Sankey diagram Labels represent the [node]{%slug sankey-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey diagram. Each setting applies to all labels in the Sankey diagram.
 
->tip Each setting applies to all labels in the Sankey Diagram. If you want to provide different settings for the separate labels, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
+>tip Each setting applies to all labels in the Sankey diagram. If you want to provide different settings for the separate labels, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
 
 ## Basic Customization
 
 To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLabels>` tag has the following parameters:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -37,8 +36,6 @@ The `<SankeyLabels>` tag exposes child tags for customization of the labels' bor
 
 By design, the labels do not have border. You may add border by declaring the `<SankeyLabelsBorder>` tag inside the `<SankeyLabels>` and specifying the desired settings. The  `<SankeyLabelsBorder>` provides the following parameters:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
@@ -49,8 +46,6 @@ By design, the labels do not have border. You may add border by declaring the `<
 
 The `<SankeyLabelsMargin>` child tag provides the following properties:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Left` | `double?` | The left margin of the labels. |
@@ -60,8 +55,6 @@ The `<SankeyLabelsMargin>` child tag provides the following properties:
 
 The `<SankeyLabelsOffset>` child tag provides the following properties:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Left` | `double?` | The left offset of the labels. |
@@ -70,8 +63,6 @@ The `<SankeyLabelsOffset>` child tag provides the following properties:
 ### Padding
 
 The `<SankeyLabelsPadding>` child tag provides the following properties:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -84,8 +75,6 @@ The `<SankeyLabelsPadding>` child tag provides the following properties:
 
 The `<SankeyLabelsStroke>` child tag provides the following properties:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the stroke. |
@@ -94,7 +83,7 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 
 ## Example
 
-Here is an example customization of the labels in the Sankey Diagram.
+Here is an example customization of the labels in the Sankey diagram.
 
 ````CSHTML
 <TelerikSankey Data="@Data"

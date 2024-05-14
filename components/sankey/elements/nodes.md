@@ -1,24 +1,23 @@
 ---
 title: Nodes
-page_title: Sankey Diagram Nodes
-description: Sankey Diagram Nodes
+page_title: Sankey Nodes
+description: Nodes in the Sankey diagram for Blazor.
 slug: sankey-nodes
 tags: telerik,blazor,sankey,diagram,chart,nodes
 published: True
 position: 0
 ---
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-# Sankey Diagram Nodes
+# Sankey Nodes
 
-The Sankey Diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]{%slug sankey-links%}. This article explains how to customize the nodes in the UI for Blazor Sankey Diagram. 
+The Sankey diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]{%slug sankey-links%}. This article explains how to customize the nodes in the UI for Blazor Sankey diagram. 
 
->tip Each setting applies to all nodes in the Sankey Diagram. If you want to provide different settings for the separate nodes, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
+>tip Each setting applies to all nodes in the Sankey diagram. If you want to provide different settings for the separate nodes, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
 
 ## Basic Customization
 
 To customize the nodes, declare the `<SankeyNodes>` tag as a direct child of `<TelerikSankey>`. The `<SankeyNodes>` tag exposes the following parameters:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -30,8 +29,6 @@ To customize the nodes, declare the `<SankeyNodes>` tag as a direct child of `<T
 
 The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows you to control the offset of the nodes from the `<div class="k-sankey">` container. It provides the following parameters:
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Left` | `double?` | The left offset of the node. |
@@ -39,7 +36,7 @@ The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows yo
 
 ## Example
 
-Here is an example customization of the nodes in the Sankey Diagram.
+Here is an example customization of the nodes in the Sankey diagram.
 
 ````CSHTML
 <TelerikSankey Data="@Data"
