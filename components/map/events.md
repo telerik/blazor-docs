@@ -460,7 +460,7 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 | `Center` | `double[]` | The latitude and longitude of the Map's center. |
 | `Extent` | `double[]` | The NW and SE latitude and longitude of the Map. |
 
->caption Handle OnPanEnd.
+>caption Handle the Map OnPanEnd event
 
 ````CSHTML
 @* This code snippet showcases an example of how to handle the OnPanEnd event. *@
