@@ -15,16 +15,22 @@ By customizing themes, you can alter the default appearance of the Telerik compo
 
 This article contains the following sections:
 
+* [Compare the Blazor CSS Customization Options](#blazor-css-customization-options)
 * [Using the ThemeBuilder](#using-themebuilder)
 * [Manual Alternative](#manual-alternative)
 	* [Using the Build Process of the Application](#using-the-build-process-of-the-application)
 	* [Using the Build Process of the Themes](#using-the-build-process-of-the-themes)
 	* [Using Variables](#using-variables)
-* [Comparing the Blazor CSS Customization Approaches](#comparing-the-blazor-css-customization-approaches)
+
 * [How to Use a Custom Theme I Have](#how-to-use-a-custom-theme-i-have)
 * [Contribution](#contribution)
 
 >tip When you use custom themes for Telerik UI for Blazor components, you must re-generate the custom theme every time you updates the Telerik components in your project. This allows you to get the theme updates and fixes.
+
+## Blazor CSS Customization Options
+
+You can customize the appearance of the Telerik Blazor components in several ways. Each has pros and cons, and each is most suitable for specific scenarios and business requirements. The [Blazor Theme Customization Options]({%slug common-kb-theme-customization-options%}) article offers a comparison between these CSS customization approaches.
+
 
 ## Using ThemeBuilder
 
@@ -173,13 +179,10 @@ You might want to omit the styles for some components in the CSS output. To incl
 
 ### Using Variables
 
-The following list describes the theme variables available for adjustment in the Kendo UI Default theme.
-
-@[template](/_contentTemplates/common/theme-variables.md#variables-usage)
-
-## Comparing the Blazor CSS Customization Approaches
-
-You can customize the appearance of the Telerik Blazor components in three ways. Each has pros and cons, and each is most suitable for specific scenarios and business requirements. The [Blazor Theme Customization Options]({%slug common-kb-theme-customization-options%}) article offers a comparison between these CSS customization approaches.
+* [Default theme variables](https://www.telerik.com/design-system/docs/themes/theme-default/theme-variables/)
+* [Bootstrap theme variables](https://www.telerik.com/design-system/docs/themes/theme-bootstrap/theme-variables/)
+* [Default theme variables](https://www.telerik.com/design-system/docs/themes/theme-default/theme-variables/)
+* [Default theme variables](https://www.telerik.com/design-system/docs/themes/theme-default/theme-variables/)
 
 ## How to Use a Custom Theme I Have
 
@@ -203,13 +206,14 @@ To use that, instead of one of the built-in themes, you need to:
 
 1. Make sure that this is the only Telerik Theme that is referenced in the application. If you are using a built-in theme, you must remove its `<link>` element.
 
+
 ## Contribution
 
-To contribute to the development of the Kendo UI Default Theme, refer to the [telerik/kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository it is stored in.
+To contribute to the development of the Kendo UI Themes, go to the [telerik/kendo-themes](https://github.com/telerik/kendo-themes) GitHub repository.
 
 
 ## See Also
 
-  * [Progress ThemeBuilder](https://themebuilderapp.telerik.com)
-  * [Progress ThemeBuilder Documentation](https://docs.telerik.com/themebuilder)
-  * [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)
+* [Progress ThemeBuilder](https://themebuilderapp.telerik.com)
+* [Progress ThemeBuilder Documentation](https://docs.telerik.com/themebuilder)
+* [Kendo SASS Themes](https://docs.telerik.com/kendo-ui/styles-and-layout/sass-themes)

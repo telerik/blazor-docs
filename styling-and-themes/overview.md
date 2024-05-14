@@ -11,36 +11,27 @@ position: 0
 
 # Built-in Themes
 
-The UI for Blazor suite comes with a set of built-in themes that you can choose from to alter the visual appearance of the Telerik components (you can test them in our [live demos](https://demos.telerik.com/blazor-ui/)):
+Telerik UI for Blazor comes with a set of built-in themes that you can choose from to alter the visual appearance of our components. You can compare all themes on the [Telerik UI for Blazor live demos](https://demos.telerik.com/blazor-ui/)).
 
-* **Default** - our own neutral styling that suits most cases. Includes the [Ocean Blue accessibility swatch]({%slug themes-accessibility-swatch%}).
-* **Bootstrap** - a theme that matches the Bootstrap styling. Read more in the [Bootstrap Notes](#bootstrap-notes) section.
-* **Material** - implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section.
-* **Fluent** - based on [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui/).
+The available built-in themes are:
 
+* **Default** is our own neutral styling that suits most cases. The theme has a [swatch (color variation)]({%slug themes-swatches%}) called [Ocean Blue]({%slug themes-accessibility-swatch%}), which features enhanced accessibility.
+* **Bootstrap** matches the styling of the [Bootstrap CSS framework](https://getbootstrap.com). Read more in the [Bootstrap Notes](#bootstrap-notes) section below.
+* **Material** implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section below.
+* **Fluent** is based on [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui/).
 
-The UI for Blazor suite has the same HTML rendering and SASS Theme stylesheets like other Kendo UI suites, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets, however.
+Telerik UI for Blazor has the same HTML rendering and SASS theme stylesheets as the Kendo UI widgets, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets.
 
-To use a theme, you must reference its stylesheet in the `<head>` of your main index file. For a [client-side Blazor app]({%slug getting-started/client-side%}), this is `wwwroot/index.html` and for a [server-side Blazor app]({%slug getting-started/server-side%}), it can be `~/Pages/_Host.cshtml` or `_Layout.cshtml` or `App.razor`, depending on the .NET version.
+## Using a Theme
 
-This article contains the following sections:
+To register a theme, you must reference its stylesheet in the `<head>` the web page. The exact file that contains the `<head>` tag depends on the .NET version and the Blazor application type. See our [Getting Started guides]({%slug blazor-overview%}#getting-started) for more information.
 
-* [Static Assets](#static-assets)
-* [CDN](#cdn)
-* [Optional Dependency Management](#optional-dependency-management)
-	* [Libman](#libman)
-	* [NPM Packages](#npm-packages)
-* [Bootstrap Notes](#bootstrap-notes)
+The easiest option is to use a theme as a static asset from the NuGet package. The .NET SDK will copy the CSS file to the output folder during build automatically. Static assets provide the following benefits:
 
-## Static Assets
+* The application relies on available local resources and not on third parties and remote URLs.
+* The theme URL does not change across component versions, which makes product updates easier.
 
-Static assets are part of the NuGet package and the framework will copy them to the output folder during build automatically. They provide the following benefits:
-
-* The necessary resources for the package are always available to you from the framework.
-* The application can rely only on local resources and not on third parties (such as CDN providers).
-* You do not have to change their paths after updating the package version (a common requirement when using CDNs).
-
->caption Reference the Telerik theme from the static assets
+>caption Load a Telerik theme as a static asset
 
 <div class="skip-repl"></div>
 
@@ -75,10 +66,7 @@ Static assets are part of the NuGet package and the framework will copy them to 
 </html>
 ````
 
-
-## CDN
-
-@[template](/_contentTemplates/common/general-info.md#cdn)
+An alternative option is to load a theme from the [Telerik CDN]({%slug common-features/cdn.md}). The URLs for the theme swatches are listed in the [Theme Swatches]({%slug themes-swatches%}) article.
 
 
 ## Optional Dependency Management
@@ -124,7 +112,9 @@ The [LibMan client-side dependency manager](https://docs.microsoft.com/en-us/asp
         }
         
         
-    >note There have been some reports that the `@latest` version sometimes does not work with a message similar to `The "@progress/kendo-theme-material@latest" library could not be resolved by the "unpkg" provider`. If trying again a bit later does not help, you can replace the `@latest` moniker with the current latest version of the theme that you can find at the [Themes Repo Releases section](https://github.com/telerik/kendo-themes/releases). For example, `^3.0.0` to get the latest version of the major release `3`. If you commit such a version, you may want to check for updates after a while.
+    > Using the `@latest` theme version requires using the latest Telerik UI for Blazor version as well.
+    >
+    > There have been some reports that the `@latest` version sometimes leads to an error similar to `The "@progress/kendo-theme-material@latest" library could not be resolved by the "unpkg" provider`. In such cases, you can replace the `@latest` moniker with a [specific theme version](https://github.com/telerik/kendo-themes/releases). For example, use `^8.0.0` to get the latest version of the major release `8`.
     
     >tip You may want to add a package reference to the `Microsoft.Web.LibraryManager.Build` package so that dependencies are resolved at build-time by LibMan, instead of manually. If a version has already been restored, you may need to invoke a `Rebuild` to update it.
 
@@ -205,12 +195,15 @@ If you do not want to use the Bootstrap framework to create your layouts, there 
 
 * Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
 
+
 ## Next Steps
 
+* [Choose a theme swatch]({%slug themes-swatches%})
 * [Create a custom theme]({%slug themes-custom%})
+
 
 ## See Also
 
 * [Style Form Elements]({%slug themes-form-elements%})
-* [Change Theme at Runtime]({%slug change-theme-runtime%})
+* [Change the Theme at Runtime]({%slug change-theme-runtime%})
 * [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)
