@@ -73,7 +73,7 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 
 There are several things to keep in mind when using virtual scrolling:
 
-* The `RowHeight` is a decimal value that is always considered as pixel values. The TreeList `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
+* The `RowHeight` is a decimal value that is always interpreted as pixels. The TreeList `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
 
     * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
 
