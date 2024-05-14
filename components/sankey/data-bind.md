@@ -7,5 +7,55 @@ tags: telerik,blazor,sankey,diagram,chart,data,binding
 published: True
 position: 3
 ---
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-# Sankey Diagram Data Binding
+
+# Sankey Data Binding
+
+This article describes the data binding mechanism in the Sankey diagram for Blazor and the supported data source type.
+
+## Data Type and Structure
+
+The Sankey diagram for Blazor requires its `Data` parameter to provide all the data for its nodes, links and labels. The `Data` parameter accepts an object of type [`SankeyData`](/blazor-ui/api/Telerik.Blazor.Components.SankeyData) that contains the following properties:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| `Links` | `SankeyDataLinks` | A collection of [`SankeyDataLink` that objects that describe the links](#link). |
+| `Nodes` | `SankeyDataNodes ` | A collection of [`SankeyDataNode` objects that describe the nodes and their labels](#node). |
+
+### Link
+
+The `SankeyDataLink` object contains all the information for the link. It exposes the following properties:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
+| `Color` | `string` | The color of the link. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
+| `Highlight` | [`SankeyDataLinkHighlight`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataLinkHighlight) | The opacity of the active and inactive links when the user hovers a link. |
+| `Opacity` | `double?` | The opacity of the link. |
+| `SourceId` | `object` | The source node ID of the link. The source node is the node from which the link originates. |
+| `TargetId` | `object` | The target node ID of the link. The target node is the node to which the link points. |
+| `Value` | `double?` | The value of the link. The value represents the weight of the link and determines the width of the link. |
+
+You can use these properties to [provide custom settings for the separate links through the data](#customize-elements-through-data) or customize all links through the [Sankey component options]({%slug sankey-links%}).
+
+### Node
+
+The `SankeyDataNode` object contains all the information for the node and its label. It exposes the following properties:
+
+| Property | Type | Description |
+| --------- | ---- | ----------- |
+| `Color` | `string` | The color of the node. Accepts a valid CSS color string, including hex and rgb. |
+| `Id` | `object` | The ID of the node. The ID is used to connect the nodes with the links. |
+| `Label` | [`SankeyDataNodeLabel`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataNodeLabel) | Contains all the information for the node label - text, alignment, color, border and more. |
+| `Offset` | [`SankeyDataNodeOffset`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataNodeOffset)| The left and top offset of the node from the `<div class="k-sankey">` container. |
+| `Opacity` | `double?` | The opacity of the node. |
+| `Padding` | `double?` | The minimum vertical space between two nodes. |
+| `Width` | `double?` | The width of the node. |
+| `Align` | `SankeyNodesAlign?` enum <br/> (`SankeyNodesAlign.Stretch`) | The alignment of the node. Supports the following values - `Stretch`, `Left`, and `Right`.|
+
+You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data) or customize all links through the [Sankey component options]({%slug sankey-nodes%}).
+
+## Customize Elements Through Data
+
+

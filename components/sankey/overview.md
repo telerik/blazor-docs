@@ -57,10 +57,10 @@ To execute Sankey Diagram methods, obtain reference to the component instance vi
 
 ## Next Steps
 
-* [Explore the Sankey Diagram Elements]({%slug sankey-diagram-events%})
-* [Bind Data to the Sankey Diagram]({%slug sankey-diagram-data-binding%})
+* [Explore the Sankey Diagram Elements]({%slug sankey-events%})
+* [Bind Data to the Sankey Diagram]({%slug sankey-data-binding%})
 
 ## See Also
 
-* [Live Demos: Sankey Diagram](https://demos.telerik.com/blazor-ui/Sankey Diagram/overview)
-* [Sankey Diagram API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSankey Diagram)
+* [Live Demos: Sankey Diagram](https://demos.telerik.com/blazor-ui/sankey/overview)
+* [Sankey Diagram API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSankey)

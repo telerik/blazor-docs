@@ -12,6 +12,8 @@ position: 5
 
 The Sankey Diagram Labels represent the [node]{%slug sankey-nodes%} names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey Diagram. Each setting applies to all labels in the Sankey Diagram.
 
+>tip Each setting applies to all labels in the Sankey Diagram. If you want to provide different settings for the separate labels, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
+
 ## Basic Customization
 
 To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<TelerikSankey>`. The `<SankeyLabels>` tag has the following parameters:

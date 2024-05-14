@@ -11,7 +11,7 @@ position: 7
 
 # Sankey Title
 
-The Sankey for Blazor allows you to specify a title for the diagram. This article explains how to add and configure the title.
+The Sankey diagram for Blazor allows you to specify a title for the diagram. This article explains how to add and configure the title.
 
 ## Adding a Title
 
