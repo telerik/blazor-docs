@@ -87,7 +87,7 @@ There are several things to keep in mind when using virtual scrolling:
 
 * Provide for a `PageSize` of the TreeList that is large enough, so that the loaded table rows do not fit in the scrollable data area, otherwise the vertical virtual scrollbar will not be created and scrolling will not work. To do this, take into account the `Height` of the TreeList and the `RowHeight`.
 
-    * The `PageSize` controls how many rows are rendered at any given time, and how many items are requested from the data source when loading data on demand (see below). You should avoid setting large page sizes, you need to only fill up the TreeList data viewport.
+    * The `PageSize` controls how many rows are rendered at any given time, and how many items are requested from the data source when loading data on demand. You should avoid setting large page sizes, you need to only fill up the TreeList data viewport.
 
 ## See Also
 
