@@ -21,7 +21,7 @@ To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
+| `ColorType` | `SankeyLinksColorType` enum <br /> (`SankeyLinksColorType.Static`) | The origin of the link color: <ul><li>`Static` - the link color is based on the `Color` property;</li><li>`Source` - the link color is based on the source node color; </li><li>`Target` - the link color is based on the target node color; </li></ul> |
 | `Color` | `string` | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
 | `Opacity` | `double?` | The opacity of the links. |
 
