@@ -1,6 +1,6 @@
 ---
 title: Virtual Scrolling
-page_title: TreeList - Sorting
+page_title: TreeList - Virtual Scrolling
 description: Enable and configure the virtual scrolling of rows in the TreeList for Blazor.
 slug: treelist-virtual-scrolling
 tags: telerik,blazor,treelist,virtual,rows,scrolling
