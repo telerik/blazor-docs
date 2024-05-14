@@ -13,7 +13,7 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/sankey-diagram" target="_blank">Blazor Sankey diagram component</a> allows you to visualize changing flows and their distribution between domains. Sankey diagrams suit a variety of use cases like the representation of website traffic, budget breakdowns, energy flow, and others.
 
-## Creating Sankey Diagram
+## Creating Blazor Sankey Diagram
 
 1. Add the `<TelerikSankey>` tag to your razor page.
 1. [Bind the Sankey Data]({%slug sankey-data-binding%}).
