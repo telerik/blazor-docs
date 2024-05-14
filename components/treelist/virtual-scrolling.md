@@ -75,7 +75,7 @@ There are several things to keep in mind when using virtual scrolling:
 
 * The `RowHeight` is a decimal value that is always interpreted as pixels. The TreeList `Height` does not have to be in pixels, but it may help you calculate the `PageSize` (see below).
 
-    * If the row/cell height the browser would render is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme or other CSS rules, or on cell data that falls on more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
+    * If the row/cell height the browser renders is larger than the `RowHeight` value, the browser will ignore it. It can depend on the chosen Theme, other CSS rules, or cell data that occupies more than one row. Inspect the rendered HTML to make sure the grid setting matches the rendering.
 
         The default TreeList rendering has padding in the cells, and the loading sign has a line height set in order to render. This may impose some minimum heights that can vary with the theme and/or custom styles on the page.
 
