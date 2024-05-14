@@ -241,7 +241,7 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
 | Property | Type | Description |
 | ---------| ---- | ----------- |
 | `EventArgs` | `EventArgs` | The native DOM event (browser event). |
-| `DataItem` | `object` | The data item when the shape is coming from a Bubble layer (`null` for Shape layer). |
+| `DataItem` | `object` | The data item when the shape is from a Bubble layer, or `null` when the shape is from a Shape layer. |
 | `GeoJsonDataItem` | `Dictionary<string, object>` | The data item as GeoJSON object when the layer is a Shape layer (`null` for Bubble layer). |
 
 >caption Handle OnShapeClick.
