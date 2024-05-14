@@ -514,4 +514,4 @@ The `OnLinkLeave` event fires when the user hovers a link. The `OnLinkLeave` eve
 
 ## See Also
 
-* [Live Demo: Sankey Diagram Events](https://demos.telerik.com/blazor-ui/sankeydiagram/events)
+* [Live Demo: Sankey Diagram Events](https://demos.telerik.com/blazor-ui/sankey/events)

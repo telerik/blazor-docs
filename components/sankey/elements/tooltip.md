@@ -110,3 +110,12 @@ Customizing the Sankey Tooltips.
     #endregion Data generation
 }
 ````
+
+## See Also
+
+* [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
+* [Sankey Links]({%slug sankey-links%})
+* [Sankey Nodes]({%slug sankey-nodes%})
+* [Sankey Labels]({%slug sankey-labels%})
+* [Sankey Legend]({%slug sankey-legend%})
+* [Sankey Title]({%slug sankey-title%})

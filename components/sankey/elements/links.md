@@ -84,3 +84,12 @@ Here is an example customization of the links in the Sankey Diagram.
     #endregion Data generation
 }
 ````
+
+## See Also
+
+* [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
+* [Sankey Nodes]({%slug sankey-nodes%})
+* [Sankey Labels]({%slug sankey-labels%})
+* [Sankey Legend]({%slug sankey-legend%})
+* [Sankey Title]({%slug sankey-title%})
+* [Sankey Tooltip]({%slug sankey-tooltip%})

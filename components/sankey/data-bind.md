@@ -139,3 +139,16 @@ The example below showcases binding the Sankey data and adding some specific opt
     }
 }
 ````
+
+## Next Steps
+
+* [Add a Title to the Sankey Diagram]({%slug sankey-title%})
+* [Configure the Sankey Legend]({%slug sankey-legend%})
+* [Explore the Sankey Events]({%slug sankey-events%})
+
+## See Also
+
+* [Live Demo: Sankey Diagram](https://demos.telerik.com/blazor-ui/sankey/overview)
+* [Sankey Links]({%slug sankey-links%})
+* [Sankey Nodes]({%slug sankey-nodes%})
+* [Sankey Labels]({%slug sankey-labels%})

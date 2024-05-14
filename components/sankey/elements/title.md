@@ -95,3 +95,12 @@ Example customization the Sankey title by using nested tag settings.
     #endregion Data generation
 }
 ````
+
+## See Also
+
+* [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
+* [Sankey Links]({%slug sankey-links%})
+* [Sankey Nodes]({%slug sankey-nodes%})
+* [Sankey Labels]({%slug sankey-labels%})
+* [Sankey Legend]({%slug sankey-legend%})
+* [Sankey Tooltip]({%slug sankey-tooltip%})
