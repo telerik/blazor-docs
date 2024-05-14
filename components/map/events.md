@@ -26,7 +26,7 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `EventArgs` | `EventArgs` |  The native DOM event (browser event). |
+| `EventArgs` | `EventArgs` |  The properties of the native browser event. Cast it to [`MouseEventArgs`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.web.mouseeventargs). |
 | `Location` | `MapLocation` | The location of the click on the Map (`MapLocation` has `Latitude` and `Longitude` props). |
 
 >caption Handle OnClick.
