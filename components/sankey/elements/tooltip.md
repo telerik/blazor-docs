@@ -17,8 +17,6 @@ The Sankey Diagram for Blazor displays Tooltips when the user hovers the links a
 
 To use the templates, declare a `<SankeyTooltip>` tag as a direct child of `<TelerikSankey>`. Add the desired template inside the `<SankeyTooltip>` tag. 
 
->tip The Sankey chart also exposes the [`SquareSymbol`](/blazor-ui/api/Telerik.Blazor.Components.Sankey.Tooltip.SquareSymbol) from the default Tooltip as a standalone component in case you want to include that in the template.
-
 ## Link Tooltip Template
 
 The `LinkTemplate` controls the content of the Tooltip that will appear when the user hovers a link. The `NodeTemplate` exposes a `context` of type 
@@ -44,8 +42,15 @@ The `NodeTemplate` controls the content of the Tooltip that will appear when the
 Customizing the Sankey Tooltips.
 
 ````CSHTML
-
-@using Telerik.Blazor.Components.Sankey.Tooltip
+<style>
+    .square-symbol {
+        width: 15px;
+        height: 15px;
+        display: inline-flex;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+</style>
 
 <TelerikSankey Data="@Data"
                Width="1000px"
@@ -53,21 +58,19 @@ Customizing the Sankey Tooltips.
     <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
     <SankeyTooltip>
         <LinkTemplate>
-            <div style="padding:5px">
-                <div>
-                    <SquareSymbol Color="@context.Source.Color" />
-                    @context.Source.Label.Text
-                </div>
-                <TelerikSvgIcon Icon="@SvgIcon.ChevronDown"></TelerikSvgIcon>
-                <div>
-                    <SquareSymbol Color="@context.Target.Color" />
-                    @context.Target.Label.Text
-                </div>
+            <div style="padding:5px; display: flex; align-items: center;">
+                <span class="square-symbol" style="background-color: @context.Source.Color"></span>
+                @context.Source.Label.Text
+
+                <TelerikSvgIcon Icon="@SvgIcon.ChevronRight" Size="@ThemeConstants.SvgIcon.Size.Large"></TelerikSvgIcon>
+
+                <span class="square-symbol" style="background-color: @context.Source.Color"></span>
+                @context.Target.Label.Text
             </div>
         </LinkTemplate>
 
         <NodeTemplate>
-            <div style="color:@context.DataItem.Color">
+            <div style="color:@context.DataItem.Color; font-weight:bold">
                 @context.DataItem.Label.Text
             </div>
         </NodeTemplate>
