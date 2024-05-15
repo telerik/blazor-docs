@@ -42,9 +42,9 @@ By using the browser printing engine and some custom CSS while printing you can 
 
     <TelerikChart Width="700px" Height="400px">
     <ChartSeriesItems>
-        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@SimpleData">
         </ChartSeries>
-        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@modelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@ModelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
             <ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
         </ChartSeries>
     </ChartSeriesItems>
@@ -54,7 +54,7 @@ By using the browser printing engine and some custom CSS while printing you can 
     </ChartValueAxes>
 
     <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xAxisItems"></ChartCategoryAxis>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
     </ChartCategoryAxes>
 
     <ChartTitle Text="Quarterly sales trend"></ChartTitle>
@@ -74,28 +74,24 @@ By using the browser printing engine and some custom CSS while printing you can 
 
 
 @code {
-    private bool isPrinting { get; set; }
+    private List<object> SimpleData = new List<object>() { 10, 2, 7, 5 };
 
-    private List<object> simpleData = new List<object>() { 10, 2, 7, 5 };
+    private string[] XAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
 
-    private string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-
-    private async Task Print()
-    {
-        isPrinting = true;
-        await InvokeAsync(StateHasChanged);
-        await Task.Delay(20);
-        await JSRuntime.InvokeVoidAsync("print");
-        isPrinting = false;
-    }
-
-    public List<MyDataModel> modelData = new List<MyDataModel>()
+    private List<MyDataModel> ModelData = new List<MyDataModel>()
     {
         new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
         new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
         new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
         new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
     };
+
+    private async Task Print()
+    {
+        await InvokeAsync(StateHasChanged);
+        await Task.Delay(20);
+        await JSRuntime.InvokeVoidAsync("print");
+    }
 
     public class MyDataModel
     {
