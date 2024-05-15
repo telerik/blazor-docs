@@ -46,7 +46,7 @@ Customizing the Sankey Tooltips.
     .square-symbol {
         width: 15px;
         height: 15px;
-        display: inline-flex;
+        display: inline-block;
         margin-left: 3px;
         margin-right: 3px;
     }
