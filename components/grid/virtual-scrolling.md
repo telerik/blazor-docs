@@ -18,8 +18,6 @@ You can also Virtually Scroll the Grid Columns. See the [Column Virtualization](
 
 ## Using Virtual Scrolling
 
-Setting a Value for the Height Parameter
-
 1. Set the `ScrollMode` parameter to `GridScrollMode.Virtual` (the default value is `Scrollable`).
 1. [Set the Height parameter](#setting-a-value-for-the-height-parameter).
 1. [Set the RowHeight parameter](#setting-a-value-for-the-rowheight-parameter).
