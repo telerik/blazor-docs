@@ -70,4 +70,4 @@ You can customize the whole appearance of the steps in the Stepper, that is part
 
 ## See Also
 
-  * [Live Demos: Wizard Template](https://demos.telerik.com/blazor-ui/wizard/template)
+  * [Live Demos: Wizard Template](https://demos.telerik.com/blazor-ui/wizard/stepper-template)
