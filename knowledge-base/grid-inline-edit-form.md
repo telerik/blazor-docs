@@ -1,5 +1,5 @@
 ---
-title: Add inline Telerik Form to the the Grid Rows
+title: Add an Inline Form to a Grid Row
 description: How to add inline Telerik Form to the Grid Rows.
 type: how-to
 page_title: Add inline Telerik Form to the the Grid Rows
