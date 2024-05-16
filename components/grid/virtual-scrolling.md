@@ -158,7 +158,7 @@ The tabs below show how to set the `Height` parameter with the different value o
 <TelerikGrid OnRead="@OnGridRead"
              TItem="@Product"
              ScrollMode="@GridScrollMode.Virtual"
-             Height="480px" RowHeight="60" PageSize="20"
+             Height="@GridHeight" RowHeight="60" PageSize="20"
              Sortable="true" FilterMode="@GridFilterMode.FilterRow">
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
