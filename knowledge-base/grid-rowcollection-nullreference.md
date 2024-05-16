@@ -3,7 +3,7 @@ title: NullReferenceException for GridRowCollection
 description: How to fix a null reference exception thrown for the GridRowCollection property of the Telerik Blazor Grid.
 type: troubleshooting
 page_title: NullReferenceException for the Grid GridRowCollection
-slug: grid-kb-nullref-gridrowcollection
+slug: grid-kb-nullreferenceexception-gridrowcollection
 position: 
 tags: 
 ticketid: 1643250, 1642910, 1604815, 1574971, 1577863, 1580684
