@@ -28,11 +28,11 @@ I want to add an inline Telerik Form to the Grid rows when I enter edit mode.
 
 ## Solution
 
-Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is possible by following the steps below:
+Add an inline [Telerik Form]({%slug form-overview%}) to the Grid rows by following these steps:
 
 * Define a [DetailTemplate]({%slug components/grid/features/hierarchy%}).
 * Hide the hierarchy expand column with CSS.
-* Use the [SetStateAsync() method]({%slug grid-state%}#setstateasync-examples) to enter and exit edit mode programatically.
+* Use the [SetStateAsync() method]({%slug grid-state%}#setstateasync-examples) to enter and exit edit mode programmatically.
 
 >tip The Telerik Form works with a cloned instance of the edited/added item to support cancellation. If you cancel the addition or update of an item, you need to delete it from the Grid Data collection.   
 
