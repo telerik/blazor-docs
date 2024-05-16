@@ -43,7 +43,7 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
              Data="@GridData"
              Class="no-expand-column">
     <GridToolBarTemplate>
-        <GridCommandButton OnClick="@OnGridAddButtonClick">Add New Item</GridCommandButton>
+        <GridCommandButton OnClick="@OnGridAddButtonClick" Icon="@SvgIcon.Plus">Add</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(SampleModel.Id)" />
@@ -52,8 +52,10 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
         <GridColumn Field="@nameof(SampleModel.Quantity)" />
         <GridColumn Field="@nameof(SampleModel.StartDate)" DisplayFormat="{0:d}" />
         <GridCommandColumn>
-            @{ var item = (SampleModel)context; }
-            <GridCommandButton OnClick="@( () => OnGridEditButtonClick(item) )">Edit</GridCommandButton>
+            @{
+                var item = (SampleModel)context;
+            }
+            <GridCommandButton OnClick="@( () => OnGridEditButtonClick(item) )" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
     <DetailTemplate>
@@ -65,8 +67,15 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
                 <DataAnnotationsValidator />
             </FormValidation>
             <FormButtons>
-                <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Save</TelerikButton>
-                <TelerikButton ButtonType="@ButtonType.Button" OnClick="@OnGridFormCancel">Cancel</TelerikButton>
+                <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                               Icon="@SvgIcon.Save">
+                    Save
+                </TelerikButton>
+                <TelerikButton ButtonType="@ButtonType.Button"
+                               OnClick="@OnGridFormCancel"
+                               Icon="@SvgIcon.Cancel">
+                    Cancel
+                </TelerikButton>
             </FormButtons>
         </TelerikForm>
     </DetailTemplate>
@@ -92,7 +101,7 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
 </style>
 
 @code {
-    #nullable enable
+#nullable enable
 
     private List<SampleModel> GridData { get; set; } = new();
 
@@ -168,13 +177,13 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
         for (int i = 1; i <= 5; i++)
         {
             GridData.Add(new SampleModel()
-            {
-                Id = ++LastId,
-                Name = $"Name {LastId}",
-                Price = rnd.Next(1, 100) * 1.23m,
-                Quantity = rnd.Next(0, 1000),
-                StartDate = DateTime.Today.AddDays(-rnd.Next(1, 30)).AddMonths(-rnd.Next(1, 100))
-            });
+                {
+                    Id = ++LastId,
+                    Name = $"Name {LastId}",
+                    Price = rnd.Next(1, 100) * 1.23m,
+                    Quantity = rnd.Next(0, 1000),
+                    StartDate = DateTime.Today.AddDays(-rnd.Next(1, 30)).AddMonths(-rnd.Next(1, 100))
+                });
         }
     }
 
@@ -191,13 +200,13 @@ Adding an inline [Telerik Form]({%slug form-overview%}) to the Grid rows is poss
         public SampleModel Clone()
         {
             return new SampleModel()
-            {
-                Id = Id,
-                Name = Name,
-                Price = Price,
-                Quantity = Quantity,
-                StartDate = StartDate
-            };
+                {
+                    Id = Id,
+                    Name = Name,
+                    Price = Price,
+                    Quantity = Quantity,
+                    StartDate = StartDate
+                };
         }
     }
 }
