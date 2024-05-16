@@ -23,7 +23,13 @@ res_type: kb
 
 ## Description
 
-I want to add an inline Telerik Form to the Grid rows when I enter edit mode.
+My end users need to be able to submit an inline Form from within a Grid row.
+
+This KB answers the following questions:
+
+* How do I show an inline Form when the user enters edit mode in the Grid?
+* How do I embed an editable inline Form inside a Grid row?
+* How do I create a cancelable inline Form inside a Grid row?
 
 
 ## Solution
