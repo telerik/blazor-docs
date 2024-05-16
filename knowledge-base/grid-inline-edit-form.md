@@ -1,6 +1,6 @@
 ---
 title: Add an Inline Form to a Grid Row
-description: How to add inline Telerik Form to the Grid Rows.
+description: How to add an inline Telerik UI for Blazor Form to a Blazor Grid row.
 type: how-to
 page_title: Add inline Telerik Form to the the Grid Rows
 slug: grid-kb-inline-form
