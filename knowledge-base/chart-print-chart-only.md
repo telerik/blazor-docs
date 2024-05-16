@@ -100,7 +100,3 @@ By using the browser printing engine and some custom CSS while printing you can 
     }
 }
 ````
-
-## See Also
-
-* [Print responsive Charts]({%slug chart-kb-responsive%})

@@ -30,16 +30,114 @@ Generally, the `Width` and `Height` parameters of the Chart can take values in `
 
 This works well for the initial rendering and the Chart will be "responsive" immediately according to your layout, regardless of the display (desktop, tablet, phone).
 
-When the page layout changes dynamically at runtime, you have to call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods). 
+When the window resizes, you have to resize the Chart dynamically at runtime:
 
-### Sample Project
+1. Add a JS function that listens for the [window resize event](https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event) and invokes a C# method. Ensure that the method name in the function match the one in your application.
+1. In the C# method call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) to match the Chart size to the window size.
 
-You can find an example in the [Responsive Chart GitHub project](https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart).
 
-### Implementation Guidelines
+````CSHTML
+@inject IJSRuntime js
 
-1. Add the JS file from the `wwwwroot` folder. This file defines a function that listens for the [window resize event](https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event) and invokes a C# method. Ensure that the assembly name and method name in the function match those in your application.
-1. Add the script source to include the JS file. In the sample project, it is added in the `App.razor` file. Ensure that the name of the JS file matches that in your application.
-1. Add the C# method, which the JS function invokes. Within the method, update the window dimensions and include an `event Func<Task>` if subscribed to, to notify of the resize. In the sample project, this is covered in the `WindowResizeService.cs` file. 
-1. Within the `OnInitialized` method of the Chart, subscribe to the event and unsubscribe from it in the `Dispose` method. To reflect the resizing, invoke the Chart `Refresh` method.
-1. `PrintResponsiveChart.razor` also shows a responsive Chart print functionality. You can also check the knowledge base article about [printing Charts]({%slug chart-kb-print-chart-only%}).
+<!-- suppress-error allows the script tag to be in the Razor file for this example -->
+<!-- move this script to a JS file in a production app -->
+<script suppress-error="BL9992">
+
+    var dotNet;
+
+    var timeoutId;
+    var resizeDebounceDelay = 300;
+
+    function saveDotNetRef(dotNetRef) {
+        dotNet = dotNetRef;
+
+        window.addEventListener("resize", onWindowResize);
+    }
+
+    function onWindowResize() {
+        clearTimeout(timeoutId);
+
+        timeoutId = window.setTimeout(function () {
+            dotNet.invokeMethodAsync("RaiseWindowResizeEvent"); // the method name, you may have to change this for your app
+        }, resizeDebounceDelay);
+    }
+
+</script>
+
+<br />
+<br />
+
+Resize the browser window to see the Charts respond to the size change
+
+<br />
+<br />
+
+<TelerikChart @ref="@ChartRef">
+    <ChartSeriesItems>
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@SimpleData">
+        </ChartSeries>
+        <ChartSeries Type="@ChartSeriesType.Line" Name="Product 2 (bound to model)" Data="@ModelData" Field="@nameof(MyDataModel.SecondSeriesValue)">
+            <ChartSeriesLabels Template="#=value# in #=dataItem.ExtraData# quarter" Visible="true"></ChartSeriesLabels>
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartValueAxes>
+        <ChartValueAxis Color="red"></ChartValueAxis>
+    </ChartValueAxes>
+
+    <ChartCategoryAxes>
+        <ChartCategoryAxis Categories="@XAxisItems"></ChartCategoryAxis>
+    </ChartCategoryAxes>
+
+    <ChartTitle Text="Quarterly sales trend"></ChartTitle>
+
+    <ChartLegend Position="@ChartLegendPosition.Bottom">
+    </ChartLegend>
+</TelerikChart>
+
+@code {
+    private TelerikChart ChartRef { get; set; } // you need references to the Charts you need to resize
+
+    // Replace <__Main> with your Razor class name.
+    private DotNetObjectReference<__Main>? DotNetRef { get; set; }
+
+    private List<object> SimpleData = new List<object>() { 10, 2, 7, 5 };
+
+    private List<MyDataModel> ModelData = new List<MyDataModel>() {
+        new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
+        new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
+        new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
+        new MyDataModel() { SecondSeriesValue = 2, ExtraData = "fourth" },
+     };
+
+    private string[] XAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+
+    [JSInvokable]
+    public void RaiseWindowResizeEvent()
+    {
+        ChartRef.Refresh();
+    }
+
+    protected override void OnInitialized()
+    {
+        DotNetRef = DotNetObjectReference.Create(this);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Ensure the HTML is ready.
+            await Task.Delay(1);
+            await js.InvokeVoidAsync("saveDotNetRef", DotNetRef);
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    public class MyDataModel
+    {
+        public int SecondSeriesValue { get; set; }
+        public string ExtraData { get; set; }
+    }
+}
+````
