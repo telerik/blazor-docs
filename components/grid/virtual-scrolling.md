@@ -244,10 +244,6 @@ Consider the following specifics when setting the row height value:
 * Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
 * Do not change the value of the `RowHeight` parameter at runtime.
 
->tip Ensure the height of the td element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
-
->tip Do not change the value of the RowHeight parameter at runtime.
-
 ````CSHTML
 @* Remove the default padding and margin from the cells and remove the default line height of the loading skeletons to reduce the row height. *@
 
@@ -320,7 +316,7 @@ Consider the following specifics when setting the row height value:
 
 Set the `PageSize` parameter to an `int` value. The `PageSize` determines how many rows are rendered at any given time and how many items are requested from the data source when loading data on demand. For optimal performance, use a page size that fills the grid's data viewport without being excessively large.
 
-## Considerations
+## Limitations
 
 Virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
 
@@ -336,5 +332,5 @@ These are the known limitations of the virtual scrolling feature:
   * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
   * [Selection in Grid with Virtualized Rows]({%slug components/grid/selection/overview%}#selection-in-grid-with-virtualized-rows)
   * [Knowledge Base Article: Virtual Scroll Does Not Show All Items]({%slug grid-kb-virtualization-many-records%})
-  * [Knowledge-Based Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
-  * [Knowledge-Based Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})
+  * [Knowledge Base Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
+  * [Knowledge Base Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})
