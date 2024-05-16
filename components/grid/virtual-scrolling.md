@@ -238,7 +238,11 @@ The tabs below show how to set the `Height` parameter with the different value o
 
 Set the `RowHeight` parameter to a `decimal` value which will always be interpreted as pixels (`px`). The value of the `RowHeight` must be greater than the height of the cell (or row) that the browser would normally render. 
 
->tip The Grid renders padding in the cells by default. The loading skeletons has a line height in order to render. This results in some minimum row heights, which can vary depending on the theme and custom CSS styles on the page.
+Consider the following specifics when setting the row height value:
+
+* The Grid renders padding in the cells by default. The loading skeletons have a line height in order to render. This results in some minimum row heights, which can vary depending on the theme and custom CSS styles on the page.
+* Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
+* Do not change the value of the `RowHeight` parameter at runtime.
 
 >tip Ensure the height of the td element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
 
