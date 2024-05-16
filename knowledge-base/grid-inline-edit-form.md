@@ -30,9 +30,9 @@ I want to add an inline Telerik Form to the Grid rows when I enter edit mode.
 
 Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by following these steps:
 
-* Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}).
-* Hide the hierarchy expand column with CSS.
-* Use the [`SetStateAsync()` method]({%slug grid-state%}#setstateasync-examples) to enter and exit edit mode programmatically.
+1. Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}).
+1. Hide the hierarchy expand column with CSS.
+1. Use the [`SetStateAsync()` method]({%slug grid-state%}#setstateasync-examples) to enter and exit edit mode programmatically.
 
 >tip The Telerik UI for Blazor Form works with a cloned instance of the edited or added item to support cancellation. If you cancel the addition or update of an item, you need to delete it from the Grid data collection.   
 
