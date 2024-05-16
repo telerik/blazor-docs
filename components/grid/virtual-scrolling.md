@@ -23,12 +23,6 @@ You can also Virtually Scroll the Grid Columns. See the [Column Virtualization](
 1. [Set the RowHeight parameter](#setting-a-value-for-the-rowheight-parameter).
 1. [Set the PageSize parameter](#setting-a-value-for-the-pagesize-parameter).
 
->caption Sample of virtual scrolling in the Telerik Grid for Blazor
-
-````CSHTML
-
-````
-
 ## Setting a Value for the Height Parameter
 
 Set the `Height` parameter to a `string` value. The value can be in:
