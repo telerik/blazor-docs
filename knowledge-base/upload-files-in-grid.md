@@ -340,7 +340,7 @@ app.Run();
 * If necessary, [adjust the application settings to allow larger file uploads]({%slug upload-overview%}#large-file-uploads).
 * The Upload component itself can't delete files, which have been uploaded in previous edit sessions. Use separate UI for that inside the column `<Template>` or the `<EditorTemplate>`. In both cases, call the controller method directly via `HttpClient.PostAsync()`. The Upload `OnSuccess` event will not fire in this case.
 * It is also possible to use the Upload component in a [custom edit form outside the Grid](https://demos.telerik.com/blazor-ui/grid/editing-custom-form).
-* Instead of an Upload, you can also implement a similar scenario with a [FileSelect component]({%slug fileselect-oveview%}#fileselect-vs-upload). In that case, the file contents will be available directly in the Razor component, which holds the Grid.
+* Instead of an Upload, you can also implement a similar scenario with a [FileSelect component]({%slug fileselect-overview%}#fileselect-vs-upload). In that case, the file contents will be available directly in the Razor component, which holds the Grid.
 
 
 ## See Also
