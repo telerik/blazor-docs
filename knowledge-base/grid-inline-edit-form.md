@@ -28,7 +28,7 @@ I want to add an inline Telerik Form to the Grid rows when I enter edit mode.
 
 ## Solution
 
-Add an inline [Telerik Form]({%slug form-overview%}) to the Grid rows by following these steps:
+Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by following these steps:
 
 * Define a [DetailTemplate]({%slug components/grid/features/hierarchy%}).
 * Hide the hierarchy expand column with CSS.
