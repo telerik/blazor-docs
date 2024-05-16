@@ -27,8 +27,10 @@ I upgraded the version of the Telerik UI from Blazor components and I get a `Nul
 
 ## Error Message
 
->warning Error: System.NullReferenceException: Object reference not set to an instance of an object.
-   at Telerik.Blazor.Components.Grid.GridRowCollection`1.BuildRenderTree(RenderTreeBuilder __builder)
+````
+Error: System.NullReferenceException: Object reference not set to an instance of an object. 
+at Telerik.Blazor.Components.Grid.GridRowCollection`1.BuildRenderTree(RenderTreeBuilder __builder)
+````
 
 ## Cause
 
@@ -40,6 +42,7 @@ The Telerik UI Grid for Blazor throws a `NullReferenceException` for the `GridRo
 <TelerikGrid Data="@GridData"
              OnRead="@OnGridRead">
 </TelerikGrid>
+````
 
 ## Solution
 
