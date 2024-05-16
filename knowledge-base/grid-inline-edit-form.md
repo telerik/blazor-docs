@@ -7,6 +7,7 @@ slug: grid-kb-inline-form
 position: 
 tags: telerik,blazor,grid,inline,form,rows
 res_type: kb
+ticketid: 1639016
 ---
 
 ## Environment
