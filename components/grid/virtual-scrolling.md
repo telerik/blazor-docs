@@ -322,7 +322,7 @@ Set the `PageSize` parameter to an `int` value. The `PageSize` determines how ma
 
 ## Considerations
 
-Virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the grid are not compatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
+Virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
 
 List of the known limitations of the virtual scrolling feature:
 
