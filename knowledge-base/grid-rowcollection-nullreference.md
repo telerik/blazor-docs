@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I upgraded the version of the Telerik UI from Blazor components from `<3.0.0` to `>3.0.0` and I get a `NullReferenceException` from the `GridRowCollection` class.
+I upgraded the version of the Telerik UI from Blazor components and I get a `NullReferenceException` from the `GridRowCollection` class.
 
 ## Error Message
 
