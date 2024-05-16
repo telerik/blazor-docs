@@ -28,7 +28,7 @@ You can also use virtual scrolling for the Grid columns. See the [Column Virtual
 Set the `Height` parameter to a `string` value. The value can be in:
 
 * Pixels&mdash;for example, `Height="480px"`.
-* `Percent` (e.g., `%`) - If you set the `Height` parameter to a percent value, ensure that the wrapper of the Grid has a fixed height set in `px`.
+* Percent&mdash;for example, `Height="30%"`. If you set the `Height` parameter to a percentage value, ensure that the wrapper of the Grid has a fixed height set in pixels.
 * `vh` or other relative CSS units (e.g., `vmin`, `vmax`).
 
 The tabs below show how to set the `Height` parameter with the different value options.
