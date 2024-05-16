@@ -167,7 +167,7 @@ so you need to add a field to take care of the conversion. *@
 
     protected override void OnInitialized()
     {
-        if (DateTimeReturn != null)
+        if (DateTimeReturn.HasValue)
         {
             DatePickerValue = new DateTime(DateTimeReturn.Value.Date.Year, DateTimeReturn.Value.Date.Month, DateTimeReturn.Value.Date.Day);
         }
