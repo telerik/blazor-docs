@@ -108,7 +108,7 @@ Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by followi
 </style>
 
 @code {
-#nullable enable
+    #nullable enable
 
     private List<SampleModel> GridData { get; set; } = new();
 
