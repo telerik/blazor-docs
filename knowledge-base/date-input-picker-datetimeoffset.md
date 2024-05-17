@@ -11,6 +11,7 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
 	<tbody>
 		<tr>
@@ -21,12 +22,14 @@ res_type: kb
 </table>
 
 
-## Question
+## Description
+
 Can I use a `DateTimeOffset` field with the Telerik date input and picker?
 
-Do the Telerik DateInput, DatePicker, DateTimePicker, TimePicker support the `DateTimeOffset` type?
+Do the Telerik DateInput, DatePicker, DateTimePicker, and TimePicker support the `DateTimeOffset` type?
 
-## Answer
+## Solution
+
 The Telerik DateInput, DateTimePicker and TimePicker can work with `DateTimeOffset` and `DateTime` types. The types can also be nullable. When the `Value` is of type `DateTimeOffset` these Telerik components will use its `.DateTime` field, which matches to the local time, just like with a "simple" `DateTime` object.
 
 The DatePicker requires a [different approach. See the Notes below](#notes).
@@ -34,28 +37,26 @@ The DatePicker requires a [different approach. See the Notes below](#notes).
 >caption Sample of how the Telerik DateTime inputs work with a DateTimeOffset
 
 ````CSHTML
-@if(TheValue != null)
-{
-    <p>UTC: @TheValue.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Local: @TheValue.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>DateTime (used by Telerik components): @TheValue.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Offset (hours): @TheValue.Offset.Hours</p>
-}
+<p>UTC: @DateValue.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Local: @DateValue.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>DateTime (used by Telerik components): @DateValue.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Offset (hours): @DateValue.Offset.Hours</p>
 
-<TelerikDateInput @bind-Value="@TheValue" Format="F" Width="400px" />
+<TelerikDateInput @bind-Value="@DateValue" Format="F" Width="400px" />
 <br />
-<TelerikTimePicker @bind-Value="@TheValue" Format="F" Width="400px" />
+<TelerikTimePicker @bind-Value="@DateValue" Format="F" Width="400px" />
 <br />
-<TelerikDateTimePicker @bind-Value="@TheValue" Format="F" Width="400px" />
+<TelerikDateTimePicker @bind-Value="@DateValue" Format="F" Width="400px" />
 
 @code{
-    DateTimeOffset TheValue { get; set; }
+    private DateTimeOffset DateValue { get; set; }
 
     protected override void OnInitialized()
     {
-        // this is where you set the desired time zone and offset
-        // You can add the necessary business logic here or in separate fields
-        TheValue = new DateTimeOffset(DateTime.Now, new TimeSpan(3, 0 , 0));
+        var now = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
+
+        // Set the desired time zone and offset.
+        DateValue = new DateTimeOffset(now, new TimeSpan(3, 0, 0));
 
         base.OnInitialized();
     }
@@ -83,33 +84,36 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
 >caption DatePicker with DateTimeOffset - one way to account for the time difference
 
 ````CSHTML
-@if (DateEffective != null)
-{
-    <p>UTC: @DateEffective.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Local: @DateEffective.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>DateTime (used by Telerik components): @DateEffective.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Offset (hours): @DateEffective.Offset.Hours</p>
-}
+<p>UTC: @DateEffective.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Local: @DateEffective.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>DateTime (used by Telerik components): @DateEffective.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Offset (hours): @DateEffective.Offset.Hours</p>
 
-<TelerikDatePicker Value="@DateEffective.Date" ValueChanged="@((DateTime d) => UpdateDateTimeOffsetField(d))" Format="d" />
+<TelerikDatePicker Value="@DateEffective.Date"
+                   ValueChanged="@((DateTime newValue) => UpdateDateTimeOffsetField(newValue))"
+                   Format="d" />
 
 @code{
-    DateTimeOffset DateEffective { get; set; }
+    private DateTimeOffset DateEffective { get; set; }
 
-    void UpdateDateTimeOffsetField(DateTime currDate)
+    private void UpdateDateTimeOffsetField(DateTime currDate)
     {
         // Take the current (existing) time portion to add it to the 00:00 hours the date picker will provide
         DateTime currDateWithTime = currDate
             .AddHours(DateEffective.DateTime.Hour)
             .AddMinutes(DateEffective.DateTime.Minute)
             .AddSeconds(DateEffective.DateTime.Second);
-        // re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
+
+        // Re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
         DateEffective = new DateTimeOffset(currDateWithTime);
     }
 
     protected override void OnInitialized()
     {
-        DateEffective = new DateTimeOffset(DateTime.Now, new TimeSpan(3, 0, 0));
+        var now = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified);
+
+        DateEffective = new DateTimeOffset(now, new TimeSpan(3, 0, 0));
+
         base.OnInitialized();
     }
 }
@@ -119,52 +123,56 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
 >caption DatePicker with nullable DateTimeOffset - one way to avoid null reference errors
 
 ````CSHTML
-@* if you try to directly use the MyDateTimeOffset.Value.Date for the date picker, you can get
-null reference exeptions when the struct is null
+@* If you try to directly use the MyDateTimeOffset.Value.Date for the Date Picker, you can get
+null reference exeptions when the struct is null,
 such as "Nullable object must have a value." - you can reproduce this without Telerik components
 so you need to add a field to take care of the conversion. *@
 
-@if (DateTimeReturn != null)
-{
-    <p>UTC: @DateTimeReturn.Value.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Local: @DateTimeReturn.Value.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>DateTime (used by Telerik components): @DateTimeReturn.Value.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
-    <p>Offset (hours): @DateTimeReturn.Value.Offset.Hours</p>
-}
+<p>UTC: @DateTimeReturn?.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Local: @DateTimeReturn?.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>DateTime (used by Telerik components): @DateTimeReturn?.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
+<p>Offset (hours): @DateTimeReturn?.Offset.Hours</p>
 
-<TelerikDatePicker Class="form-control" Value="@DatePickerField"
-                       ValueChanged="@((DateTime? d) => DateTimeReturnChanged(d))"></TelerikDatePicker>
+<TelerikDatePicker Class="form-control" Value="@DatePickerValue"
+                   ValueChanged="@((DateTime? d) => DateTimeReturnChanged(d))"></TelerikDatePicker>
 
 @code{
-    public System.DateTimeOffset? DateTimeReturn { get; set; }
-    DateTime? DatePickerField { get; set; }
+    private DateTimeOffset? DateTimeReturn { get; set; }
 
-    void DateTimeReturnChanged(DateTime? d)
+    private DateTime? DatePickerValue { get; set; }
+
+    private void DateTimeReturnChanged(DateTime? d)
     {
-        DatePickerField = d;
-        if(DateTimeReturn == null)
+        DatePickerValue = d;
+
+        if (!DateTimeReturn.HasValue)
         {
             DateTimeReturn = new DateTimeOffset();
         }
-        // Take the current (existing) time portion to add it to the 00:00 hours the date picker will provide
-        DateTime currDateWithTime = d.Value
-            .AddHours(DateTimeReturn.Value.DateTime.Hour)
-            .AddMinutes(DateTimeReturn.Value.DateTime.Minute)
-            .AddSeconds(DateTimeReturn.Value.DateTime.Second);
-        // re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
-        DateTimeReturn = new DateTimeOffset(currDateWithTime);
+
+        if (d.HasValue)
+        {
+            // Take the current (existing) time portion to add it to the 00:00 hours the date picker will provide
+            DateTime currDateWithTime = d.Value
+                .AddHours(DateTimeReturn.Value.DateTime.Hour)
+                .AddMinutes(DateTimeReturn.Value.DateTime.Minute)
+                .AddSeconds(DateTimeReturn.Value.DateTime.Second);
+
+            // Re-instantiate the DateTimeOffset with the proper time so the offset does not change the date
+            DateTimeReturn = new DateTimeOffset(currDateWithTime);
+        }
 
         DateTimeReturn = d;
     }
 
     protected override void OnInitialized()
     {
-        if(DateTimeReturn != null)
+        if (DateTimeReturn.HasValue)
         {
-            DatePickerField = new DateTime(DateTimeReturn.Value.Date.Year, DateTimeReturn.Value.Date.Month, DateTimeReturn.Value.Date.Day);
+            DatePickerValue = new DateTime(DateTimeReturn.Value.Date.Year, DateTimeReturn.Value.Date.Month, DateTimeReturn.Value.Date.Day);
         }
+
         base.OnInitialized();
     }
 }
 ````
-
