@@ -112,7 +112,7 @@ Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by followi
 
     private List<SampleModel> GridData { get; set; } = new();
 
-    private TelerikGrid<SampleModel> GridRef { get; set; } = null!;
+    private TelerikGrid<SampleModel>? GridRef { get; set; }
 
     private SampleModel? GridItemInEditMode { get; set; }
 
