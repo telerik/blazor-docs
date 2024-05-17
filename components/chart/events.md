@@ -105,32 +105,23 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
 >caption Using the Chart OnLegendItemClick event
 
 ````CSHTML
-@* Using the Chart OnLegendItemClick event *@
+<p>Choose what happens on legend item click:</p>
 
-<TelerikChart OnLegendItemClick="@OnChartLegendClick"
+<TelerikRadioGroup Data="@ClickModes" @bind-Value="@SelectedMode" />
+
+<TelerikChart OnLegendItemClick="@OnLegendClickHandler"
               Transitions="false">
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Line"
-                     Data="@Series1Data"
-                     Field="@nameof(SalesData.Revenue)"
-                     CategoryField="@nameof(SalesData.TimePeriod)"
-                     Name="Smartphones"
-                     Visible="@( SeriesVisible(0) )">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line"
-                     Data="@Series2Data"
-                     Field="@nameof(SalesData.Revenue)"
-                     CategoryField="@nameof(SalesData.TimePeriod)"
-                     Name="Tablets"
-                     Visible="@( SeriesVisible(1) )">
-        </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line"
-                     Data="@Series3Data"
-                     Field="@nameof(SalesData.Revenue)"
-                     CategoryField="@nameof(SalesData.TimePeriod)"
-                     Name="Headphones"
-                     Visible="@( SeriesVisible(2) )">
-        </ChartSeries>
+        @for (int i = 0; i < ChartData.Count; i++)
+        {
+            <ChartSeries Type="ChartSeriesType.Line"
+                         Data="@ChartData[i]"
+                         Field="@nameof(SalesData.Revenue)"
+                         CategoryField="@nameof(SalesData.TimePeriod)"
+                         Name="@Products[i]"
+                         Visible="@( GetSeriesVisibility(i) )">
+            </ChartSeries>
+        }
     </ChartSeriesItems>
 
     <ChartCategoryAxes>
@@ -143,26 +134,44 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
 
     <ChartTitle Text="Revenue per Product Line"></ChartTitle>
 
-    <ChartLegend Position="ChartLegendPosition.Bottom">
+    <ChartLegend Position="@ChartLegendPosition.Bottom">
     </ChartLegend>
 </TelerikChart>
 
 @code {
-    private List<SalesData> Series1Data { get; set; } = new List<SalesData>();
-    private List<SalesData> Series2Data { get; set; } = new List<SalesData>();
-    private List<SalesData> Series3Data { get; set; } = new List<SalesData>();
-
+    private List<List<SalesData>> ChartData { get; set; } = new();
+    private List<string> ClickModes = new List<string> { "Toggle Series", "Show Single Series" };
+    private string SelectedMode { get; set; } = "Toggle Series";
     private int? ChartLegendClickIndex { get; set; }
+    private List<int> VisibleSeriesIndexes { get; set; } = new List<int> { 0, 1, 2 };
+    private List<string> Products { get; set; } = new List<string> { "Smartphones", "Tablets", "Headphones" };
 
-    private bool SeriesVisible(int idx)
+    private void OnLegendClickHandler(ChartLegendItemClickEventArgs args)
     {
-        return ChartLegendClickIndex == null || ChartLegendClickIndex == idx;
+        if (SelectedMode == ClickModes[0])
+        {
+            ToggleSeries(args);
+        }
+        else
+        {
+            ShowSingleSeries(args);
+        }
     }
 
-    private async Task OnChartLegendClick(ChartLegendItemClickEventArgs args)
+    private void ToggleSeries(ChartLegendItemClickEventArgs args)
     {
-        Console.WriteLine($"Clicked legend item {args.Text} with series index {args.SeriesIndex}.");
+        if (VisibleSeriesIndexes.Contains(args.SeriesIndex))
+        {
+            VisibleSeriesIndexes.Remove(args.SeriesIndex);
+        }
+        else
+        {
+            VisibleSeriesIndexes.Add(args.SeriesIndex);
+        }
+    }
 
+    private void ShowSingleSeries(ChartLegendItemClickEventArgs args)
+    {
         if (ChartLegendClickIndex != args.SeriesIndex)
         {
             ChartLegendClickIndex = args.SeriesIndex;
@@ -173,37 +182,43 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
         }
     }
 
+    private bool GetSeriesVisibility(int idx)
+    {
+        if (SelectedMode == ClickModes[0])
+        {
+            return VisibleSeriesIndexes.Contains(idx);
+        }
+        else
+        {
+            return ChartLegendClickIndex == null || ChartLegendClickIndex == idx;
+        }
+    }
+
     protected override void OnInitialized()
     {
-        var rnd = new Random();
         var now = DateTime.Today;
         var monthsBack = 12;
+        var seriesCount = 3;
+
+        for (int i = 0; i < seriesCount; i++)
+        {
+            ChartData.Add(new List<SalesData>());
+        }
 
         for (int i = 1; i <= monthsBack; i++)
         {
             var dateTimeValue = now.AddMonths(-monthsBack + i);
 
-            Series1Data.Add(new SalesData()
+            for (int j = 0; j < seriesCount; j++)
             {
-                Id = i,
-                Product = "Smartphones",
-                Revenue = rnd.Next(500, 900),
-                TimePeriod = dateTimeValue
-            });
-            Series2Data.Add(new SalesData()
-            {
-                Id = i,
-                Product = "Tablets",
-                Revenue = rnd.Next(300, 700),
-                TimePeriod = dateTimeValue
-            });
-            Series3Data.Add(new SalesData()
-            {
-                Id = i,
-                Product = "Headphones",
-                Revenue = rnd.Next(100, 400),
-                TimePeriod = dateTimeValue
-            });
+                ChartData[j].Add(new SalesData()
+                    {
+                        Id = i,
+                        Product = Products[j],
+                        Revenue = Random.Shared.Next(100 + j * 100, 300 + j * 300),
+                        TimePeriod = dateTimeValue
+                    });
+            }
         }
 
         base.OnInitialized();
@@ -212,7 +227,7 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
     public class SalesData
     {
         public int Id { get; set; }
-        public string Product { get; set; }
+        public string Product { get; set; } = "Product";
         public DateTime TimePeriod { get; set; }
         public decimal Revenue { get; set; }
     }
