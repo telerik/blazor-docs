@@ -26,7 +26,7 @@ res_type: kb
 
 Can I use a `DateTimeOffset` field with the Telerik date input and picker?
 
-Do the Telerik DateInput, DatePicker, DateTimePicker, TimePicker support the `DateTimeOffset` type?
+Do the Telerik DateInput, DatePicker, DateTimePicker, and TimePicker support the `DateTimeOffset` type?
 
 ## Solution
 
