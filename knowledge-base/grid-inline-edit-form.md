@@ -5,7 +5,7 @@ type: how-to
 page_title: Add inline Telerik Form to the the Grid Rows
 slug: grid-kb-inline-form
 position: 
-tags: telerik,blazor,grid,inline,form,rows
+tags: telerik,blazor,grid,editing,form
 res_type: kb
 ticketid: 1639016
 ---
