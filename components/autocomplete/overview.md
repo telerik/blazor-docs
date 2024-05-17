@@ -27,13 +27,13 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 User input: @AutoCompleteValue
 <br />
 <TelerikAutoComplete Data="@Suggestions"
-                     @bind-Value="@AutoComplete"
+                     @bind-Value="@AutoCompleteValue"
                      Placeholder="Enter your role (can be free text)"
                      ClearButton="true" />
 
 @code{
     //Current value is null (no item is selected) which allows the Placeholder to be displayed.
-    private string AutoComplete { get; set; }
+    private string AutoCompleteValue { get; set; }
 
     private List<string> Suggestions { get; set; } = new List<string> {
         "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Sales Agent", "Architect", "Designer"
