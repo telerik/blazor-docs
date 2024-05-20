@@ -284,7 +284,7 @@ It is possible to configure the icon type for the whole application:
 1. Locate the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
 2. Set the `TelerikRootComponent` `IconType` parameter to an `IconType` enum value - `Svg` or `Font`.
 
->tip The default icon type is `Font`. We plan to switch it to `Svg` in mid 2023 for better display.
+>tip The default icon type is `Svg`.
 
 > The global `IconType` setting does not affect `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app. It will toggle the icon type of all other components, such as Button, Grid, etc.
 
