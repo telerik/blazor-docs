@@ -39,7 +39,7 @@ Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by followi
 
 1. Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}).
 1. Hide the hierarchy expand column with CSS.
-1. Use the [`SetStateAsync()` method]({%slug grid-state%}#setstateasync-examples) to enter and exit edit mode programmatically.
+1. Use the [`SetStateAsync()` method]({%slug grid-state%}#setstateasync-examples) to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
 
 >tip The Telerik UI for Blazor Form works with a cloned instance of the edited or added item to support cancellation. If you cancel the addition of a new item, you need to delete it from the Grid data collection.   
 
