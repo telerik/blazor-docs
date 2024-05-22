@@ -24,8 +24,8 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to customize the Blazor DateRangePicker styling?
-* How to make weekends disabled in the DateRangePicker component?
+* How to customize the styling of the Blazor DateRangePicker?
+* How to disable the weekends in the DateRangePicker component?
 * How to reduce the width of the two DateInputs?
 * How to prevent horizontal expansion of the DateRangePicker?
 * How to hide the Start and End labels of the DateRangePicker?
@@ -33,10 +33,10 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Use a `Class` parameter and custom CSS to override our theme and hide the labels (**.k-floating-label**). Note that If it is used **display:none**, it violates the accessibility compliance. Instead, use **font-size:0** for example.
-2. Override the default width of **10em** of the two `DateInputs` (**.k-dateinput**).
-3. Change the display of the element to inline with **display:inline-flex** to prevent the horizontal expansion of the component.
-4. Set the **padding-top: 0** of the **.k-floating-label-container** to remove reserved space and make the `DateRangePicker` more compact.
+1. Use a `Class` parameter and custom CSS to override the theme and hide the labels (`.k-floating-label`). Note that using `display: none`, violates the accessibility compliance. Instead, use `font-size: 0`, for example.
+2. Override the default width of `10em` of the two DateInputs (`.k-dateinput`).
+3. Change the display of the element to inline by using `display:inline-flex` to prevent the horizontal expansion of the component.
+4. Set the `padding-top: 0` of the `.k-floating-label-container` to remove reserved space and make the DateRangePicker more compact.
 
 >caption Customized Blazor DateRangePicker
 
@@ -94,4 +94,5 @@ This KB article answers the following questions:
 ````
 
 ## See Also
+
 * [DateRangePicker Overview]({%slug daterangepicker-overview%})
