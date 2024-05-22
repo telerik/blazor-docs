@@ -101,10 +101,6 @@ Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by followi
     .no-expand-column .k-hierarchy-cell > * {
         display: none;
     }
-
-    .no-expand-column .k-detail-row:hover {
-        background-color: transparent;
-    }
 </style>
 
 @code {
