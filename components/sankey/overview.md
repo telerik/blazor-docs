@@ -11,7 +11,7 @@ position: 0
 
 # Blazor Sankey Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/sankey-diagram" target="_blank">Blazor Sankey diagram component</a> allows you to visualize changing flows and their distribution between domains. Sankey diagrams suit a variety of use cases like the representation of website traffic, budget breakdowns, energy flow, and others.
+The <a href = "https://www.telerik.com/blazor-ui/sankey-chart" target="_blank">Blazor Sankey diagram component</a> allows you to visualize changing flows and their distribution between domains. Sankey diagrams suit a variety of use cases like the representation of website traffic, budget breakdowns, energy flow, and others.
 
 ## Creating Blazor Sankey Diagram
 
