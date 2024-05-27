@@ -33,15 +33,21 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
                         var item = context as PanelBarItem;
 
                         <div style="padding: 8px 16px;">
-                            <span style="text-decoration: underline; color: blue;">
-                                content template for: @item.Text
-                            </span>
-                            <br />
-                            @if (item.Text == "Item 2")
+                            @if (item.Text == "New Web Site")
                             {
+                                <strong style="text-decoration: underline; color: green;">
+                                    content template for: @item.Text
+                                </strong>
+                                <br />
                                 <TelerikButton ThemeColor="primary">Nested Component</TelerikButton>
                             }
-
+                            else
+                            {
+                                <span style="text-decoration: solid; color: blue;">
+                                    content template for: @item.Text
+                                </span>
+                                <br />
+                            }
                         </div>
                     }
                 </ContentTemplate>
@@ -51,12 +57,13 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
 </div>
 
 @code {
-    public List<PanelBarItem> Items { get; set; }
+    private List<PanelBarItem> Items { get; set; }
 
     public class PanelBarItem
     {
         public string Text { get; set; }
         public List<PanelBarItem> Items { get; set; }
+        public ISvgIcon Icon { get; set; }
     }
 
     protected override void OnInitialized()
@@ -65,21 +72,25 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
         {
             new PanelBarItem()
             {
-                Text = "Item 1",
+                Text = "My Documents",
+                Icon = SvgIcon.FolderMore,
                 Items = new List<PanelBarItem>()
                 {
                     new PanelBarItem()
                     {
-                        Text = "Item 1.1"
+                        Text = "Reports",
+                        Icon = SvgIcon.Folder,
                     },
-                    new PanelBarItem()
+                    new PanelBarItem
                     {
-                        Text = "Item 1.2",
+                        Text = "Projects",
+                        Icon = SvgIcon.Folder,
                         Items = new List<PanelBarItem>()
                         {
                             new PanelBarItem()
                             {
-                                Text = "Item 1.2.1"
+                                Text = "November",
+                                Icon = SvgIcon.Folder
                             }
                         }
                     }
@@ -87,7 +98,8 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
             },
             new PanelBarItem()
             {
-                Text = "Item 2"
+                Text = "New Web Site",
+                Icon = SvgIcon.FolderMore
             }
         };
 
@@ -95,10 +107,6 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![ContentTemplate example](images/content-template-example.png)
 
 ## See Also
 
