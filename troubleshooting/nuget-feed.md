@@ -21,6 +21,7 @@ Regardless of the cause for the issue, it is recommended that you start from the
 * [Error `503 Service Unavailable`](#error-503-service-unavailable)
 * [Message about package `version not found`](#package-version-not-found)
 * [Error `Unable to resolve ... . PackageSourceMapping is enabled`](#unable-to-resolve-package-due-to-packagesourcemapping)
+* [Error `Failed to retrieve information about ... from remote source`](#failed-to-retrieve-information-from-remote-source)
 
 ## Tips for Handling Common NuGet Issues
 
@@ -106,6 +107,16 @@ Incorrect package source mapping can result in errors similar to:
 `NU1100 Unable to resolve 'Telerik... (>= ...)' for 'net...'. PackageSourceMapping is enabled, the following source(s) were not considered: ...`
 
 The solution is to check the **Package Source Mapping** settings in Visual Studio, or [review all applicable `NuGet.Config` files](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses) on the machine. Then, [adjust the package source mapping configuration]({%slug installation/nuget%}#package-source-mapping).
+
+## Failed to Retrieve Information from Remote Source
+
+An attempt to use the [obsolete Telerik NuGet v2 feed]({%slug installation/nuget%}#obsolete-telerik-nuget-url) after November 2024 will result in an error:
+
+`Failed to retrieve information about 'Telerik.UI.for.Blazor' from remote source 'https://nuget.telerik.com/nuget/FindPackagesById()?id='Telerik.UI.for.Blazor'&semVerLevel=2.0.0'.`
+
+The solution is to [use the Telerik NuGet v3 feed]({%slug installation/nuget%}).
+
+Another possible reason for the same error is an incorrect NuGet feed URL.
 
 ## See Also
 
