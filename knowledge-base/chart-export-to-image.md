@@ -2,7 +2,7 @@
 title: Export Chart to image
 description: How to export the Chart to image
 type: how-to
-page_title: Export Chart to image
+page_title: Export Chart as Image
 slug: chart-kb-export-to-image
 tags: telerik, blazor, chart, export, image
 ticketid: 1626687, 1602572
