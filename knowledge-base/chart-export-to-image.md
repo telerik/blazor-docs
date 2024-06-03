@@ -1,5 +1,5 @@
 ---
-title: Export Chart to image
+title: Export Chart as Image
 description: How to export the Chart to image
 type: how-to
 page_title: Export Chart as Image
