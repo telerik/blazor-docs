@@ -1,6 +1,6 @@
 ---
 title: Export Chart as Image
-description: How to export the Chart to image
+description: How to export the Chart as an image? How to export the rendered Chart as a JPG file? How to export Chart as an image in Blazor?
 type: how-to
 page_title: Export Chart as Image
 slug: chart-kb-export-to-image
@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-How to export the Chart to an image? How to export the Chart to a JPG file?
+How to export the Chart as an image? How to export the Chart as a JPG file?
 
 
 ## Solution
