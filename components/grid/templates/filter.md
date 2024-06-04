@@ -324,7 +324,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 >caption Using custom filter menu buttons
 
 ````CSHTML
-@* Customize the buttons in the Filter Menu
+@* Customize the buttons in the Filter Menu *@
 
 @using Telerik.DataSource
 
