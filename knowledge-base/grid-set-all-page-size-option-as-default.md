@@ -10,13 +10,18 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+        <tr>
+            <td>Version</td>
+            <td>5.1.1 or earlier</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -31,6 +36,8 @@ The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To 
 2. Add the "All" option (`null`) to the `PageSizes` collection.
 3. Bind the `PageSize` property to the `@bind-PageSize` attribute of the `TelerikGrid` component.
 4. Specify the `PageSizes` collection in the `GridPagerSettings` component to display the dropdown with the available page sizes.
+
+> Starting from version 6.0.0, the above approach will display in the actual item count in the pager DropDownList instead of **"All"**. If the user selects **"All"** manually, this is what the drop down component will show.
 
 >caption Set "All" PageSize Option as Default
 

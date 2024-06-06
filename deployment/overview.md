@@ -17,6 +17,7 @@ This article explains the basics of deploying a Telerik-enabled Blazor web appli
 * [Telerik Components](#telerik-components)
 * [Next Steps and Troubleshooting](#next-steps-and-troubleshooting)
 
+@[template](/_contentTemplates/common/general-info.md#ci-cd-support)
 
 ## Prerequisites
 
@@ -38,6 +39,9 @@ These resources are distributed in our [NuGet packages]({%slug getting-started/w
 
 >important The build machine must be able to [restore the Telerik NuGet packages from a remote or local NuGet feed]({%slug getting-started/what-you-need%}#getting-the-telerik-nuget-packages). See the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article for more details on setting automation up.
 
+## Testing and Building Licenses
+
+The licensing model of Telerik UI for Blazor is based on developer seats. We do not provide separate licenses for test and build environments. For details and next steps, refer to the **Testing and Building License** section in the [Telerik UI for Blazor license agreement](https://www.telerik.com/purchase/license-agreement/blazor-ui).
 
 ## Next Steps and Troubleshooting
 

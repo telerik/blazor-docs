@@ -18,6 +18,8 @@ Sections in this article:
 * [Basics](#basics)
 * [Azure DevOps Pipelines](#azure-devops-pipelines)
 * [GitHub Secrets](#github-secrets)
+* [Docker](#docker)
+
 
 ## Basics
 
@@ -100,6 +102,42 @@ Finally, you need a `NuGet.Config` file that lists the Telerik server in the `pa
 
 >warning GitHub does not allow secrets to be used in workflows that have been [triggered by a pull request event](https://docs.github.com/en/actions/reference/events-that-trigger-workflows). In such a case, the runner will not be able to authenticate with the Telerik NuGet server and the job will expectedly fail.
 
+
+## Docker
+
+When building or restoring Blazor apps in Docker, the crucial steps are:
+
+1. Have a `NuGet.Config` file in the project or solution folder. The file can [define the Telerik NuGet feed]({%slug installation/nuget%}#edit-the-nugetconfig-file), but without the credentials (Telerik account or NuGet API key).
+1. Copy the `NuGet.Config` file together with the `.csproj` file(s) to the Docker image.
+1. [Add](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) or [update](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-update-source) the Telerik NuGet feed with the [stored Telerik NuGet credentials (secrets)]({%slug installation/nuget-keys%}). When specifying the `NuGet.Config` file location, note that file names are case sensitive on Unix systems.
+1. Restore or build the Blazor app.
+
+The following code is the build portion of a sample `Dockerfile` that builds a .NET 8 Blazor Web App with two projects. The `dotnet restore` command is executed from the `src` folder of the Docker image (where the `NuGet.Config` is copied), so that the `NuGet.Config` file can be used to restore all projects in the solution.
+
+```
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy the project files to restore in child folders of /src
+COPY ["MyBlazorApp/MyBlazorApp/MyBlazorApp.csproj", "MyBlazorApp/MyBlazorApp/"]
+COPY ["MyBlazorApp/MyBlazorApp.Client/MyBlazorApp.Client.csproj", "MyBlazorApp/MyBlazorApp.Client/"]
+
+# Copy the NuGet.Config file without the Telerik credentials to /src
+COPY ["NuGet.Config", "."]
+
+# Update the Telerik NuGet source and add credentials from your secrets storage
+RUN dotnet nuget update source "TelerikOnlineFeed" --username ... --password ... --configfile "./NuGet.Config" --store-password-in-clear-text
+
+# Restore the NuGet packages for the Blazor app
+RUN dotnet restore "./MyBlazorApp/MyBlazorApp/MyBlazorApp.csproj"
+
+# Copy the whole Blazor app
+COPY . .
+
+# Build the app
+WORKDIR "/src/MyBlazorApp/MyBlazorApp"
+RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
+```
 
 
 ## Further Reading

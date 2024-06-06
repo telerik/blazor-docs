@@ -125,3 +125,13 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 | tb-window                  | [Window]({%slug window-overview%}) |
 | tb-wizard                  | [Wizard]({%slug wizard-overview%})       |
 #end
+
+#status-telerik-com
+## Telerik NuGet Feed Status
+
+Visit [status.telerik.com](https://status.telerik.com) to check the status of the Telerik NuGet server. The top section shows manually logged incidents with possible updates or workaround suggestions. The [**System Metrics** section](https://status.telerik.com/#system-metrics) below provides real-time automated diagnostics.
+#end
+
+#ci-cd-support
+> All deployment articles in this documentation provide general guidance and fundamentals. Telerik does not provide technical support for setting up CI/CD environments or application publishing infrastructure.
+#end

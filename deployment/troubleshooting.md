@@ -12,19 +12,23 @@ position: 15
 
 This page provides information for common issues you may encounter while deploying applications with the Telerik UI for Blazor components.
 
-
 >important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](../installation/nuget) or a [local feed](../installation/zip). See the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article for more details on setting automation up.
 
-
+@[template](/_contentTemplates/common/general-info.md#status-telerik-com)
 
 ## Reported Issues
 
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
+* [Unable to find package]()
 * [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazorjs)
 * [Trial Message](#trial-message)
 * [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-systemtextjson-)
-* [Blazor Server Slow or Breaks Up in the Cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
+* [Blazor Server app is slow or breaks in the cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
+* [The remote certificate is invalid because of errors in the certificate chain](#invalid-certificate)
+* Check the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article for more NuGet-related issues such as [`Unable to find package Telerik.UI.for.Blazor`]({%slug troubleshooting-nuget%}#unable-to-find-package).
+
+@[template](/_contentTemplates/common/general-info.md#ci-cd-support)
 
 ### 404 not found for telerik-blazor.js
 
@@ -94,6 +98,19 @@ If your users will have a large latency to the server, you may want to consider 
 You can use the following Microsoft guidance to check the latency: <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/server?view=aspnetcore-5.0#measure-network-latency" target="_blank">MSDN: Measure network latency</a>. The cited 250ms could be acceptable for "slow" actions like clicks, but fast interactions like double clicks, mouseover for menus and tooltips will require a significantly faster response to work nicely for the user. We've had reports that latency above 70-80ms starts to make such fast interactions feel laggy to the user.
 
 >note In Azure, for example, WebSockets are disabled by default, and this is highly detrimental to the performance of the SignalR connection. Enabling WebSockets may help you get the needed speed and responsiveness from the server.
+
+
+### Invalid Certificate
+
+Build environments behind firewalls may encounter errors like:
+
+`The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot`
+
+or
+
+`The remote certificate is invalid because of errors in the certificate chain: PartialChain`
+
+Such errors are related to the local networking security settings and you may need the assistance of your network or system administrators to resolve it. As a first step, make sure the [required Telerik NuGet domains are accessible]({%slug installation/nuget%}#access-nuget-packages-behind-firewall).
 
 
 ## See Also
