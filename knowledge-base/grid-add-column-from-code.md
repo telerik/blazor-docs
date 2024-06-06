@@ -27,13 +27,13 @@ I want to add a custom Grid column programmatically. I would also like to define
 
 ## Solution
 
-You can use the [`RenderTreeBuilder`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder?view=aspnetcore-6.0) class to create a GridColumn from the C# portion of the application. 
+You can use the [`RenderFragment Delegate`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment?view=aspnetcore-8.0) to create a GridColumn from the C# portion of the application. 
 
 
 >caption Add a GridColumn from code
 
 ````CSHTML
-@* Use the Render Tree Builder to add a grid column. Click on the Add a column button to see the result *@
+@* Use the RenderFragment to add a grid column. Click on the Add a column button to see the result *@
 
     <TelerikButton OnClick="@(() => CustomGridColumnFromCode = AddAGridColumn())">Add a column</TelerikButton>
 
@@ -58,15 +58,9 @@ You can use the [`RenderTreeBuilder`](https://docs.microsoft.com/en-us/dotnet/ap
 
         private RenderFragment CustomGridColumnFromCode { get; set; }
 
-        private RenderFragment AddAGridColumn() => builder =>
+        private RenderFragment AddAGridColumn() => __builder =>
         {
-            builder.OpenComponent(0, typeof(GridColumn));
-
-            builder.AddAttribute(0, "Field", "CustomDateField"); //The Field for the Column
-            builder.AddAttribute(1, "Title", "From code behind"); //The Title for the Column
-            builder.AddAttribute(2, "DisplayFormat", "{0:dd MMM yy}"); //The DisplayFormat for the Column
-
-            builder.CloseComponent();
+            <GridColumn Field="CustomDateField" Title="From code behind" DisplayFormat="{0:dd MMM yy}" />
         };
 
         public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
