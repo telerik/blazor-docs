@@ -27,10 +27,10 @@ I want to add a custom Grid column programmatically. I would also like to define
 
 ## Solution
 
-You can use the [`RenderFragment Delegate`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment?view=aspnetcore-8.0) to create a GridColumn from the C# portion of the application. 
+You can use the [`RenderFragment Delegate`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.renderfragment?view=aspnetcore-8.0) to create a `GridColumn` from the C# portion of the application. 
 
 
->caption Add a GridColumn from code
+>caption Add a `GridColumn` from code
 
 ````CSHTML
 @* Use the RenderFragment to add a grid column. Click on the Add a column button to see the result *@
