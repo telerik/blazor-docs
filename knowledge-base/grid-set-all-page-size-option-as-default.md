@@ -37,7 +37,7 @@ The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To 
 3. Bind the `PageSize` property to the `@bind-PageSize` attribute of the `TelerikGrid` component.
 4. Specify the `PageSizes` collection in the `GridPagerSettings` component to display the dropdown with the available page sizes.
 
-> Starting from version 6.0.0, the above approach will cause the pager DropDownList tо display the actual item count. The **"All"** item for the DropDownList will show only when the user selects it manually.
+> Starting with Telerik UI for Blazor 6.0.0, the above approach causes the pager DropDownList tо display the actual item count. The **"All"** item for the DropDownList shows only when the user selects it manually.
 
 >caption Set "All" PageSize Option as Default
 
