@@ -68,6 +68,8 @@ The example below shows how to customize some of the theme variables.
             --kendo-color-on-primary: #fee;
 
             --kendo-border-radius-md: 1rem;
+
+            --kendo-font-size: 18px;
         }
     </style>
 }
