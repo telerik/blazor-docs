@@ -105,7 +105,7 @@ The Breadcrumb provides the following features:
 
 * `Height` - the height of the Breadcrumb component.
 
-* `Size` - the size of the Breadcrumb component. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Breadcrumb.Size` class. The default value is `Medium`.
+* `Size`&mdash;the size of the Breadcrumb component. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Breadcrumb.Size` class. The default value is `Medium`.
 
 * `Class` - the CSS class that will be rendered on the main wrapping element of the Breadcrumb.
 
