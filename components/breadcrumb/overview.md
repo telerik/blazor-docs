@@ -97,23 +97,23 @@ To use a Telerik Breadcrumb for Blazor:
 
 The Breadcrumb provides the following features:
 
-* `Data` - a collection of flat data for all items in the Breadcrumb. See the [Data Binding]({%slug breadcrumb-data-binding%}) article for details.
+* `Data`&mdash;a collection of flat data for all items in the Breadcrumb. See the [Data Binding]({%slug breadcrumb-data-binding%}) article for details.
 
-* `CollapseMode` - specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes]({%slug breadcrumb-collapse-modes%}) article.
+* `CollapseMode`&mdash;specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes]({%slug breadcrumb-collapse-modes%}) article.
 
-* `Width` - the width of the Breadcrumb component.
+* `Width`&mdash;the width of the Breadcrumb component.
 
-* `Height` - the height of the Breadcrumb component.
+* `Height`&mdash;the height of the Breadcrumb component.
 
 * `Size`&mdash;the size of the Breadcrumb component. You can set it to a member of the `Telerik.Blazor.ThemeConstants.Breadcrumb.Size` class. The default value is `Medium`.
 
-* `Class` - the CSS class that will be rendered on the main wrapping element of the Breadcrumb.
+* `Class`&mdash;the CSS class that will be rendered on the main wrapping element of the Breadcrumb.
 
-* `ItemTemplate` - define a custom template for the Items of the Breadcrumb. Read more in the [Templates]({%slug breadcrumb-templates%}) article.
+* `ItemTemplate`&mdash;define a custom template for the Items of the Breadcrumb. Read more in the [Templates]({%slug breadcrumb-templates%}) article.
 
-* `SeparatorTemplate` - define a custom template for the [Breadcrumb Separator]({%slug breadcrumb-separator%}). Read more in the [Templates]({%slug breadcrumb-templates%}) article.
+* `SeparatorTemplate`&mdash;define a custom template for the [Breadcrumb Separator]({%slug breadcrumb-separator%}). Read more in the [Templates]({%slug breadcrumb-templates%}) article.
 
-* Events - you can respond to user actions to implement your business logic. For more details see the [Events]({%slug breadcrumb-events%}) article.
+* Events&mdash;you can respond to user actions to implement your business logic. For more details see the [Events]({%slug breadcrumb-events%}) article.
 
 ## See Also
 
