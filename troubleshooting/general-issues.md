@@ -101,7 +101,7 @@ If you get an error similar to this one:
 
 There can be two common causes for the problem:
 
-* The Telerik services are not registered on the app, a line similar to `services.AddTelerikBlazor();` is missing. You can read more about where you need to add that in the [What You Need - Project Configuration]({%slug getting-started/what-you-need%}#configuring-the-project) article section.
+* The [Telerik services are not registered]({%slug getting-started/what-you-need%}#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
 
 * The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization]({%slug globalization-localization%}) article.
 

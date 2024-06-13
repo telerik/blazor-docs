@@ -22,6 +22,8 @@ You can set up the remote Telerik NuGet feed in the following ways:
 
 >tip When working with the .NET CLI or editing the `NuGet.Config` manually, you can use your Telerik account credentials or a [NuGet API Key](#use-nuget-api-key). If you are logging in to telerik.com through single sign-on (SSO), use a [NuGet API Key](#use-nuget-api-key).
 
+>warning Never hard-code Telerik account credentials or NuGet API keys in a `NuGet.Config` file in a GitHub repository, Docker image, or any location that may be accessed by unauthorized parties. A NuGet key is valuable and bad actors can use it to access the NuGet packages that are licensed under your account. A credentials abuse can lead to a review of the affected Telerik account.
+
 For NuGet-related issues, see [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}).
 
 For information on automated builds, CI and CD, see [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}).
@@ -129,9 +131,9 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nugetconfig-file):
 
 * Use your Telerik account email as the username, and your Telerik password.
-* Use `api-key` as the username, and your personal NuGet API Key as the password.
+* Use `api-key` as the username and your personal [NuGet API Key]({%slug installation/nuget-keys%}) as the password.
 
-You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments](https://www.telerik.com/blogs/announcing-nuget-keys) on the Telerik Blog.
+You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments]({%slug installation/nuget-keys%}).
 
 > Always use the NuGet API Key in plain text.
 
@@ -158,6 +160,16 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 ````
 
 > Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
+
+
+## Access NuGet Packages behind Firewall
+
+To access the Telerik NuGet feed behind a firewall that restricts outgoing requests, you may need to allow the following domains:
+
+* `nuget.telerik.com`, which provides authentication and license verification
+* `downloads.cdn.telerik.com`, which hosts the NuGet packages
+
+The firewall must allow some of the requests to be redirected from `nuget.telerik.com` to `downloads.cdn.telerik.com`.
 
 
 ## Obsolete Telerik NuGet URL
