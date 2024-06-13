@@ -72,7 +72,7 @@ At the time of writing, sometimes the following issues have been reported that p
             }
         }
 
-* On Linux (and often Docker), paths are case-sensitive, so make sure you have the correct casing when registering the styles and scripts (see the [Client Assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation).
+* On Linux (and often Docker), paths are case sensitive. Make sure that you have the correct casing when registering the styles and scripts (see the [Client Assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation).
 
     * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug general-information/themes%}#cdn). This may be related to the static asset configurations from the previous points, however.
 
