@@ -129,7 +129,7 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 #status-telerik-com
 ## Telerik NuGet Feed Status
 
-Visit [status.telerik.com](https://status.telerik.com) to check the status of the Telerik NuGet server. The top section shows manually logged incidents with possible updates or workaround suggestions. The [**System Metrics** section](https://status.telerik.com/#system-metrics) below provides real-time automated diagnostics.
+Visit [status.telerik.com](https://status.telerik.com) to check the status of the Telerik NuGet server. The top section shows manually logged incidents with possible updates or workaround suggestions. The [**System Metrics** section](https://status.telerik.com/#system-metrics) provides real-time automated diagnostics.
 #end
 
 #ci-cd-support
