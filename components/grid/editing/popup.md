@@ -21,22 +21,20 @@ In this article:
 
 ## Basics
 
-Popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Grid popup editing lets the user click an [Edit command button]({%slug components/grid/columns/command%}) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the **Save** button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
-In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the grid to let you handle the data source operations.
+In a similar fashion, the **Cancel** and **Delete** command buttons, and the **Add** toolbar command button fire events in the Grid to let you handle the data source operations.
 
-You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
+You can also cancel the events by setting the `IsCancelled` property of the `GridCommandEventArgs` event argument to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
 
 To enable Popup editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
 The Popup editing mode supports [validation]({%slug common-features/input-validation%}). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
-
->caption The Command buttons and the grid events let you handle data operations in Popup edit mode (see the code comments for details)
+>caption Grid popup editing example. Please review the code comments
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
-@* Used for the model annotations only *@
 
 <strong>Editing is cancelled for the first two records.</strong>
 
@@ -49,21 +47,19 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    void EditHandler(GridCommandEventArgs args)
+    private void EditHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
         // prevent opening for edit based on condition
-        if (item.ID < 3)
+        if (item.ID == 8)
         {
             args.IsCancelled = true;// the general approach for cancelling an event
         }
@@ -71,7 +67,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         Console.WriteLine("Edit event is fired.");
     }
 
-    async Task UpdateHandler(GridCommandEventArgs args)
+    private async Task UpdateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -84,7 +80,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         Console.WriteLine("Update event is fired.");
     }
 
-    async Task DeleteHandler(GridCommandEventArgs args)
+    private async Task DeleteHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -97,7 +93,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         Console.WriteLine("Delete event is fired.");
     }
 
-    async Task CreateHandler(GridCommandEventArgs args)
+    private async Task CreateHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -110,7 +106,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         Console.WriteLine("Create event is fired.");
     }
 
-    async Task CancelHandler(GridCommandEventArgs args)
+    private async Task CancelHandler(GridCommandEventArgs args)
     {
         SampleData item = (SampleData)args.Item;
 
@@ -130,7 +126,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 
     public List<SampleData> MyData { get; set; }
 
-    async Task GetGridData()
+    private async Task GetGridData()
     {
         MyData = await MyService.Read();
     }
@@ -186,10 +182,6 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 }
 ````
 
->caption The result from the code snippet above, after the Edit button was clicked on the third row
-
-![Blazor Grid Popup Editing](images/popup-editing.png)
-
 >note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
 
 ## Customization
@@ -237,10 +229,8 @@ The `GridPopupEditFormSettings` nested tag exposes the following parameters to a
         <GridColumn Field=@nameof(SampleData.Team) />
         <GridColumn Field=@nameof(SampleData.HireDate) />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
@@ -276,7 +266,6 @@ You can specify a `ButtonsTemplate` in the `GridPopupEditFormSettings` to custom
 
 ## See Also
 
-  * [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
-  * [Custom Editor Template Per Field]({%slug components/grid/features/templates%}#edit-template)
-  * [Custom Editor Layout](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)
-   
+* [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
+* [Custom Editor Template Per Field]({%slug components/grid/features/templates%}#edit-template)
+* [Custom Editor Layout](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)
