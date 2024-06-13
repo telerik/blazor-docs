@@ -164,7 +164,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 
 ## Access NuGet Packages behind Firewall
 
-To access the Telerik NuGet feed behind a firewall that restricts outgoing requests, you may need to white-list the following domains:
+To access the Telerik NuGet feed behind a firewall that restricts outgoing requests, you may need to allow the following domains:
 
 * `nuget.telerik.com`, which provides authentication and license verification
 * `downloads.cdn.telerik.com`, which hosts the NuGet packages
