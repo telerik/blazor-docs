@@ -24,7 +24,7 @@ When you need to restore the [Telerik NuGet packages]({%slug getting-started/wha
 
     ![Manage NuGet Keys](../deployment/images/manage-nuget-keys.png)
 
-1. Click on the **Generate New Key** button.
+1. Click **Generate New Key**.
 
 1. Enter a name for the NuGet Key, and then click on **Generate Key**.
 
