@@ -28,7 +28,7 @@ When you need to restore the [Telerik NuGet packages]({%slug getting-started/wha
 
 1. Enter a name for the NuGet Key and click **Generate Key**.
 
-1. To copy the key, select **Copy and Close**. Once you close the popup dialog, you can no longer copy the generated key. For security reasons, the **NuGet Keys** page displays only a portion of the key.
+1. To copy the key, click **Copy and Close**. Once you close the popup dialog, you can no longer copy the generated key. For security reasons, the **NuGet Keys** page displays only a portion of the key.
 
     ![Copy Generated NuGet Key](../deployment/images/copy-nuget-key.png)
 
