@@ -41,7 +41,7 @@ These resources are distributed in our [NuGet packages]({%slug getting-started/w
 
 ## Testing and Building Licenses
 
-The licensing model of Telerik UI for Blazor is based on developer seats. We do not provide separate licenses for test and build environments. For details and next steps, refer to the **Testing and Building License** section in the [Telerik UI for Blazor license agreement](https://www.telerik.com/purchase/license-agreement/blazor-ui).
+The licensing model of Telerik UI for Blazor is based on developer seats. Separate licenses for test and build environments are not available. For details and next steps, refer to the **Testing and Building License** section in the [Telerik UI for Blazor license agreement](https://www.telerik.com/purchase/license-agreement/blazor-ui).
 
 ## Next Steps and Troubleshooting
 
