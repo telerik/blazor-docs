@@ -673,7 +673,7 @@ enable_blazorRepl: true
 uiForBlazorLatestVersion: "6.0.2"
 
 ## Compatible theme version for CDN URLs
-themeCdnVersion: "8.0.1"
+themeCdnVersion: "8.0.2-dev.4"
 
 ## Product
 product: "Telerik UI for Blazor"

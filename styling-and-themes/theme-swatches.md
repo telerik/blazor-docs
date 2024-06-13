@@ -5,6 +5,7 @@ description: The UI for Blazor suite comes with a set of built-in themes and the
 slug: themes-swatches
 tags: telerik,blazor,theme,swatch
 published: True
+previous_url: /styling-and-themes/swatch-distribution
 position: 1
 ---
 
@@ -48,56 +49,145 @@ Here is a complete list of the base themes, all available swatches and their CDN
 
 | Swatch | CDN |
 | ----------- | ----------- |
-| Default Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main.css
-| Default Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-main-dark.css
-| [Default Ocean Blue]({%slug themes-accessibility-swatch%}) | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-ocean-blue.css
-| Default Blue | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-blue.css
-| Default Green | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-green.css
-| Default Nordic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-nordic.css
-| Default Orange | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-orange.css
-| Default Purple | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-purple.css
-| Default Turquoise | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-turquoise.css
-| Default Urban | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/default/default-urban.css
-
+| Default Main | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-main.css <br /> or <br /> https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/all.css
+| Default Main Dark | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-main-dark.css
+| [Default Ocean Blue]({%slug themes-accessibility-swatch%}) | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-ocean-blue.css
+| Default Blue | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-blue.css
+| Default Green | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-green.css
+| Default Nordic | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-nordic.css
+| Default Orange | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-orange.css
+| Default Purple | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-purple.css
+| Default Turquoise | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-turquoise.css
+| Default Urban | https://unpkg.com/@progress/kendo-theme-default@{{site.themeCdnVersion}}/dist/default-urban.css
 
 ### Bootstrap
 
 | Swatch | CDN |
 | ----------- | ----------- |
-| Bootstrap Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main.css
-| Bootstrap Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-main-dark.css
-| Bootstrap 3 | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3.css
-| Bootstrap 3 Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-3-dark.css
-| Bootstrap 4 | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4.css
-| Bootstrap 4 Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-4-dark.css
-| Bootstrap Nordic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-nordic.css
-| Bootstrap Turquoise | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise.css
-| Bootstrap Turquoise Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-turquoise-dark.css
-| Bootstrap Urban | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-urban.css
-| Bootstrap Vintage | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/bootstrap/bootstrap-vintage.css
+| Bootstrap Main | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-main.css <br /> or <br /> https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/all.css
+| Bootstrap Main Dark | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-main-dark.css
+| Bootstrap 3 | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-3.css
+| Bootstrap 3 Dark | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-3-dark.css
+| Bootstrap 4 | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-4.css
+| Bootstrap 4 Dark | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-4-dark.css
+| Bootstrap Nordic | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-nordic.css
+| Bootstrap Turquoise | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-turquoise.css
+| Bootstrap Turquoise Dark | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-turquoise-dark.css
+| Bootstrap Urban | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-urban.css
+| Bootstrap Vintage | https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themeCdnVersion}}/dist/bootstrap-vintage.css
 
 
 ### Material
 
 | Swatch | CDN |
 | ----------- | ----------- |
-| Material Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main.css
-| Material Main Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-main-dark.css
-| Material Aqua Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-aqua-dark.css
-| Material Arctic | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-arctic.css
-| Material Burnt Teal | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-burnt-teal.css
-| Material Eggplant | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-eggplant.css
-| Material Lime | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime.css
-| Material Lime Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-lime-dark.css
-| Material Nova | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-nova.css
-| Material Pacific | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific.css
-| Material Pacific Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-pacific-dark.css
-| Material Sky | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky.css
-| Material Sky Dark | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-sky-dark.css
-| Material Smoke | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/material/material-smoke.css
+| Material Main | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-main.css <br /> or <br /> https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/all.css
+| Material Main Dark | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-main-dark.css
+| Material Aqua Dark | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-aqua-dark.css
+| Material Arctic | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-arctic.css
+| Material Burnt Teal | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-burnt-teal.css
+| Material Eggplant | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-eggplant.css
+| Material Lime | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-lime.css
+| Material Lime Dark | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-lime-dark.css
+| Material Nova | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-nova.css
+| Material Pacific | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-pacific.css
+| Material Pacific Dark | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-pacific-dark.css
+| Material Sky | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-sky.css
+| Material Sky Dark | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-sky-dark.css
+| Material Smoke | https://unpkg.com/@progress/kendo-theme-material@{{site.themeCdnVersion}}/dist/material-smoke.css
 
 ### Fluent
 
 | Swatch | CDN |
 | ----------- | ----------- |
-| Fluent Main | https://cdn.kendostatic.com/themes/{{site.themeCdnVersion}}/fluent/fluent-main.css
+| Fluent Main | https://unpkg.com/@progress/kendo-theme-fluent@{{site.themeCdnVersion}}/dist/fluent-main.css <br /> or <br /> https://unpkg.com/@progress/kendo-theme-fluent@{{site.themeCdnVersion}}/dist/all.css
+
+=====
+
+Telerik UI for Blazor distributes the most commonly used swatches. While it is possible to get them from the [Themes CDN]({%slug themes-swatches%}#buit-in-themes-and-swatches-list), the [Sass Theme Builder]({%slug themes-custom%}#using-themebuilder) or the [kendo-themes repository](https://github.com/telerik/kendo-themes), this article lists a couple other ways of distribution.
+
+>caption In this article:
+
+* [Distributed Swatches](#distributed-swatches)
+* [Distribution Options](#distribution-options)
+    * [Telerik Blazor CDN](#telerik-blazor-cdn)
+    * [ZIP archive](#zip-archive)
+    * [Visual Studio and Visual Studio Code Wizards](#visual-studio-and-visual-studio-code-wizards)
+
+## Distributed Swatches
+
+The following swatches are statistically most used, so we've included them in our [live demos](https://demos.telerik.com/blazor-ui/grid/overview) to allow easy testing. In addition, we are also distributing them via [several resources](#distribution-options).
+
+Telerik UI for Blazor distributed swatches:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Default | Bootstrap  | Material | Fluent |
+| --- | --- | --- | --- |
+| Main | Main | Main | Main |
+| Main Dark | Main Dark | Arctic |
+| [Ocean Blue]({%slug themes-accessibility-swatch%}) | Nordic | Nova |
+| Nordic | Urban | Lime Dark |
+| Purple | Vintage | Main Dark |
+| Turquoise |
+
+
+## Distribution Options
+
+The above listed swatches are distributed in several ways:
+
+### Telerik Blazor CDN
+
+A dedicated Telerik UI for Blazor CDN hosts them in the `swatches` folder of the corresponding base theme. Below you will find a list of the distributed swatches and their CDN URLs.
+
+The CDN URLs contain the Telerik UI for Blazor version. Thus, you do not need to manually track the theme compatibility. Just make sure to use your UI for Blazor version in the URL.
+
+#### Default
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-main-dark.css
+| [Ocean Blue]({%slug themes-accessibility-swatch%}) | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-ocean-blue.css
+| Nordic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-nordic.css
+| Purple | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-purple.css
+| Turquoise | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-turquoise.css
+
+
+#### Bootstrap
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-main.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-main-dark.css
+| Nordic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-nordic.css
+| Urban | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-urban.css
+| Vintage | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-bootstrap/swatches/bootstrap-vintage.css
+
+#### Material
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-main.css
+| Arctic | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-arctic.css
+| Nova | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-nova.css
+| Lime Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-lime-dark.css
+| Main Dark | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-material/swatches/material-main-dark.css
+
+
+#### Fluent
+
+Swatch | CDN |
+| ----------- | ----------- |
+| Main | https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-fluent/swatches/fluent-main.css
+
+
+### ZIP archive
+
+One of the ways to install Telerik UI for Blazor is to use the ZIP Archive. Its `styles` folder contains all the above swatches. You can [download it from your Telerik account](https://www.telerik.com/account/downloads). Here is [more information about the ZIP Archive]({%slug installation/zip%})...
+
+### Visual Studio and Visual Studio Code Wizards
+
+The **Create New Project** wizards for [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-new-project%}) allow you to select the desired theme/swatch for your application. The wizards provide the above list of common swatches.
+
+> Once you've created the project, the selected theme will be saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, upgrading UI for Blazor requires you to replace this CSS file manually.
