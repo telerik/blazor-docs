@@ -26,7 +26,7 @@ When you need to restore the [Telerik NuGet packages]({%slug getting-started/wha
 
 1. Click **Generate New Key**.
 
-1. Enter a name for the NuGet Key, and then click on **Generate Key**.
+1. Enter a name for the NuGet Key and click **Generate Key**.
 
 1. To copy the key, select **Copy and Close**. Once you close the popup dialog, you can no longer copy the generated key. For security reasons, the **NuGet Keys** page displays only a portion of the key.
 
