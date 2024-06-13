@@ -20,7 +20,7 @@ When you need to restore the [Telerik NuGet packages]({%slug getting-started/wha
 
 ## Generating NuGet Keys
 
-1. Go to page [**Manage NuGet Keys**](https://www.telerik.com/account/downloads/nuget-keys) in your Telerik account.
+1. In your Telerik account, go to the [**Manage NuGet Keys**](https://www.telerik.com/account/downloads/nuget-keys) page.
 
     ![Manage NuGet Keys](../deployment/images/manage-nuget-keys.png)
 
