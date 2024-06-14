@@ -25,7 +25,7 @@ The template receives the `DateTime` corresponding to its cell.
     <MonthCellTemplate>
         @if (IsSpecialDay(context))
         {
-            <TelerikSvgIcon Icon="@("user")"></TelerikSvgIcon>
+            <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
         }
         @context.Day
     </MonthCellTemplate>
