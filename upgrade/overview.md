@@ -38,7 +38,7 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. Update the version of the `Telerik.UI.for.Blazor` package your project references. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
 
-1. If you are using the [Telerik Blazor CDN]({%slug themes-swatch-distribution%}), update the version in the theme URL. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN links must look like:
+1. If you are using the [Telerik Blazor CDN]({%slug themes-swatches%}), update the version in the theme URL. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN links must look like:
 
     **HTML**
     
@@ -54,7 +54,7 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
         
         <script src="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
 
-1. If you are using a local theme stylesheet in `wwwroot`, then replace it. For example, if the app is using a [custom theme]({%slug themes-custom%}), then recreate it with the [ThemeBuilder]({%slug themebuilder%}). Or, if the [project was created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug themes-swatch-distribution%}#visual-studio-and-visual-studio-code-wizards), then download the required built-in theme from the [Telerik Blazor CDN]({%slug themes-swatch-distribution%}) and add it to the project.
+1. If you are using a local theme stylesheet in `wwwroot`, then replace it. For example, if the app is using a [custom theme]({%slug themes-custom%}), then recreate it with the [ThemeBuilder]({%slug themebuilder%}). Or, if the [project was created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug themes-swatches%}#visual-studio-and-visual-studio-code-wizards), then download the required built-in theme from the [Telerik Blazor CDN]({%slug themes-swatches%}) and add it to the project.
 
 1. If the application is localized, [update the Telerik localization (`.resx`) files]({%slug globalization-localization%}#how-localization-works-in-the-telerik-components). Otherwise you may see [exceptions related to missing localization strings]({%slug common-kb-null-value-parameter-format%}).
 

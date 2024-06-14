@@ -74,6 +74,12 @@ In the order of their appearance, the Create New Project wizard presents the fol
 
    ![The Create New Project Wizard Localization Option](images/vsx-extension-create-project-settings.png)
 
+### Using Local Theme
+
+The wizard allows you to select the desired theme and swatch and load it as a local file or from CDN.
+
+When using a local theme, the CSS file is saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, upgrading UI for Blazor requires you to [replace this CSS file manually]({%slug upgrade-tutorial%}).
+
 ### Predefined Project Templates
 
 The Create New Project wizard provides the following project templates:

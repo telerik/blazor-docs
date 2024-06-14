@@ -17,7 +17,7 @@ The available built-in themes are:
 
 * **Default** is our own neutral styling that suits most cases. The theme has a [swatch (color variation)]({%slug themes-swatches%}) called [Ocean Blue]({%slug themes-accessibility-swatch%}), which features enhanced accessibility.
 * **Bootstrap** matches the styling of the [Bootstrap CSS framework](https://getbootstrap.com). Read more in the [Bootstrap Notes](#bootstrap-notes) section below.
-* **Material** implements the [Material Design Guidelines](https://material.io/design/). Read more in the [Material Notes](#material-notes) section below.
+* **Material** implements the [Material Design Guidelines](https://material.io/design/) and is built around the initial theme of [material.angular.io](https://material.angular.io). See the [Material Notes](#material-notes) section for usage recommendations.
 * **Fluent** is based on [Microsoft Fluent UI](https://developer.microsoft.com/en-us/fluentui/).
 
 Telerik UI for Blazor has the same HTML rendering and SASS theme stylesheets as the Kendo UI widgets, so previous experience with them can be helpful. The components in **UI for Blazor are native components** and not wrappers over jQuery widgets.

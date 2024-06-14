@@ -20,7 +20,7 @@ The CDN hosts two kinds of static client assets for the Telerik UI for Blazor co
 
 ## CSS Theme URLs
 
-The CDN hosts [swatches of the popular built-in CSS themes]({%slug themes-swatch-distribution%}). The file URLs look like this:
+The CDN hosts [swatches of the popular built-in CSS themes]({%slug themes-swatches%}). The file URLs look like this:
 
 <code>blazor.cdn.telerik.com/blazor/**&lt;COMPONENT-VERSION&gt;**/kendo-theme-**&lt;THEME-NAME&gt;**/swatches/**&lt;THEME-NAME&gt;**-**&lt;SWATCH-NAME&gt;**.css</code>
 
