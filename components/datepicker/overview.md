@@ -15,27 +15,28 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 ## Creating Blazor Date Picker
 
-1. Use the `TelerikDatePicker` tag to add the component to your razor page.
-
-1. Bind a `DateTime` object to the component
-
-1. Optionally, provide custom `Format`, `Min` and `Max` values 
+1. Use the `TelerikDatePicker` tag to add the component to your Razor page.
+1. Bind a `DateTime` or `DateTime?` object to the component `Value` parameter.
+1. (optional) Set the `Format`, `Min`, `Max`, and `Width` parameters.
 
 >caption Basic Date Picker with custom format, min and max
 
 ````CSHTML
-The selected date is: @datePickerValue.ToShortDateString()
-<br />
+<p> The DatePicker Value is: @DatePickerValue.ToShortDateString() </p>
 
-<TelerikDatePicker @bind-Value="datePickerValue"
+<TelerikDatePicker @bind-Value="DatePickerValue"
                    Format="dd MMMM yyyy"
-                   Min="@Min" Max="@Max">
+                   Min="@MinDate"
+                   Max="@MaxDate"
+                   Width="200px">
 </TelerikDatePicker>
 
 @code {
-    DateTime datePickerValue { get; set; } = DateTime.Now;
-    public DateTime Min = new DateTime(1990, 1, 1, 8, 15, 0);
-    public DateTime Max = new DateTime(2025, 1, 1, 19, 30, 45);
+    private DateTime DatePickerValue { get; set; } = DateTime.Today;
+
+    private DateTime MinDate = DateTime.Today.AddMonths(-1);
+
+    private DateTime MaxDate = DateTime.Today.AddMonths(1);
 }
 ````
 
