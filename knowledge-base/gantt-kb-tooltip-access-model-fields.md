@@ -10,21 +10,25 @@ ticketid: 1653280
 ---
 
 ## Environment
-
-| Product |
-| --- | 
-| Gantt for Blazor |
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Gantt for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Description
 
-I want to access and display model fields in the Gantt Timeline Tooltip. In the [TooltipTemplate]({%slug gantt-tooltip-template%}) I can access some of the model fields, which [match the properties of a Gantt Tree item]({%slug gantt-data-binding-overview%}#data-bindings). But how to access and show other or my custom model fields?
+I want to access and display model fields in the Gantt Timeline Tooltip. In the [`TooltipTemplate`]({%slug gantt-tooltip-template%}) I can access some of the model fields, which [match the properties of a Gantt Tree item]({%slug gantt-data-binding-overview%}#data-bindings). But how to access and show all model fields?
 
 ## Solution
 
-You can access and display all fields of the model in the [Gantt Timeline TooltipTemplate]({%slug gantt-tooltip-template%}). Follow these steps:
+You can access and display all fields of the model in the [Gantt Timeline `TooltipTemplate`]({%slug gantt-tooltip-template%}). Follow these steps:
 
 1. Cast the `TooltipTemplate` context to `TooltipTemplateContext`.
-2. Use the [available properties of the `TooltipTemplateContext`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the model instance from the Gantt data collection. 
+2. Use the [available properties of the `TooltipTemplateContext`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the model instance from the Gantt data collection.
 3. Display the desired fields of the model instance in the `TooltipTemplate`.
 
 ````CSHTML
@@ -36,8 +40,7 @@ You can access and display all fields of the model in the [Gantt Timeline Toolti
     <TooltipTemplate>
         @{
             FlatModel model = GetModel(((TooltipTemplateContext)context).Title);
-        }       
-
+        }
         @model.CustomField
         <br/>
         @model.SomeIntField
@@ -68,14 +71,14 @@ You can access and display all fields of the model in the [Gantt Timeline Toolti
 </TelerikGantt>
 
 @code {
-    List<FlatModel> Data { get; set; }
+    private List<FlatModel> Data { get; set; }
 
     private FlatModel GetModel(string title)
     {
         return Data.FirstOrDefault(x => x.Title == title);
     }
 
-    class FlatModel
+    public class FlatModel
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
