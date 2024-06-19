@@ -19,22 +19,21 @@ res_type: kb
     </tbody>
 </table>
 
-
 ## Description
 
 This KB article answers the following questions:
 
-* How to change default text `is true` and `is false` in Grid `FilterRow` dropdown?
-* How to change the default display names in `FilterRow` dropdown?
-* How to filter a boolean `Grid` column values by `null`?
-* How to change the default values in `FilterRow` dropdown to "**Yes**" and "**No**"?
+* How to change the default `is true` and `is false` text in the Grid `FilterRow` dropdown?
+* How to change the default display names in the `FilterRow` dropdown?
+* How to filter boolean `Grid` column values by `null`?
+* How to change the default values in the `FilterRow` dropdown to `Yes` and `No`?
 
 ## Solution
 
-* Define a [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template).
-* Create a `DropDownList` that includes the custom display values.
-* Create a `Button` that will replicate the `FilterRow` clear button.
-* Implement a method that manually filters the Grid based on the DropDownList selection.
+1. Define a [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template).
+1. Create a `DropDownList` that includes the custom display values.
+1. Create a `Button` that will replicate the `FilterRow` clear button.
+1. Implement a method that manually filters the Grid based on the DropDownList selection.
 
 >caption Grid with custom display values in the `FilterRow` dropdown and manual filtering.
 
