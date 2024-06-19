@@ -1,8 +1,8 @@
 ---
-title: How to change theme at runtime
-description: Switch the Telerik Blazor Theme at runtime on the fly.
+title: Change Theme at Runtime
+description: Learn how to switch the Telerik Blazor theme at runtime on the fly with JavaScript.
 type: how-to
-page_title: Change Theme at Runtime
+page_title: How to Change the Theme or Swatch at Runtime
 slug: change-theme-runtime
 position: 
 tags: 
@@ -22,6 +22,7 @@ res_type: kb
 </table>
 
 ## Description
+
 You may want to change the Telerik Blazor Theme during runtime on the fly - for example, to allow your users to choose the application theme.
 
 This article will explain how you can do this. The approach will apply both to the built-in themes, and to custom themes.
@@ -29,6 +30,7 @@ This article will explain how you can do this. The approach will apply both to t
 The stylesheets are registered outside of the `<app>` element so normal Blazor code cannot access them. This leaves only JS Interop as the option to change the themes.
 
 ## Solution
+
 To change a theme, you must:
 
 1. Create a `<link>` element pointing to the new theme
@@ -107,3 +109,6 @@ var themeChanger = {
 }
 ````
 
+## See Also
+
+* [Theme Swatches]({%slug themes-swatches%})
