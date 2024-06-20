@@ -28,7 +28,7 @@ I want to access and display model fields in the Gantt Timeline Tooltip. In the 
 You can access and display all fields of the model in the [Gantt Timeline `TooltipTemplate`]({%slug gantt-tooltip-template%}). Follow these steps:
 
 1. Cast the `TooltipTemplate` context to `TooltipTemplateContext`.
-2. Use the [available properties of the `TooltipTemplateContext`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the model instance from the Gantt data collection.
+2. Use the [available properties of the `TooltipTemplateContext`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the data item in the Gantt data collection.
 3. Display the desired fields of the model instance in the `TooltipTemplate`.
 
 ````CSHTML
