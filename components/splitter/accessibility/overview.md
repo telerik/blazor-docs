@@ -9,13 +9,13 @@ position: 0
 
 # Accessibility Overview
 
-The UI for Blazor Splitter component is [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22) and [Section 508](https://www.section508.gov) compliant. The component also follows the [WAI-ARIA best practices](https://www.w3.org/WAI/ARIA/apg/) for implementing the keyboard navigation for its component [role](https://www.w3.org/TR/wai-aria/#roles), and is tested against the popular screen readers.
+The UI for Blazor Splitter component is <a href="https://www.w3.org/TR/WCAG22" target="_blank">WCAG 2.2 AA</a> and <a href="https://www.section508.gov" target="_blank">Section 508</a> compliant. The component also follows the <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank">WAI-ARIA best practices</a> for implementing the keyboard navigation for its component <a href="https://www.w3.org/TR/wai-aria/#roles" target="_blank">role</a>, and is tested against the popular screen readers.
 
 # Blazor Splitter Accessibility Example
 
-WCAG 2.2 introduces the ["Dragging Movements"](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements) criterion as an important part of the Operable principle. Its primary goal is to guarantee that any feature reliant on drag actions offers an alternative method that can be executed with a single click, enhancing user accessibility.
+WCAG 2.2 introduces the <a href="https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements" target="_blank">"Dragging Movements"</a> criterion as an important part of the Operable principle. Its primary goal is to guarantee that any feature reliant on drag actions offers an alternative method that can be executed with a single click, enhancing user accessibility.
 
-In our illustrative example below, we've showcased the pane resize action, achievable through our [Context Menu]({%slug contextmenu-overview%}). Our goal is to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
+The illustrative example below shows the tile resize action, achievable through the [Context Menu]({%slug contextmenu-overview%}). Telerik UI for Blazor to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
 The following example demonstrates the [accessibility compliance of the Splitter component]({%slug splitter-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
 
@@ -86,8 +86,8 @@ The following example demonstrates the [accessibility compliance of the Splitter
         </TelerikComboBox>
     </DialogContent>
     <DialogButtons>
-        <TelerikButton AriaLabel="Confirm Reorder" OnClick="@OnApplyClick" ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"><TelerikSvgIcon Icon="@SvgIcon.Check" /><span style="margin-left: 5px;">Resize</span></TelerikButton>
-        <TelerikButton AriaLabel="Cancel Reorder" OnClick="@(() => { Visible = false; })"><TelerikSvgIcon Icon="@SvgIcon.CancelOutline" /><span style="margin-left: 5px;">Cancel</span></TelerikButton>
+        <TelerikButton AriaLabel="Confirm Resize" OnClick="@OnApplyClick" ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"><TelerikSvgIcon Icon="@SvgIcon.Check" /><span style="margin-left: 5px;">Resize</span></TelerikButton>
+        <TelerikButton AriaLabel="Cancel Resize" OnClick="@(() => { Visible = false; })"><TelerikSvgIcon Icon="@SvgIcon.CancelOutline" /><span style="margin-left: 5px;">Cancel</span></TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
