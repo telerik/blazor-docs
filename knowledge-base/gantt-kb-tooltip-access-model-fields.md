@@ -2,7 +2,7 @@
 title: Access Model Fields in the Gantt Timeline Tooltip
 description: How to access and display fields from the model in the Tooltip of the Gantt Timeline?
 type: how-to
-page_title: How to Display Model Fields in Gantt Tooltip?
+page_title: How to Display Model Fields in the Gantt Tooltip?
 slug: gantt-kb-tooltip-access-model-fields
 tags: gantt, blazor, tooltip, tooltiptemplate, model, fields
 res_type: kb
