@@ -59,7 +59,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
     protected override void OnInitialized()
     {
         LoadData();
-        ExpandedItems = TreeData.Where(x => x.HasChildren == true).ToList();
+        ExpandedItems = Data.Where(x => x.HasChildren == true).ToList();
         
         // Preselection of the second node (not required)
         SelectedItems = new List<object>() { Data.Skip(1).FirstOrDefault() };
