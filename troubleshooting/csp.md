@@ -28,7 +28,7 @@ Telerik UI for Blazor components need the following exceptions to strict CSP. So
 
 * Allow inline styles (`'unsafe-inline'`) to use component parameters such as `Width`, `Height`, `RowHeight`, `ItemHeight`, `Top`, `Left`, etc. In addition, some components rely on inline styles for their rich functionality and UX.
 * Allow data URIs (`data:`) for images that are embedded in the [CSS themes]({%slug general-information/themes%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
-* *(starting from version 6.0.0)* Allow script evaluation (`'unsafe-eval'`), which is required by the [Spreadsheet]({%slug spreadsheet-overview%}) for cell validation.
+* *(starting from version 6.0.0)* Allow script evaluation (`'unsafe-eval'`), which is required by the [Spreadsheet]({%slug spreadsheet-overview%}) for cell validation and formula compilation. If you don't use the Spreadsheet component in your Blazor app, then check section [Build CSP Compliant telerik-blazor.js](#build-csp-compliant-telerik-blazorjs) below.
 * Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN]({%slug common-features-cdn%}) for styles or scripts.
 
 The following items concern older product versions:
@@ -52,3 +52,7 @@ The CSP policy directives below ensure that the Telerik Blazor components work a
       font-src 'self' https://blazor.cdn.telerik.com;
 " />
 ````
+
+## Build CSP Compliant telerik-blazor.js
+
+If strict CSP compliance is a hard requirement and your Blazor app is not using the Spreadsheet component, then you can [rebuild the `telerik-blazor.js` file without the Spreadsheet component]({%slug common-kb-remove-components-from-telerik-blazor-js%}).
