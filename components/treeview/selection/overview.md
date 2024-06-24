@@ -26,7 +26,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
 ````CSHTML
 @* Observe how the node selection works and preselect the second node. *@
 
-<TelerikTreeView Data="@Data"
+<TelerikTreeView Data="@TreeData"
                  @bind-ExpandedItems="@ExpandedItems"
                  SelectionMode="@TreeViewSelectionMode.Single"
                  @bind-SelectedItems="@SelectedItems">
@@ -52,7 +52,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
 
     public IEnumerable<object> SelectedItems { get; set; } = new List<object>();
 
-    public IEnumerable<TreeItem> Data { get; set; }
+    public IEnumerable<TreeItem> TreeData { get; set; }
 
     public IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
@@ -62,7 +62,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
         ExpandedItems = TreeData.Where(x => x.HasChildren == true).ToList();
         
         // Preselection of the second node (not required)
-        SelectedItems = new List<object>() { Data.Skip(1).FirstOrDefault() };
+        SelectedItems = new List<object>() { TreeData.Skip(1).FirstOrDefault() };
     }
 
     private void LoadData()
@@ -128,10 +128,9 @@ If you want to extract details for the selection from `SelectedItems`, you need 
             Icon = SvgIcon.Css
         });
 
-        Data = items;
+        TreeData = items;
     }
 }
-
 ````
 
 >caption The result of the code snippet above
