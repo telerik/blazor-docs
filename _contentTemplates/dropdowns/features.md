@@ -36,7 +36,7 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 | --- | --- | --- |
 | `AnimationDuration` | `int` | The animation duration of the popup in milliseconds. |
 | `Class` | `string` | Additional CSS class to customize the appearance of the popup. |
-| `Height` | `string` | The height of the popup. If set to `"auto"`, the component will automatically adjust the popup height based on the number of items and available space. Note that if you set the `MaxHeight` parameter, the built-in screen boundary detection will be disabled. This means the component will no longer adjust the drop down height to fit within the viewport. |
+| `Height` | `string` | The height of the popup. If set to `"auto"`, the component will automatically adjust the popup height based on the number of items and available space. Note that if you set the `MaxHeight` parameter, the built-in screen boundary detection will be disabled. This means the component will no longer adjust the dropdown height to fit within the viewport. |
 | `MinHeight`| `string` | The minimum height of the popup. |
 | `MinWidth` | `string` | The minimum width of the popup. |
 | `MaxHeight` | `string` | The maximum height of the popup. |
