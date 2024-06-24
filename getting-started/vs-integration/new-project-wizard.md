@@ -63,7 +63,7 @@ In the order of their appearance, the Create New Project wizard presents the fol
 
    ![The Create New Project Wizard Templates Options](images/vsx-extension-base.png)
 
-3. On the third screen, you can choose from different [themes]({%slug general-information/themes%}).
+3. On the third screen, you can choose from different [themes]({%slug themes-built-in%}).
 
    ![The Create New Project Wizard Themes Options](images/vsx-extension-theme.png)
 

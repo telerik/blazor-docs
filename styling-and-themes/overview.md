@@ -2,7 +2,7 @@
 title: Built-in Themes
 page_title: Themes
 description: The UI for Blazor suite comes with a set of built-in themes that you can choose from. Bootstrap and Material themes are also included.
-slug: general-information/themes
+slug: themes-built-in
 tags: telerik,blazor,theme,built-in
 published: True
 previous_url: /themes/overview
@@ -13,7 +13,7 @@ position: 0
 
 Telerik UI for Blazor comes with a set of built-in CSS themes that control the visual appearance of the components. Each theme determines the components' colors, borders, backgrounds, size, layout, position, font size and sometimes the font family. You can compare all themes and swatches on the [Telerik UI for Blazor live demos](https://demos.telerik.com/blazor-ui/).
 
-Telerik UI for Blazor has the same HTML rendering and theme stylesheets as other Telerik and Kendo UI web products, so previous experience with them can be helpful. At the same time, the Telerik UI for Blazor components are *native Blazor components* and not wrappers around other Telerik products.
+[Telerik UI for Blazor has the same HTML rendering and theme stylesheets as other Telerik and Kendo UI web products](#built-in-theme-development), so previous experience with them can be helpful. At the same time, the Telerik UI for Blazor components are *native Blazor components* and not wrappers around other Telerik products.
 
 ## Theme Names
 
@@ -31,20 +31,22 @@ Each theme can have built-in color variations called [swatches]({%slug themes-sw
 
 To register a theme, you must reference its stylesheet in the `<head>` the web page. The exact project file that contains the `<head>` tag depends on the .NET version and the Blazor application type. See our [Getting Started guides]({%slug blazor-overview%}#getting-started) for more information.
 
-There are three ways to load a Telerik theme, in terms physical CSS file location:
+There are three ways to load a Telerik theme, in terms physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
-* [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades]({%slug upgrade-tutorial%}).
-* Load a CSS theme from a remote URL, for example, the [Telerik CDN]({%slug common-features-cdn%}). See [Theme Swatches]({%slug themes-swatches%}) for a full list of available built-in swatches and their CDN URLs.
+* [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades]({%slug upgrade-tutorial%}). However, you can use only the **Main** swatch of each theme and **Default Ocean Blue**.
+* Load a CSS theme from a remote URL, for example, the [Telerik CDN]({%slug common-features-cdn%}). See [Theme Swatches]({%slug themes-swatches%}) for the full list of available built-in swatches and their CDN URLs.
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
     * When using [custom themes]({%slug themes-custom%}#loading-custom-themes).
     * When [creating]({%slug getting-started-vs-integration-new-project%}) or [converting]({%slug getting-started-vs-integration-convert-project%}) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension]({%slug getting-started-vs-integration-overview%}).
-    * When using [LibMan]({%slug common-kb-telerik-themes-libman%}) or [npm]({%slug themes-custom%}#building-themes-from-source-code) to obtain a specific Telerik theme version.
+    * When using [LibMan]({%slug common-kb-telerik-themes-libman%}) or [npm]({%slug themes-custom%}#building-themes-from-source-code) to obtain a specific Telerik theme version. In this case, you can use all built-in theme swatches.
 
-> The Blazor app must load only one Telerik theme at a time.
+> The Blazor app must load only one Telerik theme file at a time.
 
 ### Version Compatibility
 
-> When using a CSS theme or swatch as as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps created with the [Telerik Blazor Visual Studio extension]({%slug getting-started-vs-integration-new-project%}). When using CDN, make sure that the theme version in the CDN URL is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a [newer minor theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes.
+> When using a CSS theme as as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps created with the [Telerik Blazor Visual Studio extension]({%slug getting-started-vs-integration-new-project%}).
+>
+> When using [swatches on UNPKG CDN]({%slug themes-swatches%}#swatch-urls), make sure that the theme version in the CDN URL is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a [newer minor theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes.
 
 ### Loading Themes from the NuGet Package
 
@@ -89,16 +91,15 @@ The easiest way to load a Telerik theme is to reference a static asset from the 
 
 The Telerik Bootstrap theme has a similar design to the Bootstrap framework and it uses the Bootstrap metrics to integrate Telerik Blazor components in an application that already uses Bootstrap for layout and styles.
 
-There are some important differences between the two products:
+There are some important differences between the Bootstrap framework and Telerik UI for Blazor:
 
-* Bootstrap and Telerik UI for Blazor are two completely separate products that do not share CSS classes and code.
+* The two products are completely independent. They do not share CSS classes and code.
 * The Telerik Bootstrap theme does not require or depend on the Bootstrap framework stylesheet.
-* The Bootstrap framework stylesheet and the Telerik Bootstrap theme cannot be used interchangeably. To use Bootstrap-styled Telerik components in a Bootstrap-styled app, you need to load both stylesheets.
-* The Telerik Bootstrap theme is not a subset or a superset of the Bootstrap framework stylesheets.
+* The Bootstrap framework stylesheet and the Telerik Bootstrap theme cannot be used interchangeably.
 
-You can use Bootstrap to create layouts and then put our components inside those layouts. You can use Bootstrap CSS classes and utilities on your own HTML elements in the markup regardless of the components inside.
+To use Bootstrap-styled Telerik components in a Bootstrap-styled app, you need to load both stylesheets. You can use Bootstrap to create layouts and then put Telerik components inside those layouts. You can use Bootstrap CSS classes and utilities on your own HTML elements in the markup regardless of the components inside.
 
-> Using Bootstrap CSS classes on Telerik components may lead to styling conflicts and is generally not necessary or recommended.
+> Using Bootstrap CSS classes on Telerik components may lead to styling conflicts and is generally not necessary or recommended. Do not set the `form-control` CSS class on Telerik input components such as ComboBox, TextBox, and others.
 
 You may want to avoid the Bootstrap framework and rely only on Telerik components for layout. In this case, [explore and compare the layout components in Telerik UI for Blazor]({%slug common-kb-layout-component-comparison%}).
 
@@ -124,6 +125,11 @@ One possible way to add the **Roboto** font from Google Fonts is:
     }
 </style>
 ````
+
+
+## Built-in Theme Development
+
+The CSS themes represent an external dependency to Telerik UI for Blazor. The themes are a separate product, which is used by all Telerik and Kendo UI web products. The themes have their own product roadmap and strategy. You can log bug reports and feature requests on the [Telerik Themes feedback portal](https://feedback.telerik.com/themes).
 
 
 ## Next Steps

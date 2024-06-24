@@ -11,7 +11,7 @@ position: 5
 
 # Styles for Form Elements
 
-The [UI for Blazor Themes]({%slug general-information/themes%}) provide classes that you can use to style elements on the page so they can match the used Telerik Theme.
+The [UI for Blazor Themes]({%slug themes-built-in%}) provide classes that you can use to style elements on the page so they can match the used Telerik Theme.
 
 >tip The UI for Blazor Themes are shared with the Kendo library - you can apply any previous knowledge about Kendo UI products.
 

@@ -11,12 +11,12 @@ position: 1
 
 # Theme Swatches
 
-Telerik UI for Blazor comes with several [built-in themes]({%slug general-information/themes%}). Each of them provides a set of color swatches that you can choose from to match your application appearance and styling.
+Telerik UI for Blazor comes with several [built-in themes]({%slug themes-built-in%}). Each of them provides a set of color swatches that you can choose from to match your application appearance and styling.
 
 
 ## Basics
 
-A *theme* is a collection of styles, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, **Default** and **Bootstrap** are two [built-in theme names]({%slug general-information/themes%}#built-in-theme-names).
+A *theme* is a collection of styles, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, **Default** and **Bootstrap** are two [built-in theme names]({%slug themes-built-in%}#built-in-theme-names).
 
 A *theme swatch* is a color variation of a theme. All swatches of a given theme use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, **Default Ocean Blue** and **Bootstrap Nordic** are two built-in swatch names.
 
@@ -36,7 +36,7 @@ There are a few ways to obtain and use the Telerik theme swatches:
 * Download the Telerik UI for Blazor [MSI installer]({%slug installation/msi%}) or [ZIP archive]({%slug installation/zip%}) from your Telerik account. Get the required CSS file(s) from the `swatches` folder and place them in your Blazor app.
 * Download the required swatch(es) from the [CDN URLs below](#swatch-urls) or use these URLs directly in your Blazor app.
 
-Always make sure the [swatch file version is compatible with the Telerik UI for Blazor version]({%slug general-information/themes%}#version-compatibility).
+Always make sure the [swatch file version is compatible with the Telerik UI for Blazor version]({%slug themes-built-in%}#version-compatibility).
 
 @[template](/_contentTemplates/common/general-info.md#change-theme-runtime)
 

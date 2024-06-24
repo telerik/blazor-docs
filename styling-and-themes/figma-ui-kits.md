@@ -16,7 +16,7 @@ Design files for Figma&mdash;building blocks that match the [Telerik UI for Blaz
 <img src="./images/ui-kits-for-figma.png" alt="Download UI Kits"/>
 </a>
 
-To enable efficient collaboration between designers and developers, we created multiple Telerik and Kendo UI Kits for Figma. Each UI kit corresponds to one of the [themes that ship with the Telerik UI for Blazor components]({%slug general-information/themes%}):
+To enable efficient collaboration between designers and developers, we created multiple Telerik and Kendo UI Kits for Figma. Each UI kit corresponds to one of the [themes that ship with the Telerik UI for Blazor components]({%slug themes-built-in%}):
 
 * Material
 * Bootstrap
@@ -104,7 +104,7 @@ Depending on your requirements, you can take advantage of three distinct levels 
 
 ## See Also
 
-  * [Built-in Themes]({%slug general-information/themes%})
+  * [Built-in Themes]({%slug themes-built-in%})
   * [Custom Themes]({%slug themes-custom%})
   * [Style Form Elements]({%slug themes-form-elements%})
   * [Figma for Developers (blog)](https://www.telerik.com/blogs/figma-developers)
