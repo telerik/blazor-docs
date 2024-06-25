@@ -34,7 +34,7 @@ This KB article answers the following questions:
 * How to exclude components from the Telerik Blazor JSInterop file and rebuild `telerik-blazor.js`?
 * How to remove components from the client-side code of Telerik UI for Blazor?
 * How to remove the Spreadsheet component from `telerik-blazor.js` in order to achieve [strict Content Security Policy compliance]({%slug troubleshooting-csp%})?
-* How to remove the PDF Viewer component from `telerik-blazor.js` in order to avoid conflicts with other third-party tools that depend on **PDF.js**?
+* How to remove the PDF Viewer component from `telerik-blazor.js` in order to avoid conflicts with other third-party tools that depend on PDF.js?
 * How to reduce the file size of the Telerik Blazor JavaScript asset?
 
 
