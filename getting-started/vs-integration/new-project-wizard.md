@@ -12,6 +12,8 @@ This article demonstrates how to use the Telerik Visual Studio extensions to cre
 
 To create a new Telerik UI for Blazor application, use the Create New Project wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this feature enables you to start your project with the desired version. To make sure the components are up to date, you can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}).
 
+## How It Works
+
 The Create New Project Wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
@@ -50,31 +52,28 @@ To start the wizard, use either of the following options:
 
 ## Using the Wizard
 
-In the order of their appearance, the Create New Project wizard presents the following screens with options that will assist you to configure your new app:
+In the order of their appearance, the Create New Project wizard presents several screens with options that will assist you to configure your new app.
 
-1. On the first screen, you can select a location and a name for your project.
+After you select the **Create New Project** option from the extensions menu, Visual Studio will open a **Configure your new project** window where you can select a location and a name for your project. 
 
-2. On the second screen, you can choose:
+Clicking the **Create** button in this window will open the wizard and you will go through the following steps:
 
-   * A WebAssembly, server-side, or Hybrid Blazor app.
-   * The .NET version you want to use.
-   * The Telerik UI for Blazor version.
-   * One of the [predefined Telerik project](#predefined-project-templates) templates.
+### Step 1: Select Initial Project Configuration
 
-   ![The Create New Project Wizard Templates Options](images/vsx-extension-base.png)
+In this screen, you can choose:
 
-3. On the third screen, you can choose from different [themes]({%slug general-information/themes%}).
+* Target framework - .NET 6, .NET 7 or .NET 8
+* Hosting model - the options vary depending on the selected target framework.
+* Location from where the application will get the Telerik UI for Blazor package - remote NuGet feed or local files.
+* Telerik UI for Blazor version
 
-   ![The Create New Project Wizard Themes Options](images/vsx-extension-theme.png)
+### Step 2: Select Project Template
 
-4. On the final screen, you need to decide the following:
+This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in step 1. 
 
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
-   * Whether to use localization in the project or not.
+The Client and Server projects for .NET 6 and .NET 7 support all of the below-listed templates. The Hybrid projects and the .NET 8 WebApp support only the **Blank** template.
 
-   ![The Create New Project Wizard Localization Option](images/vsx-extension-create-project-settings.png)
-
-### Predefined Project Templates
+#### Predefined Project Templates
 
 The Create New Project wizard provides the following project templates:
 
@@ -82,6 +81,18 @@ The Create New Project wizard provides the following project templates:
 * **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and forms validation. The Grid also uses a basic CRUD service which is a common pattern for data updates in real applications.
 * **Dashboard**&mdash;A basic dashboard layout that uses the TileLayout component for customizable dashboards, and showcases several ways individual blocks (tiles) can fetch data.
 * **Admin**&mdash;A small app that shows a dashboard for admin. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
+
+### Step 3: Configure Additional Project Settings
+
+This screen provides option to configure:
+
+   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
+   * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
+   * Whether to use [Font Icons]({%slug common-features-icons%})
+
+### Step 4 (final): Select Theme
+
+Finally, you can choose from different [themes]({%slug general-information/themes%}).
 
 ## See Also
 
