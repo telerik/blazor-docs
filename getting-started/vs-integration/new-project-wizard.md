@@ -90,7 +90,7 @@ This screen lets you choose:
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or not.
 
-### Step 4 (final): Select Theme
+### Step 4 (Final): Select Theme
 
 Finally, you can choose from different [themes]({%slug general-information/themes%}).
 
