@@ -22,7 +22,7 @@ The following example demonstrates the [accessibility compliance of the Gantt co
 >caption Gantt accessibility compliance example
 
 ````CSHTML
-@*Evaluate the example with Axe Core or other accessibility tools*@
+@*Evaluate the example with Axe Core or another accessibility tool*@
 
 <TelerikGantt Data="@Data"
               Width="900px"
@@ -54,17 +54,6 @@ The following example demonstrates the [accessibility compliance of the Gantt co
 
 @code {
     private DateTime SelectedDate { get; set; } = new DateTime(2019, 11, 11, 6, 0, 0);
-
-    public class FlatModel
-    {
-        public int Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Title { get; set; }
-        public double PercentComplete { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-    }
-
     private int LastId { get; set; } = 1;
     private List<FlatModel> Data { get; set; }
 
@@ -77,7 +66,7 @@ The following example demonstrates the [accessibility compliance of the Gantt co
         {
             var newItem = new FlatModel()
                 {
-                    Id = LastId,
+                    Id = LastId++,
                     Title = "Employee  " + i.ToString(),
                     Start = new DateTime(2020, 12, 10 + i),
                     End = new DateTime(2020, 12, 11 + i),
@@ -85,29 +74,38 @@ The following example demonstrates the [accessibility compliance of the Gantt co
                 };
 
             Data.Add(newItem);
-            var parentId = LastId;
-            LastId++;
+            var parentId = newItem.Id;
 
             for (int j = 0; j < 5; j++)
             {
                 Data.Add(new FlatModel()
                     {
-                        Id = LastId,
+                        Id = LastId++,
                         ParentId = parentId,
                         Title = "    Employee " + i + " : " + j.ToString(),
                         Start = new DateTime(2020, 12, 20 + j),
                         End = new DateTime(2020, 12, 21 + i + j),
                         PercentComplete = Math.Round(random.NextDouble(), 2)
                     });
-
-                LastId++;
             }
         }
 
         base.OnInitialized();
+    }
+
+    public class FlatModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Title { get; set; }
+        public double PercentComplete { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 }
 ````
 
 ## See also
  * [Live demo: Gantt Accessibility](https://demos.telerik.com/blazor-ui/gantt/keyboard-navigation)
+ * [Live demo: Gantt Overview](https://demos.telerik.com/blazor-ui/gantt/overview)
+ * [Live demo: Blazor Accessibility](https://docs.telerik.com/blazor-ui/accessibility/overview)
