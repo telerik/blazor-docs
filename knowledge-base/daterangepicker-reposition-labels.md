@@ -39,7 +39,7 @@ By design the labels of the DateRangePicker are placed above the date inputs. If
         flex-direction: row-reverse;
         align-items: center;
     }
-    
+
     .reposition-labels .k-floating-label-container > label {
         position: static;
         margin: 0 .5em;
