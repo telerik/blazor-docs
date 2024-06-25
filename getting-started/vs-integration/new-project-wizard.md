@@ -52,7 +52,7 @@ To start the wizard, use either of the following options:
 
 ## Using the Wizard
 
-In the order of their appearance, the Create New Project wizard presents several screens with options that will assist you to configure your new app.
+In the order of their appearance, the **Create New Project** wizard presents several screens with options that will assist you to configure your new app.
 
 After you select the **Create New Project** option from the extensions menu, Visual Studio will open a **Configure your new project** window where you can select a location and a name for your project. 
 
