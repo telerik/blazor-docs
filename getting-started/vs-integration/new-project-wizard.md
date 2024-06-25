@@ -92,7 +92,7 @@ This screen lets you choose:
 
 ### Step 4 (Final): Select Theme
 
-Finally, you can choose from different [themes]({%slug general-information/themes%}).
+Finally, you can apply one of the available [themes]({%slug general-information/themes%}) to your project.
 
 ## See Also
 
