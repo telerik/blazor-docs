@@ -14,11 +14,11 @@ To create a new Telerik UI for Blazor application, use the **Create New Project*
 
 ## How It Works
 
-The Create New Project Wizard automates a set of steps that you otherwise must perform manually.
+The **Create New Project** wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
-* [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
+* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
+* [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#namespaces) to the `~/_Imports.razor` file.
@@ -56,26 +56,26 @@ In the order of their appearance, the **Create New Project** wizard presents sev
 
 After you select the **Create New Project** option from the extensions menu, Visual Studio opens a **Configure your new project** window where you can set the location and the name for your project. 
 
-Clicking the **Create** button in this window will open the wizard and you will go through the following steps:
+Clicking the **Create** button in this window opens the wizard and you will go through the following steps:
 
 ### Step 1: Select Initial Project Configuration
 
 In this screen, you can choose:
 
-* Target framework - .NET 6, .NET 7 or .NET 8
-* Hosting model - the options vary depending on the selected target framework.
-* Location from where the application will get the Telerik UI for Blazor package - [remote NuGet feed]({%slug installation/nuget%}) or local files.
+* Target framework&mdash;.NET 6, .NET 7 or .NET 8.
+* Hosting model&mdash;the options vary depending on the selected target framework.
+* Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed]({%slug installation/nuget%}) or local files.
 * Telerik UI for Blazor version.
 
 ### Step 2: Select Project Template
 
-This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in [Step 1](#step-1-select-initial-project-configuration).
+This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in [**Step 1**](#step-1-select-initial-project-configuration).
 
 The Client and Server projects for .NET 6 and .NET 7 support all of the below-listed templates. The Hybrid projects and the .NET 8 WebApp support only the **Blank** template.
 
-#### Predefined Project Templates
+<a id="predefined-project-templates"> **Predefined Project Templates**</a>
 
-The Create New Project wizard provides the following project templates:
+The **Create New Project** wizard provides the following project templates:
 
 * **Blank**&mdash;A blank solution based on the Microsoft template with added Telerik UI components (NuGet package reference, assets, service, and the `TelerikRootComponent`).
 * **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and forms validation. The Grid also uses a basic CRUD service which is a common pattern for data updates in real applications.
@@ -86,7 +86,7 @@ The Create New Project wizard provides the following project templates:
 
 This screen lets you choose:
 
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
+   * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or not.
 
