@@ -15,8 +15,8 @@ To create a new Telerik UI for Blazor application, use the Create New Project wi
 The Create New Project Wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet]({%slug getting-started/what-you-need%}#adding-the-client-assets)
-* [JS Interop file]({%slug getting-started/what-you-need%}#adding-the-client-assets)
+* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
+* [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.
@@ -69,7 +69,7 @@ In the order of their appearance, the Create New Project wizard presents the fol
 
 4. On the final screen, you need to decide the following:
 
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
+   * Whether to import the required Telerik UI stylesheet and JavaScript file as [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or as [remote CDN resources]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme](#using-local-theme).
    * Whether to use localization in the project or not.
 
    ![The Create New Project Wizard Localization Option](images/vsx-extension-create-project-settings.png)

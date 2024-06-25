@@ -36,25 +36,15 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. @[template](/_contentTemplates/common/general-info.md#ensure-nuget-packge-for-upgrade)
 
-1. Update the version of the `Telerik.UI.for.Blazor` package your project references. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
+1. Update the version of the `Telerik.UI.for.Blazor` NuGet package in all applicable projects. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
 
-1. If you are using the [Telerik Blazor CDN]({%slug themes-swatches%}), update the version in the theme URL. It must match the version of the package itself. For example, if you are upgrading to the `{{site.uiForBlazorLatestVersion}}` version, the CDN links must look like:
+1. If you are [loading `telerik-blazor.js` from CDN]({%slug common-features-cdn%}#javascript-urls), update the version number in the CDN URL to match the NuGet package version.
 
-    **HTML**
-    
-        <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/all.css" />
-        
-        <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js" defer></script>
-        
-    Generally, the URLs have the following format:
-    
-    **HTML**
-    
-        <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/kendo-theme-<BUILT-IN-THEME>/all.css" />
-        
-        <script src="https://blazor.cdn.telerik.com/blazor/<VERSION NUMBER>/telerik-blazor.min.js" defer></script>
+1. If you are [loading themes from CDN]({%slug common-features-cdn%}#css-theme-urls), update the version number in the theme URL. For example, if you are upgrading to Telerik UI for Blazor {{site.uiForBlazorLatestVersion}}, the version number in the theme URL must be:
+    * `{{site.themesVersion}}` if using [UNPKG CDN]({%slug common-features-cdn%}#unpkg-cdn)
+    * `{{site.uiForBlazorLatestVersion}}` if using the [Telerik CDN]({%slug common-features-cdn%}#telerik-cdn)
 
-1. If you are using a local theme stylesheet in `wwwroot`, then replace it. For example, if the app is using a [custom theme]({%slug themes-custom%}), then recreate it with the [ThemeBuilder]({%slug themebuilder%}). Or, if the [project was created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug themes-swatches%}#visual-studio-and-visual-studio-code-wizards), then download the required built-in theme from the [Telerik Blazor CDN]({%slug themes-swatches%}) and add it to the project.
+1. If you are using a local theme stylesheet in `wwwroot`, then replace it. For example, if the app is using a [custom theme]({%slug themes-custom%}), then recreate it with the [ThemeBuilder]({%slug themebuilder%}). Or, if the [project was created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug themes-swatches%}#visual-studio-and-visual-studio-code-wizards), then [download the required built-in theme]({%slug themes-swatches%}#swatch-urls) and add it to the project.
 
 1. If the application is localized, [update the Telerik localization (`.resx`) files]({%slug globalization-localization%}#how-localization-works-in-the-telerik-components). Otherwise you may see [exceptions related to missing localization strings]({%slug common-kb-null-value-parameter-format%}).
 

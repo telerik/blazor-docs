@@ -15,8 +15,8 @@ To add the Telerik UI components to your existing Blazor application, use the Co
 The Convert Project Wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet]({%slug getting-started/what-you-need%}#adding-the-client-assets)
-* [JS Interop file]({%slug getting-started/what-you-need%}#adding-the-client-assets)
+* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
+* [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.

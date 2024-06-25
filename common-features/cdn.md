@@ -94,6 +94,8 @@ The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor]({%slug 
 <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js"></script>
 ````
 
+> When using the `telerik-blazor.js` file from CDN and with a `defer` attribute, [start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
+
 
 ## Pros and Cons of Using CDN
 

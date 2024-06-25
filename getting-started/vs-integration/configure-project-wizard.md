@@ -30,7 +30,7 @@ After selecting the desired theme, click **Next** to navigate to the [Project Se
 
 ## Project Settings
 
-The **Project Settings** page allows you to enable or disable the [Telerik UI CDN support](/blazor-ui/getting-started/what-you-need#using-cdn).
+The **Project Settings** page allows you to enable or disable the [Telerik UI CDN support](/blazor-ui/getting-started/what-you-need#using-cdn). Note that this can affect the future [upgrade process of the theme]({%slug getting-started-vs-integration-new-project%}#using-local-theme).
 
 ![Project Settings dialog in the Project Configuration Wizard](../vs-integration/images/configure-settings.png)
 

@@ -49,7 +49,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to your `App.razor` file as a [static asset]({%slug getting-started/what-you-need%}#using-static-assets).
+1\. Add the `telerik-blazor.js` file to your `App.razor` file as a [static asset]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
 
 **HTML**
 
