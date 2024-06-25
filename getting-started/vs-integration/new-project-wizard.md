@@ -64,12 +64,12 @@ In this screen, you can choose:
 
 * Target framework - .NET 6, .NET 7 or .NET 8
 * Hosting model - the options vary depending on the selected target framework.
-* Location from where the application will get the Telerik UI for Blazor package - remote NuGet feed or local files.
-* Telerik UI for Blazor version
+* Location from where the application will get the Telerik UI for Blazor package - [remote NuGet feed]({%slug installation/nuget%}) or local files.
+* Telerik UI for Blazor version.
 
 ### Step 2: Select Project Template
 
-This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in step 1. 
+This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in [Step 1](#step-1-select-initial-project-configuration).
 
 The Client and Server projects for .NET 6 and .NET 7 support all of the below-listed templates. The Hybrid projects and the .NET 8 WebApp support only the **Blank** template.
 
@@ -88,7 +88,7 @@ This screen provides option to configure:
 
    * Whether to import the required Telerik UI stylesheet and JS Interop file by suing the [static assets](/blazor-ui/getting-started/what-you-need#using-static-assets) or the [CDN method](/blazor-ui/getting-started/what-you-need#using-cdn).
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
-   * Whether to use [Font Icons]({%slug common-features-icons%})
+   * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or not.
 
 ### Step 4 (final): Select Theme
 
