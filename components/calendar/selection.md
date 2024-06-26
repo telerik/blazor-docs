@@ -135,20 +135,28 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 
 With range selection mode, you have two options to get the user choice:
 
-* two-way binding for the `RangeStart` (representing the first date of the selection) and the `RangeEnd` (the last date of the selection) parameters.
-* Handling the [RangeStartChanged and RangeEndChanged events]({%slug components/calendar/events%}#rangestartchanged-and-rangeendchanged)
+* Two-way binding for the `RangeStart` (representing the first date of the selection) and the `RangeEnd` (the last date of the selection) parameters.
+* Handling the [RangeStartChanged and RangeEndChanged events]({%slug components/calendar/events%}#rangestartchanged-and-rangeendchanged).
+
+(Optional) You can set the `AllowReverse` parameter and define if the end date can be selected before the start date.
 
 
->caption Range selection with two-way binding
+>caption Range selection with two-way binding and AllowReverse
 
 ````CSHTML
 @* This example shows how to handle Range selection through two-way binding *@
+
+<TelerikCheckBox Id="myCheckBox" @bind-Value="@AllowReverse" />
+<label for="myCheckBox">@(AllowReverse ? "Allowed reverse selection" : "Not allowed reverse selection")</label>
+
+<br/>
 
 <TelerikCalendar Views="2"
                  Date="@Date"
                  @bind-RangeStart="@RangeStart"
                  @bind-RangeEnd="@RangeEnd"
-                 SelectionMode="@CalendarSelectionMode.Range">
+                 SelectionMode="@CalendarSelectionMode.Range"
+                 AllowReverse="@AllowReverse">
 </TelerikCalendar>
 
 <p>
@@ -161,6 +169,7 @@ With range selection mode, you have two options to get the user choice:
     public DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
     public DateTime RangeStart { get; set; } = DateTime.Now.Date;
     public DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(15).Date;
+    public bool AllowReverse { get; set; }
 
     // the RangeEnd value will be the default(DateTime) while the user is selecting a range
     // that is, while they have clicked only once in the calendar
