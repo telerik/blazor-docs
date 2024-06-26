@@ -63,5 +63,5 @@ The final decision depends on what and how much you need to customize and what f
 
 ## See Also
 
-* [How to Override Theme Styles]({%slug themes-override%})
-* [Using Custom Themes]({%slug themes-custom%})
+* [Custom Themes]({%slug themes-custom%})
+* [Use best practives when overriding theme styles]({%slug themes-override%}#best-practices)

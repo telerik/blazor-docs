@@ -17,11 +17,11 @@ This article provides high-level guidance about the knowledge and tools required
 
 ## CSS Knowledge
 
-To override an existing style, you implement another [*conflicting* style](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#conflicting_rules). To make sure the new style takes precedence, it should have a **higher specificity**. If it has the same specificity, then the style should come **later** in the order of CSS rules and files on the page.
+To override an existing style, you implement another [conflicting style](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#conflicting_rules). To make sure the new style takes precedence, it should have a *higher specificity*. If it has the same specificity, then the style should come later in the order of CSS rules and files on the page.
 
 * [MDN Documentation for CSS Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity). You may prefer a [less formal explanation](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/).
 * How to easily [calculate CSS Specificity](https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png) (part of the article [CSS Specificity Wars](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html)).
-* [CSS Combinators](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators) provide different ways to target an element, depending on its place in the DOM structure. Combinators are often called ["selectors"](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors), which is something different. Developers most commonly use **descendant** or **child** combinators, but there are many other options.
+* [CSS Combinators](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators) provide different ways to target an element, depending on its place in the DOM structure. Combinators are often called ["selectors"](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors), which is something different. Developers most commonly use *descendant* or *child* combinators, but there are many other options.
 
 ## Tools
 
