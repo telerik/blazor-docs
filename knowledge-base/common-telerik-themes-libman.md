@@ -68,7 +68,7 @@ Use the following information when creating the `libman.json` file:
 
 > Using the `@latest` theme version requires the latest Telerik UI for Blazor version as well.
 
-> In rare cases the `@latest` version may produce an error similar to `The "@progress/kendo-theme-default@latest" library could not be resolved by the "unpkg" provider`. In such cases, replace the `@latest` moniker with a [specific theme version](https://github.com/telerik/kendo-themes/releases), depending on the [theme version compatibility with Telerik UI for Blazor]({%slug themes-built-in%}#version-compatibility). For example, use `^8.0.0` to get the latest version of the major release `8`.
+> In rare cases the `@latest` version may produce an error similar to `The "@progress/kendo-theme-default@latest" library could not be resolved by the "unpkg" provider`. In such cases, replace the `@latest` moniker with a [specific theme version](https://github.com/telerik/kendo-themes/releases), depending on the [theme version compatibility with Telerik UI for Blazor]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance). For example, use `^8.0.0` to get the latest version of the major release `8`.
 
 The `libman.json` file below adds the **Main** swatches of [all built-in themes]({%slug themes-built-in%}#theme-names) and the font icon stylesheet. Remove the theme or font icons entries that you don't need.
 

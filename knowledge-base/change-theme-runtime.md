@@ -65,9 +65,9 @@ The following algorithm follows the commonly used approach to replace a CSS file
         document.getElementsByTagName("head")[0].appendChild(newLink);
     }
     ```
-1. Implement UI that triggers the Telerik theme change. Refresh all Telerik components that use SVG or Canvas rendering, such as BarCodes, Charts, Gauges, and QR Codes.
+1. Implement UI that triggers the JavaScript theme change. Afterwards, refresh all Telerik components that use SVG or Canvas rendering, such as BarCodes, Charts, Gauges, and QR Codes.
 
-    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-built-in%}#version-compatibility).
+    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance).
 
     >caption Razor
     ```

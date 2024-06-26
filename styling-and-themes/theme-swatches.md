@@ -6,7 +6,7 @@ slug: themes-swatches
 tags: telerik,blazor,theme,swatch
 published: True
 previous_url: /styling-and-themes/swatch-distribution
-position: 1
+position: 5
 ---
 
 # Theme Swatches
@@ -16,17 +16,17 @@ Telerik UI for Blazor comes with several [built-in themes]({%slug themes-built-i
 
 ## Basics
 
-A *theme* is a collection of styles, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, **Default** and **Bootstrap** are two [built-in theme names]({%slug themes-built-in%}#built-in-theme-names).
+A *theme* is a collection of styles, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, *Default* and *Bootstrap* are two [built-in theme names]({%slug themes-built-in%}#built-in-theme-names).
 
-A *theme swatch* is a color variation of a theme. All swatches of a given theme use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, **Default Ocean Blue** and **Bootstrap Nordic** are two built-in swatch names.
+A *theme swatch* is a color variation of a theme. All swatches of a given theme use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, *Default Ocean Blue* and *Bootstrap Nordic* are two built-in swatch names.
 
-When this documentation talks about a given theme name, for example **Default**, this implies the **Main** swatch of this theme. In addition, the word "theme" as a general term can imply any swatch of any theme.
+When this documentation talks about a given theme name, for example *Default*, this implies the *Main* swatch of this theme. In addition, the word "theme" as a general term can imply any swatch of any theme.
 
 The CSS file of a swatch is self-sufficient and contains all required styles for the Telerik Blazor components, except the optional [font icon styles]({%slug common-features-icons%}#font-icon-stylesheet). The Blazor app should load only one theme (swatch) at a time.
 
 ### Comparing Built-in Swatches
 
-You can explore built-in theme swatches on the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** drop down above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches]({%slug themes-custom%}).
+You can explore built-in theme swatches on the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches]({%slug themes-custom%}).
 
 
 ## Using Built-in Swatches
@@ -36,7 +36,7 @@ There are a few ways to obtain and use the Telerik theme swatches:
 * Download the Telerik UI for Blazor [MSI installer]({%slug installation/msi%}) or [ZIP archive]({%slug installation/zip%}) from your Telerik account. Get the required CSS file(s) from the `swatches` folder and place them in your Blazor app.
 * Download the required swatch(es) from the [CDN URLs below](#swatch-urls) or use these URLs directly in your Blazor app.
 
-Always make sure the [swatch file version is compatible with the Telerik UI for Blazor version]({%slug themes-built-in%}#version-compatibility).
+Always make sure the [swatch file version is compatible with the Telerik UI for Blazor version]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance).
 
 @[template](/_contentTemplates/common/general-info.md#change-theme-runtime)
 
@@ -51,7 +51,8 @@ Always make sure the [swatch file version is compatible with the Telerik UI for 
 | --- | --- |
 | Default Main | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/all.css <br /> or <br /> https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-main.css
 | Default Main Dark | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-main-dark.css
-| [Default Ocean Blue]({%slug themes-accessibility-swatch%}) | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css
+| Default Ocean Blue | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css
+| [Default Ocean Blue A11y]({%slug themes-accessibility-swatch%}) | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue-a11y.css
 | Default Blue | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-blue.css
 | Default Green | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-green.css
 | Default Nordic | https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-nordic.css
@@ -108,3 +109,4 @@ Always make sure the [swatch file version is compatible with the Telerik UI for 
 ## See Also
 
 * [Change the Theme at Runtime]({%slug change-theme-runtime%})
+* [Default Ocean Blue Accessibility Swatch]({%slug themes-accessibility-swatch%})

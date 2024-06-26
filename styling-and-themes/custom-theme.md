@@ -6,12 +6,12 @@ slug: themes-custom
 tags: telerik,blazor,theme,custom
 published: True
 previous_url: /themes/custom-theme
-position: 3
+position: 10
 ---
 
 # Custom Themes
 
-By customizing themes, you can alter the default appearance of the Telerik components so they match the desired color scheme and the rest of your site's coloring and style.
+Custom themes allow you to modify the appearance of the Telerik UI for Blazor components, so they match the desired color scheme and your Blazor app coloring and style.
 
 This article contains the following sections:
 
@@ -101,11 +101,9 @@ The [Theme Customization page of the Progress Design System documentation](https
 Custom themes are used in a [similar way as the built-in themes]({%slug getting-started/what-you-need%}#css-theme). The notable differences are:
 
 * The custom theme must reside in the `wwwroot` folder of the Blazor app or on a custom CDN provider.
-* You must recreate custom themes every time when you update the Telerik UI for Blazor version.
+* You must [recreate custom themes every time you update the Telerik UI for Blazor version]({%slug upgrade-tutorial%}).
 
 Make sure that the Blazor app is loading only one Telerik theme at a time. If you are replacing a built-in theme with a custom theme, you must remove the `<link>` element of the built-in theme.
-
-You have your custom theme - either generated through the Telerik ThemeBuilder tool, or one that you built yourself, or something that your organization provides.
 
 >caption Adding a custom Telerik theme
 
