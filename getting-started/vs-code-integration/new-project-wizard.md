@@ -80,3 +80,7 @@ The available .NET framework versions vary depending on the selected hosting mod
 Here you can select the desired [theme]({%slug general-information/themes%}) for your project. Click the **See All Swatches** button to explore the available [theme variations]({%slug themes-swatches%}).
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
+
+### Confirm Project Creation
+
+After configuring the preferred settings, click the **Create Project** button. The **Telerik UI for Blazor Template Wizard** close and the project creation will start. Once this is completed you will get a confirmation message in the terminal. You can then navigate to the selected output folder to open your project.
