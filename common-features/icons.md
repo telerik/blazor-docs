@@ -13,7 +13,7 @@ position: 1
 
 Telerik UI for Blazor provides a large set of built-in icons. There are two ways to consume and render them - as font icons or as SVG icons. It is also possible to use custom icons, or define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
 
-The Telerik Blazor components will generate the same type of icons (font icons or SVG icons), [depending on the `TelerikRootComponent` configuration](#set-global-icon-type). However, Telerik UI for Blazor includes standalone [`FontIcon`](#fonticon-component) and [`SvgIcon`](#svgicon-component) components, which can be used at the same time.
+The Telerik Blazor components generate the same type of icons (font icons or SVG icons), [depending on the `TelerikRootComponent` configuration](#set-global-icon-type). However, Telerik UI for Blazor includes standalone [`FontIcon`](#fonticon-component) and [`SvgIcon`](#svgicon-component) components, which can be used at the same time.
 
 This article contains the following sections:
 
