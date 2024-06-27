@@ -17,12 +17,12 @@ To create a new Telerik UI for Blazor application, use the **Create New Project*
 The **Create New Project** wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
-* [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
+* [Telerik stylesheet]({%slug getting-started/what-you-need%}#css-theme).
+* [JS Interop file]({%slug getting-started/what-you-need%}#javascript-file).
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
 * [Required `@using` directives]({%slug getting-started/what-you-need%}#namespaces) to the `~/_Imports.razor` file.
-* [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#telerikrootcomponent) at the root level of the DOM.
+* `TelerikLayout.razor` component containing the [`TelerikRootComponent`]({%slug getting-started/what-you-need%}#telerikrootcomponent).
 * Registration of the [Telerik services]({%slug getting-started/what-you-need%}#service).
 
 ## Getting the Wizard
