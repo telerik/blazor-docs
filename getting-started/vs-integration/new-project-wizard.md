@@ -71,7 +71,7 @@ In this screen, you can choose:
 
 This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in [**Step 1**](#step-1-select-initial-project-configuration).
 
-The Client and Server projects for .NET 6 and .NET 7 support all of the below-listed templates. The Hybrid projects and the .NET 8 WebApp support only the **Blank** template.
+The Client and Server projects for .NET 6 and .NET 7 support all the templates below. The Hybrid projects and the .NET 8 WebApp support only the **Blank** template.
 
 <a id="predefined-project-templates"> **Predefined Project Templates**</a>
 
