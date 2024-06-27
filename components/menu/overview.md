@@ -129,6 +129,26 @@ The following table lists Context Menu parameters, which are not related to othe
 | `ShowOn` | `MenuShowEvent` enum <br /> (`MouseEnter`) | The browser event that will trigger child Menu items to show (mouse enter or click). |
 | `HideOn` | `MenuHideEvent` enum <br /> (`MouseLeave`) | The browser event that will trigger child Menu items to hide (mouse leave or click).
 
+### Popup settings
+
+The popup of the component can be additionally customized via nested tags:
+
+<div class="skip-repl"></div>
+
+````
+<TelerikMenu>
+    <MenuSettings>
+        <MenuPopupSettings HorizontalCollision="..."/>
+    </MenuSettings>
+</TelerikMenu>
+````
+
+The Menu provides the following popup settings:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `HorizontalCollision` | `PopupCollision` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}#collision) |
+| `VerticalCollision` | `PopupCollision` enum <br /> (`Fit`) | Defines the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}#collision) |
 
 ## Next Steps
 
