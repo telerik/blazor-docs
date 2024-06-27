@@ -10,7 +10,7 @@ position: 2
 
 This article demonstrates how to use the Telerik Visual Studio extensions to create a new project that is pre-configured for the Progress&reg; Telerik&reg; UI for Blazor components.
 
-To create a new Telerik UI for Blazor application, use the **Create New Project** wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox to let you to start your project with the desired version. To make sure the components are up-to-date, you can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}).
+To create a new Telerik UI for Blazor application, use the **Create New Project** wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** dropdown for selection. To make sure the components are up-to-date, you can also [get the latest version]({%slug getting-started-vs-integration-latest-version%}).
 
 ## How It Works
 
