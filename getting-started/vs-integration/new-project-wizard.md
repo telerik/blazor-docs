@@ -90,7 +90,7 @@ This screen lets you choose:
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
 
-### Step 4 (Final): Select Theme
+### Step 4: Select Theme
 
 Finally, you can apply one of the available [themes]({%slug general-information/themes%}) to your project.
 
