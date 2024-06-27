@@ -88,7 +88,7 @@ This screen lets you choose:
 
    * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
-   * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or not.
+   * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
 
 ### Step 4 (Final): Select Theme
 
