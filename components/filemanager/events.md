@@ -378,7 +378,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 </TelerikFileManager>
 
 @code {
-    private List<FlatFileEntry> Files = new List<FlatFileEntry>();
+    private List<FlatFileEntry> Files { get; set; } = new();
 
     private string DirectoryPath { get; set; } = string.Empty;
 
@@ -413,14 +413,14 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
         if (parentDirectory != null)
         {
-            // simulate add in file system
+            // Simulate add to the file system
             newFolder.ParentId = parentDirectory.Id;
             Files.Add(newFolder);
             parentDirectory.HasDirectories = Files.Count(x => x.ParentId == parentDirectory.Id) > 0;
         }
         else
         {
-            // create a folder in the root dir
+            // Create a folder in the root directory
             Files.Add(newFolder);
         }
 
@@ -449,12 +449,12 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
         if (item.IsDirectory)
         {
-            // prevent renaming of directories. If you allow that, make sure
-            //to also update the Path of the children
+            // Prevent renaming of directories. If you allow that, make sure
+            // to also update the Path of the children.
         }
         else
         {
-            // the name prop is updated, but update the path to the file as well
+            // The name property is updated, but also update the path to the file.
             var name = item.Name ?? string.Empty;
             var extension = item.Extension ?? string.Empty;
             var fullName = extension.Length > 0 && name.EndsWith(extension) ?
@@ -472,16 +472,22 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
     {
         var selectedItem = args.Item as FlatFileEntry;
 
-        //the Filemanager does not have the actual file.
-        //To download it, find the selected file through args.Item and
-        //assign the actual file to the argument as follows:
+        // The Filemanager does not have the actual file.
+        // Obtain the file contents, based on args.Item, and set the event arguments:
 
         //args.Stream = the file stream of the actual selected file;
-        //args.MimeType = the mime type of the actual file, so it can be downloaded;
-        //args.FileName = allows overriding the name of the downloaded file;
+        //args.MimeType = the MIME type of the actual file;
+        //args.FileName = the file name that the browser will receive (optional);
 
+        FlatFileEntry actualFile = (FlatFileEntry)args.Item;
+
+        string dummyFileContent = $"This file is a dummy version of {actualFile.Name}. It was downloaded with the Telerik Blazor FileManager.";
+        byte[] dummyFileBuffer = System.Text.Encoding.UTF8.GetBytes(dummyFileContent);
+
+        args.Stream = new MemoryStream(dummyFileBuffer);
+        args.MimeType = "text/plain";
+        args.FileName = $"filemanager-{actualFile.Name}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.txt";
     }
-
 
     private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
@@ -512,7 +518,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private void OnSelect(IEnumerable<FlatFileEntry> selectedFiles)
     {
-        //update the view-model
+        // Update the view-model
         SelectedItems = selectedFiles;
     }
 
@@ -521,13 +527,11 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
         Files = new List<FlatFileEntry>(Files);
     }
 
-    // fetch the FileManager data
     protected override async Task OnInitializedAsync()
     {
         Files = await GetFlatFileEntries();
     }
 
-    // a model to bind the FileManager. Should usually be in its own separate location.
     public class FlatFileEntry
     {
         public string Id { get; set; }
