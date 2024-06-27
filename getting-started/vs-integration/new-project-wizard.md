@@ -62,7 +62,7 @@ Clicking the **Create** button in this window opens the wizard and you will go t
 
 In this screen, you can choose:
 
-* Target framework&mdash;.NET 6, .NET 7 or .NET 8.
+* Target .NET framework
 * Hosting model&mdash;the options vary depending on the selected target framework.
 * Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed]({%slug installation/nuget%}) or local files.
 * Telerik UI for Blazor version.
