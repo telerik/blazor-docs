@@ -51,7 +51,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 The Animation Container renders at the place of its declaration. It has a `position:absolute` CSS style, so it will display over adjacent elements. The component position can be offset by parent elements with a `position` style, even of the `Top` and `Left` parameters are set.
 
-The component should reside outside elements with an `overflow` CSS style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation will not exist for the [future `Popup` component](https://feedback.telerik.com/blazor/1506370-dropdown-container-popup-component-tied-to-an-anchor-for-positioning).
+The component should reside outside elements with an `overflow` CSS style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation does not exist for the [Popup]({%slug popup-overview%}) and [Popover]({%slug popover-overview%}) components.
 
 ## Animation
 
