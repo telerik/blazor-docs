@@ -518,7 +518,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private void OnSelect(IEnumerable<FlatFileEntry> selectedFiles)
     {
-        // Update the view-model
+        // Update the view model.
         SelectedItems = selectedFiles;
     }
 
