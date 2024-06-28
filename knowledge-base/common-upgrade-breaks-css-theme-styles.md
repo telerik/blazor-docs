@@ -39,7 +39,7 @@ The application is using an outdated CSS theme or swatch.
 
 To resolve the problem, follow the [recommended UI for Blazor upgrade procedure]({%slug upgrade-tutorial%}):
 
-* If using the [Telerik **CDN**]({%slug getting-started/what-you-need%}#cdn) - update the [stylesheet file URL]({%slug themes-swatches%}) to the correct version.
+* If using the [Telerik **CDN**]({%slug common-features-cdn%}) - update the [stylesheet file URL]({%slug themes-swatches%}) to the correct version.
 * If using a **local** CSS file in `wwwroot` - replace the stylesheet with a compatible one. If the application is using a [**custom theme**, then recreate it]({%slug themes-custom%}#import-custom-theme).
 * If using **static assets** from the NuGet package - clear the browser cache.
 

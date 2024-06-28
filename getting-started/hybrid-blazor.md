@@ -65,7 +65,7 @@ Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component
 
 Make sure that the `TelerikRootComponent` matches the web view viewport and remove the default margin of the `<body>` HTML element.
 
-Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#common-configuration)).
+Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration]({%slug getting-started/what-you-need%}#telerikrootcomponent)).
 
 ### 5. Register the Telerik Services
 

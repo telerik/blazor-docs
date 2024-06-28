@@ -50,7 +50,7 @@ Each theme defines the same collection of variables, but with different values:
 
 The example below shows how to customize some of the theme variables.
 
->caption Override theme color variables
+>caption Override theme variables
 
 ````CSHTML
 @if (RenderCustomVariables)
@@ -84,7 +84,7 @@ The example below shows how to customize some of the theme variables.
 </TelerikButton>
 
 @code {
-    private bool RenderCustomVariables { get; set; }
+    private bool RenderCustomVariables { get; set; } = true;
 }
 ````
 

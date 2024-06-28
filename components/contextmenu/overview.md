@@ -134,6 +134,27 @@ The following table lists Context Menu parameters, which are not related to othe
 | `Class` | `string` | Renders an additional CSS class to the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
 | `Selector` | `string` | A CSS selector of the target elements where the Context Menu will be shown.|
 
+### Popup settings
+
+The popup of the component can be additionally customized via nested tags:
+
+<div class="skip-repl"></div>
+
+````
+<TelerikContextMenu>
+    <ContextMenuSettings>
+        <ContextMenuPopupSettings HorizontalCollision="..."/>
+    </ContextMenuSettings>
+</TelerikContextMenu>
+````
+
+The ContextMenu provides the following popup settings:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `HorizontalCollision` | `PopupCollision` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}#collision) |
+| `VerticalCollision` | `PopupCollision` enum <br /> (`Fit`) | Defines the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.]({%slug popup-position-collision%}#collision) |
+
 ## Context Menu Reference and Methods
 
 To use the [Blazor Context Menu methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1), add a reference to the component instance.

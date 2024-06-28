@@ -19,9 +19,9 @@ The wizard adds the following client assets to your project:
 * [JS Interop file]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files)
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
-* [Required `@using` directives]({%slug getting-started/what-you-need%}#common-configuration) to the `~/_Imports.razor` file.
-* [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#common-configuration) at the root level of the DOM.
-* Registration for the Telerik services for [client-side projects]({%slug getting-started/what-you-need%}#client-side-project-specifics), for [server-side projects]({%slug getting-started/what-you-need%}#server-side-project-specifics), and for [hybrid projects]({%slug getting-started/what-you-need%}#blazor-hybrid-project-specifics).
+* [Required `@using` directives]({%slug getting-started/what-you-need%}#namespaces) to the `~/_Imports.razor` file.
+* [`TelerikLayout.razor` component]({%slug getting-started/what-you-need%}#telerikrootcomponent) at the root level of the DOM.
+* Registration of the [Telerik services]({%slug getting-started/what-you-need%}#service).
 
 ## Getting the Wizard
 

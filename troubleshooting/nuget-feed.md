@@ -23,6 +23,8 @@ Regardless of the cause for the issue, it is recommended that you start from the
 * [Error `Unable to resolve ... . PackageSourceMapping is enabled`](#unable-to-resolve-package-due-to-packagesourcemapping)
 * [Error `Failed to retrieve information about ... from remote source`](#failed-to-retrieve-information-from-remote-source)
 
+@[template](/_contentTemplates/common/general-info.md#status-telerik-com)
+
 ## Tips for Handling Common NuGet Issues
 
 The most common reasons for issues with the private Telerik NuGet feed are related to:
@@ -76,10 +78,16 @@ Add-Type -AssemblyName System.Web
 
 ## Unable to Find Package
 
-If the error occurs for the `Telerik.UI.for.Blazor` package, the [Telerik NuGet source]({%slug installation/nuget%}) may not be added or enabled. The possible causes are:
+If the error occurs for the `Telerik.UI.for.Blazor` package, it may look like this:
 
-* Missing NuGet source configuration in the `NuGet.Config` file.
-* The correct `NuGet.Config` file is not used, because it is missing or misplaced. This is common Docker scenario and the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the Docker image build. You can also [reference the `NuGet.Config` file path explicitly in the `dotnet restore` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#options). For more information, see the [private NuGet feeds in Docker forum thread](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) and [some DevOps examples](https://github.com/LanceMcCarthy/DevOpsExamples).
+`error NU1101: Unable to find package Telerik.UI.for.Blazor. No packages exist with this id in source(s): nuget.org`
+
+Such an error implies that the [Telerik NuGet source]({%slug installation/nuget%}) is not added or enabled. The possible causes are:
+
+* Missing Telerik NuGet source configuration in the `NuGet.Config` file.
+* The correct `NuGet.Config` file is not used, because it is missing or misplaced.
+
+If the error occurs in a Docker scenario, the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the Docker image build. You can also [reference the `NuGet.Config` file path explicitly in the `dotnet restore` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#options). For more information, see the [Docker section]({%slug deployment-ci-cd-build-pc%}#docker) in the deployment documentation and the [private NuGet feeds in Docker](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) forum thread.
 
 If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages]({%slug common-features-icons%}), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
 
@@ -94,9 +102,15 @@ In urgent cases, download the NuGet packages from your [Telerik Account **Downlo
 
 ## Package Version Not Found
 
-You may encounter an error similar to `ProjectName depends on Telerik.UI.for.Blazor (>= 3.6.1) but Telerik.UI.for.Blazor 3.6.1 was not found. An approximate best match of Telerik.UI.for.Blazor 3.7.0 was resolved.`
+You may encounter an error similar to:
 
-This error means that version `3.6.1` is outside the subscription period of your license.
+`ProjectName depends on Telerik.UI.for.Blazor (>= 5.1.1) but Telerik.UI.for.Blazor 5.1.1 was not found. An approximate best match of Telerik.UI.for.Blazor 6.0.2 was resolved.`
+
+or
+
+`error NU1102: Unable to find package Telerik.UI.for.Blazor with version (>= 5.1.1)`
+
+This error means that version `5.1.1` is outside the subscription period of your license.
 
 To solve the issue, use a different version or ask the license holder at your company to assign you another license that includes the desired product version.
 

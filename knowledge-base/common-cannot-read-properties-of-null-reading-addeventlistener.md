@@ -58,7 +58,7 @@ The error indicates that the app is still using the old version of our `telerik-
 
 To resolve the error:
 
-* (if using [CDN]({%slug getting-started/what-you-need%}#using-cdn)) Update the `telerik-blazor.js` file URL to the correct version.
+* (if using [CDN]({%slug common-features-cdn%})) Update the `telerik-blazor.js` file URL to the correct version.
 * (if using static assets) Clear the browser cache.
 * (if using a local JS file) Replace the `telerik-blazor.js` file with the new version.
 

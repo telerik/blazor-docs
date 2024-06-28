@@ -67,12 +67,12 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
 <TelerikDrawer Data="@Data" UrlField="ItemUrl" TextField="ItemText" IconField="ItemIcon"
                MiniMode="true" Mode="@DrawerMode.Push" Expanded="true">
     <DrawerContent>
-        @Body
+        ...Drawer Content...
     </DrawerContent>
 </TelerikDrawer>
 
 @code {
-    IEnumerable<DrawerItem> Data { get; set; } =
+    private IEnumerable<DrawerItem> Data { get; set; } =
         new List<DrawerItem>
             {
             new DrawerItem { ItemText = "Counter", ItemIcon = SvgIcon.Plus, ItemUrl = "counter" },
