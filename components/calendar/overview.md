@@ -89,7 +89,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 | `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
 | `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
 | `ShowWeekNumbers` | `bool` | Sets if the Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
-| `ShowOtherMonthDays` | `bool` | Defines whether the leading and trailing days from other months are visible within the current month. |
+| `ShowOtherMonthDays` | `bool` <br /> (`true`) | Defines whether the leading and trailing days from other months are visible within the current month. |
 | `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
 | `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
