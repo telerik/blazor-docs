@@ -138,7 +138,7 @@ With range selection mode, you have two options to get the user choice:
 * Two-way binding for the `RangeStart` (representing the first date of the selection) and the `RangeEnd` (the last date of the selection) parameters.
 * Handling the [RangeStartChanged and RangeEndChanged events]({%slug components/calendar/events%}#rangestartchanged-and-rangeendchanged).
 
-(Optional) You can set the `AllowReverse` parameter and define if the end date can be selected before the start date.
+(Optional) You can set the `AllowReverse` parameter and define if the range is valid and highlighed when the end date preceeds the start date.
 
 
 >caption Range selection with two-way binding and AllowReverse
@@ -156,6 +156,7 @@ With range selection mode, you have two options to get the user choice:
                  @bind-RangeStart="@RangeStart"
                  @bind-RangeEnd="@RangeEnd"
                  SelectionMode="@CalendarSelectionMode.Range"
+                 ShowOtherMonthDays="false"
                  AllowReverse="@AllowReverse">
 </TelerikCalendar>
 

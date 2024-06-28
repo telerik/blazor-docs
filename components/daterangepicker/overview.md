@@ -17,10 +17,10 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 1. Use the `TelerikDateRangePicker` tag to add the component to your razor page.
 1. Bind its `StartValue` and `EndValue` parameters to `DateTime` objects
 1. Optionally, provide custom `Format`, `Min` and `Max` values, `AllowReverse` feature
-1. Optionally, set the `AllowReverse` parameter and define if the end date can be selected before the start date.
+1. Optionally, set the `AllowReverse` parameter and define if the range is valid and highlighed when the end date preceeds the start date.
 
 
->caption Basic Date Range Picker with custom format, min and max and allow reverse selection
+>caption Basic Date Range Picker with custom format, min and max and reverse range
 
 ````CSHTML
 @StartValue?.ToString("dd MMM yyyy")
