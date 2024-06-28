@@ -413,7 +413,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
         if (parentDirectory != null)
         {
-            // Simulate add to the file system
+            // Simulate add to the file system.
             newFolder.ParentId = parentDirectory.Id;
             Files.Add(newFolder);
             parentDirectory.HasDirectories = Files.Count(x => x.ParentId == parentDirectory.Id) > 0;
