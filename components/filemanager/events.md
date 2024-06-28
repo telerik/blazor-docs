@@ -420,7 +420,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
         }
         else
         {
-            // Create a folder in the root directory
+            // Create a folder in the root directory.
             Files.Add(newFolder);
         }
 
