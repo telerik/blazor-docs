@@ -96,7 +96,7 @@ When using a local theme, the CSS file is saved locally in the `wwwroot/lib/blaz
 
 ### Step 4: Select Theme
 
-Finally, you can apply one of the available [themes]({%slug general-information/themes%}) to your project.
+Finally, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
 
 ## See Also
 
