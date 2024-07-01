@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version=$(cat dist/VERSION_SHORT | cut -d'-' -f 1)
+version=$(cat temp/dist/VERSION_SHORT | cut -d'-' -f 1)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [ $BRANCH != "production" ]; then
