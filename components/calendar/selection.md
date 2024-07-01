@@ -149,7 +149,7 @@ With range selection mode, you have two options to get the user choice:
 <TelerikCheckBox Id="myCheckBox" @bind-Value="@AllowReverse" />
 <label for="myCheckBox">@(AllowReverse ? "Allowed reverse selection" : "Not allowed reverse selection")</label>
 
-<br/>
+<br />
 
 <TelerikCalendar Views="2"
                  Date="@Date"
