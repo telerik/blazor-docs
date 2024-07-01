@@ -167,10 +167,10 @@ With range selection mode, you have two options to get the user choice:
 </p>
 
 @code {
-    public DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
-    public DateTime RangeStart { get; set; } = DateTime.Now.Date;
-    public DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(15).Date;
-    public bool AllowReverse { get; set; }
+    private DateTime Date { get; set; } = DateTime.Now.AddDays(-5);
+    private DateTime RangeStart { get; set; } = DateTime.Now.Date;
+    private DateTime RangeEnd { get; set; } = DateTime.Now.AddDays(15).Date;
+    private bool AllowReverse { get; set; }
 
     // the RangeEnd value will be the default(DateTime) while the user is selecting a range
     // that is, while they have clicked only once in the calendar
