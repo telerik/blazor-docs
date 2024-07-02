@@ -1,3 +1,0 @@
-#good-styling-practices
-The Telerik UI for Blazor components render as regular HTML elements. The [best way to customize their appearance is by using CSS]({%slug common-kb-theme-customization-options%}). When using CSS overrides, we recommend to set custom CSS classes via the exposed component parameters and events whenever possible. Following such styling practices will also protect the business application from [rendering changes]({%slug versions-with-rendering-changes%}) in future versions.
-#end

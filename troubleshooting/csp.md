@@ -27,14 +27,14 @@ In general, a strict CSP can disable web app features, such as:
 Telerik UI for Blazor components need the following exceptions to strict CSP. Some of them depend on the product version or product usage.
 
 * Allow inline styles (`'unsafe-inline'`) to use component parameters such as `Width`, `Height`, `RowHeight`, `ItemHeight`, `Top`, `Left`, etc. In addition, some components rely on inline styles for their rich functionality and UX.
-* Allow data URIs (`data:`) for images that are embedded in the [CSS themes]({%slug general-information/themes%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
+* Allow data URIs (`data:`) for images that are embedded in the [CSS themes]({%slug themes-built-in%}). These images are used for styled checkboxes and radio buttons, Slider ticks, and others.
 * *(starting from version 6.0.0)* Allow script evaluation (`'unsafe-eval'`), which is required by the [Spreadsheet]({%slug spreadsheet-overview%}) for cell validation and formula compilation. If you don't use the Spreadsheet component in your Blazor app, then check section [Build CSP Compliant telerik-blazor.js](#build-csp-compliant-telerik-blazorjs) below.
 * Allow `https://blazor.cdn.telerik.com` as a source when using [the Telerik CDN]({%slug common-features-cdn%}) for styles or scripts.
 
 The following items concern older product versions:
 
 * *(up to version 4.4.0)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}). These templates used to rely on `eval()`. Since version 4.5.0, the Chart labels support a different template mechanism, which doesn't require `unsafe-eval`.
-* *(up to version 4.6.0)* Allow `data` URIs for `font-src` to use [font icons]({%slug common-features-icons%}). Later versions use a separate file for the `WebComponentsIcons` icon font. This font file is referenced by the [font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet).
+* *(up to version 4.6.0)* Allow `data:` URIs for `font-src` to use [font icons]({%slug common-features-icons%}). Later versions use a separate file for the `WebComponentsIcons` icon font. This font file is referenced by the [font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet).
 
 ## Example
 

@@ -77,12 +77,12 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 | `ColumnWidth` | `double` <br /> (`64`) | The initial pixel width of the columns. |
 | `Data` | `byte[]` | The Excel file to display in the Spreadsheet component. |
 | `EnableLoaderContainer` | `bool` <br /> (`true`) | Defines if the component will show a built-in [LoaderContainer]({%slug loadercontainer-overview%}) while loading Excel files. |
-| `Height` | `string` | The `height` style of the `<div class="k-spreadsheet">` element. The [built-in themes]({%slug general-information/themes%}) apply `"600px"` by default. |
+| `Height` | `string` | The `height` style of the `<div class="k-spreadsheet">` element. The [built-in themes]({%slug themes-built-in%}) apply `"600px"` by default. |
 | `RowHeaderWidth` | `double` <br /> (`32`) | The pixel width of the row headers that display the row numbers. The default width fits up to 3 digits comfortably. |
 | `RowHeight` | `double` <br /> (`20`) | The initial pixel height of the rows. |
 | `RowsCount` | `int` <br /> (`200`) | The initial number of rows to render. Users can add and delete rows at runtime. |
 | `Tools` | `SpreadsheetToolSet` <br /> (`SpreadsheetToolSets.All`) | The available tabs and tools that users can use to manipulate the Excel file content. The Spreadsheet renders all its tools by default, so the resulting Spreadsheet UI will change in the future. |
-| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. The [built-in CSS themes]({%slug general-information/themes%}) apply `"100%"` by default. |
+| `Width` | `string` | The `width` style of the `<div class="k-spreadsheet">` element. The [built-in CSS themes]({%slug themes-built-in%}) apply `"100%"` by default. |
 
 
 ## Spreadsheet Reference and Methods

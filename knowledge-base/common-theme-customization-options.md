@@ -58,10 +58,10 @@ To change the sizing and layout of most or all our components, go for manual the
 
 The final decision depends on what and how much you need to customize and what future requirements may appear.
 
-[**Figma UI Kits**](https://www.telerik.com/figma-kits) allow designers to include visual representations of the Telerik components in their application designs. Custom kits still [require you to create a custom theme afterwards](/blazor-ui/styling-and-themes/figma-ui-kits#choosing-how-to-use-the-ui-kits).
+[**Figma UI Kits**](https://www.telerik.com/figma-kits) allow designers to include visual representations of the Telerik components in their application designs. Custom kits still [require you to create a custom theme afterwards]({%slug ui-kits/themes%}#choosing-how-to-use-the-ui-kits).
 
 
 ## See Also
 
-* [How to Override Theme Styles]({%slug themes-override%})
-* [Using Custom Themes]({%slug themes-custom%})
+* [Custom Themes]({%slug themes-custom%})
+* [Use best practives when overriding theme styles]({%slug themes-override%}#best-practices)
