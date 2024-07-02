@@ -37,9 +37,9 @@ You can customize the appearance of the Telerik Blazor components in several way
 
 ## Setting Theme Variables
 
-The Telerik themes define a collection of theme variables and values. Then, these variables take part in CSS rules to apply consistent styles to all Telerik Blazor components.
+The Telerik themes define a collection of theme variables and values. Then, these variables take part in CSS rules to apply consistent styles to all Telerik Blazor components. With regard to colors, the themes rely on a [color system](https://www.telerik.com/design-system/docs/foundation/color/), which is built on [color variable groups](https://www.telerik.com/design-system/docs/foundation/color/swatch/) and [color palettes](https://www.telerik.com/design-system/docs/foundation/color/color-palettes/).
 
-It is possible to customize the appearance of our components by overriding the theme variable values outside the theme CSS file. This spares the need to create and maintain a full custom theme.
+It is possible to customize the appearance of the Telerik UI for Blazor components if you override the theme variable values outside the theme CSS file. This spares the need to create and maintain a full custom theme.
 
 Each theme defines the same collection of variables, but with different values:
 

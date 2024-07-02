@@ -90,7 +90,7 @@ This screen lets you choose:
    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
 
-### Using Local Theme
+#### Using Local Theme
 
 When using a local theme, the CSS file is saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, upgrading UI for Blazor requires you to [replace this CSS file manually]({%slug upgrade-tutorial%}).
 

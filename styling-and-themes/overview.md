@@ -11,7 +11,7 @@ position: 0
 
 # Built-in Themes
 
-Telerik UI for Blazor comes with a set of built-in CSS themes that control the visual appearance of the components. Each theme determines the components' colors, borders, backgrounds, size, layout, position, font size and sometimes the font family. You can compare all themes and swatches on the [Telerik UI for Blazor live demos](https://demos.telerik.com/blazor-ui/).
+Telerik UI for Blazor comes with a set of built-in CSS themes that control the visual appearance of the components. Each theme determines the components' [colors](https://www.telerik.com/design-system/docs/foundation/color/), borders, backgrounds, size, layout, position, font size and sometimes the font family. You can compare all themes and swatches on the [Telerik UI for Blazor live demos](https://demos.telerik.com/blazor-ui/).
 
 [Telerik UI for Blazor has the same HTML rendering and theme stylesheets as other Telerik and Kendo UI web products](#built-in-theme-development), so previous experience with them can be helpful. At the same time, the Telerik UI for Blazor components are *native Blazor components* and not wrappers around other Telerik products.
 
@@ -46,7 +46,7 @@ There are three ways to load a Telerik theme, in terms of physical CSS file loca
 
 The [Telerik themes are decoupled from the Telerik Blazor components](#built-in-theme-development), which leads to the following usage requirements:
 
-* When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#using-local-theme).
+* When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
 * When using [swatches on UNPKG CDN]({%slug themes-swatches%}#swatch-urls), make sure that the theme version in the CDN URL is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a [newer minor theme version](https://github.com/telerik/kendo-themes/releases), if it doesn't contain breaking changes.
 
 ### Loading Themes from the NuGet Package
