@@ -43,21 +43,27 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
 
     /* base styles for all custom icons */
     .my-icon {
-        /* Define size, position and font styles here. */
+        /* Define size, position and font styles here to ensure icons and images will be properly visualized in all themes. */
         width: 1em;
-        height: auto;
+        height: 1em;
         font-size: 16px;
     }
 
-    /* styles for specific custom icons */
-    .my-icon-purple {
+    /* styles for specific custom image */
+    .my-image {
         /* define a background image or a font icon glyph here */
-        background: purple;
+        background-image: url('https://demos.telerik.com/kendo-ui/content/shared/icons/16/star.png'); 
         flex-shrink: 0;
     }
 </style>
 
-@[template](/_contentTemplates/common/icons.md#font-icons-css-code)
+<!-- Load this stylesheet only if using Telerik font icons -->
+<link href="https://blazor.cdn.telerik.com/blazor/6.0.2/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />
+
+<!-- The stylesheets for the custom FontAwesome icon -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
 
 @code {
     private TelerikDrawer<DrawerItem> DrawerRef { get; set; }
@@ -67,9 +73,10 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
     private DrawerItem SelectedItem { get; set; }
 
     private IEnumerable<DrawerItem> Data { get; set; } = new List<DrawerItem>() {
-        new DrawerItem { Text = "Location (SVG icon)", Icon = SvgIcon.Pin },
+        new DrawerItem { Text = "Home (SVG icon)", Icon = SvgIcon.Home },
         new DrawerItem { Text = "Navigation (Font icon)", Icon = FontIcon.Globe },
-        new DrawerItem { Text = "Favorites", Icon = "my-icon my-icon-purple" },
+        new DrawerItem { Text = "Favorites (Image)", Icon = "my-icon my-image" },
+        new DrawerItem { Text = "Settings (Custom icon)", Icon = "my-icon fa fa-cog" },
     };
 
     public class DrawerItem
