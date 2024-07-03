@@ -148,24 +148,6 @@ To see how to select the row that is being edited in InCell edit mode without us
 
 In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
-### Selection in Template
-
-When using the [Grid column Template]({%slug grid-templates-column%}) and you want to stop the Selection from being triggered when the user clicks in it, you should add the `@onclick:stopPropagation` directive to the element.
-
->caption Prevent row selection from happening when the user clicks inside a template
-
-````CSHTML
-<GridColumn Field=@nameof(Product.ProductId) Title="Id">
-    <Template>
-        <span @onclick:stopPropagation>
-            <TelerikNumericTextBox Value="@((context as Product).ProductId)"></TelerikNumericTextBox>
-        </span>
-    </Template>
-</GridColumn>
-````
-
-If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the grid cannot render selection checkboxes for you, so you have to bind them yourself to a field in the model, and handle their selection changed event to populate the `SelectedItems` collection of the grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item)
-
 ### Asynchronous Operations
 
 Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged).
@@ -196,6 +178,10 @@ When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%})
 ### Row Drag and Drop
 
 If the user drags selected rows, the current row selection will be cleared on row drop.
+
+## Selection in Template
+
+If you are using a [Grid Column Template]({%slug grid-templates-column%}) you can check the knowledge base article on [how to select row in the Grid when using Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}).
 
 
 ## See Also
