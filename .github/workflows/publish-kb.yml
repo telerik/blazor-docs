@@ -6,6 +6,7 @@ on:
 run-name: Publish Knowledge Base Article ${{ github.event.client_payload.name }} ${{ github.event.client_payload.id }}
 
 permissions:
+  id-token: write
   contents: write
   pull-requests: write
 
