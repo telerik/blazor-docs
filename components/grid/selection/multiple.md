@@ -36,24 +36,10 @@ In Multiple SelectionMode, you can select rows through the following approaches:
 
 >tip The [Examples](#examples) section showcases how you can use the grid features together.
 
-## Checkbox Selection
-
-To add row selection checkboxes in each row, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the grid. The user can select the desired rows through the checkboxes. The column provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
-
-**Usage:**
-
-````CSHTML
-<GridCheckboxColumn SelectAll="true" SelectAllMode="GridSelectAllMode.Current">
-</GridCheckboxColumn>
-````
 
 ## Selected Items
 
-The `SelectedItemsChanged` event receives a collection of the grid data model. It may have no items in it.
 
-You can use the `SelectedItems` collection in two-way binding. You can use this to pre-select rows for your users.
-
-The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the selection.
 
 ## Examples
 
