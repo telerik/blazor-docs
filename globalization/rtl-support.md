@@ -18,7 +18,7 @@ The default language input for most users on the web is left-to-right. However, 
 
 Right-to-left support is configured at the root level so it affects all UI for Blazor components in the application. You cannot mix right-to-left and left-to-right orientation in the same application.
 
-To enable the Right-to-Left direction of the components in your application, set the `EnableRtl` parameter of the [`TelerikRootComponent`]({%slug rootcomponent-overview%})  to `true`.
+To enable right-to-left direction of the components in your application, set the `EnableRtl` parameter of the [`TelerikRootComponent`]({%slug rootcomponent-overview%})  to `true`.
 
 ````TelerikLayout.razor
 <TelerikRootComponent EnableRtl="true">
