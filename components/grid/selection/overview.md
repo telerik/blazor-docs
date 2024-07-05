@@ -14,33 +14,28 @@ The Grid component offers support for row and cell selection.
 
 In this article:
 
-* [Selection Basics](#selection-basics)
-	* [Example - Enable Row Selection](#example---enable-row-selection)
-	* [Example - Select rows with checkboxes only](#example---select-rows-with-checkboxes-only)
-* [Notes](#notes)
-	* [Editing Modes](#editing-modes)
-	* [Selection in Template](#selection-in-template)
-	* [Asynchronous Operations](#asynchronous-operations)
-	* [SelectedItems Equals Comparison](#selecteditems-equals-comparison)
-	* [Handle Data Changes](#handle-data-changes)
-    * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
-    * [Row Drag and Drop](#row-drag-and-drop)
+* [Selection Type](#selection-type)
+* [Selection Mode](#selection-mode)
+* [Selection Options](#selection-options)
+	* [Click-Only Selection](#click-only-selection)
+	* [Checkbox Selection](#checkbox-selection)
+* [Selected Items](#selected-items)
 
 
 ## Selection Type
 
 You can configure to select rows or cells in the Grid. Set the setting `GridSelectionType` to a member of the `Telerik.Blazor.GridSelectionType` enum. The selection can be:
 
-* [Row]({%slug components/grid/selection/row%}) - (the default value) 
-* [Cell]({%slug components/grid/selection/cell%})
+* `Row`
+* `Cell`
 
-## Selection Modes
+## Selection Mode
 
-You can configure the selection behavior by setting `SelectionMode` to a member of the `Telerik.Blazor.GridSelectionMode` enum. The row selection can be:
+You can configure the selection behavior by setting `SelectionMode` to a member of the `Telerik.Blazor.GridSelectionMode` enum. The selection can be:
 
-* `None` - (the default value) to disable row or cell selection
-* `Single`
-* `Multiple`
+* `None` (the default value) - To disable row or cell selection.
+* `Single` - Only one row or cell can be selected at a time, so the last one will be the selected one.
+* `Multiple` - You can select a single or multiple rows or cells.
 
 ## Selection Options
 
@@ -48,15 +43,19 @@ When you select a row or a cell, they will be highlighted to notify you that the
 
 ### Click-Only Selection
 
-By default, user can select a single row or a single cell by clicking anywhere, except on command buttons.
+By default, the user can select a single row or a single cell by clicking anywhere in the cell or in the row, except on command buttons.
 
-To select multiple rows or multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection.
+To select multiple rows or multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
+* Press and hold `Ctrl` and click the desired rows or cells to select or deselect them.
+* Click on the starting item in a range of items that you want to select, press and hold `Shift`, and click on the last item in the range. The first selected item is the start point of the range and the last selected item is the end of the selection.
 
-To deselect the row or the cell, the user has to click on the already selected item.
+If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected items will be deselected.
 
 ### Checkbox Selection
 
-You can also use a checkbox column to select and deselect rows. This way the user can select the desired rows through the checkboxes. To use it, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. You can use it with both selection modes - single or multiple. The [`GridCheckboxColumn`] provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
+You can also use a checkbox column to select and deselect rows. This way the user can select the desired rows through the checkboxes. To use it, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. You can use it with both selection modes - single or multiple. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
+
+To deselect the row, click its checkbox again.
 
 ## Selected Items
 
@@ -64,9 +63,11 @@ You can also use a checkbox column to select and deselect rows. This way the use
 
 You can get or set the selected rows through the `SelectedItems` property. It is a collection of rows from the Grid's `Data`.
 
-The `SelectedItemsChanged` event receives a collection of the grid data model. It may have no items in it.
+You can respond to the user action of selecting a new row through the `SelectedItemsChanged` event. The `SelectedItemsChanged` event receives a collection of the Grid data model. It may have no items in it.
 
-You can use the `SelectedItems` collection in two-way binding. You can use this to pre-select rows for your users.
+You can use the `SelectedItems` collection in two-way binding. You can predefine the selected item for your users through the two-way binding of the `SelectedItems` property. The collection will be updated by the Grid when the selection changes.
+
+Note that both binding to the property and using its event cannot be used at the same time, as Blazor only allows one, meaning that you can use two-way binding for the `SelectedItems` property without the `SelectedItemsChanged` event. Or you can use one-way binding for the `SelectedItems` property and the `SelectedItemsChanged` event.
 
 The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the selection.
 
@@ -89,109 +90,25 @@ When the `SelectedItems` are obtained from a different data source to the Grid (
 
 ### Selected Items When Data Changes
 
-When the grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
+When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* If the Grid does *not* use an `ObservableCollection` for its `Data` - The `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
+* If the Grid does *not* use an `ObservableCollection` for its `Data` - the `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
 
-* If you update or delete an item, you must make the same update in the selected items through the grid [editing events]({%slug components/grid/editing/overview%}).
+* If you update or delete an item, you must make the same update in the selected items through the Grid [editing events]({%slug components/grid/editing/overview%}).
 
-* When using an `ObservableCollection` for the grid `Data`- If an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the Selected Items collection).
+* When using an `ObservableCollection` for the grid `Data`- if an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the Selected Items collection).
 
-* The other CRUD operations (Create and Update), you should use the grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
+* The other CRUD operations (Create and Update), you should use the Grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
 
 * When the data changes and the selected items are cleared, the `SelectedItemsChanged` event will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
 
-### Example - Enable Row Selection
+### SelectedItemsChanged and Asynchronous Operations
 
-````CSHTML
-See how the row selection modes work
+Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged).
 
-<select @bind=@selectionMode>
-    <option value=@GridSelectionMode.Single>Single</option>
-    <option value=@GridSelectionMode.Multiple>Multiple</option>
-</select>
+## Selection and other Grid features
 
-<TelerikGrid Data=@GridData
-             SelectionMode="@selectionMode"
-             Pageable="true">
-    <GridColumns>
-        <GridCheckboxColumn SelectAll="@( selectionMode == GridSelectionMode.Single ? false : true )" Title="Select" Width="70px" />
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    GridSelectionMode selectionMode = GridSelectionMode.Single;
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-    }
-}
-````
-
-### Example - Select rows with checkboxes only
-
-````CSHTML
-@* Require clicks on the checkboxes for row selection*@
-
-<TelerikGrid Data=@GridData Navigable="true"
-             SelectionMode="GridSelectionMode.Multiple"
-             Pageable="true"
-             Height="400px">
-    <GridColumns>
-        <GridCheckboxColumn CheckBoxOnlySelection="true" />
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Employee>();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3
-            });
-        }
-    }
-
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-    }
-}
-````
-
-## Selection with Editing Modes
+### Selection with Editing Modes
 
 #### InCell Edit Mode
 
@@ -203,22 +120,19 @@ To see how to select the row that is being edited in InCell edit mode without us
 
 In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
-## Selection in Grid with virtualized rows
+### Selection in Grid with virtualized rows
 
 When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`]({%slug components/grid/selection/multiple%}) the selectable items will be the one in the current set of items (page). If you select an item and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected item.
 
-## Selection in Template
+### Selection in Template
 
 If you are using a [Grid Column Template]({%slug grid-templates-column%}) you can check the knowledge base article on [how to select row in the Grid when using Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}).
 
-## Asynchronous Operations
+### Selection and Row Drag and Drop
 
-Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged).
+If the user drags selected rows, the current selection and the collection? will be cleared on row drop.
 
-## Row Drag and Drop
-
-If the user drags selected rows, the current row selection will be cleared on row drop.
-
+## Example
 
 ## See Also
 
