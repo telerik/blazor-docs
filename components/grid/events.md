@@ -1055,7 +1055,7 @@ Make sure to update the current page size when using the event.
 
 ## SelectedItemsChanged
 
-Fires when item selection is enabled and the user [selects or deselects one item]({%slug components/grid/selection/single%}#selecteditemschanged-event) or [multiple items]({%slug components/grid/selection/multiple%}#selecteditemschanged-event), depending on the [selection mode]({%slug components/grid/selection/overview%}).
+Fires when item selection is enabled and the user selects or deselects one item or multiple items, depending on the [selection mode]({%slug components/grid/selection/overview%}#selection-mode).
 
 ## See Also
 

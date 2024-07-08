@@ -32,11 +32,11 @@ How can I achieve the following with the Blazor Grid:
 
 To simulate filtering by the selected items:
 
-1. Get the [`SelectedItems`]({%slug components/grid/selection/multiple%}#selected-items) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
+1. Get the [`SelectedItems`]({%slug components/grid/selection/rows%}#selected-rows) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
 
 1. To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
 
-1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug components/grid/selection/multiple%}#checkbox-selection)).
+1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug components/grid/selection/rows%}#checkbox-selection)).
 
 > [Override the `Equals` method]({%slug components/grid/selection/overview%}#selecteditems-equals-comparison) so that the selection is preserved during filtering.
 
