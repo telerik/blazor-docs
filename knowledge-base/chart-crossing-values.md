@@ -1,8 +1,8 @@
 ---
-title: Move the X-Axis labes to the bottom of the Chart
+title: Move the X-Axis Labels to the Bottom of the Chart
 description: How to move the X-Axis labes to the bottom of the Chart
 type: how-to
-page_title: Move the X-Axis labes to the bottom of the Chart
+page_title: Move the X-Axis Labels to the Bottom of the Chart
 slug: chart-kb-crossing-values
 position:
 tags:
