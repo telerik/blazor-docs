@@ -38,7 +38,7 @@ To enable the Checkbox selection only in edit mode in the TreeList component, fo
 3. Handle the CUD (Create, Update, Delete) events to manage the visibility of the `TreeListCheckboxColumn`.
     - For [`Inline`]({%slug treelist-editing-inline%}) and [`Popup`]({%slug treelist-editing-popup%}) edit modes, this approach works directly. In the [`Incell` edit mode the events flow is a bit different]({%slug treelist-editing-incell%}), so you may need to adjust the logic.
 
-Below is an example implementation that toggles the visibility of the CheckboxColumn:
+Below is an example implementation that toggles the visibility of the Checkbox Column:
 
 ```CSHTML
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
