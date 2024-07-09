@@ -2,8 +2,8 @@
 title: ProseMirror Plugins
 page_title:  ProseMirror Plugins
 description: Explore how to use the ProseMirror Plugins in the Editor for Blazor uses.
-slug: editor-prosemirror-schema-overview
-tags: telerik,blazor,editor,prosemirror,schema
+slug: editor-prosemirror-plugins
+tags: telerik,blazor,editor,prosemirror,plugins
 published: True
 position: 130
 ---
@@ -30,9 +30,9 @@ The function accepts an `arguments` object with the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `getSchema` | a function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the `Schema` is the current schema. |
+| Property | Description |
+|----------|-------------|
+| `getSchema` | a function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. Iy you don't provide a custom schema, this function always retrns the default schema. |
 | `getView` | a function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
 | `ProseMirror` | object that contains various ProseMirror classes and functions.|
 | `getPlugins` | a function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
