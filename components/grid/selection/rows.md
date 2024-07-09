@@ -30,7 +30,7 @@ You can use [click-only selection](#click-only-selection) and [checkbox selectio
 
 ### Click-Only Selection
 
-By default, user can select rows by clicking anywhere in the row, except on command buttons.
+By default, user can select row by clicking anywhere in the row, except on command buttons.
 
 To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired rows to select or deselect them.
@@ -38,15 +38,113 @@ To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selec
 
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected rows will be deselected.
 
+>caption Click-only selection and Single SelectionMode
+
+````CSHTML
+Click on one row to select it
+
+<TelerikGrid Data=@GridData
+             SelectionMode="@GridSelectionMode.Single"
+             Pageable="true">
+    <GridColumns>
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Employee> GridData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        for (int i = 0; i < 15; i++)
+        {
+            GridData.Add(new Employee()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    Team = "Team " + i % 3
+                });
+        }
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+    }
+}
+````
+
 ### Checkbox Selection
 
 You can also use a checkbox column to select and deselect rows. This way the user can select the desired rows through the checkboxes. To use it, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
 
 To deselect the row, click its checkbox again.
 
+>caption Checkbox selection and Multiple SelectionMode
+
+````CSHTML
+@if (CheckBoxOnlySelection)
+{
+    <div>You can <strong>click only the checkbox itself</strong> to select or deselect the row. You cannot click the entire row.</div>
+}
+else
+{
+    <div>You can <strong>click both the checkbox or the row</strong> to select or deselect the row.</div>
+}
+<br/>
+<TelerikCheckBox @bind-Value="@CheckBoxOnlySelection"
+                 Id="@CheckboxId"/>
+<label for="@CheckboxId">Toggle checkbox only selection</label>
+<br />
+<br />
+<TelerikGrid Data=@GridData
+             SelectionMode="@GridSelectionMode.Multiple"
+             Pageable="true">
+    <GridColumns>
+        <GridCheckboxColumn SelectAll="@ShouldSelectAll" CheckBoxOnlySelection="@CheckBoxOnlySelection"></GridCheckboxColumn>
+        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<Employee> GridData { get; set; }
+
+    private bool ShouldSelectAll { get; set; } = true;
+    private bool CheckBoxOnlySelection { get; set; }
+
+    private string CheckboxId { get; set; } = "checkboxOnlySelection";
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        for (int i = 0; i < 15; i++)
+        {
+            GridData.Add(new Employee()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    Team = "Team " + i % 3
+                });
+        }
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+    }
+}
+````
+
 ## Selected Rows
 
-## Basics
+### Basics
 
 * You can get or set the selected rows through the `SelectedItems` property. It is a collection of rows from the [Grid's `Data`]({%slug grid-data-binding%}).
 * You can use the `SelectedItems` collection in two-way binding. You can predefine the selected item for your users through the two-way binding of the `SelectedItems` property. The collection will be updated by the Grid when the selection changes.
@@ -78,10 +176,69 @@ You can respond to the user action of selecting a new row through the `SelectedI
 
 Note that both binding to the property and using its event cannot be used at the same time, as Blazor only allows one. This means that if you want to use the `SelectedItemsChanged` event, you need to use one-way binding for the `SelectedItems` property. Otherwise, you can use two-way binding for the `SelectedItems` property without the `SelectedItemsChanged` event.
 
+>caption One-way binding for SelectedItems and using the SelectedItemsChanged event
+
+````CSHTML
+<TelerikGrid Data=@GridData
+             SelectionMode="@GridSelectionMode.Multiple"
+             SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
+             SelectedItems="@SelectedEmployees"
+             Pageable="true"
+             Height="400px">
+    <GridColumns>
+        <GridCheckboxColumn />
+        <GridColumn Field=@nameof(Employee.Name) />
+        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+    </GridColumns>
+</TelerikGrid>
+
+@if (SelectedEmployees != null)
+{
+    <ul>
+        @foreach (Employee employee in SelectedEmployees)
+        {
+            <li>
+                @employee.Name
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Employee> GridData { get; set; }
+    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Employee>();
+        for (int i = 0; i < 15; i++)
+        {
+            GridData.Add(new Employee()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    Team = "Team " + i % 3
+                });
+        }
+    }
+
+    protected void OnSelect(IEnumerable<Employee> employees)
+    {
+        SelectedEmployees = employees;
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+    }
+}
+````
+
 ### SelectedItemsChanged and Asynchronous Operations
 
 Asynchronous operations such as loading data on demand should be handled in the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) events rather than in the [`SelectedItemsChanged`]({%slug grid-events%}#selecteditemschanged). So if you want to load that data on demand, you should use the `OnRowClick` event.
-
 
 ## See Also
 
