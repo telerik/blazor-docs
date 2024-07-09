@@ -10,7 +10,7 @@ position: 3
 
 # Modify the Default ProseMirror Schema
 
-This article describes how you can modify the default ProseMirror Schema that the Editor for Blazor uses. Updating the existing schema is useful if you want to:
+This article describes how you can modify the default [ProseMirror Schema that the Editor for Blazor uses]({%slug editor-prosemirror-schema-overview%}). Updating the existing schema is useful if you want to:
 
 * Extend the Editor capabilities and allow your users to add more kinds of HTML tags than the predefined ones.
 * Allow adding more attributes to the predefined HTML elements.
@@ -134,7 +134,6 @@ The below example shows how to modify the default ProseMirror Schema to:
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Schema](https://demos.telerik.com/blazor-ui/editor/prosemirror-schema)
-* [Modify the Default Schema]({%slug editor-modify-default-schema%})
 * [Create a New Schema]({%slug editor-create-new-schema%})
 
 
