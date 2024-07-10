@@ -83,4 +83,4 @@ Select your desired [theme]({%slug general-information/themes%}) for your projec
 
 ### Confirm Project Creation
 
-After configuring the preferred settings, click the **Create Project** button. The **Telerik UI for Blazor Template Wizard** close and the project creation will start. Once this is completed you will get a confirmation message in the terminal. You can then navigate to the selected output folder to open your project.
+After configuring the preferred settings, click the **Create Project** button. The **Telerik UI for Blazor Template Wizard** closes and the project creation begins. When completed, the terminal shows a confirmation message. You can then navigate to the previously specified output folder to open your project.
