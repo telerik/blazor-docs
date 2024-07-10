@@ -69,7 +69,7 @@ Choose whether to use [localization]({%slug globalization-localization%}) in the
 
 ### Section 8: Select the Preferred Icon Type
 
-Here you can decide whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
+Decide if you want to switch to using [Font Icons]({%slug common-features-icons%}) instead of the default SVG icons.
 
 ### Section 9: Select Target Framework
 
