@@ -60,7 +60,7 @@ By default, **Paid** is selected.
 
 ### Section 6: Choose How to Distribute the Client Assets
 
-This section allows you to choose whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
+Choose whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
 
 ### Section 7: Enable or Disable Localization
 
