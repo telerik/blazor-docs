@@ -64,7 +64,7 @@ Choose whether to import the required Telerik UI stylesheet and JS Interop file 
 
 ### Section 7: Enable or Disable Localization
 
-This section lets you specify whether to use [localization]({%slug globalization-localization%}) in the project or not.
+Choose whether to use [localization]({%slug globalization-localization%}) in the project or not.
 
 
 ### Section 8: Select the Preferred Icon Type
