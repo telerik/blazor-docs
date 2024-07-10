@@ -16,7 +16,7 @@ To disable the rendering of the large ticks, set the parameter to 0.
 #end
 
 #small-step
-The `SmmallStep` defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected.
+The `SmallStep` defines the step through which the slider `Value` is changed when the user drags the handle. Also defines where small ticks appear on the track to indicate a value that can be selected.
 
 We recommend matching the `SmallStep` with the `LargeStep` for improved visual appearance (e.g., multiply the `SmallStep` by the desired whole number and set that to the `LargeStep`).
 
