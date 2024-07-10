@@ -219,8 +219,7 @@ The example below includes two Grids - one for each `FilterMode`.
         MenuFilteredSpiceIds = new List<int>();
         await context.ClearFilterAsync();
 
-        // Since the filtering occurs outside the Grid,
-        // we need to clear the active filter style manually.
+        // Because the filtering occurs outside of the Grid, the active filter style requires manual clearing.
         SpicesHeaderClass = "";
     }
 
@@ -232,8 +231,7 @@ The example below includes two Grids - one for each `FilterMode`.
         {
             filteredData.RemoveAll(x => !MenuFilteredSpiceIds.All(y => x.SpiceIds.Contains(y)));
 
-            // Since the filtering occurs outside the Grid,
-            // we need to apply the active filter style manually.
+            // Because the filtering occurs outside of the Grid, the active filter style requires manual applying.
             SpicesHeaderClass = "active-filter";
         }
 
