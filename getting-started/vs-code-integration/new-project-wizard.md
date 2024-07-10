@@ -31,7 +31,7 @@ To create a Telerik-enabled Blazor project:
 
 The **Telerik UI for Blazor Template Wizard** provides two options to start you project:
 
-* **Start from Blank App** - allows you to create a blank project that is pre-configured for the Progress® Telerik® UI for Blazor components. You can select and add sample pages to get started (a Grid with CRUD operations form a service, a Form, Charts).
+* **Start from Blank App**&mdash;allows you to create a blank project that is pre-configured for the Progress® Telerik® UI for Blazor components. You can select and add sample pages to get started (a Grid with CRUD operations form a service, a Form, Charts).
 
 * **Start from Template** - the wizard provides a set of predefined project templates:
     * **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and Form validation. The Data Grid also uses a basic CRUD service (a common pattern for data updates in production-ready applications).
