@@ -42,7 +42,7 @@ The available templates vary depending on the target framework and hosting model
 
 ### Section 2: Select Project Name and Path
 
-This section allows you to type your project name and select the output folder for it.
+Type your project name and select the output folder for it.
 
 ### Section 3: Select UI for Blazor Version
 
