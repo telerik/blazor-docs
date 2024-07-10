@@ -56,7 +56,7 @@ The available target framework options are updated upon selecting the hosting mo
 
 ### Section 5: Select Your License Type
 
-By default, the "Paid" option is selected corresponding to the commercial license type.
+By default, **Paid** is selected.
 
 ### Section 6: Choose How to Distribute the Client Assets
 
