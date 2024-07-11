@@ -92,6 +92,8 @@ The `OnUpdate` event fires when the user changes a value in the Form. The event 
 
 By default, `OnUpdate` will fire on each keystroke for [auto-generated form items]({%slug form-overview%}#automatic-generation-of-fields) and [`FormItem` templates]({%slug form-formitems-template%}). To change this behavior, define a `FormItem` `Template` and set [`ValidateOn` to `ValidationEvent.Change`]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) for the field editor component. In this case, `OnUpdate` will fire when the user blurs the field editor or hits Enter while the editor is focused.
 
+You can use the `OnUpdate` event to programmatically [refresh the UI outside the current Form item]({%slug form-formitems%}#ui-rendering-inside-the-form).
+
 The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.FormUpdateEventArgs) with the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
