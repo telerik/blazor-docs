@@ -1,12 +1,12 @@
 ---
-title: Wrap Form Items in Custom Component
-description: 
+title: Use Form Items inside Custom Components
+description: Learn how to use Telerik Blazor Form items inside custom components. See how to add Form items to child components of the Telerik Blazor Form and the FormItemsTemplate.
 type: how-to
-page_title: How to Wrap Form Items in Custom Component
-slug: form-kb-wrap-items-in-custom-component
+page_title: How to Use Form Items inside Custom Razor Components
+slug: form-kb-use-items-in-custom-component
 position: 
 tags: telerik, blazor
-ticketid: 
+ticketid: 1656228, 1647734
 res_type: kb
 ---
 
@@ -26,16 +26,35 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to
+* How to add Form items in another component, wnich is inside the Telerik Blazor form?
+* How to wrap Form items in a reusable custom component?
+* How to implement a `FormGroup` that contains a nested shared component with `FormItem` instances inside?
+* How to put a `<FormItem>` in another component (control)?
 
 
 ## Solution
 
-Here are the required steps to exclude Telerik UI for Blazor components from `telerik-blazor.js` and rebuild the Telerik JSInterop file.
+To render Form items inside custom Razor components:
 
-1. Login to your [Telerik account](https://www.telerik.com/account/).
+1. Define all [`<FormGroup>`]({%slug form-formgroups%}) and [`<FormItem>`]({%slug form-formitems%}) instances inside the `<FormItems>` tag of the Form.
+1. Add a [`<FormItemsTemplate>`]({%slug form-formitems-formitemstemplate%}) tag to the Form.
+1. Define [group renderers]({%slug form-formitems-formitemstemplate%}#form-group-renderer) and [item renderers]({%slug form-formitems-formitemstemplate%}#form-item-renderer) for the Form groups and items, which will be children of the `<FormItemsTemplate>`.
+1. Add the custom Razor components inside `<FormItemsTemplate>`.
+1. Define parameters for the custom Razor components, which will receive Form groups or Form items.
+1. Define the required renderers inside the custom Razor components, according to the parameters from the previous step.
 
->caption Example
+### Example
+
+The example below assumes that the project name is `YourAppName` and the `Person` class is defined in namespace `YourAppName.Data`. Rename the namespaces in `Home.razor`, `MultipleFormItems.razor`, and `Person.cs` before running the code in your app.
+
+* `Home.razor` is the main Razor file, which holds the Form
+* `SingleFormGroup.razor` includes a complete Form Group. The component receives an `IFormGroup` as a parameter.
+* `MultipleFormItems.razor` renders multiple Form items that belong to a group. The component receives all items as a collection in a single parameter of type `FormGroupRendererTemplateContext`. This approach is not required and you can also define a different parameter for each item.
+* `SingleFormItem.razor` includes a single Form item. The component receives an `IFormItem` as a parameter.
+
+>caption Wrap Telerik Blazor Form groups and items in custom Razor components
+
+<div class="skip-repl"></div>
 
 ````Home.razor
 @using YourAppName.Data
@@ -83,7 +102,7 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 </TelerikForm>
 
 @code {
-    private Person Employee = new Person();
+    private Person? Employee { get; set; }
 
     protected override void OnInitialized()
     {
@@ -102,6 +121,8 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 ````SingleFormGroup.razor
 <div style="margin:.6em 0;padding:1em;background:#cf9;border:1px solid #ccc;">
 
+    <p><strong><code>SingleFormGroup.razor</code></strong></p>
+
     <TelerikFormGroupRenderer Group="@FormGroup">
         <Template Context="groupContext">
             @foreach (IFormItem item in groupContext.Items)
@@ -119,9 +140,11 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 }
 ````
 ````MultipleFormItems.razor
-@using SupportServer.Data
+@using YourAppName.Data
 
 <div style="margin:.4em 0;padding:1em;background:#ffd;border:1px solid #ccc;">
+
+    <p><strong><code>MultipleFormItems.razor</code></strong></p>
 
     <TelerikFormItemRenderer Item="@( Context?.Items.Cast<IFormItem>().First(x => x.Field == nameof(Person.FirstName)) )" />
 
@@ -130,14 +153,14 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 </div>
 
 @code {
-#nullable enable
-
     [Parameter]
     public FormGroupRendererTemplateContext? Context { get; set; }
 }
 ````
 ````SingleFormItem.razor
-<div style="margin:.4em 0;padding:1em;background:#fc9;border:1px solid #ccc;">
+<div style="margin:.4em 0;padding:1em;background:#fdc;border:1px solid #ccc;">
+
+    <p><strong><code>SingleFormItem.razor</code></strong></p>
 
     <TelerikFormItemRenderer Item="@FormItem" />
 
@@ -174,10 +197,10 @@ namespace YourAppName.Data
         public string PerformanceReview { get; set; } = string.Empty;
     }
 }
-
 ````
 
 
 ## See Also
 
-* [Adding Telerik UI for Blazor to a Blazor app]({%slug getting-started/what-you-need%})
+* [Form Template for All Items]({%slug form-formitems-formitemstemplate%})
+* [Form Items]({%slug form-formitems%})
