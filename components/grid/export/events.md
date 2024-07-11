@@ -41,24 +41,28 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 * `isCancelled` -  `bool` - cancel the OnBeforeExcel event by setting the `isCancelled` property to `true`.
 
+>caption Using the Grid OnBeforeExport with Excel export
+
 ````CSHTML
-@* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to excel. *@
+@* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to Excel. *@
 
+@* Required by BuiltInNumberFormats in the OnExcelBeforeExport handler *@
 @using Telerik.Documents.SpreadsheetStreaming
-@using Telerik.FontIcons
 
-@*This using is for the GridExcelExportColumn in the OnExcelBeforeExport method*@
+@* Required by GridExcelExportColumn in the OnExcelBeforeExport handler *@
 @using Telerik.Blazor.Components.Grid
 
 <TelerikGrid Data="@GridData" Pageable="true" Sortable="true"
              @bind-SelectedItems="@SelectedItems"
              SelectionMode="@GridSelectionMode.Multiple"
              Resizable="true" Reorderable="true"
-             FilterMode="@GridFilterMode.FilterRow" Groupable="true">
+             FilterMode="@GridFilterMode.FilterRow"
+             Groupable="true">
 
     <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportSelectedItemsOnly" />Export Selected Items Only</label>
     </GridToolBarTemplate>
 
     <GridExport>
@@ -66,64 +70,69 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID"
-                    Visible="false"
-                    Width="100px" />
+        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" Visible="false" />
         <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
         <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
         <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
         <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="100px" />
-        <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" Width="300px" />
+        <GridColumn Field="@nameof(SampleData.ReleaseDate)" Title="Release Date" Width="300px" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private async Task OnExcelBeforeExport(GridBeforeExcelExportEventArgs args)
-    {
-        //export a hidden column (Visible set to false)
-
-        var exportableHiddenColumn = new GridExcelExportColumn()
-            {
-                Title = "Product Id",
-                Field = nameof(SampleData.ProductId)
-            };
-
-        args.Columns.Insert(0, exportableHiddenColumn);
-
-        //customize the width of the first column when exporting
-        args.Columns[0].Width = "200px";
-
-        //change the format of the exported column
-        //the BuiltInNumberFormats is part of the Telerik.Documents.SpreadsheetStreaming namespace
-        args.Columns[3].NumberFormat = BuiltInNumberFormats.GetCurrency2();
-
-        //export only the first 4 columns in the Grid
-        args.Columns = (args.Columns.Take(4)).ToList();
-
-        //export the SelectedItems
-        args.Data = SelectedItems;
-
-        //set the IsCancelled flag to true if you want to cancel the OnBeforeExport event
-        args.IsCancelled = false;
-    }
+    private List<SampleData> GridData { get; set; } = new();
 
     private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
 
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
+    private bool ExportAllPages { get; set; }
+
+    private bool ExportSelectedItemsOnly { get; set; } = true;
+
+    private void OnExcelBeforeExport(GridBeforeExcelExportEventArgs args)
+    {
+        // Export the hidden ProductId column that has Visible="false"
+        var exportableHiddenColumn = new GridExcelExportColumn()
+        {
+            Title = "Product Id",
+            Field = nameof(SampleData.ProductId)
+        };
+        args.Columns.Insert(0, exportableHiddenColumn);
+
+        // Customize the Width of the first exported column
+        args.Columns[0].Width = "200px";
+
+        // Change the format of the Price column
+        // BuiltInNumberFormats is part of the Telerik.Documents.SpreadsheetStreaming namespace
+        args.Columns[3].NumberFormat = BuiltInNumberFormats.GetCurrency2();
+
+        // Change the format of the ReleaseDate column
+        args.Columns[3].NumberFormat = BuiltInNumberFormats.GetShortDate();
+
+        // Export only the first 4 columns in the Grid
+        //args.Columns = (args.Columns.Take(4)).ToList();
+
+        if (ExportSelectedItemsOnly)
+        {
+            // Export only the SelectedItems instead of the Grid data
+            args.Data = SelectedItems;
+        }
+
+        // Set IsCancelled to true if you want to prevent exporting
+        args.IsCancelled = false;
+    }
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.14159m * x,
-                Discontinued = x % 4 == 0,
-                FirstReleaseDate = DateTime.Now.AddDays(-x)
-            }).ToList();
-      
+        GridData = Enumerable.Range(1, 9).Select(x => new SampleData
+        {
+            ProductId = x,
+            ProductName = $"Product {x}",
+            UnitsInStock = x * 2,
+            Price = 3.14159m * x,
+            Discontinued = x % 4 == 0,
+            ReleaseDate = DateTime.Now.AddDays(-x)
+        }).ToList();
+
         SelectedItems = GridData.Take(5);
     }
 
@@ -134,7 +143,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
         public int UnitsInStock { get; set; }
         public decimal Price { get; set; }
         public bool Discontinued { get; set; }
-        public DateTime FirstReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }
 ````
