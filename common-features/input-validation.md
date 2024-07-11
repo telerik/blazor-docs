@@ -919,7 +919,7 @@ The feature is supported by the following components treated as simple textbox-l
 
 ## See Also
 
-* [Data Annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
+* [Data annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
 * [Conditional validation]({%slug form-kb-conditional-validation%})
 * [ValueChanged and validation]({%slug value-changed-validation-model%})
 * [Validate on blur or change]({%slug textbox-validate-on-change%})
