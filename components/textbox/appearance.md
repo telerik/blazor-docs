@@ -19,7 +19,7 @@ You can control the appearance of the TextBox button by setting the following at
 
 ## Size
 
-You can increase or decrease the size of the TextBox by setting the `Size` attribute to a member of the `Telerik.Blazor.ThemeConstants.TextBox.Size` class:
+You can increase or decrease the size of the TextBox by setting the `Size` parameter to a member of the `Telerik.Blazor.ThemeConstants.TextBox.Size` class. The `Size` parameter determines styles like `padding` and `font-size`, but is not related to the separate `Width` parameter.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -29,28 +29,28 @@ You can increase or decrease the size of the TextBox by setting the `Size` attri
 |`Medium`|`md`|
 |`Large`|`lg`|
 
->caption The built-in sizes
+>caption Built-in TextBox sizes
 
 ````CSHTML
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Size)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
+        .GetFields(System.Reflection.BindingFlags.Public
+            | System.Reflection.BindingFlags.Static
+            | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
 
     @foreach (var field in fields)
     {
         string size = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <TelerikTextBox @bind-Value="@TextBoxValue" Size="@size"></TelerikTextBox>
-        </div>
+
+        <span style="margin-left: 2em;">Size <code>&quot;@size&quot;</code></span>
+        <TelerikTextBox @bind-Value="@TextBoxValue" Size="@size" Width="120px"></TelerikTextBox>
     }
 }
 
 @code{
-    private string TextBoxValue { get; set; }
+    private string TextBoxValue { get; set; } = "TextBox Value";
 }
 ````
 
@@ -65,30 +65,29 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to a
 |`Large`|`lg`|
 |`Full`|`full`|
 
->caption The built-in values of the Rounded attribute
+>caption Built-in values of the TextBox Rounded parameter
 
 ````CSHTML
-@* The built-in values of the Rounded attribute.  *@
-
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Rounded)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
+        .GetFields(System.Reflection.BindingFlags.Public
+            | System.Reflection.BindingFlags.Static
+            | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
 
     @foreach (var field in fields)
     {
         string rounded = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <TelerikTextBox @bind-Value="@TextBoxValue" Rounded="@rounded"></TelerikTextBox>
-        </div>
+
+        <TelerikTextBox @bind-Value="@TextBoxValue" Rounded="@rounded" Width="120px"></TelerikTextBox>
+        <span>Rounded <code>&quot;@rounded&quot;</code></span>
+        <br /><br />
     }
 }
 
 @code{
-    private string TextBoxValue { get; set; }
+    private string TextBoxValue { get; set; } = "TextBox Value";
 }
 ````
 
@@ -102,31 +101,29 @@ The `FillMode` controls how the TelerikTextBox is filled. You can set it to a me
 |`Flat`|`flat`|
 |`Outline`|`outline`|
 
->caption The built-in Fill modes
+>caption Built-in TextBox fill modes
 
 ````CSHTML
-@* These are all built-in fill modes *@
-
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.FillMode)
-        .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
-        | System.Reflection.BindingFlags.FlattenHierarchy)
+        .GetFields(System.Reflection.BindingFlags.Public
+            | System.Reflection.BindingFlags.Static
+            | System.Reflection.BindingFlags.FlattenHierarchy)
         .Where(field => field.IsLiteral && !field.IsInitOnly).ToList();
 
 
     @foreach (var field in fields)
     {
         string fillMode = field.GetValue(null).ToString();
-        
-        <div style="float:left; margin: 20px;">
-            <span>@fillMode</span>
-            <TelerikTextBox @bind-Value="@TextBoxValue" FillMode="@fillMode"></TelerikTextBox>
-        </div>
+
+        <TelerikTextBox @bind-Value="@TextBoxValue" FillMode="@fillMode" Width="120px"></TelerikTextBox>
+        <span>FillMode <code>&quot;@fillMode&quot;</code></span>
+        <br /><br />
     }
 }
 
 @code{
-    private string TextBoxValue { get; set; }
+    private string TextBoxValue { get; set; } = "TextBox Value";
 }
 ````
 
