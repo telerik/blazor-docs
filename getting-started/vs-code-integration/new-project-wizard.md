@@ -27,7 +27,7 @@ To create a Telerik-enabled Blazor project:
 
 ## Using the Wizard
 
-### Section 1: Choose how to start the project
+#### Section 1: Choose How to Start the Project
 
 The **Telerik UI for Blazor Template Wizard** provides two options to start you project:
 
@@ -40,47 +40,56 @@ The **Telerik UI for Blazor Template Wizard** provides two options to start you 
 
 The available templates vary depending on the target framework and hosting model. All of the above templates are available for the Client and Server projects for .NET 6 and .NET 7. The Hybrid projects and the .NET 8 WebApp support only the **Start from Blank App** option.
 
-### Section 2: Select Project Name and Path
+#### Section 2: Select Project Name and Path
 
 Type your project name and select the output folder for it.
 
-### Section 3: Select UI for Blazor Version
+#### Section 3: Select UI for Blazor Version
 
-This section allows you to select the preferred UI for Blazor version. The current latest version is pre-selected by default. Therefore, you must ensure that your system has access to the same version of the UI components - you can achieve this with the [Telerik NuGet feed](../../installation/nuget).
+Select the preferred UI for Blazor version. Make sure that your system has access to the specified version of the UI components. You can achieve this with the [Telerik NuGet feed]({%slug installation/nuget%}).
 
-### Section 4: Select Hosting Model
+#### Section 4: Select Hosting Model
 
 Here you can select the desired hosting model&mdash;[**WebApp**]({%slug getting-started/web-app%}), [**Client** (also: WebAssembly)]({%slug getting-started/client-side%}), [**Server**]({%slug getting-started/server-side%}), or [**Hybrid** (a hybrid Blazor MAUI)]({%slug getting-started/hybrid-blazor%}).
 
 The available target framework options are updated upon selecting the hosting model.
 
-### Section 5: Select Your License Type
+#### Section 5: Select Your License Type
 
-By default, **Paid** is selected.
+Select your license type - **Commercial** (**Paid**) or **Trial**.
 
-### Section 6: Choose How to Distribute the Client Assets
+#### Section 6: Choose How to Distribute the Client Assets
 
 Choose whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
 
-### Section 7: Enable or Disable Localization
+#### Section 7: Enable or Disable Localization
 
 Choose whether to use [localization]({%slug globalization-localization%}) in the project or not.
 
-
-### Section 8: Select the Preferred Icon Type
+#### Section 8: Select the Preferred Icon Type
 
 Decide if you want to switch to using [Font Icons]({%slug common-features-icons%}) instead of the default SVG icons.
 
-### Section 9: Select Target Framework
+#### Section 9: Select Target Framework
 
 The available .NET framework versions vary depending on the selected hosting model.
 
-### Section 10: Select Theme
+#### Section 10: Select Theme
 
 Select your desired [theme]({%slug general-information/themes%}) for your project. Click **See All Swatches** to explore the available [theme variations]({%slug themes-swatches%}).
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
 
-### Confirm Project Creation
+#### Confirm Project Creation
 
 After configuring the preferred settings, click the **Create Project** button. The **Telerik UI for Blazor Template Wizard** closes and the project creation begins. When completed, the terminal shows a confirmation message. You can then navigate to the previously specified output folder to open your project.
+
+
+## See Also
+
+* [Telerik UI for Blazor Visual Studio Code Extensions Overview]({%slug getting-started-vs-code-integration-overview%})
+* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version%})
+* [Getting Started with Client-Side Apps]({%slug getting-started/client-side%})
+* [Getting Started with Server-Side Apps]({%slug getting-started/server-side%})
+* [Getting Started with Web Apps]({%slug getting-started/web-app%})
+* [Workflow for Using the UI Components for Blazor]({%slug getting-started/what-you-need%})
