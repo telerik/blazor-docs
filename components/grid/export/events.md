@@ -56,11 +56,13 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
              @bind-SelectedItems="@SelectedItems"
              SelectionMode="@GridSelectionMode.Multiple"
              Resizable="true" Reorderable="true"
-             FilterMode="@GridFilterMode.FilterRow">
+             FilterMode="@GridFilterMode.FilterRow"
+             Groupable="true">
 
     <GridToolBarTemplate>
         <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportSelectedItemsOnly" />Export Selected Items Only</label>
     </GridToolBarTemplate>
 
     <GridExport>
@@ -83,6 +85,8 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
     private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
 
     private bool ExportAllPages { get; set; }
+
+    private bool ExportSelectedItemsOnly { get; set; } = true;
 
     private void OnExcelBeforeExport(GridBeforeExcelExportEventArgs args)
     {
@@ -107,8 +111,11 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
         // Export only the first 4 columns in the Grid
         //args.Columns = (args.Columns.Take(4)).ToList();
 
-        // Export only the SelectedItems instead of the Grid data
-        args.Data = SelectedItems;
+        if (ExportSelectedItemsOnly)
+        {
+            // Export only the SelectedItems instead of the Grid data
+            args.Data = SelectedItems;
+        }
 
         // Set IsCancelled to true if you want to prevent exporting
         args.IsCancelled = false;
@@ -116,7 +123,7 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
     protected override void OnInitialized()
     {
-        GridData = Enumerable.Range(1, 100).Select(x => new SampleData
+        GridData = Enumerable.Range(1, 9).Select(x => new SampleData
         {
             ProductId = x,
             ProductName = $"Product {x}",
