@@ -157,7 +157,7 @@ To export a column that has its `Visible` parameter set to `false`, you can manu
     * `Title` - define the column title to be shown in the Excel file header.
     * `Field` - set the data bound field of the column.
 
-To export a column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
 
