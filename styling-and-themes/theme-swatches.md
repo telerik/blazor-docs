@@ -24,7 +24,7 @@ When this documentation talks about a given theme name, for example *Default*, t
 
 The CSS file of a swatch is self-sufficient and contains all required styles for the Telerik Blazor components, except the optional [font icon styles]({%slug common-features-icons%}#font-icon-stylesheet). The Blazor app should load only one theme (swatch) at a time.
 
-### Comparing Built-in Swatches
+## Comparing Built-in Swatches
 
 You can explore the built-in theme swatches in the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches]({%slug themes-custom%}).
 
