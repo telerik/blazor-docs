@@ -26,7 +26,7 @@ The CSS file of a swatch is self-sufficient and contains all required styles for
 
 ### Comparing Built-in Swatches
 
-You can explore built-in theme swatches on the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches]({%slug themes-custom%}).
+You can explore the built-in theme swatches in the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches]({%slug themes-custom%}).
 
 
 ## Using Built-in Swatches
