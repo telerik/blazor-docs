@@ -17,7 +17,7 @@ Telerik UI for Blazor comes with a set of built-in CSS themes that control the v
 
 ## Theme Names
 
-The available built-in themes are:
+The following list describes the built-in themes in Telerik UI for Blazor:
 
 * **Default** uses a neutral Telerik design and suits most cases. The theme has a built-in [swatch (color variation)]({%slug themes-swatches%}) called [Ocean Blue A11y]({%slug themes-accessibility-swatch%}), which provides enhanced contrast for WCAG level AA accessibility compliance.
 * **Bootstrap** matches the styling of the [Bootstrap CSS framework](https://getbootstrap.com). Make sure to check the [Bootstrap Notes](#bootstrap-notes) below.

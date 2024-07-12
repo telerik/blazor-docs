@@ -1,8 +1,8 @@
 ---
 title: Layout Components in Telerik UI for Blazor
-description: Learn about the differences and unique features of each Telerik Blazor layout component, such as .
+description: Learn about the differences and unique features of each Telerik Blazor layout component, such as Form, GridLayout, MediaQuery, Splitter, StackLayout, and TileLayout. Which Telerik UI for BLazor components provide an alternative to Bootstrap? Choose Telerik Blazor components for layout.
 type: how-to
-page_title: What Are the Differences Between All Telerik Blazor Popup Components
+page_title: What Are the Differences Between All Telerik Blazor Layout Components
 slug: common-kb-layout-component-comparison
 position: 
 tags: telerik, blazor, layout, bootstrap
@@ -34,16 +34,14 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* What are the differences between the Dialog and the Window component? Dialog vs Window comparison.
-* What are the differences between the Popover and the Tooltip? Popover vs Tooltip comparison.
-* When should you use one popup component over another?
+* Which Telerik UI for Blazor components to use to create layouts?
+* How to build page layouts with Telerik Blazor components and without using third-party tools like Bootstrap?
+* What are the Bootstrap framework alternatives in Telerik UI for Blazor?
 
 
 ## Solution
 
-### Bootstrap Framework Alternatives
-
-If you do not want to use the Bootstrap framework to create your layouts, there are several components from the Telerik UI for Blazor suite that can serve similar purposes. Below you will find some examples to get you started:
+If you want to build layouts only with Telerik UI for Blazor, there are several components that can serve this purpose. Here are some pointers to help you compare and choose:
 
 * The [Form](https://demos.telerik.com/blazor-ui/form/overview) supports built-in horizontal and vertical orientation of the labels and editors. You can also split form items in groups or organize the form layout in columns. Finally, the Form can generate input components for your model automatically.
 * The [GridLayout](https://demos.telerik.com/blazor-ui/gridlayout/overview) displays items in rows and columns, similar to the CSS grid layout.
@@ -54,18 +52,17 @@ If you do not want to use the Bootstrap framework to create your layouts, there 
 
 Other components that may be relevant to application layouts are:
 
-* [Cards](https://demos.telerik.com/blazor-ui/card/overview) let you add quick and easy distinction and styling between items in sets of information.
+* The [Card](https://demos.telerik.com/blazor-ui/card/overview) lets you display items and sets of information through predefined building blocks.
 * [Various popup components]({%slug common-kb-popup-component-comparison%}) let you conserve real estate on the screen.
-
-
 * Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
 
 
 ## See Also
 
-* [Splitter demos](https://demos.telerik.com/blazor-ui/splitter/overview)
+* [Card demos](https://demos.telerik.com/blazor-ui/card/overview)
+* [Form demos](https://demos.telerik.com/blazor-ui/form/overview)
 * [GridLayout demos](https://demos.telerik.com/blazor-ui/gridlayout/overview)
+* [MediaQuery demos](https://demos.telerik.com/blazor-ui/mediaquery/overview)
+* [Splitter demos](https://demos.telerik.com/blazor-ui/splitter/overview)
 * [StackLayout demos](https://demos.telerik.com/blazor-ui/stacklayout/overview)
 * [TileLayout demos](https://demos.telerik.com/blazor-ui/tilelayout/overview)
-* [MediaQuery demos](https://demos.telerik.com/blazor-ui/mediaquery/overview)
-* [Form demos](https://demos.telerik.com/blazor-ui/form/overview)
