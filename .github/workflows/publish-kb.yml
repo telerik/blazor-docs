@@ -6,6 +6,7 @@ on:
 run-name: Publish Knowledge Base Article ${{ github.event.client_payload.name }} ${{ github.event.client_payload.id }}
 
 permissions:
+  id-token: write
   contents: write
   pull-requests: write
 
@@ -24,6 +25,13 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Import Secrets
+        id: import-secrets
+        uses: LanceMcCarthy/akeyless-action@v3
+        with:
+          access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+          static-secrets: '{ "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN" }'
 
       - name: Create branch
         run: |
@@ -42,4 +50,4 @@ jobs:
       - name: Create pull request
         run: gh pr create --fill
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.import-secrets.outputs.GH_TOKEN }}

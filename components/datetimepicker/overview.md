@@ -64,10 +64,6 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## Week Numbers
-
-The Calendar popup can display the ISO week number on each row of date cells. See the [`ShowWeekNumbers` parameter](#datetime-picker-parameters) below.
-
 ## DateTime Picker Parameters
 
 The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
@@ -88,6 +84,7 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
+| `ShowOtherMonthDays` | `bool` <br/> (`true`) | Defines whether the leading and trailing days from other months in the Calendar popup are visible in the current month view. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
 | `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
