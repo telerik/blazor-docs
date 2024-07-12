@@ -77,7 +77,7 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `AllowReverse` | `bool` | Defines if the end date can be selected before the start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. |
+| `AllowReverse` | `bool` | When [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled, defines if the range is valid when the selected end date is a date before the start date. |
 | `BottomView` | `CalendarView` enum <br /> (`Month`) | The most detailed view of the Calendar to which the user can navigate to. |
 | `Date` | `DateTime` | The date that indicates the view the user is currently in. Supports two-way binding. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
