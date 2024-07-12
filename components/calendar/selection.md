@@ -139,7 +139,7 @@ Setting either value may reset the other value if the range is not valid. The ra
 
 With range selection mode, you have two options to get the user choice:
 
-* Configure two-way binding for the `RangeStart` and the `RangeEnd` parameters or
+* Configure two-way binding for the `RangeStart` and the `RangeEnd` parameters, OR
 * Use one-way binding for `RangeStart` and the `RangeEnd` parameters and handle the [RangeStartChanged and RangeEndChanged events]({%slug components/calendar/events%}#rangestartchanged-and-rangeendchanged).
 
 
