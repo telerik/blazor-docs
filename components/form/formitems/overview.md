@@ -129,6 +129,8 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
 
 >caption How to re-render all Form Items or the Form's parent component
 
+<div class="skip-repl"></div>
+
 ````Home.razor
 <p>Type in the Form textboxes and observe the different results.</p>
 
