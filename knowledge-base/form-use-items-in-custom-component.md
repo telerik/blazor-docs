@@ -47,7 +47,7 @@ To render Form items inside custom Razor components:
 
 The example below assumes that the project name is `YourAppName` and the `Person` class is defined in namespace `YourAppName.Data`. Rename the namespaces in `Home.razor`, `MultipleFormItems.razor`, and `Person.cs` before running the code in your app.
 
-* `Home.razor` is the main Razor file, which holds the Form
+* `Home.razor` is the main Razor file, which holds the Form.
 * `SingleFormGroup.razor` includes a complete Form Group. The component receives an `IFormGroup` as a parameter.
 * `MultipleFormItems.razor` renders multiple Form items that belong to a group. The component receives all items as a collection in a single parameter of type `FormGroupRendererTemplateContext`. This approach is not required and you can also define a different parameter for each item.
 * `SingleFormItem.razor` includes a single Form item. The component receives an `IFormItem` as a parameter.
