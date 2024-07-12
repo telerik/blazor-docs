@@ -28,7 +28,7 @@ The Default Ocean Blue A11y swatch is built on top of the Default Ocean Blue swa
 You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-swatches%}#using-built-in-swatches) starting from the following component and theme versions:
 
 * [Telerik UI for Blazor version 4.0.1](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-4-0-1)
-* Themes version 6.0.3
+* [Themes version 6.0.3](https://github.com/telerik/kendo-themes/releases/tag/v6.0.3)
 
 Check section [Theme Version Compatibility]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance) for more information about how to align Telerik UI for Blazor versions with theme versions.
 
