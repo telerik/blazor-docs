@@ -34,7 +34,7 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
     * `NumberFormat` - provide an Excel-compatible number/date format
     * `Field` - set the data bound field of the column.
     
-To export a column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
