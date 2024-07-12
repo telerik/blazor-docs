@@ -17,7 +17,7 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 1. Use the `TelerikDateRangePicker` tag to add the component to your razor page.
 1. Bind its `StartValue` and `EndValue` parameters to `DateTime` objects.
 1. (optional) Provide custom `Format`, `Min` and `Max` values.
-1. Optionally, set the `AllowReverse` parameter and define if the range is valid and highlighed when the end date preceeds the start date.
+1. (optional) Set the `AllowReverse` parameter and define if the range is valid and highlighed when the end date preceeds the start date.
 
 
 >caption Basic Date Range Picker with custom format, min and max and reverse range
@@ -56,7 +56,7 @@ The Blazor Date Range Picker generates events that you can handle and further cu
 
 You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
 
-To restrict the user from writing dates in the input so that the end is after the start, you must implement a custom data annotation attribute (you can find an example in the article linked above). The DateRangePicker component does not do this out-of-the-box in order to provide smooth user experience - the code cannot know what the user intent is and they might fix the range if they are given the chance, so correcting the input immediately may prevent them from using it comfortably. The component can fully control the user experience in the popup calendar and it ensures there that the range values are valid (start is before the end). If the user chooses an end date before the start, this date becomes the new start and they can choose the end again.
+By default, a valid date range is when the start date is before the end date. When a valid range is selected the Calendar popup closes. To set a range where the start date is after the end date as valid you can use the [`AllowReverse` parameter](#daterangepicker-parameters). When you set `AllowReverse` to `true` the Calendar popup closes on each date selection.
 
 ## Header Template
 
@@ -75,7 +75,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
 | `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
-| `AllowReverse` | `bool` | Defines if the end date can be selected before the start date. |
+| `AllowReverse` | `bool` | Defines if the range is valid when the selected end date is a date before the start date. |
 | `BottomView` | ` CalendarView` enum <br/> (`Month`) | Defines the bottommost view in the popup calendar to which the user can navigate to. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that can not be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/daterangepicker/disabled-dates" target="_blank">Live Demo: Date Range Picker Disabled Dates</a>. |
@@ -89,7 +89,7 @@ The Blazor Date Range Picker provides various parameters that allow you to confi
 | `Placeholder` |`string` | The `placeholder` attribute of the two `<input />` elements. The `Placeholder` will appear if the component is bound to **nullable** DateTime objects - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime objects. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendars will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
-| `ShowOtherMonthDays` | `bool` | Defines whether the leading and trailing days from other months in the Calendar popup are visible in the current month view. |
+| `ShowOtherMonthDays` | `bool` <br /> (`true`)| Defines whether the leading and trailing days from other months in the Calendar popup are visible in the current month view. |
 | `StartValue` and `EndValue` | `T` | The current values of the inputs for start and end of the range. Can be used for two-way binding. |
 | `TabIndex` | `int?` | The `tabindex` attribute of both `input` HTML elements in the component. They both will have the same `tabindex`. Use it to customize the tabbing (focus) order of the inputs on your page. |
 | `Title` | `string` | The title text rendered in the header of the popup(action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
