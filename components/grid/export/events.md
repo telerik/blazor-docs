@@ -27,14 +27,14 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
 
 ### For Excel Export
 
-* `Columns` - `List<GridExcelExportColumn>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns` - `List<GridExcelExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
 
     * `Width` - define the width of the column **in pixels**.
     * `Title` - define the column title to be shown in the Excel file header. 
     * `NumberFormat` - provide an Excel-compatible number/date format
     * `Field` - set the data bound field of the column.
     
-To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
@@ -152,12 +152,12 @@ To export a hidden (the Visible attribute set to `false`) column you can manuall
 
 * `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
 
-* `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid (the columns that have a defined `Field` and are visible). You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
 
     * `Title` - define the column title to be shown in the Excel file header.
     * `Field` - set the data bound field of the column.
 
-To export a hidden (the Visible attribute set to `false`) column you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
 
