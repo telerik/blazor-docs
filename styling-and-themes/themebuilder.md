@@ -5,7 +5,7 @@ description: Learn what ThemeBuilder is and how to use it to customize the appea
 slug: themebuilder
 tags: telerik,blazor,theme,custom,themebuilder
 published: True
-position: 3
+position: 20
 ---
 
 # ThemeBuilder Overview
