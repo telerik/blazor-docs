@@ -60,7 +60,7 @@ Select your license type - **Commercial** (**Paid**) or **Trial**.
 
 #### Section 6: Choose How to Distribute the Client Assets
 
-Choose whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
+Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or load them from the [Telerik CDN]({%slug common-features-cdn%}).
 
 #### Section 7: Enable or Disable Localization
 
@@ -76,7 +76,7 @@ The available .NET framework versions vary depending on the selected hosting mod
 
 #### Section 10: Select Theme
 
-Select your desired [theme]({%slug general-information/themes%}) for your project. Click **See All Swatches** to explore the available [theme variations]({%slug themes-swatches%}).
+Select your desired [theme]({%slug themes-built-in%}) for your project. Click **See All Swatches** to explore the available [theme variations]({%slug themes-swatches%}).
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
 

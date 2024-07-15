@@ -20,7 +20,41 @@ The CDN hosts two kinds of static client assets for the Telerik UI for Blazor co
 
 ## CSS Theme URLs
 
-The CDN hosts [swatches of the popular built-in CSS themes]({%slug themes-swatch-distribution%}). The file URLs look like this:
+The [Telerik CSS themes]({%slug themes-built-in%}) are available on two CDN hosts:
+
+* `unpkg.com` provides [all built-in theme swatches]({%slug themes-swatches%}#swatch-urls). The version number in the theme URL matches the version of the theme itself. Make sure to [use compatible theme and component versions]({%slug themes-swatches%}#theme-version-compatibility-and-maintenance). For example, use theme version `{{site.themesVersion}}` with UI for Blazor version `{{site.uiForBlazorLatestVersion}}`.
+* `blazor.cdn.telerik.com` provides a limited set of popular [theme swatches]({%slug themes-swatches%}). The version number in the theme URL matches the version of the Telerik UI for Blazor components, for example, `{{site.uiForBlazorLatestVersion}}`.
+
+### UNPKG CDN
+
+The CSS file URLs on `unpkg.com` look like this:
+
+<code>unpkg.com/@progress/kendo-theme-**&lt;THEME-NAME&gt;**@**&lt;THEME-VERSION&gt;**/dist/**&lt;SWATCH-NAME&gt;**.css</code>
+
+The separate [font icons]({%slug common-features-icons%}) stylesheet URL looks like this:
+
+<code>unpkg.com/@progress/kendo-font-icons@**&lt;PACKAGE-VERSION&gt;**/dist/index.css</code>
+
+Here are a few examples:
+
+>caption UNPKG CDN URLs for Telerik CSS themes
+
+<div class="skip-repl"></div>
+
+````CHTML
+<!-- Ocean Blue swatch of the Default theme -->
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css" />
+
+<!-- Main swatch of the Bootstrap theme -->
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/bootstrap-main.css" />
+
+<!-- Latest font icon stylesheet -->
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-font-icons/dist/index.css" />
+````
+
+### Telerik CDN
+
+The CSS file URLs on `blazor.cdn.telerik.com` look like this:
 
 <code>blazor.cdn.telerik.com/blazor/**&lt;COMPONENT-VERSION&gt;**/kendo-theme-**&lt;THEME-NAME&gt;**/swatches/**&lt;THEME-NAME&gt;**-**&lt;SWATCH-NAME&gt;**.css</code>
 
@@ -59,6 +93,8 @@ The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor]({%slug 
 ````CHTML
 <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js"></script>
 ````
+
+> When using the `telerik-blazor.js` file from CDN and with a `defer` attribute, [start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
 
 
 ## Pros and Cons of Using CDN
