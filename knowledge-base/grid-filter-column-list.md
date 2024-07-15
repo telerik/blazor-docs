@@ -72,7 +72,9 @@ The example below includes two Grids - one for each `FilterMode`.
         <GridColumn Field="@nameof(Food.Name)" Title="Food" />
         <GridColumn Field="@nameof(Food.SpiceIds)" Title="Spices" Sortable="false">
             <Template>
-                @{ var dataItem = (Food)context; }
+                @{
+                    var dataItem = (Food)context;
+                }
                 <ul>
                     @foreach (var spiceId in dataItem.SpiceIds)
                     {
@@ -104,9 +106,11 @@ The example below includes two Grids - one for each `FilterMode`.
              Height="600px">
     <GridColumns>
         <GridColumn Field="@nameof(Food.Name)" Title="Food" />
-        <GridColumn Field="@nameof(Food.SpiceIds)" Title="Spices" Sortable="false">
+        <GridColumn Field="@nameof(Food.SpiceIds)" Title="Spices" Sortable="false" HeaderClass="@SpicesHeaderClass">
             <Template>
-                @{ var dataItem = (Food)context; }
+                @{
+                    var dataItem = (Food)context;
+                }
                 <ul>
                     @foreach (var spiceId in dataItem.SpiceIds)
                     {
@@ -133,8 +137,21 @@ The example below includes two Grids - one for each `FilterMode`.
     </GridColumns>
 </TelerikGrid>
 
+<style>
+    .active-filter .k-grid-header-menu {
+        background-color: var(--kendo-color-primary);
+        color: var(--kendo-color-on-primary);
+    }
+
+        .active-filter .k-grid-header-menu:hover {
+            background-color: var(--kendo-color-primary);
+        }
+</style>
+
 @code {
     private List<Food> GridData { get; set; } = new List<Food>();
+
+    private string SpicesHeaderClass { get; set; } = string.Empty;
 
     private List<Spice> Spices { get; set; } = new List<Spice>() {
         new Spice() { Id = 1, Name = "Salt" },
@@ -164,6 +181,10 @@ The example below includes two Grids - one for each `FilterMode`.
         if (RowFilteredSpiceIds.Any())
         {
             filteredData.RemoveAll(x => !RowFilteredSpiceIds.All(y => x.SpiceIds.Contains(y)));
+        }
+        else
+        {
+            SpicesHeaderClass = string.Empty;
         }
 
         var result = await filteredData.ToDataSourceResultAsync(args.Request);
@@ -197,6 +218,9 @@ The example below includes two Grids - one for each `FilterMode`.
     {
         MenuFilteredSpiceIds = new List<int>();
         await context.ClearFilterAsync();
+
+        // Because the filtering occurs outside of the Grid, the active filter style requires manual clearing.
+        SpicesHeaderClass = "";
     }
 
     private async Task OnGridReadMenuFilter(GridReadEventArgs args)
@@ -206,6 +230,9 @@ The example below includes two Grids - one for each `FilterMode`.
         if (MenuFilteredSpiceIds.Any())
         {
             filteredData.RemoveAll(x => !MenuFilteredSpiceIds.All(y => x.SpiceIds.Contains(y)));
+
+            // Because the filtering occurs outside of the Grid, the active filter style requires manual applying.
+            SpicesHeaderClass = "active-filter";
         }
 
         var result = await filteredData.ToDataSourceResultAsync(args.Request);
@@ -228,11 +255,11 @@ The example below includes two Grids - one for each `FilterMode`.
             var spiceIdsForItem = Spices.OrderBy(x => rnd.Next()).Take(3).OrderBy(x => x.Name).Select(x => x.Id).ToList();
 
             GridData.Add(new Food()
-            {
-                Id = i,
-                Name = $"Food {i}",
-                SpiceIds = spiceIdsForItem
-            });
+                {
+                    Id = i,
+                    Name = $"Food {i}",
+                    SpiceIds = spiceIdsForItem
+                });
         }
 
         Spices = Spices.OrderBy(x => x.Name).ToList();
