@@ -11,22 +11,27 @@ ticketid: 1652751
 
 ## Environment
 
-| Product |
-| --- |
-| Breadcrumb for Blazor |
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Breadcrumb for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
-Incorporating custom components, such as dropdowns, within certain Breadcrumb "crumbs" can significantly enhance user interaction and functionality.
+Adding custom components like dropdowns to Breadcrumb crumbs can improve user interaction.
 
-This KB article also answers the following questions:
-- Is it possible to achieve a Breadcrumb hierarchical structure?
-- Is it possible to embed custom components within Breadcrumb crumbs?
-- How to use the `ItemTemplate` for adding dropdowns to Breadcrumb items?
+This KB article answers the following questions:
+* Is it possible to achieve a hierarchical structure in the Breadcrumb component?
+* Is it possible to embed custom components inside Breadcrumb crumbs?
+* How to use the `ItemTemplate` to add dropdowns to Breadcrumb items?
 
 ## Solution
 
-To embed dropdowns within the Breadcrumb "crumbs", utilize the `ItemTemplate`. This template allows for the customization of Breadcrumb items, enabling the inclusion of complex components such as dropdowns.
+To embed dropdowns in the Breadcrumb "crumbs", use an [`ItemTemplate`]({%slug breadcrumb-templates%}#itemtemplate). This template allows you to customize the Breadcrumb items, and include other components such as dropdowns.
 
 ````CSHTML
 @*The dropdown's appearance is customized to blend with the Breadcrumb by adjusting the border color and preventing text decoration changes on hover.*@
@@ -65,7 +70,7 @@ To embed dropdowns within the Breadcrumb "crumbs", utilize the `ItemTemplate`. T
 </style>
 
 @code {
-    private IEnumerable<BreadcrumbItem> Items = new List<BreadcrumbItem>();
+    private IEnumerable<BreadcrumbItem> Items { get; set; } = new List<BreadcrumbItem>();
 
     private void OnValueChanged(BreadcrumbItem item, string value)
     {
@@ -93,5 +98,5 @@ To embed dropdowns within the Breadcrumb "crumbs", utilize the `ItemTemplate`. T
 
 ## See Also
 
-- [Breadcrumb Templates Documentation](https://docs.telerik.com/blazor-ui/components/breadcrumb/templates#itemtemplate)
-- [DropDownList Documentation](https://docs.telerik.com/blazor-ui/components/dropdownlist/overview)
+* [Breadcrumb Templates](https://docs.telerik.com/blazor-ui/components/breadcrumb/templates#itemtemplate)
+* [DropDownList Overview](https://docs.telerik.com/blazor-ui/components/dropdownlist/overview)
