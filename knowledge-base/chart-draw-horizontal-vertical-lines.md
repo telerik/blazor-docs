@@ -109,52 +109,116 @@ Steps for drawing vertical and horizontal lines with [plot bands]({%slug chart-p
 }
 `````
 
-### Using Additional Line Series
+### Using Additional ScatterLine Series
 
-Steps for drawing horizontal and vertical lines with additional [Lines Series]({%slug components/chart/types/line%}):
+Steps for drawing horizontal and vertical lines with additional [ScatterLine Series]({%slug components/chart/types/scatterline%}):
 
-1. Add `ChartSeries` instances of type `ChartSeriesType.Line` based on the needed number of lines.
+1. Add `ChartSeries` instances of type `ChartSeriesType.ScatterLine` based on the needed number of lines.
 2. Set data for the lines based on the information shown from the main Chart.
 
->caption Drawing Horizontal and Vertical lines with additional Lines Chart
+>caption Drawing Horizontal and Vertical lines with additional ScatterLine Chart
 
 ````CSHTML
 <TelerikChart>
+    <ChartLegend Visible="true"></ChartLegend>
+
     <ChartSeriesItems>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Column 1" Data="@firstColumnTypeData">
+        <ChartSeries Type="ChartSeriesType.Scatter"
+                     Data="@SeriesScatterData"
+                     Name="Scatter"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)">
         </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Column" Name="Column 2" Data="@secondColumnTypeData">
+
+        <ChartSeries Type="ChartSeriesType.Bubble"
+                     Data="@SeriesBubbleData"
+                     Name="Bubble"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     SizeField="@nameof(BubbleData.SizeField)">
         </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Line 1" Data="@firstLineTypeData">
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@Series1Data"
+                     Name="Line"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)">
+            <ChartSeriesMarkers Visible="false" />
         </ChartSeries>
-        <ChartSeries Type="ChartSeriesType.Line" Name="Line 2" Data="@secondLineTypeData">
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@Series2Data"
+                     Name="Dashed Line"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     DashType="@DashType.Dash">
+            <ChartSeriesMarkers Visible="false" />
         </ChartSeries>
+
+        <ChartSeries Type="ChartSeriesType.ScatterLine"
+                     Data="@Series3Data"
+                     Name="Dotted Line"
+                     XField="@nameof(ModelData.X)"
+                     YField="@nameof(ModelData.Y)"
+                     DashType="@DashType.Dot">
+            <ChartSeriesMarkers Visible="false" />
+        </ChartSeries>
+
     </ChartSeriesItems>
-
-    <ChartCategoryAxes>
-        <ChartCategoryAxis Categories="@xColumnAxisItems"></ChartCategoryAxis>
-    </ChartCategoryAxes>
-
-    <ChartTitle Text="Draw Horizontal and Vertical Lines"></ChartTitle>
-
-    <ChartLegend Position="ChartLegendPosition.Right">
-    </ChartLegend>
 </TelerikChart>
 
 @code {
-    #region LinesData
-    private List<object> firstColumnTypeData = new List<object>() { 10, 2, 5, 6 };
-    private List<object> secondColumnTypeData = new List<object>() { 5, 8, 2, 7 };
+    public class ModelData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+    }
+    public class BubbleData
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int SizeField { get; set; }
+    }
 
-    private List<object> firstLineTypeData = new List<object>() { 8, 8, 8, 6 };
-    private List<object> secondLineTypeData = new List<object>() { 5, 8, 2, 7 };
+    public List<ModelData> Series1Data = new List<ModelData>()
+    {
+        new ModelData() { X = 120, Y = 0 },
+        new ModelData() { X = 120, Y = 100 },
+    };
 
-    private string[] xColumnAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
-    #endregion
+    public List<ModelData> Series2Data = new List<ModelData>()
+    {
+        new ModelData() { X = 0, Y = 20 },
+        new ModelData() { X = 140, Y = 20 },
+    };
+
+    public List<ModelData> Series3Data = new List<ModelData>()
+    {
+        new ModelData() { X = 0, Y = 80 },
+        new ModelData() { X = 140, Y = 80 },
+    };
+
+    public List<BubbleData> SeriesBubbleData = new List<BubbleData>()
+    {
+        new BubbleData() { X = 40, Y = 40 , SizeField=1000},
+        new BubbleData() { X = 66, Y = 77 , SizeField=500},
+        new BubbleData() { X = 90, Y = 50 , SizeField=200},
+        new BubbleData() { X = 120, Y = 70 , SizeField=350}
+    };
+
+    public List<ModelData> SeriesScatterData = new List<ModelData>()
+    {
+        new ModelData() { X = 10, Y = 10 },
+        new ModelData() { X = 17, Y = 50 },
+        new ModelData() { X = 18, Y = 70 },
+        new ModelData() { X = 35, Y = 90 },
+        new ModelData() { X = 47, Y = 95 },
+        new ModelData() { X = 100, Y = 100 }
+    };
 }
 ````
 
 ## See Also
 
 * [Charts Plot Bands]({%slug chart-plot-bands%})
-* [Lines Chart](https://demos.telerik.com/blazor-ui/chart/line-chart)
+* [ScatterLine Chart](https://demos.telerik.com/blazor-ui/chart/scatter-line-chart)
