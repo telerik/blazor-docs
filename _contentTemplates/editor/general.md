@@ -11,3 +11,19 @@ This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps
 Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` from the browser to the server .NET runtime and vice-versa. The default SignalR maximum message size is **32 KB**. To work with larger content (especially paste images as Base64 strings), [increase the max WebSocket message size for the Blazor application]({%slug common-kb-increase-signalr-max-message-size%}).
 
 #end
+
+#prosemirror-schema-general-info
+It accepts a `string` - the name of the JS function declared in the global scope (`window` object) that is used to provide custom ProseMirror schema. The function must return an instance of the [ProseMirror Schema class](https://prosemirror.net/docs/ref/#model.Schema) (the updated schema).
+
+The function accepts an `arguments` object with the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property | Description |
+|----------|-------------|
+| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the returned `Schema` is the default `Schema` of the Editor. After the Editor is initialized, the returned `Schema` is the updated schema. Iy you don't provide a custom schema, this function always retrns the default schema. |
+| `getView` | A function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
+| `ProseMirror` | An object that contains various ProseMirror classes and functions. |
+
+> You can set a custom schema only once—upon the initialization of the Editor component. Further changes to the schema will not be reflected. The Editor will continue to use the initially provided schema or, if no schema is initially provided, the built-in one.
+#end
