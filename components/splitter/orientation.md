@@ -97,10 +97,11 @@ Sometimes you need to create a more complex layout that includes both horizontal
 </div>
 ````
 
->caption The result from the code snippet above
+## Next Steps
 
-![Nested splitters can create complex layout](images/nested-splitter-result.png)
+* [Manage the Splitter state]({%slug splitter-state%})
+* [Handle Splitter events]({%slug splitter-events%})
 
 ## See Also
 
-  * [Live Demo: Splitter Orientation](https://demos.telerik.com/blazor-ui/splitter/orientation)
+* [Live Demo: Splitter Orientation](https://demos.telerik.com/blazor-ui/splitter/orientation)
