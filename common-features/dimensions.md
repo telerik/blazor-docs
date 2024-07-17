@@ -10,19 +10,25 @@ position: 7
 
 # Dimensions
 
-This article explains how dimensional properties like `Width` and `Height`, `Top` and `Left` work in the Telerik UI for Blazor suite to set size and position.
+This article explains how dimensional properties like `Width`, `Height`, `Top` and `Left` work in Telerik UI for Blazor to set size and position.
 
-Properties that denote **dimensions and positions are** simple **string properties** that are not parsed by our code. You can provide **valid CSS values** to them. For example, `100px` or `50%` are valid options. This provides you with flexibility without limiting options. At the time of writing there is no `Unit` type in the underlying framework.
+## Basics
 
-The string you provide is usually rendered within an inline `style` attribute, so you must make sure to provide a valid value that will not break other options. You do not need to include a semicolon (`;`).
+Component parameters for dimensions and positions are usually `string` properties that are not parsed by our code. You can set any [valid CSS unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). For example, `100px`, `50%`, or `80vw` are valid options. This provides you with flexibility without limiting options. At the time of writing there is no `Unit` type in the underlying framework.
 
-For elements with **special positioning** (`Top` and `Left` properties), keep in mind that if the parent elements have special CSS positioning, it will affect the position of the component. If you experience issues, inspect the rendered HTML to see what elements are present and what their CSS rules are.
+The string you provide is usually rendered as an inline `style` attribute, so you must make sure to provide a valid value that will not break other options. You do not need to include a semicolon (`;`) in the parameter value.
 
-When setting **percentage values** (such as `100%` or `50%`), keep in mind the following - according to the web standards, elements which have their height set in percentage require that the height of their parent is also explicitly set. This requirement applies recursively until either an element with a pixel height or the html element is reached. Elements that are 100% high should not have margins, paddings, borders, or sibling elements.
+## Percentages
 
-When setting **percentage dimensions** to elements with **special positioning** (such as `Width` of a Window or the popup `Width` of a dropdown), their parent element in the DOM determines the rendered size.
+When setting percentage values like `100%` or `50%`, keep in mind the following: web standards require elements with percentage heights to have a parent with an explicit height. This requirement applies recursively until either an element with a pixel height or the `html` element is reached. Elements that are 100% high should not have margins, paddings, borders, or sibling elements, unless you set a [`box-sizing:border-box`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) CSS style to them.
 
->tip You can use dimensions in percent (such as `Width="100%"`) to make the components responsive - so they will fit in your layout and let the layout adjust with viewport sizes or other application logic.
+When setting percentage dimensions to elements with special positioning (such as `Width` of a Window or the popup `Width` of a dropdown), their parent element in the DOM determines the resulting component dimensions.
+
+## Position
+
+When using positioning parameters, for example `Top` or `Left`, the component placement may be affected by CSS styles on the component's parent. If you experience issues, [inspect the rendered HTML to see what elements are present and what their CSS styles are]({%slug themes-override%}#tools).
+
+>tip You can set dimensions in percent (such as `Width="100%"`) to make the components responsive and resize, according to the app layout and browser viewport. A lot of components expand to 100% width by default, for example, the Grid, Form, Scheduler, Spreadsheet, all input components, and others.
 
 ## Examples
 
@@ -41,7 +47,6 @@ The examples here showcase different units and examples of using them to set dim
 ````
 
 ![Blazor Basic Width Settings](images/basic-width-settings.png)
-
 
 >caption Using auto width to have an element adjust to its contents
 
@@ -69,7 +74,6 @@ The examples here showcase different units and examples of using them to set dim
 ![Blazor Auto Size For Dropdown](images/auto-size-for-dropdown.png)
 
 
-
 >caption Position is controlled by the parent element with special positioning
 
 ````CSHTML
@@ -85,6 +89,9 @@ The examples here showcase different units and examples of using them to set dim
 </TelerikWindow>
 ````
 
-
 ![Blazor Parent Element Offset](images/parent-element-offset.png)
 
+## See Also
+
+* [Themes]({%slug themes-built-in%})
+* [Override Theme Styles]({%slug themes-override%})
