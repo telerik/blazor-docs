@@ -14,15 +14,17 @@ This article explains how dimensional properties like `Width`, `Height`, `Top` a
 
 ## Basics
 
-Component parameters for dimensions and positions are usually `string` properties that are not parsed by our code. You can set any [valid CSS unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). For example, `100px`, `50%`, or `80vw` are valid options. This provides you with flexibility without limiting options. At the time of writing there is no `Unit` type in the underlying framework.
+Component parameters for dimensions and positions are usually `string` properties that are not parsed the Telerik components. You can set any [valid CSS unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). For example, `100px`, `50%`, or `80vw` are all valid options. At the time of writing there is no `Unit` type in the underlying framework.
 
-The string you provide is usually rendered as an inline `style` attribute, so you must make sure to provide a valid value that will not break other options. You do not need to include a semicolon (`;`) in the parameter value.
+The string you provide is usually rendered as an inline `style` attribute, so you must provide a valid value that will not break other options. You do not need to include a semicolon (`;`) in the parameter value.
 
 ## Percentages
 
-When setting percentage values like `100%` or `50%`, keep in mind the following: web standards require elements with percentage heights to have a parent with an explicit height. This requirement applies recursively until either an element with a pixel height or the `html` element is reached. Elements that are 100% high should not have margins, paddings, borders, or sibling elements, unless you set a [`box-sizing:border-box`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) CSS style to them.
+When setting percentage values like `100%` or `50%`, keep in mind the following: web standards require elements with percentage heights to have a parent with an explicit height. This requirement applies recursively until either an element with a pixel height or the `html` element is reached.
 
-When setting percentage dimensions to elements with special positioning (such as `Width` of a Window or the popup `Width` of a dropdown), their parent element in the DOM determines the resulting component dimensions.
+Elements that are 100% high should not have margins, paddings, borders, or sibling elements, unless you set a [`box-sizing:border-box`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing) CSS style to them.
+
+When setting percentage dimensions to elements with special positioning (such as `Width` of a Window or the popup `Width` of a DropDownList), their parent element in the DOM determines the resulting component dimensions.
 
 ## Position
 

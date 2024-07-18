@@ -101,7 +101,7 @@ In a [vertical Splitter]({%slug splitter-orientation%}), the pane widths match t
 
 Here is how the Splitter `Height` affects the pane heights:
 
-* If a [horizontal Splitter]({%slug splitter-orientation%}) has no `Height`, then its panes do not expand vertically to fill up the Splitter element. The [example](#example) below shows how to workaround this with a `height:auto` style on the `.k-pane` class.
+* If a [horizontal Splitter]({%slug splitter-orientation%}) has no `Height`, then its panes do not expand vertically to fill up the Splitter element. The [example](#example) below shows how to work around this with a `height:auto` style on the `.k-pane` class.
 * If a vertical Splitter has no `Height`, then all its panes ignore their `Size`. The panes expand or shrink, depending on their content. There is no pane scrolling.
 * If a vertical Splitter has a `Height`, then:
     * All panes obey their set `Size`.

@@ -52,7 +52,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 ## Orientation
 
-The Splitter panes can be stacked horizontally or vertically. [Read more about how to configure the Splitter orientation...]({%slug splitter-orientation%})
+The Splitter panes can stack horizontally or vertically. [Read more about how to configure the Splitter orientation...]({%slug splitter-orientation%})
 
 ## State
 
