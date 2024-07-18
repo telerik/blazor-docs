@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 1. Set the `Width` and `Height` parameters in any valid CSS unit. See [Splitter Parameters](#splitter-parameters) for more information about the component behavior when dimensions are not set.
 1. Inside the `<SplitterPanes>` child tag, add the desired `<SplitterPane>` tags to create sections of content.
 1. Inside each `<SplitterPane>`, add the desired content as HTML markup or other components.
-1. [Configure the panes, for example, set their `Size`, `Min`, `Max`, `Collapsible` and `Resizable` parameters]({%slug splitter-panes%}#pane-parameters). By default, Splitter panes are resizable, but not collapsible.
+1. Configure the panes. For example, [set their `Size`, `Min`, `Max`, `Collapsible`, and `Resizable` parameters]({%slug splitter-panes%}#pane-parameters). By default, Splitter panes are resizable, but not collapsible.
 
 >caption Basic Splitter
 
