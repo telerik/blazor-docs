@@ -10,216 +10,235 @@ position: 20
 
 # Grid Toolbar SearchBox
 
-In addition to the [main filtering options]({%slug components/grid/filtering%}), you can add a SearchBox in the Grid Toolbar.
+In addition to [Grid filtering]({%slug components/grid/filtering%}), you can also add a `SearchBox` in the [Grid Toolbar]({%slug components/grid/features/toolbar%}). The search box can filter in multiple Grid columns at he same time.
 
->caption In this article:
+>caption In this Article:
 
 * [Basics](#basics)
-* [Filter From Code](#filter-from-code)
+* [Search from Code](#search-from-code)
 * [Customize the SearchBox](#customize-the-searchbox)
 
 
 ## Basics
 
-The SearchBox lets the user type their query and the grid will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the grid will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+The SearchBox lets the user type their query and the Grid will look up all visible `string` columns with a case-insensitive `Contains` operator, and filter them accordingly. To change the filter delay and the fields the Grid will use, see the [Customize the SearchBox](#customize-the-searchbox) section below.
 
-The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
+The SearchBox is independent from the Grid filtering. If the Grid has applied filters, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to search results.
 
-To enable the SearchBox, add the `<GridSearchBox>` tag in the `<GridToolBarTemplate>`.
+To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`]({%slug components/grid/features/toolbar%}).
 
->caption SearchBox in the Telerik Grid
+>caption Grid SearchBox
 
 ````CSHTML
-@* A search panel in the Grid Toolbar *@
-
-<TelerikGrid Data=@GridData Pageable="true" Height="400px">
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true">
     <GridToolBarTemplate>
-        <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <GridSearchBox />
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(Employee.EmployeeId))" />
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field="@nameof(SampleModel.Name)" />
+        <GridColumn Field="@nameof(SampleModel.Description)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public List<Employee> GridData { get; set; }
+    private List<SampleModel> GridData { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 50; i++)
         {
-            GridData.Add(new Employee()
+            GridData.Add(new SampleModel()
             {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                IsOnLeave = i % 2 == 0
+                Id = i,
+                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
+                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
             });
         }
     }
 
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
-    }
-}
-````
-
->caption The result from the code snippet above
-
-![grid search box](images/search-box-overview.gif)
-
-## Filter From Code
-
-You can set the Grid filters programmatically through the component [state]({%slug grid-state%}).
-
-@[template](/_contentTemplates/grid/state.md#initial-state)
-
->caption The result from the code snippet below.
-
-![Blazor Grid Searchbox Filter Control](images/searchbox-filter-control.gif)
-
->caption Set programmatically SearchBox Filter.
-
-````Razor
-@* This snippet shows how to set filtering state to the Grid from your code.
-  Applies to the SearchBox filter *@
-
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px" @ref="@Grid"
-             Pageable="true">
-    <GridToolBarTemplate>
-        <GridSearchBox />
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Address))" Title="Address" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public TelerikGrid<SampleData> Grid { get; set; }
-
-    async Task SetGridFilter()
-    {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
-        {
-            SearchFilter = CreateSearchFilter()
-        };
-
-        await Grid.SetStateAsync(desiredState);
-    }
-
-    private IFilterDescriptor CreateSearchFilter()
-    {
-        var descriptor = new CompositeFilterDescriptor();
-        var fields = new List<string>() { "Name", "Address" };
-        var searchValue = "name 10";
-        descriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-
-        foreach (var field in fields)
-        {
-            var filter = new FilterDescriptor(field, FilterOperator.Contains, searchValue);
-
-            filter.MemberType = typeof(string);
-
-            descriptor.FilterDescriptors.Add(filter);
-        }
-
-        return descriptor;
-    }
-
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Address = "address " + x % 5,
-    });
-
-    public class SampleData
+    public class SampleModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }
-  
 ````
 
-## Customize the SearchBox
 
-The `GridSearchBox` component offers the following settings to customize its behavior:
+## Search From Code
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+You can set or remove the search filters programmatically through the `SearchFilter` property of the [Grid state]({%slug grid-state%}).
 
-| Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-| `Class` | `string`| a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
-| `DebounceDelay` | `int` <br/> (300) | the time in milliseconds with which searching is debounced. This provides a performance optimization when using the `OnRead` event - filtering does not happen on every keystroke during fast typing.
-| `Fields` |  `List<string>` | The collection of fields to search in. By default, the Grid searches in all string fields, which are bound to visible columns. You can only define a subset of those fields. It is also possible to programmatically [search in string fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}).
-| `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
-| `Width` | `string` | Specifies the width of the SearchBox component.
-
-
->caption Customize the SearchBox to have a long filter delay, search in certain fields only and use a custom placeholder
+>caption Set and clear the SearchBox filter programmatically
 
 ````CSHTML
-@* Increased delay, a subset of the columns are allowed for filtering and a custom placeholder *@
+@using Telerik.DataSource
 
-<TelerikGrid Data=@GridData Pageable="true" Height="400px">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Sortable="true">
     <GridToolBarTemplate>
-        <GridSearchBox DebounceDelay="1000"
-                       Fields="@SearchableFields"
-                       Placeholder="Search Team..." />
+        <GridSearchBox />
+        <TelerikButton Icon="@SvgIcon.Search"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
+        <TelerikButton Icon="@SvgIcon.X"
+                       OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(Employee.EmployeeId))" />
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-        <GridColumn Field=@nameof(Employee.IsOnLeave) Title="On Vacation" />
+        <GridColumn Field="@nameof(SampleModel.Name)" />
+        <GridColumn Field="@nameof(SampleModel.Description)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    List<string> SearchableFields = new List<string> { "Team" };
+    private TelerikGrid<SampleModel>? GridRef { get; set; }
 
-    List<Employee> GridData { get; set; }
+    private List<SampleModel> GridData { get; set; } = new();
+
+    private async Task OnSearchButtonClick()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
+
+            var cfd = new CompositeFilterDescriptor();
+
+            cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            cfd.FilterDescriptors = new FilterDescriptorCollection();
+
+            // Add one FilterDesccriptor for each string column
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Name),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Description),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+
+            gridState.SearchFilter = cfd;
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task OnClearButtonClick()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
 
     protected override void OnInitialized()
     {
-        GridData = new List<Employee>();
-        var rand = new Random();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 500; i++)
         {
-            GridData.Add(new Employee()
-                {
-                    EmployeeId = i,
-                    Name = "Employee " + i.ToString(),
-                    Team = "Team " + i % 3,
-                    IsOnLeave = i % 2 == 0
-                });
+            GridData.Add(new SampleModel()
+            {
+                Id = i,
+                Name = $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} " +
+                    $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} {i}",
+                Description = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} " +
+                    $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} {i}"
+            });
         }
     }
 
-    public class Employee
+    public class SampleModel
     {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}
+````
+
+@[template](/_contentTemplates/grid/state.md#initial-state)
+
+
+## Customize the SearchBox
+
+The `GridSearchBox` component offers the following parameters to customize its behavior:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string`| The custom CSS class on the SearchBox wrapper (`<span class="k-searchbox">`). |
+| `DebounceDelay` | `int` <br /> (`300`) | The time in milliseconds when the searching starts after the user has finished typing. This provides a performance optimization when using the [`OnRead` event]({%slug common-features-data-binding-onread%}). Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`. |
+| `Fields` | `List<string>` | The collection of model properties to search in. By default, the Grid searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}). |
+| `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized]({%slug globalization-localization%}). |
+| `Width` | `string` | Specifies the width of the SearchBox component. |
+
+The example below demonstrates all SearchBox settings in action, and also how to move the SearchBox on the opposite side of the Grid toolbar.
+
+>caption Grid SearchBox customizaton
+
+````CSHTML
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true">
+    <GridToolBarTemplate>
+        <span class="k-toolbar-spacer"></span>
+        <GridSearchBox Class="primary-searchbox"
+                       DebounceDelay="300"
+                       Fields="@SearchableFields"
+                       Placeholder="Search Name Column..."
+                       Width="240px" />
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@nameof(SampleModel.Name)" />
+        <GridColumn Field="@nameof(SampleModel.Description)" />
+    </GridColumns>
+</TelerikGrid>
+
+<style>
+    .primary-searchbox {
+        color: var(--kendo-color-primary);
+    }
+</style>
+
+@code {
+    private List<SampleModel> GridData { get; set; } = new();
+
+    private List<string> SearchableFields = new List<string> { nameof(SampleModel.Name) };
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 50; i++)
+        {
+            GridData.Add(new SampleModel()
+            {
+                Id = i,
+                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
+                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
+            });
+        }
+    }
+
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }
 ````
