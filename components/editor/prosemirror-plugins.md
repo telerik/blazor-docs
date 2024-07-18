@@ -12,8 +12,6 @@ position: 130
 
 The Telerik UI for Balzor Editor component is based on the [ProseMirror library](https://prosemirror.net/). ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.
 
-The ProseMirror library is JavaScript based and adding plugins to the Editor is performed through JavaScript.
-
 ## Concept
 
 The ProseMirror [plugin system](https://prosemirror.net/docs/ref/#state.Plugin_System) enables developers to create custom tools and functionality. One of the main building blocks of each editor is its [`EditorState`](https://prosemirror.net/docs/ref/#state) object. The state is created through a static [`create`](https://prosemirror.net/docs/ref/#state.EditorState%5Ecreate) method which takes a configuration object, containing the starting document node, the [`Schema`](https://prosemirror.net/docs/ref/#model.Schema), and a collection of [plugins](https://prosemirror.net/docs/ref/#state.Plugin) which will be active in this state.
@@ -24,7 +22,9 @@ For further details about the ProseMirror plugins, refer to [the this ProseMirro
 
 ## Adding a Custom Plugin
 
-To add a custom plugin to the Editor for Blazor, use the `Plugins` parameter. It accepts a `string` - the name of the JS function declared in the global scope (`window` object) that is used to provide custom ProseMirror plugins.
+The ProseMirror library is JavaScript based and adding plugins to the Editor is performed through JavaScript.
+
+To add a custom plugin to the Editor for Blazor, use the `Plugins` parameter (`string`). It accepts a `string` - the name of the JS function declared in the global scope (`window` object) that is used to provide custom ProseMirror plugins.
 
 The function accepts an `arguments` object with the following properties:
 
@@ -32,12 +32,12 @@ The function accepts an `arguments` object with the following properties:
 
 | Property | Description |
 |----------|-------------|
-| `getSchema` | a function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. Iy you don't provide a custom schema, this function always retrns the default schema. |
-| `getView` | a function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
-| `ProseMirror` | object that contains various ProseMirror classes and functions.|
-| `getPlugins` | a function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
+| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. Iy you don't provide a custom schema, this function always retrns the default schema. |
+| `getView` | A function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
+| `ProseMirror` | An object that contains various ProseMirror classes and functions.|
+| `getPlugins` | A function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
 
-> To ensure all the built-in functionalities of the Editor are working correctly, the result array must contain the default plugins which can be recieved by calling the `getPlugins` function.
+> To ensure all the built-in functionalities of the Editor are working correctly, the result array must contain the default plugins which can be retrieved by calling the `getPlugins` function.
 
 >caption Adding a Placeholder Plugin
 

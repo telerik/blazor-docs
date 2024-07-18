@@ -10,26 +10,31 @@ position: 3
 
 # Modify the Default ProseMirror Schema
 
-This article describes how you can modify the default [ProseMirror Schema that the Editor for Blazor uses]({%slug editor-prosemirror-schema-overview%}). Updating the existing schema is useful if you want to:
+This article describes how you can modify the default [ProseMirror schema that the Editor for Blazor uses]({%slug editor-prosemirror-schema-overview%}). Updating the existing schema is useful if you want to:
 
 * Extend the Editor capabilities and allow your users to add more kinds of HTML tags than the predefined ones.
 * Allow adding more attributes to the predefined HTML elements.
 * Restrict the users from adding some of the predefined HTML elements.
 
-## Prerequisites
+@[template](/_contentTemplates/editor/general.md#prosemirror-schema-prerequisites)
 
-Customization of the ProseMirror Schema requires familiarity with:
+## Basics
 
-* JavaScript - the ProseMirror library is JavaScript-based and working with the Schema is performed through JavaScript.
-* [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema) - the schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType), [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
+@[template](/_contentTemplates/editor/general.md#prosemirror-schema-general-info)
 
 ## Modifying the Schema
 
-To modify the default ProseMirror Schema of the Editor for Blazor, use the `Schema` parameter. @[template](/_contentTemplates/editor/general.md#prosemirror-schema-general-info)
+To modify the default ProseMirror schema that the Editor uses:
+
+1. In the global app scope (the `window` object) declare a JS function that returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
+1. Use the `getSchema()` method of the event arguments to get the default ProseMirror Schema of the Editor.
+1. Change the `Schema` object as needed - add, remove nodes and marks or modify their allowed attributes. The easiest option to get the names of the nodes/marks in the default editor `Schema` is to use your dev tools and inspect the `nodes` field of the default `Schema` object.
+1. Return the updated `Schema` object.
+1. Pass the name of the JS function to the `Schema` parameter of the Editor.
 
 ## Example
 
-The below example shows how to modify the default ProseMirror Schema to:
+The below example shows how to modify the default ProseMirror schema to:
 
 * Add a `data-id` attribute to the `<p>` element.
 * Remove the default `horizontal_rule` node that does not allow any attributes and add a custom node for the `<hr>` element that allows setting a CSS `class`.

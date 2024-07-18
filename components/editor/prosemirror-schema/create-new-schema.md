@@ -10,26 +10,27 @@ position: 5
 
 # Create a New Schema
 
-This article describes how you can create a new [ProseMirror Schema]({%slug editor-prosemirror-schema-overview%}) for the Editor to use. Creating a new schema is useful if you want to change the majority of the default schema.
+This article describes how you can create a new [ProseMirror schema]({%slug editor-prosemirror-schema-overview%}) for the Editor to use. Creating a new schema is useful if you want to change the majority of the default schema.
 
-## Prerequisites
+@[template](/_contentTemplates/editor/general.md#prosemirror-schema-prerequisites)
 
-Customization of the ProseMirror Schema requires familiarity with:
+## Basics
 
-* JavaScript - the ProseMirror library is JavaScript-based and working with the Schema is performed through JavaScript.
-* [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema) - the schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType), [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
+@[template](/_contentTemplates/editor/general.md#prosemirror-schema-general-info)
+
 
 ## Creating a New Schema
 
-To set a new ProseMirror Schema in the Editor for Blazor, use the `Schema` parameter. @[template](/_contentTemplates/editor/general.md#prosemirror-schema-general-info)
+1. In the global app scope (the `window` object) declare a JS function that returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
+1. Create a new instance of the `Schema` object and include your desired nodes and marks in it.
+1. Return the new `Schema` object.
+1. Pass the name of the JS function to the `Schema` parameter of the Editor.
 
-
+> Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. When creating a new schema from scratch, it is possible to get an exception if you do not include the needed nodes in your custom schema. In this case, you can either include the corresponding nodes or pass and a [custom empty collection of plugins to the Editor]({%slug editor-prosemirror-plugins%}) to override the built-in ones.
 
 ## Example
 
-The below example shows how to create a new ProseMirror Schema and pass it to the Editor.
-
-....
+The below example shows how to create a new ProseMirror schema and pass it to the Editor. The new schema supports only a couple of HTML elements such as `<p>`, `<ul>`, `<ol>` and `<a>`. 
 
 >caption Create New ProseMirror Schema
 
@@ -235,7 +236,6 @@ The below example shows how to create a new ProseMirror Schema and pass it to th
             <li>Paragraph</li>
             <li>Ordered and unordered lists</li>
             <li>Hyperlinks</li>
-            <li>Cross-browser support</li>
         </ul>
         <p> Try editing the HTML to inserted non-supported tags such as <span>, <h1> or <img> - see how it is stripped and converted to <p>.";
 
