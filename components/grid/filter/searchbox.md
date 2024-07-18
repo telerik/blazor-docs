@@ -182,7 +182,7 @@ The `GridSearchBox` component offers the following parameters to customize its b
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string`| The custom CSS class on the SearchBox wrapper (`<span class="k-searchbox">`). |
+| `Class` | `string`| The custom CSS class that renders on the SearchBox wrapper (`<span class="k-searchbox">`). |
 | `DebounceDelay` | `int` <br /> (`300`) | The time in milliseconds when the searching starts after the user has finished typing. This provides a performance optimization when using the [`OnRead` event]({%slug common-features-data-binding-onread%}). Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`. |
 | `Fields` | `List<string>` | The collection of model properties to search in. By default, the Grid searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the Grid]({%slug grid-kb-search-in-hidden-fields%}). |
 | `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized]({%slug globalization-localization%}). |
