@@ -295,7 +295,7 @@ Splitter Orientation:
 }
 ````
 
-## Nest Steps
+## Next Steps
 
 * [Set the Splitter orientation]({%slug splitter-orientation%})
 * [Manage the Splitter state]({%slug splitter-state%})
