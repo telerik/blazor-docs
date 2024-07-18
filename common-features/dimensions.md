@@ -95,5 +95,5 @@ The examples here showcase different units and examples of using them to set dim
 
 ## See Also
 
-* [Themes]({%slug themes-built-in%})
+* [Themes]({%slug general-information/themes%})
 * [Override Theme Styles]({%slug themes-override%})
