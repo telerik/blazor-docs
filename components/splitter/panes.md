@@ -43,7 +43,7 @@ Each Splitter pane is configured individually and offers the following parameter
 
         <SplitterPane Collapsible="true" @bind-Size="@PaneSize2">
             <h4>Middle Pane</h4>
-            <div>Collapsible pane with initial size in per cent.</div>
+            <div>Collapsible pane with initial size in percentage.</div>
         </SplitterPane>
 
         <SplitterPane Collapsible="false" Class="k-scrollable">
