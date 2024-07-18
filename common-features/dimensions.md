@@ -14,7 +14,7 @@ This article explains how dimensional properties like `Width`, `Height`, `Top` a
 
 ## Basics
 
-Component parameters for dimensions and positions are usually `string` properties that are not parsed the Telerik components. You can set any [valid CSS unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). For example, `100px`, `50%`, or `80vw` are all valid options. At the time of writing there is no `Unit` type in the underlying framework.
+Component parameters for dimensions and positions are usually `string` properties that are not parsed by the Telerik components. You can set any [valid CSS unit](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units). For example, `100px`, `50%`, or `80vw` are all valid options. At the time of writing there is no `Unit` type in the underlying framework.
 
 The string you provide is usually rendered as an inline `style` attribute, so you must provide a valid value that will not break other options. You do not need to include a semicolon (`;`) in the parameter value.
 
