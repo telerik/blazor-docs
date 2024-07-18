@@ -110,7 +110,7 @@ You can set or remove the search filters programmatically through the `SearchFil
     {
         if (TreeListRef != null)
         {
-            var gridState = TreeListRef.GetState();
+            var treelistState = TreeListRef.GetState();
 
             var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
 
@@ -135,9 +135,9 @@ You can set or remove the search filters programmatically through the `SearchFil
                 Value = searchString
             });
 
-            gridState.SearchFilter = cfd;
+            treelistState.SearchFilter = cfd;
 
-            await TreeListRef.SetStateAsync(gridState);
+            await TreeListRef.SetStateAsync(treelistState);
         }
     }
 
@@ -145,11 +145,11 @@ You can set or remove the search filters programmatically through the `SearchFil
     {
         if (TreeListRef != null)
         {
-            var gridState = TreeListRef.GetState();
+            var treelistState = TreeListRef.GetState();
 
-            (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+            (treelistState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
 
-            await TreeListRef.SetStateAsync(gridState);
+            await TreeListRef.SetStateAsync(treelistState);
         }
     }
 
