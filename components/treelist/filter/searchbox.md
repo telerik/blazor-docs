@@ -3,373 +3,254 @@ title: Toolbar Searchbox
 page_title: TreeList - Filtering Searchbox
 description: Enable and configure filtering Searchbox in TreeList for Blazor.
 slug: treelist-searchbox
-tags: telerik,blazor,TreeList,filtering,filter,Searchbox
+tags: telerik,blazor,treeList,filtering,filter,searchbox,search
 published: True
 position: 20
 ---
 
 # TreeList Toolbar Searchbox
 
-In addition to the [main filtering options]({%slug treelist-filtering%}), you can add a SearchBox in the TreeList Toolbar.
+In addition to [TreeList filtering]({%slug treelist-filtering%}), you can also add a `SearchBox` in the [TreeList Toolbar]({%slug treelist-toolbar%}). The search box can filter in multiple TreeList columns at he same time.
 
->caption In this article:
+>caption In this Article:
 
 * [Basics](#basics)
-* [Filter From Code](#filter-from-code)
+* [Search From Code](#search-from-code)
 * [Customize the SearchBox](#customize-the-searchbox)
 
 
 ## Basics
 
-The SearchBox lets the user type their query and the TreeList will look up all visible string columns with a case-insensitive `Contains` operator, and filter them accordingly. You can change the filter delay, and the fields the TreeList will use - see the [Customize the SearchBox](#customize-the-searchbox) section below.
+The SearchBox lets the user type their query and the TreeList will look up all visible `string` columns with a case-insensitive `Contains` operator, and filter them accordingly. To change the filter delay and the fields the TreeList will use, see the [Customize the SearchBox](#customize-the-searchbox) section below.
 
-The SearchBox is independent from the standard filters. If you have filters applied, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to results returned from it.
+The SearchBox is independent from the TreeList filtering. If the TreeList has applied filters, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to search results.
 
-To enable the SearchBox, add the `<TreeListSearchBox>` tag in the `<TreeListToolBarTemplate>`.
+To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToolBarTemplate>`]({%slug treelist-toolbar%}).
 
->caption SearchBox in the Telerik TreeList
+>caption TreeList SearchBox
 
 ````CSHTML
-@* A search panel in the TreeList Toolbar *@
-
-<TelerikTreeList Data="@Data"
-                 ItemsField="@(nameof(Employee.DirectReports))"
-                 Pageable="true">
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(SampleModel.Id)"
+                 ParentIdField="@nameof(SampleModel.ParentId)"
+                 Pageable="true"
+                 Sortable="true">
     <TreeListToolBarTemplate>
-        <span class="k-toolbar-spacer"></span> @* add this spacer to keep the searchbox on the right *@
         <TreeListSearchBox />
     </TreeListToolBarTemplate>
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(SampleModel.Description)" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
-    public List<Employee> Data { get; set; }
+    private List<SampleModel> TreeListData { get; set; } = new();
 
-    // sample model
-
-    public class Employee
+    protected override void OnInitialized()
     {
-        // hierarchical data collections
-        public List<Employee> DirectReports { get; set; }
-
-        // data fields for display
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-    }
-
-    // data generation
-
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
-
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
+        for (int i = 1; i <= 50; i++)
         {
-            Employee root = new Employee
+            TreeListData.Add(new SampleModel()
             {
-                Id = LastId,
-                Name = $"root: {i}",
-                EmailAddress = $"{i}@example.com",
-                DirectReports = new List<Employee>(),
-            };
-            data.Add(root);
-            LastId++;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
-                {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    EmailAddress = $"{currId}@example.com",
-                    DirectReports = new List<Employee>(),
-                };
-                root.DirectReports.Add(firstLevelChild);
-                LastId++;
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = LastId;
-                    firstLevelChild.DirectReports.Add(new Employee
-                    {
-                        Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        EmailAddress = $"{nestedId}@example.com",
-                    }); ;
-                    LastId++;
-                }
-            }
+                Id = i,
+                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
+                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
+                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
+            });
         }
+    }
 
-        return await Task.FromResult(data);
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }
 ````
 
->caption The result from the code snippet above
 
-![treelist search box](images/search-box-overview.gif)
+## Search From Code
 
-## Filter From Code
+You can set or remove the search filters programmatically through the `SearchFilter` property of the [TreeList state]({%slug treelist-state%}).
 
-You can set the TreeList filters programmatically through the component [state]({%slug treelist-state%}).
+>caption Set and clear the TreeList SearchBox filter programmatically
+
+````CSHTML
+@using Telerik.DataSource
+
+<TelerikTreeList @ref="@TreeListRef"
+                 Data="@TreeListData"
+                 IdField="@nameof(SampleModel.Id)"
+                 ParentIdField="@nameof(SampleModel.ParentId)"
+                 Pageable="true"
+                 Sortable="true">
+    <TreeListToolBarTemplate>
+        <TreeListSearchBox />
+        <TelerikButton Icon="@SvgIcon.Search"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
+        <TelerikButton Icon="@SvgIcon.X"
+                       OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
+    </TreeListToolBarTemplate>
+    <TreeListColumns>
+        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(SampleModel.Description)" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private TelerikTreeList<SampleModel>? TreeListRef { get; set; }
+
+    private List<SampleModel> TreeListData { get; set; } = new();
+
+    private async Task OnSearchButtonClick()
+    {
+        if (TreeListRef != null)
+        {
+            var gridState = TreeListRef.GetState();
+
+            var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
+
+            var cfd = new CompositeFilterDescriptor();
+
+            cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            cfd.FilterDescriptors = new FilterDescriptorCollection();
+
+            // Add one FilterDesccriptor for each string column
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Name),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Description),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+
+            gridState.SearchFilter = cfd;
+
+            await TreeListRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task OnClearButtonClick()
+    {
+        if (TreeListRef != null)
+        {
+            var gridState = TreeListRef.GetState();
+
+            (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+
+            await TreeListRef.SetStateAsync(gridState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 500; i++)
+        {
+            TreeListData.Add(new SampleModel()
+            {
+                Id = i,
+                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
+                Name = $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} " +
+                    $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} {i}",
+                Description = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} " +
+                    $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} {i}"
+            });
+        }
+    }
+
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}
+````
 
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
->caption The result from the code snippet below.
-
-![Blazor TreeList Searchbox Filter Control](images/searchbox-filter-control.gif)
-
->caption Set programmatically Searchbox Filter.
-
-````Razor
-@* This snippet shows how to set filtering state to the TreeList from your code
-    Applies to the SearchBox filter *@
-
-@using Telerik.DataSource;
-
-<TelerikButton OnClick="@SetTreeListFilter" ThemeColor="primary">Set filtered state</TelerikButton>
-
-<TelerikTreeList Data="@Data"
-                 ItemsField="@(nameof(Employee.DirectReports))"
-                 Height="400px"
-                 Pageable="true"
-                 Width="850px"
-                 @ref="TreeListRef">
-    <TreeListToolBarTemplate>
-        <TreeListSearchBox />
-    </TreeListToolBarTemplate>
-    <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Width="120px" />
-        <TreeListColumn Field="Address" Title="Email Address" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
-    </TreeListColumns>
-</TelerikTreeList>
-
-@code {
-    public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
-
-    async Task SetTreeListFilter()
-    {
-        var filteredState = new TreeListState<Employee>()
-        {
-            SearchFilter = CreateSearchFilter()
-        };
-
-        await TreeListRef.SetStateAsync(filteredState);
-    }
-
-    private IFilterDescriptor CreateSearchFilter()
-    {
-        var descriptor = new CompositeFilterDescriptor();
-        var fields = new List<string>() { "Name", "Address" };
-        var searchValue = "root: 1";
-        descriptor.LogicalOperator = FilterCompositionLogicalOperator.Or;
-
-        foreach (var field in fields)
-        {
-            var filter = new FilterDescriptor(field, FilterOperator.Contains, searchValue);
-
-            filter.MemberType = typeof(string);
-
-            descriptor.FilterDescriptors.Add(filter);
-        }
-
-        return descriptor;
-    }
-
-    public List<Employee> Data { get; set; }
-
-
-    public class Employee
-    {
-        public List<Employee> DirectReports { get; set; }
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-
-    public int LastId { get; set; } = 1;
-
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
-        {
-            Employee root = new Employee
-            {
-                Id = LastId,
-                Name = $"root: {i}",
-                Address = $"{i}@example.com",
-                HireDate = DateTime.Now.AddYears(-i),
-                DirectReports = new List<Employee>(),
-            };
-            data.Add(root);
-            LastId++;
-
-            for (int j = 1; j < 4; j++)
-            {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
-                {
-                    Id = currId,
-                    Name = $"first level child {j} of {i}",
-                    Address = $"{currId}@example.com",
-                    HireDate = DateTime.Now.AddDays(-currId),
-                    DirectReports = new List<Employee>(),
-                };
-                root.DirectReports.Add(firstLevelChild);
-                LastId++;
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = LastId;
-                    firstLevelChild.DirectReports.Add(new Employee
-                    {
-                        Id = LastId,
-                        Name = $"second level child {k} of {j} and {i}",
-                        Address = $"{nestedId}@example.com",
-                        HireDate = DateTime.Now.AddMinutes(-nestedId)
-                    }); ;
-                    LastId++;
-                }
-            }
-        }
-
-        return await Task.FromResult(data);
-    }
-}
-````
 
 ## Customize the SearchBox
 
-The `TreeListSearchBox` component offers the following settings to customize its behavior:
+The `TreeListSearchBox` component offers the following parameters to customize its behavior:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-| `Class` | `string` | a CSS class rendered on the wrapper of the searchbox so you can customize its appearance.
-| `DebounceDelay` | `int` <br/> (300) |the time in milliseconds with which searching is debounced. Filtering does not happen on every keystroke and that can reduce the flicker for the end user.
-| `Fields` |`List<string>` | The collection of fields to search in. By default, the component looks in all string fields in its currently visible columns, and you can define a subset of that.
-| `Placeholder` | `string` <br/> (`Search...`(localized))| Specifies the placeholder attribute of the SearchBox component.
-| `Width` | `string` | Specifies the width of the SearchBox component.
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string`| The custom CSS class that renders on the SearchBox wrapper (`<span class="k-searchbox">`). |
+| `DebounceDelay` | `int` <br /> (`300`) | The time in milliseconds between the user typing ends and the search starts. Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`. |
+| `Fields` | `List<string>` | The collection of model properties to search in. By default, the TreeList searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the TreeList]({%slug grid-kb-search-in-hidden-fields%}). |
+| `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized]({%slug globalization-localization%}). |
+| `Width` | `string` | Specifies the width of the SearchBox component. |
 
->caption Customize the SearchBox to have a long filter delay, search in certain fields only and use a custom placeholder
+The example below demonstrates all SearchBox settings in action, and also how to move the SearchBox on the opposite side of the TreeList toolbar.
+
+>caption TreeList SearchBox customizaton
 
 ````CSHTML
-@* Increased delay, a subset of the columns are allowed for filtering and a custom placeholder *@
-
-<TelerikTreeList Data="@Data"
-                 ItemsField="@(nameof(Employee.DirectReports))"
-                 Pageable="true">
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(SampleModel.Id)"
+                 ParentIdField="@nameof(SampleModel.ParentId)"
+                 Pageable="true"
+                 Sortable="true">
     <TreeListToolBarTemplate>
-        <TreeListSearchBox DebounceDelay="1000"
+        <span class="k-toolbar-spacer"></span>
+        <TreeListSearchBox Class="primary-searchbox"
+                           DebounceDelay="300"
                            Fields="@SearchableFields"
-                           Placeholder="Search Name..." />
+                           Placeholder="Search Name Column..."
+                           Width="240px" />
     </TreeListToolBarTemplate>
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" />
+        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(SampleModel.Description)" />
     </TreeListColumns>
 </TelerikTreeList>
 
+<style>
+    .primary-searchbox {
+        color: var(--kendo-color-primary);
+    }
+</style>
+
 @code {
-    List<string> SearchableFields = new List<string> { "Name" };
+    private List<SampleModel> TreeListData { get; set; } = new();
 
-    List<Employee> Data { get; set; }
+    private List<string> SearchableFields = new List<string> { nameof(SampleModel.Name) };
 
-    // sample model
-
-    public class Employee
+    protected override void OnInitialized()
     {
-        // hierarchical data collections
-        public List<Employee> DirectReports { get; set; }
-
-        // data fields for display
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-    }
-
-    // data generation
-
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
-
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    async Task<List<Employee>> GetTreeListData()
-    {
-        List<Employee> data = new List<Employee>();
-
-        for (int i = 1; i < 15; i++)
+        for (int i = 1; i <= 50; i++)
         {
-            Employee root = new Employee
-                {
-                    Id = LastId,
-                    Name = $"root: {i}",
-                    EmailAddress = $"{i}@example.com",
-                    DirectReports = new List<Employee>(),
-                };
-            data.Add(root);
-            LastId++;
-
-            for (int j = 1; j < 4; j++)
+            TreeListData.Add(new SampleModel()
             {
-                int currId = LastId;
-                Employee firstLevelChild = new Employee
-                    {
-                        Id = currId,
-                        Name = $"first level child {j} of {i}",
-                        EmailAddress = $"{currId}@example.com",
-                        DirectReports = new List<Employee>(),
-                    };
-                root.DirectReports.Add(firstLevelChild);
-                LastId++;
-
-                for (int k = 1; k < 3; k++)
-                {
-                    int nestedId = LastId;
-                    firstLevelChild.DirectReports.Add(new Employee
-                        {
-                            Id = LastId,
-                            Name = $"second level child {k} of {j} and {i}",
-                            EmailAddress = $"{nestedId}@example.com",
-                        }); ;
-                    LastId++;
-                }
-            }
+                Id = i,
+                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
+                Name = $"{(char)(64 + i % 26 + 1)}{(char)(64 + i % 26 + 1)} {i}",
+                Description = $"{(char)(123 - i % 26 - 1)}{(char)(123 - i % 26 - 1)} {i}"
+            });
         }
+    }
 
-        return await Task.FromResult(data);
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }
 ````
