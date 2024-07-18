@@ -44,7 +44,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 </TelerikSplitter>
 ````
 
->tip The following sample app shows how to create a 100% high page layout with a Splitter that includes a header, footer, and sidebar: <a href="https://github.com/telerik/blazor-ui/tree/master/splitter/use-100-percent-viewport" target="_blank">How to make the Splitter take up 100% of the viewport</a>.
+>tip The following sample app shows how to create a 100%-high page layout with a Splitter that includes a header, footer, and sidebar: <a href="https://github.com/telerik/blazor-ui/tree/master/splitter/use-100-percent-viewport" target="_blank">How to make the Splitter take up 100% of the viewport</a>.
 
 ## Panes
 
