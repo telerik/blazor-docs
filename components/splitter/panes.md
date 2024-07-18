@@ -93,7 +93,7 @@ If the pane `Size` is greater than `Max`, the pane cannot be resized even if its
 Collapsibility and resizability have the following impact on the Splitter pane dimensions:
 
 * Panes that are collapsible or resizable are called *flex panes*. When a flex pane has no `Size`, it expands to fill the available space. If multiple flex panes have no `Size`, they take up equal parts of the available space.
-* Panes that are not collapsible and not resizable are called *static panes*. When a static pane has no `Size`, it expand and shrinks based on its content.
+* Panes that are not collapsible and not resizable are called *static panes*. When a static pane has no `Size`, it expands and shrinks based on its content.
 
 ### Splitter Width and Height
 
