@@ -46,7 +46,7 @@ You can seamlessly integrate the validation tools with the [Form Component]({%sl
         <FormItem LabelText="Age" Field="@nameof(Person.Age)" Hint="This editor uses TelerikValidationMessage" />
         <TelerikValidationMessage For="@( () => person.Age)" />
 
-        <FormItem LabelText="Name" Field="@nameof(Person.IsMarried)" Hint="This editor uses TelerikValidationTooltip" Id="IsMarriedFieldValidationTooltip" />
+        <FormItem LabelText="Married" Field="@nameof(Person.IsMarried)" Hint="This editor uses TelerikValidationTooltip" Id="IsMarriedFieldValidationTooltip" />
         <TelerikValidationTooltip For="@( () => person.IsMarried)" TargetSelector="#IsMarriedFieldValidationTooltip" />
     </FormItems>
 </TelerikForm>
