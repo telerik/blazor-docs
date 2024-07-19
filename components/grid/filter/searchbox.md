@@ -3,7 +3,7 @@ title: Toolbar SearchBox
 page_title: Grid - Filtering SearchBox
 description: Enable and configure filtering SearchBox in Grid for Blazor.
 slug: grid-searchbox
-tags: telerik,blazor,grid,filtering,filter,searchbox
+tags: telerik,blazor,grid,filtering,filter,searchbox,search
 published: True
 position: 20
 ---
@@ -72,7 +72,7 @@ To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemp
 
 You can set or remove the search filters programmatically through the `SearchFilter` property of the [Grid state]({%slug grid-state%}).
 
->caption Set and clear the SearchBox filter programmatically
+>caption Set and clear the Grid SearchBox filter programmatically
 
 ````CSHTML
 @using Telerik.DataSource
