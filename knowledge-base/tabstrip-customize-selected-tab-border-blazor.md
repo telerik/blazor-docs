@@ -3,7 +3,7 @@ title: Customizing the Border of the Selected Tab in TabStrip
 description: Learn how to modify the border appearance around the selected tab and its content in the TabStrip component for Blazor.
 type: how-to
 page_title: How to Change the Border of the Selected Tab in Blazor TabStrip
-slug: customize-selected-tab-border-tabstrip-blazor
+slug: tabstrip-customize-selected-tab-border-blazor
 tags: tabstrip, border, customization, blazor, tab
 res_type: kb
 ticketid: 1652526, 1563024, 1574295, 1620296, 1647194
@@ -21,7 +21,7 @@ ticketid: 1652526, 1563024, 1574295, 1620296, 1647194
 
 ## Description
 
-When using the [TabStrip](https://docs.telerik.com/blazor-ui/components/tabstrip/overview) for Blazor, the default appearance includes a grey outline around the selected tab. The requirement is to modify this outline to encompass both the tab title and the content of the selected tab, rather than just the tab title. 
+When using the [TabStrip](https://docs.telerik.com/blazor-ui/components/tabstrip/overview) for Blazor, the default appearance includes a grey outline around the selected tab. How can I modify this outline to encompass both the tab title and the content of the selected tab, rather than just the tab title.
 
 This KB article answers the following questions:
 * How can I change the border around the selected tab in a TabStrip?
@@ -34,28 +34,26 @@ This KB article answers the following questions:
 To customize the border of the selected tab in the TabStrip or remove it, use the `box-shadow` CSS property. This approach allows you to specify the borders around the tab and its content area. 
 
 ````CSHTML
-@*The following example demonstrates how to achieve the desired border effect*@
-
-@if (!HideFocusBorder)
+@if (HideFocusBorder)
 {
     <style>
-        .my-tabstrip .k-tabstrip-item.k-item.k-active,
-        .my-tabstrip .k-tabstrip-item.k-item:focus {
-            box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.12), /* Top border */
-            -2px 0 0 0 rgba(0, 0, 0, 0.12), /* Left border */
-            2px 0 0 0 rgba(0, 0, 0, 0.12); /* Right border */
-        }
-
-        .my-tabstrip .k-content.k-active {
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+        .tabstrip-shadow .k-tabstrip-item.k-item:focus {
+            box-shadow: none;
         }
     </style>
 }
 else
 {
     <style>
-        .my-tabstrip .k-tabstrip-item.k-item:focus {
-            box-shadow: none;
+        .tabstrip-shadow .k-tabstrip-item.k-item.k-active,
+        .tabstrip-shadow .k-tabstrip-item.k-item:focus {
+            box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.12), /* Top border */
+            -2px 0 0 0 rgba(0, 0, 0, 0.12), /* Left border */
+            2px 0 0 0 rgba(0, 0, 0, 0.12); /* Right border */
+        }
+
+        .tabstrip-shadow .k-content.k-active {
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
         }
     </style>
 }
@@ -63,7 +61,7 @@ else
 <TelerikButton OnClick="@(() => HideFocusBorder = !HideFocusBorder)">Hide/Show Focus Border</TelerikButton>
 <br />
 <br />
-<TelerikTabStrip Class="my-tabstrip">
+<TelerikTabStrip Class="tabstrip-shadow">
     <TabStripTab Title="First">
         <HeaderTemplate>
             <strong>User Details</strong>
@@ -97,4 +95,6 @@ else
 
 ## See Also
 
-- [Inspect the Applied CSS Styles Blog Post](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools)
+* [Telerik TabStrip Overview](https://docs.telerik.com/blazor-ui/components/tabstrip/overview)
+* [Telerik TabStrip Tabs Configuration](https://docs.telerik.com/blazor-ui/components/tabstrip/tabs-configuration)
+* [Override the Theme or Apply Custom CSS Styles]({%slug themes-override%})
