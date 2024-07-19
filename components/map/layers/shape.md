@@ -28,8 +28,6 @@ The following example demonstrates how to configure the Map Shape Layer.
 ````Component.razor
 @* This code snippet showcases an example of a Shape Layer configuration. *@
 
-@using System.Net
-
 <TelerikMap Center="@Center"
             Zoom="3">
     <MapLayers>
@@ -52,18 +50,24 @@ The following example demonstrates how to configure the Map Shape Layer.
 </TelerikMap>
 
 @code {
-    public double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
+    private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
 
-    public string WorldData { get; set; } = new WebClient().DownloadString("https://raw.githubusercontent.com/telerik/blazor-ui/master/map/world-data.json");
+    private string WorldData { get; set; }
 
-    public List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
+    private List<MarkerModel> MarkerData1 { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        new MarkerModel()
-        {
-            LatLng = new double[] { 30.268107, -97.744821 },
-            Title = "Austin, TX"
-        }
-    };
+        WorldData = await new HttpClient().GetStringAsync("https://raw.githubusercontent.com/telerik/blazor-ui/master/map/world-data.json");
+
+        MarkerData1 = new List<MarkerModel>(){
+            new MarkerModel()
+            {
+                LatLng = new double[] { 30.268107, -97.744821 },
+                Title = "Austin, TX"
+            }
+        };
+    }
 
     public class MarkerModel
     {
