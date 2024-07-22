@@ -21,7 +21,7 @@ To work with ProseMirror, make sure you are familiar with:
 #end
 
 #prosemirror-schema-general-info
-The Editor accepts a custom ProseMirror schema through the `Schema` parameter(`string`). Use this parameter to provide the name of your JS function that returns your custom schema - an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
+The Editor accepts a custom ProseMirror schema through the `Schema` parameter(`string`). Use this parameter to provide the name of your JS function that returns your custom schema&mdash;an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
 
 This JS function:
 * Must be declared in the global scope (the `window` object).
