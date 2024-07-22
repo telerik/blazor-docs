@@ -14,7 +14,7 @@ Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` 
 #prosemirror-schema-prerequisites
 ## Prerequisites
 
-Customization of the ProseMirror schema requires familiarity with:
+To work with ProseMirror, make sure you are familiar with:
 
 * JavaScript - the ProseMirror library is JavaScript-based and working with the schema is performed through JavaScript.
 * [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema) - the schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType), [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
