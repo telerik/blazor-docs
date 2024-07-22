@@ -123,5 +123,6 @@ The following articles and sample projects can be helpful when implementing hier
 ## See Also
 
   * [Live Demo: Grid Hierarchy](https://demos.telerik.com/blazor-ui/grid/hierarchy)
+  * [KB: Customize Hierarchy Expand Column in Blazor Grid]({%slug grid-kb-customize-hierarchy-expand-column-blazor-grid%})
    
   
