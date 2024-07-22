@@ -134,5 +134,5 @@ The below example shows how to modify the default ProseMirror schema to:
 
 List here the KB articles created as part of https://github.com/telerik/blazor/issues/9608 
 
-Similar to how this is handle in the Grid State article - https://docs.telerik.com/blazor-ui/components/grid/state#examples
+Similar to how this is handled in the Grid State article - https://docs.telerik.com/blazor-ui/components/grid/state#examples
 -->
