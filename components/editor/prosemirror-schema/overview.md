@@ -24,7 +24,7 @@ For more details, refer to the <a href="https://prosemirror.net/docs/guide/#sche
 
 ## Editor Schema
 
-The Editor uses a built-in schema with predefined nodes and marks, which describes some of the most common HTML tags and their basic attributes like id, class, and style.
+The Editor uses a built-in schema with predefined nodes and marks, which describes some of the most common HTML tags and their basic attributes like `id`, `class`, and `style`.
 
 To change the existing nodes and marks or define new ones, you can:
 
