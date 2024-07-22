@@ -10,7 +10,7 @@ position: 130
 
 # ProseMirror Plugins
 
-The Telerik UI for Balzor Editor component is based on the [ProseMirror library](https://prosemirror.net/). ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.
+The Telerik UI for Blazor Editor component is based on the [ProseMirror library](https://prosemirror.net/). ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.
 
 ## Concept
 
