@@ -226,7 +226,7 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 </TelerikEditor>
 
 @code {
-    string TheEditorValue { get; set; }
+    private string EditorValue { get; set; } = string.Empty;
 
     protected override Task OnInitializedAsync()
     {
