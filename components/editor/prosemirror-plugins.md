@@ -32,7 +32,7 @@ The function accepts an `arguments` object with the following properties:
 
 | Property | Description |
 |----------|-------------|
-| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. Iy you don't provide a custom schema, this function always retrns the default schema. |
+| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. If you don't provide a custom schema, this function always returns the default schema. |
 | `getView` | A function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
 | `ProseMirror` | An object that contains various ProseMirror classes and functions.|
 | `getPlugins` | A function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
