@@ -38,7 +38,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 1. Hide the default hierarchy expand column using [custom CSS]({%slug themes-override%}).
 2. Add another [column with a template]({%slug grid-templates-column%}) for expanding and collapsing the detail templates through the [Grid state]({%slug components/grid/features/hierarchy%}#expand-rows-from-code).
 3. Disable the data operations for this column if you have enabled them in the Grid (filtering, sorting, etc.)
-4. Manage the icon type in the custom hierarchy expand column based on the item's expanded state.
+4. Toggle the icon in the custom hierarchy expand column based on the item's expanded state.
 5. Configure the custom hierarchy expand column as needed. For example, managing its order within the `GridColumns` declaration or enabling the `ColumnMenu` to lock the column.
 
 Here is a basic example demonstrating the approach: 
