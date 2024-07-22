@@ -16,7 +16,7 @@ The Telerik UI for Balzor Editor component is based on the [ProseMirror library]
 
 The ProseMirror [plugin system](https://prosemirror.net/docs/ref/#state.Plugin_System) enables developers to create custom tools and functionality. One of the main building blocks of each editor is its [`EditorState`](https://prosemirror.net/docs/ref/#state) object. The state is created through a static [`create`](https://prosemirror.net/docs/ref/#state.EditorState%5Ecreate) method which takes a configuration object, containing the starting document node, the [`Schema`](https://prosemirror.net/docs/ref/#model.Schema), and a collection of [plugins](https://prosemirror.net/docs/ref/#state.Plugin) which will be active in this state.
 
-Plugins are instances of the [`Plugin` class](https://prosemirror.net/docs/ref/#state.Plugin) and can model a wide variety of features. The basic ones only add some [properties](https://prosemirror.net/docs/ref/#view.EditorProps) to the editor view to respond to certain events, for example. More complicated features may add a new state to the editor and update it based on [transactions](https://prosemirror.net/docs/ref/#state.Transaction).
+Plugins are instances of the [`Plugin` class](https://prosemirror.net/docs/ref/#state.Plugin) and can model a wide variety of features. The basic ones may only add some [properties](https://prosemirror.net/docs/ref/#view.EditorProps) to the editor view to respond to certain events. More complicated features may add a new state to the editor and update it based on [transactions](https://prosemirror.net/docs/ref/#state.Transaction).
 
 For further details about the ProseMirror plugins, refer to [the this ProseMirror guide](https://prosemirror.net/docs/guide/#state.plugins).
 
