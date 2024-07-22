@@ -28,7 +28,7 @@ To modify the default ProseMirror schema that the Editor uses:
 
 1. In the global app scope (the `window` object) declare a JS function that returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
 1. Use the `getSchema()` method of the event arguments to get the default ProseMirror Schema of the Editor.
-1. Change the `Schema` object as needed - add, remove nodes and marks or modify their allowed attributes. The easiest option to get the names of the nodes/marks in the default editor `Schema` is to use your dev tools and inspect the `nodes` field of the default `Schema` object.
+1. Change the `Schema` object as needed: add, remove nodes and marks, or modify their allowed attributes. To get the names of the nodes/marks in the default editor `Schema`, use your dev tools and inspect the `nodes` field of the default `Schema` object.
 1. Return the updated `Schema` object.
 1. Pass the name of the JS function to the `Schema` parameter of the Editor.
 
