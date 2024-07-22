@@ -56,8 +56,8 @@ Here is an example implementation:
 </TelerikDateRangePicker>
 
 @code {
-    public DateTime? StartValue { get; set; } = DateTime.Now;
-    public DateTime? EndValue { get; set; } = DateTime.Now.AddDays(10);
+    private DateTime? StartValue { get; set; } = DateTime.Today;
+    private DateTime? EndValue { get; set; } = DateTime.Today.AddDays(10);
 }
 ```
 
