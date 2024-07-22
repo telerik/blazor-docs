@@ -50,7 +50,7 @@ Here is a basic example demonstrating the approach:
              Sortable="true"
              ShowColumnMenu="true"
              FilterMode="@GridFilterMode.FilterMenu"
-             Class="no-default-hierarchy-cell"
+             Class="no-default-hierarchy-column"
              Width="600px">
     <GridSettings>
         <GridColumnMenuSettings ShowColumnChooser="false"/>
