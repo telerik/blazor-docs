@@ -257,7 +257,7 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 
         EditorTools.Add(new CreateLink());
 
-        EditorButtonGroup seondGroup = new EditorButtonGroup(
+        EditorButtonGroup secondGroup = new EditorButtonGroup(
            new EditorNS.OrderedList(),
            new EditorNS.UnorderedList()
        );
