@@ -1,5 +1,5 @@
 ---
-title: Enabling Checkbox Selection Only in Edit Mode for Blazor TreeList
+title: Enable TreeList Checkbox Selection Only in Edit Mode
 description: Learn how to show the Checkbox Column in the Telerik Blazor TreeList only in edit mode and hide it in display mode.
 type: how-to
 page_title: How to Enable Checkbox Selection Only in Edit Mode in Blazor TreeList
