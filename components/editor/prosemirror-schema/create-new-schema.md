@@ -237,7 +237,7 @@ The below example shows how to create a new ProseMirror schema and pass it to th
             <li>Ordered and unordered lists</li>
             <li>Hyperlinks</li>
         </ul>
-        <p> Try editing the HTML to inserted non-supported tags such as <span>, <h1> or <img> - see how it is stripped and converted to <p>.";
+        <p> Try editing the HTML to inserted non-supported tags such as &lt;span&gt;, &lt;h1&gt; or &lt;img&gt; - see how it is stripped and converted to &lt;p&gt;.";
 
         return base.OnInitializedAsync();
     }
