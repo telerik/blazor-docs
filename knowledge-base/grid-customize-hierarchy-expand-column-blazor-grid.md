@@ -2,7 +2,7 @@
 title: Customize Hierarchy Expand Column in Blazor Grid
 description: Learn how to customize the hierarchy expand/collapse column in Telerik Blazor Grid, including changing its position, locking it, and setting its width and title.
 type: how-to
-page_title: How to Customize the Hierarchy Expand/Collapse Column in Telerik Blazor Grid
+page_title: How to Reorder, Lock or Resize the Hierarchy Expand/Collapse Column in Telerik Blazor Grid
 slug: grid-kb-customize-hierarchy-expand-column-blazor-grid
 tags: blazor, grid, hierarchy, expand, collapse, column
 res_type: kb
