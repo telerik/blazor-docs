@@ -22,16 +22,22 @@ ticketid: 1657252
 
 ## Description
 
-I want to disable the Checkbox selection in display mode and allow the user to select items only when editing. Is it possible to hide the Checkbox Column in display mode and only show it in the edit mode?
-
-This KB article also answers the following questions:
+This KB article answers the following questions:
+- How to disable the Checkbox selection in display mode and allow the user to select items only when editing?
 - How can I toggle the visibility of the Checkbox Column in the Blazor TreeList?
 - Is it possible to enable Checkbox selection only during edit mode in TreeList?
-- Can I hide the Checkbox Column in display mode for the TreeList?
+- Can I hide the TreeList Checkbox Column in display mode and only show it in the edit mode?
 
 ## Solution
 
-To enable the Checkbox selection only in edit mode in the TreeList component, follow these steps:
+This article suggests two options to disable the TreeList Checkbox selection in display mode and enable it only in edit mode:
+
+* [Solution 1: Toggle the visibility of the CheckboxColumn](#solution-1-toggle-the-visibility-of-the-checkboxcolumn)
+* [Solution 2: Disable the CheckboxColumn with CSS](#solution-2-disable-the-checkboxcolumn-with-css)
+
+
+
+### Solution 1: Toggle the visibility of the CheckboxColumn
 
 1. Enable the [`CheckBoxOnlySelection` parameter]({%slug treelist-columns-checkbox%}#parameters) of the `TreeListCheckboxColumn` to prevent users from selecting rows with a click outside of edit mode.
 2. Bind the [`Visible` parameter]({%slug treelist-columns-checkbox%}#parameters) of the `TreeListCheckboxColumn` to a variable. This allows toggling its visibility based on whether the TreeList is in edit mode.
@@ -41,8 +47,6 @@ To enable the Checkbox selection only in edit mode in the TreeList component, fo
 Below is an example implementation that toggles the visibility of the Checkbox Column:
 
 ```CSHTML
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
-
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  EditMode="@TreeListEditMode.Inline"
@@ -59,7 +63,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
     </TreeListToolBarTemplate>
     <TreeListColumns>
-        <TreeListCheckboxColumn Visible="@SelectionEnabled" CheckBoxOnlySelection="true"/>
+        <TreeListCheckboxColumn Visible="@SelectionEnabled" CheckBoxOnlySelection="true" />
 
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" Editable="false" Width="120px" />
@@ -82,18 +86,16 @@ Below is an example implementation that toggles the visibility of the Checkbox C
     private List<Employee> Data { get; set; }
     private IEnumerable<Employee> SelectedItems { get; set; } = new List<Employee>();
 
-    private bool SelectionEnabled { get; set; }    
-    private bool ItemAlreadySelected { get; set; }    
+    private bool SelectionEnabled { get; set; }
+    private bool ItemAlreadySelected { get; set; }
 
-    // Sample CUD operations for the local data
+    #region CUD operations
     private async Task UpdateItem(TreeListCommandEventArgs args)
     {
         var item = args.Item as Employee;
 
-        // perform actual data source operations here through your service
         await MyService.Update(item);
 
-        // update the local view-model data with the service data
         await GetTreeListData();
 
         //Hide CheckboxColumn
@@ -105,10 +107,8 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         var item = args.Item as Employee;
         var parentItem = args.ParentItem as Employee;
 
-        // perform actual data source operations here through your service
         await MyService.Create(item, parentItem);
 
-        // update the local view-model data with the service data
         await GetTreeListData();
 
         //Hide CheckboxColumn
@@ -119,14 +119,11 @@ Below is an example implementation that toggles the visibility of the Checkbox C
     {
         var item = args.Item as Employee;
 
-        // perform actual data source operations here through your service
         await MyService.Delete(item);
 
-        // update the local view-model data with the service data
         await GetTreeListData();
     }
 
-    // OnEdit handler
     private async Task OnEditHandler(TreeListCommandEventArgs args)
     {
         //Show CheckboxColumn
@@ -145,14 +142,11 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         }
     }
 
-    // OnAdd handler
     private async Task AddItem(TreeListCommandEventArgs args)
     {
         //Show CheckboxColumn
         SelectionEnabled = true;
     }
-
-    // OnCancel handler
 
     private async Task OnCancelHandler(TreeListCommandEventArgs args)
     {
@@ -168,12 +162,12 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         SelectionEnabled = false;
     }
 
-    // sample model
-
+    #endregion CUD operations
+    
+    #region Model
     public class Employee
     {
         public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
         public string EmailAddress { get; set; }
         public DateTime HireDate { get; set; }
@@ -194,7 +188,9 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         }
     }
 
-    // data generation
+    #endregion Model
+
+    #region Data generation
 
     private async Task GetTreeListData()
     {
@@ -206,12 +202,10 @@ Below is an example implementation that toggles the visibility of the Checkbox C
         await GetTreeListData();
     }
 
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
     public static class MyService
     {
         private static List<Employee> _data { get; set; } = new List<Employee>();
-        // used in this example for data generation and retrieval for CUD operations on the current view-model data
+
         private static int LastId { get; set; } = 1;
 
         public static async Task Create(Employee itemToInsert, Employee parentItem)
@@ -283,8 +277,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
             RemoveChildRecursive(_data, itemToDelete);
         }
 
-        // sample helper methods for handling the view-model data hierarchy
-        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
+        public static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -301,7 +294,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
             }
         }
 
-        static void RemoveChildRecursive(List<Employee> items, Employee item)
+        public static void RemoveChildRecursive(List<Employee> items, Employee item)
         {
             for (int i = 0; i < items.Count(); i++)
             {
@@ -323,7 +316,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
             }
         }
 
-        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
+        public static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
         {
             insertedItem.Id = LastId++;
             if (parentItem != null)
@@ -342,10 +335,31 @@ Below is an example implementation that toggles the visibility of the Checkbox C
             }
         }
     }
+    #endregion Data generation
 }
 ```
 
+### Solution 2: Disable the CheckboxColumn with CSS
+
 Alternatively, if you prefer not to toggle the `CheckboxColumn` visibility but just disable it, you can apply conditional custom CSS based on the flag that you set in the `OnEdit`/`OnAdd` handlers.
+
+````CSTHML
+@if (!SelectionEnabled)
+{
+    <style>
+        .checkbox-in-edit-treelist .k-table-thead th:first-of-type input,
+        .checkbox-in-edit-treelist .k-table-row td:first-of-type input {
+            pointer-events:none !important;
+            opacity: 0.6;
+        }
+    </style>
+}
+
+<TelerikTreeList Data="@Data"
+                 Class="checkbox-in-edit-treelist">
+    @* Your TreeList configuration here *@
+</TelerikTreeList>
+````
 
 ## See Also
 
