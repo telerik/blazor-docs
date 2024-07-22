@@ -14,7 +14,7 @@ This article describes how you can modify the default [ProseMirror schema that t
 
 * Extend the Editor capabilities and allow your users to add more kinds of HTML tags than the predefined ones.
 * Allow adding more attributes to the predefined HTML elements.
-* Restrict the users from adding some of the predefined HTML elements.
+* Restrict end users from adding some of the predefined HTML elements.
 
 @[template](/_contentTemplates/editor/general.md#prosemirror-schema-prerequisites)
 
