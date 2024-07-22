@@ -4,7 +4,7 @@ description: Learn how to customize the hierarchy expand/collapse column in Tele
 type: how-to
 page_title: How to Customize the Hierarchy Expand/Collapse Column in Telerik Blazor Grid
 slug: grid-kb-customize-hierarchy-expand-column-blazor-grid
-tags: grid, blazor, hierarchy, expand, collapse, column, customize
+tags: blazor, grid, hierarchy, expand, collapse, column
 res_type: kb
 ticketid: 1658470
 ---
