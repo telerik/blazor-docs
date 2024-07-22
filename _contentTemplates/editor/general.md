@@ -16,7 +16,7 @@ Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` 
 
 To work with ProseMirror, make sure you are familiar with:
 
-* JavaScript - the ProseMirror library is JavaScript-based and working with the schema is performed through JavaScript.
+* JavaScript&mdash;ProseMirror is a JavaScript library and the schema uses JavaScript syntax.
 * [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema) - the schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType), [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
 #end
 
