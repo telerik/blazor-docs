@@ -41,7 +41,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 4. Toggle the icon in the custom hierarchy expand column based on the item's expanded state.
 5. Configure the custom hierarchy expand column. For example, set its order in the `GridColumns` declaration or enable the `ColumnMenu` to lock the column.
 
-Here is a basic example demonstrating the approach: 
+>caption Using a custom Grid hierarchy expand/collapse column
 
 ````CSHTML
 <TelerikGrid @ref="@GridRef"
