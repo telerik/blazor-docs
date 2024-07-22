@@ -20,7 +20,7 @@ Each ProseMirror `document` conforms to a specific [schema](https://prosemirror.
 
 The schema describes all nodes that may occur in the document, the way they are nested, and any marks applied to them. A mark is a piece of information that can be attached to a node, such as it being emphasized, in code font, or a link. It has a type and optionally a set of attributes that provide further information (such as the target of the link).
 
-For more details, refer to the [ProseMirror schema guide](https://prosemirror.net/docs/guide/#schema).
+For more details, refer to the <a href="https://prosemirror.net/docs/guide/#schema" target="_blank">ProseMirror schema guide</a>.
 
 ## Editor Schema
 
