@@ -45,7 +45,8 @@ The function accepts an `arguments` object with the following properties:
 @using Telerik.Blazor.Components.Editor
 @inject IJSRuntime js
 
-<script>
+@* Move JavaScript code to a separate JS file in production *@
+<script suppress-error="BL9992">
     window.pluginsProvider = (args) => {
         const schema = args.getSchema();
         var placeHolderKey = new args.ProseMirror.PluginKey("placeholder");
