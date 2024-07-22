@@ -37,5 +37,5 @@ This JavaScript function:
 | `getView` | A function that returns the currently used instance of [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
 | `ProseMirror` | An object that contains various ProseMirror classes and functions. |
 
-> You can set a custom schema only once—upon the initialization of the Editor component. Further changes to the schema will not be reflected. The Editor will continue to use the initially provided schema or, if no schema is initially provided, the built-in one.
+> You can set a custom schema only once during initialization of the Editor component. Further changes to the schema will not take effect and the component will continue using the initial custom or built-in schema.
 #end
