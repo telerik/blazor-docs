@@ -281,5 +281,5 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 
 List here the KB articles created as part of https://github.com/telerik/blazor/issues/9608 
 
-Similar to how this is handle in the Grid State article - https://docs.telerik.com/blazor-ui/components/grid/state#examples
+Similar to how this is handled in the Grid State article - https://docs.telerik.com/blazor-ui/components/grid/state#examples
 -->
