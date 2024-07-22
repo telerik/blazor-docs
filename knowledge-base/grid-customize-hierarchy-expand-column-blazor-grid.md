@@ -95,7 +95,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 </style>
 
 @code {
-    private TelerikGrid<MainModel> GridRef { get; set; } = null!;
+    private TelerikGrid<MainModel>? GridRef { get; set; }
 
     private List<MainModel> GridData { get; set; } = new List<MainModel>();
 
