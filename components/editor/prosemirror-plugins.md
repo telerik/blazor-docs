@@ -22,7 +22,7 @@ For further details about the ProseMirror plugins, refer to [the this ProseMirro
 
 ## Adding a Custom Plugin
 
-The ProseMirror library is JavaScript based and adding plugins to the Editor is performed through JavaScript.
+The ProseMirror library is JavaScript-based and adding plugins to the Editor is performed through JavaScript.
 
 To add a custom plugin to the Editor for Blazor, use the `Plugins` parameter (`string`). It accepts a `string` - the name of the JS function declared in the global scope (`window` object) that is used to provide custom ProseMirror plugins.
 
