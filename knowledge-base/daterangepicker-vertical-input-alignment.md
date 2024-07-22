@@ -1,10 +1,10 @@
 ---
-title: Aligning DateRangePicker Inputs Vertically
+title: Align DateRangePicker Inputs Vertically
 description: Learn how to modify the layout of the DateRangePicker in Blazor to display its inputs vertically using custom CSS.
 type: how-to
 page_title: How to Display DateRangePicker Inputs Vertically
-slug: date-range-picker-vertical-input-alignment
-tags: datarangepicker, blazor, css, customization, layout
+slug: daterangepicker-kb-vertical-input-alignment
+tags: datarangepicker, blazor, css, layout, vertical, align
 res_type: kb
 ticketid: 1656293
 ---
@@ -22,13 +22,10 @@ ticketid: 1656293
 
 ## Description
 
-I want to place the inputs of the DateRangePicker vertically. How to achieve that? 
-Is it possible to adjust the DateRangePicker so the inputs appear on two lines, one on top of each other?
-
-This KB article also answers the following questions:
-- How to change the layout of DateRangePicker inputs in Blazor?
+This KB article answers the following questions:
+- How to change the layout of DateRangePicker inputs in Blazor, so they appear vertically oriented?
 - Can I display DateRangePicker inputs vertically in Blazor?
-- Is there a way to align DateRangePicker inputs on top of each other in Blazor?
+- Is there a way to adjust the DateRangePicker so the inputs appear on two lines, one on top of each other?
 
 ## Solution
 
