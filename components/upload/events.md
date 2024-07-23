@@ -377,7 +377,7 @@ public async Task<IActionResult> Save(IFormFile files)
 
     // OR
 
-    // default statuc code 200 and custom success message
+    // default status code 200 and custom success message
     return new OkObjectResult("Custom success message.");
 
     // OR
