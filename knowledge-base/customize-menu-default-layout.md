@@ -1,6 +1,6 @@
 ---
 title: How to Customize the Default Menu Styles - Fonts and Background Colors
-description: Learn how to change the font color, weight, and background colors of the Menu component in a  Telerik Blazor application to improve UI contrast.
+description: Learn how to change the font color, weight, and background colors of the Menu component in a Telerik Blazor application to improve UI contrast.
 type: how-to
 page_title: How to Customize the Default Menu Styles - Fonts and Background Colors
 slug: menu-kb-custom-styling
@@ -22,7 +22,7 @@ ticketid: 1657882, 1543208
 
 ## Description
 
-This KB article also answers the following questions:
+This KB article answers the following questions:
 - How do I change the font color and weight of the top-level menu items in a Blazor application?
 - How can I customize the background color of dropdown menus in a Blazor application?
 - What CSS selectors are needed to style the Telerik Menu in Blazor?
@@ -121,4 +121,4 @@ To customize the appearance of the Menu component and achieve the desired visual
 
 - [Telerik Blazor Menu - Overview]({%slug components/menu/overview%})
 - [Telerik Blazor Styling and Themes - Override Theme Styles]({%slug themes-override%})
-- [ How to inspect HTML elements on a page and see what styles affect them](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools)
+- [How to Inspect HTML Elements on a Page and See What Styles Affect Them](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools)
