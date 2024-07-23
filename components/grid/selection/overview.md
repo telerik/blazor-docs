@@ -19,18 +19,19 @@ In this article:
 * [Selection Options](#selection-options)
 * [Selected Items](#selected-items)
 * [Selection Events](#selection-events)
+* [Selection and Other Grid Features](#selection-and-other-grid-features)
 
 
 ## Selection Type
 
-You can configure to select rows or cells in the Grid. Set the setting `GridSelectionType` to a member of the `Telerik.Blazor.GridSelectionType` enum. The selection can be:
+You can configure to select rows or cells in the Grid. Add a `<GridSelectableSettings>` tag to the `<GridSettings>` tag and set the `SelectionType` parameter to a member of the `Telerik.Blazor.GridSelectionType` enum. The selection can be:
 
 * [`Row`]({%slug components/grid/selection/rows%}) (the default value)
 * `Cell`
 
 ## Selection Mode
 
-You can configure the selection behavior by setting `SelectionMode` to a member of the `Telerik.Blazor.GridSelectionMode` enum. The selection can be:
+You can configure the selection behavior by setting the Grid `SelectionMode` parameter to a member of the `Telerik.Blazor.GridSelectionMode` enum. The selection can be:
 
 * `None` (the default value) - To disable row or cell selection.
 * `Single` - Only one row or cell can be selected at a time, so the last one will be the selected one.
@@ -56,33 +57,13 @@ To respond to the user action of selecting a new cell use the `SelectedCellsChan
 
 ## Selection and Other Grid Features
 
-To check if this will apply for the cell selection. If not - it is better for this section to be in the rows selection article.
+Check the selection behavior:
+* In different [editing modes]({%slug components/grid/editing/overview%}).
+* With [virtualization]({%slug components/grid/virtual-scrolling%}).
+* In [templates]({%slug components/grid/features/templates%}).
+* During [drag and drop]({%slug grid-drag-drop-overview%}).
 
-### Selection with Editing Modes
-
-#### InCell Edit Mode
-
-In the [Incell EditMode]({%slug components/grid/editing/incell%}) selection can be applied only via a [checkbox column]({%slug components/grid/columns/checkbox%}) (`<GridCheckboxColumn />`). This applies for both selection modes - single and multiple. This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row) - if row click selection was enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so selection will only work through the row selection checkbox.
-
-Does this means that if you have InCell Edit mode there cannot be a cell selection?
-
-To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
-
-#### Inline and Popup Edit Modes
-
-In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
-
-### Selection in Grid with virtualized rows
-
-When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`](#selection-mode) the selectable items will be the one in the current set of items (page). If you select an item and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected item.
-
-### Selection in Template
-
-If you are using a [Grid Column Template]({%slug grid-templates-column%}) you can check the knowledge base article on [how to select row in the Grid when using Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}).
-
-### Selection and Row Drag and Drop
-
-If the user drags selected rows, the current selection and the collection? will be cleared on row drop.
+See [Rows Selection and Other Grid Features]({%slug components/grid/selection/rows%}#rows-selection-and-other-grid-features) and Cells Selection and Other Grid Features for more details.
 
 ## See Also
 
