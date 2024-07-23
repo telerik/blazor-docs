@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: ProseMirror Schema Overview
+page_title: Editor ProseMirror Schema Overview
 description: Overview of the ProseMirror Schema that the Editor for Blazor uses.
 slug: editor-prosemirror-schema-overview
 tags: telerik,blazor,editor,prosemirror,schema
@@ -31,10 +31,8 @@ To change the existing nodes and marks or define new ones, you can:
 * [Modify the Default Schema]({%slug editor-modify-default-schema%})
 * [Create a New Schema]({%slug editor-create-new-schema%})
 
-
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Schema](https://demos.telerik.com/blazor-ui/editor/prosemirror-schema)
 * [Modify the Default Schema]({%slug editor-modify-default-schema%})
 * [Create a New Schema]({%slug editor-create-new-schema%})
-

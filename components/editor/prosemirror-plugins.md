@@ -10,30 +10,32 @@ position: 130
 
 # ProseMirror Plugins
 
-The Telerik UI for Blazor Editor component is based on the [ProseMirror library](https://prosemirror.net/). ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.
+The Telerik UI for Blazor Editor component is based on the <a href="https://prosemirror.net/" target="_blank">ProseMirror library</a>. ProseMirror provides a set of tools and concepts for building rich text editors, using user interface inspired by what-you-see-is-what-you-get.
 
-## Concept
+## Plugins Concept
 
-The ProseMirror [plugin system](https://prosemirror.net/docs/ref/#state.Plugin_System) enables developers to create custom tools and functionality. One of the main building blocks of each editor is its [`EditorState`](https://prosemirror.net/docs/ref/#state) object. The state is created through a static [`create`](https://prosemirror.net/docs/ref/#state.EditorState%5Ecreate) method which takes a configuration object, containing the starting document node, the [`Schema`](https://prosemirror.net/docs/ref/#model.Schema), and a collection of [plugins](https://prosemirror.net/docs/ref/#state.Plugin) which will be active in this state.
+The ProseMirror <a href="https://prosemirror.net/docs/ref/#state.Plugin_System" target="_blank">plugin system</a> enables developers to create custom tools and functionality. One of the main building blocks of each editor is its <a href="https://prosemirror.net/docs/ref/#state" target="_blank">`EditorState`</a> object. The state is created through a static <a href="https://prosemirror.net/docs/ref/#state.EditorState%5Ecreate" target="_blank">`create`</a> method which takes a configuration object, containing the starting document node, the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">`Schema`</a>, and a collection of <a href="https://prosemirror.net/docs/ref/#state.Plugin" target="_blank">plugins</a> which will be active in this state.
 
-Plugins are instances of the [`Plugin` class](https://prosemirror.net/docs/ref/#state.Plugin) and can model a wide variety of features. The basic ones may only add some [properties](https://prosemirror.net/docs/ref/#view.EditorProps) to the editor view to respond to certain events. More complicated features may add a new state to the editor and update it based on [transactions](https://prosemirror.net/docs/ref/#state.Transaction).
+Plugins are instances of the <a href="https://prosemirror.net/docs/ref/#state.Plugin" target="_blank">`Plugin` class</a> and can model a wide variety of features. The basic ones may only add some <a href="https://prosemirror.net/docs/ref/#view.EditorProps" target="_blank">properties</a> to the Editor view to respond to certain events. More complicated features may add a new state to the editor and update it based on <a href="https://prosemirror.net/docs/ref/#state.Transaction" target="_blank">transactions</a>.
 
-For further details about the ProseMirror plugins, refer to [the this ProseMirror guide](https://prosemirror.net/docs/guide/#state.plugins).
+For further details about the ProseMirror plugins, refer to <a href="https://prosemirror.net/docs/guide/#state.plugins" target="_blank">this ProseMirror guide</a>.
 
 ## Adding a Custom Plugin
 
-The ProseMirror library is JavaScript-based and adding plugins to the Editor is performed through JavaScript.
+ProseMirror is a JavaScript library and the plugins use JavaScript syntax.
 
-To add a custom plugin to the Editor for Blazor, use the `Plugins` parameter (`string`). It accepts a `string`&mdash;the name of the JS function declared in the global scope (`window` object) that is used to provide custom ProseMirror plugins.
+To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `string` parameter to the name of a JavaScript function that:
 
-The function accepts an `arguments` object with the following properties:
+* Is declared in the global scope (`window` object).
+* Returns custom ProseMirror plugins.
+* Accepts an `arguments` object with the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Description |
 |----------|-------------|
-| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. If you don't provide a custom schema, this function always returns the default schema. |
-| `getView` | A function that returns the currently used instance of the [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
+| `getSchema` | A function that returns the current <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">`Schema` object</a>. Before the Editor is initialized, the `Schema` is the default `Schema`. After the Editor is initialized, the returned `Schema` is the updated schema. If you don't provide a custom schema, this function always returns the default schema. |
+| `getView` | A function that returns the currently used instance of the <a href="https://prosemirror.net/docs/ref/#view.EditorView" target="_blank">`EditorView` object</a>. Before the Editor is initialized, the view (the result of the function) is null. |
 | `ProseMirror` | An object that contains various ProseMirror classes and functions.|
 | `getPlugins` | A function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
 
@@ -125,6 +127,7 @@ The function accepts an `arguments` object with the following properties:
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Plugins](https://demos.telerik.com/blazor-ui/editor/prosemirror-plugins)
+* [ProseMirror Schema]({%slug editor-prosemirror-schema-overview%})
 
 
 <!-- # Examples
