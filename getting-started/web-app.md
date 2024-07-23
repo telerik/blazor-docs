@@ -36,7 +36,10 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 ## Step 3: Install the Telerik UI for Blazor Components
 
-1. Right-click the Blazor Server project in the solution and select **Manage NuGet Packages**.
+1. Right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
+
+  * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
+  * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
 
 1. Install the Telerik Blazor NuGet package:
 
@@ -63,7 +66,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.2. Include @using Statements
 
-In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
+Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you [installed the Telerik NuGet package in **Step 3**](#step-3-install-the-telerik-ui-for-blazor-components). This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
 
 **_Imports.razor**
     
