@@ -25,6 +25,12 @@ res_type: kb
 
 This KB article answers the following questions:
 
+* How to immediately display the uploaded image files in the Blazor app?
+* How to render an image preview when using the Blazor FileSelect?
+* How to show the uploaded file as a preview when using the Upload control? I prefer to show a Base64 image without saving the file to the server.
+* How to preview the selected image in the Upload `OnSelect` event?
+* How to get the raw file content from the Upload component and add it to a memory stream?
+
 
 ## Solution
 
@@ -37,6 +43,8 @@ Users can preview images that are uploaded through the [Upload component]({%slug
 1. [Implement a controller action method to receive the uploaded files]({%slug upload-overview%}#implement-controller-methods). Also see the [example on the Upload Events page]({%slug upload-events%}#example).
 1. Read the uploaded image(s) in the controller and return an image URL or [Base64 data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) for the `<img>` tag(s) to render.
 1. Subscribe to the [Upload `OnSuccess` event]({%slug upload-events%}#onsuccess) to detect completed file uploads and obtain the `<img>` tag's `src` value. You can also use `OnSuccess` to detect file removals in the Upload component, and remove the respective `<img>` tags.
+
+It is not possible to preview the image in the Upload `OnSelect` event, because this event handler has no access to the file contents.
 
 >caption Preview uploaded images when using the Upload component
 
