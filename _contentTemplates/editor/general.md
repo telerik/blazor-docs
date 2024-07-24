@@ -25,7 +25,9 @@ The Editor accepts a custom ProseMirror schema through its `Schema` parameter. S
 
 * Is declared in the global scope (the `window` object).
 * Returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema)(the updated schema). You can access this class from the `ProseMirror` object of the event arguments.
-* Accepts an `arguments` object with the following properties:
+* Accepts a single argument.
+
+The Editor will call this function and will pass an argument object that contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -36,4 +38,8 @@ The Editor accepts a custom ProseMirror schema through its `Schema` parameter. S
 | `ProseMirror` | An object that contains various ProseMirror classes and functions. |
 
 > You can set a custom schema only once during initialization of the Editor component. Further changes to the schema will not take effect and the component will continue using the initial custom or built-in schema.
+#end
+
+#prosemirror-support-disclaimer
+> Modifying the ProseMirror Schema and Plugins is outside of the Editor scope and we do not provide support for such customizations.
 #end

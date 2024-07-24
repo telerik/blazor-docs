@@ -26,11 +26,22 @@ This article describes how you can create a new [ProseMirror schema]({%slug edit
 1. Return the new `Schema` object.
 1. Pass the name of the JS function to the `Schema` parameter of the Editor.
 
-> Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. When creating a new schema from scratch, it is possible to get an exception if you do not include the needed nodes in your custom schema. In this case, you can either include the corresponding nodes or pass and a [custom empty collection of plugins to the Editor]({%slug editor-prosemirror-plugins%}) to override the built-in ones.
+## Plugin Dependencies
+
+Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. To get a collection of the used default plugins, use the [`getPlugins` function]({%slug editor-prosemirror-plugins%}#adding-a-custom-plugin).
+
+When creating a new schema from scratch, it is possible to get an exception if you do not include the needed nodes in your custom schema.
+
+You have two options in this case:
+
+* Include the corresponding nodes in your custom schema.
+* Pass a [custom empty collection of plugins to the Editor]({%slug editor-prosemirror-plugins%}) to override the built-in ones. Thus,
 
 ## Example
 
 The below example shows how to create a new ProseMirror schema and pass it to the Editor. The new schema supports only a couple of HTML elements such as `<p>`, `<ul>`, `<ol>` and `<a>`. 
+
+@[template](/_contentTemplates/editor/general.md#prosemirror-support-disclaimer)
 
 >caption Create New ProseMirror Schema
 
@@ -41,6 +52,7 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 
 <TelerikEditor @bind-Value="@EditorValue"
                Schema="schemaProvider"
+               Plugins="pluginsProvider"
                Tools="@EditorTools"
                Width="650px"
                Height="400px">
@@ -52,13 +64,11 @@ The below example shows how to create a new ProseMirror schema and pass it to th
     protected override Task OnInitializedAsync()
     {
         EditorValue = @"
-        <p>This Telerik Blazor Editor uses a ProseMirror Schema that supports only several nodes and marks:
-        <ul>
-            <li>Paragraph</li>
-            <li>Ordered and unordered lists</li>
-            <li>Hyperlinks</li>
-        </ul>
-        <p> Try editing the HTML to inserted non-supported tags such as &lt;span&gt;, &lt;h1&gt; or &lt;img&gt; - see how it is stripped and converted to &lt;p&gt;.";
+        <p>This Telerik Blazor Editor uses a ProseMirror Schema that supports only several nodes and marks - Paragraph, Hyperlinks, Bold text, Emphasized text, Underlined text.</p>
+
+        <p>The new Schema does not include &lt;ol&gt or &lt;ul&gt elements, so we are removing the plugin that requires these nodes.</p>
+
+        <p> Try editing the HTML to inserted non-supported tags such as &lt;ol&gt, &lt;h1&gt; or &lt;img&gt; - see how it is stripped and converted to &lt;p&gt;.";
 
         return base.OnInitializedAsync();
     }
@@ -78,13 +88,6 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 
         EditorTools.Add(new CreateLink());
 
-        EditorButtonGroup secondGroup = new EditorButtonGroup(
-           new EditorNS.OrderedList(),
-           new EditorNS.UnorderedList()
-       );
-
-        EditorTools.Add(secondGroup);
-
         EditorTools.Add(new ViewHtml());
 
         base.OnInitialized();
@@ -93,6 +96,18 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 
 @* Move JavaScript code to a separate JS file in production *@
 <script suppress-error="BL9992">
+    window.pluginsProvider = (args) => {
+        const defaultSchema = args.getSchema();
+
+        var plugins = args.getPlugins(defaultSchema);
+
+        plugins.shift();
+
+        console.log(plugins);
+
+        return plugins;
+    }
+
     var getAttributes = (dom) => {
         const result = {};
         const attributes = dom.attributes;
@@ -180,58 +195,6 @@ The below example shows how to create a new ProseMirror schema and pass it to th
             text: {
                 inline: true,
                 group: "inline",
-            },
-
-            ordered_list: {
-                content: "list_item+",
-                group: "block",
-                attrs: {
-                    ...commonAttributes(),
-                    type: { default: null },
-                    order: { default: 1 },
-                },
-                parseDOM: [
-                    {
-                        tag: "ol",
-                        getAttrs: (dom) => {
-                            return {
-                                ...getAttributes(dom),
-                                order: dom.hasAttribute("start")
-                                    ? parseInt(dom.getAttribute("start") || "1", 10)
-                                    : 1,
-                            };
-                        },
-                    },
-                ],
-                toDOM: (node) => {
-                    return node.attrs.order === 1
-                        ? hasAttrs(node.attrs, "order")
-                            ? ["ol", getAttrs(node.attrs, "order"), hole]
-                            : ["ol", 0]
-                        : [
-                            "ol",
-                            { ...getAttrs(node.attrs, "order"), start: node.attrs.order },
-                            hole,
-                        ];
-                },
-            },
-
-            bullet_list: {
-                content: "list_item+",
-                group: "block",
-                attrs: { ...commonAttributes() },
-                parseDOM: [{ tag: "ul", getAttrs: getAttributes }],
-                toDOM: (node) =>
-                    hasAttrs(node.attrs) ? ["ul", getAttrs(node.attrs), hole] : ["ul", 0],
-            },
-
-            list_item: {
-                content: "block*",
-                attrs: { ...commonAttributes() },
-                parseDOM: [{ tag: "li", getAttrs: getAttributes }],
-                toDOM: (node) =>
-                    hasAttrs(node.attrs) ? ["li", getAttrs(node.attrs), hole] : ["li", 0],
-                defining: true,
             },
 
             // default ProseMirror table nodes

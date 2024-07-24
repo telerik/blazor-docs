@@ -28,7 +28,9 @@ To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `str
 
 * Is declared in the global scope (`window` object).
 * Returns custom ProseMirror plugins.
-* Accepts an `arguments` object with the following properties:
+* Accepts a single argument.
+
+The Editor will call this function and will pass an argument object that contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -40,6 +42,8 @@ To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `str
 | `getPlugins` | A function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
 
 > To ensure all the built-in functionalities of the Editor are working correctly, the result array must contain the default plugins which can be retrieved by calling the `getPlugins` function.
+
+@[template](/_contentTemplates/editor/general.md#prosemirror-support-disclaimer)
 
 >caption Adding a Placeholder Plugin
 
