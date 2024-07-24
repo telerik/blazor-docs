@@ -44,7 +44,7 @@ In Blazor, [previewing images is easier when using the FileSelect](#using-the-fi
 1. [Ensure the Blazor app can handle large uploaded files]({%slug upload-overview%}#large-file-uploads) with a size that matches or exceeds `MaxFileSize`.
 1. [Implement a controller action method to receive the uploaded files]({%slug upload-overview%}#implement-controller-methods). Also see the [example on the Upload Events page]({%slug upload-events%}#example).
 1. Read the uploaded image(s) in the controller and return an image URL or [Base64 data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) for the `<img>` tag(s) to render.
-1. Subscribe to the [Upload `OnSuccess` event]({%slug upload-events%}#onsuccess) to detect completed file uploads and obtain the `<img>` tag's `src` value. You can also use `OnSuccess` to detect file removals in the Upload component, and remove the respective `<img>` tags.
+1. Subscribe to the [Upload `OnSuccess` event]({%slug upload-events%}#onsuccess) to detect completed file uploads and obtain the `<img>` tag's `src` value. You can also use `OnSuccess` to detect file removals in the Upload component and remove the respective `<img>` tags.
 
 It is not possible to preview the image in the Upload `OnSelect` event, because this event handler has no access to the file contents.
 
