@@ -62,7 +62,7 @@ Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which 
 
 ## Page Templates and Building Blocks
 
-Page Templates demonstrating the power of the UI for Blazor suite are now available. These ready-to-use layouts showcase the components, providing you with a clear example of how to integrate them. Each Page Template is composed of Building Blocks, which are the individual parts that make up the full layout. These templates and blocks streamline the development process by offering pre-designed, customizable elements. For more details, refer to the [design system](https://www.telerik.com/design-system/docs/ui-templates/overview/) documentation.
+Page Templates offer ready-to-use Blazor layouts that effectively integrate the Telerik UI for Blazor components. These templates consist of Building Blocks, which are the individual elements that form the complete layouts. The templates and blocks streamline the development process by providing pre-designed, customizable elements. For more details, refer to the [Page Templates and Building Blocks documentation](https://www.telerik.com/design-system/docs/ui-templates/overview/).
 
 ## Trial Version and Commercial License
 
