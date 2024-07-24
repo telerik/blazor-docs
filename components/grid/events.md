@@ -29,6 +29,7 @@ This article explains the events available in the Telerik Grid for Blazor. They 
 * [PageChanged](#pagechanged)
 * [PageSizeChanged](#pagesizechanged)
 * [SelectedItemsChanged](#selecteditemschanged)
+* [SelectedCellsChanged](#selectedcellschanged)
 
 ## CUD Events
 
@@ -1055,7 +1056,11 @@ Make sure to update the current page size when using the event.
 
 ## SelectedItemsChanged
 
-Fires when item selection is enabled and the user selects or deselects one item or multiple items, depending on the [selection mode]({%slug components/grid/selection/overview%}#selection-mode).
+Fires when [row selection is enabled]({%slug components/grid/selection/overview%}#selection-type) and the user selects or deselects one row or multiple rows, depending on the [selection mode]({%slug components/grid/selection/overview%}#selection-mode).
+
+## SelectedCellsChanged
+
+Fires when [cell selection is enabled]({%slug components/grid/selection/overview%}#selection-type) and the user selects or deselects one cell or multiple cells, depending on the [selection mode]({%slug components/grid/selection/overview%}#selection-mode).
 
 ## See Also
 
