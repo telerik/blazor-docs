@@ -60,6 +60,9 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
 
 Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which components you want us to create and how you intend to use them with Blazor.
 
+## Page Templates and Building Blocks
+
+Page Templates demonstrating the power of the UI for Blazor suite are now available. These ready-to-use layouts showcase the components, providing you with a clear example of how to integrate them. Each Page Template is composed of Building Blocks, which are the individual parts that make up the full layout. These templates and blocks streamline the development process by offering pre-designed, customizable elements. For more details, refer to the [design system](https://www.telerik.com/design-system/docs/ui-templates/overview/) documentation.
 
 ## Trial Version and Commercial License
 
