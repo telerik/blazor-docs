@@ -68,6 +68,11 @@ UI for Blazor is a commercial UI library. You are welcome to explore its full fu
 To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> and get acquainted with the full terms of use.
 
 
+## Building Blocks and Page Templates
+
+Need to accelerate your application development? Explore our expertly crafted, customizable, and accessible <a href="https://www.telerik.com/design-system/docs/ui-templates/overview/" target="_blank">Telerik and Kendo UI Building Blocks and Page Templates</a>.
+
+
 ## Support Options
 
 For any issues you might encounter while working with Telerik UI for Blazor, use any of the available support channels:
