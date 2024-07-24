@@ -36,7 +36,7 @@ This KB article answers the following questions:
 
 To focus any element or component in the [Telerik UI Window for Blazor]({%slug dialog-overview%}), follow the steps below. They are also applicable for the [Dialog component]({%slug dialog-overview%}).
 
-1. If the goal is to focus a Telerik Blazor component, [set the `@ref` attribute to obtain the component's reference]({%slug components/textbox/overview%}#textbox-reference-and-methods).
+1. To focus a Telerik UI for Blazor component, [set the `@ref` attribute to obtain the component's reference]({%slug components/textbox/overview%}#textbox-reference-and-methods).
 1. Raise a `bool` flag when showing the Window.
 1. Check the boolean flag's value in `OnAfterRenderAsync()`.
 1. Use a small `Task.Delay()` to wait for the Window to display and gain focus. Without a delay, the focusable component will either no exist yet, or the Window will steal the focus.
