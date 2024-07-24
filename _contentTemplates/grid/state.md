@@ -4,56 +4,97 @@
 
 
 #set-sort-from-code
-@* This snippet shows how to set sorting state to the grid from your code *@
+@using Telerik.DataSource
 
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridSort">set sort from code</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
-             Pageable="true" Sortable="true">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Sortable="true"
+             SortMode="@SortMode.Multiple"
+             Height="400px">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@SetGridSort">Sort Grid by HireDate</TelerikButton>
+        <label>
+            <TelerikCheckBox @bind-Value="@ShouldResetSortState" />
+            Reset Existing Sort State
+        </label>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<SampleData>? GridRef { get; set; }
+
+    private bool ShouldResetSortState { get; set; } = true;
 
     private async Task SetGridSort()
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
+        if (GridRef != null)
         {
-            SortDescriptors = new List<SortDescriptor>()
-            {
-                new SortDescriptor { Member = "Id", SortDirection = ListSortDirection.Descending }
-            }
-        };
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            if (ShouldResetSortState)
+            {
+                // Remove any existing sorts and add a new one.
+                gridState.SortDescriptors = new List<SortDescriptor>() {
+                    new SortDescriptor()
+                    {
+                        Member = nameof(SampleData.HireDate),
+                        SortDirection = ListSortDirection.Descending
+                    }
+                };
+            }
+            else
+            {
+                // Add sort or update the existing one.
+                bool shouldAddHireDateSortDescriptor = true;
+
+                foreach (var sortDescriptor in gridState.SortDescriptors)
+                {
+                    if (sortDescriptor.Member == nameof(SampleData.HireDate))
+                    {
+                        sortDescriptor.SortDirection = ListSortDirection.Descending;
+                        shouldAddHireDateSortDescriptor = false;
+                    }
+                }
+
+                if (shouldAddHireDateSortDescriptor)
+                {
+                    // You can also insert the new SortDescriptor before the existing ones to raise the sort priority.
+                    gridState.SortDescriptors.Add(new SortDescriptor()
+                    {
+                        Member = nameof(SampleData.HireDate),
+                        SortDirection = ListSortDirection.Descending
+                    });
+                }
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
     {
         Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
+        Name = $"Name {x}",
+        Team = $"Team {x % 5 + 1}",
+        HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000))
     });
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
     }
 }
 #end
-
 
 
 #filter-row-from-code
