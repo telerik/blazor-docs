@@ -104,3 +104,8 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
     }
 }
 ````
+
+
+## See Also
+
+* [Focus TextBox on Dialog Open]({%slug window-kb-focus-button-textbox-on-open%})

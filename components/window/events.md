@@ -18,6 +18,7 @@ This article explains the events available in the Telerik Window for Blazor:
 * [WidthChanged and HeightChanged](#widthchanged-and-heightchanged)
 * [Action Click](#action-click)
 * [LeftChanged and TopChanged](#leftchanged-and-topchanged)
+
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async) 
 
 
@@ -271,3 +272,4 @@ The `LeftChanged` event fires second, so if you intend to store locations in an 
 * [Window Overview]({%slug window-overview%})
 * [Window State]({%slug components/window/size%})
 * [Window Actions]({%slug components/window/actions%})
+* [Focus TextBox on Window Open]({%slug window-kb-focus-button-textbox-on-open%})
