@@ -20,14 +20,17 @@ This article describes how you can create a new [ProseMirror schema]({%slug edit
 
 ## Plugin Dependencies
 
-Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. To get a collection of the used default plugins, use the [`getPlugins` function]({%slug editor-prosemirror-plugins%}#adding-a-custom-plugin).
+Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. To get a collection of the default plugins, use the [`getPlugins` function]({%slug editor-prosemirror-plugins%}#adding-a-custom-plugin).
 
 When creating a new schema from scratch, it is possible to get an exception if you do not include the needed nodes in your custom schema.
 
 You have two options in this case:
 
 * Include the corresponding nodes in your custom schema.
+* Get the collection of default plugins and remove the plugins that require the missing node.
 * Pass a [custom empty collection of plugins to the Editor]({%slug editor-prosemirror-plugins%}) to override the built-in ones. Thus,
+
+Note that with the last two options you will lose the functionality that comes with the plugin(s) you remove.
 
 ## Creating a New Schema
 

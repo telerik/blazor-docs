@@ -24,7 +24,7 @@ Modifying the ProseMirror Schema is outside of the Editor scope and we do not pr
 #end
 
 #prosemirror-schema-general-info
-The Editor accepts a custom ProseMirror schema through its `Schema` parameter. Set this `string` parameter to the name of the JavaScript function that:
+The Editor accepts a custom ProseMirror schema through its `Schema` parameter. Set this `string` parameter to the name of a JavaScript function that:
 
 * Is declared in the global scope (the `window` object).
 * Returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema)(the updated schema). You can access this class from the `ProseMirror` object of the event arguments.
