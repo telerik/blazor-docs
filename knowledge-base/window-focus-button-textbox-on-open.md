@@ -26,7 +26,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to set default focus to a TextBox or a Button in a TelerikWindow?
+* How to set default focus to a TextBox or a Button in a Telerik UI for Blazor Window?
 * How to focus a button or a textbox inside a Window when the Window is made visible?
 * How to focus a component after the Window opens? The JavaScript call is made before the Window actually shows, so the focusable element is `null`.
 * How do you set focus on an input element in a Window, so that the user doesn't have to use their mouse?
