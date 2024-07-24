@@ -34,7 +34,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-To focus any element or component in the [Telerik Window for Blazor]({%slug dialog-overview%}), follow the steps below. They are also applicable for the [Telerik Dialog component]({%slug dialog-overview%}).
+To focus any element or component in the [Telerik UI Window for Blazor]({%slug dialog-overview%}), follow the steps below. They are also applicable for the [Dialog component]({%slug dialog-overview%}).
 
 1. If the goal is to focus a Telerik Blazor component, [set the `@ref` attribute to obtain the component's reference]({%slug components/textbox/overview%}#textbox-reference-and-methods).
 1. Raise a `bool` flag when showing the Window.
