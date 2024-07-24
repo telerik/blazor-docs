@@ -15,7 +15,7 @@ ticketid: 1657882, 1543208
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Chart for Blazor</td>
+            <td>Menu for Blazor</td>
         </tr>
     </tbody>
 </table>
@@ -29,23 +29,24 @@ This KB article answers the following questions:
 
 ## Solution
 
-To customize the appearance of the Menu component and achieve the desired visual results: 
+To customize the appearance of the Menu items: 
 
 1. Override the default theme styles. 
 2. Use a custom CSS to change the font color and weight of the root menu items. 
 3. Customize the background and font colors of the child menu items.
 
 >caption Menu component with custom CSS styles
+
 ````CSHTML
 <style>
     /* root menu item default state */
-    .my-menu.k-menu > .k-item {
+    .custom-menu-styles.k-menu > .k-item {
         color: #fff;
         font-weight: bold;
     }
 
         /* root menu item hover state */
-        .my-menu.k-menu > .k-item:hover {
+        .custom-menu-styles.k-menu > .k-item:hover {
             background: #fff;
             color: #000;
         }
@@ -62,7 +63,7 @@ To customize the appearance of the Menu component and achieve the desired visual
 </style>
 
 <div style="background: orange; padding:1em; width: 60%">
-    <TelerikMenu Data="@Data" Class="my-menu"></TelerikMenu>
+    <TelerikMenu Data="@Data" Class="custom-menu-styles"></TelerikMenu>
 </div>
 
 @code {
@@ -112,13 +113,7 @@ To customize the appearance of the Menu component and achieve the desired visual
 }
 ````
 
-## Notes
-
-- The `.my-menu` class is a custom class used to apply the styles specifically to the targeted Menu component. Make sure this class matches the one set in the `Class` attribute of your `TelerikMenu` component.
-- You may need to adjust the color values in the CSS to match your application's design and color scheme.
-
 ## See Also
 
 - [Telerik Blazor Menu - Overview]({%slug components/menu/overview%})
 - [Telerik Blazor Styling and Themes - Override Theme Styles]({%slug themes-override%})
-- [How to Inspect HTML Elements on a Page and See What Styles Affect Them](https://www.telerik.com/blogs/improve-your-debugging-skills-with-chrome-devtools)
