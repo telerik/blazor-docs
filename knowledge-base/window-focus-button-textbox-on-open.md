@@ -40,7 +40,7 @@ To focus any element or component in the [Telerik UI Window for Blazor]({%slug d
 1. Raise a `bool` flag when showing the Window.
 1. Check the boolean flag's value in `OnAfterRenderAsync()`.
 1. Use a small `Task.Delay()` to wait for the Window to display and gain focus. Without a delay, the focusable component will either not exist yet, or the Window will steal the focus.
-1. Focus the desired button, textbox, or input component. If it's a Telerik Blazor component, use the [`FocusAsync()` method]({%slug inputs-kb-focus%}).
+1. Focus the desired button, textbox, or input component. If it's a Telerik UI for Blazor component, use the [`FocusAsync()` method]({%slug inputs-kb-focus%}).
 
 >caption Focus a component on Dialog or Window open
 
