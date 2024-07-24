@@ -24,7 +24,7 @@ In this article:
 
 ## Selection Type
 
-You can configure to select rows or cells in the Grid. Add a `<GridSelectableSettings>` tag to the `<GridSettings>` tag and set the `SelectionType` parameter to a member of the `Telerik.Blazor.GridSelectionType` enum. The selection can be:
+You can configure to select rows or cells in the Grid. Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag and set the `SelectionType` parameter to a member of the `Telerik.Blazor.GridSelectionType` enum. The selection can be:
 
 * [`Row`]({%slug components/grid/selection/rows%}) (the default value)
 * `Cell`

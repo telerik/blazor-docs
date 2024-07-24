@@ -155,15 +155,13 @@ else
 
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* If the Grid does *not* use an `ObservableCollection` for its `Data` - the `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
-
-* If you update or delete an item, you must make the same update in the selected items through the Grid [editing events]({%slug components/grid/editing/overview%}).
-
-* When using an `ObservableCollection` for the Grid `Data`- if an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the `SelectedItems` collection).
-
-* The other CRUD operations (Create and Update), you should use the Grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
+* If you update or delete an item in the Grid, you must make the same update in the `SelectedItems` collection through the Grid [editing events]({%slug components/grid/editing/overview%}). The other CRUD operations (Create), you should use the Grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
 
 * If you are using one-way binding for the `SelectedItems` property, when the data changes and the selected items are cleared, the [`SelectedItemsChanged` event](#selecteditemschanged) will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
+
+* If the Grid does *not* use an `ObservableCollection` for its `Data` - the `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
+
+* When using an `ObservableCollection` for the Grid `Data`- if an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the `SelectedItems` collection).
 
 ### Selected Rows Equals Comparison
 
