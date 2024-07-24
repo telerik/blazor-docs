@@ -175,8 +175,6 @@ When the `SelectedItems` are obtained from a different data source to the Grid (
 
 You can respond to the user action of selecting a new row through the `SelectedItemsChanged` event. The `SelectedItemsChanged` event receives a collection of the Grid data model. It may have no items in it. It may have only one member (the last selected item) when the `SelectionMode` is `Single`.
 
-Note that both binding to the property and using its event cannot be used at the same time, as Blazor only allows one. This means that if you want to use the `SelectedItemsChanged` event, you need to use one-way binding for the `SelectedItems` property. Otherwise, you can use two-way binding for the `SelectedItems` property without the `SelectedItemsChanged` event.
-
 >caption One-way binding for SelectedItems and using the SelectedItemsChanged event
 
 ````CSHTML
