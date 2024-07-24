@@ -20,6 +20,8 @@ Plugins are instances of the <a href="https://prosemirror.net/docs/ref/#state.Pl
 
 For further details about the ProseMirror plugins, refer to <a href="https://prosemirror.net/docs/guide/#state.plugins" target="_blank">this ProseMirror guide</a>.
 
+Modifying the ProseMirror plugins is outside of the Editor scope and we do not provide support for such customizations.
+
 ## Adding a Custom Plugin
 
 ProseMirror is a JavaScript library and the plugins use JavaScript syntax.
@@ -42,8 +44,6 @@ The Editor will call this function and will pass an argument object that contain
 | `getPlugins` | A function that accepts `Schema` as an argument and returns the default Editor plugins. The function must return an array of ProseMirror plugins. |
 
 > To ensure all the built-in functionalities of the Editor are working correctly, the result array must contain the default plugins which can be retrieved by calling the `getPlugins` function.
-
-@[template](/_contentTemplates/editor/general.md#prosemirror-support-disclaimer)
 
 >caption Adding a Placeholder Plugin
 

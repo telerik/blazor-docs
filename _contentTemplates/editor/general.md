@@ -18,6 +18,9 @@ To work with ProseMirror, make sure you are familiar with:
 
 * JavaScript&mdash;ProseMirror is a JavaScript library and the schema uses JavaScript syntax.
 * [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema)&mdash;The schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType) and [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
+
+Modifying the ProseMirror Schema is outside of the Editor scope and we do not provide support for such customizations.
+
 #end
 
 #prosemirror-schema-general-info
@@ -38,8 +41,4 @@ The Editor will call this function and will pass an argument object that contain
 | `ProseMirror` | An object that contains various ProseMirror classes and functions. |
 
 > You can set a custom schema only once during initialization of the Editor component. Further changes to the schema will not take effect and the component will continue using the initial custom or built-in schema.
-#end
-
-#prosemirror-support-disclaimer
-> Modifying the ProseMirror Schema and Plugins is outside of the Editor scope and we do not provide support for such customizations.
 #end

@@ -24,21 +24,13 @@ This article describes how you can modify the default [ProseMirror schema that t
 
 ## Modifying the Schema
 
-To modify the default ProseMirror schema that the Editor uses:
-
-1. In the global app scope (the `window` object) declare a JS function that returns an instance of the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">ProseMirror `Schema` class</a>.
-1. Use the `getSchema()` method of the event arguments to get the default ProseMirror Schema of the Editor.
-1. Change the `Schema` object as needed: add, remove nodes and marks, or modify their allowed attributes. To get the names of the nodes/marks in the default editor `Schema`, use your dev tools and inspect the `nodes` field of the default `Schema` object.
-1. Return the updated `Schema` object.
-1. Pass the name of the JS function to the `Schema` parameter of the Editor.
-
-## Example
-
 The below example shows how to modify the default ProseMirror schema to:
 
-* Add a `data-id` attribute to the `<p>` element.
+* Get the default schema.
+* Add a `data-id` attribute to the `<p>` node.
 * Remove the default `horizontal_rule` node that does not allow any attributes and add a custom node for the `<hr>` element that allows setting a CSS `class`.
 * Add a `mark` for the `<s>` element.
+* Return the updated schema, so the Editor can use it.
 
 >tip The Editor in this example uses the [`Div` edit mode]({%slug editor-edit-modes-iframe%}), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode]({%slug editor-edit-modes-div%}), you have to plug the styles with JavaScript as shown in [this example]({%slug editor-prosemirror-plugins%}).
 

@@ -18,14 +18,6 @@ This article describes how you can create a new [ProseMirror schema]({%slug edit
 
 @[template](/_contentTemplates/editor/general.md#prosemirror-schema-general-info)
 
-
-## Creating a New Schema
-
-1. In the global app scope (the `window` object) declare a JS function that returns an instance of the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">ProseMirror `Schema` class</a>.
-1. Create a new instance of the `Schema` object and include your desired nodes and marks in it.
-1. Return the new `Schema` object.
-1. Pass the name of the JS function to the `Schema` parameter of the Editor.
-
 ## Plugin Dependencies
 
 Some of the ProseMirror plugins that the Editor uses by design depend on specific nodes in the default ProseMirror schema of the Editor. To get a collection of the used default plugins, use the [`getPlugins` function]({%slug editor-prosemirror-plugins%}#adding-a-custom-plugin).
@@ -37,11 +29,13 @@ You have two options in this case:
 * Include the corresponding nodes in your custom schema.
 * Pass a [custom empty collection of plugins to the Editor]({%slug editor-prosemirror-plugins%}) to override the built-in ones. Thus,
 
-## Example
+## Creating a New Schema
 
-The below example shows how to create a new ProseMirror schema and pass it to the Editor. The new schema supports only a couple of HTML elements such as `<p>`, `<ul>`, `<ol>` and `<a>`. 
+The below example shows how to:
 
-@[template](/_contentTemplates/editor/general.md#prosemirror-support-disclaimer)
+* Create a new instance of the `Schema` object and include several nodes and marks in it. The new schema supports only a couple of HTML elements such as `<p>`, `<ul>`, `<ol>` and `<a>`.
+* Remove a plugin that requires a node which is not part of your schema. The new Schema in this example does not include `<ol>` or `<ul>` elements, so we are removing the plugin that requires these nodes.
+* Return the updated schema, so the Editor can use it.
 
 >caption Create New ProseMirror Schema
 
