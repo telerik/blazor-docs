@@ -18,7 +18,7 @@ ProseMirror defines its own data structure, the [`Node`](https://prosemirror.net
 
 Each ProseMirror `document` conforms to a specific [schema](https://prosemirror.net/docs/guide/#schema). Document schemas allow you to edit documents with a custom structure without writing your own editor from scratch.
 
-The schema describes all nodes that may occur in the document, the way they are nested, and any marks applied to them. A mark is a piece of information that can be attached to a node, such as it being emphasized, in code font, or a link. It has a type and optionally a set of attributes that provide further information (such as the target of the link).
+The schema describes all nodes that may occur in the document, the way they are nested, and any marks applied to them. A mark is a piece of information that can be attached to a node. For example, emphasized text, text in code block or a link. It has a type and optionally a set of attributes that provide further information (such as the target of the link).
 
 For more details, refer to the <a href="https://prosemirror.net/docs/guide/#schema" target="_blank">ProseMirror schema guide</a>.
 

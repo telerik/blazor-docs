@@ -26,7 +26,7 @@ This article describes how you can modify the default [ProseMirror schema that t
 
 To modify the default ProseMirror schema that the Editor uses:
 
-1. In the global app scope (the `window` object) declare a JS function that returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
+1. In the global app scope (the `window` object) declare a JS function that returns an instance of the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">ProseMirror `Schema` class</a>.
 1. Use the `getSchema()` method of the event arguments to get the default ProseMirror Schema of the Editor.
 1. Change the `Schema` object as needed: add, remove nodes and marks, or modify their allowed attributes. To get the names of the nodes/marks in the default editor `Schema`, use your dev tools and inspect the `nodes` field of the default `Schema` object.
 1. Return the updated `Schema` object.
@@ -45,7 +45,38 @@ The below example shows how to modify the default ProseMirror schema to:
 >caption Modify the default ProseMirror Schema
 
 ````CSHTML
-<script>
+<style>
+    hr.custom-hr {
+        border-color: red;
+    }
+</style>
+
+<TelerikEditor @bind-Value="@TheEditorValue"
+               Schema="schemaProvider"
+               EditMode="@EditorEditMode.Div">
+</TelerikEditor>
+
+@code {
+    private string TheEditorValue { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        TheEditorValue = @"
+        A horizontal rule with a custom class
+        <hr class='custom-hr' />
+        <p data-id='paragraph-data-id'>
+            A paragraph with a 'data-id' attribute.
+        </p>
+        <s>
+            An s element.
+        </s>";
+
+        return base.OnInitializedAsync();
+    }
+}
+
+@* Move JavaScript code to a separate JS file in production *@
+<script suppress-error="BL9992">
     var tagMark = (tag) => ({
         [tag]: {
             name: tag,
@@ -92,36 +123,6 @@ The below example shows how to modify the default ProseMirror schema to:
         return newSchema;
     }
 </script>
-
-<style>
-    hr.custom-hr {
-        border-color: red;
-    }
-</style>
-
-<TelerikEditor @bind-Value="@TheEditorValue"
-               Schema="schemaProvider"
-               EditMode="@EditorEditMode.Div">
-</TelerikEditor>
-
-@code {
-    private string TheEditorValue { get; set; }
-
-    protected override Task OnInitializedAsync()
-    {
-        TheEditorValue = @"
-        A horizontal rule with a custom class
-        <hr class='custom-hr' />
-        <p data-id='paragraph-data-id'>
-            A paragraph with a 'data-id' attribute.
-        </p>
-        <s>
-            An s element.
-        </s>";
-
-        return base.OnInitializedAsync();
-    }
-}
 ````
 
 ## See Also

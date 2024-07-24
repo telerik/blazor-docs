@@ -47,6 +47,25 @@ To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `str
 @using Telerik.Blazor.Components.Editor
 @inject IJSRuntime js
 
+<TelerikEditor @bind-Value="@EditorValue"
+               Plugins="pluginsProvider"
+               Height="400px"
+               Width="700px">
+</TelerikEditor>
+
+@code {
+    private string EditorValue { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            //Plug the styles with JavaScript as shown below or set the EditMode to `Div` - https://docs.telerik.com/blazor-ui/components/editor/edit-modes/div
+            await js.InvokeVoidAsync("injectEditorStyleTag");
+        }
+    }
+}
+
 @* Move JavaScript code to a separate JS file in production *@
 <script suppress-error="BL9992">
     window.pluginsProvider = (args) => {
@@ -79,7 +98,7 @@ To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `str
                     }
                 }
             });
-        }        
+        }
 
         return [...args.getPlugins(schema), placeholder("Enter some content ...")];
     }
@@ -92,36 +111,18 @@ To add a custom plugin to the Editor, use the `Plugins` parameter. Set this `str
         style.type = "text/css";
 
         var iframeStyles = `p.placeholder:first-child:before {
-                        content: attr(data-placeholder);
-                        float: left;
-                        color: rgb(0, 0, 0, 0.5);
-                        cursor: text;
-                        height: 0;
-                        font-style: italic;
-                    }`;
+                            content: attr(data-placeholder);
+                            float: left;
+                            color: rgb(0, 0, 0, 0.5);
+                            cursor: text;
+                            height: 0;
+                            font-style: italic;
+                        }`;
 
         style.appendChild(doc.createTextNode(iframeStyles));
         head.appendChild(style);
     };
 </script>
-
-<TelerikEditor Height="400px"
-               Width="700px"
-               @bind-Value="@EditorValue"
-               Plugins="pluginsProvider">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await js.InvokeVoidAsync("injectEditorStyleTag");
-        }
-    }
-}
 ```
 
 ## See Also

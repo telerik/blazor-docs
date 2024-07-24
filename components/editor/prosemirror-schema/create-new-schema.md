@@ -21,7 +21,7 @@ This article describes how you can create a new [ProseMirror schema]({%slug edit
 
 ## Creating a New Schema
 
-1. In the global app scope (the `window` object) declare a JS function that returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema).
+1. In the global app scope (the `window` object) declare a JS function that returns an instance of the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">ProseMirror `Schema` class</a>.
 1. Create a new instance of the `Schema` object and include your desired nodes and marks in it.
 1. Return the new `Schema` object.
 1. Pass the name of the JS function to the `Schema` parameter of the Editor.
@@ -39,7 +39,59 @@ The below example shows how to create a new ProseMirror schema and pass it to th
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;
 
-<!-- Move JavaScript code to a separate JS file in production -->
+<TelerikEditor @bind-Value="@EditorValue"
+               Schema="schemaProvider"
+               Tools="@EditorTools"
+               Width="650px"
+               Height="400px">
+</TelerikEditor>
+
+@code {
+    private string EditorValue { get; set; } = string.Empty;
+
+    protected override Task OnInitializedAsync()
+    {
+        EditorValue = @"
+        <p>This Telerik Blazor Editor uses a ProseMirror Schema that supports only several nodes and marks:
+        <ul>
+            <li>Paragraph</li>
+            <li>Ordered and unordered lists</li>
+            <li>Hyperlinks</li>
+        </ul>
+        <p> Try editing the HTML to inserted non-supported tags such as &lt;span&gt;, &lt;h1&gt; or &lt;img&gt; - see how it is stripped and converted to &lt;p&gt;.";
+
+        return base.OnInitializedAsync();
+    }
+
+    private List<IEditorTool> EditorTools { get; set; }
+
+    protected override void OnInitialized()
+    {
+        EditorTools = new List<IEditorTool>();
+
+        EditorButtonGroup firstGroup = new EditorButtonGroup(
+            new EditorNS.Bold(),
+            new EditorNS.Italic(),
+            new EditorNS.Underline()
+        );
+        EditorTools.Add(firstGroup);
+
+        EditorTools.Add(new CreateLink());
+
+        EditorButtonGroup secondGroup = new EditorButtonGroup(
+           new EditorNS.OrderedList(),
+           new EditorNS.UnorderedList()
+       );
+
+        EditorTools.Add(secondGroup);
+
+        EditorTools.Add(new ViewHtml());
+
+        base.OnInitialized();
+    }
+}
+
+@* Move JavaScript code to a separate JS file in production *@
 <script suppress-error="BL9992">
     var getAttributes = (dom) => {
         const result = {};
@@ -128,7 +180,7 @@ The below example shows how to create a new ProseMirror schema and pass it to th
             text: {
                 inline: true,
                 group: "inline",
-            },                     
+            },
 
             ordered_list: {
                 content: "list_item+",
@@ -217,58 +269,6 @@ The below example shows how to create a new ProseMirror schema and pass it to th
         return mySchema;
     }
 </script>
-
-<TelerikEditor @bind-Value="@TheEditorValue"
-               Schema="schemaProvider"
-               Tools="@EditorTools"
-               Width="650px"               
-               Height="400px">
-</TelerikEditor>
-
-@code {
-    private string EditorValue { get; set; } = string.Empty;
-
-    protected override Task OnInitializedAsync()
-    {
-        TheEditorValue = @"
-        <p>This Telerik Blazor Editor uses a ProseMirror Schema that supports only several nodes and marks:
-        <ul>
-            <li>Paragraph</li>
-            <li>Ordered and unordered lists</li>
-            <li>Hyperlinks</li>
-        </ul>
-        <p> Try editing the HTML to inserted non-supported tags such as &lt;span&gt;, &lt;h1&gt; or &lt;img&gt; - see how it is stripped and converted to &lt;p&gt;.";
-
-        return base.OnInitializedAsync();
-    }
-
-    private List<IEditorTool> EditorTools { get; set; }
-
-    protected override void OnInitialized()
-    {
-        EditorTools = new List<IEditorTool>();
-
-        EditorButtonGroup firstGroup = new EditorButtonGroup(
-            new EditorNS.Bold(),
-            new EditorNS.Italic(),
-            new EditorNS.Underline()
-        );
-        EditorTools.Add(firstGroup);
-
-        EditorTools.Add(new CreateLink());
-
-        EditorButtonGroup secondGroup = new EditorButtonGroup(
-           new EditorNS.OrderedList(),
-           new EditorNS.UnorderedList()
-       );
-
-        EditorTools.Add(seondGroup);
-
-        EditorTools.Add(new ViewHtml());
-
-        base.OnInitialized();
-    }
-}
 ````
 
 ## See Also
