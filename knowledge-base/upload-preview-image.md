@@ -34,7 +34,9 @@ This KB article answers the following questions:
 
 ## Solution
 
-Users can preview images that are uploaded through the [Upload component]({%slug upload-overview%}), or selected through the [FileSelect component]({%slug fileselect-overview%}). In Blazor, [previewing images is easier when using the FileSelect](#using-the-fileselect), but there are also other reasons to [choose the Upload over the FileSelect]({%slug upload-overview%}#upload-vs-fileselect) or vice-versa.
+Users can preview images that are uploaded through the [Upload component]({%slug upload-overview%}) or selected through the [FileSelect component]({%slug fileselect-overview%}).
+
+In Blazor, [previewing images is easier when using the FileSelect](#using-the-fileselect), but based on your requirements you might [choose the Upload over the FileSelect]({%slug upload-overview%}#upload-vs-fileselect) or vice versa.
 
 ### Using the Upload
 
