@@ -92,8 +92,8 @@ The following table lists the FileSelect parameters. Also check the [FileSelect 
 | `DropZoneId` | `string` | The id that is used to connect the FileSelect to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
-| `MinFileSize` | `int?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
-| `MaxFileSize`| `int?` | Sets the maximum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
+| `MaxFileSize` | `long?` | Sets the maximum allowed file size in bytes. Read more in the [Large File Support](#large-file-support) section and in the [Validation]({%slug fileselect-validation%}) article. |
+| `MinFileSize` | `long?` | Sets the minimum allowed file size in bytes. Read more at [Validation]({%slug fileselect-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. |
 | `Files` | `IEnumerable<FileSelectFileInfo>` | Collection of files that will be initially displayed in the FileSelect file list. |
 
