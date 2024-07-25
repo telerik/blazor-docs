@@ -218,5 +218,5 @@ The List view uses the [Blazor ListView]({%slug listview-overview%}) component. 
 ## See Also
 
 * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)
-* [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview)
+* [Blazor Grid](https://docs.telerik.com/blazor-ui/components/grid/overview)
 * [Blazor ListView](https://demos.telerik.com/blazor-ui/listview/overview)

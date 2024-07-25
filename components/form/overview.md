@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Form Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/form" target="_blank">Form for Blazor</a> allows you to generate and customize a form based on your model. You can control the component through various [parameters](#form-parameters), use [default editors](#automatic-generation-of-fields) or [custom ones]({%slug form-formitems%}), set the [orientation]({%slug form-orientation%}) and organize the form fields in [groups]({%slug form-formgroups%}) and [columns]({%slug form-columns%}).
+The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank">Form for Blazor</a> allows you to generate and customize a form based on your model. You can control the component through various [parameters](#form-parameters), use [default editors](#automatic-generation-of-fields) or [custom ones]({%slug form-formitems%}), set the [orientation]({%slug form-orientation%}) and organize the form fields in [groups]({%slug form-formgroups%}) and [columns]({%slug form-columns%}).
 
 
 ## Creating Blazor Form
@@ -199,7 +199,7 @@ You can customize the editors further through the [form items]({%slug form-formi
 
 ### Form Layout Customization
 
-The [Blazor Form](https://www.telerik.com/blazor-ui/form) exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components]({%slug form-formitems-formitemstemplate%}).
+The [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) exposes multiple parameters that allow you to customize its layout. Besides the parameters below, the Form component also allows you to [define a completely custom layout with HTML markup and Razor components]({%slug form-formitems-formitemstemplate%}).
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
@@ -210,7 +210,7 @@ The [Blazor Form](https://www.telerik.com/blazor-ui/form) exposes multiple param
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the appearance of the [Blazor Form](https://www.telerik.com/blazor-ui/form):
+The following parameters enable you to customize the appearance of the [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview):
 
 | Parameter | Type | Description |
 | --- | --- | --- |
