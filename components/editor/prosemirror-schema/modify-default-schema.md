@@ -24,9 +24,9 @@ This article describes how you can modify the default [ProseMirror schema that t
 
 ## Modifying the Schema
 
-The below example shows how to modify the default ProseMirror schema to:
+The below example shows how to:
 
-* Get the default schema.
+* Get the default ProseMirror schema.
 * Add a `data-id` attribute to the `<p>` node.
 * Remove the default `horizontal_rule` node that does not allow any attributes and add a custom node for the `<hr>` element that allows setting a CSS `class`.
 * Add a `mark` for the `<s>` element.

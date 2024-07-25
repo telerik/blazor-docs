@@ -17,17 +17,16 @@ Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` 
 To work with ProseMirror, make sure you are familiar with:
 
 * JavaScript&mdash;ProseMirror is a JavaScript library and the schema uses JavaScript syntax.
-* [ProseMirror Schema](https://prosemirror.net/docs/guide/#schema)&mdash;The schema structure and its children ([nodes](https://prosemirror.net/docs/ref/#model.NodeType) and [marks](https://prosemirror.net/docs/ref/#model.MarkType)).
+* <a href="https://prosemirror.net/docs/guide/#schema" target="_blank">ProseMirror Schema</a>&mdash;The schema structure and its children (<a href="https://prosemirror.net/docs/ref/#model.NodeType" target="_blank">nodes</a> and <a href="https://prosemirror.net/docs/ref/#model.MarkType" target="_blank">marks</a>).
 
 Modifying the ProseMirror Schema is outside of the Editor scope and we do not provide support for such customizations.
-
 #end
 
 #prosemirror-schema-general-info
 The Editor accepts a custom ProseMirror schema through its `Schema` parameter. Set this `string` parameter to the name of a JavaScript function that:
 
 * Is declared in the global scope (the `window` object).
-* Returns an instance of the [ProseMirror `Schema` class](https://prosemirror.net/docs/ref/#model.Schema)(the updated schema). You can access this class from the `ProseMirror` object of the event arguments.
+* Returns an instance of the <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">ProseMirror `Schema` class</a>(the updated schema). You can access this class from the `ProseMirror` object of the event arguments.
 * Accepts a single argument.
 
 The Editor will call this function and will pass an argument object that contains the following properties:
@@ -36,8 +35,8 @@ The Editor will call this function and will pass an argument object that contain
 
 | Property | Description |
 |----------|-------------|
-| `getSchema` | A function that returns the current [`Schema` object](https://prosemirror.net/docs/ref/#model.Schema). Before the Editor is initialized, the returned `Schema` object is the default schema of the Editor. After the Editor is initialized, the returned `Schema` object is the updated schema. If you don't provide a custom schema, this function always returns the default schema. |
-| `getView` | A function that returns the currently used instance of the [`EditorView` object](https://prosemirror.net/docs/ref/#view.EditorView). Before the Editor is initialized, the view (the result of the function) is null. |
+| `getSchema` | A function that returns the current <a href="https://prosemirror.net/docs/ref/#model.Schema" target="_blank">`Schema` object</a>. Before the Editor is initialized, the returned `Schema` object is the default schema of the Editor. After the Editor is initialized, the returned `Schema` object is the updated schema. If you don't provide a custom schema, this function always returns the default schema. |
+| `getView` | A function that returns the currently used instance of the <a href="https://prosemirror.net/docs/ref/#view.EditorView" target="_blank">`EditorView` object</a>. Before the Editor is initialized, the view (the result of the function) is null. |
 | `ProseMirror` | An object that contains various ProseMirror classes and functions. |
 
 > You can set a custom schema only once during initialization of the Editor component. Further changes to the schema will not take effect and the component will continue using the initial custom or built-in schema.
