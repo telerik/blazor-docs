@@ -30,6 +30,8 @@
 @code {
     private TelerikGrid<SampleData>? GridRef { get; set; }
 
+    private List<SampleData> GridData { get; set; } = new();
+
     private bool ShouldResetSortState { get; set; } = true;
 
     private async Task SetGridSort()
@@ -40,51 +42,48 @@
 
             if (ShouldResetSortState)
             {
-                // Remove any existing sorts and add a new one.
-                gridState.SortDescriptors = new List<SortDescriptor>() {
-                    new SortDescriptor()
-                    {
-                        Member = nameof(SampleData.HireDate),
-                        SortDirection = ListSortDirection.Descending
-                    }
-                };
+                // Remove any existing sorts.
+                gridState.SortDescriptors.Clear();
+            }
+
+            SortDescriptor? hireDateSortDescriptor = gridState.SortDescriptors
+                .Where(x => x.Member == nameof(SampleData.HireDate)).FirstOrDefault();
+
+            if (hireDateSortDescriptor != null)
+            {
+                // Update the existing HireDate sort if it exists.
+                hireDateSortDescriptor.SortDirection = ListSortDirection.Descending;
             }
             else
             {
-                // Add sort or update the existing one.
-                bool shouldAddHireDateSortDescriptor = true;
-
-                foreach (var sortDescriptor in gridState.SortDescriptors)
+                // Add a new sort descriptor.
+                // In multi-column sorting scenarios
+                // you can also insert the new SortDescriptor
+                // before the existing ones to control the sort priority.
+                gridState.SortDescriptors.Add(new SortDescriptor()
                 {
-                    if (sortDescriptor.Member == nameof(SampleData.HireDate))
-                    {
-                        sortDescriptor.SortDirection = ListSortDirection.Descending;
-                        shouldAddHireDateSortDescriptor = false;
-                    }
-                }
-
-                if (shouldAddHireDateSortDescriptor)
-                {
-                    // You can also insert the new SortDescriptor before the existing ones to raise the sort priority.
-                    gridState.SortDescriptors.Add(new SortDescriptor()
-                    {
-                        Member = nameof(SampleData.HireDate),
-                        SortDirection = ListSortDirection.Descending
-                    });
-                }
+                    Member = nameof(SampleData.HireDate),
+                    SortDirection = ListSortDirection.Descending
+                });
             }
 
             await GridRef.SetStateAsync(gridState);
         }
     }
 
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    protected override void OnInitialized()
     {
-        Id = x,
-        Name = $"Name {x}",
-        Team = $"Team {x % 5 + 1}",
-        HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000))
-    });
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new SampleData()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000))
+            });
+        }
+    }
 
     public class SampleData
     {
@@ -98,67 +97,103 @@
 
 
 #filter-row-from-code
-@* This snippet shows how to set filtering state to the grid from your code
-  Applies to the FilterRow mode *@
-
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">Filter From Code</TelerikButton>
+@using Telerik.DataSource
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
-             Height="400px"
              Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow">
+             FilterMode="@GridFilterMode.FilterRow"
+             Height="400px">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@SetGridFilter">Filter Grid by Team</TelerikButton>
+        <label>
+            <TelerikCheckBox @bind-Value="@ShouldResetFilterState" />
+            Reset Existing Filters
+        </label>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="150px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
         <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<SampleData>? GridRef { get; set; }
+
+    private List<SampleData> GridData { get; set; } = new();
+
+    private bool ShouldResetFilterState { get; set; } = true;
 
     private async Task SetGridFilter()
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
-            {
-                FilterDescriptors = new List<IFilterDescriptor>()
-                {
-                    new CompositeFilterDescriptor(){
-                        FilterDescriptors = new FilterDescriptorCollection()
-                        {
-                            new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int)}
-                        }
-                },
-                    new CompositeFilterDescriptor()
-                    {
-                        FilterDescriptors = new FilterDescriptorCollection()
-                        {
-                            new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
-                        }
-                    }
-                }
-            };
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            if (ShouldResetFilterState)
+            {
+                // Remove any existing filters.
+                gridState.FilterDescriptors.Clear();
+            }
+
+            // Update the existing Team filter if it exists.
+            // You can also foreach gridState.FilterDescriptors if you prefer.
+            FilterDescriptor? teamFilterDescriptor = gridState.FilterDescriptors.Cast<CompositeFilterDescriptor>()
+                .Where(x => x.FilterDescriptors.Cast<FilterDescriptor>().First().Member == nameof(SampleData.Team))
+                .FirstOrDefault()?.FilterDescriptors.Cast<FilterDescriptor>().First();
+
+            if (teamFilterDescriptor != null)
+            {
+                teamFilterDescriptor.Operator = FilterOperator.IsEqualTo;
+                teamFilterDescriptor.Value = "Team 3";
+            }
+            else
+            {
+                var fdc = new FilterDescriptorCollection();
+
+                fdc.Add(new FilterDescriptor()
+                {
+                    Member = nameof(SampleData.Team),
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = "Team 3"
+                });
+
+                gridState.FilterDescriptors.Add(new CompositeFilterDescriptor()
+                {
+                    // The LogicalOperator doesn't matter here, because
+                    // the filter row shows just one filter criterion
+                    // and the code adds one filter criterion too.
+                    LogicalOperator = FilterCompositionLogicalOperator.And,
+                    FilterDescriptors = fdc
+                });
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
         {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
+            GridData.Add(new SampleData()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000))
+            });
+        }
+    }
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
     }
 }
