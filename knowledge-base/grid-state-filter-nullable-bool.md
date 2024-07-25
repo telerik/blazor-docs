@@ -62,7 +62,7 @@ To filter a Grid column bound to a `bool?` by the null values programatically:
                 {
                     FilterDescriptors = new FilterDescriptorCollection()
                     {
-                        //it is important to use the IsNull filter operator when filtering by null values
+                        // Use the IsNull filter operator when filtering by null values.
                         new FilterDescriptor() { Member = "IsOnLeave", Operator = FilterOperator.IsNull, Value = null, MemberType = typeof(bool?) },
                     }
                 }
