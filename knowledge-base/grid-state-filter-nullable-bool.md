@@ -1,0 +1,112 @@
+---
+title: Programatically filter a nullable bool column in the Grid by null values
+description: Learn how to programatically filter nullable bool values
+type: how-to
+page_title: How to filter a Grid column bound to a nullable bool by the null values programatically
+slug: grid-kb-state-filter-nullable-bool
+tags: grid, blazor, column, datagrid, filter, state, nullable, bool
+res_type: kb
+ticketid: 1658561
+---
+
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
+</table>
+
+## Description
+
+I want to programatically filter a Grid column that is bound to `bool?` by the `null` values. 
+
+
+This KB article also answers the following questions:
+- How to filter a Grid column bound to a `bool?` by the null values programatically
+
+## Solution
+
+To filter a Grid column bound to a `bool?` by the null values programatically:
+
+````CSHTML
+@using Telerik.DataSource;
+
+<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
+
+<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
+             Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
+    <GridColumns>
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(SampleData.IsOnLeave))" Title="On Leave" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private TelerikGrid<SampleData> GridRef { get; set; }
+
+
+    private async Task SetGridFilter()
+    {
+        GridState<SampleData> desiredState = new GridState<SampleData>()
+            {
+                FilterDescriptors = new List<IFilterDescriptor>()
+            {
+                new CompositeFilterDescriptor()
+                {
+                    FilterDescriptors = new FilterDescriptorCollection()
+                    {
+                        //it is important to use the IsNull filter operator when filtering by null values
+                        new FilterDescriptor() { Member = "IsOnLeave", Operator = FilterOperator.IsNull, Value = null, MemberType = typeof(bool?) },
+                    }
+                }
+            }
+            };
+
+        await GridRef.SetStateAsync(desiredState);
+    }
+
+    private IEnumerable<SampleData> MyData { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        Random random = new Random();
+
+        MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+            {
+                Id = x,
+                Name = "name " + x,
+                Team = "team " + x % 5,
+                IsOnLeave = GetRandomNullableBool(x, random),
+                HireDate = DateTime.Now.AddDays(-x).Date
+            });
+    }
+
+    private bool? GetRandomNullableBool(int index, Random random)
+    {
+        if (index % 5 == 0)
+        {
+            return null;
+        }
+        return random.Next(2) == 0 ? (bool?)false : (bool?)true;
+    }
+
+    public class SampleData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Team { get; set; }
+        public bool? IsOnLeave { get; set; }
+        public DateTime HireDate { get; set; }
+    }
+}
+````
+
+## See Also
