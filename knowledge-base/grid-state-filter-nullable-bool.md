@@ -1,6 +1,6 @@
 ---
 title: Programatically filter a nullable bool column in the Grid by null values
-description: Learn how to programatically filter nullable bool values
+description: Learn how to programmatically filter nullable bool values in the Grid component for Blazor.
 type: how-to
 page_title: How to filter a Grid column bound to a nullable bool by the null values programatically
 slug: grid-kb-state-filter-nullable-bool
