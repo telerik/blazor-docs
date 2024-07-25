@@ -2,7 +2,7 @@
 title: Add Multiple Labels in a Blazor ProgressBar
 description: Learn how to display two or more labels in a ProgressBar for Blazor.
 type: how-to
-page_title: How to Add Two Labels on a ProgressBar for Blazor - Current Progress and Remaining Value
+page_title: How to Add Multiple Labels in a Blazor ProgressBar
 slug: progressbar-kb-add-multiple-labels
 tags: progressbar, blazor, two, multiple, label, template, css
 res_type: kb
