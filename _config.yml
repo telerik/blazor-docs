@@ -216,6 +216,9 @@ navigation:
      "*components/editor/edit-modes":
         title: "Edit Modes"
         position: 80
+     "*components/editor/prosemirror-schema":
+        title: "ProseMirror Schema"
+        position: 120
      "*components/panelbar/data-binding":
         title: "Data Binding"
         position: 2

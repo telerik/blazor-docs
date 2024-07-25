@@ -82,6 +82,10 @@ Images in the content area of the Editor are resizable. To grab the resize handl
 
 The Telerik UI for [Blazor Editor](https://www.telerik.com/blazor-ui/editor) uses the ProseMirror engine and it depends on it. You do not need to add any extra assets or references yourself, though, we have taken care of everything internally.
 
+## ProseMirror Schema and Plugins
+
+The Editor uses a built-in <a href="https://prosemirror.net/docs/guide/#schema" target="_blank">ProseMirror Schema</a> containing some of the most common HTML tags and a set of predefined <a href="https://prosemirror.net/docs/ref/#state.Plugin_System" target="_blank">ProseMirror Plugins</a> for its basic functionalities. You can customize the default ProseMirror [Schema]({%slug editor-prosemirror-schema-overview%}) and [Plugins]({%slug editor-prosemirror-plugins%}) to achieve the desired functionality in the Editor for Blazor. 
+
 ## Editor Parameters
 
 The following table lists Editor parameters, which are not discussed elsewhere in the component documentation. 
