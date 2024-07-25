@@ -155,13 +155,9 @@ else
 
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* If you update or delete an item in the Grid, you must make the same update in the `SelectedItems` collection through the Grid [editing events]({%slug components/grid/editing/overview%}). The other CRUD operations (Create), you should use the Grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
-
-* If you are using one-way binding for the `SelectedItems` property, when the data changes and the selected items are cleared, the [`SelectedItemsChanged` event](#selecteditemschanged) will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
-
-* If the Grid does *not* use an `ObservableCollection` for its `Data` - the `SelectedItems` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
-
-* When using an `ObservableCollection` for the Grid `Data`- if an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedItems` collection too (the removed Data items will be removed from the `SelectedItems` collection).
+* When you update an item in the Grid, which is selected, you must make the same update in the `SelectedItems` collection through the Grid [editing events]({%slug components/grid/editing/overview%}).
+* When you delete an item in the Grid, which is selected, it will automatically delete from the `SelectedItems` collection.
+* When you create an item in the Grid, and you want to select it with its creation, you should use the Grid [editing events]({%slug components/grid/editing/overview%}).
 
 ### Selected Rows Equals Comparison
 
@@ -173,11 +169,11 @@ When the `SelectedItems` are obtained from a different data source to the Grid (
 
 You can respond to the user action of selecting a new row through the `SelectedItemsChanged` event. The `SelectedItemsChanged` event receives a collection of the Grid data model. It may have no items in it. It may have only one member (the last selected item) when the `SelectionMode` is `Single`.
 
->caption One-way binding for SelectedItems and using the SelectedItemsChanged event
+>caption Single selection with one-way binding for SelectedItems and using the SelectedItemsChanged event
 
 ````CSHTML
 <TelerikGrid Data=@GridData
-             SelectionMode="@GridSelectionMode.Multiple"
+             SelectionMode="@GridSelectionMode.Single"
              SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              SelectedItems="@SelectedEmployees"
              Pageable="true"
@@ -204,7 +200,7 @@ You can respond to the user action of selecting a new row through the `SelectedI
 @code {
     private List<Employee> GridData { get; set; }
     private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-
+    private Employee SelectedEmployee { get; set; }
     protected override void OnInitialized()
     {
         GridData = new List<Employee>();
@@ -221,7 +217,11 @@ You can respond to the user action of selecting a new row through the `SelectedI
 
     protected void OnSelect(IEnumerable<Employee> employees)
     {
-        SelectedEmployees = employees;
+        SelectedEmployee = employees.FirstOrDefault();
+        // update the collection so that the grid can highlight the correct item
+        // when two-way binding is used this happens automatically,
+        // but the framework does not allow two-way binding and the event at the same time
+        SelectedEmployees = new List<Employee> { SelectedEmployee };
     }
 
     public class Employee
