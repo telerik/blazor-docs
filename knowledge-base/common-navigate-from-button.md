@@ -35,15 +35,34 @@ You can style anchors to look like Telerik buttons through the `k-button` CSS cl
 
 >caption Open a new browser window from a button
 
-![make links look like buttons](images/links-like-buttons.png)
-
 ````CSHTML
-<a class="k-button" href="/fetchdata">Fetch Data</a>
-<br /><br />
-<NavLink class="k-button" href="/counter">Counter</NavLink>
-<br /><br />
-<a class="k-button" target="_blank" href="https://www.telerik.com">telerik.com in new window</a>
-<br /><br />
-<NavLink class="k-button" target="_blank" href="https://www.google.com">Google in new window</NavLink>
+@inject NavigationManager NavManager
+@inject IJSRuntime JS
+
+<TelerikButton OnClick="@OnButtonClick">Navigate to telerik.com in the same window</TelerikButton>
+
+<br />
+
+<TelerikButton OnClick="@OnButtonClickAsync">Navigate to telerik.com with IJSRuntime in a new window</TelerikButton>
+
+<br />
+
+<NavLink class="k-button k-button-solid k-rounded-md k-button-md k-button-solid-base"
+         target="_blank"
+         href="https://www.google.com">
+    Google in new window
+</NavLink>
+
+@code{
+    private void OnButtonClick()
+    {
+        NavManager.NavigateTo("https://www.telerik.com");
+    }
+
+    private async Task OnButtonClickAsync()
+    {
+        await JS.InvokeVoidAsync("open", "https://www.telerik.com", "_blank");
+    }
+}
 ````
 
