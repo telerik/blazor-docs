@@ -259,7 +259,7 @@ When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%})
 
 If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}).
 
-If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the Grid cannot render selection checkboxes for you, so you have to bind them yourself to a field in the model, and handle their selection changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item)
+If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template) and you want to select via a [checkbox column]({%slug components/grid/columns/checkbox%}) (`<GridCheckboxColumn />`) the Grid cannot render selection checkboxes for you. You have to bind them yourself to a field in the model, and handle their selection changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item).
 
 ### Selection and Row Drag and Drop
 
