@@ -43,7 +43,7 @@ You can style anchors to look like Telerik buttons through the `k-button` CSS cl
 
 <br />
 
-<TelerikButton OnClick="@OnButtonClickAsync">Navigate to telerik.com with IJSRuntime in a new window</TelerikButton>
+<TelerikButton OnClick="@OnButtonClickAsync">Navigate to telerik.com in a new window using JSInterop</TelerikButton>
 
 <br />
 
