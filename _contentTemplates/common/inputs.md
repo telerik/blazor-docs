@@ -21,7 +21,7 @@ To ensure both the FloatingLabel and the prefix content are properly displayed, 
 
 ````CSHTML
 <style>
-    .custom-label-class .k-label {
+    .custom-label-class .k-floating-label {
         margin-left: 30px;
     }
 </style>
