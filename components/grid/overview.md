@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Grid Component Overview
 
-This article provides a quick introduction to get your first <a href="https://www.telerik.com/blazor-ui/grid" target="_blank">Blazor data grid component</a> up and running in a few seconds. There is a video tutorial and a list of the key features.
+This article provides a quick introduction to get your first <a href="https://demos.telerik.com/blazor-ui/grid/overview" target="_blank">Blazor data grid component</a> up and running in a few seconds. There is a video tutorial and a list of the key features.
 
 The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features. They cover everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
 
