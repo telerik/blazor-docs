@@ -397,6 +397,9 @@ The tabs below show how to set the Grid state and control filtering, sorting and
 ````FilterMenu
 @[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
 ````
+````Search
+@[template](/_contentTemplates/grid/state.md#search-from-code)
+````
 ````Grouping
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
