@@ -33,7 +33,7 @@ Afterwards, take care of [application security](#security) and check our tips fo
 1. Set `SaveUrl` to the endpoint URL that will receive the uploaded files.
 1. (optional) Set `RemoveUrl` to the endpoint URL that will receive the file names to delete.
 1. Configure the allowed file types via `AllowedExtensions`. Use a `List<string>`.
-1. Set `MaxFileSize` in bytes (`int`). Note that [web servers have their own request size restrictions](#large-file-uploads).
+1. Set `MaxFileSize` in bytes. Note that [web servers have their own request size restrictions](#large-file-uploads).
 
 Steps 4 and 5 are optional, but strongly recommended.
 
@@ -217,6 +217,8 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
+| `MaxFileSize` | `long?` | The maximum allowed file size in bytes. Read more in the [Large File Uploads](#large-file-uploads) section and in the [Validation]({%slug upload-validation%}) article. |
+| `MinFileSize` | `long?` | The minimum allowed file size in bytes. Read more at [Validation]({%slug upload-validation%}). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
 | `RemoveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file name submitted for deletion to the [`RemoveUrl` endpoint](#implement-controller-methods). The `RemoveField` value must match the delete controller method's argument name. The user triggers remove requests when clicking on the [x] buttons in the uploaded file list. |
 | `RemoveUrl` | `string` | The URL which receives the file names for deletion. |
