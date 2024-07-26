@@ -4,188 +4,378 @@
 
 
 #set-sort-from-code
-@* This snippet shows how to set sorting state to the grid from your code *@
+@using Telerik.DataSource
 
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridSort">set sort from code</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
-             Pageable="true" Sortable="true">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Sortable="true"
+             SortMode="@SortMode.Multiple"
+             Height="400px">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@SetGridSort">Sort Grid by HireDate</TelerikButton>
+        <label>
+            <TelerikCheckBox @bind-Value="@ShouldResetSortState" />
+            Reset Existing Sort State
+        </label>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(Employee.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(Employee.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
+        <GridColumn Field="@(nameof(Employee.IsOnLeave))" Title="Is On Leave" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<Employee>? GridRef { get; set; }
+
+    private List<Employee> GridData { get; set; } = new();
+
+    private bool ShouldResetSortState { get; set; } = true;
 
     private async Task SetGridSort()
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
+        if (GridRef != null)
         {
-            SortDescriptors = new List<SortDescriptor>()
-            {
-                new SortDescriptor { Member = "Id", SortDirection = ListSortDirection.Descending }
-            }
-        };
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            if (ShouldResetSortState)
+            {
+                // Remove any existing sorts.
+                gridState.SortDescriptors.Clear();
+            }
+
+            SortDescriptor? hireDateSortDescriptor = gridState.SortDescriptors
+                .Where(x => x.Member == nameof(Employee.HireDate)).FirstOrDefault();
+
+            if (hireDateSortDescriptor != null)
+            {
+                // Update the existing HireDate sort if it exists.
+                hireDateSortDescriptor.SortDirection = ListSortDirection.Descending;
+            }
+            else
+            {
+                // Add a new sort descriptor.
+                // In multi-column sorting scenarios
+                // you can also insert the new SortDescriptor
+                // before the existing ones to control the sort priority.
+                gridState.SortDescriptors.Add(new SortDescriptor()
+                {
+                    Member = nameof(Employee.HireDate),
+                    SortDirection = ListSortDirection.Descending
+                });
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    protected override void OnInitialized()
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000)),
+                IsOnLeave = i % 4 == 0 ? true : false
+            });
+        }
+    }
 
-    public class SampleData
+    public class Employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
+        public bool IsOnLeave { get; set; }
     }
 }
 #end
 
 
-
 #filter-row-from-code
-@* This snippet shows how to set filtering state to the grid from your code
-  Applies to the FilterRow mode *@
-
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">Filter From Code</TelerikButton>
+@using Telerik.DataSource
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
-             Height="400px"
              Pageable="true"
-             FilterMode="@GridFilterMode.FilterRow">
+             FilterMode="@GridFilterMode.FilterRow"
+             Height="400px">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@( () => SetGridFilters(false) )">Filter Grid by Team</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@( () => SetGridFilters(true) )">Filter Grid by Team and HireDate</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton OnClick="@RemoveGridFilters">Remove All Filters</TelerikButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="150px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(Employee.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(Employee.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
+        <GridColumn Field="@(nameof(Employee.IsOnLeave))" Title="Is On Leave" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<Employee>? GridRef { get; set; }
 
-    private async Task SetGridFilter()
+    private List<Employee> GridData { get; set; } = new();
+
+    private async Task SetGridFilters(bool shouldFilterSecondColumn)
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
-            {
-                FilterDescriptors = new List<IFilterDescriptor>()
-                {
-                    new CompositeFilterDescriptor(){
-                        FilterDescriptors = new FilterDescriptorCollection()
-                        {
-                            new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 10, MemberType = typeof(int)}
-                        }
-                },
-                    new CompositeFilterDescriptor()
-                    {
-                        FilterDescriptors = new FilterDescriptorCollection()
-                        {
-                            new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
-                        }
-                    }
-                }
-            };
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            // Find the Team CompositeFilterDescriptor if it exists.
+            CompositeFilterDescriptor? teamCFD = gridState.FilterDescriptors.Cast<CompositeFilterDescriptor>()
+                .Where(x => x.FilterDescriptors.Cast<FilterDescriptor>().First().Member == nameof(Employee.Team))
+                .FirstOrDefault();
+
+            if (teamCFD != null)
+            {
+                // Update the existing Team CompositeFilterDescriptor.
+
+                var teamFilterDescriptors = teamCFD.FilterDescriptors.Cast<FilterDescriptor>();
+
+                // When using a filter row, the column's CompositeFilterDescriptor
+                // always contains one FilterDescriptor.
+
+                FilterDescriptor firstTeamFD = teamFilterDescriptors.First();
+                firstTeamFD.Operator = FilterOperator.IsEqualTo;
+                firstTeamFD.Value = "Team 1";
+            }
+            else
+            {
+                // Create a new Team CompositeFilterDescriptor.
+
+                var teamFdCollection = new FilterDescriptorCollection();
+
+                teamFdCollection.Add(new FilterDescriptor()
+                {
+                    Member = nameof(Employee.Team),
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = "Team 1"
+                });
+
+                // Add one CompositeFilterDescriptor per column.
+                gridState.FilterDescriptors.Add(new CompositeFilterDescriptor()
+                {
+                    // The LogicalOperator property doesn't matter, because
+                    // there is only one FilterDescritor in the CompositeFilterDescriptor.
+                    FilterDescriptors = teamFdCollection
+                });
+            }
+
+            // Find the HireDate CompositeFilterDescriptor if it exists.
+            CompositeFilterDescriptor? hireDateCFD = gridState.FilterDescriptors.Cast<CompositeFilterDescriptor>()
+                .Where(x => x.FilterDescriptors.Cast<FilterDescriptor>().First().Member == nameof(Employee.HireDate))
+                .FirstOrDefault();
+
+            if (hireDateCFD != null)
+            {
+                // Instead of changing the existing CompositeFilterDescriptor,
+                // you can also remove it and create a new one.
+                gridState.FilterDescriptors.Remove(hireDateCFD);
+            }
+
+            if (shouldFilterSecondColumn)
+            {
+                var hireDateFdCollection = new FilterDescriptorCollection();
+
+                hireDateFdCollection.Add(new FilterDescriptor()
+                {
+                    Member = nameof(Employee.HireDate),
+                    MemberType = typeof(DateTime),
+                    Operator = FilterOperator.IsGreaterThanOrEqualTo,
+                    Value = DateTime.Today.AddYears(-3)
+                });
+
+                gridState.FilterDescriptors.Add(new CompositeFilterDescriptor()
+                {
+                    FilterDescriptors = hireDateFdCollection
+                });
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> GridData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private async Task RemoveGridFilters()
+    {
+        if (GridRef != null)
         {
-            Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
-        });
+            var gridState = GridRef.GetState();
 
-    public class SampleData
+            gridState.FilterDescriptors.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000)),
+                IsOnLeave = i % 4 == 0 ? true : false
+            });
+        }
+    }
+
+    public class Employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
+        public bool IsOnLeave { get; set; }
     }
 }
 #end
 
 #filter-menu-from-code
-@* This snippet shows how to set filtering state to the grid from your code
-  Applies to the FilterMenu mode *@
+@using Telerik.DataSource
 
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
-
-<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
-             Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterMenu"
+             Height="400px">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@( () => SetTeamFilter(false) )">Filter Grid by Team 1</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@( () => SetTeamFilter(true) )">Filter Grid by Team 1 or 3</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton OnClick="@RemoveGridFilters">Remove All Filters</TelerikButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(Employee.Team))" Title="Team" />
+        <GridColumn Field="@(nameof(Employee.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
+        <GridColumn Field="@(nameof(Employee.IsOnLeave))" Title="Is On Leave" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<Employee>? GridRef { get; set; }
 
-    private async Task SetGridFilter()
+    private List<Employee> GridData { get; set; } = new();
+
+    private async Task SetTeamFilter(bool shouldSetSecondFilter)
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
+        if (GridRef != null)
         {
-            FilterDescriptors = new List<IFilterDescriptor>()
-            {
-                new CompositeFilterDescriptor()
-                {
-                    FilterDescriptors = new FilterDescriptorCollection()
-                    {
-                         new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsGreaterThan, Value = 5, MemberType = typeof(int) },
-                         new FilterDescriptor() { Member = "Id", Operator = FilterOperator.IsLessThan, Value = 20, MemberType = typeof(int) },
-                    },
-                    LogicalOperator = FilterCompositionLogicalOperator.And
-                },
-                new CompositeFilterDescriptor()
-                {
-                    FilterDescriptors = new FilterDescriptorCollection()
-                    {
-                        new FilterDescriptor() { Member = "Team", Operator = FilterOperator.Contains, Value = "3", MemberType = typeof(string) },
-                    }
-                }
-            }
-        };
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            // Find the Team CompositeFilterDescriptor if it exists.
+            CompositeFilterDescriptor? teamCFD = gridState.FilterDescriptors.Cast<CompositeFilterDescriptor>()
+                .Where(x => x.FilterDescriptors.Cast<FilterDescriptor>().First().Member == nameof(Employee.Team))
+                .FirstOrDefault();
+
+            if (teamCFD != null)
+            {
+                // Update the existing Team CompositeFilterDescriptor.
+
+                teamCFD.LogicalOperator = FilterCompositionLogicalOperator.Or;
+
+                var teamFilterDescriptors = teamCFD.FilterDescriptors.Cast<FilterDescriptor>();
+
+                // When using a filter menu, the column's CompositeFilterDescriptor
+                // always contains two FilterDescriptors.
+
+                FilterDescriptor firstTeamFD = teamFilterDescriptors.First();
+                firstTeamFD.Operator = FilterOperator.IsEqualTo;
+                firstTeamFD.Value = "Team 1";
+
+                // Set a null FilterDescriptor Value and IsEqualTo Operator
+                // to disable a filter.
+                FilterDescriptor secondTeamFD = teamFilterDescriptors.Last();
+                secondTeamFD.Operator = FilterOperator.IsEqualTo;
+                secondTeamFD.Value = shouldSetSecondFilter ? "Team 3" : null;
+            }
+            else
+            {
+                // Create a new Team CompositeFilterDescriptor.
+
+                var fdCollection = new FilterDescriptorCollection();
+
+                fdCollection.Add(new FilterDescriptor()
+                {
+                    Member = nameof(Employee.Team),
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = "Team 1"
+                });
+
+                fdCollection.Add(new FilterDescriptor()
+                {
+                    Member = nameof(Employee.Team),
+                    MemberType = typeof(string),
+                    Operator = FilterOperator.IsEqualTo,
+                    Value = shouldSetSecondFilter ? "Team 3" : null
+                });
+
+                // Add one CompositeFilterDescriptor per column.
+                gridState.FilterDescriptors.Add(new CompositeFilterDescriptor()
+                {
+                    LogicalOperator = FilterCompositionLogicalOperator.Or,
+                    FilterDescriptors = fdCollection
+                });
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private async Task RemoveGridFilters()
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-    public class SampleData
+            gridState.FilterDescriptors.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000)),
+                IsOnLeave = i % 4 == 0 ? true : false
+            });
+        }
+    }
+
+    public class Employee
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
+        public bool IsOnLeave { get; set; }
     }
 }
 #end
@@ -198,195 +388,425 @@
 
 #end
 
-#group-from-code
-@using Telerik.DataSource;
 
-<TelerikButton ThemeColor="primary" OnClick="@SetGridGroup">set grouping from code</TelerikButton>
+#search-from-code
+@using Telerik.DataSource
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef" Groupable="true"
-             Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Sortable="true">
+    <GridToolBarTemplate>
+        <GridSearchBox />
+        <TelerikButton Icon="@SvgIcon.Search"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
+        <TelerikButton Icon="@SvgIcon.X"
+                       OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@nameof(SampleData.IsOnLeave)" Title="On Vacation" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@nameof(GridModel.Name)" />
+        <GridColumn Field="@nameof(GridModel.Description)" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<GridModel>? GridRef { get; set; }
 
-    private async Task SetGridGroup()
+    private List<GridModel> GridData { get; set; } = new();
+
+    private async Task OnSearchButtonClick()
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
+        if (GridRef != null)
         {
-            GroupDescriptors = new List<GroupDescriptor>()
-            {
-                new GroupDescriptor()
-                {
-                    Member = "Team",
-                    MemberType = typeof(string)
-                },
-                new GroupDescriptor()
-                {
-                    Member = "IsOnLeave",
-                    MemberType = typeof(bool),
-                    SortDirection = ListSortDirection.Descending // not required, but a feature not yet available through the UI
-                }
-            },
-            // choose indexes of groups to be collapsed (they are all expanded by default)
-            CollapsedGroups = new List<int>() { 0 },
-        };
+            var gridState = GridRef.GetState();
 
-        await GridRef.SetStateAsync(desiredState);
+            var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
+
+            var cfd = new CompositeFilterDescriptor();
+
+            cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            cfd.FilterDescriptors = new FilterDescriptorCollection();
+
+            // Add one FilterDesccriptor for each string column
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(GridModel.Name),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(GridModel.Description),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+
+            gridState.SearchFilter = cfd;
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    private async Task OnClearButtonClick()
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        IsOnLeave = x % 2 == 0,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-    public class SampleData
+            (gridState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 500; i++)
+        {
+            GridData.Add(new GridModel()
+            {
+                Id = i,
+                Name = $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} " +
+                    $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} {i}",
+                Description = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} " +
+                    $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} {i}"
+            });
+        }
+    }
+
+    public class GridModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public bool IsOnLeave { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}
+#end
+
+
+#group-from-code
+@using Telerik.DataSource
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             Pageable="true"
+             Groupable="true">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@( () => SetGridGroups(false) )">Group Grid by Team</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@( () => SetGridGroups(true) )">Group Grid by Team and IsOnLeave</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton OnClick="@RemoveGridGroups">Remove All Groups</TelerikButton>
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@(nameof(Employee.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(Employee.Team))" />
+        <GridColumn Field="@(nameof(Employee.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
+        <GridColumn Field="@(nameof(Employee.IsOnLeave))" Title="Is On Leave" />
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private TelerikGrid<Employee>? GridRef { get; set; }
+
+    private List<Employee> GridData { get; set; } = new();
+
+    private async Task SetGridGroups(bool shouldGroupBySecondColumn)
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            // Remove any existing Grid groups
+            // You can also modify or reorder existing GroupDescriptors.
+            gridState.GroupDescriptors.Clear();
+
+            gridState.GroupDescriptors.Add(new GroupDescriptor()
+            {
+                Member = nameof(Employee.Team),
+                MemberType = typeof(string),
+                // https://feedback.telerik.com/blazor/1544196-allow-sorting-the-grouped-column
+                SortDirection = ListSortDirection.Ascending
+            });
+
+            if (shouldGroupBySecondColumn)
+            {
+                gridState.GroupDescriptors.Add(new GroupDescriptor()
+                {
+                    Member = nameof(Employee.IsOnLeave),
+                    MemberType = typeof(bool),
+                    // https://feedback.telerik.com/blazor/1544196-allow-sorting-the-grouped-column
+                    SortDirection = ListSortDirection.Descending
+                });
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task RemoveGridGroups()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            gridState.GroupDescriptors.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Team = $"Team {i % 5 + 1}",
+                HireDate = DateTime.Today.AddDays(-Random.Shared.Next(1, 3000)),
+                IsOnLeave = i % 4 == 0 ? true : false
+            });
+        }
+    }
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
         public DateTime HireDate { get; set; }
+        public bool IsOnLeave { get; set; }
     }
 }
 #end
 
 
 #expand-hierarchy-from-code
-@using Telerik.DataSource;
-
-<TelerikButton ThemeColor="primary" OnClick="@ExpandHierarchy">Expand hierarchy from code</TelerikButton>
-
-<TelerikGrid Data="salesTeamMembers" @ref="@GridRef">
-    <DetailTemplate>
-        @{
-            var employee = context as MainModel;
-            <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
-                <GridColumns>
-                    <GridColumn Field="OrderId"></GridColumn>
-                    <GridColumn Field="DealSize"></GridColumn>
-                </GridColumns>
-            </TelerikGrid>
-        }
-    </DetailTemplate>
+<TelerikGrid @ref="@GridRef"
+             Data="@CategoryData"
+             Pageable="true"
+             PageSize="2">
+    <GridToolBarTemplate>
+        <TelerikDropDownList Data="@CategoryData"
+                             @bind-Value="@DropDownListCategoryId"
+                             TextField="@nameof(Category.Name)"
+                             ValueField="@nameof(Category.Id)">
+        </TelerikDropDownList>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@ExpandCategory">Expand Category</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@ExpandAll">Expand All Categories</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton OnClick="@CollapseAll">Collapse All Categories</TelerikButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="Id"></GridColumn>
-        <GridColumn Field="Name"></GridColumn>
+        <GridColumn Field="@(nameof(Category.Id))" Width="80px" />
+        <GridColumn Field="@(nameof(Category.Name))" Title="Category Name" />
     </GridColumns>
+    <DetailTemplate Context="category">
+        <TelerikGrid Data="@ProductData.Where(x => x.CategoryId == category.Id)">
+            <GridColumns>
+                <GridColumn Field="@(nameof(Product.Name))" Title="Product Name" />
+                <GridColumn Field="@(nameof(Product.Price))" DisplayFormat="{0:c2}" />
+                <GridColumn Field="@(nameof(Product.Quantity))" />
+            </GridColumns>
+        </TelerikGrid>
+    </DetailTemplate>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<MainModel> GridRef { get; set; }
+    private TelerikGrid<Category>? GridRef { get; set; }
 
-    private async Task ExpandHierarchy()
+    private List<Category> CategoryData { get; set; } = new();
+
+    private List<Product> ProductData { get; set; } = new();
+
+    private int DropDownListCategoryId { get; set; } = 1;
+
+    private async Task ExpandCategory()
     {
-        var gridState = GridRef.GetState();
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-        //expand the first two rows
-        gridState.ExpandedItems = new List<MainModel> {
-            salesTeamMembers[0],
-            salesTeamMembers[1]
-        };
+            var categoryToExpand = CategoryData.First(x => x.Id == DropDownListCategoryId);
 
-        await GridRef.SetStateAsync(gridState);
+            gridState.ExpandedItems.Add(categoryToExpand);
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
-    private List<MainModel> salesTeamMembers { get; set; }
+    private async Task ExpandAll()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            gridState.ExpandedItems = CategoryData;
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task CollapseAll()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            gridState.ExpandedItems.Clear();
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
 
     protected override void OnInitialized()
     {
-        salesTeamMembers = GenerateData();
-    }
+        var categoryCount = 3;
 
-    private List<MainModel> GenerateData()
-    {
-        List<MainModel> data = new List<MainModel>();
-        for (int i = 1; i <= 5; i++)
+        for (int i = 1; i <= categoryCount; i++)
         {
-            MainModel mdl = new MainModel { Id = i, Name = $"Name {i}" };
-            mdl.Orders = Enumerable.Range(1, 3).Select(x => new DetailsModel {
-                OrderId = i * 100 + x, DealSize = (x ^ i) + 1 }
-            ).ToList();
-            data.Add(mdl);
+            CategoryData.Add(new Category()
+            {
+                Id = i,
+                Name = $"Category {i}"
+            });
         }
-        return data;
+
+        for (int i = 1; i <= 12; i++)
+        {
+            ProductData.Add(new Product()
+            {
+                Id = i,
+                CategoryId = i % categoryCount + 1,
+                Name = $"Product {i}",
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 100)
+            });
+        }
     }
 
-    public class MainModel
+    public class Category
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public List<DetailsModel> Orders { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 
-    public class DetailsModel
+    public class Product
     {
-        public int OrderId { get; set; }
-        public double DealSize { get; set; }
+        public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 #end
 
 
 #column-state-from-code
-<TelerikButton OnClick="@OnButtonClick">Reoder Name and Price Columns</TelerikButton>
-
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
+             Pageable="true"
              Reorderable="true">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                       OnClick="@ReorderPriceAndQuantity">Reorder Price and Quantity</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@MakeIdColumnLast">Make Id Column Last</TelerikButton>
+        <span class="k-separator"></span>
+        <TelerikButton OnClick="@ResetColumnOrder">Reset Column Order</TelerikButton>
+    </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" />
-        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
-        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
-        <GridColumn Field="@nameof(Product.Active)" />
+        <GridColumn Field="@(nameof(Product.Id))" Width="80px" />
+        <GridColumn Field="@(nameof(Product.Name))" Title="Product Name" />
+        <GridColumn Field="@(nameof(Product.Price))" DisplayFormat="{0:c2}" />
+        <GridColumn Field="@(nameof(Product.Quantity))" />
+        <GridColumn Field="@(nameof(Product.ReleaseDate))" DisplayFormat="{0:d}" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<Product> GridRef { get; set; }
+    private TelerikGrid<Product>? GridRef { get; set; }
 
-    private List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
-    private async Task OnButtonClick()
+    private async Task ReorderPriceAndQuantity()
     {
-        var gridState = GridRef.GetState();
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
 
-        var nameColState = gridState.ColumnStates.ElementAt(0);
-        var nameColIndex = nameColState.Index;
-        var priceColState = gridState.ColumnStates.ElementAt(1);
-        var priceColIndex = priceColState.Index;
+            // Get column by its index in the Grid markup.
+            var priceColumnState = gridState.ColumnStates.ElementAt(2);
+            var priceColumnIndex = priceColumnState.Index;
 
-        nameColState.Index = priceColIndex;
-        priceColState.Index = nameColIndex;
+            // Get column by a parameter such as Field or Id.
+            var quantityColumnState = gridState.ColumnStates.First(x => x.Field == nameof(Product.Quantity));
+            var quantityColumnIndex = quantityColumnState.Index;
 
-        await GridRef.SetStateAsync(gridState);
+            priceColumnState.Index = quantityColumnIndex;
+            quantityColumnState.Index = priceColumnIndex;
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task MakeIdColumnLast()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            var idColumnState = gridState.ColumnStates.First(x => x.Field == nameof(Product.Id));
+            var oldIdIndex = idColumnState.Index;
+
+            idColumnState.Index = gridState.ColumnStates.Count - 1;
+
+            foreach (var columnState in gridState.ColumnStates)
+            {
+                // Decrement the indexes of all columns that were after Id.
+                if (columnState.Field != nameof(Product.Id) && columnState.Index > oldIdIndex)
+                {
+                    --columnState.Index;
+                }
+            }
+
+            await GridRef.SetStateAsync(gridState);
+        }
+    }
+
+    private async Task ResetColumnOrder()
+    {
+        if (GridRef != null)
+        {
+            var gridState = GridRef.GetState();
+
+            gridState.ColumnStates = new List<GridColumnState>();
+
+            await GridRef.SetStateAsync(gridState);
+        }
     }
 
     protected override void OnInitialized()
     {
-        GridData = new List<Product>();
-        var rnd = new Random();
-
         for (int i = 1; i <= 5; i++)
         {
             GridData.Add(new Product()
             {
                 Id = i,
                 Name = $"Product {i}",
-                Price = (decimal)rnd.Next(1, 100),
-                ReleaseDate = DateTime.Now.AddDays(-rnd.Next(60, 1000)),
-                Active = i % 3 == 0
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 100),
+                ReleaseDate = DateTime.Today.AddDays(-Random.Shared.Next(150, 3000))
             });
         }
     }
@@ -396,8 +816,8 @@
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
+        public int Quantity { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public bool Active { get; set; }
     }
 }
 #end
