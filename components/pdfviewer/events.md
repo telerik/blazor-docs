@@ -10,7 +10,7 @@ position: 20
 
 # PdfViewer Events
 
-This article describes the [Blazor PDF Viewer](https://www.telerik.com/blazor-ui/pdf-viewer) events and provides a runnable example with sample event handler implementations.
+This article describes the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) events and provides a runnable example with sample event handler implementations.
 
 * [`OnDownload`](#ondownload)
 * [`OnError`](#onerror)

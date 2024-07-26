@@ -35,7 +35,7 @@ This KB answers the following questions:
 
 ## Solution
 
-Add an inline [Blazor Form]({%slug form-overview%}) to your Grid rows by following these steps:
+Add an inline [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) to your Grid rows by following these steps:
 
 1. Define a [`DetailTemplate`]({%slug components/grid/features/hierarchy%}).
 1. Hide the hierarchy expand column with CSS.
