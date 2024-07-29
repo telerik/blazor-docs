@@ -255,9 +255,9 @@ To see how to select the row that is being edited in InCell edit mode without us
 
 In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) row selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
-### Selection in Grid with virtualized rows
+### Selection in Grid with Virtual Scrolling
 
-When the Grid has [virtualized rows]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`](#selection-mode) the selectable rows will be the one in the current set of rows (page). If you select a row and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first row of the current set (page) to the last selected row.
+When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`](#selection-mode) the selectable rows will be the one in the current set of items (page). If you select a row and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected row.
 
 ### Selection in Template
 

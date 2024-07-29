@@ -31,7 +31,7 @@ You can configure to select rows or cells in the Grid. If you only set the [Grid
 You can configure the selection behavior by setting the Grid `SelectionMode` parameter to a member of the `Telerik.Blazor.GridSelectionMode` enum. The selection can be:
 
 * `None` (the default value) - To disable row or cell selection.
-* `Single` - Only one row or cell can be selected at a time, so the last one will be the selected one.
+* `Single` - Only one row can be selected at a time, so the last one will be the selected one.
 * `Multiple` - You can select a single or multiple rows or cells.
 
 ## Selection Options
@@ -61,6 +61,7 @@ Check the selection behavior:
 * With [virtualization]({%slug components/grid/virtual-scrolling%}).
 * In [templates]({%slug components/grid/features/templates%}).
 * During [drag and drop]({%slug grid-drag-drop-overview%}).
+* When [paging]({%slug components/grid/features/paging%}).
 
 See [Rows Selection and Other Grid Features]({%slug components/grid/selection/rows%}#rows-selection-and-other-grid-features) and Cells Selection and Other Grid Features for more details.
 
