@@ -32,27 +32,17 @@ This KB article also answers the following questions:
 
 ## Solution
 
-To display two or more labels within a [ProgressBar]({%slug progressbar-overview%}) for Blazor, utilize the [Label Template]({%slug progressbar-label%}#template):
-* Declare the `Template` inside the `ProgressBarLabel` label tag.
-* Add your desired labels in separate HTML containers.
-* Use CSS to position them based on your preferences.
+To display two or more labels in a [ProgressBar]({%slug progressbar-overview%}) for Blazor, use the [Label Template]({%slug progressbar-label%}#template):
+1. Declare the `Template` inside the `ProgressBarLabel` label tag.
+1. Add your desired labels in separate HTML containers.
+1. Use CSS to position them based on your preferences.
 
-Here is an example of how to implement two labels inside a ProgressBar:
+The code snippet below creates a ProgressBar with a custom label that includes two spans: one for the current value and another for the remaining value. The labels are positioned on the left and right sides of the ProgressBar, respectively, using CSS Flexbox for layout.
 
 ````CSHTML
-<style>
-    .two-labels-progressbar{
-        width: 700px;
-    }
-
-    .two-labels-progressbar .label-container{
-        width: 680px;
-        display:flex;
-        justify-content: space-between;
-    }
-</style>
-
-<TelerikProgressBar Max="@MaxValue" Value="@PBValue" Class="two-labels-progressbar">
+<TelerikProgressBar Value="@PBValue"
+                    Max="@MaxValue" 
+                    Class="two-labels-progressbar">
     <ProgressBarLabel Visible="true" Position="@ProgressBarLabelPosition.Center">
         <Template>
             <div class="label-container">
@@ -63,13 +53,23 @@ Here is an example of how to implement two labels inside a ProgressBar:
     </ProgressBarLabel>
 </TelerikProgressBar>
 
+<style>
+    .two-labels-progressbar {
+        width: 700px;
+    }
+
+        .two-labels-progressbar .label-container {
+            width: 680px;
+            display: flex;
+            justify-content: space-between;
+        }
+</style>
+
 @code {
     private double MaxValue { get; set; } = 50;
     private double PBValue { get; set; } = 10;
 }
 ````
-
-This code snippet creates a ProgressBar with a custom label that includes two spans: one for the current value and another for the remaining value. The labels are positioned on the left and right sides of the ProgressBar, respectively, using CSS Flexbox for layout.
 
 ## See Also
 
