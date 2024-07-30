@@ -33,7 +33,7 @@ This KB article also answers the following questions:
 To filter a Grid column bound to a `bool?` by the null values programatically:
 
 ````CSHTML
-@using Telerik.DataSource;
+@using Telerik.DataSource
 
 <TelerikButton ThemeColor="primary" OnClick="@SetGridFilter">set filtering from code</TelerikButton>
 
