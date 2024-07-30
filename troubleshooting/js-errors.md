@@ -115,7 +115,7 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 
 ## Maximum call stack size exceeded
 
-The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache and you may need to [add a cache buster to the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
+The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache and you may need to [add a cache buster for the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
 
 ## See Also
 
