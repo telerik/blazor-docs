@@ -46,7 +46,7 @@ This error indicates that the app is using an old or wrong version of the `teler
 To resolve the error:
 
 * (if using [CDN]({%slug common-features-cdn%})) Update the `telerik-blazor.js` file URL to the correct version.
-* (if using static assets) Clear the browser cache.
+* (if using static assets) Clear the browser cache and [add a cache buster to the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
 * (if using a local JS file) Replace the `telerik-blazor.js` file with the new version.
 
 

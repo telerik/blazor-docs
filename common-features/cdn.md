@@ -66,7 +66,7 @@ The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor]({%slug 
 The benefits of using a CDN in Blazor apps are:
 
 * Possible performance gains in the application loading time. Blazor apps are single page applications and browsers rely on cache by default, so this benefit is marginal and relates only to users that open the application for the first time.
-* Avoidance of browser caching issues after component version upgrades. The CSS and JS files change with every component version, and so do the CDN URLs. This URL change guarantees that browsers will reload the static assets.
+* Avoidance of [browser caching issues after component version upgrades]({%slug common-kb-browser-cache-buster%}). The CSS and JS files change with every component version, and so do the CDN URLs. This URL change guarantees that browsers will reload the static assets.
 
 The drawbacks of using a CDN are:
 
