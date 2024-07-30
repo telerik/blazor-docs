@@ -15,7 +15,7 @@ ticketid: 1658561
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Grid for Blazor</td>
+            <td>Grid for Blazor <br /> TreeList for Blazor</td>
         </tr>
     </tbody>
 </table>
@@ -26,20 +26,22 @@ I want to programatically filter a Grid column that is bound to `bool?` by the `
 
 
 This KB article also answers the following questions:
-- How to filter a Grid column bound to a `bool?` by the null values programatically
+- How to filter a Grid column bound to a `bool?` by the null values programmatically?
 
 ## Solution
 
-To filter a Grid column bound to a `bool?` by the null values programatically:
+To filter a Grid column bound to a `bool?` by the null values programmatically:
 
 ````CSHTML
 @using Telerik.DataSource
 
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@SetGridFilter">Filter By Null</TelerikButton>
+<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary" OnClick="@SetGridFilter">Filter By Null</TelerikButton>
 
-<TelerikGrid Data="@MyData" Height="400px" @ref="@GridRef"
-             Pageable="true" FilterMode="@GridFilterMode.FilterMenu">
+<TelerikGrid Data="@MyData"
+             Height="400px"
+             @ref="@GridRef"
+             Pageable="true"
+             FilterMode="@GridFilterMode.FilterMenu">
     <GridColumns>
         <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
         <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
@@ -50,14 +52,15 @@ To filter a Grid column bound to a `bool?` by the null values programatically:
 </TelerikGrid>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; }
+    private TelerikGrid<SampleData>? GridRef { get; set; }
 
+    private IEnumerable<SampleData> MyData { get; set; }
 
     private async Task SetGridFilter()
     {
-        GridState<SampleData> desiredState = new GridState<SampleData>()
-            {
-                FilterDescriptors = new List<IFilterDescriptor>()
+        GridState<SampleData> currentState = GridRef.GetState();
+
+        currentState.FilterDescriptors = new List<IFilterDescriptor>()
             {
                 new CompositeFilterDescriptor()
                 {
@@ -67,18 +70,14 @@ To filter a Grid column bound to a `bool?` by the null values programatically:
                         new FilterDescriptor() { Member = "IsOnLeave", Operator = FilterOperator.IsNull, Value = null, MemberType = typeof(bool?) },
                     }
                 }
-            }
             };
 
-        await GridRef.SetStateAsync(desiredState);
+        await GridRef.SetStateAsync(currentState);
     }
-
-    private IEnumerable<SampleData> MyData { get; set; }
-
 
     protected override void OnInitialized()
     {
-        Random random = new Random();
+        Random random = Random.Shared;
 
         MyData = Enumerable.Range(1, 30).Select(x => new SampleData
             {
