@@ -87,6 +87,7 @@ The Blazor Pager provides various parameters that allow you to configure the com
 | `PageSize` | `int` | The number of items to display on a page. Supports two-way binding. |
 | `PageSizes` | `List<int?>` | Allows users to change the page size via a DropDownList. The attribute configures the DropDownList options. A `null` item in the `PageSizes` `List` will render an "All" option. By default, the Pager DropDownList is not displayed. You can also set `PageSizes` to `null` programmatically to remove the DropDownList at any time. |
 | `InputType` | `PagerInputType` enum <br /> (`Buttons`) | Determines if the pager will show numeric buttons to go to a specific page, or a textbox to type the page index. The arrow buttons are always visible. The `PagerInputType` enum accepts values `Buttons` (default) or `Input`. When `Input` is used, the page index will change when the textbox is blurred, or when the user hits Enter. This is to avoid unintentional data requests. |
+| `ShowInfo` | `bool` |Defines whether the information about the current page and the total number of records is present. Default value is `true`.|
 | `Total` | `int` | Represents the total count of items in the pager. |
 
 ### Styling and Appearance
