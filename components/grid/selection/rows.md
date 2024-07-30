@@ -25,10 +25,9 @@ In this article:
 * [Row Selection and Other Grid Features](#row-selection-and-other-grid-features)
     * [Selection with Editing Modes](#selection-with-editing-modes)
     * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
+    * [Selection and Grid Paging](#selection-and-grid-paging)
     * [Selection in Template](#selection-in-template)
     * [Selection and Row Drag and Drop](#selection-and-row-drag-and-drop)
-    * [Selection and Grid Paging](#selection-and-grid-paging)
-
 
 ## Rows Selection Options
 
@@ -253,11 +252,15 @@ To see how to select the row that is being edited in InCell edit mode without us
 
 #### Inline and Popup Edit Modes
 
-In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) row selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
+In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the row selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
 ### Selection in Grid with Virtual Scrolling
 
 When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`](#selection-mode) the selectable rows will be the one in the current set of items (page). If you select a row and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected row.
+
+### Selection and Grid Paging
+
+The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the collection.
 
 ### Selection in Template
 
@@ -272,10 +275,6 @@ If you are using the [Row Template]({%slug components/grid/features/templates%}#
 ### Selection and Row Drag and Drop
 
 If the user drags selected rows, the current selection will be cleared on row drop.
-
-### Selection and Grid Paging
-
-The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the collection.
 
 ## See Also
 

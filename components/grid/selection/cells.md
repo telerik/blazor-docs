@@ -9,7 +9,7 @@ position: 5
 
 # Cells Selection
 
-The Grid component offers support for multiple cells selection.
+The Grid component offers support for single or multiple cells selection.
 
 In this article:
 
@@ -19,18 +19,22 @@ In this article:
 	* [Selected Cells When Data Changes](#selected-cells-when-data-changes)
 	* [Selected Cells Equals Comparison](#selected-cells-equals-comparison)
 * [SelectedCellsChanged](#selectedcellschanged)
-	* [SelectedCellsChanged and Asynchronous Operations](#selectedcellschanged-and-asynchronous-operations)
 * [Cell Selection and Other Grid Features](#cells-selection-and-other-grid-features)
+    * [Selection with Editing Modes](#selection-with-editing-modes)
+    * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
+    * [Selection and Grid Paging](#selection-and-grid-paging)
+    * [Selection in Template](#selection-in-template)
 
 ## Cells Selection Options
 
-To select a cell click anywhere in the cell. You can use cell selection with [multiple selection mode]({%slug components/grid/selection/overview%}#selection-mode).
+To select a cell click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode) - single and multiple.
 
 To select multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired cells to select or deselect them.
 * Click on the starting cell in a range of cells that you want to select, press and hold `Shift`, and click on the last cell in the range. The first selected cell is the start point of the range and the last selected cell is the end of the selection.
-
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected cells will be deselected.
+
+You can also select multiple cells dictated by the square formed between the mouse click, drag, and mouse click release. To allow this kind of cell selection, set the `DragToSelect` parameter of the [`GridSelectionSettings`]({%slug components/grid/selection/overview%}#selection-type).
 
 >caption Cell selection and Multiple SelectionMode
 
@@ -92,7 +96,7 @@ If you release the `Ctrl` or the `Shift` keys and click to start new multiple se
 
 ### Basics
 
-* You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is а collection of a type `IEnumerable<SelectedCellDescriptor>`.
+* You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is a collection of a type `IEnumerable<SelectedCellDescriptor>`.
 * The `SelectedCellDescriptor` exposes:
     * `SelectedCellDescriptor.ColumnField` - the [field of the associated column]({%slug components/grid/columns/bound%}#data-binding) (if provided).
     * `SelectedCellDescriptor.ColumnId` - the [id of the associated column]({%slug components/grid/columns/bound%}#identification) (if provided).
@@ -103,13 +107,8 @@ If you release the `Ctrl` or the `Shift` keys and click to start new multiple se
 
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
-* If you update or delete an item in the Grid, you must make the same update in the `SelectedCells` collection through the Grid [editing events]({%slug components/grid/editing/overview%}). The other CRUD operations (Create), you should use the Grid [editing events]({%slug components/grid/editing/overview%}) to handle the situation according to your business logic and preferred behavior.
-
-* If you are using one-way binding for the `SelectedCells` property, when the data changes and the selected items are cleared, the [`SelectedCellsChanged` event](#selectedcellschanged) will fire with the empty collection. If you are using two-way binding, the collection will be cleared.
-
-* If the Grid does *not* use an `ObservableCollection` for its `Data` - the `SelectedCells` collection will be preserved. You need to clear or manipulate it when the data is changed according to your needs and business logic.
-
-* When using an `ObservableCollection` for the Grid `Data`- if an item is removed or the entire data is cleared using the collection's `.Clear()` method, it will automatically update the `SelectedCells` collection too (the removed Data items will be removed from the `SelectedCells` collection).
+* When you update or delete a selected item in the Grid, you have to make the same in the `SelectedCells` collection through the Grid [editing events]({%slug components/grid/editing/overview%}).
+* When you create an item in the Grid, and you want to select a cell from it with its creation, you should use the Grid [editing events]({%slug components/grid/editing/overview%}).
 
 ### Selected Cells Equals Comparison
 
@@ -188,38 +187,34 @@ You can respond to the user action of selecting a new cell through the `Selected
 
 ## Cell Selection and Other Grid Features
 
-### Cell Selection with Editing Modes
+### Selection with Editing Modes
 
 #### InCell Edit Mode
 
-When there is a cell selection and an [Incell EditMode]({%slug components/grid/editing/incell%}) there is an overlapping action that triggers cell selection and InCell editing (clicking in the cell). Each attempt to select a cell puts a cell in edit mode.
+When the Grid configuration contains cell selection and an [Incell EditMode]({%slug components/grid/editing/incell%}) there is an overlapping action that triggers cell selection and InCell editing (clicking in the cell). Each attempt to select a cell puts a cell in edit mode. In such case only the editing feature is working.
 
-#### Inline Edit Mode
+#### Inline and Popup Edit Modes
 
-When there is a cell selection and an [Inline EditMode]({%slug components/grid/editing/inline%}) a cell cannot be selected.
-
-#### Popup Edit Mode
-
-In [Popup EditMode]({%slug components/grid/editing/popup%}) selection can be done by clicking on the desired cell. You need to [handle the edit in the Grid item and in the `SelectedCells` collection](#selected-cells-when-data-changes).
+In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the cell selection can be done by clicking on the desired cell.
 
 ### Selection in Grid with Virtual Scrolling
 
 When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}) the selectable cells will be the one in the current set of items (page). If you select a cell and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected cell.
 
-### Selection in Template
-
-If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you should add the `@onclick:stopPropagation` directive to the element of the clickable component. You can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both - row and cell selection in the Grid.
-
-If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the cell selection won't work. The Row Template changes the content and the built-in cells instances.
-
-### Cell Selection and GridCheckboxColumn
-
-If you add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}), the cell selection won't work. The `GridCheckboxColumn` provides an additional way for users to select Grid rows and not cells.
-
 ### Selection and Grid Paging
 
 The `SelectedCells` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the collection.
 
+### Selection in Template
+
+#### Selection in Grid Column Template
+
+If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you should add the `@onclick:stopPropagation` directive to the element of the clickable component. You can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both - row and cell selection in the Grid.
+
+#### Selection in Row Template
+
+If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the cell selection won't work. The Row Template changes the content and the built-in cells instances.
+
 ## See Also
 
-  * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/selection)
+  * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
