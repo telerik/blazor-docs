@@ -31,7 +31,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-To avoid browser caching issues when upgrading the Telerik UI for Blazor version, use the so-called cache busting. Add the components' version number to the Telerik client asset URLs as a query string. In this way, the browser will always load the correct version of the CSS theme and the JSInterop file. Browsers will still use cached Telerik client assets as long as the components version stays the same.
+To avoid browser caching issues when upgrading the Telerik UI for Blazor version, use the so-called cache busting. Add the components' version number to the Telerik client asset URLs as a query string. In this way, the browser will always load the correct version of the CSS stylesheet and the JSInterop file. Browsers will still use cached Telerik client assets as long as the components version stays the same.
 
 Using the correct client assets [avoids Telerik-related JavaScript errors]({%slug troubleshooting-js-errors%}).
 
