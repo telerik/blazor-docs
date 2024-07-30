@@ -66,7 +66,7 @@ You can use reflection to get the Telerik UI for Blazor version at runtime.
 
 ### Standalone Blazor WebAssembly Apps and Hybrid Apps
 
-If the Telerik CSS theme and JavaScript file reside in the `index.html` file, you can hard-code Telerik UI for Blazor version. In this case, it is crucial to update the query string manually every time when upgrading.
+If the Telerik CSS theme and JavaScript file reside in the `index.html` file, you can hard-code the Telerik UI for Blazor version. In this case, it is crucial to update the query string manually every time when upgrading.
 
 >caption Adding a cache buster for the Telerik CSS and JavaScript files in index.html
 
