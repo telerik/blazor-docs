@@ -75,7 +75,7 @@ Such an error means that the `telerik-blazor.js` script file version does not ma
 
 If you use our CDN to load the script file, make sure the file URL matches the package version. If you load the script as a local file from the `wwwroot` folder, then replace the file. See the [Upgrade Process]({%slug upgrade-tutorial%}#upgrade-process) article for details.
 
-Another common reason is browser caching, if the file comes from the static NuGet assets or a local folder. Clear the browser cache or "hard refresh" the page to fix that. A real server should look at the modified date of those files and serve them fully when they have been upgraded, so in a production environment this should not occur, but a development server is more likely to return a "not modified" response even after the file was updated.
+Another common reason is browser caching, if the file comes from the static NuGet assets or a local folder. Clear the browser cache or "hard refresh" the page to fix that. Consider a [cache buster for the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
 
 ## Cannot read properties of null (reading 'addEventListener')
 
@@ -115,4 +115,8 @@ Under IE, you may get errors similar to `Object doesn't support property or meth
 
 ## Maximum call stack size exceeded
 
-The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache.
+The error indicates that a [.NET 8 app is using a `telerik-blazor.js` file that is for version `4.5.0` or earlier]({%slug common-kb-maximum-call-stack-exceeded%}). If the Telerik UI for Blazor package version is up-to-date, a possible cause for the error is browser cache and you may need to [add a cache buster to the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
+
+## See Also
+
+* [Prevent browser caching during version upgrades]({%slug common-kb-browser-cache-buster%})

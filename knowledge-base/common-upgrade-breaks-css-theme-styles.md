@@ -41,7 +41,7 @@ To resolve the problem, follow the [recommended UI for Blazor upgrade procedure]
 
 * If using the [Telerik **CDN**]({%slug common-features-cdn%}) - update the [stylesheet file URL]({%slug themes-swatches%}) to the correct version.
 * If using a **local** CSS file in `wwwroot` - replace the stylesheet with a compatible one. If the application is using a [**custom theme**, then recreate it]({%slug themes-custom%}#import-custom-theme).
-* If using **static assets** from the NuGet package - clear the browser cache.
+* If using **static assets** from the NuGet package - clear the browser cache and [add a cache buster to the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
 
 A version update might break custom application CSS styles that are outside the Telerik theme. In this case, then check if the component HTML rendering or CSS classes have changed, and adjust the custom CSS code.
 
