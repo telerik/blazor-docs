@@ -82,6 +82,7 @@ The following table lists Carousel parameters. Check the [Carousel API Reference
 | `Width` | `string` | The Carousel width. See [Dimensions]({%slug common-features/dimensions%}) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.|
 | `Height` | `string` | The Carousel height. By default and by design, the component has no height and does not expand, based on its content. *In other words, the Carousel will be zero pixels high, if height is not applied.*|
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to apply custom styles or [override the theme]({%slug themes-override%}).
+| `ThemeColor` | `string` <br /> (`"light"`) | Sets predefined colors to the Carousel component. Use the members of the static class `ThemeConstants.Carousel.ThemeColor` to set valid values. |
 
 ## Carousel Reference and Methods
 
