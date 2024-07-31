@@ -51,7 +51,7 @@ To respond to the user action of selecting a new row use the [`SelectedItemsChan
 
 To respond to the user action of selecting a new cell use the [`SelectedCellsChanged` event]({%slug components/grid/selection/cells%}#selectedcellschanged).
 
-Note that both binding to the property and using its event cannot be used at the same time, as Blazor only allows one. This means that if you want to use the `SelectedItemsChanged` event, you need to use one-way binding for the `SelectedItems` property. Otherwise, you can use two-way binding for the `SelectedItems` property without the `SelectedItemsChanged` event. The same applies for the `SelectedCells` and the `SelectedCellsChanged`.
+> Both binding to the property and using its event cannot be used at the same time as Blazor allows only one. To use the `SelectedItemsChanged` event, utilize one-way binding for the `SelectedItems` property. Otherwise, use two-way binding for the `SelectedItems` property without the `SelectedItemsChanged` event. The same applies to the `SelectedCells` and the `SelectedCellsChanged`.
 
 ## Selection and Other Grid Features
 
