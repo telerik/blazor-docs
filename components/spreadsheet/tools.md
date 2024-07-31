@@ -243,7 +243,7 @@ Here is how to define a custom tool set from scratch. You can also [set the avai
 The `SpreadsheetCustomTool` type has a `Template` property that is a `RenderFragment`. Generally, custom tools can do one of the following:
 
 * Perform actions that relate to the Spreadsheet component, loaded Excel document, or app business logic.
-* Modify the Excel document programmatically with the help of [RadSpreadProcessing]({%slug spreadprocessing-overview%}).
+* Modify the Excel document programmatically with the help of [RadSpreadProcessing]({%slug dpl-in-blazor%}).
 
 >caption Creating custom Spreadsheet tools
 
