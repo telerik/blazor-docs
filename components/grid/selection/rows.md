@@ -44,7 +44,7 @@ To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selec
 
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected rows will be deselected.
 
->caption Click-only selection and Single SelectionMode
+>caption Click-only selection and single selection mode
 
 ````CSHTML
 Click on one row to select it
