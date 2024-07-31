@@ -56,27 +56,28 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
     
         @page "/"
         
-        <TelerikButton OnClick="@SayHelloHandler" ThemeColor="primary">Say Hello</TelerikButton>
-        
-        <br />
-        
-        @helloString
-        
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                    OnClick="@SayHelloHandler">Say Hello</TelerikButton>
+
+        <p>@HelloString</p>
+
         @code {
-           MarkupString helloString;
-        
-           void SayHelloHandler()
-           {
-               string msg = string.Format("Hello from <strong>Telerik Blazor</strong> at {0}.<br /> Now you can use C# to write front-end!", DateTime.Now);
-               helloString = new MarkupString(msg);
-           }
+            private MarkupString HelloString { get; set; }
+
+            private void SayHelloHandler()
+            {
+                string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
+                    "<br /> Now you can use C# to write front-end!";
+
+                HelloString = new MarkupString(msg);
+            }
         }
 
-1. Run the app in the browser by pressing `F5`. You should see something like this:
+1. Run the app in the browser. You should see something like this:
 
     ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
 
-Well done! Now you have you first Telerik UI for Blazor component running in your Blazor app.
+Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app.
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
@@ -85,15 +86,12 @@ Well done! Now you have you first Telerik UI for Blazor component running in you
 #next-steps-after-getting-started
 ## Next Steps
 
-* [Explore the Live Telerik UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)
+* [Check the list of available components]({%slug blazor-overview%}#list-of-components).
+* [Explore the live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/).
+* [Learn the data binding fundamentals for Telerik UI for Blazor components]({%slug common-features-data-binding-overview%}).
+* [Get started with the data Grid]({%slug grid-overview%}).
+* [Review the built-in themes or create custom ones]({%slug themes-built-in%}).
 
-* [Get Started with the Data Grid]({%slug grid-overview%})
-
-* [Create Custom Styles by Using ThemeBuilder]({%slug themebuilder%})
-
-* [See the Data Binding Fundamentals for Telerik UI for Blazor Components]({%slug common-features-data-binding-overview%}).
-
-* [Explore the List of Available Components]({%slug blazor-overview%}#list-of-components).
 #end
 
 #demos-project-net-version
