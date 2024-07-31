@@ -36,7 +36,7 @@ You can use [click-only selection](#click-only-selection) and [checkbox selectio
 
 ### Click-Only Selection
 
-By default, user can select row by clicking anywhere in the row, except on command buttons.
+By default, users can select rows by clicking anywhere in the row, except on the command buttons.
 
 To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired rows to select or deselect them.
