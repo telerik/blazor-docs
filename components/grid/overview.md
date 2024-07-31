@@ -145,12 +145,12 @@ The Grid supports custom content in various parts of the component such as data 
 ## More Blazor Grid Features
 
 * [Selection]({%slug components/grid/selection/overview%})—select one or multiple rows through clicks or checkboxes or select one or multiple cells through clicks.
-* [State]({%slug grid-state%}) - get or set the Grid configuration programmatically
-* [Toolbar]({%slug components/grid/features/toolbar%}) - define user actions in a toolbar above the header cells
-* [Hierarchy]({%slug components/grid/features/hierarchy%}) - nest Grids and visualize parent-child relations between data records
-* [Drag and drop rows]({%slug grid-drag-drop-overview%}) - move rows in a Grid or between different Grids
-* [Loading animation]({%slug grid-loading%}) - show a loading animation to improve user experience during long data operations
-* Scrolling - the Grid will show standard scrollbars automatically if the data does not fit the current component width and height
+* [State]({%slug grid-state%})—get or set the Grid configuration programmatically.
+* [Toolbar]({%slug components/grid/features/toolbar%})—define user actions in a toolbar above the header cells.
+* [Hierarchy]({%slug components/grid/features/hierarchy%})—nest Grids and visualize parent-child relations between data records.
+* [Drag and drop rows]({%slug grid-drag-drop-overview%})—move rows in a Grid or between different Grids.
+* [Loading animation]({%slug grid-loading%})—show a loading animation to improve user experience during long data operations.
+* Scrolling—the Grid will show standard scrollbars automatically if the data does not fit the current component width and height.
 
 
 ## Grid Parameters

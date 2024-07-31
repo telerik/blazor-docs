@@ -1,15 +1,15 @@
 ---
-title: Cells Selection
+title: Cell Selection
 page_title: Grid - Cells Selection
-description: Cell selection in the Grid for Blazor.
+description: Learn how to select cell  in Blazor Grid component. Explore the selected cells. Discover cell selection bevahior when combined with other Grid features. Try the practical sample code for cell selection.
 slug: components/grid/selection/cells
 tags: telerik,blazor,grid,selection,cells
 position: 5
 ---
 
-# Cells Selection
+# Cell Selection
 
-The Grid component offers support for single or multiple cells selection.
+The Grid component offers support for single or multiple cells selection. You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can follow and respond to the event of selection.
 
 In this article:
 
@@ -27,7 +27,7 @@ In this article:
 
 ## Cells Selection Options
 
-To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode)&mdash;single and multiple.
+To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode)—single and multiple.
 
 To select multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired cells to select or deselect them.
@@ -94,13 +94,11 @@ You can also select multiple cells dictated by the square formed between the mou
 
 ## Selected Cells
 
-### Basics
-
 * You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is a collection of a type `IEnumerable<GridSelectedCellDescriptor>`.
 * The `GridSelectedCellDescriptor` exposes:
-    * `SelectedCellDescriptor.ColumnField` - the [field of the associated column]({%slug components/grid/columns/bound%}#data-binding) (if provided).
-    * `SelectedCellDescriptor.ColumnId` - the [id of the associated column]({%slug components/grid/columns/bound%}#identification) (if provided).
-    * `SelectedCellDescriptor.DataItem` - the actual data item of the selected cell. It has to be casted to the Grid data model.
+    * `SelectedCellDescriptor.ColumnField`—the [field of the associated column]({%slug components/grid/columns/bound%}#data-binding) (if provided).
+    * `SelectedCellDescriptor.ColumnId`—the [id of the associated column]({%slug components/grid/columns/bound%}#identification) (if provided).
+    * `SelectedCellDescriptor.DataItem`—the actual data item of the selected cell. It has to be casted to the Grid data model.
 * You can use the `SelectedCells` collection in two-way binding. You can predefine the selected item for your users through the two-way binding of the `SelectedCells` property. The collection will be updated by the Grid when the selection changes.
 
 ### Selected Cells When Data Changes
@@ -187,15 +185,14 @@ You can respond to the user action of selecting a new cell through the `Selected
 
 ## Cell Selection and Other Grid Features
 
+The selection feature behavior may vary when the Grid configuration combines cell selection and other Grid features, such as editing, virtualization, paging, templates. In such cases you need to consider certain limitation or include some modications.
+
 ### Selection with Editing Modes
 
-#### InCell Edit Mode
+When you want to edit a Grid item, the cell selection has the following behavior:
 
-When the Grid configuration contains cell selection and an [Incell EditMode]({%slug components/grid/editing/incell%}) there is an overlapping action that triggers cell selection and InCell editing (clicking in the cell). Each attempt to select a cell puts a cell in edit mode. In such case only the editing feature is working.
-
-#### Inline and Popup Edit Modes
-
-In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the cell selection can be done by clicking on the desired cell.
+* In the [Incell EditMode]({%slug components/grid/editing/incell%}) there is an overlapping action that triggers cell selection and InCell editing (clicking in the cell). Each attempt to select a cell puts a cell in edit mode. In such case only the editing feature is working.
+* In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the cell selection can be done by clicking on the desired cell.
 
 ### Selection in Grid with Virtual Scrolling
 
@@ -207,13 +204,10 @@ The `SelectedCells` collection persists across paging operations. Changing the p
 
 ### Selection in Template
 
-#### Selection in Grid Column Template
+When your Grid configuration contains [Grid templates]({%slug components/grid/features/templates%}) and cell selection:
 
-If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you should add the `@onclick:stopPropagation` directive to the element of the clickable component. You can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both - row and cell selection in the Grid.
-
-#### Selection in Row Template
-
-If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the cell selection won't work. The Row Template changes the content and the built-in cells instances.
+* If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you should add the `@onclick:stopPropagation` directive to the element of the clickable component. You can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both—row and cell selection in the Grid.
+* If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the cell selection won't work. The Row Template changes the content and the built-in cells instances.
 
 ## See Also
 
