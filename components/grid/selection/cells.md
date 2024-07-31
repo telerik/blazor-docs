@@ -54,7 +54,7 @@ You can also select multiple cells dictated by the square formed between the mou
 
 <h2>Selected Cells:</h2>
 <ul>
-    @foreach (SelectedCellDescriptor customer in SelectedItems)
+    @foreach (GridSelectedCellDescriptor customer in SelectedItems)
     {
         <li>
            @{
@@ -67,7 +67,7 @@ You can also select multiple cells dictated by the square formed between the mou
 
 @code {
     private List<Customer> GridData { get; set; }
-    private IEnumerable<SelectedCellDescriptor> SelectedItems { get; set; } = new List<SelectedCellDescriptor>();
+    private IEnumerable<GridSelectedCellDescriptor> SelectedItems { get; set; } = new List<GridSelectedCellDescriptor>();
 
     protected override void OnInitialized()
     {
@@ -96,8 +96,8 @@ You can also select multiple cells dictated by the square formed between the mou
 
 ### Basics
 
-* You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is a collection of a type `IEnumerable<SelectedCellDescriptor>`.
-* The `SelectedCellDescriptor` exposes:
+* You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is a collection of a type `IEnumerable<GridSelectedCellDescriptor>`.
+* The `GridSelectedCellDescriptor` exposes:
     * `SelectedCellDescriptor.ColumnField` - the [field of the associated column]({%slug components/grid/columns/bound%}#data-binding) (if provided).
     * `SelectedCellDescriptor.ColumnId` - the [id of the associated column]({%slug components/grid/columns/bound%}#identification) (if provided).
     * `SelectedCellDescriptor.DataItem` - the actual data item of the selected cell. It has to be casted to the Grid data model.
@@ -118,14 +118,14 @@ When the `SelectedCells` are obtained from a different data source to the Grid (
 
 ## SelectedCellsChanged
 
-You can respond to the user action of selecting a new cell through the `SelectedCellsChanged` event. The `SelectedCellsChanged` event receives a collection `IEnumerable<SelectedCellDescriptor>`. It may have no items in it. It may have only one member (the last selected item) when the `SelectionMode` is `Single`.
+You can respond to the user action of selecting a new cell through the `SelectedCellsChanged` event. The `SelectedCellsChanged` event receives a collection `IEnumerable<GridSelectedCellDescriptor>`. It may have no items in it. It may have only one member (the last selected item) when the `SelectionMode` is `Single`.
 
 >caption One-way binding for SelectedCells and using the SelectedCellsChanged event
 
 ````CSHTML
 <TelerikGrid Data=@GridData
              SelectedCells="@SelectedItems"
-             SelectedCellsChanged="@((IEnumerable<SelectedCellDescriptor> cellsList) => OnSelect(cellsList))"
+             SelectedCellsChanged="@((IEnumerable<GridSelectedCellDescriptor> cellsList) => OnSelect(cellsList))"
              SelectionMode="@GridSelectionMode.Multiple"
              Pageable=true>
     <GridSettings>
@@ -139,10 +139,10 @@ You can respond to the user action of selecting a new cell through the `Selected
 
 <h2>Selected Cells:</h2>
 <ul>
-    @foreach (SelectedCellDescriptor customer in SelectedItems)
+    @foreach (GridSelectedCellDescriptor customer in SelectedItems)
     {
         <li>
-           @{
+            @{
                 var model = customer.DataItem as Customer;
                 @model.ContactName
             }
@@ -152,9 +152,9 @@ You can respond to the user action of selecting a new cell through the `Selected
 
 @code {
     private List<Customer> GridData { get; set; }
-    private IEnumerable<SelectedCellDescriptor> SelectedItems { get; set; } = new List<SelectedCellDescriptor>();
+    private IEnumerable<GridSelectedCellDescriptor> SelectedItems { get; set; } = new List<GridSelectedCellDescriptor>();
 
-    protected void OnSelect(IEnumerable<SelectedCellDescriptor> selectedCells)
+    protected void OnSelect(IEnumerable<GridSelectedCellDescriptor> selectedCells)
     {
         // update the collection so that the grid can highlight the correct item
         // when two-way binding is used this happens automatically, but the framework
