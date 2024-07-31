@@ -161,7 +161,7 @@ When the Grid `Data` collection changes, the `SelectedItems` collection has the 
 
 * When you update a selected item in the Grid, you have to make the same update in the `SelectedItems` collection through the Grid [editing events]({%slug components/grid/editing/overview%}).
 * When you delete a selected item in the Grid, it will automatically delete from the `SelectedItems` collection. If you are using one-way binding for the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged), when you delete a selected item, the event fires. When you delete all selected items, the `SelectedItemsChanged` event fires with an empty collection.
-* When you create an item in the Grid, and you want to select it with its creation, you should use the Grid [editing events]({%slug components/grid/editing/overview%}).
+* When you create an item in the Grid, and you want to select it at the same time, use the Grid [editing events]({%slug components/grid/editing/overview%}).
 
 ### Selected Rows Equals Comparison
 
