@@ -47,7 +47,7 @@ If you release the `Ctrl` or the `Shift` keys and click to start new multiple se
 >caption Click-only selection and single selection mode
 
 ````CSHTML
-Click on one row to select it
+Click on one row to select it.
 
 <TelerikGrid Data=@GridData
              SelectionMode="@GridSelectionMode.Single"
