@@ -27,7 +27,7 @@ In this article:
 
 ## Cells Selection Options
 
-To select a cell click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode) - single and multiple.
+To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode)&mdash;single and multiple.
 
 To select multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired cells to select or deselect them.
