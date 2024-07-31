@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Style the RadioGroup to Look Like a ButtonGroup
 slug: radiogroup-kb-like-buttongroup
 position:
-tags: radiogroup, button, buttongroup
+tags: radiogroup, button, buttongroup, styles
 ticketid: 1547117
 res_type: kb
 ---
@@ -34,9 +34,12 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
 >caption Style the RadioGroup Like a ButtonGroup
 
 ````CSHTML
-<h1>RadioGroup like a ButtonGroup</h1>
+<h1 style="font-size:1.5rem;">RadioGroup like a ButtonGroup</h1>
 
-<br />
+<p>Selected Value: <strong><code>@CurrentStatus</code></strong></p>
+
+<h2 style="font-size: 1.2rem; margin: .6em 0">Workaround with RadioGroup and CSS</h2>
+
 <TelerikRadioGroup Class="labels-only"
                    Data="@Statuses"
                    @bind-Value="@CurrentStatus"
@@ -55,28 +58,38 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
                    LabelPosition="RadioGroupLabelPosition.After">
 </TelerikRadioGroup>
 
-<br />
-<p>Selected Value: <strong>@CurrentStatus.ToString()</strong></p>
+<h2 style="font-size: 1.2rem; margin: .6em 0">Built-in Approach with ButtonGroup</h2>
+
+<TelerikButtonGroup>
+    @foreach (var item in Statuses)
+    {
+        <ButtonGroupToggleButton Selected="@( item.Id == CurrentStatus )"
+                                 SelectedChanged="@( (bool newSelected) => ToggleButtonSelectedChanged(newSelected, item.Id) )">
+            @item.Text
+        </ButtonGroupToggleButton>
+    }
+</TelerikButtonGroup>
 
 <style>
     /* remove the horizontal space between the RadioGroup items */
-    .labels-only {
-        display: flex;
+    .k-radio-list.labels-only {
+        gap: 0;
     }
 
     /* reset styles and support absolute radio inputs */
-    .labels-only .k-radio-item {
+    .labels-only .k-radio-list-item {
         margin: 0;
         padding: 0;
         position: relative;
     }
 
     /* hide the radio buttons */
-    .labels-only .k-radio {
+    .labels-only .k-radio-wrap {
         opacity: 0;
         position: absolute;
     }
-    .labels-only .k-radio:checked::before {
+
+    .labels-only .k-radio-wrap::before {
         display: none;
     }
 
@@ -84,32 +97,43 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
     .labels-only .k-radio-label {
         display: inline-block;
         margin: 0;
-        padding: .4em .6em .3em;
+        padding: .2em .6em;
         border: 1px solid #ff6358;
         border-left-width: 0;
         position: relative;
+        font-size: var(--kendo-font-size, inherit);
         color: #ff6358;
     }
 
     /* first and last button borders */
-    .labels-only .k-radio-item:first-child .k-radio-label {
+    .labels-only .k-radio-list-item:first-child .k-radio-label {
         border-left-width: 1px;
         border-radius: .2em 0 0 .2em;
     }
-    .labels-only .k-radio-item:last-child .k-radio-label {
+
+    .labels-only .k-radio-list-item:last-child .k-radio-label {
         border-radius: 0 .2em .2em 0;
     }
 
     /* button selected state */
-    .labels-only .k-radio:checked + .k-radio-label {
+    .labels-only .k-radio-wrap:has(.k-radio:checked) + .k-radio-label {
         background-color: #ff6358;
         color: #fff;
     }
 </style>
 
 @code{
-    List<Status> Statuses { get; set; } = new();
-    int CurrentStatus { get; set; } = 3;
+    private List<Status> Statuses { get; set; } = new();
+
+    private int CurrentStatus { get; set; } = 3;
+
+    private void ToggleButtonSelectedChanged(bool newSelected, int id)
+    {
+        if (newSelected)
+        {
+            CurrentStatus = id;
+        }
+    }
 
     protected override Task OnInitializedAsync()
     {
@@ -128,7 +152,11 @@ The RadioGroup will look the same as a [ButtonGroup with single selection]({%slu
     public class Status
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
+
+## See Also
+
+* [How to override CSS theme styles]({%slug themes-override%})
