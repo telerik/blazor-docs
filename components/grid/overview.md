@@ -144,7 +144,7 @@ The Grid supports custom content in various parts of the component such as data 
 
 ## More Blazor Grid Features
 
-* [Selection]({%slug components/grid/selection/overview%}) - select one or multiple rows via clicks or checkboxes or select one or multiple cells via clicks
+* [Selection]({%slug components/grid/selection/overview%})—select one or multiple rows through clicks or checkboxes or select one or multiple cells through clicks.
 * [State]({%slug grid-state%}) - get or set the Grid configuration programmatically
 * [Toolbar]({%slug components/grid/features/toolbar%}) - define user actions in a toolbar above the header cells
 * [Hierarchy]({%slug components/grid/features/hierarchy%}) - nest Grids and visualize parent-child relations between data records
