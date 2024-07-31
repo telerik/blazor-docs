@@ -24,19 +24,13 @@ Clicking the **Get Latest** button in the [Create New Project]({% slug getting-s
 
 1. Click on the LOG IN button. This will open a browser window with a login form on the telerik.com website.
 
-    ![Log into your Telerik account](images/click-to-log-in.png)
-
     >tip For more information on the latest available versions, see the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 
 1. Enter your Telerik credentials in the browser. If you do not have a [www.telerik.com](https://www.telerik.com) account, then create a new one.
 1. Return to Visual Studio and confirm any privacy-related requests.
 1. In the next dialog that appears, click the **Download** button.
 
-    ![Confirming the download of the latest version dialog](images/download-new-version.png)
-
-1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version from the drop-down menu.
-
-    ![The new version is now available in the New Project wizard](images/new-version-in-new-project-wizard.png)
+1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version.
 
 The Latest Version Acquirer tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. By default, the file is saved in the `%APPDATA%\Telerik\Updates` folder. If the list with the offered packages gets too long and you do not need the prior versions, close VS and use the Windows Explorer to delete these distributions.
 

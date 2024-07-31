@@ -57,18 +57,28 @@ Alternatively, instead of the context menu, you can use the VS **Extensions** me
 
 ![Start the Convert Project Wizard](images/vs-ext-convert-project-entry.png)
 
-## Features
+## Converting the Project Thought the Wizard
 
-The wizard provides you with the following options:
+Clicking the Convert to Telerik Application button opens the wizard and you will go through the following steps:
+
+### Step 1: Select Initial Project Configuration
+
+In this screen, you can choose:
 
 * The ability to download the latest available version.
 * A version selector so you can choose a particular version to add to the project.
-* A list with the versions found on your machine that you can choose from.
-* Whether to back up the project state before the conversion (in a folder called `<ProjectName>_Backup>_<timestamp>`).
+* Additional project settings like:
+    * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
+    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
+    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
 
->caption The Convert Project Wizard Options
+### Step 2: Select Theme
 
-![The Convert Project Wizard Options](images/convert-project-wizard-options.png)
+In this step, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
+
+### Step 3: Create a Backup
+
+Whether to back up the project state before the conversion (in a folder called `<ProjectName>_Backup>_<timestamp>`).
 
 ## Troubleshooting
 
@@ -80,13 +90,9 @@ When converting a project, you may encounter the following most common issues:
 
 ### Error Screen
 
-If you see an error screen similar to the one below, make sure that the actual Blazor application is selected in the Solution Explorer. This is most common with WebAssembly types of applications as they consist of a server and shared projects by default, and only the client project is the actual Blazor app that needs the Telerik components.
+If you see an error screen in the wizard, make sure that the actual Blazor application is selected in the Solution Explorer. This is most common with WebAssembly types of applications as they consist of a server and shared projects by default, and only the client project is the actual Blazor app that needs the Telerik components.
 
 Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components]({%slug getting-started/what-you-need%}).
-
->caption Error screen when the project can't be converted
-
-![The Convert Project Failed](images/convert-project-wizard-failed.png)
 
 ### Components Fail
 

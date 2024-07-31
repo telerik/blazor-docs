@@ -24,15 +24,14 @@ The configuration wizard handles the following tasks:
 
 The **Theme Selection** page enables you to change the [CSS theme]({%slug themes-built-in%}) of your Telerik UI for Blazor application.
 
-![Theme Selection menu in the Project Configuration Wizard](../vs-integration/images/configure-theme.png)
-
 After selecting the desired theme, click **Next** to navigate to the [Project Settings](#project-settings) page.
 
 ## Project Settings
 
-The **Project Settings** page allows you to enable or disable the [Telerik UI CDN support]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
+The **Project Settings** page allows you to enable or disable:
 
-![Project Settings dialog in the Project Configuration Wizard](../vs-integration/images/configure-settings.png)
+* The [Telerik UI CDN support]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
+* The [Font Icons]({%slug common-features-icons%}) in the project.
 
 ## See Also
 
