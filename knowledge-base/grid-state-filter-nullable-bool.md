@@ -1,6 +1,6 @@
 ---
 title: Programatically Filter Nullable Bool Grid Column by Null Value
-description: Learn how to programmatically filter nullable bool values in the Grid component for Blazor.
+description: Learn how to programmatically filter nullable bool values.
 type: how-to
 page_title: How to filter a Grid column bound to a nullable bool by the null values programatically
 slug: grid-kb-state-filter-nullable-bool
@@ -30,7 +30,7 @@ This KB article also answers the following questions:
 
 ## Solution
 
-To filter a Grid column bound to a `bool?` by the null values programmatically:
+To filter a Grid column bound to a `bool?` by the null values use the `IsNull` FilterOperator. You can call the `SetGridFilter` method from a `<TelerikButton>` with `OnClick` handler (as in the code snippet below), in the [OnStateInit event]({%slug grid-state%}#onstateinit) handler, or any other custom interactive element.
 
 ````CSHTML
 @using Telerik.DataSource
