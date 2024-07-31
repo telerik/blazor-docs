@@ -9,7 +9,7 @@ previous_url: /components/document-processing/overview, /components/document-pro
 
 # Telerik Document Processing Libraries
 
-[Telerik Document Processing Libraries](https://docs.telerik.com/devtools/document-processing/introduction) is a bundle of UI-independent cross-platform libraries that enable you to process the most commonly used flow, fixed and spreadsheet document formats for web and desktop. The Document Processing library allows you to create, import, modify and export documents in the [supported formats](https://docs.telerik.com/devtools/document-processing/introduction#supported-formats) without relying on external dependencies like Adobe Acrobat or Microsoft Office:
+[Telerik Document Processing Libraries](https://docs.telerik.com/devtools/document-processing/introduction) is a bundle of UI-independent cross-platform libraries that enable you to process the most commonly used flow, fixed, and spreadsheet document formats for web and desktop. The Document Processing library allows you to create, import, modify, and export documents in the [supported formats](https://docs.telerik.com/devtools/document-processing/introduction#supported-formats) without relying on external dependencies like Adobe Acrobat or Microsoft Office.
 
 ![Telerik Document Processing  Libraries ](images/Telerik_Document_Processing_Libraries.png) 
 
