@@ -36,7 +36,7 @@ If you release the `Ctrl` or the `Shift` keys and click to start new multiple se
 
 You can also select multiple cells dictated by the square formed between the mouse click, drag, and mouse click release. To allow this kind of cell selection, set the `DragToSelect` parameter of the [`GridSelectionSettings`]({%slug components/grid/selection/overview%}#selection-type).
 
->caption Cell selection and Multiple SelectionMode
+>caption Cell selection and multiple selection mode
 
 ````CSHTML
 <TelerikGrid Data=@GridData
