@@ -40,7 +40,7 @@ By default, users can select rows by clicking anywhere in the row, except on the
 
 To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired rows to select or deselect them.
-* Click on the starting row in a range of rows that you want to select, press and hold `Shift`, and click on the last row in the range. The first selected row is the start point of the range and the last selected row is the end of the selection.
+* Click on the starting row in a range of rows that you want to select, press and hold `Shift`, and click on the last row in the range. The first selected row is the starting point of the range and the last selected row is the end of the selection.
 
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected rows will be deselected.
 
