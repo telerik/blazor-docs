@@ -658,12 +658,12 @@ intro_columns:
   -
     title: "Documents"
     items:
-      "Document Processing": "common-features-dpl"
-      "PdfProcessing": "pdfprocessing-overview"
-      "SpreadProcessing": "spreadprocessing-overview"
-      "SpreadStreamProcessing": "spreadstreamprocessing-overview"
-      "WordsProcessing": "wordsprocessing-overview"
-      "ZipLibrary": "ziplibrary-overview"
+      "Document Processing": "dpl-in-blazor"
+      "PdfProcessing": "dpl-in-blazor"
+      "SpreadProcessing": "dpl-in-blazor"
+      "SpreadStreamProcessing": "dpl-in-blazor"
+      "WordsProcessing": "dpl-in-blazor"
+      "ZipLibrary": "dpl-in-blazor"
 
 
 ## The application virtual path
