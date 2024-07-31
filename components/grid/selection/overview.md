@@ -27,7 +27,7 @@ You can configure to select rows or cells in the Grid. If you only set the [Grid
 
 ## Selection Mode
 
-You can configure the selection behavior by setting the Grid `SelectionMode` parameter to a member of the `Telerik.Blazor.GridSelectionMode` enum. The selection can be:
+You can configure the selection behavior by setting the Grid `SelectionMode` parameter to a member of the `Telerik.Blazor.GridSelectionMode` enum. The Grid supports the following selection modes:
 
 * `None` (the default value) - To disable row or cell selection.
 * `Single` - Only one row or cell can be selected at a time, so the last one will be the selected one.
