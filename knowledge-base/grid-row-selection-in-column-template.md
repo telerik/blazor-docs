@@ -24,7 +24,7 @@ res_type: kb
 
 This KB article answers the following question:
 
-* How to use the rows selection but stop the selection from being triggered when the user clicks in another component, which is in the Grid column template?
+* How to use row selection but stop the selection from triggering when the user clicks on another component in the Grid column template?
 
 ## Solution
 
