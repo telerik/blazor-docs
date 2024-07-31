@@ -90,7 +90,7 @@ You can also use a checkbox column to select and deselect rows. This way the use
 
 To deselect the row, click its checkbox again.
 
->caption Checkbox selection and Multiple SelectionMode
+>caption Checkbox selection and multiple selection mode
 
 ````CSHTML
 @if (CheckBoxOnlySelection)
