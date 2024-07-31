@@ -1,5 +1,5 @@
 ---
-title: How to Select Row in the Grid when Using Grid Column Template
+title: How to Select a Row in the Grid when Using Grid Column Template
 description: Learn how to manage row selection in the Telerik Blazor Grid when using Grid Column Template.
 type: how-to
 page_title: Select Row in the Grid when Using Grid Column Template
