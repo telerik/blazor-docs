@@ -23,7 +23,7 @@ previous_url: /components/document-processing/overview, /components/document-pro
 
 ## Available Versions
 
-Telerik Document Processing  Libraries are available in **.NET Framework** and **.NET Standard (.NET Core)** compatible versions. Both versions are [available as NuGet packages](https://docs.telerik.com/devtools/document-processing/getting-started/installation/nuget-packages). Read more in the *[Getting Started with Telerik Document Processing Libraries](https://docs.telerik.com/devtools/document-processing/getting-started/getting-started)* article.
+Telerik Document Processing  Libraries are available in .NET Framework and .NET Standard (.NET Core) compatible versions. Both versions are [available as NuGet packages](https://docs.telerik.com/devtools/document-processing/getting-started/installation/nuget-packages). Read more in the [Getting Started with Telerik Document Processing Libraries](https://docs.telerik.com/devtools/document-processing/getting-started/getting-started) article.
 
 ## Configuration Wizard
 
