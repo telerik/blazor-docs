@@ -42,7 +42,7 @@ The RadioGroup will look similar to a [ButtonGroup with single selection]({%slug
 
 <h2 style="font-size: 1.2rem; margin: .6em 0">Workaround with RadioGroup and CSS</h2>
 
-<TelerikRadioGroup Class="labels-only"
+<TelerikRadioGroup Class="radio-buttons"
                    Data="@Statuses"
                    @bind-Value="@CurrentStatus"
                    ValueField="@nameof(Status.Id)"
@@ -74,29 +74,29 @@ The RadioGroup will look similar to a [ButtonGroup with single selection]({%slug
 
 <style>
     /* remove the horizontal space between the RadioGroup items */
-    .k-radio-list.labels-only {
+    .k-radio-list.radio-buttons {
         gap: 0;
     }
 
     /* reset styles and support absolute radio inputs */
-    .labels-only .k-radio-list-item {
+    .radio-buttons .k-radio-list-item {
         margin: 0;
         padding: 0;
         position: relative;
     }
 
     /* hide the radio buttons */
-    .labels-only .k-radio-wrap {
+    .radio-buttons .k-radio-wrap {
         opacity: 0;
         position: absolute;
     }
 
-    .labels-only .k-radio-wrap::before {
+    .radio-buttons .k-radio-wrap::before {
         display: none;
     }
 
     /* make the radio labels look like buttons */
-    .labels-only .k-radio-label {
+    .radio-buttons .k-radio-label {
         display: inline-block;
         margin: 0;
         padding: .2em .6em;
@@ -108,17 +108,17 @@ The RadioGroup will look similar to a [ButtonGroup with single selection]({%slug
     }
 
     /* first and last button borders */
-    .labels-only .k-radio-list-item:first-child .k-radio-label {
+    .radio-buttons .k-radio-list-item:first-child .k-radio-label {
         border-left-width: 1px;
         border-radius: .2em 0 0 .2em;
     }
 
-    .labels-only .k-radio-list-item:last-child .k-radio-label {
+    .radio-buttons .k-radio-list-item:last-child .k-radio-label {
         border-radius: 0 .2em .2em 0;
     }
 
     /* button selected state */
-    .labels-only .k-radio-wrap:has(.k-radio:checked) + .k-radio-label {
+    .radio-buttons .k-radio-wrap:has(.k-radio:checked) + .k-radio-label {
         background-color: #ff6358;
         color: #fff;
     }
@@ -169,29 +169,29 @@ The following CSS code targets different RadioGroup HTML markup up to version 5.
 
 ````CSS
 /* remove the horizontal space between the RadioGroup items */
-.k-radio-list.labels-only {
+.k-radio-list.radio-buttons {
     gap: 0;
 }
 
 /* reset styles and support absolute radio inputs */
-.labels-only .k-radio-item {
+.radio-buttons .k-radio-item {
     margin: 0;
     padding: 0;
     position: relative;
 }
 
 /* hide the radio buttons */
-.labels-only .k-radio {
+.radio-buttons .k-radio {
     opacity: 0;
     position: absolute;
 }
 
-.labels-only .k-radio::before {
+.radio-buttons .k-radio::before {
     display: none;
 }
 
 /* make the radio labels look like buttons */
-.labels-only .k-radio-label {
+.radio-buttons .k-radio-label {
     display: inline-block;
     margin: 0;
     padding: .2em .6em;
@@ -203,17 +203,17 @@ The following CSS code targets different RadioGroup HTML markup up to version 5.
 }
 
 /* first and last button borders */
-.labels-only .k-radio-item:first-child .k-radio-label {
+.radio-buttons .k-radio-item:first-child .k-radio-label {
     border-left-width: 1px;
     border-radius: .2em 0 0 .2em;
 }
 
-.labels-only .k-radio-item:last-child .k-radio-label {
+.radio-buttons .k-radio-item:last-child .k-radio-label {
     border-radius: 0 .2em .2em 0;
 }
 
 /* button selected state */
-.labels-only .k-radio:checked + .k-radio-label {
+.radio-buttons .k-radio:checked + .k-radio-label {
     background-color: #ff6358;
     color: #fff;
 }
