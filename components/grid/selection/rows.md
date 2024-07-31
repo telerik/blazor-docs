@@ -4,6 +4,7 @@ page_title: Grid - Rows Selection
 description: Row selection in the Grid for Blazor.
 slug: components/grid/selection/rows
 tags: telerik,blazor,grid,selection,rows
+previous_url: /components/grid/selection/single,/components/grid/selection/multiple
 position: 3
 ---
 
