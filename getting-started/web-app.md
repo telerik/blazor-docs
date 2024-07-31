@@ -100,38 +100,7 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 1. In the `~/Components/Pages/Home.razor` view, add a `TelerikButton` component.
 
-
-    **RAZOR**
-    
-        <TelerikButton>Say Hello</TelerikButton>
-        
-1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
-
-    **RAZOR**
-    
-        @page "/"
-        
-        <TelerikButton OnClick="@SayHelloHandler"
-                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">Say Hello</TelerikButton>
-        
-        <p> @HelloString </p>
-        
-        @code {
-           private MarkupString HelloString { get; set; }
-        
-           private void SayHelloHandler()
-           {
-               string msg = string.Format("Hello from <strong>Telerik UI for Blazor</strong> at {0}.<br /> Now you can use C# to write front-end!", DateTime.Now);
-               HelloString = new MarkupString(msg);
-           }
-        }
-
-1. Run the app in the browser by pressing `F5`. You should see something like this:
-
-    ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
-
-Well done! Now you have your first Telerik UI for Blazor component running in your Blazor Web App.
-
+@[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
 ## See Also
 
