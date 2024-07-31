@@ -30,7 +30,7 @@ This KB article answers the following question:
 
 When using the [Grid Column Template]({%slug grid-templates-column%}) and you want to stop the selection from being triggered when the user clicks in it, you should add the `@onclick:stopPropagation` directive to the element.
 
->caption Prevent row selection from happening when the user clicks inside a template
+>caption Prevent row selection when the user clicks inside a template
 
 ````CSHTML
 <select @bind=@SelectionMode>
