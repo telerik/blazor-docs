@@ -58,19 +58,20 @@ After you select the **Create New Project** option from the **Extensions** menu,
 
 Clicking the **Create** button in this window opens the wizard and you will go through the following steps:
 
+1. [Select Initial Project Configuration](#step-1-select-initial-project-configuration).
+1. [Select Project Template](#step-2-select-project-template).
+1. [Select a visual theme](#step-3-select-theme).
+
 ### Step 1: Select Initial Project Configuration
 
 In this screen, you can choose:
 
 * Target .NET framework
 * Hosting model&mdash;the options vary depending on the selected target framework.
-* Configure Additional Project Settings
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
-
-   > When this setting is **disabled** the application will use a local theme. Therewith, the CSS file is saved locally in the `wwwroot/lib/blazor-ui/styles` folder. With this configuration, upgrading UI for Blazor requires you to [replace this CSS file manually]({%slug upgrade-tutorial%}).
-
-   * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
-   * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
+* Configure additional project settings like:
+   * Load the required Telerik UI stylesheet and JS Interop file as [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or from the [Telerik CDN]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug upgrade-tutorial%}#upgrade-process).
+   * Enable [localization]({%slug globalization-localization%}).
+   * Use [font icons]({%slug common-features-icons%}) instead of the default SVG icons.
 * Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed]({%slug installation/nuget%}) or local files.
 * Telerik UI for Blazor version.
 

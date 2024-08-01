@@ -57,20 +57,24 @@ Alternatively, instead of the context menu, you can use the VS **Extensions** me
 
 ![Start the Convert Project Wizard](images/vs-ext-convert-project-entry.png)
 
-## Converting the Project Thought the Wizard
+## Converting the Project
 
-Clicking the Convert to Telerik Application button opens the wizard and you will go through the following steps:
+Clicking the Convert to Telerik Application button opens the Convert Project Wizard and you will go through the following steps:
+
+1. [Configure the project](#step-1-select-initial-project-configuration).
+1. [Select a visual theme](#step-2-select-theme).
+1. [Create a backup](#step-3-create-a-backup).
 
 ### Step 1: Select Initial Project Configuration
 
-In this screen, you can choose:
+This screen provides the ability to:
 
-* The ability to download the latest available version.
-* A version selector so you can choose a particular version to add to the project.
-* Additional project settings like:
-    * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
-    * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
-    * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
+* Download the latest available version.
+* Choose a particular version to add to the project.
+* Configure additional project settings like:
+    * Load the required Telerik UI stylesheet and JS Interop file as [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or from the [Telerik CDN]({%slug common-features-cdn%}).
+    * Enable [localization]({%slug globalization-localization%}).
+    * Use [font icons]({%slug common-features-icons%}) instead of the default SVG icons.
 
 ### Step 2: Select Theme
 
@@ -78,7 +82,7 @@ In this step, you can apply one of the available [themes]({%slug themes-built-in
 
 ### Step 3: Create a Backup
 
-Whether to back up the project state before the conversion (in a folder called `<ProjectName>_Backup>_<timestamp>`).
+You can choose to back up the project state before the conversion (in a folder called `<ProjectName>_Backup>_<timestamp>`).
 
 ## Troubleshooting
 
@@ -90,7 +94,7 @@ When converting a project, you may encounter the following most common issues:
 
 ### Error Screen
 
-If you see an error screen in the wizard, make sure that the actual Blazor application is selected in the Solution Explorer. This is most common with WebAssembly types of applications as they consist of a server and shared projects by default, and only the client project is the actual Blazor app that needs the Telerik components.
+If you see an error screen in the wizard, make sure that you have selected the UI project in the Solution Explorer. For example, the Issue can occur in WebAssembly apps as they can include a Server and Shared projects, and only the Client project is the actual Blazor UI app that needs the Telerik components.
 
 Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components]({%slug getting-started/what-you-need%}).
 

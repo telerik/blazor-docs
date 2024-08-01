@@ -37,24 +37,24 @@ The next page of the Upgrade Wizard lists all projects from the solution that us
 
 If localization is enabled in the application, you can select the **Upgrade the localization file** option. The Upgrade Wizard will add new localization keys from the default (English) localization file that UI for Blazor distributes.
 
-The option is selected by default if there is a **Resources\TelerikMessages.resx** file in the current project. In this case, **Resources\TelerikMessages.resx** file is selected in the file browser. 
+The option is selected by default if there is a `Resources\TelerikMessages.resx` file in the current project. In this case, `Resources\TelerikMessages.resx` file is selected in the file browser. 
 
 ## Create Backup
 
 You can create a backup before running the upgrade wizard by selecting the **Create a backup before upgrading** option.
 
->When the project and solution are placed in the same directory, the default backup location is set to the **%USERPROFILE%\Documents** folder.
+>When the project and solution are placed in the same directory, the default backup location is set to the `%USERPROFILE%\Documents` folder.
 
 ## Upgrade Log
 
-In case one of the options ([Create a backup before upgrading](#create-backup) or [Upgrade the localization file](#upgrade-localization-file)) is selected, an **Upgrade Log** will be opened at the end of the upgrade. The log can show the backup location, an entry for each localization key added or a localization upgrade error. Each upgrade log file is in HTML format. The file name contains the date and time of the upgrade.
+In case one of the options ([Create a backup before upgrading](#create-backup) or [Upgrade the localization file](#upgrade-localization-file)) is selected, an **Upgrade Log** will open at the end of the upgrade. The log can show the backup location, an entry for each localization key added or a localization upgrade error. Each upgrade log file is in HTML format. The file name contains the date and time of the upgrade.
 
 ## Troubleshooting
 
 The **Finish** button will display a tooltip, indicating a page error when:
 
-* The **Upgrade the localization file** option is selected and the pointed **directory is empty** or the file **is read-only**.
-* The **Create a backup before upgrading** option is selected, and the **Backup location** is empty.
+* The **Upgrade the localization file** option is selected and the pointed directory is empty or the file is read-only.
+* The **Create a backup before upgrading** option is selected, and the backup location is empty.
 
 ## See Also
 

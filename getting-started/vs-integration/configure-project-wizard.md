@@ -30,7 +30,7 @@ After selecting the desired theme, click **Next** to navigate to the [Project Se
 
 The **Project Settings** page allows you to enable or disable:
 
-* The [Telerik UI CDN support]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
+* The [Telerik UI CDN support]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug upgrade-tutorial%}#upgrade-process).
 * The [Font Icons]({%slug common-features-icons%}) in the project.
 
 ## See Also
