@@ -24,7 +24,7 @@ The Grid component supports row and cell selection. This article provides an ove
 You can configure the Grid either for row or cell selection:
 * To allow row selection:
   * Set the [Grid `SelectionMode` parameter](#selection-mode) or
-  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to the `Row` member of the `Telerik.Blazor.GridSelectionType` enum
+  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Row`
 * To allow cell selection:
   * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to the `Cell` member of the `Telerik.Blazor.GridSelectionType` enum
 
