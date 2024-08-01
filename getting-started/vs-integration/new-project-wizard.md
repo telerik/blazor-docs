@@ -58,12 +58,20 @@ After you select the **Create New Project** option from the **Extensions** menu,
 
 Clicking the **Create** button in this window opens the wizard and you will go through the following steps:
 
+1. [Select Initial Project Configuration](#step-1-select-initial-project-configuration).
+1. [Select Project Template](#step-2-select-project-template).
+1. [Select a visual theme](#step-3-select-theme).
+
 ### Step 1: Select Initial Project Configuration
 
 In this screen, you can choose:
 
 * Target .NET framework
 * Hosting model&mdash;the options vary depending on the selected target framework.
+* Configure additional project settings like:
+   * Load the required Telerik UI stylesheet and JS Interop file as [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or from the [Telerik CDN]({%slug common-features-cdn%}). Note that this can affect the future [upgrade process of the theme]({%slug upgrade-tutorial%}#upgrade-process).
+   * Enable [localization]({%slug globalization-localization%}).
+   * Use [font icons]({%slug common-features-icons%}) instead of the default SVG icons.
 * Location from where the application will get the Telerik UI for Blazor package&mdash;[remote NuGet feed]({%slug installation/nuget%}) or local files.
 * Telerik UI for Blazor version.
 
@@ -82,19 +90,7 @@ The **Create New Project** wizard provides the following project templates:
 * **Dashboard**&mdash;A basic dashboard layout that uses the TileLayout component for customizable dashboards, and showcases several ways individual blocks (tiles) can fetch data.
 * **Admin**&mdash;A small app that shows a dashboard for admin. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
 
-### Step 3: Configure Additional Project Settings
-
-This screen lets you choose:
-
-   * Whether to import the required Telerik UI stylesheet and JS Interop file by using the [static assets]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) or the [CDN method]({%slug common-features-cdn%}).
-   * Whether to use [localization]({%slug globalization-localization%}) in the project or not.
-   * Whether to use [Font Icons]({%slug common-features-icons%}) in the project or the default SVG icons.
-
-#### Using Local Theme
-
-When using a local theme, the CSS file is saved locally in the `wwwroot/lib/blazor-ui/styles` folder of the application. With this configuration, upgrading UI for Blazor requires you to [replace this CSS file manually]({%slug upgrade-tutorial%}).
-
-### Step 4: Select Theme
+### Step 3: Select Theme
 
 Finally, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
 
