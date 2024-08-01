@@ -21,7 +21,7 @@ To customize the nodes, declare the `<SankeyNodes>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | `SankeyNodesAlign` enum <br/> (`SankeyNodesAlign.stretch`) | The nodes alignment. Supports `stretch`, `right` and `left` values. |
+| `Align` | [`SankeyNodesAlign` enum](/blazor-ui/api/telerik.blazor.sankeynodesalign) <br/> (`SankeyNodesAlign.Stretch`) | The nodes alignment. |
 | `Padding` | `double?` | The vertical space between the nodes. |
 | `Width` | `double?` | The width of the nodes. |
 
