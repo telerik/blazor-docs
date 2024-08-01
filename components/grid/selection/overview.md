@@ -71,7 +71,7 @@ The selection feature behavior may vary when the Grid configuration combines row
 
 There are some limitations or additional modifications that are needed in such cases.
 
-See [Rows Selection and Other Grid Features]({%slug components/grid/selection/rows%}#rows-selection-and-other-grid-features) and [Cells Selection and Other Grid Features]({%slug components/grid/selection/cells%}#cells-selection-and-other-grid-features) for more details.
+See [Rows Selection and Other Grid Features]({%slug components/grid/selection/rows%}#row-selection-and-other-grid-features) and [Cells Selection and Other Grid Features]({%slug components/grid/selection/cells%}#cell-selection-and-other-grid-features) for more details.
 
 ## See Also
 
