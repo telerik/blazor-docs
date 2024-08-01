@@ -2,7 +2,7 @@
 title: Row Selection
 page_title: Grid - Rows Selection
 description: Learn how to select row in Blazor Grid component. Explore the selected rows. Discover row selection bevahior when combined with other Grid features. Try the practical sample code for row selection.
-slug: components/grid/selection/rows
+slug: grid-selection-row
 tags: telerik,blazor,grid,selection,rows
 previous_url: /components/grid/selection/single,/components/grid/selection/multiple
 position: 3
@@ -12,31 +12,7 @@ position: 3
 
 The Grid component offers support for single or multiple row selection. You can select a row with mouse click and through checkbox column. You can access the collection of selected rows, use this collection and manipulate it. You can follow and respond to the event of selection.
 
-In this article:
-
-* [Rows Selection Options](#rows-selection-options)
-	* [Click-Only Selection](#click-selection)
-	* [Checkbox Selection](#checkbox-selection)
-* [Selected Rows](#selected-rows)
-	* [Basics](#basics)
-	* [Selected Rows When Data Changes](#selected-rows-when-data-changes)
-	* [Selected Rows Equals Comparison](#selected-rows-equals-comparison)
-* [SelectedItemsChanged](#selecteditemschanged)
-	* [SelectedItemsChanged and Asynchronous Operations](#selecteditemschanged-and-asynchronous-operations)
-* [Row Selection and Other Grid Features](#row-selection-and-other-grid-features)
-    * [Selection with Editing Modes](#selection-with-editing-modes)
-    * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
-    * [Selection and Grid Paging](#selection-and-grid-paging)
-    * [Selection in Template](#selection-in-template)
-    * [Selection and Row Drag and Drop](#selection-and-row-drag-and-drop)
-
 ## Rows Selection Options
-
-By default you can [click](#click-selection) on the row to select it. Additionally, you can have a [checkbox selection](#checkbox-selection). The checkbox selection allows the user to select the row through a dedicated on the row checkbox. You can combine click and checkbox selection or use only one selection option.
-
-You can use row selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode)—single and multiple.
-
-### Click Selection
 
 By default, users can select rows by clicking anywhere in the row, except on the command buttons.
 
@@ -46,6 +22,12 @@ To select multiple rows, hold down the `Ctrl` or `Shift` key to extend the selec
 
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected rows will be deselected.
 
+You can also render a checkbox column that allows users to select and deselect rows. To use checkbox selection, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
+
+You can combine click and checkbox selection or use only one selection option.
+
+You can use row selection with both [selection modes]({%slug grid-selection-overview%}#use-single-or-multiple-selection)—single and multiple.
+
 >caption Click selection and single selection mode
 
 ````CSHTML
@@ -53,79 +35,26 @@ Click on one row to select it.
 
 <TelerikGrid Data=@GridData
              SelectionMode="@GridSelectionMode.Single"
+             @bind-SelectedItems="@SelectedEmployees"
              Pageable="true">
     <GridColumns>
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.Team)" Title="Team" />
     </GridColumns>
 </TelerikGrid>
 
-@code {
-    private List<Employee> GridData { get; set; }
-
-    protected override void OnInitialized()
+<h2>Selected Employee:</h2>
+<ul>
+    @foreach (Employee employee in SelectedEmployees)
     {
-        GridData = new List<Employee>();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Employee()
-                {
-                    EmployeeId = i,
-                    Name = "Employee " + i.ToString(),
-                    Team = "Team " + i % 3
-                });
-        }
+        <li>@employee.Name</li>
     }
+</ul>
 
-    public class Employee
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-    }
-}
-````
-
-### Checkbox Selection
-
-You can also render a checkbox column that allows users to select and deselect rows. To use checkbox selection, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
-
-To deselect the row, click its checkbox again.
-
->caption Checkbox selection and multiple selection mode
-
-````CSHTML
-@if (CheckBoxOnlySelection)
-{
-    <div>You can <strong>click only the checkbox itself</strong> to select or deselect the row. You cannot click the entire row.</div>
-}
-else
-{
-    <div>You can <strong>click both the checkbox or the row</strong> to select or deselect the row.</div>
-}
-<br/>
-<TelerikCheckBox @bind-Value="@CheckBoxOnlySelection"
-                 Id="@CheckboxId"/>
-<label for="@CheckboxId">Toggle checkbox only selection</label>
-<br />
-<br />
-<TelerikGrid Data=@GridData
-             SelectionMode="@GridSelectionMode.Multiple"
-             Pageable="true">
-    <GridColumns>
-        <GridCheckboxColumn SelectAll="@ShouldSelectAll" CheckBoxOnlySelection="@CheckBoxOnlySelection"></GridCheckboxColumn>
-        <GridColumn Field=@nameof(Employee.Name) Title="Name" />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
-    </GridColumns>
-</TelerikGrid>
 
 @code {
     private List<Employee> GridData { get; set; }
-
-    private bool ShouldSelectAll { get; set; } = true;
-    private bool CheckBoxOnlySelection { get; set; }
-
-    private string CheckboxId { get; set; } = "checkboxOnlySelection";
+    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
 
     protected override void OnInitialized()
     {
@@ -159,9 +88,9 @@ else
 
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* When you update a selected item in the Grid, you have to make the same update in the `SelectedItems` collection through the Grid [editing events]({%slug components/grid/editing/overview%}).
+* When you update a selected item in the Grid, you have to make the same update in the `SelectedItems` collection through the [Grid `OnUpdate` editing event]({%slug components/grid/editing/overview%}#events).
 * When you delete a selected item in the Grid, it will automatically delete from the `SelectedItems` collection. If you are using one-way binding for the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged), when you delete a selected item, the event fires. When you delete all selected items, the `SelectedItemsChanged` event fires with an empty collection.
-* When you create an item in the Grid, and you want to select it at the same time, use the Grid [editing events]({%slug components/grid/editing/overview%}).
+* When you create an item in the Grid, and you want to select it at the same time, use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events).
 
 ### Selected Rows Equals Comparison
 
@@ -176,50 +105,50 @@ You can respond to the user action of selecting a new row through the `SelectedI
 >caption Single selection with one-way binding for SelectedItems and using the SelectedItemsChanged event
 
 ````CSHTML
+@* Select a single row and follow the selection event*@
+
 <TelerikGrid Data=@GridData
              SelectionMode="@GridSelectionMode.Single"
-             SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnSelect(employeeList))"
              SelectedItems="@SelectedEmployees"
+             SelectedItemsChanged="@((IEnumerable<Employee> employeeList) => OnRowSelect(employeeList))"
              Pageable="true"
              Height="400px">
     <GridColumns>
         <GridCheckboxColumn />
-        <GridColumn Field=@nameof(Employee.Name) />
-        <GridColumn Field=@nameof(Employee.Team) Title="Team" />
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.Team)" Title="Team" />
     </GridColumns>
 </TelerikGrid>
 
-@if (SelectedEmployees != null)
-{
-    <ul>
-        @foreach (Employee employee in SelectedEmployees)
-        {
-            <li>
-                @employee.Name
-            </li>
-        }
-    </ul>
-}
+<h2>Selected Employee:</h2>
+<ul>
+    @foreach (Employee employee in SelectedEmployees)
+    {
+        <li>@employee.Name</li>
+    }
+</ul>
+
 
 @code {
-    private List<Employee> GridData { get; set; }
+    private List<Employee> GridData { get; set; } = new();
     private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
-    private Employee SelectedEmployee { get; set; }
+    private Employee? SelectedEmployee { get; set; }
+
     protected override void OnInitialized()
     {
         GridData = new List<Employee>();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i < 15; i++)
         {
             GridData.Add(new Employee()
                 {
                     EmployeeId = i,
-                    Name = "Employee " + i.ToString(),
+                    Name = $"Employee {i}",
                     Team = "Team " + i % 3
                 });
         }
     }
 
-    protected void OnSelect(IEnumerable<Employee> employees)
+    protected void OnRowSelect(IEnumerable<Employee> employees)
     {
         SelectedEmployee = employees.FirstOrDefault();
         // update the collection so that the grid can highlight the correct item
@@ -235,6 +164,7 @@ You can respond to the user action of selecting a new row through the `SelectedI
         public string Team { get; set; }
     }
 }
+
 ````
 
 ### SelectedItemsChanged and Asynchronous Operations
@@ -245,22 +175,22 @@ To execute asynchronous operations, such as loading data on demand, when the use
 
 The selection feature behavior may vary when the Grid configuration combines row selection and other Grid features, such as editing, virtualization, paging, templates, row drag and drop. In such cases you need to consider certain limitation or include some modications.
 
-### Selection with Editing Modes
+### Selection and Editing Modes
 
 When you want to edit a row, the row selection has the following behavior:
 
 * In the [Incell EditMode]({%slug components/grid/editing/incell%}) the row selection can be applied only through a [checkbox column](#checkbox-selection) (`<GridCheckboxColumn />`). This applies for both selection modes—single and multiple. This is required due to the overlapping action that triggers selection and InCell editing (clicking in the row). Otherwise, if the row click selection is enabled with InCell editing, each attempt to select a row would put a cell in edit mode; and each attempt to edit a cell would select a new row. Such user experience is confusing, and so the row selection can be applied only through checkbox column when there is InCell editing mode. To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
 * In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the row selection can be done by clicking on the desired row or by using a `<GridCheckboxColumn />`.
 
-### Selection in Grid with Virtual Scrolling
+### Selection and Virtual Scrolling
 
 When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}) and the `SelectionMode` is set to [`Multiple`](#selection-mode) the selectable rows will be the one in the current set of items (page). If you select a row and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected row.
 
-### Selection and Grid Paging
+### Selection and Paging
 
 The `SelectedItems` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the collection.
 
-### Selection in Template
+### Selection and Templates
 
 When your Grid configuration contains [Grid templates]({%slug components/grid/features/templates%}) and row selection:
 

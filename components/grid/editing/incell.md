@@ -209,7 +209,7 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 ## Incell Editing and Selection
 
-* To enable item selection with InCell Edit Mode, add a `<GridCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug components/grid/selection/overview%}#notes) article.
+* To enable row selection with InCell Edit Mode, add a `<GridCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Row Selection]({%slug grid-selection-row%}#selection-and-editing-modes) article.
 
     * To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
 
@@ -238,4 +238,4 @@ The incell editor template requires a focusable element to maintain the tab orde
 ## See Also
 
 * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
-* [Grid Selection Documentation]({%slug components/grid/selection/overview%})
+* [Grid Selection Documentation]({%slug grid-selection-overview%})

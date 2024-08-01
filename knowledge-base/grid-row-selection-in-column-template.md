@@ -87,4 +87,4 @@ When you use the [Grid Column Template]({%slug grid-templates-column%}) and want
 
 ## See Also
 
-* [Grid Selection]({%slug components/grid/selection/overview%})
+* [Grid Selection]({%slug grid-selection-overview%})
