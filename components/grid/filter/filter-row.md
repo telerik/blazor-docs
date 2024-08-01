@@ -10,22 +10,15 @@ position: 5
 
 # Grid Filter Row
 
-One of the [filter modes of the grid]({%slug components/grid/filtering%}) is a row of filter elements below the column headers.
+The `FilterRow` filtering mode renders a row below the column headers with UI that you can use to fill in the filter criteria.
 
-In this article:
+The Grid applies the filters as the user types in the filtering input. 
 
-* [Basics](#basics)
-* [Filter From Code](#filter-from-code)
-* [Customization](#customization)
+## Enabling Filter Row
 
+Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterRow`.
 
-## Basics
-
-To enable the filter row set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterRow`.
-
-The grid will render a row below the column headers with UI that you can use to fill in the filter criteria. You can type in the input to execute the default operator as you type or click a button to choose a different filter operator (like `Contains`, `GreaterThan`, and so on). Filters are applied as the user types in the inputs. Once you enter the filter criteria, the clear button will be enabled to allow you to reset the filter state.
-
-The default filter operator is `Contains` for `string` columns and `IsEqualTo` for numbers and dates. Boolean columns display a filtering drop down that effectively combines the filter operator and value.
+> The default filter operator is `Contains` for `string` columns and `IsEqualTo` for numbers and dates. Boolean columns display a filtering drop down that effectively combines the filter operator and value.
 
 >caption Filter Row in Telerik Grid
 
@@ -75,23 +68,13 @@ The default filter operator is `Contains` for `string` columns and `IsEqualTo` f
 
 ## Filter From Code
 
-You can set the grid filters from your code through the grid [state]({%slug grid-state%}).
+To programatically filter the Grid, read the [Grid State]({%slug grid-state%}) documentation article.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
->caption Set filtering programmatically
-
-````CSHTML
-@[template](/_contentTemplates/grid/state.md#filter-row-from-code)
-````
-
 ## Customization
 
-The Grid allows you to customize the default behavior of the Filter Row in a couple ways:
-
-### Debouncing the Filtering
-
-@[template](/_contentTemplates/common/filtering.md#filter-debounce-delay-customization)
+The Grid allows you to customize the default behavior of the `FilterRow` in a couple ways:
 
 ### Configuring the Filter Row
 
@@ -144,10 +127,13 @@ You can override the default Filter Row behavior for each column through the fol
 }
 ````
 
+### Debouncing the Filtering
+
+@[template](/_contentTemplates/common/filtering.md#filter-debounce-delay-customization)
+
 ### Filter Row Template
 
 The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template) article.
-
 
 ## See Also
 
