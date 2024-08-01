@@ -10,9 +10,7 @@ position: 0
 
 # Grid Selection
 
-The Grid component offers support for row and cell selection. 
-
-In this article:
+The Grid component supports row and cell selection. This article provides an overview of the Grid selection behavior and configuration:
 
 * [Selection Type](#selection-type)
 * [Selection Mode](#selection-mode)
