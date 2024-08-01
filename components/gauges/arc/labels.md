@@ -20,8 +20,6 @@ You can customize the appearance of the labels rendered on the [scale]({%slug ar
 
 * [Visible](#visible)
 
-* [Position](#position)
-
 * [Additional Customization](#additional-customization)
 
 ## Format
@@ -67,8 +65,6 @@ The center template allows you to take control of the rendering of the central s
     <ArcGaugeCenterLabel>
         <Template>
             @{
-                var item = context;
-
                 var pointer = context.Pointers.FirstOrDefault();
 
                 <div style="font-weight: bold">@pointer.Value</div>
