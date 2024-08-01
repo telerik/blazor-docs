@@ -27,14 +27,14 @@ In this article:
 
 ## Cells Selection Options
 
-To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug grid-selection-overview%}#selection-mode)—single and multiple.
+To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug components/grid/selection/overview%}#selection-mode)—single and multiple.
 
 To select multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
 * Press and hold `Ctrl` and click the desired cells to select or deselect them.
 * Click on the starting cell in a range of cells that you want to select, press and hold `Shift`, and click on the last cell in the range. The first selected cell is the starting point of the range and the last selected cell is the end of the selection.
 If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected cells will be deselected.
 
-You can also select multiple cells dictated by the square formed between the mouse click, drag, and mouse click release. To allow this kind of cell selection, set the `DragToSelect` parameter of the [`GridSelectionSettings`]({%slug grid-selection-overview%}#selection-type).
+You can also select multiple cells dictated by the square formed between the mouse click, drag, and mouse click release. To allow this kind of cell selection, set the `DragToSelect` parameter of the [`GridSelectionSettings`]({%slug components/grid/selection/overview%}#selection-type).
 
 >caption Cell selection and multiple selection mode
 

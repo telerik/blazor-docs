@@ -23,7 +23,7 @@ The TreeList checkbox column has the following exclusive parameters. For other a
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `CheckBoxOnlySelection` | `bool` | Determines if row selection occurs only on checkbox clicks. By default, user can select rows by clicking anywhere, except on command buttons. |
-| `SelectAll` | `bool` <br /> (`true`) | Determines if the column header renders a checkbox to select all rows. Set this to `false` if the [TreeList `SelectionMode` is `Single`]({%slug treelist-selection-single%}). The `SelectAll` parameter has no effect when the checkbox column has a [`HeaderTemplate`](#headertemplate). |
+| `SelectAll` | `bool` <br /> (`true`) | Determines if the column header renders a checkbox to select all rows. Set this to `false` if the [TreeList `SelectionMode` is `Single`]({%slug treelist-selection-overview%}#selection-mode). The `SelectAll` parameter has no effect when the checkbox column has a [`HeaderTemplate`](#headertemplate). |
 | `SelectAllMode` | `TreeListSelectAllMode` enum <br /> (`Current`) | Determines if the header cell checkbox selects all rows on the current page, or all rows in the TreeList. `Current` selects the visible rows on the current page. It does not select the children of collapsed items - they are not part of the [current page]({%slug treelist-paging%}) data. `All` selects all the data items, including ones that may be currently filtered out. |
 | `SelectChildren` | `bool` | Determines if a parent row checkbox affects the selected state of respective child rows. |
 
