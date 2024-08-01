@@ -25,7 +25,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterRow`
 ````CSHTML
 @* Filter row mode *@
 
-<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterRow" Pageable="true" Height="400px">
+<TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterRow" Pageable="true" Height="400px">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.Name) />
 		<GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
