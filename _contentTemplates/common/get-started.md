@@ -90,7 +90,7 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 * [Explore the live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/).
 * [Learn the data binding fundamentals for Telerik UI for Blazor components]({%slug common-features-data-binding-overview%}).
 * [Get started with the data Grid]({%slug grid-overview%}).
-* [Review the built-in themes or create custom ones]({%slug themes-built-in%}).
+* [Review the built-in themes or create custom ones]({%slug general-information/themes%}).
 
 #end
 
