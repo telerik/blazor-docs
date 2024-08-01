@@ -60,7 +60,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
         public string Title { get; set; }
         public ISvgIcon Icon { get; set; }
         public string Url { get; set; }
-        public string Disabled { get; set; }
+        public bool Disabled { get; set; }
         public string Class { get; set; }
     }
 ````
