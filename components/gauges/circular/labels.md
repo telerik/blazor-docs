@@ -67,8 +67,6 @@ The center template allows you to take control of the rendering of the central s
     <CircularGaugeCenterLabel>
         <Template>
             @{
-                GaugeCenterLabelTemplateContext item = context;
-
                 var pointer = context.Pointers.FirstOrDefault();
 
                 <div style="font-weight: bold">@pointer.Value</div>
