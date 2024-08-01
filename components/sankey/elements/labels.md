@@ -21,10 +21,10 @@ To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | `string` | The alignment of the labels. |
+| `Align` | [`SankeyLabelsAlign` enum](/blazor-ui/api/telerik.blazor.sankeylabelsalign) <br/> (`SankeyLabelsAlign.Left`) | The alignment of the labels. |
 | `Color` | `string` | The color of the labels. |
 | `Font` | `string` | The font of the labels. |
-| `Position` | `string` <br/> (`inside`) | The position of the labels. The supported values are: <ul><li>`inside` - the label is positioned after the node, except for the nodes at the end of the Sankey, that are placed before the node;</li><li>`before` - the label is positioned before the node; </li><li>`after` - the label is positioned after the node; </li></ul> |
+| `Position` | [`SankeyLabelsPosition` enum](/blazor-ui/api/telerik.blazor.sankeylabelsposition) <br/> (`SankeyLabelsPosition.Inside`) | The position of the labels. |
 | `Visible` | `bool` <br/> (`true`) | Whether the labels are visible. |
 
 
@@ -39,7 +39,7 @@ By design, the labels do not have border. You may add border by declaring the `<
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
-| `DashType` | `DashType` enum <br/> (`DashType.Solid`) | The type of the border. |
+| `DashType` | [`DashType` enum](/blazor-ui/api/telerik.blazor.dashtype) <br/> (`DashType.Solid`) | The type of the border. |
 | `Width` | `double?` | The width of the border. |
 
 ### Margin
@@ -78,8 +78,7 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the stroke. |
-| `LineJoin` | `string` | The [line join](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin) of the stroke. |
-| `Left` | `double?` | The width of the stroke. |
+| `Width` | `double?` | The width of the stroke. |
 
 ## Example
 
