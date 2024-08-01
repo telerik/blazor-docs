@@ -19,7 +19,7 @@ In this article:
 	* [Selected Cells When Data Changes](#selected-cells-when-data-changes)
 	* [Selected Cells Equals Comparison](#selected-cells-equals-comparison)
 * [SelectedCellsChanged](#selectedcellschanged)
-* [Cell Selection and Other Grid Features](#cells-selection-and-other-grid-features)
+* [Cell Selection and Other Grid Features](#cell-selection-and-other-grid-features)
     * [Selection with Editing Modes](#selection-with-editing-modes)
     * [Selection in Grid with virtualized rows](#selection-in-grid-with-virtualized-rows)
     * [Selection and Grid Paging](#selection-and-grid-paging)
