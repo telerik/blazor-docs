@@ -74,7 +74,7 @@ To programatically filter the Grid, read the [Grid State]({%slug grid-state%}) d
 
 ## Customization
 
-The Grid allows you to customize the default behavior of the `FilterRow` in a couple ways:
+You can customize the default behavior of the `FilterRow` in a couple ways:
 
 ### Configuring the Filter Row
 

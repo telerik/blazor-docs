@@ -70,7 +70,7 @@ To programatically filter the Grid, read the [Grid State]({%slug grid-state%}) d
 
 ## Customization
 
-The Grid allows you to customize the default behavior of the Filter Menu in a couple ways:
+You can customize the default behavior of the Filter Menu in a couple ways:
 
 ### Configuring the Filter Menu
 
@@ -119,6 +119,15 @@ You can override the default Filter Menu behavior for each column through the fo
     }
 }
 ````
+
+
+### FilterMenuType
+
+You can switch between [CheckBoxList]({%slug grid-checklist-filter%}) and a `Menu` filtering layout for a particular `<GridColumn>` by setting the `FilterMenuType` to `FilterMenuType.Menu` or `FilterMenuType.CheckBoxList`.
+
+### CheckBoxList
+
+You can render a list of checkboxes instead of the default menu layout. Read the [CheckBoxList Filtering article]({%slug grid-checklist-filter%}) for more information... 
 
 ### Filter Menu Template
 
