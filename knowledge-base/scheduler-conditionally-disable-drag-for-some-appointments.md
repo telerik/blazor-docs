@@ -3,7 +3,7 @@ title: Conditionally Disable Dragging for Specific Scheduler Appointments
 description: Learn how to disable the drag functionality for certain appointments in the Scheduler component based on a condition.
 type: how-to
 page_title: How to Conditionally Disable Drag for Certain Appointments in Blazor Scheduler
-slug: scheduler-conditionally-disable-drag-for-some-appointments
+slug: scheduler-kb-conditionally-disable-drag-for-some-appointments
 tags: scheduler, blazor, drag, disable, appointment
 res_type: kb
 ticketid: 1660283
