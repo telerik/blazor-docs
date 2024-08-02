@@ -27,7 +27,7 @@ You can configure the Grid either for row or cell selection:
   * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Row`.
   * Optionally, you can also select rows through the [checkbox column]({%slug components/grid/columns/checkbox%}).
 * To enable cell selection:
-  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to the `Cell` member of the `Telerik.Blazor.GridSelectionType` enum.
+  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Cell`.
 
 See [Rows Selection Options]({%slug grid-selection-row%}#basics) and [Cells Selection Options]({%slug grid-selection-cell%}#basics) for more details.
 
@@ -48,7 +48,7 @@ The Grid exposes two parameters to get or set its selected rows and cells.
 
 Both parameters support two-way binding. You can also use the parameters to pre-select rows or cells for your users.
 
-See [Selected Rows]({%slug grid-selection-row%}#selected-rows) and [Selected Cells]({%slug grid-selection-cell%}#selected-cells) for more details.
+See [Selected Rows]({%slug grid-selection-row%}#basics) and [Selected Cells]({%slug grid-selection-cell%}#basics) for more details.
 
 ## Events
 

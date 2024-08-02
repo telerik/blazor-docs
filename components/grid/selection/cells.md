@@ -1,7 +1,7 @@
 ---
 title: Cell Selection
 page_title: Grid - Cells Selection
-description: Learn how to select cell  in Blazor Grid component. Explore the selected cells. Discover cell selection bevahior when combined with other Grid features. Try the practical sample code for cell selection.
+description: Learn how to select cell in Blazor Grid component. Explore the selected cells. Discover cell selection bevahior when combined with other Grid features. Try the practical sample code for cell selection.
 slug: grid-selection-cell
 tags: telerik,blazor,grid,selection,cells
 position: 5
@@ -190,7 +190,7 @@ The `GridSelectedCellDescriptor` type exposes the following properties:
 
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
-* When the user updates a selected cell and the item instance is replaced, you have to also replace the `SelectedCellDescriptor.DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event]({%slug components/grid/editing/overview%}#events).
+* When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event]({%slug components/grid/editing/overview%}#events).
 * When the user deletes a row with selected cells, update the `SelectedCells` collection in the the Grid `OnDelete` event handler.
 * To select cells from a new item in the Grid you can use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events) to update the `SelectedCells` collection.
 
