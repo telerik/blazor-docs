@@ -29,7 +29,7 @@ You can configure the TreeList either for row or cell selection:
 * To enable cell selection:
   * Add a `<TreeListSelectionSettings>` tag to the `<TreeListSettings>` tag, and set the `SelectionType` parameter to `TreeListSelectionType.Cell`.
 
-See [Rows Selection Options]({%slug treelist-selection-row%}#basics) and [Cells Selection Options]({%slug treelist-selection-cell%}#basics) for more details.
+See [Row Selection Basics]({%slug treelist-selection-row%}#basics) and [Cell Selection Basics]({%slug treelist-selection-cell%}#basics) for more details.
 
 ## Use Single or Multiple Selection
 
@@ -48,14 +48,14 @@ The TreeList exposes two parameters to get or set its selected rows and cells.
 
 Both parameters support two-way binding. You can also use the parameters to pre-select rows or cells for your users.
 
-See [Selected Rows]({%slug treelist-selection-row%}#basics) and [Selected Cells]({%slug treelist-selection-cell%}#basics) for more details.
+See [Row Selection Basics]({%slug treelist-selection-row%}#basics) and [Cell Selection Basics]({%slug treelist-selection-cell%}#basics) for more details.
 
 ## Events
 
 You can respond to the user action of selecting a new item through the TreeList events:
 
-* Use the [`SelectedItemsChanged` event]({%slug treelist-events%}#selecteditemschanged) to respond to row selection.
-* Use the [`SelectedCellsChanged` event]({%slug treelist-events%}#selectedcellschanged) to respond to cell selection.
+* Use the [`SelectedItemsChanged` event]({%slug treelist-selection-row%}#selecteditemschanged-event) to respond to row selection.
+* Use the [`SelectedCellsChanged` event]({%slug treelist-selection-cell%}#selectedcellschanged-event) to respond to cell selection.
 
 ## Integration with Other TreeList Features
 

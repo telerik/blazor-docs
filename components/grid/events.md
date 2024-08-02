@@ -1058,9 +1058,13 @@ Make sure to update the current page size when using the event.
 
 Fires when [row selection is enabled]({%slug grid-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one row or multiple rows, depending on the [selection mode]({%slug grid-selection-overview%}#use-single-or-multiple-selection).
 
+Visit the [Grid Row Selection article to see an example]({%slug grid-selection-row%}#selecteditemschanged-event).
+
 ## SelectedCellsChanged
 
 Fires when [cell selection is enabled]({%slug grid-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode]({%slug grid-selection-overview%}#use-single-or-multiple-selection).
+
+Visit the [Grid Cell Selection article to see an example]({%slug grid-selection-cell%}#selectedcellschanged-event).
 
 ## See Also
 

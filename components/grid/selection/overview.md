@@ -29,7 +29,7 @@ You can configure the Grid either for row or cell selection:
 * To enable cell selection:
   * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Cell`.
 
-See [Rows Selection Options]({%slug grid-selection-row%}#basics) and [Cells Selection Options]({%slug grid-selection-cell%}#basics) for more details.
+See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details.
 
 ## Use Single or Multiple Selection
 
@@ -48,14 +48,14 @@ The Grid exposes two parameters to get or set its selected rows and cells.
 
 Both parameters support two-way binding. You can also use the parameters to pre-select rows or cells for your users.
 
-See [Selected Rows]({%slug grid-selection-row%}#basics) and [Selected Cells]({%slug grid-selection-cell%}#basics) for more details.
+See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details.
 
 ## Events
 
 You can respond to the user action of selecting a new item through the Grid events:
 
-* Use the [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged) to respond to row selection.
-* Use the [`SelectedCellsChanged` event]({%slug grid-selection-cell%}#selectedcellschanged) to respond to cell selection.
+* Use the [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) to respond to row selection.
+* Use the [`SelectedCellsChanged` event]({%slug grid-selection-cell%}#selectedcellschanged-event) to respond to cell selection.
 
 ## Integration with Other Grid Features
 

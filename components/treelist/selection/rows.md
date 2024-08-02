@@ -26,11 +26,11 @@ You can also render a checkbox column that allows users to select and deselect r
 
 ````CSHTML
 <<TelerikTreeList Data="@TreeListData"
-                 IdField="@nameof(Employee.Id)"
-                 ParentIdField="@nameof(Employee.ParentId)"
-                 SelectionMode="@TreeListSelectionMode.Multiple"
-                 @bind-SelectedItems="@SelectedEmployees"
-                 Pageable="true">
+                  IdField="@nameof(Employee.Id)"
+                  ParentIdField="@nameof(Employee.ParentId)"
+                  SelectionMode="@TreeListSelectionMode.Multiple"
+                  @bind-SelectedItems="@SelectedEmployees"
+                  Pageable="true">
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Employee.FirstName)" Title="First Name" Width="350px" Expandable="true" />
         <TreeListColumn Field="@nameof(Employee.LastName)" Title="Last Name" />
@@ -48,8 +48,8 @@ You can also render a checkbox column that allows users to select and deselect r
 </ul>
 
 @code {
-    public List<Employee> TreeListData { get; set; } = new();
-    public IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
+    private List<Employee> TreeListData { get; set; } = new();
+    private IEnumerable<Employee> SelectedEmployees { get; set; } = Enumerable.Empty<Employee>();
 
     protected override void OnInitialized()
     {
@@ -66,6 +66,7 @@ You can also render a checkbox column that allows users to select and deselect r
                     Position = i <= 3 ? "Team Lead" : "Software Engineer"
                 });
         }
+
         SelectedEmployees = new List<Employee>() { TreeListData.ElementAt(2) };
     }
 
@@ -73,9 +74,9 @@ You can also render a checkbox column that allows users to select and deselect r
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Position { get; set; } = string.Empty;
     }
 }
 ````
@@ -151,9 +152,9 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Position { get; set; } = string.Empty;
     }
 }
 ````

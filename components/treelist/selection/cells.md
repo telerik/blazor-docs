@@ -87,9 +87,9 @@ To enable cell selection:
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Position { get; set; } = string.Empty;
     }
 }
 ````
@@ -177,9 +177,9 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
     {
         public int Id { get; set; }
         public int? ParentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Position { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Position { get; set; } = string.Empty;
     }
 }
 ````
