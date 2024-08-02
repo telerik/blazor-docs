@@ -9,165 +9,199 @@ position: 5
 
 # Cell Selection
 
-The Grid component offers support for single or multiple cells selection. You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can follow and respond to the event of selection.
+The Grid component supports [single or multiple cell selection]({%slug grid-selection-overview%}#use-single-or-multiple-selection). You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can subscribe to selection events.
 
 ## Basics
 
-To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug grid-selection-overview%}#suse-single-or-multiple-selection)—single and multiple.
+To select a cell, click anywhere in it.
 
-To select multiple cells, hold down the `Ctrl` or `Shift` key to extend the selection:
-* Press and hold `Ctrl` and click the desired cells to select or deselect them.
-* Click on the starting cell in a range of cells that you want to select, press and hold `Shift`, and click on the last cell in the range. The first selected cell is the starting point of the range and the last selected cell is the end of the selection.
-If you release the `Ctrl` or the `Shift` keys and click to start new multiple selection, the previously selected cells will be deselected.
+To select a range of cells in one or more columns, hold the **Shift** key, while clicking on the first and last cell of the range. To select or deselect multiple cells that don't belong to a range, hold the **Ctrl** key.
 
-You can also select multiple cells dictated by the square formed between the mouse click, drag, and mouse click release. To allow this kind of cell selection, set the `DragToSelect` parameter of the [`GridSelectionSettings`]({%slug grid-selection-overview%}#enable-row-or-cell-selection).
+You can also select a cell range by holding and dragging the mouse cursor. The dragging motion defines the diagonal of a rectangle and the Grid will select the cells under this rectangle. To allow this kind of cell selection, set the `DragToSelect` parameter in [`GridSelectionSettings`]({%slug grid-selection-overview%}#enable-row-or-cell-selection). The **Shift** and **Ctrl** modifiers are not supported in drag-to-select mode.
 
->caption Cell selection and multiple selection mode
+To enable cell selection:
+
+1. Set the Grid `SelectedCells` parameter to a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection must be initialized in advance. See [`GridSelectedCellDescriptor`](#gridselectedcelldescriptor) for infomation about the object properties.
+1. Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to the `GridSelectionType.Cell`.
+
+>caption Grid multiple cell selection
 
 ````CSHTML
-<TelerikGrid Data=@GridData
-             @bind-SelectedCells="@SelectedCells"
+<TelerikGrid Data="@GridData"
              SelectionMode="@GridSelectionMode.Multiple"
-             Pageable=true>
+             @bind-SelectedCells="@SelectedCells"
+             Pageable="true">
     <GridSettings>
-        <GridSelectionSettings SelectionType="@GridSelectionType.Cell"></GridSelectionSettings>
+        <GridSelectionSettings SelectionType="@GridSelectionType.Cell" DragToSelect="true" />
     </GridSettings>
     <GridColumns>
-        <GridColumn Field=@nameof(Customer.ContactName) Title="Contact Name" />
-        <GridColumn Field=@nameof(Customer.CompanyName) Title="Company Name" />
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.Team)" />
     </GridColumns>
 </TelerikGrid>
 
-<h2>Selected Cells:</h2>
+<h3>Selected Cells:</h3>
+
 <ul>
-    @foreach (GridSelectedCellDescriptor selectedCell in SelectedCells)
+    @foreach (GridSelectedCellDescriptor cellDescriptor in SelectedCells)
     {
-        var selectedValue = GetPropValue((Customer)selectedCell?.DataItem, selectedCell?.ColumnField);
-        <li>@selectedValue</li>
+        <li>
+            Column <code>Field</code>: @cellDescriptor.ColumnField,
+            <code>EmployeeId</code>: @( ((Employee)cellDescriptor.DataItem).EmployeeId )
+        </li>
     }
 </ul>
 
 @code {
-    private List<Customer> GridData { get; set; }
-    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = new List<GridSelectedCellDescriptor>();
+    private List<Employee> GridData { get; set; } = new();
 
-    private object GetPropValue(object src, string propName) => src.GetType().GetProperty(propName)?.GetValue(src, null);
+    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = Enumerable.Empty<GridSelectedCellDescriptor>();
 
     protected override void OnInitialized()
     {
-        GridData = new List<Customer>();
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 15; i++)
         {
-            GridData.Add(new Customer()
-                {
-                    CustomerId = i,
-                    CompanyName = "Company Name " + i.ToString(),
-                    ContactName = "Contact Name " + i % 3
-                });
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = $"Employee {i}",
+                Team = $"Team {i % 3 + 1}"
+            });
         }
+
+        SelectedCells = new List<GridSelectedCellDescriptor>() {
+            new GridSelectedCellDescriptor()
+            {
+                DataItem = GridData.ElementAt(2),
+                ColumnField = nameof(Employee.Name)
+            }
+        };
     }
 
-    public class Customer
+    public class Employee
     {
-        public int CustomerId { get; set; }
-        public string CompanyName { get; set; }
-        public string ContactName { get; set; }
+        public int EmployeeId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
     }
 }
 ````
 
-## Selected Cells
+## SelectedCellsChanged Event
 
-* You can get or set the selected cells through the `SelectedCells` property. The `SelectedCells` is a collection of a type `IEnumerable<GridSelectedCellDescriptor>`.
-* The `GridSelectedCellDescriptor` exposes:
-    * `SelectedCellDescriptor.ColumnField`—the [field of the associated column]({%slug components/grid/columns/bound%}#data-binding) (if provided).
-    * `SelectedCellDescriptor.ColumnId`—the [id of the associated column]({%slug components/grid/columns/bound%}#identification) (if provided).
-    * `SelectedCellDescriptor.DataItem`—the actual data item of the selected cell. It has to be casted to the Grid data model.
-* You can use the `SelectedCells` collection in two-way binding. You can predefine the selected item for your users through the two-way binding of the `SelectedCells` property. The collection will be updated by the Grid when the selection changes.
+You can respond to user selection actions through the `SelectedCellsChanged` event. The event handler receives a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection may have multiple, single, or no objects in it, depending on the `SelectionMode` and the last user selection.
 
-### Selected Cells When Data Changes
+>caption Using the Grid SelectedCellsChanged event
+
+````CSHTML
+@* Select cells and handle the SelectedCellsChanged event *@
+
+<TelerikGrid Data="@GridData"
+             SelectionMode="@GridSelectionMode.Multiple"
+             SelectedCells="@SelectedCells"
+             SelectedCellsChanged="@( (IEnumerable<GridSelectedCellDescriptor> newSelected) => OnCellSelect(newSelected) )"
+             Pageable="true">
+    <GridSettings>
+        <GridSelectionSettings SelectionType="@GridSelectionType.Cell" DragToSelect="true" />
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field="@nameof(Employee.Name)" />
+        <GridColumn Field="@nameof(Employee.Team)" />
+    </GridColumns>
+</TelerikGrid>
+
+<p><code>SelectedItemsChanged</code> fired at: @SelectedCellsChangedLog</p>
+
+<h3>Selected Cells:</h3>
+
+<ul>
+    @foreach (GridSelectedCellDescriptor cellDescriptor in SelectedCells)
+    {
+        <li>
+            Column <code>Field</code>: @cellDescriptor.ColumnField,
+            <code>EmployeeId</code>: @( ((Employee)cellDescriptor.DataItem).EmployeeId )
+        </li>
+    }
+</ul>
+
+@code {
+    private List<Employee> GridData { get; set; } = new();
+
+    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = Enumerable.Empty<GridSelectedCellDescriptor>();
+
+    private string SelectedCellsChangedLog { get; set; } = string.Empty;
+
+    protected void OnCellSelect(IEnumerable<GridSelectedCellDescriptor> cellDescriptors)
+    {
+        // Update the SelectedCells collection manually.
+        // When using two-way binding, this happens automatically.
+        SelectedCells = cellDescriptors;
+
+        SelectedCellsChangedLog = DateTime.Now.ToLongTimeString();
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 15; i++)
+        {
+            GridData.Add(new Employee()
+            {
+                EmployeeId = i,
+                Name = $"Employee {i}",
+                Team = $"Team {i % 3 + 1}"
+            });
+        }
+
+        SelectedCells = new List<GridSelectedCellDescriptor>() {
+            new GridSelectedCellDescriptor()
+            {
+                DataItem = GridData.ElementAt(2),
+                ColumnField = nameof(Employee.Name)
+            }
+        };
+    }
+
+    public class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
+    }
+}
+````
+
+### SelectedCellsChanged and Asynchronous Operations
+
+The `SelectedCellsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
+
+## GridSelectedCellDescriptor
+
+The `GridSelectedCellDescriptor` type exposes the following properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| `ColumnField` | `string` | The value of the [Grid column `Field`]({%slug components/grid/columns/bound%}#data-binding) parameter, if set. |
+| `ColumnId` | `string` | The value of the [Grid column `Id`]({%slug components/grid/columns/bound%}#identification) parameter, if set. |
+| `DataItem` | `object` | The Grid data item instance. Cast it to the actual Grid model type before use. |
+
+## Selection When Data Changes
 
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
-* When you update or delete a selected item in the Grid, you have to make the same in the `SelectedCells` collection through the Grid [editing events]({%slug components/grid/editing/overview%}#events):
-    * Use the `OnUpdate` event to update the item in the `SelectedCells` collection.
-    * Use the `OnDelete` event to delete the item in the `SelectedCells` collection.
-* When you create an item in the Grid, and you want to select a cell from the item at the same time, use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events).
+* When the user updates a selected cell and the item instance is replaced, you have to also replace the `SelectedCellDescriptor.DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event]({%slug components/grid/editing/overview%}#events).
+* When the user deletes a row with selected cells, update the `SelectedCells` collection in the the Grid `OnDelete` event handler.
+* To select cells from a new item in the Grid you can use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events) to update the `SelectedCells` collection.
 
-### Selected Cells Equals Comparison
+### Equals Comparison
 
-The `SelectedCells` collection is compared against the Grid `Data` collection in order to determine which cells will be highlighted. The default behavior of the framework is to compare objects by their reference.
+The items in `SelectedCells` are compared against the items in the Grid data in order to determine which cells will be highlighted. The default framework behavior is to compare objects by reference. The data item references may not match when:
 
-When the `SelectedCells` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no highlighted items. In such cases, you have to [override the `Equals` method of the underlying model class]({%slug grid-state%}#equals-comparison) so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method as well.
+* The Grid is databound through its `OnRead` event and each data request returns different data item instances.
+* The `SelectedCells` are obtained from a different data source than the all Grid items, for example, from a separate service.
 
-## SelectedCellsChanged
-
-You can respond to the user action of selecting a new cell through the `SelectedCellsChanged` event. The `SelectedCellsChanged` event receives a collection `IEnumerable<GridSelectedCellDescriptor>`. It may have no items in it. It may have only one member (the last selected item) when the `SelectionMode` is `Single`.
-
->caption One-way binding for SelectedCells and using the SelectedCellsChanged event
-
-````CSHTML
-@* Select cells and follow the selection event*@
-
-<TelerikGrid Data=@GridData
-             SelectedCells="@SelectedCells"
-             SelectedCellsChanged="@((IEnumerable<GridSelectedCellDescriptor> cellsList) => OnCellSelect(cellsList))"
-             SelectionMode="@GridSelectionMode.Multiple"
-             Pageable=true>
-    <GridSettings>
-        <GridSelectionSettings SelectionType="@GridSelectionType.Cell"></GridSelectionSettings>
-    </GridSettings>
-    <GridColumns>
-        <GridColumn Field=@nameof(Customer.ContactName) Title="Contact Name" />
-        <GridColumn Field=@nameof(Customer.CompanyName) Title="Company Name" />
-    </GridColumns>
-</TelerikGrid>
-
-<h2>Selected Cells:</h2>
-<ul>
-    @foreach (GridSelectedCellDescriptor selectedCell in SelectedCells)
-    {
-        var selectedValue = GetPropValue((Customer)selectedCell?.DataItem, selectedCell?.ColumnField); 
-        <li>@selectedValue</li>
-    }
-</ul>
-
-@code {
-    private List<Customer> GridData { get; set; }
-    private IEnumerable<GridSelectedCellDescriptor> SelectedCells { get; set; } = new List<GridSelectedCellDescriptor>();
-
-    private object GetPropValue(object src, string propName) => src.GetType().GetProperty(propName)?.GetValue(src, null);
-
-    protected void OnCellSelect(IEnumerable<GridSelectedCellDescriptor> selectedCells)
-    {
-        // update the collection so that the grid can highlight the correct item
-        // when two-way binding is used this happens automatically, but the framework
-        // does not allow two-way binding and the event at the same time
-        SelectedCells = selectedCells;
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Customer>();
-        for (int i = 0; i < 15; i++)
-        {
-            GridData.Add(new Customer()
-                {
-                    CustomerId = i,
-                    CompanyName = "Company Name " + i.ToString(),
-                    ContactName = "Contact Name " + i % 3
-                });
-        }
-    }
-
-    public class Customer
-    {
-        public int CustomerId { get; set; }
-        public string CompanyName { get; set; }
-        public string ContactName { get; set; }
-    }
-}
-````
+In such cases, the selected cells may not appear as expected. You have to [override the `Equals` method of the Grid model class]({%slug grid-state%}#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Cell Selection and Other Grid Features
 
@@ -177,23 +211,29 @@ The selection feature behavior may vary when the Grid configuration combines cel
 
 When you want to edit a Grid item, the cell selection has the following behavior:
 
-* In the [Incell EditMode]({%slug components/grid/editing/incell%}) there is an overlapping action that triggers cell selection and InCell editing (clicking in the cell). Each attempt to select a cell puts a cell in edit mode. In such case only the editing feature is working.
-* In [Inline EditMode]({%slug components/grid/editing/inline%}) and [Popup EditMode]({%slug components/grid/editing/popup%}) the cell selection can be done by clicking on the desired cell.
+* Cell selection is not supported with [`Incell` edit mode]({%slug components/grid/editing/incell%}) due to the overlapping pointer events that trigger selection and editing. If both features are enabled, only the editing will work.
+* [`Inline` edit mode]({%slug components/grid/editing/inline%}) and [`Popup` edit mode]({%slug components/grid/editing/popup%}) integrate with cell selection without limitations.
 
 ### Selection and Virtual Scrolling
 
-When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}) the selectable cells will be the one in the current set of items (page). If you select a cell and scroll down to some of the ones that are not rendered yet (virtualization kicks in) and you want to select that range with the `Shift` button, the selection will start from the position of the first item of the current set (page) to the last selected cell.
+When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}), the component is able to select a range of cells with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
+
+1. Select a cell.
+1. Scroll down, so that virtualization kicks in and the rendered rows are no longer the same.
+1. Select another cell with **Shift**.
+
+In this case, the range selection will start from the first row that is currently rendered. Compare with [Selection and paging](#selection-and-paging) below.
 
 ### Selection and Paging
 
-The `SelectedCells` collection persists across paging operations. Changing the page will keep it populated and you can add more items to the collection.
+The `SelectedCells` collection persists across paging.
 
 ### Selection and Templates
 
-When your Grid configuration contains [Grid templates]({%slug components/grid/features/templates%}) and cell selection:
+When using [Grid templates]({%slug components/grid/features/templates%}) with cell selection:
 
-* If you are using a [Grid Column Template]({%slug grid-templates-column%}) and you have a clickable component as content of the Grid Column Template, you should add the `@onclick:stopPropagation` directive to the element of the clickable component. You can check the knowledge base article on [how to stop the selection from being triggered when the user clicks another component in the Grid Column Template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both—row and cell selection in the Grid.
-* If you are using the [Row Template]({%slug components/grid/features/templates%}#row-template), the cell selection won't work. The Row Template changes the content and the built-in cells instances.
+* If you are using a [Grid column template]({%slug grid-templates-column%}) and you have a clickable element in the template, wrap this element in a container with a `@onclick:stopPropagation` directive. You can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both row and cell selection.
+* If you are using a [row template]({%slug components/grid/features/templates%}#row-template) the Grid does not support cell selection. The row template removes the built-in cell instances and the HTML markup may not even include the expected number of cells.
 
 ## See Also
 

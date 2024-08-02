@@ -10,7 +10,7 @@ position: 3
 
 # Row Selection
 
-The Grid component offers support for [single or multiple row selection]({%slug grid-selection-overview%}#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
+The Grid component supports [single or multiple row selection]({%slug grid-selection-overview%}#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
 
 ## Basics
 
@@ -163,7 +163,7 @@ The items in `SelectedItems` are compared against the items in the Grid data in 
 * The Grid is databound through its `OnRead` event and each data request returns different data item instances.
 * The `SelectedItems` are obtained from a different data source than the all Grid items, for example, from a separate service.
 
-In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the Grid model class]({%slug grid-state%}#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method as well.
+In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the Grid model class]({%slug grid-state%}#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Row Selection and Other Grid Features
 
