@@ -11,7 +11,7 @@ position: 5
 
 The Grid component offers support for single or multiple cells selection. You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can follow and respond to the event of selection.
 
-## Cells Selection Options
+## Basics
 
 To select a cell, click anywhere in the cell. You can use cell selection with both [selection modes]({%slug grid-selection-overview%}#suse-single-or-multiple-selection)—single and multiple.
 
@@ -197,4 +197,4 @@ When your Grid configuration contains [Grid templates]({%slug components/grid/fe
 
 ## See Also
 
-  * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
+* [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
