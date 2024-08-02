@@ -384,5 +384,5 @@ This example shows how to:
 ## See also
 * [Column Width]({%slug grid-columns-width%})
 * [Live Demo: Auto Generated Columns](https://demos.telerik.com/blazor-ui/grid/column-auto-generation)
-* [Selection]({%slug components/grid/selection/overview%})
+* [Selection]({%slug grid-selection-overview%})
 * [Paging]({%slug components/grid/features/paging%})

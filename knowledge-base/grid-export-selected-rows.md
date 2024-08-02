@@ -33,7 +33,7 @@ How to export custom Grid data (for example the Grid selection) to CSV?
 
 ## Solution
 
-1. Configure [Grid selection]({%slug components/grid/selection/overview%}) via the `SelectionMode` and `SelectedItems` parameters.
+1. Configure [Grid selection]({%slug grid-selection-overview%}) via the `SelectionMode` and `SelectedItems` parameters.
 1. Configure [Grid Excel export]({%slug grid-export-excel%}) or [Grid CSV export]({%slug grid-export-csv%}) via command buttons, for example in the [`<GridToolBarTemplate>`]({%slug components/grid/features/toolbar%}).
 1. Subscribe to the [`OnBeforeExport` event]({%slug grid-export-events%}) in `<GridExcelExport>` or `<GridCsvExport>`.
 1. In the `OnBeforeExport` handler, set the `Data` property of the event argument object to the Grid `SelectedItems` collection.
@@ -117,5 +117,5 @@ How to export custom Grid data (for example the Grid selection) to CSV?
 * [Grid Excel Export]({%slug grid-export-excel%})
 * [Grid CSV Export]({%slug grid-export-csv%})
 * [Grid Export Events]({%slug grid-export-events%})
-* [Grid Selection]({%slug components/grid/selection/overview%})
+* [Grid Selection]({%slug grid-selection-overview%})
 * [Grid ToolBar]({%slug components/grid/features/toolbar%})

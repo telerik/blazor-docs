@@ -106,4 +106,4 @@ The key points in the required implementation are:
 
 ## See Also
 
-* [Grid Selection]({%slug components/grid/selection/overview%})
+* [Grid Selection]({%slug grid-selection-overview%})

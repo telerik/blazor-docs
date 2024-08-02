@@ -1691,7 +1691,7 @@ public class Resource
 
 ### Drag and Drop multiple Rows
 
-You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the [`SelectionMode` parameter]({%slug components/grid/selection/overview%}) of the TelerikGrid to `GridSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
+You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the [`SelectionMode` parameter]({%slug grid-selection-overview%}) of the TelerikGrid to `GridSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
