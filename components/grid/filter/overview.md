@@ -9,43 +9,43 @@ previous_url: /components/grid/filtering
 position: 0
 ---
 
-# Blazor Grid Filtering Overview
+# Filtering Overview
 
-The Grid component offers built-in support for filtering.
+This article explains the available filtering modes in the Telerik Grid for Blazor.
 
-## Basics
+## FilterRow
 
-To enable filtering, set the grid's `FilterMode` property to one of the following values:
+The `FilterRow` filtering mode renders a row below the column headers with a UI for filling in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [FilterRow documentation article...]({%slug grid-filter-row%})
 
-* [`Telerik.Blazor.GridFilterMode.FilterRow`]({%slug grid-filter-row%}) - a row of filter options is rendered below the column headers
+## FilterMenu
 
-* [`Telerik.Blazor.GridFilterMode.FilterMenu`]({%slug grid-filter-menu%}) - the column headers render a button that shows a popup with filtering options
+The FilterMenu filter mode renders a button in the column header. Clicking the button opens a popup with filtering options, allowing you to apply two filter criteria, choose a filter operator, and use buttons to apply or clear the filter. Read more about enabling and fine-tuning the filtering menu in the [FilterMenu documentation article...]({%slug grid-filter-menu%})
 
-The behavior of the filter input and the available filter operators will depend on the column data type. For example, a boolean field will only have the options "is true" and "is false" and will not have operators like "contains" or "greater than".
-
-You can filter more than one column at a time, and all filter rules will be applied together with an `AND` logic.
-
-You can prevent the user from filtering a certain field by setting `Filterable="false"` on its column.
+> You can prevent the user from filtering a certain field by setting `Filterable="false"` on its column.
 
 ## More Filtering Options
 
-In addition to the two main filtering modes, the grid offers two more features that can enhance the user experience when looking for data:
+In addition to the two main filtering modes, the grid offers two more features that can enhance the user experience when looking for data.
 
-* A [searchbox in the toolbar]({%slug grid-searchbox%}) can amend the filters and let the user look up many fields at once
+### ToolBar SearchBox
 
-* The filter menu can show a [list of checkboxes]({%slug grid-checklist-filter%}) with the distinct values from the data to make filtering resemble Excel.
+The ToolBar of the Telerik Grid for Blazor includes a [SearchBox]({%slug grid-searchbox%}), that lets users amend filters and search across multiple fields simultaneously.
+
+### CheckBoxList
+
+The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%}) with distinct values from the data, making filtering similar to Excel.
 
 ## Filter Descriptors
 
-The Grid filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+The Grid filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
 
-Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+Each CompositeFilterDescriptor includes a collection of FilterDescriptors, where all descriptors in the collection are applied with an AND or OR LogicalOperator.
 
-* [Filter Row]({%slug grid-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
+* [Filter Row]({%slug grid-filter-row%}) - Each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator, with the filter value stored in the first FilterDescriptor instance for that field.
 
-* [Filter Menu]({%slug grid-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter opearators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
+* [Filter Menu]({%slug grid-filter-menu%}) - Each `CompositeFilterDescriptor` targets a specific field. The filter values from separate filter operators in the menu are stored in different FilterDescriptor instances within the CompositeFilterDescriptor for that field.
 
-* [SearchBox]({%slug grid-searchbox%}) - one `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all `string` fields. A dedicated `FilterDescriptor` instance is added to this `CompositeFilterDescriptor` for each `string` field. Each `FilterDescriptor` instance contains the filter value typed in the Searchbox.
+* [SearchBox]({%slug grid-searchbox%}) - A `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all string fields, adding a dedicated FilterDescriptor instance for each string field. Each FilterDescriptor contains the filter value typed in the SearchBox.
 
 
 ## Custom Filtering
@@ -132,7 +132,7 @@ The following articles and sample projects can be helpful when implementing filt
 
 ## Notes
 
-* The grid uses `Activator.CreateInstance<TItem>();` to get the type of the item it is bound to in order to generate proper filters and filter operators for them. Thus, the Model should have a Parameterless constructor defined.
+The grid uses `Activator.CreateInstance<TItem>();` to obtain the item's type it is bound to, enabling it to generate accurate filters and filter operators. To facilitate this, ensure that the Model has a parameterless constructor defined. If your model has no parameterless constructor use the [OnModelInit event]({%slug grid-events%}#onmodelinit).
 
 ## See Also
 
