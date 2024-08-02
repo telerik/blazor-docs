@@ -28,6 +28,7 @@ You can read more about the CUD events in the [Editing Overview]({%slug treelist
 * [OnExpand and OnCollapse](#onexpand-and-oncollapse)
 * [Command Button Click](#command-button-click)
 * [SelectedItemsChanged](#selecteditemschanged)
+* [SelectedCellsChanged](#selectedcellschanged)
 * [OnModelInit](#onmodelinit)
 * [OnRowClick](#onrowclick)
 * [OnRowDoubleClick](#onrowdoubleclick)
@@ -168,7 +169,15 @@ The command buttons of a treelist provide an `OnClick` event before firing their
 
 ## SelectedItemsChanged
 
-Fires when the item selection is enabled and the user changes the selected [item]({%slug treelist-selection-single%}#selecteditemschanged-event) or [items]({%slug treelist-selection-multiple%}#selecteditemschanged-event).
+Fires when [row selection is enabled]({%slug treelist-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one or multiple rows, depending on the [selection mode]({%slug treelist-selection-overview%}#use-single-or-multiple-selection).
+
+Visit the [TreeList Row Selection article to see an example]({%slug treelist-selection-row%}#selecteditemschanged-event).
+
+## SelectedCellsChanged
+
+Fires when [cell selection is enabled]({%slug treelist-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode]({%slug treelist-selection-overview%}#use-single-or-multiple-selection).
+
+Visit the [TreeList Cell Selection article to see an example]({%slug treelist-selection-cell%}#selectedcellschanged-event).
 
 ## OnModelInit
 

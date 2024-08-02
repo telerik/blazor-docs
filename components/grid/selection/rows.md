@@ -81,6 +81,8 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 >caption Using the Grid SelectedItemsChanged event
 
 ````CSHTML
+@* Select rows and handle the SelectedItemsChanged event *@
+
 <TelerikGrid Data="@GridData"
              SelectionMode="@GridSelectionMode.Multiple"
              SelectedItems="@SelectedEmployees"
@@ -153,7 +155,7 @@ The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchron
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
 * When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [Grid `OnUpdate` event]({%slug components/grid/editing/overview%}#events).
-* When the user deletes a selected item, the Grid automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged) fires.
+* When the user deletes a selected item, the Grid automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged-event) fires.
 * To select a new item in the Grid you can use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events) to update the `SelectedItems` collection.
 
 ## Equals Comparison
