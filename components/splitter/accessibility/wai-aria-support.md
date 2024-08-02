@@ -38,6 +38,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | `.k-splitbar` | `role=separator` | Sets the proper role for the Splitter split-bar element. |
 |  | `aria-label` | An accessible name, with aria-label should be included if there is more than one focusable separator. The value is set through the corresponding SplitterPane API. |
 | `.k-splitbar-horizontal` | `aria-orientation=vertical` | When a splitbar separates two panes horizontally, its aria-orientation must be explicitly set to 'vertical'. |
+|  | `aria-keyshortcuts=ArrowLeft ArrowRight ArrowUp ArrowDown` | Sets the aria-keyshortcuts attribute value to announce available keyboard shortcuts. Some are omitted for brevity. |
 
 > Note: Setting the value-now attribute of the separator element is not applicable, as the Splitter is a complex layout component allowing splitting the content into multiple panes across any number and level of nested Splitters and panes, thus announcing a value would not convey any meaningful information. Moreover, there is no specification, or WAI-ARIA recommendation that explains how value should be set in multiple panes scenario. Further information on this complicated scenario could be found in the following WAI-ARIA GitHub issue:
 
