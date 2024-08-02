@@ -72,17 +72,22 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
 ```razor
 <GridCommandColumn Context="dataItem">
-    @{
-        var product = dataItem as ProductModel;
-        if (product.Discontinued)
-        {
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-        }
-        else
-        {
-            <span>Cannot delete active products</span>
-        }
+    @{ var product = (Product)dataItem; }
+
+    @if (product.Quantity > 0)
+    {
+        @* Can edit products in stock. *@
+        <GridCommandButton Command="Edit">Edit</GridCommandButton>
+        <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+        <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
     }
+
+    @* Can delete products out of stock. *@
+    <GridCommandButton Command="Delete"
+                       Enabled="@( product.Quantity == 0 )"
+                       Title="@( product.Quantity > 0 ? "Cannot delete products in stock" : string.Empty )">
+        Delete
+    </GridCommandButton>
 </GridCommandColumn>
 ```
 
