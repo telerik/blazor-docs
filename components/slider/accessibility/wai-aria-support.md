@@ -43,10 +43,10 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 ### Slider Buttons
 
-
-When present, the Slider Buttons must implement the specification for the **Button** component.
-
-[Button accessibility specification]({{button_a11y_link}})
+| Selector | Attribute | Usage |
+| -------- | --------- | ----- |
+| `.k-slider .k-button-decrease, .k-slider .k-button-increase` | `aria-hidden=true` | Hides the decrease/increase button elements and all their children from assistive technologies. |
+|  | `tabindex=-1` | Excludes the decorative decrease/increase buttons from the natural tab order of the page. |
 
 ## Resources
 

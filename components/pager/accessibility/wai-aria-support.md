@@ -39,7 +39,6 @@ The `Page` select, which is present for mobile devices and smaller screens with 
 | `.k-pager-nav` | `role=button` or `nodeName=button` | Specifies the role of the element. |
 |  | `aria-disabled=true` | The attribute is present when the the `Arrow` button is disabled, for example, present on the **Previous** button when the current page is the first one. |
 |  | `title` | Specifies the purpose of each button. |
-| `.k-pager-numbers>.k-link` | `role=button` or `nodeName=button` | Specifies the role of the element. |
 |  | `aria-label` or `title` | Specifies the purpose of each link, for example, `Page 6`. |
 |  | `aria-current=page` | The attribute must be present on the currently selected page element. |
 | `.k-pager-sizes>.k-dropdownlist` | `aria-label` | The element requires an `aria-label` to specify its purpose. |

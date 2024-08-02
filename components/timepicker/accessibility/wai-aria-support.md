@@ -29,6 +29,8 @@ This section lists the selectors, attributes, and behavior patterns supported by
 | -------- | --------- | ----- |
 | `.k-input-inner` | `role=combobox` | The input element should follow the `combobox` specification. |
 |  | `label for` or `aria-label` or `aria-labelledby` | The input needs an accessible name to be assigned to it. |
+|  | `aria-required=true` | The attribute is rendered only when the TimePicker is in a `form` HTML element and announces the required state of the component. |
+|  | `aria-describedby=.k-form-hint id/.k-form-error id` | Points to the hint for the input, or if the input is invalid, to the error message. This attribute should only be present when a hint is set or when the input is invalid. |
 |  | `aria-expanded=true/false` | Announces whether the Popup is visible or not. |
 |  | `aria-haspopup=dialog` | Indicates the component has a Dialog Popup. |
 |  | `aria-controls=.k-animation-container id` | Points to the popup element. Signifies that the `combobox` element controls the `dialog` popup. |
