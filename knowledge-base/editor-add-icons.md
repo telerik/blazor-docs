@@ -29,7 +29,7 @@ How can I add an `<i>` element inside the Editor?
 
 ## Solution
 
-The built-in ProseMirror schema that the Editor uses does not support `<i>` tag. To allow adding icons in the Editor content:
+The built-in ProseMirror schema that the Editor uses does not support an `<i>` tag. To allow adding icons in the Editor content:
 
 1. [Modify the ProseMirror schema]({%slug editor-modify-default-schema%}) to include a node for the `<i>` element.
 2. Ensure the CSS classes for the icons are applied. The approach varies depending on the [edit mode of the Editor]({%slug editor-edit-modes-overview%})
