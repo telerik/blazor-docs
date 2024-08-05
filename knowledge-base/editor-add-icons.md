@@ -1,6 +1,6 @@
 ---
 title: Add Icons in Editor
-description: How to insert icon tags in Editor?
+description: How to allow inserting <i> tags in the Editor for Blazor to render custom icons in the Editor content?
 type: how-to
 page_title: Add Icons in Editor
 slug: editor-kb-add-icons
@@ -23,9 +23,10 @@ res_type: kb
 
 ## Description
 
-I want to add custom icons in the Editor content. When adding an icon such as `<i class="fa-light fa-envelope">`, the icon's HTML disappears upon saving.
+This KB article answers the following questions:
 
-How can I add an `<i>` element inside the Editor?
+* How to add custom icons in the Editor content? When adding an icon such as `<i class="fa-light fa-envelope">`, the icon's HTML disappears upon saving.
+* How can I add an `<i>` element inside the Editor?
 
 ## Solution
 
@@ -71,7 +72,9 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 }
 
 @* Move JavaScript code to a separate JS file in production *@
-<script suppress-error="BL9992">   
+<script suppress-error="BL9992">
+
+    //define the icon node
     var icon = {
         attrs: {
             class: { default: null },
@@ -96,6 +99,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         },
     };
 
+    //add the icon node to the Editor ProseMirror schema
     window.schemaProvider = (args) => {
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
@@ -106,6 +110,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         return newSchema;
     }
 
+    //inject the stylesheet for the icons, so they are properly visualized
     function injectEditorStylesheet() {
         var doc = document.querySelector("iframe").contentWindow.document;
         var head = doc.querySelector("head");
@@ -123,6 +128,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         head.appendChild(cssLink1);
         head.appendChild(cssLink2);
     };
+
 </script>
 ````
 
@@ -158,6 +164,8 @@ Make sure to use the correct way and resources for your actual project *@
 
 @* Move JavaScript code to a separate JS file in production *@
 <script suppress-error="BL9992">
+
+    //define the icon node
     var icon = {
         attrs: {
             class: { default: null },
@@ -183,6 +191,7 @@ Make sure to use the correct way and resources for your actual project *@
     };
     debugger
 
+    //add the icon node to the Editor ProseMirror schema
     window.schemaProvider = (args) => {
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
