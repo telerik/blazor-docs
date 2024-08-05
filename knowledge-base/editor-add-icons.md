@@ -126,7 +126,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 </script>
 ````
 
-### Add icons in Div Edit Mode
+### Add Icons in Div Edit Mode
 
 When the [EditMode of the Editor is set to `EditorEditMode.Div`]({%slug editor-edit-modes-div%}), the content area is an editable <div> element that inherits the CSS rules from the current page.
 
