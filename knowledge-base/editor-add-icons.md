@@ -37,7 +37,7 @@ The built-in ProseMirror schema that the Editor uses does not support an `<i>` t
     * [Div Edit Mode](#add-icons-in-div-edit-mode)
 
 
-### Add icons in Iframe Edit Mode
+### Add Icons in Iframe Edit Mode
 
 When the [EditMode of the Editor is set to `EditorEditMode.Iframe`]({%slug editor-edit-modes-iframe%}), the content area is an editable `<iframe>` element that does not inherit the CSS rules from the current page.
 
