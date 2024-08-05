@@ -26,7 +26,7 @@ I want to disable the dragging of some appointments based on a condition, such a
 
 This KB article also answers the following questions:
 - How can I prevent specific appointments from being dragged in the Scheduler?
-- Is it possible to conditionally disable drag functionality for appointments in the Scheduler?
+- Is it possible to conditionally disable the drag functionality for appointments in the Scheduler?
 - How to use CSS and event handling to disable dragging for certain appointments?
 
 ## Solution
