@@ -22,22 +22,23 @@ ticketid: 1660283
 
 ## Description
 
-I want to disable the dragging of some appointments based on a condition, such as the status of the appointment. 
+This KB article answers the following questions:
 
-This KB article also answers the following questions:
-- How can I prevent specific appointments from being dragged in the Scheduler?
-- Is it possible to conditionally disable the drag functionality for appointments in the Scheduler?
-- How to use CSS and event handling to disable dragging for certain appointments?
+* How to disable the dragging of some appointments based on a condition, such as the status of the appointment?
+* How can I prevent specific appointments from being dragged in the Scheduler?
+* Is it possible to conditionally disable the drag functionality for appointments in the Scheduler?
+* How to use CSS and event handling to disable dragging for certain appointments?
 
 ## Solution
 
 To conditionally disable dragging an appointment based on your desired condition, follow these steps:
 
-1. Handle the [`OnItemRender` event]({%slug scheduler-events%}#itemrender) to add a custom CSS class to the appointments that you want to disable the dragging for.
+1. Handle the [`OnItemRender` event]({%slug scheduler-events%}#itemrender) to add a custom CSS class to the non-draggable appointments.
 2. Use this custom CSS class as a selector to stop the [pointer-events](https://www.w3schools.com/cssref/css3_pr_pointer-events.php) of the targeted appointments.
 3. Extend the [`OnUpdate` handler]({%slug scheduler-appointments-edit%}#basics) logic to ensure the appointment will not be dropped to another slot. Steps 1 and 2 will prevent dragging, but the user can enable the pointer events from the DOM inspector. Add a check in your `OnUpdate` handler to ensure that if the user drags the appointment, it will not be updated and dropped to a different slot.
 
-Below is a basic sample demonstrating the suggested approach:
+>caption Disable dragging for some appointments in Blazor Scheduler
+
 ````CSHTML
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@StartDate"
@@ -52,6 +53,14 @@ Below is a basic sample demonstrating the suggested approach:
         <SchedulerMonthView />
     </SchedulerViews>
 </TelerikScheduler>
+
+<style>
+    .non-draggable-appointment {
+        background-color: grey;
+        font-weight: 900;
+        pointer-events: none !important;
+    }
+</style>
 
 @code {
     private DateTime StartDate { get; set; } = new DateTime(2019, 11, 29);
@@ -135,14 +144,6 @@ Below is a basic sample demonstrating the suggested approach:
         public bool NonDraggable { get; set; }
     }
 }
-
-<style>
-    .non-draggable-appointment {
-        background-color: grey;
-        font-weight: 900;
-        pointer-events: none !important;
-    }
-</style>
 ````
 
 ## Notes
