@@ -85,29 +85,40 @@ The following table lists the DropDownButton parameters, except those related to
 
 The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag:
 
-<div class="skip-repl"></div>
-
 ````CSHTML
-<TelerikDropDownButton>
+<TelerikDropDownButton Icon="@SvgIcon.Share">
+    <DropDownButtonContent>Share</DropDownButtonContent>
+
     <DropDownButtonSettings>
-        <DropDownButtonPopupSettings Height="150px" />
+        <DropDownButtonPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
     </DropDownButtonSettings>
+
+    <DropDownButtonItems>
+        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Linkedin">Linkedin</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Reddit">Reddit</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Pinterest">Pinterest</DropDownButtonItem>
+    </DropDownButtonItems>
+
 </TelerikDropDownButton>
 ````
+The DropDownButton provides the following popup settings:
 
-| Parameter | Type and Default&nbsp;Value | Description |
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
 | --- | --- | --- |
 | `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
-| `Class` | `string` | Applies a user-defined CSS class to the dropdown container, which is `<div class="k-animation-container">`. |
-| `Height` | `string` <br /> (`"auto"`) | Sets the dropdown height. If the items cannot fit, a vertical scrollbar will appear. If not set, the dropdown will expand, based on the number of items. |
-| `MaxHeight` | `string` | Sets the maximum dropdown height if an explicit height is not set. |
-| `MinHeight` | `string` | The minimum dropdown height, if an explicit height is not set. |
-| `Width` | `string` | The dropdown width. If not set, the dropdown will expand, based on the length of its items. |
-| `MaxWidth` | `string` | The maximum dropdown width, if an explicit width is not set. If there is a longer item, a horizontal scrollbar will show. |
-| `MinWidth` | `string` | The minimum dropdown width, if an explicit width is not set. |
+| `Class` | `string` | Additional CSS class to customize the appearance of the popup. |
+| `Height` | `string` | The height of the popup. The default value is `"200px"`. |
+| `MinHeight`| `string` | The minimum height of the popup. |
+| `MinWidth` | `string` | The minimum width of the popup. |
+| `MaxHeight` | `string` | The maximum height of the popup. |
+| `MaxWidth` | `string` | The maximum width of the popup. |
+| `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 
->tip As in standard CSS, the `min` and `max` settings take precedence over `width` and `height`.
-
+The above parameters that modify the popup dimentions, like `Height`, `Width`, `MaxWidth` etc. expect a [valid CSS values]({%slug common-features/dimensions%}). Note that, the `MinHeight` and `MaxHeight` have no effect if the `Height` is always within their range. The min and max values are valuable only when the dropdown height is set to a relative unit or changes at runtime.
 
 ### Item Settings
 

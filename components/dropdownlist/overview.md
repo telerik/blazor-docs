@@ -113,15 +113,23 @@ The following parameters enable you to customize the [appearance]({%slug dropdow
 
 ### Popup Settings
 
-The popup of the component can be additionally customized via nested tags:
+The DropDownList exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownListPopupSettings>` tag inside a `<DropDownListSettings>` tag:
 
-<div class="skip-repl"></div>
-````
-<TelerikDropDownList>
+````CHTML
+<TelerikDropDownList Data="@Data"
+                     @bind-Value="selectedRole"
+                     Width="300px"
+                     DefaultText="Please select your role, e.g. Developer">
     <DropDownListSettings>
-        <DropDownListPopupSettings Height="..." />
+        <DropDownListPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
     </DropDownListSettings>
 </TelerikDropDownList>
+
+@code {
+    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+
+    private string selectedRole { get; set; }
+}
 ````
 
 The DropDownList provides the following popup settings:

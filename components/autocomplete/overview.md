@@ -110,15 +110,23 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 ### Popup settings
 
-The popup of the component can be additionally customized via nested tags:
+The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare a  `<AutoCompletePopupSettings>` tag inside a `<AutoCompleteSettings>` tag:
 
-<div class="skip-repl"></div>
-````
-<TelerikAutoComplete>
+````CSHTML
+<TelerikAutoComplete Data="@Data"
+                     @bind-Value="@selectedRole"
+                     Width="300px"
+                     Placeholder="Please select your role, e.g. Developer">
     <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="..." />
+        <AutoCompletePopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
     </AutoCompleteSettings>
 </TelerikAutoComplete>
+
+@code {
+    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+
+    private string selectedRole { get; set; }
+}
 ````
 
 The AutoComplete provides the following popup settings:
