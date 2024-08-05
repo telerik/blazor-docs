@@ -147,5 +147,5 @@ Below is a basic sample demonstrating the suggested approach:
 
 ## Notes
 
-- The custom CSS class used to disable dragging should be defined in your application's stylesheets.
+- The custom CSS class used to disable dragging must be defined in your application's stylesheets.
 - Ensure the condition for disabling drag is consistent across both the `OnItemRender` event and the `OnUpdate` event handler.
