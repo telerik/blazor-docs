@@ -37,6 +37,8 @@ To conditionally disable dragging an appointment based on your desired condition
 2. Use this custom CSS class as a selector to stop the [pointer-events](https://www.w3schools.com/cssref/css3_pr_pointer-events.php) of the targeted appointments.
 3. Extend the [`OnUpdate` handler]({%slug scheduler-appointments-edit%}#basics) logic to ensure the appointment will not be dropped to another slot. Steps 1 and 2 will prevent dragging, but the user can enable the pointer events from the DOM inspector. Add a check in your `OnUpdate` handler to ensure that if the user drags the appointment, it will not be updated and dropped to a different slot.
 
+> This solution also prevents the user from deleting the non-draggable appointments. See [Notes section](#notes) if you want to allow the deleting.
+
 >caption Disable dragging for some appointments in Blazor Scheduler
 
 ````CSHTML
@@ -148,5 +150,24 @@ To conditionally disable dragging an appointment based on your desired condition
 
 ## Notes
 
-- The custom CSS class used to disable dragging must be defined in your application's stylesheets.
-- Ensure the condition for disabling drag is consistent across both the `OnItemRender` event and the `OnUpdate` event handler.
+* The custom CSS class used to disable dragging must be defined in your application's stylesheets.
+* Ensure the condition for disabling drag is consistent across both the `OnItemRender` event and the `OnUpdate` event handler.
+* The suggested solution relies on removing the pointer-events of the whole appointment. Thus, the hover event is also not detected to show the delete icon of the appointments and the user will not be able to delete them. If you want to allow deleting of the non-draggable appointments, adjust the styles to ensure the delete icon will always be visible:
+
+````
+<style>
+    /* prevents the pointer-events of the appointment */
+    .non-draggable-appointment {
+        background-color: grey;
+        font-weight: 900;
+        pointer-events: none !important;
+    }
+
+    /* ensures the delete icon is always visible */
+        .non-draggable-appointment.k-event .k-event-actions .k-event-delete {
+            visibility: visible;
+            pointer-events: auto !important;
+        }
+</style>
+````
+
