@@ -24,15 +24,15 @@ res_type: kb
 
 ## Description
 
-I observe twice firing OnChange event in the DropDownList or other inputs.
+I observe twice firing `OnChange` event in the DropDownList or other inputs.
 
 I want the event to fire only once when the user selects something.
 
-I want to execute my business logic in the OnChange event handler only once per value change.
+I want to execute my business logic in the `OnChange` event handler only once per value change.
 
 ## Possible Cause
 
-The OnChange event is a user confirmation event - it fires when the user chooses an item from the DropDownList popup, and also when the user blurs an input (the DropDownList is, in essence, an input).
+The `OnChange` event is a user confirmation event - it fires when the user chooses an item from the DropDownList popup, and also when the user blurs an input (the DropDownList is, in essence, an input).
 
 For example, pressing Enter in an input will fire the event, but will not remove the focus from the input. Thus, the next click on the page (on a button, another component) will fire the event again.
 
