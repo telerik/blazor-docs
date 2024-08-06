@@ -163,7 +163,7 @@ To conditionally disable dragging an appointment based on your desired condition
         pointer-events: none !important;
     }
 
-    /* ensures the delete icon is always visible */
+    /* ensures the delete icon is always visible and clickable */
         .non-draggable-appointment.k-event .k-event-actions .k-event-delete {
             visibility: visible;
             pointer-events: auto !important;
