@@ -28,9 +28,9 @@ The `<SankeyTitle>` tag exposes the following parameters for customization of th
 | --------- | ---- | ----------- |
 | `Align` | [`SankeyTitleAlign` enum](/blazor-ui/api/telerik.blazor.sankeytitlealign) <br/> (`SankeyTitleAlign.Left`) | The alignment of the title. |
 | `Background` | `string`  | The background color of the title. |
-| `Color` | `string`  | The text color of the title. |
+| `Color` | `string` <br/> (`rgb(66, 66, 66)`)  | The text color of the title. |
 | `Description` | `string`  | The accessible description of the Sankey. Added as `aria-label` to the `<div class="k-sankey">` element. |
-| `Font` | `string`  | The font of the title. |
+| `Font` | `string` <br/> (`16px Helvetica Neue, Helvetica, Arial, sans-serif`) | The font of the title. |
 | `Position` | [`SankeyTitlePosition` enum](/blazor-ui/api/telerik.blazor.sankeytitleposition) <br/> (`SankeyTitlePosition.Top`)| The position of the title. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the title is visible. |
 
