@@ -30,7 +30,14 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
 ## Persist Filter
 
-By default, the filter value will be cleared when the user selects an item. You can configure the MultiSelect to keep the filter value upon selection. This can be useful if you want to allow the user select multiple values that match the same filtering criteria (for example, select several people with the same last name).
+By default, the filter value will be cleared when the user selects an item.
+
+You can configure the MultiSelect to keep the filter value:
+
+* When the user selects an item from the list.
+* When the user closes the popup but keeps the focus on the MultiSelect (for example, presses [`Esc` to close the popup](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)).
+
+This can be useful if you want to allow the user select multiple values that match the same filtering criteria (for example, select several people with the same last name).
 
 To keep the filter upon selection, set the `PersistFilterOnSelect` parameter to `true`. It only applies when `Filterable="true"` and `AutoClose="false"`.
 
