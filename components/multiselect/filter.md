@@ -37,7 +37,7 @@ You can configure the MultiSelect to keep the filter value:
 * When the user selects an item from the list.
 * When the user closes the popup but keeps the focus on the MultiSelect (for example, presses [`Esc` to close the popup](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)).
 
-This can be useful if you want to allow the user select multiple values that match the same filtering criteria (for example, select several people with the same last name).
+This can be useful if you want to allow the user select multiple values that match the same filtering criteria (for example, select several people with the same last name). Blurring the MultiSelect indicates that the user is done with the selection and the filter value will be cleared upon blur.
 
 To keep the filter upon selection, set the `PersistFilterOnSelect` parameter to `true`. It only applies when `Filterable="true"` and `AutoClose="false"`.
 
