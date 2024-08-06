@@ -22,8 +22,8 @@ To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<T
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Align` | [`SankeyLabelsAlign` enum](/blazor-ui/api/telerik.blazor.sankeylabelsalign) <br/> (`SankeyLabelsAlign.Left`) | The alignment of the labels. |
-| `Color` | `string` | The color of the labels. |
-| `Font` | `string` | The font of the labels. |
+| `Color` | `string` <br/> (`rgb(66, 66, 66)`) | The color of the labels. |
+| `Font` | `string` <br/> (`14px Metric, Arial, Helvetica, sans-serif`)| The font of the labels. |
 | `Position` | [`SankeyLabelsPosition` enum](/blazor-ui/api/telerik.blazor.sankeylabelsposition) <br/> (`SankeyLabelsPosition.Inside`) | The position of the labels. |
 | `Visible` | `bool` <br/> (`true`) | Whether the labels are visible. |
 
@@ -40,7 +40,7 @@ By design, the labels do not have border. You may add border by declaring the `<
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
 | `DashType` | [`DashType` enum](/blazor-ui/api/telerik.blazor.dashtype) <br/> (`DashType.Solid`) | The type of the border. |
-| `Width` | `double?` | The width of the border. |
+| `Width` | `double?` <br/> (`0`)| The width of the border. |
 
 ### Margin
 
@@ -78,7 +78,7 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the stroke. |
-| `Width` | `double?` | The width of the stroke. |
+| `Width` | `double?` <br/> (`0`) | The width of the stroke. |
 
 ## Example
 
