@@ -1,6 +1,6 @@
 ---
 title: OnChange fires twice
-description: how to fire OnChange only once, it seems to fire twice.
+description: How to fire OnChange only once, it seems to fire twice.
 type: troubleshooting
 page_title: Fire OnChange only once
 slug: ddl-kb-onchange-fires-twice
@@ -24,28 +24,35 @@ res_type: kb
 
 ## Description
 
-I observe twice firing onchange event in dropdownlist or other inputs.
+I observe twice firing `OnChange` event in the DropDownList or other inputs.
 
 I want the event to fire only once when the user selects something.
 
+I want to execute my business logic in the `OnChange` event handler only once per value change.
+
 ## Possible Cause
 
-The OnChange event is a user confirmation event - it fires when the user chooses an item from the dropdown list, and also when the user blurs an input (the dropdownlist is, in essence, an input).
+The `OnChange` event is a user confirmation event - it fires when the user chooses an item from the DropDownList popup, and also when the user blurs an input (the DropDownList is, in essence, an input).
 
 For example, pressing Enter in an input will fire the event, but will not remove the focus from the input. Thus, the next click on the page (on a button, another component) will fire the event again.
 
 ## Solution
 
->tip As of `2.22.0`, you can use the `OnBlur` event of the components to capture the `focusout` event, so you may not need to use `OnChange`.
+1. Create an additional variable.
+1. In the `OnChange` event handler:
+    * Get the user input from the `OnChange` event argument or from the `Value` parameter.
+    * Compare the input with the additionally created variable.
+    * Execute your business logic only when the additional variable and the input are not the same.
+    * Overwrite the additional variable with the input.
 
-If you want to execute some business logic (such as fetching data) only once per value change, but you want to keep using the `@bind-Value` to populate your models, you can keep the last value with which `OnChange` fired and compare against it.
+With this approach you will keep the last value with which `OnChange` fired, compare against it and execute your business logic only once when there is an actual value change.
 
 >caption Execute OnChange once per value selection
 
 ````CSHTML
 @* monitor the console and try the following to see the difference:
     - selecting the same item several times
-    - clicking away from the dropdownlist after selecting an item
+    - clicking away from the DropDownList after selecting an item
 *@
 
 @DropDownValue
@@ -81,3 +88,5 @@ If you want to execute some business logic (such as fetching data) only once per
     }
 }
 ````
+
+>tip As of `2.22.0`, you can use the `OnBlur` event of the components to capture the `focusout` event, so you may not need to use `OnChange`.
