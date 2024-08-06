@@ -21,9 +21,9 @@ The example below also includes conditional logic to show different icons in the
 
 ````CSHTML
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">
-    <ButtonGroupToggleButton Icon="@( SvgSelected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )"
+    <ButtonGroupToggleButton Icon="SvgIcon.VolumeDown"
                              @bind-Selected="@SvgSelected">SVG Icon</ButtonGroupToggleButton>
-    <ButtonGroupToggleButton Icon="@( FontSelected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )"
+    <ButtonGroupToggleButton Icon="@FontIcon.VolumeUp"
                              @bind-Selected="@FontSelected">Font Icon</ButtonGroupToggleButton>
 </TelerikButtonGroup>
 
