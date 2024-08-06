@@ -63,7 +63,7 @@ Use the following information when creating the `libman.json` file:
 
 * Provider: `unpkg`
 * Library: <code>@progress/kendo-font-icons@**&lt;PACKAGE-VERSION&gt;**</code> or <code>@progress/kendo-theme-**&lt;THEME-NAME&gt;**@**&lt;PACKAGE-VERSION&gt;**</code>. Always specify a package version or use `@latest`.
-* Include files: the app requires `dist/all.css` for the themes, and `dist/index.css` and `dist/kendo-font-icons.ttf` for the font icons. See all available files for the desired package and version at unpkg, for example: https://unpkg.com/browse/@progress/kendo-theme-default@{{site.themesVersion}}
+* Include files: the app requires `dist/all.css` for the themes, and `dist/index.css` and `dist/kendo-font-icons.ttf` for the font icons. See all available files for the desired package and version at unpkg, for example: https://unpkg.com/browse/@progress/kendo-theme-default@{{site.themesVersion}}/
 * Target location: the default one is <code>wwwroot/lib/progress/**&lt;PACKAGE-NAME&gt;**/</code> and it depends on your preferences.
 
 > Using the `@latest` theme version requires the latest Telerik UI for Blazor version as well.
