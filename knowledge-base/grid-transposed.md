@@ -24,7 +24,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to transpose the data Grid component?
+* How to transpose the data grid component?
 * How to convert the Grid columns to rows and the Grid rows to columns?
 * How to achieve a horizontal Grid configuration?
 * How to switch the Grid orientation? The model properties should display vertically and the model values should display horizontally.
