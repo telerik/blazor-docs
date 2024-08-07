@@ -41,9 +41,7 @@ Here is some more context.
 
 The Telerik Blazor Editor uses the [**ProseMirror engine**](https://prosemirror.net). The [Enter] behavior depends on the engine.
 
-The Editor will be able to render `<br />` tags instead of `<p>` tags when we [enable developers to implement ProseMirror plugins](https://feedback.telerik.com/blazor/1492857-expose-a-way-to-write-custom-plugins-for-the-underlying-prosemirror-engine) that tweak the engine behavior.
-
-We recommend following this feature request for future updates.
+The Editor can render `<br />` tags instead of `<p>` tags if you [use a ProseMirror plugin]({%slug editor-prosemirror-plugins%}) that changes the default engine behavior.
 
 ## Side Effects
 

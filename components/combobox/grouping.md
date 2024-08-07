@@ -68,8 +68,6 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 * One level of grouping is supported.
 * A grouped ComboBox will provide a `Groups` property with a single [`GroupDescriptor`](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug components/combobox/events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug components/grid/manual-operations%}).
-* `GroupHeaderTemplate` and `GroupItemTemplate` will be introduced in a future version. Currently there is a bug in the Blazor framework that prevents us from supporting them.
-* Virtual scrolling with grouping will be supported in a future version.
 
 ## See Also
 

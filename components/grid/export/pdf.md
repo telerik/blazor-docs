@@ -19,4 +19,4 @@ The following sample projects show two ways to implement a PDF export
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/pdf-jpg-export-js" target="_blank">PDF and JPG Export in the Browser with JS</a> - uses Kendo JS libraries to generate the PDF file from the current DOM in the browser.
 
 
-In the future, there will be a built-in feature in the grid for this so you don't have to generate the file on your own. You can Follow it <a href="https://feedback.telerik.com/blazor/1434269-export-grid-to-pdf" target="_blank">here</a>. At the moment, the WebAssembly scenario is too slow for us to release it, mainly due to the missing <a href="https://github.com/dotnet/aspnetcore/issues/17730" target="_blank">multithreading</a> and <a href="https://github.com/dotnet/aspnetcore/issues/5466" target="_blank">AoT support</a> for Blazor, and <a href="https://github.com/mono/mono/issues/10222" target="_blank">full AoT for Mono</a>.
+You can also follow the feature request for <a href="https://feedback.telerik.com/blazor/1434269-export-grid-to-pdf" target="_blank">built-in Grid export to PDF</a>.

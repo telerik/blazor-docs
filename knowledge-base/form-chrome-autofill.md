@@ -42,7 +42,7 @@ The application is not given the chance to respond to the autofill action of the
 
 1. Run this snippet in the browser
 2. Fill in the form and click Submit
-3. In the browser popup asking you to save the data for the future, confirm and let Chrome save it
+3. In the browser popup asking you to save the form data, confirm and let Chrome save it
 4. Reload the page - the browser will autofill the saved data
 
 ````CSHTML

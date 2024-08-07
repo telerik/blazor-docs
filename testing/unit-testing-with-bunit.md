@@ -59,8 +59,8 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Subject  | Details  |
-| -------- | ---------|
+| Subject | Details |
+| --- | --- |
 | Issue | When testing a DatePicker the test fails with: <br/> ````System.Exception : A Telerik component on the requested view requires a TelerikRootComponent to be added to the root of the MainLayout component of the app.```` | 
 | Cause |  A possible cause for this error is that in the test the component is rendered in isolation, without a layout, so the `TelerikRootComponent` is missing.|
 | Workaround | Ether [mock the `TelerikRootComponent`](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/Common/TelerikTestContext.cs) or use an [actual `TelerikRootComponent`](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/Common/TelerikTestContextWithActualRoot.cs). |
@@ -69,8 +69,8 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Subject  | Details  |
-| -------- | ---------|
+| Subject | Details |
+| --- | --- |
 | Issue | Trying to detect an element by `data-id` fails as every time the `data-id` value in the generated markup is different. |
 | Cause | The `data-id` of the components is automatically generated in our components and it is unique for each instance. Thus, this is an expected difference in the output if you call `RenderComponent` twice. |
 | Workaround | This attribute is used for internal purposes only and should not be included in the check. You may implement a method that can strip the unique attributes from the component, or verify particular elements using their CSS selectors (for instance `div.k-grid`). |
@@ -79,8 +79,8 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Subject  | Details  |
-| -------- | ---------|
+| Subject | Details |
+| --- | --- |
 | Issue | Testing a component that contains a Scheduler fails with the following error: <br/> ````System.NullReferenceException : Object reference not set to an instance of an object.   at Telerik.Blazor.Components.Scheduler.Rendering.ContentTableBase`1.SetSlotMetrics(Dictionary`2metrics) at Telerik.Blazor.Components.Scheduler.Rendering.ContentTableBase`1.GetSlotMetrics()```` |
 | Cause | The root cause is that the Scheduler must render in the browser and then measure and adjust its layout with JavaScript. Then this information is sent to the .NET runtime to be used there. |
 | Workaround | [Mock the component](https://bunit.dev/docs/providing-input/substituting-components.html?tabs=moq) or refactor the component structure of your app, so that you can test a component that doesn't contain our Scheduler. |
@@ -89,18 +89,18 @@ Considering the above-listed JS limitation, you may experience some issues when 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Subject  | Details  |
-| -------- | ---------|
+| Subject | Details |
+| --- | --- |
 | Issue | Detecting the content of a Dialog fails. |
 | Cause | The Dialog, Window and popup elements are rendered on root level and not in their place of declaration. |
-| Workaround | To detect the popup content, target the `RootComponent` and search inside it. See: [Dialog example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/DialogPage.cs) and [Window example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/WindowButtonPage.cs). <br/> <br/> In future, UI for Blazor will support [creation of an interface to easily mock the DialogFactory](https://feedback.telerik.com/blazor/1533040-create-an-interface-to-easily-mock-the-dialogfactory). Follow the request to gets status updates.|
+| Workaround | To detect the popup content, target the `RootComponent` and search inside it. See: [Dialog example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/DialogPage.cs) and [Window example](https://github.com/telerik/blazor-ui/blob/master/testing/bUnit-justmock/Telerik.Blazor.BUnit.JustMock/DemoSample/WindowButtonPage.cs). <br/> <br/> There is a feature request for UI for Blazor to support the [creation of an interface to easily mock the DialogFactory](https://feedback.telerik.com/blazor/1533040-create-an-interface-to-easily-mock-the-dialogfactory). Follow the request to get status updates. |
 
 ### Grid `OnRead` Not Fired
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Subject  | Details  |
-| -------- | ---------|
+| Subject | Details |
+| --- | --- |
 | Issue | In test environment, `OnRead` is not raised after invoking `Rebind`. |
 | Cause | When `Rebind` is called, the Grid shows a loader. This loader is invoked with JS Interop, so the test fails silently. |
 | Workaround | Disable the [built-in loader]({%slug grid-loading%}). |
