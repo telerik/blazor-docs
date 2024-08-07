@@ -34,10 +34,10 @@ The Blazor Gantt Tree provides various parameters to configure its items. Also, 
 | Parameter | Description |
 | --- | --- |
 | `EndField` | Defines the end date of a task. |
-| `HasChildren` | Whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required when loading data on-demand—if you don't set it to `true`, an expand arrow will not appear and the user will not be able to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand or override the arrow for some items. |
-| `Id` | A unique identifier for the item. Required only for binding to flat data. |
-| `Items` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
-| `ParentId` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
+| `HasChildrenField` | Whether the item has children. Determines whether an expand arrow is rendered next to the item in an Expandable column. Required when loading data on demand—if you don't set it to `true`, an expand arrow will not appear and the user will not be able to expand the item and load its children. With hierarchical data, the Gantt Tree will render the icon based on the existence of child items, but `HasChildren` will take precedence. You do not have to set or use its field unless you want to load data on demand or override the arrow for some items. |
+| `IdField` | A unique identifier for the item. Required only for binding to flat data. |
+| `ItemsField` | The collection of child items that will be rendered under the current item. Required only when binding to hierarchical data. |
+| `ParentIdField` | Identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, `ParentId` needs to be `null`. There needs to be at least one node with a `null` value for the `ParentId`. |
 | `PercentCompleteField` | Defines the level of completion of a task in percentages. |
 | `StartField` | Defines the start date of a task. |
 | `TitleField` | Defines what's the title of a task in percentages. |
@@ -46,14 +46,16 @@ The Blazor Gantt Tree provides various parameters to configure its items. Also, 
 
 The properties of a Gantt Tree item match directly to a field of the model the treelist is bound to. Provide that relationship by providing the name of the field from which the corresponding information is to be taken. To do this, in the main `TelerikGantt` tag, use the parameters described below:
 
-* EndField => End
-* HasChildrenField => HasChildren
-* IdField => Id
-* ItemsField => Items
-* ParentIdField => ParentId
-* PercentCompleteField => PercentComplete
-* StartField => Start
-* TitleField => Title
+| Model Field Name | Model Field Type | Gantt Parameter |
+| --- | --- | --- |
+| End | `DateTime` | `EndField` |
+| HasChildren | `bool` | `HasChildrenField` |
+| Id | `object` | `IdField`|
+| Items | `IEnumerable<TItem>` | `ItemsField` |
+| ParentId | `object` | `ParentIdField` |
+| PercentComplete | `double` | `PercentCompleteField` |
+| Start | `DateTime` | `StartField` |
+| Title | `string` | `TitleField` |
 
 ## Notes
 
