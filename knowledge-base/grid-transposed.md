@@ -160,7 +160,7 @@ The following example demonstrates all options.
     }
 </style>
 
-<h2>Readonly HTML Table</h2>
+<h2>Read-Only HTML Table</h2>
 
 <div class="k-grid k-grid-md html-grid" style="width:600px">
     <div class="k-grid-aria-root">
