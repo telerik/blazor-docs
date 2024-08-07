@@ -1,10 +1,10 @@
 ---
-title: Displaying ListView Items Horizontally in Blazor
+title: Display ListView Items Horizontally in Blazor
 description: Learn how to arrange the items in a TelerikListView for Blazor horizontally using custom CSS styles.
 type: how-to
 page_title: How to Arrange Telerik Blazor ListView Items Horizontally
 slug: listview-kb-display-items-horizontally
-tags: listview, blazor, layout, horizontal, css, styling
+tags: listview, blazor, layout, css, styling
 res_type: kb
 ticketid: 1649286
 ---
@@ -24,7 +24,7 @@ ticketid: 1649286
 I want to display the items in the TelerikListView component horizontally.
 
 This KB article answers the following questions:
-- How to set the TelerikListView to horizontal?
+- How to set the TelerikListView layout to horizontal?
 - Is it possible to display ListView items side by side in Blazor?
 
 ## Solution
@@ -46,9 +46,9 @@ To display the ListView items horizontally, apply the `display: inline-block;` C
 
 <TelerikListView Data="@ListViewData"
                  Class="horizontal-listview"
-                 Width="700px" 
-                 Pageable="true" 
-                 PageSize="4">
+                 Pageable="true"
+                 PageSize="4"
+                 Width="700px">
     <HeaderTemplate>
         <h2>Employee List</h2>
     </HeaderTemplate>
