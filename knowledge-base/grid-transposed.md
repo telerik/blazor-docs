@@ -174,7 +174,7 @@ The following example demonstrates all options.
                     <thead class="k-table-thead">
                         <tr class="k-table-row">
                             <th class="k-header k-table-th"> Property Name </th>
-                            <th class="k-header k-table-th"> Readonly Value </th>
+                            <th class="k-header k-table-th"> Read-Only Value </th>
                         </tr>
                     </thead>
                 </table>
