@@ -18,7 +18,7 @@ In this article:
 
 ## Observable Data
 
->note The Drawer will receive this feature in a future release. You can currently refresh its Data by creating a [New collection reference](#new-collection-reference).
+>note The Drawer does not support binding to observable data. You can currently refresh the component by creating a [new collection reference](#new-collection-reference).
 
 @[template](/_contentTemplates/common/observable-data.md#observable-data)
 

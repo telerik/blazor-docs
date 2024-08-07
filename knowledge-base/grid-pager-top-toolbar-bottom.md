@@ -30,7 +30,7 @@ How to move Toolbar at the bottom of the Grid?
 
 ## Solution
 
-At the time of writing (Telerik UI for Blazor version 3.2.0), by default, the Grid Toolbar is placed on top of the Grid and Pager - at the bottom. Controlling the position of the [Toolbar](https://feedback.telerik.com/blazor/1502828-allow-changing-the-position-of-the-grid-toolbar) and [Pager](https://feedback.telerik.com/blazor/1561750-ability-to-control-pager-position) will be supported out of the box in future version of the product.
+The Grid Toolbar is placed on top of the Grid and Pager at the bottom. You can follow the feature requests about controlling the position of the [Toolbar](https://feedback.telerik.com/blazor/1502828-allow-changing-the-position-of-the-grid-toolbar) and the [Pager](https://feedback.telerik.com/blazor/1561750-ability-to-control-pager-position).
 
 For the time being, this scenario can be handled with a custom approach.
 

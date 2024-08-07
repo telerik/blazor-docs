@@ -17,7 +17,6 @@ In this article:
 * [Observable data](#observable-data)
 * [Refresh Data](#refresh-data)
 * [Telerik components that support Observable Data](#telerik-components-that-support-observable-data)
-* [Telerik components that will support Observable Data in a future release](#telerik-components-that-will-support-observable-data-in-a-future-release)
 
 ## Observable Data
 
@@ -52,9 +51,7 @@ The following components support observable data for their `Data` parameter. Not
 * [TreeView]({%slug treeview-refresh-data%})
 
 
-## Telerik components that will support Observable Data in a future release
-
-The following components will receive this feature in a future release. You can currently refresh their Data by creating a [New collection reference](#refresh-data).
+You can refresh other components that do not support observable data by creating a [New collection reference](#refresh-data).
 
 * [Scheduler]({%slug scheduler-refresh-data%})
 
@@ -67,5 +64,5 @@ The following components will receive this feature in a future release. You can 
 
 ## See Also
 
-  * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui/)
+* [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
+* [Live Demos](https://demos.telerik.com/blazor-ui/)

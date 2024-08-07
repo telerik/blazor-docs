@@ -184,7 +184,7 @@ The Blazor Gantt component exposes templates for customizing the [Timeline]({%sl
 
 ## Toolbar
 
-The Blazor Gantt component has a dedicated toolbar for defining user actions. For the moment, they are mostly custom actions, but in future versions you will be able to add features like exporting there.
+The Blazor Gantt component has a dedicated toolbar for defining user actions.
 
 ## Scrolling
 

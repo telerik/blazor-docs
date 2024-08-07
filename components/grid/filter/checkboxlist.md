@@ -198,9 +198,7 @@ depending on how you filter the data so you may never be able to get back all va
             });
         }
 
-        // get custom filters data. In a future version you will be able to call these methods
-        // from the template initialization instead of here (or in OnRead) so that they fetch data
-        // only when the user actually needs filter values, instead of always - that could improve server performance
+        // Get custom filters data.
         await GetTeamOptions();
         await GetNameOptions();
     }

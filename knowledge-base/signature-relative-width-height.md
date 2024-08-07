@@ -40,7 +40,7 @@ A possible workaround is to change the component `Width` and `Height` at runtime
 1. [Use `JSInterop`](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/) to obtain the user screen size.
 1. Calculate and set the desired Signature `Width` and `Height`.
 1. If you need to resize the Signature on browser window resize, [use debouncing in the JavaScript event handler for better Blazor app performance](https://learn.microsoft.com/en-us/aspnet/core/blazor/performance?view=aspnetcore-8.0#dont-trigger-events-too-rapidly).
-1. [Remove the Signature from the page temporarily while changing its size](https://feedback.telerik.com/blazor/1588545). This may not be necessary in future versions.
+1. [Remove the Signature from the page temporarily while changing its size](https://feedback.telerik.com/blazor/1588545).
 
 >caption Resize Signature with the browser viewport
 
@@ -98,7 +98,7 @@ A possible workaround is to change the component `Width` and `Height` at runtime
     [JSInvokable("RecreateSignature")]
     public void RecreateSignature(int viewportWidth, int viewportHeight)
     {
-        // Hiding the Signature may not be necessary in future versions.
+        // Signature bug related to Width and Height changes
         // https://feedback.telerik.com/blazor/1588545
         ShowSignature = false;
 

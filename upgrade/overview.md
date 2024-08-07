@@ -99,7 +99,7 @@ While using a trial license, a watermark will be rendered over the components an
 
 If you have a commercial license, but you still see the trial watermark and banner, especially after publishing an app to a staging or live server, your build has used the trial `Telerik.Blazor.dll` assembly.
 
-The most common reason for the problem is that the framework decides to incorrectly copy a trial version of our assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework, and hopefully it will get fixed in future versions.
+The most common reason for the problem is that the framework decides to incorrectly copy a trial version of our assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework.
 
 To fix this in the meantime, try the following process (you can try a new test build after each step where you make a change):
 

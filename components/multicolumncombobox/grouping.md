@@ -79,8 +79,6 @@ The group headers stick to the top of the dropdown during scrolling. In other wo
 * One level of grouping is supported.
 * The `Placeholder` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
 * A grouped MultiColumnComboBox will provide a `Groups` property with a single [`GroupDescriptor`](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event]({%slug multicolumncombobox-events%}#onread). This will allow the developer to apply grouping with [manual data operations]({%slug common-features-data-binding-onread%}).
-* `GroupHeaderTemplate` and `GroupItemTemplate` will be introduced in a future version. Currently there is a bug in the Blazor framework that prevents us from supporting them.
-* Virtual scrolling with grouping will be supported in a future version.
 
 ## See Also
 

@@ -135,7 +135,7 @@ You can refresh the Scheduler data by using the Rebind method exposed to the ref
 
 ## Observable Data
 
->note The Scheduler will receive this feature in a future release. You can currently refresh its Data by creating a [New collection reference](#new-collection-reference).
+>note Refresh the Scheduler data by creating a [New collection reference](#new-collection-reference).
 
 @[template](/_contentTemplates/common/observable-data.md#observable-data)
 
