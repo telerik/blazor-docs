@@ -69,7 +69,7 @@ In this case, the Window will render inside the specified container and not as a
 
     <TelerikWindow ContainmentSelector="#window-container"
                    @bind-Width="@WindowWidth"
-                   Visible="@WindowVisible">
+                   @bind-Visible="@WindowVisible">
         <WindowActions>
             <WindowAction Name="Maximize" />
             <WindowAction Name="Close" />
