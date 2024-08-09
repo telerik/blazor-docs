@@ -82,15 +82,19 @@ To enable aggregates:
                     // you can use aggregates for other fields/columns by extracting the desired one by its
                     // field name and aggregate function from the AggregateResults collection
                     // The type of its Value is determined by the type of its field - decimal for the Salary field here
-                    decimal salaries = (decimal)context.AggregateResults
-                    .FirstOrDefault(r => r.AggregateMethodName == nameof(GridAggregateType.Sum) && r.Member == nameof(Employee.Salary))?.Value;
+                    if (context.AggregateResults.Any())
+                    {
+                        decimal salaries = (decimal)context.AggregateResults
+                        .FirstOrDefault(r => r.AggregateMethodName == nameof(GridAggregateType.Sum) && r.Member == nameof(Employee.Salary))?.Value;
+
+                        <span>Total salaries: @salaries.ToString("C0")</span>
+                    }
                 }
-                Total salaries: @salaries.ToString("C0")
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Team) Title="Team">
             <GroupHeaderTemplate>
-                @context.Value @* the default text you would get without the template *@              
+                @context.Value @* the default text you would get without the template *@
                 <span>Team size: @context.Count</span>
             </GroupHeaderTemplate>
             <GroupFooterTemplate>
@@ -120,13 +124,17 @@ To enable aggregates:
             <GroupFooterTemplate>
                 @*access the aggregates of the ActiveProjects column*@
                 All active projects: @context.Sum
-                <br />
-                @*access the aggregates of the other columns*@
-                Total teams: @context.AggregateResults[nameof(Employee.Team)].Count
-                <br />
-                Total employees: @context.AggregateResults[nameof(Employee.Name)].Count
-                <br />
-                Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")             
+
+                @* access the aggregates of the other columns if any *@
+                @if (context.AggregateResults.Any())
+                {
+                    <br />
+                    <span>Total teams: @context.AggregateResults[nameof(Employee.Team)].Count</span>
+                    <br />
+                    <span>Total employees: @context.AggregateResults[nameof(Employee.Name)].Count</span>
+                    <br />
+                    <span>Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")</span>
+                }
             </GroupFooterTemplate>
         </GridColumn>
     </GridColumns>
@@ -141,13 +149,13 @@ To enable aggregates:
         {
             Random rnd = new Random();
             GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                Salary = rnd.Next(1000, 5000),
-                ActiveProjects = i % 4 == 0 ? 2 : 5
-            });
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    Team = "Team " + i % 3,
+                    Salary = rnd.Next(1000, 5000),
+                    ActiveProjects = i % 4 == 0 ? 2 : 5
+                });
         }
     }
 
