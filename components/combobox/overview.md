@@ -115,13 +115,21 @@ The following parameters enable you to customize the [appearance]({%slug combobo
 
 The popup of the component can be additionally customized via nested tags:
 
-````
-<div class="skip-repl"></div>
-<TelerikComboBox>
+````CSHTML
+<TelerikComboBox Data="@Data"
+                 @bind-Value="@selectedRole"
+                 Width="300px"
+                 Placeholder="Please select your role, e.g. Developer">
     <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="..." />
+        <ComboBoxPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
     </ComboBoxSettings>
 </TelerikComboBox>
+
+@code {
+    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+
+    private string selectedRole { get; set; }
+}
 ````
 
 The ComboBox provides the following popup settings:

@@ -129,15 +129,23 @@ The following parameters enable you to customize the [appearance]({%slug multise
 
 ### Popup settings
 
-The popup of the component can be additionally customized via nested tags:
+The MultiSelect exposes settings for its dropdown (popup). To configure the options, declare a  `<MultiSelectPopupSettings>` tag inside a `<MultiSelectSettings>` tag:
 
-<div class="skip-repl"></div>
-````
-<TelerikMultiSelect>
+````CSHTML
+<TelerikMultiSelect Data="@Data"
+                    @bind-Value="@selectedRoles"
+                    Width="300px"
+                    Placeholder="Please select your role, e.g. Developer">
     <MultiSelectSettings>
-        <MultiSelectPopupSettings Height="..." />
+        <MultiSelectPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
     </MultiSelectSettings>
 </TelerikMultiSelect>
+
+@code {
+    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+
+    private List<string> selectedRoles { get; set; }
+}
 ````
 
 The MultiSelect provides the following popup settings:
