@@ -336,7 +336,7 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 * [In the `FontIcon` component](#fonticon-component).
 * In [Buttons]({%slug button-icons%}), [Menu items]({%slug menu-icons%}), [Drawer items]({%slug drawer-icons%}) and other [navigation components]({%slug blazor-overview%}#list-of-components).
 
-[Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, these are the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
+[Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
 
 
 ## See Also
