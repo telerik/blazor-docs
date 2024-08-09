@@ -31,7 +31,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-The Telerik Grid for Blazor does not support transposing. A transposed Grid requires a different architecture, implementation and UI. Thus, a transposed Grid must be a separate component, such as the [Telerik PropertyGrid for Blazor](https://feedback.telerik.com/blazor/1468343-propertygrid-property-grid-vertical-oriented-grid-with-cell-labels-in-column-1). Vote for the feature request and follow it to receive future status updates.
+The Telerik Grid for Blazor does not support transposing. A transposed Grid requires a different architecture, implementation and UI. Thus, a transposed Grid must be a separate component, such as the [Telerik PropertyGrid for Blazor](https://feedback.telerik.com/blazor/1468343-propertygrid-property-grid-vertical-oriented-grid-with-cell-labels-in-column-1). Vote for the feature request and follow it to receive status updates.
 
 ## Suggested Workarounds
 

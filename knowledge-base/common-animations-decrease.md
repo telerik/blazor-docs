@@ -105,4 +105,4 @@ You can also wrap the custom CSS in a `@media` query to capture users who have c
 
 ## Notes
 
-A setting might be exposed at component level for this in the future. You can track its status at [Modify default values of animations](https://feedback.telerik.com/blazor/1469662-way-to-modify-default-values-of-animations-such-as-duration-and-delay-for-a-component-such-as-combobox).
+A setting might be exposed at component level for this. Follow the feature request about [setting animation speed on popups](https://feedback.telerik.com/blazor/1586639-set-default-animation-speed-on-popups).

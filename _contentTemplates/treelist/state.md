@@ -554,9 +554,7 @@
 
 #get-column-state-from-code
 
-@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. This example also shows a workaround for getting the Field of the column that will be availale in a future release as part of the column state. *@
-
-@using Telerik.DataSource;
+@* Click the button, reorder some columns, maybe lock one of them, hide another, and click the button again to see how the state changes but the order of the columns in the state collection remains the same. *@
 
 <TelerikButton OnClick="@GetColumnsFromState">Get the state of the Columns</TelerikButton>
 
@@ -580,64 +578,36 @@
 </TelerikTreeList>
 
 @code {
-    public TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
-    
-    //part of workaround for getting the field too
-    public List<string> ColumnFields => new List<string>
-    {
-        nameof(Employee.Name),
-        nameof(Employee.Id),
-        nameof(Employee.EmailAddress),
-        nameof(Employee.HireDate)
-    };
-    public string Logger { get; set; } = String.Empty;
+    private TelerikTreeList<Employee>? TreeListRef { get; set; }
 
-    public async Task GetColumnsFromState()
+    private string Logger { get; set; } = String.Empty;
+
+    private List<Employee> Data { get; set; } = new();
+
+    private void GetColumnsFromState()
     {
-        // final part of the workaround for getting the field
-        var columnsState = TreeListRef.GetState().ColumnStates;
+        var columnsState = TreeListRef!.GetState().ColumnStates;
 
         int index = 0;
 
         foreach (var item in columnsState)
         {
-            string columnField = ColumnFields[index];
-
             bool isVisible = item.Visible != false;
 
-            string log = $"<p>Column: <strong>{columnField}</strong> | Index in TreeList: {item.Index} | Index in state: {index} | Visible: {isVisible} | Locked: {item.Locked}</p>";
+            string log = $"<p>Column: <strong>{item.Field}</strong> | Index in TreeList: {item.Index} | Index in state: {index} | Visible: {isVisible} | Locked: {item.Locked}</p>";
             Logger += log;
             index++;
         }
     }
 
-    public List<Employee> Data { get; set; }
-
-    // sample model
-
-    public class Employee
+    protected override void OnInitialized()
     {
-        // hierarchical data collections
-        public List<Employee> DirectReports { get; set; }
-
-        // data fields for display
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
+        Data = GetTreeListData();
     }
 
-    // data generation
-
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
     public int LastId { get; set; } = 1;
 
-    protected override async Task OnInitializedAsync()
-    {
-        Data = await GetTreeListData();
-    }
-
-    async Task<List<Employee>> GetTreeListData()
+    private List<Employee> GetTreeListData()
     {
         List<Employee> data = new List<Employee>();
 
@@ -684,7 +654,16 @@
             }
         }
 
-        return await Task.FromResult(data);
+        return data;
+    }
+
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string EmailAddress { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; }
+        public List<Employee>? DirectReports { get; set; }
     }
 }
 #end

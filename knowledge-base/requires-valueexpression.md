@@ -36,7 +36,7 @@ The most common reason for this error is a combination of the following:
 * The component does not use `@bind-Value="@myModel.MyField"`, but simply `Value="@myModel.MyField"`, or its `Value` is not even specified
 * The component is now in an `EditForm` but this may be coming from its parent component, but it is not prepared for that
 
-This error comes from the framework and applies to generic inputs as well, not only the Telerik components. At the time of writing, I was not able to find an official resource for the `ValueExpression` feature. The closest is the example for a `ValidationMessage` at [https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components). Hopefully, the validation documentation in MSDN will be updated to include information about this parameter in the future.
+This error comes from the framework and applies to generic inputs as well, not only the Telerik components. At the time of writing, an official resource for the `ValueExpression` feature was not readily available. The closest was the example for a `ValidationMessage` at [https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#validation-summary-and-validation-message-components).
 
 ## Solution
 
