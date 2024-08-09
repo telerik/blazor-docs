@@ -200,7 +200,7 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#implement-custom-svg-icon-classes). |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static [`ThemeConstants.SvgIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.size). |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.themecolor) properties. |
 
