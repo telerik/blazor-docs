@@ -31,6 +31,7 @@ This article contains the following sections:
     * [Use custom SVG icon collection](#use-custom-svg-icon-collection)
 * [Set global icon type for the whole application](#set-global-icon-type)
 * [Complete list of built-in icons](#icons-list)
+* [How to use custom icons](#custom-icon-support)
 
 
 ## How Icons Work
@@ -104,38 +105,43 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `FontIcon` `enum` | Any of the [built-in Telerik Blazor font icons](#icons-list). This parameter takes precedence over `IconClass`, if both are set. |
 | `IconClass` | `string` | Custom CSS class for a custom third-party icon. Do not use together with the `Icon` parameter. |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.FontIcon.Size` class. |
-| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.FontIcon.ThemeColor` class properties. By default, the icon color will inherit the current CSS text color. |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.FontIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.fonticon.size). |
+| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.FontIcon.ThemeColor` class](/blazor-ui/api/telerik.blazor.themeconstants.fonticon.themecolor) properties. By default, the icon color will inherit the current CSS text color. |
 
 >caption Using TelerikFontIcon
 
 ````CSHTML
-<TelerikFontIcon Icon="@FontIcon.FileAudio" />
+<p>
+    Font icon with default settings:
+    <TelerikFontIcon Icon="@FontIcon.Calculator" />
+</p>
 
-<span style="color: red;">
-    <TelerikFontIcon Icon="@FontIcon.Save" Size="lg" Flip="@IconFlip.Vertical" />
-</span>
+<p>
+    Large flipped font icon:
+    <TelerikFontIcon Icon="@FontIcon.FileAudio"
+                     Size="@ThemeConstants.FontIcon.Size.Large"
+                     Flip="@IconFlip.Vertical" />
+</p>
 
-<TelerikFontIcon Icon="@FontIcon.FileAudio"
-                 ThemeColor="@ThemeConstants.FontIcon.ThemeColor.Success" />
+<p style="color: blue;">
+    Font icon that inherits its color:
+    <TelerikFontIcon Icon="@FontIcon.Save" />
+</p>
 
-<TelerikFontIcon IconClass="my-icon-base my-custom-icon" />
+<p>
+    Font icon with ThemeColor:
+    <TelerikFontIcon Icon="@FontIcon.FileAudio"
+                     ThemeColor="@ThemeConstants.FontIcon.ThemeColor.Primary" />
+</p>
 
-<style>
-    .my-icon-base {
-        /* normally icon libraries have such a base class for the common styles */
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-    }
+<p>
+    Custom (<a href="https://github.com/FortAwesome/Font-Awesome">Font Awesome</a>) font icon:
+    <TelerikFontIcon IconClass="fa-regular fa-star" />
+    <TelerikButton Icon="@("fa-regular fa-star")">Button with Custom Font Icon</TelerikButton>
 
-    .my-custom-icon {
-        /* this is the icon-specific CSS class */
-        /* define a background image or a custom font icon here */
-        background: purple;
-    }
-</style>
+    <!-- Font Awesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</p>
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-code)
 ````
@@ -188,15 +194,15 @@ is the same as
 
 ## SvgIcon Component
 
-The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#icons-list) or a custom SVG icon. Here are the available configuration parameters:
+The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#icons-list) or a [custom SVG icon](#use-custom-svg-icon-collection). Here are the available configuration parameters:
 
 | Parameter | Type and Default&nbsp;Value | Description |
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#implement-custom-svg-icon-classes). |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static `ThemeConstants.SvgIcon.Size` class. |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
-| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static `ThemeConstants.SvgIcon.ThemeColor` class properties. |
+| `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.themecolor) properties. |
 
 >caption Using TelerikSvgIcon
 
@@ -242,11 +248,15 @@ The `ISvgIcon` interface members are:
 >caption Define custom SVG icon collection
 
 ````CSHTML
-Moon:
-<TelerikSvgIcon Icon="@MySvgIcons.Moon" />
+<p>
+    Moon:
+    <TelerikSvgIcon Icon="@MySvgIcons.Moon" />
 
-Circles:
-<TelerikSvgIcon Icon="@MySvgIcons.Circles" />
+    Circles:
+    <TelerikSvgIcon Icon="@MySvgIcons.Circles" />
+</p>
+
+<TelerikButton Icon="@MySvgIcons.Circles">Button with Custom SVG Icon</TelerikButton>
 
 @code {
     public class Moon : SvgIconBase
@@ -284,21 +294,22 @@ Circles:
 It is possible to configure the icon type for the whole application:
 
 1. Locate the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
-2. Set the `TelerikRootComponent` `IconType` parameter to an `IconType` enum value - `Svg` or `Font`.
-
->tip The default icon type is `Svg`.
-
-> The global `IconType` setting does not affect `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app. It will toggle the icon type of all other components, such as Button, Grid, etc.
+2. Set the RootComponent `IconType` parameter to an [`IconType` enum](/blazor-ui/api/telerik.blazor.icontype) value (`Svg` or `Font`). The default icon type is `Svg`.
 
 >caption Define global icon type via TelerikRootComponent
 
 <div class="skip-repl"></div>
 
 ````HTML
-<TelerikRootComponent IconType="@IconType.Svg">
+<TelerikRootComponent IconType="@IconType.Font">
     @Body
 </TelerikRootComponent>
 ````
+
+> The global `IconType` setting only affects built-in icons that the Telerik components render automatically and the developer cannot change. For example,the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList. The `IconType` parameter does not affect:
+>
+> * `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app.
+> * Icons in Buttons, Menu items, and other navigation components. Such icons are provided by the app and depend on the `Icon` or `IconField` parameters.
 
 
 ## Icons List
@@ -317,7 +328,19 @@ Each icon box in the icon list is clickable and reveals the following details:
 The icon list may contain icons which are not available in older versions of Telerik UI for Blazor or even in the latest one. Such icons will be added in the next product version.
 
 
+## Custom Icon Support
+
+Telerik UI for Blazor supports using custom (third-party) icons:
+
+* [In the `SvgIcon` component](#use-custom-svg-icon-collection).
+* [In the `FontIcon` component](#fonticon-component).
+* In [Buttons]({%slug button-icons%}), [Menu items]({%slug menu-icons%}), [Drawer items]({%slug drawer-icons%}) and other [navigation components]({%slug blazor-overview%}#list-of-components).
+
+[Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
+
+
 ## See Also
 
+* [Built-in Icon List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)
 * [Blazor Live Demos](https://demos.telerik.com/blazor-ui/)
-* [Kendo UI Web Font Icons Library](https://docs.telerik.com/kendo-ui/styles-and-layout/icons-web)
+* [CSS Themes]({%slug themes-built-in%})
