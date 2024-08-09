@@ -105,7 +105,7 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
 | `Icon` | `FontIcon` `enum` | Any of the [built-in Telerik Blazor font icons](#icons-list). This parameter takes precedence over `IconClass`, if both are set. |
 | `IconClass` | `string` | Custom CSS class for a custom third-party icon. Do not use together with the `Icon` parameter. |
-| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"` or `"sm"`. However, we recommend using the properties of the static [`ThemeConstants.FontIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.fonticon.size). |
+| `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.FontIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.fonticon.size). |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.FontIcon.ThemeColor` class](/blazor-ui/api/telerik.blazor.themeconstants.fonticon.themecolor) properties. By default, the icon color will inherit the current CSS text color. |
 
 >caption Using TelerikFontIcon
