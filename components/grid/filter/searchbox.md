@@ -8,22 +8,13 @@ published: True
 position: 20
 ---
 
-# Grid Toolbar SearchBox
+# Toolbar SearchBox
 
-In addition to [Grid filtering]({%slug components/grid/filtering%}), you can also add a `SearchBox` in the [Grid Toolbar]({%slug components/grid/features/toolbar%}). The search box can filter in multiple Grid columns at he same time.
+In addition to [Grid filtering]({%slug components/grid/filtering%}), you can enhance functionality by adding a SearchBox to the [Grid Toolbar]({%slug components/grid/features/toolbar%}). This search box filters multiple Grid columns simultaneously.
 
->caption In this Article:
+Users type their query, and the Grid performs a case-insensitive Contains search on all visible string columns, adjusting the filters accordingly. To customize the filter delay and selected fields, see the [Customize the SearchBox section](#customize-the-searchbox).
 
-* [Basics](#basics)
-* [Search from Code](#search-from-code)
-* [Customize the SearchBox](#customize-the-searchbox)
-
-
-## Basics
-
-The SearchBox lets the user type their query and the Grid will look up all visible `string` columns with a case-insensitive `Contains` operator, and filter them accordingly. To change the filter delay and the fields the Grid will use, see the [Customize the SearchBox](#customize-the-searchbox) section below.
-
-The SearchBox is independent from the Grid filtering. If the Grid has applied filters, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to search results.
+The SearchBox operates independently of Grid filtering, respecting existing filters and adding extra criteria to refine search results. To enable the SearchBox, include the <GridSearchBox> tag in the [<GridToolBarTemplate>]({%slug components/grid/features/toolbar%}).
 
 To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`]({%slug components/grid/features/toolbar%}).
 
@@ -79,7 +70,6 @@ You can set or remove the search filters programmatically through the `SearchFil
 ````
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
-
 
 ## Customize the SearchBox
 

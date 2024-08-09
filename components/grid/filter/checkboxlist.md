@@ -12,16 +12,14 @@ position: 15
 
 You can change the [filter menu]({%slug grid-filter-menu%}) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
 
-## Basic Setup
+## Enabling CheckBoxList Filtering
 
-To enable the checkbox list filtering in the grid:
+To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
 
-1. Set the `FilterMode` parameter of the grid to `Telerik.Blazor.GridFilterMode.FilterMenu`
-1. Set the `FilterMenuType` parameter of the grid to `Telerik.Blazor.FilterMenuType.CheckBoxList`. It defaults to `Menu` for the default behavior.
+1. Set the `FilterMode` parameter to `GridFilterMode.FilterMenu`
+1. Set the `FilterMenuType` parameter to `FilterMenuType.CheckBoxList`. It defaults to `Menu` for the default behavior.
 
-You can also change the filter menu behavior for a particular column - its own `FilterMenuType` parameter can be either `Menu` or `CheckBoxList` regardless of the main grid parameter. This lets you mix both modes as necessary for your application - you can either have all grid columns use the same mode with a single setting, or override it for a few columns that need the less common mode.
-
->caption CheckList filter in the grid
+>caption CheckList filter in the DataGrid
 
 ````CSHTML
 @* Checkbox List Filter for the Name, Team and Vacation columns, the ID column overrides it to Menu *@
@@ -65,24 +63,21 @@ You can also change the filter menu behavior for a particular column - its own `
 }
 ````
 
->caption The result from the snippet above
-
-![checbox list filter in action](images/checklist-filter-overview.gif)
-
-
 ## Custom Data
 
-By default, the grid takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
+By default, the Telerik Grid takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
-When using the [`OnRead` event]({%slug components/grid/manual-operations%}) to customize the data operations and/or perform them on the server/service, the grid will only have the current page of data. This will limit the options the user will see so you may want to provide the full list.
+Using the [OnRead event]({%slug components/grid/manual-operations%}) to customize or perform data operations on the server/service limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
 
-To customize the checkbox list behavior, you should use the [filter menu template]({%slug grid-templates-filter%}#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default grid UI. It provides the following settings:
+To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug grid-templates-filter%}#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. It provides the following settings:
 
-* `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the grid without any additional code through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`)..
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* `Data` - the data that will be rendered in the checkbox list. This is where you can supply the desired options to change what the grid displays.
-
-* `Field` - the field from the data that will be used to take the `Distinct` options. It must match the name and type of the column field for which this filter is defined. This lets you use the same models that the grid uses, or to define smaller models to reduce the data you fetch for the filter lists.
+| Parameter | Description |
+|---------------------|------------------|
+| `FilterDescriptor`  | The filter descriptor where filters populate when checkboxes are selected. The component creates and reads descriptors, allowing easy grid integration through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`). |
+| `Data` | The data that renders in the checkbox list. Use this parameter to supply the desired options to change what the grid displays. |
+| `Field` | The field from the data used for Distinct options must match the column field's name and type. This allows using the same models as the Grid or defining smaller models to reduce data fetched for filter lists. |
 
 >caption Provide all filtering options when using OnRead
 
