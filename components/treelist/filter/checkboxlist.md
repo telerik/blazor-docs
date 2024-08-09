@@ -176,9 +176,7 @@ In this sample the Team column lets you filter only by the CEO Team settings, or
     {
         Data = await GetTreeListData();
 
-        // get custom filters data. In a future version you will be able to call these methods
-        // from the template initialization instead of here so that they fetch data
-        // only when the user actually needs filter values, instead of always - that could improve server performance
+        // Get custom filters data.
         await GetTeamNameOptions();
     }
 

@@ -143,7 +143,7 @@ Call the `NotifyFieldChanged()` method of the `EditContext` to let it know it ne
 
 ## Notes
 
-If the model has validation attached, updating the `EditContext` does not update the validation. At the time of writing, there does not seem to be API that can achieve this and calling `NotifyValidationStateChanged()` does not seem to have an effect, even though it might in future framework versions.
+If the model has validation attached, updating the `EditContext` does not update the validation. At the time of writing, there does not seem to be API that can achieve this and calling `NotifyValidationStateChanged()` does not seem to have an effect, even though this might change in other framework versions.
 
 ## See Also
 

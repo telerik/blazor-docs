@@ -56,7 +56,7 @@ Generally, there are **four** ways to customize the appearance of the Telerik Bl
 
 To change the sizing and layout of most or all our components, go for manual theme build. For minor adjustments here and there, consider overrides only.
 
-The final decision depends on what and how much you need to customize and what future requirements may appear.
+The final decision depends on what and how much you need to customize and what other requirements may appear.
 
 [**Figma UI Kits**](https://www.telerik.com/figma-kits) allow designers to include visual representations of the Telerik components in their application designs. Custom kits still [require you to create a custom theme afterwards]({%slug ui-kits/themes%}#choosing-how-to-use-the-ui-kits).
 

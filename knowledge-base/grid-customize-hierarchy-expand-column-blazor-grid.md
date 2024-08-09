@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 By default, the hierarchy expand/collapse column in the Telerik UI for Blazor [Grid]({%slug grid-overview%}) is not declared in the markup like the other data-bound columns. It renders automatically when a `DetailTemplate` is added to the Grid. At the time of writing (UI for Blazor **6.0.2**), this built-in hierarchy expand/collapse column does not support being locked or other common configurations like managing its position, setting its width, or adding a title.
 
->tip In a future UI for Blazor version, the Grid will support [controlling the position of the expand column](https://feedback.telerik.com/blazor/1647135-ability-to-control-the-position-of-the-expand-column-in-a-hierarchical-grid).
+>tip Vote for and follow the [feature request for the Grid to support controlling the position of the expand column](https://feedback.telerik.com/blazor/1647135-ability-to-control-the-position-of-the-expand-column-in-a-hierarchical-grid).
 
 To customize the hierarchy expand/collapse column, follow these steps:
 
