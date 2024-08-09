@@ -309,7 +309,7 @@ It is possible to configure the icon type for the whole application:
 > The global `IconType` setting only affects built-in icons that the Telerik components render automatically and the developer cannot change. For example,the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList. The `IconType` parameter does not affect:
 >
 > * `<TelerikFontIcon>` and `<TelerikSvgIcon>` instances in the app.
-> * Icons in Buttons, Menu items, and other navigation components. Such icons are provided by the app and depend on `Icon` or `IconField` parameters.
+> * Icons in Buttons, Menu items, and other navigation components. Such icons are provided by the app and depend on the `Icon` or `IconField` parameters.
 
 
 ## Icons List
