@@ -43,7 +43,9 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 | `MaxWidth` | `string` | The maximum width of the popup. |
 | `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 
-The above parameters that modify the popup dimentions, like `Height`, `Width`, `MaxWidth` etc. expect a [valid CSS values]({%slug common-features/dimensions%}). Note that, the `MinHeight` and `MaxHeight` have no effect if the `Height` is always within their range. The min and max values are valuable only when the dropdown height is set to a relative unit or changes at runtime.
+The parameters that modify the popup dimensions (`Height`, `Width`, `MaxWidth`, etc.) expect [valid CSS values]({%slug common-features/dimensions%}). 
+
+The `MinHeight` and `MaxHeight` have no effect if the `Height` is always within their range. The min and max values are useful only when the dropdown height is set to a relative unit or changes at runtime.
 
 >If the **Virtualization** feature is enabled, it's important to note that the **auto** popup width functionality doesn't work as expected. In this scenario, the dropdown popup width does not dynamically adjust based on the data items. When dealing with virtualization and long items, specifying a fixed popup `Width` becomes imperative. For example, set a fixed width like `"300px"`. To determine this fixed width value, you can identify the longest item in the dropdown collection and calculate the required pixel width based on it.
 #end
