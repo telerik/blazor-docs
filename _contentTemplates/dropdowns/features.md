@@ -34,7 +34,7 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `AnimationDuration` | `int` <br /> (`300`) | Sets the dropdown animation duration in milliseconds. |
+| `AnimationDuration` | `int` <br /> (`300`) | The dropdown animation duration in milliseconds. |
 | `Class` | `string` | Additional CSS class to customize the appearance of the popup. |
 | `Height` | `string` | The height of the popup. The default value is `"200px"`. If set to `"auto"`, the component will automatically adjust the popup height based on the number of items and available space.<br/>Setting `MaxHeight` disables the built-in screen boundary detection. This means that the component will no longer adjust the dropdown height to fit within the viewport. |
 | `MinHeight`| `string` | The minimum height of the popup. |
