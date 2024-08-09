@@ -110,7 +110,7 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 ### Popup settings
 
-The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare a  `<AutoCompletePopupSettings>` tag inside a `<AutoCompleteSettings>` tag:
+The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare an  `<AutoCompletePopupSettings>` tag inside the `<AutoCompleteSettings>` tag:
 
 ````CSHTML
 <TelerikAutoComplete Data="@Data"
