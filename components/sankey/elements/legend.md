@@ -19,13 +19,13 @@ To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | [`SankeyLegendAlign` enum](/blazor-ui/api/telerik.blazor.sankeylegendalign) <br/> (`SankeyLegendAlign.Start`) | The alignment of the legend. |
+| `Align` | [`SankeyLegendAlign` enum](/blazor-ui/api/telerik.blazor.sankeylegendalign) <br/> (`Start`) | The alignment of the legend. |
 | `Background` | `string`  | The background color of the legend. |
 | `Height` | `double?`  | The height of the legend. |
 | `OffsetX` | `double?`  | The X offset of the legend. The offset is relative to the current position of the legend. |
 | `OffsetY` | `double?`  | The Y offset of the legend. The offset is relative to the current position of the legend. |
-| `Orientation` | [`SankeyLegendOrientation` enum](/blazor-ui/api/telerik.blazor.sankeylegendorientation) <br/> (`SankeyLegendOrientation.Horizontal`)  | The orientation of the legend. |
-| `Position` | [`SankeyLegendPosition` enum](/blazor-ui/api/telerik.blazor.sankeylegendposition) <br/> (`SankeyLegendPosition.Bottom`)| The position of the legend. |
+| `Orientation` | [`SankeyLegendOrientation` enum](/blazor-ui/api/telerik.blazor.sankeylegendorientation) <br/> (`Horizontal`)  | The orientation of the legend. |
+| `Position` | [`SankeyLegendPosition` enum](/blazor-ui/api/telerik.blazor.sankeylegendposition) <br/> (`Bottom`)| The position of the legend. |
 | `Reverse` | `double?`  | Whether the legend items are reversed. |
 | `Spacing` | `double?`  | The spacing between the labels of the legend. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the legend is visible. |
