@@ -40,7 +40,7 @@ The built-in ProseMirror schema that the Editor uses does not support an `<i>` t
 
 ### Add Icons in Iframe Edit Mode
 
-When the [EditMode of the Editor is set to `EditorEditMode.Iframe`]({%slug editor-edit-modes-iframe%}), the content area is an editable `<iframe>` element that does not inherit the CSS rules from the current page.
+When the [Editor `EditMode` is set to `EditorEditMode.Iframe`]({%slug editor-edit-modes-iframe%}), the content area is inside an `<iframe>` element that does not apply the CSS rules from the current page.
 
 This means that you need to inject the icons stylesheet into the `<iframe>`, so the icons are properly rendered. At the time of writing (UI for Blazor **6.1.0**), [the Editor does not support injecting your CSS files into the Iframe](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe) but you can inject them with JSInterop in the `OnAfterRenderAsync`.
 
