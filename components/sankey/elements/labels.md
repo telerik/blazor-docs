@@ -39,7 +39,7 @@ By design, the labels do not have border. You may add border by declaring the `<
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
-| `DashType` | [`DashType` enum](/blazor-ui/api/telerik.blazor.dashtype) <br/> (`DashType.Solid`) | The type of the border. |
+| `DashType` | [`DashType` enum](/blazor-ui/api/telerik.blazor.dashtype) <br/> (`Solid`) | The style of the border. |
 | `Width` | `double?` <br/> (`0`)| The width of the border. |
 
 ### Margin
