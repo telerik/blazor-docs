@@ -21,7 +21,7 @@ To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `ColorType` | `SankeyLinksColorType` enum <br /> (`Static`) | The origin of the link color: <ul><li>`Static` - the link color is based on the `Color` property;</li><li>`Source` - the link color is based on the source node color; </li><li>`Target` - the link color is based on the target node color; </li></ul> |
+| `ColorType` | [`SankeyLinksColorType` enum](/blazor-ui/api/telerik.blazor.sankeylinkscolortype) <br /> (`Static`) | The origin of the link color: could be based on the `Color` property, on the source node color, or on the target node color. |
 | `Color` | `string` <br/> (`#666666`) | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
 | `Opacity` | `double?` <br/> (`0.4`) | The opacity of the links. |
 
@@ -36,52 +36,50 @@ The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows
 
 ## Example
 
-Here is an example customization of the links in the Sankey Diagram.
+>caption Customizing the links in the Sankey diagram
 
 ````CSHTML
 <TelerikSankey Data="@Data"
-               Width="700px"
+               DisableAutoLayout="true"
                Height="400px">
     <SankeyLinks ColorType="@SankeyLinksColorType.Target" Opacity="0.5">
-               <SankeyLinksHighlight Opacity="0.7" InactiveOpacity="0.2"></SankeyLinksHighlight>
+        <SankeyLinksHighlight Opacity="0.7" InactiveOpacity="0.2"></SankeyLinksHighlight>
     </SankeyLinks>
 </TelerikSankey>
 
 @code {
-    private SankeyData Data { get; set; }
-    private string EventLog { get; set; } = string.Empty;
-
-    #region Data generation
+    private SankeyData? Data { get; set; }
 
     protected override void OnInitialized()
     {
+        var sourceNodes = 3;
+        var destinationNodes = 3;
+
         Data = new SankeyData()
             {
                 Nodes = new SankeyDataNodes(),
                 Links = new SankeyDataLinks()
             };
 
-        Data.Nodes.Add(new SankeyDataNode() { Id = 1, Label = new SankeyDataNodeLabel() { Text = "Tablet (12%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 2, Label = new SankeyDataNodeLabel() { Text = "Mobile (40%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 3, Label = new SankeyDataNodeLabel() { Text = "Desktop (48%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 4, Label = new SankeyDataNodeLabel() { Text = "< 18 years (8%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 5, Label = new SankeyDataNodeLabel() { Text = "18-26 years (35%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 6, Label = new SankeyDataNodeLabel() { Text = "27-40 years (38%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 7, Label = new SankeyDataNodeLabel() { Text = "> 40 years (19%)" } });
+        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
+        {
+            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
+            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
+        }
 
-
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 7, Value = 8 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 5, Value = 24 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 6, Value = 10 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 7, Value = 2 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 5, Value = 11 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 6, Value = 28 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 7, Value = 9 });
+        for (int i = 1; i <= sourceNodes; i++)
+        {
+            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
+            {
+                Data.Links.Add(new SankeyDataLink()
+                    {
+                        SourceId = i,
+                        TargetId = j,
+                        Value = Random.Shared.Next(5, 30)
+                    });
+            }
+        }
     }
-
-    #endregion Data generation
 }
 ````
 

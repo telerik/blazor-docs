@@ -26,13 +26,13 @@ The `<SankeyTitle>` tag exposes the following parameters for customization of th
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | `SankeyTitleAlign` enum | The alignment of the title. |
+| `Align` | [`SankeyTitleAlign` enum](/blazor-ui/api/telerik.blazor.sankeytitlealign) <br/> (`Left`) | The alignment of the title. |
 | `Background` | `string`  | The background color of the title. |
-| `Color` | `string`  | The text color of the title. |
+| `Color` | `string` <br/> (`rgb(66, 66, 66)`)  | The text color of the title. |
 | `Description` | `string`  | The accessible description of the Sankey. Added as `aria-label` to the `<div class="k-sankey">` element. |
-| `Font` | `string`  | The font of the title. |
-| `Position` | `SankeyTitlePosition` enum | The position of the title. |
-| `Visible` | `bool?` <br/> (`true`) | Whether the title is visible.|
+| `Font` | `string` <br/> (`16px Helvetica Neue, Helvetica, Arial, sans-serif`) | The font of the title. |
+| `Position` | [`SankeyTitlePosition` enum](/blazor-ui/api/telerik.blazor.sankeytitleposition) <br/> (`Top`)| The position of the title. |
+| `Visible` | `bool?` <br/> (`true`) | Whether the title is visible. |
 
 ### Nested Customization Tags
 
@@ -44,53 +44,52 @@ The `<SankeyTitle>` tag exposes nested tags for further customization. The struc
 
 ## Example
 
-Example customization the Sankey title by using nested tag settings.
+>caption Customizing the Sankey title by using nested tag settings
 
 ````CSHTML
 <TelerikSankey Data="@Data"
-               Width="1000px"
+               DisableAutoLayout="true"
                Height="400px">
     <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
-    <SankeyTitle Text="Device usage by age groups" Description="Device usage by age groups" Font="bold 17px sans-serif">
-        <SankeyTitleBorder Color="grey" DashType="@DashType.Solid" Width="1"/>
-       <SankeyTitleMargin Bottom="10"/>
-   </SankeyTitle>
+    <SankeyTitle Text="Sample Sankey Diagram" Description="Sample Sankey Diagram" Font="bold 17px sans-serif">
+        <SankeyTitleBorder Color="grey" DashType="@DashType.Solid" Width="1" />
+        <SankeyTitleMargin Bottom="10" />
+    </SankeyTitle>
 </TelerikSankey>
 
 @code {
-    private SankeyData Data { get; set; }
-
-    #region Data generation
+    private SankeyData? Data { get; set; }
 
     protected override void OnInitialized()
     {
+        var sourceNodes = 3;
+        var destinationNodes = 3;
+
         Data = new SankeyData()
             {
                 Nodes = new SankeyDataNodes(),
                 Links = new SankeyDataLinks()
             };
 
-        Data.Nodes.Add(new SankeyDataNode() { Id = 1, Label = new SankeyDataNodeLabel() { Text = "Tablet (12%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 2, Label = new SankeyDataNodeLabel() { Text = "Mobile (40%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 3, Label = new SankeyDataNodeLabel() { Text = "Desktop (48%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 4, Label = new SankeyDataNodeLabel() { Text = "< 18 years (8%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 5, Label = new SankeyDataNodeLabel() { Text = "18-26 years (35%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 6, Label = new SankeyDataNodeLabel() { Text = "27-40 years (38%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 7, Label = new SankeyDataNodeLabel() { Text = "> 40 years (19%)" } });
+        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
+        {
+            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
+            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
+        }
 
-
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 7, Value = 8 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 5, Value = 24 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 6, Value = 10 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 7, Value = 2 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 5, Value = 11 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 6, Value = 28 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 7, Value = 9 });
+        for (int i = 1; i <= sourceNodes; i++)
+        {
+            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
+            {
+                Data.Links.Add(new SankeyDataLink()
+                    {
+                        SourceId = i,
+                        TargetId = j,
+                        Value = Random.Shared.Next(5, 30)
+                    });
+            }
+        }
     }
-
-    #endregion Data generation
 }
 ````
 
