@@ -1,5 +1,5 @@
 ---
-title: Add Icons in Editor
+title: Add Font Icons in Editor
 description: How to allow inserting <i> tags in the Editor for Blazor to render custom icons in the Editor content?
 type: how-to
 page_title: Add Icons in Editor
