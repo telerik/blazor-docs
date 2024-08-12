@@ -29,7 +29,7 @@ The `SankeyDataLink` object contains all the information for the link. It expose
 
 | Property | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `ColorType` | `SankeyLinksColorType` enum <br/> (`SankeyLinksColorType.Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
+| `ColorType` | `SankeyLinksColorType` enum <br/> (`Static`) | The color type of the link. Provides the following values <ul><li>`Static` the link color is set based on the `Color` property;</li><li>`Source` - the link color is set based on the source node color; </li><li>`Target` - the link color is set based on the target node color; </li></ul> |
 | `Color` | `string` <br/> (`#666666`)  | The color of the link. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
 | `Highlight` | [`SankeyDataLinkHighlight`](/blazor-ui/api/Telerik.Blazor.Components.SankeyDataLinkHighlight) | The opacity of the active and inactive links when the user hovers a link. |
 | `Opacity` | `double?` <br/> (`0.4`) | The opacity of the link. |
