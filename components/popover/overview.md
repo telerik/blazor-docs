@@ -97,19 +97,24 @@ To execute Popover methods, obtain a reference to the component instance with `@
 
 ````CSHTML
 <TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target">
+                AnchorSelector=".popover-target"
+                Position="@PopoverPosition.Bottom"
+                Offset="20">
     <PopoverContent>
-        I am a Telerik Popover
+        Telerik Popover for Blazor
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@( () => PopoverRef?.Hide() )"
+                       Icon="@SvgIcon.X">Hide</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<TelerikButton OnClick="@(() => PopoverRef.Show())" Class="popover-target">Show the Popover</TelerikButton>
+<TelerikButton OnClick="@( () => PopoverRef?.Show() )">Show Popover</TelerikButton>
+
+<TelerikSvgIcon Class="popover-target" Icon="@SvgIcon.QuestionCircle" />
 
 @code{
-    private TelerikPopover PopoverRef { get; set; }
+    private TelerikPopover? PopoverRef { get; set; }
 }
 ````
 
