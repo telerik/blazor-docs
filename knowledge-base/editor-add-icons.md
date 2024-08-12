@@ -44,7 +44,7 @@ When the [Editor `EditMode` is set to `EditorEditMode.Iframe`]({%slug editor-edi
 
 This means that you need to inject the icons stylesheet into the `<iframe>`, so the icons are properly rendered. At the time of writing (UI for Blazor **6.1.0**), [the Editor does not support injecting your CSS files into the Iframe](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe) but you can inject them with JSInterop in the `OnAfterRenderAsync`.
 
->caption Add icons in an Editor with Iframe Edit Mode
+>caption Add icons in an Editor with Iframe edit mode
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
@@ -75,7 +75,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 <script suppress-error="BL9992">
 
     //define the icon node
-    var icon = {
+    var iconNode = {
         attrs: {
             class: { default: null },
             type: { default: null },
@@ -104,7 +104,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
-        let nodes = schema.spec.nodes.addToEnd("i", icon);
+        let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
         const newSchema = new Schema({ nodes });
         return newSchema;
@@ -115,15 +115,13 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         var doc = document.querySelector("iframe").contentWindow.document;
         var head = doc.querySelector("head");
 
-        var cssLink1 = document.createElement("link");
-        cssLink1.href = "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css";
-        cssLink1.rel = "stylesheet";
-        cssLink1.type = "text/css";
+        var bootstrapCssLink = document.createElement("link");
+        bootstrapCssLink.href = "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css";
+        bootstrapCssLink.rel = "stylesheet";
 
-        var cssLink2 = document.createElement("link");
-        cssLink2.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
-        cssLink2.rel = "stylesheet";
-        cssLink2.type = "text/css";
+        var fontAwesomeCssLink = document.createElement("link");
+        fontAwesomeCssLink.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+        fontAwesomeCssLink.rel = "stylesheet";
 
         head.appendChild(bootstrapCssLink);
         head.appendChild(fontAwesomeCssLink);
@@ -138,7 +136,7 @@ When the [Editor `EditMode` is set to `EditorEditMode.Div`]({%slug editor-edit-m
 
 This allows you to include the icon stylesheets in the `<head>` of the web page along with the other stylesheets. 
 
->caption Add icons in an Editor with Div Edit Mode
+>caption Add icons in an Editor with Div edit mode
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
@@ -166,7 +164,7 @@ Make sure to use the correct way and resources for your actual project *@
 <script suppress-error="BL9992">
 
     //define the icon node
-    var icon = {
+    var iconNode = {
         attrs: {
             class: { default: null },
             type: { default: null },
@@ -196,11 +194,16 @@ Make sure to use the correct way and resources for your actual project *@
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
-        let nodes = schema.spec.nodes.addToEnd("i", icon);
+        let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
         const newSchema = new Schema({ nodes });
         return newSchema;
     }
 
 </script>
-```
+````
+
+## See Also
+
+* [Editor Custom Tools]({%slug editor-custom-tools%})
+* [Modify the ProseMirror Schema]({%slug editor-modify-default-schema%})
