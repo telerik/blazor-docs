@@ -136,7 +136,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 
 When the [Editor `EditMode` is set to `EditorEditMode.Div`]({%slug editor-edit-modes-div%}), the content area is a `<div contenteditable="true">` element that inherits the CSS rules from the current page.
 
-This allows you to include the icons stylesheet in the `<head>` of the web page along with the other stylesheets. 
+This allows you to include the icon stylesheets in the `<head>` of the web page along with the other stylesheets. 
 
 >caption Add icons in an Editor with Div Edit Mode
 
