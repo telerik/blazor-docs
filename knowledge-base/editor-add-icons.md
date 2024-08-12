@@ -5,7 +5,7 @@ type: how-to
 page_title: Add Icons in Editor
 slug: editor-kb-add-icons
 position: 
-tags: editor, blazor, icon, schema, prosemirror
+tags: blazor, editor, prosemirror, schema, icon
 ticketid: 
 res_type: kb
 ---
