@@ -19,13 +19,13 @@ To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | `SankeyLegendAlign` enum | The alignment of the legend. |
+| `Align` | [`SankeyLegendAlign` enum](/blazor-ui/api/telerik.blazor.sankeylegendalign) <br/> (`Start`) | The alignment of the legend. |
 | `Background` | `string`  | The background color of the legend. |
 | `Height` | `double?`  | The height of the legend. |
 | `OffsetX` | `double?`  | The X offset of the legend. The offset is relative to the current position of the legend. |
 | `OffsetY` | `double?`  | The Y offset of the legend. The offset is relative to the current position of the legend. |
-| `Orientation` | `SankeyLegendOrientation` enum <br/> (`SankeyLegendOrientation.Horizontal`)  | The orientation of the legend. |
-| `Position` | `SankeyLegendPosition` enum <br/> (`SankeyLegendPosition.Bottom`)| The position of the legend. |
+| `Orientation` | [`SankeyLegendOrientation` enum](/blazor-ui/api/telerik.blazor.sankeylegendorientation) <br/> (`Horizontal`)  | The orientation of the legend. |
+| `Position` | [`SankeyLegendPosition` enum](/blazor-ui/api/telerik.blazor.sankeylegendposition) <br/> (`Bottom`)| The position of the legend. |
 | `Reverse` | `double?`  | Whether the legend items are reversed. |
 | `Spacing` | `double?`  | The spacing between the labels of the legend. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the legend is visible. |
@@ -52,57 +52,56 @@ The `<SankeyLegend>` tag exposes nested tags for further customization of the se
 
 ## Example
 
-Customize the Sankey legend by using nested tag settings.
+>caption Customizing the Sankey legend by using nested tag settings
 
 ````CSHTML
 <TelerikSankey Data="@Data"
-               Width="1000px"
+               DisableAutoLayout="true"
                Height="400px">
-    <SankeyLinks ColorType="@SankeyLinksColorType.Source"/>
+    <SankeyLinks ColorType="@SankeyLinksColorType.Source" />
     <SankeyLegend Position="@SankeyLegendPosition.Top" Background="rgba(255, 99, 88, 0.1)">
         <SankeyLegendTitle Text="Device usage by age groups" Font="bold 17px sans-serif">
             <SankeyLegendTitlePadding Bottom="20"></SankeyLegendTitlePadding>
-        </SankeyLegendTitle>        
-        <SankeyLegendItem AreaOpacity="0.7"/>
+        </SankeyLegendTitle>
+        <SankeyLegendItem AreaOpacity="0.7" />
         <SankeyLegendMargin Bottom="20" />
-        <SankeyLegendPadding Top="10" Bottom="10"/>
+        <SankeyLegendPadding Top="10" Bottom="10" />
     </SankeyLegend>
 </TelerikSankey>
 
 @code {
-    private SankeyData Data { get; set; }
-
-    #region Data generation
+    private SankeyData? Data { get; set; }
 
     protected override void OnInitialized()
     {
+        var sourceNodes = 3;
+        var destinationNodes = 3;
+
         Data = new SankeyData()
             {
                 Nodes = new SankeyDataNodes(),
                 Links = new SankeyDataLinks()
             };
 
-        Data.Nodes.Add(new SankeyDataNode() { Id = 1, Label = new SankeyDataNodeLabel() { Text = "Tablet (12%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 2, Label = new SankeyDataNodeLabel() { Text = "Mobile (40%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 3, Label = new SankeyDataNodeLabel() { Text = "Desktop (48%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 4, Label = new SankeyDataNodeLabel() { Text = "< 18 years (8%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 5, Label = new SankeyDataNodeLabel() { Text = "18-26 years (35%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 6, Label = new SankeyDataNodeLabel() { Text = "27-40 years (38%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 7, Label = new SankeyDataNodeLabel() { Text = "> 40 years (19%)" } });
+        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
+        {
+            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
+            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
+        }
 
-
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 7, Value = 8 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 5, Value = 24 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 6, Value = 10 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 7, Value = 2 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 5, Value = 11 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 6, Value = 28 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 7, Value = 9 });
+        for (int i = 1; i <= sourceNodes; i++)
+        {
+            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
+            {
+                Data.Links.Add(new SankeyDataLink()
+                    {
+                        SourceId = i,
+                        TargetId = j,
+                        Value = Random.Shared.Next(5, 30)
+                    });
+            }
+        }
     }
-
-    #endregion Data generation
 }
 ````
 

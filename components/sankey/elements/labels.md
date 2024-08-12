@@ -21,10 +21,10 @@ To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | `string` | The alignment of the labels. |
-| `Color` | `string` | The color of the labels. |
-| `Font` | `string` | The font of the labels. |
-| `Position` | `string` <br/> (`inside`) | The position of the labels. The supported values are: <ul><li>`inside` - the label is positioned after the node, except for the nodes at the end of the Sankey, that are placed before the node;</li><li>`before` - the label is positioned before the node; </li><li>`after` - the label is positioned after the node; </li></ul> |
+| `Align` | [`SankeyLabelsAlign` enum](/blazor-ui/api/telerik.blazor.sankeylabelsalign) <br/> (`Left`) | The alignment of the labels. |
+| `Color` | `string` <br/> (`rgb(66, 66, 66)`) | The color of the labels. |
+| `Font` | `string` <br/> (`14px Metric, Arial, Helvetica, sans-serif`)| The font of the labels. |
+| `Position` | [`SankeyLabelsPosition` enum](/blazor-ui/api/telerik.blazor.sankeylabelsposition) <br/> (`Inside`) | The position of the labels. |
 | `Visible` | `bool` <br/> (`true`) | Whether the labels are visible. |
 
 
@@ -39,8 +39,8 @@ By design, the labels do not have border. You may add border by declaring the `<
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the border. |
-| `DashType` | `DashType` enum <br/> (`DashType.Solid`) | The type of the border. |
-| `Width` | `double?` | The width of the border. |
+| `DashType` | [`DashType` enum](/blazor-ui/api/telerik.blazor.dashtype) <br/> (`Solid`) | The style of the border. |
+| `Width` | `double?` <br/> (`0`)| The width of the border. |
 
 ### Margin
 
@@ -78,16 +78,15 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | `Color` | `string` | The color of the stroke. |
-| `LineJoin` | `string` | The [line join](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin) of the stroke. |
-| `Left` | `double?` | The width of the stroke. |
+| `Width` | `double?` <br/> (`0`) | The width of the stroke. |
 
 ## Example
 
-Here is an example customization of the labels in the Sankey diagram.
+>caption Customizing the labels in the Sankey diagram
 
 ````CSHTML
 <TelerikSankey Data="@Data"
-               Width="700px"
+               DisableAutoLayout="true"
                Height="400px">
     <SankeyLabels Font="Monaco">
         <SankeyLabelsBorder Color="black" DashType="@DashType.LongDash" Width="1"></SankeyLabelsBorder>
@@ -97,40 +96,38 @@ Here is an example customization of the labels in the Sankey diagram.
 </TelerikSankey>
 
 @code {
-    private SankeyData Data { get; set; }
-    private string EventLog { get; set; } = string.Empty;
-
-    #region Data generation
+    private SankeyData? Data { get; set; }
 
     protected override void OnInitialized()
     {
+        var sourceNodes = 3;
+        var destinationNodes = 3;
+
         Data = new SankeyData()
             {
                 Nodes = new SankeyDataNodes(),
                 Links = new SankeyDataLinks()
             };
 
-        Data.Nodes.Add(new SankeyDataNode() { Id = 1, Label = new SankeyDataNodeLabel() { Text = "Tablet (12%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 2, Label = new SankeyDataNodeLabel() { Text = "Mobile (40%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 3, Label = new SankeyDataNodeLabel() { Text = "Desktop (48%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 4, Label = new SankeyDataNodeLabel() { Text = "< 18 years (8%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 5, Label = new SankeyDataNodeLabel() { Text = "18-26 years (35%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 6, Label = new SankeyDataNodeLabel() { Text = "27-40 years (38%)" } });
-        Data.Nodes.Add(new SankeyDataNode() { Id = 7, Label = new SankeyDataNodeLabel() { Text = "> 40 years (19%)" } });
+        for (int i = 1; i <= sourceNodes + destinationNodes; i++)
+        {
+            var nodeDescriptor = i <= sourceNodes ? "Source" : "Destination";
+            Data.Nodes.Add(new SankeyDataNode() { Id = i, Label = new SankeyDataNodeLabel() { Text = $"{nodeDescriptor} {i}" } });
+        }
 
-
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 1, TargetId = 7, Value = 8 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 4, Value = 4 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 5, Value = 24 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 6, Value = 10 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 2, TargetId = 7, Value = 2 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 5, Value = 11 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 6, Value = 28 });
-        Data.Links.Add(new SankeyDataLink() { SourceId = 3, TargetId = 7, Value = 9 });
+        for (int i = 1; i <= sourceNodes; i++)
+        {
+            for (int j = sourceNodes + 1; j <= sourceNodes + destinationNodes; j++)
+            {
+                Data.Links.Add(new SankeyDataLink()
+                    {
+                        SourceId = i,
+                        TargetId = j,
+                        Value = Random.Shared.Next(5, 30)
+                    });
+            }
+        }
     }
-
-    #endregion Data generation
 }
 ````
 
