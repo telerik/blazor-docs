@@ -30,7 +30,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-The built-in ProseMirror schema that the Editor uses does not support an `<i>` tag. To allow adding icons in the Editor content:
+The default schema of the Telerik Editor does not include an `<i>` tag, so the Editor strips such elements automatically. To allow adding font icons through `<i>` tags in the Editor content:
 
 1. [Modify the ProseMirror schema]({%slug editor-modify-default-schema%}) to include a node for the `<i>` element.
 2. Ensure the required font icon stylesheets can affect the Editor content. The approach varies depending on the [edit mode of the Editor]({%slug editor-edit-modes-overview%}):
