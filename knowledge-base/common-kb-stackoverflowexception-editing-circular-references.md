@@ -1,5 +1,5 @@
 ---
-title: How to Resolve StackOverflowException When Editing Items with Circular References in ListView for Blazor
+title: StackOverflowException When Editing Items with Circular References in ListView for Blazor
 description: This article describes how to avoid a StackOverflowException by modifying object properties to prevent circular references when editing items in the ListView, Grid or TreeList for Blazor.
 type: troubleshooting
 page_title: How to Edit Items with Circular References in ListView for Blazor Without Encountering StackOverflowException
