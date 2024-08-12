@@ -15,20 +15,32 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 ## Creating Blazor Popup
 
 1. Add the `<TelerikPopup>` tag to a Razor file.
-1. Obtain the component reference through `@ref`.
-1. Use the [Show](#popup-reference-and-methods) method to display the `<TelerikPopup>`.
+1. Set the `AnchorSelector` parameter to a CSS selector, which points to the HTML element that the Popup will align with.
+1. [Obtain the component reference to show and hide the Popover programmatically](#popup-reference-and-methods).
+1. (optional) Set the Popup `Width` and `Height`, or configure animations.
 
 >caption Basic configuration of the Telerik Popup for Blazor
 
 ````CSHTML
-<TelerikPopup AnchorSelector=".popup-target" @ref="@PopupRef">
-    I am a Telerik Popup.
+<TelerikPopup @ref="@PopupRef"
+              AnchorSelector=".popup-target"
+              AnimationType="@AnimationType.SlideDown"
+              AnimationDuration="200"
+              Width="200px"
+              Height="100px">
+    <div style="text-align: center;">
+        <p>Telerik Popup for Blazor</p>
+        <TelerikButton OnClick="@( () => PopupRef?.Hide() )"
+                       Icon="@SvgIcon.XCircle">Close</TelerikButton>
+    </div>
+
 </TelerikPopup>
 
-<TelerikButton OnClick="@(() => PopupRef.Show())" Class="popup-target">Show the Popup</TelerikButton>
+<TelerikButton OnClick="@( () => PopupRef?.Show() )"
+               Class="popup-target">Show Popup</TelerikButton>
 
 @code {
-    private TelerikPopup PopupRef { get; set; }
+    private TelerikPopup? PopupRef { get; set; }
 }
 ````
 
@@ -68,7 +80,7 @@ The following parameters enable you to customize the appearance of the Blazor Po
 | --- | --- | --- |
 | `Class` | `string` | The custom CSS class to be rendered on the `<div>` element, which wraps the component `ChildContent`. Use for [styling customizations]({%slug themes-override%}). |
 | `Height` | `string` | The height of the Popup. |
-| `Width` | `string` | The width of the Popup. |
+| `Width` | `string` | The width of the Popup. If not set, the component width will match the anchor width. |
 
 ## Popup Reference and Methods
 
@@ -76,23 +88,36 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 
 | Method  | Description |
 |---------|-------------|
-| `Refresh` | Use this method to programmatically re-render the Popup. <br /> The Popup is rendered as a child of the `TelerikRootComponent`, instead of where it is declared. As a result, it doesn't automatically refresh when its content is updated. In such cases, the `Refresh` method comes in handy to ensure that the Popup content is up-to-date. |
-| `Show` | Use this method to display the Popup. |
-| `Hide` | Use this method to close the Popup. |
+| `Refresh` | Re-renders the Popup. <br /> The Popup renders as a child of the `TelerikRootComponent`, instead of where it is declared. As a result, it doesn't automatically refresh when its content is updated. In such cases, the `Refresh` method ensures that the Popup content is up-to-date. |
+| `Show` | Displays the Popup. |
+| `Hide` | Closes the Popup. |
 
 ````CSHTML
-<TelerikButton OnClick="@ShowPopup" Class="popup-target">Show the Popup</TelerikButton>
+<TelerikButton OnClick="@TogglePopup"
+               Class="popup-target">Toggle Popup</TelerikButton>
 
-<TelerikPopup AnchorSelector=".popup-target" @ref="@PopupRef">
-    I am a Telerik Popup! 
+<TelerikPopup @ref="@PopupRef"
+              AnchorSelector=".popup-target">
+    Telerik Popup for Blazor
 </TelerikPopup>
 
 @code {
-    private TelerikPopup PopupRef { get; set; }
+    private TelerikPopup? PopupRef { get; set; }
 
-    private void ShowPopup()
+    private bool PopupVisible { get; set; }
+
+    private void TogglePopup()
     {
-        PopupRef.Show();
+        if (!PopupVisible)
+        {
+            PopupVisible = true;
+            PopupRef?.Show();
+        }
+        else
+        {
+            PopupVisible = false;
+            PopupRef?.Hide();
+        }
     }
 }
 ````
