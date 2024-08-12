@@ -58,7 +58,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 </TelerikEditor>
 
 @code {
-    private string EditorValue { get; set; } = @"Here is an example icon in the Editor content <i class='fa fa-info-circle'></i>";
+    private string EditorValue { get; set; } = @"<p>Here is an example icon in the Editor content <i class='fa fa-info-circle'></i></p>";
 
     private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() { new ViewHtml() };
 
