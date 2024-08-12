@@ -73,13 +73,11 @@ Pie series
 }
 ````
 
-## Pie Chart Specific Appearance Settings
-
-### Rotation
+## Rotation
 
 By default, the first segment starts at the top. You can change that by using the `StartAngle` property of the series.
 
-### Color Field
+## Color Field
 
 You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
@@ -131,7 +129,7 @@ Set color to the pie chart items
 }
 ````
 
-### Exploded Segment
+## Exploded Segment
 
 You can have some of the segments of the pie separated from the rest of the circle with a small margin. This helps bring attention to them as outliers or as important bits that the viewer should focus on.
 
@@ -185,7 +183,7 @@ Separate items from the main body of the chart
 }
 ````
 
-### Visible In Legend
+## Visible In Legend
 
 You can hide certain segments from the legend (for example, if their contribution is insignificantly small). To do this, add a boolean field to the model and set its name to the `VisibleInLegendField` property of the pie series. The flags in this field will denote whether the particular item will be rendered in the legend.
 
@@ -242,10 +240,118 @@ Show only some items in the legend
 }
 ````
 
+## Width and Height
+
+The main part of the Pie Chart is a circle. Thus, you may need to set both the `Width` and `Height` parameters to achieve the desired layout and dimensions. By default, the Chart container `<div>` expands horizontally to 100% and the height is set to `"400px"` in the CSS theme.
+
+>caption Setting Pie Chart Width and Height
+
+````CSHTML
+Chart Width
+<TelerikDropDownList Data="@ChartDimensions"
+                     Value="@ChartWidth"
+                     ValueChanged="@( async (string newValue) => {
+                                          ChartWidth = newValue;
+                                          await RefreshChart();
+                                      } )"
+                     DefaultText="100%"
+                     Width="120px" />
+Chart Height
+<TelerikDropDownList Data="@ChartDimensions"
+                     Value="@ChartHeight"
+                     ValueChanged="@( async (string newValue) => {
+                                          ChartHeight = newValue;
+                                          await RefreshChart();
+                                      } )"
+                     Width="120px" />
+
+Chart Legend Position
+<TelerikDropDownList Data="@ChartLegendPositions"
+                     @bind-Value="@ChartLegendPosition"
+                     Width="120px" />
+
+<TelerikChart @ref="ChartRef"
+              Width="@ChartWidth"
+              Height="@ChartHeight"
+              Class="chart-border">
+    <ChartSeriesItems>
+        <ChartSeries Type="ChartSeriesType.Pie"
+                     Data="@PieData"
+                     Field="@nameof(PieChartModel.Value)"
+                     CategoryField="@nameof(PieChartModel.Category)">
+        </ChartSeries>
+    </ChartSeriesItems>
+
+    <ChartTitle Text="Revenue per product"></ChartTitle>
+
+    <ChartLegend Position="@ChartLegendPosition">
+    </ChartLegend>
+</TelerikChart>
+
+<style>
+	/* Make the Chart dimensions more evident. */
+    .chart-border {
+        border: 1px solid #ccc;
+    }
+</style>
+
+@code {
+    private TelerikChart? ChartRef { get; set; }
+
+    private List<string> ChartDimensions { get; set; } = new List<string>() { "200px", "400px", "600px", "800px" };
+
+    private List<ChartLegendPosition> ChartLegendPositions { get; set; } = new List<ChartLegendPosition>() {
+        ChartLegendPosition.Top,
+        ChartLegendPosition.Bottom,
+        ChartLegendPosition.Left,
+        ChartLegendPosition.Right
+    };
+
+    private string? ChartWidth { get; set; }
+    private string ChartHeight { get; set; } = "400px";
+    private ChartLegendPosition ChartLegendPosition { get; set; } = ChartLegendPosition.Right;
+
+    private async Task RefreshChart()
+    {
+        // The Chart renders in the browser and must receive its new dimension parameters first.
+        // The Task.Delay() triggers parameter update before the Chart actually re-renders.
+        await Task.Delay(1);
+
+        ChartRef?.Refresh();
+    }
+
+    private List<PieChartModel> PieData = new List<PieChartModel>() {
+        new PieChartModel
+        {
+            Category = "Product 1",
+            Value = 2
+        },
+        new PieChartModel
+        {
+            Category = "Product 2",
+            Value = 3
+        },
+        new PieChartModel
+        {
+            Category = "Product 3",
+            Value = 4
+        }
+    };
+
+    public class PieChartModel
+    {
+        public string Category { get; set; } = string.Empty;
+        public double Value { get; set; }
+    }
+}
+````
+
+## Other Settings
+
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings-axis-free)
 
 ## See Also
 
-  * [Live Demo: Pie Chart](https://demos.telerik.com/blazor-ui/chart/pie-chart)
+* [Live Demo: Pie Chart](https://demos.telerik.com/blazor-ui/chart/pie-chart)
