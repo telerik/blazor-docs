@@ -125,8 +125,8 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         cssLink2.rel = "stylesheet";
         cssLink2.type = "text/css";
 
-        head.appendChild(cssLink1);
-        head.appendChild(cssLink2);
+        head.appendChild(bootstrapCssLink);
+        head.appendChild(fontAwesomeCssLink);
     };
 
 </script>
