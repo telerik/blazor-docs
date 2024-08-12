@@ -52,7 +52,7 @@ The `SankeyDataNode` object contains all the information for the node and its la
 | `Opacity` | `double?` <br/> (`1`) | The opacity of the node. |
 | `Padding` | `double?` | The minimum vertical space between two nodes. |
 | `Width` | `double?` <br/> (`24`)| The width of the node. |
-| `Align` | [`SankeyNodesAlign?` enum](/blazor-ui/api/telerik.blazor.sankeynodesalign) <br/> (`SankeyNodesAlign.Stretch`) | The alignment of the node.|
+| `Align` | [`SankeyNodesAlign?` enum](/blazor-ui/api/telerik.blazor.sankeynodesalign) <br/> (`Stretch`) | The alignment of the node.|
 
 >tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data).  If you want to apply the same settings for all the nodes and labels in the Sankey use the component options for [nodes]({%slug sankey-nodes%}) and [labels]({%slug sankey-labels%}).
 
