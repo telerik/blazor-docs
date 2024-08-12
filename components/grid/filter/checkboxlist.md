@@ -77,7 +77,7 @@ To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug gr
 |---------------------|------------------|
 | `FilterDescriptor`  | The filter descriptor where filters populate when checkboxes are selected. The component creates and reads descriptors, allowing easy grid integration through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`). |
 | `Data` | The data that renders in the checkbox list. Use this parameter to supply the desired options to change what the grid displays. |
-| `Field` | The field from the data used for Distinct options must match the column field's name and type. This allows using the same models as the Grid or defining smaller models to reduce data fetched for filter lists. |
+| `Field` | The field from the data used for distinct options must match the column field's name and type. This allows using the same models as the Grid or defining smaller models to reduce data fetched for filter lists. |
 
 >caption Provide all filtering options when using OnRead
 
