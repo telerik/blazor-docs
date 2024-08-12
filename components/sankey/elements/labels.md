@@ -24,7 +24,7 @@ To customize the labels, declare a `<SankeyLabels>` tag as a direct child of `<T
 | `Align` | [`SankeyLabelsAlign` enum](/blazor-ui/api/telerik.blazor.sankeylabelsalign) <br/> (`Left`) | The alignment of the labels. |
 | `Color` | `string` <br/> (`rgb(66, 66, 66)`) | The color of the labels. |
 | `Font` | `string` <br/> (`14px Metric, Arial, Helvetica, sans-serif`)| The font of the labels. |
-| `Position` | [`SankeyLabelsPosition` enum](/blazor-ui/api/telerik.blazor.sankeylabelsposition) <br/> (`SankeyLabelsPosition.Inside`) | The position of the labels. |
+| `Position` | [`SankeyLabelsPosition` enum](/blazor-ui/api/telerik.blazor.sankeylabelsposition) <br/> (`Inside`) | The position of the labels. |
 | `Visible` | `bool` <br/> (`true`) | Whether the labels are visible. |
 
 
