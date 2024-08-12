@@ -15,7 +15,7 @@ ticketid: 1660663, 1592634
     <tbody>
         <tr>
             <td>Product</td>
-            <td>ListView for Blazor, <br/> Grid for Blazor, <br /> TreeList for Blazor, <br />  Gantt for Blazor, <br /> Scheduler for Blazor</td>
+            <td>ListView for Blazor, <br/>Grid for Blazor, <br />TreeList for Blazor, <br />Gantt for Blazor, <br />Scheduler for Blazor</td>
         </tr>
     </tbody>
 </table>
