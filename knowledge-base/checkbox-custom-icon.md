@@ -31,17 +31,24 @@ This knowledge base article answers the following questions:
 
 ## Solution
 1. Set a custom CSS class to the Tooltip through the `Class` parameter. This configuration will allow you to target specific Checkbox instances.
-2. Use the defiend class to [Override the theme styles]({%slug themes-override%}) with the following CSS approach.
+2. Use the defiend class to [override the theme styles]({%slug themes-override%}) with the following CSS approach.
 
 >caption How to change the Checkbox icons
 
 ````CSHTML
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<TelerikButton ThemeColor="primary" OnClick="@( _ => IndeterminateValue = null )">Make indeterminate</TelerikButton>
-<br />
-<br />
-<TelerikCheckBox @bind-Value="@IndeterminateValue" Size="lg" Indeterminate="@( !IndeterminateValue.HasValue )" Class="custom-icons" />
-<label>Checkbox</label>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+<p>
+    <label>
+        <TelerikCheckBox @bind-Value="@CheckBoxValue"
+                         Size="@ThemeConstants.CheckBox.Size.Large"
+                         Indeterminate="@( !CheckBoxValue.HasValue )"
+                         Class="custom-icons" />
+        Custom CheckBox
+    </label>
+
+    <TelerikButton OnClick="@( () => CheckBoxValue = null )">Make Indeterminate</TelerikButton>
+</p>
 
 <style>
     /* Set the Font Awesome family and weight for custom checkbox icons */
@@ -57,8 +64,7 @@ This knowledge base article answers the following questions:
 
         /* Set the Font Awesome check mark icon for the checked state */
         .custom-icons.k-checkbox:checked:before {
-            content: "\f00c"; /* Checkmark icon */
-            margin-left: 1px;
+            content: "\f058"; /* Check Circle icon */
         }
 
     /* Remove the default background image for indeterminate state */
@@ -66,15 +72,15 @@ This knowledge base article answers the following questions:
         background-image: none;
     }
 
-        /* Set the Font Awesome minus icon for the indeterminate state */
+        /* Set the Font Awesome question icon for the indeterminate state */
         .custom-icons.k-checkbox:indeterminate:before {
-            content: "\f068"; /* Minus icon */
-            margin-left: 1px;
+            content: "\3f"; /* Question icon */
+            margin-left: 3px;
         }
 </style>
 
 @code {
-    private bool? IndeterminateValue { get; set; }
+    private bool? CheckBoxValue { get; set; }
 }
 ````
 
