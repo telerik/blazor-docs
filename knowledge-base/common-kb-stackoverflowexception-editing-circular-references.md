@@ -26,7 +26,7 @@ I get a `StackOverflowException` when attempting to edit an item in the [ListVie
 
 ## Cause
 
-The data-bound components that allow editing (for example ListView, Grid, TreeList and more) create a copy of the original object when the user initiates editing.
+The data-bound components that allow editing (for example ListView, Grid, TreeList, and more) create a copy of the original object when the user initiates editing.
 
 Our internal object cloning algorithm uses reflection to loop through the object properties and copy them in the cloned object. When the model contains a self-reference object property, the cloning logic loops again and again resulting in an infinite reflection loop and this causes the  `StackOverflowException` exception.
 
