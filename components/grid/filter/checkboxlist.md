@@ -69,7 +69,7 @@ By default, the Telerik Grid takes the `Distinct` values from its `Data` to popu
 
 Using the [`OnRead` event]({%slug components/grid/manual-operations%}) to customize or perform data operations on the server/service limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
 
-To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug grid-templates-filter%}#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. It provides the following settings:
+To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug grid-templates-filter%}#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. The template provides the following settings:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
