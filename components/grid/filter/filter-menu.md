@@ -64,7 +64,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterMenu
 
 ## Filter From Code
 
-To programatically filter the Grid, read the [Grid State]({%slug grid-state%}) documentation article.
+To learn how to programmatically filter the Grid, refer to the [Grid State]({%slug grid-state%}) documentation article.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
