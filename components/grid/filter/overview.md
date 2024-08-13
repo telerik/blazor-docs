@@ -45,7 +45,7 @@ Each `CompositeFilterDescriptor` includes a collection of filter descriptors, wh
 
 * [Filter Menu]({%slug grid-filter-menu%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. The filter values from separate filter operators in the menu are stored in different filter descriptor instances within the `CompositeFilterDescriptor` for that field.
 
-* [SearchBox]({%slug grid-searchbox%}) - A `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all string fields, adding a dedicated FilterDescriptor instance for each string field. Each FilterDescriptor contains the filter value typed in the SearchBox.
+* [SearchBox]({%slug grid-searchbox%})&mdash;A `CompositeFilterDescriptor` is created in the state when the user types in the search box. By default, it targets all string fields, adding a dedicated filter descriptor instance for each string field. Each filter descriptor contains the filter value typed in the search box.
 
 
 ## Custom Filtering
