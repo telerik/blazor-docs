@@ -15,28 +15,36 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 ## Creating Blazor Popover
 
 1. Add the `<TelerikPopover>` tag to a Razor file.
-1. Obtain a `@ref` of the component.
+1. Set the `AnchorSelector` parameter to a CSS selector, which points to the HTML element that the Popover will align with.
+1. Configure how the app will show and hide the Popover component. Use one or both options below:
+    * Set the `ShowOn` parameter to an `PopoverShowOn` enum value to set which user interaction with the anchor will display the Popover automatically.
+    * [Obtain the component reference with the `@ref` attribute](#popover-reference-and-methods) to show and hide the Popover programmatically.
 1. Add the content to the `<PopoverContent>` child tag.
-1. Use the [`Show`](#popover-reference-and-methods) method to display the `<TelerikPopover>`.
-1. (optional) Add a title inside a `<PopoverHeader>` tag. HTML markup and child components are supported, too.
+1. (optional) Configure the Popover `Position` and `Offset`, or add a title inside the `<PopoverHeader>` tag.
 
->caption Basic configuration of the Telerik Popover for Blazor
+>caption Basic Telerik Popover for Blazor
 
 ````CSHTML
 <TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target">
+                AnchorSelector=".popover-target"
+                ShowOn="@PopoverShowOn.Click"
+                Position="@PopoverPosition.Bottom"
+                Offset="20">
     <PopoverContent>
-        I am a Telerik Popover
+        Telerik Popover for Blazor
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@( () => PopoverRef?.Hide() )"
+                       Icon="@SvgIcon.X">Close</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<TelerikButton OnClick="@(() => PopoverRef.Show())" Class="popover-target">Show the Popover</TelerikButton>
+<TelerikButton Class="popover-target">Show Popover Automatically</TelerikButton>
+
+<TelerikButton OnClick="@( () => PopoverRef?.Show() )">Show Popover Programmatically</TelerikButton>
 
 @code{
-    private TelerikPopover PopoverRef { get; set; }
+    private TelerikPopover? PopoverRef { get; set; }
 }
 ````
 
@@ -64,7 +72,7 @@ The Blazor Popover provides parameters to configure the component. Also check th
 | `Offset` | `double ` | The space between the Popover and its anchor in pixels. |
 | `Position` | `PopoverPosition  ` enum <br /> (`Top`) | The position relative to the target element at which the Popover will be shown. [Read more about Popover position...]({%slug popover-position-collision%}) |
 | `ShowCallout` | `bool` <br /> (`true`) | Defines if the callout is rendered. |
-| `ShowOn` | `PopOverShowOn?` enum <br /> (`null`) | The browser event that will display the Popover (`MouseEnter` or `Click`). When you set the `ShowOn` parameter to `Click`, the Popover will hide when the user clicks outside the component. If the parameter's value is `MouseEnter`, the Popover will hide when the mouse pointer leaves. |
+| `ShowOn` | `PopOverShowOn?` enum <br /> (`null`) | The browser event that will display the Popover (`MouseEnter` or `Click`) without the need to [use component methods](#popover-reference-and-methods). When you set the `ShowOn` parameter to `Click`, the Popover will hide when the user clicks outside the component. If the parameter value is `MouseEnter`, the Popover will hide when the mouse pointer leaves. |
 
 ### Styling and Appearance
 
@@ -88,19 +96,24 @@ To execute Popover methods, obtain a reference to the component instance with `@
 
 ````CSHTML
 <TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target">
+                AnchorSelector=".popover-target"
+                Position="@PopoverPosition.Bottom"
+                Offset="20">
     <PopoverContent>
-        I am a Telerik Popover
+        Telerik Popover for Blazor
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@( () => PopoverRef?.Hide() )"
+                       Icon="@SvgIcon.X">Hide</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
-<TelerikButton OnClick="@(() => PopoverRef.Show())" Class="popover-target">Show the Popover</TelerikButton>
+<TelerikButton OnClick="@( () => PopoverRef?.Show() )">Show Popover</TelerikButton>
+
+<TelerikSvgIcon Class="popover-target" Icon="@SvgIcon.QuestionCircle" />
 
 @code{
-    private TelerikPopover PopoverRef { get; set; }
+    private TelerikPopover? PopoverRef { get; set; }
 }
 ````
 
