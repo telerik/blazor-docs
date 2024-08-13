@@ -41,7 +41,7 @@ The Grid filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/T
 
 Each `CompositeFilterDescriptor` includes a collection of filter descriptors, where all descriptors in the collection are applied with an AND or OR logical operator.
 
-* [Filter Row]({%slug grid-filter-row%}) - Each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator, with the filter value stored in the first FilterDescriptor instance for that field.
+* [Filter Row]({%slug grid-filter-row%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator, with the filter value stored in the first filter descriptor instance for that field.
 
 * [Filter Menu]({%slug grid-filter-menu%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. The filter values from separate filter operators in the menu are stored in different filter descriptor instances within the `CompositeFilterDescriptor` for that field.
 
