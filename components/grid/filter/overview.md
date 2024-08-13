@@ -15,7 +15,7 @@ This article explains the available filtering modes in the Telerik Grid for Blaz
 
 ## FilterRow
 
-The `FilterRow` filtering mode renders a row below the column headers with a UI for filling in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [FilterRow documentation article...]({%slug grid-filter-row%})
+The FilterRow filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria. Read more about enabling and fine-tuning the filtering row in the [FilterRow documentation article...]({%slug grid-filter-row%})
 
 ## FilterMenu
 
