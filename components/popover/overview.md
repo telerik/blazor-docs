@@ -16,12 +16,11 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 
 1. Add the `<TelerikPopover>` tag to a Razor file.
 1. Set the `AnchorSelector` parameter to a CSS selector, which points to the HTML element that the Popover will align with.
-1. Set the `ShowOn` parameter to an `PopoverShowOn` enum value to set which user interaction with the anchor will display the Popover automatically.
-1. [Obtain the component reference with the `@ref` attribute](#popover-reference-and-methods) to show and hide the Popover programmatically.
+1. Configure how the app will show and hide the Popover component. Use one or both options below:
+    * Set the `ShowOn` parameter to an `PopoverShowOn` enum value to set which user interaction with the anchor will display the Popover automatically.
+    * [Obtain the component reference with the `@ref` attribute](#popover-reference-and-methods) to show and hide the Popover programmatically.
 1. Add the content to the `<PopoverContent>` child tag.
 1. (optional) Configure the Popover `Position` and `Offset`, or add a title inside the `<PopoverHeader>` tag.
-
-Steps 3 and 4 are optional, but you must implement at least one of them.
 
 >caption Basic Telerik Popover for Blazor
 
