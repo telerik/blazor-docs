@@ -10,7 +10,7 @@ position: 5
 
 # Grid Filter Row
 
-The `FilterRow` filtering mode renders a row below the column headers with UI that you can use to fill in the filter criteria.
+The FilterRow filtering mode renders a row below the column headers, providing a UI where you can fill in the filter criteria.
 
 The Grid applies the filters as the user types in the filtering input. 
 
