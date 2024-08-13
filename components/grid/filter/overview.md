@@ -132,7 +132,7 @@ The following articles and sample projects can be helpful when implementing filt
 
 ## Notes
 
-The grid uses `Activator.CreateInstance<TItem>();` to obtain the item's type it is bound to, enabling it to generate accurate filters and filter operators. To facilitate this, ensure that the Model has a parameterless constructor defined. If your model has no parameterless constructor use the [OnModelInit event]({%slug grid-events%}#onmodelinit).
+The Grid uses `Activator.CreateInstance<TItem>();` to obtain the item's type it is bound to, enabling it to generate accurate filters and filter operators. To facilitate this, ensure you define a parameterless constructor for the model. If your model has no parameterless constructor use the [`OnModelInit` event]({%slug grid-events%}#onmodelinit).
 
 ## See Also
 
