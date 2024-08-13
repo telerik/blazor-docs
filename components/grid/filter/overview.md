@@ -29,7 +29,7 @@ In addition to the two main filtering modes, the grid offers two more features t
 
 ### ToolBar SearchBox
 
-The ToolBar of the Telerik Grid for Blazor includes a [SearchBox]({%slug grid-searchbox%}), that lets users amend filters and search across multiple fields simultaneously.
+The ToolBar of the Telerik Grid for Blazor includes a [SearchBox]({%slug grid-searchbox%}) that lets users amend filters and search across multiple fields simultaneously.
 
 ### CheckBoxList
 
