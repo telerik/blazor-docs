@@ -37,7 +37,7 @@ The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%
 
 ## Filter Descriptors
 
-The Grid filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+The Grid filter state is stored in [`CompositeFilterDescriptors`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
 
 Each `CompositeFilterDescriptor` includes a collection of filter descriptors, where all descriptors in the collection are applied with an AND or OR logical operator.
 
