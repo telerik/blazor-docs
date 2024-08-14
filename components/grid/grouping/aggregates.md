@@ -64,7 +64,11 @@ To enable aggregates:
 >caption Use Aggregates in the Telerik Blazor Grid
 
 ````CSHTML
-<TelerikGrid Data=@GridData Groupable="true" Height="700px">
+@using Telerik.DataSource
+
+<TelerikGrid Data=@GridData
+             Groupable="true"
+             OnStateInit="@( (GridStateEventArgs<Employee> args) => OnGridStateInit(args) )">
     <GridAggregates>
         <GridAggregate Field=@nameof(Employee.Name) Aggregate="@GridAggregateType.Count" />
         <GridAggregate Field=@nameof(Employee.Team) Aggregate="@GridAggregateType.Count" />
@@ -76,33 +80,36 @@ To enable aggregates:
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Name) Groupable="false">
             <FooterTemplate>
-                Total: @context.Count employees
+                Total employees: @context.Count
                 <br />
                 @{
                     // you can use aggregates for other fields/columns by extracting the desired one by its
                     // field name and aggregate function from the AggregateResults collection
                     // The type of its Value is determined by the type of its field - decimal for the Salary field here
-                    decimal salaries = (decimal)context.AggregateResults
+                    decimal? salaries = (decimal?)context.AggregateResults
                     .FirstOrDefault(r => r.AggregateMethodName == nameof(GridAggregateType.Sum) && r.Member == nameof(Employee.Salary))?.Value;
+
+                    <span>Total salaries: @salaries?.ToString("C0")</span>
                 }
-                Total salaries: @salaries.ToString("C0")
             </FooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.Team) Title="Team">
             <GroupHeaderTemplate>
-                @context.Value @* the default text you would get without the template *@              
-                <span>Team size: @context.Count</span>
+                <span>
+                    @context.Value @* the default text you would get without the template *@
+                    with employee count: @context.Count
+                </span>
             </GroupHeaderTemplate>
             <GroupFooterTemplate>
                 Team Members: <strong>@context.Count</strong>
             </GroupFooterTemplate>
         </GridColumn>
-        <GridColumn Field=@nameof(Employee.Salary) Title="Salary" Groupable="false">
+        <GridColumn Field=@nameof(Employee.Salary) Title="Salary" Groupable="false" DisplayFormat="{0:C0}">
             <GroupFooterTemplate>
                 @* you can use a group footer for non-groupable columns as well *@
-                Total salaries: @context.Sum
+                Total salaries: @context.Sum?.ToString("C0")
                 <br />
-                <span style="color: red;">Highest: @context.Max</span>
+                <span style="color: red;">Highest: @context.Max?.ToString("C0")</span>
             </GroupFooterTemplate>
         </GridColumn>
         <GridColumn Field=@nameof(Employee.ActiveProjects) Title="Active Projects">
@@ -119,14 +126,15 @@ To enable aggregates:
             </GroupHeaderTemplate>
             <GroupFooterTemplate>
                 @*access the aggregates of the ActiveProjects column*@
-                All active projects: @context.Sum
+                Active projects in team: @context.Sum
+
+                @* access the aggregates of the other columns if any *@
                 <br />
-                @*access the aggregates of the other columns*@
-                Total teams: @context.AggregateResults[nameof(Employee.Team)].Count
+                <span>Total teams: @context.AggregateResults[nameof(Employee.Team)]?.Count</span>
                 <br />
-                Total employees: @context.AggregateResults[nameof(Employee.Name)].Count
+                <span>Total employees: @context.AggregateResults[nameof(Employee.Name)]?.Count</span>
                 <br />
-                Average salary: @context.AggregateResults[nameof(Employee.Salary)].Average.Value.ToString("C0")             
+                <span>Average salary: @context.AggregateResults[nameof(Employee.Salary)]?.Average?.ToString("C0")</span>
             </GroupFooterTemplate>
         </GridColumn>
     </GridColumns>
@@ -135,19 +143,26 @@ To enable aggregates:
 @code {
     private List<Employee> GridData { get; set; } = new();
 
+    private void OnGridStateInit(GridStateEventArgs<Employee> args)
+    {
+        args.GridState.GroupDescriptors.Add(new GroupDescriptor()
+            {
+                Member = nameof(Employee.Team)
+            });
+    }
+
     protected override void OnInitialized()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 1; i <= 5; i++)
         {
-            Random rnd = new Random();
             GridData.Add(new Employee()
-            {
-                EmployeeId = i,
-                Name = "Employee " + i.ToString(),
-                Team = "Team " + i % 3,
-                Salary = rnd.Next(1000, 5000),
-                ActiveProjects = i % 4 == 0 ? 2 : 5
-            });
+                {
+                    EmployeeId = i,
+                    Name = $"Employee {i}",
+                    Team = $"Team {i % 2 + 1}",
+                    Salary = Random.Shared.Next(1000, 5000),
+                    ActiveProjects = i % 4 == 0 ? 2 : 5
+                });
         }
     }
 
