@@ -10,28 +10,18 @@ position: 10
 
 # Grid Filter Menu
 
-One of the [filter modes of the grid]({%slug components/grid/filtering%}) is a popup menu with filter options that you can open from the column headers.
+The `FilterMenu` filter mode renders a button in the column header. When you click the button, a popup with filtering options appears. The popup allows you to apply two filter criteria, choose a suitable filter operator and buttons to apply, or clear the filter.
 
-In this article:
+## Enabling Filter Menu
 
-* [Basics](#basics)
-* [Filter From Code](#filter-from-code)
-* [Customization](#customization)
-
-## Basics
-
-To enable the filter menu, set the `FilterMode` property of the grid to `Telerik.Blazor.GridFilterMode.FilterMenu`.
-
-The grid will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
-
-The filter is applied only upon a button click, not upon input change. This may improve performance if you use [manual CRUD operations]({%slug components/grid/manual-operations%}) by reducing the number of requests compared to using the [Filter Row]({%slug grid-filter-row%}).
+Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterMenu`.
 
 >caption Filter Menu in Telerik Grid
 
 ````CSHTML
 @* Filter menu in the column header *@
 
-<TelerikGrid Data=@GridData FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu"
+<TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterMenu"
 			 Pageable="true" Height="400px">
 	<GridColumns>
 		<GridColumn Field=@nameof(Employee.Name) />
@@ -72,32 +62,19 @@ The filter is applied only upon a button click, not upon input change. This may 
 }
 ````
 
->caption The result from the code snippet above, after the "Age" column has been filtered with <= 30 operator.
-
-![Blazor Grid Filter Menu](images/filter-menu-1.png)
-
-
 ## Filter From Code
 
-You can set the grid filters from your code through the grid [state]({%slug grid-state%}).
+To learn how to programmatically filter the Grid, refer to the [Grid State]({%slug grid-state%}) documentation article.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
->caption Set filtering programmatically
-
-````CSHTML
-@[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
-````
-
-@[template](/_contentTemplates/grid/state.md#filter-menu-default-filters)
-
 ## Customization
 
-The Grid allows you to customize the default behavior of the Filter Menu in a couple ways:
+You can customize the default behavior of the Filter Menu in a couple ways:
 
 ### Configuring the Filter Menu
 
-You can override the default Filter Row behavior for each column through the following property the `GridColumn` exposes:
+You can override the default Filter Menu behavior for each column through the following property the `GridColumn` exposes:
 
 @[template](/_contentTemplates/common/filtering.md#filter-menu-customization-properties)
 
@@ -142,6 +119,15 @@ You can override the default Filter Row behavior for each column through the fol
     }
 }
 ````
+
+
+### FilterMenuType
+
+You can switch between [CheckBoxList]({%slug grid-checklist-filter%}) and a `Menu` filtering layout for a particular `<GridColumn>` by setting the `FilterMenuType` to `FilterMenuType.Menu` or `FilterMenuType.CheckBoxList`.
+
+### CheckBoxList
+
+You can render a list of checkboxes instead of the default menu layout. Read the [CheckBoxList Filtering article]({%slug grid-checklist-filter%}) for more information... 
 
 ### Filter Menu Template
 
