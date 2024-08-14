@@ -25,7 +25,7 @@ The FilterMenu filter mode renders a button in the column header. Clicking the b
 
 ## More Filtering Options
 
-In addition to the two main filtering modes, the grid offers two more features that can enhance the user experience when looking for data.
+In addition to the two main filtering modes, the Grid offers two more features that can enhance the user experience when looking for data.
 
 ### ToolBar SearchBox
 
@@ -50,11 +50,11 @@ Each `CompositeFilterDescriptor` includes a collection of filter descriptors, wh
 
 ## Custom Filtering
 
-There are two approaches to customize the grid filtering behavior, and you can use them together:
+There are two approaches to customize the Grid filtering behavior, and you can use them together:
 
-* Perform the data operations yourself (e.g., by outsourcing them to some API backend or other service) - to do that, use the [`OnRead` event]({%slug components/grid/manual-operations%}). This will let you fetch only the current page of data for the grid, instead of pulling the entire data set and storing it in-memory in the view-model.
+* Perform the data operations yourself (e.g., by outsourcing them to some API backend or other service) - to do that, use the [`OnRead` event]({%slug components/grid/manual-operations%}). This will let you fetch only the current page of data for the Grid, instead of pulling the entire data set and storing it in-memory in the view-model.
 
-* Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the grid provides.
+* Customize the appearance and behavior of the filters - for that, use the [Filter Templates]({%slug grid-templates-filter%}) the Grid provides.
 
 
 ## Customize The Filter Editors
