@@ -113,22 +113,26 @@ The following parameters enable you to customize the [appearance]({%slug combobo
 
 ### Popup settings
 
-The popup of the component can be additionally customized via nested tags:
+The ComboBox exposes settings for its dropdown (popup). To configure the options, declare a  `<ComboBoxPopupSettings>` tag inside a `<ComboBoxSettings>` tag:
 
 ````CSHTML
-<TelerikComboBox Data="@Data"
-                 @bind-Value="@selectedRole"
-                 Width="300px"
-                 Placeholder="Please select your role, e.g. Developer">
+<TelerikComboBox Data="@ComboBoxData"
+                     @bind-Value="@SelectedItem"
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains"
+                     Placeholder="Filter by digit or letter"
+                     Width="240px">
     <ComboBoxSettings>
-        <ComboBoxPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
+        <ComboBoxPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </ComboBoxSettings>
 </TelerikComboBox>
 
 @code {
-    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+    private List<string> ComboBoxData { get; set; } = Enumerable.Range(1, 50)
+        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
+        .ToList();
 
-    private string selectedRole { get; set; }
+    private string SelectedItem { get; set; }
 }
 ````
 

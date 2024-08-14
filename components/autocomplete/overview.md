@@ -113,19 +113,23 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare an  `<AutoCompletePopupSettings>` tag inside the `<AutoCompleteSettings>` tag:
 
 ````CSHTML
-<TelerikAutoComplete Data="@Data"
-                     @bind-Value="@selectedRole"
-                     Width="300px"
-                     Placeholder="Please select your role, e.g. Developer">
+<TelerikAutoComplete Data="@AutoCompleteData"
+                     @bind-Value="@SelectedItem"
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains"
+                     Placeholder="Filter by digit or letter"
+                     Width="240px">
     <AutoCompleteSettings>
-        <AutoCompletePopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
+        <AutoCompletePopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </AutoCompleteSettings>
 </TelerikAutoComplete>
 
 @code {
-    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+    private List<string> AutoCompleteData { get; set; } = Enumerable.Range(1, 50)
+        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
+        .ToList();
 
-    private string selectedRole { get; set; }
+    private string SelectedItem { get; set; }
 }
 ````
 

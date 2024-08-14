@@ -116,19 +116,23 @@ The following parameters enable you to customize the [appearance]({%slug dropdow
 The DropDownList exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownListPopupSettings>` tag inside a `<DropDownListSettings>` tag:
 
 ````CHTML
-<TelerikDropDownList Data="@Data"
-                     @bind-Value="selectedRole"
-                     Width="300px"
-                     DefaultText="Please select your role, e.g. Developer">
+<TelerikDropDownList Data="@DropDownData"
+                     @bind-Value="@SelectedItem"
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains"
+                     FilterPlaceholder="Filter by digit or letter"
+                     Width="240px">
     <DropDownListSettings>
-        <DropDownListPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
+        <DropDownListPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </DropDownListSettings>
 </TelerikDropDownList>
 
 @code {
-    private List<string> Data = new List<string>() { "Developer", "Team Leader", "Solution Architect", "Manager", "DevOps Engineer", "Quality Assurance Engineer", "Security Specialist" };
+    private List<string> DropDownData { get; set; } = Enumerable.Range(1, 50)
+        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
+        .ToList();
 
-    private string selectedRole { get; set; }
+    private string SelectedItem { get; set; }
 }
 ````
 
