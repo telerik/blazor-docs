@@ -1,8 +1,8 @@
 ---
 title: Programatically Filter Nullable Bool Grid Column by Null Value
-description: Learn how to programmatically filter nullable bool values.
+description: Learn how to filter Grid column bound to nullable boolean values programmatically. Discrover one of the many features of the Grid State.
 type: how-to
-page_title: How to filter a Grid column bound to a nullable bool by the null values programatically
+page_title: How to Programatically Filter Nullable Bool Grid Column by Null Value
 slug: grid-kb-state-filter-nullable-bool
 tags: grid, blazor, column, datagrid, filter, state, nullable, bool
 res_type: kb
@@ -21,9 +21,6 @@ ticketid: 1658561
 </table>
 
 ## Description
-
-I want to programatically filter a Grid column that is bound to `bool?` by the `null` values. 
-
 
 This KB article also answers the following questions:
 - How to filter a Grid column bound to a `bool?` by the null values programmatically?
