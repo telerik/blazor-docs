@@ -22,12 +22,12 @@ ticketid: 1658561
 
 ## Description
 
-This KB article also answers the following questions:
+This KB article answers the following question:
 - How to filter a Grid column bound to a `bool?` by the null values programmatically?
 
 ## Solution
 
-To filter a Grid column bound to a `bool?` by the null values use the `IsNull` FilterOperator. You can call the `SetGridFilter` method from a `<TelerikButton>` with `OnClick` handler (as in the code snippet below), in the [OnStateInit event]({%slug grid-state%}#onstateinit) handler, or any other custom interactive element.
+To filter a Grid column bound to a `bool?` by the null values, use the `IsNull` FilterOperator. You can call the `SetGridFilter` method from a `<TelerikButton>` with an `OnClick` handler (as in the code snippet below), in the [`OnStateInit` event]({%slug grid-state%}#onstateinit) handler, or any other custom interactive element.
 
 ````CSHTML
 @using Telerik.DataSource
