@@ -75,8 +75,8 @@ To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug gr
 
 | Parameter | Description |
 |---------------------|------------------|
-| `FilterDescriptor`  | The filter descriptor where filters populate when checkboxes are selected. The component creates and reads descriptors, allowing easy grid integration through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`). |
-| `Data` | The data that renders in the checkbox list. Use this parameter to supply the desired options to change what the grid displays. |
+| `FilterDescriptor`  | The filter descriptor where filters populate when checkboxes are selected. The component creates and reads descriptors, allowing easy Grid integration through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`). |
+| `Data` | The data that renders in the checkbox list. Use this parameter to supply the desired options to change what the Grid displays. |
 | `Field` | The field from the data used for distinct options must match the column field's name and type. This allows using the same models as the Grid or defining smaller models to reduce data fetched for filter lists. |
 
 >caption Provide all filtering options when using OnRead
@@ -87,7 +87,7 @@ To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug gr
 
 Filter by selecting a few names. Then filter by the Teams field (the fields that use application-provided data).<br />
 You will see you have all the options for the teams and all the options for the names.<br />
-Now try to filter by the On Vacation column - it will use only the current grid data and you may have only a single option,
+Now try to filter by the On Vacation column - it will use only the current Grid data and you may have only a single option,
 depending on how you filter the data so you may never be able to get back all values.
 
 
@@ -142,7 +142,7 @@ depending on how you filter the data so you may never be able to get back all va
 
         // this is just one example of getting distinct values from the full data source
         // in a real case you'd probably call your data service here instead
-        // or apply further logic (such as tie the returned data to the data the grid will have according to your business logic)
+        // or apply further logic (such as tie the returned data to the data the Grid will have according to your business logic)
         List<TeamNameFilterOption> data = AllGridData.OrderBy(z => z.Team).Select(z => z.Team).
             Distinct().Select(t => new TeamNameFilterOption { Team = t }).ToList();
 
@@ -170,7 +170,7 @@ depending on how you filter the data so you may never be able to get back all va
 
     async Task OnReadHandler(GridReadEventArgs args)
     {
-        //typical data retrieval for the grid
+        //typical data retrieval for the Grid
         var filteredData = await AllGridData.ToDataSourceResultAsync(args.Request);
         args.Data = filteredData.Data as IEnumerable<Employee>;
         args.Total = filteredData.Total;
@@ -179,7 +179,7 @@ depending on how you filter the data so you may never be able to get back all va
     protected override async Task OnInitializedAsync()
     {
         // generate data that simulates the database for this example
-        // the actual grid data is retrieve in its OnRead handler
+        // the actual Grid data is retrieve in its OnRead handler
         AllGridData = new List<Employee>();
         var rand = new Random();
         for (int i = 1; i <= 15; i++)
