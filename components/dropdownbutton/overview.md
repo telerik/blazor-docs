@@ -90,7 +90,7 @@ The DropDownButton exposes settings for its dropdown (popup). To configure the o
     <DropDownButtonContent>Share</DropDownButtonContent>
 
     <DropDownButtonSettings>
-        <DropDownButtonPopupSettings Height="auto" MaxHeight="300px" MinHeight="50px" />
+        <DropDownButtonPopupSettings Height="auto" MaxHeight="100px"/>
     </DropDownButtonSettings>
 
     <DropDownButtonItems>
