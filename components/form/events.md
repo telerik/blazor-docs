@@ -1,7 +1,7 @@
 ---
 title: Events
 page_title: Form Events
-description: Form for Blazor - Events.
+description: The Form component for Blazor exposes events that allow you to react to user actions and provide user logic.
 slug: form-events
 tags: telerik,blazor,form,edit,events
 published: True
