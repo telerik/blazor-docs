@@ -14,7 +14,7 @@ Virtual scrolling provides an alternative to paging. Instead of utilizing a page
 
 To enhance rendering performance, the Grid reuses the same set of HTML elements. As the next data loads, a loading indicator appears on the cells. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
-You can also use Blazor Grid virtualization for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
+You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
 
 ## Using Virtual Scrolling
 
