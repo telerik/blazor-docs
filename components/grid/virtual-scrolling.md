@@ -1,7 +1,7 @@
 ---
 title: Virtual Scrolling
 page_title: Grid - Virtual Scrolling
-description: Enable and configure virtualization in Blazor Grid with virtual scrolling - an alternative to paging.
+description: Enable and configure virtualization in the Blazor Grid with virtual scrolling - an alternative to paging.
 slug: components/grid/virtual-scrolling
 tags: telerik,blazor,grid,virtual,scrolling
 published: True
