@@ -1,7 +1,7 @@
 ---
 title: Virtual Scrolling
 page_title: Grid - Virtual Scrolling
-description: Enable and configure virtual scrolling in Grid for Blazor.
+description: Enable and configure virtualization in the Blazor Grid with virtual scrolling - an alternative to paging.
 slug: components/grid/virtual-scrolling
 tags: telerik,blazor,grid,virtual,scrolling
 published: True
@@ -14,7 +14,7 @@ Virtual scrolling provides an alternative to paging. Instead of utilizing a page
 
 To enhance rendering performance, the Grid reuses the same set of HTML elements. As the next data loads, a loading indicator appears on the cells. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
-You can also use virtual scrolling for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
+You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
 
 ## Using Virtual Scrolling
 
@@ -318,7 +318,7 @@ Set the `PageSize` parameter to an `int` value. The `PageSize` determines how ma
 
 ## Limitations
 
-Virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
+The Blazor Grid virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
 
 These are the known limitations of the virtual scrolling feature:
 

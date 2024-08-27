@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Spreadsheet - Overview
-description: Get familiar with the Spreadsheet for Blazor and its features and parameters. Learn how to quickly run a Spreadsheet component.
+description: The Blazor Spreadsheet component allows users to view and edit tabular data with an Excel-like user experience.
 slug: spreadsheet-overview
 tags: telerik,blazor,spreadsheet
 published: True
@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Spreadsheet Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/spreadsheet" target="_blank">Spreadsheet for Blazor</a> enables users to view and edit tabular data with an Excel-like user experience. The component supports cell styling, value formatting, links, images, formulas, and a rich collection of mathematical functions.
+The Spreadsheet for Blazor enables users to view and edit tabular data with an Excel-like user experience. The component supports cell styling, value formatting, links, images, formulas, and a rich collection of mathematical functions.
 
 
 ## Creating Blazor Spreadsheet
@@ -55,7 +55,7 @@ You can also add custom tools. Learn how to [configure and customize the Blazor 
 
 ## Functions and Formulas
 
-The Spreadsheet supports formulas and a large variety of Excel functions. See the complete list of available [Spreadsheet functions]({%slug spreadsheet-functions-formulas%}).
+The Blazor Spreadsheet component supports formulas and a large variety of Excel functions. See the complete list of available [Spreadsheet functions]({%slug spreadsheet-functions-formulas%}).
 
 
 ## Events
@@ -87,7 +87,7 @@ The table below lists the Spreadsheet parameters. For a full list of the ListBox
 
 ## Spreadsheet Reference and Methods
 
-The Spreadsheet exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
+The Blazor Spreadsheet component exposes methods for programmatic operation. To use them, define a reference to the component instance with the `@ref` directive attribute.
 
 | Method | Description |
 | --- | --- |
