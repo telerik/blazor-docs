@@ -91,7 +91,7 @@ The Blazor Spreadsheet component exposes methods for programmatic operation. To 
 
 | Method | Description |
 | --- | --- |
-| `ExportToExcelAsync` | Returns the current Spreadsheet Excel file content as `byte[]`. The application can save the file or pass it to [Telerik Document Processing]({%slug dpl-in-blazor%}) for further manipulation. |
+| `ExportToExcelAsync` | Returns the current Spreadsheet Excel file content as `byte[]`. The application can save the file or pass it to [Telerik Document Processing]({%slug dpl-in-blazor%}) for further manipulation. You can also [get the Spreadsheet cell values]({%slug spreadsheet-kb-get-cell-values%}) programmatically. |
 | `Rebind` | Refreshes the Spreadsheet and ensures it displays the current `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
 | `Refresh` | Calls `StateHasChanged()` for the Spreadsheet component. |
 
