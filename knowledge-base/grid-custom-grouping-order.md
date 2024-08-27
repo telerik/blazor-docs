@@ -1,6 +1,6 @@
 ---
 title: Custom Grouping Order in Grid for Blazor
-description: Learn how to implement custom grouping order in the Telerik Grid for Blazor.
+description: Learn how to sort the groups and implement custom grouping order in the Telerik Grid for Blazor.
 type: how-to
 page_title: Implementing Custom Grouping Order in Blazor Grid
 slug: grid-custom-grouping-order
@@ -21,7 +21,7 @@ ticketid: 1661227
 
 ## Description
 
-I want to group data programmatically in the Telerik Grid for Blazor by one column, ensuring the grouped order matches a specific sequence rather than the default ascending or descending order. I need to sort groups in a custom way, based on a predefined order of the data received from the backend or a custom pattern.
+I want to group data programmatically in the Telerik Grid for Blazor by one column. The group order must match a specific sequence rather than the default ascending or descending order. I need to sort groups in a custom way, based on a predefined order of the data, or a custom pattern.
 
 This KB article answers the following questions:
 - How can I apply custom sorting to groups in the Grid for Blazor?
@@ -32,9 +32,9 @@ This KB article answers the following questions:
 
 To achieve custom grouping order in the Telerik Grid for Blazor, follow these steps:
 
-1. Bind the Grid with the `OnRead` event to handle data operations manually. Refer to the official documentation for [OnRead]({%slug common-features-data-binding-onread%}) and [Grouping with OnRead]({%slug components/grid/manual-operations%}#grouping-with-onread)
+1. Bind the Grid with the `OnRead` event to handle data operations manually. Refer to the official documentation for [`OnRead`]({%slug common-features-data-binding-onread%}) and [Grouping with `OnRead`]({%slug components/grid/manual-operations%}#grouping-with-onread)
 
-2. Instead of using the `ToDataSourceResult()` method, group the data with custom code. Each group must be represented by an `AggregateFunctionsGroup` object. For understanding the Grid's expectations, inspect the `datasourceResult` variable structure and content with a debugger, as shown in [Grouping with OnRead]({%slug components/grid/manual-operations%}#grouping-with-onread).
+2. Instead of using the `ToDataSourceResult()` method, group the data with custom code. Each group must be represented by an `AggregateFunctionsGroup` object. To understand the Grid's expectations, inspect the `datasourceResult` variable structure and content with a debugger, as shown in [Grouping with `OnRead`]({%slug components/grid/manual-operations%}#grouping-with-onread).
 
 3. Implement custom sorting logic for grouped data based on your specific order requirements (e.g., D, A, C, B) within the `OnRead` method.
 
@@ -50,35 +50,22 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 <h1>Custom sort of grouping on a column</h1>
 
-<TelerikGrid OnRead="@ReadItems"
+<TelerikGrid OnRead="@ReadTexts"
 			 TItem="GridDataModel"
 			 OnStateInit="@((GridStateEventArgs<GridDataModel> args) => OnGridStateInit(args))"
-			 Class="my-grid"
 			 Groupable="true"
-			 Width="100%">
+			 Class="my-grid">
 	<GridColumns>
-		<GridColumn Title="String 1"
-					Field="@nameof(GridDataModel.S1)"
-					Width="200px" />
-		<GridColumn Title="String 2"
-					Field="@nameof(GridDataModel.S2)"
-					Width="200px" />
-		<GridColumn Title="String 3"
-					Field="@nameof(GridDataModel.S3)"
-					Width="200px" />
-		<GridColumn Title="String 4"
-					Field="@nameof(GridDataModel.S4)"
-					Width="200px" />
-		<GridColumn Title="String 5"
-					Field="@nameof(GridDataModel.S5)"
-					Width="200px" />
+		<GridColumn Title="String 1" Field="@nameof(GridDataModel.S1)" />
+		<GridColumn Title="String 2" Field="@nameof(GridDataModel.S2)" />
+		<GridColumn Title="String 3" Field="@nameof(GridDataModel.S3)" />
+		<GridColumn Title="String 4" Field="@nameof(GridDataModel.S4)" />
+		<GridColumn Title="String 5" Field="@nameof(GridDataModel.S5)" />
 	</GridColumns>
 </TelerikGrid>
 
 @code {
 	private ObservableCollection<GridDataModel> GridData = new ObservableCollection<GridDataModel>();
-
-	private bool UseGroupBy = true;
 
 	protected override void OnInitialized()
 	{
@@ -86,15 +73,15 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 		GridData = new ObservableCollection<GridDataModel>
 		{
-			new(5, "Hello world D", "Hello world 5-2", "Hello world 5-3", "Hello world 5-4", "Hello world 5-5"),
-			new(1, "Hello world A", "Hello world 1-2", "Hello world 1-3", "Hello world 1-4", "Hello world 1-5"),
-			new(3, "Hello world C", "Hello world 3-2", "Hello world 3-3", "Hello world 3-4", "Hello world 3-5"),
-			new(4, "Hello world C", "Hello world 4-2", "Hello world 4-3", "Hello world 4-4", "Hello world 4-5"),
-			new(2, "Hello world B", "Hello world 2-2", "Hello world 2-3", "Hello world 2-4", "Hello world 2-5"),
+			new(5, "Text D", "Text 5-2", "Text 5-3", "Text 5-4", "Text 5-5"),
+			new(1, "Text A", "Text 1-2", "Text 1-3", "Text 1-4", "Text 1-5"),
+			new(3, "Text C", "Text 3-2", "Text 3-3", "Text 3-4", "Text 3-5"),
+			new(4, "Text C", "Text 4-2", "Text 4-3", "Text 4-4", "Text 4-5"),
+			new(2, "Text B", "Text 2-2", "Text 2-3", "Text 2-4", "Text 2-5"),
 		};
 	}
 
-	protected async Task ReadItems(GridReadEventArgs args)
+	protected async Task ReadTexts(GridReadEventArgs args)
 	{
 		var datasourceResult = GridData.ToDataSourceResult(args.Request);
 
@@ -105,7 +92,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 			var groups = datasourceResult.Data.Cast<AggregateFunctionsGroup>().ToList();
 
 			// Custom sort logic for grouped data based on your custom order: D, A, C, B
-			List<string> customOrder = new List<string> { "Hello world D", "Hello world A", "Hello world C", "Hello world B" };
+			List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
 			groups = groups.OrderBy(group => customOrder.IndexOf(group.Key.ToString())).ToList();
 
 			args.Data = groups.Cast<object>().ToList();
@@ -114,7 +101,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 		{
 			// Data is not grouped, so we can cast directly to GridDataModel
 			var orderedData = datasourceResult.Data.Cast<GridDataModel>()
-								.OrderBy(item => GetCustomOrderIndex(item.S1))
+								.OrderBy(Text => GetCustomOrderIndex(Text.S1))
 								.ToList();
 
 			args.Data = orderedData.Cast<object>().ToList();
@@ -127,7 +114,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 	private int GetCustomOrderIndex(string? value)
 	{
 		// Define the custom order
-		List<string> customOrder = new List<string> { "Hello world D", "Hello world A", "Hello world C", "Hello world B" };
+		List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
 
 		// Return the index based on the custom order
 		return customOrder.IndexOf(value ?? string.Empty);
@@ -135,21 +122,18 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 	protected void OnGridStateInit(GridStateEventArgs<GridDataModel> args)
 	{
-		if (UseGroupBy)
+		GridState<GridDataModel> desiredState = new GridState<GridDataModel>()
 		{
-			GridState<GridDataModel> desiredState = new GridState<GridDataModel>()
+			GroupDescriptors = new List<GroupDescriptor>()
+			{
+				new GroupDescriptor()
 				{
-					GroupDescriptors = new List<GroupDescriptor>()
-				{
-					new GroupDescriptor()
-					{
-						Member = nameof(GridDataModel.S1),
-						MemberType = typeof(string),
-					}
+					Member = nameof(GridDataModel.S1),
+					MemberType = typeof(string),
 				}
-				};
-			args.GridState = desiredState;
-		}
+			}
+		};
+		args.GridState = desiredState;
 	}
 
 	public class GridDataModel
@@ -163,7 +147,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 		public GridDataModel()
 		{
-			// for the grid
+			// Editable Telerik components require a parameterless constructor.
 		}
 
 		public GridDataModel(
@@ -183,6 +167,6 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 ## See Also
 
-- [Grid Data Binding - OnRead](https://docs.telerik.com/blazor-ui/common-features/data-binding/onread)
+- [OnRead Data Binding](https://docs.telerik.com/blazor-ui/common-features/data-binding/onread)
 - [Manual Operations - Grouping with OnRead](https://docs.telerik.com/blazor-ui/components/grid/manual-operations#grouping-with-onread)
 - [AggregateFunctionsGroup Class](https://docs.telerik.com/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup)
