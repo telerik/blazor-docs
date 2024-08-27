@@ -113,15 +113,27 @@ The following parameters enable you to customize the [appearance]({%slug dropdow
 
 ### Popup Settings
 
-The popup of the component can be additionally customized via nested tags:
+The DropDownList exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownListPopupSettings>` tag inside a `<DropDownListSettings>` tag:
 
-<div class="skip-repl"></div>
-````
-<TelerikDropDownList>
+````CHTML
+<TelerikDropDownList Data="@DropDownData"
+                     @bind-Value="@SelectedItem"
+                     Filterable="true"
+                     FilterOperator="@StringFilterOperator.Contains"
+                     FilterPlaceholder="Filter by digit or letter"
+                     Width="240px">
     <DropDownListSettings>
-        <DropDownListPopupSettings Height="..." />
+        <DropDownListPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </DropDownListSettings>
 </TelerikDropDownList>
+
+@code {
+    private List<string> DropDownData { get; set; } = Enumerable.Range(1, 50)
+        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
+        .ToList();
+
+    private string SelectedItem { get; set; }
+}
 ````
 
 The DropDownList provides the following popup settings:

@@ -129,15 +129,27 @@ The following parameters enable you to customize the [appearance]({%slug multise
 
 ### Popup settings
 
-The popup of the component can be additionally customized via nested tags:
+The MultiSelect exposes settings for its dropdown (popup). To configure the options, declare a  `<MultiSelectPopupSettings>` tag inside a `<MultiSelectSettings>` tag:
 
-<div class="skip-repl"></div>
-````
-<TelerikMultiSelect>
+````CSHTML
+<TelerikMultiSelect Data="@MultiSelectData"
+                    @bind-Value="@SelectedItems"
+                    Filterable="true"
+                    FilterOperator="@StringFilterOperator.Contains"
+                    Placeholder="Filter by digit or letter"
+                    AutoClose="false"
+                    Width="240px">
     <MultiSelectSettings>
-        <MultiSelectPopupSettings Height="..." />
+        <MultiSelectPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
     </MultiSelectSettings>
 </TelerikMultiSelect>
+@code {
+    private List<string> MultiSelectData { get; set; } = Enumerable.Range(1, 50)
+        .Select(x => { return $"Item {x} {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}"; })
+        .ToList();
+
+    private List<string> SelectedItems { get; set; } = new List<string>();
+}
 ````
 
 The MultiSelect provides the following popup settings:
