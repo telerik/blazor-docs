@@ -32,7 +32,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 
 ## Label
 
-The label is a representation of the current progress. It renders inside or next to the ProgressBar and by default shows the component `Value` with an appended percent sign `%`. The [ProgressBar allows customization of the label position and content]({%slug progressbar-label%}). Use the label template to show the desired percent progress if the ProgressBar `Max` parameter is not `100`.
+The label is a representation of the current progress. [Depending on the theme, it renders inside or next to the ProgressBar](https://demos.telerik.com/blazor-ui/progressbar/overview) and by default shows the component `Value` with an appended percent sign `%`. The [ProgressBar allows customization of the label position and content]({%slug progressbar-label%}). Use the label template to show the desired percent progress if the ProgressBar `Max` parameter is not `100`.
 
 ## Indeterminate State
 
