@@ -32,7 +32,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 
 ## Label
 
-The label is a text representation of the current progress. It is rendered inside the ProgressBar and by default shows the component value in percent. The [ProgressBar allows customization of the label position and content]({%slug progressbar-label%}). Use the label template to override the default percent label if the ProgressBar `Max` is not `100`.
+The label is a representation of the current progress. [Depending on the theme, it renders inside or next to the ProgressBar](https://demos.telerik.com/blazor-ui/progressbar/overview) and by default shows the component `Value` with an appended percent sign `%`. The [ProgressBar allows customization of the label position and content]({%slug progressbar-label%}). Use the label template to show the desired percent progress if the ProgressBar `Max` parameter is not `100`.
 
 ## Indeterminate State
 
@@ -61,12 +61,12 @@ The ProgressBar provides the following features to further customize its behavio
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Attribute | Type and Default Value | Description |
-|----------|----------|----------|
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily.
-| `Max` | `double` <br/> 100 | The maximum value of the ProgressBar. It must be greater than `0`.
-| `Value` | `double` | The value of the ProgressBar. This value indicates the progress of the tracked process. It is a fraction of the `Max`.
-| `Orientation` | `ProgressBarOrientation` enum <br/> (`ProgressBarOrientation.Horizontal`) | The orientation of the ProgressBar. Takes a member of the `ProgressBarOrientation` enum - `Horizontal` or `Vertical`.
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element. You can use it to cascade styles more easily. |
+| `Max` | `double` <br /> `100` | The maximum value of the ProgressBar. It must be greater than `0`. |
+| `Value` | `double` | The value of the ProgressBar, which indicates the progress of the tracked process as a percentage. If `Max` is not `100` or `Value` is not a percent number, then use a [ProgressBar label template]({%slug progressbar-label%}) to display the component value in the desired format and precision. |
+| `Orientation` | `ProgressBarOrientation` enum <br /> (`Horizontal`) | The orientation of the ProgressBar. It can be `Horizontal` or `Vertical`. |
 
 ## Next Steps
 
