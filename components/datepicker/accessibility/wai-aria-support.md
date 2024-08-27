@@ -35,13 +35,13 @@ This section lists the selectors, attributes, and behavior patterns supported by
 |  | `aria-controls=.k-animation-container id` | Points to the popup element. Signifies that the `combobox` element controls the Calendar `grid`. |
 |  | `aria-activedescendant=.k-calendar-td.k-focus id` | Points to the focused item (date/month/year) in the Calendar Popup. Should only be present when the Popup is open. |
 |  | `aria-describedby=.k-form-hint id/.k-form-error id` | Points to the hint for the input, or if the input is invalid, to the error message. This attribute should only be present when a hint is set or when the input is invalid. |
-|  | `readonly=readonly` or `aria-readonly=true` | Attribute is rendered only when the DatePicker is readonly. |
-|  | `aria-invalid=true` | Attribute is rendered only when the DatePicker is in form and announces the valid state of the component. |
+|  | `readonly=readonly` or `aria-readonly=true` | The attribute is rendered only when the DatePicker is readonly. |
+|  | `aria-invalid=true` | The attribute is rendered only when the DatePicker is in a `form` HTML element and announces the valid state of the component. |
 |  | `tabindex=0` | The element must be focusable. |
-| `.k-disabled .k-input-inner` | `disabled=disabled` or `aria-disabled=true` | Attribute is rendered only when the DatePicker is disabled. |
+| `.k-disabled .k-input-inner` | `disabled=disabled` or `aria-disabled=true` | The attribute is rendered only when the DatePicker is disabled. |
 | `.k-input-button` | `role=button` or `nodeName=button` | The element should either be a `<button>` element or should have `role="button"` assigned. |
 |  | `aria-label` | The button needs an accessible name to be assigned to it. |
-|  | `tabindex=-1` | Button element should not be focusable. |
+|  | `tabindex=-1` | The button element should not be focusable. |
 
 ### Calendar Popup
 
