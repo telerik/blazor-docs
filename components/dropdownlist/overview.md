@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DropDownList Overview
 
-The <a href="https://demos.telerik.com/blazor-ui/dropdownlist/overview" target="_blank">Blazor DropDownList component</a> allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
+The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
 ## Creating the DropDownList
 
