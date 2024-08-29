@@ -53,7 +53,6 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 <TelerikEditor @bind-Value="@EditorValue"
                Tools="@EditorTools"
                Schema="schemaProvider"
-               Width="600px"
                Height="300px">
 </TelerikEditor>
 
