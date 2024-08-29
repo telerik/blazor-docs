@@ -2,7 +2,7 @@
 title: Add Font Icons in Editor
 description: How to allow inserting <i> tags in the Editor for Blazor to render custom icons in the Editor content?
 type: how-to
-page_title: Add Icons in Editor
+page_title: How to Add Font Icons in the Telerik Editor for Blazor
 slug: editor-kb-add-icons
 position: 
 tags: blazor, editor, prosemirror, schema, icon
