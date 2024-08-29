@@ -149,7 +149,6 @@ Make sure to use the correct way and resources for your actual project *@
                Tools="@EditorTools"
                Schema="schemaProvider"
                EditMode="@EditorEditMode.Div"
-               Width="600px"
                Height="300px">
 </TelerikEditor>
 
