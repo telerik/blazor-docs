@@ -211,7 +211,7 @@ The selection feature behavior may vary when the Grid configuration combines cel
 
 When you want to edit a Grid item, the cell selection has the following behavior:
 
-* Cell selection is not supported with [`Incell` edit mode]({%slug components/grid/editing/incell%}) due to the overlapping pointer events that trigger selection and editing. If both features are enabled, only the editing will work.
+* Cell selection is not supported with [`Incell` edit mode]({%slug components/grid/editing/incell%}) due to the overlapping pointer events that trigger selection and editing.
 * [`Inline` edit mode]({%slug components/grid/editing/inline%}) and [`Popup` edit mode]({%slug components/grid/editing/popup%}) integrate with cell selection without limitations.
 
 ### Selection and Virtual Scrolling
