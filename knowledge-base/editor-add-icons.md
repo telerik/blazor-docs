@@ -205,5 +205,5 @@ Make sure to use the correct way and resources for your actual project *@
 
 ## See Also
 
-* [Editor Custom Tools]({%slug editor-custom-tools%})
+* [Custom Editor Tools]({%slug editor-custom-tools%})
 * [Modify the ProseMirror Schema]({%slug editor-modify-default-schema%})
