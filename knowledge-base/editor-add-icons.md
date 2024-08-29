@@ -42,7 +42,7 @@ The default schema of the Telerik Editor does not include an `<i>` tag, so the E
 
 When the [Editor `EditMode` is set to `EditorEditMode.Iframe`]({%slug editor-edit-modes-iframe%}), the content area is inside an `<iframe>` element that does not apply the CSS rules from the current page.
 
-This means that you need to inject the icons stylesheet into the `<iframe>`, so the icons are properly rendered. At the time of writing (UI for Blazor **6.1.0**), [the Editor does not support injecting your CSS files into the Iframe](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe) but you can inject them with JSInterop in the `OnAfterRenderAsync`.
+This means that you need to inject the icons stylesheet into the `<iframe>`, so the icons are properly rendered. At the time of writing (UI for Blazor **6.1.0**), [the Editor does not support injecting your CSS files into the iframe](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe) but you can inject them with JSInterop in `OnAfterRenderAsync`.
 
 >caption Add icons in an Editor with Iframe edit mode
 
