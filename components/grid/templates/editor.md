@@ -12,7 +12,7 @@ position: 15
 
 The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/editing/overview%}) the field. It is also used when inserting a new item.
 
-You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid ow. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
+You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid row. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
 The template receives a **copy** of the original model, so that changes can be canceled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview]({%slug components/grid/editing/overview%}#notes) for more details on how and when that copy is created.
 
