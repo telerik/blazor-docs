@@ -90,6 +90,8 @@ The **Create New Project** wizard provides the following project templates:
 * **Dashboard**&mdash;A basic dashboard layout that uses the TileLayout component for customizable dashboards, and showcases several ways individual blocks (tiles) can fetch data.
 * **Admin**&mdash;A small app that shows a dashboard for admin. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
 
+> Starting with Q1 2025, the **Admin**, **Dashboard**, and **CRUD**, **Form**, **Chart** templates will be deprecated. The source code for these projects will be moved to the blazor-ui repo for continued access.
+
 ### Step 3: Select Theme
 
 Finally, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
