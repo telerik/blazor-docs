@@ -37,11 +37,11 @@ This KB article answers the following questions:
 To implement a Context menu on appointments and on empty slots in the Scheduler, follow these steps:
 
 1. Use the Scheduler templates to [integrate the Context menu]({%slug contextmenu-integration%}) with them:
-* Use the [Appointment Templates]({%slug scheduler-templates-appointment%}) to enable the Context menu to appear on appointments. 
-* Use the [Slot Templates]({%slug scheduler-templates-slot%}) to enable the Context menu to appear on cells without appointments. 
-2. Pass the context of the template in the `@oncontextmenu` event.
-3. Utilize the timeslot or appointment information obtained from the context of the template.
-4. Add the desired Context menu and create its items, commands and actions as needed.
+    * Use the [Appointment Templates]({%slug scheduler-templates-appointment%}) to enable the Context menu to appear on appointments. 
+    * Use the [Slot Templates]({%slug scheduler-templates-slot%}) to enable the Context menu to appear on cells without appointments. 
+1. Pass the context of the template in the `@oncontextmenu` event.
+1. Utilize the timeslot or appointment information obtained from the context of the template.
+1. Add the desired Context menu and create its items, commands and actions as needed.
 
 ````CSHTML
 Because of the IsImportant flags set in the appointment models, you cannot delete the "Conference" and "Vet Visit" and the newly created appointments.
