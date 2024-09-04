@@ -269,7 +269,6 @@ To implement a Context menu on appointments and on empty slots in the Scheduler,
         SchedulerRef?.Rebind();
     }
 
-    //generate data
     protected override void OnInitialized()
     {
         Appointments = GenerateData();
@@ -371,7 +370,7 @@ To implement a Context menu on appointments and on empty slots in the Scheduler,
 ````
 
 ## See Also
-* [Scheduler Overview]({%scheduler-overview%})
+* [Scheduler Overview]({%slug scheduler-overview%})
 * [Scheduler Appointment Templates]({%slug scheduler-templates-appointment%})
 * [Scheduler Slot Templates]({%slug scheduler-templates-slot%})
 * [Context menu Overview]({%slug contextmenu-overview%})
