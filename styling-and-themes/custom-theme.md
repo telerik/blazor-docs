@@ -15,7 +15,7 @@ Custom themes allow you to modify the appearance of the Telerik UI for Blazor co
 
 This article contains the following sections:
 
-* [Compare the visual customization options for the Telerik Blazor components](#blazor-css-customization-options)
+* [Compare the visual customization options for the Telerik Blazor components](#visual-customization-options)
 * [Create custom themes with the Progress ThemeBuilder](#using-themebuilder)
 * [Customize theme variables](#setting-theme-variables)
 * [Build custom themes manually](#building-themes-from-source-code)
