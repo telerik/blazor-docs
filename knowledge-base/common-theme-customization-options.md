@@ -38,7 +38,7 @@ Is there a simple and streamlined way to customize all component styles?
 
 Generally, there are **four** ways to customize the appearance of the Telerik Blazor components. All of them, except the first one, add an extra step to **every** UI for Blazor version update.
 
-1. Use color CSS variables to modify an existing theme.
+1. [Use color CSS variables to modify an existing theme]({%slug themes-custom%}#setting-theme-variables).
     * This approach is supported for theme versions `8.0.0` and Telerik UI for Blazor versions `6.0.0` and above.
     * It is a simple and sustainable way to make minor or major customizations to the **colors** of an existing CSS theme, even at runtime.
     * Upgrading the Blazor components does not require any additional steps with regard to the CSS code, unless there are breaking changes in the CSS variable names.
