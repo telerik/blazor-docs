@@ -10,7 +10,7 @@ position: 1
 
 # First Steps with Server-Side UI for Blazor
 
-This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 <a href = "https://www.telerik.com/faqs/blazor-ui/what-is-the-difference-between-blazor-webassembly-vs-server" target="_blank">Blazor Server app</a> and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 > This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using .NET 8, then follow the [tutorial about .NET 8 Blazor Web App]({%slug getting-started/web-app%}).
 
