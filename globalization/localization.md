@@ -110,6 +110,7 @@ var app = builder.Build();
 
 // Standard .NET localization code
 app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationOptions>>().Value);
+app.MapControllers();
 
 #endregion Localization Part 2
 
