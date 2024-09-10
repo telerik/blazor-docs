@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: Scheduler Toolbar
-description: Toolbar of the Scheduler for Blazor. List of all built-in tools. How to use custom Scheduler tools.
+description: Learn how to configure the toolbar of the Scheduler for Blazor.
 slug: scheduler-toolbar
 tags: telerik,blazor,scheduler,toolbar
 published: True
@@ -24,11 +24,11 @@ By default, the [Blazor Scheduler]({%slug scheduler-overview%}) displays all its
 | `SchedulerToolBarCalendarTool` | A button that shows the start and the end of the current period. Upon click, you can select a new period via a calendar popup. |
 | `SchedulerToolBarViewsTool` | A button group or a dropdown (depending on the screen size) with all available views. |
 
-By default, the toolbar also includes spacers (`<SchedulerToolBarSpacerTool/>`). They consume the available empty space and push the rest of the tools next to one another.
+By default, the toolbar also includes spacers (`<SchedulerToolBarSpacerTool />`). They consume the available empty space and push the rest of the tools next to one another.
 
 ## Custom Tools
 
-To customize the order of the built-in tools or add a custom tool, define the `<SchedulerToolBar>` tag of the Scheduler. To add a custom tool use the nested `<SchedulerToolBarCustomTool>` tag of the `<SchedulerToolBar>` tag. The `<SchedulerToolBarCustomTool>` is a standard Blazor `RenderFragment`. See the example below.
+To customize the order of the built-in tools or add a custom tool, define the `<SchedulerToolBar>` child tag in the Scheduler. To add a custom tool use the nested `<SchedulerToolBarCustomTool>` tag of the `<SchedulerToolBar>` tag. The `<SchedulerToolBarCustomTool>` is a standard Blazor `RenderFragment`. See the example below.
 
 
 ## Toolbar Configuration
@@ -44,37 +44,31 @@ Add a `<SchedulerToolBar>` tag inside `<TelerikScheduler>` to configure the tool
 ````CSHTML
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@SchedulerStartDate"
-                  @bind-View="@SchedulerCurrentView"
                   Height="600px">
     <SchedulerToolBar>
         <SchedulerToolBarViewsTool />
         <SchedulerToolBarNavigationTool />
         <SchedulerToolBarSpacerTool />
         <SchedulerToolBarCustomTool>
-            <TelerikButton OnClick="@OnCustomButtonClick">Show When the Trip to Hawaii Ends</TelerikButton>
+            <TelerikButton OnClick="@OnCustomToolClick">Show When the Trip to Hawaii Ends</TelerikButton>
         </SchedulerToolBarCustomTool>
     </SchedulerToolBar>
     <SchedulerViews>
-        <SchedulerDayView StartTime="@DayStart" EndTime="@DayEnd" />
-        <SchedulerWeekView StartTime="@DayStart" EndTime="@DayEnd" />
+        <SchedulerDayView />
+        <SchedulerWeekView />
         <SchedulerMonthView />
     </SchedulerViews>
 </TelerikScheduler>
 
 @code {
-    private DateTime SchedulerStartDate { get; set; } = new DateTime(2022, 7, 25);
+    private DateTime SchedulerStartDate { get; set; } = DateTime.Today;
 
-    private SchedulerView SchedulerCurrentView { get; set; } = SchedulerView.Week;
-
-    private DateTime DayStart { get; set; } = new DateTime(2000, 1, 1, 6, 0, 0);
-    private DateTime DayEnd { get; set; } = new DateTime(2000, 1, 1, 19, 0, 0);
-
-    private void OnCustomButtonClick()
+    private void OnCustomToolClick()
     {
-        var findEvent = Appointments.Where(x => x.Title == "Trip to Hawaii").FirstOrDefault();
-        if (findEvent != null)
+        var hawaiiTrip = Appointments.Where(x => x.Title == "Trip to Hawaii").FirstOrDefault();
+        if (hawaiiTrip != null)
         {
-            SchedulerStartDate = findEvent.End;
+            SchedulerStartDate = hawaiiTrip.End;
         }
     }
 
@@ -83,21 +77,21 @@ Add a `<SchedulerToolBar>` tag inside `<TelerikScheduler>` to configure the tool
         new SchedulerAppointment
         {
             Title = "Planning meeting",
-            Start = new DateTime(2022, 7, 25, 9, 30, 0),
-            End = new DateTime(2022, 7, 25, 12, 45, 0)
-        },
+            Start = DateTime.Today,
+            End = DateTime.Today.AddHours(3)
+    },
         new SchedulerAppointment
         {
             Title = "Vet visit",
-            Start = new DateTime(2022, 7, 26, 7, 0, 0),
-            End = new DateTime(2022, 7, 26, 7, 30, 0)
+            Start = DateTime.Today.AddDays(2),
+            End = DateTime.Today.AddDays(2).AddHours(1)
         },
         new SchedulerAppointment
         {
             Title = "Trip to Hawaii",
             IsAllDay = true,
-            Start = new DateTime(2022, 7, 27),
-            End = new DateTime(2022, 8, 07)
+            Start = DateTime.Today.AddDays(3),
+            End = DateTime.Today.AddDays(35)
         }
     };
 
