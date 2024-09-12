@@ -36,7 +36,7 @@ To filter a Grid column bound to a `bool?` by the `null` values:
 Alternative options are to:
 
 * Customize the Grid filter state in the [Grid `OnStateInit` event]({%slug grid-state%}#onstateinit).
-* Use a [Grid filter template]({%slug grid-templates-filter%}) to enable users to filter by `null` from the Grid's filtering UI.
+* [Use a Grid filter template to enable filtering by `null` from the Grid's UI]({%slug grid-kb-filterrow-bool-customization%}).
 
 >caption Fitler bool? Grid column by null
 
