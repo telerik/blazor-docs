@@ -70,19 +70,19 @@ Alternative options are to:
 
         currentState.FilterDescriptors = new List<IFilterDescriptor>()
         {
-                new CompositeFilterDescriptor()
-                {
-                    FilterDescriptors = new FilterDescriptorCollection() {
-                        // Use the IsNull filter operator when filtering by null values.
-                        new FilterDescriptor()
-                        {
-                            Member = nameof(SampleData.IsOnLeave),
-                            MemberType = typeof(bool?),
-                            Operator = FilterOperator.IsNull
-                        }
+            new CompositeFilterDescriptor()
+            {
+                FilterDescriptors = new FilterDescriptorCollection() {
+                    // Use the IsNull filter operator when filtering by null values.
+                    new FilterDescriptor()
+                    {
+                        Member = nameof(SampleData.IsOnLeave),
+                        MemberType = typeof(bool?),
+                        Operator = FilterOperator.IsNull
                     }
                 }
-            };
+            }
+        };
 
         await GridRef.SetStateAsync(currentState);
     }
