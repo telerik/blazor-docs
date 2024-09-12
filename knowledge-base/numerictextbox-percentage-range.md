@@ -47,7 +47,7 @@ Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
 }
 ````
 
-## Solution
+## Solution 1
 
 You can use the [component events]({%slug components/numerictextbox/events%}) to change the value. For example, if your application knows the range of values it expects to be always between 0-100%, divide values larger than 1 by 1000. 
 
@@ -107,7 +107,17 @@ Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
     }
 }
 ````
+## Solution 2
+You can use a custom format:
 
+````
+<TelerikNumericTextBox Id="MyControl" @bind-Value="@thePercentage"
+                       Max="100" Min="0"
+                       Format="# '%'" Decimals="0" Step="1" />
+@code{
+    double thePercentage { get; set; } = 12;
+}
+````
 ## Notes
 
 You can achieve similar behavior with a Masked Textbox - prepare a proper mask (the example below shows how to also use a culture-aware decimal separator) and parse the string to a double for later logic:
