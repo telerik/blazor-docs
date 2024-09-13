@@ -20,7 +20,7 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Text` | `string` | TThe group text. |
+| `Text` | `string` | The group text. |
 | `Value` | `object` | The resource value.|
 | `Field` | `string` | The field of the resource. |
 
