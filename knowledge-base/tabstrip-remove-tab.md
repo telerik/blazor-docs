@@ -48,7 +48,7 @@ Currently active tab index: @ActiveTabIndex
     @{
         foreach (TabModel tab in Tabs)
         {
-            <TabStripTab Title="@tab.Title" Visible="@tab.isVisibleTab">
+            <TabStripTab Title="@tab.Title" Visible="@tab.isVisibleTab" @key="@tab">
                 <HeaderTemplate>
                     <strong>@tab.Title</strong>
                     <button type="button"
