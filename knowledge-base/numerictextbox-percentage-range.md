@@ -11,6 +11,7 @@ res_type: kb
 ---
 
 ## Environment
+
 <table>
 	<tbody>
 		<tr>
@@ -23,132 +24,98 @@ res_type: kb
 
 ## Description
 
-When I use percentage and input 1 to the numeric text box it shows 100%, when i input 0.10 it shows 10%
+When I use percentage and input 1 in the numeric textbox, it shows 100%, and when I input 0.10 it shows 10%.
 
-I want that inputting 1 will show 1% and inputting 10 will show 10%
+I want input of `1` to show `1%` and inputting `10` to show `10%`.
 
 ## Possible Cause
 
-The `Format` of the numeric textbox is just a string format over the actual value. In .NET, the percentage format has a range of [0%, 100%] for values between [0, 1]. Therefore, the value of 1 is 100%, the value of 0.1 is 10%.
+The `Format` of the numeric textbox is just a string format over the actual value. In .NET, the percentage format has a range of [0%, 100%] for values between [0, 1]. Therefore, the value of `1` is `100%`, the value of `0.1` is `10%`.
 
-Determining whether the actual intent of the user is to input 20 as 20% or 20 as 2000% is up to the application - this is a heuristic task from the perspective of the Numeric Textbox component and it cannot make that decision. Thus, it keeps the user input as is, and when it loses focus it applies the designated Format.
+Determining whether the actual intent of the user is to input `20` as `20%` or `20` as `2000%` is up to the application. This is a heuristic task from the perspective of the NumericTextbox component and it cannot make that decision. Thus, it keeps the user input as is, and when it loses focus it applies the designated Format.
 
 >caption Simple way to see what values correspond to what percentage format
 
 ````CSHTML
-Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
+<p>NumericTextBox component <code>Value</code>: @NumericValue</p>
+<p>Formatted value: @NumericValue.ToString("P2")</p>
 
-<br />
+<TelerikNumericTextBox @bind-Value="@NumericValue"
+                       Format="P2"
+                       Width="120px" />
 
-<TelerikNumericTextBox @bind-Value="@thePercentage" Format="P2" />
-
-@code{
-    double thePercentage { get; set; } = 12;
+@code {
+    private double NumericValue { get; set; } = 12;
 }
 ````
 
-## Solution 1
+## Solution
 
-You can use the [component events]({%slug components/numerictextbox/events%}) to change the value. For example, if your application knows the range of values it expects to be always between 0-100%, divide values larger than 1 by 1000. 
+Set the [NumericTextBox `Format` parameter]({%slug components/numerictextbox/overview%}#numeric-textbox-parameters) to a [custom format string with a '%' literal](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings#character-literals):
 
-If you want precision to the decimal places of the percentage values, this means that you need to also set `Decimals="4"` to the numeric textbox because the first two decimal places correspond to the two-digit percentages.
-
->caption Change the Value in the app code to make 10% come from input "10"
-
-<div class="skip-repl"></div>
-````OnChange
-Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
-
-<br />
-
-<TelerikNumericTextBox @bind-Value="@thePercentage" Format="P2" Decimals="4" OnChange="@ChangePercentage" />
-
-@code{
-    double thePercentage { get; set; } = 12;
-
-    void ChangePercentage(object currValue)
-    {
-        // implement the desired logic here - it depends on the values you expect
-        // for example, this app expects percentages between 0% and 100%, so it divides by 100
-        // note that this is a heuristic task because 1000% may be a valid value
-        // and it is usually up to the user to determine what they need and want
-        if (thePercentage >= 1)
-        {
-            thePercentage = thePercentage / 100;
-        }
-    }
-}
-````
-````ValueChanged
-Actual value: @thePercentage, formatted value @thePercentage.ToString("P2")
-
-<br />
-
-<TelerikNumericTextBox Value="@thePercentage" Format="P2" Decimals="4" ValueChanged="@( (double v) => ChangePercentage(v) )" />
-
-@code{
-    double thePercentage { get; set; } = 12;
-
-    void ChangePercentage(double currValue)
-    {
-        // implement the desired logic here - it depends on the values you expect
-        // for example, this app expects percentages between 0% and 100%, so it divides by 100
-        // note that this is a heuristic task because 1000% may be a valid value
-        // and it is usually up to the user to determine what they need and want
-        // note 2: ValueChanged fires on every keystroke and is more invasive to the UX
-        if (currValue >= 1)
-        {
-            thePercentage = currValue / 100;
-        }
-        else
-        {
-            thePercentage = currValue;
-        }
-    }
-}
-````
-## Solution 2
-You can use a custom format:
-
-````
-<TelerikNumericTextBox Id="MyControl" @bind-Value="@thePercentage"
-                       Max="100" Min="0"
-                       Format="# '%'" Decimals="0" Step="1" />
-@code{
-    double thePercentage { get; set; } = 12;
-}
-````
-## Notes
-
-You can achieve similar behavior with a Masked Textbox - prepare a proper mask (the example below shows how to also use a culture-aware decimal separator) and parse the string to a double for later logic:
+>caption NumericTextBox custom format and '%' literal
 
 ````CSHTML
-as string: @TheStringValue
-<br />
-as double: @PercentageZeroToHundred
-<br />
-<TelerikMaskedTextBox Mask="@TheMask"
+<TelerikNumericTextBox @bind-Value="@PctValue"
+                       Max="100" Min="0"
+                       Decimals="0"
+                       Format="# '%'"
+                       Step="1"
+                       Width="120px" />
+@code{
+    private double PctValue { get; set; } = 12;
+}
+````
+
+## Notes
+
+You can achieve similar behavior with a [MaskedTextbox component]({%slug maskedtextbox-overview%}). Prepare a proper mask and parse the string to a double for later logic. The example below also shows how to use a culture-aware decimal separator:
+
+>caption Using the MaskedTextBox component for percent values
+
+````CSHTML
+@using System.Globalization
+
+<p><code>MaskedTextBoxValue</code>: @MaskedTextBoxValue</p>
+
+<p><code>PctValue</code>: @PctValue</p>
+
+<TelerikMaskedTextBox Mask="@PctMask"
                       IncludeLiterals="true"
-                      @bind-Value="@TheStringValue">
+                      @bind-Value="@MaskedTextBoxValue"
+                      Width="120px">
 </TelerikMaskedTextBox>
 
-@code{
-    string TheMask { get; set; } = string.Format("00{0}00%", System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
-    string TheStringValue { get; set; }
-    double PercentageZeroToHundred => ParseDouble(TheStringValue);
-    double ParseDouble(string stringVersion)
+@code {
+    private string PctMask { get; set; } = string.Format("00{0}00%", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
+    private string MaskedTextBoxValue { get; set; } = "12.34";
+
+    private double PctValue => ParseDouble(MaskedTextBoxValue);
+
+    private double ParseDouble(string stringValue)
     {
-        if (string.IsNullOrEmpty(stringVersion))
+        if (string.IsNullOrEmpty(stringValue))
         {
             return 0d;
         }
-        double val;
-        stringVersion = stringVersion.Replace("%", "");
-        if(Double.TryParse(stringVersion, out val))
+
+        double parsedValue;
+
+        // This custom logic can vary, depending on the business requirements.
+        stringValue = stringValue.Replace("%", "").Replace(" ", "");
+
+        if (Double.TryParse(stringValue, out parsedValue))
         {
-            return val;
+            return parsedValue;
         }
+
         return 0d;
     }
 }
 ````
+
+## See Also
+
+* [NumericTextBox overview]({%slug components/numerictextbox/overview%})
+* [MaskedTextbox overview]({%slug maskedtextbox-overview%})
