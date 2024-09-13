@@ -160,7 +160,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
                 <label class="k-label k-form-label" style="color:var(--kendo-color-warning)">
                 FormItem with Template and Form &nbsp;<code>Refresh()</code>&nbsp; - re-render inside the Form</label>
                 <div class="k-form-field-wrap">
-                    <ChilComponent Value="@Employee.Name"
+                    <ChildComponent Value="@Employee.Name"
                                    ValueExpression="@( () => Employee.Name )"
                                    OnChange="@OnChildChange_Refresh" />
                 </div>
@@ -171,7 +171,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
                 <label class="k-label k-form-label" style="color:var(--kendo-color-tertiary)">
                 FormItem with Template and &nbsp;<code>StateHasChanged()</code>&nbsp; - re-render inside and outside the Form</label>
                 <div class="k-form-field-wrap">
-                    <ChilComponent Value="@Employee.Name"
+                    <ChildComponent Value="@Employee.Name"
                                    ValueExpression="@( () => Employee.Name )"
                                    OnChange="@OnChildChange_StateHasChanged" />
                 </div>
@@ -246,7 +246,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
     }
 }
 ````
-````ChilComponent.razor
+````ChildComponent.razor
 @using System.Linq.Expressions
 
 <TelerikTextBox Value="@Value"
