@@ -29,7 +29,8 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
 ````CSHMTL
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@StartDate"
-                  Height="600px">
+                  Height="600px"
+                  Width="900px">
     <SchedulerResourceGroupHeaderTemplate>
         Text: @context.Text
         <br />
