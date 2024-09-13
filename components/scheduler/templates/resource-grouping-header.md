@@ -56,7 +56,6 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
                             </span>
                         }
                     }
-                    <br />
                     @context.Text
                 </p>
             </SchedulerResourceGroupHeaderTemplate>
