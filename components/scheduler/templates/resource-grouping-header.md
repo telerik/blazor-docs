@@ -12,9 +12,10 @@ position: 13
 
 You can use the `SchedulerResourceGroupHeaderTemplate` to customize the rendering of the Scheduler resource grouping header cells. This allows you to change the appearance of the content, add custom content or any HTML elements.
 
-The `SchedulerResourceGroupHeaderTemplate` is invoked for each resource when the Scheduler is configured to have resources and grouping. The template applies in both horizontal and vertical grouping.
-
-The `SchedulerResourceGroupHeaderTemplate` can be defined at the root level of the Scheduler and individually for each [Scheduler views]({%slug scheduler-views-overview%}). When configured at the root, the template applies to all views. If a `SchedulerResourceGroupHeaderTemplate` is defined at the view level, it will override the root-level template for that specific view.
+The `SchedulerResourceGroupHeaderTemplate`:
+* Is invoked for each resource when the Scheduler is configured to have resources and grouping.
+* Applies in both horizontal and vertical grouping.
+* Can be defined at the root level of the Scheduler and individually for each [Scheduler views]({%slug scheduler-views-overview%}). When configured at the root, the template applies to all views. If a `SchedulerResourceGroupHeaderTemplate` is defined at the view level, it will override the root-level template for that specific view.
 
 The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext` object that contains:
 
