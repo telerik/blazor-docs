@@ -26,9 +26,9 @@ I get a `StackOverflowException` when attempting to edit an item in the Grid for
 
 ## Cause
 
-The data-bound components that allow editing (for example Grid, ListView, TreeList, and more) create a copy of the original object when the user initiates editing.
+The Telerik data-bound components that allow editing (for example Grid, ListView, TreeList, and more) create a copy of the original object when the user initiates editing.
 
-The Telerik UI for Blazor internal object cloning algorithm uses reflection to loop through the object properties and copy them in the cloned object. When the model contains a self-reference object property, the cloning logic loops again and again resulting in an infinite reflection loop and this causes the  `StackOverflowException` exception.
+The internal cloning algorithm uses reflection to loop through the object properties and copy them in the cloned object. When the model contains a self-referencing object property, the cloning logic loops again and again resulting in an infinite reflection loop and this causes the `StackOverflowException` exception.
 
 ## Solution
 
