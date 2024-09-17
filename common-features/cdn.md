@@ -46,7 +46,7 @@ Here are a few examples:
 <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css" />
 
 <!-- Main swatch of the Bootstrap theme -->
-<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/bootstrap-main.css" />
+<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-bootstrap@{{site.themesVersion}}/dist/bootstrap-main.css" />
 
 <!-- Latest font icon stylesheet -->
 <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-font-icons/dist/index.css" />
