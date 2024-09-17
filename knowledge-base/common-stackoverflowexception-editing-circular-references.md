@@ -44,7 +44,7 @@ public class Employee
 }
 ```
 
-Modify the class to include a primitive property that holds a unique identifier:
+Modify the class to [include a primitive property that holds a unique identifier]({%slug grids-foreign-key%}):
 
 ```csharp
 public class Employee
