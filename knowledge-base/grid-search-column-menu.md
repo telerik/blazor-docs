@@ -31,7 +31,7 @@ This KB article answers the following questions:
 ## Solution
 
 1. Subscribe to the [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged).
-1. Check if the `PropertyName` event argument is equal to `"ColumnStates"` to verify that the user modified the column state.
+1. Check if the `PropertyName` event argument is equal to `"ColumnStates"` to verify that the user has modified the column state.
 1. Check for `FilterDescriptor` instances in `args.GridState.SearchFilter.FilterDescriptors` to verify if a search is active.
 1. [Get the visible columns from `args.GridState.ColumnStates`]({%slug grid-kb-column-state%}). Use only the columns with a `Field` that points to a `string` property.
 1. Compare the `Field` values of the visible string columns with the `Member` values of the search-related filter descriptors.
