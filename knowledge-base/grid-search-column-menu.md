@@ -25,8 +25,7 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to change the Grid search results when the user hides or shows a string column?
-* How to refresh the Grid search results when the `Visible` parameter of a column changes?
-* How to adjust and match the Grid search results to the columns with a `Visible` attribute that changed runtime?
+* How to refresh and match the Grid search results when the `Visible` attribute of a column changes?
 * How to hide or show search results in the Grid when the visibility of a column changes and a column is no longer displayed?
 
 ## Solution
