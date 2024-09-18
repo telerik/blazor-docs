@@ -67,7 +67,7 @@ This KB article answers the following questions:
 
     private List<SampleModel> GridData { get; set; } = new();
 
-    // Non-string columns should not take part in the custom logic
+    // Non-string columns should not take part in the custom logic.
     private readonly List<string> GridStringFields = new List<string>() { nameof(SampleModel.Name), nameof(SampleModel.Description) };
 
     private async Task OnGridStateChanged(GridStateEventArgs<SampleModel> args)
@@ -96,7 +96,7 @@ This KB article answers the following questions:
                     }
                 }
 
-                // Find FilterDescriptors for hidden columns
+                // Find FilterDescriptors for hidden columns.
                 foreach (FilterDescriptor fd in searchFilterDescriptors)
                 {
                     if (!visibleStringColumnFields.Contains(fd.Member))
@@ -104,14 +104,14 @@ This KB article answers the following questions:
                         filterDescriptorsToRemove.Add(fd);
                     }
                 }
-                // Remove FilterDescriptors for hidden columns
+                // Remove FilterDescriptors for hidden columns.
                 foreach (FilterDescriptor fd in filterDescriptorsToRemove)
                 {
                     searchFilterDescriptors.Remove(fd);
                     shouldRebindGrid = true;
                 }
 
-                // Add FilterDescriptors for newly shown columns
+                // Add FilterDescriptors for newly shown columns.
                 foreach (string field in visibleStringColumnFields)
                 {
                     if (!searchFilterDescriptors.Any(x => ((FilterDescriptor)x).Member == field))
