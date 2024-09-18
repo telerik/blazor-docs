@@ -130,6 +130,7 @@ If you want to search in the hidden fields of the Grid, do the following:
 
 ## See Also
 
+* [Change Grid Search Results on Column Hide or Show]({%slug grid-kb-search-match-visible-columns%})
 * [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
 * [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
