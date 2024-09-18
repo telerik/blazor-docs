@@ -163,6 +163,6 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [Search in hidden Grid columns]({%slug grid-kb-search-in-hidden-fields%})
+* [Search in Hidden Grid Columns]({%slug grid-kb-search-in-hidden-fields%})
 * [Grid State]({%slug grid-state%})
 * [Grid SearchBox]({%slug grid-searchbox%})
