@@ -40,8 +40,6 @@ This KB article answers the following questions:
 
 >caption Change search results when the user hides or shows a column
 
-<div class="skip-repl"></div>
-
 ````CSHTML
 @using Telerik.DataSource
 
