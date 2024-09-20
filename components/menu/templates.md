@@ -10,48 +10,66 @@ position: 10
 
 # Menu Templates
 
-The Menu component allows you to define a custom template for its items. This article explains how you can use it.
+The Menu component allows you to define a custom template for its items. This article explains how to use it.
 
-The `ItemTemplate` of an item is defined under the `ItemTemplate` tag of the menu.
+## ItemTemplate
 
-The template receives the model to which the item is bound as its `context`. You can use it to render the desired content. The menu is a generic component, so you can use a named context variable that will be of the model type without additional casting.
+The template of all items is defined in the `ItemTemplate` tag of the Menu.
 
-You can use the template to render arbitrary content according to your application's data and logic. You can use components in it and thus provide rich content instead of plain text. You can also use it to add DOM event handlers like click, doubleclick, mouseover if you need to respond to them.
+The template receives the respective Menu data item as its `context`. You can use it to render the desired content. You can also set the `Context` parameter of the `ItemTemplate` tag and use a [named context variable. This is useful in nested template scenarios]().
 
->caption Use templates to implement navigation between views without the UrlField feature
+The Menu item template can contain arbitrary content according such as HTML markup and other components. You can also use standard event handlers like `@onclick` or `@onmouseover`.
+
+## Examples
+
+### Use ItemTemplate for Navigation
+
+The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. In addition to rendering customization, `<NavLink>` also supports the `target="_blank"` attribute.
+
+>caption Use Menu item template for navigation
 
 ````CSHTML
-Use your own NavLink elements for navigation instead of the built-in feature of the menu
+<h3>Menu with ItemTemplate</h3>
 
-<TelerikMenu Data="@MenuItems"
-             ItemsField="@nameof(MenuItem.SubSectionList)">
+<TelerikMenu Data="@MenuItems">
     <ItemTemplate Context="item">
         @{
-            var shouldNavigate = !string.IsNullOrEmpty(item.Page);
+            @*
+                k-menu-link-text will make the NavLink similar to built-in Menu items.
+                You also need to reset the underline and text color.
+                Do not render an SvgIcon component if item.Icon is null.
+            *@
+
+            var shouldNavigate = !string.IsNullOrEmpty(item.Href);
+
             if (shouldNavigate)
             {
-                @*k-menu-link-text will expand the NavLink to match default Menu styling*@
-                <NavLink href="@item.Page" class="k-menu-link-text">@item.Section</NavLink>
+                <TelerikSvgIcon Icon="@item.Icon" />
+                <NavLink href="@item.Href" class="k-menu-link-text color-underline">@item.Text</NavLink>
             }
             else
             {
-                @*k-menu-link-text will expand the span to match default Menu styling*@
-                <span style="font-weight: bold;" class="k-menu-link-text">
-                    See more about our @item.Section.ToLowerInvariant()</span>
+                <TelerikSvgIcon Icon="@item.Icon" />
+                <span class="k-menu-link-text">@item.Text</span>
             }
         }
     </ItemTemplate>
 </TelerikMenu>
 
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public class MenuItem
-    {
-        public string Section { get; set; }
-        public string Page { get; set; }
-        public List<MenuItem> SubSectionList { get; set; }
+<style>
+    /* Reset NavLink styles for consistent look. */
+    a.color-underline {
+        color: inherit;
+        text-decoration: none;
     }
+</style>
+
+<h3>Default Menu</h3>
+
+<TelerikMenu Data="@MenuItems" />
+
+@code {
+    public List<MenuItem> MenuItems { get; set; } = new();
 
     protected override void OnInitialized()
     {
@@ -59,136 +77,143 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
         {
             new MenuItem()
             {
-                Section = "Company",
-                SubSectionList = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Section = "Overview",
-                        Page = "company/overview"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Events",
-                        Page = "company/events"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Careers",
-                        Page = "company/careers"
-                    }
-                }
-            },
-            new MenuItem()
-            {
-                Section = "Services",
-                SubSectionList = new List<MenuItem>()
-                {
-                    new MenuItem()
-                    {
-                        Section = "Consulting",
-                        Page = "consultingservices"
-                    },
-                    new MenuItem()
-                    {
-                        Section = "Education",
-                        Page = "education"
-                    }
-                }
-            }
-        };
-
-        base.OnInitialized();
-    }
-}
-````
-
->caption Use templates to visually distinguish the current page as an item that is styled differently, and to open external links in new tabs
-
-````CSHTML
-@inject NavigationManager navigationManager
-
-<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
-    <ItemTemplate Context="item">
-        @{
-            if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
-            {
-                @*k-menu-link-text will expand the span to match default Menu styling*@
-                <span style="color: black; font-weight: bold" class="k-menu-link-text">@item.Text</span>
-            }
-            else
-            {
-                string target = "";
-                if (!IsInternalPage(item.Url))
-                {
-                    target = "_blank";
-                }
-                @*k-menu-link-text will expand the NavLink to match default Menu styling*@
-                <NavLink target="@target" href="@item.Url" class="k-menu-link-text">@item.Text</NavLink>
-            }
-        }
-    </ItemTemplate>
-</TelerikMenu>
-
-@code {
-    public List<MenuItem> MenuItems { get; set; }
-
-    public MenuItem SelectedMenuItem { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MenuItems = new List<MenuItem>()
-        {
-            new MenuItem()
-            {
-                Text = "Home",
-                Url = "/",
-            },
-            new MenuItem()
-            {
-                Text = "Fetch Data",
-                Url = "/fetchdata"
-            },
-            new MenuItem()
-            {
-                Text = "Counter",
-                Url = "/counter"
-            },
-            new MenuItem()
-            {
-                Text = "Telerik UI for Blazor",
+                Text = "Company",
+                Icon = SvgIcon.Globe,
                 Items = new List<MenuItem>()
                 {
                     new MenuItem()
                     {
-                        Text = "Documentation",
-                        Url = "https://docs.telerik.com/blazor-ui/introduction"
+                        Text = "Overview",
+                        Href = "company/overview",
+                        Icon = SvgIcon.InfoCircle
                     },
                     new MenuItem()
                     {
-                        Text = "Live Demos",
-                        Url = "https://demos.telerik.com/blazor-ui"
+                        Text = "Events",
+                        Href = "company/events",
+                        Icon = SvgIcon.Calendar,
+                        Items = new List<MenuItem>()
+                        {
+                            new MenuItem()
+                            {
+                                Text = "Boston",
+                                Href = "company/events/boston",
+                                Icon = SvgIcon.Calendar
+                            },
+                            new MenuItem()
+                            {
+                                Text = "Sofia",
+                                Href = "company/events/sofia",
+                                Icon = SvgIcon.Calendar
+                            }
+                        }
+                    },
+                    new MenuItem()
+                    {
+                        Text = "Careers",
+                        Href = "company/careers",
+                        Icon = SvgIcon.User
+                    }
+                }
+            },
+            new MenuItem()
+            {
+                Text = "Services",
+                Icon = SvgIcon.Sparkles,
+                Items = new List<MenuItem>()
+                {
+                    new MenuItem()
+                    {
+                        Text = "Consulting",
+                        Href = "consulting",
+                        Icon = SvgIcon.Graph
+                    },
+                    new MenuItem()
+                    {
+                        Text = "Education",
+                        Href = "education",
+                        Icon = SvgIcon.Book
                     }
                 }
             }
         };
 
-        SelectedMenuItem = MenuItems.Find(item => CompareCurrentPageUrl(item.Url));
-
         base.OnInitialized();
     }
 
+    public class MenuItem
+    {
+        public string Text { get; set; } = string.Empty;
+        public string Href { get; set; } = string.Empty;
+        public ISvgIcon? Icon { get; set; }
+        public List<MenuItem>? Items { get; set; }
+    }
+}
+````
+
+### Use ItemTemplate for Styling and target="_blank"
+
+The example below shows a Menu configuration that is suitable for use in `MainLayout.razor`.
+
+>caption Use Menu item template to distinguish the current page and open external links in new browser windows
+
+<div class="skip-repl"></div>
+
+````CSHTML
+@inject NavigationManager NavManager
+
+<TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">
+    <ItemTemplate Context="item">
+        @{
+            @*
+                k-menu-link-text will make the NavLink or span similar to built-in Menu items.
+                You also need to reset the underline and text color.
+                Do not render an SvgIcon component if item.Icon is null.
+            *@
+
+            if (EqualityComparer<MenuItem>.Default.Equals(item, SelectedMenuItem))
+            {
+                <TelerikSvgIcon Icon="@item.Icon" />
+                <span style="color: black; font-weight: bold;" class="k-menu-link-text">@item.Text</span>
+            }
+            else
+            {
+                string target = string.Empty;
+                if (!IsInternalPage(item.Href))
+                {
+                    target = "_blank";
+                }
+                <TelerikSvgIcon Icon="@item.Icon" />
+                <NavLink target="@target" href="@item.Href" class="k-menu-link-text color-underline">@item.Text</NavLink>
+            }
+        }
+    </ItemTemplate>
+</TelerikMenu>
+
+<style>
+    /* Reset NavLink styles for consistent look. */
+    a.color-underline {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>
+
+@code {
+    private List<MenuItem> MenuItems { get; set; } = new();
+
+    private MenuItem? SelectedMenuItem { get; set; }
+
     private void OnClick(MenuItem item)
     {
-        if (IsInternalPage(item.Url))
+        if (IsInternalPage(item.Href))
         {
             SelectedMenuItem = item;
         }
     }
 
-    private bool CompareCurrentPageUrl(string urlToCopmare)
+    private bool CompareCurrentPageUrl(string urlToCompare)
     {
-        return navigationManager.Uri.Substring(navigationManager.BaseUri.Length - 1).Equals(urlToCopmare);
+        return NavManager.Uri.Substring(NavManager.BaseUri.Length - 1).Equals(urlToCompare);
     }
 
     private bool IsInternalPage(string url)
@@ -200,18 +225,65 @@ Use your own NavLink elements for navigation instead of the built-in feature of 
         return !(url.StartsWith("https://") || url.StartsWith("http://"));
     }
 
+    protected override void OnInitialized()
+    {
+        MenuItems = new List<MenuItem>()
+        {
+            new MenuItem()
+            {
+                Text = "Home",
+                Href = "/",
+                Icon = SvgIcon.Home
+            },
+            new MenuItem()
+            {
+                Text = "Counter",
+                Href = "/counter",
+                Icon = SvgIcon.Calculator
+            },
+            new MenuItem()
+            {
+                Text = "Weather",
+                Href = "/weather",
+                Icon = SvgIcon.Globe
+            },
+            new MenuItem()
+            {
+                Text = "Telerik",
+                Href = "https://www.telerik.com",
+                Icon = SvgIcon.Star,
+                Items = new List<MenuItem>()
+                {
+                    new MenuItem()
+                    {
+                        Text = "Documentation",
+                        Href = "https://docs.telerik.com/blazor-ui/introduction",
+                        Icon = SvgIcon.Star
+                    },
+                    new MenuItem()
+                    {
+                        Text = "Demos",
+                        Href = "https://demos.telerik.com/blazor-ui",
+                        Icon = SvgIcon.Star
+                    }
+                }
+            }
+        };
+
+        SelectedMenuItem = MenuItems.Find(item => CompareCurrentPageUrl(item.Href));
+
+        base.OnInitialized();
+    }
+
     public class MenuItem
     {
-        public string Text { get; set; }
-        public string Url { get; set; }
-        public List<MenuItem> Items { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string Href { get; set; } = string.Empty;
+        public ISvgIcon? Icon { get; set; }
+        public List<MenuItem>? Items { get; set; }
     }
 }
 ````
-
->caption The result from the snippet above, assuming the current page URL is `/counter`
-
-![Blazor Menu Template Distinguish Item](images/menu-template-distinguish-item.png)
 
 ## See Also
 
