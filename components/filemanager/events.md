@@ -21,7 +21,7 @@ This article explains the events available in the Telerik FileManager for Blazor
 * [Other Events](#other-events) - other events the grid provides.
     * [OnModelInit](#onmodelinit)
     * [OnDownload](#ondownload)
-    * [PathChanged](#ondownload)
+    * [PathChanged](#pathchanged)
     * [SelectedItemsChanged](#selecteditemschanged)
     * [ViewChanged](#viewchanged)
 
