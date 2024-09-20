@@ -21,6 +21,7 @@ This article explains the events available in the Telerik FileManager for Blazor
 * [Other Events](#other-events) - other events the grid provides.
     * [OnModelInit](#onmodelinit)
     * [OnDownload](#ondownload)
+    * [PathChanged](#ondownload)
     * [SelectedItemsChanged](#selecteditemschanged)
     * [ViewChanged](#viewchanged)
 
@@ -348,6 +349,10 @@ A FileManager in a WebAssembly app usually displays files from a remote server. 
 1. The server returns the file content.
 1. The `OnDownload` handler puts the returned file content to a `MemoryStream` and assigns it to `args.Stream`.
 
+### PathChanged
+
+The `PathChanged` event fires when the user navigates to a different folder through the TreeView or by double-clicking a folder item in the View. The event handler receives the new path as a `string` argument.
+
 ### SelectedItemsChanged
 
 The `SelectedItemChanged` event fires every time the user clicks on a new file/folder in the main pane of the FileManager. You can use it with one-way binding of the `SelectedItems` parameter to respond to user selection.
@@ -364,7 +369,8 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 @using System.IO
 
 <TelerikFileManager Data="@Files"
-                    @bind-Path="@DirectoryPath"
+                    Path="@DirectoryPath"
+                    PathChanged="@OnPathChanged"
                     View="@CurrentView"
                     ViewChanged="@OnViewChanged"
                     Height="400px"
@@ -393,12 +399,12 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private async Task OnCreateHandler(FileManagerCreateEventArgs args)
     {
-        var newFolder = args.Item as FlatFileEntry;
+        var newFolder = (FlatFileEntry)args.Item;
 
         var parent = GetParent(newFolder, DirectoryPath);
 
         newFolder.Id = "20";
-        newFolder.ParentId = parent.Id;
+        newFolder.ParentId = parent?.Id;
         newFolder.Name = "New folder";
         newFolder.IsDirectory = true;
         newFolder.HasDirectories = false;
@@ -424,17 +430,17 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
             Files.Add(newFolder);
         }
 
-        RefreshData();
+        await RefreshData();
     }
 
-    private FlatFileEntry GetDirectory(string path)
+    private FlatFileEntry? GetDirectory(string path)
     {
         var directory = Files.FirstOrDefault(x => x.IsDirectory && x.Path == path);
 
         return directory;
     }
 
-    private FlatFileEntry GetParent(FlatFileEntry currItem, string currDirectory)
+    private FlatFileEntry? GetParent(FlatFileEntry currItem, string currDirectory)
     {
         var parentItem = Files
             .FirstOrDefault(x => x.IsDirectory && x.Path == currDirectory);
@@ -445,7 +451,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private async Task OnUpdateHandler(FileManagerUpdateEventArgs args)
     {
-        var item = args.Item as FlatFileEntry;
+        var item = (FlatFileEntry)args.Item;
 
         if (item.IsDirectory)
         {
@@ -466,6 +472,8 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
             updatedItem.Path = Path.Combine(DirectoryPath, fullName);
             Console.WriteLine(updatedItem.Path);
         }
+
+        await Task.Delay(1); // simulate async operation
     }
 
     private async Task OnDownloadHandler(FileManagerDownloadEventArgs args)
@@ -481,6 +489,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
         FlatFileEntry actualFile = (FlatFileEntry)args.Item;
 
+        await Task.Delay(1); // simulate async operation
         string dummyFileContent = $"This file is a dummy version of {actualFile.Name}. It was downloaded with the Telerik Blazor FileManager.";
         byte[] dummyFileBuffer = System.Text.Encoding.UTF8.GetBytes(dummyFileContent);
 
@@ -491,13 +500,13 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     private async Task OnDeleteHandler(FileManagerDeleteEventArgs args)
     {
-        var currItem = args.Item as FlatFileEntry;
+        var item = (FlatFileEntry)args.Item;
 
-        var itemToDelete = Files.FirstOrDefault(x => x.Id == currItem.Id);
+        var itemToDelete = Files.FirstOrDefault(x => x.Id == item.Id);
 
         Files.Remove(itemToDelete);
 
-        RefreshData();
+        await RefreshData();
     }
 
     private FlatFileEntry OnModelInitHandler()
@@ -516,14 +525,20 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
         return item;
     }
 
+    private void OnPathChanged(string newPath)
+    {
+        DirectoryPath = newPath;
+    }
+
     private void OnSelect(IEnumerable<FlatFileEntry> selectedFiles)
     {
         // Update the view model.
         SelectedItems = selectedFiles;
     }
 
-    private void RefreshData()
+    private async Task RefreshData()
     {
+        await Task.Delay(1); // simulate async operation
         Files = new List<FlatFileEntry>(Files);
     }
 
@@ -534,12 +549,12 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
     public class FlatFileEntry
     {
-        public string Id { get; set; }
-        public string ParentId { get; set; }
-        public string Name { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
         public long Size { get; set; }
-        public string Path { get; set; }
-        public string Extension { get; set; }
+        public string Path { get; set; } = string.Empty;
+        public string Extension { get; set; } = string.Empty;
         public bool IsDirectory { get; set; }
         public bool HasDirectories { get; set; }
         public DateTime DateCreated { get; set; }
@@ -673,6 +688,8 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
             dashboardDesign,
             gridDesign
         };
+
+        await Task.Delay(1); // simulate async operation
 
         return files;
     }
