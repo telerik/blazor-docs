@@ -10,7 +10,7 @@ position: 53
 
 # Grid - Refresh Data
 
-@[template](/_contentTemplates/common/observable-data.md#intro)
+One of the key features of Telerik UI for Blazor Grid component is its ability to refresh the data displayed, ensuring that the Grid always presents the most up-to-date information. Whether you are working with large datasets or frequently changing data sources, understanding how to efficiently refresh the data in the Grid is crucial for maintaining both optimal performance and user experience. This guide covers various methods and best practices for refreshing data in the Telerik UI for Blazor Grid, helping you choose the right approach for your specific application needs related to Blazor DataGrid live update.
 
 In this article:
 
@@ -106,6 +106,8 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 ## Observable Data
 
+@[template](/_contentTemplates/common/observable-data.md#intro)
+
 @[template](/_contentTemplates/common/observable-data.md#observable-data)
 
 @[template](/_contentTemplates/common/observable-data.md#observable-data-onread-note)
@@ -113,7 +115,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 
 ````CSHTML
-@* Add/remove employee to see how the Grid reacts to that change. *@
+@* Add/remove employee to see the Blazor DataGrid live update in action. *@
 
 @using System.Collections.ObjectModel
 
@@ -369,7 +371,7 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 * Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
 
-    * It is important to ensure the change happens on the object the grid uses. Methods like `.FirstOrDefault()` may return a new reference and thus changing them may not trigger are UI update.
+    * It is important to ensure the change happens on the object the grid uses. Methods like `.FirstOrDefault()` will return a new reference and thus changing them will not trigger are UI update.
 
 
 ## See Also
