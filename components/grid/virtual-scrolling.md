@@ -1,7 +1,7 @@
 ---
 title: Virtual Scrolling
 page_title: Grid - Virtual Scrolling
-description: Enable and configure virtualization in the Blazor Grid with virtual scrolling - an alternative to paging.
+description: Enable and configure virtualization in Blazor Grid with virtual scrolling - an alternative to paging.
 slug: components/grid/virtual-scrolling
 tags: telerik,blazor,grid,virtual,scrolling
 published: True
@@ -17,6 +17,8 @@ To enhance rendering performance, the Grid reuses the same set of HTML elements.
 You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
 
 ## Using Virtual Scrolling
+
+For the Blazor Grid virtualization to work, you need to:
 
 1. Set the `ScrollMode` parameter to `GridScrollMode.Virtual` (the default value is `Scrollable`).
 1. [Set the `Height` parameter](#setting-a-value-for-the-height-parameter).
