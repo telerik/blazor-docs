@@ -44,15 +44,17 @@ This KB article answers the following questions:
 ````CSHTML
 @* Change SplitButton primary action on click *@
 
+<p>Last click action: @SplitButtonLog</p>
+
 <TelerikSplitButton Icon="@PrimaryButton.Icon"
                     OnClick="@( () => OnSplitButtonClick(PrimaryButton) )">
     <SplitButtonContent>@PrimaryButton.Text</SplitButtonContent>
     <SplitButtonItems>
         @{
-            var secondaryButtons = AllSplitButtons.Where(x => x.Id != PrimaryButton.Id);
-            foreach (var button in secondaryButtons)
+            foreach (var button in SecondaryButtons)
             {
-                <SplitButtonItem Icon="@button.Icon"
+                <SplitButtonItem @key="@button"
+                                 Icon="@button.Icon"
                                  OnClick="@( () => OnSplitButtonClick(button) )">
                     @button.Text
                 </SplitButtonItem>
@@ -61,14 +63,14 @@ This KB article answers the following questions:
     </SplitButtonItems>
 </TelerikSplitButton>
 
-Last click action: @SplitButtonLog
-
 @code {
     private List<SplitButtonModel> AllSplitButtons { get; set; } = new List<SplitButtonModel>() {
         new SplitButtonModel() { Id = 1, Text = "Paste", Icon = SvgIcon.Clipboard },
         new SplitButtonModel() { Id = 2, Text = "Paste as Plain Text", Icon = SvgIcon.ClipboardText },
         new SplitButtonModel() { Id = 3, Text = "Paste as HTML", Icon = SvgIcon.ClipboardHtml },
     };
+
+    private List<SplitButtonModel> SecondaryButtons => AllSplitButtons.Where(x => x.Id != PrimaryButton.Id).ToList();
 
     private SplitButtonModel PrimaryButton { get; set; } = null!;
 
