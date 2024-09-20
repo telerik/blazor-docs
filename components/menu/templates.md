@@ -24,7 +24,7 @@ The Menu item template can contain arbitrary content according such as HTML mark
 
 ### Use ItemTemplate for Navigation
 
-The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. In addition to rendering customization, `<NavLink>` also supports the `target="_blank"` attribute.
+The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. [`<NavLink>` also supports the `target="_blank"` attribute](#use-itemtemplate-for-styling-and-target_blank).
 
 >caption Use Menu item template for navigation
 
@@ -153,7 +153,7 @@ The following example shows how to render `<NavLink>` tags inside the Menu and u
 
 ### Use ItemTemplate for Styling and target="_blank"
 
-The example below shows a Menu configuration that is suitable for use in `MainLayout.razor`.
+The example below shows a Menu configuration that is suitable for use in `MainLayout.razor`. The implementation disables the [built-in Menu navigation]({%slug menu-navigation}) because the URL property is not `Url` and `UrlField` is not set. The sample also uses `<NavLink>` tags with `target="_blank"` to open external links in a new browser window.
 
 >caption Use Menu item template to distinguish the current page and open external links in new browser windows
 
