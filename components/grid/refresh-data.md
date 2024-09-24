@@ -371,7 +371,7 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 * Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
 
-    * It is important to ensure the change happens on the object the grid uses. Methods like `.FirstOrDefault()` will return a new reference and thus changing them will not trigger are UI update.
+    * It is important to ensure the change happens on the object that the Grid uses. Methods like `.FirstOrDefault()` will return a new reference and changing them will not trigger a UI update.
 
 
 ## See Also
