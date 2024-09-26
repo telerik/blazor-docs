@@ -16,7 +16,7 @@ The Menu component allows you to define a custom template for its items. This ar
 
 The template of all items is defined in the `ItemTemplate` tag of the Menu.
 
-The template receives the respective Menu data item as its `context`. You can use it to render the desired content. You can also set the `Context` parameter of the `ItemTemplate` tag and use a [named context variable. This is useful in nested template scenarios]().
+The template receives the respective Menu data item as its `context`. You can use it to render the desired content. You can also set the `Context` parameter of the `ItemTemplate` tag and use a [named context variable. This is useful in nested template scenarios]({%slug nest-renderfragment%}).
 
 The Menu item template can contain arbitrary content according such as HTML markup and other components. You can also use standard event handlers like `@onclick` or `@onmouseover`.
 
@@ -153,7 +153,7 @@ The following example shows how to render `<NavLink>` tags inside the Menu and u
 
 ### Use ItemTemplate for Styling and target="_blank"
 
-The example below shows a Menu configuration that is suitable for use in `MainLayout.razor`. The implementation disables the [built-in Menu navigation]({%slug menu-navigation}) because the URL property is not `Url` and `UrlField` is not set. The sample also uses `<NavLink>` tags with `target="_blank"` to open external links in a new browser window.
+The example below shows a Menu configuration that is suitable for use in `MainLayout.razor`. The implementation disables the [built-in Menu navigation]({%slug menu-navigation%}) because the URL property is not `Url` and `UrlField` is not set. The sample also uses `<NavLink>` tags with `target="_blank"` to open external links in a new browser window.
 
 >caption Use Menu item template to distinguish the current page and open external links in new browser windows
 
