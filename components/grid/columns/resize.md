@@ -66,8 +66,7 @@ The known limitations of the Autofit Columns feature include:
 >caption Grid Column Resizing and Autofitting
 
 ````CSHTML
-@* Grid column resizing and autofitting *@
-@* Drag the border between column headers to change the column width. The command column is not resizable by the user. *@
+<p>Resize the Grid columns and click the AutoFit buttons. The command column is not resizable by the user.</p>
 
 <TelerikButton OnClick="@AutoFitSingleColumn">AutoFit ID Column</TelerikButton>
 <TelerikButton OnClick="@AutoFitMultipleColumns">AutoFit String Columns</TelerikButton>
@@ -76,38 +75,43 @@ The known limitations of the Autofit Columns feature include:
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              Resizable="true"
-             Pageable="true" PageSize="10" Sortable="true" Height="300px">
+             Pageable="true"
+             Sortable="true"
+             Height="300px">
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.Id) Title="ID" Id="IDColumn" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="First Name" Id="NameColumn1" />
-        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="NameColumn2" />
+        <GridColumn Field=@nameof(SampleData.Id) Title="ID" Id="@IdColumnId" />
+        <GridColumn Field=@nameof(SampleData.FirstName) Title="First Name" Id="@FirstNameColumnId" />
+        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="@LastNameColumnId" />
         <GridCommandColumn Width="100px" Resizable="false">
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Icon="@SvgIcon.Trash">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    public TelerikGrid<SampleData> GridRef { get; set; }
-    public List<SampleData> GridData { get; set; }
+    public TelerikGrid<SampleData>? GridRef { get; set; }
+    public List<SampleData> GridData { get; set; } = new();
+
+    // Columns IDs used in the Grid column definitions and in the AutoFit methods.
+    private const string IdColumnId = "id-column";
+    private const string FirstNameColumnId = "first-name-column";
+    private const string LastNameColumnId = "last-name-column";
 
     private async Task AutoFitSingleColumn()
     {
-        await GridRef.AutoFitColumnAsync("IDColumn");
+        await GridRef!.AutoFitColumnAsync(IdColumnId);
     }
 
     private async Task AutoFitMultipleColumns()
     {
-        var columns = new List<string>() { "NameColumn1", "NameColumn2" };
-        await GridRef.AutoFitColumnsAsync(columns);
+        var columnIds = new List<string>() { FirstNameColumnId, LastNameColumnId };
+        await GridRef!.AutoFitColumnsAsync(columnIds);
     }
 
     private async Task AutoFitAllColumns()
     {
-        await GridRef.AutoFitAllColumnsAsync();
+        await GridRef!.AutoFitAllColumnsAsync();
     }
 
     protected override void OnInitialized()
@@ -120,7 +124,7 @@ The known limitations of the Autofit Columns feature include:
         return Enumerable.Range(1, 50).Select(x => new SampleData
         {
             Id = x,
-            Name = $"name {x}",
+            FirstName = $"Name {x}",
             LastName = $"Surname {x}"
         }).ToList();
     }
@@ -128,8 +132,8 @@ The known limitations of the Autofit Columns feature include:
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
     }
 }
 ````
