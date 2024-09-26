@@ -702,7 +702,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        description_suffix: "Read more in Telerik UI for Blazor Documentation."
+        description_suffix: ""
 -
     scope:
         path: "blazor"
@@ -765,7 +765,7 @@ defaults:
         category: "default"
         product: "blazor"
         editable: true
-        description_suffix: "Read more in our Blazor Knowledge Base articles."
+        description_suffix: ""
 -
     scope:
         path: "web.config"
