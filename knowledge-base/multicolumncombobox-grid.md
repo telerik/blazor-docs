@@ -1,6 +1,6 @@
 ---
 title: MultiColumnComboBox with Grid
-description: Learn how to implement a custom MultiColumnComboBox component with an actual Grid inside its dropdown. Thus you will be able to use all Grid features.
+description: Learn how to implement a custom MultiColumnComboBox component with an actual Grid inside its dropdown. Thus you will be able to use all Grid features such as sorting, column resizing, paging, and more.
 type: how-to
 page_title: How to Implement MultiColumnComboBox with Grid
 slug: multicolumncombobox-kb-grid
