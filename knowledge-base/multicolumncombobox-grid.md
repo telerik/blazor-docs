@@ -34,12 +34,43 @@ This KB answers the following questions:
 
 ## Solution
 
-The steps and example below describe how to create a custom component that looks and works similar to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) in the dropdown.
+The steps and example below describe how to create a custom component that looks and works similar to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) inside a [Popup component]({%slug popup-overview%}).
 
-1. Implement UI that looks like a Telerik ComboBox. For example, use a [TextBox]({%slug components/textbox/overview%}) and a [`TextBoxSuffixTemplate`]({%slug common-features/input-adornments%}) with an [icon Button]({%slug button-icons%}) inside.
-1. Add a [Telerik Popup component for Blazor]({%slug popup-overview%}) and set its `AnchorSelector` to be a selector that depends on a custom `Class` of the TextBox.
-1. Add a [Telerik Grid component for Blazor]({%slug grid-overview%}) inside the Popup. Enable the features that you need.
+## Prerequisites
+
+The solution below requires familiarity with:
+
+* [Telerik Grid for Blazor]({%slug grid-overview%}), especially the [Grid state]({%slug grid-state%}) and [Grid selection]({%slug grid-selection-overview%}).
+* [Telerik Popup for Blazor]({%slug popup-overview%});
+* [Telerik TextBox for Blazor]({%slug components/textbox/overview%});
+* Implementing [Blazor component parameters that support two-way binding](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-8.0#binding-with-component-parameters).
+* Implementing [Blazor components with `ChildContent` that is a `RenderFragment`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-8.0#child-content-render-fragments).
+
+## Steps
+
+1. Implement UI that looks like a closed Telerik ComboBox. For example, use a [TextBox]({%slug components/textbox/overview%}) and a [`TextBoxSuffixTemplate`]({%slug common-features/input-adornments%}) with an [icon Button]({%slug button-icons%}) inside.
+1. Add a [Popup]({%slug popup-overview%}) and set its `AnchorSelector` to be a selector that depends on a custom `Class` of the TextBox.
+1. Add a [Grid]({%slug grid-overview%}) inside the Popup. Enable the features that you need.
 1. Use [Grid row selection]({%slug grid-selection-row%}) and the Grid `SelectedItemsChanged` event to set the TextBox `Value` and the overall value of the custom MultiColumnComboBox component.
+1. (optional) Extract the whole implementation to a separate generic Razor component and implement parameters such as `Value` and `Data`.
+
+## How it Works
+
+* The example demonstrates a generic and reusable Razor component called `ComboBoxGrid`.
+* The component has several parameters, which work similar to the corresponding [MultiColumnComboBox parameters]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters):
+    * `Data`
+    * `Value`
+    * `TextField`
+    * `ValueField`
+    * `Width`
+* Typing in the component's textbox opens the dropdown and filters the Grid, similar to a [SearchBox]({%slug grid-searchbox%}#search-from-code).
+* Blurring the textbox or hitting Enter will select the first matching item in the Grid.
+* Selecting a Grid item applies a new `ComboBoxGrid` value and closes the dropdown.
+* Closing and reopening the dropdown preserves the Grid state.
+
+>tip This KB article shows a custom integration scenario that uses built-in features and API of Telerik UI for Blazor components. The implementation is provided as is. It can be subject to a lot of changes and customizations by the developer, according to the business requirements.
+
+## Example
 
 >caption Custom MultiColumnComboBox with an actual Grid component in the dropdown
 
@@ -535,10 +566,6 @@ The steps and example below describe how to create a custom component that looks
     #endregion Life Cycle Methods
 }
 ````
-
-## Notes
-
-> This KB article shows a custom integration scenario that uses built-in features and API of Telerik UI for Blazor components. The implementation is provided as is. The configuration and behavior of the custom `ComboBoxGrid` component is based on common patterns, but also personal preferences. Adjust the behavior and enabled Grid features to suit your business requirements.
 
 ## See Also
 
