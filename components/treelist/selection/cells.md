@@ -196,8 +196,8 @@ The `TreeListSelectedCellDescriptor` type exposes the following properties:
 
 | Property Name | Type | Description |
 | --- | --- | --- |
-| `ColumnField` | `string` | The value of the TreeList column `Field` parameter, if set. |
-| `ColumnId` | `string` | The value of the TreeList column `Id` parameter, if set. |
+| `ColumnField` | `string` | The value of the TreeList column [`Field` parameter](/blazor-ui/api/telerik.blazor.components.common.boundcolumnbase#Telerik_Blazor_Components_Common_BoundColumnBase_Field), if set. |
+| `ColumnId` | `string` | The value of the TreeList column [`Id` parameter](/blazor-ui/api/Telerik.Blazor.Components.Common.ColumnBase#Telerik_Blazor_Components_Common_ColumnBase_Id), if set. |
 | `DataItem` | `object` | The TreeList data item instance. Cast it to the actual TreeList model type before use. |
 
 ## Selection When Data Changes
