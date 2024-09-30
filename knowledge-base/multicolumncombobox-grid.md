@@ -34,7 +34,7 @@ This KB answers the following questions:
 
 ## Solution
 
-The steps and example below describe how to create a custom component that looks and works similar to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) inside a [Popup component]({%slug popup-overview%}).
+The steps and example below describe how to create a custom component that looks and works similarly to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) inside a [Popup component]({%slug popup-overview%}).
 
 ## Prerequisites
 
