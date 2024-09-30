@@ -68,7 +68,7 @@ The solution below requires familiarity with:
 * Selecting a Grid item applies a new `ComboBoxGrid` value and closes the dropdown.
 * Closing and reopening the dropdown preserves the Grid state.
 
->tip This KB article shows a custom integration scenario that uses built-in features and API of Telerik UI for Blazor components. The implementation is provided as is. It can be subject to a lot of changes and customizations by the developer, according to the business requirements.
+>tip This KB article shows a custom integration scenario that uses built-in features and APIs of Telerik UI for Blazor components. The implementation is provided as is. It can be subject to a lot of changes and customizations by the developer, according to the business requirements.
 
 ## Example
 
