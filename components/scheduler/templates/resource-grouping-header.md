@@ -15,7 +15,7 @@ You can use the `SchedulerResourceGroupHeaderTemplate` to customize the renderin
 The `SchedulerResourceGroupHeaderTemplate`:
 * Is invoked for each resource when the Scheduler is configured to have resources and grouping.
 * Applies in both horizontal and vertical grouping.
-* Can be defined at the root level of the Scheduler and individually for each [Scheduler views]({%slug scheduler-views-overview%}). When configured at the root, the template applies to all views. If a `SchedulerResourceGroupHeaderTemplate` is defined at the view level, it will override the root-level template for that specific view.
+* Can be defined individually for each [Scheduler views]({%slug scheduler-views-overview%}).
 
 The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext` object that contains:
 
@@ -32,14 +32,6 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
                   @bind-Date="@StartDate"
                   Height="600px"
                   Width="900px">
-    <SchedulerResourceGroupHeaderTemplate>
-        Text: @context.Text
-        <br />
-        Value: @context.Value
-        <br />
-        Field: @context.Field
-        <br />
-    </SchedulerResourceGroupHeaderTemplate>
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart">
             <SchedulerResourceGroupHeaderTemplate>
@@ -62,9 +54,23 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
                 </p>
             </SchedulerResourceGroupHeaderTemplate>
         </SchedulerDayView>
-        <SchedulerWeekView StartTime="@DayStart" />
-        <SchedulerMultiDayView StartTime="@DayStart" />
-        <SchedulerMonthView></SchedulerMonthView>
+        <SchedulerWeekView StartTime="@DayStart">
+            <SchedulerResourceGroupHeaderTemplate>
+                <div>
+                    <span class="meeting-title">@context.Text</span>
+                </div>
+            </SchedulerResourceGroupHeaderTemplate>
+        </SchedulerWeekView>
+        <SchedulerMonthView>
+            <SchedulerResourceGroupHeaderTemplate>
+                Text: @context.Text
+                <br />
+                Value: @context.Value
+                <br />
+                Field: @context.Field
+                <br />
+            </SchedulerResourceGroupHeaderTemplate>
+        </SchedulerMonthView>
     </SchedulerViews>
     <SchedulerResources>
         <SchedulerResource Field="@nameof(AppointmentModel.RoomId)" TextField="Name" ValueField="Id" Data="@Rooms"></SchedulerResource>
@@ -75,6 +81,14 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
 </TelerikScheduler>
 
 <TelerikTooltip TargetSelector=".tooltip-target" />
+
+<style>
+    .meeting-title {
+        text-transform: uppercase;
+        font-style: italic;
+        color: red;
+    }
+</style>
 
 @code {
     private List<string> GroupingResources = new List<string> { "RoomId" };
@@ -172,5 +186,5 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
 
 ## See Also
 
- * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/resourcegroupheader-templates)
+ * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/templates)
 
