@@ -57,7 +57,7 @@ The solution below requires familiarity with:
 ## How it Works
 
 * The example demonstrates a generic and reusable Razor component called `ComboBoxGrid`.
-* The component has several parameters, which work similar to the corresponding [MultiColumnComboBox parameters]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters):
+* The component has several parameters, which work similarly to the corresponding [MultiColumnComboBox parameters]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters):
     * `Data`
     * `Value`
     * `TextField`
