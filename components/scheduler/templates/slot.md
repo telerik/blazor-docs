@@ -310,5 +310,5 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 
 ## See Also
 
- * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/slot-templates)
+ * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/templates)
 
