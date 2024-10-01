@@ -23,7 +23,7 @@ ticketid: 1665695
 
 This KB article answers the following questions:
 * How can I change the first day of the week in the DatePicker?
-* Is it possible to set different day as the start of the week from the default one in the Telerik DatePicker for Blazor?
+* Is it possible to set a different day as the start of the week from the default one in the Telerik DatePicker for Blazor?
 * What steps should I follow to modify the start of the week in a DatePicker component?
 
 ## Solution
