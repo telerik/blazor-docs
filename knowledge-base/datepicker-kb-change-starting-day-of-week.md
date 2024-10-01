@@ -1,6 +1,6 @@
 ---
 title: How to Change the Default Starting Day of the Week
-description: Learn how to set the first day of the week to different from the default one in the Telerik Blazor DatePicker component by modifying the current culture settings.
+description: Learn how to set a first day of the week that's different from the default one in the Telerik Blazor DatePicker component by modifying the current culture settings.
 type: how-to
 page_title: How to Change the Default Starting Day of the Week 
 slug: datepicker-kb-change-starting-day-of-week
