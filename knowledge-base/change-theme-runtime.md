@@ -32,11 +32,11 @@ This KB article answers the following questions:
 
 ## Solution
 
-The app stylesheets reside outside the Razor component hierarchy, so the Blazor code cannot access them. You can change Telerik [themes]({%slug themes-built-in%}) and [swatches]({%slug themes-swatches%}) at runtime with [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
+The app stylesheets reside outside the Razor component hierarchy, so the Blazor code cannot access them. You can change Telerik [themes]({%slug themes-overview%}) and [swatches]({%slug themes-swatches%}) at runtime with [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
 
-The following algorithm follows the commonly used approach to replace a CSS file in any web app. You can use it for built-in themes and custom themes, regardless of the [CSS theme's physical location]({%slug themes-built-in%}#using-a-theme).
+The following algorithm follows the commonly used approach to replace a CSS file in any web app. You can use it for built-in themes and custom themes, regardless of the [CSS theme's physical location]({%slug themes-overview%}#using-a-theme).
 
-1. [Register the initial Telerik theme]({%slug themes-built-in%}#using-a-theme) in a way that allows you to get reference to the `<link>` tag. For example, use an `id` attribute.
+1. [Register the initial Telerik theme]({%slug themes-overview%}#using-a-theme) in a way that allows you to get reference to the `<link>` tag. For example, use an `id` attribute.
     
     >caption HTML
     ```
@@ -74,7 +74,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
     ```
 1. Implement UI that triggers the JavaScript theme change. After the new CSS theme is loaded, refresh all Telerik components that use SVG or Canvas rendering, such as BarCodes, Charts, Gauges, and QR Codes.
 
-    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance).
+    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-overview%}#theme-version-compatibility-and-maintenance).
     >
     > Replace `Index` in the code below with the correct Razor component name.
 
@@ -332,6 +332,6 @@ The following algorithm follows the commonly used approach to replace a CSS file
 
 ## See Also
 
-* [Themes Overview]({%slug themes-built-in%})
+* [Themes Overview]({%slug themes-overview%})
 * [Theme Swatches]({%slug themes-swatches%})
 * [Implement CDN Fallback]({%slug common-kb-cdn-fallback%})

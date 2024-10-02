@@ -30,7 +30,7 @@ You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-swatch
 * [Telerik UI for Blazor version 4.0.1](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-4-0-1)
 * [Themes version 6.0.3](https://github.com/telerik/kendo-themes/releases/tag/v6.0.3)
 
-Check section [Theme Version Compatibility]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance) for more information about how to align Telerik UI for Blazor versions with theme versions.
+Check section [Theme Version Compatibility]({%slug themes-overview%}#theme-version-compatibility-and-maintenance) for more information about how to align Telerik UI for Blazor versions with theme versions.
 
 > An existing limitation is that the ColorPalette component fails WCAG success criterion 1.4.11. "Non-text contrast for the focus indicator on its items".
 

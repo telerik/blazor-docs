@@ -93,7 +93,7 @@ The **Create New Project** wizard provides the following project templates:
 > The **Admin**, **Dashboard**, **CRUD**, **Form** and **Chart** templates are deprecated and are planned to be removed with the Q1 2025 release. The source code for these projects will be moved to the [blazor-ui repo](https://github.com/telerik/blazor-ui) for continued access.
 ### Step 3: Select Theme
 
-Finally, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
+Finally, you can apply one of the available [themes]({%slug themes-overview%}) to your project.
 
 ## See Also
 

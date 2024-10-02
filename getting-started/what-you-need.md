@@ -148,7 +148,7 @@ You can also [add the Telerik UI for Blazor version number to the CSS and JavaSc
 
 ### CSS Theme
 
-Register the [Telerik theme stylesheet]({%slug themes-built-in%}) in the `<head>` of the web page. Add the theme before the application stylesheet and the [CSS isolation stylesheet](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation). This CSS file order lets you [override Telerik theme styles]({%slug themes-override%}) more easily, if necessary.
+Register the [Telerik theme stylesheet]({%slug themes-overview%}) in the `<head>` of the web page. Add the theme before the application stylesheet and the [CSS isolation stylesheet](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation). This CSS file order lets you [override Telerik theme styles]({%slug themes-override%}) more easily, if necessary.
 
 Register the [Telerik font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet) only if the app uses [Telerik font icons]({%slug common-features-icons%}).
 

@@ -109,4 +109,4 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 * [Workflow Details for using the Telerik UI for Blazor components]({%slug getting-started/what-you-need%}) (a concise version of the tutorials above)
 * Use guided wizards to generate new Telerik Projects in [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
 * [Convert an existing project to a Telerik-enabled project]({%slug getting-started-vs-integration-convert-project%})
-* [Style the Telerik Blazor Components]({%slug themes-built-in%})
+* [Style the Telerik Blazor Components]({%slug themes-overview%})

@@ -58,7 +58,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset]({%slug themes-built-in%}#using-a-theme) in your `App.razor` file.
+2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset]({%slug themes-overview%}#using-a-theme) in your `App.razor` file.
 
 **HTML**
 

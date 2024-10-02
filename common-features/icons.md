@@ -172,7 +172,7 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 
 ### Render Font Icons with HTML
 
-Telerik UI for Blazor shares the same [themes]({%slug themes-built-in%}) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
+Telerik UI for Blazor shares the same [themes]({%slug themes-overview%}) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
 
 You can use the built-in font icons directly with HTML tags, without the `<TelerikFontIcon>` component. Such direct HTML usage may provide more flexibility, but if you don't really need it, we recommend using `FontIcon` objects and the `<TelerikFontIcon>` component instead.
 
@@ -343,4 +343,4 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 
 * [Built-in Icon List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)
 * [Blazor Live Demos](https://demos.telerik.com/blazor-ui/)
-* [CSS Themes]({%slug themes-built-in%})
+* [CSS Themes]({%slug themes-overview%})

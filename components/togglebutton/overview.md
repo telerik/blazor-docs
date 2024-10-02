@@ -12,7 +12,7 @@ position: 0
 
 This article provides information about the <a href="https://www.telerik.com/blazor-ui/togglebutton" target="_blank">Blazor ToggleButton component</a> and its core features.
 
-The ToggleButton component can have a selected state, which is the main difference from the [regular Telerik UI for Blazor Button]({%slug components/button/overview%}). The two-state styling depends on the [chosen theme]({%slug themes-built-in%}). The ToggleButton also provides [events]({%slug togglebutton-events%}), [declarative appearance customization]({%slug togglebutton-appearance%}) and can nest [icons]({%slug togglebutton-icons%}).
+The ToggleButton component can have a selected state, which is the main difference from the [regular Telerik UI for Blazor Button]({%slug components/button/overview%}). The two-state styling depends on the [chosen theme]({%slug themes-overview%}). The ToggleButton also provides [events]({%slug togglebutton-events%}), [declarative appearance customization]({%slug togglebutton-appearance%}) and can nest [icons]({%slug togglebutton-icons%}).
 
 ## Creating Blazor ToggleButton
 

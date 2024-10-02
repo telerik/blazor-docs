@@ -124,8 +124,6 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 
 #change-theme-runtime
 
-### Changing Themes Runtime
-
 The application can remove a loaded stylesheet from the page and register another one. See [how to change the theme or swatch at runtime]({%slug change-theme-runtime%}) with step-by-step instructions and an example.
 
 #end

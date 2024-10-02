@@ -18,7 +18,7 @@ The [Telerik and Kendo UI design tools for Figma](https://www.figma.com/@progres
 
 ## Using the UI Kits
 
-The Telerik and Kendo UI Kits for Figma enable efficient collaboration between designers and developers. Each UI kit corresponds to one of the [themes that ship with the Telerik UI for Blazor components]({%slug themes-built-in%}#theme-names).
+The Telerik and Kendo UI Kits for Figma enable efficient collaboration between designers and developers. Each UI kit corresponds to one of the [themes that ship with the Telerik UI for Blazor components]({%slug themes-overview%}#theme-names).
 
 These polished UI kits include pre-made, reusable design components that follow the [atomic design principles](https://atomicdesign.bradfrost.com/chapter-2/). The design files represent the Telerik UI for Blazor components in every possible state, their detailed anatomy, colors, metrics, and icons. All these elements enable the seamless handover of the design to the developers.
 
@@ -33,7 +33,7 @@ Check the [Figma UI Kits](https://www.telerik.com/design-system/docs/resources/f
 
 ## See Also
 
-* [Built-in Themes]({%slug themes-built-in%})
+* [Built-in Themes]({%slug themes-overview%})
 * [Custom Themes]({%slug themes-custom%})
 * [Figma for Developers (blog)](https://www.telerik.com/blogs/figma-developers)
 * [Design Systems for Developers (blog)](https://www.telerik.com/blogs/design-systems-developers)

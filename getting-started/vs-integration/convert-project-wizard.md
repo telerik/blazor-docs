@@ -78,7 +78,7 @@ This screen provides the ability to:
 
 ### Step 2: Select Theme
 
-In this step, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
+In this step, you can apply one of the available [themes]({%slug themes-overview%}) to your project.
 
 ### Step 3: Create a Backup
 
