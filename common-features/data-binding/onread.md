@@ -59,6 +59,7 @@ Each component name points to component-specific `OnRead` documentation and exam
 | [DropDownList]({%slug components/dropdownlist/events%}#onread) | - | [DropDownList virtualization]({%slug dropdownlist-virtualization%}) |
 | [Grid]({%slug components/grid/manual-operations%}) | [Grid paging]({%slug components/grid/features/paging%}) | [Grid row virtualization]({%slug components/grid/virtual-scrolling%}) |
 | [ListView]({%slug listview-manual-operations%}) | [ListView paging]({%slug listview-paging%}) | - |
+| [MultiColumnComboBox]({%slug multicolumncombobox-events%}#onread) | - | [MultiColumnComboBox virtualization]({%slug multicolumncombobox-virtualization%}) |
 | [MultiSelect]({%slug multiselect-events%}#onread) | - | [MultiSelect virtualization]({%slug multiselect-virtualization%}) |
 
 Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}) and the [**TreeView**]({%slug components/treeview/data-binding/load-on-demand%}) don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
