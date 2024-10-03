@@ -76,7 +76,7 @@ The available .NET framework versions vary depending on the selected hosting mod
 
 #### Section 10: Select Theme
 
-Select your desired [theme]({%slug themes-overview%}) for your project. Click **See All Swatches** to explore the available [theme variations]({%slug themes-swatches%}).
+Select your desired [theme]({%slug themes-overview%}) for your project. Click **See All Swatches** to explore the available [theme color variations]({%slug themes-overview%}#basics).
 
 @[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
 

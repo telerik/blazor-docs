@@ -3,7 +3,7 @@ title: Change Telerik Theme at Runtime
 description: Learn how to switch the Telerik Blazor theme at runtime on the fly with JavaScript.
 type: how-to
 page_title: How to Change the Telerik Theme or Swatch at Runtime
-slug: change-theme-runtime
+slug: common-kb-common-kb-change-theme-runtime
 position: 
 tags: telerik, blazor, theme
 ticketid: 1442823
@@ -32,7 +32,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-The app stylesheets reside outside the Razor component hierarchy, so the Blazor code cannot access them. You can change Telerik [themes]({%slug themes-overview%}) and [swatches]({%slug themes-swatches%}) at runtime with [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
+The app stylesheets reside outside the Razor component hierarchy, so the Blazor code cannot access them. You can change the current Telerik [themes or swatch]({%slug themes-overview%}) at runtime with [JSInterop](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet).
 
 The following algorithm follows the commonly used approach to replace a CSS file in any web app. You can use it for built-in themes and custom themes, regardless of the [CSS theme's physical location]({%slug themes-overview%}#using-a-theme).
 
@@ -333,5 +333,4 @@ The following algorithm follows the commonly used approach to replace a CSS file
 ## See Also
 
 * [Themes Overview]({%slug themes-overview%})
-* [Theme Swatches]({%slug themes-swatches%})
 * [Implement CDN Fallback]({%slug common-kb-cdn-fallback%})

@@ -10,7 +10,7 @@ position: 7
 
 # Ocean Blue Accessibility Swatch
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/) sections [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum) and [1.4.6 Contrast (Enhanced)](https://www.w3.org/TR/WCAG21/#contrast-enhanced) define contrast ratios for accessibility compliance. The *Default Ocean Blue A11y* [theme swatch]({%slug themes-swatches%}) in Telerik UI for Blazor conforms to WCAG Level AA, which requires contrast ratios of at least:
+The [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/) sections [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum) and [1.4.6 Contrast (Enhanced)](https://www.w3.org/TR/WCAG21/#contrast-enhanced) define contrast ratios for accessibility compliance. The *Default Ocean Blue A11y* [theme swatch]({%slug themes-overview%}#basics) in Telerik UI for Blazor conforms to WCAG Level AA, which requires contrast ratios of at least:
 
 * 4.5:1 for normal text
 * 3:1 for large text

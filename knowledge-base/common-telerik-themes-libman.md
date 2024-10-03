@@ -43,7 +43,7 @@ The benefits of Libman are:
 You can use Libman to consume the following **npm** packages that are published on the **UNPKG** CDN:
 
 * [`@progress/kendo-font-icons`](https://www.npmjs.com/package/@progress/kendo-font-icons) provides font icon styles when using [font icons instead of SVG icons]({%slug common-features-icons%}).
-* All [built-in themes]({%slug themes-overview%}) and their [swatches]({%slug themes-swatches%}):
+* All [built-in themes]({%slug themes-overview%}) and their [swatches]({%slug themes-overview%}#basics):
     * [`@progress/kendo-theme-bootstrap`](https://www.npmjs.com/package/@progress/kendo-theme-bootstrap)
     * [`@progress/kendo-theme-default`](https://www.npmjs.com/package/@progress/kendo-theme-default)
     * [`@progress/kendo-theme-fluent`](https://www.npmjs.com/package/@progress/kendo-theme-fluent)

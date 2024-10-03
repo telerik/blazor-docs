@@ -122,17 +122,13 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 | tb-wizard                  | [Wizard]({%slug wizard-overview%})       |
 #end
 
-#change-theme-runtime
-
-The application can remove a loaded stylesheet from the page and register another one. See [how to change the theme or swatch at runtime]({%slug change-theme-runtime%}) with step-by-step instructions and an example.
-
-#end
 
 #status-telerik-com
 ## Telerik NuGet Feed Status
 
 Visit [status.telerik.com](https://status.telerik.com) to check the status of the Telerik NuGet server. The top section shows manually logged incidents with possible updates or workaround suggestions. The [**System Metrics** section](https://status.telerik.com/#system-metrics) provides real-time automated diagnostics.
 #end
+
 
 #ci-cd-support
 > All deployment articles in this documentation provide general guidance and fundamentals. Telerik does not provide technical support for setting up CI/CD environments or application publishing infrastructure.

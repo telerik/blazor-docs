@@ -5,7 +5,7 @@ description: The UI for Blazor suite comes with a set of built-in themes that yo
 slug: themes-overview
 tags: telerik,blazor,theme,built-in
 published: True
-previous_url: /themes/overview,/styling-and-themes/swatch-distribution,/styling-and-themes/theme-swatches,/styling-and-themes/form-elements
+previous_url: /themes/overview,/styling-and-themes/swatch-distribution,/styling-and-themes/theme-swatches,/styling-and-themes/themebuilder,/styling-and-themes/form-elements,/styling-and-themes/figma-ui-kits
 position: 0
 ---
 
@@ -13,31 +13,36 @@ position: 0
 
 Telerik UI for Blazor comes with a set of built-in CSS themes that control the visual appearance of the components. Each theme determines the components' [colors](https://www.telerik.com/design-system/docs/foundation/color/), borders, backgrounds, size, layout, position, font size and sometimes the font family.
 
-The CSS themes represent an external dependency to Telerik UI for Blazor:
+>caption In This Article
 
-* The themes represent a separate product, which is used by multiple Telerik and Kendo UI products.
-* The [Telerik and Kendo UI Themes documentation](https://www.telerik.com/design-system/docs/themes/get-started/introduction/) is part of the [Telerik Design System documentation](https://www.telerik.com/design-system/docs/). The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
-* The Telerik and Kendo UI Themes have their own product development, roadmap and strategy. You can log public feature requests or bug reports on the [Telerik Themes feedback portal](https://feedback.telerik.com/themes).
-
-This article contains the following sections:
-
-* [Definitions for *theme* and *swatch*](#basics)
+* [Definitions for *theme* and *swatch*](#basics) and [how the themes relate to the components](#integration-with-the-telerik-components)
 * [All built-in theme and swatch names](#built-in-themes) and how to [preview them](#comparing-themes-and-swatches)
-* How to [register a theme in your web app](#using-a-theme)
-    * Which is the [easiest approach](#loading-themes-from-the-nuget-package)
+* How to [register a theme in your web app](#using-a-theme) and which is the [easiest approach](#loading-themes-from-the-nuget-package)
     * How to [ensure compatibility](#theme-version-compatibility-and-maintenance) between the Telerik components for Blazor and the theme version
     * How to [change the theme or swatch runtime](#changing-themes-runtime)
 * How to [create a custom themes](#custom-themes) or [customize an existing theme](#setting-theme-variables)
 
 ## Basics
 
+### Theme
+
 A *theme* is a collection of styles in a single CSS file, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, *Default* and *Bootstrap* are two [built-in theme names](#built-in-themes).
+
+### Swatch
 
 A [*theme swatch*](https://www.telerik.com/design-system/docs/themes/customization/swatches/) is a color variation of a theme. All swatches of a given theme use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, *Default Ocean Blue* and *Bootstrap Nordic* are two built-in swatch names.
 
 When the Telerik UI for Blazor documentation talks about a given theme name, for example *Default*, this implies the *Main* swatch of this theme. In addition, the word "theme" as a general term can imply any swatch of any theme.
 
 The CSS file of any swatch is self-sufficient and contains all required styles for the Telerik Blazor components, except the optional [font icon styles]({%slug common-features-icons%}#font-icon-stylesheet). The Blazor app should load only one theme (swatch) at a time.
+
+### Integration with the Telerik Components
+
+The CSS themes represent an external dependency to Telerik UI for Blazor:
+
+* The themes represent a separate product, which is used by multiple Telerik and Kendo UI products.
+* The [Telerik and Kendo UI Themes documentation](https://www.telerik.com/design-system/docs/themes/get-started/introduction/) is part of the [Telerik Design System documentation](https://www.telerik.com/design-system/docs/). The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
+* The Telerik and Kendo UI Themes have their own product development, roadmap and strategy. You can log public feature requests or bug reports on the [Telerik Themes feedback portal](https://feedback.telerik.com/themes).
 
 
 ## Built-in Themes
@@ -104,9 +109,6 @@ The Telerik themes are decoupled from the Telerik Blazor components, which leads
 * When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
 * When loading [theme swatches](https://www.telerik.com/design-system/docs/themes/customization/swatches/) from a CDN, make sure that the theme version is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a [newer minor theme version](https://www.telerik.com/design-system/docs/themes/get-started/changelog/), which doesn't contain breaking changes.
 
-### Changing Themes Runtime
-
-@[template](/_contentTemplates/common/general-info.md#change-theme-runtime)
 
 ## Custom Themes
 
@@ -122,7 +124,14 @@ You can customize the appearance of the Telerik Blazor components in several way
 
 ### Using ThemeBuilder
 
-The [ThemeBuilder](https://www.telerik.com/design-system/docs/themes/themebuilder/) is a web application that enables you to create new custom themes by changing the styles of existing built-in themes. Every change that you make is visualized almost instantly. Once you are done styling the UI components, you can export a ZIP file with the desired styles and [use the theme CSS file in your Blazor app](#using-a-theme).
+The [ThemeBuilder is an online tool](https://themebuilderapp.telerik.com) that enables you to create custom themes and instantly preview how the components will look. The tool generates a [CSS file that you can use in your Blazor app](#using-a-theme) instead of a built-in theme.
+
+Visit the [ThemeBuilder documentation](https://docs.telerik.com/themebuilder) to learn how to:
+
+* [Create a custom theme](https://docs.telerik.com/themebuilder/get-started/first-steps-theme-builder)
+* Migrate custom themes to new component versions [automatically](https://docs.telerik.com/themebuilder/web-app/automatic-migrations) or [manually](https://docs.telerik.com/themebuilder/web-app/migrating-projects)
+* [Export and use a theme in your Blazor app](https://docs.telerik.com/themebuilder/exported-package)
+
 
 ### Setting Theme Variables
 
@@ -181,11 +190,11 @@ The [Theme Customization page of the Progress Design System documentation](https
 
 ## Next Steps
 
-* [Choose a theme swatch]({%slug themes-swatches%})
 * [Create a custom theme]({%slug themes-custom%})
+* [Explore the Telerik and Kendo UI Kits for Figma](https://www.telerik.com/design-system/docs/resources/figma-ui-kits/)
 
 ## See Also
 
-* [Change the Theme at Runtime]({%slug change-theme-runtime%})
+* [Change the Theme at Runtime]({%slug common-kb-change-theme-runtime%})
 * [Default Ocean Blue Accessibility Swatch](https://www.telerik.com/design-system/docs/foundation/guides/accessibility/global-accessibility/)
 * [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)
