@@ -191,12 +191,142 @@ You can resize the Chart based on the browser size and re-render with the new di
 
 ## Form Integration
 
-You can utilize the Form Columns to fit the contents of the Telerik Form to a smaller browser window. You can find an example in the <a href="https://github.com/telerik/blazor-ui/tree/master/form/responsive-form" target="_blank">Responsive Form</a> demo application.
+You can use the MediaQuery component to set various [layout-related parameters of the Form component]({%slug form-overview%}#form-parameters), such as `Orientation`, `Columns`, `ColumnSpacing`, and `ButtonsLayout`.
+
+>caption Responsive Form with MediaQuery
+
+````CSHTML
+@using System.ComponentModel.DataAnnotations
+
+<ul>
+    <li>
+        <code>IsSmallScreen</code>: <strong>@IsSmallScreen</strong>
+    </li>
+    <li>
+        <code>IsMediumScreen</code>: <strong>@IsMediumScreen</strong>
+    </li>
+    <li>
+        <code>IsLargeScreen</code>: <strong>@IsLargeScreen</strong>
+    </li>
+    <li>
+        <code>IsExtraLargeScreen</code>: <strong>@IsExtraLargeScreen</strong>
+    </li>
+</ul>
+
+<TelerikForm Model="@Employee"
+             ButtonsLayout="@FormButtonsLayout"
+             Orientation="@FormOrientation">
+    <FormValidation>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <TelerikValidationSummary />
+    </FormValidation>
+    <FormItems>
+        <FormGroup LabelText="Personal Information" Columns="@FormGroupColumns" ColumnSpacing="@FormGroupColumnSpacing">
+            <FormItem Field="@nameof(Person.FirstName)" LabelText="First Name"></FormItem>
+            <FormItem Field="@nameof(Person.MiddleName)" LabelText="Middle Name"></FormItem>
+            <FormItem Field="@nameof(Person.LastName)" LabelText="Last Name"></FormItem>
+            <FormItem Field="@nameof(Person.BirthDate)" LabelText="Birth Date"></FormItem>
+            <FormItem Field="@nameof(Person.Address)" EditorType="@FormEditorType.TextArea" ColSpan="@FormGroupColumns"></FormItem>
+        </FormGroup>
+        <FormGroup LabelText="Work Information" Columns="@FormGroupColumns" ColumnSpacing="@FormGroupColumnSpacing">
+            <FormItem Field="@nameof(Person.Id)" LabelText="Corporate ID" Enabled="false"></FormItem>
+            <FormItem Field="@nameof(Person.HireDate)" LabelText="Hire Date"></FormItem>
+            <FormItem Field="@nameof(Person.Team)"></FormItem>
+            <FormItem Field="@nameof(Person.LeaveDate)" LabelText="Leave Date"></FormItem>
+        </FormGroup>
+    </FormItems>
+</TelerikForm>
+
+<TelerikMediaQuery Media="@SmallScreenMediaQuery" OnChange="@( (bool matches) => { IsSmallScreen = matches; ConfigureForm(); } )" />
+<TelerikMediaQuery Media="@MediumScreenMediaQuery" OnChange="@( (bool matches) => { IsMediumScreen = matches; ConfigureForm(); } )" />
+<TelerikMediaQuery Media="@LargeScreenMediaQuery" OnChange="@( (bool matches) => { IsLargeScreen = matches; ConfigureForm(); } )" />
+<TelerikMediaQuery Media="@ExtraLargeScreenMediaQuery" OnChange="@( (bool matches) => { IsExtraLargeScreen = matches; ConfigureForm(); } )" />
+
+@code {
+    private Person Employee { get; set; } = new() { Id = 1234 };
+
+    private FormOrientation FormOrientation { get; set; } = FormOrientation.Vertical;
+    private FormButtonsLayout FormButtonsLayout { get; set; } = FormButtonsLayout.Start;
+    private int FormGroupColumns { get; set; } = 1;
+    private string FormGroupColumnSpacing { get; set; } = string.Empty;
+
+    private string SmallScreenMediaQuery { get; set; } = "(max-width: 430px)";
+    private string MediumScreenMediaQuery { get; set; } = "(min-width: 431px)";
+    private string LargeScreenMediaQuery { get; set; } = "(min-width: 768px)";
+    private string ExtraLargeScreenMediaQuery { get; set; } = "(min-width: 1199px)";
+
+    private bool IsSmallScreen { get; set; }
+    private bool IsMediumScreen { get; set; }
+    private bool IsLargeScreen { get; set; }
+    private bool IsExtraLargeScreen { get; set; }
+
+    private void ConfigureForm()
+    {
+        if (IsMediumScreen)
+        {
+            FormOrientation = FormOrientation.Horizontal;
+            FormButtonsLayout = FormButtonsLayout.Center;
+            FormGroupColumns = 2;
+            FormGroupColumnSpacing = "1em";
+        }
+
+        if (IsSmallScreen)
+        {
+            FormOrientation = FormOrientation.Vertical;
+            FormButtonsLayout = FormButtonsLayout.Stretch;
+            FormGroupColumns = 1;
+            FormGroupColumnSpacing = string.Empty;
+        }
+
+        if (IsLargeScreen)
+        {
+            FormOrientation = FormOrientation.Vertical;
+            FormButtonsLayout = FormButtonsLayout.Start;
+            FormGroupColumns = 3;
+            FormGroupColumnSpacing = "2em";
+        }
+
+        if (IsExtraLargeScreen)
+        {
+            FormOrientation = FormOrientation.Vertical;
+            FormButtonsLayout = FormButtonsLayout.End;
+            FormGroupColumns = 4;
+            FormGroupColumnSpacing = "3em";
+        }
+    }
+
+    public class Person
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        public string MiddleName { get; set; } = string.Empty;
+
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+
+        [Required]
+        public string Address { get; set; } = string.Empty;
+
+        [Required]
+        public DateTime? BirthDate { get; set; }
+
+        [Required]
+        public DateTime HireDate { get; set; } = DateTime.Today;
+
+        [Required]
+        public string? Team { get; set; }
+
+        public DateTime? LeaveDate { get; set; }
+    }
+}
+````
 
 ## See Also
-  
-  * [Live Demo: MediaQuery - Grid Integration](https://demos.telerik.com/blazor-ui/mediaquery/grid-integration)
-  * [Overview]({%slug mediaquery-overview%})
-  * [Events]({%slug mediaquery-events%})
 
-   
+* [Live Demo: MediaQuery and Grid Integration](https://demos.telerik.com/blazor-ui/mediaquery/grid-integration)
+* [MediaQuery Overview]({%slug mediaquery-overview%})
+* [MediaQuery Events]({%slug mediaquery-events%})
