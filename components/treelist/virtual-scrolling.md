@@ -20,7 +20,7 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 * Set the `ScrollMode` parameter to `TreeListScrollMode.Virtual` (the default value is `Scrollable`).
 * Set the `Height` and `RowHeight` parameters.
 
->caption Enable Sorting in Telerik TreeList
+>caption Enable virtual scrolling in the Telerik TreeList for Blazor
 
 ````CSHTML
 <TelerikTreeList Data="@TreeListData"
