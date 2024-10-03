@@ -61,17 +61,16 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default value | Description |
-|-----------|------------------------|-------------|
-| `Media`  | `string` | the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. |
+| Parameter | Type | Description |
+|---|---|---|
+| `Media`  | `string` | The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">media query string</a> that will be matched. |
 
 ## Notes
 
-The MediaQuery component facilitates the usage of CSS media queries in your C# code. There are a few points to keep in mind:
+The MediaQuery component facilitates the usage of CSS media queries in your C# code:
 
-* The MediaQuery component is not a replacement for responsive design, layout and CSS. You should use them to create your responsive application layouts like with any other web application.
-
-* The MediaQuery component makes it easy to use C# logic based on the breakpoint that matches - such as changing parameter values, replacing a component with a different component or even not rendering a part of the layout (with CSS alone you can resize parts of the app or hide them visually, but they still render).
+* The MediaQuery component makes it easy to use C# logic based on the matched media query breakpoints. For example, you can change parameter values, replace a component with a different component or even not render parts of the layout. With CSS alone you can resize parts of the app or hide them visually, but they still render.
+* The MediaQuery component is not designed as a full replacement for responsive design, layout and CSS. You should use them to create your responsive application layouts like with any other web application.
 
 ## Next Steps
 
