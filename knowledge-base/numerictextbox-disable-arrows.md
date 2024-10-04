@@ -1,5 +1,5 @@
 ---
-title: Disabling NumericTextBox Arrows at Min or Max Value in Blazor
+title: Disable NumericTextBox Arrows at Min or Max Value in Blazor
 description: Learn how to programmatically disable the increase or decrease arrows of a NumericTextBox in Blazor when the value reaches its minimum or maximum limit.
 type: how-to
 page_title: How to Disable NumericTextBox Arrows on Min or Max Value in Blazor
@@ -22,7 +22,7 @@ ticketid: 1665216
 
 ## Description
 
-When using the NumericTextBox with arrows enabled, I want to disable the down arrow programmatically at the component's minimum value to prevent looping to the maximum value. 
+In a NumericTextBox with enabled arrows, I want to disable the down arrow programmatically at the component's minimum value to prevent looping to the maximum value. 
 
 This KB article answers the following questions:
 
@@ -31,9 +31,11 @@ This KB article answers the following questions:
 
 ## Solution
 
-To prevent the increase/decrease arrows of the NumericTextBox from being used when the numeric value reaches its minimum or maximum, apply a conditional CSS class to disable the buttons. 
+To prevent your end users from looping through the minimum and maximum values with the icnrease/decrease arrows of the NumericTextBox, apply a conditional CSS class to disable the buttons. 
 
 The example below demonstrates how to conditionally render CSS styles to disable the increase or decrease arrows based on the current value of the NumericTextBox.
+
+>caption The Min and Max values should not match the default minimum and maximum values of the Value type.
 
 ````CSHTML
 <style>
@@ -44,19 +46,19 @@ The example below demonstrates how to conditionally render CSS styles to disable
     }
 </style>
 
-<TelerikNumericTextBox @bind-Value="@theValue"
-                       Min="@minValue"
-                       Max="@maxValue"
-                       Class="@numericClass"
+<TelerikNumericTextBox @bind-Value="@NumericValue"
+                       Min="@MinValue"
+                       Max="@MaxValue"
+                       Class="@NumericClass"
                        Width="300px">
 </TelerikNumericTextBox>
 
 @code {
-    private int theValue { get; set; } = 3;
-    private int minValue { get; set; } = 1;
-    private int maxValue { get; set; } = 10;
+    private int NumericValue { get; set; } = 3;
+    private int MinValue { get; set; } = 1;
+    private int MaxValue { get; set; } = 10;
 
-    private string numericClass => $"disable-arrows {(theValue == maxValue ? "disable-increase" : "")} {(theValue == minValue ? "disable-decrease" : "")}";
+    private string NumericClass => $"{(NumericValue == MaxValue ? "disable-increase" : "")} {(NumericValue == MinValue ? "disable-decrease" : "")}";
 }
 ````
 
