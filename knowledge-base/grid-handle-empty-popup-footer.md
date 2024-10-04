@@ -22,55 +22,439 @@ ticketid: 1665785
 
 ## Description
 
-When using the Popup Form Template in the Grid for Blazor, the footer remains empty, creating unnecessary space and affecting the UI's aesthetics. The requirement is to either hide this empty footer or utilize it by placing custom form buttons within. This KB article also answers the following questions:
-- How to hide the empty footer in the Popup Form Template of the Grid for Blazor?
-- How to display custom buttons in the footer of the Popup Form Template?
+When I am using the [Popup Form Template]({%slug grid-templates-popup-form%}) in the Grid for Blazor, the [default Update and Cancel buttons are removed]({%slug grid-templates-popup-form%}#specifics). I am not using the [`ButtonsTemplate`]({%slug grid-templates-popup-buttons%}) and the footer remains empty. This takes unnecessary space and affects the UI's aesthetics. 
+
+The requirement is to either hide this empty footer or utilize it by placing the custom form buttons within. 
+
+This KB article also answers the following questions:
+
+- How to hide the empty footer in the edit popup of the Grid for Blazor?
+- How to display custom buttons in the footer of the edit popup?
 - How to manage form submission with custom buttons in the Grid for Blazor?
 
 ## Solution
 
-There are two approaches to address this requirement with the [Grid](https://docs.telerik.com/blazor-ui/components/grid/editing/popup) component for Blazor:
+There are two approaches to address this requirement:
+
+* [Option 1: Display Custom Buttons in the Footer](#option-1-display-custom-buttons-in-the-footer)
+* [Option 2: Remove the Footer and Keep the Buttons in the FormTemplate](#option-2-remove-the-footer-and-keep-the-buttons-in-the-formtemplate)
 
 ### Option 1: Display Custom Buttons in the Footer
 
 To display custom buttons in the footer and handle form submission, follow these steps:
 
-1. Keep the `<FormButtons>` tag inside the custom Form empty to prevent it from rendering its default buttons.
-2. Declare custom buttons in the `<ButtonsTemplate>` and manage their `OnClick` events for form submission.
+1. Declare a [`<FormButtons>`]({%slug form-formitems-buttons%}) tag inside the custom Form and leave it empty, so the Form does not render its default buttons.
+2. Declare custom buttons in the [`<ButtonsTemplate>`]({%slug grid-templates-popup-buttons%}) and handle their `OnClick` events to manage the Form submission.
 
-Here is an example demonstrating this approach:
+>caption Here is an example demonstrating how to display custom buttons in the popup footer
 
-```razor
-<Grid>
-    ...
-    <GridEditForm Popup="true">
-        <PopupFormTemplate>
-            ...
-            <FormButtons></FormButtons>
-        </PopupFormTemplate>
-        <ButtonsTemplate>
-            <!-- Declare custom buttons here -->
-        </ButtonsTemplate>
-    </GridEditForm>
-</Grid>
-```
-[View Sample in Telerik REPL](https://blazorrepl.telerik.com/cIuNHkbv33TPbOw234)
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-### Option 2: Remove the Footer and Keep Buttons in the FormTemplate
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             EditMode="@GridEditMode.Popup"
+             Pageable="true"
+             PageSize="5"
+             OnDelete="@DeleteItem">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+    </GridToolBarTemplate>
+    <GridSettings>
+        <GridPopupEditSettings Width="550px" MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
+        <GridPopupEditFormSettings ButtonsLayout="@FormButtonsLayout.Stretch" Context="FormContext">
+            <FormTemplate>
+                @{
+                    EditItem = FormContext.Item as Person;
 
-To remove the footer while keeping the buttons within the `<FormTemplate>`, use CSS to hide the empty footer.
+                    <TelerikForm Model="@EditItem"
+                                 ColumnSpacing="20px"
+                                 Columns="2"
+                                 ButtonsLayout="@FormButtonsLayout.Stretch">
+                        <FormItems>
+                            <FormItem Field="EmployeeId" Enabled="false"></FormItem>
+                            <FormItem Field="Name">
+                            </FormItem>
+                            <FormItem Field="HireDate" LabelText="Custom Hire Date Label"></FormItem>
+                            <FormItem>
+                                <Template>
+                                    <label for="position">Custom Position Label</label>
+                                    <TelerikDropDownList Data="@PositionsData"
+                                                         @bind-Value="@EditItem.Position"
+                                                         Id="position">
+                                    </TelerikDropDownList>
+                                </Template>
+                            </FormItem>
+                        </FormItems>
+                        <FormButtons>
+                            @*remove the deafult buttons from the Form*@
+                        </FormButtons>
+                    </TelerikForm>
+                }
+            </FormTemplate>
+            <ButtonsTemplate>
+                <TelerikButton Icon="@nameof(SvgIcon.Save)" OnClick="@OnSubmit">Save</TelerikButton>
+                <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+            </ButtonsTemplate>
+        </GridPopupEditFormSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" />
+        <GridColumn Field=@nameof(Person.Name) />
+        <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
+        <GridColumn Field=@nameof(Person.Position) Title="Position" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
 
-Here is an example demonstrating how to hide the footer:
+@code {
+    private List<string> PositionsData { get; set; } = new List<string>()
+    {
+        "Manager", "Developer", "QA"
+    };
 
-```css
-/* Add this CSS to hide the empty footer */
-.your-custom-class .k-popup-footer {
-    display: none;
+    private TelerikGrid<Person> GridRef { get; set; }
+    private List<Person> GridData { get; set; }
+    private Person EditItem { get; set; }
+    private List<Person> _people;
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Position { get; set; }
+    }
+
+    public List<Person> People
+    {
+        get
+        {
+            if (_people == null)
+            {
+                _people = GeneratePeople(30);
+            }
+
+            return _people;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        GridData = GetPeople();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        DeletePerson(args.Item as Person);
+
+        LoadData();
+    }
+
+    private async Task OnSubmit()
+    {
+
+        if (EditItem.EmployeeId != default)
+        {
+            UpdatePerson(EditItem);
+        }
+        else
+        {
+            CreatePerson(EditItem);
+        }
+
+        await ExitEditAsync();
+
+        LoadData();
+    }
+
+    private async Task OnCancel()
+    {
+        await ExitEditAsync();
+    }
+
+    private async Task ExitEditAsync()
+    {
+        var state = GridRef?.GetState();
+        state.OriginalEditItem = null;
+        state.EditItem = null;
+        state.InsertedItem = null;
+
+        await GridRef?.SetStateAsync(state);
+    }
+
+    #region Service Methods
+    private List<Person> GetPeople()
+    {
+        return People;
+    }
+
+    private DataSourceResult GetPeople(DataSourceRequest request)
+    {
+        return People.ToDataSourceResult(request);
+    }
+
+    private void DeletePerson(Person person)
+    {
+        People.Remove(person);
+    }
+
+    private void UpdatePerson(Person person)
+    {
+        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
+        if (index != -1)
+        {
+            People[index] = person;
+        }
+    }
+
+    private void CreatePerson(Person person)
+    {
+        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+
+        People.Insert(0, person);
+    }
+
+    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    {
+        List<Person> result = new List<Person>();
+
+        for (int i = startIndex; i < startIndex + count; i++)
+        {
+            result.Add(new Person()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
+                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
+
+                });
+        }
+
+        return result;
+    }
+    #endregion
 }
-```
-[View Sample in Telerik REPL](https://blazorrepl.telerik.com/GIEXdYkj2896rYiO43)
+````
+
+### Option 2: Remove the Footer and Keep the Buttons in the FormTemplate
+
+This approach relies on using CSS to hide the empty footer. Add your custom class to the edit popup of the Grid to override its default styling.
+
+>caption Here is an example demonstrating how to hide the empty popup footer
+
+````CSHTML
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<style>
+    .custom-form .k-actions {
+        display: none;
+    }
+</style>
+
+<TelerikGrid @ref="@GridRef"
+             Data="@GridData"
+             EditMode="@GridEditMode.Popup"
+             Pageable="true"
+             PageSize="5"
+             OnDelete="@DeleteItem">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+    </GridToolBarTemplate>
+    <GridSettings>
+        <GridPopupEditSettings Class="custom-form" Width="550px" MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
+        <GridPopupEditFormSettings Context="FormContext">
+            <FormTemplate>
+                @{
+                    EditItem = FormContext.Item as Person;
+
+                    <TelerikForm Model="@EditItem"
+                                 ColumnSpacing="20px"
+                                 Columns="2"
+                                 ButtonsLayout="@FormButtonsLayout.Stretch"
+                                 OnValidSubmit="@OnValidSubmit">
+                        <FormItems>
+                            <FormItem Field="EmployeeId" Enabled="false"></FormItem>
+                            <FormItem Field="Name">
+                            </FormItem>
+                            <FormItem Field="HireDate" LabelText="Custom Hire Date Label"></FormItem>
+                            <FormItem>
+                                <Template>
+                                    <label for="position">Custom Position Label</label>
+                                    <TelerikDropDownList Data="@PositionsData"
+                                                         @bind-Value="@EditItem.Position"
+                                                         Id="position">
+                                    </TelerikDropDownList>
+                                </Template>
+                            </FormItem>
+                        </FormItems>
+                        <FormButtons>
+                            <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
+                            <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
+                        </FormButtons>
+                    </TelerikForm>
+                }
+            </FormTemplate>
+        </GridPopupEditFormSettings>
+    </GridSettings>
+    <GridColumns>
+        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" />
+        <GridColumn Field=@nameof(Person.Name) />
+        <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
+        <GridColumn Field=@nameof(Person.Position) Title="Position" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<string> PositionsData { get; set; } = new List<string>()
+    {
+        "Manager", "Developer", "QA"
+    };
+
+    private TelerikGrid<Person> GridRef { get; set; }
+    private List<Person> GridData { get; set; }
+    private Person EditItem { get; set; }
+    private List<Person> _people;
+
+    public class Person
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Position { get; set; }
+    }
+
+    public List<Person> People
+    {
+        get
+        {
+            if (_people == null)
+            {
+                _people = GeneratePeople(30);
+            }
+
+            return _people;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        GridData = GetPeople();
+    }
+
+    private void DeleteItem(GridCommandEventArgs args)
+    {
+        DeletePerson(args.Item as Person);
+
+        LoadData();
+    }
+
+    private async Task OnValidSubmit()
+    {
+
+        if (EditItem.EmployeeId != default)
+        {
+            UpdatePerson(EditItem);
+        }
+        else
+        {
+            CreatePerson(EditItem);
+        }
+
+        await ExitEditAsync();
+
+        LoadData();
+    }
+
+    private async Task OnCancel()
+    {
+        await ExitEditAsync();
+    }
+
+    private async Task ExitEditAsync()
+    {
+        var state = GridRef?.GetState();
+        state.OriginalEditItem = null;
+        state.EditItem = null;
+        state.InsertedItem = null;
+
+        await GridRef?.SetStateAsync(state);
+    }
+
+    #region Service Methods
+    private List<Person> GetPeople()
+    {
+        return People;
+    }
+
+    private DataSourceResult GetPeople(DataSourceRequest request)
+    {
+        return People.ToDataSourceResult(request);
+    }
+
+    private void DeletePerson(Person person)
+    {
+        People.Remove(person);
+    }
+
+    private void UpdatePerson(Person person)
+    {
+        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
+        if (index != -1)
+        {
+            People[index] = person;
+        }
+    }
+
+    private void CreatePerson(Person person)
+    {
+        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+
+        People.Insert(0, person);
+    }
+
+    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    {
+        List<Person> result = new List<Person>();
+
+        for (int i = startIndex; i < startIndex + count; i++)
+        {
+            result.Add(new Person()
+                {
+                    EmployeeId = i,
+                    Name = "Employee " + i.ToString(),
+                    HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
+                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
+
+                });
+        }
+
+        return result;
+    }
+    #endregion
+}
+````
 
 ## See Also
 
-- [Grid Editing - Popup Mode Documentation](https://docs.telerik.com/blazor-ui/components/grid/editing/popup)
-- [Customizing the Grid's Edit Form](https://docs.telerik.com/blazor-ui/knowledge-base/grid-custom-edit-form)
+- [Grid Popup Editing - Documentation]({%slug components/grid/editing/popup%})
+- [Customizing the Grid's Edit Form]({%slug grid-templates-popup-form%})
