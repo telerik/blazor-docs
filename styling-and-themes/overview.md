@@ -59,9 +59,9 @@ To register a theme, you must reference its stylesheet in the `<head>` of the we
 There are three ways to load a Telerik theme, in terms of physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
 * [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades]({%slug upgrade-tutorial%}). However, you can use only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme.
-* Load a CSS theme from a remote URL, for example, CDN. The dedicated [documentation of each theme provides a list of swatches and their URLs](https://www.telerik.com/design-system/docs/themes/theme-default/).
+* Load a CSS theme from a remote URL, for example, CDN. The dedicated [documentation of each theme provides a list of swatches and their URLs](https://www.telerik.com/design-system/docs/themes/kendo-themes/default/).
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
-    * When using [custom themes]({%slug themes-customize%}#loading-custom-themes).
+    * When using [custom themes]({%slug themes-customize%}).
     * When [creating]({%slug getting-started-vs-integration-new-project%}) or [converting]({%slug getting-started-vs-integration-convert-project%}) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension]({%slug getting-started-vs-integration-overview%}).
     * When using themes from the Telerik UI for Blazor [MSI installer]({%slug installation/msi%}) or [ZIP archive]({%slug installation/zip%}). The CSS files are in the `swatches` folder.
     * When using [LibMan]({%slug common-kb-telerik-themes-libman%}) or [npm](https://www.telerik.com/design-system/docs/themes/get-started/installation/) to obtain a specific Telerik theme version. In this case, you can use all built-in theme swatches.
