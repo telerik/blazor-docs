@@ -2,7 +2,7 @@
 title: Customize Themes
 page_title: Customize Themes
 description: Learn how to create a custom theme for you Blazor application and alter the default appearance of the UI for Blazor components.
-slug: themes-custom
+slug: themes-customize
 tags: telerik,blazor,theme,custom
 published: True
 previous_url: /themes/custom-theme
@@ -11,41 +11,29 @@ position: 10
 
 # Customize Themes
 
-Custom themes allow you to modify the appearance of the Telerik UI for Blazor components, so they match the desired color scheme and your Blazor app coloring and style.
+There are several ways to customize the appearance of Telerik Blazor components. Each is suitable for specific scenarios and business requirements. This article describes the pros and cons, and compares all CSS customization alternatives.
 
-This article contains the following sections:
-
-* [Compare the visual customization options for the Telerik Blazor components](#visual-customization-options)
 * [Create custom themes with the Progress ThemeBuilder](#using-themebuilder)
-* [Customize theme variables](#setting-theme-variables)
+* [Override theme variables](#setting-theme-variables)
+* [Override theme styles](#overriding-theme-styles)
 * [Build custom themes manually](#building-themes-from-source-code)
 * [Load a custom theme in your app](#loading-custom-themes)
 
 > When you use custom themes for Telerik UI for Blazor components, you must recreate the custom theme every time you update the Telerik components in your application. This ensures compatibility and allows you to get the theme updates and fixes.
 
 
-## Visual Customization Options
-
-You can customize the appearance of the Telerik Blazor components in several ways. Each has pros and cons, and each is most suitable for specific scenarios and business requirements. The [Blazor Theme Customization Options]({%slug common-kb-theme-customization-options%}) article offers a comparison between these CSS customization alternatives.
-
-
 ## Using ThemeBuilder
 
-[ThemeBuilder](https://docs.telerik.com/themebuilder) is a web application that enables you to create new custom themes by changing the styles of existing built-in themes. Every change that you make is visualized almost instantly. Once you are done styling the UI components, you can export a ZIP file with the desired styles and [use the custom theme in your Blazor app](#loading-custom-themes).
+[ThemeBuilder](https://docs.telerik.com/themebuilder) is a web application that enables you to create new custom themes by changing the styles of existing built-in themes. Every change that you make is visualized instantly. Once you are done styling the UI components, you can export a ZIP file with the desired styles and [add the custom theme to your Blazor app](#loading-custom-themes).
+
+The ThemeBuilder allows [different customization capabilities, depending on the used tier](https://docs.telerik.com/themebuilder/introduction#themebuilder-tiers).
 
 
 ## Setting Theme Variables
 
-The Telerik themes define a collection of theme variables and values. Then, these variables take part in CSS rules to apply consistent styles to all Telerik Blazor components. With regard to colors, the themes rely on a [color system](https://www.telerik.com/design-system/docs/foundation/color/), which is built on [color variable groups](https://www.telerik.com/design-system/docs/foundation/color/swatch/) and [color palettes](https://www.telerik.com/design-system/docs/foundation/color/color-palettes/).
+Each theme defines the same collection of variables, but with different values. For example, here are the [Default theme variables](https://www.telerik.com/design-system/docs/themes/theme-default/theme-variables/). It is possible to override the theme variable values outside the theme CSS file. In this way you can customize the appearance of the Telerik Blazor components without the need to create and maintain a full custom theme.
 
-It is possible to customize the appearance of the Telerik UI for Blazor components if you override the theme variable values outside the theme CSS file. This spares the need to create and maintain a full custom theme.
-
-Each theme defines the same collection of variables, but with different values:
-
-* [Default theme variables](https://www.telerik.com/design-system/docs/themes/theme-default/theme-variables/)
-* [Bootstrap theme variables](https://www.telerik.com/design-system/docs/themes/theme-bootstrap/theme-variables/)
-* [Material theme variables](https://www.telerik.com/design-system/docs/themes/theme-material/theme-variables/)
-* [Fluent theme variables](https://www.telerik.com/design-system/docs/themes/theme-fluent/theme-variables/)
+This approach is supported starting from theme version `8.0.0` and Telerik UI for Blazor version `6.0.0`. Upgrading the Blazor components does not require any additional steps with regard to the CSS code, unless there are breaking changes in the CSS variable names.
 
 The example below shows how to customize some of the theme variables.
 
@@ -87,6 +75,12 @@ The example below shows how to customize some of the theme variables.
 }
 ````
 
+## Overriding Theme Styles
+
+You can [override theme styles with custom CSS]({%slug themes-override%}), no matter if the app is using a built-in or custom theme. This approach makes sense only for a relatively small number of customization. Beyond that, choose some of the other alternatives on this page.
+
+Upgrading may require changes to the additional custom CSS code, but only if there are breaking changes in the HTML output and styling.
+
 
 ## Building Themes From Source Code
 
@@ -99,8 +93,8 @@ The [Theme Customization page of the Progress Design System documentation](https
 
 Custom themes are used in a [similar way as the built-in themes]({%slug getting-started/what-you-need%}#css-theme). The notable differences are:
 
-* The custom theme must reside in the `wwwroot` folder of the Blazor app or on a custom CDN provider.
-* You must [recreate custom themes every time you update the Telerik UI for Blazor version]({%slug upgrade-tutorial%}).
+* The custom theme must reside in the `wwwroot` folder of the Blazor app or on a CDN provider.
+* You must recreate custom themes every time you [update the Telerik UI for Blazor version]({%slug upgrade-tutorial%}).
 
 Make sure that the Blazor app is loading only one Telerik theme at a time. If you are replacing a built-in theme with a custom theme, you must remove the `<link>` element of the built-in theme.
 

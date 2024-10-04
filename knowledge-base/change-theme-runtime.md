@@ -3,7 +3,7 @@ title: Change Telerik Theme at Runtime
 description: Learn how to switch the Telerik Blazor theme at runtime on the fly with JavaScript.
 type: how-to
 page_title: How to Change the Telerik Theme or Swatch at Runtime
-slug: common-kb-common-kb-change-theme-runtime
+slug: common-kb-change-theme-runtime
 position: 
 tags: telerik, blazor, theme
 ticketid: 1442823
@@ -74,7 +74,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
     ```
 1. Implement UI that triggers the JavaScript theme change. After the new CSS theme is loaded, refresh all Telerik components that use SVG or Canvas rendering, such as BarCodes, Charts, Gauges, and QR Codes.
 
-    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-overview%}#theme-version-compatibility-and-maintenance).
+    > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-overview%}#compatibility-and-maintenance).
     >
     > Replace `Index` in the code below with the correct Razor component name.
 
