@@ -5,7 +5,7 @@ type: how-to
 page_title: How to Make Compact Grid Elements Smaller
 slug: grid-compact-grid-with-small-elements
 position: 
-tags: telerik, blazor, grid, compact, elements
+tags: telerik, blazor, grid, compact
 ticketid: 1650305
 res_type: kb
 ---
