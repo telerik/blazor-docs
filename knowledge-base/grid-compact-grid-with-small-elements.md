@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I am using [the Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Compact Grid. I want to reduce the size of all elements in the Grid. How can I:
+I am using the [Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Compact Grid. I want to reduce the size of all elements in the Grid. How can I:
 * Change the size of all icons in the Grid?
 * Set smaller font size to all elements in the Grid?
 
