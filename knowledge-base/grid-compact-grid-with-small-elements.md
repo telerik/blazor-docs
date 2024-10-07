@@ -56,7 +56,7 @@ I am using the [Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Comp
                 <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
                 <GridColumn Field="@nameof(Product.Discontinued)" />
                 <GridCommandColumn>
-                    <GridCommandButton Command="MyOwnCommand" Icon="@SvgIcon.InfoCircle" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
+                    <GridCommandButton Command="MyOwnCommand" Icon="@SvgIcon.InfoCircle" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
                 </GridCommandColumn>
             </GridColumns>
         </TelerikGrid>
@@ -80,7 +80,7 @@ I am using the [Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Comp
                 <GridColumn Field="@nameof(Product.Released)" DisplayFormat="{0:D}" />
                 <GridColumn Field="@nameof(Product.Discontinued)" />
                 <GridCommandColumn>
-                    <GridCommandButton Command="MyOwnCommand" Icon="@SvgIcon.InfoCircle" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
+                    <GridCommandButton Command="MyOwnCommand" Icon="@SvgIcon.InfoCircle" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
                 </GridCommandColumn>
             </GridColumns>
         </TelerikGrid>
