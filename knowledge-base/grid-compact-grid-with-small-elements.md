@@ -29,7 +29,7 @@ I am using the [Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Comp
 
 ## Solution
 
-1. Set [the Grid `Class` parameter]({%slug grid-overview%}#grid-parameters) to a custom CSS class. This allows you to target specific Grid instance.
+1. Set the [Grid `Class` parameter]({%slug grid-overview%}#grid-parameters) to a custom CSS class. This allows you to target specific Grid instances.
 1. Use the defined class to [override the theme styles]({%slug themes-override%}).
 1. Set the required CSS styles to the desired elements in the Grid.
 
