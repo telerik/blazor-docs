@@ -13,8 +13,6 @@ position: 50
 
 With the `ButtonsTemplate`, you can personalize the appearance and behavior of the buttons in the create/edit Popup window of the Grid component.
 
->If a [FormTemplate]({%slug grid-templates-popup-form%}) is declared, the `ButtonsTemplate` will be ignored.
-
 >caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
 
 ````CSHTML
