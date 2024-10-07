@@ -176,7 +176,7 @@ Telerik UI for Blazor shares the same [themes]({%slug themes-overview%}) with se
 
 You can use the built-in font icons directly with HTML tags, without the `<TelerikFontIcon>` component. Such direct HTML usage may provide more flexibility, but if you don't really need it, we recommend using `FontIcon` objects and the `<TelerikFontIcon>` component instead.
 
-To use the icons directly, refer to [List of all Telerik Icons](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/) and obtain the desired CSS class. The `<TelerikFontIcon>` component simply drops the `k-i-` CSS class prefix to make it easier for you.
+To use the icons directly, refer to <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">List of all Telerik Icons</a> and obtain the desired CSS class. The `<TelerikFontIcon>` component simply drops the `k-i-` CSS class prefix to make it easier for you.
 
 >caption Use Telerik font icons with plain HTML
 
@@ -314,7 +314,7 @@ It is possible to configure the icon type for the whole application:
 
 ## Icons List
 
-The [Telerik Design System](https://www.telerik.com/design-system/docs/) website provides a list of all [**built-in icons in Telerik UI for Blazor**](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/).
+The <a href="https://www.telerik.com/design-system/docs/" target="_blank">Progress Design System</a> website provides a list of all <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">built-in icons in Telerik UI for Blazor</a>.
 
 To define an icon with C# syntax, replace the kebab-case with PascalCase. For example, `plus-outline` should become `FontIcon.PlusOutline` or `SvgIcon.PlusOutline`.
 
@@ -341,6 +341,6 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 
 ## See Also
 
-* [Built-in Icon List](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/)
+* <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">Built-in Icon List</a>
 * [Blazor Live Demos](https://demos.telerik.com/blazor-ui/)
 * [CSS Themes]({%slug themes-overview%})

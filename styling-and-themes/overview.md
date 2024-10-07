@@ -39,17 +39,17 @@ The CSS file of any swatch is self-sufficient and contains all required styles f
 The CSS themes represent an external dependency to Telerik UI for Blazor:
 
 * The themes represent a separate product, which is used by multiple Telerik and Kendo UI products. [Each Telerik UI for Blazor version is compatible with specific theme versions](#compatibility-and-maintenance).
-* The [Telerik and Kendo UI Themes documentation](https://www.telerik.com/design-system/docs/themes/get-started/introduction/) is part of the [Telerik Design System documentation](https://www.telerik.com/design-system/docs/). The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
+* The <a href="https://www.telerik.com/design-system/docs/themes/get-started/introduction/" target="_blank">Telerik and Kendo UI Themes documentation</a> is part of the <a href="https://www.telerik.com/design-system/docs/" target="_blank">Telerik Design System documentation</a>. The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
 * The Telerik and Kendo UI Themes have their own product development, roadmap and strategy. You can log public feature requests or bug reports on the [Telerik Themes feedback portal](https://feedback.telerik.com/themes).
 
 
 ## Built-in Themes
 
-The [Themes - Get Started page](https://www.telerik.com/design-system/docs/themes/get-started/introduction/#available-themes) lists the built-in themes in Telerik UI for Blazor and describes their unique specifics.
+The <a href="https://www.telerik.com/design-system/docs/themes/get-started/introduction/#available-themes" target="_blank">Themes - Get Started page</a> lists the built-in themes in Telerik UI for Blazor and describes their unique specifics.
 
 ### Comparing Themes and Swatches
 
-You can explore and compare the built-in theme swatches on the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to [customize the existing themes and swatches](https://www.telerik.com/design-system/docs/themes/themebuilder/).
+You can explore and compare the built-in theme swatches on the [live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui/grid/overview). Use the **Change Theme** dropdown above each component example. To test how the available swatches affect the appearance of the Telerik UI for Blazor components, you can also check the [ThemeBuilder app](https://themebuilderapp.telerik.com). This tool provides the ability to <a href="https://www.telerik.com/design-system/docs/themes/themebuilder/" target="_blank">customize the existing themes and swatches</a>.
 
 
 ## Using a Theme
@@ -59,12 +59,12 @@ To register a theme, you must reference its stylesheet in the `<head>` of the we
 There are three ways to load a Telerik theme, in terms of physical CSS file location. Note that each option provides access to a different number of theme swatches.
 
 * [Load a CSS theme as a static asset from the `Telerik.UI.for.Blazor` NuGet package](#loading-themes-from-the-nuget-package). This is the easiest option and it doesn't require maintenance during [Telerik UI for Blazor version upgrades]({%slug upgrade-tutorial%}). However, you can use only the *Main* swatch of each theme and the *Ocean Blue* swatch of the *Default* theme.
-* Load a CSS theme from a remote URL, for example, CDN. The dedicated [documentation of each theme provides a list of swatches and their URLs](https://www.telerik.com/design-system/docs/themes/kendo-themes/default/).
+* Load a CSS theme from a remote URL, for example, CDN. The dedicated <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/" target="_blank">documentation of each theme provides a list of swatches and their URLs</a>.
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
     * When using [custom themes]({%slug themes-customize%}).
     * When [creating]({%slug getting-started-vs-integration-new-project%}) or [converting]({%slug getting-started-vs-integration-convert-project%}) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension]({%slug getting-started-vs-integration-overview%}).
     * When using themes from the Telerik UI for Blazor [MSI installer]({%slug installation/msi%}) or [ZIP archive]({%slug installation/zip%}). The CSS files are in the `swatches` folder.
-    * When using [LibMan]({%slug common-kb-telerik-themes-libman%}) or [npm](https://www.telerik.com/design-system/docs/themes/get-started/installation/) to obtain a specific Telerik theme version. In this case, you can use all built-in theme swatches.
+    * When using [LibMan]({%slug common-kb-telerik-themes-libman%}) or <a href="https://www.telerik.com/design-system/docs/themes/get-started/installation/" target="_blank">npm</a> to obtain a specific Telerik theme version. In this case, you can use all built-in theme swatches.
 
 > The Blazor app must load only one Telerik theme file at a time. Upgrade the theme with every Telerik UI for Blazor version upgrade, unless you are loading the theme as a static NuGet asset.
 
@@ -105,7 +105,7 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
 The Telerik themes are decoupled from the Telerik Blazor components, which leads to the following usage requirements:
 
 * When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
-* When loading [theme swatches](https://www.telerik.com/design-system/docs/themes/customization/swatches/) from a CDN, make sure that the theme version is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a [newer minor theme version](https://www.telerik.com/design-system/docs/themes/get-started/changelog/), which doesn't contain breaking changes.
+* When loading <a href="https://www.telerik.com/design-system/docs/themes/customization/swatches/" target="_blank">theme swatches</a> from a CDN, make sure that the theme version is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a <a href="https://www.telerik.com/design-system/docs/themes/get-started/changelog/" target="_blank">newer minor theme version</a>, which doesn't contain breaking changes.
 
 
 ## Next Steps
@@ -116,5 +116,5 @@ The Telerik themes are decoupled from the Telerik Blazor components, which leads
 ## See Also
 
 * [Change the Theme at Runtime]({%slug common-kb-change-theme-runtime%})
-* [Default Ocean Blue Accessibility Swatch](https://www.telerik.com/design-system/docs/foundation/guides/accessibility/global-accessibility/)
+* <a href="https://www.telerik.com/design-system/docs/foundation/guides/accessibility/global-accessibility/" target="_blank">Default Ocean Blue Accessibility Swatch</a>
 * [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)

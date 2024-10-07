@@ -31,7 +31,7 @@ The ThemeBuilder allows [different customization capabilities, depending on the 
 
 ## Setting Theme Variables
 
-Each theme defines the same collection of variables, but with different values. For example, here are the [Default theme variables](https://www.telerik.com/design-system/docs/themes/kendo-themes/default/theme-variables/). It is possible to override the theme variable values outside the theme CSS file. In this way you can customize the appearance of the Telerik Blazor components without the need to create and maintain a full custom theme.
+Each theme defines the same collection of variables, but with different values. For example, here are the <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/theme-variables/" target="_blank">Default theme variables</a>. It is possible to override the theme variable values outside the theme CSS file. In this way you can customize the appearance of the Telerik Blazor components without the need to create and maintain a full custom theme.
 
 This approach is supported starting from theme version `8.0.0` and Telerik UI for Blazor version `6.0.0`. Upgrading the Blazor components does not require any additional steps with regard to the CSS code, unless there are breaking changes in the CSS variable names.
 
@@ -86,7 +86,7 @@ Upgrading may require changes to the additional custom CSS code, but only if the
 
 The most complex and flexible way to use Telerik themes is to build them from the SASS source code in your development environment.
 
-The [Theme Customization page of the Progress Design System documentation](https://www.telerik.com/design-system/docs/themes/customization/) and the [kendo-themes repository wiki](https://github.com/telerik/kendo-themes/wiki/Compiling-themes) provide more information about this process.
+The <a href="https://www.telerik.com/design-system/docs/themes/customization/" target="_blank">Theme Customization page of the Progress Design System documentation</a> and the [kendo-themes repository wiki](https://github.com/telerik/kendo-themes/wiki/Compiling-themes) provide more information about this process.
 
 
 ## Loading Custom Themes
