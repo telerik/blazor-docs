@@ -2,7 +2,7 @@
 title: Make Compact Grid Elements Smaller
 description: How to make all elements in a Compact Grid smaller.
 type: how-to
-page_title: Make Compact Grid elements smaller
+page_title: How to Make Compact Grid Elements Smaller
 slug: grid-compact-grid-with-small-elements
 position: 
 tags: telerik, blazor, grid, compact, elements
