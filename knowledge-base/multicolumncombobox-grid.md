@@ -34,7 +34,7 @@ This KB answers the following questions:
 
 ## Solution
 
-The steps and example below describe how to create a custom component that looks and works similar to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) inside a [Popup component]({%slug popup-overview%}).
+The steps and example below describe how to create a custom component that looks and works similarly to a [Telerik MultiColumnComboBox for Blazor]({%slug multicolumncombobox-overview%}), but uses an actual [Grid component]({%slug grid-overview%}) inside a [Popup component]({%slug popup-overview%}).
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ The solution below requires familiarity with:
 ## How it Works
 
 * The example demonstrates a generic and reusable Razor component called `ComboBoxGrid`.
-* The component has several parameters, which work similar to the corresponding [MultiColumnComboBox parameters]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters):
+* The component has several parameters, which work similarly to the corresponding [MultiColumnComboBox parameters]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters):
     * `Data`
     * `Value`
     * `TextField`
@@ -68,7 +68,7 @@ The solution below requires familiarity with:
 * Selecting a Grid item applies a new `ComboBoxGrid` value and closes the dropdown.
 * Closing and reopening the dropdown preserves the Grid state.
 
->tip This KB article shows a custom integration scenario that uses built-in features and API of Telerik UI for Blazor components. The implementation is provided as is. It can be subject to a lot of changes and customizations by the developer, according to the business requirements.
+>tip This KB article shows a custom integration scenario that uses built-in features and APIs of Telerik UI for Blazor components. The implementation is provided as is. It can be subject to a lot of changes and customizations by the developer, according to the business requirements.
 
 ## Example
 

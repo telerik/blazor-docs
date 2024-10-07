@@ -137,5 +137,5 @@ You can also style the entire appointments by adding a class to their wrapping e
 
 ## See Also
 
- * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/appointment-templates)
+ * [Live Demo: Scheduler Templates](https://demos.telerik.com/blazor-ui/scheduler/templates)
 
