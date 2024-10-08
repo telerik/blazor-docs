@@ -63,7 +63,7 @@ The Blazor Filter provides parameters that allow you to configure the component:
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The class that will be rendered on the outermost element. |
-| `Value` | `CompositeFilterDescriptor` | Sets the value of the filter component. |
+| `Value` | [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}) | Sets the value of the filter component. |
 
 ## Filter Reference and Methods
 

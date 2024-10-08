@@ -26,13 +26,16 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Descriptors
 
-The Gantt filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
+The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
 
-Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
-* [Filter Row]({%slug gantt-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [Filter Menu]({%slug gantt-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
+| Filter Mode | FilterDescriptors Property Value | LogicalOperator Property Value |
+| --- | --- | --- |
+| FilterMenu | Two filter descriptor instances per each filtered field. Each filter descriptor instance gets the user input as `Value`. If there is no user input in one of the input fields in the menu then this filter descriptor instance `Value` is null. | Depending on the user choice. |
+| FilterRow | Two filter descriptor instances per each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
 
 
 ## Customize The Filter Editors

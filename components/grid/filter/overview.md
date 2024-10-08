@@ -37,16 +37,17 @@ The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%
 
 ## Filter Descriptors
 
-The Grid filter state is stored in [`CompositeFilterDescriptors`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
 
-Each `CompositeFilterDescriptor` includes a collection of filter descriptors, where all descriptors in the collection are applied with an AND or OR logical operator.
+When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
-* [Filter Row]({%slug grid-filter-row%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator, with the filter value stored in the first filter descriptor instance for that field.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [Filter Menu]({%slug grid-filter-menu%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. The filter values from separate filter operators in the menu are stored in different filter descriptor instances within the `CompositeFilterDescriptor` for that field.
-
-* [SearchBox]({%slug grid-searchbox%})&mdash;A `CompositeFilterDescriptor` is created in the state when the user types in the search box. By default, it targets all string fields, adding a dedicated filter descriptor instance for each string field. Each filter descriptor contains the filter value typed in the search box.
-
+| Filter Mode | FilterDescriptors Property Value | LogicalOperator Property Value |
+| --- | --- | --- |
+| FilterMenu | Two filter descriptor instances per each filtered field. Each filter descriptor instance gets the user input as `Value`. If there is no user input in one of the input fields in the menu then this filter descriptor instance `Value` is null. | Depending on the user choice. |
+| FilterRow | Two filter descriptor instances per each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
+| SearchBox | Filter descriptor instances for all string fields. Each filter descriptor instance gets the user input as `Value`. | OR |
 
 ## Custom Filtering
 
