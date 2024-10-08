@@ -28,6 +28,7 @@ By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewe
 | Open | `PdfViewerToolBarOpenTool` | An open button. It fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
 | Download | `PdfViewerToolBarDownloadTool` | A download button. It fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
 | Print | `PdfViewerToolBarPrintTool` | A print button. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
+| Annotations | `PdfViewerToolBarAnnotationsTool` | .... |
 
 By default, the toolbar also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). Separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
 
