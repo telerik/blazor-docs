@@ -77,7 +77,7 @@ The example below shows how to customize some of the theme variables.
 
 ## Overriding Theme Styles
 
-You can [override theme styles with custom CSS]({%slug themes-override%}), no matter if the app is using a built-in or custom theme. This approach makes sense only for a relatively small number of customization. Beyond that, choose some of the other alternatives on this page.
+You can [override theme styles with custom CSS]({%slug themes-override%}), no matter if the app is using a built-in or custom theme. This approach makes sense only for a relatively small number of customizations. Beyond that, choose some of the other alternatives on this page.
 
 Upgrading may require changes to the additional custom CSS code, but only if there are breaking changes in the HTML output and styling.
 
