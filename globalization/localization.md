@@ -26,7 +26,15 @@ The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.
 
 ## Localize Telerik Blazor Components
 
-This tutorial assumes that the [Telerik resource files](#step-2-add-resouce-files) reside in `~/Resources/` and have names like `TelerikMessages.<locale>.resx`. It is possible to use different file and folder names. This will affect the name of the generated static class in `TelerikMessages.Designer.cs`, and the namespaces in the [Telerik localization service](#step-3-implement-itelerikstringlocalizer-service).
+The tutorial below assumes that:
+
+* The Blazor app name and the root namespace is `ServerLocalizationResx`.
+* The [Telerik resource files](#step-2-add-resouce-files) exist in folder `~/Resources/` and have names like `TelerikMessages.<locale>.resx`.
+
+Using your own names is possible and will affect:
+
+* The class name and file name of the auto generated designer class (for example, `TelerikMessages` in `TelerikMessages.Designer.cs`)
+* The used namespace and class in the [Telerik localization service](#step-3-implement-itelerikstringlocalizer-service) (for example, `AppName.Resources` and `TelerikMessages`)
 
 ### Step 1: Set the Blazor App Culture
 
@@ -118,21 +126,61 @@ builder.Services.AddTelerikBlazor();
 builder.Services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResxLocalizer));
 ```
 
+### Step 5: Inject Your Localization Service
+
+This step is optional. You need it to manually render localized strings from the Telerik resource files. For example, the Telerik resource files include keys for the [built-in Grid commands]({%slug components/grid/columns/command%}).
+
+* Import the `Telerik.Blazor.Services` namespace.
+* Inject your `ITelerikStringLocalizer` service.
+* Import the namespace of your Telerik localization `designer.cs` class.
+
+>caption Localized .razor file with Telerik Blazor components
+
+<div class="skip-repl"></div>
+
+````CSHTML
+@using ServerLocalizationResx.Resources
+
+@using Telerik.Blazor.Services
+@inject ITelerikStringLocalizer TelerikLocalizer
+
+<p>Localized Strings from Telerik Resource Files</p>
+
+<TelerikButton>@TelerikLocalizer[nameof(TelerikMessages.Grid_Edit)]</TelerikButton>
+<TelerikButton>@TelerikLocalizer[nameof(TelerikMessages.Grid_Update)]</TelerikButton>
+
+<p>Localized Strings in Telerik Blazor Components</p>
+
+<TelerikFilter @bind-Value="@FilterValue">
+    <FilterFields>
+        <FilterField Name="DumyField" Type="@typeof(string)" />
+    </FilterFields>
+</TelerikFilter>
+
+<br />
+
+<TelerikFileSelect />
+
+@code {
+    private Telerik.DataSource.CompositeFilterDescriptor FilterValue { get; set; } = new();
+}
+````
 
 ## Examples
 
 You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/):
 
-* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Blazor Web App with Server render mode</a>
-* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank">Blazor WebAssembly Standalone App</a>
+* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Localized Telerik Blazor Web App with Server render mode</a>
+* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank">Localized Telerik Blazor WebAssembly Standalone App</a>
 
 You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer]({%slug installation/msi%}) or [UI for Blazor ZIP archive]({%slug installation/zip%}) for download instructions.
 
 
 ## Troubleshooting
 
+Outdated Telerik resource files may cause [some UI labels to appear in English]({%slug common-kb-partial-localization%}), or the app may trigger a [`Value cannot be null. (Parameter 'format')` exception]({%slug common-kb-value-cannot-be-null-parameter-format%}).
 
-* This is not related to the Telerik components, but our experience shows that setting `ResourcePath` in `services.AddLocalization()` may break the standard `IStringLocalizer` in your app.
+This is not related to the Telerik components, but setting `ResourcePath` in `services.AddLocalization()` may break the standard `IStringLocalizer` in your app or make it more difficult to use.
 
 
 ## See Also
