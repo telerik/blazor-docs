@@ -1,6 +1,6 @@
 ---
 title: How to pre-set a checkbox filter with a filter descriptor?
-description: 
+description: How can I pre-set a checkbox filter using a filter descriptor and how to set checkbox filter on Grid first load?
 type: how-to
 page_title: How to pre-set a checkbox list filter using a filter descriptor?
 slug: grid-pre-select-checkbox-filter

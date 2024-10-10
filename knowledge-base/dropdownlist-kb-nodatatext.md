@@ -1,6 +1,6 @@
 ---
 title: No Data Text Missing in DropDownList Popup
-description: How to make the "No Data" text vertically aligned based on the dropdown height in order to have it always visible?
+description: How to make the No Data text vertically aligned based on the dropdown height in order to have it always visible?
 type: troubleshooting
 page_title: No Data Text Not Visible in the DropDownList Popup
 slug: dropdownlist-kb-nodatatext
