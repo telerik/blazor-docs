@@ -1,6 +1,6 @@
 ---
 title: Hide Grid Pager When Data is Null or Empty
-description: 
+description: How to remove or hide the Grid pagination section when there are no available records?
 type: how-to
 page_title: Hide the Grid Pager When the Data is Null or Empty
 slug: grid-kb-hide-pager-when-no-data
