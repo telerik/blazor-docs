@@ -10,7 +10,7 @@ position: 0
 
 # Blazor RadioGroup Overview
 
-The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazor RadioGroup component</a> allows the user to select an option from a predefined set of choices in a list of radio buttons. The radio group is styled according to the Telerik [Theme]({%slug themes-built-in%}). You can also choose the [layout order]({%slug radiogroup-layout%}) and [label position]({%slug radiogroup-label-position%}).
+The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazor RadioGroup component</a> allows the user to select an option from a predefined set of choices in a list of radio buttons. The radio group is styled according to the Telerik [Theme]({%slug themes-overview%}). You can also choose the [layout order]({%slug radiogroup-layout%}) and [label position]({%slug radiogroup-label-position%}).
 
 ## Creating Blazor RadioGroup
 

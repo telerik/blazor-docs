@@ -52,7 +52,7 @@ The Sidebar provides the following functionalities:
 
 * **User Snippets**&mdash;allows you to review and manage the snippets saved in your account. [Read more about the user snippets...]({%slug blazor-repl-user-snippets%})
 
-* **Telerik UI Asset Manager**&mdash;shows the Telerik.UI.for.Blazor package version and allows you to change or update it. Starting from September 14, 2022 (R3 2022), each REPL example maintains its Telerik UI package version until changed explicitly. The Asset Manager also shows a list with the available [built-in themes]({%slug themes-built-in%}) and their corresponding [color swatches]({%slug themes-swatches%}). When you select a new theme or swatch, you can immediately see the applied styles in the Result View.
+* **Telerik UI Asset Manager**&mdash;shows the Telerik.UI.for.Blazor package version and allows you to change or update it. Starting from September 14, 2022 (R3 2022), each REPL example maintains its Telerik UI package version until changed explicitly. The Asset Manager also shows a list with the available [built-in themes]({%slug themes-overview%}) and their corresponding [theme swatches]({%slug themes-overview%}#basics). When you select a new theme and swatch, you can immediately see the applied styles in the Result View.
 
 * **Snippets and Scaffolders**&mdash;it allows you to add predefined component snippets or scaffold some components defining your desired configuration. [Read more about Snippets and Scaffolders...]({%slug blazor-repl-snippets-scaffolders%})
 

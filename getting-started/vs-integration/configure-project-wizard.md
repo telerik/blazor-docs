@@ -22,7 +22,7 @@ The configuration wizard handles the following tasks:
 
 ## Theme Selection
 
-The **Theme Selection** page enables you to change the [CSS theme]({%slug themes-built-in%}) of your Telerik UI for Blazor application.
+The **Theme Selection** page enables you to change the [CSS theme]({%slug themes-overview%}) of your Telerik UI for Blazor application.
 
 After selecting the desired theme, click **Next** to navigate to the [Project Settings](#project-settings) page.
 
