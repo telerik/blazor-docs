@@ -5,7 +5,7 @@ description: The UI for Blazor suite comes with a set of built-in themes that yo
 slug: themes-overview
 tags: telerik,blazor,theme,built-in
 published: True
-previous_url: /themes/overview,/styling-and-themes/swatch-distribution,/styling-and-themes/theme-swatches,/styling-and-themes/themebuilder,/styling-and-themes/form-elements,/styling-and-themes/figma-ui-kits
+previous_url: /themes/overview,/styling-and-themes/swatch-distribution,/styling-and-themes/theme-swatches,/styling-and-themes/form-elements,/styling-and-themes/figma-ui-kits
 position: 0
 ---
 

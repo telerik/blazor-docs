@@ -126,7 +126,7 @@ The following parameters enable you to customize the [appearance]({%slug multise
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
->tip To learn more about the appearance, anatomy, and accessibility of the MultiSelect, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/multiselect/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the MultiSelect, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/multiselect/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ### Popup settings
 

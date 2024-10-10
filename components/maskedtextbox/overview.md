@@ -92,7 +92,7 @@ The following parameters enable you to customize the [appearance]({%slug maskedt
 | `Class` | `string` | The custom CSS class of the `<span class="k-maskedtextbox">` element. |
 | `Width` | `string` | The component width. |
 
->tip To learn more about the appearance, anatomy, and accessibility of the MaskedTextBox, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/maskedtextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the MaskedTextBox, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/maskedtextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## MaskedTextBox Reference and Methods
 
