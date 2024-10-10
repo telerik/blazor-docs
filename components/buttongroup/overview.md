@@ -59,7 +59,7 @@ The ButtonGroup allows you to control the selection mode of its `ButtonGroupTogg
 
 The separate button instances of the ButtonGroup provide several parameters that control their [styling and appearance, including background color, rounded corners and fill]({%slug buttongroup-appearance%}).
 
->tip To learn more about the appearance, anatomy, and accessibility of the ButtonGroup, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/buttongroup/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the ButtonGroup, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/buttongroup/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Events
 

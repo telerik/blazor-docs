@@ -73,7 +73,7 @@ The following parameters enable you to customize the appearance of the Blazor Sw
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
 | `Width` | `string` | The width of the component. You can set the Width parameter to any of the [supported units]({%slug common-features/dimensions%}).
 
->tip To learn more about the appearance, anatomy, and accessibility of the Switch, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/switch/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the Switch, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/switch/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Switch Reference and Methods
 

@@ -37,7 +37,7 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 The TextArea component provides settings to control its appearance. [Read more about the Blazor TextArea appearance settings]({%slug TextArea-appearance%}).
 
->tip To learn more about the appearance, anatomy, and accessibility of the TextArea, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/textarea/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
+>tip To learn more about the appearance, anatomy, and accessibility of the TextArea, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/textarea/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
