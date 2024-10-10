@@ -44,15 +44,17 @@ In addition to the two main filtering modes, the treelist offers two more featur
 
 ## Filter Descriptors
 
-The TreeList filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the TreeList filters programmatically]({%slug treelist-state%}).
+The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}). The below information is important if you want to [get or change the TreeList filters programmatically]({%slug treelist-state%}).
 
-Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
-* [Filter Row]({%slug treelist-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-* [Filter Menu]({%slug treelist-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
-
-* [SearchBox]({%slug treelist-searchbox%}) - one `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all `string` fields. A dedicated `FilterDescriptor` instance is added to this `CompositeFilterDescriptor` for each `string` field. Each `FilterDescriptor` instance contains the filter value typed in the Searchbox.
+| Filter Mode | FilterDescriptors Property Value | LogicalOperator Property Value |
+| --- | --- | --- |
+| FilterMenu | Two filter descriptor instances per each filtered field. Each filter descriptor instance gets the user input as `Value`. If there is no user input in one of the input fields in the menu then this filter descriptor instance `Value` is null. | Depending on the user choice. |
+| FilterRow | Two filter descriptor instances per each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
+| SearchBox | Filter descriptor instances for all string fields. Each filter descriptor instance gets the user input as `Value`. | OR |
 
 ## Customize The Filter Editors
 
