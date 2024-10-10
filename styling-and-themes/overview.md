@@ -39,7 +39,7 @@ The CSS file of any swatch is self-sufficient and contains all required styles f
 The CSS themes represent an external dependency to Telerik UI for Blazor:
 
 * The themes represent a separate product, which is used by multiple Telerik and Kendo UI products. [Each Telerik UI for Blazor version is compatible with specific theme versions](#compatibility-and-maintenance).
-* The <a href="https://www.telerik.com/design-system/docs/themes/get-started/introduction/" target="_blank">Telerik and Kendo UI Themes documentation</a> is part of the <a href="https://www.telerik.com/design-system/docs/" target="_blank">Telerik Design System documentation</a>. The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
+* The <a href="https://www.telerik.com/design-system/docs/themes/get-started/introduction/" target="_blank">Telerik and Kendo UI Themes documentation</a> is part of the <a href="https://www.telerik.com/design-system/docs/" target="_blank">Progress Design System Kit documentation</a>. The content in the Telerik UI for Blazor documentation is introductory or specific only to the Blazor components.
 * The Telerik and Kendo UI Themes have their own product development, roadmap and strategy. You can log public feature requests or bug reports on the [Telerik Themes feedback portal](https://feedback.telerik.com/themes).
 
 
