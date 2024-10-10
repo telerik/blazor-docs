@@ -86,7 +86,7 @@ Upgrading may require changes to the additional custom CSS code, but only if the
 
 The most complex and flexible way to use Telerik themes is to build them from the SASS source code in your development environment.
 
-The <a href="https://www.telerik.com/design-system/docs/themes/customization/" target="_blank">Theme Customization page of the Progress Design System documentation</a> and the [kendo-themes repository wiki](https://github.com/telerik/kendo-themes/wiki/Compiling-themes) provide more information about this process.
+Each <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/customization/" target="_blank">Theme Customization page in the Progress Design System documentation</a> and the [kendo-themes repository wiki](https://github.com/telerik/kendo-themes/wiki/Compiling-themes) provide more information about this process.
 
 
 ## Loading Custom Themes
