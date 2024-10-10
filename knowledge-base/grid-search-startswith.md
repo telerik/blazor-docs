@@ -1,6 +1,6 @@
 ---
 title: Search Grid by StartsWith Filter Operator
-description: How to search the Grid with a "starts with" operator, instead of "contains". How to customize the GridSeachBox filtering behavior.
+description: How to search the Grid with a starts with operator, instead of contains. How to customize the GridSeachBox filtering behavior.
 type: how-to
 page_title: How to Search Grid Items with a StartsWith Filter Operator
 slug: grid-kb-search-startswith

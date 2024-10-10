@@ -1,6 +1,6 @@
 ---
 title: How to minimize a popup window to the bottom of the page?
-description: 
+description: Is there any way to collapse a window to the bottom of a page and how to create a responsive modal that can be minimized?
 type: how-to
 page_title: How to minimize a popup window to the bottom of the page?
 slug: window-modal-minimize-popup

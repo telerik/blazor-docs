@@ -1,6 +1,6 @@
 ---
 title: Change the Boolean Filtering Options in a FilterRow Dropdown
-description: Learn how to customize the default text in a Grid FilterRow dropdown list, including changing "is true" and "is false" to "Yes" and "No," modifying the FilterRow dropdown list display names, and filtering the boolean column values by null for a more user-friendly and tailored filtering experience.
+description: Learn how to customize the default text in a Grid FilterRow dropdown list, including changing is true and is false to Yes and No, modifying the FilterRow dropdown list display names, and filtering the boolean column values by null for a more user-friendly and tailored filtering experience.
 type: how-to
 page_title: How to Change the Boolean Filtering Options in a FilterRow Dropdown
 slug: grid-kb-filterrow-bool-customization

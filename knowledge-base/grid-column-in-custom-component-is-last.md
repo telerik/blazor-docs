@@ -1,6 +1,6 @@
 ---
 title: GridColumn in a separate file is always displayed as last on the right
-description: I have noticed that if I specify a GridColumn in a razor component and then try to use it in a Telerik Grid elsewhere, this column gets set as the last one on the right, regardless of where I place it in my code (the "html" order).
+description: I have noticed that if I specify a GridColumn in a razor component and then try to use it in a Telerik Grid elsewhere, this column gets set as the last one on the right, regardless of where I place it in my code (the html order).
 page_title: GridColumn in a separate file is always displayed as last on the right
 slug: grid-kb-column-in-custom-component-is-last
 position: 
