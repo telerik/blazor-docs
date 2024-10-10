@@ -226,4 +226,3 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 * [Live Grid Demos](https://demos.telerik.com/blazor-ui/grid/index)
 * [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
-* [Create Custom Styles by Using ThemeBuilder]({%slug themebuilder%})

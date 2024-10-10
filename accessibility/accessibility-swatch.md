@@ -10,7 +10,7 @@ position: 7
 
 # Ocean Blue Accessibility Swatch
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/) sections [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum) and [1.4.6 Contrast (Enhanced)](https://www.w3.org/TR/WCAG21/#contrast-enhanced) define contrast ratios for accessibility compliance. The *Default Ocean Blue A11y* [theme swatch]({%slug themes-swatches%}) in Telerik UI for Blazor conforms to WCAG Level AA, which requires contrast ratios of at least:
+The [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG21/) sections [1.4.3 Contrast (Minimum)](https://www.w3.org/TR/WCAG21/#contrast-minimum) and [1.4.6 Contrast (Enhanced)](https://www.w3.org/TR/WCAG21/#contrast-enhanced) define contrast ratios for accessibility compliance. The *Default Ocean Blue A11y* [theme swatch]({%slug themes-overview%}#basics) in Telerik UI for Blazor conforms to WCAG Level AA, which requires contrast ratios of at least:
 
 * 4.5:1 for normal text
 * 3:1 for large text
@@ -25,12 +25,12 @@ The Default Ocean Blue A11y swatch is built on top of the Default Ocean Blue swa
 
 ## Using the Accessibility Swatch
 
-You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-swatches%}#using-built-in-swatches) starting from the following component and theme versions:
+You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-overview%}#swatch) starting from the following component and theme versions:
 
 * [Telerik UI for Blazor version 4.0.1](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-4-0-1)
 * [Themes version 6.0.3](https://github.com/telerik/kendo-themes/releases/tag/v6.0.3)
 
-Check section [Theme Version Compatibility]({%slug themes-built-in%}#theme-version-compatibility-and-maintenance) for more information about how to align Telerik UI for Blazor versions with theme versions.
+Check section [Theme Version Compatibility]({%slug themes-overview%}#compatibility-and-maintenance) for more information about how to align Telerik UI for Blazor versions with theme versions.
 
 > An existing limitation is that the ColorPalette component fails WCAG success criterion 1.4.11. "Non-text contrast for the focus indicator on its items".
 

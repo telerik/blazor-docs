@@ -14,7 +14,7 @@ This article provides information about the <a href="https://www.telerik.com/bla
 
 The ButtonGroup component is a container for [regular and toggle buttons]({%slug buttongroup-buttons%}). Before continuing, make sure you are familiar with the differences between [regular buttons]({%slug components/button/overview%}) and [toggle buttons]({%slug togglebutton-overview%}).
 
-The ButtonGroup component lets you [select one or more toggle buttons]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug themes-built-in%}) and provide the regular button features like images and icons and the other parameters and attributes.
+The ButtonGroup component lets you [select one or more toggle buttons]({%slug buttongroup-selection%}), and respond to the [selection and click events]({%slug buttongroup-events%}). The buttons inside fill up the container, match the styling according to the [chosen theme]({%slug themes-overview%}) and provide the regular button features like images and icons and the other parameters and attributes.
 
 ## Creating Blazor ButtonGroup
 

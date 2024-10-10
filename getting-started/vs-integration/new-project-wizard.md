@@ -92,7 +92,7 @@ The **Create New Project** wizard provides the following project templates:
 
 ### Step 3: Select Theme
 
-Finally, you can apply one of the available [themes]({%slug themes-built-in%}) to your project.
+Finally, you can apply one of the available [themes]({%slug themes-overview%}) to your project.
 
 ## See Also
 

@@ -14,7 +14,7 @@ This article introduces the <a href="https://www.telerik.com/blazor-ui/buttons" 
 
 Buttons convey user actions and can display text, images and HTML.
 
-The Blazor Button provides a variety of styling options through the [built-in themes]({%slug themes-built-in%}) and the [button type]({%slug button-type%}). It supports [font icons and images]({%slug button-icons%}) and fires click [events]({%slug button-events%}).
+The Blazor Button provides a variety of styling options through the [built-in themes]({%slug themes-overview%}) and the [button type]({%slug button-type%}). It supports [font icons and images]({%slug button-icons%}) and fires click [events]({%slug button-events%}).
 
 ## Creating Blazor Button
 
@@ -57,7 +57,7 @@ To prevent user interaction with a Button, disable it. [Read more about the disa
 
 ## Styling
 
-To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug themes-built-in%}). Additionally, set the `Class` attribute to implement custom CSS rules or [configure the built-in appearance options]({%slug button-styling%}).
+To customize the style and the appearance of the Blazor Button, you can use the [built-in themes]({%slug themes-overview%}). Additionally, set the `Class` attribute to implement custom CSS rules or [configure the built-in appearance options]({%slug button-styling%}).
 
 >tip To learn more about the appearance, anatomy, and accessibility of the Button, visit the [Progress Design System documentation](https://www.telerik.com/design-system/docs/components/button/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 

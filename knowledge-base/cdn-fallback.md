@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-The [CDN]({%slug themes-built-in%}#cdn) is down, or my users have it filtered by a firewall, proxy, admin policy or other problem. This can cause errors or bad looking sites. How do I ensure the necessary resources will be fetched?
+The [CDN]({%slug themes-overview%}#cdn) is down, or my users have it filtered by a firewall, proxy, admin policy or other problem. This can cause errors or bad looking sites. How do I ensure the necessary resources will be fetched?
 
 
 ## Solution
