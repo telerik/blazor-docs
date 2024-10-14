@@ -14,7 +14,7 @@ Localization (L10N) is the process of customizing an app for a given language an
 
 ## Basics
 
-The localization of the Telerik components builds on top of the standard .NET mechanisms. Familiarity with Blazor localization is required to setup Telerik component localization successfully:
+The localization of the Telerik components builds on top of the standard .NET mechanisms. Familiarity with Blazor localization is required to set up Telerik component localization successfully:
 
 * [ASP.NET Core Blazor Globalization and Localization](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
 * [Globalization and Localization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization)
