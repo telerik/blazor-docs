@@ -46,7 +46,7 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. If you are using a local theme stylesheet in `wwwroot`, then replace it. For example, if the app is using a [custom theme]({%slug themes-customize%}), then recreate it with the [ThemeBuilder](https://docs.telerik.com/themebuilder). Or, if the [project was created with the Telerik&reg; UI for Blazor Visual Studio Extensions]({%slug getting-started-vs-integration-new-project%}), then [download the required built-in theme]({%slug themes-overview%}#built-in-themes) and add it to the project.
 
-1. If the application is localized, [update the Telerik localization resource (`.resx`) files]({%slug globalization-localization%}#step-2-add-resouce-files). Otherwise you may see [exceptions related to missing localization strings]({%slug common-kb-value-cannot-be-null-parameter-format%}).
+1. If the application is localized, [update the Telerik localization resource (`.resx`) files]({%slug globalization-localization%}#step-2-add-resouce-files). Otherwise, you may see [exceptions related to missing localization strings]({%slug common-kb-value-cannot-be-null-parameter-format%}).
 
 ## Upgrade Wizard
 
