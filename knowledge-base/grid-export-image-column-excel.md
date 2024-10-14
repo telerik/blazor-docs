@@ -37,7 +37,7 @@ To export an image column from the Grid to Excel, follow these steps:
 
 For more details on working with images in the Document Processing Library, refer to the [official documentation](https://docs.telerik.com/devtools/document-processing/introduction).
 
-If you encounter any questions regarding the usage of the Document Processing libraries, feel free to ask for further assistance the DocumentPorcessing team.
+If you encounter any questions regarding the usage of the Document Processing libraries, [contact the DocumentPorcessing team](https://docs.telerik.com/devtools/document-processing/knowledge-base/submit-support-tickets).
 
 ## See Also
 
