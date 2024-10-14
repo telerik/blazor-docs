@@ -33,7 +33,7 @@ I want to export the Telerik Blazor [Grid]({%slug grid-overview%})'s column that
 To export an image column from the Grid to Excel, follow these steps:
 
 1. Handle the Grid's [`OnAfterExport` event]({%slug grid-export-events%}#onafterexport) to capture the Excel export output as a memory stream.
-2. Use the [Document Processing Library](https://docs.telerik.com/devtools/document-processing/introduction) to modify the Excel file similar to the example in the knowledge base article about [custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}). The SpreadProcessing library supports [inserting images in the cells](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/shapes-and-images).
+2. Use the [SpreadProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) to modify the Excel file. Similar to how the exported file is customized here - [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}). The SpreadProcessing library supports [inserting images in the cells](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/shapes-and-images).
 
 For more details on working with images in the Document Processing Library, refer to the [official documentation](https://docs.telerik.com/devtools/document-processing/introduction).
 
