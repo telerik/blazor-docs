@@ -12,16 +12,12 @@ ticketid: 1666986, 1662544, 1645206, 1655440
 ## Environment
 
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>Grid for Blazor, <br />Document Processing Library</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>6.0.0</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
@@ -34,8 +30,6 @@ To export an image column from the Grid to Excel, follow these steps:
 
 1. Handle the Grid's [`OnAfterExport` event]({%slug grid-export-events%}#onafterexport) to capture the Excel export output as a memory stream.
 2. Use the [SpreadProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) to modify the Excel file. Similar to how the exported file is customized here - [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}). The SpreadProcessing library supports [inserting images in the cells](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/features/shapes-and-images).
-
-For more details on working with images in the Document Processing Library, refer to the [official documentation](https://docs.telerik.com/devtools/document-processing/introduction).
 
 If you encounter any questions regarding the usage of the Document Processing libraries, [contact the DocumentPorcessing team](https://docs.telerik.com/devtools/document-processing/knowledge-base/submit-support-tickets).
 
