@@ -113,7 +113,7 @@ namespace ServerLocalizationResx.Services
 
 ### Step 4: Register Your Telerik Localization Service
 
-Register your custom Telerik localization service in `Program.cs` after `builder.Services.AddTelerikBlazor();`. The order is crucial and the Telerik components will always use localization service, which is registered last. If you reorder the two lines below, the components will use the default built-in English localization strings.
+Register your custom Telerik localization service in `Program.cs` after `builder.Services.AddTelerikBlazor();`. The order is crucial and the Telerik components will always use the last registered localization service. If you reorder the two lines below, the components will use the default built-in English localization strings.
 
 >caption Program.cs
 
