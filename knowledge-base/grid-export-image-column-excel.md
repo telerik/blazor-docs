@@ -42,4 +42,4 @@ If you encounter any questions regarding the usage of the Document Processing li
 ## See Also
 
 - [Handling Export Events in Grid]({%slug grid-export-events%})
--  [Knowlegde base article about custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
+- [Knowlegde base article about custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
