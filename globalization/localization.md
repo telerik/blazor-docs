@@ -40,7 +40,7 @@ Using your own names is possible and will affect:
 
 [Enable Blazor localization and set the application's culture](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization), depending on the business requirements and the hosting model or render mode.
 
-The purpose of this step is to supply the correct application culture to the `ResourceManager.GetString()` method in your [Telerik localization service](#step-3-implement-itelerikstringlocalizer-service). This is turn will obtain the localized string from the correct resource file with a matching locale in its file name.
+The purpose of this step is to supply the correct application culture to the `ResourceManager.GetString()` method in your [Telerik localization service](#step-3-implement-itelerikstringlocalizer-service). This in turn will obtain the localized string from the correct resource file with a matching locale in its file name.
 
 >tip This step is optional if your Blazor application will always use the same culture and a single Telerik resource file without a locale in its name.
 
