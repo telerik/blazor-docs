@@ -174,7 +174,7 @@ This step is optional. You need it to manually render localized strings from the
 
 You can find sample runnable projects for both server-side Blazor and for WebAssembly in the [Telerik Blazor UI Samples Repo](https://github.com/telerik/blazor-ui/tree/master/common/localization/):
 
-* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Localized Telerik Blazor Web App with Server render mode</a>
+* <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Localized Telerik Blazor Web App with Server Render Mode</a>
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank">Localized Telerik Blazor WebAssembly Standalone App</a>
 
 You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer]({%slug installation/msi%}) or [UI for Blazor ZIP archive]({%slug installation/zip%}) for download instructions.
