@@ -37,7 +37,7 @@ The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%
 
 ## Filter Descriptors
 
-The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
+The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
