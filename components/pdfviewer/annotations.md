@@ -24,7 +24,7 @@ The PDFViewer provides the following annotation types:
 
 | Annotation Type | Description |
 | --- | --- |
-| **Text Highlight** | Allows highlighting the selected text in the document. Provides an option to select the desired highlight color. |
+| **Text Highlight** | Allows highlighting the selected text in the document. Users can choose the desired highlight color. |
 | **Free Text** | Allows creating an element with free text anywhere in the document. Provides option to select the desired text color and font size. |
 
 ## Working with Annotations
