@@ -29,12 +29,12 @@ The PDFViewer provides the following annotation types:
 
 ## Working with Annotations
 
->caption To manage the annotations the user should:
+**To manage the annotations the user should:**
 
 1. Click on the `Annotations` tool in the [Toolbar]({%slug pdfviewer-toolbar%}) to open the Annotations bar with the available annotation types.
 1. Click the desired annotation type to toggle it. You need to first "turn on" the annotation tool to add or edit annotations of the corresponding type. If none of the annotation tools are enabled, the PDFViewer will not allow interacting with the document to create or edit annotations.
 
->caption From this point the user can:
+**From this point the user can:**
 
 1. **Create an annotation** - for that purpose the user can select a non-annotated text to highlight it or click on an area that does not have free text element to create one. Once they create the annotation, a popup with the available customization options will appear.
 1. **Edit an existing annotation** - the user can edit one or multiple annotations at a time but they all must be of the same type. To select multiple annotations, the user can hold `Ctrl` and click on all annotations they want to edit.
