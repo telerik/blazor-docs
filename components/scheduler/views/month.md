@@ -10,7 +10,7 @@ position: 4
 
 # Month View
 
-The Month view of the Scheduler for Blazor shows an entire month to the user.
+The Month view of the Scheduler for Blazor shows an entire month to the user. Also the Month view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 The `Date` parameter of the Scheduler controls which month is displayed. It's the one containing the date.
 
@@ -19,7 +19,6 @@ In this article:
 
 * [View Parameters](#view-parameters)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-month-view)
 
 ## View Parameters
 
@@ -140,16 +139,9 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 }
 ````
 
-## Resource Grouping in the Month View
-
-You can configure the Month view to display appointments that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Month view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)
+* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)

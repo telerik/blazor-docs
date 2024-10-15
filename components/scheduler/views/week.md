@@ -5,12 +5,12 @@ description: Week View in the Scheduler for Blazor.
 slug: scheduler-views-week
 tags: telerik,blazor,scheduler,view,week
 published: True
-position: 3
+position: 2
 ---
 
 # Week View
 
-The Week view of the scheduler shows the entire week to the user.
+The Week view of the scheduler shows the entire week to the user. Also the Week view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%})
 
 The `Date` parameter of the scheduler controls which week is displayed. The first day depends on the current culture's `FirstDayOfWeek`.
 
@@ -19,7 +19,6 @@ In this article:
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-week-view)
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
@@ -96,16 +95,10 @@ In this article:
 }
 ````
 
-## Resource Grouping in the Week View
-
-You can configure the Week view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Week view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Week View](https://demos.telerik.com/blazor-ui/scheduler/week-view)
+* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+

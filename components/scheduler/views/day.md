@@ -10,7 +10,7 @@ position: 1
 
 # Day View
 
-The Day view of the Scheduler for Blazor shows a single day to the user.
+The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format. Also the Day view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 The `Date` parameter of the scheduler controls which date is displayed.
 
@@ -19,7 +19,6 @@ In this article:
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-day-view)
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
@@ -96,16 +95,9 @@ In this article:
 }
 ````
 
-## Resource Grouping in the Day View
-
-You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Day view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Day View](https://demos.telerik.com/blazor-ui/scheduler/day-view)
+* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
