@@ -43,7 +43,7 @@ The PDFViewer provides the following annotation types:
     * To move the `Free Text` annotation element the user can click on it to enable the drag tool and start dragging. 
 1. **Delete an existing annotation** - for that purpose the user can click on the annotation they want to delete to open the customization popup. Pressing the delete button in the customization popup will open a delete confirmation dialog where the user can confirm or cancel the annotation deletion.
 
-## Disabling annotations
+## Disabling Annotations
 
 The Annotations tool is included in the [Toolbar]({%slug pdfviewer-toolbar%}) by default. To prevent the users from creating annotations, you can [configure the Toolbar and not include the `PdfViewerToolBarAnnotationsTool`]({%slug pdfviewer-toolbar%}#toolbar-configuration).
 
