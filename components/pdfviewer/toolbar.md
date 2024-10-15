@@ -17,7 +17,7 @@ The [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) 
 
 By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
 
-#### Command Tools: 
+### Command Tools
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
