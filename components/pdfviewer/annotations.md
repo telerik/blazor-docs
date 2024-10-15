@@ -10,7 +10,7 @@ position: 15
 
 # PdfViewer Annotations
 
-The PdfViewer supports a set of annotation types that the user can add to enhance the PDF document - highlight important text areas or add notes as free text. 
+The PdfViewer supports a set of annotation types to enhance PDF documents. For example, users can highlight important text areas or add notes as free text.
 
 The PDFViewer creates a dedicated layer for the annotations and includes them when downloading or printing the file. When downloading a file with annotations and opening it again, the PDFViewer allows editing the previously created annotations.
 
