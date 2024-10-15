@@ -31,90 +31,200 @@ I also want to implement a minimum filter length, if the input is below that len
 
 ## Solution
 
-Implement logic in the [OnRead event]({%slug components/combobox/events%}#onread) that will debounce the calls to the service with the desired timeout. For example, use a `CancellationTokenSource`.
+There are two ways to implement debouncing:
 
-For min filter length, just add a check in the handler for the desired string length (in this example - 2 symbols).
+* Use the built-in ComboBox `DebounceDelay` parameter.
+* Implement logic in the [ComboBox OnRead event]({%slug components/combobox/events%}#onread) to debounce the calls to the data service with the desired timeout. For example, use a `CancellationTokenSource`.
 
->caption Use a `CancellationTokenSource` to debounce OnRead filter calls in the combo box. Add Min Filter Length
+For minimum filter length, add a check in the `OnRead` event handler for the desired string length.
+
+>caption Debounce OnRead filter calls in the ComboBox and add minimum filter length.
 
 ````CSHTML
-@implements IDisposable
 @using System.Threading
 
-<p>@SelectedValue</p>
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-<TelerikComboBox TItem="@String" TValue="@String"
-                 OnRead="@ReadItems"
-                 @bind-Value="@SelectedValue"
+@implements IDisposable
+
+<p><code>ComboBoxValue</code>: @ComboBoxValue</p>
+
+<p>Debounce inside <code>OnRead</code>:</p>
+
+<TelerikComboBox OnRead="@OnComboBoxRead1"
+                 TItem="@ListItem"
+                 TValue="@(int?)"
+                 @bind-Value="@ComboBoxValue"
+                 TextField="@nameof(ListItem.Text)"
+                 ValueField="@nameof(ListItem.Id)"
                  Filterable="true"
-                 Placeholder="Type anything">
+                 FilterOperator="@StringFilterOperator.Contains"
+                 Id="debounce-in-onread"
+                 Placeholder="Type 2+ letters or numbers to filter..."
+                 ScrollMode="@DropDownScrollMode.Virtual"
+                 ItemHeight="32"
+                 PageSize="20"
+                 ValueMapper="@ComboBoxValueMapper"
+                 Width="300px">
+</TelerikComboBox>
+
+<p>Use <code>DebounceDelay</code>:</p>
+
+<TelerikComboBox OnRead="@OnComboBoxRead2"
+                 TItem="@ListItem"
+                 TValue="@(int?)"
+                 @bind-Value="@ComboBoxValue"
+                 TextField="@nameof(ListItem.Text)"
+                 ValueField="@nameof(ListItem.Id)"
+                 DebounceDelay="@ComboBoxDebounceDelay"
+                 Filterable="true"
+                 FilterOperator="@StringFilterOperator.Contains"
+                 Id="debounce-delay"
+                 Placeholder="Type 2+ letters or numbers to filter..."
+                 ScrollMode="@DropDownScrollMode.Virtual"
+                 ItemHeight="32"
+                 PageSize="20"
+                 ValueMapper="@ComboBoxValueMapper"
+                 Width="300px">
 </TelerikComboBox>
 
 @code {
-    public string SelectedValue { get; set; }
-    CancellationTokenSource tokenSource = new CancellationTokenSource(); // for debouncing the service calls
+    private int? ComboBoxValue { get; set; }
 
-    async Task RequestData(string userInput, string method, ComboBoxReadEventArgs args)
-    {
-        // this method calls the actual service (in this case - a local method)
-        args.Data = await GetOptions(userInput, method);
-    }
+    // Data items that show without filtering.
+    private List<ListItem> ComboBoxDefaultData { get; set; } = new();
 
-    async Task ReadItems(ComboBoxReadEventArgs args)
+    // All data items.
+    private List<ListItem> ComboBoxData { get; set; } = new();
+
+    private const int ComboBoxDebounceDelay = 1000;
+
+    private CancellationTokenSource TokenSource { get; set; } = new();
+
+    private async Task OnComboBoxRead1(ComboBoxReadEventArgs args)
     {
-        if (args.Request.Filters.Count > 0) // wait for user input
+        if (args.Request.Filters.Any())
         {
-            Telerik.DataSource.FilterDescriptor filter = args.Request.Filters[0] as Telerik.DataSource.FilterDescriptor;
-            string userInput = filter.Value.ToString();
-            string method = filter.Operator.ToString();
+            // Require user input before making data requests.
+            FilterDescriptor filterDescriptor = (FilterDescriptor)args.Request.Filters.First();
+            string filterValue = filterDescriptor.Value.ToString() ?? string.Empty;
 
-            if (userInput.Length > 1) // sample min filter length implementation 
+            // Require at least 2 characters to filter.
+            if (filterValue.Length > 1)
             {
-                // debouncing
-                tokenSource.Cancel();
-                tokenSource.Dispose();
+                #region Debounce in OnRead
 
-                tokenSource = new CancellationTokenSource();
-                var token = tokenSource.Token;
+                TokenSource.Cancel();
+                TokenSource.Dispose();
 
-                await Task.Delay(300, token); // 300ms timeout for the debouncing
+                TokenSource = new CancellationTokenSource();
+                var token = TokenSource.Token;
 
-                //new service request after debouncing
-                await RequestData(userInput, method, args);
+                await Task.Delay(ComboBoxDebounceDelay, token);
+
+                #endregion Debounce in OnRead
+
+                // Request data after debouncing.
+                var result = await ComboBoxData.ToDataSourceResultAsync(args.Request);
+
+                args.Data = result.Data;
+                args.Total = result.Total;
             }
         }
         else
         {
-            // when there is no user input you may still want to provide data
-            // in this example we just hardcode a few items, you can either fetch all the data
-            // or you can provide some subset of most common items, or something based on the business logic
-            args.Data = new List<string>() { "one", "two", "three" };
+            // Optionally, provide default items before the user has filtered.
+            // These can be the most commonly used ones, or all.
+            args.Data = ComboBoxDefaultData;
+            args.Total = ComboBoxDefaultData.Count;
         }
+    }
+
+    private async Task OnComboBoxRead2(ComboBoxReadEventArgs args)
+    {
+        if (args.Request.Filters.Any())
+        {
+            // Require user input before making data requests.
+            FilterDescriptor filterDescriptor = (FilterDescriptor)args.Request.Filters.First();
+            string filterValue = filterDescriptor.Value.ToString() ?? string.Empty;
+
+            // Require at least 2 characters to filter.
+            if (filterValue.Length > 1)
+            {
+                // Request data after debouncing
+                var result = await ComboBoxData.ToDataSourceResultAsync(args.Request);
+
+                args.Data = result.Data;
+                args.Total = result.Total;
+            }
+        }
+        else
+        {
+            // Optionally, provide default items before the user has filtered.
+            // These can be the most commonly used ones, or all.
+            args.Data = ComboBoxDefaultData;
+            args.Total = ComboBoxDefaultData.Count;
+        }
+    }
+
+    private async Task<ListItem?> ComboBoxValueMapper(int? itemValue)
+    {
+        // Simulate network delay.
+        await Task.Delay(50);
+
+        return ComboBoxData.FirstOrDefault(x => x.Id == itemValue);
+    }
+
+    protected override void OnInitialized()
+    {
+        int frequentItems = 5;
+        int allItems = 3000;
+
+        for (int i = 1; i <= frequentItems; i++)
+        {
+            var item = new ListItem()
+            {
+                Id = i,
+                Text = $"Initial Item {i} {RandomChar()}{RandomChar()}{RandomChar()}"
+            };
+
+            ComboBoxDefaultData.Add(item);
+            ComboBoxData.Add(item);
+        }
+
+        for (int i = frequentItems + 1; i <= allItems; i++)
+        {
+            var item = new ListItem()
+            {
+                Id = i,
+                Text = $"Item {i} {RandomChar()}{RandomChar()}{RandomChar()}"
+            };
+
+            ComboBoxData.Add(item);
+        }
+
+        base.OnInitialized();
+    }
+
+    private char RandomChar()
+    {
+        return (char)Random.Shared.Next(65, 91);
     }
 
     public void Dispose()
     {
         try
         {
-            tokenSource.Dispose();
+            TokenSource.Dispose();
         }
         catch { }
     }
 
-    async Task<List<string>> GetOptions(string userInput, string filterOperator)
+    public class ListItem
     {
-        Console.WriteLine("service called - debounced so there are fewer calls");
-        await Task.Delay(500); // simulate network delay, remove it for a real app
-
-        //sample logic for getting suggestions - here they are generated, you can call a remote service
-        //for brevity, this example does not use the filter operator, but your actual service can
-        List<string> optionsData = new List<string>();
-        for (int i = 0; i < 5; i++)
-        {
-            optionsData.Add($"option {i} for input {userInput}");
-        }
-
-        return optionsData;
+        public int Id { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
