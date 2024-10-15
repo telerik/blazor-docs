@@ -12,7 +12,7 @@ position: 15
 
 The PdfViewer supports a set of annotation types to enhance PDF documents. For example, users can highlight important text areas or add notes as free text.
 
-The PDFViewer creates a dedicated layer for the annotations and includes them when downloading or printing the file. When downloading a file with annotations and opening it again, the PDFViewer allows editing the previously created annotations.
+The PDFViewer creates a dedicated layer for the annotations and includes them when downloading or printing the file. If the user opens a file with annotations, they can edit only the annotations that were added using the PDFViewer `Annotations` tool. The PDFViewer does not support editing annotations added in a different PDF editor.
 
 To add and manage the annotations, the user can click on the dedicated button in the [PDF Viewer Toolbar]({%slug pdfviewer-toolbar%}). It opens an annotations bar with the available annotation types.
 
