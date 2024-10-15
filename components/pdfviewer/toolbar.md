@@ -32,7 +32,7 @@ By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewe
 | Search | `PdfViewerToolBarSearchTool` | A search button. It opens an additional search bar that contains a textbox and arrow buttons to navigate the search results. |
 | Annotations | `PdfViewerToolBarAnnotationsTool` | A button that toggles the Annotations bar. Explore the [available annotation types and how to work with them]({%slug pdfviewer-annotations%}). |
 
-#### Layout Tools: 
+### Layout Tools
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
