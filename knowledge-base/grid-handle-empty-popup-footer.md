@@ -46,7 +46,7 @@ To display custom buttons in the footer and handle form submission, follow these
 1. Declare a [`<FormButtons>`]({%slug form-formitems-buttons%}) tag inside the custom Form and leave it empty, so the Form does not render its default buttons.
 2. Declare custom buttons in the [`<ButtonsTemplate>`]({%slug grid-templates-popup-buttons%}) and handle their `OnClick` events to manage the Form submission.
 
->caption Here is an example demonstrating how to display custom buttons in the popup footer
+>caption Displaying custom buttons in the popup footer
 
 ````CSHTML
 @using Telerik.DataSource
