@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 The marker type is defined per series level, so it is not possible to set different markers for the different data points out of the box.
 
-To achieve the desired result of marking specific data points as "special", follow these steps:
+To mark specific data points as "special", follow these steps:
 
 1. Use a Chart type with lines for the first series and provide it with all available data points (for example, [ScatterLine]({%slug components/chart/types/scatterline%})).
 
