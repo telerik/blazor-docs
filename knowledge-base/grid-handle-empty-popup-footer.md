@@ -250,7 +250,7 @@ To display custom buttons in the footer and handle form submission, follow these
 
 This approach relies on using CSS to hide the empty footer. Add your custom class to the edit popup of the Grid to override its default styling.
 
->caption Here is an example demonstrating how to hide the empty popup footer
+>caption Hiding the empty popup footer
 
 ````CSHTML
 @using Telerik.DataSource
