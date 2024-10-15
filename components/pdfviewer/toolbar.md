@@ -23,7 +23,7 @@ By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewe
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Open | `PdfViewerToolBarOpenTool` | An open command. Displayed in a submenu toggled on click of the hamburger menu. Fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
+| Open | `PdfViewerToolBarOpenTool` | An open command that shows in a submenu upon a hamburger menu click. Fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
 | Download | `PdfViewerToolBarDownloadTool` | A download command. Displayed in a submenu toggled on click of the hamburger menu. Fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
 | Print | `PdfViewerToolBarPrintTool` | A print command. Displayed in a submenu toggled on click of the hamburger menu. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
 | Pager | `PdfViewerToolBarPagerTool` | A pager to navigate the PDF document via automatic scrolling. Paging requires the [`Height` parameter]({%slug pdfviewer-overview%}#pdfviewer-parameters) to be set, otherwise the component expands and doesn't have its own scrollbar. |
