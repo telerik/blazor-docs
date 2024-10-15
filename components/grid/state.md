@@ -39,7 +39,7 @@ The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Bl
 | `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing]({%slug components/grid/editing/incell%}#event-sequence). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index]({%slug components/grid/features/paging%}). Some user actions reset the page index to 1, such as filtering or changing the page size. |
-| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}) that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
+| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}) that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
 | `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)]({%slug grid-selection-overview%}). |
 | `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling]({%slug components/grid/virtual-scrolling%}). In other words, this is the number of rows above the currently visible ones. |
 | `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts]({%slug components/grid/features/sorting%}). |

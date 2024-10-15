@@ -26,7 +26,7 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Descriptors
 
-The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-composite-filter-descriptor%}). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
+The filtering criteria for each filtered field is stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
