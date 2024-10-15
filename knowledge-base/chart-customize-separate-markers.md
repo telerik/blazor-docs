@@ -101,7 +101,8 @@ To achieve the desired result of marking specific data points as "special", foll
 
     private List<ModelData> Series2Data = new List<ModelData>()
     {
-        //these are the duplicated points that you want to change the symbol for. They are also contained in the data of the first chart, so the line follows the correct curve according to these points' values
+        // These are the duplicated points that you want to change the symbol for.
+        // They are also contained in the data of the first Chart series, so the line follows the correct curve according to these points' values
         new ModelData() { X = 15, Y = 20 },
         new ModelData() { X = 43, Y = 50 }
     };
