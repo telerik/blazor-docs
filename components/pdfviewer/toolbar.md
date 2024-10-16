@@ -17,20 +17,29 @@ The [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) 
 
 By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewer/overview) displays all its built-in tools in the order below. Use the *tool tag* if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
 
+### Command Tools
+
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
+| Open | `PdfViewerToolBarOpenTool` | An open command that shows in a submenu upon a hamburger menu click. Fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
+| Download | `PdfViewerToolBarDownloadTool` | A download command that shows in a submenu upon a hamburger menu click. Fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
+| Print | `PdfViewerToolBarPrintTool` | A print command that shows in a submenu upon a hamburger menu click. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
 | Pager | `PdfViewerToolBarPagerTool` | A pager to navigate the PDF document via automatic scrolling. Paging requires the [`Height` parameter]({%slug pdfviewer-overview%}#pdfviewer-parameters) to be set, otherwise the component expands and doesn't have its own scrollbar. |
 | Zoom | `PdfViewerToolBarZoomTool` | Zoom in and zoom out buttons with an additional dropdown with common options (Fit to page, Fit to width, 100%, etc.) |
 | Selection | `PdfViewerToolBarSelectionTool` | Two toggle buttons that enable either text selection or panning. |
 | Search | `PdfViewerToolBarSearchTool` | A search button. It opens an additional search bar that contains a textbox and arrow buttons to navigate the search results. |
-| Open | `PdfViewerToolBarOpenTool` | An open button. It fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
-| Download | `PdfViewerToolBarDownloadTool` | A download button. It fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
-| Print | `PdfViewerToolBarPrintTool` | A print button. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
+| Annotations | `PdfViewerToolBarAnnotationsTool` | A button that toggles the Annotations bar. Explore the [available annotation types and how to work with them]({%slug pdfviewer-annotations%}). |
 
-By default, the toolbar also includes separators (`<PdfViewerToolBarSeparator />`) and spacers (`<PdfViewerToolBarSpacer />`). Separators render as a vertical line. Spacers consume the available empty space and push the rest of the tools next to one another.
+### Layout Tools
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Tool Name | Tool Tag | Description |
+| --- | --- | --- |
+| Separator | `PdfViewerToolBarSeparator` | Renders a vertical line. This is not included in the Toolbar by default but you can use it to visually separate the desired tools. |
+| Spacer | `PdfViewerToolBarSpacer` | Consumes the available empty space and pushes the rest of the tools next to one another. |
 
 ## Custom Tools
 

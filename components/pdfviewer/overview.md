@@ -59,6 +59,9 @@ The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-to
 * Search and select text
 * Print, download and open local PDF files
 
+## Annotations
+
+The PdfViewer provides a built-in option for creating and editing annotations. Explore the [available annotation types and how to work with them]({%slug pdfviewer-annotations%}).
 
 ## Large File Support
 
