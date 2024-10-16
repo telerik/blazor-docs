@@ -12,21 +12,17 @@ ticketid: 1666981, 1579415
 ## Environment
 
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>DropDownList for Blazor</td>
-</tr>
-<tr>
-<td>Version</td>
-<td>6.2.0</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>DropDownList for Blazor, <br /> AutoComplete for Blazor, <br /> MultiSelect for Blazor, <br /> ComboBox for Blazor, <br /> MultiColumnComboBox for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
 
-I am using the [grouping feature of the DropDownList]({%slug components/dropdownlist/grouping%}). My DropDownList model has a nested model as property. The DropDownList `GroupField` parameter is bound to a property of the nested model. I want the groups to appear in a non-alphabetical, custom order. How can I customize the grouping order in the DropDownList?
+I am using the [grouping feature of the DropDownList]({%slug components/dropdownlist/grouping%}). My DropDownList model has a nested model as property. The DropDownList `GroupField` parameter is bound to a property of the nested model. I want the groups to appear in a non-alphabetical, custom order. I can see that there is a feature request to add a <a href="https://feedback.telerik.com/blazor/1565506-sort-direction-parameter-for-grouping" target="_blank">sort direction option when grouping</a>. But in the meantime how can I customize the grouping order in the DropDownList?
 
 ## Solution
 
