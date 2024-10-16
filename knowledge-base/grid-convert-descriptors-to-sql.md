@@ -27,7 +27,7 @@ When using the Grid [`OnRead` event]({%slug grid-events%}#read-event) to execute
 This KB article also answers the following questions:
 - How can I convert Grid filters and sorters to SQL WHERE and ORDER BY clauses?
 - Is there a way to parse Grid filter and sort descriptors into SQL queries?
-- Can I use `DataSourceRequest`({%slug common-features-data-binding-onread%}#event-argument) to generate SQL query statements for filtering and sorting?
+- Can I use [`DataSourceRequest`]({%slug common-features-data-binding-onread%}#event-argument) to generate SQL query statements for filtering and sorting?
 
 ## Solution
 
