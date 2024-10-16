@@ -36,7 +36,7 @@ The PDFViewer provides the following annotation types:
 
 **From this point the user can:**
 
-1. **Create an annotation** - for that purpose the user can select a non-annotated text to highlight it or click on an area that does not have free text element to create one. Once they create the annotation, a popup with the available customization options will appear.
+1. **Create an annotation**&mdash;The user can select a non-annotated text to highlight it or they can click an area that does not have free text element to create an annotation. Once they create the annotation, a popup with the available customization options will appear.
 1. **Edit an existing annotation** - the user can edit one or multiple annotations at a time but they all must be of the same type. To select multiple annotations, the user can hold `Ctrl` and click on all annotations they want to edit.
     * To edit color and font size the user can click on the annotation they want to edit to open the customization popup.
     * To edit the text in the `Free Text` annotation element, the user can double click the element to open the textbox for editing.
