@@ -7,12 +7,13 @@ Generally, the views are designed around the timeframe that they show and the da
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `StartTime` | `DateTime` | This is the first hour that is shown in the view. Defaults to midnight, so if you do not set it to a value close to the start of the working day, the user is likely to see only blank spaces before they scroll down.
-| `WorkDayStart` | `DateTime` | This is when the working day starts. The work hours have a different background than non-working hours so the user can distinguish them easily. This parameter also influences the "Show Business Hours" toggle.
 | `EndTime` | `DateTime` | The counterpart to `StartTime` - defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
-|`WorkDayEnd` | `DateTime` | The counterpart to `WorkDayStart` - defines when the working day ends.
-| `SlotDuration` | `int` | The time span of each major time slot in minutes.
+| `HideAllDayRow` | `bool` | Determines whether to render the row for all-day appointments. If set to `true`, this row will be hidden.
 | `SlotDivisions` |`int` | The number of partitions in each major time slot.
+| `SlotDuration` | `int` | The time span of each major time slot in minutes.
+| `StartTime` | `DateTime` | This is the first hour that is shown in the view. Defaults to midnight, so if you do not set it to a value close to the start of the working day, the user is likely to see only blank spaces before they scroll down.
+|`WorkDayEnd` | `DateTime` | The counterpart to `WorkDayStart` - defines when the working day ends.
+| `WorkDayStart` | `DateTime` | This is when the working day starts. The work hours have a different background than non-working hours so the user can distinguish them easily. This parameter also influences the "Show Business Hours" toggle.
 #end
 
 #visible-times-tip
