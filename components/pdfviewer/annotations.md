@@ -45,7 +45,7 @@ The PDFViewer provides the following annotation types:
 
 ## Disabling Annotations
 
-The Annotations tool is included in the [Toolbar]({%slug pdfviewer-toolbar%}) by default. To prevent the users from creating annotations, you can [configure the Toolbar and not include the `PdfViewerToolBarAnnotationsTool`]({%slug pdfviewer-toolbar%}#toolbar-configuration).
+The Annotations tool is included in the [Toolbar]({%slug pdfviewer-toolbar%}) by default. To prevent users from creating annotations, you can [configure the Toolbar and not include the `PdfViewerToolBarAnnotationsTool`]({%slug pdfviewer-toolbar%}#toolbar-configuration).
 
 ## See Also
 
