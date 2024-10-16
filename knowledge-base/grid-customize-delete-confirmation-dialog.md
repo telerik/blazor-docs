@@ -6,18 +6,19 @@ page_title: Customize the Delete Confirmation Dialogs
 slug: grid-kb-customize-delete-confirmation-dialog
 position: 
 tags: grid, customize, delete, confirmation, dialog, message
-ticketid: 1553006
+ticketid: 1553006, 1660439, 1625888
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor <br/> TreeList for Blazor <br/> Scheduler for Blazor </td>
-		</tr>	
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor <br/> TreeList for Blazor <br/> Scheduler for Blazor </td>
+        </tr>	
+    </tbody>
 </table>
 
 
@@ -63,70 +64,120 @@ The keys for the elements of the built-in Delete Confirmation Dialog are:
 
 Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
 
-* Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid
-* Display the Predefined Dialog in the `OnDelete` handler
-* Cancel the event or proceed with the `OnDelete` logic depending on the user choice
+* Use the Grid `Class` parameter to set a `z-index` style, which is lower than the default Dialog `z-index` of 10,000.
+* Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid.
+* Display the predefined Dialog in the `OnDelete` handler.
+* Cancel the event or proceed with the `OnDelete` logic depending on the user choice.
+* The same approach is applicable for the `OnCreate` and `OnUpdate` events.
 
 ````CSHTML
-<TelerikGrid Data=@GridData
+@using System.ComponentModel.DataAnnotations
+
+<TelerikGrid Data="@GridData"
+             Class="z-index-1"
              EditMode="@GridEditMode.Inline"
+             OnDelete="@OnGridDelete"
+             OnUpdate="@OnGridUpdate"
              Pageable="true"
-             OnDelete="@DeleteHandler">
+             PageSize="20"
+             Height="90vh">
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>            
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
+        <GridCommandColumn>
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Delete">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
+<style>
+    /* Create a stacking context for the whole Grid,
+       which is lower than the stacking context of the Dialog. */
+    .z-index-1 {
+        z-index: 1;
+    }
+</style>
+
 @code {
-    private List<SampleData> GridData { get; set; }
-
     [CascadingParameter]
-    public DialogFactory Dialogs { get; set; }
+    public DialogFactory? TelerikDialogs { get; set; }
 
-    private bool confirmDelete { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
-    private async Task DeleteHandler(GridCommandEventArgs args)
+    private int LastId { get; set; }
+
+    private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var updatedItem = (Product)args.Item;
 
-        //show dialog and use a bool to save its result
-        confirmDelete = await Dialogs.ConfirmAsync($"Are you sure you want to delete {item.Name}?", "Please confirm!");
-
-        //cancel the delete if the user did not confirm
-        if (!confirmDelete)
+        bool cancelled = await ShouldCancel("Updating", updatedItem.Name);
+        if (cancelled)
         {
             args.IsCancelled = true;
+            return;
         }
-        //delete the item if the user confirms
-        else
+
+        var originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
+
+        if (originalItemIndex != -1)
         {
-            GridData.Remove(item);
+            GridData[originalItemIndex] = updatedItem;
         }
     }
 
-    protected override async Task OnInitializedAsync()
+    private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        GridData = new List<SampleData>();
+        var deletedItem = (Product)args.Item;
 
-        for (int i = 0; i < 50; i++)
+        bool cancelled = await ShouldCancel("Deleting", deletedItem.Name);
+        if (cancelled)
         {
-            GridData.Add(new SampleData()
-                {
-                    ID = i,
-                    Name = "Name " + i.ToString()
-                });
+            args.IsCancelled = true;
+            return;
+        }
+
+        GridData.Remove(deletedItem);
+    }
+
+    private async Task<bool> ShouldCancel(string operation, string name)
+    {
+        string dialogMessage = $"{operation} product {name}. Continue?";
+
+        bool dialogResult = true;
+
+        if (TelerikDialogs != null)
+        {
+            dialogResult = await TelerikDialogs.ConfirmAsync(dialogMessage, "Confirm Data Change");
+        }
+
+        return !dialogResult;
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = ++LastId,
+                Name = $"Name {LastId}",
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 1000),
+            });
         }
     }
 
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = "Default Name";
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
@@ -136,94 +187,154 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 Using the [Dialog component]({%slug dialog-overview%}) will let you have fully customized Delete Confirmation Dialog. To handle the scenario:
 
 * Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least two buttons - for confirmation and cancelling the delete operation.
-* Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid to cancel the built-in delete, show the custom Dialog and get the current item (save the current item, so you can then use its details in the dialog if needed).
+* Use [custom commands]({%slug components/grid/columns/command%}) instead of the built-in `Save` and `Delete` commands to obtain the data item and show the Dialog component.
 * Handle the Dialog button clicks: 
-	* Proceed with the item deletion in the Confirm button click handler. 
-	* Hide the Dialog on Cancel.
+    * Proceed with the item deletion in the Confirm button click handler. 
+    * Hide the Dialog on Cancel. Optionally, [exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
+* The same approach is applicable for the `OnCreate` and `OnUpdate` events.
 
 ````CSHTML
+@using System.ComponentModel.DataAnnotations
+
 <TelerikGrid @ref="@GridRef"
-             Data=@GridData
+             Data="@GridData"
              EditMode="@GridEditMode.Inline"
+             OnCancel="@OnGridCancel"
              Pageable="true"
-             OnDelete="@DeleteHandler">
+             PageSize="20"
+             Height="90vh">
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="CustomSave"
+                               OnClick="@OnGridSave"
+                               ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="CustomDelete"
+                               OnClick="@OnGridDelete">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 <TelerikDialog @bind-Visible="@DialogVisible"
-               Title="@Title">
+               Width="300px"
+               ButtonsLayout="@DialogButtonsLayout.End">
+    <DialogTitle>
+        Confirm Data Change
+    </DialogTitle>
     <DialogContent>
-        Are you sure you want to delete item with name: @CurrentItem.Name?
+        @DialogContent
     </DialogContent>
     <DialogButtons>
-        <TelerikButton OnClick="@DeleteItemFromDialog" ThemeColor="primary">Delete</TelerikButton>
-        <TelerikButton OnClick="@(() => { DialogVisible = false; })">Cancel</TelerikButton>
+        <TelerikButton OnClick="@( () => OnDialogButtonClick(true) )"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Success">OK</TelerikButton>
+        <TelerikButton OnClick="@( () => OnDialogButtonClick(false) )"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Error">Cancel</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
 @code {
-    private List<SampleData> GridData { get; set; }
-
-    private TelerikGrid<SampleData> GridRef;
+    private TelerikGrid<Product>? GridRef { get; set; }
+    private List<Product> GridData { get; set; } = new();
 
     private bool DialogVisible { get; set; }
 
-    private string Title { get; set; } = "Custom delete confirmation";
+    private Product? ItemToUpdate { get; set; }
+    private Product? ItemToDelete { get; set; }
 
-    private SampleData CurrentItem { get; set; }
+    private MarkupString DialogContent { get; set; } = new();
 
-    private async Task DeleteHandler(GridCommandEventArgs args)
+    private int LastId { get; set; }
+
+    private void OnGridSave(GridCommandEventArgs args)
     {
-        //get the current item from the args
-        CurrentItem = (SampleData)args.Item;
+        var itemToUpdate = (Product)args.Item;
+        ItemToUpdate = itemToUpdate;
 
-        //cancel the built-in delete as you will handle the deletion in the dialog button click handler
-        args.IsCancelled = true;
-
-        //show the dialog
+        DialogContent = new MarkupString($"<p>Saving product <strong>{ItemToUpdate.Name}</strong>. <br /> Do you want to continue?</p>");
         DialogVisible = true;
-
-        //if needed, you can also customize the title to contain item details
-        Title = "Custom title for " + CurrentItem.Name;
     }
 
-    private async Task DeleteItemFromDialog()
+    private void OnGridDelete(GridCommandEventArgs args)
     {
-        //delete the item
-        GridData.Remove(CurrentItem);
+        var deletedItem = (Product)args.Item;
+        ItemToDelete = deletedItem;
 
-        //refresh the Grid data
-        GridRef.Rebind();
-
-        //hide the dialog
-        DialogVisible = false;
+        DialogContent = new MarkupString($"<p>Deleting product <strong>{ItemToDelete.Name}</strong>. <br /> Do you want to continue?</p>");
+        DialogVisible = true;
     }
 
-    protected override async Task OnInitializedAsync()
+    private void OnGridCancel(GridCommandEventArgs args)
     {
-        GridData = new List<SampleData>();
+        ItemToUpdate = null;
+    }
 
-        for (int i = 0; i < 50; i++)
+    private async Task OnDialogButtonClick(bool operationConfirmed)
+    {
+        if (operationConfirmed)
         {
-            GridData.Add(new SampleData()
+            if (ItemToDelete != null)
+            {
+                GridData.Remove(ItemToDelete);
+            }
+
+            if (ItemToUpdate != null)
+            {
+                var originalItemIndex = GridData.FindIndex(i => i.Id == ItemToUpdate.Id);
+
+                if (originalItemIndex != -1)
                 {
-                    ID = i,
-                    Name = "Name " + i.ToString()
-                });
+                    GridData[originalItemIndex] = ItemToUpdate;
+                }
+            }
+
+            GridRef!.Rebind();
+        }
+        else if (ItemToUpdate != null)
+        {
+            var gridState = GridRef!.GetState();
+
+            gridState.EditItem = null!;
+            gridState.OriginalEditItem = null!;
+
+            await GridRef!.SetStateAsync(gridState);
+        }
+
+        DialogVisible = false;
+
+        ItemToDelete = null;
+        ItemToUpdate = null;
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = ++LastId,
+                Name = $"Name {LastId}",
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 1000),
+            });
         }
     }
 
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    public class Product
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = "Default Name";
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
+
+## See Also
+
+* [Grid Editing]({%slug components/grid/editing/overview%})
+* [Dialog Overview]({%slug dialog-overview%})
