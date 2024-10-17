@@ -10,7 +10,7 @@ position: 2
 
 # Week View
 
-The Week view of the scheduler shows the entire week to the user. Also the Week view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%})
+The Week view of the Scheduler shows the entire week to the user. You can also configure the Week view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 The `Date` parameter of the scheduler controls which week is displayed. The first day depends on the current culture's `FirstDayOfWeek`.
 
@@ -28,12 +28,12 @@ In this article:
 
 ## Example
 
->caption Declare the Week View in the markup
-
 >tip You can declare other views as well, this example adds only the week view for brevity.
 
+>caption Declare the Week view in the markup
+
 ````CSHTML
-@* Define the week view. *@
+@* Define the Week view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
     <SchedulerViews>

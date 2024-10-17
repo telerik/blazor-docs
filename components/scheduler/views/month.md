@@ -10,7 +10,7 @@ position: 4
 
 # Month View
 
-The Month view of the Scheduler for Blazor shows an entire month to the user. Also the Month view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%}).
+The Month view of the Scheduler for Blazor shows an entire month to the user. You can also configure the Month view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 The `Date` parameter of the Scheduler controls which month is displayed. It's the one containing the date.
 
@@ -37,9 +37,9 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 
 ## Example
 
->caption Declare the Month and Day Views in the markup
+>tip You can declare other views as well, this example adds only the Month and Day views for brevity.
 
->tip You can declare other views as well, this example adds only the month and day views for brevity.
+>caption Declare the Month and Day views in the markup
 
 ````CSHTML
 @* Define the month view. *@

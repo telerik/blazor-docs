@@ -10,7 +10,7 @@ position: 5
 
 # Timeline View
 
-The Timeline view displays appointments in a continuous horizontal direction. Also the Timeline view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%})
+The Timeline view displays appointments in a continuous horizontal direction. You can also configure the Timeline view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 In this article:
 
@@ -28,9 +28,9 @@ In this article:
 
 ## Example
 
->caption Declare the Timeline View in the markup
-
 >tip You can declare other views as well, this example adds only the timeline view for brevity.
+
+>caption Declare the Timeline view in the markup
 
 ````CSHTML
 @* Define the Timeline view. *@

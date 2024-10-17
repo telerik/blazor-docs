@@ -10,9 +10,9 @@ position: 3
 
 # MultiDay View
 
-The MultiDay view of the Scheduler for Blazor shows several days at once to the user. Also the MultiDay view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%}).
+The MultiDay view of the Scheduler for Blazor shows several days at once to the user. You can also configure the MultiDay view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
-The `Date` parameter of the scheduler controls which is the first rendered date, and the `NumberOfDays` parameter of the View controls how many days will be rendered. 
+The `Date` parameter of the Scheduler controls which is the first rendered date, and the `NumberOfDays` parameter of the View controls how many days will be rendered.
 
 In this article:
 
@@ -29,13 +29,12 @@ In this article:
 
 ## Example
 
->caption Declare the MultiDay View in the markup
+>tip You can declare other views as well, this example adds only the Multiday view for brevity.
 
->tip You can declare other views as well, this example adds only the multiday view for brevity.
-
+>caption Declare the MultiDay view in the markup
 
 ````CSHTML
-@* Define the multiday view. *@
+@* Define the Multiday view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
     <SchedulerViews>

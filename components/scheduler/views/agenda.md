@@ -10,7 +10,7 @@ position: 6
 
 # Agenda View
 
-The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format. Also the Agenda view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%})
+The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format. You can also configure the Agenda view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 
 In this article:
@@ -20,7 +20,7 @@ In this article:
 
 ## View Parameters
 
-The following parameters allow you to configure the agenda view:
+The following parameters allow you to configure the Agenda view:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -31,12 +31,12 @@ The following parameters allow you to configure the agenda view:
 
 ## Example
 
->caption Declare the Agenda View in the markup
-
 >tip You can declare other views as well, this example adds only the Agenda view for brevity.
 
+>caption Declare the Agenda view in the markup
+
 ````CSHTML
-@* Define the agenda view. *@
+@* Define the Agenda view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="800px">
     <SchedulerViews>

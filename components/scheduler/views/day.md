@@ -10,7 +10,7 @@ position: 1
 
 # Day View
 
-The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format. Also the Day view can be configured to display the events that are [grouped by resource]({%slug scheduler-resource-grouping%}).
+The Day view of the Scheduler for Blazor shows a single day to the user. You can also configure the Day view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
 
 The `Date` parameter of the scheduler controls which date is displayed.
 
@@ -28,12 +28,12 @@ In this article:
 
 ## Example
 
->caption Declare the Day View in the markup
+>tip You can declare other views as well, this example adds only the Day view for brevity.
 
->tip You can declare other views as well, this example adds only the day view for brevity.
+>caption Declare the Day view in the markup
 
 ````CSHTML
-@* Define the day view. *@
+@* Define the Day view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
     <SchedulerViews>
