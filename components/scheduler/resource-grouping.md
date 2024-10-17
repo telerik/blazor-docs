@@ -35,13 +35,6 @@ The settings tag will have the following Parameters:
 * `Resources(List<string>)` - provides a list of one or more resource names, which will be used to group the events.
 * `Orientation(SchedulerGroupOrientation)` - has two values: `Horizontal` (default) and `Vertical`. Determines the direction in which the resource tables are rendered.
 
-For more information on grouping by resources in each view, refer to the following sections:
-
-* [**Day** view grouping]({%slug scheduler-views-day%}#resource-grouping-in-the-day-view)
-* [**MultiDay** view grouping]({%slug scheduler-views-multiday%}#resource-grouping-in-the-multiday-view)
-* [**Week** view grouping]({%slug scheduler-views-week%}#resource-grouping-in-the-week-view)
-* [**Month** view grouping]({%slug scheduler-views-month%}#resource-grouping-in-the-month-view)
-
 ## Examples
 The examples below showcase [resource grouping by one resource](#resource-grouping-by-one-resource) and [resource grouping by multiple resources](#resource-grouping-by-multiple-resources) respectively.
 
