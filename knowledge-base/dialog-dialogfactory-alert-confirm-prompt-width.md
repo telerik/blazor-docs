@@ -1,6 +1,6 @@
 ---
 title: Set Width to Predefined Telerik Dialogs
-description: Learn how to set width to predefined Telerik Dialogs such as alert, confirm and prompt modal popups. The width can be fixed or a percentage of the browser window's viewport.
+description: Learn how to set width to predefined Telerik Dialogs such as the alert, confirm, and prompt modal popups. The width can be fixed or a percentage of the browser window's viewport.
 type: how-to
 page_title: How to Set Width to Predefined Telerik Dialogs
 slug: dialog-kb-dialogfactory-alert-confirm-prompt-width
