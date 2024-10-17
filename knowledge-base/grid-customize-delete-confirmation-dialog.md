@@ -62,7 +62,7 @@ The keys for the elements of the built-in Delete Confirmation Dialog are:
 
 ### Predefined Dialog Component
 
-Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
+Use a [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
 
 * Use the Grid `Class` parameter to set a `z-index` style, which is lower than the default Dialog `z-index` of 10,000.
 * Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid.
