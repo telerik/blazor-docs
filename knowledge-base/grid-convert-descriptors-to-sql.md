@@ -31,7 +31,7 @@ This KB article also answers the following questions:
 
 ## Solution
 
-To convert the Grid's filter and sort descriptors into SQL query statements, you need to manually construct the SQL query within the `OnRead` event handler by utilizing the `args.Request.Filters` and `args.Request.Sorts` objects. Although Telerik UI for Blazor does not provide a direct method to extract the SQL query from the `DataSourceRequest`, a manual approach can be adopted. 
+To convert the Grid's filter and sort descriptors into SQL query statements, you need to manually construct the SQL query within the `OnRead` event handler by utilizing the `args.Request.Filters` and `args.Request.Sorts` objects. Although Telerik UI for Blazor does not provide a direct method to extract the SQL query from the `DataSourceRequest`, you can achieve this manually. 
 
 The following steps outline how to achieve this:
 
