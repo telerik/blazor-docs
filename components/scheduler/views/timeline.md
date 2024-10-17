@@ -19,9 +19,22 @@ In this article:
 * [Example](#example)
 * [Resource Grouping](#resource-grouping-in-the-timeline-view)
 
-@[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
+## View Parameters
+
+Generally, the views are designed around the timeframe that they show and the day-based views share some common properties that you will likely have to set to provide a good user experience for the user:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Attribute | Type and Default Value | Description |
+|----------|----------|----------|
 | `ColumnWidth` | `decimal` | The width of each time column in pixels.
+| `EndTime` | `DateTime` | The counterpart to `StartTime` &mdash; defines when the full day ends. Defaults to midnight. If you have the day end earlier you can reduce the amount of elements that render, but the user may not see some late appointments.
 | `NumberOfDays` | `int` <br/> `1` | How many days to show side by side in the view.
+| `SlotDivisions` |`int` | The number of partitions in each major time slot.
+| `SlotDuration` | `int` | The time span of each major time slot in minutes.
+| `StartTime` | `DateTime` | The first hour displayed in the view. Defaults to midnight. If not set to a value close to the start of the working day, the view may show blank spaces before scrolling down.
+|`WorkDayEnd` | `DateTime` | The counterpart to `WorkDayStart` &mdash; defines when the working day ends.
+| `WorkDayStart` | `DateTime` | The start time of the working day; differentiates work hours with a distinct background for easy identification. Influences the **Show Business Hours** toggle.
 
 @[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 

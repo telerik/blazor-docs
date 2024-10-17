@@ -22,7 +22,7 @@ In this article:
 * [Resource Grouping](#resource-grouping-in-the-multiday-view)
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
-* `NumberOfDays` - how many days will be rendered side-by-side in the view.
+| `NumberOfDays` | `int` <br/> `1` | How many days to show side by side in the view.
 
 @[template](/_contentTemplates/scheduler/views.md#visible-times-tip)
 
