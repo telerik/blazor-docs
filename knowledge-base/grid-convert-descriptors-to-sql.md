@@ -22,7 +22,7 @@ ticketid: 1666625, 1653361
 
 ## Description
 
-When using the Grid [`OnRead` event]({%slug grid-events%}#read-event) to execute SQL queries, I need to convert the Grid's filter and sort descriptors into SQL query statements. This way I can create SQL clauses for filtering and ordering items directly through SQL. 
+When using the Grid [`OnRead` event]({%slug grid-events%}#read-event) to execute SQL queries, I need to convert the Grid's filter and sort descriptors into SQL query statements. This way I can create SQL clauses for filtering and ordering items directly through SQL.
 
 This KB article also answers the following questions:
 - How can I convert Grid filters and sorters to SQL `WHERE` and `ORDER BY` clauses?
@@ -31,23 +31,19 @@ This KB article also answers the following questions:
 
 ## Solution
 
-To convert the Grid's filter and sort descriptors into SQL query statements, you need to manually construct the SQL query within the `OnRead` event handler by utilizing the `args.Request.Filters` and `args.Request.Sorts` objects. Although Telerik UI for Blazor does not provide a direct method to extract the SQL query from the `DataSourceRequest`, you can achieve this manually. 
+To convert the Grid's filter and sort descriptors into SQL query statements, you need to manually construct the SQL query within the `OnRead` event handler by utilizing the `args.Request.Filters` and `args.Request.Sorts` objects. Although Telerik UI for Blazor does not provide a direct method to extract the SQL query from the `DataSourceRequest`, you can achieve this manually.
 
 The following steps outline how to achieve this:
 
-1. **Handle the `OnRead` Event**: Add an `OnRead` event to your Grid and in the event handler, access the `args.Request.Filters` and `args.Request.Sorts` to construct your SQL query.
-
-2. **Parse Filters**: Iterate through `args.Request.Filters` to construct the WHERE clause of your SQL query. Each filter in this collection will correspond to a column filter in the Grid.
-
-3. **Parse Sort Descriptors**: Similarly, iterate through `args.Request.Sorts` to build the ORDER BY clause of your SQL query. Each sort descriptor corresponds to a column sorting in the Grid.
-
-4. **Execute SQL Query**: With the constructed WHERE and ORDER BY clauses, form your complete SQL query and execute it against your database.
-
-5. **Set Grid Data**: Finally, assign the result of your SQL query to the Grid by setting `args.Data`.
+1. Add an `OnRead` event to your Grid and in the event handler, access the `args.Request.Filters` and `args.Request.Sorts` to construct your SQL query.
+1. Iterate through `args.Request.Filters` to construct the `WHERE` clause of your SQL query. Each filter in this collection will correspond to a column filter in the Grid.
+1. Iterate through `args.Request.Sorts` to build the `ORDER BY` clause of your SQL query. Each sort descriptor corresponds to a column sorting in the Grid.
+1. Form your complete SQL query and execute it against your database with the constructed `WHERE` and `ORDER BY` clauses.
+1. Assign the result of your SQL query to the Grid by setting `args.Data`.
 
 ## Example
 
-Below is a simplified example demonstrating how to parse filter and sort descriptors. This example does not directly execute a SQL query but outlines how to construct the WHERE and ORDER BY clauses.
+Below is a simplified example demonstrating how to parse filter and sort descriptors. This example does not directly execute a SQL query but outlines how to construct the `WHERE` and `ORDER BY` clauses.
 
 ```csharp
 @using System.Text
