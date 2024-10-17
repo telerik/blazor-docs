@@ -63,7 +63,7 @@ Below is a simplified example demonstrating how to parse filter and sort descrip
 </TelerikGrid>
 
 @code {
-    private List<MyItem> GridData { get; set; }
+    private List<MyItem> GridData { get; set; } = new();
 
     private string SqlQuery { get; set; }
     private string FilterQuery { get; set; }
