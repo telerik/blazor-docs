@@ -24,13 +24,12 @@ res_type: kb
 
 ## Description
 
-How to customize the built-in Delete Confirmation Dialog of the Grid?
+This KB article answers the following questions:
 
-I want to add some item details to the text of the Delete Confirmation Dialog to notify the user for the item they are trying to delete. How to achieve that?
-
-How to change the text of the buttons in the Delete Confirmation Dialog?
-
-How to change the title and the content of the Delete Confirmation Dialog?
+* How to customize the built-in Delete Confirmation Dialog of the Grid?
+* I want to add some item details to the text of the Delete Confirmation Dialog to notify the user for the item they are trying to delete. How to achieve that?
+* How to change the text of the buttons in the Delete Confirmation Dialog?
+* How to change the title and the content of the Delete Confirmation Dialog?
 
 ## Solution
 
@@ -68,7 +67,7 @@ Use a [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the d
 * Handle the [`OnDelete`]({%slug grid-events%}#cud-events) event of the Grid.
 * Display the predefined Dialog in the `OnDelete` handler.
 * Cancel the event or proceed with the `OnDelete` logic depending on the user choice.
-* The same approach is applicable for the `OnCreate` and `OnUpdate` events.
+* The same approach is applicable to the `OnCreate` and `OnUpdate` events.
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
@@ -191,7 +190,7 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
 * Handle the Dialog button clicks: 
     * Proceed with the item deletion in the Confirm button click handler. 
     * Hide the Dialog on Cancel. Optionally, [exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
-* The same approach is applicable for the `OnCreate` and `OnUpdate` events.
+* The same approach is applicable to the `OnCreate` and `OnUpdate` events.
 
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
