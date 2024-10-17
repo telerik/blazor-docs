@@ -65,26 +65,23 @@ Below is a simplified example demonstrating how to parse filter and sort descrip
 @code {
     private List<MyItem> GridData { get; set; } = new();
 
-    private string SqlQuery { get; set; }
-    private string FilterQuery { get; set; }
-    private string SortQuery { get; set; }
-
     private async Task ReadItems(GridReadEventArgs args)
     {
-        FilterQuery = BuildFilterQuery(args.Request.Filters);
-        SortQuery = BuildSortQuery(args.Request.Sorts);
+        string sqlQuery = string.Empty;
+        string filterQuery = BuildFilterQuery(args.Request.Filters);
+        string sortQuery = BuildSortQuery(args.Request.Sorts);
 
-        if (FilterQuery != string.Empty)
+        if (filterQuery != string.Empty)
         {
-            SqlQuery = $"SELECT * FROM MyTable WHERE {FilterQuery}";
-            
-            GridData = await ExecuteSqlQuery(SqlQuery);
+            sqlQuery = $"SELECT * FROM MyTable WHERE {filterQuery}";
+
+            GridData = await ExecuteSqlQuery(sqlQuery);
         }
-        else if (SortQuery != string.Empty)
+        else if (sortQuery != string.Empty)
         {
-            SqlQuery = $"SELECT * FROM MyTable ORDER BY {SortQuery}";
-            
-            GridData = await ExecuteSqlQuery(SqlQuery);
+            sqlQuery = $"SELECT * FROM MyTable ORDER BY {sortQuery}";
+
+            GridData = await ExecuteSqlQuery(sqlQuery);
         }
         else
         {
@@ -152,13 +149,7 @@ Below is a simplified example demonstrating how to parse filter and sort descrip
     {
         // Implement logic to execute the SQL query and return the result
         // This is a placeholder for your actual data access code
-        if (FilterQuery != string.Empty)
-        {
-        }
 
-        if (SortQuery != string.Empty)
-        {
-        }
         //Remove this line when you execute the SQL query
         //It is only for example purposes
         GridData = new List<MyItem>();
