@@ -5,7 +5,7 @@ description: How to data bind Telerik Blazor components to cloud data services s
 slug: common-features-data-binding-cloud
 tags: telerik,blazor,binding,databinding,cloud
 published: True
-position: 15
+position: 30
 ---
 
 # Databinding to Cloud Services

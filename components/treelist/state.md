@@ -537,6 +537,8 @@ Sometimes you may want to know what the user changed in the TreeList (e.g., when
 
 The example below shows how to achieve it by using the`OnStateChanged` event.
 
+Find out how to [get the applied by the user filtering and sorting criteria]({%slug common-features-descriptors%}).
+
 >caption Know when the TreeList state changes, which parameter changed and amend the change
 
 ````CSHTML

@@ -103,7 +103,9 @@ You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) t
 
 * the component initializes
 * the user [filters]({%slug components/dropdownlist/filter%})
-* the user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled
+* the user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled.
+
+Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 You can also call remote data through `async` operations.
 

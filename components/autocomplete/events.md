@@ -124,6 +124,8 @@ You can use the he [`OnRead` event]({%slug common-features-data-binding-onread%}
 
 You can also call remote data through async operations.
 
+Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
+
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >caption Custom Data according to the user input in the AutoComplete
