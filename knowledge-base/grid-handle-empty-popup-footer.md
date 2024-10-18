@@ -34,7 +34,7 @@ This KB article also answers the following questions:
 
 ## Solution
 
-There are two approaches to address this requirement:
+To hide the empty footer or utilize it by placing the custom form buttons, choose either of the following approaches:
 
 * [Option 1: Display Custom Buttons in the Footer](#option-1-display-custom-buttons-in-the-footer)
 * [Option 2: Remove the Footer and Keep the Buttons in the FormTemplate](#option-2-remove-the-footer-and-keep-the-buttons-in-the-formtemplate)
