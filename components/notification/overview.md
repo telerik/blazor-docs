@@ -130,4 +130,4 @@ You can find more information on opening, closing and hiding the Notification in
 
 * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview)
 * [Notification API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikNotification)
-* [One Notification Instance for All Components Sample Project](https://github.com/telerik/blazor-ui/tree/master/notification/single-instance-per-app)
+* [Reuse One Notification Instance]({%slug notification-kb-single-instance%})
