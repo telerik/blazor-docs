@@ -34,12 +34,12 @@ The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Bl
 | `EditField` | `string` | The currently edited data item property in [`Incell` edit mode]({%slug components/grid/editing/incell%}). |
 | `EditItem` | `TItem`* | The currently edited data item in [any edit mode]({%slug components/grid/editing/overview%}). |
 | `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)]({%slug components/grid/features/hierarchy%}). |
-| `FilterDescriptors` | `ICollection<IFilterDescriptor>` | All filtering criteria, except the ones that relate to the[`GridSearchBox`]({%slug grid-searchbox%}). |
+| `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering), except the ones that relate to the [`GridSearchBox`]({%slug grid-searchbox%}). |
 | `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping]({%slug components/grid/features/grouping%}). |
 | `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing]({%slug components/grid/editing/incell%}#event-sequence). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index]({%slug components/grid/features/paging%}). Some user actions reset the page index to 1, such as filtering or changing the page size. |
-| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}) that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
+| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering) that holds the filter descriptors for the [`GridSearchBox`]({%slug grid-searchbox%}). |
 | `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)]({%slug grid-selection-overview%}). |
 | `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling]({%slug components/grid/virtual-scrolling%}). In other words, this is the number of rows above the currently visible ones. |
 | `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts]({%slug components/grid/features/sorting%}). |
@@ -175,6 +175,8 @@ Here is some additional information about certain `PropertyName` values:
 > We recommend using an `async Task` handler for the `OnStateChanged` event, in order to reduce re-rendering and avoid blocking UI updates if the handler will wait for a service to save the Grid state somewhere.
 
 To observe the changes in the Grid state more easily, copy and run the following example in a local app and at full screen.
+
+Find out how to [get the applied by the user filtering, sorting and grouping criteria]({%slug common-features-descriptors%}).
 
 >caption Using Grid OnStateChanged
 

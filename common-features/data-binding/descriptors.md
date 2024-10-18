@@ -5,14 +5,25 @@ description: Discover the FilterDescriptor, SortDescriptor, SearchFilter and Gro
 slug: common-features-descriptors
 tags: telerik,blazor,filterdescriptor, sortdescriptor, groupdescriptor, searchfilter
 published: True
-position: 8
+position: 10
 ---
 
-# Common
+
+## Components with Descriptors
+
+This article explains how to retrieve the applied filtering, searching, sorting, and grouping criteria in Blazor components. The article applies to components that support these features. The components that offer one or all of the functionalities are:
+* The [Filter]({%slug filter-overview%})
+* The [Gantt]({%slug gantt-overview%})
+* The [TreeList]({%slug treelist-overview%})
+* All components that [expose the `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event).
+
+## Obtain Filtering, Searching, Sorting, Grouping criteria
 
 There are two ways to obtain the applied filtering, searching, sorting, grouping criteria:
 
-* Through the component [`OnRead` event]({%slug common-features-data-binding-onread%}) handler. Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-argument) of the [event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
+#### Through the OnRead Event
+
+Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-argument) of the [`OnRead` event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
 
 ````CS
 async Task OnReadHandler(...ReadEventArgs args)
@@ -32,8 +43,8 @@ async Task OnReadHandler(...ReadEventArgs args)
 }
 ````
 
-
-* Through the component state. Use the component state property of the `OnStateChanged` event argument. For example:
+#### Through the Component State
+Use the component state property of the `OnStateChanged` event argument. For example:
 
 ````CS
 async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
@@ -56,17 +67,19 @@ async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
 }
 ````
 
+At the bottom of the article you will find full examples.
 
-# Filtering
+
+## Filtering
 
 The filtering criteria for each filtered field is stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, cast each `IFilterDescriptor` to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
 
 The `CompositeFilterDescriptor` exposes:
-* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To get the properties of each filter descriptor instance cast the `IFilterDescriptor` to a [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor). Each `FilterDescriptor` instance gives access to:
+* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast the `IFilterDescriptor` to a [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor). Each `FilterDescriptor` instance gives access to:
     * The `Member`&mdash;The field where the user filters. Each filter descriptor describes also the `MemberType`, that represents the type of the field.
     * The `Operator`&mdash;The [`FilterOperator`](/blazor-ui/api/telerik.datasource.filteroperator) that applies. There are different operators depending on the `MemberType`. Read more about the [filter operators]({%slug common-features-filter-operators%}).
     * The `Value`&mdash;The user input to filter by.
-* [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either AND or OR. The logical operator applies between the filter descriptor instances.
+* [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either AND or OR. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
@@ -78,24 +91,26 @@ When the filtering is initiated, the `CompositeFilterDescriptor` properties get 
 | FilterRow | Two filter descriptor instances per each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
 
 
-# Searching
+## Searching
 
-The searching criteria is stored in an individual `IFilterDescriptor`. To access the filtering criteria, cast the `IFilterDescriptor` to `CompositeFilterDescriptor`. The `FilterDescriptors` property of the `CompositeFilterDescriptor` gets filter descriptor instances for all string fields. Each filter descriptor instance gets the user input as `Value`. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is OR.
-
-
-# Sorting
-
-The current sorting criteria is stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor). Each `SortDescriptor` instance gives access to:
-    * The `Member`&mdash;The field where the user sorts.
-    * The `SortDirection`&mdash;The sort direction for this sort descriptor.
+The searching criteria are stored in an individual `IFilterDescriptor`. To access the filtering criteria, cast the `IFilterDescriptor` to `CompositeFilterDescriptor`. The `FilterDescriptors` property of the `CompositeFilterDescriptor` gets filter descriptor instances for all string fields. Each filter descriptor instance gets the user input as `Value`. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is OR.
 
 
-# Grouping
+## Sorting
+
+The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor). Each `SortDescriptor` instance gives access to:
+* The `Member`&mdash;The field where the user sorts.
+* The `SortDirection`&mdash;The sort direction for this sort descriptor.
+
+
+## Grouping
 
 Тhe grouping criteria for each group is stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor). The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
 
 
-# Example with `OnRead` Event
+## Examples
+
+#### Obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor in the OnRead Event Handler
 
 ````CSHTML
 @using Telerik.DataSource
@@ -185,7 +200,8 @@ The current sorting criteria is stored in a collection of [`SortDescriptor`](/bl
 }
 ````
 
-# Example Through the Component State
+#### Obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor Through the Component State
+
 ````CSHTML
 @using System.Text.Json
 @using Telerik.DataSource

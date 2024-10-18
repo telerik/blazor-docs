@@ -564,6 +564,8 @@ Sometimes you may want to know what the user changed in the Gantt (e.g., when th
 
 Find out what the user changed in the Gantt through the `PropertyName` of the `GanttStateEventArgs`. Override the user action by changing and then setting your desired state.
 
+Find out how to [get the applied by the user filtering and sorting criteria]({%slug common-features-descriptors%}).
+
 >caption Know when the Gantt state changes, which parameter changes, and amend the change
 
 ````CSHTML
