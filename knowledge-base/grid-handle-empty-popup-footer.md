@@ -24,7 +24,7 @@ ticketid: 1665785
 
 When I am using the [Popup Form Template]({%slug grid-templates-popup-form%}) in the Grid for Blazor, the [default Update and Cancel buttons are removed]({%slug grid-templates-popup-form%}#specifics). I am not using the [`ButtonsTemplate`]({%slug grid-templates-popup-buttons%}) and the footer remains empty. This takes unnecessary space and affects the UI's aesthetics. 
 
-The requirement is to either hide this empty footer or utilize it by placing the custom form buttons within. 
+I want to either hide this empty footer or utilize it by placing the custom form buttons within. 
 
 This KB article also answers the following questions:
 
