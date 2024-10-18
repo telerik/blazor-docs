@@ -12,7 +12,11 @@ position: 10
 
 The ComboBox component allows the user to filter the available items by their text, so they can find the one they need faster.
 
-To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/combobox/events%}#onread).
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. 
+
+You can also use the [`OnRead` event]({%slug components/combobox/events%}#onread) to:
+* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+* Implement custom (server) filtering and set a data source dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 

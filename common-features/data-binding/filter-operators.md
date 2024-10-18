@@ -5,7 +5,7 @@ description: Supported Filter Operators in the Telerik UI for Blazor component s
 slug: common-features-filter-operators
 tags: telerik,blazor,filter,operator
 published: True
-position: 10
+position: 15
 ---
 
 # Filter Operators

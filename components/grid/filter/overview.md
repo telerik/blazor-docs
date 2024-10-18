@@ -37,16 +37,7 @@ The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%
 
 ## Filter Descriptors
 
-The Grid filter state is stored in [`CompositeFilterDescriptors`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). Use the following information if you want to [get or change the Grid filters programmatically]({%slug grid-state%}).
-
-Each `CompositeFilterDescriptor` includes a collection of filter descriptors, where all descriptors in the collection are applied with an AND or OR logical operator.
-
-* [Filter Row]({%slug grid-filter-row%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator, with the filter value stored in the first filter descriptor instance for that field.
-
-* [Filter Menu]({%slug grid-filter-menu%})&mdash;Each `CompositeFilterDescriptor` targets a specific field. The filter values from separate filter operators in the menu are stored in different filter descriptor instances within the `CompositeFilterDescriptor` for that field.
-
-* [SearchBox]({%slug grid-searchbox%})&mdash;A `CompositeFilterDescriptor` is created in the state when the user types in the search box. By default, it targets all string fields, adding a dedicated filter descriptor instance for each string field. Each filter descriptor contains the filter value typed in the search box.
-
+The filtering criteria for each filtered field are stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering).
 
 ## Custom Filtering
 

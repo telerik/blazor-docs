@@ -206,6 +206,8 @@ You can use the `OnRead` event to provide data to the component according to som
 
 You can also call remote data through `async` operations.
 
+Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
+
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).

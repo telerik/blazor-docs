@@ -6,7 +6,7 @@ slug: common-features-observable-data
 tags: telerik,blazor,observable,data,live,INotifyCollectionChanged 
 published: True
 previous_url: /common-features/observable-data
-position: 10
+position: 25
 ---
 
 # Observable Data and Refresh Data

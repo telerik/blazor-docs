@@ -12,7 +12,11 @@ position: 10
 
 The MultiSelect component can filter the available suggestions according to the current user input, so they can find the one they need faster. To see the difference in behavior, visit the [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering) page.
 
-To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug multiselect-events%}#onread).
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
+
+You can also use the [`OnRead` event]({%slug multiselect-events%}#onread) to:
+* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+* Implement custom (server) filtering and set a data source dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 
