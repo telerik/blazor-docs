@@ -34,6 +34,11 @@ There are two possible ways to implement a reusable Notification component insta
 * [Pass the Notification in a Cascading Value](#pass-the-notification-in-a-cascading-value)
 * [Use the Notification as a Service](#use-the-notification-as-a-service)
 
+The Notification component in both scenarios must be defined:
+
+1. As a descendant (or child) of the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}).
+1. In a `.razor` file with enabled interactive render mode. The `MainLayout` is interactive only if the Blazor app has **Global** interactivity location.
+
 ### Pass the Notification in a Cascading Value
 
 1. [Define a Telerik Notification component]({%slug notification-overview%}#creating-blazor-notification) in `MainLayout.razor`.
