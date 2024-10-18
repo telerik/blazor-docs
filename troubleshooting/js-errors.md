@@ -51,6 +51,19 @@ You can check if this is the case by inspecting the Network tab of your browser 
 
 * A problem occurs during the deployment. See the [Deployment Troubleshooting]({%slug deployment-troubleshooting%}) article for more details.
 
+* The application is navigating from an interactive page. If this is the case, register the `telerik-blazor.js` after the `<base href="/" />` in the `<head>` of the web page:
+
+<div class="skip-repl"></div>
+
+````HTML
+<head>
+    ...
+    <base href="/" />
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+    ...
+</head>
+````
+
 ### Defer Attribute
 
 Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
