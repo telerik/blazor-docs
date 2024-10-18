@@ -90,13 +90,13 @@ Finally, you need a `NuGet.Config` file that lists the Telerik server in the `pa
 <packageSources>
   <clear />
   <add key="NuGet" value="https://api.nuget.org/v3/index.json" />
-  <add key="TelerikFeed" value="https://nuget.telerik.com/v3/index.json" />
+  <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
 </packageSources>
 <packageSourceCredentials>
-  <TelerikFeed>
+  <TelerikOnlineFeed>
     <add key="Username" value="%TELERIK_USERNAME%" />
     <add key="ClearTextPassword" value="%TELERIK_PASSWORD%" />
-  </TelerikFeed>
+  </TelerikOnlineFeed>
 </packageSourceCredentials>
 ````
 
