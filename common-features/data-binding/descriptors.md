@@ -12,10 +12,11 @@ position: 10
 ## Components with Descriptors
 
 This article explains how to retrieve the applied filtering, searching, sorting, and grouping criteria in Blazor components. The article applies to components that support these features. The components that offer one or all of the functionalities are:
-* The [Filter]({%slug filter-overview%})
-* The [Gantt]({%slug gantt-overview%})
-* The [TreeList]({%slug treelist-overview%})
-* All components that [expose the `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
+
+* [Components that [expose an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
+* [Filter]({%slug filter-overview%})
+* [Gantt]({%slug gantt-overview%})
+* [TreeList]({%slug treelist-overview%})
 
 ## Obtain Filtering, Searching, Sorting, Grouping criteria
 
