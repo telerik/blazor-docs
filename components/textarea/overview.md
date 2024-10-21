@@ -55,8 +55,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `AutoCapitalize` | `string` | A `string` that maps to the [`autocapitalize`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) attribute of the HTML element. It's applicable only for touch devices and virtual keyboards. |
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
-| `AutoSize` <br /> (deprecated) | `bool` | Specifies if the TextArea will adjust its height based on the user input. You can [use CSS to limit the resizing up to a max height]({%slug textarea-kb-autosize-max-height%}). This parameter is deprecated. Use `ResizeMode` with `Auto` value instead. |
-| `ResizeMode` | `TextAreaResizeMode?` | Specifies the TextArea's resize behavior. Default behavior is the one set by the browser. |
+| `ResizeMode` | `TextAreaResizeMode?` | Specifies the TextArea's resize behavior. Default behavior is the one set by the browser. You can also [use CSS to limit the resizing up to a max height]({%slug textarea-kb-autosize-max-height%}). |
 | `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
 | `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Do not use together with `Width`.
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |

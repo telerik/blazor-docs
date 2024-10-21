@@ -41,7 +41,7 @@ This KB article answers the following questions:
 ````CSHTML
 <TelerikTextArea @bind-Value="@TextValue"
                  Width="500px"
-                 AutoSize="true"
+                 ResizeMode="TextAreaResizeMode.Auto"
                  Class="max-height-200" />
 
 <style>
@@ -56,6 +56,7 @@ This KB article answers the following questions:
 }
 ````
 
+> Use `AutoSize="true"` instead of `ResizeMode="TextAreaResizeMode.Auto"` with Telerik UI for Blazor versions `6.x` and older.
 
 ## See Also
 
