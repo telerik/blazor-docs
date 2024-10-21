@@ -18,7 +18,7 @@ This article explains how to retrieve the applied filtering, searching, sorting,
 * [Gantt]({%slug gantt-overview%})
 * [TreeList]({%slug treelist-overview%})
 
-## Obtain Filtering, Searching, Sorting, Grouping criteria
+## Get Sort, Filter, Group, and Search Descriptors
 
 There are two ways to obtain the applied filtering, searching, sorting, grouping criteria:
 
