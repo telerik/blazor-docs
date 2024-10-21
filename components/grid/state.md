@@ -176,7 +176,7 @@ Here is some additional information about certain `PropertyName` values:
 
 To observe the changes in the Grid state more easily, copy and run the following example in a local app and at full screen.
 
-Find out how to [get the applied by the user filtering, sorting and grouping criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied filtering, sorting and grouping criteria]({%slug common-features-descriptors%}).
 
 >caption Using Grid OnStateChanged
 

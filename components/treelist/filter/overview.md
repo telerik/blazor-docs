@@ -44,7 +44,7 @@ In addition to the two main filtering modes, the treelist offers two more featur
 
 ## Filter Descriptors
 
-The filtering criteria for each filtered field are stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering).
+You can get the applied filtering criteria for each filtered field. Use the [TreeList state]({%slug treelist-state%}) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
 
 ## Customize The Filter Editors
 

@@ -200,13 +200,13 @@ See the [MultiColumnComboBox Overview - Selected Item]({%slug multicolumncombobo
 
 You can use the `OnRead` event to provide data to the component according to some custom logic, the user input, or the current [virtual scroll]({%slug multicolumncombobox-virtualization%}) position. The event fires when:
 
-* the component initializes
-* the user [filters]({%slug multicolumncombobox-filter%})
-* the user scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled
+* The component initializes.
+* The user [filters]({%slug multicolumncombobox-filter%}).
+* The user scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled.
 
 You can also call remote data through `async` operations.
 
-Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied by filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 

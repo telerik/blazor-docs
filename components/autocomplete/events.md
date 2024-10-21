@@ -116,15 +116,15 @@ from model: @Role
 
 ## OnRead
 
-You can use the he [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug autocomplete-virtualization%})). The event fires when:
+You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug autocomplete-virtualization%})). The event fires when:
 
-* the component initializes
-* the user [filters]({%slug autocomplete-filter%})
-* the user scrolls with [virtualization]({%slug autocomplete-virtualization%}) enabled
+* The component initializes.
+* The user [filters]({%slug autocomplete-filter%}).
+* The user scrolls with [virtualization]({%slug autocomplete-virtualization%}) enabled.
 
 You can also call remote data through async operations.
 
-Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 

@@ -26,12 +26,11 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Descriptors
 
-The filtering criteria for each filtered field are stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering).
+You can get the applied filtering criteria for each filtered field. Use the [Gantt state]({%slug gantt-state%}) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
 
 ## Customize The Filter Editors
 
-You can customize the editors rendered in the Gantt
-by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. The `FilterEditorType` attribute accepts a member of the `GanttTreeListFilterEditorType` enum:
+You can customize the editors rendered in the Gantt by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. The `FilterEditorType` attribute accepts a member of the `GanttTreeListFilterEditorType` enum:
 
 | Field data type | GanttTreeListFilterEditorType enum members |
 |-----------------|------------------------------------------|
