@@ -1,5 +1,5 @@
 ---
-title: Add a New Row and Navigate to the Last Page
+title: Add a New Grid Row and Navigate to the Last Page
 description: Learn how to add a new row to the Grid for Blazor using an external button and navigate to the last page where the new row is inserted.
 type: how-to
 page_title: Programmatically Add New Rows and Navigate to the Last Page in Telerik Blazor Grid
