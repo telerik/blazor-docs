@@ -31,6 +31,7 @@ If you get such errors, the reason may be:
 
 * [The `telerik-blazor.js` JS Interop file is missing or the URL is wrong](#missing-file)
 * [The `defer` attribute causes the script to load and execute too late](#defer-attribute)
+* [A required order of the HTML tags in the web page](#html-tags-order)
 * [TypeScript `exports` workaround break Telerik Blazor](#typescript)
 * [A result of a syntax error in old browser](#syntaxerror-unexpected-token)
 
@@ -56,6 +57,21 @@ You can check if this is the case by inspecting the Network tab of your browser 
 Sometimes, the JS Interop file is referenced correctly and returns successfully, but occasionally you get the error. This indicates a timing issue (for example, low machine performance or slow network) that causes the script to load and be parsed too late, after it is needed.
 
 One solution is to remove the `defer` attribute of the `<script>` tag that registers `telerik-blazor.js`. On the other hand, `defer` improves the performance of your app by loading the script asynchronously. That's why a better option is to [keep the `defer` attribute and start the client-side Blazor framework manually]({%slug getting-started/what-you-need%}#javascript-file).
+
+### HTML Tags Order
+
+You can get the error when the application is navigating from an interactive page. If this is the case, register the `telerik-blazor.js` after the `<base href="/" />` in the `<head>` of the web page:
+
+<div class="skip-repl"></div>
+
+```HTML
+<head>
+    ...
+    <base href="/" />
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+    ...
+</head>
+```
 
 ### TypeScript
 
