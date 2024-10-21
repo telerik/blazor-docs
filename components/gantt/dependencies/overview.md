@@ -10,7 +10,7 @@ position: 0
 
 # Gantt Dependencies
 
-The Telerik Gantt for Blazor allows you define dependencies, which are rendered in the [Timeline]({%slug gantt-timeline%}) section of the component. A dependency represents a relation between two tasks. The direction of the arrow indicates which task is dependent on the other. You can bind a [data collection]({%slug gantt-dependencies-databind%}), define different [types]({%slug gantt-dependencies-types%}) of dependencies, and allow your users to [edit]({%slug gantt-dependencies-editing%}) the dependencies.
+The Telerik Gantt for Blazor allows you define dependencies, which are rendered in the [Timeline]({%slug gantt-timeline%}) section of the component. A dependency represents a relation between two tasks. The direction of the arrow indicates which task is dependent on the other. You can bind a [data collection of different dependecy types]({%slug gantt-dependencies-databind%}) and allow your users to [edit]({%slug gantt-dependencies-editing%}) the dependencies.
 
 ## Basics
 
