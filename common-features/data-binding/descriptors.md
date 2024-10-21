@@ -102,7 +102,7 @@ The searching criteria are stored in an individual `IFilterDescriptor`. To acces
 
 ## Sorting
 
-The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor). Each `SortDescriptor` instance gives access to:
+The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
 * The `Member`&mdash;The field where the user sorts.
 * The `SortDirection`&mdash;The sort direction for this sort descriptor.
 
