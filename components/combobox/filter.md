@@ -16,7 +16,7 @@ To enable filtering, set the `Filterable` parameter to `true`. The filtering is 
 
 You can also use the [`OnRead` event]({%slug components/combobox/events%}#onread) to:
 * Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
-* Implement custom (server) filtering and set a data source dynamically.
+* Implement custom (server) filtering and set data dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 

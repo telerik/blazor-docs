@@ -37,7 +37,7 @@ The filter menu can display a [list of checkboxes]({%slug grid-checklist-filter%
 
 ## Filter Descriptors
 
-The filtering criteria for each filtered field are stored in an individual [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering).
+You can get the applied filtering criteria for each filtered field. Use the [Grid state]({%slug grid-state%}) or the [Grid `OnRead` event handler]({%slug grid-events%}#read-event) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
 
 ## Custom Filtering
 

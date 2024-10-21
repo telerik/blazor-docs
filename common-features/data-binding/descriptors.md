@@ -9,11 +9,11 @@ position: 10
 ---
 
 
-## Components with Descriptors
+## Data Operation Descriptors
 
 This article explains how to retrieve the applied filtering, searching, sorting, and grouping criteria in Blazor components. The article applies to components that support these features. The components that offer one or all of the functionalities are:
 
-* [Components that [expose an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
+* Components that [expose an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
 * [Filter]({%slug filter-overview%})
 * [Gantt]({%slug gantt-overview%})
 * [TreeList]({%slug treelist-overview%})
@@ -44,8 +44,9 @@ async Task OnReadHandler(...ReadEventArgs args)
 }
 ````
 
-#### Through the Component State
-Use the component state property of the `OnStateChanged` event argument. For example:
+### Through the Component State
+
+Use the component state property of the `OnStateChanged` event argument. This approach is applicable for the Gantt, the Grid and the TreeList, because they expose the state feature. For example:
 
 ````CS
 async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
@@ -68,21 +69,21 @@ async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
 }
 ````
 
-At the bottom of the article you will find full examples.
+See full examples at the bottom of the article.
 
 
 ## Filtering
 
-The filtering criteria for each filtered field is stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor`:
+The filtering criteria for each filtered field are stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor`:
 
-* If the component is of type input or select, such as the AutoComplete, the ComboBox, the DropDownList, the MultiColumnComboBox, the MultiSelect, cast each `IFilterDescriptor` to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
+* If the component is of type input or select, such as the AutoComplete, the ComboBox, the DropDownList, the MultiColumnComboBox, the MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
 * Otherwise, cast each `IFilterDescriptor` to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
 
 ### CompositeFilterDescriptor
 
 The `CompositeFilterDescriptor` exposes:
 
-* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast each `IFilterDescriptor` to a `FilterDescriptor`.
+* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast each `IFilterDescriptor` to a `FilterDescriptor`. When the Filter component gets groupable filtering, cast each `IFilterDescriptor` to another `CompositeFilterDescriptor`.
 * [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
@@ -97,7 +98,7 @@ When the filtering is initiated, the `CompositeFilterDescriptor` properties get 
 
 ## Searching
 
-The searching criteria are stored in an individual `IFilterDescriptor`. To access the filtering criteria, cast the `IFilterDescriptor` to `CompositeFilterDescriptor`. The `FilterDescriptors` property of the `CompositeFilterDescriptor` gets filter descriptor instances for all string fields. Each filter descriptor instance gets the user input as `Value`. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is OR.
+The searching criteria in a Grid or TreeList are stored in an individual `IFilterDescriptor`. Cast it to [`CompositeFilterDescriptor`](#compositefilterdescriptor). The `CompositeFilterDescriptor` holds one child `FilterDescriptor`s for each searchable string column. Each `FilterDescriptor` has the same `Value`, which is the user search input. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is `Or`.
 
 
 ## Sorting
@@ -112,9 +113,9 @@ The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui
 Тhe grouping criteria for each group is stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor). The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
 
 
-## Examples
+## Example with OnRead Event Handler
 
-#### Obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor in the OnRead Event Handler
+You can obtain the FilterDescriptor, SortDescriptor, GroupDescriptor in the `OnRead` event handler.
 
 ````CSHTML
 @using Telerik.DataSource
@@ -204,7 +205,9 @@ The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui
 }
 ````
 
-#### Obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor Through the Component State
+## Example with Component State
+
+You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor through the component state.
 
 ````CSHTML
 @using System.Text.Json

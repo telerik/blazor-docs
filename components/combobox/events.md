@@ -177,13 +177,13 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 
 You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug combobox-virtualization%})). The event fires when:
 
-* the component initializes
-* the user [filters]({%slug components/combobox/filter%})
-* the user scrolls with [virtualization]({%slug combobox-virtualization%}) enabled
+* The component initializes.
+* The user [filters]({%slug components/combobox/filter%}).
+* The user scrolls with [virtualization]({%slug combobox-virtualization%}) enabled.
 
 You can also call remote data through `async` operations.
 
-Find out how to [get the applied by the user filtering and grouping criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 
