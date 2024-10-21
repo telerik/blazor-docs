@@ -81,6 +81,7 @@ The filtering criteria for each filtered field is stored in an individual collec
 ### CompositeFilterDescriptor
 
 The `CompositeFilterDescriptor` exposes:
+
 * [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast each `IFilterDescriptor` to a `FilterDescriptor`.
 * [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
