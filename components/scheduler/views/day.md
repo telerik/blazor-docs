@@ -19,7 +19,6 @@ In this article:
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-day-view)
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 
@@ -29,12 +28,12 @@ In this article:
 
 ## Example
 
->caption Declare the Day View in the markup
+>tip You can declare other views as well, this example adds only the Day view for brevity.
 
->tip You can declare other views as well, this example adds only the day view for brevity.
+>caption Declare the Day view in the markup
 
 ````CSHTML
-@* Define the day view. *@
+@* Define the Day view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">
     <SchedulerViews>
@@ -96,16 +95,9 @@ In this article:
 }
 ````
 
-## Resource Grouping in the Day View
-
-You can configure the Day view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Day view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Day View](https://demos.telerik.com/blazor-ui/scheduler/day-view)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})

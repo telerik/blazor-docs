@@ -5,7 +5,7 @@ description: Timeline View in the Scheduler for Blazor.
 slug: scheduler-views-timeline
 tags: telerik,blazor,scheduler,view,timeline
 published: True
-position: 1
+position: 5
 ---
 
 # Timeline View
@@ -17,7 +17,6 @@ In this article:
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-timeline-view)
 
 ## View Parameters
 
@@ -42,9 +41,9 @@ Generally, the views are designed around the timeframe that they show and the da
 
 ## Example
 
->caption Declare the Timeline View in the markup
+>tip You can declare other views as well, this example adds only the Тimeline view for brevity.
 
->tip You can declare other views as well, this example adds only the timeline view for brevity.
+>caption Declare the Timeline view in the markup
 
 ````CSHTML
 @* Define the Timeline view. *@
@@ -111,16 +110,10 @@ Generally, the views are designed around the timeframe that they show and the da
 }
 ````
 
-## Resource Grouping in the Timeline View
-
-You can configure the Timeline view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Timeline view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-vertical-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})
+
