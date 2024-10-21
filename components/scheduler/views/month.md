@@ -19,7 +19,6 @@ In this article:
 
 * [View Parameters](#view-parameters)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-month-view)
 
 ## View Parameters
 
@@ -38,12 +37,12 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 
 ## Example
 
->caption Declare the Month and Day Views in the markup
+>tip You can declare other views as well, this example adds only the Month and Day views for brevity.
 
->tip You can declare other views as well, this example adds only the month and day views for brevity.
+>caption Declare the Month and Day views in the markup
 
 ````CSHTML
-@* Define the month view. *@
+@* Define the Month view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@SelectedView" Height="600px">
     <SchedulerViews>
@@ -140,16 +139,9 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 }
 ````
 
-## Resource Grouping in the Month View
-
-You can configure the Month view to display appointments that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a Month view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})

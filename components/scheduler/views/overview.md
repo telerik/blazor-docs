@@ -21,10 +21,11 @@ You can read more about this in the [Navigation]({%slug scheduler-navigation%}) 
 The available views are:
 
 * [Scheduler**Day**View]({%slug scheduler-views-day%})
-* [Scheduler**MultiDay**View]({%slug scheduler-views-multiday%})
 * [Scheduler**Week**View]({%slug scheduler-views-week%})
+* [Scheduler**MultiDay**View]({%slug scheduler-views-multiday%})
 * [Scheduler**Month**View]({%slug scheduler-views-month%})
 * [Scheduler**Timeline**View]({%slug scheduler-views-timeline%})
+* [Scheduler**Agenda**View]({%slug scheduler-views-agenda%})
 
 >caption Allow the user to navigate between Day and Week views only by defining only them. Example how to choose starting View (Week) and Date (29 Nov 2019).
 

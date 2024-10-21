@@ -5,21 +5,20 @@ description: MultiDay View in the Scheduler for Blazor.
 slug: scheduler-views-multiday
 tags: telerik,blazor,scheduler,view,multiday
 published: True
-position: 2
+position: 3
 ---
 
 # MultiDay View
 
 The MultiDay view of the Scheduler for Blazor shows several days at once to the user.
 
-The `Date` parameter of the scheduler controls which is the first rendered date, and the `NumberOfDays` parameter of the View controls how many days will be rendered.
+The `Date` parameter of the Scheduler controls which is the first rendered date, and the `NumberOfDays` parameter of the View controls how many days will be rendered.
 
 In this article:
 
 * [View Parameters](#view-parameters)
 	* [Slots](#slots)
 * [Example](#example)
-* [Resource Grouping](#resource-grouping-in-the-multiday-view)
 
 @[template](/_contentTemplates/scheduler/views.md#day-views-common-properties)
 | `NumberOfDays` | `int` <br/> `1` | How many days to show side by side in the view.
@@ -30,13 +29,12 @@ In this article:
 
 ## Example
 
->caption Declare the MultiDay View in the markup
+>tip You can declare other views as well, this example adds only the Multiday view for brevity.
 
->tip You can declare other views as well, this example adds only the multiday view for brevity.
-
+>caption Declare the MultiDay view in the markup
 
 ````CSHTML
-@* Define the multiday view. *@
+@* Define the Multiday view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">
     <SchedulerViews>
@@ -98,16 +96,10 @@ In this article:
 }
 ````
 
-## Resource Grouping in the MultiDay View
-
-You can configure the MultiDay view to display events that are [grouped by a resource]({%slug scheduler-resource-grouping%}).
-
->caption Resource Grouping in a MultiDay view.
-
-@[template](/_contentTemplates/scheduler/views.md#resource-grouping-code-snippet-for-examples)
-
 ## See Also
 
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler MultiDay View](https://demos.telerik.com/blazor-ui/scheduler/multiday-view)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})
+
