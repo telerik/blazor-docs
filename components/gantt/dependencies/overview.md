@@ -12,17 +12,14 @@ position: 0
 
 The Telerik Gantt for Blazor allows you define dependencies, which are rendered in the [Timeline]({%slug gantt-timeline%}) section of the component. A dependency represents a relation between two tasks. The direction of the arrow indicates which task is dependent on the other. You can bind a [data collection]({%slug gantt-dependencies-databind%}), define different [types]({%slug gantt-dependencies-types%}) of dependencies, and allow your users to [edit]({%slug gantt-dependencies-editing%}) the dependencies.
 
+## Basics
 
-#### To define dependencies in your Gantt Chart
+To define dependencies in your Gantt Chart
 
 * Add the `GanttDependenciesSettings` tag, child tag of the `<TelerikGantt>`
 * Inside the `GanttDependenciesSettings` add the `<GanttDependencies>` and provide a data collection to the `Data` parameter. 
 
+## Gantt Dependency Features
 
-## Gantt Dependencies Features:
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-* `Data Binding` - Allows you to provide a collection of dependencies to the Gantt Chart for Blazor. For more information read the [Data Binding]({%slug gantt-dependencies-databind%}) article.
-* `TypeField` - Defines the dependency type. For more information read the [Types]({%slug gantt-dependencies-types%}) article.
-* `Editing` - Allow the user to edit the dependencies. For more information read the [Editing]({%slug gantt-dependencies-editing%}) article.
+* [Dependency Data Binding]({%slug gantt-dependencies-databind%}) allows you to provide a collection of dependencies to the Gantt Chart for Blazor.
+* [Dependency Editing]({%slug gantt-dependencies-editing%}) allow the user to edit the dependencies.
