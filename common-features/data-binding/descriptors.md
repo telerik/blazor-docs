@@ -22,7 +22,7 @@ This article explains how to retrieve the applied filtering, searching, sorting,
 
 There are two ways to obtain the applied filtering, searching, sorting, grouping criteria:
 
-#### Through the OnRead Event
+### Through the OnRead Event
 
 Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-argument) of the [`OnRead` event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
 
