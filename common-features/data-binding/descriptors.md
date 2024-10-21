@@ -15,7 +15,7 @@ This article explains how to retrieve the applied filtering, searching, sorting,
 * The [Filter]({%slug filter-overview%})
 * The [Gantt]({%slug gantt-overview%})
 * The [TreeList]({%slug treelist-overview%})
-* All components that [expose the `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event).
+* All components that [expose the `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
 
 ## Obtain Filtering, Searching, Sorting, Grouping criteria
 
@@ -72,14 +72,16 @@ At the bottom of the article you will find full examples.
 
 ## Filtering
 
-The filtering criteria for each filtered field is stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, cast each `IFilterDescriptor` to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
+The filtering criteria for each filtered field is stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor`:
+
+* If the component is of type input or select, such as the AutoComplete, the ComboBox, the DropDownList, the MultiColumnComboBox, the MultiSelect, cast each `IFilterDescriptor` to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
+* Otherwise, cast each `IFilterDescriptor` to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
+
+### CompositeFilterDescriptor
 
 The `CompositeFilterDescriptor` exposes:
-* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast the `IFilterDescriptor` to a [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor). Each `FilterDescriptor` instance gives access to:
-    * The `Member`&mdash;The field where the user filters. Each filter descriptor describes also the `MemberType`, that represents the type of the field.
-    * The `Operator`&mdash;The [`FilterOperator`](/blazor-ui/api/telerik.datasource.filteroperator) that applies. There are different operators depending on the `MemberType`. Read more about the [filter operators]({%slug common-features-filter-operators%}).
-    * The `Value`&mdash;The user input to filter by.
-* [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either AND or OR. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
+* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast each `IFilterDescriptor` to a `FilterDescriptor`.
+* [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
 
