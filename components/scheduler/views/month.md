@@ -10,7 +10,7 @@ position: 4
 
 # Month View
 
-The Month view of the Scheduler for Blazor shows an entire month to the user. You can also configure the Month view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
+The Month view of the Scheduler for Blazor shows an entire month to the user.
 
 The `Date` parameter of the Scheduler controls which month is displayed. It's the one containing the date.
 
@@ -42,7 +42,7 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 >caption Declare the Month and Day views in the markup
 
 ````CSHTML
-@* Define the month view. *@
+@* Define the Month view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@SelectedView" Height="600px">
     <SchedulerViews>
@@ -144,4 +144,4 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)
-* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})

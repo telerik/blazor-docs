@@ -556,6 +556,7 @@ public class Appointment
             <SchedulerMultiDayView></SchedulerMultiDayView>
             <SchedulerMonthView></SchedulerMonthView>
             <SchedulerTimelineView ColumnWidth="30"></SchedulerTimelineView>
+            <SchedulerAgendaView></SchedulerAgendaView>
         </SchedulerViews>
         <SchedulerResources>
             <SchedulerResource Field="Room" Title="Edit Room" Data="@SchedulerResources"></SchedulerResource>

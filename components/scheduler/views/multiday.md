@@ -10,7 +10,7 @@ position: 3
 
 # MultiDay View
 
-The MultiDay view of the Scheduler for Blazor shows several days at once to the user. You can also configure the MultiDay view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
+The MultiDay view of the Scheduler for Blazor shows several days at once to the user.
 
 The `Date` parameter of the Scheduler controls which is the first rendered date, and the `NumberOfDays` parameter of the View controls how many days will be rendered.
 
@@ -101,5 +101,5 @@ In this article:
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler MultiDay View](https://demos.telerik.com/blazor-ui/scheduler/multiday-view)
-* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})
 

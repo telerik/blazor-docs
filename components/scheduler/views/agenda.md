@@ -10,8 +10,7 @@ position: 6
 
 # Agenda View
 
-The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format. You can also configure the Agenda view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
-
+The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format.
 
 In this article:
 
@@ -26,7 +25,7 @@ The following parameters allow you to configure the Agenda view:
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `NumberOfDays` | `int` <br /> (`7 (a week)`) | Represents the number of days shown in the view. |
+| `NumberOfDays` | `int` <br /> (`7`) | Represents the number of days shown in the view. |
 | `HideEmptyAgendaDays` | `bool` <br /> (`true`) | Defines whether dates with no appointments are rendered. |
 
 ## Example
@@ -111,5 +110,5 @@ The following parameters allow you to configure the Agenda view:
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Agenda View](https://demos.telerik.com/blazor-ui/scheduler/agenda-view)
-* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})
 

@@ -10,7 +10,7 @@ position: 1
 
 # Day View
 
-The Day view of the Scheduler for Blazor shows a single day to the user. You can also configure the Day view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
+The Day view of the Scheduler for Blazor shows a single day to the user.
 
 The `Date` parameter of the scheduler controls which date is displayed.
 
@@ -100,4 +100,4 @@ In this article:
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Day View](https://demos.telerik.com/blazor-ui/scheduler/day-view)
-* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})

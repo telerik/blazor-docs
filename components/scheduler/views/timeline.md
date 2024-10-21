@@ -10,7 +10,7 @@ position: 5
 
 # Timeline View
 
-The Timeline view displays appointments in a continuous horizontal direction. You can also configure the Timeline view to display events [grouped by resource]({%slug scheduler-resource-grouping%}).
+The Timeline view displays appointments in a continuous horizontal direction.
 
 In this article:
 
@@ -28,7 +28,7 @@ In this article:
 
 ## Example
 
->tip You can declare other views as well, this example adds only the timeline view for brevity.
+>tip You can declare other views as well, this example adds only the Тimeline view for brevity.
 
 >caption Declare the Timeline view in the markup
 
@@ -102,5 +102,5 @@ In this article:
 * [Views]({%slug scheduler-views-overview%})
 * [Navigation]({%slug scheduler-navigation%})
 * [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
-* [Resource Grouping Example]({%slug scheduler-resource-grouping%}#resource-grouping-by-one-resource)
+* [Resource Grouping]({%slug scheduler-resource-grouping%})
 

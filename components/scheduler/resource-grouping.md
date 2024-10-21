@@ -73,6 +73,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
             <SchedulerWeekView></SchedulerWeekView>
             <SchedulerMultiDayView></SchedulerMultiDayView>
             <SchedulerMonthView></SchedulerMonthView>
+            <SchedulerAgendaView></SchedulerAgendaView>
         </SchedulerViews>
         <SchedulerResources>
             <SchedulerResource Field="Manager" Title="Manager" Data="@SchedulerManagers"></SchedulerResource>
