@@ -1,7 +1,7 @@
 ---
 title: Agenda
 page_title: Scheduler - Agenda View
-description: Agenda View in the Scheduler for Blazor.
+description: The Agenda view in the Scheduler for Blazor shows a weekly summary or a user-defined custom period in a table format, providing a clear event overview.
 slug: scheduler-views-agenda
 tags: telerik,blazor,scheduler,view,agenda
 published: True
@@ -10,7 +10,7 @@ position: 6
 
 # Agenda View
 
-The Agenda view of the Scheduler for Blazor shows a weekly summary (or a custom period set by the user) in a table format.
+The Agenda view of the Scheduler for Blazor shows a weekly summary (or another custom period set by the user) in a table format.
 
 In this article:
 
@@ -35,10 +35,14 @@ The following parameters allow you to configure the Agenda view:
 >caption Declare the Agenda view in the markup
 
 ````CSHTML
-@* Define the Agenda view. *@
+@* Control the empty days visibility *@
+<label for="hide-emptydays-checkbox" class="k-checkbox-label checkbox-label">Hide Empty Days</label>
+<TelerikCheckBox @bind-Value="@HideEmptyDays" Id="hide-emptydays-checkbox"></TelerikCheckBox>
 
+@* Define the Agenda view. *@
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="800px">
     <SchedulerViews>
+        @* Enable the Agenda view and use the 'HideEmptyAgendaDays' option to control whether days without appointments are shown in the Agenda view*@
         <SchedulerAgendaView HideEmptyAgendaDays="@HideEmptyDays" />
     </SchedulerViews>
 </TelerikScheduler>
@@ -73,17 +77,39 @@ The following parameters allow you to configure the Agenda view:
     },
     new SchedulerAppointment
     {
+        Title = "Weekly Team Meeting",
+        Description = "Discuss the project progress.",
+        Start = new DateTime(2024, 10, 23, 13, 30, 0),
+        End = new DateTime(2024, 10, 23, 14, 00, 0)
+    },
+    new SchedulerAppointment
+    {
+        Title = "Security Training",
+        Description = "Security Training",
+        Start = new DateTime(2024, 10, 24, 10, 30, 0),
+        End = new DateTime(2024, 10, 24, 11, 30, 0)
+    },
+    new SchedulerAppointment
+    {
+        Title = "Gym Workout",
+        Description = "Training",
+        Start = new DateTime(2024, 10, 24, 17, 00, 0),
+        End = new DateTime(2024, 10, 24, 18, 30, 0)
+    },
+    new SchedulerAppointment
+    {
         Title = "Team Outing",
         Description = "Lunch with the team.",
-        Start = new DateTime(2024, 10, 23, 12, 30, 0),
-        End = new DateTime(2024, 10, 23, 14, 00, 0)
+        Start = new DateTime(2024, 10, 25, 12, 30, 0),
+        End = new DateTime(2024, 10, 25, 14, 00, 0)
     },
     new SchedulerAppointment
     {
         Title = "Webinar",
         Description = "Industry trends and insights.",
-        Start = new DateTime(2024, 10, 24, 16, 00, 0),
-        End = new DateTime(2024, 10, 24, 17, 30, 0)
+        Start = new DateTime(2024, 10, 28, 00, 00, 0),
+        End = new DateTime(2024, 10, 29, 00, 00, 0),
+        IsAllDay = true
     },
     new SchedulerAppointment
     {
