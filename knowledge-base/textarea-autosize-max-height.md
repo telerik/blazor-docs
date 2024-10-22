@@ -56,7 +56,7 @@ This KB article answers the following questions:
 }
 ````
 
-> Use `AutoSize="true"` instead of `ResizeMode="TextAreaResizeMode.Auto"` with Telerik UI for Blazor versions `6.x` and older.
+> Use `AutoSize="true"` instead of `ResizeMode="TextAreaResizeMode.Auto"` with Telerik UI for Blazor versions `6.x` and earlier.
 
 ## See Also
 
