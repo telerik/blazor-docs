@@ -32,7 +32,7 @@ Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-
 ````CS
 async Task OnReadHandler(...ReadEventArgs args)
 {
-    // Get the applied filtering and searching criteria
+    // Get the applied filtering and searching criteria.
     // args.Request.Filters
 
     // Get the applied grouping criteria, including:
