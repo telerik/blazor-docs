@@ -36,16 +36,18 @@ async Task OnReadHandler(...ReadEventArgs args)
     // args.Request.Filters
 
     // Get the applied grouping criteria, including:
-    // *the field by which the user groups
-    // *the sort direction of the groups ordering
+    // *The field by which the user groups.
+    // *The sort direction of the groups ordering.
     // args.Request.Groups
 
     // Get the applied sorting criteria, including:
-    // *the field which the user sorts
-    // *the sort direction
+    // *The field which the user sorts.
+    // *The sort direction.
     // args.Request.Sorts
 }
 ````
+
+See the [complete example](#example-with-onread-event-handler) at the bottom of the article.
 
 ### Through the Component State
 
@@ -54,32 +56,32 @@ Use the component's state property of the `OnStateChanged` event argument. This 
 ````CS
 async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
 {
-    // Get the applied filtering criteria
+    // Get the applied filtering criteria.
     // args.GridState.FilterDescriptors
 
-    // Get the applied searching criteria
+    // Get the applied searching criteria.
     // args.GridState.SearchFilter
 
     // Get the applied grouping criteria, including:
-    // *the field by which the user groups
-    // *the sort direction of the groups ordering
+    // *The field by which the user groups.
+    // *The sort direction of the groups ordering.
     // args.GridState.GroupDescriptors
 
     // Get the applied sorting criteria, including:
-    // *the field which the user sorts
-    // *the sort direction
+    // *The field which the user sorts.
+    // *The sort direction.
     // args.GridState.SortDescriptors
 }
 ````
 
-See full examples at the bottom of the article.
+See the [complete example](#example-with-component-state) at the bottom of the article.
 
 
 ## Filtering
 
 The `args.Request.Filters` and the `args....State.FilterDescriptors` are collections of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor` from the respective collection:
 
-* If the component is of type input or select, such as the AutoComplete, the ComboBox, the DropDownList, the MultiColumnComboBox, the MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
+* If the component is of type input or select, such as the AutoComplete, ComboBox, DropDownList, MultiColumnComboBox, MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
 * Otherwise, cast each `IFilterDescriptor` from the `args.Request.Filters` collection, respectively from the `args....State.FilterDescriptors` collection, to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
 
 ### CompositeFilterDescriptor
@@ -109,12 +111,15 @@ The searching criteria in a Grid or TreeList are stored in an individual `IFilte
 The sorting criteria in a Grid, TreeList or Gantt are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
 * The `Member`&mdash;The field where the user sorts.
 * The `SortDirection`&mdash;The sort direction for this sort descriptor.
+
 When the [`SortMode`](/blazor-ui/api/Telerik.Blazor.SortMode) is `Multiple`, you may need to consider the order of the `SortDescriptor` instances. The first applied sorting criteria take precedence over all others. If there are equal values in the first sorted items, then those items are sorted by the following sorting criteria.
 
 
 ## Grouping
 
-Тhe grouping criteria for each group is stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor). The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class. The user may group by multiple fields. The groups for subsequent fields will be nested within their parent groups. The grouping criteria from the parent group are stored in the first `GroupDescriptor` instance from the collection.
+Тhe grouping criteria for each group are stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor) objects. The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
+
+The user may group by multiple fields. The groups for subsequent fields will be nested within their parent groups. The grouping criteria from the parent group are stored in the first `GroupDescriptor` instance from the collection.
 
 
 ## Example with OnRead Event Handler
@@ -147,13 +152,13 @@ You can obtain the FilterDescriptor, SortDescriptor, and GroupDescriptor in the 
 
 
 @code {
-    private MarkupString ConsoleSim { get; set; } // to showcase what you get
+    private MarkupString ConsoleSim { get; set; } //To showcase what you get.
 
     private async Task OnReadHandler(GridReadEventArgs args)
     {
         string output = string.Empty;
 
-        //get the filtering and searching criteria
+        //Get the filtering and searching criteria.
         output += "<span><strong>FILTERS:</strong><span></br>";
         foreach (var item in args.Request.Filters)
         {
@@ -169,14 +174,14 @@ You can obtain the FilterDescriptor, SortDescriptor, and GroupDescriptor in the 
             }
         }
 
-        //get the sorting criteria
+        //Get the sorting criteria.
         output += "<span><strong>SORTS:</strong><span></br>";
         foreach (SortDescriptor item in args.Request.Sorts)
         {
             output += $"Sorted field: {item.Member}, Sort direction: {item.SortDirection} <br />";
         }
 
-        //get the grouping criteria
+        //Get the grouping criteria.
         output += "<span><strong>GROUPS:</strong><span></br>";
         foreach (GroupDescriptor item in args.Request.Groups)
         {
@@ -246,7 +251,7 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
     {
         string output = string.Empty;
 
-        //get the searching criteria
+        //Get the searching criteria.
         output += "<span><strong>SEARCHING:</strong><span></br>";
         var searching = args.GridState.SearchFilter;
 
@@ -254,7 +259,6 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
             {
             CompositeFilterDescriptor currSearch = searching as CompositeFilterDescriptor;
             output += $"START nested searching: Logical operator: {currSearch.LogicalOperator}, details:<br />";
-                // by design, there will actually be 2 only, this showcases the concept and the types
             foreach (FilterDescriptor nestedSearch in currSearch.FilterDescriptors)
                 {
                 output += $"Search field: {nestedSearch.Member}, Search operator {nestedSearch.Operator}, Search value: {nestedSearch.Value}<br />";
@@ -263,7 +267,7 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
             }
         
 
-        //get the filtering criteria
+        //Get the filtering criteria.
         output += "<span><strong>FILTERS:</strong><span></br>";
 
         foreach (var item in args.GridState.FilterDescriptors)
@@ -280,14 +284,14 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
             }
         }
 
-        //get the sorting criteria
+        //Get the sorting criteria.
         output += "<span><strong>SORTS:</strong><span></br>";
         foreach (SortDescriptor item in args.GridState.SortDescriptors)
         {
             output += $"Sorted field: {item.Member}, Sort direction: {item.SortDirection} <br />";
         }
 
-        //get the grouping criteria
+        //Get the grouping criteria.
         output += "<span><strong>GROUPS:</strong><span></br>";
         foreach (SortDescriptor item in args.GridState.GroupDescriptors)
         {
@@ -324,3 +328,16 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
     }
 }
 ````
+
+## See Also
+
+* [AutoComplete OnRead Event]({%slug autocomplete-events%}#onread)
+* [ComboBox OnRead Event]({%slug components/combobox/events%}#onread)
+* [DropDownList OnRead Event]({%slug components/dropdownlist/events%}#onread)
+* [Filter Overview]({%slug filter-overview%})
+* [Gantt State]({%slug gantt-state%})
+* [Grid OnRead Event]({%slug components/grid/manual-operations%})
+* [Grid State]({%slug grid-state%})
+* [MultiColumnComboBox OnRead Event]({%slug multicolumncombobox-events%}#onread)
+* [MultiSelect OnRead Event]({%slug multiselect-events%}#onread)
+* [TreeList State]({%slug treelist-state%})
