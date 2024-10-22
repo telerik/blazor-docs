@@ -49,7 +49,7 @@ async Task OnReadHandler(...ReadEventArgs args)
 
 ### Through the Component State
 
-Use the component state property of the `OnStateChanged` event argument. This approach is applicable for the Gantt, the Grid and the TreeList, because they expose the state feature. For example:
+Use the component's state property of the `OnStateChanged` event argument. This approach applies to the Gantt, Grid, and TreeList because they expose the state feature. For example:
 
 ````CS
 async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
