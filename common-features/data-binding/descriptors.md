@@ -101,7 +101,7 @@ When the filtering is initiated, the `CompositeFilterDescriptor` properties get 
 
 ## Searching
 
-The searching criteria in a Grid or TreeList are stored in an individual `IFilterDescriptor`. Cast it to [`CompositeFilterDescriptor`](#compositefilterdescriptor). The `CompositeFilterDescriptor` holds one child `FilterDescriptor`s for each searchable string column. Each `FilterDescriptor` has the same `Value`, which is the user search input. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is `Or`.
+The searching criteria in a Grid or TreeList are stored in an individual `IFilterDescriptor`. Cast it to [`CompositeFilterDescriptor`](#compositefilterdescriptor). The `CompositeFilterDescriptor` holds one child `FilterDescriptor` for each searchable string column. Each `FilterDescriptor` has the same `Value`, which is the user's search input. The value of the `LogicalOperator` property of the `CompositeFilterDescriptor` is `OR`.
 
 
 ## Sorting
