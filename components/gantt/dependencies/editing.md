@@ -18,7 +18,7 @@ This section explains the available events that you need to use for creating and
 
 The Gantt provides the following dependency events:
 
-* `OnCreate` fires when the users drag the dependency handle of a task from one end-point to another and thus create a new dependency. It provides a `GanttDependencyCreateEventArgs` object that contains the currently created dependency.
+* `OnCreate` fires when the users drag the dependency handle of a task from one end point to another and thus create a new dependency. It provides a `GanttDependencyCreateEventArgs` object that contains the currently created dependency.
 * `OnDelete` fires when the users deletes a dependency. To delete a dependency the user should select it using the mouse and press the `Delete` keyboard button. It provides a `GanttDependencyDeleteEventArgs` object that contains the currently deleted dependency in the `Item` field that you can cast to your model.
 
 ## Example
