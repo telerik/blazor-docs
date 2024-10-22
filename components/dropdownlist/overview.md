@@ -93,7 +93,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 | `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the filter input value update. Applicable to filtering only. Use it to balance between client-side performance and number of database queries. |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| The method of [filtering]({%slug components/dropdownlist/filter%}) the items. |
 | `FilterPlaceholder` |  `string` | The hint that will be displayed in the filter input when it has no value.
-| `Id` | `string` | The `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
+| `Id` | `string` | The `id` attribute rendered on the main wrapping element of the component (`<span class="k-dropdownlist">`). You can use it to attach a `<label for="">` to it. |
 | `TItem` | `Type`| The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
 | `Title` | `string` | The title text rendered in the header of the dropdown list popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
