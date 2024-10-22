@@ -48,6 +48,8 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. If the application is localized, [update the Telerik localization resource (`.resx`) files]({%slug globalization-localization%}#step-2-add-resouce-files). Otherwise, you may see [exceptions related to missing localization strings]({%slug common-kb-value-cannot-be-null-parameter-format%}).
 
+1. Clear the browser cache and optionally [add a cache buster for the Telerik CSS and JavaScript files]({%slug common-kb-browser-cache-buster%}).
+
 ## Upgrade Wizard
 
 To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard]({%slug getting-started-vs-integration-upgrade-project%}) that comes as part of the [Telerik UI for Blazor Visual Studio Extension]({% slug getting-started-vs-integration-overview %}).
