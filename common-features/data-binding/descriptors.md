@@ -96,7 +96,7 @@ When the filtering is initiated, the `CompositeFilterDescriptor` properties get 
 | Filter Mode | FilterDescriptors Property Value | LogicalOperator Property Value |
 | --- | --- | --- |
 | FilterMenu | Two filter descriptor instances per each filtered field. Each filter descriptor instance gets the user input as `Value`. If there is no user input in one of the input fields in the menu then this filter descriptor instance `Value` is null. | Depending on the user choice. |
-| FilterRow | Two filter descriptor instances per each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
+| `FilterRow` | Two filter descriptor instances for each filtered field. The second filter descriptor instance always gets null as `Value`, because there is no second input field. | AND |
 
 
 ## Searching
