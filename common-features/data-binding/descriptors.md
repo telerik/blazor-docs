@@ -211,7 +211,7 @@ You can obtain the FilterDescriptor, SortDescriptor, GroupDescriptor in the `OnR
 
 ## Example with Component State
 
-You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, GroupDescriptor through the component state.
+You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDescriptor through the component's state.
 
 ````CSHTML
 @using System.Text.Json
