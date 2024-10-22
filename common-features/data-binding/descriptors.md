@@ -119,7 +119,7 @@ When the [`SortMode`](/blazor-ui/api/Telerik.Blazor.SortMode) is `Multiple`, you
 
 ## Example with OnRead Event Handler
 
-You can obtain the FilterDescriptor, SortDescriptor, GroupDescriptor in the `OnRead` event handler.
+You can obtain the FilterDescriptor, SortDescriptor, and GroupDescriptor in the `OnRead` event handler.
 
 ````CSHTML
 @using Telerik.DataSource
