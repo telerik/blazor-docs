@@ -86,7 +86,7 @@ The `args.Request.Filters` and the `args....State.FilterDescriptors` are collect
 
 The `CompositeFilterDescriptor` exposes:
 
-* [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria cast each `IFilterDescriptor` to a `FilterDescriptor`. When the Filter component gets groupable filtering, cast each `IFilterDescriptor` to another `CompositeFilterDescriptor`.
+* The [`FilterDescriptors`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria, cast each `IFilterDescriptor` to a `FilterDescriptor`. When the Filter component gets groupable filtering, cast each `IFilterDescriptor` to another `CompositeFilterDescriptor`.
 * [`LogicalOperator`](/blazor-ui/api/telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values, depending on the filter mode:
