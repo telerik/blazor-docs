@@ -20,7 +20,10 @@ This article explains how to retrieve the applied filtering, searching, sorting,
 
 ## Get Sort, Filter, Group, and Search Descriptors
 
-There are two ways to obtain the applied filtering, searching, sorting, grouping criteria:
+You can obtain the applied filtering, searching, sorting, and grouping criteria in two ways:
+
+* [Through the OnRead Event](#through-the-onread-event)
+* [Through the Component's State](#through-the-component-state)
 
 ### Through the OnRead Event
 
