@@ -22,4 +22,4 @@ To define dependencies in your Gantt Chart:
 ## Gantt Dependency Features
 
 * [Dependency Data Binding]({%slug gantt-dependencies-databind%}) allows you to provide a collection of dependencies to the Gantt Chart for Blazor.
-* [Dependency Editing]({%slug gantt-dependencies-editing%}) allow the user to edit the dependencies.
+* [Dependency Editing]({%slug gantt-dependencies-editing%}) allows the user to edit the dependencies.
