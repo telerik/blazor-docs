@@ -74,10 +74,10 @@ See full examples at the bottom of the article.
 
 ## Filtering
 
-The filtering criteria for each filtered field are stored in an individual collection of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor`:
+The `args.Request.Filters` and the `args....State.FilterDescriptors` are collections of [`IFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor` from the respective collection:
 
 * If the component is of type input or select, such as the AutoComplete, the ComboBox, the DropDownList, the MultiColumnComboBox, the MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](/blazor-ui/api/telerik.datasource.filterdescriptor).
-* Otherwise, cast each `IFilterDescriptor` to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
+* Otherwise, cast each `IFilterDescriptor` from the `args.Request.Filters` collection, respectively from the `args....State.FilterDescriptors` collection, to [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
 
 ### CompositeFilterDescriptor
 
@@ -103,14 +103,15 @@ The searching criteria in a Grid or TreeList are stored in an individual `IFilte
 
 ## Sorting
 
-The sorting criteria are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
+The sorting criteria in a Grid, TreeList or Gantt are stored in a collection of [`SortDescriptor`](/blazor-ui/api/telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
 * The `Member`&mdash;The field where the user sorts.
 * The `SortDirection`&mdash;The sort direction for this sort descriptor.
+When the [`SortMode`](/blazor-ui/api/Telerik.Blazor.SortMode) is `Multiple`, you may need to consider the order of the `SortDescriptor` instances. The first applied sorting criteria take precedence over all others. If there are equal values in the first sorted items, then those items are sorted by the following sorting criteria.
 
 
 ## Grouping
 
-Тhe grouping criteria for each group is stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor). The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
+Тhe grouping criteria for each group is stored in an individual collection of [`GroupDescriptor`](/blazor-ui/api/telerik.datasource.groupdescriptor). The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class. The user may group by multiple fields. The groups for subsequent fields will be nested within their parent groups. The grouping criteria from the parent group are stored in the first `GroupDescriptor` instance from the collection.
 
 
 ## Example with OnRead Event Handler
