@@ -16,7 +16,7 @@ The Telerik Gantt for Blazor lets you define dependencies, which are rendered in
 
 To define dependencies in your Gantt Chart:
 
-* Add the `GanttDependenciesSettings` tag, child tag of the `<TelerikGantt>`
+* Add the `GanttDependenciesSettings` tag, child tag of the `<TelerikGantt>`.
 * Inside the `GanttDependenciesSettings` add the `<GanttDependencies>` and provide a data collection to the `Data` parameter. 
 
 ## Gantt Dependency Features
