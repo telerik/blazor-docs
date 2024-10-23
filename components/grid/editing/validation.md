@@ -318,3 +318,4 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 ## See Also
 
 * [Grid Editing]({%slug components/grid/editing/overview%})
+* [Use Custom Validation in the Grid]({%slug validation-kb-custom-dataannotations-validator%})

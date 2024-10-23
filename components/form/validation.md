@@ -110,7 +110,7 @@ This section provides the following examples:
 * [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
 
-It is also possible to [trigger Form validation programmatically]({%slug form-overview%}#form-reference-and-methods).
+It is also possible to [trigger Form validation programmatically]({%slug form-overview%}#form-reference-and-methods) or [use custom DataAnnotations validation]({%slug validation-kb-custom-dataannotations-validator%}).
 
 ### Validate a Model
 
@@ -269,3 +269,7 @@ You can use third-party validation libraries that integrate with the standard `E
     }
 }
 ````
+
+## See Also
+
+* [Use Custom Validation in the Form]({%slug validation-kb-custom-dataannotations-validator%})
