@@ -1,0 +1,506 @@
+top-navigation-product: blazor-ui
+path-prefix: /blazor-ui/documentation
+default-title-prefix: Blazor
+
+primary-color: "#27A306"
+product-id: 1952
+product-code: BLAZOR
+product-name: Telerik UI for Blazor
+product-url: https://www.telerik.com/blazor-ui
+product-trial-url: https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor
+contribute-url: https://github.com/telerik/blazor-docs/edit/master
+search-engine-id: 4729071e3f011471f
+avatar-path: ./images/avatar-ninja.svg
+no-results-image-path: ./images/ninja-no-results.svg
+img-max-width: 100%
+table-layout: fixed
+enable-tabbed-code-blocks: true
+
+cta-overview: The @Subject component is part of @ProductLink, a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial.
+cta-intro: "@ProductLink is a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial."
+
+excluded-files: ["**/src-a11y/**/*"]
+
+meta:
+  "*templates":
+    title: Templates
+  "*wizard":
+    title: Wizard
+  "*window":
+    title: Window
+  "*validator":
+    title: Validator
+  "*validation":
+    title: Validation Tools
+  "*upload":
+    title: Upload
+  "*treemap":
+    title: TreeMap
+  "*treeview":
+    title: TreeView
+  "*toolbar":
+    title: ToolBar
+  "*tooltip":
+    title: Tooltip
+  "*timepicker":
+    title: TimePicker
+  "*tilelayout":
+    title: TileLayout
+  "*textarea":
+    title: TextArea
+  "*textbox":
+    title: TextBox
+  "*tabstrip":
+    title: TabStrip
+  "*switch":
+    title: Switch
+  "*stockchart":
+    title: Stock Chart
+  "*stepper":
+    title: Stepper
+  "*stacklayout":
+    title: Stack Layout
+  "*splitter":
+    title: Splitter
+  "*splitbutton":
+    title: SplitButton
+  "*sortable":
+    title: Sortable
+  "*skeleton":
+    title: Skeleton
+  "*slider":
+    title: Slider
+  "*signature":
+    title: Signature
+  "*scrollview":
+    title: ScrollView
+  "*scheduler":
+    title: Scheduler
+  "*sankey":
+    title: Sankey
+  "*rootcomponent":
+    title: RootComponent
+  "*/radiogroup":
+    title: RadioGroup
+  "*pivotgrid":
+    title: PivotGrid
+  "*pager":
+    title: Pager
+  "*panelbar":
+    title: PanelBar
+  "*responsivepanel":
+    title: ResponsivePanel
+  "*rangeslider":
+    title: RangeSlider
+  "*gauges/radial":
+    title: Radial
+  "*rating":
+    title: Rating
+  "*/radiobutton":
+    title: RadioButton
+  "*qrcode":
+    title: QRCode
+  "*progressbar":
+    title: ProgressBar
+  "*pdfviewer":
+    title: PDF Viewer
+  "*numerictextbox":
+    title: NumericTextBox
+  "*popover":
+    title: Popover
+  "*notification":
+    title: Notification
+  "*multiselect":
+    title: MultiSelect
+  "*menu":
+    title: Menu
+  "*mediaquery":
+    title: MediaQuery
+  "*mediaplayer":
+    title: MediaPlayer
+  "*maskedtextbox":
+    title: MaskedTextBox
+  "*layers":
+    title: Layers
+    position: 10
+  "*map":
+    title: Map
+  "*loadercontainer":
+    title: LoaderContainer
+  "*loader":
+    title: Loader
+  "*listbox":
+    title: ListBox
+  "*gauges/circular":
+    title: Circular
+  "*gauges/linear":
+    title: Linear
+  "*gauges":
+    title: Gauges
+  "*gantt":
+    title: Gantt
+  "*floatinglabel":
+    title: FloatingLabel
+  "*flatcolorpicker":
+    title: FlatColorPicker
+  "*form":
+    title: Form
+  "*fields":
+    title: Fields
+    position: 2
+  "*filter":
+    title: Filter
+  "*fileselect":
+    title: FileSelect
+  "*filemanager":
+    title: FileManager
+  "*editor":
+    title: Editor
+  "*dropdowntree":
+    title: DropDownTree
+  "*dropzone":
+    title: DropZone
+  "*dropdownlist":
+    title: DropDownList
+  "*dropdownbutton":
+    title: DropDownButton
+  "*drawer":
+    title: Drawer
+  "*draganddrop":
+    title: DragAndDrop
+  "*dialog":
+    title: Dialog
+  "*datetimepicker":
+    title: DateTime Picker
+  "*daterangepicker":
+    title: DateRange Picker
+  "*datepicker":
+    title: Date Picker
+  "*dateinput":
+    title: Date Input
+  "*contextmenu":
+    title: Context Menu
+  "*combobox":
+    title: ComboBox
+  "*/multicolumncombobox":
+    title: MultiColumnComboBox
+  "*/colorpicker":
+    title: ColorPicker
+  "*colorpalette":
+    title: ColorPalette
+  "*colorgradient":
+    title: ColorGradient
+  "*chunkprogressbar":
+    title: ChunkProgressBar
+  "*chiplist":
+    title: ChipList
+  "*chip":
+    title: Chip
+  "*checkbox":
+    title: Checkbox
+  "*components/chart":
+    title: Chart
+  "*carousel":
+    title: Carousel
+  "*card":
+    title: Card
+  "*calendar":
+    title: Calendar
+  tag-helpers/scheduling/multiviewcalendar:
+    title: MultiViewCalendar
+  html-helpers/scheduling/multiviewcalendar:
+    title: MultiViewCalendar
+  html-helpers/scheduling/calendar:
+    title: Calendar
+  "*buttongroup":
+    title: ButtonGroup
+  "*/button":
+    title: Button
+  "*breadcrumb":
+    title: Breadcrumb
+  "*togglebutton":
+    title: ToggleButton
+  "*barcode":
+    title: Barcode
+  "*barcodes":
+    title: Barcodes
+  "*badge":
+    title: Badge
+  "*avatar":
+    title: Avatar
+  "*autocomplete":
+    title: AutoComplete
+  "*popup":
+    title: Popup
+  "*appbar":
+    title: AppBar
+  "*aiprompt":
+    title: AIPrompt
+  "*gauges/arc":
+    title: Arc
+  "*spreadsheet":
+    title: Spreadsheet
+  "*treelist":
+    title: TreeList
+  "*listview":
+    title: ListView
+  "*gridlayout":
+    title: Grid Layout
+  "*/grid":
+    title: Grid
+  "*how-to":
+    title: How To
+  "*state":
+    title: State Management
+  "*selection":
+    title: Selection
+  "*integration":
+    title: Integration
+  "*filtering":
+    title: Filtering
+  "*export":
+    title: Export
+  "*editing":
+    title: Editing
+  "*troubleshooting":
+    title: Troubleshooting
+    position: 50
+  "*binding":
+    title: Binding
+    position: 2
+  "*accessibility":
+    title: Accessibility
+  "*appearance":
+    title: Appearance
+  "*components/aiprompt/views":
+    title: Views
+    position: 10
+  "*components/filemanager/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/wizard/structure":
+    title: Structure
+    position: 3
+  "*components/stepper/steps":
+    title: Steps
+    position: 3
+  "*components/panelbar/templates":
+    title: Templates
+    position: 10
+  "*components/panelbar/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/editor/prosemirror-schema":
+    title: ProseMirror Schema
+    position: 120
+  "*components/editor/edit-modes":
+    title: Edit Modes
+    position: 80
+  "*components/scheduler/templates":
+    title: Templates
+    position: 10
+  "*components/scheduler/views":
+    title: Views
+    position: 5
+  "*components/scheduler/editing":
+    title: Editing
+    position: 3
+  "*components/scheduler/appointments":
+    title: Appointments
+    position: 2
+  "*components/menu/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/contextmenu/templates":
+    title: Templates
+    position: 25
+  "*components/contextmenu/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/treeview/checkboxes":
+    title: CheckBoxes
+    position: 4
+  "*components/treeview/selection":
+    title: Selection
+    position: 3
+  "*components/treeview/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/document-processing":
+    title: Document Processing
+    position: 2200000
+  "*components/animationcontainer":
+    title: Animation Container
+    position: 2000000
+  "*components/stockchart/tooltip":
+    title: Tooltips
+    position: 22
+  "*components/stockchart/types":
+    title: Types
+    position: 12
+  "*components/sankey/elements":
+    title: Elements
+    position: 5
+  "*components/chart/tooltip":
+    title: Tooltips
+    position: 31
+  "*components/chart/pan-and-zoom":
+    title: Pan and Zoom
+    position: 32
+  "*components/chart/types":
+    title: Types
+    position: 15
+  "*components/treelist/selection":
+    title: Selection
+    position: 35
+  "*components/treelist/export":
+    title: Export
+    position: 30
+  "*components/treelist/templates":
+    title: Templates
+    position: 25
+  "*components/treelist/filter":
+    title: Filtering
+    position: 22
+  "*components/treelist/editing/built-in-dialogs":
+    title: Built-in Dialogs
+    position: 17
+  "*components/treelist/editing":
+    title: Editing
+    position: 10
+  "*components/treelist/columns":
+    title: Columns
+    position: 5
+  "*components/treelist/data-binding":
+    title: Data Binding
+    position: 2
+  "*components/multicolumncombobox/columns":
+    title: Columns
+    position: 7
+  "*components/grid/selection":
+    title: Selection
+    position: 35
+  "*components/grid/export":
+    title: Export
+    position: 30
+  "*components/grid/templates":
+    title: Templates
+    position: 25
+  "*components/grid/grouping":
+    title: Grouping
+    position: 24
+  "*components/grid/filter":
+    title: Filtering
+    position: 22
+  "*components/grid/editing/built-in-dialogs":
+    title: Built-in Dialogs
+    position: 17
+  "*components/grid/editing":
+    title: Editing
+    position: 10
+  "*components/grid/columns":
+    title: Columns
+    position: 5
+  "*components/gantt/timeline/templates":
+    title: Templates
+    position: 15
+  "*components/gantt/gantt-tree/filter":
+    title: Filtering
+    position: 25
+  "*components/gantt/gantt-tree/editing":
+    title: Editing
+    position: 10
+  "*components/gantt/gantt-tree/columns":
+    title: Columns
+    position: 7
+  "*components/gantt/gantt-tree/data-binding":
+    title: Data Binding
+    position: 5
+  "*components/gantt/timeline":
+    title: Gantt Timeline
+    position: 10
+  "*components/gantt/dependencies":
+    title: Gantt Dependencies
+    position: 15
+  "*components/gantt/gantt-tree":
+    title: Gantt Tree
+    position: 5
+  "*components/form/formitems":
+    title: Form Items
+    position: 20
+  "*components/calendar/templates":
+    title: Templates
+    position: 20
+  integrations/document-processing:
+    title: Document Processing
+    position: 20
+  testing:
+    title: Testing
+    position: 45
+  integrations:
+    title: Integration With Other Telerik Products
+    position: 40
+  backwards-compatibility:
+    title: Breaking Changes
+    position: 30
+  getting-started/repl:
+    title: Telerik REPL for Blazor
+    position: 35
+  getting-started/vs-code-integration:
+    title: Visual Studio Code Integration
+    position: 26
+  getting-started/vs-integration:
+    title: Visual Studio Integration
+    position: 25
+  how-to:
+    title: How To
+    position: 20
+  upgrade/rendering-changes:
+    title: Rendering Changes
+  upgrade/breaking-changes:
+    title: Breaking Changes
+  upgrade:
+    title: Upgrade
+    position: 19
+  "*deployment":
+    title: Deployment
+    position: 18
+  accessibility:
+    title: Accessibility
+    position: 17
+  globalization:
+    title: Globalization
+    position: 16
+  common-features/data-binding:
+    title: Data Binding
+    position: 0
+  common-features:
+    title: Common Features
+    position: 15
+  styling-and-themes:
+    title: Styling and Themes
+    position: 12
+  components:
+    title: Components
+    position: 10
+  installation:
+    title: Installation
+    position: 6
+  getting-started:
+    title: Getting Started
+    position: 5
+  api:
+    title: API Reference
+    position: 0
+  knowledge-base:
+    title: Knowledge Base
+    position: 300
+    res_type: kb
+    relativeUrl: /knowledge-base
+    hideChildren: true
+
+
+redirects: 
+-
+    from: "^/?$"
+    to: "/introduction"

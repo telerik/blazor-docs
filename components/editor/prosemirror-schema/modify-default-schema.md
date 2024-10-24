@@ -34,8 +34,6 @@ The below example shows how to:
 
 >tip The Editor in this example uses the [`Div` edit mode]({%slug editor-edit-modes-iframe%}), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode]({%slug editor-edit-modes-div%}), you have to plug the styles with JavaScript as shown in [this example]({%slug editor-prosemirror-plugins%}).
 
-@[template](/_contentTemplates/editor/general.md#prosemirror-support-disclaimer)
-
 >caption Modify the default ProseMirror Schema
 
 ````CSHTML
