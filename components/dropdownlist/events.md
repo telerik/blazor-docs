@@ -99,11 +99,13 @@ from the model: @MySelectedItem
 
 ## OnRead
 
-You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug dropdownlist-virtualization%})). The event fires when:
+You can use the [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component based on custom logic and the current user input and/or scroll position (when using [virtualization]({%slug dropdownlist-virtualization%})). The event fires when:
 
-* the component initializes
-* the user [filters]({%slug components/dropdownlist/filter%})
-* the user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled
+* The component initializes.
+* The user [filters]({%slug components/dropdownlist/filter%}).
+* The user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled.
+
+Find out how to [get the applied filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 You can also call remote data through `async` operations.
 

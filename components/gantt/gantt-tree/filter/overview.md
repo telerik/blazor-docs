@@ -26,19 +26,11 @@ You can filter more than one column at a time, and all filter rules will be appl
 
 ## Filter Descriptors
 
-The Gantt filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the Gantt filters programmatically]({%slug gantt-state%}).
-
-Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
-
-* [Filter Row]({%slug gantt-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
-
-* [Filter Menu]({%slug gantt-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
-
+You can get the applied filtering criteria for each filtered field. Use the [Gantt state]({%slug gantt-state%}) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
 
 ## Customize The Filter Editors
 
-You can customize the editors rendered in the Gantt
-by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. The `FilterEditorType` attribute accepts a member of the `GanttTreeListFilterEditorType` enum:
+You can customize the editors rendered in the Gantt by providing the `FilterEditorType` attribute, exposed on the `<GanttColumn>`. The `FilterEditorType` attribute accepts a member of the `GanttTreeListFilterEditorType` enum:
 
 | Field data type | GanttTreeListFilterEditorType enum members |
 |-----------------|------------------------------------------|

@@ -5,7 +5,7 @@ description: Details about the Telerik.DataSource NuGet package that come with T
 slug: common-features-datasource-package
 tags: telerik,blazor,data,source,package
 published: True
-position: 50
+position: 20
 ---
 
 # Telerik DataSource Package
