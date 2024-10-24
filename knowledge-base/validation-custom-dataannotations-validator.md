@@ -43,7 +43,7 @@ This KB answers the following questions:
 1. Return a `ValidationResult` that includes the failing field name(s) as a second argument of type `IEnumerable<string>`. This step is crucial in order to apply invalid state to the respective input component and display an inline validation message next to it.
 1. (optional) Override the `FormatErrorMessage` method to provide a custom validation message.
 
-> Creating a custom DataAnnotations validator does not involve Telerik APIs and is outside the Telerik support scope. The following implementation is just an example that shows that Telerik Blazor components can work with a custom validator. The exact validator implementation depends on the specific requirements and can vary.
+> Creating a custom `DataAnnotations` validator does not involve Telerik APIs and is outside the Telerik support scope. The following implementation is just an example that shows that Telerik Blazor components can work with a custom validator. The exact validator implementation [depends on the specific requirements and can vary](https://stackoverflow.com/questions/26354853/conditionally-required-property-using-data-annotations).
 
 >caption Use custom conditional required DataAnnotations validator with Telerik components for Blazor
 
@@ -209,8 +209,11 @@ This KB answers the following questions:
 }
 ````
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
+
 ## See Also
 
+* [Conditional Form Validation Options]({%slug form-kb-conditional-validation%})
 * [Form Validation]({%slug form-validation%})
-* [Grid Validation]({%slug grid-editing-validation%}})
-* [Validation Tools Overview]({%slug validation-tools-overview%}})
+* [Grid Validation]({%slug grid-editing-validation%})
+* [Validation Tools Overview]({%slug validation-tools-overview%})

@@ -40,7 +40,7 @@ The **TelerikForm** supports any [validator that is compatible with the Blazor E
 * Perform custom validation in the [Form's `OnSubmit` event]({%slug form-events%}#onsubmit).
 * Implement [remote (server-side) custom validation](https://github.com/telerik/blazor-ui/tree/master/form/remote-validation).
 * Use [`FormItem` Templates]({%slug form-formitems-template%}). Subscribe to the **change** handlers of the field editors to execute custom logic, show notifications, etc.
-* Implement a [conditional `DataAnnotation` attribute](https://stackoverflow.com/questions/26354853/conditionally-required-property-using-data-annotations). To see inline error messages next to the field editor, use the [`ValidationResult` overload that passes a **field name**](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationresult.-ctor?view=net-6.0#system-componentmodel-dataannotations-validationresult-ctor(system-string-system-collections-generic-ienumerable((system-string)))). In this way the form validator will know which field has failed validation.
+* Implement a [custom conditional `DataAnnotations` attribute]({%slug validation-kb-custom-dataannotations-validator%}). To see inline error messages next to the field editor, return the [`ValidationResult` overload that accepts the invalid field name(s)](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationresult). In this way the form validator will know which field has failed validation.
 
     <div class="skip-repl"></div>
 
@@ -49,6 +49,10 @@ The **TelerikForm** supports any [validator that is compatible with the Blazor E
         new List<string> { validationContext.MemberName });
     ````
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
+
 ## See Also
 
+* [Custom `DataAnnotations` Validation]({%slug validation-kb-custom-dataannotations-validator%})
+* [Fluent Validation]({%slug form-validation%}#fluent-validation)
 * [Live Demo: DateRangePicker Custom DataAnnotation Attribute](https://demos.telerik.com/blazor-ui/daterangepicker/validation)

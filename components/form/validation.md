@@ -62,6 +62,8 @@ When you provide an `EditContext` to the form, you can use its [`EnableDataAnnot
 
 @[template](/_contentTemplates/common/form-validation.md#note-validation)
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
+
 ## Validation Message Type
 
 With the `ValidationMessageType` parameter of the Telerik Form for Blazor you can customize the way the validation messages are presented to the user. This setting accepts a member of the `FormValidationMessageType` enum:
@@ -272,4 +274,5 @@ You can use third-party validation libraries that integrate with the standard `E
 
 ## See Also
 
-* [Use Custom Validation in the Form]({%slug validation-kb-custom-dataannotations-validator%})
+* [Custom Form `DataAnnotations` Validation]({%slug validation-kb-custom-dataannotations-validator%})
+* [Conditional Form Validation Options]({%slug form-kb-conditional-validation%})
