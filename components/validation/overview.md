@@ -118,6 +118,8 @@ You can seamlessly integrate the validation tools with the [Form Component]({%sl
 }
 ````
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
+
 # Next Steps
 
 * Explore [TelerikValidationSummary]({%slug validation-tools-summary%})

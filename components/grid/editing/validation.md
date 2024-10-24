@@ -315,6 +315,9 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 }
 `````
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
+
 ## See Also
 
 * [Grid Editing]({%slug components/grid/editing/overview%})
+* [Custom Grid `DataAnnotations` Validation]({%slug validation-kb-custom-dataannotations-validator%})
