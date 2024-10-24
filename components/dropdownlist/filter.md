@@ -12,7 +12,11 @@ position: 10
 
 The DropDownList filter textbox allows users to filter the available items by their text and find the one they need faster. The filtering input is at the top of the dropdown popup.
 
-To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug components/dropdownlist/events%}#onread).
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
+
+You can also use the [`OnRead` event]({%slug components/dropdownlist/events%}#onread) to:
+* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+* Implement custom (server) filtering and set data dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
 

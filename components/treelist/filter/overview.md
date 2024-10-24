@@ -44,15 +44,7 @@ In addition to the two main filtering modes, the treelist offers two more featur
 
 ## Filter Descriptors
 
-The TreeList filter state is stored in [CompositeFilterDescriptors](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The below information is important if you want to [get or change the TreeList filters programmatically]({%slug treelist-state%}).
-
-Each `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection). All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
-
-* [Filter Row]({%slug treelist-filter-row%}) - each `CompositeFilterDescriptor` targets a specific field. By default, one filter can be applied to a field using the Filter Row operator. The filter value is stored in the first `FilterDescriptor` instance of the `CompositeFilterDescriptor` for that field.
-
-* [Filter Menu]({%slug treelist-filter-menu%}) - each `CompositeFilterDescriptor` targets a specific field. Filter values from the separate filter operators in the menu are stored in different `FilterDescriptor` instances of the dedicated `CompositeFilterDescriptor` for that field.
-
-* [SearchBox]({%slug treelist-searchbox%}) - one `CompositeFilterDescriptor` is created in the state when the user types in the Searchbox. By default, it targets all `string` fields. A dedicated `FilterDescriptor` instance is added to this `CompositeFilterDescriptor` for each `string` field. Each `FilterDescriptor` instance contains the filter value typed in the Searchbox.
+You can get the applied filtering criteria for each filtered field. Use the [TreeList state]({%slug treelist-state%}) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
 
 ## Customize The Filter Editors
 

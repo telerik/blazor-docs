@@ -98,11 +98,13 @@ from the model:
 
 You can use the he [`OnRead` event]({%slug common-features-data-binding-onread%}) to provide data to the component according to some custom logic and according to the current user input and/or scroll position (for [virtualization]({%slug multiselect-virtualization%})). The event fires when:
 
-* the component initializes
-* the user [filters]({%slug multiselect-filter%})
-* the user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled
+* The component initializes.
+* The user [filters]({%slug multiselect-filter%}).
+* The user scrolls with [virtualization]({%slug dropdownlist-virtualization%}) enabled.
 
 You can also call remote data through async operations.
+
+Find out how to [get the applied filtering and grouping criteria]({%slug common-features-descriptors%}).
 
 >caption Custom Data according to the user input in the MultiSelect
 
