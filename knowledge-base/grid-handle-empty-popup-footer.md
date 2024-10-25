@@ -2,7 +2,7 @@
 title:  Remove Empty Popup Footer when Using Popup Form Template
 description: Learn how to either hide the empty footer in the edit popup of the Grid for Blazor or use it to display custom Form buttons.
 type: how-to
-page_title: How to handle the empty popup footer when using the Popup Form Template
+page_title: How to Remove Empty Popup Footer when Using Grid Popup Form Template
 slug: grid-kb-handle-empty-popup-footer
 tags: grid, blazor, edit form, popup form template, footer, custom buttons, empty
 res_type: kb
