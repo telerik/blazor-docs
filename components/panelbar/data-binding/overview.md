@@ -32,7 +32,7 @@ The PanelBar items provide the following features that you control through the c
 
 * `ParentId` - `string` - identifies the parent to whom the item belongs. Required only when binding to flat data. All items with the same `ParentId` will be rendered at the same level. For a root level item, this must be `null`.
 
-* `HasChildren` - `string` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data. With hierarchical data, the PanelBar will render the icon based on the existence of child items, but `HasChildren` will take precedence.
+* `HasChildren` - `bool` - whether the item has children. Determines whether an expand arrow is rendered next to the item. Required for binding to flat data. With hierarchical data, the PanelBar will render the icon based on the existence of child items, but `HasChildren` will take precedence.
 
 * `Items` - `string` - the collection of child items that will be rendered under the current item. Required only when binding to hierarchical data.
 
