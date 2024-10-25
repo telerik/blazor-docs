@@ -36,7 +36,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 ````CSHTML
 @using System.ComponentModel.DataAnnotations
 
-<strong>Editing is cancelled for the first two records.</strong>
+<strong>Editing is cancelled for the fifth item conditionally.</strong>
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"
              OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
@@ -44,8 +44,10 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
         <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
+        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" Width="80px" />
+        <GridColumn Field=@nameof(SampleData.FirstName) Title="First Name" />
+        <GridColumn Field=@nameof(SampleData.MiddleName) Title="Middle Name" Visible="false" />
+        <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" />
         <GridCommandColumn>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
@@ -120,8 +122,14 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "The employee must have a name")]
-        public string Name { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string MiddleName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
     }
 
     public List<SampleData> MyData { get; set; }
@@ -157,7 +165,9 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
                     _data.Add(new SampleData()
                     {
                         ID = i,
-                        Name = "Name " + i.ToString()
+                        FirstName = "First " + i.ToString(),
+                        MiddleName = "Middle " + i.ToString(),
+                        LastName = "Last " + i.ToString(),
                     });
                 }
             }
@@ -187,6 +197,10 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 ## Customization
 
 The Grid exposes options to customize the edit popup and its form. Define the desired configuration in the `GridPopupEditSettings` and `GridPopupEditFormSettings` tags under the `GridSettings` tag.
+
+### Editability of Hidden Columns
+
+Staring from version 7.0, the Grid allows users to edit [hidden columns]({%slug grid-columns-visible%}) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<GridColumn>` tag.
 
 ### Popup Customization
 

@@ -65,7 +65,7 @@ Editing is cancelled for the first record.
         <TreeListColumn Field="Name" Expandable="true" Width="320px" />
         <TreeListColumn Field="Id" Editable="false" Width="120px" />
         <TreeListColumn Field="EmailAddress" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" Visible="false" />
     </TreeListColumns>
 </TelerikTreeList>
 
@@ -318,6 +318,10 @@ Editing is cancelled for the first record.
 ## Customization
 
 The TreeList exposes options to customize the edit popup and its form. You can define your desired configuration in the `TreeListPopupEditSettings` and `TreeListPopupEditFormSettings` tags under the `TreeListSettings` tag.
+
+### Editability of Hidden Columns
+
+Staring from version 7.0, the TreeList allows users to edit [hidden columns]({%slug treelist-columns-visible%}) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<TreeListColumn>` tag.
 
 ### Popup Customization
 
