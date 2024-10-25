@@ -12,7 +12,11 @@ position: 10
 
 The AutoComplete component can filter the available suggestions, according to the current input. In this way users can find the desired value faster. To see the difference in behavior, visit the [Live Demo: AutoComplete Filtering](https://demos.telerik.com/blazor-ui/autocomplete/filtering) page.
 
-To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive. You can also implement custom (server) filtering and set a data source dynamically through the [`OnRead` event]({%slug autocomplete-events%}#onread).
+To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
+
+You can also use the [`OnRead` event]({%slug autocomplete-events%}#onread) to:
+* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+* Implement custom (server) filtering and set data dynamically.
 
 ## Filter Operator
 
