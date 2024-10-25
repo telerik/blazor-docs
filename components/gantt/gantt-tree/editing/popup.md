@@ -49,7 +49,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 |----------|----------|----------|
 | `PredecessorId` | `object`  | The Id of the predecessor of the mutated dependency. |
 | `SuccessorId` | `object`  | The Id of the successor of the mutated dependency. |
-| `Type` | `int`  | The [Type]({%slug gantt-dependencies-types%}) of the dependency. |
+| `Type` | `GanttDependencyType` enum | The [type of the dependency]({%slug gantt-dependencies-databind%}). |
 | `DataItem` | `object`  | The model associated with this dependency. |
 
 >caption The Command buttons and the Gantt events let you handle data operations in Popup edit mode.
