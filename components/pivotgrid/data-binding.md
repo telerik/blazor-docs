@@ -25,11 +25,14 @@ The PivotGrid supports different data sources via its `DataProviderType` paramet
 
 When bound to local data, the Pivot Grid requires its `Data` parameter to provide all the data at once as `IEnumerable<TItem>`. The component will perform all aggregate calculations in-memory and there is no [load on demand]({%slug pivotgrid-overview%}#pivotgrid-parameters).
 
+If the local data changes programmatically, you need to reset the collection instance or [call the PivotGrid `Rebind()` method]({%slug pivotgrid-overview%}#pivotgrid-reference-and-methods). See the common documentation about [refreshing component data]({%slug common-features-data-binding-overview%}#refresh-data) for details.
+
 > Large amounts of local data may impact the performance, especially in WebAssembly applications.
 
 >caption PivotGrid bound to Local data provider
 
 <div class="skip-repl"></div>
+
 ````CSHTML
 <TelerikPivotGrid Data="@PivotData">
     <PivotGridColumns>
@@ -45,31 +48,34 @@ When bound to local data, the Pivot Grid requires its `Data` parameter to provid
 </TelerikPivotGrid>
 
 @code {
-    private List<PivotModel> PivotData { get; set; } = new List<PivotModel>();
+    private List<PivotModel>? PivotData { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         var dataItemCount = 100;
         var categoryCount = 3;
-        var productCount = 5 + 1; // effectively 5, as rnd.Next() will never return 6
+        var productCount = 5 + 1; // effectively 5, as Random.Shared.Next() will never return 6
         var cityCount = 3 + 1; // effectively 3
-        var rnd = new Random();
+
+        await Task.Delay(1000); // simulate network delay
+
+        PivotData = new List<PivotModel>(); // reset PivotData object reference if it exists
 
         for (int i = 1; i <= dataItemCount; i++)
         {
-            var productNumber = rnd.Next(1, productCount);
+            var productNumber = Random.Shared.Next(1, productCount);
 
             PivotData.Add(new PivotModel()
             {
                 Category = $"Category {productNumber % categoryCount + 1}",
                 Product = $"Product {productNumber}",
-                City = $"City {rnd.Next(1, cityCount)}",
-                ContractDate = DateTime.Now.AddDays(-rnd.Next(1, 31)).AddMonths(-rnd.Next(1, 12)).AddYears(-rnd.Next(0, 5)),
-                ContractValue = rnd.Next(123, 987)
+                City = $"City {Random.Shared.Next(1, cityCount)}",
+                ContractDate = DateTime.Now.AddDays(-Random.Shared.Next(1, 31)).AddMonths(-Random.Shared.Next(1, 12)).AddYears(-Random.Shared.Next(0, 5)),
+                ContractValue = Random.Shared.Next(123, 987)
             });
         }
 
-        base.OnInitialized();
+        await base.OnInitializedAsync();
     }
 
     public class PivotModel
