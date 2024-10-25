@@ -42,19 +42,22 @@ navigation:
      "accessibility":
         title: "Accessibility"
         position: 17
+     "security":
+        title: "Security"
+        position: 18       
      "*deployment":
         title: "Deployment"
-        position: 18
+        position: 19
      "upgrade":
         title: "Upgrade"
-        position: 19
+        position: 21
      "upgrade/breaking-changes":
         title: "Breaking Changes"
      "upgrade/rendering-changes":
         title: "Rendering Changes"
      "how-to":
         title: "How To"
-        position: 20
+        position: 23
      "getting-started/vs-integration":
         title: "Visual Studio Integration"
         position: 25
