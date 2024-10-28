@@ -35,11 +35,9 @@ The following parameters allow you to configure the Agenda view:
 >caption Declare the Agenda view in the markup
 
 ````CSHTML
-@* Control the empty days visibility *@
 <label for="hide-emptydays-checkbox" class="k-checkbox-label checkbox-label">Hide Empty Days</label>
 <TelerikCheckBox @bind-Value="@HideEmptyDays" Id="hide-emptydays-checkbox"></TelerikCheckBox>
 
-@* Define the Agenda view. *@
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="800px">
     <SchedulerViews>
         @* Enable the Agenda view and use the 'HideEmptyAgendaDays' option to control whether days without appointments are shown in the Agenda view*@
