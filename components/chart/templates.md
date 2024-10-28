@@ -11,7 +11,7 @@ position: 101
 
 # No Data Template
 
-The `NoDataTemplate` allows you to define custom content when any of the Chart series has no data to show. To change the default **No data** localizable text, declare a `<NoDataTemplate>` tag inside a `<ChartSettings>` tag:
+When a Chart series has no data to show, you can use the `NoDataTemplate` to display custom content. This is a global Chart setting and applies to all instances where a Chart series does not have any data to show. To change the default **No data** localizable text, declare a `<NoDataTemplate>` tag inside a `<ChartSettings>` tag:
 
 ````CSHTML
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
