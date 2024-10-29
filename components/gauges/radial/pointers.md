@@ -87,7 +87,7 @@ The `Color` (`string`) parameter controls the color of the pointer cap. It accep
 
 ![Pointer cap color](images/pointer-cap-color.png)
 
-````CSHML
+````RAZOR
 @* Change the color of the pointer cap *@
 
 <TelerikRadialGauge>

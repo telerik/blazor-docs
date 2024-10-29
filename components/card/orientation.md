@@ -51,7 +51,7 @@ The result from the snippet below.
 
 ![Card with horizontal orientation](images/vertical-orientation-example.png)
 
-````CSTHML
+````RAZOR
 @* Change the orientation of the Card *@
 
 <TelerikCard Orientation="CardOrientation.Vertical" Width="200px">

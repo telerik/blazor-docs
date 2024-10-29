@@ -33,7 +33,7 @@ Apart from that, you can add and customize any other content - for example, icon
 ![Gantt TooltipTemplate Example](images/gantt-tooltip-template-example.png)
 
 
-````CSTHML
+````RAZOR
 @* Customize the content of the Tooltip through the TooltipTemplate *@
 
 <TelerikGantt Data="@Data"

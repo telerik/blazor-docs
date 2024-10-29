@@ -86,7 +86,7 @@ The `Color` (`string`) parameter controls the color of the pointers. It accepts 
 
 The `Opacity` (`double`) parameter controls the opacity of the pointers. The value passed to it should be between **0** and **1**.
 
-````CSHML
+````RAZOR
 @* Change the opacity of a pointer *@
 
 <TelerikLinearGauge>

@@ -171,7 +171,7 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ![Remove the MinorUnit ticks](images/remove-minorunit-ticks-linear-gauge.png)
 
-````CSHMTL
+````RAZOR
 @* Remove the MinorUnit ticks. *@
 
 <TelerikLinearGauge>

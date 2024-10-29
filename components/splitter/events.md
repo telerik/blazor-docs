@@ -151,7 +151,7 @@ The `SizeChanged` event is triggered when the `Size` parameter of the correspond
 
 >caption Handle the SizeChanged event of a Splitter Pane
 
-````CSTHML
+````RAZOR
 @* Try resizing Pane 1 *@ 
 
 <div style="width: 500px; border: 1px solid red;">
@@ -195,7 +195,7 @@ The `CollapsedChanged` event is triggered when the `Collapsed` parameter of the 
 
 >caption Handle the CollapsedChanged event of a Splitter Pane
 
-````CSTHML
+````RAZOR
 @* Try collapsing Pane 1 *@ 
 
 <div style="width: 500px; border: 1px solid red;">

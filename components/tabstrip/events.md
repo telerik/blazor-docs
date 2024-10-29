@@ -22,7 +22,7 @@ If you remove programmatically the currently active tab, when it disposes, the e
 
 >caption Handle the tab selection changed event
 
-````CSHTL
+````RAZOR
 @result
 
 <TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">

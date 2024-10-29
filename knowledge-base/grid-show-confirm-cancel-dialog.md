@@ -128,7 +128,7 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
 * Wait for the user choice to prevent or proceed with the cancel operation.
 * Hide the Dialog.
 
-````CSTHML
+````RAZOR
 @*Only OnCancel event is handled for brevity*@
 
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@

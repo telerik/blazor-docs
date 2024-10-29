@@ -22,7 +22,7 @@ To use the Telerik Spreadsheet for Blazor:
 
 >caption Basic Blazor Spreadsheet
 
-````CSHML
+````RAZOR
 <TelerikSpreadsheet Data="@SpreadsheetData">
 </TelerikSpreadsheet>
 

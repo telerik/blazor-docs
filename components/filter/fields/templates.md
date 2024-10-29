@@ -29,7 +29,7 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 
 >caption Using FilterField ValueTemplate
 
-````CSHMTL
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
