@@ -78,13 +78,10 @@ We closely monitor the [OWASP Top 10](https://owasp.org/www-project-top-ten/) li
 
 ## Telerik UI for Blazor Component-Specific Security Guidelines
 
-Telerik UI for Blazor provides a variety of security-related articles for individual components. These resources outline best practices and recommendations for securing each component and mitigating potential risks. Below is a list of available security articles for specific components:
+The following resources outline best practices and recommendations for securing the corresponding component and mitigating potential risks:
 
+* [Editor - Security Guidelines]({%slug editor-overview%}#security)
 * [Upload - Security Guidelines]({%slug upload-overview%}#security)
-
-<!-- add the Editor here as well but first add a security section in its overview -->
-
-These resources provide specific guidelines for configuring the components securely and mitigating the risks associated with their usage.
 
 For more detailed answers to common security-related questions, please refer to our [Security FAQ page]({%slug security-faq%}).      
  
