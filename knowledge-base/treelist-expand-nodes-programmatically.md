@@ -22,11 +22,11 @@ ticketid: 1663716, 1649445, 1548181
 
 ## Description
 
-In the Telerik TreeList for Blazor, I load the TreeList in a collapsed mode. I need to programmatically expand and collapse a specific node programmatically.
+In the Telerik TreeList for Blazor, I load the TreeList in a collapsed mode. I need to programmatically expand and collapse TreeList nodes.
 
 This KB article also answers the following questions:
 - How can I control the expanded state of TreeList nodes in code?
-- Is it possible to expand a TreeList node without user interaction?
+- Is it possible to expand a TreeList nodes without user interaction?
 - What approach should I take to programmatically adjust the visibility of TreeList nodes?
 
 ## Solution
@@ -36,45 +36,34 @@ To control the expanded or collapsed state of items in the TreeList programmatic
 Below is an example demonstrating how to use the TreeList State to expand or collapse items programmatically:
 
 ````CSHTML
-@using Telerik.DataSource;
-
 <div>
     <span>
         <TelerikButton OnClick="@SetTreeListExpandedItems">Expand/Collapse All Items</TelerikButton>
     </span>
 </div>
 <br />
-<TelerikTreeList Data="@Data"
+
+<TelerikTreeList @ref="TreeListRef"
+                 Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
+                 OnStateInit="((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
                  Reorderable="true"
                  Resizable="true"
                  Sortable="true"
                  FilterMode="@TreeListFilterMode.FilterRow"
                  Pageable="true"
-                 Width="850px"
-                 OnStateInit="((TreeListStateEventArgs<Employee> args) => OnStateInitHandler(args))"
-                 @ref="TreeListRef">
+                 Width="850px">
     <TreeListColumns>
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
+        <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" Width="320px" />
+        <TreeListColumn Field="@nameof(Employee.EmailAddress)" Width="220px" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
 @code {
     private TelerikTreeList<Employee> TreeListRef { get; set; } = new TelerikTreeList<Employee>();
-
-    private async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
-    {
-        var collapsedItemsState = new TreeListState<Employee>()
-            {
-                //collapse all items in the TreeList upon initialization of the state
-                ExpandedItems = new List<Employee>()
-            };
-
-        args.TreeListState = collapsedItemsState;
-    }
+    private List<Employee> Data { get; set; }
+    private int LastId { get; set; } = 1;
 
     private async Task SetTreeListExpandedItems()
     {
@@ -92,10 +81,12 @@ Below is an example demonstrating how to use the TreeList State to expand or col
                     }
                 }
             }
+
             var expandedState = new TreeListState<Employee>()
                 {
                     ExpandedItems = new List<Employee>(toExpand)
                 };
+
             await TreeListRef.SetStateAsync(expandedState);
         }
         else
@@ -104,25 +95,22 @@ Below is an example demonstrating how to use the TreeList State to expand or col
                 {
                     ExpandedItems = new List<Employee>()
                 };
+
             await TreeListRef.SetStateAsync(expandedState);
         }
 
     }
 
-    private List<Employee> Data { get; set; }
-
-    public class Employee
+    private async Task OnStateInitHandler(TreeListStateEventArgs<Employee> args)
     {
-        public List<Employee> DirectReports { get; set; }
+        var collapsedItemsState = new TreeListState<Employee>()
+            {
+                //collapse all items in the TreeList upon initialization of the state
+                ExpandedItems = new List<Employee>()
+            };
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
+        args.TreeListState = collapsedItemsState;
     }
-
-    // used in this example for data generation and retrieval for CUD operations on the current view-model data
-    public int LastId { get; set; } = 1;
 
     protected override async Task OnInitializedAsync()
     {
@@ -177,6 +165,16 @@ Below is an example demonstrating how to use the TreeList State to expand or col
         }
 
         return await Task.FromResult(data);
+    }
+
+    public class Employee
+    {
+        public List<Employee> DirectReports { get; set; }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
     }
 }
 ````
