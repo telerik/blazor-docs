@@ -28,7 +28,7 @@ We will review the report and follow up in line with our security processes, mak
 
 Clients can open a support ticket through the [Technical Support Center](https://www.telerik.com/account/support-center) for the respective product and submit detailed information, including scan reports (PDF/Word/Excel/Screenshot) triggered against a no-minified version of the scripts and steps to reproduce or evidence of the issue. Our team will review and respond accordingly. We treat Security Vulnerability reports with **highest priority** and we engage with our internal Security Champions for revisions.
 
-> Tip: We recommend running the scan against the latest product version, as the problem may have already been resolved. 
+>tip We recommend running the scan against the latest product version, as the problem may have already been resolved. 
 
 ---
 
