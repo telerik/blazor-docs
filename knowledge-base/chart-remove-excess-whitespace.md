@@ -1,8 +1,8 @@
 ---
-title: How to Reduce the Excessive WhiteSpace Around the Chart
-description: Learn how to adjust the padding and legend position of a Chart and remove unnecessary whitespace.
+title: How to Reduce the Excessive Whitespace Around the Chart
+description: Learn how to adjust the padding and legend position of a Chart and remove unnecessary white space.
 type: how-to
-page_title: How to Reduce the Excessive WhiteSpace Around the Chart
+page_title: How to Reduce the Excessive Whitespace Around the Chart
 slug: chart-kb-remove-excess-whitespace
 tags: chart, padding
 res_type: kb
@@ -25,7 +25,7 @@ ticketid: 1663179, 1559824
 This KB article answers the following questions:
 
 - How to adjust the padding of a Chart in Blazor?
-- How to reduce whitespace around the Chart that is within a Telerik Card?
+- How to reduce white space around the Chart that is within a Telerik Card?
 - How to make the Chart more compact?
 
 ## Solution
@@ -54,7 +54,6 @@ To reduce the whitespace around a Chart, use the `Padding` parameter of the Char
 </TelerikCard>
 
 @code {
-
     private List<MyPieChartModel> pieData = new List<MyPieChartModel>
     {
         new MyPieChartModel
@@ -73,6 +72,7 @@ To reduce the whitespace around a Chart, use the `Padding` parameter of the Char
             SegmentValue = 4
         }
     };
+
     public class MyPieChartModel
     {
         public string SegmentName { get; set; }
