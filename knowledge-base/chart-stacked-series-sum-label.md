@@ -211,7 +211,7 @@ Here is how to display an additional custom label on the horizontal Chart axis b
 
 >caption Display additional custom column series label on the Chart category axis
 
-````CSHML
+````RAZOR
 <TelerikChart>
 
     <ChartTitle Text="Work Items by Period" />

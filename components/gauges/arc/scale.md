@@ -153,7 +153,7 @@ You can enable the MinorUnit ticks on the scale by using the `<ArcGaugeScaleMino
 
 ![Add the MinorUnit ticks](images/add-minorunit-ticks-arc-gauge.png)
 
-````CSHMTL
+````RAZOR
 @* Add the MinorUnit ticks. *@
 
 <TelerikArcGauge>

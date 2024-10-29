@@ -127,7 +127,7 @@ You can resize the Chart based on the browser size and re-render with the new di
 
 >note You can also see the <a href="https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart" target="_blank">Responsive Chart demo application</a> for additional examples.
 
-````CSHMTL
+````RAZOR
 @* Resize the chart based on the browser size so it matches the corresponding responsive layout *@
 
 <TelerikMediaQuery Media="(max-width: 767px)" OnChange="@OnChangeHandler"></TelerikMediaQuery>

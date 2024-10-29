@@ -52,7 +52,7 @@ This KB article answers the following questions:
 
 >caption ListBox Filtering
 
-````CSHTL
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
