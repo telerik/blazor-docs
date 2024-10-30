@@ -42,7 +42,7 @@ Our definition of "done" includes successful builds that are scanned using top s
 
 ## Is security integrated into the CI pipeline?
 
-Yes, for example, our CI builds are integrated with some of the leading security scanning tools to ensure that new code commits do not introduce vulnerabilities or insecure code.
+Yes, for example, our CI builds use some of the leading security scanning tools to ensure that new code commits do not introduce vulnerabilities or insecure code.
 
 ---
 
