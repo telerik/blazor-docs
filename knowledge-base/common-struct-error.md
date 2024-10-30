@@ -1,8 +1,8 @@
 ---
-title: Databound Telerik Blazor components do not work and get a null exception
+title: Databound Telerik Blazor Components Do Not Work and Get a Null Exception
 description: Using struct objects for the Data of the component causes error
 type: troubleshooting
-page_title: Struct data source causes exception
+page_title: Struct Data Source Causes Exception
 slug: common-kb-struct-error
 tags: telerik, blazor, autocomplete, breadcrumb, chart, chiplist, combobox, contextmenu, drawer, dropdownlist, filemanager, gantt, grid, listbox, listview, menu, multicolumncombobox, multiselect, panelbar, pivotgrid, radiogroup, sankey, scheduler, stock chart, treelist, treeview, struct, null exception
 ticketid: 1657421
@@ -22,16 +22,13 @@ res_type: kb
 
 ## Description
 
-When using a data-bound component, the application gets a null exception, and the component does not work.
-
-## Error Message
-When running a Telerik Blazor application the application gets an error similar to the following:
+When using a data-bound component, the application gets a null exception, and the component does not work. When running the Telerik Blazor application the application gets an error similar to the following:
 ```
 ArgumentNullException: Value cannot be null. (Parameter 'source')
 System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
 ```
 
-## Example to Reproduce
+To reproduce the problem, you can use the following code sample:
 ````CSHTML
 <TelerikGrid Data="@GridData">
     <GridColumns>
@@ -78,11 +75,11 @@ System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
 }
 ````
 
-## Possible Cause
-The reason for this error is because the component is databound to a `struct`.
+## Cause
+The cause for this null exception is the binding of Telerik UI for Blazor components to a `struct` component model.
 
 ## Solution
-The solution is to use a `class` model, not a `struct`, as documented in the red note [here]({%slug common-features-data-binding-overview%}#how-to-provide-data):
+The solution is to always bind the component to a `class` model, not a `struct`. For more information, see [Data Binding Overview]({%slug common-features-data-binding-overview%}#how-to-provide-data).
 
 <div class="skip-repl"></div>
 
@@ -98,4 +95,5 @@ The solution is to use a `class` model, not a `struct`, as documented in the red
 ````
 
 ## See Also
+
 - [Data Binding Overview]({%slug common-features-data-binding-overview%})
