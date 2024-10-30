@@ -48,7 +48,7 @@ Yes, for example, our CI builds use some of the leading security scanning tools 
 
 ## How does Progress prioritize security reports?
 
-We prioritize security vulnerability reports with the highest urgency. When we receive an inquiry or vulnerability report, we begin by analyzing the issue to determine whether it's a false positive or a valid concern. If the report is confirmed as valid, we assess its severity using the CVSS (Common Vulnerability Scoring System) and promptly release a patch based on the severity level.
+We prioritize security vulnerability reports with the highest urgency. When we receive an inquiry or vulnerability report, we analyze the issue to determine whether it's a false positive or a valid concern. If the report is confirmed as valid, we assess its severity using the CVSS (Common Vulnerability Scoring System) and release a patch based on the severity level.
 
 ---
 
