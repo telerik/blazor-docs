@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview
-description: "Learn how to secure Telerik UI for Blazor components and your Web Forms app with best practices, vulnerability reporting, and component-specific security guidelines."
+description: Learn how to secure Telerik UI for Blazor components and your Web Forms app with best practices, vulnerability reporting, and component-specific security guidelines.
 slug: security-overview
 tags: telerik, blazor, security, xss, owasp, csp
 published: True
