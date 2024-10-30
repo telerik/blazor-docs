@@ -38,6 +38,7 @@ We value the contributions of security researchers and ethical hackers. If a res
 | Time to Resolution| Depends on severity    |
 
 For more information, visit:
+
 - [Bugcrowd Vulnerability Disclosure Program](https://bugcrowd.com/engagements/devtools-vdp)
 - [Progress Trust Center](https://www.progress.com/trust-center)
 - [Vulnerability Reporting Policy](https://www.progress.com/trust-center/vulnerability-reporting-policy)
