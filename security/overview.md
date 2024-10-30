@@ -23,6 +23,7 @@ Whether you're a customer encountering an issue or a security researcher, we hav
 ### For Progress Customers
 
 At Progress, we work diligently to identify and fix security vulnerabilities in our products. Customers who believe they have identified a security issue should contact Technical Support for an evaluation. This allows us to document the issue and have our engineering teams confirm and address it as needed. Customers can submit reports through our support center:
+
 - [Technical Support](https://www.telerik.com/account/support-center)
 - [Contact Us](https://www.telerik.com/account/support-center/contact-us/technical-support)
 
