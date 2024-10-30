@@ -36,7 +36,7 @@ Clients can open a support ticket through the [Technical Support Center](https:/
 
 Progress uses leading commercial tools to automatically monitor and update third-party dependencies in our Telerik and Kendo GitHub projects. Alerts are set up for all GitHub-hosted products, and any identified vulnerable dependencies are addressed by the repository owners and our dedicated security team.
 
-Note: Our definition of "done" includes successful builds that are scanned using top security scanning tools, and the resolution of any security alerts.
+Our definition of "done" includes successful builds that are scanned using top security scanning tools, and the resolution of any security alerts.
 
 ---
 
