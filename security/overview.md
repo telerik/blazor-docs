@@ -46,7 +46,7 @@ For more information, visit:
 
 ## What We Do to Mitigate Risk
 
-Our dedicated security team, comprised of experienced developers and security experts—our "Security Champions"—reviews all web, desktop, and mobile products technologies for potential vulnerabilities. These vulnerabilities may be internally identified, reported by third-party tools, or flagged externally.
+Our dedicated security team is comprised of experienced developers and security experts—our "Security Champions". They review all web, desktop, and mobile products technologies for potential vulnerabilities. These vulnerabilities may be internally identified, reported by third-party tools, or flagged externally.
 
 We actively manage the following strategies to mitigate risks:
 
