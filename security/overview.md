@@ -58,7 +58,7 @@ Our primary goal is to prevent security issues before product delivery. We use t
 - **Third-Party Static Analysis Testing**: We utilize some of the leading security scanning tools in the market to scan for vulnerabilities in our software code. Regular scans are conducted, and results are reviewed to address vulnerabilities and mitigate false positives.
 
 
-## Third-Party Dependencies Handling
+## Third-Party Dependency Handling
 
 We leverage leading commercial tools to automatically monitor and update third-party dependencies in our Telerik and Kendo GitHub projects, ensuring they remain secure and up-to-date. Alerts are enabled for all GitHub-hosted products, and the identified vulnerable dependencies are addressed by the repository code owners and security champions.
 
