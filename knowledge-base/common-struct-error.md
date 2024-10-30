@@ -21,7 +21,8 @@ res_type: kb
 
 
 ## Description
-When using a databound component the application gets a null exception and the component does not work.
+
+When using a data-bound component, the application gets a null exception, and the component does not work.
 
 ## Error Message
 When running a Telerik Blazor application the application gets an error similar to the following:
