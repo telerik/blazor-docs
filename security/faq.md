@@ -32,7 +32,7 @@ Clients can open a support ticket through the [Technical Support Center](https:/
 
 ---
 
-## What is Progress's policy on handling third-party dependencies?
+## What is Progress' policy on handling third-party dependencies?
 
 Progress uses leading commercial tools to automatically monitor and update third-party dependencies in our Telerik and Kendo GitHub projects. Alerts are set up for all GitHub-hosted products, and any identified vulnerable dependencies are addressed by the repository owners and our dedicated security team.
 
