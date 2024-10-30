@@ -1,7 +1,7 @@
 ---
 title: FAQ
 page_title: FAQ
-description: "Find answers to common questions about securing Telerik UI for Blazor components, including how to report vulnerabilities, handle third-party dependencies, and receive security fixes."
+description: Find answers to common questions about securing Telerik UI for Blazor components, including how to report vulnerabilities, handle third-party dependencies, and receive security fixes.
 slug: security-faq
 tags: telerik, blazor, security
 published: True
