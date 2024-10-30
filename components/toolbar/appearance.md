@@ -18,8 +18,8 @@ The `FillMode` parameter controls if the ToolBar will have a background and bord
 
 | `FillMode` Class Member | String Value |
 | --- | --- |
-| `Flat` | `"flat"` |
 | `Solid` (default) | `"solid"` |
+| `Flat` | `"flat"` |
 | `Outline` | `"outline"` |
 
 >caption The built-in fill modes
