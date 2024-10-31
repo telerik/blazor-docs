@@ -16,13 +16,12 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
 
 #### In this article:
 
-* [Basics](#basics)
 * [Data Binding Notes](#data-binding-notes)
 * [Heatmap Chart Specific Appearance Settings](#heatmap-chart-specific-appearance-settings)
     * [Setting the Marker Type](#setting-the-marker-type)
     * [Color](#color)
     * [ColorField](#colorfield)
-    * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements--nested-tags-settings)
+    * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements-nested-tags-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 

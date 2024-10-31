@@ -88,7 +88,7 @@ You can add a short description of the Chart's purpose by using the `ChartTitle`
 
 ## Chart Subtitle
 
-You can add a descriptive text that enriches the [Title](#title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
+You can add a descriptive text that enriches the [Title](#chart-title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
 
 ## Chart Size
 
