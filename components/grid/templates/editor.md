@@ -18,7 +18,7 @@ The template receives a **copy** of the original model, so that changes can be c
 
 If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form]({%slug grid-kb-custom-edit-form%}).
 
->tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](../editing/incell#editor-template).
+>tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes]({%slug components/grid/editing/incell%}#editor-template).
 
 **In this article:**
 

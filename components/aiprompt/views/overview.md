@@ -28,8 +28,8 @@ The AIPrompt views provide various parameters that allow you to configure the co
 | --- | --- | --- |
 | `ButtonText` | `string` | The text rendered within the toolbar button associated with the view. |
 | `ButtonIcon` | `object` | The [Telerik Font or SVG icon]({%slug common-features-icons%}) rendered within the toolbar button associated with the view. |
-| `ViewTemplate` | `RenderFragment` | The template controlling the rendering of the view's content. Read more in the [Templates]({%slug aiprompt-views-templates%}#viewtemplate) article. |
-| `FooterTemplate` | `RenderFragment` | The template controlling the rendering of the view's footer. Read more in the [Templates]({%slug aiprompt-views-templates%}#footertemplate) article. |
+| `ViewTemplate` | `RenderFragment` | The template controlling the rendering of the view's content. Read more in the [Templates]({%slug aiprompt-views-templates%}#view-template) article. |
+| `FooterTemplate` | `RenderFragment` | The template controlling the rendering of the view's footer. Read more in the [Templates]({%slug aiprompt-views-templates%}#footer-template) article. |
 
 By default, the AIPrompt will always render both the Prompt and the Output view. The Commands view will be rendered only if you pass a custom set of commands through the `Commands` parameter:
 

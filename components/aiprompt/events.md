@@ -15,7 +15,7 @@ This article explains the events available in the Telerik AIPrompt for Blazor:
 * [`OnPromptRequest`](#onpromptrequest)
 * [`OnCommandExecute`](#oncommandexecute)
 * [`OnOutputRate`](#onoutputrate)
-* [`PromptTextChanged`](#promptexttchanged)
+* [`PromptTextChanged`](#prompttextchanged)
 
 ## OnPromptRequest
 
