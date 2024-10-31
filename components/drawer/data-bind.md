@@ -18,7 +18,7 @@ This article has the following sections:
 
 * The available (bindable) [features of a drawer item](#drawer-item-features).
 * How to match fields in the model with the drawer item [data bindings](#data-bindings).
-* [Example](#example---data-binding-to-non-default-field-names) of using non-default field names for data binding.
+* [Example](#example-data-binding-to-non-default-field-names) of using non-default field names for data binding.
 
 ## Drawer Item Features
 
