@@ -79,7 +79,7 @@ Read more about them and find code examples in the [Grid Export Events]({%slug g
 >caption The different use-cases of the OnModelInit event
 
 <div class="skip-repl"></div>
-````NoParameterlessConstructor
+````RAZOR NoParameterlessConstructor
 @* Bind the Grid to a class without a parameterless constructor *@
 
 <TelerikGrid Data="@SampleGridData"
@@ -210,7 +210,7 @@ Read more about them and find code examples in the [Grid Export Events]({%slug g
     }
 }
 ````
-````Interface
+````RAZOR Interface
 @* Bind the Grid to an interface *@
 
 <TelerikGrid Data="@SampleGridData"
@@ -347,7 +347,7 @@ Read more about them and find code examples in the [Grid Export Events]({%slug g
     }
 }
 ````
-````AbstractClass
+````RAZOR AbstractClass
 @* Bind the Grid to an abstract class *@
 
 <TelerikGrid Data="@SampleGridData"
@@ -493,7 +493,7 @@ The `OnRowClick` event handler receives a `GridRowClickEventArgs` argument, whic
 
 >caption Use the OnRowClick event to load data on demand based on the clicked row
 
-````CSHTML
+````RAZOR
 @* Use the OnRowClick event to load data on demand based on the clicked row *@
 
 There is a deliberate delay in the data loading to showcase the async nature of the event
@@ -593,7 +593,7 @@ The `OnRowDoubleClick` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Use the OnRowDoubleClick event to receive information on the clicked row
 
-````CSHTML
+````RAZOR
 @* Use the OnRowDoubleClick event to receive information on the row the user clicked on *@
 
 <TelerikGrid Data="@MyData"
@@ -656,7 +656,7 @@ The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument
 
 >caption Use the Grid OnRowContextMenu event and get the data model
 
-````CSHTML
+````RAZOR
 @* Get the row model from a context menu action (right click/long tap) *@
 
 <TelerikGrid Data="@MyData"
@@ -715,7 +715,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 
 >caption Use the OnRowExpand event to load detailed data on demand. Another approach can be found on our [public github repository](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy).
 
-````CSHTML
+````RAZOR
 @* Load data on demand for the expanded detail row.  *@
 
 <TelerikGrid Data="salesTeamMembers"
@@ -805,7 +805,7 @@ The event handler receives a `GridRowCollapseEventArgs` object which provides th
 
 >caption Use the OnRowCollapse event to get the Id of the collapsed row from the data model
 
-````CSHTML
+````RAZOR
 @* Get the Id of the collapsed row *@
 
 <TelerikGrid Data="salesTeamMembers"
@@ -890,7 +890,7 @@ This event fires when each Grid row renders. This can happen in the following ca
 
 >caption Use the OnRowRender event to apply custom styles to Grid rows based on certain condition
 
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for rows (including locked/frozen columns). *@
 
 <style>
@@ -966,7 +966,7 @@ The event fires when the user pages the grid.
 
 >caption Handle the PageChanged event to know when the user changes the page
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="30"
@@ -990,7 +990,7 @@ The event fires when the user pages the grid.
 
 >caption One-way binding of the Page parameter should be used with the PageChanged event to keep the view-model in sync
 
-````CSHTML
+````RAZOR
 @* Set initial page index, and keep it updated with the grid state to prevent it from resetting the grid page index on re-renders *@
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="30" Height="300px"
@@ -1023,7 +1023,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````CSHTML
+````RAZOR
 <TelerikGrid
             Data="@MyData"
             Pageable="true"
