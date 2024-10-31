@@ -21,7 +21,7 @@ This article contains the following sections:
 	* [Numerical Charts](#numerical-charts)
 * [Choose Axis Position](#choose-axis-position)
 * [Examples](#examples)
-	* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
+	* [Categorical Chart - Value Axes Examples](#categorical-chart-value-axes-examples)
 	* [Category Axes](#category-axes)
 		* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 	* [Numerical Chart Examples](#numerical-chart-examples)
@@ -66,7 +66,7 @@ You can set a very large or a very small value to make a certain axis appear at 
 In this section you can find code examples, explanations on the behavior and screenshots of the expected behavior so you can understand the behavior of the chart and use it to your advantage.
 
 
-* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
+* [Categorical Chart - Value Axes Examples](#categorical-chart-value-axes-examples)
 * [Category Axes](#category-axes)
 	* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 * [Numerical Chart Examples](#numerical-chart-examples)

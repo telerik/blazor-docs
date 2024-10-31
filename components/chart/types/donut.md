@@ -82,7 +82,7 @@ The following sections explain specific configuration options to the donut chart
 * [Visible In Legend](#visible-in-legend)
 * [Hole Size](#hole-size)
 * [Multiple Series](#multiple-series)
-* [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements---nested-tags-settings)
+* [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements-nested-tags-settings)
 
 ### Rotation
 
