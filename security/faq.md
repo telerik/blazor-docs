@@ -58,7 +58,7 @@ Security fixes are typically included in the next product release. Similar to th
 
 ---
 
-## How are customers notified about security fixes?
+## How am I notified about security fixes?
 
 Once a vulnerability is fixed, we aim to release a patched version of the product. Depending on the severity of the issue, we may notify customers through CVE publications, email, blog posts, KB articles, or Release Notes for the specific product.
 
