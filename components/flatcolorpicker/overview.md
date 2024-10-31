@@ -55,7 +55,7 @@ The image below reveals all FlatColorPicker interface elements:
 
 ![FlatColorPicker component](images/flatcolorpicker-overview.png)
 
-## Features
+## FlatColorPicker Parameters
 
 The FlatColorPicker tag exposes the following features via its attributes:
 
