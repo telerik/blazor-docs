@@ -64,7 +64,7 @@ Once a vulnerability is fixed, we aim to release a patched version of the produc
 
 ---
 
-## Does Progress/Telerik have any security certifications or accreditations, such as SOC 2 or other industry-recognized standards?
+## Does Progress and Telerik DevTools have any security certifications or accreditations, such as SOC 2 or other industry-recognized standards?
 
 Yes, Progress and DevTools products perform annual SOC 2 compliance, which validates our commitment to security, confidentiality, and privacy. You can find more information about our compliance on the [Progress Trust Center](https://www.progress.com/trust-center). Additionally, we align our security practices with industry-leading frameworks to maintain and continually improve our high security standards.
 
