@@ -33,7 +33,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
 >caption The different use-cases of the OnModelInit event
 
 <div class="skip-repl"></div>
-````NoParameterlessConstructor
+````RAZOR NoParameterlessConstructor
 @* Bind the Scheduler to a class without a parameterless constructor *@
 
 <TelerikScheduler Data="@Appointments"
@@ -218,7 +218,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     }
 }
 ````
-````Interface
+````RAZOR Interface
 @* Bind the Scheduler to an interface *@
 
 <TelerikScheduler Data="@Appointments"
@@ -415,7 +415,7 @@ To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelet
     }
 }
 ````
-````AbstractClass
+````RAZOR AbstractClass
 @* Bind the Scheduler to an abstract class *@
 
 <TelerikScheduler Data="@Appointments"
@@ -610,7 +610,7 @@ It provides a `SchedulerItemClickEventArgs` object to the event handler and you 
 
 >caption Use the OnItemClick event for the scheduler
 
-````CSHTML
+````RAZOR
 @* You can react to user clicking on a Scheduler item by using the OnItemClick event *@
 
 <TelerikScheduler Data="@Appointments" 
@@ -683,7 +683,7 @@ It provides a `SchedulerItemDoubleClickEventArgs` object to the event handler an
 
 >caption Use the OnItemDoubleClick event for the scheduler
 
-````CSHTML
+````RAZOR
 @* You can react to user double clicking on a Scheduler item by using the OnItemDoubleClick event *@
 
 <TelerikScheduler Data="@Appointments" 
@@ -756,7 +756,7 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
 
 >caption Use the OnItemContextMenu event for the scheduler
 
-````CSHTML
+````RAZOR
 @* You can react to user right clicking on a Scheduler item by using the OnItemContextMenu event *@
 
 <TelerikScheduler Data="@Appointments"
@@ -842,7 +842,7 @@ Through its event arguments you can get the `Item` to cast it to your model type
 
 >caption Customize the appearance of the scheduler appointments by adding custom CSS classes to them conditionally
 
-````CSHTML
+````RAZOR
 @* The sample styles are at the end of the snippet, and you can also add more than one per appointment, depending on the necessary logic *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px"
@@ -952,7 +952,7 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 
 >caption Customize certain Scheduler slots by handling the `OnCellRender` event
 
-````CSHTML
+````RAZOR
 <style>
     .lunch-break {
         background-color: rgba(255,124,115,0.3);
@@ -1044,7 +1044,7 @@ The `DateChanged` event fires when the user [navigates]({%slug scheduler-navigat
 >caption Handle the `DateChanged` event
 
 
-````CSHTML
+````RAZOR
 @* Try navigating to the previous or next period, today or a random date, then repeat after changing the view *@
 
 @result
@@ -1129,7 +1129,7 @@ The `ViewChanged` event fires when the user chooses a new [View]({%slug schedule
 
 >caption Handle the `ViewChanged` event.
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px"

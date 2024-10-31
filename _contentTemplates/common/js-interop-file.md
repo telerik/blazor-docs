@@ -20,7 +20,7 @@
 #end
 
 #js-interop-file-snippet
-````
+````HTML
 <head>
     . . .
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
@@ -33,7 +33,7 @@
 #end
 
 #theme-static-asset-snippet
-````
+````HTML
 <head>
     . . .
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
@@ -64,7 +64,7 @@ var app = builder.Build();
 
 #register-telerik-service-client
 <div class="skip-repl"></div>
-````.NET_6_and_.NET_7
+````C#
 using ClientBlazorProject;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

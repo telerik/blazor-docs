@@ -38,7 +38,7 @@ In the common case, you provide all the data to the listview's Data collection a
 >caption The different use-cases of the OnModelInit event
 
 <div class="skip-repl"></div>
-````NoParameterlessConstructor
+````RAZOR NoParameterlessConstructor
 @* Bind the ListView to a class without a parameterless constructor *@
 
 <TelerikListView Data="@ListViewData" 
@@ -205,7 +205,7 @@ In the common case, you provide all the data to the listview's Data collection a
     }
 }
 ````
-````Interface
+````RAZOR Interface
 @* Bind the ListView to an interface *@
 
 <TelerikListView Data="@ListViewData" 
@@ -379,7 +379,7 @@ In the common case, you provide all the data to the listview's Data collection a
     }
 }
 ````
-````AbstractClass
+````RAZOR AbstractClass
 @* Bind the ListView to an abstract class *@
 
 <TelerikListView Data="@ListViewData" 
@@ -556,7 +556,7 @@ The event fires when the user pages the listview. If you will be providing the `
 
 >caption Handle the PageChanged event
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageChanged="@PageChangedHandler">
@@ -596,7 +596,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````CSHTML
+````RAZOR
 <TelerikListView Data="@ListViewData"
                  Pageable="true"
                  PageSize="@PageSize"
