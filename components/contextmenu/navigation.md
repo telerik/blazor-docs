@@ -14,7 +14,7 @@ The Context Menu can be used to navigate between different pages in the applicat
 
 To use the Context Menu for navigating between pages:
 
-* Add the ContextMenu to your application and [choose a target]({%slug contextmenu-overview%}) or [show it with your own code]({%slug contextmenu-overview%}#know-the-target-and-adjust-items).
+* Add the ContextMenu to your application and [choose a target]({%slug contextmenu-overview%}) or [show it with your own code]({%slug contextmenu-integration%}#know-the-target-and-adjust-items).
 * Provide a collection of models that describe the pages you want the user to navigate to.
 * Populate its `UrlField` with the corresponding data from the model or provide a `Url` property in the model.
 

@@ -18,7 +18,7 @@ Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColo
 
 
 1. Add the `TelerikColorPicker` tag.
-1. Set its `string` `Value` parameter to any of the [supported HEX or RGB formats](#supported-value-formats). The parameter supports [two-way binding](#example) or [one-way binding with a `ValueChanged` handler]({%slug colorpicker-events%}#valuechanged).
+1. Set its `string` `Value` parameter to any of the [supported HEX or RGB formats](#supported-value-formats). The parameter supports two-way binding or [one-way binding with a `ValueChanged` handler]({%slug colorpicker-events%}#valuechanged).
 1. (optional) If your app expects a specific color format, set the `ValueFormat` to `ColorFormat.Hex` or `ColorFormat.Rgb`.
 
 >caption A basic ColorPicker with two-way value binding
