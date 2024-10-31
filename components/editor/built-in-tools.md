@@ -83,7 +83,7 @@ Here is a simple example that demonstrates how to use class names, command names
 * [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Command Execution](#programmatic-execution)
 
-When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#addremove-tools-from-existing-toolbar).
+When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#add-remove-tools-from-existing-toolbar).
 
 ## Inline Tools
 
@@ -518,7 +518,7 @@ Some Editor commands have no built-in tools. These commands can only be [invoked
 
 You can invoke the built-in Editor commands from outside the component or from [custom tools]({%slug editor-custom-tools%}).
 
-In order to do so, you need to use the [Editor reference]({%slug editor-overview%}#component-reference) and to call the [ExecuteAsync method]({%slug editor-overview%}#methods).
+In order to do so, you need to use the [Editor reference]({%slug editor-overview%}#editor-reference-and-methods) and to call the [ExecuteAsync method]({%slug editor-overview%}#editor-reference-and-methods).
 
 >tip Use the reference tables above to find the command name and its arguments for the command you want to invoke.
 

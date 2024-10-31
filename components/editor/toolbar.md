@@ -20,7 +20,7 @@ This article contains the following sections:
 * [Basics](#basics)
 * [Built-in Tool Lists](#built-in-tool-lists)
 * [Choose Toolbar Items](#choose-toolbar-items)
-	* [Add/Remove Tools From Existing Toolbar](#addremove-tools-from-existing-toolbar)
+	* [Add/Remove Tools From Existing Toolbar](#add-remove-tools-from-existing-toolbar)
 	* [Create a Toolbar From Scratch](#create-a-toolbar-from-scratch)
 	* [Customize Built-in Tools](#customize-built-in-tools)
 
@@ -101,7 +101,7 @@ The `Tools` collection is a `List<IEditorTool>`.
 
 Editor tools can be individual buttons (such as Undo, Bold), dropdowns (such as Format or FontSize), and button groups that hold several buttons. 
 
-To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table]({%slug editor-built-in-tools%}#built-in-tools). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
+To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table]({%slug editor-built-in-tools%}#built-in-tools-and-commands). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
 
 To define a button group, add a `new EditorButtonGroup(comma-separated collection of button commands)`.
 

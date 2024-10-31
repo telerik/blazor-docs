@@ -38,7 +38,7 @@ To create a custom tool:
 
 ## Examples
 
-When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#addremove-tools-from-existing-toolbar).
+When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#add-remove-tools-from-existing-toolbar).
 
 In this section you can find the following examples:
 
