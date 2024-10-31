@@ -56,7 +56,10 @@ The Blazor HTML Editor interacts with its content (value) like all standard comp
 
 Be aware that [the Editor and the browser treat empty paragraphs differently]({%slug editor-kb-missing-br-tags-in-value%}).
 
->important @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
+## Security
+
+@[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
+
 
 ## Validation
 
