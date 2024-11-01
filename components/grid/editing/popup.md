@@ -200,7 +200,7 @@ The Grid exposes options to customize the edit popup and its form. Define the de
 
 ### Editability of Hidden Columns
 
-Staring from version 7.0, the Grid allows users to edit [hidden columns]({%slug grid-columns-visible%}) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<GridColumn>` tag.
+Starting with version 7.0, the Grid allows users to edit [hidden columns]({%slug grid-columns-visible%}) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<GridColumn>` tag.
 
 ### Popup Customization
 
