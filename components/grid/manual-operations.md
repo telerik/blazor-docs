@@ -285,7 +285,7 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 >note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
 >
-> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) in order to ensure a model reference exists.
+> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-kb-add-edit-state%}) in order to ensure a model reference exists.
 
 
 ## Aggregates with OnRead
