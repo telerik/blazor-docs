@@ -18,7 +18,7 @@ The tooltip metadata is available from the the `context` object, in the followin
 
 This article contains the following examples for generating the tooltip content:
 
-* [Markup generated in the template](#basic-example---inline-markup). Shows how you can access the metadata.
+* [Markup generated in the template](#basic-example-inline-markup). Shows how you can access the metadata.
 
 * [Markup generated from a string through a method](#markup-from-generated-string). Shows how you can loop over all the keys in the metadata and render markup from a function call.
 

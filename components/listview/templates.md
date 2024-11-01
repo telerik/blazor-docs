@@ -102,7 +102,7 @@ https://docs.telerik.com/blazor-ui/components/listview/editing
 
 ## Header Template
 
-This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source]({%slug listview-manual-operations%}#custom-operations), or [edit data]({%slug listview-editing%})).
+This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source]({%slug listview-manual-operations%}#filter-and-sort), or [edit data]({%slug listview-editing%})).
 
 >caption Header Template in the ListView
 

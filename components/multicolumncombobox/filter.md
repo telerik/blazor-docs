@@ -26,7 +26,7 @@ The default filter operator is `starts with`. You can choose a different operato
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#parameters) parameter of the component.
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters) parameter of the component.
 
 ## Filtering Example
 

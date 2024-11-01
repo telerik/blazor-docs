@@ -282,6 +282,6 @@ You can specify a `ButtonsTemplate` in the `GridPopupEditFormSettings` to custom
 ## See Also
 
 * [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
-* [Custom Editor Template Per Field]({%slug components/grid/features/templates%}#edit-template)
+* [Custom Editor Template Per Field]({%slug grid-templates-editor%})
 * [Custom Editor Layout](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)
 * [Blazor Grid]({%slug grid-overview%})

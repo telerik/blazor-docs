@@ -14,7 +14,7 @@ You can rearrange the tiles in the tile layout by a simple drag-and-drop of thei
 
 To enable reordering, set the `Reorderable` parameter of the main `TelerikTileLayout` tag to `true`.
 
-To be able to drag and reorder a tile, it must have some [content]({%slug tilelayout-overview%}#tile-contents) in its header.
+To be able to drag and reorder a tile, it must have some [content]({%slug tilelayout-tile-content%}) in its header.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 

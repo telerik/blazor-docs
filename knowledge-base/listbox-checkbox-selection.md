@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Define a [ListBox item template]({%slug listbox-templates%}#itemtemplate).
+1. Define a [ListBox item template]({%slug listbox-templates%}#item-template).
 1. In the `<ItemTemplate>`, add a [CheckBox component]({%slug checkbox-overview%}) with a [`Value` parameter]({%slug checkbox-overview%}#checkbox-parameters) and a [`ValueChanged` event handler]({%slug checkbox-events%}#valuechanged).
 1. The CheckBox `Value` must be `true` if the current item (`ItemTemplate` `context`) is a member of the ListBox `SelectedItems` collection.
 1. The CheckBox `ValueChanged` handler must add or remove the current ListBox item from the `SelectedItems` collection.

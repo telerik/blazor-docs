@@ -17,8 +17,8 @@ This article explains how to open, close and hide the Notification component. Fo
     * [Use Only the Text and ThemeColor Properties](#use-only-the-text-and-themecolor-properties)
     * [Pass a NotificationModel to the Method](#pass-a-notificationmodel-to-the-method)
 * [Close and Hide](#close-and-hide)
-    * [Automatically Closing Notification](#automatically-closing-notification)
-    * [Manually Closing Notification](#manually-closing-notification)
+    * [Automatically Closing a Notification](#automatically-closing-a-notification)
+    * [Manually Closing a Notification](#manually-closing-a-notification)
 
 ## Open
 
@@ -54,7 +54,7 @@ If you do not need to customize the [closing](#close-and-hide) or the icon of th
 
 ### Pass a NotificationModel to the Method
 
-You can pass the entire [NotificationModel]({%slug notification-overview%}#notificationmodel-class) to provide detailed information for the component - whether it should be closable or specify the icon. 
+You can pass the entire [NotificationModel]({%slug notification-overview%}#notificationmodel-class-properties) to provide detailed information for the component - whether it should be closable or specify the icon. 
 
 ````CSHTML
 @* You can pass the entire NotificationModel with all its features for complete control over the message settings *@
@@ -91,9 +91,9 @@ There are two separate ways to close a notification:
 * [Automatically Closing Notification](#automatically-closing-notification)
 * [Manually Closing a Notification](#manually-closing-a-notification)
 
-### Automatically Closing Notification
+### Automatically Closing a Notification
 
-By default each notification is an automatically closing one. You can define the time it stays visible by adjusting the `CloseAfter` parameter of the [NotificationModel]({%slug notification-overview%}#notificationmodel-class). It defaults to `5000ms`.
+By default each notification is an automatically closing one. You can define the time it stays visible by adjusting the `CloseAfter` parameter of the [NotificationModel]({%slug notification-overview%}#notificationmodel-class-properties). It defaults to `5000ms`.
 
 You can also let the user dismiss a notification message before that timer elapses through a closing button by setting the `Closable` parameter of the `NotificationModel` to `true` (its default value).
 
