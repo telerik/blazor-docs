@@ -16,8 +16,6 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 * [MinorUnit and MajorUnit](#minorunit-and-majorunit)
 
-* [MinorTicks and MajorTicks](#ninorticks-and-majorticks)
-
 * [StartAngle and EndAngle](#startangle-and-endangle)
 
 * [Reverse](#reverse)

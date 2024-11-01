@@ -17,7 +17,7 @@ The Form component for Blazor exposes events that allow you to respond to user a
 * [OnValidSubmit](#onvalidsubmit)
 * [OnInvalidSubmit](#oninvalidsubmit)
 
->note The examples in this article use the [`EditContext`]({%slug form-overview%}#use-the-telerik-form-for-blazor-with-an-editcontext), but you can use a [model]({%slug form-overview%}#use-the-telerik-form-for-blazor-with-a-model) instead. 
+>note The examples in this article use the `EditContext`, but you can use a [model]({%slug form-overview%}#creating-blazor-form) instead. 
 
 ## OnSubmit
 

@@ -20,7 +20,7 @@ In this article:
 
 ## FormItem Parameters
 
-Each custom editor is expressed through the `FormItem` tag. You can define a collection of those editors in the `FormItems` tag that is a child of the `TelerikForm` tag. You can find some [code examples](#examples) below.
+Each custom editor is expressed through the `FormItem` tag. You can define a collection of those editors in the `FormItems` tag that is a child of the `TelerikForm` tag. You can find some [code examples](#example) below.
 
 The `FormItem` tag exposes the following parameters which you can use to customize the editors:
 
