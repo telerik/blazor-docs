@@ -23,7 +23,7 @@ ticketid: 1668133
 
 ## Description
 
-When using the TelerikGrid for Blazor, applying a filter programmatically on initialization does not highlight the header filter icon. This behavior is expected when filters are manually applied by the user, indicating which columns are currently filtered.
+When using the Grid for Blazor, applying a filter programmatically on initialization does not highlight the header filter icon. This behavior is expected when filters are manually applied by the user, indicating which columns are currently filtered.
 
 ## Cause
 
