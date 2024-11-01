@@ -45,7 +45,8 @@ The following example shows how to use the `All` toolset.
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
 
-<TelerikEditor Tools="@EditorToolSets.All">
+<TelerikEditor @bind-Value="@EditorValue"
+               Tools="@EditorToolSets.All">
 </TelerikEditor>
 
 @code {
