@@ -330,7 +330,7 @@ Editing is cancelled for the first record.
 
 ## Incell Editing and Selection
 
-* To enable item selection with InCell Edit Mode, add a `<TreeListCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-overview%}#notes) article.
+* To enable item selection with InCell Edit Mode, add a `<TreeListCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-row%}#selection-and-editing-modes ) article.
 
 
 ## Adding Children to Collapsed Items

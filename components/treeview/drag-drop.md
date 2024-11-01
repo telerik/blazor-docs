@@ -20,7 +20,7 @@ This article is divided in the following sections:
 * [`OnDrop` Event](#ondrop-event)
 * [`OnDragEnd` Event](#ondragend-event)
 * [Examples](#examples)
-    * [Events Example](#events-example)
+    * [TreeView Drag and Drop Events Example](#treeview-drag-and-drop-events)
     * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
     * [Flat Data](#flat-data)
     * [Hierarchical Data](#hierarchical-data)
@@ -102,7 +102,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 
 ## Examples
 
-* [Events Example](#events-example)
+* [TreeView Drag and Drop Events Example](#treeview-drag-and-drop-events)
 * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
 * [Flat Data](#flat-data)
 * [Hierarchical Data](#hierarchical-data)

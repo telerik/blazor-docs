@@ -16,7 +16,7 @@ This article contains the following sections:
 
 * [Basics](#basics)
 * [OnRowDrop Event](#onrowdrop-event)
-* [TreeListRowDraggableSettings](#treelistdrowdraggablesettings)
+* [TreeListRowDraggableSettings](#treelistrowdraggablesettings)
 * [Examples](#examples)
     * [Drag and Drop a Row in the same TreeList](#drag-and-drop-a-row-in-the-same-treelist)
     * [Drag and Drop a Row between TreeLists](#drag-and-drop-a-row-between-treelists)

@@ -102,7 +102,7 @@ You can find the following examples in this section:
 * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 * [Set TreeList Options Through State](#set-treelist-options-through-state)
 * [Set Default (Initial) State](#set-default-initial-state)
-* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
+* [Get and Override The User Action That Changes The TreeList](#get-and-override-the-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 * [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
