@@ -83,7 +83,7 @@ In this section you will find the following examples:
 * [Hidden Grid Column With Template](#hidden-grid-column-with-template)
 * [Hide A Grid Column Based On A Condition](#hide-a-grid-column-based-on-a-condition)
 
-### Toggle The Visibility Of A Column On Button
+### Toggle The Visibility Of A Column On Button Click
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 

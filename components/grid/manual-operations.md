@@ -26,7 +26,7 @@ The comments in the code provide explanations on what is done and why.
 Examples:
 
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
-* [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
+* [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresult-request)
 * [Grouping with OnRead](#grouping-with-onread)
 * [Aggregates with OnRead](#aggregates-with-onread)
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)

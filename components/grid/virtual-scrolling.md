@@ -332,7 +332,7 @@ These are the known limitations of the virtual scrolling feature:
 ## See Also
 
   * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
-  * [Selection in Grid with Virtualized Rows]({%slug grid-selection-overview%}#selection-in-grid-with-virtualized-rows)
+  * [Selection in Grid with Virtualized Rows]({%slug grid-selection-row%}#selection-and-virtual-scrolling)
   * [Knowledge Base Article: Virtual Scroll Does Not Show All Items]({%slug grid-kb-virtualization-many-records%})
   * [Knowledge Base Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
   * [Knowledge Base Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})

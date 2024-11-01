@@ -14,7 +14,7 @@ The Telerik UI for Blazor Grid supports built-in validation that is enabled by d
 
 #### In this Article:
 
-* [Disable the validation](#disable-the-validation)
+* [Disable the validation](#disable-validation)
 * [Use a custom validator](#use-a-custom-validator)
 
 ## Disable Validation

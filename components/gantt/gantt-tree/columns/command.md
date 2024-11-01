@@ -18,7 +18,7 @@ To define it, add a `GanttCommandColumn` in the `GanttColumns` collection of a G
 
 In this article:
 
-* [Gantt Tree Command Column Features](#features)
+* [Gantt Tree Command Column Features](#command-column-parameters)
    * [GanttCommandButton](#the-ganttcommandbutton-tag)
    * [Built-in Commands](#built-in-commands)
    * [OnClick Handler](#onclick-handler)

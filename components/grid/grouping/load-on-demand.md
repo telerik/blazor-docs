@@ -268,7 +268,7 @@ Scroll through the groups or expand them to load their data on demand
 
 To toggle how the Grid loads groups:
 
-1. [Obtain reference to the Grid instance with `@ref`]({%slug grid-overview%}#grid-reference-and-methods).
+1. [Obtain reference to the Grid instance with `@ref`]({%slug grid-overview%}#blazor-grid-reference-and-methods).
 1. Change the `LoadGroupsOnDemand` parameter value.
 1. [Rebind()]({%slug common-features-data-binding-overview%}#refresh-data) the Grid.
 

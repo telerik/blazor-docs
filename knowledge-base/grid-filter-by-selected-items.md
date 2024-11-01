@@ -38,7 +38,7 @@ To simulate filtering by the selected items:
 
 1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug grid-selection-row%}#basics)).
 
-> [Override the `Equals` method]({%slug grid-selection-overview%}#selecteditems-equals-comparison) so that the selection is preserved during filtering.
+> [Override the `Equals` method]({%slug grid-selection-row%}#equals-comparison) so that the selection is preserved during filtering.
 
 The data assignment will vary depending on the [data binding type you are using for the Grid]({%slug grid-data-binding%}#basics). See examples below:
 * [Data binding through the Data parameter](#data-binding-through-the-`data`-parameter)
