@@ -804,5 +804,5 @@ app.Run();
 
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
 * [Upload Overview]({%slug upload-overview%})
-* [Upload Methods]({%slug upload-overview%}#methods)
+* [Upload Methods]({%slug upload-overview%}#upload-reference-and-methods)
 * [Count all selected and uploaded files]({%slug upload-kb-count-selected-uploaded-files%})

@@ -18,11 +18,11 @@ You don't have to provide all the data the treeview will render at once - the ro
 
 In this article:
 
-* [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand---one-model)
+* [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand-one-model)
 
 * [Flat Data Load on Demand](#flat-data-load-on-demand)
 
-* [Hierarchical Data Load on Demand - Different Models](#hierarchical-data-load-on-demand---different-models)
+* [Hierarchical Data Load on Demand - Different Models](#hierarchical-data-load-on-demand-different-models)
 
 ## Hierarchical Data Load on Demand - One Model
 
