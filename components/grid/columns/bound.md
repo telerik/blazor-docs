@@ -118,9 +118,9 @@ You can use the following properties on bound columns:
 
 ### Templates
 
-* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
+* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug grid-templates-column%}). It can also point to a component name.
 * `Context` - the standard Blazor context variable name for use inside the inline template.
-* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug grid-templates-editor%}). It can also point to a component name.
 * `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
 * `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
 

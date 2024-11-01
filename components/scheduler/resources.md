@@ -48,7 +48,7 @@ To use resources:
 
 ## Examples
 
-The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resource) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
+The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resources) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
 
 >tip The examples below hardcode the resource collections for brevity. In a real case you might be fetching them from asynchronous API. If so, initialize the resource collections to avoid null references while the scheduler is initializing, something like `List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>();`.
 

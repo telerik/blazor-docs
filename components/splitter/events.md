@@ -18,7 +18,7 @@ This article explains the events available in the Telerik Splitter for Blazor:
     * [OnResize](#onresize)
 * Pane
     * [SizeChanged](#sizechanged)
-    * [CollapsedChanged](#collapsed-changed)
+    * [CollapsedChanged](#collapsedchanged)
 
 ## OnCollapse
 

@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor TextBox component</a> allows the user to enter a generic plain text message. 
 
-You can control [various attributes](#features) of the `input` element and turn the TextBox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
+You can control [various attributes](#textbox-parameters) of the `input` element and turn the TextBox into a password box, for example. You can also configure this component to respond to [events]({%slug components/textbox/events%}).
 
 ## Creating Blazor TextBox
 

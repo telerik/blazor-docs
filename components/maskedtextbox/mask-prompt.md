@@ -48,7 +48,7 @@ The Telerik MaskedTextbox provides a set of built-in rules that it recognizes as
 - `&` - Character (excluding `space`)
 - `C` - Character or `space`
 
->tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
+>tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#mask-examples) section of the documentation.
 
 ### Literals
 
