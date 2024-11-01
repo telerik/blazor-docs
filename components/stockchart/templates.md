@@ -1,7 +1,7 @@
 ---
 title: No Data Template
 page_title: Stock Chart - No Data Template
-description: The NoDataTemplate in the Stock Chart for Blazor lets you customize the content displayed when no data is available for any series.
+description: The NoDataTemplate in the Stock Chart for Blazor lets you customize the content displayed when no data is available for all series.
 slug: stock-chart-no-data-template
 tags: telerik,blazor,stockchart,templates
 published: True
@@ -11,7 +11,7 @@ position: 31
 
 # No Data Template
 
-When a StockChart series has no data to show, you can use the `NoDataTemplate` to display custom content. This is a global StockChart setting and applies to all instances where a StockChart series does not have any data to show. To change the default **No data** localizable text, declare a `<NoDataTemplate>` tag inside a `<StockChartSettings>` tag:
+Starting in **version 7.0.0**, when all StockChart series have no data to show, a default layout with **No data** text is displayed over the StockChart. To customize the default layout content declare a `<NoDataTemplate>` tag inside a `<StockChartSettings>` tag.
 
 ````CSHTML
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
