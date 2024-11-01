@@ -45,7 +45,7 @@ This approach is suitable for [`FilterMenu` filter mode]({%slug grid-filter-menu
 1. Subscribe to the [`OnStateChanged` event]({%slug grid-state%}#events).
 1. Check if [`args.PropertyName`](/blazor-ui/api/Telerik.Blazor.Components.GridStateEventArgs-1) is `"FilterDescriptors"`.
 1. Iterate the filter descriptors in `args.GridState.FilterDescriptors`.
-1. If there is an active filter for the date column, [modify the filter descriptors to filter the Grid rows between two dates]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid).
+1. If there is an active filter for the date column, [modify the filter descriptors to filter the Grid rows between two dates]({%slug grid-state%}#setstateasync-examples).
 
 Note the [difference between `FilterDescriptor` and `CompositeFilterDescriptor`]({%slug components/grid/filtering%}#filter-descriptors). This scenario involves both types.
 

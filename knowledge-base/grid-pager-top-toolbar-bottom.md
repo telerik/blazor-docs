@@ -132,6 +132,6 @@ The downside of the listed approach is that you will not be able to use built-in
 
 To handle this, you may proceed with a custom approach:
 
-* `Add` Command Button - use a [`TelerikButton`]({%slug components/button/overview%}) instead. Handle its [`OnClick`]({%slug button-events%}#onclick) to programmatically [initiate inserting of an item through the Grid State]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+* `Add` Command Button - use a [`TelerikButton`]({%slug components/button/overview%}) instead. Handle its [`OnClick`]({%slug button-events%}#onclick) to programmatically [initiate inserting of an item through the Grid State]({%slug grid-kb-add-edit-state%}).
 
 * SearchBox - Use [TelerikTextBox]({%slug components/textbox/overview%}) instead. Handle its [`ValueChanged`]({%slug components/textbox/events%}#valuechanged) or [`OnChange`]({%slug components/textbox/events%}#onchange) event to create [custom filter descriptors]({%slug grid-kb-search-numeric-fields%}).

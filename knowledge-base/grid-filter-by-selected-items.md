@@ -32,7 +32,7 @@ How can I achieve the following with the Blazor Grid:
 
 To simulate filtering by the selected items:
 
-1. Get the [`SelectedItems`]({%slug grid-selection-row%}#selected-rows) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
+1. Get the `SelectedItems` data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
 
 1. To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
 
