@@ -33,22 +33,65 @@ To control the collection of buttons and commands available to the user, you pro
 
 ## Built-in Tool Lists
 
-The Editor comes with two predefined sets of tools in the `EditorToolSets` static class:
+The Editor comes with [two predefined sets of tools](#predefined-toolset-configurations) in the `EditorToolSets` static class:
 
-* `Default` - the default set of the most commonly used tools and commands.
-* `All` - All the available tools and commands the editor has.
+* `Default` includes the most commonly used tools and commands. If you do not apply any settings, the `Default` list of tools will be used.
+* `All` includes all the available tools and commands.
 
-If you do not apply any settings, the `Default` list of tools will be used.
+The following example shows how to use the `All` toolset.
 
->caption Switch to the All tools built-in toolset
+>caption Use all built-in Editor tools
 
 ````CSHTML
 @using Telerik.Blazor.Components.Editor
 
-<TelerikEditor Tools="@EditorToolSets.All">
+<TelerikEditor @bind-Value="@EditorValue"
+               Tools="@EditorToolSets.All">
 </TelerikEditor>
+
+@code {
+    private string EditorValue { get; set; } = string.Empty;
+}
 ````
 
+### Predefined Toolset Configurations
+
+The following code snippets show the built-in toolset configurations in `EditorToolSets`. See the [Built-in Editor Tools]({%slug editor-built-in-tools%}) article for more information on each tool.
+
+<div class="skip-repl"></div>
+
+````cs
+public static List<IEditorTool> Default = new List<IEditorTool>()
+{
+    new EditorButtonGroup(new Bold(), new Italic(), new Underline()),
+    new Format(),
+    new EditorButtonGroup(new AlignLeft(), new AlignCenter(), new AlignRight(), new AlignJustify()),
+    new EditorButtonGroup(new UnorderedList(), new OrderedList(), new Indent(), new Outdent()),
+    new EditorButtonGroup(new CreateLink(), new Unlink()),
+    new InsertImage()
+};
+
+public static List<IEditorTool> All = new List<IEditorTool>()
+{
+    new EditorButtonGroup(new Undo(), new Redo()),
+    new EditorButtonGroup(new Bold(), new Italic(), new Underline(), new Strikethrough()),
+    new EditorButtonGroup(new SubScript(), new SuperScript()),
+    new Format(),
+    new FontFamily(),
+    new FontSize(),
+    new ForeColor(),
+    new BackgroundColor(),
+    new EditorButtonGroup(new AlignLeft(), new AlignCenter(), new AlignRight(), new AlignJustify()),
+    new EditorButtonGroup(new UnorderedList(), new OrderedList(), new Indent(), new Outdent()),
+    new EditorButtonGroup(new CreateLink(), new Unlink()),
+    new InsertImage(),
+    new InsertTable(),
+    new EditorButtonGroup(new AddColumnBefore(), new AddColumnAfter(), new AddRowBefore(), new AddRowAfter()),
+    new EditorButtonGroup(new DeleteColumn(), new DeleteRow(), new DeleteTable()),
+    new EditorButtonGroup(new MergeCells(), new SplitCell()),
+    new ViewHtml()
+};
+````
 
 ## Choose Toolbar Items
 
@@ -249,4 +292,4 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
+* [Editor Overview]({%slug editor-overview%})

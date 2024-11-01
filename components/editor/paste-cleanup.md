@@ -9,19 +9,14 @@ position: 70
 
 # Editor Paste Cleanup
 
-The Telerik Editor component for Blazor can improve the quality of the content pasted into it by removing tags and attributes, and by fixing issues such as lists pasted from Microsoft Word.
-
-#### In this article
-
-
-* [Basics](#basics)
-* [Paste Settings Features](#paste-settings-features)
-* [Notes](#notes)
+The Telerik Editor component for Blazor can improve the quality of pasted content by removing invalid or unwanted tags and attributes. The Editor can also fix issues such as non-semantic lists pasted from Microsoft Word.
 
 
 ## Basics
 
-To control the behavior of the editor when content is pasted, you can set the desired parameters to its `EditorPasteSettings` tag that you can find under the `EditorSettings` tag.
+To enable paste cleanup, add the `<EditorPasteSettings>` tag as a child of the `<EditorSettings>` tag. The Editor does not perform paste cleanup by default.
+
+To configure the behavior of the Editor when content is pasted, set the desired parameters in the `EditorPasteSettings` tag.
 
 >caption Set pasting behaviors in the Telerik Editor
 
@@ -42,7 +37,7 @@ To control the behavior of the editor when content is pasted, you can set the de
     </EditorSettings>
 </TelerikEditor>
 
-The editor content as a string so you can see the differences with the original content above:
+The Editor content as a string so you can see the differences with the original content above:
 <br />
 @EditorValue
 
@@ -53,9 +48,10 @@ The editor content as a string so you can see the differences with the original 
 }
 ````
 
-## Paste Settings Features
 
-The following list describes the behaviors and functionality each parameter of the `EditorPasteSettings` provides:
+## Paste Settings
+
+The following list describes the behaviors and functionality of each parameter of `EditorPasteSettings`. The default values apply only if the `<EditorPasteSettings>` tag is present in the Editor markup.
 
 * `ConvertMsList` - `bool` - If set to `true` (defaults to `true`), MS Word lists will be converted into HTML lists. By default, Word's list are paragraphs with the respective styling which is not accurate in html.
 
@@ -73,31 +69,7 @@ For example, `<!-- comment --> <p> content </p>` will result in `<p> content </p
 * `RemoveAttributes` - `List<string>` - Specifies the DOM attributes that should be removed from the HTML. For example, when set to `{ "lang" }` , pasting `<p><span lang=EN-US>content</span></p>` will result in `<p><span>content</span></p>`.
 
 
-
-## Notes
-
-This section provides information on a few key concepts and behaviors that you should be aware of:
-
-* [Content Size](#content-size)
-* [Content Sanitization](#content-sanitization)
-* [Paste Text and Image from MS Word](#paste-text-and-image-from-ms-word)
-
-
-### Content Size
-@[template](/_contentTemplates/editor/general.md#content-size-signalr)
-
-### Content Sanitization
-
->caution The content cleaning the editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be intercepted and altered maliciously if the application is not secured. Therefore, the paste cleanup functionality of the editor cannot and does not replace content sanitization according to the application's standards and logic.
->
-> @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
-
-
-The editor clears `<script>` tags and removes DOM event handler attributes (e.g., `<img onerror="code();" onclick="otherCode();" alt="lorem ipsum" />` will become `<img  alt="lorem ipsum" />`). The user can still alter this and data can be modified during transmission as well, as explained above.
-
->tip To clean up content and ensure it is safe, before you store and reuse it, you can consider ready-made HTML sanitization libraries that are available on free package sources like nuget.org. While Telerik is not in a position to recommend particular packages, we recommend you consider such an approach.
-
-### Paste Text and Image from MS Word
+## Paste Images from Microsoft Word
 
 If you copy both text and an image from MS Word and paste in the Editor, the image will not get pasted as expected. This behavior is due to the security policy of the browser.
 
@@ -107,7 +79,7 @@ A browser is not allowed to access such a resource, and so it throws an error an
 
 You can read more about this in <a href="https://stackoverflow.com/questions/39007243/cannot-open-local-file-chrome-not-allowed-to-load-local-resource" target="_blank">this StackOverflow thread</a>.
 
-#### Work Around
+### Work Around
 
 To work around this browser behavior, copy only the text or a single image from the MS Word document, and paste the image in the content area of the Editor separately. 
 
@@ -115,7 +87,24 @@ By default, the browser allows you to copy and paste a single image from Word in
 
 If you paste more images at the same time, their `src` attributes will not be converted to `base64` strings and the browser will paste them with their `http` protocol and `URL` pointing to the physical folder which will result in the error described above.
 
+
+## Content Size
+
+@[template](/_contentTemplates/editor/general.md#content-size-signalr)
+
+## Content Sanitization
+
+>caution The content cleaning the Editor performs happens on paste only. The user can still alter the HTML and if you are sending or receiving data over the wire, there is a chance such requests can be intercepted and altered maliciously if the application is not secured. Therefore, the paste cleanup functionality of the Editor cannot and does not replace content sanitization according to the application's standards and logic.
+>
+> @[template](/_contentTemplates/editor/general.md#app-must-sanitize-content)
+
+
+The Editor clears `<script>` tags and removes DOM event handler attributes (e.g., `<img onerror="code();" onclick="otherCode();" alt="lorem ipsum" />` will become `<img  alt="lorem ipsum" />`). The user can still alter this and data can be modified during transmission as well, as explained above.
+
+>tip To clean up content and ensure it is safe, before you store and reuse it, you can consider ready-made HTML sanitization libraries that are available on free package sources like nuget.org. While Telerik is not in a position to recommend particular packages, we recommend you consider such an approach.
+
+
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
-  * [Live Demo: Paste Cleanup](https://demos.telerik.com/blazor-ui/editor/paste-cleanup)
+* [Editor Overview]({%slug editor-overview%})
+* [Live Demo: Paste Cleanup](https://demos.telerik.com/blazor-ui/editor/paste-cleanup)
