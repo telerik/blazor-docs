@@ -73,7 +73,7 @@ Some components provide icon-related parameters, which can rely on the above pac
 <TelerikButton Icon="@FontIcon.Save">Button with font icon</TelerikButton>
 
 <GridCommandButton Icon="@SvgIcon.Save">Command Button with SVG icon</GridCommandButton>
-```
+````
 
 ### Font Icon Stylesheet
 
