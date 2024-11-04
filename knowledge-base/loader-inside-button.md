@@ -34,7 +34,7 @@ How to add a loading animation inside a Button? The loader indicator show displa
 
 1. Nest a [Telerik Loader]({%slug loader-overview%}) inside a [Telerik Button]({%slug components/button/overview%}).
 1. Set the `Visible` parameter of the Loader to `false`.
-1. Handle the [`OnClick` event]({%slug button-events%}#onlick) of the Button.
+1. Handle the [`OnClick` event]({%slug button-events%}#onclick) of the Button.
 1. Toggle the Loader's `Visible` parameter to `true` in the Button's `OnClick` handler, while the application is working in the background.
 
 >caption Blazor Loader inside a Button

@@ -73,14 +73,14 @@ At the time of writing, sometimes the following issues have been reported that p
 
 * On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation.
 
-    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug themes-overview%}#cdn). This may be related to the static asset configurations from the previous points, however.
+    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug common-features-cdn%}). This may be related to the static asset configurations from the previous points, however.
 
 * We have had reports that indicate missing project references do not copy the static assets. For example, in an ASP.NET Core hosted WebAssembly project the server project usually has a project reference to the Blazor project. If that reference is missing, the static assets might not be present in the output.
 
 
 ### Trial Message
 
-`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
+`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner) article.
 
 ### Could not load file or assembly 'System.Text.Json, ...
 
@@ -114,5 +114,5 @@ Such errors are related to the local networking security settings and you may ne
 
 ## See Also
 
-* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message)
+* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner)
 * [Missing JS Interop File]({%slug troubleshooting-js-errors%}#missing-file) 

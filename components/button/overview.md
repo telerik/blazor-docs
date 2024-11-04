@@ -80,7 +80,7 @@ The Blazor Button provides various parameters that allow you to configure the co
 
 ## Button Reference and Methods
 
-Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
 
 | Method | Description |
 | --- | --- |
