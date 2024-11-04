@@ -22,7 +22,7 @@ You can use the parameters the `WizardStep` exposes to customize the following p
 * [Individual Stepper settings](#individual-stepper-settings)
     * [Indicators](#indicators)
     * [Labels](#labels)
-    * [Optional](#state)
+    * [Optional](#optional)
     * [Disabled](#disabled)
     * [Valid](#valid)
 

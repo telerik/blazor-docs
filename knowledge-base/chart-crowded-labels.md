@@ -31,8 +31,8 @@ You can control how many labels render, their rotation angle and even font in or
 
 You can also skip directly to the examples:
 
-* [Example - Rotate the Chart Labels](#example---rotate-the-chart-labels)
-* [Example - Skip rendering every n-th label](#example---skip-rendering-every-n-th-label)
+* [Example - Rotate the Chart Labels](#example-rotate-the-chart-labels)
+* [Example - Skip rendering every n-th label](#example-skip-rendering-every-n-th-label)
 
 
 The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the tag is 

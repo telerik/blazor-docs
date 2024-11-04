@@ -21,9 +21,9 @@ This page provides information for common issues you may encounter while deployi
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
 * `Unable to find package Telerik.UI.for.Blazor` is a common pitfall in build environments. See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}#unable-to-find-package) article, which also provides other NuGet-related tips.
-* [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazorjs)
+* [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazor-js)
 * [Trial Message](#trial-message)
-* [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-systemtextjson-)
+* [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-system-text-json)
 * [Blazor Server app is slow or breaks in the cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
 * [The remote certificate is invalid because of errors in the certificate chain](#invalid-certificate)
 

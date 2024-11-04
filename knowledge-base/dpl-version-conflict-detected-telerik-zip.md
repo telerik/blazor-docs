@@ -63,8 +63,8 @@ There are several ways to fix the NuGet conflict errors:
 
 * [Upgrade Telerik UI for Blazor]({%slug upgrade-tutorial%}), if a [newer version is available](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 * Downgrade Telerik Document Processing to the older version that `Telerik.UI.for.Blazor` expects for `Telerik.Zip`.
-* [Reference the newer version of `Telerik.Zip` explicitly in the project.](#reference-the-telerikzip-package-explicitly)
-* [Reference the newer version of `Telerik.Documents.SpreadsheetStreaming` explicitly in the project.](#reference-the-telerikdocumentsspreadsheetstreaming-package-explicitly)
+* [Reference the newer version of `Telerik.Zip` explicitly in the project.](#reference-the-telerik-zip-package-explicitly)
+* [Reference the newer version of `Telerik.Documents.SpreadsheetStreaming` explicitly in the project.](#reference-the-telerik-documents-spreadsheetstreaming-package-explicitly)
 
 The ultimate goal is all Telerik NuGet packages in the app to use the same version of `Telerik.Zip`.
 
