@@ -48,6 +48,10 @@ The Tabs are the building blocks of the TabStrip. The component allows individua
 
 The Blazor TabStrip component allows you to control the position of the tabs. [Read more about the Tabs Position...]({%slug tabstrip-tabs-position%})
 
+## Alignment of the Tabs
+
+The Blazor TabStrip component allows you to control the alignment of the tabs. [Read more about the Tabs Alignment...]({%slug tabstrip-tabs-alignment%})
+
 ## Persist Content
 
 The Blazor TabStrip component can persist the content of the tabs. When the user navigates between the tabs, their content will be hidden with CSS only to avoid re-initialization. [Read more about the Persist Content...]({%slug tabstrip-persist-content%})
@@ -72,6 +76,8 @@ The TabStrip provides the following features to allow further customization of i
 |`PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content]({%slug tabstrip-persist-content%})
 | `Scrollable` | `bool` | Whether the tabs will be scrollable. See [Scrollable Tabs]({%slug tabstrip-scroll-tabs%})
 | `TabPosition` | `TabPosition` enum <br/> (`TabPosition.Top`)| Controls the position of the tabs.
+| `TabAlignment` | `TabStripTabAlignment` enum <br/> (`TabStripTabAlignment.Start`)| Controls the alignment of the tabs.
+
 
 ### Styling and Appearance
 
@@ -131,12 +137,12 @@ The `TabStrip` methods are accessible through its reference.
 ## Next Steps
 
 * [Configure the Tabs]({%slug tabstrip-tabs-configuration%})
-* [Explore the supported Tab positions]({%slug tabstrip-tabs-position%})
+* Explore the supported Tab [positions]({%slug tabstrip-tabs-position%}) and [alignments]({%slug tabstrip-tabs-alignment%})
 * [Handle the TabStrip events]({%slug tabstrip-events%})
 
 ## See Also
 
 * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
-* [Live Demo: Tab Positions](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
+* [Live Demo: Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/position-and-alignment)
 * [Events]({%slug tabstrip-events%})
 * [TabStrip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTabStrip)
