@@ -83,7 +83,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value. |
 | `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons. |
 | `ShowClearButton` | `bool` <br /> (`true`) | Sets the visibility of the **Clear** button. |
-| `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-in-telerik-component). |
+| `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article]({%slug common-features-icons%}#iicon-namespaces). |
 
 ### Styling and Appearance
 
