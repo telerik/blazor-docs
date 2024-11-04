@@ -41,7 +41,7 @@ To simulate filtering by the selected items:
 > [Override the `Equals` method]({%slug grid-selection-row%}#equals-comparison) so that the selection is preserved during filtering.
 
 The data assignment will vary depending on the [data binding type you are using for the Grid]({%slug grid-data-binding%}#basics). See examples below:
-* [Data binding through the Data parameter](#data-binding-through-the-`data`-parameter)
+* [Data binding through the Data parameter](#data-binding-through-the-data-parameter)
 * [Data binding through the OnRead event](#data-binding-through-the-onread-event)
 
 ### Data binding through the Data parameter

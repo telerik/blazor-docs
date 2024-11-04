@@ -58,7 +58,7 @@ If you suspect that your saved credentials are wrong, use the following steps to
 4. Check if you have any credentials stored in `%AppData%\NuGet\Nuget.Config`. If so, remove them.
 5. Try to reset the Visual Studio user data by [forcing NuGet to ask for authentication](https://stackoverflow.com/questions/43550797/how-to-force-nuget-to-ask-for-authentication-when-connecting-to-a-private-feed).
 6. Restart Visual Studio.
-7. Enter the Telerik NuGet package source again through Visual Studio or CLI. If you are using the feed in a .NET Core application, [store your credentials as plain text](#store-credentials-in-clear-text-for-the-telerik-nuget-feed).
+7. Enter the Telerik NuGet package source again through Visual Studio or CLI. If you are using the feed in a .NET Core application, store your credentials as plain text.
 
 ## Error 401 Unauthorized
 

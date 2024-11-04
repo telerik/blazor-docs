@@ -18,7 +18,7 @@ This page provides solutions for common issues you may encounter while working w
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerikdocumentsspreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
-* [Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...](#failed-to-find-a-valid-digest-in-the-integrity-attribute-for-resource--with-computed-sha-256-integrity)
+* [Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...](#failed-to-find-a-valid-digest-in-the-integrity-attribute-for-resource--with-computed-sha-256-integrity-)
 * [JavaScript errors]({%slug troubleshooting-js-errors%})
 * [Issues after deployment]({%slug deployment-troubleshooting%})
 * [Content Security Policy]({%slug troubleshooting-csp%})

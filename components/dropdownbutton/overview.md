@@ -134,7 +134,7 @@ The following table lists the `DropDownButtonItem` parameters, except those rela
 
 ## DropDownButton Reference and Methods
 
-The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
 
 >caption Get a reference to the DropDownButton and execute methods
 
