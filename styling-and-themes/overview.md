@@ -104,7 +104,7 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
 
 The Telerik themes are decoupled from the Telerik Blazor components, which leads to the following usage requirements:
 
-* When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
+* When using a CSS theme as local file in `wwwroot`, [replace the file every time you change the Telerik UI for Blazor version]({%slug upgrade-tutorial%}). This includes apps [created with the Telerik Blazor Visual Studio extension without CDN support]({%slug getting-started-vs-integration-new-project%}#step-3-select-theme).
 * When loading <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/" target="_blank">theme swatches</a> from a CDN, make sure that the theme version is compatible with the Telerik UI for Blazor version. Our [release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) provide theme compatibility information for each components version. You can also use a <a href="https://www.telerik.com/design-system/docs/themes/get-started/changelog/" target="_blank">newer minor theme version</a>, which doesn't contain breaking changes. In other words, the latest major theme version may be still incompatible with the latest version of Telerik UI for Blazor.
 
 
