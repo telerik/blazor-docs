@@ -30,17 +30,17 @@ Visual Studio and the .NET SDK throw an error if incompatible versions of Teleri
 
 <div class="skip-repl"></div>
 
-```
+````C#
 Error NU1107: Version conflict detected for Telerik.Zip. Install/reference Telerik.Zip ... directly to project ... to resolve this issue.
-```
+````
 
 or
 
 <div class="skip-repl"></div>
 
-```
+````C#
 Warning NU1605: Detected package downgrade: Telerik.Zip from ... to .... Reference the package directly from the project to select a different version.
-```
+````
 
 
 ## Cause
@@ -82,7 +82,7 @@ Register the newer `Telerik.Zip` NuGet package version explicitly in the project
 
 <div class="skip-repl"></div>
 
-````HTML
+````XML
 <ItemGroup>
     <PackageReference Include="Telerik.UI.for.Blazor" Version="AA.BB.CC" />
     <PackageReference Include="Telerik.Zip" Version="ZZ.YY.XX" />
@@ -97,9 +97,9 @@ This approach will generate a [NuGet Warning NU1608](https://learn.microsoft.com
 
 <div class="skip-repl"></div>
 
-```
+````C#
 NU1608: Detected package version outside of dependency constraint: Telerik.Documents.SpreadsheetStreaming ... requires Telerik.Zip ... but version Telerik.Zip ... was resolved.
-```
+````
 
 ### Reference the Telerik.Documents.SpreadsheetStreaming Package Explicitly
 
@@ -109,7 +109,7 @@ Register the newer `Telerik.Documents.SpreadsheetStreaming` NuGet package versio
 
 <div class="skip-repl"></div>
 
-````HTML
+````XML
 <ItemGroup>
     <PackageReference Include="Telerik.UI.for.Blazor" Version="AA.BB.CC" />
     <PackageReference Include="Telerik.Documents.SpreadsheetStreaming" Version="ZZ.YY.XX" />

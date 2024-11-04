@@ -143,7 +143,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````
+````RAZOR
 <TelerikMultiColumnComboBox>
     <MultiColumnComboBoxSettings>
         <MultiColumnComboBoxPopupSettings Width="..." />

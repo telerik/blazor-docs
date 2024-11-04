@@ -39,10 +39,10 @@ The following algorithm follows the commonly used approach to replace a CSS file
 1. [Register the initial Telerik theme]({%slug themes-overview%}#using-a-theme) in a way that allows you to get reference to the `<link>` tag. For example, use an `id` attribute.
     
     >caption HTML
-    ```
+    ````HTML
     <link id="telerik-theme" rel="stylesheet"
         href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-main.css" />
-    ```
+    ````
 1. Implement the supporting JavaScript code in a new or existing `.js` file.
     * Create a JavaScript function that [creates](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) a `<link>` element with the new theme URL and [appends](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) it to the page.
     * [Remove](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) the old `<link>` element when the new one [loads](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event).
@@ -51,7 +51,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
     * Make sure the JavaScript file is loaded in the app.
 
     >caption JavaScript
-    ```
+    ````JS
     var themeChangerDotNetRef;
 
     function saveDotNetRef(dotNetRef) {
@@ -76,7 +76,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
 
         document.getElementsByTagName("head")[0].appendChild(newLink);
     }
-    ```
+    ````
 1. Implement UI that triggers the JavaScript theme change. After the new CSS theme is loaded, refresh all Telerik components that use SVG or Canvas rendering, such as Barcodes, Charts, Gauges, and QR Codes.
 
     > Make sure [the version number in the theme URL is compatible with the version of Telerik UI for Blazor]({%slug themes-overview%}#compatibility-and-maintenance).
@@ -84,7 +84,8 @@ The following algorithm follows the commonly used approach to replace a CSS file
     > Replace `Index` in the code below with the correct Razor component name.
 
     >caption Razor
-    ```
+
+    ````RAZOR
     @implements IDisposable
 
     @inject IJSRuntime js
@@ -327,7 +328,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
             public decimal Revenue { get; set; }
         }
     }
-    ```
+    ````
 
 
 ## Next Steps

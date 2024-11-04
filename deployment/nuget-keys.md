@@ -63,7 +63,7 @@ In your `NuGet.Config` file, set the `Username` value to `api-key` and the `Clea
 
 <div class="skip-repl"></div>
 
-```xml
+````XML
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <packageSources>
@@ -78,7 +78,7 @@ In your `NuGet.Config` file, set the `Username` value to `api-key` and the `Clea
     </TelerikOnlineFeed>
   </packageSourceCredentials>
 </configuration>
-```
+````
 
 ### Using .NET CLI Commands
 
@@ -86,15 +86,15 @@ You can use the .NET CLI `add source` or `update source` commands to set the cre
 
 * To set the credentials in Azure DevOps:
 
-    ```
+    ````SH
     dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '$(TELERIK_NUGET_KEY)' --configfile './NuGet.Config' --store-password-in-clear-text
-    ```
+    ````
 
 * To set the credentials in GitHub Actions:
 
-    ```
+    ````SH
     dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '${{ secrets.TELERIK_NUGET_KEY }}' --configfile './NuGet.Config' --store-password-in-clear-text
-    ```
+    ````
 
 > When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors]({%slug common-kb-package-telerik-pivot-not-compatible-with-netframework%}).
 

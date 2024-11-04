@@ -60,7 +60,7 @@ The following code snippets show the built-in toolset configurations in `EditorT
 
 <div class="skip-repl"></div>
 
-````cs
+````C#
 public static List<IEditorTool> Default = new List<IEditorTool>()
 {
     new EditorButtonGroup(new Bold(), new Italic(), new Underline()),
@@ -180,7 +180,7 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 >caption Create your own toolbar
 
-````
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;

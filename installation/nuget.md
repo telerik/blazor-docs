@@ -67,25 +67,25 @@ The backslashes `\` below enable multi-line commands for better readability in t
 
 >caption Use the .NET CLI to add the Telerik NuGet source
 
-```
+````SH
 dotnet nuget add source https://nuget.telerik.com/v3/index.json \
 --name TelerikOnlineFeed \
 --username <TELERIK EMAIL or api-key> \
 --password <TELERIK PASSWORD or NUGET API KEY> \
 --store-password-in-clear-text
-```
+````
 
 If you have already stored the Telerik package source, you can update the configuration with the command below.
 
 >caption Use the .NET CLI to update the Telerik NuGet source
 
-```
+````SH
 dotnet nuget update source "TelerikOnlineFeed" \
 --source "https://nuget.telerik.com/v3/index.json" \
 --username <TELERIK EMAIL or api-key> \
 --password <TELERIK PASSWORD or NUGET API KEY> \
 --store-password-in-clear-text
-```
+````
 
 ### Store Encrypted Credentials
 
@@ -108,7 +108,7 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 
 2. Add the Telerik package source to the config file. Use plain text credentials, because the .NET Core NuGet tooling does not fully support encrypted credentials. Here is an example of how your `NuGet.Config` file can look like:
 
-    ````
+    ````XML
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
         <packageSources>
@@ -148,7 +148,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````XML
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <packageSources>      

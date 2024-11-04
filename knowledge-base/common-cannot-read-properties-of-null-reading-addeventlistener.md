@@ -38,14 +38,14 @@ The error can occur in WebAssembly (WASM) projects after updating UI for Blazor 
 ## Error Message
 
 <div class="skip-repl"></div>
-````
+````JS
 Microsoft.AspNetCore.Components.WebAssembly.Rendering.WebAssemblyRenderer[100]
   Unhandled exception rendering component: Cannot read properties of null (reading 'addEventListener')
   TypeError: Cannot read properties of null (reading 'addEventListener')
 ````
 
 <div class="skip-repl"></div>
-````
+````JS
 Microsoft.JSInterop.JSException: Cannot read properties of null (reading 'addEventListener')
 TypeError: Cannot read properties of null (reading 'addEventListener')
 ````

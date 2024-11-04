@@ -108,7 +108,7 @@ The RadioGroup provides a `FocusAsync` method that allows the application to foc
 
 >caption Using RadioGroup methods
 
-````
+````RAZOR
 <TelerikButton OnClick="@FocusRadioGroup">Focus RadioGroup</TelerikButton>
 
 <TelerikRadioGroup @ref="@RadioGroupRef"

@@ -36,11 +36,11 @@ This knowledge base article deals with the following issues:
 
 ## Error Message
 
-```
+````C#
 Microsoft.JSInterop.JSException: JSON serialization is attempting to deserialize an unexpected byte array.
     at System.Threading.Tasks.ValueTask`1.get_Result()
     at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.&lt;ReadBytesAsync&gt;d__24.MoveNext()
-```
+````
 
 
 ## Cause
@@ -51,7 +51,7 @@ The problem can occur when an Inversion of Control (IoC) container interferes wi
 
 <div class="skip-repl"></div>
 
-````CS
+````C#
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 ````
 
@@ -72,7 +72,7 @@ To avoid the error, disable implicit parameters from services in the Blazor hub 
 
 <div class="skip-repl"></div>
 
-```CS
+```C#
 builder.Services.AddHubOptions(options =>
 {
     options.DisableImplicitFromServicesParameters = true;
