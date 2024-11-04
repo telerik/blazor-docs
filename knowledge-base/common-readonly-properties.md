@@ -29,9 +29,9 @@ Editing does not work, and the `OnUpdate` event does not fire when a property in
 
 If the Telerik source code is attached to the app, the following exception is thrown: 
 
-```
+````C#
 System.ArgumentException: Property set method not found.
-```
+````
 
 ## Cause
 

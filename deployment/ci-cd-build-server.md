@@ -114,7 +114,7 @@ When building or restoring Blazor apps in Docker, the crucial steps are:
 
 The following code is the build portion of a sample `Dockerfile` that builds a .NET 8 Blazor Web App with two projects. The `dotnet restore` command is executed from the `src` folder of the Docker image (where the `NuGet.Config` is copied), so that the `NuGet.Config` file can be used to restore all projects in the solution.
 
-```
+````SH
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
@@ -137,7 +137,7 @@ COPY . .
 # Build the app
 WORKDIR "/src/MyBlazorApp/MyBlazorApp"
 RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
-```
+````
 
 
 ## Further Reading

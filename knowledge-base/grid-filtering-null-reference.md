@@ -25,13 +25,13 @@ res_type: kb
 For our current project, we are grabbing data from the server and using it to dynamically populate a `TelerikGrid` in Blazor.  This is causing an issue with filtering in the `Grid`.
 
 ## Error Message
-```
+````C#
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.OnInitializedAsync()
     at Microsoft.AspNetCore.Components.ComponentBase.RunInitAndSetParametersAsync()
-```
+````
 
 ## Possible Cause
 The possible reason for this error is a missing `FieldType` from the column that you try to filter.

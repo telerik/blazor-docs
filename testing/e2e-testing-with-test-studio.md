@@ -13,11 +13,28 @@ The <a href="https://www.telerik.com/teststudio" target="_blank">__Telerik Test 
 
 The Translators in Test Studio are extensions, which expose internal elements and properties of the supported Telerik controls for automating actions and verification steps in the tests. The tools, which will help you to take full advantage of the power of Telerik controls, are built-in in the <a href="https://docs.telerik.com/teststudio/features/recorder/compact-recording-toolbar" target="_blank">__Test Studio compact recording toolbar__</a>.
 
-Test Studio supports translators for the following Telerik UI Blazor components:
+Test Studio supports translators for the following Telerik UI Blazor components: 
 
-```
-TreeView, TimePicker, TextBox, TabStrip, Pager, NumericTextBox, Menu, List, ListView, Grid, DropdownList, DatePicker, DateTimePicker, DateInput, Drawer, Button, ComboBox, AnimationContainer, Window
-```
+* AnimationContainer
+* Button
+* ComboBox
+* DatePicker
+* DateTimePicker
+* DateInput
+* Drawer
+* DropDownList
+* Grid
+* List
+* ListView
+* Menu
+* NumericTextBox
+* Pager
+* TabStrip
+* TextBox
+* TimePicker
+* TreeView
+* Window
+
 
 Any of these can be switched on/off from the <a href="https://docs.telerik.com/teststudio/features/project-settings/translators" target="_blank">test Project Setting</a> menu:
 

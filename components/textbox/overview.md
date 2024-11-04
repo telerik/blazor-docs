@@ -80,7 +80,7 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Use TextBox methods
 
-````
+````RAZOR
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
 
 <TelerikTextBox @ref="@TextBoxRef"

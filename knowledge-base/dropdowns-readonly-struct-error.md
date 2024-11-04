@@ -27,10 +27,10 @@ When using the combo box component when the desired data is list of readonly str
 ## Error Message
 A typical error would be null reference exception like the one below:
 
-```
+````C#
 NullReferenceException: Object reference not set to an instance of an object.
 Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b__70_0(ListDataItem item)
-```
+````
 
 ## Steps to Reproduce
 
