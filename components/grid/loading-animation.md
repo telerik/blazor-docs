@@ -10,7 +10,9 @@ position: 90
 
 # Loading Animation
 
-The Grid can show a loading animation to indicate data operations that take more than 600ms to complete. The indicator appears as a loading sign over the Blazor Data Grid. The loading animation improves user experience with a visual hint that the requested action is still executing. The feature can prevent repetitive user actions.
+The Grid can show a loading animation during data operations that take more than 600ms to complete. This improves the user experience with a visual hint that the requested action is still running and prevents repetitive user actions.
+
+The animation appears as a loading indicator over the Blazor Data Grid.
 
 ## Basics
 
