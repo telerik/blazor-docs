@@ -14,7 +14,7 @@ The Grid can show a loading animation to indicate data operations that take more
 
 ## Basics
 
-The Grid `EnableLoaderContainer` parameter determines if the component will show a built-in LoaderContainer for long operations. The loading animation is enabled by detault. The data operations that trigger the loading animation include:
+The Grid `EnableLoaderContainer` parameter determines if the component will show a built-in LoaderContainer for long-running operations. The loading animation is enabled by default. The data operations that trigger the loading animation include:
 
 * [Paging]({%slug components/grid/features/paging%})
 * [Filtering]({%slug components/grid/filtering%})
