@@ -12,7 +12,7 @@ position: 11
 
 By design, the tabs are displayed on the left side of the TabStrip header.
 
-You can customize specify their alignment through the `TabAlignment` parameter. It takes a member of the `Telerik.Blazor.TabStripTabAlignment` enumeration:
+You can customize their alignment through the `TabAlignment` parameter. It takes a member of the `Telerik.Blazor.TabStripTabAlignment` enumeration:
 
 * `Start` (default)
 * `End`
