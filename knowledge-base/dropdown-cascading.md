@@ -31,7 +31,7 @@ Use the `ValueChanged` event to update the model value and to filter the data fo
 >caption Cascading DropDowns
 
 <div class="skip-repl"></div>
-````DropDownList
+````RAZOR DropDownList
 @* Cascading componentsare disabled based on the selection of their parents. Events on parent components
     trigger data loading for child components so they show relevant result only.
     You can also see how to get the selected model from a dropdown component.
@@ -172,7 +172,7 @@ else if(!string.IsNullOrEmpty(orderStatusMessage))
     }
 }
 ````
-````ComboBox
+````RAZOR ComboBox
 @* The same approach works for the ComboBox, just make sure to use a nullable field so you can see the Placeholder *@
 
 <TelerikComboBox Value="@CurrentOrder.CategoryId" Data="@Categories" Placeholder="Select Category"
@@ -310,7 +310,7 @@ else if (!string.IsNullOrEmpty(orderStatusMessage))
     }
 }
 ````
-````MultiSelect
+````RAZOR MultiSelect
 @using System.Collections.ObjectModel
 
 <TelerikMultiSelect Value="@CurrentOrder.Categories" Data="@Categories" Placeholder="Select Categories"

@@ -26,7 +26,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 To enable the grid CSV Export, add a [command button]({%slug components/grid/columns/command%}) with the `CsvExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
-````
+````RAZOR
 <GridToolBarTemplate>
     <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
 </GridToolBarTemplate>
@@ -40,7 +40,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
 >caption Export the Grid to CSV - Example
 
-````CSHTML
+````RAZOR
 @* You can sort, group, filter, page the grid, reorder its columns, and you can click the
     Export button to save the current data *@
 
@@ -106,7 +106,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 >caption Invoke the export function from code
 
-````CSHTML
+````RAZOR
 @* Send the exported file for download and get the exported data as a memory stream *@
 
 @using System.IO

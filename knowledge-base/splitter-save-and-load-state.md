@@ -46,7 +46,7 @@ Set the saved state from the browser local storage. It is important to perform t
 The example below demonstrates the described approach.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @inject LocalStorage LocalStorage
 
 <div style="width: 500px; height: 200px;">
@@ -95,7 +95,7 @@ The example below demonstrates the described approach.
     }
 }
 ````
-````Service
+````C# Service
 using Microsoft.JSInterop;
 using System.Text.Json;
 using System.Threading.Tasks;

@@ -77,7 +77,7 @@ If you cancel the event, the upload process will continue. For example, this can
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikUpload OnCancel="@OnUploadCancel" />
 
 @code {
@@ -108,7 +108,7 @@ If you cancel the event, the current file list will remain visible.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikUpload OnClear="@OnUploadClear" />
 
 @code {
@@ -139,7 +139,7 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 <TelerikUpload OnError="@OnUploadError" />
 
 @code {
@@ -154,7 +154,7 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
 }
 ````
 
-````Controller
+````C# Controller
 [HttpPost]
 public async Task<IActionResult> Save(IFormFile files)
 {
@@ -194,7 +194,7 @@ The `UploadProgressEventArgs` event argument contains the properties [`Files` an
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikUpload OnProgress="@OnUploadProgress" />
 
 @code {
@@ -226,7 +226,7 @@ If you cancel the event, the Upload component will not send the file deletion re
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 <TelerikUpload OnRemove="@OnUploadRemove" />
 
 @code {
@@ -246,7 +246,7 @@ If you cancel the event, the Upload component will not send the file deletion re
     }
 }
 ````
-````Controller
+````C# Controller
 // Get the custom data and header values from additional method arguments
 [HttpPost]
 public async Task<IActionResult> Remove([FromForm] string files, [FromForm] string dataKey, [FromHeader] string headerKey)
@@ -301,7 +301,7 @@ The file rename process requires two separate steps:
 
 <div class="skip-repl"></div>
 
-````CS
+````RAZOR
 <TelerikUpload OnSelect="@OnUploadSelect" />
 
 @code {
@@ -351,7 +351,7 @@ For example, the server can return a URL string for an image thumbnail.
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 <TelerikUpload OnSuccess="@OnUploadSuccess" />
 
 @code {
@@ -365,7 +365,7 @@ For example, the server can return a URL string for an image thumbnail.
     }
 }
 ````
-````Controller
+````C# Controller
 [HttpPost]
 public async Task<IActionResult> Save(IFormFile files)
 {
@@ -427,7 +427,7 @@ To send a complex object or a collection, serialize it first. Receive it as a `s
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 @using System.Text.Json
 
 <TelerikUpload OnUpload="@OnUploadHandler" />
@@ -448,7 +448,7 @@ To send a complex object or a collection, serialize it first. Receive it as a `s
     }
 }
 ````
-````Controller
+````C# Controller
 using System.Text.Json;
 
 // Get the custom data and header values from additional method arguments
@@ -504,7 +504,7 @@ Also see:
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 @inject NavigationManager NavigationManager
 
 <label>
@@ -682,7 +682,7 @@ Also see:
 }
 ````
 
-````UploadController.cs
+````C# UploadController.cs
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -779,7 +779,7 @@ namespace TelerikBlazorUpload.Controllers
 }
 ````
 
-````Program.cs
+````C# Program.cs
 // ...
 
 var builder = WebApplication.CreateBuilder(args);
