@@ -52,7 +52,7 @@ You can find the list of default values in the corresponding component's Data Bi
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
@@ -119,7 +119,7 @@ There are two ways to solve this:
 ![custom font icons success](images/custom-font-icons-success.png)
 
 <div class="skip-repl"></div>
-````DummyIconFieldName
+````RAZOR DummyIconFieldName
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
@@ -172,7 +172,7 @@ Make sure to use the correct way and resources for your actual project *@
     }
 }
 ````
-````CustomFontClassFieldName
+````RAZOR CustomFontClassFieldName
 @* Just one example of including custom font icon libraries.
 Make sure to use the correct way and resources for your actual project *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
