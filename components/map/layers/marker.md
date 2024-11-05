@@ -38,9 +38,9 @@ The following example demonstrates how to configure the Marker layer of the Map.
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@MapAttribution"
-                  Subdomains="@MapSubdomains"
-                  UrlTemplate="@MapUrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Marker"
@@ -53,10 +53,11 @@ The following example demonstrates how to configure the Marker layer of the Map.
 </TelerikMap>
 
 @code {
-    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string MapUrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
+
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 
     private List<MarkerModel> MarkerData { get; set; } = new List<MarkerModel>() {
         new MarkerModel()
@@ -94,8 +95,8 @@ The following example uses two Marker layers with different templates. One rende
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@MapAttribution"
-                  Subdomains="@MapSubdomains"
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
                   UrlTemplate="mapLayerUrlTemplate">
         </MapLayer>
 
@@ -141,8 +142,8 @@ The following example uses two Marker layers with different templates. One rende
 @code {
     private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
 
-    private readonly string[] MapSubdomains = new string[] { "a", "b", "c" };
-    private const string MapAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 
     private List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>() {
         new MarkerModel()
@@ -210,9 +211,9 @@ The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker ty
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@MapAttribution"
-                  Subdomains="@MapSubdomains"
-                  UrlTemplate="@MapUrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Marker"
@@ -225,12 +226,13 @@ The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker ty
 </TelerikMap>
 
 @code {
+    private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
+
     private MapMarkersShape MarkerShape { get; set; } = MapMarkersShape.Pin;
 
-    private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
-    private string[] MapSubdomains { get; set; } = new string[] { "a", "b", "c" };
-    private string MapUrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    private string MapAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 
     public List<MarkerModel> MarkerData { get; set; } = new List<MarkerModel>() {
         new MarkerModel()
@@ -260,41 +262,39 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, app
 >caption Marker tooltip template.
 
 ````CSHTML
-@* This code snippet showcases an example of the Marker tooltip settings. *@
-
-<TelerikMap Center="@Center"
+<TelerikMap Center="@MapCenter"
             Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
         </MapLayer>
 
         <MapLayer Type="@MapLayersType.Marker"
                   Data="@MarkerData1"
                   LocationField="@nameof(MarkerModel.LatLng)"
                   TitleField="@nameof(MarkerModel.Title)">
-                  <MapLayerMarkerSettings>
-                      <MapLayerMarkerSettingsTooltip>
-                          <Template>
-                              @{ var dataItem = (MarkerModel)context.DataItem; }
-                              <div>Marker Tooltip for: @dataItem.Title</div>
-                          </Template>
-                      </MapLayerMarkerSettingsTooltip>
-                  </MapLayerMarkerSettings>
+            <MapLayerMarkerSettings>
+                <MapLayerMarkerSettingsTooltip>
+                    <Template>
+                        @{ var dataItem = (MarkerModel)context.DataItem; }
+                        <div>Marker Tooltip for: @dataItem.Title</div>
+                    </Template>
+                </MapLayerMarkerSettingsTooltip>
+            </MapLayerMarkerSettings>
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
 @code {
-    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
-    public double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
+    private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
 
-    public List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
-    {
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    private string LayerAttribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+
+    private List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>() {
         new MarkerModel()
         {
             LatLng = new double[] { 30.268107, -97.744821 },
@@ -309,8 +309,8 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, app
 
     public class MarkerModel
     {
-        public double[] LatLng { get; set; }
-        public string Title { get; set; }
+        public double[]? LatLng { get; set; }
+        public string Title { get; set; } = string.Empty;
     }
 }
 ````
