@@ -188,15 +188,16 @@ To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` e
 
 The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title` and more.
 
-For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license.
+For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license. Find examples on how to [format the cells of the exported Excel file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%}) and how to [format the cells of the exported Excel file with RadSpreadStreamProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%}).
 
-[Read more about how to customize the exported file...]({%slug grid-export-events%})
+Read more about how to [customize the exported file]({%slug grid-export-events%}).
 
 ## Notes
 
 The Excel export has the following specifics:
 
 * Excel does not understand units different than `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
+* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in e Field in the model, or create your own excel file (see example <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">here</a>). Find additional information on how to [export an image that is rendered in a Grid column template]({%slug grid-export-image-column-excel%}).
 
 @[template](/_contentTemplates/grid/export.md#export-common-notes)
 
