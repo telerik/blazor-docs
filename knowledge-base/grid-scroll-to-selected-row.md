@@ -32,7 +32,7 @@ The solution to select programatically a row in Grid and scroll to that selected
 ### Grid with **[paging feature]({%slug components/grid/features/paging%})**
 
 1. Ensure the Grid is on the same page as the selected row.
-1. Invoke a JavaScript to make the browser scroll to the selected row into view. The browsers provide the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView" target="_blank">`scrollIntoView()` method</a> that does the scrolling. You can find a selected row in the grid markup by the `k-selected` CSS class it has.
+1. Invoke a JavaScript to make the browser scroll to the selected row into view. The browsers provide the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView" target="_blank">`scrollIntoView()` method</a> that does the scrolling. You can find a selected row in the grid markup by its `k-selected` CSS class.
 
 ### Grid with **[virtualization feature]({%slug components/grid/virtual-scrolling%})**
 
