@@ -1,7 +1,7 @@
 ---
 title: Tabs Position
 page_title: TabStrip Tabs Position
-description: The TabPosition parameter in the TabStrip component allows you to control the positioning of the tabs. By default, tabs are positione to the top of the TabStrip.
+description: The TabPosition parameter in the TabStrip component allows you to control the positioning of the tabs. By default, tabs are positioned at the top of the TabStrip.
 slug: tabstrip-tabs-position
 tags: telerik,blazor,tab,strip,tabstrip,position
 published: True
