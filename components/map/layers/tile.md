@@ -28,26 +28,25 @@ The following example demonstrates how to configure the Map Tile Layer.
 >caption The Map Tile Layer configuration.
 
 ````CSHTML
-@* This code snippet showcases an example of a Tile Layer configuration. *@
-
-<TelerikMap Center="@Center" Zoom="3">
+<TelerikMap Center="@MapCenter"
+            Zoom="3">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
 @code {
-    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
-    public double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
+    private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
+
+    public readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    public const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    public const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+
 }
 ````
 
->caption The result from the above code snippet.
-
-![Blazor Tile Layer](../images/tile-layer.png)
+@[template](/_contentTemplates/map/general.md#urltemplate-csp)
