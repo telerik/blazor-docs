@@ -10,66 +10,109 @@ position: 90
 
 # Loading Animation
 
-The loading animation indicates a data operation that requires more than 600ms to complete. The indicator appears as a loading sign over the Blazor Data Grid. The loading animation improves user experience with a visual hint that the requested action is still executing. The feature can prevent repetitive user actions.
+The Grid can show a loading animation during data operations that take more than 600ms to complete. This improves the user experience with a visual hint that the requested action is still running and prevents repetitive user actions.
 
-The data operations that trigger the loading animation include:
+The animation appears as a loading indicator over the Blazor Data Grid.
+
+## Basics
+
+The Grid `EnableLoaderContainer` parameter determines if the component will show a built-in LoaderContainer for long-running operations. The loading animation is enabled by default. The data operations that trigger the loading animation include:
 
 * [Paging]({%slug components/grid/features/paging%})
 * [Filtering]({%slug components/grid/filtering%})
 * [Sorting]({%slug components/grid/features/sorting%})
 * [Grouping]({%slug components/grid/features/grouping%}) 
 * [Expanding groups with load-on-demand]({%slug grid-group-lod%})
-* [Editing]({%slug components/grid/editing/overview%})
-* [Inserting]({%slug components/grid/editing/overview%})
-* [Deleting records]({%slug components/grid/editing/overview%})
+* [Creating, deleting or editing records]({%slug components/grid/editing/overview%})
 
-The Grid will not display a loading animation during its initial rendering. The component cannot know when or even if data will be provided to it. Initial automatic loading sign can either show indefinitely, or it could prevent the user from altering any saved Grid state (such as changing filters). If you want a loading animation on the initial load, you can use a [LoaderContainer component]({%slug loadercontainer-overview%}#basic-loadercontainer). See the [Grid Loading Animation Live Demo](https://demos.telerik.com/blazor-ui/grid/loading-animation).
+## Show LoaderContainer on Initial Load
 
->caption Grid Loading Animation
+The Grid does not display a loading animation during its initial rendering and data load. The component cannot know when or even if data will be provided to it, especially when using the Grid `Data` parameter. An initial automatic loading sign can either show indefinitely, or it could prevent the user from altering any saved Grid state (such as changing filters).
+
+If you want to display a loading animation on initial load, you can use a [LoaderContainer component]({%slug loadercontainer-overview%}). See the example below or the [Grid Loading Animation Live Demo](https://demos.telerik.com/blazor-ui/grid/loading-animation).
+
+## Example
+
+The following example binds the Grid with an [`OnRead` event handler]({%slug common-features-data-binding-onread%}). To show an external initial [LoaderContainer over the Grid]({%slug loadercontainer-overview%}#fill-a-parent-container) when using the `Data` parameter, you can control the LoaderContainer's rendering or visibility, depending on whether the data collection is null.
+
+>caption Using an external and the built-in Grid loading animation
 
 ````CSHTML
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<p><label><TelerikCheckBox @bind-Value="@ShowLoading" /> Show Loading</label></p>
+<p><label><TelerikCheckBox @bind-Value="@EnableGridLoaderContainer" /> Enable Built-in Grid LoaderContainer</label></p>
 
-<TelerikGrid TItem="@GridModel"
-             OnRead="@GetData"
-             EnableLoaderContainer="@ShowLoading"
-             Pageable="true"
-             Sortable="true">
-    <GridColumns>
-        <GridColumn Field="Text" />
-    </GridColumns>
-</TelerikGrid>
+<div style="position:relative">
+    @*
+        This LoaderContainer is used only during initial data load.
+        The position:relative style on the parent DIV makes the LoaderContainer cover only the Grid.
+        The LoaderContainer configuration and Template matches the built-in Grid loading animation.
+    *@
+    <TelerikLoaderContainer OverlayThemeColor="@ThemeConstants.Loader.ThemeColor.Light"
+                            Visible="@LoaderContainerVisible">
+        <Template>
+            <TelerikLoader Type="@LoaderType.InfiniteSpinner"
+                           Size="@ThemeConstants.Loader.Size.Large" />
+        </Template>
+    </TelerikLoaderContainer>
+
+    <TelerikGrid OnRead="@OnGridRead"
+                 TItem="@Product"
+                 EnableLoaderContainer="@EnableGridLoaderContainer"
+                 Height="280px"
+                 Pageable="true"
+                 PageSize="5"
+                 Sortable="true">
+        <GridColumns>
+            <GridColumn Field="@nameof(Product.Name)" />
+            <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+            <GridColumn Field="@nameof(Product.Quantity)" />
+        </GridColumns>
+    </TelerikGrid>
+</div>
 
 @code {
-    List<GridModel> AllData { get; set; }
-    bool ShowLoading { get; set; } = true;
+    private List<Product> GridData { get; set; } = new();
 
-    async Task GetData(GridReadEventArgs args)
+    private bool EnableGridLoaderContainer { get; set; } = true;
+    private bool LoaderContainerVisible { get; set; } = true;
+
+    private async Task OnGridRead(GridReadEventArgs args)
     {
+        // Simulate network delay.
         await Task.Delay(2000);
-        DataSourceResult result = AllData.ToDataSourceResult(args.Request);
+
+        DataSourceResult result = await GridData.ToDataSourceResultAsync(args.Request);
+
         args.Data = result.Data;
         args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
+
+        // Hide the initial external LoaderContainer.
+        LoaderContainerVisible = false;
     }
 
     protected override void OnInitialized()
     {
-        AllData = Enumerable.Range(1, 30).Select(x => new GridModel
+        for (int i = 1; i <= 30; i++)
         {
-            Id = x,
-            Text = "Text " + x
-        }).ToList();
-
-        base.OnInitialized();
+            GridData.Add(new Product()
+            {
+                Id = i,
+                Name = $"Name {i}",
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 1000)
+            });
+        }
     }
 
-    public class GridModel
+    public class Product
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
