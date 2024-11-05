@@ -78,7 +78,7 @@ Thus, to show a loading indicator during the initial data load, you can do eithe
 >caption Loading Sign for the initial data load - a few examples
 
 <div class="skip-repl"></div>
-````Grid
+````RAZOR Grid
 This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
 
 <div style="position: relative; width:100%; min-height: 400px;">
@@ -145,7 +145,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     }
 }
 ````
-````Scheduler
+````RAZOR Scheduler
 This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
 
 <div style="position: relative; width:100%; min-height: 600px;">
@@ -252,7 +252,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     }
 }
 ````
-````TreeView
+````RAZOR TreeView
 This sample shows a loading panel over the treeview container (tweak as required by your layout and design) in addition to the loading indicators the treeview provides while loading data on demand.
 
 <div style="position: relative; width:100%; min-height: 400px;">

@@ -50,7 +50,7 @@ To do a grid layout, the easiest approach is to use a CSS Grid. For example:
 ![Basic Grid Layout](images/grid-layout-basics.png)
 
 <div class="skip-repl"></div>
-````Blazor
+````RAZOR Blazor
 <style>
     .main-layout {
         /*display arrangement*/
@@ -75,7 +75,7 @@ To do a grid layout, the easiest approach is to use a CSS Grid. For example:
     <div>Column 2, row 2:<br /> 5 fractions wide, 1 tall</div>
 </div>
 ````
-````XAML
+````XML XAML
 <Grid>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="3*"/>
@@ -95,7 +95,7 @@ To create a stack layout, you can use CSS Flexbox. For example:
 ![Basic Stack Layout](images/stack-layout-basics.png)
 
 <div class="skip-repl"></div>
-````Blazor
+````RAZOR Blazor
 <style>
     /*vertial - first example*/
     .stack-vertical {
@@ -135,7 +135,7 @@ To create a stack layout, you can use CSS Flexbox. For example:
     <p>Feels like: 63&deg;</p>
 </div>
 ````
-````XAML
+````XML XAML
 <StackPanel Grid.Column="1" Margin="40,0,0,0" VerticalAlignment="Center">
     <TextBlock Foreground="White" FontSize="25" Text="Today - 64° F"/>
     <TextBlock Foreground="White" FontSize="25" Text="Partially Cloudy"/>

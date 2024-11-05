@@ -25,14 +25,12 @@ This article contains the following sections:
 
 **To integrate the Filter with the Telerik Grid, you need to:**
 
-1. Set the Value parameter of the Filter via [one-way]({%slug filter-events%}#valuechanged) or two-way binding.
+1. Set the Value parameter of the Filter via [one-way]({%slug filter-events%}#valuechanged) or two-way binding. If you want to filter at the moment of change, use Filter with a one-way bound value.
 2. Update the Grid data based on the Filter value.
 
->caption Filter with two-way bound value in Grid. If you want to filter at the moment of change, use Filter with a one-way bound value.
+>caption Filter with two-way bound value in Grid
 
-<div class="skip-repl"></div>
-
-````Two-way
+````RAZOR
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;
 
@@ -108,76 +106,7 @@ This article contains the following sections:
     }
 }
 ````
-````One-way
-@using Telerik.DataSource;
-@using Telerik.DataSource.Extensions;
 
-<TelerikFilter ValueChanged="@OnValueChanged">
-    <FilterFields>
-        <FilterField Name="@(nameof(Person.EmployeeId))" Type="@(typeof(int))" Label="Id"></FilterField>
-        <FilterField Name="@(nameof(Person.Name))" Type="@(typeof(string))" Label="First Name"></FilterField>
-        <FilterField Name="@(nameof(Person.AgeInYears))" Type="@(typeof(int))" Label="Age"></FilterField>
-        <FilterField Name="@(nameof(Person.IsOutOfOffice))" Type="@(typeof(bool))" Label="Out Of Office"></FilterField>
-    </FilterFields>
-</TelerikFilter>
-
-<TelerikGrid Data="@GridData"
-             Height="400px"
-             Pageable="true"
-             Sortable="true"
-             Groupable="true">
-    <GridColumns>
-        <GridColumn Field="@(nameof(Person.EmployeeId))" />
-        <GridColumn Field="@(nameof(Person.Name))" Title="Name" />
-        <GridColumn Field="@(nameof(Person.AgeInYears))" Title="Age" />
-        <GridColumn Field="@(nameof(Person.IsOutOfOffice))" Title="Out Of Office" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    public IEnumerable<Person> InitialData { get; set; }
-    public IEnumerable<Person> GridData { get; set; }
-
-    private void OnValueChanged(CompositeFilterDescriptor filter)
-    {
-        var dataSourceRequest = new DataSourceRequest { Filters = new List<IFilterDescriptor>{ filter } };
-
-        var datasourceResult = InitialData.ToDataSourceResult(dataSourceRequest);
-
-        GridData = datasourceResult.Data.Cast<Person>().ToList();
-    }
-
-    protected override void OnInitialized()
-    {
-        LoadData();
-        base.OnInitialized();
-    }
-
-    void LoadData()
-    {
-        InitialData = Enumerable.Range(1, 100).Select(x => new Person
-        {
-            EmployeeId = x,
-            Name = "name " + x,
-            AgeInYears = x * 2,
-            IsOutOfOffice = x % 2 == 0
-        });
-
-        GridData = new List<Person>(InitialData);
-    }
-
-    public class Person
-    {
-        public int EmployeeId { get; set; }
-
-        public string Name { get; set; }
-
-        public int AgeInYears { get; set; }
-
-        public bool IsOutOfOffice { get; set; }
-    }
-}
-````
 >caption The result from the above code snippet.
 
 ![Blazor Filter Grid Integration](images/filter-grid-integration.gif)
@@ -189,7 +118,7 @@ This article contains the following sections:
 1. Set the Value parameter of the Filter via one-way or two-way binding.
 2. Update the TreeView data based on the Filter value.
 
->caption Use Filter in TreeView.
+>caption Use Filter in TreeView
 
 ````CSHTML
 @using Telerik.DataSource
@@ -337,7 +266,7 @@ This article contains the following sections:
 1. Set the Value parameter of the Filter via one-way or two-way binding.
 2. Update the TreeList data based on the Filter value.
 
->caption Use Filter in TreeList.
+>caption Use Filter in TreeList
 
 ````CSHTML
 @using Telerik.DataSource

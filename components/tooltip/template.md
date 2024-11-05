@@ -102,7 +102,7 @@ This example shows how you can use a standalone component to generate the toolti
 >caption Generate tooltip content through a separate component
 
 <div class="skip-repl"></div>
-````MainComponent
+````RAZOR MainComponent
 @* Tip: set dimensions that will accommodate the data/content you fetch/generate
     to avoid sizing and/or positioning issues when the new content is rendered *@
 
@@ -120,7 +120,7 @@ This example shows how you can use a standalone component to generate the toolti
     and even a <strong class="target">third target</strong>.
 </p>
 ````
-````TooltipContentComponent
+````RAZOR TooltipContentComponent
 @* You can apply more styling, add different content or more components
     This example showcases the concept, you can modify it to match you needs.
     Using the OnParametersSet event and loading data on demand is not required *@
