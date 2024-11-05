@@ -22,7 +22,7 @@ The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank
 1. (optional) To enable [form validation]({%slug form-validation%}), add the `<FormValidation>` tag. Define a validator component inside, for example the [`DataAnnotationsValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) that is part of .NET Core.
 
 <div class="skip-repl"></div>
-````Model
+````RAZOR Model
 @* Provide a model to the Telerik Form *@
 
 @using System.ComponentModel.DataAnnotations
@@ -57,7 +57,7 @@ The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank
     }
 }
 ````
-````EditContext
+````RAZOR EditContext
 @* Provide an EditContext to the TelerikForm *@
 
 @using System.ComponentModel.DataAnnotations
@@ -136,7 +136,7 @@ You can customize the automatically generated field editors by providing the `Ed
 | **DateTime**        | `FormEditorType.DatePicker`<br /> `FormEditorType.DateTimePicker`<br> `FormEditorType.TimePicker` |
 
 
-````CSHTML
+````RAZOR
 @* The usage of the EditorType parameter *@
 
 @using System.ComponentModel.DataAnnotations
@@ -230,7 +230,7 @@ The Form also exposes a `Refresh()` method that calls `StateHasChanged()` only f
 
 >caption Get the Form Reference and Validate the EditContext
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@TeamMate" @ref="@FormRef" Width="300px">
