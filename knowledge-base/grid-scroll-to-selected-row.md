@@ -282,6 +282,6 @@ The example below offers comments in the code on some possible improvements.
 ````
 
 ## See Also
-* [Grid row selection]({%slug grid-selection-row%})
+* [Grid Row Selection]({%slug grid-selection-row%})
 * [Grid paging feature]({%slug components/grid/features/paging%})
 * [Grid virtualization feature]({%slug components/grid/virtual-scrolling%})
