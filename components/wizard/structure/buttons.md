@@ -37,7 +37,7 @@ The Wizard provides the following default buttons:
 
 >caption Wizard with default buttons
 
-````CSHTML
+````RAZOR
 @* Wizard with default buttons *@
 
 <div style="text-align:center">
@@ -75,7 +75,7 @@ This configuration overrides the whole rendering of the bottom-right section of 
 
 ![Custom buttons](images/custom-buttons-example.gif)
 
-````CSHTML
+````RAZOR
 @* Wizard with custom buttons *@
 
 <div style="text-align:center">
@@ -139,7 +139,7 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 >caption Prevent clicks on the Wizard Stepper
 
-````CSHTML
+````RAZOR
 <TelerikWizard Class="disabled-stepper" />
 
 <style>
@@ -155,7 +155,7 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 >caption Hide the Wizard Stepper completely
 
-````CSHTML
+````RAZOR
 <TelerikWizard Class="hidden-stepper" />
 
 <style>
@@ -169,7 +169,7 @@ The code below shows will prevent clicks on all Stepper steps, without making th
 
 >caption Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event.
 
-````CHTML
+````RAZOR
 @* Handle OnChange and OnFinish events when using custom Wizard buttons. Cancel the OnChange event. *@
 
 @if (ShowWizard)

@@ -33,7 +33,7 @@ You can consider saving the current state of the component in events that it exp
 >caption Save, Load, Persist and Manage the State of a TileLayout. Uses a sample LocalStorage in the browser.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @* You can see this code in action in our live demos *@
 
 @inject LocalStorage LocalStorage
@@ -126,7 +126,7 @@ You can consider saving the current state of the component in events that it exp
     }
 }
 ````
-````Service
+````C# Service
 using Microsoft.JSInterop;
 using System;
 using System.Text.Json;

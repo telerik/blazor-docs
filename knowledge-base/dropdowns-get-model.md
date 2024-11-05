@@ -45,7 +45,7 @@ The examples below show one way to do this for the DropDownList, ComboBox and Au
 >caption Get model from dropdown
 
 <div class="skip-repl"></div>
-````DropDownList
+````RAZOR DropDownList
 Value: @DdlValue
 <br />
 From the Model: @result
@@ -101,7 +101,7 @@ From the Model: @result
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
-````ComboBox
+````RAZOR ComboBox
 @selectedValue
 
 <br />
@@ -153,7 +153,7 @@ From the Model: @result
     int selectedValue { get; set; } = 4;
 }
 ````
-````AutoComplete
+````RAZOR AutoComplete
 @TheValue
 <br />
 <TelerikAutoComplete Data="@Suggestions"
@@ -212,7 +212,7 @@ The example below copies the Telerik DropDownList rendering and uses a grid to p
 
 >caption Custom component that disguises a Grid as a dropdown so you can use its built-in item selection features
 
-````CSHTML
+````RAZOR
 @*This example shows how to create a custom dropdown list using the Grid to handle the selection and return the entire model *@
 
 @if (SelectedEmployee != null)

@@ -36,8 +36,7 @@ If I use the TelerikChart with a class with `JsonProperties` the values are not 
 
 Sample setting:
 
-<div class="skip-repl"></div>
-````CSHTML
+````C#.skip-repl
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.11.0 (Newtonsoft.Json v12.0.0.0)")]
 public partial class ChartDataModel
 {
@@ -54,8 +53,7 @@ public partial class ChartDataModel
 
 Sample chart that does not display any longer after adding serialization settings:
 
-<div class="skip-repl"></div>
-````CSHTML
+````RAZOR.skip-repl
 <TelerikChart Width="500px">
 
     <ChartSeriesItems>
@@ -97,7 +95,7 @@ You must match the field names you provide in the chart settings (such as `Field
 >caption Example of handling custom serialization settings in the chart
 
 <div class="skip-repl"></div>
-````Model
+````C# Model
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.11.0 (Newtonsoft.Json v12.0.0.0)")]
 public partial class ChartDataModel
 {
@@ -111,7 +109,7 @@ public partial class ChartDataModel
     public string TheColor { get; set; }
 }
 ````
-````Chart
+````RAZOR Chart
 @inject ChartDataService _dataService
 
 @* note how the values of the chart field settings match the serialization settings *@
@@ -141,7 +139,7 @@ public partial class ChartDataModel
     }
 }
 ````
-````SampleService
+````C# SampleService
 public class ChartDataService
 {
     [Inject]
@@ -158,7 +156,7 @@ public class ChartDataService
     }
 }
 ````
-````SampleController
+````C# SampleController
 [ApiController]
 [Route("[controller]")]
 public class ChartDataController : ControllerBase

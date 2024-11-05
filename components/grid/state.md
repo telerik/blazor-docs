@@ -72,7 +72,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 
 >caption Using Grid OnStateInit
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -180,7 +180,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria]({%slu
 
 >caption Using Grid OnStateChanged
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <div id="demo-container">
@@ -390,25 +390,25 @@ The tabs below show how to set the Grid state and control filtering, sorting and
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
 <div class="skip-repl"></div>
-````Sorting
+````RAZOR Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
-````FilterRow
+````RAZOR FilterRow
 @[template](/_contentTemplates/grid/state.md#filter-row-from-code)
 ````
-````FilterMenu
+````RAZOR FilterMenu
 @[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
 ````
-````Search
+````RAZOR Search
 @[template](/_contentTemplates/grid/state.md#search-from-code)
 ````
-````Grouping
+````RAZOR Grouping
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
-````Hierarchy
+````RAZOR Hierarchy
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
-````Columns
+````RAZOR Columns
 @[template](/_contentTemplates/grid/state.md#column-state-from-code)
 ````
 

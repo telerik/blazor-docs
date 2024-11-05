@@ -48,7 +48,7 @@ If you want to use it on the .NET (Blazor) side, you need to:
 1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tools%}) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @using Telerik.Blazor.Components.Editor
 
 @inject IJSRuntime js
@@ -85,7 +85,7 @@ Selected text: @SelectedText
     }
 }
 ````
-````JavaScript
+````JS JavaScript
 function getSelectedText() {
     return window.getSelection().toString();
 }
@@ -107,7 +107,7 @@ If you want to use it on the .NET (Blazor) side, you need to:
 1. Call a JavaScript function from a [Custom Tool]({%slug editor-custom-tools%}) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @using Telerik.Blazor.Components.Editor
 
 @inject IJSRuntime js
@@ -144,7 +144,7 @@ Selected text: @SelectedText
     }
 }
 ````
-````JavaScript
+````JS JavaScript
 function getSelectedText() {
     var editorIframe = document.querySelector(".k-editor iframe");
     return editorIframe.contentDocument.getSelection().toString();
