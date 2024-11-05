@@ -25,7 +25,9 @@ The Grid `EnableLoaderContainer` parameter determines if the component will show
 
 ## Show LoaderContainer on Initial Load
 
-The Grid will not display a loading animation during its initial rendering and data load. The component cannot know when or even if data will be provided to it, especially when using the Grid `Data` parameter. Initial automatic loading sign can either show indefinitely, or it could prevent the user from altering any saved Grid state (such as changing filters). If you want to display a loading animation on initial load, you can use a [LoaderContainer component]({%slug loadercontainer-overview%}). See the example below or the [Grid Loading Animation Live Demo](https://demos.telerik.com/blazor-ui/grid/loading-animation).
+The Grid does not display a loading animation during its initial rendering and data load. The component cannot know when or even if data will be provided to it, especially when using the Grid `Data` parameter. An initial automatic loading sign can either show indefinitely, or it could prevent the user from altering any saved Grid state (such as changing filters).
+
+If you want to display a loading animation on initial load, you can use a [LoaderContainer component]({%slug loadercontainer-overview%}). See the example below or the [Grid Loading Animation Live Demo](https://demos.telerik.com/blazor-ui/grid/loading-animation).
 
 ## Example
 
