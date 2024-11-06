@@ -23,7 +23,7 @@ You can customize their alignment through the `TabAlignment` parameter. It takes
 >caption Set the desired tab alignment.
 
 ````CSHTML
-<TelerikTabStrip TabPosition="@TabStripTabAlignment.End">
+<TelerikTabStrip TabAlignment="@TabStripTabAlignment.End">
     <TabStripTab Title="First">
         First tab content.
     </TabStripTab>
