@@ -35,7 +35,7 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 1. Add the `https://nuget.telerik.com/v3/index.json` URL as a **Source**. Click **OK**.
 
-  ![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
+![Add the Telerik NuGet Feed in Visual Studio](images/telerik-nuget-feed.png)
 
 1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use your Telerik account email and password.
 
@@ -75,7 +75,7 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 1. Run the app in the browser. You should see something like this:
 
-    ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
+![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
 
 Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app.
 

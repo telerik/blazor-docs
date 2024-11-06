@@ -29,11 +29,11 @@ How to use a DataTable as a data source for the Chart?
 
 ## Solution
 
-The Telerik UI for Blazor Chart does not support DataTable binding out of the box. To use DataTable instance as a data source for the series of the Chart you have to convert the DataTable to IEnumerable<T> e.g. List<T>.
+The Telerik UI for Blazor Chart does not support DataTable binding out of the box. To use DataTable instance as a data source for the series of the Chart you have to convert the DataTable to `IEnumerable<T>` e.g. `List<T>`.
 
 >caption Bind Chart to a converted DataTable
 
-````CSHTML
+````RAZOR
 @using System.Data;
 @using System.Dynamic;
 

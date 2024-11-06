@@ -47,7 +47,7 @@
 
 #register-telerik-service-server
 <div class="skip-repl"></div>
-````
+````C#
 // ...
 
 var builder = WebApplication.CreateBuilder(args);

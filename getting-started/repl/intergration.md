@@ -62,7 +62,7 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
   1. Right-click the selection to open the context menu.
   1. Click the **Share to Telerik REPL for Blazor** option.
     
-    ![VS - Share to Telerik REPL for Blazor](../images/vs-extension-share-to-repl.png)
+![VS - Share to Telerik REPL for Blazor](../images/vs-extension-share-to-repl.png)
 
 ### Sharing to REPL Visual Studio Code
 
