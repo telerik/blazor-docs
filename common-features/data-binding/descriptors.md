@@ -29,7 +29,9 @@ You can obtain the applied filtering, searching, sorting, and grouping criteria 
 
 Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-argument) of the [`OnRead` event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
 
-````CS
+<div class="skip-repl"></div>
+
+````HTML
 async Task OnReadHandler(...ReadEventArgs args)
 {
     // Get the applied filtering and searching criteria.
@@ -53,7 +55,9 @@ See the [complete example](#example-with-onread-event-handler) at the bottom of 
 
 Use the component's state property of the `OnStateChanged` event argument. This approach applies to the Gantt, Grid, and TreeList because they expose the state feature. For example:
 
-````CS
+<div class="skip-repl"></div>
+
+````HTML
 async Task OnStateChangedHandler(GridStateEventArgs<Product> args)
 {
     // Get the applied filtering criteria.
