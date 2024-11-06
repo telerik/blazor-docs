@@ -78,6 +78,7 @@ The example below offers comments in the code on some possible improvements.
                      ShowClearButton="true"
                      DebounceDelay="500"
                      Width="300px"
+                     FilterOperator="StringFilterOperator.Contains"
                      ValueChanged="@ValueChangedInPageMode">
 </TelerikAutoComplete>
 
