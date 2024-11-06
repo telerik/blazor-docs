@@ -38,7 +38,7 @@ The **General Options** window includes the following configurations:
 
 This setting allows you to select the folder for downloading the Telerik UI for Blazor package. The default path is:
 
-````
+````C#
 C:\Users\[username]\AppData\Roaming\Telerik\Updates
 ````
 

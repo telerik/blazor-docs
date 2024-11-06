@@ -34,14 +34,14 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 1. Right-click  the Blazor Server project in the solution and select **Manage NuGet Packages**.
 
-   ![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
+![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
 
 2. Install the Telerik Blazor NuGet package:
 
   1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) user name and password.
   1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders should install `Telerik.UI.for.Blazor`. Trial users should install `Telerik.UI.for.Blazor.Trial`.
 
-   ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
+![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
 ## Step 4: Enable the Blazor UI Components
 
@@ -69,12 +69,12 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using]({%slug common-features-icons%}).
 
-**_Imports.razor**
-    
-    @using Telerik.Blazor
-    @using Telerik.Blazor.Components
-    @using Telerik.SvgIcons
-    @using Telerik.FontIcons
+````RAZOR _Imports.razor
+@using Telerik.Blazor
+@using Telerik.Blazor.Components
+@using Telerik.SvgIcons
+@using Telerik.FontIcons
+````
 
 ### 4.3. Add the TelerikRootComponent
 
