@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I want to [select a row in Grid]({%slug grid-selection-row%}) programmatically based on some program logic and conditions. I want after that to scroll the Grid to the selected row so the user can see the selected row.
+I want to programmatically [select a row in the Grid]({%slug grid-selection-row%}) based on specific conditions in my code. Once selected, I’d like the Grid to automatically scroll to that row so it’s visible to the user.
 
 ## Solution
 
