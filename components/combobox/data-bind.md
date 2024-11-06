@@ -37,7 +37,7 @@ To bind the combobox to string or value type data, you need to:
 
 >caption Data binding a ComboBox to string data
 
-````CSHTML
+````RAZOR
 <TelerikComboBox Data="@ComboBoxData"
                  @bind-Value="ComboBoxValue">
 </TelerikComboBox>
@@ -69,7 +69,7 @@ To bind the ComboBox to a model:
 
 >caption Data binding a ComboBox to a model
 
-````CSHTML
+````RAZOR
 @ComboBoxValue
 <br />
 <TelerikComboBox Data="@ComboBoxData"
@@ -124,7 +124,7 @@ When `AllowCustom="true"`, what the user types in the input will be set to the `
 The ComboBox is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````String
+````RAZOR String
 @*ComboBox reference when binding to a string collection*@
 
 <TelerikComboBox @ref="ComboBoxRef"
@@ -145,7 +145,7 @@ The ComboBox is a generic component and its type depends on the type of its `Dat
     }
 }
 ````
-````Model
+````RAZOR Model
 @*ComboBox reference when binding to a model collection*@
 
 <TelerikComboBox @ref="@ComboBoxRef"
@@ -182,7 +182,7 @@ In case you cannot provide strongly-typed `Value` or `Data` at compile time, you
 
 >caption ComboBox configuration if you cannot provide Value or Data
 
-````CSHTML
+````RAZOR
 @*How to declare the combobox if no Value or Data are provided*@
 
 <TelerikComboBox @ref="@ComboBoxRef"

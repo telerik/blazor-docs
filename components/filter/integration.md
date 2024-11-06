@@ -120,7 +120,7 @@ This article contains the following sections:
 
 >caption Use Filter in TreeView
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -268,7 +268,7 @@ This article contains the following sections:
 
 >caption Use Filter in TreeList
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -377,7 +377,7 @@ This article contains the following sections:
 
 >caption Use Filter in ListView.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -454,7 +454,7 @@ This article contains the following sections:
 
 >important Not every type of Chart is compatible with the Filter component.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
