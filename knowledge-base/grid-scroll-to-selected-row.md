@@ -173,7 +173,7 @@ The example below offers comments in the code on some possible improvements.
         }
     }
 
-    private async Task ValueChangedInVirtualization(string newValue)
+    private async Task HandleSelectedRowWithVirtualization(string newValue)
     {
         SelectedEmployeeInVirtualization = newValue;
 
