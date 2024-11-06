@@ -23,10 +23,11 @@ res_type: kb
 ## Description
 
 When using a data-bound component, the application gets a null exception, and the component does not work. When running the Telerik Blazor application the application gets an error similar to the following:
-```
+
+````C#
 ArgumentNullException: Value cannot be null. (Parameter 'source')
 System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
-```
+````
 
 To reproduce the problem, you can use the following code sample:
 ````CSHTML

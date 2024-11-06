@@ -25,7 +25,7 @@ The `Centered` parameter determines if the Window displays centered in the viewp
 
 A centered Window applies the following CSS styles, which maintain the centered position even if the viewport size changes:
 
-```
+```CSS
 .k-centered {
     top: 50%;
     left: 50%;
