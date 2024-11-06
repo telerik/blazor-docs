@@ -30,7 +30,7 @@ When I have some dynamic content inside the tooltip template, the tooltip seems 
 
 A simplified example - show the tooltip, type in the textbox - the expected behavior is that the button will get enabled, but it does not
 
-````CSHTML
+````RAZOR
 @* Type in the textbox *@
 
 <TelerikButton Class="search-tooltip" ThemeColor="primary">Click for tooltip</TelerikButton>
@@ -65,7 +65,7 @@ The solution is to encapsulate the desired content in its own component so that 
 You can expose the necessary parameters and events from it so that there are no API changes in the view-model of the main component
 
 <div class="skip-repl"></div>
-````MainComponent
+````RAZOR MainComponent
 @* The API is the same, the contents are in their own component, see the adjacent tab *@
 
 <TelerikButton Class="search-tooltip" ThemeColor="primary">Click for tooltip</TelerikButton>
@@ -84,7 +84,7 @@ You can expose the necessary parameters and events from it so that there are no 
     }
 }
 ````
-````SearchTooltipContent
+````RAZOR SearchTooltipContent
 @* Sample content for the tooltip that fires up the necessary events and can update as necessary *@
 
 <TelerikTextBox Value="@SearchText" ValueChanged="@( (string v) => ValueChangedHandler(v) )"></TelerikTextBox>

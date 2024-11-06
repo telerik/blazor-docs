@@ -28,7 +28,7 @@ This article contains the following examples for generating the tooltip content:
 
 >caption Different content for different targets, generated from the same tooltip
 
-````CSHTML
+````RAZOR
 @* You can add more than text, you can also use the data to generate attributes for images
     or even entire components *@
 
@@ -60,7 +60,7 @@ This article contains the following examples for generating the tooltip content:
 
 >caption Generate tooltip content based on target metadata through a method
 
-````CSHTML
+````RAZOR
 @* Generate the HTML content through a markup string *@
 
 <TelerikTooltip TargetSelector="p strong[title]">

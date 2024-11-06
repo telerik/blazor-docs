@@ -35,7 +35,7 @@ You can data bind the RadioGroup to a collection of `string` or [value type](htt
 
 >caption Data binding a RadioGroup to strings
 
-````CSHTML
+````RAZOR
 RadioGroupValue: @RadioGroupValue
 <br />
 <TelerikRadioGroup Data="@RadioGroupData" @bind-Value="@RadioGroupValue" />
@@ -59,7 +59,7 @@ To bind the RadioGroup to a model:
 
 >caption Data binding a RadioGroup to a model and collection of models
 
-````CSHTML
+````RAZOR
 Selected Gender Id: @( RadioGroupValue == default ? "None yet" : RadioGroupValue.ToString() )
 <br />
 <TelerikRadioGroup Data="@RadioGroupData"
@@ -105,7 +105,7 @@ You should avoid values in the data that match the `default` of their type (such
 The RadioGroup is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````String
+````RAZOR String
 <TelerikRadioGroup @ref="@RadioGroupRef"
                    Data="@RadioGroupData"
                    @bind-Value="@RadioGroupValue" />
@@ -117,7 +117,7 @@ The RadioGroup is a generic component and its type depends on the type of its `D
     private IEnumerable<string> RadioGroupData { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
-````Model
+````RAZOR Model
 <TelerikRadioGroup @ref="@RadioGroupRef"
                    Data="@RadioGroupData"
                    @bind-Value="@RadioGroupValue"
@@ -151,7 +151,7 @@ The RadioGroup is a generic component and its type depends on the type of its `D
 
 >caption RadioGroup configuration if you cannot provide Value or Data
 
-````CSHTML
+````RAZOR
 <TelerikRadioGroup Data="@RadioGroupData"
                    TItem="@Gender"
                    TValue="@int"

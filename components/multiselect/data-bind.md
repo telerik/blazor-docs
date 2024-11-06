@@ -32,7 +32,7 @@ To bind the MultiSelect, you need to:
 
 >caption Data binding an MultiSelect to a simple string data source
 
-````CSHTML
+````RAZOR
 @*Bind to an IEnumerable<string>*@
 
 <TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" />
@@ -56,7 +56,7 @@ To bind the MultiSelect, you need to:
 
 >caption Data binding an MultiSelect to a simple number data source
 
-````CSHTML
+````RAZOR
 @*Bind to an IEnumerable<int>*@
 
 <TelerikMultiSelect Data="@Options" @bind-Value="@TheValues" />
@@ -91,7 +91,7 @@ To bind the MultiSelect to a model:
 
 >caption Data binding an MultiSelect to a model
 
-````CSHTML
+````RAZOR
 @*Bind to an IEnumerable<model>*@
 
 <TelerikMultiSelect Data="@Options" @bind-Value="@TheValues"
@@ -135,7 +135,7 @@ The MultiSelect component attempts to infer the type of its model and value base
 The MultiSelect is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````String
+````RAZOR String
 @*Reference type when binding to a string collection*@
 
 <TelerikMultiSelect @ref="@MultiSelectRef"
@@ -150,7 +150,7 @@ The MultiSelect is a generic component and its type depends on the type of its `
     private List<string> MultiSelectData { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
-````Model
+````RAZOR Model
 @*Reference when binding to a model collection*@
 
 <TelerikMultiSelect @ref="@MultiSelectRef"
@@ -186,7 +186,7 @@ In case you cannot provide either of a `Value`, or `Data`, or both when the comp
 
 >caption MultiSelect configuration if you cannot provide Value or Data
 
-````CSHTML
+````RAZOR
 @*How to declare the MultiSelect if no Value or Data are provided*@
 
 <TelerikMultiSelect Data="@MultiSelectData"
