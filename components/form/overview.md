@@ -16,7 +16,9 @@ The <a href = "https://demos.telerik.com/blazor-ui/form/overview" target="_blank
 ## Creating Blazor Form
 
 1. Add the `TelerikForm` tag to a razor file.
-1. Set the Form `Model` parameter to an object, or alternatively, set the `EditContext` parameter to an [`EditContext` instance](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext).
+1. Bind the Form to data by using only one of the following two options:
+    * Set the Form `Model` parameter to an object.
+    * Set the `EditContext` parameter to an [`EditContext` instance](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext). The object instance from which the `EditContext` is created is important, especially when using [FormItem templates]({%slug form-formitems-template%}) and [validation messages]({%slug form-validation%}).
 1. (optional) To enable [form validation]({%slug form-validation%}), add the `<FormValidation>` tag. Define a validator component inside, for example the [`DataAnnotationsValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) that is part of .NET Core.
 
 <div class="skip-repl"></div>
