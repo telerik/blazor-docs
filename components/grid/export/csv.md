@@ -196,7 +196,7 @@ For more advanced customizations (such as coloring the headers, bolding the titl
 The CSV export has the following specifics:
 
 * Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document. If you need to add such structure, consider [exporting to an Excel file]({%slug grid-export-excel%}).
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in e Field in the model, or create your own excel file (see example <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">here</a>).
+* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own Excel file (see example <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">here</a>).
 
 @[template](/_contentTemplates/grid/export.md#export-common-notes)
 
