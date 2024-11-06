@@ -149,7 +149,7 @@ The example below offers comments in the code on some possible improvements.
 
     #region Event Handlers
 
-    private async Task ValueChangedInPageMode(string newValue)
+    private async Task HandleSelectedRowWithPageMode(string newValue)
     {
         SelectedEmployeeInPageMode = newValue;
 
