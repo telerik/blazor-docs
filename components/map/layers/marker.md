@@ -31,7 +31,7 @@ To define a Marker layer in the Map:
 
 The following example demonstrates how to configure the Marker layer of the Map.
 
->caption The Marker Map layer configuration.
+>caption The Marker Map layer configuration
 
 ````CSHTML
 <TelerikMap Center="@MapCenter"
