@@ -13,6 +13,8 @@ position: 38
 
 The `NoDataTemplate` allows you to define custom content when the Grid has no data to show. It lets you change the default **No records available** localizable text.
 
+The Grid will also show its default or custom `NoDataTemplate` while loading its initial data. To help users distinguish between the "no data" and "still loading" states, [display a LoaderContainer over the Grid on initial load]({%slug grid-loading%}#example).
+
 >caption Using NoDataTemplate
 
 ````CSHTML
