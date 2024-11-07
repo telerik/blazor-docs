@@ -79,7 +79,7 @@ The example below offers comments in the code on some possible improvements.
                      DebounceDelay="500"
                      Width="300px"
                      FilterOperator="StringFilterOperator.Contains"
-                     ValueChanged="@ValueChangedInPageMode">
+                     ValueChanged="@HandleSelectedRowWithPageMode">
 </TelerikAutoComplete>
 
 <TelerikGrid Data=@GridData
@@ -104,7 +104,7 @@ The example below offers comments in the code on some possible improvements.
                      DebounceDelay="500"
                      Width="300px"
                      FilterOperator="StringFilterOperator.Contains"
-                     ValueChanged="@ValueChangedInVirtualization">
+                     ValueChanged="@HandleSelectedRowWithVirtualization">
 </TelerikAutoComplete>
 
 <TelerikGrid @ref="@GridRef"
