@@ -22,4 +22,4 @@ The PanelBar can use templates for:
 ## See Also
 
   * [Data Binding a PanelBar]({%slug panelbar-data-binding-overview%})
-  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/index)
+  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

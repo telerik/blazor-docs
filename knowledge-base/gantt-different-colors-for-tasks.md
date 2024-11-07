@@ -233,5 +233,5 @@ Follow these steps to apply the desired colors to the Gantt tasks:
 
 * [Gantt Task Overview]({%slug gantt-overview%})
 * [Gantt Task Template]({%slug gantt-task-template%})
-* [Live Gantt Demos](https://demos.telerik.com/blazor-ui/gantt/index)
+* [Live Demos: Gantt](https://demos.telerik.com/blazor-ui/gantt/overview)
 * [Gantt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1)

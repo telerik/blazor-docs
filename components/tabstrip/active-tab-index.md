@@ -45,5 +45,5 @@ Active Tab Index: @ActiveTabIndex
 
 ## See Also
 
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
+  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
 

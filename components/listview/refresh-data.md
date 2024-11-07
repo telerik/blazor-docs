@@ -283,4 +283,4 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 
   * [ObservableCollection]({%slug common-features-observable-data%})
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui/)
+  * [Live Demos](https://demos.telerik.com/blazor-ui)

@@ -149,7 +149,7 @@ Add a reference to the component instance to use the [Time Picker's methods](/bl
 
 ## See Also
 
-* [Live Demo: Time Picker](https://demos.telerik.com/blazor-ui/timepicker/index)
+* [Live Demo: Time Picker](https://demos.telerik.com/blazor-ui/timepicker/overview)
 * [Input Validation]({%slug common-features/input-validation%})
 * [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
 * [TimePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1)

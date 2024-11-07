@@ -220,5 +220,5 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
 ## See Also
 
- * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treeList/templates)
- * [Live Demo: TreeList Popup Edit Form Template](https://demos.telerik.com/blazor-ui/treeList/popup-edit-form-template)
+ * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
+ * [Live Demo: TreeList Popup Edit Form Template](https://demos.telerik.com/blazor-ui/treelist/popup-edit-form-template)

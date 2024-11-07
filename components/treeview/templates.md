@@ -264,4 +264,4 @@ Multiple templates usage.
 ## See Also
 
   * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
-  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/index)
+  * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/overview)

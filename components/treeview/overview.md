@@ -167,6 +167,6 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 
 ## See Also
 
-* [Live TreeView Demos](https://demos.telerik.com/blazor-ui/treeview/index)
+* [Live TreeView Demos](https://demos.telerik.com/blazor-ui/treeview/overview)
 * [TreeVew API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
 * [Enable TreeView Scrolling]({%slug treeview-kb-horizontal-scrollbar%})

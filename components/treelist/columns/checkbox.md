@@ -175,5 +175,5 @@ On a side note, it is possible to [center the checkboxes in the `TreeListCheckbo
 
 ## See Also
 
-* [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/selection)
+* [Live Demo: TreeList Selection](https://demos.telerik.com/blazor-ui/treelist/row-selection)
 * [TreeList Selection Overview]({%slug treelist-selection-overview%})

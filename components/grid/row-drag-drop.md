@@ -1769,5 +1769,5 @@ List on known limitations for the Grid Drag and Drop features:
 ## See Also
 
 * [Grid Overview]({%slug grid-overview%})
-* [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/index)
+* [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/overview)
 * [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)

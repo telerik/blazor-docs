@@ -110,7 +110,7 @@ Add a reference to the component instance to use the [Button methods](/blazor-ui
 
 ## See Also
 
-* [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/index)
+* [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/overview)
 * [Events]({%slug button-events%})
 * [Type]({%slug button-type%})
 * [Button API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton)

@@ -101,4 +101,4 @@ On the downside, rendering a fixed resolution bitmap results in:
 
 ## See Also
 
-  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+  * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)

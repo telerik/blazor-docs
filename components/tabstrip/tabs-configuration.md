@@ -101,5 +101,5 @@ The `Disabled` parameter allows you to mark a tab as disabled, so the user canno
 
 ## See Also
 
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/index)
+  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
   * [Live Demo: TabStrip - Tab Visibility](https://demos.telerik.com/blazor-ui/tabstrip/tab-visibility)

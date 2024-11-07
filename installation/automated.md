@@ -24,9 +24,9 @@ There is an automated installer for:
 The automated installer provides the following:
 
 * The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
-* An offline version of our [demos](https://demos.telerik.com/blazor-ui/) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
+* An offline version of our [demos](https://demos.telerik.com/blazor-ui) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
 * The [document processing]({%slug dpl-in-blazor%}) `.nupkg` files (in the `dpl` folder).
-* A shortcut to our [online demos](https://demos.telerik.com/blazor-ui/).
+* A shortcut to our [online demos](https://demos.telerik.com/blazor-ui).
 * Our [Visual Studio extension]({%slug getting-started-vs-integration-overview%}). We also have an [extension for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">install it from the VS Code marketplace</a>.
 
 

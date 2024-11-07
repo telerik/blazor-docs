@@ -109,7 +109,7 @@ namespace MyBlazorMauiAppName
 
 ### 5. Add the UI for Blazor Components
 
-Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui/).
+Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
 
 ## Running the Blazor Hybrid App
 

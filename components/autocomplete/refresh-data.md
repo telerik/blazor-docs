@@ -223,4 +223,4 @@ To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-event
 
   * [ObservableCollection]({%slug common-features-observable-data%})
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
-  * [Live Demos](https://demos.telerik.com/blazor-ui/)
+  * [Live Demos](https://demos.telerik.com/blazor-ui)

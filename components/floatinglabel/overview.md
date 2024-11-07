@@ -100,5 +100,5 @@ The following table lists the FloatingLabel parameters. Also check the [Floating
 
 ## See Also
 
-* [Live Floating Label Demos](https://demos.telerik.com/blazor-ui/floatinglabel/index)
+* [Live Floating Label Demos](https://demos.telerik.com/blazor-ui/floatinglabel/overview)
 * [Floating Label API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFloatingLabel)

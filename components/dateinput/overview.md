@@ -163,6 +163,6 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 ## See Also
 
-* [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
+* [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/overview)
 * [Input Validation]({%slug common-features/input-validation%})
 * [Date Input API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1)

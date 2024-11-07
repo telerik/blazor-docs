@@ -224,5 +224,5 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 ## See Also
 
-* [Live Grid Demos](https://demos.telerik.com/blazor-ui/grid/index)
+* [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/overview)
 * [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)

@@ -504,7 +504,7 @@ To do that, you need to:
 
 ## See Also
 
-* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
 * [Format percentage in label for Pie or Donut Chart]({%slug chart-format-percent%})
 * [Localize numeric Chart labels]({%slug chart-kb-localized-numeric-labels%})
 * [Complex logic in Chart label format](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)

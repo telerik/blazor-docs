@@ -158,5 +158,5 @@ The Menu provides the following popup settings:
 
 ## See Also
 
-* [Live Demo: Menu](https://demos.telerik.com/blazor-ui/menu/index)
+* [Live Demo: Menu](https://demos.telerik.com/blazor-ui/menu/overview)
 * [Menu API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMenu-1)

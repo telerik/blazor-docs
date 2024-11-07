@@ -250,5 +250,5 @@ The Pivot Grid exposes methods for programmatic operation. To use them, define a
 
 ## See Also
 
-* [Live PivotGrid Demos](https://demos.telerik.com/blazor-ui/pivotgrid)
+* [Live PivotGrid Demos](https://demos.telerik.com/blazor-ui/overview)
 * [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1)

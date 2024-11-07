@@ -63,5 +63,5 @@ This exception will occur if the type of TItem is different from the type of the
 
 There are two places to get Telerik Blazor localization files:
 
-* The **Resources** folder of our [Blazor demos](https://demos.telerik.com/blazor-ui/) website. [Download the UI for Blazor installer](https://www.telerik.com/account/downloads), which contains the offline version of the demo site. Check in folder `/demos/TelerikBlazorDemos/Resources/`.
+* The **Resources** folder of our [Blazor demos](https://demos.telerik.com/blazor-ui) website. [Download the UI for Blazor installer](https://www.telerik.com/account/downloads), which contains the offline version of the demo site. Check in folder `/demos/TelerikBlazorDemos/Resources/`.
 * The [`blazor-ui-messages` GitHub repository](https://github.com/telerik/blazor-ui-messages). The resources files there are [maintained by our developer community](https://github.com/telerik/blazor-ui-messages#notes).
