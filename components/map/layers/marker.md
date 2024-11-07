@@ -10,7 +10,7 @@ position: 5
 
 # Marker Layer
 
-The marker functionality allows you to add points of interest to the Map. These points are defined by the geographical position in the map and can show useful information to the user in a tooltip.
+The marker functionality allows you to add points of interest to the Map. These points are defined by the geographical position on the map and can show useful information to the user in a tooltip.
 
 This article describes how to:
 
