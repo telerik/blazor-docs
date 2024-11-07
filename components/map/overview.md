@@ -70,7 +70,7 @@ The Map renders with the help of a JavaScript-based rendering engine. This engin
 
 Both syntax options provide the same capabilities. The legacy inline syntax depends on JavaScript code evaluation, which is not [compliant with strict Content Security Policy (CSP)]({%slug troubleshooting-csp%}). The function-based approach is CSP compliant and can be more readable and convenient in complex scenarios.
 
->caption CSP compliant Map
+>caption CSP-compliant Map
 
 ````CSHTML
 <TelerikMap>
