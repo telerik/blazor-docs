@@ -82,7 +82,7 @@ In your `NuGet.Config` file, set the `Username` value to `api-key` and the `Clea
 
 ### Using .NET CLI Commands
 
-You can use the .NET CLI `add source` or `update source` commands to set the credentials of a package source. This CLI approach is applicable if your CI system doesn't support [environment variable secrets](#storing-nuget-keys) or if you do not [use a custom `NuGet.Config`](#using-a-nugetconfig-file).
+You can use the .NET CLI `add source` or `update source` commands to set the credentials of a package source. This CLI approach is applicable if your CI system doesn't support [environment variable secrets](#storing-nuget-keys) or if you do not [use a custom `NuGet.Config`](#using-a-nuget-config-file).
 
 * To set the credentials in Azure DevOps:
 

@@ -109,7 +109,7 @@ Button groups can take only buttons, and dropdowns and custom tools cannot be ad
 
 >caption Examples:
 
-* [Add/Remove Tools From Existing Toolbar](#addremove-tools-from-existing-toolbar)
+* [Add/Remove Tools From Existing Toolbar](#add-remove-tools-from-existing-toolbar)
 * [Create a Toolbar From Scratch](#create-a-toolbar-from-scratch)
 * [Customize Built-in Tools](#customize-built-in-tools)
 
