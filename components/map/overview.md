@@ -66,7 +66,7 @@ The Blazor Map generates events that you can handle and further customize its be
 The Map renders with the help of a JavaScript-based rendering engine. This engine uses a templating mechanism that supports two kinds of syntax:
 
 * [Legacy inline syntax](#creating-blazor-map). In this case, the template parameter is a string that consumes dynamic values <a href="https://docs.telerik.com/kendo-ui/framework/templates/essentials" target="_blank">through `#= ... #` expressions</a>, for example, `UrlTemplate="https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png"`;
-* JavaScript functions that obtain dynamic values from the function arguments, for example, `UrlTemplate="jsFunctionName"`. This feature was introduced in version **4.5.0**.
+* JavaScript functions that obtain dynamic values from the function arguments, for example, `UrlTemplate="jsFunctionName"`. This feature was introduced in version **4.5.0** of Telerik UI for Blazor.
 
 Both syntax options provide the same capabilities. The legacy inline syntax depends on JavaScript code evaluation, which is not [compliant with strict Content Security Policy (CSP)]({%slug troubleshooting-csp%}). The function-based approach is CSP-compliant and can be more readable and convenient in complex scenarios.
 
