@@ -259,7 +259,7 @@ The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker ty
 
 The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, appearance, and options of the tooltip, as well as fully customize its HTML content.
 
->caption Marker tooltip template.
+>caption Marker tooltip template
 
 ````CSHTML
 <TelerikMap Center="@MapCenter"
