@@ -9,7 +9,7 @@ previous_url: /browser-support,/upgrade/framework-versions
 
 # System Requirements
 
-This article describes the compatibility of Telerik Blazor components with different [browser versions](#browser-support) and [.NET versions](#net-versions-support). It also explains the difference between [supported .NET versions](#supported-net-versions) and [compatible .NET versions](#compatible-net-versions).
+This article describes the compatibility of Telerik Blazor components with different [browser versions](#browser-support) and [.NET versions](#-net-versions-support). It also explains the difference between [supported .NET versions](#supported-net-versions) and [compatible .NET versions](#compatible-net-versions).
 
 Telerik UI for Blazor steps on Microsoft Blazor. You can host and run Telerik Blazor applications on the [platforms and browsers supported by Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/supported-platforms) - Windows, Linux, macOS.
 

@@ -88,7 +88,7 @@ You can pass the entire [NotificationModel]({%slug notification-overview%}#notif
 
 There are two separate ways to close a notification:
 
-* [Automatically Closing Notification](#automatically-closing-notification)
+* [Automatically Closing Notification](#automatically-closing-a-notification)
 * [Manually Closing a Notification](#manually-closing-a-notification)
 
 ### Automatically Closing a Notification

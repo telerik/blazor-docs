@@ -24,7 +24,7 @@ The Menu item template can contain arbitrary content according such as HTML mark
 
 ### Use ItemTemplate for Navigation
 
-The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. [`<NavLink>` also supports the `target="_blank"` attribute](#use-itemtemplate-for-styling-and-target_blank).
+The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. [`<NavLink>` also supports the `target="_blank"` attribute](#use-itemtemplate-for-styling-and-target-_blank).
 
 >caption Use Menu item template for navigation
 

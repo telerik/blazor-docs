@@ -17,7 +17,7 @@ In this article you will find information on the general topics of accessibility
 
 * [Standards and Policies](#standards-and-policies)
 	* [Section 508](#section-508)
-	* [W3C Web Content Accessibility Guidelines (WCAG) 2.2](#w3c-web-content-accessibility-guidelines-wcag-22)
+	* [W3C Web Content Accessibility Guidelines (WCAG) 2.2](#w3c-web-content-accessibility-guidelines-wcag-2-2)
 * [Technical Specifications](#technical-specifications)
 	* [WAI-ARIA](#wai-aria)
 	* [Keyboard Navigation](#keyboard-navigation)
