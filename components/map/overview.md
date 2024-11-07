@@ -10,41 +10,32 @@ position: 0
 
 # Blazor Map Overview
 
-The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers.
-
-The component provides [tile layers]({%slug components/map/layers/tile%}), [shape (vector) layers]({%slug components/map/layers/shape%}), [bubble layers]({%slug components/map/layers/bubble%}), and [marker layers]({%slug components/map/layers/marker%}).
+The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers. The component provides [tile layers]({%slug components/map/layers/tile%}), [vector shape layers]({%slug components/map/layers/shape%}), [bubble layers]({%slug components/map/layers/bubble%}), and [marker layers]({%slug components/map/layers/marker%}).
 
 ## Creating Blazor Map
 
-1. Use the `TelerikMap` tag to add the component to your razor page.
+1. Use the `TelerikMap` tag to add the component to a Razor file.
+1. Add a `<MapLayer>` tag nested inside `<MapLayers>`. Set its `Type` to `MapLayersType.Tile`.
+1. Set the [`UrlTemplate` parameter]({%slug components/map/layers%}#maplayer-parameters) of the tile layer. Check the [required syntax that complies with Content Security Policy](#content-security-policy).
+1. (optional) Set the Map `Attribution` and `Subdomains` parameters, depending on the specific tile provider.
 
-2. Add the `MapLayer` tag nested inside `MapLayers`.
-
-3. Set the `Type` property.
-
-4. Set the `Attribution` and `Subdomains` properties.
-
-5. Provide the [`UrlTemplate` property]({%slug components/map/layers%}#maplayers-parameters).
-
->caption A basic configuration of the Telerik Map.
+>caption Basic Telerik Map for Blazor
 
 ````CSHTML
-@* This code snippet showcases an example of a basic Map configuration. *@
-
 <TelerikMap>
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
 @code {
-    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private string LayerUrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 }
 ````
 
@@ -70,54 +61,49 @@ Blazor Map also incorporates a navigation tool allowing the end user to easily z
 
 The Blazor Map generates events that you can handle and further customize its behavior. [Read more about the Blazor Map events...]({%slug components/map/events%}).
 
-## Methods
+## Content Security Policy
 
-The Map methods are accessible through its reference.
+The Map renders with the help of a JavaScript-based rendering engine. This engine uses a templating mechanism that supports two kinds of syntax:
 
-* `Refresh` - redraws the component.
+* [Legacy inline syntax](#creating-blazor-map). In this case, the template parameter is a string that consumes dynamic values <a href="https://docs.telerik.com/kendo-ui/framework/templates/essentials" target="_blank">through `#= ... #` expressions</a>, for example, `UrlTemplate="https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png"`;
+* JavaScript functions that obtain dynamic values from the function arguments, for example, `UrlTemplate="jsFunctionName"`. This feature was introduced in version **4.5.0** of Telerik UI for Blazor.
 
->caption Get a reference to the Map and use its methods.
+Both syntax options provide the same capabilities. The legacy inline syntax depends on JavaScript code evaluation, which is not [compliant with strict Content Security Policy (CSP)]({%slug troubleshooting-csp%}). The function-based approach is CSP-compliant and can be more readable and convenient in complex scenarios.
+
+>caption CSP-compliant Map
 
 ````CSHTML
-@* This code snippet showcases an example usage of the Refresh() method. *@
-
-<TelerikButton OnClick="@( () => ChangeZoom() )">Change Size!</TelerikButton>
-<br />
-<br />
-
-<TelerikMap @ref="MapRef" Zoom="@Zoom">
+<TelerikMap>
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
-                  Attribution="@Attribution"
-                  Subdomains="@Subdomains"
-                  UrlTemplate="@UrlTemplate">
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="urlTemplateFunction">
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
-@code {
-    TelerikMap MapRef { get; set; }
-
-    public double Zoom { get; set; } = 4;
-
-    public void ChangeZoom()
-    {
-        Zoom = 1;
-        MapRef.Refresh();
+@* Move the JavaScript to a separate JS file. *@
+<script suppress-error="BL9992" nonce="BL9992">//
+    function urlTemplateFunction(context) {
+        return `https://${context.subdomain}.tile.openstreetmap.org/${context.zoom}/${context.x}/${context.y}.png`;
     }
+//</script>
 
-    public string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
-    public string UrlTemplate { get; set; } = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
-    public string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+@code {
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
 }
 ````
 
-## Parameters
+## Map Parameters
 
 The Blazor Map provides various parameters that allow you to configure the component:
 
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
 | Parameter | Type | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | `Center` | `double[]` | The map center. Coordinates are listed as [Latitude, Longitude]. |
 | `MinZoom` | `double` | The minimum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). |
 | `MaxZoom` | `double` | The maximum zoom level. Typical web maps use zoom levels from 0 (the whole world) to 19 (sub-meter features). |
@@ -135,27 +121,64 @@ The Blazor Map provides various parameters that allow you to configure the compo
 The following `MapControlsAttribution` parameters enable you to customize the appearance of the Blazor Map Controls:
 
 | Parameter | Type | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | `Position` | `MapControlsPosition (enum)` | Specifies the position of the attribtion control. |
 
 The following `MapControlsNavigator` parameters enable you to customize the appearance of the Blazor Map Controls:
 
 | Parameter | Type | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | `Position` | `MapControlsPosition (enum)` | Specifies the position of the navigation control. |
 
 The following `MapControlsZoom` parameters enable you to customize the appearance of the Blazor Map Controls:
 
 | Parameter | Type | Description |
-| ----------- | ----------- | ----------- |
+| --- | --- | --- |
 | `Position` | `string` | Specifies the position of the zoom control. |
+
+## Map Reference and Methods
+
+The Map exposes a `Refresh` method. Use it to redraw the component after making programmatic changes that do not apply automatically.
+
+>caption Get the Map reference and use its methods
+
+````CSHTML
+<TelerikButton OnClick="@ChangeMapZoom">Change Map Zoom</TelerikButton>
+
+<TelerikMap @ref="MapRef"
+            Zoom="@MapZoom">
+    <MapLayers>
+        <MapLayer Type="@MapLayersType.Tile"
+                  Attribution="@LayerAttribution"
+                  Subdomains="@LayerSubdomains"
+                  UrlTemplate="@LayerUrlTemplate">
+        </MapLayer>
+    </MapLayers>
+</TelerikMap>
+
+@code {
+    private TelerikMap? MapRef { get; set; }
+
+    private double MapZoom { get; set; } = 4;
+
+    private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
+    private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
+    private const string LayerAttribution = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
+
+    private void ChangeMapZoom()
+    {
+        MapZoom = 1;
+
+        MapRef?.Refresh();
+    }
+}
+````
 
 ## Next Steps
 
-[Configure the Tile Layer]({%slug components/map/layers/tile%})
-
-[Using the Map Events]({%slug components/map/events%})
+* [Configure Map Layers]({%slug components/map/layers%})
+* [Handle Map Events]({%slug components/map/events%})
 
 ## See Also
 
-  * [Live Demo: Map](https://demos.telerik.com/blazor-ui/map/overview)
+* [Live Demo: Map](https://demos.telerik.com/blazor-ui/map/overview)

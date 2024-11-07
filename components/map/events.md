@@ -556,6 +556,8 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 }
 ````
 
+@[template](/_contentTemplates/map/general.md#urltemplate-csp)
+
 ## See Also
 
 * [Live Demo: Map Events](https://demos.telerik.com/blazor-ui/map/events)
