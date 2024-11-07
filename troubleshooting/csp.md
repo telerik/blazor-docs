@@ -37,7 +37,7 @@ The following items concern older product versions:
 
 * *(for versions 6.x)* Allow script evaluation (`'unsafe-eval'`), which is required by the [Spreadsheet]({%slug spreadsheet-overview%}) for cell validation and formula compilation. If you don't use the Spreadsheet component in your Blazor app, you can [build a CSP compliant `telerik-blazor.js` file without the Spreadsheet]({%slug common-kb-remove-components-from-telerik-blazor-js%}).
 * *(up to version 4.6.0)* Allow `data:` URIs for `font-src` to use [font icons]({%slug common-features-icons%}). Later versions use a separate file for the `WebComponentsIcons` icon font. This font file is referenced by the [font icon stylesheet]({%slug common-features-icons%}#font-icon-stylesheet).
-* *(up to version 4.4.0)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}) and [Map templates]({%slug components/map/overview%}#content-security-policy). These templates used to rely on `eval()`. Since version 4.5.0, the Chart and Map templates support a different template mechanism, which doesn't require `unsafe-eval`.
+* *(up to version 4.4.0)* Allow `unsafe-eval` to use [Chart label templates]({%slug components/chart/label-template-format%}) and [Map templates]({%slug components/map/overview%}#content-security-policy). These templates used to rely on `eval()`. Starting with version 4.5.0, the Chart and Map templates support a different template mechanism, which doesn't require `unsafe-eval`.
 
 ## Examples
 
