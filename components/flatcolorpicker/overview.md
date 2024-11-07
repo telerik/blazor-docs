@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/flatcolorpicker" target="_blank
    * [Basics](#basics)
    * [Example](#example)
    * [Interface](#interface)
-   * [Features](#features)
+   * [Parameters](#flatcolorpicker-parameters)
    * [Supported Value Formats](#supported-value-formats)
 
 ## Basics
