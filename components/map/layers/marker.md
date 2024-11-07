@@ -193,7 +193,7 @@ The following example uses two Marker layers with different templates. One rende
 
 The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker type, use the `Shape` parameter of the `MapLayer` tag. By default, the visual appearance of the Marker is `PinTarget`.
 
->caption Different Marker shapes.
+>caption Different Marker shapes
 
 ````CSHTML
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
