@@ -84,7 +84,7 @@ The following example demonstrates how to configure the Marker layer of the Map.
 
 To customize the marker appearance, set the `Template` parameter in the `<MapLayerMarkerSettings>` child tag of the corresponding `MapLayer`.
 
-The `Template` parameter must point to the name of a JavaScript function, which is defined in the global scope. This function must return HTML markup as a string. The template function argument is a JavaScript object with properties that match the Marker layer's model class.
+The `Template` parameter must point to the name of a JavaScript function, which is defined in the global scope. This function must return plain text or HTML markup as a string. The template function argument is a JavaScript object with properties that match the Marker layer's model class.
 
 The following example uses two Marker layers with different templates. One renders custom HTML markup. The other one shows how to render the built-in Map marker with custom colors.
 
