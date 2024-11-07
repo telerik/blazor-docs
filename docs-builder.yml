@@ -21,6 +21,11 @@ cta-intro: "@ProductLink is a professional grade UI library with 110+ native com
 
 excluded-files: ["**/src-a11y/**/*"]
 
+liquid-output-delimiter-left: "{{"
+liquid-output-delimiter-right: "}}"
+liquid:
+  uiForBlazorLatestVersion: "7.0.0"
+
 meta:
   "*templates":
     title: Templates
