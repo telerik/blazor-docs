@@ -31,13 +31,18 @@ This KB article answers the following questions:
 
 ## Solution
 
-When using two nested [TileLayout](https://docs.telerik.com/blazor-ui/components/tilelayout/overview) components in a Blazor application, resizing or reordering the child component expectedly affect the parent component. This behavior occurs because the resize and reorder events propagate through both levels of TileLayout components. 
+When using two nested [TileLayout](https://docs.telerik.com/blazor-ui/components/tilelayout/overview) components in a Blazor application, resizing or reordering the child component expectedly affects the parent component. This behavior occurs because the resize and reorder events propagate through both levels of TileLayout components. 
 
-Nesting TileLayouts is uncommon, but generally possible if tile resizing and reordering are enabled only for one level at a time. It is important to clarify that with the users, so do not expect they can drag tiles across component instances, which is not possible.
+Nesting TileLayouts is uncommon, but generally possible if the resizing and reordering are enabled only for one level at a time. It is important to clarify that with the users, so they do not expect they can drag tiles across component instances, which is not possible.
 
-To manage nested TileLayout components without unwanted resize and reorder behaviors, enable resizing and reordering only for the innermost TileLayout instance. This approach prevents event propagation issues and enhances user experience by providing a clear and manageable interaction model for nested components.
+To manage nested TileLyouts with resizing and reordering:
 
->caption Enable resize and reorder for onle level of nested tiles
+1. Bind the `Resizable` and `Reorderable` of both TileLayout instances to different variables, so you can toggle them during runtime.
+1. Choose your preferred UI to allow the user enable the resizing and reordering of the specific level of tiles. The example below uses ToggleButtons.
+1. Once the user enables the resizing and reordering for one level, programmatically disable the features for the other level.
+1. (Optional) Use CSS to manage the overflow of the parent TileLayout. This will prevent the parent TileLayout from expanding if the user resizes the tiles in the child TileLayout.
+
+>caption Enable resize and reorder for only level of nested TileLayouts
 
 ````CSHTML
 <style>
@@ -155,6 +160,6 @@ To manage nested TileLayout components without unwanted resize and reorder behav
 ````
 
 ## See Also
-- [TileLayout Overview](https://docs.telerik.com/blazor-ui/components/tilelayout/overview)
-- [TileLayout Resizable Documentation](https://docs.telerik.com/blazor-ui/components/tilelayout/features#resizable)
-- [TileLayout Reorderable Documentation](https://docs.telerik.com/blazor-ui/components/tilelayout/features#reorderable)
+- [TileLayout Overview]({%slug tilelayout-overview%})
+- [TileLayout Reorderable Documentation]({%slug tilelayout-reorder%})
+- [TileLayout Resizable Documentation]({%slug tilelayout-resize%})
