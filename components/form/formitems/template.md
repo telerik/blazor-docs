@@ -28,6 +28,8 @@ When using a Form item template, the following `FormItem` parameters are ignored
 * `Id`
 * `LabelText`
 
+@[template](/_contentTemplates/common/form-validation.md#note-editcontext-formitem-template)
+
 ## Validation Messages and Styling
 
 The `FormItem` `Template` replaces all the Form item's built-in rendering, which includes validation messages and form item labels. You can use the [Telerik validation tools]({%slug validation-tools-overview%}) to display the desired validation UI, or even use the standard Blazor `ValidationMessage` component.
