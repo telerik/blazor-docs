@@ -234,7 +234,7 @@ The **example** below shows how you can handle flat data load on demand in detai
 
 ## Hierarchical Data Load on Demand - Different Models
 
-The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings ( see [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand---one-model) ).
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings]({%slug components/treeview/data-binding/overview%}#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings ( see [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand-one-model) ).
 
 >caption Different Models Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
