@@ -22,8 +22,10 @@ ticketid: 1668460
 
 ## Description
 
-How to move the Footer Template to the top of the Grid?
-How can I display the aggregate results at the top of the Grid in Blazor?
+This KB article answers the following questions:
+
+- How to move the Footer Template to the top of the Grid?
+- How can I display the aggregate results at the top of the Grid in Blazor?
 
 ## Solution
 
