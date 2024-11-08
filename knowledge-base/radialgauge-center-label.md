@@ -1,5 +1,5 @@
 ---
-title: RadialGauge Center Label
+title: Adding a Center Label in the RadialGauge
 description: This article demonstrates how to add and center a label on the RadialGauge component in a Blazor application.
 type: how-to
 page_title: How to Center a Label on a RadialGauge in Blazor Applications
