@@ -1,9 +1,9 @@
 ---
 title: No Data Template
 page_title: Grid - No Data Template
-description: Use custom no data templates in Grid for Blazor.
+description: Use custom no data templates in the Telerik Grid for Blazor when the component has no items to display.
 slug: grid-templates-no-data
-tags: telerik,blazor,grid,templates,no,data
+tags: telerik, blazor, grid, templates
 published: True
 position: 38
 ---
@@ -13,60 +13,53 @@ position: 38
 
 The `NoDataTemplate` allows you to define custom content when the Grid has no data to show. It lets you change the default **No records available** localizable text.
 
->caption Custom content for an empty Grid
+The Grid will also show its default or custom `NoDataTemplate` while loading its initial data. To help users distinguish between the "no data" and "still loading" states, [display a LoaderContainer over the Grid on initial load]({%slug grid-loading%}#example).
 
-![Blazor Grid No Data Template](images/grid-no-data-template.gif)
-
->caption Use the NoDataTemplate to override the message shown while the data is still loading or when you try to filter a non-existing item
+>caption Using NoDataTemplate
 
 ````CSHTML
-@* The example showcases a Grid with a delay upon initializing its data and filtering on non-existing data *@
-
-<TelerikGrid Data="@MyData" Height="400px" Width="830px"
-             Pageable="true"
-             FilterMode="Telerik.Blazor.GridFilterMode.FilterRow">
+<TelerikGrid Data="@GridData"
+             FilterMode="@GridFilterMode.FilterRow"
+             Height="400px"
+             Pageable="true">
     <GridToolBarTemplate>
-        <GridCommandButton OnClick="@LoadData">Add Data</GridCommandButton>
+        <GridCommandButton OnClick="@LoadData">Load Data</GridCommandButton>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="400px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Width="200px" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="200px" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" Width="200px" />
+        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
+        <GridColumn Field="@(nameof(SampleData.Team))" />
+        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" DisplayFormat="{0:d}" />
     </GridColumns>
     <NoDataTemplate>
-        <strong>No Data available / The data is still loading...</strong>
+        <p><strong style="color: var(--kendo-color-primary);">No Data Available.</strong></p>
     </NoDataTemplate>
 </TelerikGrid>
 
-@code { 
-    public IEnumerable<SampleData> MyData { get; set; }
+@code {
+    private IEnumerable<SampleData>? GridData { get; set; }
 
-    async Task LoadData()
+    private void LoadData()
     {
-        await Task.Delay(2000);
-
-        MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+        GridData = Enumerable.Range(1, 30).Select(x => new SampleData
         {
             Id = x,
-            Name = "name " + x,
-            Team = "team " + x % 5,
-            HireDate = DateTime.Now.AddDays(-x).Date
+            Name = $"Name {x}",
+            Team = $"Team {x % 3 + 1}",
+            HireDate = DateTime.Today.AddMonths(-x)
         });
     }
 
     public class SampleData
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Team { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; } = DateTime.Today;
     }
 }
 ````
 
 ## See Also
 
- * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
- * [Live Demo: Grid - No Data Template](https://demos.telerik.com/blazor-ui/grid/no-data-template)
-
+* [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+* [Live Demo: Grid - No Data Template](https://demos.telerik.com/blazor-ui/grid/no-data-template)
