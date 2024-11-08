@@ -94,4 +94,5 @@ The nested `QRCodeBorder` tag exposes parameters that enable you to customize th
 
 ## See Also
 
-  * [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
+* [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
+* [Export QRCode to Image]({%slug qrcode-barcode-chart-kb-export-to-image%})
