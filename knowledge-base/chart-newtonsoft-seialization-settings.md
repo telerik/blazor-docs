@@ -36,6 +36,7 @@ If I use the TelerikChart with a class with `JsonProperties` the values are not 
 
 Sample setting:
 
+<div class="skip-repl"></div>
 ````CSHTML
 [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.11.0 (Newtonsoft.Json v12.0.0.0)")]
 public partial class ChartDataModel
@@ -53,6 +54,7 @@ public partial class ChartDataModel
 
 Sample chart that does not display any longer after adding serialization settings:
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikChart Width="500px">
 
