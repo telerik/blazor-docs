@@ -91,6 +91,24 @@ The ListView can refresh its data manually so the component can react to changes
 
 The ListView provides events related to editing and [loading data on demand]({%slug listview-manual-operations%}). [Read more about the Blazor ListView events]({%slug listview-events%}).
 
+## ListView Parameters
+
+The table below lists the ListView parameters. For a full list of the ListView API members (parameters, methods, and events), check the [ListView API Reference](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TelerikListView-1).
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `Class` | `string` | The `class` attribute of the `<div class="k-listview">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Data` | `IEnumerable<TItem>` | The ListView component data collection. |
+| `EnableLoaderContainer` | `bool` <br /> (`true`) | The ListView loading container that is shown when there are long-running operations. |
+| `Height` | `string` | The `height` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default ListView dimensions depend on the CSS theme. |
+| `Page` | `int` <br /> (`1`) | The current page of the ListView component. |
+| `Pageable` | `bool` <br /> (`false`) | Determines if the ListView allows paging. |
+| `PageSize` | `int` <br /> (`10`) | The number of items to display per page in the ListView. |
+| `TItem` | `Type` | The ListView model type. Although the compiler can usually infer the type from the `Data` parameter, you can set `TItem` for [simpler syntax in the event handler declarations]({%slug listview-events%}). |
+| `Width` | `string` | The `width` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default ListView dimensions depend on the CSS theme. |
+
 ## Next Steps
 
 * [Implement ListView Templates]({%slug listview-templates%})
