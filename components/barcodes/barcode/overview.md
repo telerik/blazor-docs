@@ -133,5 +133,6 @@ The nested `BarcodePadding` tag exposes parameters that enable you to customize 
 
 ## See Also
 
-  * [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
-  * [Live Demo: Barcode Encoding](https://demos.telerik.com/blazor-ui/barcode/encodings)
+* [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
+* [Live Demo: Barcode Encoding](https://demos.telerik.com/blazor-ui/barcode/encodings)
+* [Export Barcode to Image]({%slug qrcode-barcode-chart-kb-export-to-image%})
