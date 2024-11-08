@@ -254,7 +254,7 @@ When using the `SVG` rendering mode:
 }
 ````
 
-> The example in this KB article demonstrates non-Telerik JavaScript APIs, which are not subject to Telerik technical support.
+> The example in this KB article demonstrates JavaScript APIs, which are not subject to Telerik technical support.
 
 ## See Also
 
