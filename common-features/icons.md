@@ -342,5 +342,5 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 ## See Also
 
 * <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">Built-in Icon List</a>
-* [Blazor Live Demos](https://demos.telerik.com/blazor-ui/)
+* [Blazor Live Demos](https://demos.telerik.com/blazor-ui)
 * [CSS Themes]({%slug themes-overview%})

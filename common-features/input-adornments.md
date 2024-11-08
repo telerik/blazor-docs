@@ -408,9 +408,9 @@ To prevent that behavior, you may wrap the content of the prefix/suffix template
 
 * [Live Demo: AutoComplete Adornments](https://demos.telerik.com/blazor-ui/autocomplete/adornments)
 * [Live Demo: ComboBox Adornments](https://demos.telerik.com/blazor-ui/combobox/adornments)
-* [Live Demo: MaskedTextBox Adornments](https://demos.telerik.com/blazor-ui/maskedtextBox/adornments)
+* [Live Demo: MaskedTextBox Adornments](https://demos.telerik.com/blazor-ui/maskedtextbox/adornments)
 * [Live Demo: MultiColumnComboBox Adornments](https://demos.telerik.com/blazor-ui/multicolumncombobox/adornments)
 * [Live Demo: MultiSelect Adornments](https://demos.telerik.com/blazor-ui/multiselect/adornments)
-* [Live Demo: NumericTextBox Adornments](https://demos.telerik.com/blazor-ui/numerictextBox/adornments)
+* [Live Demo: NumericTextBox Adornments](https://demos.telerik.com/blazor-ui/numerictextbox/adornments)
 * [Live Demo: TextArea Adornments](https://demos.telerik.com/blazor-ui/textarea/adornments)
 * [Live Demo: TextBox Adornments](https://demos.telerik.com/blazor-ui/textbox/adornments)

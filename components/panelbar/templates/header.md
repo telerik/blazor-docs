@@ -126,4 +126,4 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
 ## See Also
 
   * [Data Binding a PanelBar]({%slug panelbar-data-binding-overview%})
-  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/index)
+  * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

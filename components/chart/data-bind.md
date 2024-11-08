@@ -433,4 +433,4 @@ The Telerik Chart serializes its data for client-side rendering. The component w
 
 ## See Also
 
-* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)

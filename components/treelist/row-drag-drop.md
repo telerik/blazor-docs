@@ -1155,5 +1155,5 @@ public class Employee
 ## See Also
 
   * [TreeList Overview]({%slug treelist-overview%})
-  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/index)
+  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/overview)
 

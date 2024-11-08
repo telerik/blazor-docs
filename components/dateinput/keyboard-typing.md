@@ -161,5 +161,5 @@ There are many user experience patterns and ways that users want to input dates,
 
 ## See Also
 
-* [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/index)
+* [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/overview)
 * [DateInput Overview]({%slug components/dateinput/overview%})

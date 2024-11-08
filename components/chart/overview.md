@@ -192,5 +192,5 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 
 ## See Also
 
-* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
 * [Chart API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)

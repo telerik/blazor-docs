@@ -148,5 +148,5 @@ Stack to 100%
 
 ## See Also
 
-* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/index)
+* [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
 * [Render total value and group name for stacked columns]({%slug chart-kb-stacked-series-sum-label%})

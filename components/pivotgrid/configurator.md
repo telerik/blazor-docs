@@ -70,5 +70,5 @@ Refer to the [example of a Pivot Grid using an XMLA Data Provider Type]({%slug p
 
 ## See Also
 
-* [Live PivotGrid Demos](https://demos.telerik.com/blazor-ui/pivotgrid)
+* [Live PivotGrid Demos](https://demos.telerik.com/blazor-ui/pivotgrid/overview)
 * [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1)

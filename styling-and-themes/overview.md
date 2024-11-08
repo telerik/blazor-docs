@@ -117,4 +117,4 @@ The Telerik themes are decoupled from the Telerik Blazor components, which leads
 
 * [Change the Theme at Runtime]({%slug common-kb-change-theme-runtime%})
 * <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/#ocean-blue-accessibility-swatch" target="_blank">Default Ocean Blue Accessibility Swatch</a>
-* [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui/)
+* [Live UI for Blazor Demos](https://demos.telerik.com/blazor-ui)

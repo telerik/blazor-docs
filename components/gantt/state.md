@@ -1196,4 +1196,4 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 
 ## See Also
 
-* [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/Gantt/persist-state)
+* [Live Demo: Gantt State](https://demos.telerik.com/blazor-ui/gantt/persist-state)

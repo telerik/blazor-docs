@@ -165,7 +165,7 @@ The following table lists the Section 508 and WCAG 2 compliance levels of suppor
 |`ToolBar`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation) | [Documentation]({%slug toolbar-wai-aria-support%}) |
 |`Tooltip`|`Yes`|`AA`| `n/a` | [Documentation]({%slug tooltip-wai-aria-support%}) |
 |`TreeList`|`No`|`n/a`| `n/a` | `n/a` |
-|`TreeView`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/treeView/keyboard-navigation) | [Documentation]({%slug treeview-wai-aria-support%}) |
+|`TreeView`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation) | [Documentation]({%slug treeview-wai-aria-support%}) |
 |`Upload`|`No`|`n/a`| `n/a` | `n/a` |
 |`Window`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) | [Documentation]({%slug window-wai-aria-support%}) |
 |`Wizard`|`Yes`|`AA`| [Demo](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation) | [Documentation]({%slug wizard-wai-aria-support%}) |
