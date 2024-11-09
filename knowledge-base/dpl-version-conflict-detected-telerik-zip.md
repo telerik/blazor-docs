@@ -50,6 +50,8 @@ Warning NU1605: Detected package downgrade: Telerik.Zip from ... to .... Referen
 * Telerik UI for Blazor (the `Telerik.UI.for.Blazor` NuGet package) depends on the `Telerik.Documents.SpreadsheetStreaming` NuGet package in order to support [Grid Excel export]({%slug grid-export-excel%}). `Telerik.Documents.SpreadsheetStreaming` depends on `Telerik.Zip`.
 * Most [Telerik Document Processing]({%slug dpl-in-blazor%}) NuGet packages depend on `Telerik.Documents.Core`, which also depends on `Telerik.Zip`.
 
+Telerik UI for Blazor and Telerik Document Processing use different release cycles. As a result, the latest version of Telerik UI for Blazor may not be compatible with the latest version of Telerik Document Processing.
+
 [Error `NU1107 Version conflict detected for Telerik.Zip`](https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1605) occurs when an older Telerik UI for Blazor version is used together with a newer Telerik Document Processing version. As a result, `Telerik.UI.for.Blazor` expects an older `Telerik.Zip` version than what the project has resolved.
 
 [Warning `NU1605 Detected package downgrade: Telerik.Zip`](https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1605) occurs when a newer Telerik UI for Blazor version is used together with a older Telerik Document Processing version. As a result, `Telerik.UI.for.Blazor` expects a newer `Telerik.Zip` version than what the project has resolved.
