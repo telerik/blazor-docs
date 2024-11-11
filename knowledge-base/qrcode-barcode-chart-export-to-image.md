@@ -50,7 +50,7 @@ When using the `SVG` rendering mode:
 
 >caption Export QRCode, BarCode, or Chart to Image
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
