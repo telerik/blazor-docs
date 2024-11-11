@@ -38,4 +38,4 @@ You can customize their alignment through the `TabAlignment` parameter. It takes
 
 ## See Also
 
-  * [Live Demo: TabStrip - Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/position-and-alignment)
+  * [Live Demo: TabStrip - Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)

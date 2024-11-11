@@ -37,4 +37,4 @@ You can customize their position through the optional `TabPosition` attribute of
 
 ## See Also
 
-  * [Live Demo: TabStrip - Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/position-and-alignment)
+  * [Live Demo: TabStrip - Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
