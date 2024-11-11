@@ -17,7 +17,7 @@ To select a cell, click anywhere in it.
 
 To select a range of cells in one or more columns, hold the **Shift** key, while clicking on the first and last cell of the range. To select or deselect multiple cells that don't belong to a range, hold the **Ctrl** key.
 
-You can also select a cell range by holding and dragging the mouse cursor. The dragging motion defines the diagonal of a rectangle and the Grid will select the cells under this rectangle. This kind of cell selection depends on the `DragToSelect` parameter in [`GridSelectionSettings`]({%slug grid-selection-overview%}#enable-row-or-cell-selection). The default value of `DragToSelect` is `true` and in this case standart text selection is not supported.
+You can also select a cell range by holding and dragging the mouse cursor. The dragging motion defines the diagonal of a rectangle and the Grid will select the cells under this rectangle. This kind of cell selection depends on the `DragToSelect` parameter in [`GridSelectionSettings`]({%slug grid-selection-overview%}#enable-row-or-cell-selection). The default value of `DragToSelect` is `true` and in this case standard browser text selection is not supported.
 
 To enable cell selection:
 
