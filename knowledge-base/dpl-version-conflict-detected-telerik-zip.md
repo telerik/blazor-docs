@@ -45,11 +45,10 @@ Warning NU1605: Detected package downgrade: Telerik.Zip from ... to .... Referen
 
 ## Cause
 
-Telerik UI for Blazor (the `Telerik.UI.for.Blazor` NuGet package) depends on the `Telerik.Documents.SpreadsheetStreaming` NuGet package in order to support [Grid Excel export]({%slug grid-export-excel%}). On the other hand, `Telerik.Documents.SpreadsheetStreaming` depends on `Telerik.Zip`.
+`Telerik.Zip` is a transitive dependency of multiple other Telerik NuGet packages:
 
-Most [Telerik Document Processing]({%slug dpl-in-blazor%}) NuGet packages depend on `Telerik.Documents.Core`, which also depends on `Telerik.Zip`.
-
-In other words, `Telerik.Zip` is a transitive dependency of multiple other Telerik NuGet packages.
+* Telerik UI for Blazor (the `Telerik.UI.for.Blazor` NuGet package) depends on the `Telerik.Documents.SpreadsheetStreaming` NuGet package in order to support [Grid Excel export]({%slug grid-export-excel%}). `Telerik.Documents.SpreadsheetStreaming` depends on `Telerik.Zip`.
+* Most [Telerik Document Processing]({%slug dpl-in-blazor%}) NuGet packages depend on `Telerik.Documents.Core`, which also depends on `Telerik.Zip`.
 
 Telerik UI for Blazor and Telerik Document Processing use different release cycles. As a result, the latest version of Telerik UI for Blazor may not be compatible with the latest version of Telerik Document Processing.
 
@@ -62,7 +61,7 @@ Telerik UI for Blazor and Telerik Document Processing use different release cycl
 
 There are several ways to fix the NuGet conflict errors:
 
-* [Upgrade Telerik UI for Blazor]({%slug upgrade-tutorial%}), if some [newer version is available](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
+* [Upgrade Telerik UI for Blazor]({%slug upgrade-tutorial%}), if a [newer version is available](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 * Downgrade Telerik Document Processing to the older version that `Telerik.UI.for.Blazor` expects for `Telerik.Zip`.
 * [Reference the newer version of `Telerik.Zip` explicitly in the project.](#reference-the-telerikzip-package-explicitly)
 * [Reference the newer version of `Telerik.Documents.SpreadsheetStreaming` explicitly in the project.](#reference-the-telerikdocumentsspreadsheetstreaming-package-explicitly)
