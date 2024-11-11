@@ -48,7 +48,7 @@ When using the `SVG` rendering mode:
 
 > When using a Blazor app with **Server** render mode, make sure to [increase the SignalR max message size]({%slug common-kb-increase-signalr-max-message-size%}), otherwise the Base64 data URI may not reach the .NET runtime.
 
->caption Export QRCode, BarCode or Chart to Image
+>caption Export QRCode, BarCode, or Chart to Image
 
 ````CSHTML
 @inject IJSRuntime js
