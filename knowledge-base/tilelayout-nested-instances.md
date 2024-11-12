@@ -42,7 +42,7 @@ To manage nested TileLyouts with resizing and reordering:
 1. After the end user enables the resizing and reordering for one level, programmatically disable the features for the other level.
 1. (optional) Use CSS to manage the overflow of the parent TileLayout. This prevents the parent TileLayout from expanding if the user resizes the tiles in the child TileLayout.
 
->caption Enable resize and reorder for only level of nested TileLayouts
+>caption Enable resize and reorder for only one level of nested TileLayouts
 
 ````CSHTML
 <style>
