@@ -28,7 +28,7 @@ This KB article answers the following questions:
 
 * How to [select rows]({%slug grid-selection-row%}) in the Grid when using a [Row Template]({%slug grid-templates-row%})?
 * How to add a [Checkbox column]({%slug components/grid/columns/checkbox%}) in the Grid when using a Row Template? I want to be able to select the row through its checkbox, but also to have the functionality to [select all rows]({%slug components/grid/columns/checkbox%}#parameters) from the header of the Checkbox column.
-* Do the built-in keyboard options to select a range of rows by clicking the **Shift** or **Ctrl** key work when using a Row Template? How to check the checkbox of the row when I select a row by clicking on the row?
+* Do the built-in keyboard options to select a range of rows by clicking the **Shift** or **Ctrl** key work when using a Row Template? How to check the checkbox of the row when I select a row by clicking the row?
 * How to add [command column]({%slug components/grid/columns/command%}) in Grid when using a Row Template?
 * When using a Row Template how to prevent selection of Grid rows when clicking on command buttons?
 * How to implement Grid column [resizing]({%slug components/grid/columns/resize%}), [auto-fitting]({%slug components/grid/columns/resize%}#autofit-columns), [visibility]({%slug grid-columns-visible%}), [locking]({%slug grid-columns-frozen%}), and [reordering]({%slug components/grid/columns/reorder%}) when using a Row Template?
