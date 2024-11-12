@@ -1,5 +1,5 @@
 ---
-title: Nested TileLayout Components with Resizing and Reordering
+title: Nesting TileLayout Components with Resizing and Reordering
 description: Learn how to nest TileLayout components in a Blazor application and enable the resize and reorder features.
 type: how-to
 page_title: How to Handle Nested Telerik TileLayouts with Resizing and Reordering
