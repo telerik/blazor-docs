@@ -51,7 +51,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
 
 * In the `<GridColumns>` collection add the [`<GridCommandColumn>`]({%slug components/grid/columns/command%}) and use the [built-in `Save` and `Cancel` commands]({%slug components/grid/columns/command%}#built-in-commands). 
 * In the `<RowTemplate>` add a `<td>` element with custom [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. You can refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}). 
-* Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking on a command button.
+* Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking a command button.
 
 ### Column Resizing, Auto-fitting, Visibility, Locking, Reordering
 
