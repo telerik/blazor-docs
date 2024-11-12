@@ -15,7 +15,7 @@ The marker functionality allows you to add points of interest to the Map. These 
 This article describes how to:
 
 * [Create Marker layers](#creating-marker-layers)
-* [Customize the Marker appearance](#customizing-marker-appearances)
+* [Customize the Marker appearance](#customizing-marker-appearance)
 * [Define Marker shapes](#defining-marker-shapes)
 * [Set Marker tooltips](#setting-marker-tooltips)
 
