@@ -39,7 +39,7 @@ To manage nested TileLyouts with resizing and reordering:
 
 1. Bind the `Resizable` and `Reorderable` properties of both TileLayout instances to different variables, so you can toggle them during runtime.
 1. Choose your preferred UI to allow the end user to enable the resizing and reordering of the specific level of tiles. The example below uses ToggleButtons.
-1. Once the user enables the resizing and reordering for one level, programmatically disable the features for the other level.
+1. After the end user enables the resizing and reordering for one level, programmatically disable the features for the other level.
 1. (Optional) Use CSS to manage the overflow of the parent TileLayout. This will prevent the parent TileLayout from expanding if the user resizes the tiles in the child TileLayout.
 
 >caption Enable resize and reorder for only level of nested TileLayouts
