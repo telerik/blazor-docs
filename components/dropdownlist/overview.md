@@ -183,7 +183,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 * To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source.
 
 
-## Blazor DropDownList Examples
+## Examples
 
 >caption Default text (hint) to show when no actual item is selected
 
