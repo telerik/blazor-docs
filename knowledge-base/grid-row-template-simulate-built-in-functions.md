@@ -105,7 +105,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
         </td>
         <td @onclick:stopPropagation="true">
             <TelerikButton Icon="@SvgIcon.Pencil" OnClick="@(() => OnProgrammaticEditHandler(article.Id))">Programmatic Edit</TelerikButton>
-            <TelerikButton Icon="@SvgIcon.Trash" OnClick="@(() =>  OnProgrammaticDeleteHandler(article.Id))">Programmatic Delete</TelerikButton>
+            <TelerikButton Icon="@SvgIcon.Trash" OnClick="@(() => OnProgrammaticDeleteHandler(article.Id))">Programmatic Delete</TelerikButton>
         </td>
     </RowTemplate>
     <GridColumns>
