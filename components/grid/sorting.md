@@ -125,4 +125,5 @@ The following articles and sample projects can be helpful when implementing sort
 ## See Also
 
   * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
+  * [Blazor Grid]({%slug grid-overview%})
    

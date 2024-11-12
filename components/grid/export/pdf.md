@@ -20,3 +20,7 @@ The following sample projects show two ways to implement a PDF export
 
 
 You can also follow the feature request for <a href="https://feedback.telerik.com/blazor/1434269-export-grid-to-pdf" target="_blank">built-in Grid export to PDF</a>.
+
+## See Also
+
+* [Blazor Grid]({%slug grid-overview%})

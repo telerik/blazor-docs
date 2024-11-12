@@ -210,3 +210,4 @@ private async Task OnGridRead(GridReadEventArgs args)
 ## See Also
 
 * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
+* [Blazor Grid]({%slug grid-overview%})

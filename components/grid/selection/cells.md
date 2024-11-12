@@ -238,3 +238,4 @@ When using [Grid templates]({%slug components/grid/features/templates%}) with ce
 ## See Also
 
 * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
+* [Blazor Grid]({%slug grid-overview%})

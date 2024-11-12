@@ -107,4 +107,5 @@ The built-in delete confirmation dialog triggers before item deletion. You can e
 * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
 * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
 * [Customize the Delete Confirmation Dialog]({%slug grid-kb-customize-delete-confirmation-dialog%})
+* [Blazor Grid]({%slug grid-overview%})
 

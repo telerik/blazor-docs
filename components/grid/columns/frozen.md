@@ -175,3 +175,4 @@ The frozen columns pose some requirements:
 
 ## See also
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
+ * [Blazor Grid]({%slug grid-overview%})

@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDownList Overview
-description: Explore the Blazor DropDownList component and see code examples. Read more in the Telerik UI documentation for Blazor.
+description: The Blazor DropDownList allows users to select an option from a list, enabling dynamic data binding and event handling in web apps.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
@@ -12,7 +12,7 @@ position: 0
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-## Creating the DropDownList
+## Creating Blazor DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
@@ -76,9 +76,9 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## Parameters
+## DropDownList Parameters
 
->caption The DropDownList provides various parameters that allow you to configure the component:
+>caption The Blazor DropDownList provides various parameters that allow you to configure the component:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

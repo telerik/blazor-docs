@@ -1072,3 +1072,4 @@ Visit the [Grid Cell Selection article to see an example]({%slug grid-selection-
   * [Grid Editing Overview]({%slug components/grid/editing/overview%})
   * [Grid Column Events]({%slug grid-column-events%})
   * [Manual Data Source Operations]({%slug components/grid/manual-operations%})
+  * [Blazor Grid]({%slug grid-overview%})

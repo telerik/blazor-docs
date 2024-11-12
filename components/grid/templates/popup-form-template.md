@@ -239,3 +239,4 @@ Using a `FormTemplate` to modify the Edit/Create Popup window.
  * [Grid Popup Buttons Template]({%slug grid-templates-popup-buttons%})
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Popup Edit Form Template](https://demos.telerik.com/blazor-ui/grid/popup-edit-form-template)
+ * [Blazor Grid]({%slug grid-overview%})

@@ -435,3 +435,4 @@ You can find multiple examples for using the Grid state in the following [Knowle
 
 * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
 * [GridState API reference](/blazor-ui/api/Telerik.Blazor.Components.GridState-1)
+* [Blazor Grid]({%slug grid-overview%})

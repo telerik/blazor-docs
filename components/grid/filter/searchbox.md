@@ -147,6 +147,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 * [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
 * [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
 * [Change Grid Search Results on Column Hide or Show]({%slug grid-kb-search-match-visible-columns%})
-* [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
+* [Search the Grid with a `StartsWith` Operator]({%slug grid-kb-search-startswith%})
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
 * [Grid Filtering Overview]({%slug components/grid/filtering%})
+* [Blazor Grid]({%slug grid-overview%})

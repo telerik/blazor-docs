@@ -226,3 +226,4 @@ depending on how you filter the data so you may never be able to get back all va
 
 * [Grid Filtering Overview]({%slug components/grid/filtering%})
 * [Live Demo: Grid CheckBox List Filter](https://demos.telerik.com/blazor-ui/grid/filter-checkboxlist)
+* [Blazor Grid]({%slug grid-overview%})

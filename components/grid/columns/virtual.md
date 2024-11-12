@@ -316,3 +316,4 @@ Column virtualization is commonly used when you have many columns. You may not h
  * [Virtual Scrolling]({%slug components/grid/virtual-scrolling%})
  * [Grid Column Width Behavior]({%slug grid-columns-width%})
  * [Automatically Generated Columns]({%slug grid-columns-automatically-generated%})
+ * [Blazor Grid]({%slug grid-overview%})

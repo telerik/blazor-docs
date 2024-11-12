@@ -84,4 +84,5 @@ The `GridPagerTemplate` allows you to modify the layout, content, and functional
 ## See Also
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
+ * [Blazor Grid]({%slug grid-overview%})
 

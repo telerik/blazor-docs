@@ -398,3 +398,4 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
 * [DataSourceRequest Object API](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
 * [DataSourceResult Object API](/blazor-ui/api/Telerik.DataSource.DataSourceResult)
+* [Blazor Grid]({%slug grid-overview%})

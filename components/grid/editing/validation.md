@@ -321,3 +321,4 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 
 * [Grid Editing]({%slug components/grid/editing/overview%})
 * [Custom Grid `DataAnnotations` Validation]({%slug validation-kb-custom-dataannotations-validator%})
+* [Blazor Grid]({%slug grid-overview%})

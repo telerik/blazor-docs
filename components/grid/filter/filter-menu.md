@@ -138,3 +138,4 @@ The template will let you have full control over the Filter Row rendering and be
 
   * [Grid Filtering Overview]({%slug components/grid/filtering%})
   * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
+  * [Blazor Grid]({%slug grid-overview%})
