@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDownList Overview
-description: Blazor dropdownlist allows users to select an option from a list, enabling dynamic data binding and event handling in web apps.
+description: The Blazor DropDownList allows users to select an option from a list, enabling dynamic data binding and event handling in web apps.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
