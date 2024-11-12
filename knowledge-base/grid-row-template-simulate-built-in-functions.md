@@ -47,7 +47,7 @@ By default, using the Row Template takes the majority of built-in functionalitie
 
 The built-in editing, sorting, and filtering will work if the RowTemplate structure is similar to an actual table and only for the first  Grid data model property included in the `<td>` element, if any.
 
-### Command column
+### Command Column
 
 * In the `<GridColumns>` collection add the [`<GridCommandColumn>`]({%slug components/grid/columns/command%}) and use the [built-in `Save` and `Cancel` commands]({%slug components/grid/columns/command%}#built-in-commands). 
 * In the `<RowTemplate>` add a `<td>` element with custom [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. You can refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}). 
