@@ -1,5 +1,5 @@
 ---
-title: Add the Built-in for the Grid Functions when Using Grid Row Template
+title: Add the Grid Built-in Functions when Using Grid Row Template
 description: How to implement built-in functions when using Grid RowTemplate
 type: how-to
 page_title: Implement Built-in Functions when Using Grid Row Template
