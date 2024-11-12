@@ -106,7 +106,6 @@ The table below lists the ListView parameters. For a full list of the ListView A
 | `Page` | `int` <br /> (`1`) | The current page of the ListView component. |
 | `Pageable` | `bool` <br /> (`false`) | Determines if the ListView allows paging. |
 | `PageSize` | `int` <br /> (`10`) | The number of items to display per page in the ListView. |
-| `TItem` | `Type` | The ListView model type. Although the compiler can usually infer the type from the `Data` parameter, you can set `TItem` for [simpler syntax in the event handler declarations]({%slug listview-events%}). |
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default ListView dimensions depend on the CSS theme. |
 
 ## Next Steps
