@@ -40,7 +40,7 @@ By default, using the Row Template takes the majority of built-in functionalitie
 ### Selection
 
 * In the [`<GridColumns>` collection]({%slug components/grid/columns/bound%}#show-data-in-a-grid) add the [`<GridCheckboxColumn>`]({%slug components/grid/columns/checkbox%}) and use the [`HeaderTemplate`]({%slug components/grid/columns/checkbox%}#header-template) to add a custom [CheckBox component]({%slug checkbox-overview%}). This CheckBox component handles the [select all rows]({%slug components/grid/columns/checkbox%}#parameters) functionallity.
-* In the `<RowTemplate>` add a `<td>` element with custom CheckBox component. Add a boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
+* In the `<RowTemplate>`, add a `<td>` element with a custom CheckBox component. Add a Boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
 * Handle the Grid [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) and the CheckBox [`OnChange` event]({%slug checkbox-events%}#onchange) to manage the [`SelectedItems` collection]({%slug grid-selection-overview%}#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case you need to create a separate collection of selected items to persist the selected items when multiselecting through the CheckBox.
 
 ### Editing, Sorting, Filtering
