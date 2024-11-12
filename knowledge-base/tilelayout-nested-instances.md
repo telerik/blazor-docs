@@ -22,7 +22,7 @@ ticketid: 1666719
 
 ## Description
 
-I have nested TileLayout components and I want both instances to be resizable and reorderable. The problem is that when I enable these features, the TileLayout does not behave well - for example, the reorder in the child component will also reorder the parent component with the same order.
+I have nested TileLayout components and I want both instances to be resizable and reorderable. The problem is that when I enable these features, the TileLayout does not behave well&mdash;for example, the reorder in the child component will also reorder the parent component with the same order.
 
 This KB article answers the following questions:
 - How can I enable resizing for nested TileLayout components without affecting the parent component?
