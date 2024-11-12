@@ -12,7 +12,7 @@ position: 0
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-## Creating the Blazor DropDownList
+## Creating Blazor DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
