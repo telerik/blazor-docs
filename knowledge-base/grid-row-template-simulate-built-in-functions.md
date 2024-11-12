@@ -53,7 +53,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
 * In the `<RowTemplate>` add a `<td>` element with custom [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. You can refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}). 
 * Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking a command button.
 
-### Column Resizing, Auto-fitting, Visibility, Locking, Reordering
+### Column Resizing, Auto-Fitting, Visibility, Locking, Reordering
 
 * The column resizing and auto-fitting may work as usual, if the RowTemplate structure is similar to an actual table row with coresponding number of cells to the number of Grid columns.
 * The column visibility depends if you include a `<td>` element for the column in the Row Template.
