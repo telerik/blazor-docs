@@ -78,7 +78,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## DropDownList Parameters
 
->caption The Blazor DropDown list provides various parameters that allow you to configure the component:
+>caption The Blazor DropDownList provides various parameters that allow you to configure the component:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
