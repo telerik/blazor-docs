@@ -18,7 +18,7 @@ The contents of the row template must be `<td>` elements and their number (or to
 
 You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to set the name of the context variable. Its type is the model type to which the grid is bound.
 
->important Using the row template takes functionality away from the grid because it no longer controls its own rendering. For example, InCell and Inline editing could not render editors, detail templates will not be available, column resizing, locking, visibility and reordering cannot change the data cells anymore, only the headers, and Checkbox selection must be implemented by the app ([example](https://feedback.telerik.com/blazor/1463819)).
+>important Using the row template takes functionality away from the grid because it no longer controls its own rendering. For example, InCell and Inline editing could not render editors, detail templates will not be available, column resizing, locking, visibility and reordering cannot change the data cells anymore, only the headers, and Checkbox selection must be implemented by the app. You can find an example to get started in the following knowledge base article: [Implement Built-in Functions when Using Grid Row Template]({%slug grid-kb-row-template-simulate-built-in-functions%}).
 
 >caption Using a row template
 

@@ -199,7 +199,7 @@ The [**Select All** checkbox in the Grid checkbox column]({%slug components/grid
 When using [Grid templates]({%slug components/grid/features/templates%}) with row selection:
 
 * If you are using a [Grid column template]({%slug grid-templates-column%}) and you have a clickable element in the template, you can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template]({%slug grid-kb-row-selection-in-column-template%}).
-* If you are using a [row template]({%slug components/grid/features/templates%}#row-template) the Grid cannot render a built-in [checkbox column]({%slug components/grid/columns/checkbox%}). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item).
+* If you are using a [row template]({%slug components/grid/features/templates%}#row-template) the Grid cannot render a built-in [checkbox column]({%slug components/grid/columns/checkbox%}). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following knowledge base article: [Implement Built-in Functions when Using Grid Row Template]({%slug grid-kb-row-template-simulate-built-in-functions%}).
 
 ### Selection and Row Drag and Drop
 
