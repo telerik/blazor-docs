@@ -58,7 +58,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
 * The column resizing and auto-fitting may work as usual, if the RowTemplate structure is similar to an actual table row with coresponding number of cells to the number of Grid columns.
 * The column visibility depends if you include a `<td>` element for the column in the Row Template.
 * To implement column locking, add the `k-grid-content-sticky` class to the `<td>` element of the columns that you want locked, and calculate and set the correct `left` and `right` CSS properties, as the content inside the template can be any valid HTML.
-* When you want to have a column reordering you need to manage the `left` and `right` CSS properties to the `<td>` elements in the RowTemplate.
+* For column reordering, manage the `left` and `right` CSS properties on the `<td>` elements within the Row Template.
 
 ## Example
 
