@@ -1,6 +1,6 @@
 ---
-title: Add the Grid Built-in Functions when Using Grid Row Template
-description: Learn how to implement built-in Grid functions like checkbox or command columns when using the Grid's row template
+title: Add the Grid Built-In Functions When Using Grid Row Template
+description: Learn how to implement built-in Grid functions like CheckBoxColumn or CommandColumn when using the Grid's Row Template
 type: how-to
 page_title: Implement Built-in Functions when Using Grid Row Template
 slug: grid-kb-row-template-simulate-built-in-functions
@@ -27,37 +27,41 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to [select rows]({%slug grid-selection-row%}) in the Grid when using a [Row Template]({%slug grid-templates-row%})?
-* How to add a [Checkbox column]({%slug components/grid/columns/checkbox%}) in the Grid when using a Row Template? I want to be able to select the row through its checkbox, but also to have the functionality to [select all rows]({%slug components/grid/columns/checkbox%}#parameters) from the header of the Checkbox column.
-* Do the built-in keyboard options to select a range of rows by clicking the **Shift** or **Ctrl** key work when using a Row Template? How to check the checkbox of the row when I select a row by clicking the row?
+* How to add a [checkbox column]({%slug components/grid/columns/checkbox%}) in the Grid when using a Row Template? I want to be able to select the row through its checkbox, but also to have the functionality to [select all rows]({%slug components/grid/columns/checkbox%}#parameters) from the header of the checkbox column.
+* Do the built-in keyboard options to select a range of rows by clicking the `Shift` or `Ctrl` key work when using a Row Template? How to check the checkbox of the row when I select a row by clicking the row?
 * How to add a [command column]({%slug components/grid/columns/command%}) in the Grid when using a Row Template?
-* When using a Row Template how to prevent the selection of Grid rows when clicking on command buttons?
+* When using a Row Template, how to prevent the selection of Grid rows when clicking on command buttons?
 * How to implement Grid column [resizing]({%slug components/grid/columns/resize%}), [auto-fitting]({%slug components/grid/columns/resize%}#autofit-columns), [visibility]({%slug grid-columns-visible%}), [locking]({%slug grid-columns-frozen%}), and [reordering]({%slug components/grid/columns/reorder%}) when using a Row Template?
 
 ## Solution
 
-By default, using the Row Template takes the majority of built-in functionalities away from the Grid because the Grid no longer controls its own rendering. This gives you the control to add your own implementation for them. The example below showcases a possible implementation of some of the functionalities, such as row selection by clicking on a row and through a Checkbox column, column resizing and visibility, editing through command buttons, sorting, filtering.
+By default, using the Row Template disables most built-in functionalities of the Grid because the Grid no longer controls its own rendering. This lets you add custom implementations for these features. The [example below](#example) shows one way to implement functionalities such as row selection (both by clicking on a row and through a checkbox column), column resizing and visibility, editing through command buttons, sorting, and filtering.
 
 ### Selection
 
-* In the [`<GridColumns>` collection]({%slug components/grid/columns/bound%}#show-data-in-a-grid) add the [`<GridCheckboxColumn>`]({%slug components/grid/columns/checkbox%}) and use the [`HeaderTemplate`]({%slug components/grid/columns/checkbox%}#header-template) to add a custom [CheckBox component]({%slug checkbox-overview%}). This CheckBox component handles the [select all rows]({%slug components/grid/columns/checkbox%}#parameters) functionallity.
-* In the `<RowTemplate>`, add a `<td>` element with a custom CheckBox component. Add a Boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
-* Handle the Grid's [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) and the CheckBox's [`OnChange` event]({%slug checkbox-events%}#onchange) to manage the [`SelectedItems` collection]({%slug grid-selection-overview%}#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the CheckBox.
+To implement custom selection functionality:
+
+* In the [`<GridColumns>` collection]({%slug components/grid/columns/bound%}#show-data-in-a-grid) add the [`<GridCheckboxColumn>`]({%slug components/grid/columns/checkbox%}) and use the [`HeaderTemplate`]({%slug components/grid/columns/checkbox%}#header-template) to add a [CheckBox component]({%slug checkbox-overview%}). This CheckBox component handles the [select all rows]({%slug components/grid/columns/checkbox%}#parameters) functionallity.
+* In the Row Template, add a `<td>` element with a CheckBox component. Add a Boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
+* Handle the Grid's [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) and the CheckBox's [`OnChange` event]({%slug checkbox-events%}#onchange) to manage the [`SelectedItems` collection]({%slug grid-selection-overview%}#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the checkbox column.
 
 ### Editing, Sorting, Filtering
 
-The built-in editing, sorting, and filtering will work if the RowTemplate structure is similar to an actual table and only for the first  Grid data model property included in the `<td>` element, if any.
+The built-in editing, sorting, and filtering will work if the Row Template structure is similar to an actual table and only for the first  Grid data model property included in the `<td>` element, if any.
 
 ### Command Column
 
+To implement a custom command column:
+
 * In the `<GridColumns>` collection add the [`<GridCommandColumn>`]({%slug components/grid/columns/command%}) and use the [built-in `Save` and `Cancel` commands]({%slug components/grid/columns/command%}#built-in-commands). 
-* In the `<RowTemplate>` add a `<td>` element with custom [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. You can refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}). 
+* In the Row Template add a `<td>` element with a [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. Refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
 * Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking a command button.
 
 ### Column Resizing, Auto-Fitting, Visibility, Locking, Reordering
 
 * Column resizing and auto-fitting will work if the Row Template structure resembles an actual table row, with a corresponding number of cells matching the Grid columns.
-* The column visibility depends if you include a `<td>` element for the column in the Row Template.
-* To implement column locking, add the `k-grid-content-sticky` class to the `<td>` element of the columns that you want locked, and calculate and set the correct `left` and `right` CSS properties, as the content inside the template can be any valid HTML.
+* Column visibility depends on including a `<td>` element for the column in the Row Template.
+* To implement column locking, add the `k-grid-content-sticky` class to the `<td>` element of the columns that you want locked, and calculate and set the correct `left` and `right` CSS properties, as the content inside the Row Template can be any valid HTML.
 * For column reordering, manage the `left` and `right` CSS properties on the `<td>` elements within the Row Template.
 
 ## Example
@@ -69,7 +73,6 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
              Data=@GridData
              Pageable="true"
              PageSize="15"
-             Page="1"
              Sortable="true"
              Resizable="true"
              FilterMode="@GridFilterMode.FilterMenu"
@@ -134,6 +137,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
     private bool SelectAll { get; set; }
 
     #region Selection
+
     private void SelectAllHandler(bool newValue)
     {
         SelectAll = newValue;
@@ -144,7 +148,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
         }
 
         // If SelectAll is true, assign all items to SelectedItems, 
-        // else set it to an empty list
+        // else set it to an empty list.
         SelectedItems = SelectAll ? new List<ArticleDto>(GridData) : new List<ArticleDto>();
         TempSelectedItemsCollection = SelectAll ? new List<ArticleDto>(GridData) : new List<ArticleDto>();
     }
@@ -157,7 +161,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
         }
 
         // Use temporary collection to be able to persist the
-        // selected items when multiselecting with checkboxes
+        // selected items when multiselecting with checkboxes.
         TempSelectedItemsCollection = SelectedItems.ToList();
         SelectedItems = selectedItems;
 
@@ -184,7 +188,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
         }
 
         // The OnChange event fires after the SelectedItemsChanged
-        // thus we need to update the SelectedItems collection
+        // thus we need to update the SelectedItems collection.
         SelectedItems = TempSelectedItemsCollection;
 
         foreach (var item in SelectedItems)
@@ -192,7 +196,9 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
             item.IsSelected = true;
         }
     }
+
     #endregion Selection
+
     #region Edit
 
     private void OnCreateHandler(GridCommandEventArgs args)
@@ -244,7 +250,9 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
             GridRef.Rebind();
         }
     }
+
     #endregion Edit
+
     #region Data Generation
 
     private void GetGridData()
@@ -284,7 +292,9 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
                 };
         }
     }
+
     #endregion DataGeneration
+
 }
 ````
 
