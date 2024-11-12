@@ -45,7 +45,7 @@ By default, using the Row Template takes the majority of built-in functionalitie
 
 ### Editing, Sorting, Filtering
 
-The built-in editing, sorting, filtering will work if the RowTemplate structure is similar to an actual table and only for the first included in the `<td>` element Grid data model property, if such.
+The built-in editing, sorting, and filtering will work if the RowTemplate structure is similar to an actual table and only for the first  Grid data model property included in the `<td>` element, if any.
 
 ### Command column
 
