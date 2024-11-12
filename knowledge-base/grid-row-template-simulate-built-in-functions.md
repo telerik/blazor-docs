@@ -1,6 +1,6 @@
 ---
 title: Add the Grid Built-in Functions when Using Grid Row Template
-description: How to implement built-in functions when using Grid RowTemplate
+description: Learn how to implement built-in Grid functions like checkbox or command columns when using the Grid's row template
 type: how-to
 page_title: Implement Built-in Functions when Using Grid Row Template
 slug: grid-kb-row-template-simulate-built-in-functions
