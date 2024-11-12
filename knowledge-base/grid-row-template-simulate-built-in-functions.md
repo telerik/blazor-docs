@@ -62,7 +62,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
 
 ## Example
 
->caption Row selection, Column resizing and visibility, Editing, Sorting, Filtering when using Row Template
+>caption Row selection, Column resizing and visibility, Editing, Sorting, and Filtering when using Row Template
 
 ````CSHTML
 <TelerikGrid @ref="@GridRef"
