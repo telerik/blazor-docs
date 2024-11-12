@@ -35,7 +35,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-By default, using the Row Template takes the majority of built-in functionalities away from the Grid because the Grid no longer controls its own rendering. This gives you the controll to add your own implementation for them. The example below showcases a possible implementation of some of the functionalities, such as row selection by clicking on a row and through a Checkbox column, column resizing and visibility, editing through command buttons, sorting, filtering.
+By default, using the Row Template takes the majority of built-in functionalities away from the Grid because the Grid no longer controls its own rendering. This gives you the control to add your own implementation for them. The example below showcases a possible implementation of some of the functionalities, such as row selection by clicking on a row and through a Checkbox column, column resizing and visibility, editing through command buttons, sorting, filtering.
 
 ### Selection
 
