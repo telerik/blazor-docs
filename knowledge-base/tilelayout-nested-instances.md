@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 When using two nested [TileLayout](https://docs.telerik.com/blazor-ui/components/tilelayout/overview) components in a Blazor application, resizing or reordering the child component expectedly affects the parent component. This behavior occurs because the resize and reorder events propagate through both levels of TileLayout components. 
 
-Nesting TileLayouts is uncommon, but generally possible if the resizing and reordering are enabled only for one level at a time. It is important to clarify that with the users, so they do not expect they can drag tiles across component instances, which is not possible.
+Nesting TileLayouts is uncommon, but generally possible if the resizing and reordering are enabled only for one level at a time. With such an implementation, you need to clarify to your end users that they can't drag tiles across the different component instances.
 
 To manage nested TileLyouts with resizing and reordering:
 
