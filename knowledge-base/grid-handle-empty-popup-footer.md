@@ -36,10 +36,10 @@ This KB article also answers the following questions:
 
 To hide the empty footer or utilize it by placing the custom form buttons, choose either of the following approaches:
 
-* [Option 1: Display Custom Buttons in the Footer](#option-1-display-custom-buttons-in-the-footer)
-* [Option 2: Remove the Footer and Keep the Buttons in the FormTemplate](#option-2-remove-the-footer-and-keep-the-buttons-in-the-formtemplate)
+* [Display Custom Buttons in the Footer](#display-custom-buttons-in-the-footer)
+* [Remove the Footer and Keep the Buttons in the FormTemplate](#remove-the-footer-and-keep-the-buttons-in-the-formtemplate)
 
-### Option 1: Display Custom Buttons in the Footer
+### Display Custom Buttons in the Footer
 
 To display custom buttons in the footer and handle form submission, follow these steps:
 
@@ -66,7 +66,7 @@ To display custom buttons in the footer and handle form submission, follow these
         <GridPopupEditFormSettings ButtonsLayout="@FormButtonsLayout.Stretch" Context="FormContext">
             <FormTemplate>
                 @{
-                    EditItem = FormContext.Item as Person;
+                    EditItem = (Person)FormContext.Item;
 
                     <TelerikForm Model="@EditItem"
                                  ColumnSpacing="20px"
@@ -117,53 +117,31 @@ To display custom buttons in the footer and handle form submission, follow these
         "Manager", "Developer", "QA"
     };
 
-    private TelerikGrid<Person> GridRef { get; set; }
-    private List<Person> GridData { get; set; }
-    private Person EditItem { get; set; }
-    private List<Person> _people;
+    private TelerikGrid<Person>? GridRef { get; set; }
+    private List<Person> GridData { get; set; } = new();
+    private Person? EditItem { get; set; }
 
     public class Person
     {
         public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public string Position { get; set; }
-    }
-
-    public List<Person> People
-    {
-        get
-        {
-            if (_people == null)
-            {
-                _people = GeneratePeople(30);
-            }
-
-            return _people;
-        }
+        public string Name { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; } = DateTime.Today;
+        public string Position { get; set; } = string.Empty;
     }
 
     protected override void OnInitialized()
     {
-        LoadData();
-    }
-
-    private void LoadData()
-    {
-        GridData = GetPeople();
+        GeneratePeople(30);
     }
 
     private void DeleteItem(GridCommandEventArgs args)
     {
-        DeletePerson(args.Item as Person);
-
-        LoadData();
+        DeletePerson((Person)args.Item);
     }
 
     private async Task OnSubmit()
     {
-
-        if (EditItem.EmployeeId != default)
+        if (EditItem!.EmployeeId != default)
         {
             UpdatePerson(EditItem);
         }
@@ -173,8 +151,6 @@ To display custom buttons in the footer and handle form submission, follow these
         }
 
         await ExitEditAsync();
-
-        LoadData();
     }
 
     private async Task OnCancel()
@@ -184,69 +160,67 @@ To display custom buttons in the footer and handle form submission, follow these
 
     private async Task ExitEditAsync()
     {
-        var state = GridRef?.GetState();
-        state.OriginalEditItem = null;
-        state.EditItem = null;
-        state.InsertedItem = null;
+        var state = GridRef!.GetState();
+        state.OriginalEditItem = null!;
+        state.EditItem = null!;
+        state.InsertedItem = null!;
 
-        await GridRef?.SetStateAsync(state);
+        await GridRef!.SetStateAsync(state);
     }
 
     #region Service Methods
     private List<Person> GetPeople()
     {
-        return People;
+        return GridData;
     }
 
     private DataSourceResult GetPeople(DataSourceRequest request)
     {
-        return People.ToDataSourceResult(request);
+        return GridData.ToDataSourceResult(request);
     }
 
     private void DeletePerson(Person person)
     {
-        People.Remove(person);
+        GridData.Remove(person);
     }
 
     private void UpdatePerson(Person person)
     {
-        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
+        var index = GridData.FindIndex(i => i.EmployeeId == person.EmployeeId);
         if (index != -1)
         {
-            People[index] = person;
+            GridData[index] = person;
         }
     }
 
     private void CreatePerson(Person person)
     {
-        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+        person.EmployeeId = GridData.Max(x => x.EmployeeId) + 1;
 
-        People.Insert(0, person);
+        GridData.Insert(0, person);
     }
 
-    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    private void GeneratePeople(int count, int startIndex = 1)
     {
-        List<Person> result = new List<Person>();
+        GridData = new();
 
-        for (int i = startIndex; i < startIndex + count; i++)
+        for (int i = startIndex; i <= startIndex + count; i++)
         {
-            result.Add(new Person()
+            GridData.Add(new Person()
                 {
                     EmployeeId = i,
                     Name = "Employee " + i.ToString(),
                     HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
-                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
+                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.First()
 
                 });
         }
-
-        return result;
     }
     #endregion
 }
 ````
 
-### Option 2: Remove the Footer and Keep the Buttons in the FormTemplate
+### Remove the Footer and Keep the Buttons in the FormTemplate
 
 This approach relies on using CSS to hide the empty footer. Add your custom class to the edit popup of the Grid to override its default styling.
 
@@ -276,7 +250,7 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
         <GridPopupEditFormSettings Context="FormContext">
             <FormTemplate>
                 @{
-                    EditItem = FormContext.Item as Person;
+                    EditItem = (Person)FormContext.Item;
 
                     <TelerikForm Model="@EditItem"
                                  ColumnSpacing="20px"
@@ -325,53 +299,31 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
         "Manager", "Developer", "QA"
     };
 
-    private TelerikGrid<Person> GridRef { get; set; }
-    private List<Person> GridData { get; set; }
-    private Person EditItem { get; set; }
-    private List<Person> _people;
+    private TelerikGrid<Person>? GridRef { get; set; }
+    private List<Person> GridData { get; set; } = new();
+    private Person? EditItem { get; set; }
 
     public class Person
     {
         public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public string Position { get; set; }
-    }
-
-    public List<Person> People
-    {
-        get
-        {
-            if (_people == null)
-            {
-                _people = GeneratePeople(30);
-            }
-
-            return _people;
-        }
+        public string Name { get; set; } = string.Empty;
+        public DateTime HireDate { get; set; } = DateTime.Today;
+        public string Position { get; set; } = string.Empty;
     }
 
     protected override void OnInitialized()
     {
-        LoadData();
-    }
-
-    private void LoadData()
-    {
-        GridData = GetPeople();
+        GeneratePeople(30);
     }
 
     private void DeleteItem(GridCommandEventArgs args)
     {
-        DeletePerson(args.Item as Person);
-
-        LoadData();
+        DeletePerson((Person)args.Item);
     }
 
     private async Task OnValidSubmit()
     {
-
-        if (EditItem.EmployeeId != default)
+        if (EditItem!.EmployeeId != default)
         {
             UpdatePerson(EditItem);
         }
@@ -381,8 +333,6 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
         }
 
         await ExitEditAsync();
-
-        LoadData();
     }
 
     private async Task OnCancel()
@@ -392,63 +342,61 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
     private async Task ExitEditAsync()
     {
-        var state = GridRef?.GetState();
-        state.OriginalEditItem = null;
-        state.EditItem = null;
-        state.InsertedItem = null;
+        var state = GridRef!.GetState();
+        state.OriginalEditItem = null!;
+        state.EditItem = null!;
+        state.InsertedItem = null!;
 
-        await GridRef?.SetStateAsync(state);
+        await GridRef!.SetStateAsync(state);
     }
 
     #region Service Methods
     private List<Person> GetPeople()
     {
-        return People;
+        return GridData;
     }
 
     private DataSourceResult GetPeople(DataSourceRequest request)
     {
-        return People.ToDataSourceResult(request);
+        return GridData.ToDataSourceResult(request);
     }
 
     private void DeletePerson(Person person)
     {
-        People.Remove(person);
+        GridData.Remove(person);
     }
 
     private void UpdatePerson(Person person)
     {
-        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
+        var index = GridData.FindIndex(i => i.EmployeeId == person.EmployeeId);
         if (index != -1)
         {
-            People[index] = person;
+            GridData[index] = person;
         }
     }
 
     private void CreatePerson(Person person)
     {
-        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+        person.EmployeeId = GridData.Max(x => x.EmployeeId) + 1;
 
-        People.Insert(0, person);
+        GridData.Insert(0, person);
     }
 
-    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    private void GeneratePeople(int count)
     {
-        List<Person> result = new List<Person>();
+        GridData = new();
 
-        for (int i = startIndex; i < startIndex + count; i++)
+        for (int i = 1; i <= count; i++)
         {
-            result.Add(new Person()
+            GridData.Add(new Person()
                 {
                     EmployeeId = i,
                     Name = "Employee " + i.ToString(),
                     HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
-                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
+                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.First()
 
                 });
         }
-
-        return result;
     }
     #endregion
 }
