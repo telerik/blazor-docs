@@ -245,7 +245,7 @@ The built-in editing, sorting, and filtering will work if the RowTemplate struct
         }
     }
     #endregion Edit
-    #region DataGeneration
+    #region Data Generation
 
     private void GetGridData()
     {
