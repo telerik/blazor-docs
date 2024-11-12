@@ -31,3 +31,4 @@ With regard to the widths of its columns, the scrollable (default) Grid typicall
 # See Also
 
 * [Column Resizing]({%slug components/grid/columns/resize%})
+* [Blazor Grid]({%slug grid-overview%})

@@ -88,4 +88,5 @@ When the Template is setup the list of columns, rendered by default, would not b
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
  * [Columns Menu]({%slug grid-column-menu%})
+ * [Blazor Grid]({%slug grid-overview%})
 

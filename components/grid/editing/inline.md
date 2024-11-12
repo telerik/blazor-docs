@@ -185,4 +185,4 @@ Use the command buttons to control the CUD operations.
 ## See Also
 
   * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-   
+  * [Blazor Grid]({%slug grid-overview%})

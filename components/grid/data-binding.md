@@ -158,3 +158,4 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
   * [Live Demo: Bind Grid to Observable Data](https://demos.telerik.com/blazor-ui/grid/observable-data)
   * [Live Demo: Bind Grid to DataTable](https://demos.telerik.com/blazor-ui/grid/data-table)
   * [Live Demo: Manual Grid Data Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
+  * [Blazor Grid]({%slug grid-overview%})

@@ -67,3 +67,4 @@ See [Rows Selection and Other Grid Features]({%slug grid-selection-row%}#row-sel
 
 * [Live Demo: Grid Row Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
 * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
+* [Blazor Grid]({%slug grid-overview%})

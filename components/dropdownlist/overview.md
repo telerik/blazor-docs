@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: DropDownList Overview
-description: Explore the Blazor DropDownList component and see code examples. Read more in the Telerik UI documentation for Blazor.
+description: Blazor dropdownlist allows users to select an option from a list, enabling dynamic data binding and event handling in web apps.
 slug: components/dropdownlist/overview
 tags: telerik,blazor,dropdownlist,dropdown,list,overview
 published: True
@@ -12,7 +12,7 @@ position: 0
 
 The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
 
-## Creating the DropDownList
+## Creating the Blazor DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the component to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
@@ -60,7 +60,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#fil
 
 The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
 
-## Templates
+## Blazor DropDownList Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
 
@@ -76,9 +76,9 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## Parameters
+## Blazor DropDownList Parameters
 
->caption The DropDownList provides various parameters that allow you to configure the component:
+>caption The Blazor DropDown list provides various parameters that allow you to configure the component:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -140,7 +140,7 @@ The DropDownList provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
-## DropDownList Reference and Methods
+## Blazor DropDownList Reference and Methods
 
 The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
 
@@ -183,7 +183,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 * To display a selected item when the component renders - provide the `Value` of the desired element. Note that it must match an item of the component's data source.
 
 
-## Examples
+## Blazor DropDownList Examples
 
 >caption Default text (hint) to show when no actual item is selected
 

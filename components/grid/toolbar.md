@@ -288,3 +288,4 @@ You can add your own HTML and components to create a more complex layout in the 
 ## See Also
 
   * [Live Demo: Grid Toolbar](https://demos.telerik.com/blazor-ui/grid/editing-inline)
+  * [Blazor Grid]({%slug grid-overview%})

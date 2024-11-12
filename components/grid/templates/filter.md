@@ -408,3 +408,4 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 * [Live Demo: Grid Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row)
 * [Live Demo: Grid Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu)
 * [KB: Use Filter Operator DropDown List in Filter Row Template]({%slug grid-kb-filter-operator-dropdown%})
+* [Blazor Grid]({%slug grid-overview%})

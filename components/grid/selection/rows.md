@@ -208,3 +208,4 @@ The Grid clears the `SelectedItems` collection when the user drags and drops sel
 ## See Also
 
 * [Live Demo: Grid Row Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
+* [Blazor Grid]({%slug grid-overview%})

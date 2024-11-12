@@ -140,3 +140,4 @@ The following code snippet shows how you can group columns in the Grid in multi-
 ## See Also
 
   * [Live Demo: Multi-Column Headers](https://demos.telerik.com/blazor-ui/grid/multi-column-headers)
+  * [Blazor Grid]({%slug grid-overview%})

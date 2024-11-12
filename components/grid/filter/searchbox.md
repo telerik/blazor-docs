@@ -150,3 +150,4 @@ The example below demonstrates all SearchBox settings in action, and also how to
 * [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
 * [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
 * [Grid Filtering Overview]({%slug components/grid/filtering%})
+* [Blazor Grid]({%slug grid-overview%})

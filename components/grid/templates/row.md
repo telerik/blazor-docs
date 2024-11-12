@@ -67,4 +67,5 @@ Render the entire row with your own code and logic
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
+ * [Blazor Grid]({%slug grid-overview%})
 

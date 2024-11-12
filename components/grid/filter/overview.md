@@ -130,3 +130,4 @@ The Grid uses `Activator.CreateInstance<TItem>();` to obtain the item's type it 
 * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
 * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
 * [Filter the Grid by date only]({%slug grid-kb-filter-date-only%})
+* [Blazor Grid]({%slug grid-overview%})

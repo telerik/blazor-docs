@@ -186,3 +186,5 @@ The example below doesn't take into account sorting, filtering and paging. If th
 
 * [Live Demo: Grid Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
 * [Grid Selection Overview]({%slug grid-selection-overview%})
+* [Blazor Grid]({%slug grid-overview%})
+

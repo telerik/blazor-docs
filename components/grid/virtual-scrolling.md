@@ -336,3 +336,4 @@ These are the known limitations of the virtual scrolling feature:
   * [Knowledge Base Article: Virtual Scroll Does Not Show All Items]({%slug grid-kb-virtualization-many-records%})
   * [Knowledge Base Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
   * [Knowledge Base Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})
+  * [Blazor Grid]({%slug grid-overview%})

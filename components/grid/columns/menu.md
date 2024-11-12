@@ -256,3 +256,4 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 ## See Also
   * [Live Demo: Grid Column Menu](https://demos.telerik.com/blazor-ui/grid/column-menu)
   * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
+  * [Blazor Grid]({%slug grid-overview%})

@@ -260,3 +260,4 @@ This example shows hiding a column based on a simple condition in its data. You 
 ## See Also
 
   * [Live Demo: Visible Columns](https://demos.telerik.com/blazor-ui/grid/columns)
+  * [Blazor Grid]({%slug grid-overview%})

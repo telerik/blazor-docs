@@ -239,3 +239,4 @@ The incell editor template requires a focusable element to maintain the tab orde
 
 * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
 * [Grid Selection Documentation]({%slug grid-selection-overview%})
+* [Blazor Grid]({%slug grid-overview%})
