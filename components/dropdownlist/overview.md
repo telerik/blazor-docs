@@ -60,7 +60,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#fil
 
 The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
 
-## Blazor DropDownList Templates
+## Templates
 
 @[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
 
