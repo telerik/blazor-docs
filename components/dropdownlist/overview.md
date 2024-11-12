@@ -140,7 +140,7 @@ The DropDownList provides the following popup settings:
 
 @[template](/_contentTemplates/dropdowns/features.md#popup-settings)
 
-## Blazor DropDownList Reference and Methods
+## DropDownList Reference and Methods
 
 The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
 
