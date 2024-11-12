@@ -76,7 +76,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## Blazor DropDownList Parameters
+## DropDownList Parameters
 
 >caption The Blazor DropDown list provides various parameters that allow you to configure the component:
 
