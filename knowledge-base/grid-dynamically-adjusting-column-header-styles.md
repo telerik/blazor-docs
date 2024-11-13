@@ -22,7 +22,7 @@ ticketid: 1670074
 
 ## Description
 
-I am dynamically creating Grid columns in a loop and trying to adjust the column header cell style based on some condition and value from the [column field]({%slug components/grid/columns/bound%}#data-binding). Ideally, I want to implement logic to make this adjustment based on the value in the header cell. I have not been able to achieve this in the HeaderTemplate tag or in any of the cell render events handlers. In other templates, I have access to the @context field, which would make this easy, but that doesn't seem to work in the HeaderTemplate.
+I am dynamically creating Grid columns in a loop and trying to adjust the column header cell style based on some condition and value from the [column field]({%slug components/grid/columns/bound%}#data-binding). Ideally, I want to implement logic to make this adjustment based on the value in the header cell. I have not been able to achieve this in the `HeaderTemplate` tag or in any of the cell render events handlers. In other templates, I have access to the `@context` field, which would make this easy, but that doesn't seem to work in the `HeaderTemplate`.
 
 ## Solution
 
