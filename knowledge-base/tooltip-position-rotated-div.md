@@ -25,7 +25,7 @@ ticketid: 1657431
 
 ## Description
 
-When rotating div elements that have an associated [Tooltip]({%slug %}) to display additional information, the Tooltip might not align correctly with the target element. The goal is to adjust the Tooltip's position so it aligns appropriately with the center of the rotated div, and optionally, remove the Tooltip's callout pointer for a cleaner appearance.
+When rotating div elements that have an associated [Tooltip]({%slug tooltip-overview%}) to display additional information, the Tooltip might not align correctly with the target element. The goal is to adjust the Tooltip's position so it aligns appropriately with the center of the rotated div, and optionally, remove the Tooltip's callout pointer for a cleaner appearance.
 
 This KB article also answers the following questions:
 - How to correctly position a Tooltip on a rotated div in Blazor?
@@ -48,14 +48,15 @@ Calculate the necessary offset for the Tooltip and apply it as a margin style. A
 
     <span class="tooltip-target" title="Foo Tooltip" style="transform: rotate(-10deg);"
           @onmouseover="@( (MouseEventArgs args) => OnTooltipTargetOver("15px") )">
-        FOO
     </span>
+
+    <br /> <br /> <br /> <br /> <br />
+    <br /> <br /> <br /> <br /> <br />
 
     ... or this one ...
 
     <span class="tooltip-target" title="Bar Tooltip" style="transform: rotate(45deg);"
           @onmouseover="@( (MouseEventArgs args) => OnTooltipTargetOver("60px") )">
-        BAR
     </span>
 </div>
 
@@ -99,7 +100,6 @@ Embed a tooltip target within the rotated element that won't be affected by the 
     Hover this rectangle ...
 
     <span class="tooltip-target" style="transform: rotate(-20deg);">
-        FOO
         <span title="Foo Tooltip" class="inner-target">
             <TelerikSvgIcon Icon="@SvgIcon.QuestionCircle" />
         </span>
@@ -108,7 +108,6 @@ Embed a tooltip target within the rotated element that won't be affected by the 
     ... or this one ...
 
     <span class="tooltip-target" style="transform: rotate(45deg);">
-        BAR
         <span title="Bar Tooltip" class="inner-target">
             <TelerikSvgIcon Icon="@SvgIcon.QuestionCircle" />
         </span>
