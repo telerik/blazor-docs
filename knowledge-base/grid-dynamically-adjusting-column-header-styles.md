@@ -26,14 +26,109 @@ I am dynamically creating Grid columns in a loop and trying to adjust the column
 
 ## Solution
 
-To dynamically add style to a column's header cell when dynamically creating columns in a loop, use the [HeaderClass parameter]({%slug components/grid/columns/bound%}#appearance) to set a class under a condition and apply different styles depending on the class. For scenarios with numerous and more complex conditions, create a method to determine the appropriate class. 
+To dynamically add style to a column's header cell when dynamically creating columns in a loop, use the [`HeaderClass` parameter]({%slug components/grid/columns/bound%}#appearance) to set a class under a condition and apply different styles depending on the class. For scenarios with numerous and more complex conditions, you can create a method to determine the appropriate class.
 
-It's important to note that the [HeaderTemplate]({%slug grid-templates-column-header%}) does not receive a context argument because it is not related to rows and models, as outlined in the [Templates Overview]({%slug components/grid/features/templates%}) of the Telerik UI for Blazor documentation.
+Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not receive a context argument because it is not related to rows and models, as outlined in the [Templates Overview]({%slug components/grid/features/templates%}) of the Telerik UI for Blazor documentation.
 
 ### Example
 
-```csharp
+````CSHTML
+<TelerikGrid Data="@GridData">
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name"/>
+        @for (int i = 0; i <= MaxYears; i++)
+        {
+            <GridColumn Field="@("Y"+i)" Title=@((StartYear + i).ToString()) DisplayFormat="{0:N}" HeaderClass="@GetHeaderClass(StartYear + i)"/>
+        }
+    </GridColumns>
+</TelerikGrid>
 
+<style>
+    .very-past-year-column {
+        background-color: yellow;
+    }
+
+    .past-year-column {
+        background-color: royalblue;
+    }
+
+    .current-year-column {
+        background-color: pink;
+    }
+
+    .future-year-column {
+        background-color: red;
+    }
+</style>
+
+
+@code {
+    private List<Product> GridData { get; set; }
+    private int MaxYears = 10;
+    private int StartYear = 2020;
+
+    private string GetHeaderClass(int year)
+    {
+        switch (year)
+        {
+            case <= 2020:
+                return "very-past-year-column";
+            case < 2024:
+                return "past-year-column";
+            case 2024:
+                return "current-year-column";
+            default:
+                return "future-year-column";
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        GridData = new List<Product>();
+
+        Random rnd = new Random();
+
+        for (int i = 1; i <= 30; i++)
+        {
+            GridData.Add(new Product
+                {
+                    Id = i,
+                    Name = "Product name " + i,
+                    Y0 = rnd.Next(100, 9999),
+                    Y1 = rnd.Next(100, 9999),
+                    Y2 = rnd.Next(100, 9999),
+                    Y3 = rnd.Next(100, 9999),
+                    Y4 = rnd.Next(100, 9999),
+                    Y5 = rnd.Next(100, 9999),
+                    Y6 = rnd.Next(100, 9999),
+                    Y7 = rnd.Next(100, 9999),
+                    Y8 = rnd.Next(100, 9999),
+                    Y9 = rnd.Next(100, 9999),
+                    Y10 = rnd.Next(100, 9999)
+                });
+
+        }
+
+        base.OnInitialized();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double? Y0 { get; set; }
+        public double? Y1 { get; set; }
+        public double? Y2 { get; set; }
+        public double? Y3 { get; set; }
+        public double? Y4 { get; set; }
+        public double? Y5 { get; set; }
+        public double? Y6 { get; set; }
+        public double? Y7 { get; set; }
+        public double? Y8 { get; set; }
+        public double? Y9 { get; set; }
+        public double? Y10 { get; set; }
+    }
+}
 ```
 
 ## See Also
