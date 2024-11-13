@@ -1,3 +1,4 @@
-* @telerik/blazor-support 
-* @telerik/blazor-docs-admins 
-* @telerik/docs-reviewers
+*                @telerik/blazor-support @telerik/blazor-docs-admins @telerik/docs-reviewers
+
+*.md             @telerik/blazor-support @telerik/docs-reviewers
+knowledge-base/* @blazor-support
