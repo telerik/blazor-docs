@@ -9,3 +9,7 @@
 *.rb             @telerik/blazor-support
 *.yml            @telerik/blazor-support
 knowledge-base/* @telerik/blazor-support
+.github/*                @telerik/blazor-support
+_assetsApi/*           @telerik/blazor-support
+_tools/*                  @telerik/blazor-support
+
