@@ -2,7 +2,7 @@
 title: In-Place Editor Component
 description: Learn how to create a custom inplace editor component, which blends seamlessly in other web page text content.
 type: how-to
-page_title: How to Implement In-Place Editor
+page_title: How to Implement In-Place Editor Component
 slug: kb-in-place-editor
 position:
 tags: telerik, blazor, inplace, in place
