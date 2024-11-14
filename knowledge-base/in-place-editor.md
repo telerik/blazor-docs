@@ -47,6 +47,8 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 * The `DisplayFormat` parameter affects the `Value` consistently in both read mode and edit mode.
 * The `Placeholder` parameter provides a helper label that will show when the `Value` is `null` or empty.
 * The `ShowIcon` parameter controls the visibility of an optional [SVG Icon]({%slug common-features-icons%}}#svgicon-component) that hints users about the ability to edit the component `Value`. The parameter is of type `InPlaceEditorShowIcon`, which is a custom enum and must be imported in both `TelerikInPlaceEditor.razor` and all `.razor` files that use `TelerikInPlaceEditor`.
+* The `Class` parameter allows you to apply custom styles.
+* The `Title` parameter allows you to show a tooltip hint on read mode.
 * To [see invalid state styling and validation messages in Forms]({%slug inputs-kb-validate-child-component%}), pass the respective `ValueExpression` values to the `InPlaceEditor` component.
 * `TelerikInPlaceEditor.razor.css` is a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation" target="_blank">CSS isolation file</a>. It depends on a `YourAppName.styles.css` file in `App.razor` to load.
 
@@ -67,33 +69,40 @@ Replace `YourAppName` with the actual root namespace of your app.
 <h1>InPlaceEditor Component</h1>
 
 <p>
-    This in-place editor component works with multiple value types
+    This in-place editor component works with multiple value types and nullables
 
-    <TelerikInPlaceEditor @bind-Value="@NumericValue" DisplayFormat="C2" />
+    <TelerikInPlaceEditor @bind-Value="@NumericValue" DisplayFormat="C2" Placeholder="Enter Number..." />
 
-    The edit icon shows by default, but it can be visible only on hover
+    The component can apply custom CSS styles and the icon can be visible only on hover
 
-    <TelerikInPlaceEditor @bind-Value="@StringValue" ShowIcon="@InPlaceEditorShowIcon.Hover" />
+    <TelerikInPlaceEditor @bind-Value="@StringValue" ShowIcon="@InPlaceEditorShowIcon.Hover" Class="primary-color" />
 
     (unless the value is empty) or hidden at all times
 
-    <TelerikInPlaceEditor @bind-Value="@DateValue" DisplayFormat="d" ShowIcon="@InPlaceEditorShowIcon.Never" />
+    <TelerikInPlaceEditor @bind-Value="@DateValue" DisplayFormat="d" ShowIcon="@InPlaceEditorShowIcon.Never" Class="primary-color" />
 
     The editor width is calculated automatically if not set
 
-    <TelerikInPlaceEditor @bind-Value="@TimeValue" DisplayFormat="HH:mm" />.
+    <TelerikInPlaceEditor @bind-Value="@TimeValue" DisplayFormat="HH:mm" />
 
-    You can even edit booleans inline
+    You can even edit booleans
 
-    <TelerikInPlaceEditor @bind-Value="@BoolValue" />
+    <TelerikInPlaceEditor @bind-Value="@BoolValue" Class="primary-color" />
 </p>
 
 <h2>Configuration</h2>
 
 <ul>
+    <li>
+        <label for="editor-placeholder">Placeholder: </label>
+        <TelerikTextBox @bind-Value="@InPlaceEditorPlaceholder"
+                        Id="editor-placeholder"
+                        ShowClearButton="true"
+                        Width="180px" />
+    </li>
     <li><label><TelerikCheckBox @bind-Value="@InPlaceEditorReadOnly" />  Read Only</label></li>
     <li>
-        <span>Show Edit Icon: </span>
+        <span>Show Icon: </span>
         <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
             <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcon == InPlaceEditorShowIcon.Always )"
                                      OnClick="@( () => InPlaceEditorShowIcon = InPlaceEditorShowIcon.Always )">
@@ -110,27 +119,30 @@ Replace `YourAppName` with the actual root namespace of your app.
         </TelerikButtonGroup>
     </li>
     <li>
+        <label for="editor-title">Title: </label>
+        <TelerikTextBox @bind-Value="@InPlaceEditorTitle"
+                        Id="editor-title"
+                        ShowClearButton="true"
+                        Width="180px" />
+    </li>
+    <li>
         <label for="editor-width">Editor Width: </label>
         <TelerikNumericTextBox @bind-Value="@InPlaceEditorWidth"
                                Format="# px"
                                Id="editor-width"
                                Width="120px" />
     </li>
-    <li>
-        <label for="editor-placeholder">Placeholder: </label>
-        <TelerikTextBox @bind-Value="@InPlaceEditorPlaceholder"
-                        Id="placeholder"
-                        Width="180px" />
-    </li>
 </ul>
 
 <p>
-    In-Place Editor:
+    In Place Editor:
     <TelerikInPlaceEditor @bind-Value="@InPlaceEditorValue"
-             Placeholder="@InPlaceEditorPlaceholder"
-             ReadOnly="@InPlaceEditorReadOnly"
-             ShowIcon="@InPlaceEditorShowIcon"
-             Width="@( InPlaceEditorWidth.HasValue ? $"{InPlaceEditorWidth}px" : null )" />
+                          Class="primary-color"
+                          Placeholder="@InPlaceEditorPlaceholder"
+                          ReadOnly="@InPlaceEditorReadOnly"
+                          ShowIcon="@InPlaceEditorShowIcon"
+                          Title="@InPlaceEditorTitle"
+                          Width="@( InPlaceEditorWidth.HasValue ? $"{InPlaceEditorWidth}px" : null )" />
 </p>
 
 <h2>Form Validation</h2>
@@ -144,9 +156,9 @@ Replace `YourAppName` with the actual root namespace of your app.
             <Template>
                 Name:
                 <TelerikInPlaceEditor Value="@Employee.Name"
-                         ValueChanged="@( (string newValue) => Employee.Name = newValue )"
-                         ValueExpression="@( () => Employee.Name )"
-                         Placeholder="Enter Name..." />
+                                      ValueChanged="@( (string newValue) => Employee.Name = newValue )"
+                                      ValueExpression="@( () => Employee.Name )"
+                                      Placeholder="Enter Name..." />
                 <TelerikValidationMessage For="@( () => Employee.Name )" />
             </Template>
         </FormItem>
@@ -154,27 +166,42 @@ Replace `YourAppName` with the actual root namespace of your app.
             <Template>
                 Hire Date:
                 <TelerikInPlaceEditor Value="@Employee.BirthDate"
-                         ValueChanged="@( (DateTime? newValue) => Employee.BirthDate = newValue )"
-                         ValueExpression="@( () => Employee.BirthDate )"
-                         DisplayFormat="d"
-                         Placeholder="Enter Date..."
-                         T="@(DateTime?)" />
+                                      ValueChanged="@( (DateTime? newValue) => Employee.BirthDate = newValue )"
+                                      ValueExpression="@( () => Employee.BirthDate )"
+                                      DisplayFormat="d"
+                                      Placeholder="Enter Date..."
+                                      T="@(DateTime?)" />
                 <TelerikValidationMessage For="@( () => Employee.BirthDate )" />
             </Template>
         </FormItem>
     </FormItems>
 </TelerikForm>
 
+<style>
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .primary-color {
+        color: var(--kendo-color-primary);
+    }
+</style>
+
 @code {
     private bool BoolValue { get; set; }
     private DateTime DateValue { get; set; } = DateTime.Now;
-    private decimal NumericValue { get; set; } = 1.23m;
+    private decimal? NumericValue { get; set; } = 1.23m;
     private string StringValue { get; set; } = "foo bar";
     private TimeOnly TimeValue { get; set; } = TimeOnly.FromDateTime(DateTime.Now);
 
-    private string InPlaceEditorPlaceholder { get; set; } = "Enter value";
+    private string InPlaceEditorPlaceholder { get; set; } = "Enter Value...";
     private bool InPlaceEditorReadOnly { get; set; }
     private InPlaceEditorShowIcon InPlaceEditorShowIcon { get; set; } = InPlaceEditorShowIcon.Always;
+    private string InPlaceEditorTitle { get; set; } = "Edit Sample Value";
     private string InPlaceEditorValue { get; set; } = "foo bar";
     private int? InPlaceEditorWidth { get; set; } = 120;
 
@@ -188,16 +215,6 @@ Replace `YourAppName` with the actual root namespace of your app.
         public DateTime? BirthDate { get; set; }
     }
 }
-
-<style>
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-</style>
 ````
 ````TelerikInPlaceEditor.razor
 @* import InPlaceEditorType enum *@
@@ -208,7 +225,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @typeparam T
 
-<span class="in-place-editor">
+<span class="@ClassToApply">
     @if (IsInEditMode)
     {
         switch (ValueEditorType)
@@ -219,7 +236,7 @@ Replace `YourAppName` with the actual root namespace of your app.
                                  ValueChanged="@( (bool newValue) => OnTextBoxValueChanged(newValue) )"
                                  ValueExpression="@( ValueExpression as Expression<Func<bool>> )"
                                  OnBlur="@( () => IsInEditMode = false )"
-                                 Class="in-place-checkbox" />
+                                 Class="@CheckBoxClass" />
                 break;
             case InPlaceEditorType.DatePicker:
                 <TelerikDatePicker @ref="@DatePickerRef"
@@ -229,7 +246,7 @@ Replace `YourAppName` with the actual root namespace of your app.
                                    Format="@DisplayFormat"
                                    T="@T"
                                    OnChange="@( () => IsInEditMode = false )"
-                                   Class="in-place-input"
+                                   Class="@InputClass"
                                    Width="@GetEditorWidth(InPlaceEditorType.DatePicker)" />
                 break;
             case InPlaceEditorType.NumericTextBox:
@@ -237,10 +254,10 @@ Replace `YourAppName` with the actual root namespace of your app.
                                        Value="@Value"
                                        ValueChanged="@( (T newValue) => OnTextBoxValueChanged(newValue!) )"
                                        ValueExpression="@( ValueExpression as Expression<Func<T>> )"
-                                       OnChange="@( () => IsInEditMode = false )"
                                        Format="@DisplayFormat"
+                                       OnChange="@( () => IsInEditMode = false )"
                                        T="@T"
-                                       Class="in-place-input"
+                                       Class="@InputClass"
                                        Width="@GetEditorWidth(InPlaceEditorType.NumericTextBox)" />
                 break;
             case InPlaceEditorType.TimePicker:
@@ -248,10 +265,10 @@ Replace `YourAppName` with the actual root namespace of your app.
                                    Value="@Value"
                                    ValueChanged="@( (T newValue) => OnTextBoxValueChanged(newValue!) )"
                                    ValueExpression="@( ValueExpression as Expression<Func<T>> )"
+                                   Class="@InputClass"
                                    Format="@DisplayFormat"
-                                   T="@T"
                                    OnChange="@( () => IsInEditMode = false )"
-                                   Class="in-place-input"
+                                   T="@T"
                                    Width="@GetEditorWidth(InPlaceEditorType.TimePicker)" />
                 break;
             default:
@@ -259,30 +276,30 @@ Replace `YourAppName` with the actual root namespace of your app.
                                 Value="@Value?.ToString()"
                                 ValueChanged="@( (string newValue) => OnTextBoxValueChanged(newValue) )"
                                 ValueExpression="@( ValueExpression as Expression<Func<string>> )"
+                                Class="@InputClass"
                                 OnChange="@( () => IsInEditMode = false )"
-                                Class="in-place-input"
                                 Width="@GetEditorWidth(InPlaceEditorType.TextBox)" />
                 break;
         }
     }
     else if (!ReadOnly)
     {
-        <TelerikButton Class="in-place-button"
+        <TelerikButton Class="@ButtonClass"
                        FillMode="@ThemeConstants.Button.FillMode.Clear"
                        OnClick="@ToggleEditMode"
-                       Title="@( $"Edit Value {GetFormattedValue()}" )">
+                       Title="@Title">
             @if (Value != null && (ValueType == typeof(bool) || !Value.Equals(default(T))) && !string.IsNullOrEmpty(Value.ToString()))
             {
                 @GetFormattedValue()
             }
             else
             {
-                <span class="in-place-placeholder">@Placeholder</span>
+                <span class="@PlaceholderClass">@Placeholder</span>
             }
 
             @if (ShouldRenderEditIcon)
             {
-                <TelerikSvgIcon Icon="@SvgIcon.Pencil" Class="@EditIconClass" />
+                <TelerikSvgIcon Icon="@SvgIcon.Pencil" Class="@IconClass" />
             }
         </TelerikButton>
     }
@@ -294,6 +311,12 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @code {
     #region Parameters
+
+    /// <summary>
+    /// A CSS class that can apply custom styles.
+    /// </summary>
+    [Parameter]
+    public string? Class { get; set; }
 
     /// <summary>
     /// The format string that will be used to display the component <see cref="Value" /> in read and edit mode.
@@ -318,6 +341,12 @@ Replace `YourAppName` with the actual root namespace of your app.
     /// </summary>
     [Parameter]
     public InPlaceEditorShowIcon ShowIcon { get; set; } = InPlaceEditorShowIcon.Always;
+
+    /// <summary>
+    /// The tooltip content that shows in read mode.
+    /// </summary>
+    [Parameter]
+    public string Title { get; set; } = "Edit Value";
 
     /// <summary>
     /// The editable component value. The supported types include <see cref="string" />, signed numeric types, <see cref="DateTime" />, <see cref="TimeOnly" />, and <see cref="bool" />
@@ -345,6 +374,17 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     #endregion Parameters
 
+    #region Constants
+
+    private const string InPlaceEditorClass = "in-place-editor";
+    private const string CheckBoxClass = "in-place-checkbox";
+    private const string ButtonClass = "in-place-button";
+    private const string IconHoverableClass = "hoverable-icon";
+    private const string InputClass = "in-place-input";
+    private const string PlaceholderClass = "in-place-placeholder";
+
+    #endregion Constants
+
     #region Properties
 
     private readonly string DataId = Guid.NewGuid().ToString();
@@ -359,7 +399,9 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     private bool ShouldRenderEditIcon => ShowIcon != InPlaceEditorShowIcon.Never || GetFormattedValue().Length == 0;
 
-    private string EditIconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? "hoverable-icon" : string.Empty;
+    private string ClassToApply => string.Format("{0} {1}", InPlaceEditorClass, Class);
+
+    private string IconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : string.Empty;
 
     #endregion Properties
 
@@ -556,8 +598,8 @@ Replace `YourAppName` with the actual root namespace of your app.
     margin-inline: 1em;
 }
 
-::deep .in-place-button .k-button-text {
-    color: var(--kendo-color-primary);
+::deep .in-place-button {
+    color: inherit;
 }
 
 ::deep .in-place-button .k-icon {
