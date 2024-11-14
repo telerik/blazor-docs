@@ -9,7 +9,11 @@
 *.rb             @telerik/blazor-support
 *.yml            @telerik/blazor-support
 knowledge-base/* @telerik/blazor-support
-.github/*                @telerik/blazor-support
-_assetsApi/*           @telerik/blazor-support
-_tools/*                  @telerik/blazor-support
-
+.github/*        @telerik/blazor-support
+_assetsApi/*     @telerik/blazor-support
+_tools/*         @telerik/blazor-support
+.gitignore       @telerik/blazor-support
+.spelling        @telerik/blazor-support
+CODEOWNERS       @telerik/blazor-support
+40x.html         @telerik/blazor-support
+all-pages.md     @telerik/blazor-support
