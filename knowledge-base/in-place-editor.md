@@ -48,6 +48,7 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 * The `Placeholder` parameter provides a helper label that will show when the `Value` is `null` or empty.
 * The `ShowIcon` parameter controls the visibility of an optional [SVG Icon]({%slug common-features-icons%}}#svgicon-component) that hints users about the ability to edit the component `Value`. The parameter is of type `InPlaceEditorShowIcon`, which is a custom enum and must be imported in both `TelerikInPlaceEditor.razor` and all `.razor` files that use `TelerikInPlaceEditor`.
 * To [see invalid state styling and validation messages in Forms]({%slug inputs-kb-validate-child-component%}), pass the respective `ValueExpression` values to the `InPlaceEditor` component.
+* `TelerikInPlaceEditor.razor.css` is a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation" target="_blank">CSS isolation file</a>. It depends on a `YourAppName.styles.css` file in `App.razor` to load.
 
 ### Example
 
