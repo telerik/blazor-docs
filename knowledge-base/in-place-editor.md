@@ -1,5 +1,5 @@
 ---
-title: In-Place Editor
+title: In-Place Editor Component
 description: Learn how to create a custom inplace editor component, which blends seamlessly in other web page text content.
 type: how-to
 page_title: How to Implement In-Place Editor
