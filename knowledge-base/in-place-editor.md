@@ -54,6 +54,8 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 
 The features and business logic below can be subject to additional customizations and enhancements.
 
+Replace `YourAppName` with the actual root namespace of your app.
+
 <div class="skip-repl"></div>
 
 ````Home.razor
