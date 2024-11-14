@@ -71,23 +71,32 @@ Replace `YourAppName` with the actual root namespace of your app.
 <p>
     This in-place editor component works with multiple value types and nullables
 
-    <TelerikInPlaceEditor @bind-Value="@NumericValue" DisplayFormat="C2" Placeholder="Enter Number..." />
+    <TelerikInPlaceEditor @bind-Value="@NumericValue"
+                          DisplayFormat="C2"
+                          Placeholder="Enter Number..." />
 
     The component can apply custom CSS styles and the icon can be visible only on hover
 
-    <TelerikInPlaceEditor @bind-Value="@StringValue" ShowIcon="@InPlaceEditorShowIcon.Hover" Class="primary-color" />
+    <TelerikInPlaceEditor @bind-Value="@StringValue"
+                          Class="primary-color"
+                          ShowIcon="@InPlaceEditorShowIcon.Hover" />
 
     (unless the value is empty) or hidden at all times
 
-    <TelerikInPlaceEditor @bind-Value="@DateValue" DisplayFormat="d" ShowIcon="@InPlaceEditorShowIcon.Never" Class="primary-color" />
+    <TelerikInPlaceEditor @bind-Value="@DateValue"
+                          Class="primary-color"
+                          DisplayFormat="d"
+                          ShowIcon="@InPlaceEditorShowIcon.Never" />
 
     The editor width is calculated automatically if not set
 
-    <TelerikInPlaceEditor @bind-Value="@TimeValue" DisplayFormat="HH:mm" />
+    <TelerikInPlaceEditor @bind-Value="@TimeValue"
+                          DisplayFormat="HH:mm" />
 
     You can even edit booleans
 
-    <TelerikInPlaceEditor @bind-Value="@BoolValue" Class="primary-color" />
+    <TelerikInPlaceEditor @bind-Value="@BoolValue"
+                          Class="primary-color" />
 </p>
 
 <h2>Configuration</h2>
@@ -225,7 +234,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @typeparam T
 
-<span class="@ClassToApply">
+<span class="@ClassToRender">
     @if (IsInEditMode)
     {
         switch (ValueEditorType)
@@ -399,7 +408,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     private bool ShouldRenderEditIcon => ShowIcon != InPlaceEditorShowIcon.Never || GetFormattedValue().Length == 0;
 
-    private string ClassToApply => string.Format("{0} {1}", InPlaceEditorClass, Class);
+    private string ClassToRender => string.Format("{0} {1}", InPlaceEditorClass, Class);
 
     private string IconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : string.Empty;
 
