@@ -1,4 +1,19 @@
 *                @telerik/blazor-support @telerik/blazor-docs-admins @telerik/docs-reviewers
 
 *.md             @telerik/blazor-support @telerik/docs-reviewers
+*.cmd            @telerik/blazor-support
+*.config         @telerik/blazor-support
+*.conf           @telerik/blazor-support
+*.html           @telerik/blazor-support
+*.json           @telerik/blazor-support
+*.rb             @telerik/blazor-support
+*.yml            @telerik/blazor-support
 knowledge-base/* @telerik/blazor-support
+.github/*        @telerik/blazor-support
+_assetsApi/*     @telerik/blazor-support
+_tools/*         @telerik/blazor-support
+.gitignore       @telerik/blazor-support
+.spelling        @telerik/blazor-support
+CODEOWNERS       @telerik/blazor-support
+40x.html         @telerik/blazor-support
+all-pages.md     @telerik/blazor-support
