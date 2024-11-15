@@ -46,7 +46,7 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 * The component features a `ReadOnly` mode that controls the editability, for example, depending on user permissions.
 * The `DisplayFormat` parameter affects the `Value` consistently in both read mode and edit mode.
 * The `Placeholder` parameter provides a helper label that will show when the `Value` is `null` or empty.
-* The `ShowIcon` parameter controls the visibility of an optional [SVG Icon]({%slug common-features-icons%}}#svgicon-component) that hints users about the ability to edit the component `Value`. The parameter is of type `InPlaceEditorShowIcon`, which is a custom enum and must be imported in both `TelerikInPlaceEditor.razor` and all `.razor` files that use `TelerikInPlaceEditor`.
+* The `ShowIcons` parameter controls the visibility of optional [SVG Icons]({%slug common-features-icons%}}#svgicon-component). The icons hint users about the ability to edit the component `Value` or provide clickable **Save** and **Cancel** commands in edit mode. The parameter is of type `InPlaceEditorShowIcons`, which is a custom enum and must be imported in both `TelerikInPlaceEditor.razor` and all `.razor` files that use `TelerikInPlaceEditor`.
 * The `Class` parameter allows you to apply custom styles.
 * The `Title` parameter allows you to show a tooltip hint on read mode.
 * To [see invalid state styling and validation messages in Forms]({%slug inputs-kb-validate-child-component%}), pass the respective `ValueExpression` values to the `InPlaceEditor` component.
@@ -79,20 +79,20 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     <TelerikInPlaceEditor @bind-Value="@StringValue"
                           Class="primary-color"
-                          ShowIcon="@InPlaceEditorShowIcon.Hover" />
+                          ShowIcons="@InPlaceEditorShowIcons.Hover" />
 
     and the icon can be visible only on hover
 
     <TelerikInPlaceEditor @bind-Value="@DateValue"
                           Class="primary-color"
                           DisplayFormat="d"
-                          ShowIcon="@InPlaceEditorShowIcon.Hover" />
+                          ShowIcons="@InPlaceEditorShowIcons.Hover" />
 
     (unless the value is empty) or never
 
     <TelerikInPlaceEditor @bind-Value="@TimeValue"
                           DisplayFormat="HH:mm"
-                          ShowIcon="@InPlaceEditorShowIcon.Never" />
+                          ShowIcons="@InPlaceEditorShowIcons.Never" />
 
     You can even edit booleans
 
@@ -114,16 +114,16 @@ Replace `YourAppName` with the actual root namespace of your app.
     <li>
         <span>Show Icon: </span>
         <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
-            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcon == InPlaceEditorShowIcon.Always )"
-                                     OnClick="@( () => InPlaceEditorShowIcon = InPlaceEditorShowIcon.Always )">
+            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcons == InPlaceEditorShowIcons.Always )"
+                                     OnClick="@( () => InPlaceEditorShowIcons = InPlaceEditorShowIcons.Always )">
                 Always
             </ButtonGroupToggleButton>
-            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcon == InPlaceEditorShowIcon.Hover )"
-                                     OnClick="@( () => InPlaceEditorShowIcon = InPlaceEditorShowIcon.Hover )">
+            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcons == InPlaceEditorShowIcons.Hover )"
+                                     OnClick="@( () => InPlaceEditorShowIcons = InPlaceEditorShowIcons.Hover )">
                 Hover
             </ButtonGroupToggleButton>
-            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcon == InPlaceEditorShowIcon.Never )"
-                                     OnClick="@( () => InPlaceEditorShowIcon = InPlaceEditorShowIcon.Never )">
+            <ButtonGroupToggleButton Selected="@( InPlaceEditorShowIcons == InPlaceEditorShowIcons.Never )"
+                                     OnClick="@( () => InPlaceEditorShowIcons = InPlaceEditorShowIcons.Never )">
                 Never
             </ButtonGroupToggleButton>
         </TelerikButtonGroup>
@@ -150,7 +150,7 @@ Replace `YourAppName` with the actual root namespace of your app.
                           Class="primary-color"
                           Placeholder="@InPlaceEditorPlaceholder"
                           ReadOnly="@InPlaceEditorReadOnly"
-                          ShowIcon="@InPlaceEditorShowIcon"
+                          ShowIcons="@InPlaceEditorShowIcons"
                           Title="@InPlaceEditorTitle"
                           Width="@( InPlaceEditorWidth.HasValue ? $"{InPlaceEditorWidth}px" : null )" />
 </p>
@@ -210,7 +210,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     private string InPlaceEditorPlaceholder { get; set; } = "Enter Value...";
     private bool InPlaceEditorReadOnly { get; set; }
-    private InPlaceEditorShowIcon InPlaceEditorShowIcon { get; set; } = InPlaceEditorShowIcon.Always;
+    private InPlaceEditorShowIcons InPlaceEditorShowIcons { get; set; } = InPlaceEditorShowIcons.Always;
     private string InPlaceEditorTitle { get; set; } = "Edit Sample Value";
     private string InPlaceEditorValue { get; set; } = "foo bar";
     private int? InPlaceEditorWidth { get; set; } = 120;
@@ -235,7 +235,9 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @typeparam T
 
-<span class="@ClassToRender" @onkeydown="@OnSpanKeyDown">
+<span class="@ClassToRender"
+      @onkeydown="@OnSpanKeyDown"
+      @onfocusin="@OnSpanFocusIn">
     @if (IsInEditMode)
     {
         switch (ValueEditorType)
@@ -243,29 +245,29 @@ Replace `YourAppName` with the actual root namespace of your app.
             case InPlaceEditorType.CheckBox:
                 <TelerikCheckBox @ref="@CheckBoxRef"
                                  Value="@Convert.ToBoolean(Value)"
-                                 ValueChanged="@( (bool newValue) => OnTextBoxValueChanged(newValue) )"
+                                 ValueChanged="@( (bool newValue) => OnEditorValueChanged(newValue) )"
                                  ValueExpression="@( ValueExpression as Expression<Func<bool>> )"
-                                 OnBlur="@( () => IsInEditMode = false )"
+                                 OnBlur="@OnEditorChange"
                                  Class="@CheckBoxClass" />
                 break;
             case InPlaceEditorType.DatePicker:
                 <TelerikDatePicker @ref="@DatePickerRef"
                                    Value="@Value"
-                                   ValueChanged="@( (T newValue) => OnTextBoxValueChanged(newValue!) )"
+                                   ValueChanged="@( (T newValue) => OnEditorValueChanged(newValue!) )"
                                    ValueExpression="@( ValueExpression as Expression<Func<T>> )"
                                    Format="@DisplayFormat"
                                    T="@T"
-                                   OnChange="@( () => IsInEditMode = false )"
+                                   OnChange="@OnEditorChange"
                                    Class="@InputClass"
                                    Width="@GetEditorWidth(InPlaceEditorType.DatePicker)" />
                 break;
             case InPlaceEditorType.NumericTextBox:
                 <TelerikNumericTextBox @ref="@NumericTextBoxRef"
                                        Value="@Value"
-                                       ValueChanged="@( (T newValue) => OnTextBoxValueChanged(newValue!) )"
+                                       ValueChanged="@( (T newValue) => OnEditorValueChanged(newValue!) )"
                                        ValueExpression="@( ValueExpression as Expression<Func<T>> )"
                                        Format="@DisplayFormat"
-                                       OnChange="@( () => IsInEditMode = false )"
+                                       OnChange="@OnEditorChange"
                                        T="@T"
                                        Class="@InputClass"
                                        Width="@GetEditorWidth(InPlaceEditorType.NumericTextBox)" />
@@ -273,28 +275,40 @@ Replace `YourAppName` with the actual root namespace of your app.
             case InPlaceEditorType.TimePicker:
                 <TelerikTimePicker @ref="@TimePickerRef"
                                    Value="@Value"
-                                   ValueChanged="@( (T newValue) => OnTextBoxValueChanged(newValue!) )"
+                                   ValueChanged="@( (T newValue) => OnEditorValueChanged(newValue!) )"
                                    ValueExpression="@( ValueExpression as Expression<Func<T>> )"
                                    Class="@InputClass"
                                    Format="@DisplayFormat"
-                                   OnChange="@( () => IsInEditMode = false )"
+                                   OnChange="@OnEditorChange"
                                    T="@T"
                                    Width="@GetEditorWidth(InPlaceEditorType.TimePicker)" />
                 break;
             default:
                 <TelerikTextBox @ref="@TextBoxRef"
                                 Value="@Value?.ToString()"
-                                ValueChanged="@( (string newValue) => OnTextBoxValueChanged(newValue) )"
+                                ValueChanged="@( (string newValue) => OnEditorValueChanged(newValue) )"
                                 ValueExpression="@( ValueExpression as Expression<Func<string>> )"
                                 Class="@InputClass"
-                                OnChange="@( () => IsInEditMode = false )"
+                                OnChange="@OnEditorChange"
                                 Width="@GetEditorWidth(InPlaceEditorType.TextBox)" />
                 break;
+        }
+        if (ShouldRenderEditIcon)
+        {
+            <TelerikButton Class="@ButtonClass"
+                           Icon="@SvgIcon.Save"
+                           FillMode="@ThemeConstants.Button.FillMode.Clear"
+                           OnClick="@OnSaveButtonClick" />
+            <TelerikButton Class="@ButtonClass"
+                           Icon="@SvgIcon.Cancel"
+                           FillMode="@ThemeConstants.Button.FillMode.Clear"
+                           OnClick="@OnCancelButtonClick" />
         }
     }
     else if (!ReadOnly)
     {
-        <TelerikButton Class="@EditButtonClass"
+        <TelerikButton @ref="@EditButtonRef"
+                       Class="@EditButtonClass"
                        FillMode="@ThemeConstants.Button.FillMode.Clear"
                        OnClick="@ToggleEditMode"
                        Title="@Title">
@@ -306,7 +320,6 @@ Replace `YourAppName` with the actual root namespace of your app.
             {
                 <span class="@PlaceholderClass">@Placeholder</span>
             }
-
             @if (ShouldRenderEditIcon)
             {
                 <TelerikSvgIcon Icon="@SvgIcon.Pencil" Class="@EditIconClass" />
@@ -318,7 +331,6 @@ Replace `YourAppName` with the actual root namespace of your app.
         @GetFormattedValue()
     }
 </span>
-
 @code {
     #region Parameters
 
@@ -347,10 +359,10 @@ Replace `YourAppName` with the actual root namespace of your app.
     public bool ReadOnly { get; set; }
 
     /// <summary>
-    /// Defines when the edit icon shows - always, on hover or never. The default value is <see cref="InPlaceEditorShowIcon.Always" />.
+    /// Defines when the edit icon shows - always, on hover or never. The default value is <see cref="InPlaceEditorShowIcons.Always" />.
     /// </summary>
     [Parameter]
-    public InPlaceEditorShowIcon ShowIcon { get; set; } = InPlaceEditorShowIcon.Always;
+    public InPlaceEditorShowIcons ShowIcons { get; set; } = InPlaceEditorShowIcons.Always;
 
     /// <summary>
     /// The tooltip content that shows in read mode.
@@ -359,7 +371,8 @@ Replace `YourAppName` with the actual root namespace of your app.
     public string Title { get; set; } = "Edit Value";
 
     /// <summary>
-    /// The editable component value. The supported types include <see cref="string" />, signed numeric types, <see cref="DateTime" />, <see cref="TimeOnly" />, and <see cref="bool" />
+    /// The editable component value. The supported types include <see cref="string" />, signed numeric types,
+    /// <see cref="DateTime" />, <see cref="TimeOnly" />, and <see cref="bool" />
     /// </summary>
     [Parameter]
     public T? Value { get; set; }
@@ -380,6 +393,7 @@ Replace `YourAppName` with the actual root namespace of your app.
     /// The width style of the edit component (DatePicker, NumericTextBox, TextBox, TimePicker). Not relevant to checkboxes.
     /// </summary>
     [Parameter]
+
     public string Width { get; set; } = string.Empty;
 
     #endregion Parameters
@@ -387,12 +401,19 @@ Replace `YourAppName` with the actual root namespace of your app.
     #region Constants
 
     private const string InPlaceEditorClass = "in-place-editor";
+
     private const string CheckBoxClass = "in-place-checkbox";
+
     private const string ButtonClass = "in-place-button";
+
     private const string EditButtonClass = $"{ButtonClass} in-place-edit-button";
+
     private const string IconClass = "in-place-icon";
+
     private const string IconHoverableClass = $"{IconClass} in-place-hoverable-icon";
+
     private const string InputClass = "in-place-input";
+
     private const string PlaceholderClass = "in-place-placeholder";
 
     #endregion Constants
@@ -411,26 +432,30 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     private bool ShouldFocusEditor { get; set; }
 
-    private bool ShouldRenderEditIcon => ShowIcon != InPlaceEditorShowIcon.Never || GetFormattedValue().Length == 0;
+    private bool ShouldRenderEditIcon => ShowIcons != InPlaceEditorShowIcons.Never || GetFormattedValue().Length == 0;
+
+    private bool ShouldWaitForCancel { get; set; }
+
+    private bool ShouldFocusEditButton { get; set; }
 
     private string ClassToRender => string.Format("{0} {1}", InPlaceEditorClass, Class);
 
-    private string EditIconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : IconClass;
+    private string EditIconClass => ShowIcons == InPlaceEditorShowIcons.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : IconClass;
 
     #endregion Properties
 
     #region Telerik Components
 
+    private TelerikButton? EditButtonRef { get; set; }
     private TelerikTextBox? TextBoxRef { get; set; }
     private TelerikNumericTextBox<T>? NumericTextBoxRef { get; set; }
     private TelerikDatePicker<T>? DatePickerRef { get; set; }
     private TelerikTimePicker<T>? TimePickerRef { get; set; }
     private TelerikCheckBox<bool>? CheckBoxRef { get; set; }
 
-    private async Task OnTextBoxValueChanged(object newValue)
+    private async Task OnEditorValueChanged(object newValue)
     {
         Value = (T)newValue;
-
         if (ValueChanged.HasDelegate)
         {
             await ValueChanged.InvokeAsync((T)newValue);
@@ -441,18 +466,52 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     #region Methods
 
+    private void OnEditorChange(object newValue)
+    {
+        if (!ShouldRenderEditIcon)
+        {
+            IsInEditMode = false;
+        }
+        else
+        {
+            ShouldWaitForCancel = true;
+        }
+    }
+
+    private void OnSaveButtonClick()
+    {
+        IsInEditMode = false;
+        ShouldFocusEditButton = true;
+    }
+
+    private void OnCancelButtonClick()
+    {
+        Value = OriginalEditValue;
+        ShouldFocusEditButton = true;
+        IsInEditMode = false;
+    }
+
     private async Task OnSpanKeyDown(KeyboardEventArgs args)
     {
         if (args.Key == "Escape")
         {
             Value = OriginalEditValue;
             IsInEditMode = false;
-
             if (ValueChanged.HasDelegate)
             {
                 await ValueChanged.InvokeAsync(Value);
             }
         }
+
+        if (args.Key == "Enter")
+        {
+            IsInEditMode = false;
+        }
+    }
+
+    private void OnSpanFocusIn(FocusEventArgs args)
+    {
+        ShouldWaitForCancel = false;
     }
 
     private string GetEditorWidth(InPlaceEditorType editorType)
@@ -461,17 +520,16 @@ Replace `YourAppName` with the actual root namespace of your app.
         {
             return Width;
         }
-
         switch (editorType)
         {
             case InPlaceEditorType.DatePicker:
-                return $"{Math.Max(GetFormattedValue().Length, 9)}em";
+                return $"{Math.Max(GetFormattedValue().Length, 9)}em".Replace(",", ".");
             case InPlaceEditorType.NumericTextBox:
-                return $"{Math.Max(GetFormattedValue().Length * .6 + 3, 7)}em";
+                return $"{Math.Max(GetFormattedValue().Length * .6 + 3, 7)}em".Replace(",", ".");
             case InPlaceEditorType.TextBox:
-                return $"{Math.Max(GetFormattedValue().Length * .75, 7)}em";
+                return $"{Math.Max(GetFormattedValue().Length * .75, 7)}em".Replace(",", ".");
             case InPlaceEditorType.TimePicker:
-                return $"{GetFormattedValue().Length + 2}em";
+                return $"{GetFormattedValue().Length + 2}em".Replace(",", ".");
             default:
                 throw new ArgumentOutOfRangeException(nameof(InPlaceEditorType));
         }
@@ -480,14 +538,12 @@ Replace `YourAppName` with the actual root namespace of your app.
     private void ToggleEditMode()
     {
         IsInEditMode = !IsInEditMode;
-
         if (IsInEditMode)
         {
             OriginalEditValue = Value;
             ShouldFocusEditor = true;
         }
     }
-
     private string GetFormattedValue()
     {
         if (IsNumericValueType())
@@ -501,7 +557,6 @@ Replace `YourAppName` with the actual root namespace of your app.
         else if (ValueType == typeof(TimeOnly))
         {
             var success = TimeOnly.TryParse(Value?.ToString() ?? string.Empty, CultureInfo.InvariantCulture, out TimeOnly timeOnly);
-
             if (success)
             {
                 return timeOnly.ToString(DisplayFormat);
@@ -520,13 +575,11 @@ Replace `YourAppName` with the actual root namespace of your app.
             return Value?.ToString() ?? string.Empty;
         }
     }
-
     private void GetValueType()
     {
         if (Value == null)
         {
             Type? nullableType = Nullable.GetUnderlyingType(typeof(T));
-
             if (nullableType != null)
             {
                 ValueType = nullableType;
@@ -540,7 +593,6 @@ Replace `YourAppName` with the actual root namespace of your app.
         {
             ValueType = Value.GetType();
         }
-
         if (IsNumericValueType())
         {
             ValueEditorType = InPlaceEditorType.NumericTextBox;
@@ -558,7 +610,6 @@ Replace `YourAppName` with the actual root namespace of your app.
             ValueEditorType = InPlaceEditorType.CheckBox;
         }
     }
-
     private bool IsNumericValueType()
     {
         return
@@ -580,22 +631,39 @@ Replace `YourAppName` with the actual root namespace of your app.
         if (ShouldFocusEditor)
         {
             ShouldFocusEditor = false;
-            await Task.Delay(1);
+            await Task.Delay(100);
 
             if (NumericTextBoxRef != null)
                 await NumericTextBoxRef.FocusAsync();
-
             if (DatePickerRef != null)
                 await DatePickerRef.FocusAsync();
-
             if (TimePickerRef != null)
                 await TimePickerRef.FocusAsync();
-
             if (CheckBoxRef != null)
                 await CheckBoxRef.FocusAsync();
-
             if (TextBoxRef != null)
                 await TextBoxRef.FocusAsync();
+        }
+
+        if (ShouldFocusEditButton)
+        {
+            ShouldFocusEditButton = false;
+            await Task.Delay(100);
+            if (EditButtonRef != null)
+            {
+                await EditButtonRef.FocusAsync();
+            }
+        }
+
+        if (ShouldWaitForCancel)
+        {
+            await Task.Delay(100);
+            if (ShouldWaitForCancel)
+            {
+                ShouldWaitForCancel = false;
+                IsInEditMode = false;
+                StateHasChanged();
+            }
         }
     }
 
@@ -653,10 +721,10 @@ Replace `YourAppName` with the actual root namespace of your app.
     color: var(--kendo-color-secondary);
 }
 ````
-````InPlaceEditorShowIcon.cs
+````InPlaceEditorShowIcons.cs
 namespace YourAppName.Models
 {
-    public enum InPlaceEditorShowIcon
+    public enum InPlaceEditorShowIcons
     {
         Always,
         Hover,
