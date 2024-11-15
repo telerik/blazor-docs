@@ -69,29 +69,30 @@ Replace `YourAppName` with the actual root namespace of your app.
 <h1>InPlaceEditor Component</h1>
 
 <p>
-    This in-place editor component works with multiple value types and nullables
+    This in-place editor component works with value types, including nullables
 
     <TelerikInPlaceEditor @bind-Value="@NumericValue"
                           DisplayFormat="C2"
                           Placeholder="Enter Number..." />
 
-    The component can apply custom CSS styles and the icon can be visible only on hover
+    The component supports custom styles
 
     <TelerikInPlaceEditor @bind-Value="@StringValue"
                           Class="primary-color"
                           ShowIcon="@InPlaceEditorShowIcon.Hover" />
 
-    (unless the value is empty) or hidden at all times
+    and the icon can be visible only on hover
 
     <TelerikInPlaceEditor @bind-Value="@DateValue"
                           Class="primary-color"
                           DisplayFormat="d"
-                          ShowIcon="@InPlaceEditorShowIcon.Never" />
+                          ShowIcon="@InPlaceEditorShowIcon.Hover" />
 
-    The editor width is calculated automatically if not set
+    (unless the value is empty) or never
 
     <TelerikInPlaceEditor @bind-Value="@TimeValue"
-                          DisplayFormat="HH:mm" />
+                          DisplayFormat="HH:mm"
+                          ShowIcon="@InPlaceEditorShowIcon.Never" />
 
     You can even edit booleans
 
@@ -202,7 +203,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @code {
     private bool BoolValue { get; set; }
-    private DateTime DateValue { get; set; } = DateTime.Now;
+    private DateTime? DateValue { get; set; } = DateTime.Now;
     private decimal? NumericValue { get; set; } = 1.23m;
     private string StringValue { get; set; } = "foo bar";
     private TimeOnly TimeValue { get; set; } = TimeOnly.FromDateTime(DateTime.Now);
@@ -234,7 +235,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 @typeparam T
 
-<span class="@ClassToRender">
+<span class="@ClassToRender" @onkeydown="@OnSpanKeyDown">
     @if (IsInEditMode)
     {
         switch (ValueEditorType)
@@ -293,7 +294,7 @@ Replace `YourAppName` with the actual root namespace of your app.
     }
     else if (!ReadOnly)
     {
-        <TelerikButton Class="@ButtonClass"
+        <TelerikButton Class="@EditButtonClass"
                        FillMode="@ThemeConstants.Button.FillMode.Clear"
                        OnClick="@ToggleEditMode"
                        Title="@Title">
@@ -308,7 +309,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
             @if (ShouldRenderEditIcon)
             {
-                <TelerikSvgIcon Icon="@SvgIcon.Pencil" Class="@IconClass" />
+                <TelerikSvgIcon Icon="@SvgIcon.Pencil" Class="@EditIconClass" />
             }
         </TelerikButton>
     }
@@ -388,7 +389,9 @@ Replace `YourAppName` with the actual root namespace of your app.
     private const string InPlaceEditorClass = "in-place-editor";
     private const string CheckBoxClass = "in-place-checkbox";
     private const string ButtonClass = "in-place-button";
-    private const string IconHoverableClass = "hoverable-icon";
+    private const string EditButtonClass = $"{ButtonClass} in-place-edit-button";
+    private const string IconClass = "in-place-icon";
+    private const string IconHoverableClass = $"{IconClass} in-place-hoverable-icon";
     private const string InputClass = "in-place-input";
     private const string PlaceholderClass = "in-place-placeholder";
 
@@ -397,6 +400,8 @@ Replace `YourAppName` with the actual root namespace of your app.
     #region Properties
 
     private readonly string DataId = Guid.NewGuid().ToString();
+
+    private T? OriginalEditValue { get; set; }
 
     private Type ValueType { get; set; } = typeof(string);
 
@@ -410,7 +415,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
     private string ClassToRender => string.Format("{0} {1}", InPlaceEditorClass, Class);
 
-    private string IconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : string.Empty;
+    private string EditIconClass => ShowIcon == InPlaceEditorShowIcon.Hover && GetFormattedValue().Length > 0 ? IconHoverableClass : IconClass;
 
     #endregion Properties
 
@@ -435,6 +440,20 @@ Replace `YourAppName` with the actual root namespace of your app.
     #endregion Telerik Components
 
     #region Methods
+
+    private async Task OnSpanKeyDown(KeyboardEventArgs args)
+    {
+        if (args.Key == "Escape")
+        {
+            Value = OriginalEditValue;
+            IsInEditMode = false;
+
+            if (ValueChanged.HasDelegate)
+            {
+                await ValueChanged.InvokeAsync(Value);
+            }
+        }
+    }
 
     private string GetEditorWidth(InPlaceEditorType editorType)
     {
@@ -464,6 +483,7 @@ Replace `YourAppName` with the actual root namespace of your app.
 
         if (IsInEditMode)
         {
+            OriginalEditValue = Value;
             ShouldFocusEditor = true;
         }
     }
@@ -474,7 +494,7 @@ Replace `YourAppName` with the actual root namespace of your app.
         {
             return Convert.ToDouble(Value).ToString(DisplayFormat);
         }
-        else if (ValueType == typeof(DateTime) || ValueType == typeof(DateOnly))
+        else if ((ValueType == typeof(DateTime) || ValueType == typeof(DateOnly)) && Value != null)
         {
             return Convert.ToDateTime(Value).ToString(DisplayFormat);
         }
@@ -598,8 +618,9 @@ Replace `YourAppName` with the actual root namespace of your app.
     }
 }
 ````
-````InPlaceEditor.razor.css
+````TelerikInPlaceEditor.razor.css
 .in-place-editor {
+    display: inline-flex;
     font-family: monospace;
 }
 
@@ -607,23 +628,24 @@ Replace `YourAppName` with the actual root namespace of your app.
     margin-inline: 1em;
 }
 
-::deep .in-place-button {
+::deep .in-place-button,
+::deep .in-place-icon {
     color: inherit;
 }
 
-::deep .in-place-button .k-icon {
-    margin-inline-start: .4em;
+::deep .in-place-icon {
+    margin-inline-start: .5em;
 }
 
-::deep .in-place-button .hoverable-icon {
+::deep .in-place-hoverable-icon {
     display: none;
 }
 
-::deep .in-place-button:hover {
+::deep .in-place-edit-button:hover {
     background-color: var(--kendo-color-base) !important;
 }
 
-    ::deep .in-place-button:hover .hoverable-icon {
+    ::deep .in-place-edit-button:hover .in-place-hoverable-icon {
         display: inline-flex;
     }
 
