@@ -63,7 +63,7 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
 
 
 @code {
-    private List<Product> GridData { get; set; }
+    private List<Product> GridData { get; set; } = new();
     private int MaxYears = 10;
     private int StartYear = 2020;
 
