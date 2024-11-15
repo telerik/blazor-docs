@@ -1,5 +1,5 @@
 ---
-title: Dynamically Adjusting Column Header Cell Style in Blazor Grid
+title: Adjust Grid Column Header Styles Dynamically
 description: Learn how to dynamically change the style of a column header cell in a Telerik Blazor Grid based on condition.
 type: how-to
 page_title: How to Dynamically Style Column Header Cell in a Telerik Blazor Grid
