@@ -38,7 +38,7 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
         <GridColumn Field="@nameof(Product.Name)" Title="Product Name"/>
         @for (int i = 0; i <= MaxYears; i++)
         {
-            <GridColumn Field="@("Y"+i)" Title=@((StartYear + i).ToString()) DisplayFormat="{0:N}" HeaderClass="@GetHeaderClass(StartYear + i)"/>
+            <GridColumn @key="@i" Field="@( $"StartYear{i}" )" Title=@( $"{StartYear + i}" ) DisplayFormat="{0:N}" HeaderClass="@GetHeaderClass(StartYear + i)"/>
         }
     </GridColumns>
 </TelerikGrid>
