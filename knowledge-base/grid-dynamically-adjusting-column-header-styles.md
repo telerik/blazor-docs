@@ -48,7 +48,7 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
         background-color: yellow;
     }
 
-    .past-year-column {
+    .previous-year-column {
         background-color: royalblue;
     }
 
