@@ -15,7 +15,7 @@ ticketid: 1670074
     <tbody>
 	    <tr>
 	    	<td>Product</td>
-	    	<td>Grid for Blazor</td>
+	    	<td>Grid for Blazor, <br /> TreeList for Blazor</td>
 	    </tr>
     </tbody>
 </table>
@@ -35,76 +35,72 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
 ````CSHTML
 <TelerikGrid Data="@GridData">
     <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name"/>
+        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
         @for (int i = 0; i <= MaxYears; i++)
         {
-            <GridColumn @key="@i" Field="@( $"StartYear{i}" )" Title=@( $"{StartYear + i}" ) DisplayFormat="{0:N}" HeaderClass="@GetHeaderClass(StartYear + i)"/>
+            <GridColumn @key="@i" Field="@( $"StartYear{i}" )" Title=@( $"{StartYear + i}" ) DisplayFormat="{0:N}" HeaderClass="@GetHeaderClass(StartYear + i)" />
         }
     </GridColumns>
 </TelerikGrid>
 
 <style>
     .past-year-column {
-        background-color: yellow;
+    background-color: yellow;
     }
 
     .previous-year-column {
-        background-color: royalblue;
+    background-color: royalblue;
     }
 
     .current-year-column {
-        background-color: pink;
+    background-color: pink;
     }
 
     .future-year-column {
-        background-color: red;
+    background-color: red;
     }
 </style>
 
 
 @code {
     private List<Product> GridData { get; set; } = new();
-    private int MaxYears = 10;
-    private int StartYear = 2020;
+    private const int MaxYears = 10;
+    private const int StartYear = 2020;
+    private int currYear { get; set; } = DateTime.Now.Year;
 
     private string GetHeaderClass(int year)
     {
-        switch (year)
-        {
-            case <= 2020:
-                return "very-past-year-column";
-            case < 2024:
-                return "past-year-column";
-            case 2024:
-                return "current-year-column";
-            default:
-                return "future-year-column";
-        }
+        if (year <= StartYear)
+            return "past-year-column";
+        else if (year < currYear)
+            return "previous-year-column";
+        else if (year == currYear)
+            return "current-year-column";
+        else
+            return "future-year-column";
     }
 
     protected override void OnInitialized()
     {
         GridData = new List<Product>();
 
-        Random rnd = new Random();
-
-        for (int i = 1; i <= 30; i++)
+        for (int i = 1; i <= 20; i++)
         {
             GridData.Add(new Product
                 {
                     Id = i,
                     Name = "Product name " + i,
-                    Y0 = rnd.Next(100, 9999),
-                    Y1 = rnd.Next(100, 9999),
-                    Y2 = rnd.Next(100, 9999),
-                    Y3 = rnd.Next(100, 9999),
-                    Y4 = rnd.Next(100, 9999),
-                    Y5 = rnd.Next(100, 9999),
-                    Y6 = rnd.Next(100, 9999),
-                    Y7 = rnd.Next(100, 9999),
-                    Y8 = rnd.Next(100, 9999),
-                    Y9 = rnd.Next(100, 9999),
-                    Y10 = rnd.Next(100, 9999)
+                    StartYear0 = Random.Shared.Next(100, 9999),
+                    StartYear1 = Random.Shared.Next(100, 9999),
+                    StartYear2 = Random.Shared.Next(100, 9999),
+                    StartYear3 = Random.Shared.Next(100, 9999),
+                    StartYear4 = Random.Shared.Next(100, 9999),
+                    StartYear5 = Random.Shared.Next(100, 9999),
+                    StartYear6 = Random.Shared.Next(100, 9999),
+                    StartYear7 = Random.Shared.Next(100, 9999),
+                    StartYear8 = Random.Shared.Next(100, 9999),
+                    StartYear9 = Random.Shared.Next(100, 9999),
+                    StartYear10 = Random.Shared.Next(100, 9999)
                 });
 
         }
@@ -116,17 +112,17 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public double? Y0 { get; set; }
-        public double? Y1 { get; set; }
-        public double? Y2 { get; set; }
-        public double? Y3 { get; set; }
-        public double? Y4 { get; set; }
-        public double? Y5 { get; set; }
-        public double? Y6 { get; set; }
-        public double? Y7 { get; set; }
-        public double? Y8 { get; set; }
-        public double? Y9 { get; set; }
-        public double? Y10 { get; set; }
+        public double? StartYear0 { get; set; }
+        public double? StartYear1 { get; set; }
+        public double? StartYear2 { get; set; }
+        public double? StartYear3 { get; set; }
+        public double? StartYear4 { get; set; }
+        public double? StartYear5 { get; set; }
+        public double? StartYear6 { get; set; }
+        public double? StartYear7 { get; set; }
+        public double? StartYear8 { get; set; }
+        public double? StartYear9 { get; set; }
+        public double? StartYear10 { get; set; }
     }
 }
 ```
