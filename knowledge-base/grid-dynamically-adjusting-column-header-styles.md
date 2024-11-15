@@ -44,7 +44,7 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
 </TelerikGrid>
 
 <style>
-    .very-past-year-column {
+    .past-year-column {
         background-color: yellow;
     }
 
