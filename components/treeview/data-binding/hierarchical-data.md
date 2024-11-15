@@ -11,10 +11,10 @@ position: 2
 # Treeview Data Binding to Hierarchical Data
 
 This article explains how to bind the TreeView for Blazor to hierarchical data. 
+
 @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
-
-Hierarchical data means that the child items are provided in a property of the parent item. By default, the TreeView expects this property to be called `Items`, otherwise set the property name in the `ItemsField` parameter. If a certain node has children, it will render an expand icon. The `HasChildren` model property can override this, but it is not required for hierarchical data binding.
+Hierarchical data means that the child items are provided in a property of the parent item. By default, the TreeView expects this property to be called `Items`, otherwise set the property name in the `ItemsField` parameter. If a certain node has non-`null` child items collection, it will render an expand icon. The `HasChildren` model property can override this, but it is not required for hierarchical data binding.
 
 The hierarchical data binding approach allows you have separate collections of data or different model types at each TreeView level. Note that the data binding settings are per level, so a certain level will always use the same bindings, regardless of the model they represent and their parent.
 
@@ -33,58 +33,58 @@ The example below uses two levels of hierarchy, but the same idea applies to any
 Hierarchical data hold collections of the child items
 
 <TelerikTreeView Data="@HierarchicalData" @bind-ExpandedItems="@ExpandedItems">
-	<TreeViewBindings>
-		<TreeViewBinding TextField="Category" ItemsField="Products" />
-		<TreeViewBinding Level="1" TextField="ProductName" />
-	</TreeViewBindings>
+    <TreeViewBindings>
+        <TreeViewBinding TextField="Category" ItemsField="Products" />
+        <TreeViewBinding Level="1" TextField="ProductName" />
+    </TreeViewBindings>
 </TelerikTreeView>
 
 @code {
-	public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
-	public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
+    public IEnumerable<ProductCategoryItem> HierarchicalData { get; set; }
+    public IEnumerable<object> ExpandedItems { get; set; } = new List<object>();
 
-	public class ProductCategoryItem
-	{
-		public string Category { get; set; }
-		public List<ProductItem> Products { get; set; }
-	}
-
-	public class ProductItem
-	{
-		public string ProductName { get; set; }
-	}
-
-
-	protected override void OnInitialized()
-	{
-		LoadHierarchical();
-		ExpandedItems = HierarchicalData.Where(x => x.Products != null && x.Products.Any()).ToList();
-	}
-
-	private void LoadHierarchical()
-	{
-		List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
-
-		List<ProductItem> firstCategoryProducts = new List<ProductItem>()
+    public class ProductCategoryItem
     {
-			new ProductItem { ProductName= "Category 1 - Product 1" },
-			new ProductItem { ProductName= "Category 1 - Product 2" }
-		};
+        public string Category { get; set; }
+        public List<ProductItem> Products { get; set; }
+    }
 
-		roots.Add(new ProductCategoryItem
-		{
-			Category = "Category 1",
-			Products = firstCategoryProducts // this is how child items are provided
+    public class ProductItem
+    {
+        public string ProductName { get; set; }
+    }
 
-		});
 
-		roots.Add(new ProductCategoryItem
-		{
-			Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
-		});
+    protected override void OnInitialized()
+    {
+        LoadHierarchical();
+        ExpandedItems = HierarchicalData.Where(x => x.Products != null && x.Products.Any()).ToList();
+    }
 
-		HierarchicalData = roots;
-	}
+    private void LoadHierarchical()
+    {
+        List<ProductCategoryItem> roots = new List<ProductCategoryItem>();
+
+        List<ProductItem> firstCategoryProducts = new List<ProductItem>()
+        {
+            new ProductItem { ProductName= "Category 1 - Product 1" },
+            new ProductItem { ProductName= "Category 1 - Product 2" }
+        };
+
+        roots.Add(new ProductCategoryItem
+        {
+            Category = "Category 1",
+            Products = firstCategoryProducts // this is how child items are provided
+
+        });
+
+        roots.Add(new ProductCategoryItem
+        {
+            Category = "Category 2" // we will set no other properties and it will not have children, nor will it be expanded
+        });
+
+        HierarchicalData = roots;
+    }
 }
 ````
 
