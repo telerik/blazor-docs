@@ -39,7 +39,7 @@ Selected value: @selectedValue
 <br />
 
 <TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
-                 Placeholder="Select an item..." ClearButton="true" Filterable="true">
+                 Placeholder="Select an item..." ShowClearButton="true" Filterable="true">
 </TelerikComboBox>
 
 @code {
@@ -77,6 +77,6 @@ There are two approaches to avoiding this error:
         <TelerikComboBox Data="@myComboData.Select(x => new {MyTextField = x.MyTextField, MyValueField = x.MyValueField })" 
                         TextField="MyTextField" ValueField="MyValueField" 
                         @bind-Value="selectedValue"
-                        Placeholder="Select an item..." ClearButton="true" Filterable="false">
+                        Placeholder="Select an item..." ShowClearButton="true" Filterable="false">
         </TelerikComboBox>
 

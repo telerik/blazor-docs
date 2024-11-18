@@ -111,7 +111,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 | ----------- | ----------- | -----------|
 | `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AllowCustom` | `bool` | Determines if the user can enter [custom values]({%slug multicolumncombobox-custom-value%}). If enabled, the `ValueField` must be a `string`. |
-| `ClearButton` | `bool` | Displays a clear button inside the input. When it is clicked, the `Value` will change to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, there should be no data item with `0` in its `ValueField`, otherwise selection issues may occur. |
+| `ShowClearButton` | `bool` | Displays a clear button inside the input. When it is clicked, the `Value` will change to `default(TValue)`, so there must be no item in the `Data` that has such a `Value`. For example, if `TValue` is `int`, there should be no data item with `0` in its `ValueField`, otherwise selection issues may occur. |
 | `Data` | `IEnumerable<TItem>` | The component data. |
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the user can interact with the component. |
