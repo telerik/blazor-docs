@@ -47,7 +47,7 @@ You can increase or decrease the size of the ComboBox by setting the `Size` attr
                              ValueField="MyValueField" 
                              @bind-Value="selectedValue"
                              Placeholder="Select an item..." 
-                             ClearButton="true" 
+                             ShowClearButton="true" 
                              Filterable="true">
             </TelerikComboBox>
         </div>
@@ -105,7 +105,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the ComboBox to 
                              ValueField="MyValueField" 
                              @bind-Value="selectedValue"
                              Placeholder="Select an item..." 
-                             ClearButton="true" 
+                             ShowClearButton="true" 
                              Filterable="true">
             </TelerikComboBox>
         </div>
@@ -162,7 +162,7 @@ The `FillMode` controls how the TelerikComboBox is filled. You can set it to a m
                              ValueField="MyValueField" 
                              @bind-Value="selectedValue"
                              Placeholder="Select an item..." 
-                             ClearButton="true" 
+                             ShowClearButton="true" 
                              Filterable="true">
             </TelerikComboBox>
         </div>

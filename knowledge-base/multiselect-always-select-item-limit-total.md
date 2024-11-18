@@ -50,7 +50,7 @@ You can find two examples below that showcase doing this:
 <TelerikMultiSelect Data="@Roles"
                     Value="@TheValues" 
                     ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )" 
-                    ClearButton="false">
+                    ShowClearButton="false">
 </TelerikMultiSelect>
 
 <ul>
@@ -100,7 +100,7 @@ You can find two examples below that showcase doing this:
                         Value="@myFormModel.TheValues"
                         ValueChanged="@( (List<string> v) => MyValueChangeHandler(v) )"
                         ValueExpression="@( () => myFormModel.TheValues )"
-                        ClearButton="false">
+                        ShowClearButton="false">
     </TelerikMultiSelect>
     <br />
     <TelerikButton ButtonType="@ButtonType.Submit">Submit</TelerikButton>

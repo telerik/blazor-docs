@@ -47,7 +47,7 @@ You can increase or decrease the size of the MultiColumnComboBox by setting the 
                                 ValueField="MyValueField"
                                     @bind-Value="selectedValue"
                                 Placeholder="Select an item..."
-                                ClearButton="true"
+                                ShowClearButton="true"
                                 Filterable="true">
                 <MultiColumnComboBoxColumns>
                     <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
@@ -109,7 +109,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the MultiColumnC
                                 ValueField="MyValueField"
                                 @bind-Value="selectedValue"
                                 Placeholder="Select an item..."
-                                ClearButton="true"
+                                ShowClearButton="true"
                                 Filterable="true">
                 <MultiColumnComboBoxColumns>
                     <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>
@@ -170,7 +170,7 @@ The `FillMode` controls how the TelerikMultiColumnComboBox is filled. You can se
                                 ValueField="MyValueField"
                                 @bind-Value="selectedValue"
                                 Placeholder="Select an item..."
-                                ClearButton="true"
+                                ShowClearButton="true"
                                 Filterable="true">
                 <MultiColumnComboBoxColumns>
                     <MultiColumnComboBoxColumn Field="@nameof(MyDdlModel.MyTextField)"></MultiColumnComboBoxColumn>

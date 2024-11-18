@@ -22,7 +22,7 @@ Selected value: @selectedValue
 <br />
 
 <TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
-                 Placeholder="Select an item..." ClearButton="true" Filterable="true">
+                 Placeholder="Select an item..." ShowClearButton="true" Filterable="true">
 </TelerikComboBox>
 
 @code {

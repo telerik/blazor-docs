@@ -29,7 +29,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
-                    Width="350px" ClearButton="true" AutoClose="false">
+                    Width="350px" ShowClearButton="true" AutoClose="false">
 </TelerikMultiSelect>
 @if (Values.Count > 0)
 {
@@ -99,7 +99,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | ----------- | ----------- | ------ |
 | `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `AutoClose` | `bool` <br /> (`true`) | Defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection. |
-| `ClearButton` | `bool` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
+| `ShowClearButton` | `bool` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the component is enabled. |

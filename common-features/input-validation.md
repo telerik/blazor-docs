@@ -65,7 +65,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
     <p class="role">
         <label for="roleAutoComplete">Role:</label>
         <TelerikAutoComplete Data="@RoleSuggestions" @bind-Value="@person.Role" Id="roleAutoComplete"
-                             Placeholder="Enter your role (can be free text)" ClearButton="true" />
+                             Placeholder="Enter your role (can be free text)" ShowClearButton="true" />
         <ValidationMessage For="@(() => person.Role)"></ValidationMessage>
     </p>
     <p class="height">
@@ -243,7 +243,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
     <ValidationSummary />
     <p class="team">
         <label for="teamCombobox">Team:</label>
-        <TelerikComboBox @bind-Value="person.Team" Placeholder="Select team" ClearButton="true" Id="teamCombobox"
+        <TelerikComboBox @bind-Value="person.Team" Placeholder="Select team" ShowClearButton="true" Id="teamCombobox"
                                Data="@teams" TextField="MyTextField" ValueField="MyValueField">
         </TelerikComboBox>
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
@@ -301,7 +301,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
     <ValidationSummary />
     <p class="team">
         <label for="teamComboBox">Team:</label>
-        <TelerikComboBox Data="@ExistingTeams" @bind-Value="person.Team" AllowCustom="true" ClearButton="true" Id="teamComboBox"></TelerikComboBox>
+        <TelerikComboBox Data="@ExistingTeams" @bind-Value="person.Team" AllowCustom="true" ShowClearButton="true" Id="teamComboBox"></TelerikComboBox>
         <ValidationMessage For="@(() => person.Team)"></ValidationMessage>
     </p>
 
