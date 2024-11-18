@@ -67,7 +67,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
                      MinLength="@FilterMinLength"
                      DebounceDelay="@AutoCompleteDebounceDelay"
                      Placeholder="Type 's' or 'a' to see the difference"
-                     ClearButton="true"
+                     ShowClearButton="true"
                      Width="300px" />
 
 @code{

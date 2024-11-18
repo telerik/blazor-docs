@@ -36,7 +36,7 @@ What you need to do is to check if the new value that comes in is the `default` 
 ````CSHTML
 Monitor the console to see when the events fire in these examples. You can use only one of the events, this sample showcases both so you can see the options.
 
-<TelerikComboBox Data="@MyList" ClearButton="true"
+<TelerikComboBox Data="@MyList" ShowClearButton="true"
                  Value="@MyItem" ValueChanged="@( (string v) => MyValueChangeHandlerString(v) )"
                  OnChange="@OnChangeHandlerString">
 </TelerikComboBox>
@@ -63,7 +63,7 @@ Monitor the console to see when the events fire in these examples. You can use o
 
 <hr />
 
-<TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ClearButton="true"
+<TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" ShowClearButton="true"
                  Value="@selectedValue" ValueChanged="@( (int v) => MyValueChangeHandlerInt(v) )"
                  OnChange="@OnChangeHandlerInt">
 </TelerikComboBox>

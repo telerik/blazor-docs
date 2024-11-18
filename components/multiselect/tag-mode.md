@@ -34,7 +34,7 @@ To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.S
                     TagMode="@MultiSelectTagMode.Single"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
                     Width="350px" 
-                    ClearButton="true"
+                    ShowClearButton="true"
                     AutoClose="false">
 </TelerikMultiSelect>
 
@@ -73,7 +73,7 @@ When the multiple tag mode is enabled, each selected item will be displayed as a
                     TagMode="@MultiSelectTagMode.Multiple"
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
                     Width="350px" 
-                    ClearButton="true"
+                    ShowClearButton="true"
                     AutoClose="false">
 </TelerikMultiSelect>
 
@@ -113,7 +113,7 @@ To restrict the allowed number of individual tags, use the `MaxAllowedTags` para
                     MaxAllowedTags="2"     
                     Placeholder="Enter Balkan country, e.g., Bulgaria"
                     Width="350px" 
-                    ClearButton="true" 
+                    ShowClearButton="true" 
                     AutoClose="false">
 </TelerikMultiSelect>
 

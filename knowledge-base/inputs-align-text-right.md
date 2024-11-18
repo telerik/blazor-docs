@@ -63,7 +63,7 @@ The example below shows how to align a numeric textbox and a combo box to the ri
 
 <h4>ComboBox - Right alignment</h4>
 <TelerikComboBox Data="@myComboData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="selectedValue"
-                 Placeholder="Select an item..." ClearButton="true" Filterable="true" Class="myCombobox">
+                 Placeholder="Select an item..." ShowClearButton="true" Filterable="true" Class="myCombobox">
 </TelerikComboBox>
 
 

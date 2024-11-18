@@ -40,7 +40,7 @@ Here are examples of both.
 <TelerikDropDownList Data="@DdlData" @bind-Value="@CurrValue"></TelerikDropDownList>
 
 @* for a combo box, make sure that custom values and clearing are not available unless you are explicitly OK with that *@
-<TelerikComboBox Data="@DdlData" @bind-Value="@CurrValue" ClearButton="false" AllowCustom="false" Filterable="true"></TelerikComboBox>
+<TelerikComboBox Data="@DdlData" @bind-Value="@CurrValue" ShowClearButton="false" AllowCustom="false" Filterable="true"></TelerikComboBox>
 
 @code{
     string CurrValue { get; set; }

@@ -29,7 +29,7 @@ User input: @AutoCompleteValue
 <TelerikAutoComplete Data="@Suggestions"
                      @bind-Value="@AutoCompleteValue"
                      Placeholder="Enter your role (can be free text)"
-                     ClearButton="true" />
+                     ShowClearButton="true" />
 
 @code{
     //Current value is null (no item is selected) which allows the Placeholder to be displayed.
@@ -94,7 +94,7 @@ The Blazor AutoComplete provides various parameters that allow you to configure 
 | `Value` and `bind-Value` | `string`  | Get/set the value of the component, can be used for binding. Use the `@bind-Value` syntax for two-way binding, for example, to a variable of your own. The `Value` must be a `string`.|
 | `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will be shown as hints to the user. Not required when binding to a simple list of strings. |
 | `TabIndex` | `int?`  | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `ClearButton` | `bool`  | Whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`. |
+| `ShowClearButton` | `bool`  | Whether the user will have the option to clear the selected value with a button on the input. When it is clicked, the `Value` will be updated to `string.Empty`. |
 | `Enabled` | `bool`  | Use this Boolean property to render a disabled Blazor AutoComplete component until certain requirements are met. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `MinLength` | `int`  | How many characters the text has to be before the suggestions list appears. Cannot be `0`. Often works together with [filtering]({%slug autocomplete-filter%}). |

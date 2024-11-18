@@ -32,7 +32,7 @@ and
                     Value="@SelectedProductIDs"
                     ValueField="@nameof(Product.Id)"
                     TextField="@nameof(Product.Name)"
-                    ClearButton="true"
+                    ShowClearButton="true"
                     Placeholder="Select Products">
 </TelerikMultiSelect>
 
