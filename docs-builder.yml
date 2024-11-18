@@ -15,6 +15,7 @@ no-results-image-path: ./images/ninja-no-results.svg
 img-max-width: 100%
 table-layout: fixed
 enable-tabbed-code-blocks: true
+blazor-repl: true
 
 cta-overview: The @Subject component is part of @ProductLink, a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial.
 cta-intro: "@ProductLink is a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial."
