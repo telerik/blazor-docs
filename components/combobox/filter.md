@@ -60,7 +60,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
                  FilterOperator="@FilterOperator"
                  DebounceDelay="@DebounceDelay"
                  Placeholder="Type digits to see filtering in action"
-                 ClearButton="true"
+                 ShowClearButton="true"
                  Width="300px">
 </TelerikComboBox>
 

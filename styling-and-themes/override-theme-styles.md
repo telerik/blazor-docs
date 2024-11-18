@@ -78,7 +78,7 @@ The example below demonstrates using custom CSS classes with the Grid and the Co
                  TextField="@nameof(Product.Name)"
                  ValueField="@nameof(Product.Id)"
                  Filterable="true"
-                 ClearButton="true">
+                 ShowClearButton="true">
 </TelerikComboBox>
 
 <br /><br />

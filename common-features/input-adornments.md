@@ -99,7 +99,7 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
     <TelerikAutoComplete Data="@Products"
                          @bind-Value="@SelectedProduct"
                          Placeholder="Search a product..."
-                         ClearButton="true"
+                         ShowClearButton="true"
                          Width="300px">
         <AutoCompletePrefixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Search" />
@@ -113,7 +113,7 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
     <TelerikComboBox Data="@Products"
                      @bind-Value="@SelectedProduct"
                      Placeholder="Search a product..."
-                     ClearButton="true"
+                     ShowClearButton="true"
                      Width="300px">
         <ComboBoxPrefixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Search" />
@@ -146,7 +146,7 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
     <TelerikMultiSelect Data="@Products"
                         @bind-Value="@SelectedProducts"
                         Placeholder="Search products..."
-                        ClearButton="true"
+                        ShowClearButton="true"
                         Width="300px">
         <MultiSelectPrefixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Search" />
@@ -243,7 +243,7 @@ To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct chi
     <TelerikAutoComplete Data="@Products"
                          @bind-Value="@SelectedProduct"
                          Placeholder="Search a product..."
-                         ClearButton="true"
+                         ShowClearButton="true"
                          Width="300px">
         <AutoCompleteSuffixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Copy" />
@@ -257,7 +257,7 @@ To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct chi
     <TelerikComboBox Data="@Products"
                      @bind-Value="@SelectedProduct"
                      Placeholder="Search a product..."
-                     ClearButton="true"
+                     ShowClearButton="true"
                      Width="300px">
         <ComboBoxSuffixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Copy" />
@@ -290,7 +290,7 @@ To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct chi
     <TelerikMultiSelect Data="@Products"
                         @bind-Value="@SelectedProducts"
                         Placeholder="Search products..."
-                        ClearButton="true"
+                        ShowClearButton="true"
                         Width="300px">
         <MultiSelectSuffixTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Copy" />
@@ -372,7 +372,7 @@ To prevent that behavior, you may wrap the content of the prefix/suffix template
 <TelerikAutoComplete Data="@Roles"
                      @bind-Value="@SelectedRole"
                      Placeholder="Enter your role (can be free text)"
-                     ClearButton="true">
+                     ShowClearButton="true">
     <AutoCompletePrefixTemplate>
         <div class="test" onkeydown="event.stopPropagation()">
             <TelerikDropDownList Data="@Teams"
