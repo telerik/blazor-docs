@@ -25,16 +25,58 @@ ticketid: 1657431
 
 ## Description
 
-When rotating div elements that have an associated [Tooltip]({%slug tooltip-overview%}) to display additional information, the Tooltip might not align correctly with the target element. The goal is to adjust the Tooltip's position so it aligns appropriately with the center of the rotated div, and optionally, remove the Tooltip's callout pointer for a cleaner appearance.
+When rotating `<div>` elements that have an associated [Tooltip]({%slug tooltip-overview%}) to display additional information, the Tooltip might not align correctly with the target element. The goal is to adjust the Tooltip's position so it aligns appropriately with the center of the rotated `<div>`, and optionally, remove the Tooltip's callout pointer for a cleaner appearance.
 
 This KB article also answers the following questions:
-- How to correctly position a Tooltip on a rotated div in Blazor?
+- How to correctly position a Tooltip on a rotated `<div>` in Blazor?
 - How can I hide the callout pointer of a Tooltip in Blazor?
 - Is there a way to dynamically adjust Tooltip positioning based on element rotation in Blazor?
 
 ## Solution
 
-To address the issue of Tooltip misalignment on rotated div elements, consider the following two approaches:
+To address the issue of Tooltip misalignment on rotated `<div>` elements, consider the following two approaches:
+
+### Use an Inner Tooltip Target
+
+Embed a tooltip target within the rotated element that won't be affected by the rotation. This method ensures the Tooltip aligns correctly without additional adjustments.
+
+````RAZOR
+<TelerikTooltip TargetSelector=".tooltip-target .inner-target" Class="dynamic-tooltip-styles" />
+
+<div style="padding: 5em;">
+    Hover this rectangle ...
+
+    <span class="tooltip-target" style="transform: rotate(-20deg);">
+        <span title="More info..." class="inner-target">
+            <TelerikSvgIcon Icon="@SvgIcon.InfoCircle" Size="@ThemeConstants.SvgIcon.Size.ExtraLarge" />
+        </span>
+    </span>
+
+    ... or this one ...
+
+    <span class="tooltip-target" style="transform: rotate(45deg);">
+        <span title="More info..." class="inner-target">
+            <TelerikSvgIcon Icon="@SvgIcon.InfoCircle" Size="@ThemeConstants.SvgIcon.Size.ExtraLarge"/>
+        </span>
+    </span>
+</div>
+
+<style>
+    .tooltip-target {
+        display: inline-block;
+        width: 120px;
+        height: 25px;
+        background: yellow;
+        position: relative;
+    }
+
+        .tooltip-target .inner-target {
+            position: absolute;
+            right: .4em;
+            bottom: 0;
+        }
+</style>
+````
 
 ### Adjust Tooltip Margin Dynamically
 
@@ -89,48 +131,8 @@ Calculate the necessary offset for the Tooltip and apply it as a margin style. A
 }
 ````
 
-### Use an Inner Tooltip Target
-
-Embed a tooltip target within the rotated element that won't be affected by the rotation. This method ensures the Tooltip aligns correctly without additional adjustments.
-
-````RAZOR
-<TelerikTooltip TargetSelector=".tooltip-target .inner-target" Class="dynamic-tooltip-styles" />
-
-<div style="padding: 5em;">
-    Hover this rectangle ...
-
-    <span class="tooltip-target" style="transform: rotate(-20deg);">
-        <span title="Foo Tooltip" class="inner-target">
-            <TelerikSvgIcon Icon="@SvgIcon.QuestionCircle" />
-        </span>
-    </span>
-
-    ... or this one ...
-
-    <span class="tooltip-target" style="transform: rotate(45deg);">
-        <span title="Bar Tooltip" class="inner-target">
-            <TelerikSvgIcon Icon="@SvgIcon.QuestionCircle" />
-        </span>
-    </span>
-</div>
-
-<style>
-    .tooltip-target {
-        display: inline-block;
-        width: 120px;
-        height: 20px;
-        background: yellow;
-        position: relative;
-    }
-
-    .tooltip-target .inner-target {
-        position: absolute;
-        right: .4em;
-        bottom: 0;
-    }
-</style>
-````
-
 ## See Also
 
 - [Telerik Blazor Tooltip - Overview]({%slug tooltip-overview%})
+- [Hide the Tooltip Callout or Change Its Position]({%slug tooltip-kb-callout-position%})
+- [Custom ToolTip Styles and Colors]({%slug tooltip-kb-custom-styles%})
