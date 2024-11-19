@@ -91,6 +91,8 @@ To enable cell selection:
 
 You can respond to user selection actions through the `SelectedCellsChanged` event. The event handler receives a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection may have multiple, single, or no objects in it, depending on the `SelectionMode` and the last user selection.
 
+> The `SelectedCellsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
+
 >caption Using the Grid SelectedCellsChanged event
 
 ````CSHTML
@@ -169,10 +171,6 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
     }
 }
 ````
-
-### SelectedCellsChanged and Asynchronous Operations
-
-The `SelectedCellsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
 
 ## GridSelectedCellDescriptor
 
