@@ -20,16 +20,7 @@ The TreeList component supports row and cell selection. When you select a row or
 
 ## Enable Row or Cell Selection
 
-You can configure the TreeList either for row or cell selection:
-
-* To enable row selection:
-  * Set the [TreeList `SelectionMode` parameter](#use-single-or-multiple-selection) or
-  * Add a `<TreeListSelectionSettings>` tag to the `<TreeListSettings>` tag, and set the `SelectionType` parameter to `TreeListSelectionType.Row`.
-  * Optionally, you can also select rows through the [checkbox column]({%slug treelist-columns-checkbox%}).
-* To enable cell selection:
-  * Add a `<TreeListSelectionSettings>` tag to the `<TreeListSettings>` tag, and set the `SelectionType` parameter to `TreeListSelectionType.Cell`.
-
-See [Row Selection Basics]({%slug treelist-selection-row%}#basics) and [Cell Selection Basics]({%slug treelist-selection-cell%}#basics) for more details.
+You can configure the TreeList either for row or cell selection. See [Row Selection Basics]({%slug treelist-selection-row%}#basics) and [Cell Selection Basics]({%slug treelist-selection-cell%}#basics) for more details and examples.
 
 ## Use Single or Multiple Selection
 
