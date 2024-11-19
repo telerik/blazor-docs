@@ -60,13 +60,13 @@ navigation:
         position: 23
      "getting-started/vs-integration":
         title: "Visual Studio Integration"
-        position: 25
+        position: 35
      "getting-started/vs-code-integration":
         title: "Visual Studio Code Integration"
-        position: 26
+        position: 36
      "getting-started/repl":
         title: "Telerik REPL for Blazor"
-        position: 35
+        position: 37
      "backwards-compatibility":
         title: "Breaking Changes"
         position: 30

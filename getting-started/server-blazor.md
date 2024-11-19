@@ -1,18 +1,18 @@
 ---
-title: Blazor Server (Tutorial)
+title: Blazor Server App
 page_title: First Steps with Blazor Server Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build an app that runs the UI components server-side in Blazor server.
 slug: getting-started/server-side
 tags: get,started,first,steps,server
 published: true
-position: 1
+position: 15
 ---
 
 # First Steps with Server-Side UI for Blazor
 
 This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
-> This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using .NET 8, then follow the [tutorial about .NET 8 Blazor Web App]({%slug getting-started/web-app%}).
+> This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using newer .NET versions, then follow the [tutorial about Blazor Web Apps]({%slug getting-started/web-app%}).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 

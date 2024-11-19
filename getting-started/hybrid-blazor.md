@@ -1,11 +1,11 @@
 ---
-title: Blazor Hybrid with .NET MAUI
+title: Blazor Hybrid App with .NET MAUI
 page_title: First Steps with Blazor Hybrid Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build a .NET MAUI Blazor Hybrid app that runs the UI for Blazor components.
 slug: getting-started/hybrid-blazor
 tags: get,started,first,steps,server,hybrid,maui
 published: true
-position: 15
+position: 20
 ---
 
 # First Steps with Blazor Hybrid
@@ -20,8 +20,7 @@ This article provides details on how to setup the apps to use the Telerik UI for
 
 Before adding the Telerik UI for Blazor components, ensure that the corresponding technology stack is set up and the basic Blazor Hybrid WebView runs as expected in this stack.
 
-
-1. Install the latest version of [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0). It requires [Visual Studio 2022 Preview for Windows](https://visualstudio.microsoft.com/vs/preview/) or [Mac](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2019-mac-preview-relnotes).
+1. Install the [latest version of .NET](https://dotnet.microsoft.com/en-us/download/dotnet) and [Visual Studio](https://visualstudio.microsoft.com/vs/preview/).
 
 1. Install [WebView](https://docs.microsoft.com/en-us/dotnet/maui/user-interface/controls/webview).
 
