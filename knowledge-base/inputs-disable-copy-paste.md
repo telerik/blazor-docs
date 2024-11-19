@@ -74,7 +74,7 @@ To disable the copy and paste functionality in a TextBox and other Telerik Blazo
         {
             await Task.Delay(1);
 
-            // prevent cut, copy and paste in the textbox
+            // prevent copy and paste in the textbox
             await js.InvokeVoidAsync("preventCutCopyPaste");
         }
 
