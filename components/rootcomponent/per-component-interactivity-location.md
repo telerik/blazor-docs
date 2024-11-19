@@ -25,7 +25,7 @@ In apps with **Per page/component** interactivity, the layout files are static. 
 * [Change the application's render mode to interactive at runtime](#change-the-app-render-mode-at-runtime) for specific pages.
 * [Use an empty layout for pages with Telerik components](#use-empty-layout) and duplicate the contents of the regular app layout to another `.razor` file.
 
-The sections below provide additional information for each of the three options. Review this [.NET 8 Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer), which also demonstrates all three options.
+The sections below provide additional information for each of the three options. Review this [Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer), which also demonstrates all three options.
 
 
 ## Add TelerikRootComponent to Interactive Pages
@@ -128,7 +128,7 @@ In this scenario, [add a `TelerikRootComponent` to a layout]({%slug rootcomponen
 
 ## Use Empty Layout
 
-In this scenario, use a regular layout (`MainLayout.razor`) for static pages and another empty layout (for example, `EmptyLayout.razor`) for interactive pages with Telerik components. The contents of `MainLayout.razor` must be copied to a non-layout `.razor` page, which uses the empty layout. Here are the detailed steps, which refer to a [.NET 8 Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer):
+In this scenario, use a regular layout (`MainLayout.razor`) for static pages and another empty layout (for example, `EmptyLayout.razor`) for interactive pages with Telerik components. The contents of `MainLayout.razor` must be copied to a non-layout `.razor` page, which uses the empty layout. Here are the detailed steps, which refer to a [Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer):
 
 1. Create a [new layout file `EmptyLayout.razor`](https://github.com/telerik/blazor-ui/blob/master/rootcomponent/BlazorWebAppServer/Components/Layout/EmptyLayout.razor) in the same folder as `MainLayout.razor`.
 1. Copy the contents for `MainLayout.razor` to a [non-layout `.razor` file, for example, `Shared/LayoutContainer.razor`](https://github.com/telerik/blazor-ui/blob/master/rootcomponent/BlazorWebAppServer/Components/Shared/LayoutContainer.razor).
@@ -142,7 +142,7 @@ This code duplication requires more effort to maintain, but avoids [possible iss
 
 ## See Also
 
-* [.NET 8 Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)
+* [Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)
 * [Setting up Telerik Blazor apps]({%slug getting-started/what-you-need%})
 * [ASP.NET Core Blazor render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes)
 * [Video: Intro to Blazor in .NET 8 - SSR, Stream Rendering, Auto](https://www.youtube.com/watch?v=walv3nLTJ5g)

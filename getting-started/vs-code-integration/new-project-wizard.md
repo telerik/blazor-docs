@@ -38,7 +38,7 @@ The **Telerik UI for Blazor Template Wizard** provides two options to start you 
     * **Dashboard**&mdash;A basic dashboard that showcases the Telerik UI TileLayout component and how individual blocks (tiles) can fetch data.
     * **Admin**&mdash;A small app that showcases a dashboard for administrators. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
 
-The available templates vary depending on the target framework and hosting model. All of the above templates are available for the Client and Server projects for .NET 6 and .NET 7. The Hybrid projects and the .NET 8 WebApp support only the **Start from Blank App** option.
+The available templates vary depending on the target framework and hosting model. All of the above templates are available for the Client and Server projects for .NET 6 and .NET 7. The Hybrid projects and the .NET 8 Web App support only the **Start from Blank App** option.
 
 #### Section 2: Select Project Name and Path
 
