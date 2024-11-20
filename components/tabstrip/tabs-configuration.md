@@ -75,7 +75,7 @@ The `Disabled` parameter allows you to mark a tab as disabled, so the user canno
 >caption Disable the second tab
 
 ````CSHTML
-<TelerikButton OnClick="@ToggleDisabled">Eanble/Disable Second Tab</TelerikButton>
+<TelerikButton OnClick="@ToggleDisabled">Enable/Disable Second Tab</TelerikButton>
 
 <TelerikTabStrip>
     <TabStripTab Title="First" >
