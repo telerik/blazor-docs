@@ -20,7 +20,13 @@ To select a range of rows, hold the **Shift** key, while clicking on the first a
 
 Check the [TreeList Keyboard navigation demo](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation) for detailed information about selecting rows with the keyboard.
 
-You can also render a checkbox column that allows users to select and deselect rows. To use checkbox selection, add a [`TreeListCheckboxColumn`]({%slug treelist-columns-checkbox%}) in the `TreeListColumns` collection of the TreeList. The `TreeListCheckboxColumn` provides [additional configuration settings related to selection]({%slug treelist-columns-checkbox%}#parameters).
+To enable row selection:
+
+1. Define the selection mode through one of the following options:
+    * Set the [TreeList `SelectionMode` parameter]({%slug treelist-selection-overview%}#use-single-or-multiple-selection), or
+    * Add a `<TreeListSelectionSettings>` tag to the `<TreeListSettings>` tag, and set the `SelectionType` parameter to `TreeListSelectionType.Row`.
+1. Set the TreeList `SelectedItems` parameter to a collection of type `IEnumerable<TItem>` where `TItem` is the TreeList model class. The collection must be initialized in advance.
+1. Optionally, add a [checkbox column]({%slug treelist-columns-checkbox%}) to the `TreeListColumns` collection of the TreeList. The `TreeListCheckboxColumn` provides [additional configuration settings related to selection]({%slug treelist-columns-checkbox%}#parameters).
 
 >caption TreeList multiple row selection
 
@@ -84,6 +90,8 @@ You can also render a checkbox column that allows users to select and deselect r
 ## SelectedItemsChanged Event
 
 You can respond to user selection actions through the `SelectedItemsChanged` event. The event handler receives a collection of the TreeList data model. The collection may have multiple, single, or no items in it, depending on the `SelectionMode` and the last user selection.
+
+> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug treelist-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug treelist-events%}#onrowdoubleclick) event instead.
 
 >caption Using the TreeList SelectedItemsChanged event
 
@@ -158,10 +166,6 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
     }
 }
 ````
-
-### SelectedItemsChanged and Asynchronous Operations
-
-The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug treelist-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug treelist-events%}#onrowdoubleclick) event instead.
 
 ## Selection When Data Changes
 
