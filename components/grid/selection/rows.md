@@ -20,7 +20,13 @@ To select a range of rows, hold the **Shift** key, while clicking on the first a
 
 Check the [Grid Keyboard navigation demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) for detailed information about selecting rows with the keyboard.
 
-You can also render a checkbox column that allows users to select and deselect rows. To use checkbox selection, add a [`GridCheckboxColumn`]({%slug components/grid/columns/checkbox%}) in the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
+To enable row selection:
+
+1. Define the selection mode through one of the following options:
+    * Set the [Grid `SelectionMode` parameter]({%slug grid-selection-overview%}#use-single-or-multiple-selection), or
+    * Add a `<GridSelectionSettings>` tag inside the Grid `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Row`.
+1. Set the Grid `SelectedItems` parameter to a collection of type `IEnumerable<TItem>` where `TItem` is the Grid model class. The collection must be initialized in advance.
+1. Optionally, add a [checkbox column]({%slug components/grid/columns/checkbox%}) to the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection]({%slug components/grid/columns/checkbox%}#parameters).
 
 >caption Grid multiple row selection
 
@@ -77,6 +83,8 @@ You can also render a checkbox column that allows users to select and deselect r
 ## SelectedItemsChanged Event
 
 You can respond to user selection actions through the `SelectedItemsChanged` event. The event handler receives a collection of the Grid data model. The collection may have multiple, single, or no items in it, depending on the `SelectionMode` and the last user selection.
+
+> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
 
 >caption Using the Grid SelectedItemsChanged event
 
@@ -145,10 +153,6 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
     }
 }
 ````
-
-### SelectedItemsChanged and Asynchronous Operations
-
-The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
 
 ## Selection When Data Changes
 

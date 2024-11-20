@@ -20,16 +20,7 @@ The Grid component supports row and cell selection. When you select a row or a c
 
 ## Enable Row or Cell Selection
 
-You can configure the Grid either for row or cell selection:
-
-* To enable row selection:
-  * Set the [Grid `SelectionMode` parameter](#use-single-or-multiple-selection) or
-  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Row`.
-  * Optionally, you can also select rows through the [checkbox column]({%slug components/grid/columns/checkbox%}).
-* To enable cell selection:
-  * Add a `<GridSelectionSettings>` tag to the `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Cell`.
-
-See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details.
+You can configure the Grid either for row or cell selection. See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details and examples.
 
 ## Use Single or Multiple Selection
 
