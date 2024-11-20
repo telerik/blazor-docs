@@ -52,9 +52,12 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 
 ## Get/Set Content
 
-The Blazor HTML Editor interacts with its content (value) like all standard components - through its `Value` parameter. You can use it to get and set the HTML string the editor will work with. [Read more about value binding and data binding...]({%slug get-started-value-vs-data-binding%})
+The Blazor HTML Editor has a `Value` parameter, similar to other input components. Use the `Value` parameter to get or set the HTML string that shows inside the Editor content area.
 
-Be aware that [the Editor and the browser treat empty paragraphs differently]({%slug editor-kb-missing-br-tags-in-value%}).
+An empty string is a valid initial Editor `Value`, but after the user interacts with the component, the minimal component `Value` is at least an empty element (usually `"<p></p>"`). Note that [the Editor and the browser treat empty paragraphs differently]({%slug editor-kb-missing-br-tags-in-value%}).
+
+The Editor manages its content and `Value` depending on a [customizable schema](#prosemirror-schema-and-plugins), which defines the allowed HTML tags and attributes. The component strips all other tags and attributes for compliance and security reasons.
+
 
 ## Security
 
