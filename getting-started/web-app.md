@@ -1,16 +1,16 @@
 ---
-title: Blazor Web App (Tutorial)
+title: Blazor Web App
 page_title: First Steps with Blazor Web Apps and Telerik UI for Blazor
 description: Make your first steps with Telerik UI for Blazor and build a Web App that runs the UI for Blazor components.
 slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
 published: true
-position: 10
+position: 5
 ---
 
 # First Steps with UI for Blazor in a Web App
 
-This article explains how to use the Telerik UI for Blazor components in a <a href = "https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-8.0#blazor-web-app" target="_blank">.NET 8 Blazor Web App</a> project template. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to use the Telerik UI for Blazor components in a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-9.0#blazor-web-app" target="_blank">Blazor Web App</a> project template that exists for .NET 8 and 9. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
@@ -105,7 +105,7 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 ## See Also
 
 * [Workflow Details for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
-* [Using .NET 8 Blazor Sections inside Telerik Components]({%slug common-kb-net8-sections%})
+* [Using Blazor Sections inside Telerik Components]({%slug common-kb-net8-sections%})
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Blazor Server]({%slug getting-started/server-side%})
 * [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})

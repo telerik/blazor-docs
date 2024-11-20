@@ -74,9 +74,9 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
 
 Overall, the lazy loading of assemblies at the correct time is a responsibility of the application. If an assembly is not loaded when required, the app will throw `System.IO.FileNotFoundException: Could not load file or assembly ...`. The loading code is in the `OnNavigateAsync` event handler of the `<Router>`. You can also define an optional loading screen inside the `<Router>` with a `<Navigating>` tag.
 
-### .NET 8 Specifics
+### .NET 8 and 9 Specifics
 
-The following tips apply to .NET 8 WebAssembly apps only:
+The following tips apply only to .NET 8 and 9 WebAssembly apps:
 
 * Use `.wasm` instead of `.dll` in the `.csproj` file and the `OnNavigateAsync` event handler.
 * [Register the lazy loader service manually](https://github.com/dotnet/aspnetcore/issues/51966) in the "server" `Program.cs`. Otherwise, you may get a `InvalidOperationException: Cannot provide a value for property 'AssemblyLoader' on type '...Routes'. There is no registered service of type 'Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader'.`

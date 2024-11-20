@@ -6,7 +6,7 @@ slug: getting-started/what-you-need
 previous_url: /installation/what-you-need
 tags: get,started,installation,what,need,list
 published: True
-position: 20
+position: 25
 ---
 
 # Workflow Details for Using the Telerik UI for Blazor Components
@@ -15,9 +15,9 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 
 >tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
 >
-> * [Blazor Web App]({%slug getting-started/web-app%}) template in .NET 8
+> * [Blazor Web App]({%slug getting-started/web-app%}) template in .NET 8 or 9
+> * [Blazor WebAssembly Standalone apps]({%slug getting-started/client-side%})
 > * [Blazor Server apps]({%slug getting-started/server-side%}) in .NET 6 or 7
-> * [Blazor WebAssembly apps]({%slug getting-started/client-side%})
 > * [Blazor Hybrid (MAUI) apps]({%slug getting-started/hybrid-blazor%})
 >
 > The differences between the above tutorials and this page are:
@@ -221,10 +221,10 @@ The `TelerikRootComponent` placement depends on the interactivity location of th
 
 > The instructions and code example below apply to:
 >
-> * .NET 8 Blazor Web Apps with **Global** interactivity location
+> * .NET 8 or 9 Blazor Web Apps with **Global** interactivity location
 > * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
 >
-> If you have a .NET 8 Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a static layout file, because the [other Telerik component will not detect it]({%slug common-kb-component-requires-telerikrootcomponent%}). Refer to section [Interactivity Considerations]({%slug rootcomponent-overview%}#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity]({%slug rootcomponent-percomponent%}).
+> If you have a Blazor Web App with **Per page/component** interactivity location, then the correct `TelerikRootComponent` usage is different. The component still needs to wrap all other Telerik components, but it cannot reside in a static layout file, because the [other Telerik component will not detect it]({%slug common-kb-component-requires-telerikrootcomponent%}). Refer to section [Interactivity Considerations]({%slug rootcomponent-overview%}#interactivity-considerations) and article [Using TelerikRootComponent with Per Page/Component Interactivity]({%slug rootcomponent-percomponent%}).
 
 ### Optimal TelerikRootComponent Usage
 
