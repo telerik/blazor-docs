@@ -30,7 +30,7 @@ The `TelerikRootComponent` achieves all these tasks with the help of [cascading 
 
 This section applies to:
 
-* .NET 8 Blazor Web Apps with **Global** interactivity location. If your app has **Per page/component** interactivity, then refer to section [Interactivity Considerations](#interactivity-considerations) below.
+* .NET 8 and .NET 9 Blazor Web Apps with **Global** interactivity location. If your app has **Per page/component** interactivity, then refer to section [Interactivity Considerations](#interactivity-considerations) below.
 * Blazor Server, WebAssembly and Hybrid apps in all .NET versions
 
 The recommended way to add `TelerikRootComponent` to a Blazor app is to:

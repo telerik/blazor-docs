@@ -1,11 +1,11 @@
 ---
-title: Blazor WebAssembly (Tutorial)
+title: Blazor WebAssembly Standalone App
 page_title: First Steps with Blazor WebAssembly Apps
 description: Make your first steps with Telerik UI for Blazor client-side by using Blazor WebAssembly (WASM). Read more!
 slug: getting-started/client-side
 tags: get,started,first,steps,client
 published: true
-position: 5
+position: 10
 ---
 
 # First Steps with Blazor Client-Side
@@ -15,9 +15,9 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 > This article applies only to the following Visual Studio project templates:
 >
 > * **Blazor WebAssembly App**, which exists up to .NET 7.
-> * **Blazor WebAssembly Standalone App** for .NET 8.
+> * **Blazor WebAssembly Standalone App** for .NET 8 and newer versions.
 >
-> If you prefer the .NET 8 **Blazor Web App** template, then follow the [tutorial about .NET 8 Blazor Web App]({%slug getting-started/web-app%}).
+> If you prefer the **Blazor Web App** template for .NET 8 and newer versions, then follow the [tutorial about Blazor Web Apps]({%slug getting-started/web-app%}).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
