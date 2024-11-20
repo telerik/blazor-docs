@@ -38,13 +38,13 @@ This video explains the details around the project you will be modifying&mdash;w
 
 The Telerik UI for Blazor technical online training has an approximate duration of 2 hours and is split into seven modules with the following learning path:
 
-* **Chapter 1: Welcome to Telerik UI for Blazor: Course Overview & What to Expect** (Course Overview, Prerequisites, Resources, Tour of Demo Application, and Course Downloads)
-* **Chapter 2: How to Create Your First Blazor Project** (Blazor Fundamentals and Hosting Models, Component Basics, Two-Way Binding, Forms and Validation)
-* **Chapter 3: Telerik UI for Blazor Essentials: Installation, Themes & Customization Guide** (Installation Approaches and Project Templates, Using NuGet, Solution Structure, Styling with Themes)
-* **Chapter 4: Build Your First Telerik UI for Blazor App: Buttons, Forms, Grids & More** (Using Buttons, Icons, and Form Inputs, Configuring Grid, Chart, Calendar, Menu, TileLayout, and Upload)
-* **Chapter 5: Enhancing the Grid** (Working with Grid Features: Grouping, Filtering, Column Reordering and Resizing, Excel Export)
-* **Chapter 6: Enrich Your Telerik UI for Blazor App: Localization, Accessibility & Doc Processing** (Accessibility, Globalization and Localization, Document Processing, Reporting, JustMock, and TestStudio)
-* **Chapter 7: Deploying Blazor Apps to Azure: Complete Server & Wasm Guide** (Deploying Server App to Azure, Deploying Wasm app to Azure)
+* **Chapter 1 | Welcome to Telerik UI for Blazor: Course Overview & What to Expect** (Course Overview, Prerequisites, Resources, Tour of Demo Application, and Course Downloads)
+* **Chapter 2 | How to Create Your First Blazor Project** (Blazor Fundamentals and Hosting Models, Component Basics, Two-Way Binding, Forms and Validation)
+* **Chapter 3 | Telerik UI for Blazor Essentials: Installation, Themes & Customization Guide** (Installation Approaches and Project Templates, Using NuGet, Solution Structure, Styling with Themes)
+* **Chapter 4 | Build Your First Telerik UI for Blazor App: Buttons, Forms, Grids & More** (Using Buttons, Icons, and Form Inputs, Configuring Grid, Chart, Calendar, Menu, TileLayout, and Upload)
+* **Chapter 5 | Telerik UI for Blazor Grid Mastery: Advanced Customization & Features** (Working with Grid Features: Grouping, Filtering, Column Reordering and Resizing, Excel Export)
+* **Chapter 6 | Enrich Your Telerik UI for Blazor App: Localization, Accessibility & Doc Processing** (Accessibility, Globalization and Localization, Document Processing, Reporting, JustMock, and TestStudio)
+* **Chapter 7 | Deploying Blazor Apps to Azure: Complete Server & Wasm Guide** (Deploying Server App to Azure, Deploying Wasm app to Azure)
 
 If you wish to learn more and continue with the video onboarding, [enroll in the training](https://www.youtube.com/playlist?list=PLvmaC-XMqeBYOAIwNousFCG2rib4fcdvz).
   
