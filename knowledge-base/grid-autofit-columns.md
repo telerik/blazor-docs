@@ -49,6 +49,8 @@ To autofit the Grid columns on the initial load of the component:
 
 The **JavaScript** tab in the following example implements a JS function and sets up the `MutationObserver` tool to listen for DOM changes.
 
+> Replace the `Index` type of the `DotNetObjectReference` with the type of the component that hosts this code.
+
 <div class="skip-repl"></div>
 ````C#
 @implements IDisposable
