@@ -34,23 +34,23 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 
 ### How It Works
 
-* `TelerikInPlaceEditor` is a generic component. It supports strings and most value types, including nullable types.
+* `InPlaceEditor` is a generic component. It supports strings and most value types, including nullable types.
 * Initially, the component renders a clickable [Button]({%slug components/button/overview%}) with [`Clear` `FillMode`]({%slug button-appearance%}) that shows the current `Value`.
 * The component detects the type of its `Value` and renders the appropriate Telerik editor:
-    * [CheckBox]({%slug checkbox-overview%}}) for `bool`
-    * [DatePicker]({%slug components/datepicker/overview%}}) for `DateTime` and `DateOnly`
-    * [NumericTextBox]({%slug components/numerictextbox/overview%}}) for `int`, `double`, `decimal`, and the other numeric types
-    * [TextBox]({%slug components/textbox/overview%}}) for `string`
-    * [TimePicker]({%slug components/timepicker/overview%}}) for `TimeOnly`
+    * [CheckBox]({%slug checkbox-overview%}) for `bool`
+    * [DatePicker]({%slug components/datepicker/overview%}) for `DateTime` and `DateOnly`
+    * [NumericTextBox]({%slug components/numerictextbox/overview%}) for `int`, `double`, `decimal`, and the other numeric types
+    * [TextBox]({%slug components/textbox/overview%}) for `string`
+    * [TimePicker]({%slug components/timepicker/overview%}) for `TimeOnly`
 * If the `Width` parameter is not set, the In-Place Editor approximately matches the width of its editor components to the current `Value` length. The component uses a `monospace` `font-family` to make this easier.
 * The component features a `ReadOnly` mode that controls the editability, for example, depending on user permissions.
 * The `DisplayFormat` parameter affects the `Value` consistently in both read mode and edit mode.
 * The `Placeholder` parameter provides a helper label that will show when the `Value` is `null` or empty.
-* The `ShowIcons` parameter controls the visibility of optional [SVG Icons]({%slug common-features-icons%}}#svgicon-component). The icons hint users about the ability to edit the component `Value` or provide clickable **Save** and **Cancel** commands in edit mode. The parameter is of type `InPlaceEditorShowIcons`, which is a custom enum and must be imported in both `TelerikInPlaceEditor.razor` and all `.razor` files that use `TelerikInPlaceEditor`.
+* The `ShowIcons` parameter controls the visibility of optional [SVG Icons]({%slug common-features-icons%}}#svgicon-component). The icons hint users about the ability to edit the component `Value` or provide clickable **Save** and **Cancel** commands in edit mode. The parameter is of type `InPlaceEditorShowIcons`, which is a custom enum and must be imported in both `InPlaceEditor.razor` and all `.razor` files that use `InPlaceEditor`.
 * The `Class` parameter allows you to apply custom styles.
 * The `Title` parameter allows you to show a tooltip hint on read mode.
 * To [see invalid state styling and validation messages in Forms]({%slug inputs-kb-validate-child-component%}), pass the respective `ValueExpression` values to the `InPlaceEditor` component.
-* `TelerikInPlaceEditor.razor.css` is a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation" target="_blank">CSS isolation file</a>. It depends on a `YourAppName.styles.css` file in `App.razor` to load.
+* `InPlaceEditor.razor.css` is a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation" target="_blank">CSS isolation file</a>. It depends on a `YourAppName.styles.css` file in `App.razor` to load.
 
 ### Example
 
@@ -69,35 +69,36 @@ Replace `YourAppName` with the actual root namespace of your app.
 <h1>InPlaceEditor Component</h1>
 
 <p>
-    This in-place editor component works with value types, including nullables
+    This in-place editor component works with strings and value types, including nullables, for example:
 
-    <TelerikInPlaceEditor @bind-Value="@NumericValue"
-                          DisplayFormat="C2"
-                          Placeholder="Enter Number..." />
+    <InPlaceEditor @bind-Value="@NumericValue"
+                   DisplayFormat="C2"
+                   Placeholder="Enter Number..." />
 
-    The component supports custom styles
+    The component supports custom styles and responsive textbox width that depends on the value:
 
-    <TelerikInPlaceEditor @bind-Value="@StringValue"
-                          Class="primary-color"
-                          ShowIcons="@InPlaceEditorShowIcons.Hover" />
+    <InPlaceEditor @bind-Value="@StringValue"
+                   Class="primary-color"
+                   ShowIcons="@InPlaceEditorShowIcons.Hover" />
 
-    and the icon can be visible only on hover
+    The icon can be visible only on hover:
 
-    <TelerikInPlaceEditor @bind-Value="@DateValue"
-                          Class="primary-color"
-                          DisplayFormat="d"
-                          ShowIcons="@InPlaceEditorShowIcons.Hover" />
+    <InPlaceEditor @bind-Value="@DateValue"
+                   Class="primary-color"
+                   DisplayFormat="d"
+                   ShowIcons="@InPlaceEditorShowIcons.Hover" />
 
-    (unless the value is empty) or never
+    (unless the value is empty) or never:
 
-    <TelerikInPlaceEditor @bind-Value="@TimeValue"
-                          DisplayFormat="HH:mm"
-                          ShowIcons="@InPlaceEditorShowIcons.Never" />
+    <InPlaceEditor @bind-Value="@TimeValue"
+                   Class="primary-color"
+                   DisplayFormat="HH:mm"
+                   ShowIcons="@InPlaceEditorShowIcons.Never" />
 
-    You can even edit booleans
+    You can even edit booleans:
 
-    <TelerikInPlaceEditor @bind-Value="@BoolValue"
-                          Class="primary-color" />
+    <InPlaceEditor @bind-Value="@BoolValue"
+                   Class="primary-color" />
 </p>
 
 <h2>Configuration</h2>
@@ -146,13 +147,13 @@ Replace `YourAppName` with the actual root namespace of your app.
 
 <p>
     In Place Editor:
-    <TelerikInPlaceEditor @bind-Value="@InPlaceEditorValue"
-                          Class="primary-color"
-                          Placeholder="@InPlaceEditorPlaceholder"
-                          ReadOnly="@InPlaceEditorReadOnly"
-                          ShowIcons="@InPlaceEditorShowIcons"
-                          Title="@InPlaceEditorTitle"
-                          Width="@( InPlaceEditorWidth.HasValue ? $"{InPlaceEditorWidth}px" : null )" />
+    <InPlaceEditor @bind-Value="@InPlaceEditorValue"
+                   Class="primary-color"
+                   Placeholder="@InPlaceEditorPlaceholder"
+                   ReadOnly="@InPlaceEditorReadOnly"
+                   ShowIcons="@InPlaceEditorShowIcons"
+                   Title="@InPlaceEditorTitle"
+                   Width="@( InPlaceEditorWidth.HasValue ? $"{InPlaceEditorWidth}px" : null )" />
 </p>
 
 <h2>Form Validation</h2>
@@ -165,22 +166,22 @@ Replace `YourAppName` with the actual root namespace of your app.
         <FormItem Field="@nameof(Person.Name)">
             <Template>
                 Name:
-                <TelerikInPlaceEditor Value="@Employee.Name"
-                                      ValueChanged="@( (string newValue) => Employee.Name = newValue )"
-                                      ValueExpression="@( () => Employee.Name )"
-                                      Placeholder="Enter Name..." />
+                <InPlaceEditor Value="@Employee.Name"
+                               ValueChanged="@( (string newValue) => Employee.Name = newValue )"
+                               ValueExpression="@( () => Employee.Name )"
+                               Placeholder="Enter Name..." />
                 <TelerikValidationMessage For="@( () => Employee.Name )" />
             </Template>
         </FormItem>
         <FormItem Field="@nameof(Person.BirthDate)">
             <Template>
                 Hire Date:
-                <TelerikInPlaceEditor Value="@Employee.BirthDate"
-                                      ValueChanged="@( (DateTime? newValue) => Employee.BirthDate = newValue )"
-                                      ValueExpression="@( () => Employee.BirthDate )"
-                                      DisplayFormat="d"
-                                      Placeholder="Enter Date..."
-                                      T="@(DateTime?)" />
+                <InPlaceEditor Value="@Employee.BirthDate"
+                               ValueChanged="@( (DateTime? newValue) => Employee.BirthDate = newValue )"
+                               ValueExpression="@( () => Employee.BirthDate )"
+                               DisplayFormat="d"
+                               Placeholder="Enter Date..."
+                               T="@(DateTime?)" />
                 <TelerikValidationMessage For="@( () => Employee.BirthDate )" />
             </Template>
         </FormItem>
@@ -226,7 +227,7 @@ Replace `YourAppName` with the actual root namespace of your app.
     }
 }
 ````
-````TelerikInPlaceEditor.razor
+````InPlaceEditor.razor
 @* import InPlaceEditorType enum *@
 @using YourAppName.Models
 
@@ -686,7 +687,7 @@ Replace `YourAppName` with the actual root namespace of your app.
     }
 }
 ````
-````TelerikInPlaceEditor.razor.css
+````InPlaceEditor.razor.css
 .in-place-editor {
     display: inline-flex;
     font-family: monospace;
@@ -735,9 +736,9 @@ namespace YourAppName.Models
 
 ## See Also
 
-* [Button Overview]({%slug components/button/overview%}})
-* [CheckBox Overview]({%slug checkbox-overview%}})
-* [DatePicker Overview]({%slug components/datepicker/overview%}})
-* [NumericTextBox Overview]({%slug components/numerictextbox/overview%}})
-* [TextBox Overview]({%slug components/textbox/overview%}})
-* [TimePicker Overview]({%slug components/timepicker/overview%}})
+* [Button Overview]({%slug components/button/overview%})
+* [CheckBox Overview]({%slug checkbox-overview%})
+* [DatePicker Overview]({%slug components/datepicker/overview%})
+* [NumericTextBox Overview]({%slug components/numerictextbox/overview%})
+* [TextBox Overview]({%slug components/textbox/overview%})
+* [TimePicker Overview]({%slug components/timepicker/overview%})
