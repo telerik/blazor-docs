@@ -49,11 +49,13 @@ To autofit the Grid columns on the initial load of the component:
 
 The **JavaScript** tab in the following example implements a JS function and sets up the `MutationObserver` tool to listen for DOM changes.
 
+> Replace the `Index` type of the `DotNetObjectReference` with the type of the component that hosts this code.
+
 <div class="skip-repl"></div>
 ````C#
 @implements IDisposable
 @inject IJSRuntime js
- 
+
 <TelerikGrid @ref="@Grid"
              Data="@GridData"
              Resizable="true"
@@ -69,53 +71,56 @@ The **JavaScript** tab in the following example implements a JS function and set
         <GridColumn Field=@nameof(SampleData.LastName) Title="Last Name" Id="NameColumn2" />
     </GridColumns>
 </TelerikGrid>
- 
+
 @code {
     [JSInvokable]
     public async Task AutoFitAllColumns()
     {
         await Grid.AutoFitAllColumnsAsync();
- 
+
         //from this point to the end of the method the logic is dedicated to
         //stretching the last grid column to the available horizontal space
         //this code also works even if there is no available horizontal space
- 
+
         bool hasWhiteSpace = await js.InvokeAsync<bool>("hasWhiteSpace");
- 
+
         if (hasWhiteSpace)
         {
             var state = Grid.GetState();
- 
+
             state.ColumnStates.LastOrDefault().Width = "";
             state.TableWidth = null;
- 
+
             await Grid.SetStateAsync(state);
         }
     }
- 
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             IndexDotNetInstance = DotNetObjectReference.Create(this);
- 
+
             await js.InvokeVoidAsync("observeTarget", IndexDotNetInstance, GridClass);
         }
- 
+
         await base.OnAfterRenderAsync(firstRender);
     }
- 
+
     private const string GridClass = "autofitter-columns";
- 
-    public TelerikGrid<SampleData> Grid { get; set; }
+
+    private TelerikGrid<SampleData> Grid { get; set; }
+
+    //Replace the Index type with the type of the component that hosts this code
     public DotNetObjectReference<Index> IndexDotNetInstance { get; set; }
-    public List<SampleData> GridData { get; set; }
- 
+
+    private List<SampleData> GridData { get; set; }
+
     protected override void OnInitialized()
     {
         GridData = GetData();
     }
- 
+
     public void Dispose()
     {
         if (IndexDotNetInstance != null)
@@ -124,17 +129,17 @@ The **JavaScript** tab in the following example implements a JS function and set
             IndexDotNetInstance = null;
         }
     }
- 
+
     private List<SampleData> GetData()
     {
         return Enumerable.Range(1, 50).Select(x => new SampleData
-        {
-            Id = x,
-            Name = $"name {x}",
-            LastName = $"Surname {x}"
-        }).ToList();
+            {
+                Id = x,
+                Name = $"name {x}",
+                LastName = $"Surname {x}"
+            }).ToList();
     }
- 
+
     public class SampleData
     {
         public int Id { get; set; }
