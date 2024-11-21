@@ -41,7 +41,9 @@ The sections below discuss the differences between the two alternatives. On the 
 * Add new parameters.
 * Set default values to parameters, so that there is no need to do that everywhere in the app.
 
-> Using both options at the same time is not possible and will lead to runtime errors, because the setup will nest the Telerik component in itself. Possible errors include: `Cannot read properties of null (reading addEventListener)` or `BuildRederTree(RederTreeBuilder): No suitable method found to override`.
+On the other hand, neither option allows changing the internal HTML rendering of the Telerik component.
+
+> Using both options at the same time is not possible and will lead to runtime exceptions, because such a setup will nest a Telerik component in itself. The following JavaScript error will likely occur: `Cannot read properties of null (reading addEventListener)`.
 
 ### Wrap Telerik Components
 
