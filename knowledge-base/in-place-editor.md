@@ -56,7 +56,10 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 
 The features and business logic below can be subject to additional customizations and enhancements.
 
-Replace `YourAppName` with the actual root namespace of your app.
+To run the code successfully:
+
+* Replace `YourAppName` with the actual root namespace of your app.
+* Make sure your app supports CSS isolation and loads a `YourAppName.styles.css` file. Browser caching of this file can prevent the InPlaceEditor styles from showing.
 
 <div class="skip-repl"></div>
 
@@ -688,6 +691,12 @@ Replace `YourAppName` with the actual root namespace of your app.
 }
 ````
 ````InPlaceEditor.razor.css
+/*
+    This .razor.css file relies on Blazor CSS isolation, which in turn requires a YourAppName.styles.css file in App.razor.
+    Make sure that the browser doesn't load an old cached version of this file, otherwise you may not see the InPlaceEditor styles.
+    A symptom of this problem are persistent icons when ShowIcons="InPlaceEditorShowIcons.Hover".
+*/
+
 .in-place-editor {
     display: inline-flex;
     font-family: monospace;
