@@ -35,7 +35,7 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 ### How It Works
 
 * `TelerikInPlaceEditor` is a generic component. It supports strings and most value types, including nullable types.
-* Initially, the component renders a clickable [Button]({%slug components/button/overview%}}) with [`Clear` `FillMode`]({%slug button-appearance%}) that shows the current `Value`.
+* Initially, the component renders a clickable [Button]({%slug components/button/overview%}) with [`Clear` `FillMode`]({%slug button-appearance%}) that shows the current `Value`.
 * The component detects the type of its `Value` and renders the appropriate Telerik editor:
     * [CheckBox]({%slug checkbox-overview%}}) for `bool`
     * [DatePicker]({%slug components/datepicker/overview%}}) for `DateTime` and `DateOnly`
