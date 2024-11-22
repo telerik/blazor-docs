@@ -161,11 +161,11 @@ Scroll through the groups or expand them to load their data on demand
 
         if (args.Request.Groups.Count > 0)
         {
-            args.Data = result.GroupedData.Cast<object>().ToList();
+            args.Data = result.GroupedData;
         }
         else
         {
-            args.Data = result.CurrentPageData.Cast<object>().ToList();
+            args.Data = result.CurrentPageData;
         }
 
         args.Total = result.TotalItemCount;
