@@ -232,7 +232,6 @@ This sample shows how to set up the grid to use grouping with manual data source
 @code {
     public List<Employee> SourceData { get; set; }
 
-    // Handling grouping happens here - by casting the DataSourceResult.Data to objects
     protected async Task ReadItems(GridReadEventArgs args)
     {
         // in this example, we use the Telerik extension methods to shape the data
@@ -243,7 +242,7 @@ This sample shows how to set up the grid to use grouping with manual data source
         // to work with grouping, the grid data needs to be an IEnumerable<object>
         // because grouped data has a different shape than non-grouped data
         // and this is, generally, hidden from you by the grid, but now it cannot be
-        args.Data = datasourceResult.Data.Cast<object>().ToList();
+        args.Data = datasourceResult.Data;
 
         args.Total = datasourceResult.Total;
         args.AggregateResults = datasourceResult.AggregateResults;

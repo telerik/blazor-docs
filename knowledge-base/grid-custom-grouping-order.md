@@ -95,7 +95,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 			List<string> customOrder = new List<string> { "Text D", "Text A", "Text C", "Text B" };
 			groups = groups.OrderBy(group => customOrder.IndexOf(group.Key.ToString())).ToList();
 
-			args.Data = groups.Cast<object>().ToList();
+			args.Data = groups;
 		}
 		else
 		{
@@ -104,7 +104,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 								.OrderBy(Text => GetCustomOrderIndex(Text.S1))
 								.ToList();
 
-			args.Data = orderedData.Cast<object>().ToList();
+			args.Data = orderedData;
 		}
 
 		args.Total = datasourceResult.Total;
