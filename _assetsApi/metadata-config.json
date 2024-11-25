@@ -1,0 +1,13 @@
+{
+  "metadata": [{
+            "src": [
+                {
+                    "files": [
+                        "src/**.dll"
+                    ]
+                }
+            ],
+            "dest": "metadata",
+            "filter": "filterConfig.yml"
+  }]
+}
