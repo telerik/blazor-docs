@@ -25,7 +25,7 @@ The Prompt view of the AIPrompt renders any suggestions passed to the `PromptSug
     <PromptSuggestionItemTemplate>
         <div @onclick="@OnSuggestionClick" class="my-custom-suggestion-item">
             <TelerikSvgIcon Icon="@SvgIcon.Clipboard" />
-            <span class="my-custom-suggestion-item-text">@context</span>
+            <span class="my-custom-suggestion-item-text">@context.Suggestion</span>
         </div>
     </PromptSuggestionItemTemplate>
 </TelerikAIPrompt>
