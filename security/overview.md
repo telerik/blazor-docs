@@ -45,7 +45,7 @@ For more information, visit:
 
 ## Vulnerability Remediation Guidelines
 
-Progress follows defined timelines for remediating vulnerabilities based on their severity levels, ensuring a structured and efficient approach to maintaining security across all products. These guidelines are aligned with CVSS (Common Vulnerability Scoring System) scoring:
+Progress follows defined timelines for remediating vulnerabilities based on their severity level, ensuring a structured and efficient approach to maintaining security across all products. These guidelines are aligned with the CVSS (Common Vulnerability Scoring System) scoring:
 
 - **Critical score issues (CVSS 9.0+):** Resolved within **30 days**.  
 - **High score issues (CVSS 7.0–8.9):** Resolved within **60 days**.  
