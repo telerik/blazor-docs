@@ -44,7 +44,7 @@ The component allows you to interact with the output from the AI and execute a s
 
     private List<AIPromptCommandDescriptor> PromptCommands { get; set; } = new List<AIPromptCommandDescriptor>()
     {
-        new AIPromptCommandDescriptor() { Id = "1", Title = "Correct spelling and grammar", Icon = FontIcon.SpellChecker },
+        new AIPromptCommandDescriptor() { Id = "1", Title = "Correct spelling and grammar", Icon = SvgIcon.SpellChecker },
         new AIPromptCommandDescriptor() { Id = "2", Title = "Change Tone", Icon = SvgIcon.TellAFriend,
             Children = new List<AIPromptCommandDescriptor>
             {
