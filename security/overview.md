@@ -47,9 +47,9 @@ For more information, visit:
 
 Progress follows defined timelines for remediating vulnerabilities based on their severity levels, ensuring a structured and efficient approach to maintaining security across all products. These guidelines are aligned with CVSS (Common Vulnerability Scoring System) scoring:
 
-- **Critical scored issues (CVSS 9.0+):** Resolved within **30 days**.  
-- **High scored issues (CVSS 7.0–8.9):** Resolved within **60 days**.  
-- **Medium or lower scored issues (CVSS < 7):** Resolved within **90–120 days**, depending on the score.  
+- **Critical score issues (CVSS 9.0+):** Resolved within **30 days**.  
+- **High score issues (CVSS 7.0–8.9):** Resolved within **60 days**.  
+- **Medium or lower score issues (CVSS < 7):** Resolved within **90–120 days**, depending on the score.  
 
 While these are not strict SLA (Service Level Agreement), they serve as a commitment to providing timely resolutions for identified vulnerabilities.
 
