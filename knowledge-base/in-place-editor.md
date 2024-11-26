@@ -46,7 +46,7 @@ The sample below uses an algorithm which toggles between read-only UI and an edi
 * The component features a `ReadOnly` mode that controls the editability, for example, depending on user permissions.
 * The `DisplayFormat` parameter affects the `Value` consistently in both read mode and edit mode.
 * The `Placeholder` parameter provides a helper label that will show when the `Value` is `null` or empty.
-* The `ShowIcons` parameter controls the visibility of optional [SVG Icons]({%slug common-features-icons%}}#svgicon-component). The icons hint users about the ability to edit the component `Value` or provide clickable **Save** and **Cancel** commands in edit mode. The parameter is of type `InPlaceEditorShowIcons`, which is a custom enum and must be imported in both `InPlaceEditor.razor` and all `.razor` files that use `InPlaceEditor`.
+* The `ShowIcons` parameter controls the visibility of optional [SVG Icons]({%slug common-features-icons%}#svgicon-component). The icons hint users about the ability to edit the component `Value` or provide clickable **Save** and **Cancel** commands in edit mode. The parameter is of type `InPlaceEditorShowIcons`, which is a custom enum and must be imported in both `InPlaceEditor.razor` and all `.razor` files that use `InPlaceEditor`.
 * The `Class` parameter allows you to apply custom styles.
 * The `Title` parameter allows you to show a tooltip hint on read mode.
 * To [see invalid state styling and validation messages in Forms]({%slug inputs-kb-validate-child-component%}), pass the respective `ValueExpression` values to the `InPlaceEditor` component.
