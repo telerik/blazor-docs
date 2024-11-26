@@ -29,28 +29,37 @@ When using the [MultiSelect]({%slug multiselect-overview%}) component, it might 
 
 ## Solution
 
-To restrict the number of selectable items in a MultiSelect component, use one-way binding with the `Value` parameter and the `ValueChanged`({%slug multiselect-events%}#valuechanged) event. This approach allows you to manually update the selected items collection and enforce a maximum selection limit.
+To restrict the number of selectable items in a MultiSelect component, use one-way binding with the `Value` parameter and the [`ValueChanged`]({%slug multiselect-events%}#valuechanged) event. This approach allows you to manually update the selected items collection and enforce a maximum selection limit.
 
 Below is a demonstration of how to implement a selection limit. This example restricts the user to a maximum of three selections and informs them when they have reached this limit.
 
-````RAZOR
-@if (MultiValues.Count == 3)
-{
-    <p style="color:red;">You've reached the maximum selected count</p>
-}
-
+````CSHTML
 <TelerikMultiSelect Data="@MultiData"
                     Value="@MultiValues"
-                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )">
+                    ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )"
+                    AutoClose="false"
+                    OnItemRender="@OnItemRenderHandler"
+                    Width="400px">
 </TelerikMultiSelect>
 
+@if (MultiValues.Count == 3)
+{
+    <span style="color:red;">Maximum  selected items reached</span>
+}
+
 @code {
-    private List<string> MultiData { get; set; } = new List<string> {
-        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer"
+    private static List<string> MultiData { get; set; } = new List<string> {
+        "Manager", "Developer", "QA", "Technical Writer", "Support Engineer", "Software Architect", "Product Manager"
     };
+    private List<string> MultiValues { get; set; } = new List<string>() { MultiData[0] };
 
-    private List<string> MultiValues { get; set; } = new List<string>() { "Developer" };
-
+    private void OnItemRenderHandler(MultiSelectItemRenderEventArgs<string> args)
+    {
+        if (MultiValues.Count == 3 && !MultiValues.Contains(args.Item))
+        {
+            args.Class = "k-disabled";
+        }
+    }
     private void OnMultiValueChanged(List<string> newValues)
     {
         if (newValues.Count <= 3)
