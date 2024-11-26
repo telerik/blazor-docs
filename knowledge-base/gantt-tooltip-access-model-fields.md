@@ -27,13 +27,13 @@ I want to access and display model fields in the Gantt Timeline Tooltip. In the 
 
 The `TooltipTemplate` context .... . If you want to accsess and dispaly the other fields form you model, you have two options:
 
-* [Get the model from your data based on the `Title`](#get-the-model-from-your-data-based-on-the-context-properties)
+* [Get the Model from Your Data Based on the Context Properties](#get-the-model-from-your-data-based-on-the-context-properties)
 * [Use a custom Tooltip](#use-a-custom-tooltip)
 
 
 ### Get the Model from Your Data Based on the Context Properties
 
-This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext`. The approach is applicable only if all items in your data have unique values for these properties and the application that hosts the Gantt is not a multi-language one.
+This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext` provides. The approach is applicable only if all items in your data have unique values for these properties and the application that hosts the Gantt is not a multi-language one.
 
 1. Cast the [`TooltipTemplate`]({%slug gantt-tooltip-template%}) `context` to `TooltipTemplateContext`.
 2. Use the [available properties of the `TooltipTemplateContext`](https://docs.telerik.com/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the data item in the Gantt data collection. The example below uses the `Title` property.
