@@ -1349,6 +1349,6 @@ using System.Collections.ObjectModel;
 
 ## See Also
 
+* [Live Demo: TreeView Drag and Drop](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
 * [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
-* [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
 * [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
