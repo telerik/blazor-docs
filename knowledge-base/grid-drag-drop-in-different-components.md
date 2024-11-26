@@ -35,14 +35,14 @@ There are at least two ways to approach drag and drop across different parent co
 * Use parameters and `EventCallback`s to pass information between the two parent Razor components, which hold the Telerik components. This is a suitable approach if the two parent components are a siblings in their own parent.
 * Use a state management service in your app, which will execute methods and fire events to the Razor components that hold the Telerik components. This is a suitable approach in all cases, but especially if the two parent components are further away in the app component hierarchy.
 
-The algorithm below is applicable for the [Grid]({%slug grid-drag-drop-overview%}), [TreeList]({%slug treelist-drag-drop-overview%}) and [TreeView]({%slug treeview-drag-drop-overview%}).
+The described algorithm and the example below are applicable for the [Grid]({%slug grid-drag-drop-overview%}), [TreeList]({%slug treelist-drag-drop-overview%}) and [TreeView]({%slug treeview-drag-drop-overview%}).
 
 ## Example
 
 The following example includes three files:
 
-* `Home.razor` is the component (page) that holds `GridContainer` components with Telerik Grids inside.
 * `GridContainer.razor` is a Razor component that contains a Grid with enabled row drag and drop.
+* `Home.razor` is a component (page) that holds two `GridContainer` instances.
 * `GridModel.cs` is the Grid model class.
 
 Adjust the `YourAppName` namespace in `Home.razor` and `GridModel.cs` to run the code successfully in your app.
@@ -178,6 +178,6 @@ namespace YourAppName.Data
 
 ## See Also
 
-* [Drag and drop items between Grids]({%slug grid-drag-drop-overview%})
-* [Drag and drop items between TreeLists]({%slug treelist-drag-drop-overview%})
-* [Drag and drop items between TreeViews]({%slug treeview-drag-drop-overview%})
+* [Grid Drag and Drop Documentation]({%slug grid-drag-drop-overview%})
+* [TreeList Drag and Drop Documentation]({%slug treelist-drag-drop-overview%})
+* [TreeView Drag and Drop Documentation]({%slug treeview-drag-drop-overview%})
