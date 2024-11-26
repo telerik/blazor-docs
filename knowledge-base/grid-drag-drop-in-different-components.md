@@ -30,7 +30,7 @@ This KB shows how to implement drag and drop between two Telerik components, whi
 
 ## Solution
 
-There are at least two ways to approach drag and drop across different parent components:
+You can approach drag and drop across different parent components in at least two ways:
 
 * Use parameters and `EventCallback`s to pass information between the two parent Razor components, which hold the Telerik components. This is a suitable approach if the two parent components are siblings in their parent.
 * Use a state management service in your app, which will execute methods and fire events to the Razor components that hold the Telerik components. This is a suitable approach in all cases, but especially if the two parent components are further away in the app component hierarchy.
