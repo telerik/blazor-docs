@@ -17,7 +17,7 @@ This article explains the events available in the Telerik MultiSelect for Blazor
 * [OnRead](#onread)
 * [OnOpen](#onopen)
 * [OnClose](#onclose)
-* [OnItemRender](#OnItemRender)
+* [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
 ## ValueChanged
