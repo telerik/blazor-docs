@@ -46,13 +46,13 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 #add-component-sample
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikButton>Say Hello</TelerikButton>
 ````
 
 1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
 
-````RAZOR
+````RAZOR.skip-repl
 @page "/"
         
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"

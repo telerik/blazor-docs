@@ -110,14 +110,14 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 
 >caption Comparison between versions up to 4.0.1 and after 4.2.0.
 
-<div class="skip-repl"></div>
 <table>
 <thead><tr><th>Up to 4.0.1</th><th>From 4.2.0</th></tr></thead>
 <tbody><tr>
 <td>
 <p><strong>Index.razor</strong></p>
 
-````RAZOR
+
+````RAZOR.skip-repl
 <TelerikForm>
   <FormItems>
     <div>
@@ -161,7 +161,6 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 
 
 
-
 </TelerikForm>
 ````
 
@@ -169,7 +168,7 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 <td>
 <p><strong>Index.razor</strong></p>
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikForm>
   <FormItems>
 
@@ -222,9 +221,8 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 <td>
 <p><strong>ChildComponent.razor</strong></p>
 
-````RAZOR
+````RAZOR.skip-repl
 <FormItem Field="FieldName4" />
-
 
 
 
@@ -238,7 +236,7 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 <td>
 <p><strong>ChildComponent.razor</strong></p>
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikFormItemRenderer Item="@NestedFormItem" />
 
 @code {
