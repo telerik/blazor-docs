@@ -1,6 +1,6 @@
 ---
 title: Drag and Drop Items between Grids in Different Components
-description: Learn how to drag and drop data items between Telerik Blazor Grids, TreeLists or TreeViews which are nested inside different parent components.
+description: Learn how to drag and drop data items between Telerik Blazor Grids, TreeLists, or TreeViews which are nested inside different parent components.
 type: how-to
 page_title: How to Drag and Drop Items between Grids in Different Parent Components
 slug: grid-kb-drag-drop-in-different-components
