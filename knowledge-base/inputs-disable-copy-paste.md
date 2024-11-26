@@ -74,6 +74,7 @@ To disable the copy and paste functionality in a TextBox and other Telerik Blazo
     {
         if (firstRender)
         {
+            // ensure the HTML is rendered in the browser
             await Task.Delay(1);
 
             // prevent copy and paste in the textbox
