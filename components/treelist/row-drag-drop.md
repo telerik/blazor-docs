@@ -1154,6 +1154,6 @@ public class Employee
 
 ## See Also
 
-  * [TreeList Overview]({%slug treelist-overview%})
-  * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/overview)
-
+* [Live Demo: TreeList Drag and Drop](https://demos.telerik.com/blazor-ui/treelist/drag-drop)
+* [Drag and Drop between Different Parent Components]({%slug grid-kb-drag-drop-in-different-components%})
+* [TreeList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
