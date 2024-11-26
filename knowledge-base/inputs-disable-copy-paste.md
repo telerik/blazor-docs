@@ -1,5 +1,5 @@
 ---
-title: Disabling Copy and Paste in Telerik Blazor Inputs
+title: Disable Copy and Paste in Telerik Blazor Inputs
 description: A guide on preventing users from copying and pasting text into the Telerik Blazor Inputs in a Blazor application.
 type: how-to
 page_title: How to Prevent Copy and Paste Actions in Telerik Blazor Inputs
