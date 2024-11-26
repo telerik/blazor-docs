@@ -131,3 +131,4 @@ The Blazor Spreadsheet component exposes methods for programmatic operation. To 
 
 * [Live Demo: Spreadsheet](https://demos.telerik.com/blazor-ui/spreadsheet/overview)
 * [Spreadsheet API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSpreadsheet)
+* [Bind Spreadsheet to IEnumerable]({%slug spreadsheet-kb-bind-to-json-ienumerable-list-collection%})
