@@ -36,7 +36,7 @@ ticketid: 1670453
 This KB article answers the following questions:
 - How can I prevent users from pasting text into a TextBox?
 - What is the method to disable the copy action in a NumericTextBox?
-- Can I use JavaScript Interop to control copy and paste in ComboBox for Blazor?
+- Can I use JavaScript Interop to control copy and paste in the Telerik ComboBox for Blazor?
 
 ## Solution
 
