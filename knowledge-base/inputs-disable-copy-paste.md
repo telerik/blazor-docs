@@ -61,8 +61,8 @@ To disable the copy and paste functionality in a TextBox and other Telerik Blazo
         var input = document.querySelector(".no-copy-paste input");
 
         if (input) {
-            input.oncopy = e => e.preventDefault();
-            input.onpaste = e => e.preventDefault();
+            input.addEventListener("copy", e => e.preventDefault());
+            input.addEventListener("paste", e => e.preventDefault());
         }
     }
 </script>
