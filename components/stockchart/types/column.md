@@ -121,7 +121,7 @@ Each data item is denoted with a label. You can control and customize them throu
 
 The color of a series is controlled through the `Color` property that can take any valid CSS color (for example, `#abcdef`, `#f00`, or `blue`). The color control the fill color of the area.
 
-@[template](/_contentTemplates/stockchart/link-to-basics.md##color-field-column-ohlc-candlestick)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#color-field-column-ohlc-candlestick)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 

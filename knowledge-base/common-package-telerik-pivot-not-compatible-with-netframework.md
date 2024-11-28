@@ -32,7 +32,7 @@ This knowledge base article deals with the following issues:
 
 ## Error Message
 
-```
+````C#
 The nuget command failed with exit code and error
 
 NU1202: Package Telerik.Pivot.Core 0.1.1 is not compatible with net80 (.NETFramework,Version=v8.0). Package Telerik.Pivot.Core 0.1.1 supports: netstandard2.1 (.NETStandard,Version=v2.1)
@@ -40,7 +40,7 @@ NU1202: Package Telerik.Pivot.Core 0.1.1 is not compatible with net80 (.NETFrame
 NU1202: Package Telerik.Pivot.DataProviders.Xmla 0.1.1 is not compatible with net80 (.NETFramework,Version=v8.0). Package Telerik.Pivot.DataProviders.Xmla 0.1.1 supports: netstandard2.1 (.NETStandard,Version=v2.1)
 
 Packages failed to restore.
-```
+````
 
 Similar errors can mention `net70 (.NETFramework,Version=v7.0)` or `net60 (.NETFramework,Version=v6.0)`.
 

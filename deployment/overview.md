@@ -55,5 +55,5 @@ The following articles provide more information on Telerik UI for Blazor deploym
 
 ## See Also
 
-* [Removing the Telerik Blazor Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message)
+* [Removing the Telerik Blazor Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner)
 * [Troubleshooting `TelerikBlazor was undefined`]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined) 

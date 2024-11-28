@@ -61,7 +61,7 @@ Use the `CardBody` tag to render the body of the Card.
 
 ![Card Body](images/card-body-example.png)
 
-````CSTHML
+````RAZOR
 @* Card Body *@
 
 <TelerikCard Width="200px">

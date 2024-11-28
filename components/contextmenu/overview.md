@@ -140,7 +140,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````
+````RAZOR
 <TelerikContextMenu>
     <ContextMenuSettings>
         <ContextMenuPopupSettings HorizontalCollision="..."/>

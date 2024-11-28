@@ -34,7 +34,7 @@ There are two ways to collapse all groups of the Grid both on initialization and
 
 The required steps to collapse groups programmatically are:
 
-1. Use the Grid [`OnStateInit event`]({%slug grid-state%}#set-default-initial-state).
+1. Use the Grid [`OnStateInit event`]({%slug grid-state%}#onstateinit).
 2. Set [group descriptors](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [GridState](/blazor-ui/api/Telerik.Blazor.Components.GridState-1) to group the Grid by default.
 3. Set `CollapsedGroups` in the `GridState`. 
 4. Set a boolean flag in the Grid [`OnStateChanged event`]({%slug grid-state%}#events) when the user is paging.

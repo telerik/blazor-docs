@@ -31,7 +31,7 @@ Can you please advise me on how to display validation message as tooltip?
 
 This article contains several different ways to implement validation notifications with popups:
 
-* [Telerik Validation Tooltip Component](#telerikvalidationpopup)
+* [Telerik Validation Tooltip Component](#telerikvalidationtooltip)
 * [Telerik Form Component](#telerikform)
 * [Validation Summary in a Popup](#validation-summary-in-a-popup)
 * [Per-Input Validation Popups](#per-input-validation-popups) - it is much easier to use the Telerik components listed above to get this functionality

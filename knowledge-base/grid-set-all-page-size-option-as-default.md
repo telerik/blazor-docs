@@ -41,7 +41,7 @@ The `PageSize` parameter of the Grid accepts a non-nullable `int` by design. To 
 
 >caption Set "All" PageSize Option as Default
 
-```
+````RAZOR
 Page size: @PageSize
 
 <TelerikGrid Data="@GridData"
@@ -97,4 +97,4 @@ Page size: @PageSize
         public bool Discontinued { get; set; }
     }
 }
-```
+````

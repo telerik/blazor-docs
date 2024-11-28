@@ -34,7 +34,7 @@ To bind the AutoComplete, you need to:
 
 >caption Data binding an AutoComplete to a simple data source
 
-````CSHTML
+````RAZOR
 @*Bind to an IEnumerable<string>*@
 
 User input 1: @FirstValue
@@ -67,7 +67,7 @@ To bind the AutoComplete to a model:
 
 >caption Data binding an AutoComplete to a model
 
-````CSHTML
+````RAZOR
 @AutoComplete
 <br />
 <TelerikAutoComplete Data="@Suggestions"
@@ -99,7 +99,7 @@ To bind the AutoComplete to a model:
 The AutoComplete is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````String
+````RAZOR String
 @*Reference when binding to a string collection*@
 
 <TelerikAutoComplete @ref="@AutoCompleteRef"
@@ -114,7 +114,7 @@ The AutoComplete is a generic component and its type depends on the type of its 
     private List<string> Suggestions { get; set; } = new List<string> { "first", "second", "third" };
 }
 ````
-````Model
+````RAZOR Model
 @*Reference when binding to a model collection*@
 
 <TelerikAutoComplete @ref="@AutoCompleteRef"
@@ -148,7 +148,7 @@ The AutoComplete is, essentially, a textbox. This means that its `Value` is alwa
 
 >caption Minimal AutoComplete configuration for it to run
 
-````CSHTML
+````RAZOR
 @* If you cannot provide suggestions list, use an empty collection and the component will show "No Data" to the user in the suggestions list *@
 
 <TelerikAutoComplete Data="@Suggestions" />

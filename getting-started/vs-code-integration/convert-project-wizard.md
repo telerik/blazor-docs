@@ -42,16 +42,14 @@ If the Telerik components are already enabled in the project, you will see the f
 
 You have successfully enabled the Progress&reg; Telerik&reg; UI for Blazor components in your Blazor app!
 
-@[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)
-
 ## Troubleshooting
 
 There are a few common problems that might occur when converting a project:
 
 
-* [_Imports.razor not found](#_importsrazor-not-found)
-* [MainLayout.razor not found](#mainlayoutrazor-not-found)
-* [_Host.cshtml or index.html is malformed, doesn't exist, or doesn't contain a head element](#_hostcshtml-or-indexhtml-is-malformed-doesnt-exist-or-doesnt-contain-a-head-element)
+* [_Imports.razor not found](#_imports-razor-not-found)
+* [MainLayout.razor not found](#mainlayout-razor-not-found)
+* [_Host.cshtml or index.html is malformed, doesn't exist, or doesn't contain a head element](#_host-cshtml-or-index-html-is-malformed-doesn-t-exist-or-doesn-t-contain-a-head-element)
 * [Unable to locate services collection](#unable-to-locate-services-collection)
 * [No suitable project to convert](#no-suitable-project-to-convert)
 

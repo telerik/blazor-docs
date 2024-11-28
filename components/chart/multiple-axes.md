@@ -21,7 +21,7 @@ This article contains the following sections:
 	* [Numerical Charts](#numerical-charts)
 * [Choose Axis Position](#choose-axis-position)
 * [Examples](#examples)
-	* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
+	* [Categorical Chart - Value Axes Examples](#categorical-chart-value-axes-examples)
 	* [Category Axes](#category-axes)
 		* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 	* [Numerical Chart Examples](#numerical-chart-examples)
@@ -66,7 +66,7 @@ You can set a very large or a very small value to make a certain axis appear at 
 In this section you can find code examples, explanations on the behavior and screenshots of the expected behavior so you can understand the behavior of the chart and use it to your advantage.
 
 
-* [Categorical Chart - Value Axes Examples](#categorical-chart---value-axes-examples)
+* [Categorical Chart - Value Axes Examples](#categorical-chart-value-axes-examples)
 * [Category Axes](#category-axes)
 	* [Behavior with Bar and Column Charts](#behavior-with-bar-and-column-charts)
 * [Numerical Chart Examples](#numerical-chart-examples)
@@ -80,7 +80,7 @@ In the following example, you can see how to define multiple y-axes, associate a
 
 >caption Multiple Y-axes and defining their position according a category axis
 
-````CSHTML
+````RAZOR
 Multiple y-axes and their position
 
 <TelerikChart>
@@ -124,7 +124,7 @@ You can use multiple category axes to associate each series with its own points 
 
 >caption Multiple category axes on a line chart
 
-````CSHTML
+````RAZOR
 Multiple category axes and their position
 
 <TelerikChart>
@@ -178,7 +178,7 @@ It is important to keep in mind the behavior of the series with multiple categor
  
 >caption Multiple category axes on a column chart with proper crossing values and series values
 
-````CSHTML
+````RAZOR
 Viable values for the axes positions
 
 <TelerikChart>
@@ -225,7 +225,7 @@ Viable values for the axes positions
 >caption Examples of potentially unwanted behaviors of column and bar types of charts with multiple axes, and the code that produces those issues.
 
 <div class="skip-repl"></div>
-````LargeCrossingPoint
+````RAZOR LargeCrossingPoint
 Potentially unwanted behavior 1
 
 <TelerikChart>
@@ -268,7 +268,7 @@ Potentially unwanted behavior 1
 	public object[] crossingPoints = new object[] { -9999999, 9999999 };
 }
 ````
-````OverlappingValues
+````RAZOR OverlappingValues
 Potentially unwanted behavior 2
 
 <TelerikChart>
@@ -313,7 +313,7 @@ When using numerical charts, you define the extra axes in the `ChartXAxes` and `
 
 >caption Multiple axes in a numerical chart
 
-````CSHTML
+````RAZOR
 @* Both torque series use the torque y-axis. Both electrical motor series use the electrical motor x-axis. The default warm colors the come in for the electrical series are associated with their x-axis by making the electrical motor x-axis orange (you can choose colors that better match your scenario) *@
 
 <TelerikChart>
@@ -432,7 +432,7 @@ The general approach is to set an axis crossing point that has a very large valu
 
 >caption X-axis Labels at the bottom of the chart with negative values
 
-````CSHTML
+````RAZOR
 @* This sample showcases how to move the x-axis labels to the bottom of the chart even when
     there are negative values - through a very low axis crossing point for the y-axis.
     Enabling the Stack settings changes the behavior of the 0 value for bar and column series
@@ -487,7 +487,7 @@ This approach can work for both numerical and categorical axes. The example belo
 
 >caption Example of setting a crossing point that is very large so the value axis appears on the right hand side of the chart
 
-````CSHTML
+````RAZOR
 @* See the AxisCrossingValue parameter on the x-axis and its value - it uses int.MaxValue to push the second value axis all the way to the right *@
 
 <TelerikChart>

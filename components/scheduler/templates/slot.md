@@ -43,7 +43,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 
 ## Example
 
-````CSHMTL
+````RAZOR
 @* Use the AllDaySlotTemplate and SlotTemplate *@
 
 <TelerikScheduler @bind-Date="@SelectedDate" Height="600px" Data="@Data"

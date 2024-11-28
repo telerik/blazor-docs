@@ -32,7 +32,7 @@ The nested `ToolBarButton` tag exposes parameters that allow you to customize th
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
-| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-in-telerik-component). |
+| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-namespaces). |
 | `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |
 | `OverflowText` | `string` | Defines the button text that will be shown only in the overflow popup. If not specified, it will get the default text of the item. |
 | `Title` | `string` | Maps to the `title` HTML attribute for the `<button>`. |
@@ -83,7 +83,7 @@ The nested `ToolBarToggleButton` tag exposes parameters that allow you to custom
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the ToolbarButton. You could use that class to cascade styles. |
 | `Enabled` | `bool` <br /> `true` | Specifies if the button is clickable. |
-| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-in-telerik-component). |
+| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-namespaces). |
 | `Selected` | `bool` | Specifies whether the button is in selected state. You can use it with one and two-way data binding with the `SelectedChanged` event. For more information on how to handle the `SelectedChanged` event see the [Events]({%slug toolbar-events%}) article. |
 | `SpriteClass` | `string` | Add a sprite class image to the button. Set this attribute to `k-icon MySpriteClass` where `MySpriteClass` defines the CSS rules for the sprite. |
 | `Overflow` | `ToolBarItemOverflow` enum <br /> (`Auto`) | Specifies whether the item will be hidden when the ToolBar is resized. |

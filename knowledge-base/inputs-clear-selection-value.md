@@ -46,7 +46,7 @@ Here are a few examples in their corresponding tabs per component:
 >caption Clear an input (or selected item in a dropdown/combobox)
 
 <div class="skip-repl"></div>
-````ComboBox
+````RAZOR ComboBox
 @selectedValue
 
 <br />
@@ -80,7 +80,7 @@ Here are a few examples in their corresponding tabs per component:
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
-````Textbox
+````RAZOR Textbox
 @selectedValue
 
 <br />
@@ -95,7 +95,7 @@ Here are a few examples in their corresponding tabs per component:
     }
 }
 ````
-````DropDownList
+````RAZOR DropDownList
 @selectedValue
 
 <br />
@@ -128,7 +128,7 @@ Here are a few examples in their corresponding tabs per component:
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
-````DatePicker
+````RAZOR DatePicker
 @selectedValue
 
 <br />
@@ -144,7 +144,7 @@ Here are a few examples in their corresponding tabs per component:
     }
 }
 ````
-````NumericTextbox
+````RAZOR NumericTextbox
 @selectedValue
 
 <br />

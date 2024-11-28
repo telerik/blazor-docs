@@ -130,7 +130,7 @@ The following table lists the `SplitButtonItem` parameters, except those related
 
 ## SplitButton Reference and Methods
 
-The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
 
 >caption Get a reference to the SplitButton and execute methods
 

@@ -249,7 +249,7 @@ The example shows the following things:
 
 * Settings applied to a TreeList column take precedence over the settings applied to the Column Menu through the `<TreeListColumnMenuSettings>` tag. For example, if you set `Filterable="false"` to a TreeList column and `Filterable="true"` to a TreeList Column Menu, the filtering functionality will be disabled.
 
-* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all TreeList Columns.
+* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all TreeList Columns.
 
 ## See Also
   * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)

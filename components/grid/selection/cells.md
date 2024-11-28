@@ -231,7 +231,7 @@ The `SelectedCells` collection persists across paging.
 When using [Grid templates]({%slug components/grid/features/templates%}) with cell selection:
 
 * If you are using a [Grid column template]({%slug grid-templates-column%}) and you have a clickable element in the template, wrap this element in a container with a `@onclick:stopPropagation` directive. You can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both row and cell selection.
-* If you are using a [row template]({%slug components/grid/features/templates%}#row-template) the Grid does not support cell selection. The row template removes the built-in cell instances and the HTML markup may not even include the expected number of cells.
+* If you are using a [row template]({%slug grid-templates-row%}) the Grid does not support cell selection. The row template removes the built-in cell instances and the HTML markup may not even include the expected number of cells.
 
 ## See Also
 

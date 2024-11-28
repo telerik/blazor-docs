@@ -283,7 +283,7 @@ The example shows the following things:
 
 * The settings applied to a Gantt column take precedence over the settings applied to the Column Menu through the `<GanttColumnMenuSettings>` tag. For example, if you set `Lockable="false"` to a Gantt column and `Lockable="true"` to the Gantt Column Menu, the Frozen Columns functionality will be disabled.
 
-* When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all Gantt Columns.
+* When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all Gantt Columns.
 
 ## See Also
   * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)

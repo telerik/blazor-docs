@@ -39,7 +39,7 @@ Generally, the `Width` and `Height` parameters of the Window can take values in 
 
 >caption Observe the behavior of a Window with set `Width` and `Height` in `%`
 
-````CSHTML
+````RAZOR
 <TelerikWindow Modal="true"
                Visible="true"
                Width="40%"
@@ -73,7 +73,7 @@ If you want to use the CSS media queries, you have to create a separate CSS file
 **Component:**
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @* The Class parameter is set to make cascading the styles easier *@
 
 <TelerikWindow Modal="true"
@@ -92,7 +92,7 @@ If you want to use the CSS media queries, you have to create a separate CSS file
     </WindowActions>
 </TelerikWindow>
 ````
-````Stylesheet
+````CSS Stylesheet
 @* The myWindow class used in the media queries is the same as in the Class parameter *@
 @* Add the CSS file in the _Host.cshtml *@
 

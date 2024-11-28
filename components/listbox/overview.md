@@ -27,7 +27,7 @@ To use a Telerik ListBox for Blazor:
 
 >caption Basic Blazor ListBox
 
-````CSHML
+````RAZOR
 @* ListBox with item selection and reordering *@
 
 <TelerikListBox @ref="@ListBoxRef"

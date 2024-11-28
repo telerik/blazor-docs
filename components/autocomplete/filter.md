@@ -28,7 +28,7 @@ To control when the filter list appears, set the `MinLength` parameter. This can
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug autocomplete-overview%}#parameters) parameter of the component.
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug autocomplete-overview%}#autocomplete-parameters) parameter of the component.
 
 ## Filtering Example
 

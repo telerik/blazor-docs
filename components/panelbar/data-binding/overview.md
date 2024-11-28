@@ -93,7 +93,7 @@ The following **Example** shows how to define simple binding to match item field
 
 >caption Sample binding on a flat data source. Showcases how to set the properties to match the model. With this model, the only field name you must explicitly specify is `ParentIdField`, the others match the defaults.
 
-````CSHMTL
+````RAZOR
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items"
                      @bind-ExpandedItems="@ExpandedItems">

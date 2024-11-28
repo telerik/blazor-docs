@@ -22,7 +22,8 @@ The Grid allows you to set up a menu for its columns. It enables you to perform 
     * [Sections](#sections)
     * [Sorting](#sorting)
     * [Reorderable](#reorderable)
-* [Example](#example)
+* [Column Menu Configuration Example](#column-menu-configuration-example)
+* [Column Menu Features Example](#column-menu-features-example)
 * [Notes](#notes)
 
 ## Basics

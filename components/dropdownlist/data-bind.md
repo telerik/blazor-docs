@@ -35,7 +35,7 @@ You can data bind the DropDownList to a collection of `string` or [value type](h
 
 >caption Data binding a DropDownList to strings
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@DropDownListData" @bind-Value="DropDownListValue" />
 
 @code {
@@ -64,7 +64,7 @@ To bind the DropDownList to a model:
 
 >caption Data binding a DropDownList to a model
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@DropDownListData"
                      @bind-Value="DropDownListValue"
                      TextField="@nameof(DropDownListItem.Text)"
@@ -108,7 +108,7 @@ Handling such "unexpected" values is up to the application - for example, throug
 The DropDownList is a generic component and its type depends on the type of its `Data` and `Value`.
 
 <div class="skip-repl"></div>
-````String
+````RAZOR String
 <TelerikDropDownList @ref="@DropDownListRef"
                      Data="@DropDownListData"
                      @bind-Value="DropDownListValue" />
@@ -126,7 +126,7 @@ The DropDownList is a generic component and its type depends on the type of its 
     }
 }
 ````
-````Model
+````RAZOR Model
 <TelerikDropDownList @ref="@DropDownListRef"
                      Data="@DropDownListData"
                      @bind-Value="DropDownListValue"
@@ -160,7 +160,7 @@ The DropDownList is a generic component and its type depends on the type of its 
 
 >caption DropDownList configuration if you cannot provide Value or Data
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@DropDownListData"
                      TItem="@DropDownListItem"
                      TValue="@int"

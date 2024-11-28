@@ -21,8 +21,8 @@ Depending on the [display mode]({%slug stepper-display-modes%}) the Stepper is u
 
 In this article:
 
-* [Validation in Stepper with Display mode: Steps](#validation-in-stepper-with-display-mode:-steps)
-* [Validation in Stepper with Display mode: Labels](#validation-in-stepper-with-display-mode:-labels)
+* [Validation in Stepper with Display mode: Steps](#validation-in-stepper-with-display-mode-steps)
+* [Validation in Stepper with Display mode: Labels](#validation-in-stepper-with-display-mode-labels)
 
 ## Validation in Stepper with Display mode: Steps
 

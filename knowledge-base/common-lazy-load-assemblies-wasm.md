@@ -39,7 +39,7 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
 
 * List the following assemblies in the "client" `.csproj` file to be lazy loaded.
 
-    ````
+    ````XML
     <ItemGroup>
         <!-- Components and data binding -->
         <BlazorWebAssemblyLazyLoad Include="Telerik.Blazor.dll" />
@@ -64,7 +64,7 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
 * Move the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) to a layout that is used only on pages that have the Telerik assemblies loaded.
 * Lazy loading of assemblies does not support dynamic service injection. As a result, remove the Telerik service registration (`builder.Services.AddTelerikBlazor();`) from `Program.cs`. If you are using [localization for the Telerik Blazor components]({%slug globalization-localization%}), define the the localization service for the Telerik components with the `Localizer` parameter of the `<TelerikRootComponent>`. The key thing is to instantiate the localization service inline. It cannot be injected as a variable from the `@code { }` block, because that will throw runtime errors.
 
-    ````
+    ````RAZOR
     @using LazyLoadTelerikComponents.Shared.Services
 
     <TelerikRootComponent Localizer="@( new SampleResxLocalizer() )">
@@ -81,7 +81,7 @@ The following tips apply only to .NET 8 and 9 WebAssembly apps:
 * Use `.wasm` instead of `.dll` in the `.csproj` file and the `OnNavigateAsync` event handler.
 * [Register the lazy loader service manually](https://github.com/dotnet/aspnetcore/issues/51966) in the "server" `Program.cs`. Otherwise, you may get a `InvalidOperationException: Cannot provide a value for property 'AssemblyLoader' on type '...Routes'. There is no registered service of type 'Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader'.`
 
-    ````
+    ````C#
     using Microsoft.AspNetCore.Components.WebAssembly.Services;
 
     builder.Services.AddScoped(typeof(LazyAssemblyLoader));

@@ -43,7 +43,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 >caption Using the Grid OnBeforeExport with Excel export
 
-````CSHTML
+````RAZOR
 @* This example shows the capabilities of the OnBeforeExport event when exporting the Grid to Excel. *@
 
 @* Required by BuiltInNumberFormats in the OnExcelBeforeExport handler *@
@@ -161,7 +161,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 * `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
 
-````CSHTML
+````RAZOR
 @* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to CSV file. *@
 
 @using Telerik.Documents.SpreadsheetStreaming
@@ -259,7 +259,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 * `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
-````Excel
+````RAZOR Excel
 @* Get the output of the excel export as a memory stream *@
 
 @using System.IO
@@ -334,7 +334,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 * `Stream` - `MemoryStream` - The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
-````CSV
+````RAZOR CSV
 @* Get the output of the CSV export as a memory stream *@
 
 @using System.IO

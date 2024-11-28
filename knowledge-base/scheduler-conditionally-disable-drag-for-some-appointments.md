@@ -154,7 +154,7 @@ To conditionally disable dragging an appointment based on your desired condition
 * Ensure the condition for disabling drag is consistent across both the `OnItemRender` event and the `OnUpdate` event handler.
 * The suggested solution relies on removing the pointer-events of the whole appointment. Thus, the hover event is also not detected to show the delete icon of the appointments and the user will not be able to delete them. If you want to allow deleting of the non-draggable appointments, adjust the styles to ensure the delete icon will always be visible:
 
-````
+````CSS
 <style>
     /* prevents the pointer-events of the appointment */
     .non-draggable-appointment {

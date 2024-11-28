@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">
 ## Creating Blazor ColorGradient
 
 1. Add the `TelerikColorGradient` tag.
-1. Set its `Value` attribute to a [HEX/RGB](#supported-value-formats) `string` variable via [one-way]({%slug colorgradient-events%}#valuechanged) or [two-way](#example) binding.
+1. Set its `Value` attribute to a [HEX/RGB](#supported-value-formats) `string` variable via [one-way]({%slug colorgradient-events%}#valuechanged) or two-way binding.
 1. (optional) Set the [`ValueFormat` and `Format` attributes](#colorgradient-parameters) to the desired color format.
 
 

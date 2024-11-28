@@ -30,7 +30,7 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
 
 >caption Change the Expand mode of the PanelBar
 
-````CSHMTL
+````RAZOR
 @* Set the Expanded mode of the PanelBar to single *@
 
 <div style="width: 30%;">

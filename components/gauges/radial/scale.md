@@ -16,8 +16,6 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 * [MinorUnit and MajorUnit](#minorunit-and-majorunit)
 
-* [MinorTicks and MajorTicks](#ninorticks-and-majorticks)
-
 * [StartAngle and EndAngle](#startangle-and-endangle)
 
 * [Reverse](#reverse)
@@ -160,7 +158,7 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ![Remove the MinorUnit ticks](images/remove-minorunit-ticks-radial-gauge.png)
 
-````CSHMTL
+````RAZOR
 @* Remove the MinorUnit ticks. *@
 
 <TelerikRadialGauge>

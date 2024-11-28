@@ -14,13 +14,13 @@ In addition to [Grid filtering]({%slug components/grid/filtering%}), you can enh
 
 Users type their query, and the Grid performs a case-insensitive Contains search on all visible string columns, adjusting the filters accordingly. To customize the filter delay and selected fields, see the [Customize the SearchBox section](#customize-the-searchbox).
 
-The SearchBox operates independently of Grid filtering, respecting existing filters and adding extra criteria to refine search results. To enable the SearchBox, include the <GridSearchBox> tag in the [<GridToolBarTemplate>]({%slug components/grid/features/toolbar%}).
+The SearchBox operates independently of Grid filtering, respecting existing filters and adding extra criteria to refine search results. To enable the SearchBox, include the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`]({%slug components/grid/features/toolbar%}).
 
 To enable the SearchBox, add the `<GridSearchBox>` tag in the [`<GridToolBarTemplate>`]({%slug components/grid/features/toolbar%}).
 
 >caption Grid SearchBox
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Pageable="true"
              Sortable="true">
@@ -65,7 +65,7 @@ You can set or remove the search filters programmatically through the `SearchFil
 
 >caption Set and clear the Grid SearchBox filter programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/grid/state.md#search-from-code)
 ````
 
@@ -89,7 +89,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 
 >caption Grid SearchBox customizaton
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Pageable="true"
              Sortable="true">

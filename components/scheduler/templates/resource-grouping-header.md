@@ -27,7 +27,7 @@ The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext`
 
 >caption Example of using the SchedulerResourceGroupHeaderTemplate
 
-````CSHMTL
+````RAZOR
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@StartDate"
                   Height="600px"

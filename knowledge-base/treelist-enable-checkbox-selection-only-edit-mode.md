@@ -343,7 +343,7 @@ Below is an example implementation that toggles the visibility of the Checkbox C
 
 Alternatively, if you prefer not to toggle the `CheckboxColumn` visibility but just disable it, you can apply conditional custom CSS based on the flag that you set in the `OnEdit`/`OnAdd` handlers.
 
-````CSTHML
+````RAZOR
 @if (!SelectionEnabled)
 {
     <style>

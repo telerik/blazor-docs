@@ -29,6 +29,3 @@ The extension for Visual Studio Code provides the following advantages:
 To access the VS Code extension, press `Ctrl`+`Shift`+`P` on Windows/Linux or `Cmd`+`Shift`+`P` on Mac to open the VS Code extension launcher.
 
 ![launch Telerik Blazor VS Code extension](images/launch-extension.png)
-
-
-@[template](/_contentTemplates/common/general-info.md#vs-code-nuget-note)

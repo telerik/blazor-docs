@@ -36,7 +36,7 @@ Set the `Height` parameter to a `string` value. The value can be in:
 The tabs below show how to set the `Height` parameter with the different value options.
 
 <div class="skip-repl"></div>
-````Pixel
+````RAZOR Pixel
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -89,7 +89,7 @@ The tabs below show how to set the `Height` parameter with the different value o
     }
 }
 ````
-````Percent
+````RAZOR Percent
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -144,7 +144,7 @@ The tabs below show how to set the `Height` parameter with the different value o
     }
 }
 ````
-````RelativeUnits
+````RAZOR RelativeUnits
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -246,7 +246,7 @@ Consider the following specifics when setting the row height value:
 * Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
 * Do not change the value of the `RowHeight` parameter at runtime.
 
-````CSHTML
+````RAZOR
 @* Remove the default padding and margin from the cells and remove the default line height of the loading skeletons to reduce the row height. *@
 
 @using Telerik.DataSource
@@ -332,7 +332,7 @@ These are the known limitations of the virtual scrolling feature:
 ## See Also
 
   * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
-  * [Selection in Grid with Virtualized Rows]({%slug grid-selection-overview%}#selection-in-grid-with-virtualized-rows)
+  * [Selection in Grid with Virtualized Rows]({%slug grid-selection-row%}#selection-and-virtual-scrolling)
   * [Knowledge Base Article: Virtual Scroll Does Not Show All Items]({%slug grid-kb-virtualization-many-records%})
   * [Knowledge Base Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
   * [Knowledge Base Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})

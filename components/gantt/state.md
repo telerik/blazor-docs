@@ -51,7 +51,6 @@ The `OnStateInit` and `OnStateChanged` events are raised by the Gantt so you can
 * `OnStateInit` fires when the Gantt is initializing and you can provide the state you load from your storage to the `State` field of its event arguments.
 
 * `OnStateChanged` fires when the user makes a change to the Gantt state (such as sorting, filtering, editing, expanding parents and so on). The `State` field of the event argument provides the current Gantt state so you can store it. The `PropertyName` field of the event arguments indicates what changed.
-    * @[template](/_contentTemplates/gantt/state.md#statechanged-possible-prop-values)
     * We recommend that you use an **`async void`** handler for the `OnStateChanged` event in order to reduce re-rendering and to avoid blocking the UI update while waiting for the service to store the data. Doing so will let the UI thread continue without waiting for the storage service to complete.In case you need to execute logic that requires UI update, use **`async Task`**.
     * Filtering always resets the current page to 1, so the `OnStateChanged` event will fire twice. First, `PropertyName` will be equal to `"Page"`, and the second time it will be `"FilterDescriptors"`. However, the `State` field of the event argument will provide correct information about the overall Gantt state in both event handler executions.
 
@@ -123,7 +122,7 @@ If you want the Gantt to start with certain settings for your end users, you can
 
 >caption Choose a default state of the Gantt for your users
 
-````CSHTML
+````RAZOR
 @*Set initial Gantt state*@
 
 @using Telerik.DataSource
@@ -294,7 +293,7 @@ The following example shows one way you can store the Gantt state - through a cu
 >caption Save, Load, Reset Gantt state on every state change. Uses a sample LocalStorage in the browser.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
 
@@ -491,7 +490,7 @@ Change something in the Gantt (like sort, filter, resize TreeList width, expand/
     }
 }
 ````
-````Service
+````C# Service
 using Microsoft.JSInterop;
 using System.Text.Json;
 public class LocalStorage
@@ -543,16 +542,16 @@ The Gantt state allows you to control the behavior of the Gantt programmatically
 >tip If you want to set an initial state to the Gantt, use a similar snippet, but in the `OnStateInit` event.
 
 <div class="skip-repl"></div>
-````Sorting
+````RAZOR Sorting
 @[template](/_contentTemplates/gantt/state.md#set-sort-from-code)
 ````
-````FilterRow
+````RAZOR FilterRow
 @[template](/_contentTemplates/gantt/state.md#filter-row-from-code)
 ````
-````FilterMenu
+````RAZOR FilterMenu
 @[template](/_contentTemplates/gantt/state.md#filter-menu-from-code)
 ````
-````Hierarchy
+````RAZOR Hierarchy
 @[template](/_contentTemplates/gantt/state.md#expand-hierarchy-from-code)
 ````
 
@@ -568,7 +567,7 @@ Find out how to [get the applied filtering and sorting criteria]({%slug common-f
 
 >caption Know when the Gantt state changes, which parameter changes, and amend the change
 
-````CSHTML
+````RAZOR
 @*This example does the following:
     * Logs to the console what changed in the Gantt
     * If the user changes the Title column filtering, the filter is always overriden to "Contains" and its value to "Task 1"
@@ -743,7 +742,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
 >caption Start Gantt Editing or Insertion Programmatically
 
-````CSHTML
+````RAZOR
 @*Initiate editing and inserting of items through the Gantt state*@
 
 <TelerikButton OnClick="@StartInsert">Insert at Root Level</TelerikButton>
@@ -1031,7 +1030,7 @@ By looping over the `ColumnStates` collection you can know what the user sees. B
 
 >caption Obtain the current columns visibility, rendering order, field name and width
 
-````CSHTML
+````RAZOR
 @*Get Gantt column state from code*@
 
 <TelerikButton OnClick="@GetCurrentColumnsState">Get Column State</TelerikButton>
