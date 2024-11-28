@@ -142,20 +142,23 @@ You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik
 
 The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on `nuget.telerik.com`. On the other hand, the [Telerik icon packages]({%slug common-features-icons%}) reside on `nuget.org`. The correct [package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) configuration should be similar to:
 
->caption packageSourceMapping configuration for Telerik UI for Blazor
+>caption packageSourceMapping configuration for Telerik UI for Blazor and other Telerik Packages
 
 <div class="skip-repl"></div>
 
 ````CSHTML
 <packageSourceMapping>
-  <packageSource key="nuget.org">
-    <package pattern="*" />
-    <package pattern="Telerik.FontIcons" />
-    <package pattern="Telerik.SvgIcons" />
-  </packageSource>
-  <packageSource key="TelerikOnlineFeed">
-    <package pattern="Telerik.*" />
-  </packageSource>
+    <packageSource key="nuget.org">
+        <package pattern="*" />
+        <package pattern="Telerik.FontIcons" />
+        <package pattern="Telerik.SvgIcons" />
+    </packageSource>
+    <packageSource key="TelerikOnlineFeed">
+        <package pattern="Telerik*" />
+        <package pattern="Kendo*" />
+        <package pattern="UI.for*" />
+        <package pattern="JustMock*" />
+    </packageSource>
 </packageSourceMapping>
 ````
 
