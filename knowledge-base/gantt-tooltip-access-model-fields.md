@@ -33,7 +33,7 @@ You have two options to display the other fields form you model in the Tooltip:
 
 ### Get the Model from Your Data Based on the Context Properties
 
-This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext` provides. The approach is applicable only if all items in your data have unique values for these properties and the application that hosts the Gantt is not a multi-language one.
+This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext` provides. The approach is applicable only if all items in your data have unique values for these properties and the task titles are not localized.
 
 1. Cast the [`TooltipTemplate`]({%slug gantt-tooltip-template%}) `context` to `TooltipTemplateContext`.
 2. Use the [available properties of the `TooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the data item in the Gantt data collection. The example below uses the `Title` property.
