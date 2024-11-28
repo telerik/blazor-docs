@@ -25,7 +25,7 @@ I want to access and display model fields in the Gantt Timeline Tooltip. In the 
 
 ## Solution
 
-The `TooltipTemplate` context .... . If you want to accsess and dispaly the other fields form you model, you have two options:
+You have two options to display the other fields form you model in the Tooltip:
 
 * [Get the Model from Your Data Based on the Context Properties](#get-the-model-from-your-data-based-on-the-context-properties)
 * [Use a custom Tooltip](#use-a-custom-tooltip)
