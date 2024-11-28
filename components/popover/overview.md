@@ -69,7 +69,7 @@ The Blazor Popover provides parameters to configure the component. Also check th
 | `AnimationDuration` | `int` | The duration of the animation in milliseconds. [Read more about Popover animations...]({%slug popover-animation%}) |
 | `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The type of animation when the component displays and hides. [Read more about Popover animations...]({%slug popover-animation%}) |
 | `Collision` | `PopoverCollision` enum <br /> (`Fit`) | The behavior of the Popover when it doesn't fit in the viewport. [Read more about Popover collision...]({%slug popover-position-collision%}) |
-| `Offset` | `double ` | The space between the Popover and its anchor in pixels. |
+| `Offset` | `double ` | The space between the Popover and its anchor in pixels. The component ignores its callout when applying this setting. |
 | `Position` | `PopoverPosition  ` enum <br /> (`Top`) | The position relative to the target element at which the Popover will be shown. [Read more about Popover position...]({%slug popover-position-collision%}) |
 | `ShowCallout` | `bool` <br /> (`true`) | Defines if the callout is rendered. |
 | `ShowOn` | `PopOverShowOn?` enum <br /> (`null`) | The browser event that will display the Popover (`MouseEnter` or `Click`) without the need to [use component methods](#popover-reference-and-methods). When you set the `ShowOn` parameter to `Click`, the Popover will hide when the user clicks outside the component. If the parameter value is `MouseEnter`, the Popover will hide when the mouse pointer leaves. |
