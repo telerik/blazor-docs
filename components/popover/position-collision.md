@@ -12,6 +12,8 @@ position: 10
 
 This article outlines the available settings which enable you to control the position of the Popover based on its anchor and dictate how the component responds to insufficient screen space.
 
+The [example](#example) below lets you customize the Popover `Position`, `Offset`, and `Collision` parameters and see how they affect the component.
+
 ## Position
 
 To customize how the popover aligns with its anchor element, use the `Position` parameter and set its value to a member of the `PopoverPosition` enum:
@@ -21,7 +23,9 @@ To customize how the popover aligns with its anchor element, use the `Position` 
 * `Left`
 * `Right`
 
-The [example](#example) below lets you customize the available `Position` parameters and see how they affect the Popover component.
+## Offset
+
+The `Offset` moves the Popover further away from its anchor in the direction that is consistent with the `Position` parameter value. For example, the Popover will move further down when the `Position` is set to `Bottom`.
 
 ## Collision
 
@@ -34,11 +38,19 @@ To define how the Popover reacts to insufficient screen space, set the `Collisio
 
 The following example lets you experiment with the available settings that control the position and collision behavior of the Popover. It starts with the default component behavior.
 
+>caption Popover Position and Collision
+
 ````CSHTML
 <div>
     <label>
         Popover Position
         <TelerikDropDownList @bind-Value="@PopoverPositionType" Data="@PopoverPositions" Width="200px" />
+    </label>
+</div>
+<div>
+    <label>
+        Offset
+        <TelerikNumericTextBox @bind-Value="@PopoverOffset" Width="200px" />
     </label>
 </div>
 <div>
@@ -49,14 +61,15 @@ The following example lets you experiment with the available settings that contr
 </div>
 
 <TelerikPopover @ref="@PopoverRef"
-                AnchorSelector=".popover-target" 
+                AnchorSelector=".popover-target"
                 Collision="@PopoverCollisionType"
+                Offset="@PopoverOffset"
                 Position="@PopoverPositionType">
     <PopoverContent>
         I am a Telerik Popover
     </PopoverContent>
     <PopoverActions>
-        <TelerikButton OnClick="@(() => PopoverRef.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
+        <TelerikButton OnClick="@(() => PopoverRef?.Hide())" Icon="@SvgIcon.X">Close</TelerikButton>
     </PopoverActions>
 </TelerikPopover>
 
@@ -65,20 +78,19 @@ The following example lets you experiment with the available settings that contr
 </div>
 
 @code{
-    private TelerikPopover PopoverRef { get; set; }
+    private TelerikPopover? PopoverRef { get; set; }
     private PopoverCollision PopoverCollisionType { get; set; } = PopoverCollision.Fit;
+    private int PopoverOffset { get; set; } = 0;
     private PopoverPosition PopoverPositionType { get; set; } = PopoverPosition.Top;
 
-    private List<PopoverPosition> PopoverPositions { get; set; } = new List<PopoverPosition>()
-    {
+    private List<PopoverPosition> PopoverPositions { get; set; } = new List<PopoverPosition>() {
         PopoverPosition.Top,
         PopoverPosition.Left,
         PopoverPosition.Right,
         PopoverPosition.Bottom,
     };
 
-    private List<PopoverCollision> PopoverCollisionTypes { get; set; } = new List<PopoverCollision>()
-    {
+    private List<PopoverCollision> PopoverCollisionTypes { get; set; } = new List<PopoverCollision>() {
         PopoverCollision.Fit,
         PopoverCollision.Flip
     };
