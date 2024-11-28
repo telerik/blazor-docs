@@ -147,7 +147,7 @@ This solution relies on finding the task item in your data based on the properti
 }
 ````
 
-### Use a Custom Tooltip
+### Use a Separate Tooltip Component
 
 This solution relies on disabling the built-in Tooltip and adding a custom one, so you have full control over its rendering and content.
 
