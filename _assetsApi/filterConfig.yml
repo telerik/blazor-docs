@@ -13,7 +13,7 @@ apiRules:
 - exclude:
     uidRegex: ^Telerik\.DataSource\.IDescriptor$
 - exclude:
-    uidRegex: ^Telerik\.DataSource\.Expressions\.*$
+    uidRegex: ^Telerik\.DataSource\.Expressions\..*$
 - exclude:
     uidRegex: ^Telerik\.DataSource\.\w*Node
 - exclude:
@@ -21,4 +21,5 @@ apiRules:
 - exclude:
     uidRegex: ^Telerik\.DataSource\.\w+Aggregate\w*$
 - exclude:
-    uidRegex: ^Telerik.Blazor.Components.ToolBarw*$
+    type: Method
+    uidRegex: ^System\.Object\..*$
