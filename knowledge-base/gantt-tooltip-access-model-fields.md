@@ -27,8 +27,8 @@ I want to access and display model fields in the Gantt Timeline Tooltip. In the 
 
 You have two options to display the other fields form you model in the Tooltip:
 
-* [Get the Model from Your Data Based on the Context Properties](#get-the-model-from-your-data-based-on-the-context-properties)
-* [Use a custom Tooltip](#use-a-custom-tooltip)
+* [Get the Gantt Data Item From Context Properties](#get-the-gantt-data-item-from-context-properties)
+* [Use a Separate Tooltip Component](#use-a-separate-tooltip-component)
 
 
 ### Get the Gantt Data Item From Context Properties
@@ -156,6 +156,8 @@ This solution relies on disabling the built-in Tooltip and adding a custom one, 
 1. Add a [TelerikTooltip]({%slug tooltip-overview%}) in the `TaskTemplate`.
 1. Set the Tooltip's [`TargetSelector`]({%slug tooltip-overview%}#tooltip-parameters) to point to the task wrapper unique `id`.
 1. Access the model from the `context` of the `TaskTemplate` and get the needed properties to display in the Tooltip.
+
+> This approach renders a dedicated Tooltip for each task. This makes it useful if you don't have too many tasks - otherwise, you may face performance issues. In this case, either use the [above approach](#get-the-gantt-data-item-from-context-properties) or [add only one Tooltip instance as shown here]({%slug tooltip-kb-in-grid%}).
 
 >caption Use a custom Tooltip component
 
