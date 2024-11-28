@@ -151,7 +151,7 @@ This solution relies on finding the task item in your data based on the properti
 
 This solution relies on disabling the built-in Tooltip and adding a custom one, so you have full control over its rendering and content.
 
-1. Disable the built-in Tooltip - set the `ShowTooltip` parameter to `false`.
+1. Disable the built-in Tooltip by setting the Gantt `ShowTooltip` parameter to `false`.
 1. Use a [`TaskTemplate`]({%slug gantt-task-template%}) to render a unique `id` attribute to each task.
 1. Add a [TelerikTooltip]({%slug tooltip-overview%}) in the `TaskTemplate`.
 1. Set the Tooltip's [`TargetSelector`]({%slug tooltip-overview%}#tooltip-parameters) to point to the task wrapper unique `id`.
