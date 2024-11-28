@@ -31,7 +31,7 @@ You have two options to display the other fields form you model in the Tooltip:
 * [Use a custom Tooltip](#use-a-custom-tooltip)
 
 
-### Get the Model from Your Data Based on the Context Properties
+### Get the Gantt Data Item From Context Properties
 
 This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext` provides. The approach is applicable only if all items in your data have unique values for these properties and the task titles are not localized.
 
