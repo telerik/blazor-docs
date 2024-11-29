@@ -3,10 +3,10 @@ title: Wizard Text Wrapping
 description: This article demonstrates how to allow text wrapping for step labels in the Telerik UI for Blazor Wizard component to ensure full text visibility.
 type: how-to
 page_title: How to Enable Text Wrapping in Wizard Step Labels - Telerik UI for Blazor
-slug: wizard-text-wrapping
-tags: css, blazor, wizard, text, wrap, ui, telerik
+slug: wizard-kb-wrap-step-label-text
+tags: telerik, blazor, wizard, css, styles
 res_type: kb
-ticketid: 1671064
+ticketid: 1671064, 1574805, 1527700
 ---
 
 ## Environment
@@ -22,13 +22,13 @@ ticketid: 1671064
 
 ## Description
 
-I am wondering if there's a way to allow the `TelerikWizard` to show the full text. For instance, step labels in my Wizard component are getting cut off, and I wish to display the complete text by wrapping it onto the next line.
+How to allow the `TelerikWizard` to show the full text of the step labels. For instance, step labels in my Wizard component are getting cut off, and I wish to display the complete text by wrapping it onto the next line.
 
 ## Solution
 
-To ensure that the text within the wizard steps wraps properly and the full text is displayed, apply the following CSS styles.
+To wrap the Wizard step labels and display the full text, apply custom CSS styles. These styles allow the text to wrap in the Wizard steps and break words if necessary to fit the content within the available space.
 
->caption These styles allow the text to wrap within the wizard steps and break words if necessary to fit the content within the available space.
+>caption Wrap Wizard step label text
 
 ````RAZOR
 <style>
