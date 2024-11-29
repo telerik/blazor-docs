@@ -44,9 +44,6 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
                  Draggable="true"
                  OnDragStart="@OnDragStart"
                  OnDrop="@TreeViewDropHandler">
-    <TreeViewBindings>
-        <TreeViewBinding ParentIdField="Parent"></TreeViewBinding>
-    </TreeViewBindings>
 </TelerikTreeView>
 
 @* <TelerikSvgIcon Icon="@SvgIcon.Plus"></TelerikSvgIcon> - Render the desired icon to get its path. *@
@@ -56,10 +53,10 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
      @onpointerenter="@((PointerEventArgs args) => IsPointerOverCustomTarget = true)"
      @onpointerout="@((PointerEventArgs args) => IsPointerOverCustomTarget = false)">
 
-     @foreach (var item in DroppedItems)
+    @foreach (var item in DroppedItems)
     {
-        @item.Text 
-        <br/>
+        @item.Text
+        <br />
     }
 </div>
 
@@ -83,8 +80,8 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
 
 @code {
     private TreeItem DraggedtItem { get; set; }
-    private List<TreeItem> Data { get; set; }
-    private IEnumerable<object> ExpandedItems { get; set; }
+    private List<TreeItem> Data { get; set; } = new List<TreeItem>();
+    private IEnumerable<object> ExpandedItems { get; set; } = Enumerable.Empty<object>();
     private List<TreeItem> DroppedItems { get; set; } = new List<TreeItem>();
     private bool IsPointerOverCustomTarget { get; set; }
     private bool IsItemAlreadyInCustomTarget { get; set; }
@@ -100,10 +97,10 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
     private void CustomTargetDropHandler()
     {
         if (DraggedtItem != null && !IsItemAlreadyInCustomTarget)
-        {            
+        {
             DroppedItems.Add(DraggedtItem);
         }
-    }   
+    }
 
     private void TreeViewDropHandler(TreeViewDropEventArgs args)
     {
@@ -117,14 +114,14 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
 
         Data.Remove(item);
 
-        if (item.Parent != null && !Data.Any(x => item.Parent == x.Parent))
+        if (item.ParentId != null && !Data.Any(x => item.ParentId == x.ParentId))
         {
-            Data.FirstOrDefault(x => x.Id == item.Parent).HasChildren = false;
+            Data.FirstOrDefault(x => x.Id == item.ParentId).HasChildren = false;
         }
 
         if (args.DropPosition == TreeViewDropPosition.Over)
         {
-            item.Parent = destinationItem.Id;
+            item.ParentId = destinationItem.Id;
             destinationItem.HasChildren = true;
 
             Data.Add(item);
@@ -133,7 +130,7 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
         {
             var index = Data.IndexOf(destinationItem);
 
-            item.Parent = destinationItem.Parent;
+            item.ParentId = destinationItem.ParentId;
 
             if (args.DropPosition == TreeViewDropPosition.After)
             {
@@ -149,16 +146,16 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
 
     private bool IsChild(TreeItem item, TreeItem destinationItem)
     {
-        if (destinationItem?.Parent == null || item == null)
+        if (destinationItem?.ParentId == null || item == null)
         {
             return false;
         }
-        else if (destinationItem.Parent?.Equals(item.Id) == true)
+        else if (destinationItem.ParentId?.Equals(item.Id) == true)
         {
             return true;
         }
 
-        var parentDestinationItem = Data.FirstOrDefault(e => e.Id.Equals(destinationItem.Parent));
+        var parentDestinationItem = Data.FirstOrDefault(e => e.Id.Equals(destinationItem.ParentId));
 
         return IsChild(item, parentDestinationItem);
     }
@@ -191,7 +188,7 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
     public class TreeItem
     {
         public int Id { get; set; }
-        public int? Parent { get; set; }
+        public int? ParentId { get; set; }
         public string Text { get; set; }
         public ISvgIcon Icon { get; set; }
         public bool HasChildren { get; set; }
@@ -199,7 +196,7 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
         public TreeItem(int id, int? parent, string text, ISvgIcon icon, bool hasChildren)
         {
             Id = id;
-            Parent = parent;
+            ParentId = parent;
             Text = text;
             Icon = icon;
             HasChildren = hasChildren;
