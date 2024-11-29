@@ -26,7 +26,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 To enable the grid CSV Export, add a [command button]({%slug components/grid/columns/command%}) with the `CsvExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
-````RAZOR
+````RAZOR.skip-repl
 <GridToolBarTemplate>
     <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
 </GridToolBarTemplate>

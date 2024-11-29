@@ -51,7 +51,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
     * Make sure the JavaScript file is loaded in the app.
 
     >caption JavaScript
-    ````JS
+    ````JS.skip-repl
     var themeChangerDotNetRef;
 
     function saveDotNetRef(dotNetRef) {
@@ -85,7 +85,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
 
     >caption Razor
 
-    ````RAZOR
+    ````RAZOR.skip-repl
     @implements IDisposable
 
     @inject IJSRuntime js

@@ -70,7 +70,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
 <div class="skip-repl"></div>
 
-```razor
+````RAZOR
 <GridCommandColumn Context="dataItem">
     @{ var product = (Product)dataItem; }
 
@@ -89,7 +89,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
         Delete
     </GridCommandButton>
 </GridCommandColumn>
-```
+````
 
 ## Example
 
