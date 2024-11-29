@@ -1,5 +1,5 @@
 ---
-title: Dragging TreeView Items to a Custom Target
+title: Drag TreeView Items to a Custom Target
 description: How to support draging and reordering items inside the TreeView but also allow dragging and dropping items outside the component to a custom target
 type: how-to
 page_title: How to Drag TreeView Items to a Custom Target
