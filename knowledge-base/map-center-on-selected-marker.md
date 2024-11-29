@@ -1,10 +1,10 @@
 ---
-title: Center the Map on a Selected Marker
-description: Learn how to center a Telerik Map for Blazor component on a marker selected from a list.
+title: Center Map on Selected Marker
+description: Learn how to programmatically center a Telerik Map for Blazor component on a marker selected from a list.
 type: how-to
 page_title: How to Center a Map on Marker in Blazor Applications
-slug: map-center-on-selected-marker
-tags: map, blazor, center, marker, selection, list
+slug: map-kb-center-on-selected-marker
+tags: blazor, map, marker
 res_type: kb
 ticketid: 1671734
 ---
@@ -24,7 +24,7 @@ ticketid: 1671734
 
 There's a list of markers. I need to center the map on a marker when it's selected from the list. 
 
-- How can I dynamically update the center of a map based on a marker's coordinates?
+How can I dynamically update the center of a map based on a marker's coordinates?
 
 ## Solution
 
@@ -32,18 +32,20 @@ To center the map on a specific marker's coordinates, use a variable to bind the
 
 1. Use a component like the `TelerikDropDownList` to display the list of markers. Handle the `OnChange` event to update the map's center.
 
-2. In the `OnChange` event handler, update the map's `Center` property to the coordinates of the selected marker.
+2. In the `OnChange` event handler, update the map's `Center` property value to the coordinates of the selected marker.
+
+>caption Centering the Map on a Selected Marker
 
 ````RAZOR
-<TelerikDropDownList Data="@MarkerData" 
-                     @bind-Value="@selectedValue" 
-                     TextField="Title" 
-                     ValueField="Id" 
+<TelerikDropDownList Data="@MarkerData"
+                     @bind-Value="@SelectedValue"
+                     TextField="@nameof(MarkerModel.Title)"
+                     ValueField="@nameof(MarkerModel.Id)"
                      OnChange="@MyOnChangeHandler">
 </TelerikDropDownList>
 
 <TelerikMap Center="@MapCenter"
-            Zoom="3">
+            Zoom="@MapZoom">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
                   Attribution="@LayerAttribution"
@@ -61,7 +63,8 @@ To center the map on a specific marker's coordinates, use a variable to bind the
 
 @code {
     private double[] MapCenter { get; set; } = new double[] { 30.268107, -97.744821 };
-    private int selectedValue { get; set; }
+    private int SelectedValue { get; set; }
+    private int MapZoom { get; set; } = 3;
 
     private readonly string[] LayerSubdomains = new string[] { "a", "b", "c" };
     private const string LayerUrlTemplate = "https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png";
