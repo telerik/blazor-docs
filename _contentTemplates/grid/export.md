@@ -9,7 +9,7 @@
 
 * With Server-side Blazor, the file may become larger than the default SignalR connection limit, and this can disconnect the client and result in an error. Generally, this requires quite a lot of data to happen, but you may need to increase the size limit of the connection in the `ConfigureServices` method of your `Startup.cs` file, for example:
 
-````C#
+````C#.skip-repl
 services.AddServerSideBlazor().AddHubOptions(o =>
 {
     o.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
@@ -18,7 +18,7 @@ services.AddServerSideBlazor().AddHubOptions(o =>
 
 * With Client-side Blazor (WebAssembly), all the code runs in the browser and, at the time of writing, is considerably slower than server-side Blazor, and it only has one actual thread. This means that while the file is being generated, the UI will be unresponsive, so you may want to show a loading sign to the user through the `OnClick` handler of the command button, something like:
 
-````RAZOR Component
+````RAZOR.skip-repl Component
 @* Exporting a lot of rows can be slow in a WebAssembly app more so than in a server-side app, and it blocks the UI *@
         
 <TelerikGrid Data="@GridData" AutoGenerateColumns="true" Pageable="true">

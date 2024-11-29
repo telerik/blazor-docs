@@ -46,7 +46,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
 1. Implement a JavaScript function that [creates](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) a `<link>` element with the new theme and [appends](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) it to the page. [Remove](https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild) the old `<link>` element when the new one [loads](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event). Use the chosen `id` value with both `<link>` tags. [Notify the Razor component](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript) when the new CSS file is loaded, if you need to make additional changes to the UI.
 
     >caption JavaScript
-    ````JS
+    ````JS.skip-repl
     var themeChangerDotNetRef;
 
     function saveDotNetRef(dotNetRef) {
@@ -80,7 +80,7 @@ The following algorithm follows the commonly used approach to replace a CSS file
 
     >caption Razor
 
-    ````RAZOR
+    ````RAZOR.skip-repl
     @implements IDisposable
 
     @inject IJSRuntime js

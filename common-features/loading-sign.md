@@ -511,7 +511,7 @@ In some situations, performing a certain action will show a loading indicator th
 
     * **Solution**: To solve this, monitor the console/logs and look for errors thrown during the problematic operation. Enabling the detailed Blazor errors may help you <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors" target="_blank">troubleshoot</a> application errors:
     
-    ````C# Enable
+    ````C#.skip-repl Enable
         services.AddServerSideBlazor(opts => opts.DetailedErrors = true);
     ````
 

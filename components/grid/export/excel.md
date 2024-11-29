@@ -26,7 +26,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 To enable the Grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
-````RAZOR
+````RAZOR.skip-repl
 <GridToolBarTemplate>
     <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
 </GridToolBarTemplate>

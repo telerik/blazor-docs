@@ -180,7 +180,7 @@ This example shows how you can keep adding tools to the toolbar to get the desir
 
 >caption Create your own toolbar
 
-````RAZOR
+````RAZOR.skip-repl
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;
