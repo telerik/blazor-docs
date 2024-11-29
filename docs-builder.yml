@@ -26,6 +26,7 @@ liquid-output-delimiter-left: "{{"
 liquid-output-delimiter-right: "}}"
 liquid:
   uiForBlazorLatestVersion: "7.0.0"
+  themesVersion: "10.0.1"
 
 meta:
   "*templates":
