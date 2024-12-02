@@ -1,10 +1,10 @@
 ---
-title: How to Refresh Filter Menu Context After Programmatic Changes
+title: How to Refresh Filter Menu After Programmatic Changes
 description: Learn how to refresh filter menu context after programmatic changes with a custom component
 type: how-to
-page_title: How to Refresh Filter Menu Context After Programmatic Changes
+page_title: How to Refresh Filter Menu After Programmatic Changes
 slug: grid-kb-custom-filter-menu
-tags: grid, blazor, custom, filter, filtermenu
+tags: blazor, grid, filter, filtermenu
 res_type: kb
 ticketid: 1669381
 ---
@@ -21,20 +21,21 @@ ticketid: 1669381
 
 ## Description
 
-When using the TelerikGrid in Blazor applications, it's common to implement custom `FilterMenu` for enhanced filtering capabilities. However, integrating an [AutoComplete]({%slug autocomplete-overview%}) component with `StringOperators` within a [`FilterMenuTemplate`]({%slug grid-templates-filter%}#filter-menu-template) for dynamic filtering based on user input does not work as expected. The AutoComplete component does not consider the selection from the dropdown list of `StringOperators` within the `FilterMenuTemplate`. 
+When using the TelerikGrid in Blazor applications, it's common to implement a custom `FilterMenu` for enhanced filtering capabilities. However, integrating a Telerik UI for Blazor component that is responsible for the dynamic Grid filtering based on user input does not work as expected. For example, the [AutoComplete]({%slug autocomplete-overview%}) component does not consider the selection from the dropdown list of `StringOperators` within the [`FilterMenuTemplate`]({%slug grid-templates-filter%}#filter-menu-template). 
 
 This knowledge base article also answers the following questions:
 - How to integrate AutoComplete with `StringOperators` in a TelerikGrid `FilterMenuTemplate`?
-- How to refresh a custom `FilterMenuTemplate` in TelerikGrid?
-- How to refresh a `FilterMenuTemplate` context after programmatic changes?
+- How to refresh the contents of  `FilterMenuTemplate` in a TelerikGrid?
+- How to refresh a `FilterMenuTemplate` after programmatic changes?
 
 ## Solution
 
-To achieve the desired behavior, encapsulate the content of the `FilterMenuTemplate` in a custom component and refresh this component upon selection change in the dropdown list. Below is an example demonstrating this approach:
+To achieve the desired behavior, encapsulate the content of the `FilterMenuTemplate` in a separate Razor component and refresh this component upon selection change in the dropdown list. Below is an example demonstrating this approach:
 
 <div class="skip-repl"></div>
 ````Home.razor
 @using Telerik.DataSource
+
 <TelerikGrid Data="@Countries"
              FilterMode="GridFilterMode.FilterMenu"
              PageSize="25">
@@ -62,7 +63,7 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
 
     private async Task FilterAsync(FilterMenuTemplateContext filterContext)
     {
-        FilterHandler(filterContext.FilterDescriptor);
+        AddFilterDescriptor(filterContext.FilterDescriptor);
         await filterContext.FilterAsync();
     }
 
@@ -70,11 +71,11 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
     {
         SelectedCountry = string.Empty;
 
-        FilterHandler(filterContext.FilterDescriptor);
+        AddFilterDescriptor(filterContext.FilterDescriptor);
         filterContext.FilterDescriptor.FilterDescriptors.Clear();
         await filterContext.ClearFilterAsync();
     }
-    private void FilterHandler(CompositeFilterDescriptor filterDescriptor)
+    private void AddFilterDescriptor(CompositeFilterDescriptor filterDescriptor)
     {
         var model = string.Empty;
         object? value = null;
@@ -151,33 +152,40 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
 @using Microsoft.AspNetCore.Components
 @using static Home
 
-Current filter operator: @FilterOperator
-
+<label for="filterOperator"><b>Select Filter Operator for the AutoComplete:</b></label>
 <TelerikDropDownList Value="@FilterOperator"
                      ValueChanged="@( (StringFilterOperator newValue) => OnFilterOperatorChanged(newValue) )"
+                     Id="filterOperator"
                      Data="@FilterOperators"
-                     Width="160px">
+                     Width="200px">
+    <DropDownListSettings>
+        <DropDownListPopupSettings Height="auto"></DropDownListPopupSettings>
+    </DropDownListSettings>
 </TelerikDropDownList>
 
+<label for="autocomplete"><b>Filter the Grid by Country:</b></label>
 <TelerikAutoComplete ScrollMode="@DropDownScrollMode.Virtual"
                      Value="@SelectedCountry"
                      ValueChanged="@( (string selectedCountry) => HandleSelectedCountryChange(selectedCountry) )"
                      TItem="Country"
                      Data="@Countries"
                      ValueField="CountryName"
-                     Width="300px"
+                     Width="200px"
                      PageSize="20"
                      Filterable="true"
                      ItemHeight="35"
                      FilterOperator="@FilterOperator">
+    <AutoCompleteSettings>
+        <AutoCompletePopupSettings Height="auto" MaxHeight="200px" MinHeight="75px" />
+    </AutoCompleteSettings>
 </TelerikAutoComplete>
 
 @code {
     [Parameter] public EventCallback<StringFilterOperator> FilterOperatorChanged { get; set; }
     [Parameter] public EventCallback<string> SelectedCountryChanged { get; set; }
     [Parameter] public StringFilterOperator FilterOperator { get; set; }
-    [Parameter] public string SelectedCountry { get; set; } = null!;
-    [Parameter] public IEnumerable<Country> Countries { get; set; } = null!;
+    [Parameter] public string SelectedCountry { get; set; } = string.Empty;
+    [Parameter] public IEnumerable<Country> Countries { get; set; } = Enumerable.Empty<Country>();
     [Parameter] public IEnumerable<StringFilterOperator> FilterOperators { get; set; } = null!;
 
     private async Task OnFilterOperatorChanged(StringFilterOperator newValue)
