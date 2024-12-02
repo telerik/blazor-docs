@@ -27,7 +27,7 @@ To define a Marker layer in the Map:
 2. Set the `Type` parameter of the `MapLayer` to `MapLayersType.Marker`.
 3. Set the `Data` parameter.
 4. Set the `LocationField` and `TitleField` parameters to the respective property names of the model class.
-5. (optional) Provide the [tooltip settings](#marker-tooltip-settings) or choose the [Marker shape](#marker-shapes).
+5. (optional) Provide the [tooltip settings](#setting-marker-tooltips) or choose the [Marker shape](#defining-marker-shapes).
 
 The following example demonstrates how to configure the Marker layer of the Map.
 
