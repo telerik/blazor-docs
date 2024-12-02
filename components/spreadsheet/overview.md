@@ -33,6 +33,11 @@ To use the Telerik Spreadsheet for Blazor:
     {
         SpreadsheetData = Convert.FromBase64String(SampleExcelFile);
 
+        // Or, load a file from your file system
+        // var path = "C:\\Documents\\MyWorkbook.xlsx";
+        // Specify the File namespace to avoid ambiguous reference with the SVG icon "File"
+        // FileData = System.IO.File.ReadAllBytes(path);
+
         await base.OnInitializedAsync();
     }
 
