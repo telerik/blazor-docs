@@ -5,7 +5,7 @@ description: Learn how to use the Label Template in the Blazor StockChart and to
 slug: stockchart-labels-format-template
 tags: telerik,blazor,stock,stockchart,chart,label,template,format,customize
 published: true
-position: 22
+position: 23
 ---
 
 # Label Template and Format

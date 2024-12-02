@@ -5,7 +5,7 @@ description: Events in the Calendar for Blazor.
 slug: components/calendar/events
 tags: telerik,blazor,calendar,events
 published: true
-position: 20
+position: 21
 ---
 
 # Events

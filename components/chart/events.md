@@ -5,7 +5,7 @@ description: Events in the Charts for Blazor.
 slug: chart-events
 tags: telerik,blazor,chart,events,event
 published: true
-position: 32
+position: 33
 ---
 
 # Chart Events

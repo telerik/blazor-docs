@@ -5,7 +5,7 @@ description: Data bind the Blazor Grid to any of the supported data sources.
 slug: grid-data-binding
 tags: telerik,blazor,grid,data,binding,databind,databinding
 published: true
-position: 10
+position: 11
 ---
 
 # Grid Data Binding
