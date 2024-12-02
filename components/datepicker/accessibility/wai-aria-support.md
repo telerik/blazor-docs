@@ -48,7 +48,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The Calendar in the Popup element of the component should implement the specification for the **Calendar** component.
 
-[Calendar accessibility specification]({{calendar_a11y_link}})
+[Calendar accessibility specification](slug://calendar-wai-aria-support)
 
 ## Resources
 

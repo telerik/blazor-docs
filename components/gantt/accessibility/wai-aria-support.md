@@ -33,17 +33,17 @@ The Gantt component is a composite component that is used to represent project p
 
 The Gantt component integrates the toolbar component and follows its wai-aria support.
 
-[ToolBar accessibility specification]({{toolbar_a11y_link}})
+[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
 
 
 The main inner component in the Gantt is the TreeList.
 
-[TreeList accessibility specification]({{treelist_a11y_link}})
+[TreeList accessibility specification](slug://treelist-wai-aria-support)
 
 
 Another part of the component is the Splitter component and Wai-Aria support.
 
-[Splitter accessibility specification]({{splitter_a11y_link}})
+[Splitter accessibility specification](slug://splitter-wai-aria-support)
 
 
 The following Wai-Aria support is implemented in the TimeLine of the Gantt.

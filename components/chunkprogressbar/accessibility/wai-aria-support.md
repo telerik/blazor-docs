@@ -26,7 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The ChunkProgressBar follows the specification for the ProgressBar component.
 
-[ProgressBar accessibility specification]({{progressbar_a11y_link}})
+[ProgressBar accessibility specification](slug://progressbar-wai-aria-support)
 
 ## Resources
 

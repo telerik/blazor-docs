@@ -30,7 +30,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 Apart from the above, the ContextMenu element should implement the specification for a vertical **Menu** component.
 
-[Menu accessibility specification]({{menu_a11y_link}})
+[Menu accessibility specification](slug://menu-wai-aria-support)
 
 ## Resources
 
