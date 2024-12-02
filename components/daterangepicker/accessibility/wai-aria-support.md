@@ -45,7 +45,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The Calendars in the Popup element of the component should implement the specification for the **MultiViewCalendar** component.
 
-[Calendar accessibility specification]({{calendar_a11y_link}})
+[Calendar accessibility specification](slug://calendar-wai-aria-support)
 
 ## Resources
 

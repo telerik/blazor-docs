@@ -37,7 +37,7 @@ The Grid is a composite component that consists of 4 logically separated structu
 
 Grid Toolbar follows the specification of the ToolBar component.
 
-[ToolBar accessibility specification]({{toolbar_a11y_link}})
+[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -50,7 +50,7 @@ Grid Toolbar follows the specification of the ToolBar component.
 
 Grid Grouping Header follows the specification of the ToolBar component.
 
-[ToolBar accessibility specification]({{toolbar_a11y_link}})
+[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -156,7 +156,7 @@ The Aggregates totals are placed within a `<tfoot>` element in the Content `<tab
 
 For the Grid Pager WAI-ARIA spec, please review the Pager component.
 
-[Pager accessibility specification]({{pager_a11y_link}})
+[Pager accessibility specification](slug://pager-wai-aria-support)
 
 #### Grid selection aggregates
 
