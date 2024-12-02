@@ -472,6 +472,9 @@ meta:
   "*deployment":
     title: Deployment
     position: 18
+  security:
+        title: "Security"
+        position: 17
   accessibility:
     title: Accessibility
     position: 17

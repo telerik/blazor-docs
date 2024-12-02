@@ -3,7 +3,6 @@ title: Column (Cell)
 page_title: Gantt Tree - Column (Cell) Template
 description: Use custom column and cell templates in Gantt Tree for Blazor.
 slug: gantt-templates-column
-tag: telerik,blazor,gantt,template,column,cell
 published: True
 position: 5
 ---

@@ -5,7 +5,7 @@ description: Refresh Context Menu Data using Observable Data or creating a new C
 slug: context-menu-refresh-data
 tags: telerik,blazor,context,menu,observable,data,new,collection
 published: True
-position: 25
+position: 26
 ---
 
 # Context Menu - Refresh Data

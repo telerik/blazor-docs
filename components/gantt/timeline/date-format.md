@@ -5,7 +5,7 @@ description: Date format of headers of the Gantt Timeline for Blazor.
 slug: gantt-columns-dateformat
 tags: telerik,blazor,gantt,column,date,format
 published: True
-position: 15
+position: 16
 ---
 
 # Date Header Format

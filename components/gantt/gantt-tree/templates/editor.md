@@ -3,7 +3,6 @@ title: Editor
 page_title: Gantt Tree - Editor Template
 description: Use custom editor templates in Gantt Tree for Blazor.
 slug: gantt-templates-editor
-tag: telerik,blazor,gantt,template,editor
 published: True
 position: 15
 ---

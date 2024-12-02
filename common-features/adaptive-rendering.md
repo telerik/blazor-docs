@@ -5,7 +5,7 @@ description: Explore how the components with popup elements can react to the cha
 slug: adaptive-rendering
 tags: telerik,blazor,adaptive,rendering,mobile
 published: True
-position: 0
+position: 1
 ---
 
 # Adaptive Rendering
