@@ -39,7 +39,6 @@ A **supported .NET version** is one that is [officially supported by Microsoft](
 | --- | --- | --- |
 | .NET 9 | 7.0.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 8 | 5.0.0 | {{site.uiForBlazorLatestVersion}} (current official) |
-| .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 
 ### Compatible .NET Versions
 
@@ -49,7 +48,8 @@ A **compatible .NET version** is one that is no longer (or not yet) officially s
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 7 | 3.7.0 | 6.2.0 |
+| .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET 6 | 2.29.0 | {{site.uiForBlazorLatestVersion}} (current official) |
 | .NET 5 | 2.19.0 | 4.6.0 |
 | .NET Core 3.1 | 2.5.0 | 4.6.0 |
 
