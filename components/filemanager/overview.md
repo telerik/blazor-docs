@@ -50,7 +50,6 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
         newFolder.Id = DirectoryPath + newFolder.Name.ToString();
         newFolder.ParentId = parent != null ? parent.Id : null;
-        newFolder.Name = "New folder";
         newFolder.IsDirectory = true;
         newFolder.HasDirectories = false;
         newFolder.DateCreated = DateTime.Now;
