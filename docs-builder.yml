@@ -451,15 +451,15 @@ meta:
   backwards-compatibility:
     title: Breaking Changes
     position: 30
-  getting-started/repl:
-    title: Telerik REPL for Blazor
+  getting-started/vs-integration:
+    title: Visual Studio Integration
     position: 35
   getting-started/vs-code-integration:
     title: Visual Studio Code Integration
-    position: 26
-  getting-started/vs-integration:
-    title: Visual Studio Integration
-    position: 25
+    position: 36
+  getting-started/repl:
+    title: Telerik REPL for Blazor
+    position: 37
   how-to:
     title: How To
     position: 20
