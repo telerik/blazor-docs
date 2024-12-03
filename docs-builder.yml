@@ -2,7 +2,9 @@ top-navigation-product: blazor-ui
 path-prefix: /blazor-ui/documentation
 default-title-prefix: Blazor
 
-primary-color: "#702DE8"
+primary-color: 
+  light: rgb(112, 45, 232)
+  dark: rgb(162, 119, 240)
 product-id: 1952
 product-code: BLAZOR
 product-name: Telerik UI for Blazor
