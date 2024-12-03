@@ -24,8 +24,8 @@ The Badge comes with built-in customization features that allow the developer to
 
 ````CSHTML
 <TelerikButton>
-    <TelerikBadge>12</TelerikBadge>
-   Notifications
+    <TelerikBadge VerticalAlign="@BadgeVerticalAlign.Bottom">12</TelerikBadge>
+    Notifications
 </TelerikButton>
 ````
 
