@@ -405,7 +405,6 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
         newFolder.Id = "20";
         newFolder.ParentId = parent?.Id;
-        newFolder.Name = "New folder";
         newFolder.IsDirectory = true;
         newFolder.HasDirectories = false;
         newFolder.DateCreated = DateTime.Now;
