@@ -152,7 +152,7 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
 @using Microsoft.AspNetCore.Components
 @using static Home
 
-<label for="filterOperator"><b>Select Filter Operator for the AutoComplete:</b></label>
+<label for="filterOperator"><strong>Select Filter Operator for the AutoComplete:</strong></label>
 <TelerikDropDownList Value="@FilterOperator"
                      ValueChanged="@( (StringFilterOperator newValue) => OnFilterOperatorChanged(newValue) )"
                      Id="filterOperator"
@@ -163,7 +163,7 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
     </DropDownListSettings>
 </TelerikDropDownList>
 
-<label for="autocomplete"><b>Filter the Grid by Country:</b></label>
+<label for="autocomplete"><strong>Filter the Grid by Country:</strong></label>
 <TelerikAutoComplete ScrollMode="@DropDownScrollMode.Virtual"
                      Value="@SelectedCountry"
                      ValueChanged="@( (string selectedCountry) => HandleSelectedCountryChange(selectedCountry) )"
