@@ -38,8 +38,8 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 1. Right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
 
-  * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
-  * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
+    * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
+    * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
 
 1. Install the Telerik Blazor NuGet package:
 
