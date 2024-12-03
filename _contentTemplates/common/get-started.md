@@ -46,32 +46,32 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 #add-component-sample
 
-````RAZOR.skip-repl
-<TelerikButton>Say Hello</TelerikButton>
-````
+   ````RAZOR.skip-repl
+   <TelerikButton>Say Hello</TelerikButton>
+   ````
 
 1. Optionally, hook up a click handler that will show a message. The resulting view will look like this:
 
-````RAZOR.skip-repl
-@page "/"
-        
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@SayHelloHandler">Say Hello</TelerikButton>
-
-<p>@HelloString</p>
-
-@code {
-    private MarkupString HelloString { get; set; }
-
-    private void SayHelloHandler()
-    {
-        string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
-            "<br /> Now you can use C# to write front-end!";
-
-        HelloString = new MarkupString(msg);
-    }
-}
-````
+   ````RAZOR.skip-repl
+   @page "/"
+           
+   <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                  OnClick="@SayHelloHandler">Say Hello</TelerikButton>
+   
+   <p>@HelloString</p>
+   
+   @code {
+       private MarkupString HelloString { get; set; }
+   
+       private void SayHelloHandler()
+       {
+           string msg = $"Hello from <strong>Telerik UI for Blazor</strong> at {DateTime.Now.ToString("HH:mm:ss")}!" +
+               "<br /> Now you can use C# to write front-end!";
+   
+           HelloString = new MarkupString(msg);
+       }
+   }
+   ````
 
 1. Run the app in the browser. You should see something like this:
 
