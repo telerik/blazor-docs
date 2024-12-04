@@ -35,7 +35,7 @@ Views that show hours let you control their precision through the `SlotDuration`
 
 #resource-grouping-code-snippet-for-examples
 <div class="skip-repl"></div>
-````SchedulerResourceGrouping.razor
+````RAZOR SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by one resource. *@
 
 @using System.Collections.Generic
@@ -120,7 +120,7 @@ Views that show hours let you control their precision through the `SlotDuration`
     }
 }
 ````
-````AppointmentService.cs
+````C# AppointmentService.cs
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -386,7 +386,7 @@ public class AppointmentService
     }
 }
 ````
-````ResourceService.cs
+````C# ResourceService.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -486,7 +486,7 @@ public class ResourceService
     }
 }
 ````
-````Resource.cs
+````C# Resource.cs
 public class Resource
 {
     public string Text { get; set; }
@@ -496,7 +496,7 @@ public class Resource
     public string Color { get; set; }
 }
 ````
-````Appointment.cs
+````C# Appointment.cs
 using System;
 
 public class Appointment
@@ -530,7 +530,7 @@ public class Appointment
 
 #resource-grouping-vertical-code-snippet-for-examples
 <div class="skip-repl"></div>
-````SchedulerResourceGrouping.razor
+````RAZOR SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by one resource. *@
 
 @using System.Collections.Generic
@@ -616,7 +616,7 @@ public class Appointment
     }
 }
 ````
-````AppointmentService.cs
+````C# AppointmentService.cs
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -882,7 +882,7 @@ public class AppointmentService
     }
 }
 ````
-````ResourceService.cs
+````C# ResourceService.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -982,7 +982,7 @@ public class ResourceService
     }
 }
 ````
-````Resource.cs
+````C# Resource.cs
 public class Resource
 {
     public string Text { get; set; }
@@ -992,7 +992,7 @@ public class Resource
     public string Color { get; set; }
 }
 ````
-````Appointment.cs
+````C# Appointment.cs
 using System;
 
 public class Appointment

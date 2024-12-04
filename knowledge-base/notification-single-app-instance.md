@@ -50,7 +50,7 @@ The Notification component in both scenarios must be defined:
 
 <div class="skip-repl"></div>
 
-````MainLayout.razor
+````RAZOR MainLayout.razor
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>
@@ -67,10 +67,10 @@ The Notification component in both scenarios must be defined:
     internal TelerikNotification? NotificationRef { get; set; }
 }
 ````
-````_Imports.razor
+````RAZOR _Imports.razor
 @using YourAppName.Components.Layout
 ````
-````Home.razor
+````RAZOR Home.razor
 @page "/"
 
 <PageTitle>Home</PageTitle>
@@ -110,7 +110,7 @@ The Notification component in both scenarios must be defined:
 
 <div class="skip-repl"></div>
 
-````NotificationService.cs
+````C# NotificationService.cs
 using Telerik.Blazor.Components;
 
 namespace YourAppName.Services
@@ -140,13 +140,13 @@ namespace YourAppName.Services
     }
 }
 ````
-````Program.cs
+````C# Program.cs
 builder.Services.AddSingleton<NotificationService>();
 ````
-````_Imports.razor
+````RAZOR _Imports.razor
 @using YourAppName.Services
 ````
-````MainLayout.razor
+````RAZOR MainLayout.razor
 @inherits LayoutComponentBase
 
 @inject NotificationService NotificationService
@@ -161,7 +161,7 @@ builder.Services.AddSingleton<NotificationService>();
 
 </TelerikRootComponent>
 ````
-````Home.razor
+````RAZOR Home.razor
 @page "/"
 
 @inject NotificationService NotificationService

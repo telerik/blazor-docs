@@ -131,7 +131,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 <p>Type in the Form textboxes and observe the different results.</p>
 
 <p>
@@ -246,7 +246,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
     }
 }
 ````
-````ChildComponent.razor
+````RAZOR ChildComponent.razor
 @using System.Linq.Expressions
 
 <TelerikTextBox Value="@Value"

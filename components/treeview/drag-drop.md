@@ -299,7 +299,7 @@ The functionality allows dragging items between TreeView, [Grid]({%slug grid-dra
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
-##### Drag and Drop between TreeView and Grid
+#### Drag and Drop between TreeView and Grid
 
 <div class="skip-repl"></div>
 ````RAZOR Index.razor

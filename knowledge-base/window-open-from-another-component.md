@@ -35,7 +35,7 @@ Another option would be to send such a reference as a cascading parameter if you
 >caption Open a Window from another component
 
 <div class="skip-repl"></div>
-````MainPage.razor
+````RAZOR MainPage.razor
 @* The page/component that you want to open the Window from *@
 
 <TelerikButton OnClick="@ToggleWindow" ThemeColor="primary">Toggle Window</TelerikButton>
@@ -52,7 +52,7 @@ Another option would be to send such a reference as a cascading parameter if you
     }
 }
 ````
-````Window.razor
+````RAZOR Window.razor
 @* Separate component hosting the markup and logic for the TelerikWindow *@
 
 <TelerikWindow Visible="@WindowIsVisible" VisibleChanged="@WindowIsVisibleChanged">

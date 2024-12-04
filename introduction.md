@@ -56,8 +56,6 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
 
 ## List of Components
 
-{% include intro-page-table.html %}
-
 <IntroTable>
   <IntroTableColumn>
     <IntroTableSection title="Data Management">
