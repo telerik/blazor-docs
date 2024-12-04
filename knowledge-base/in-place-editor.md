@@ -63,7 +63,7 @@ To run the code successfully:
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 @* import InPlaceEditorType enum *@
 @using YourAppName.Models
 
@@ -230,7 +230,7 @@ To run the code successfully:
     }
 }
 ````
-````InPlaceEditor.razor
+````RAZOR InPlaceEditor.razor
 @* import InPlaceEditorType enum *@
 @using YourAppName.Models
 
@@ -690,7 +690,7 @@ To run the code successfully:
     }
 }
 ````
-````InPlaceEditor.razor.css
+````CSS InPlaceEditor.razor.css
 /*
     This .razor.css file relies on Blazor CSS isolation, which in turn requires a YourAppName.styles.css file in App.razor.
     Make sure that the browser doesn't load an old cached version of this file, otherwise you may not see the InPlaceEditor styles.
@@ -731,7 +731,7 @@ To run the code successfully:
     color: var(--kendo-color-secondary);
 }
 ````
-````InPlaceEditorShowIcons.cs
+````C# InPlaceEditorShowIcons.cs
 namespace YourAppName.Models
 {
     public enum InPlaceEditorShowIcons

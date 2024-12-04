@@ -58,7 +58,7 @@ For more information about `localStorage`, see:
 
 <div class="skip-repl"></div>
 
-````Grid.razor
+````RAZOR Grid.razor
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsInterop
 
@@ -254,7 +254,7 @@ For more information about `localStorage`, see:
     #endregion Data Service
 }
 ````
-````LocalStorage.cs
+````C# LocalStorage.cs
 using Microsoft.JSInterop;
 using System.Text.Json;
 
@@ -294,7 +294,7 @@ public class LocalStorage
     }
 }
 ````
-````Program.cs
+````C# Program.cs
 // ...
 
 builder.Services.AddTelerikBlazor();

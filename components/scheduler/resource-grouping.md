@@ -47,7 +47,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
 >caption Declare multiple resources.
 
 <div class="skip-repl"></div>
-````SchedulerResourceGrouping.razor
+````RAZOR SchedulerResourceGrouping.razor
 @* The example showcases Resource Grouping by two resources. *@
 
 @using System.Collections.Generic
@@ -133,7 +133,7 @@ The examples below showcase [resource grouping by one resource](#resource-groupi
     }
 }
 ````
-````AppointmentService.cs
+````C# AppointmentService.cs
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -399,7 +399,7 @@ public class AppointmentService
     }
 }
 ````
-````ResourceService.cs
+````C# ResourceService.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -499,7 +499,7 @@ public class ResourceService
     }
 }
 ````
-````Resource.cs
+````C# Resource.cs
 public class Resource
 {
     public string Text { get; set; }
@@ -509,7 +509,7 @@ public class Resource
     public string Color { get; set; }
 }
 ````
-````Appointment.cs
+````C# Appointment.cs
 using System;
 
 public class Appointment
