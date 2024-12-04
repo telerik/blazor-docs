@@ -8,7 +8,7 @@ on:
 
 jobs:
   post_comment_master:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Create branch comment      
         if: ${{ github.base_ref == 'master' && contains(join(github.event.pull_request.labels.*.name, ''), 'merge-to-production') }}

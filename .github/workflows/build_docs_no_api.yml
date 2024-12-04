@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build_docs_no_api:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
 

@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   publish_kb:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: configure git
         run: |
