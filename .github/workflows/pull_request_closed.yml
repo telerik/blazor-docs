@@ -6,7 +6,7 @@ on:
 jobs:
   cherry_pick:
     if: ${{github.event.pull_request.merged == true}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Should create PR to production?
         uses: peter-evans/find-comment@v1
@@ -67,7 +67,7 @@ jobs:
   delete_branch:
     needs: [cherry_pick]
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: checkout
