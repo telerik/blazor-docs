@@ -72,4 +72,5 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 ## See Also
 
-  * [Live Demo: DropDownList Grouping](https://demos.telerik.com/blazor-ui/dropdownlist/grouping)
+* [Live Demo: DropDownList Grouping](https://demos.telerik.com/blazor-ui/dropdownlist/grouping)
+* [Blazor DropDownList]({%slug components/dropdownlist/overview%})

@@ -105,6 +105,5 @@ The `ValueTemplate` exposes a `context` which represents the selected item objec
 
 ## See Also
 
-  * [Live Demo: DropDownList Templates](https://demos.telerik.com/blazor-ui/dropdownlist/templates)
-   
-  
+* [Live Demo: DropDownList Templates](https://demos.telerik.com/blazor-ui/dropdownlist/templates)
+* [Blazor DropDownList]({%slug components/dropdownlist/overview%})
