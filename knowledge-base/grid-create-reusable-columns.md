@@ -31,7 +31,8 @@ To create a reusable `GridColumn` component with templates, follow these steps:
 
 2. Within the custom component, conditionally render a `GridColumn` with or without templates based on the provided parameters.
 
-````RAZOR Index.razor
+<div class="skip-repl"></div>
+````Index.razor
 <TelerikGrid Data="@MyData" EditMode="@GridEditMode.Incell" Pageable="true" OnUpdate="@UpdateHandler">
     <GridColumns>
         <CustomColumn TItem="@Employee" Field="@(nameof(Employee.ID))"></CustomColumn>
@@ -96,8 +97,7 @@ To create a reusable `GridColumn` component with templates, follow these steps:
     }
 }
 ````
-
-````RAZOR CustomColumn.razor
+````CustomColumn.razor
 @typeparam TItem
 
 @if (IsTemplate)
@@ -153,8 +153,7 @@ else
     };
 }
 ````
-
-````C# Employee.cs
+````Employee.cs
 public class Employee
     {
         public int ID { get; set; }
@@ -162,12 +161,12 @@ public class Employee
         public int RoleId { get; set; }
     }
 ````
-````C# Role.cs
+````Role.cs
 public class Role
-    {
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
-    }
+{
+    public int RoleId { get; set; }
+    public string RoleName { get; set; }
+}
 ````
 
 ## See Also
