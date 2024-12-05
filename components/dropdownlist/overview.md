@@ -14,7 +14,7 @@ The Blazor DropDownList component allows the user to choose an option from a pre
 
 ## Creating Blazor DropDownList
 
-1. Use the `TelerikDropDownList` tag to add the component to your razor page.
+1. Use the `TelerikDropDownList` tag to add the Blazor dropdown list to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
 1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
@@ -78,7 +78,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## DropDownList Parameters
 
->caption The Blazor DropDownList provides various parameters that allow you to configure the component:
+>caption The Blazor dropdown list provides various parameters that allow you to configure the component:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
