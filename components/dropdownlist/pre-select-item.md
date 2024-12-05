@@ -46,3 +46,7 @@ Selected value: @selectedValue
     IEnumerable<MyDdlModel> myDdlData = Enumerable.Range(1, 20).Select(x => new MyDdlModel { MyTextField = "item " + x, MyValueField = x });
 }
 ````
+
+## See Also
+
+* [Blazor DropDownList]({%slug components/dropdownlist/overview%})
