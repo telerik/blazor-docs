@@ -2,7 +2,7 @@
 title: Restoring NuGet Packages in CI
 page_title: Restoring NuGet Packages in CI
 description: Get started with Telerik UI for Blazor and use NuGet Keys to authenticate with the Telerik NuGet server and restore packages in your CI or desktop environment.
-slug: installation/nuget-keys
+slug: deployment-nuget
 position: 10
 ---
 
