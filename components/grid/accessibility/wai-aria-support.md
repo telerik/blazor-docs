@@ -201,4 +201,3 @@ The Grid has been tested with the following screen readers and browsers combinat
 * [Blazor Grid Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
 * [Accessibility Theme]({% slug themes-accessibility-swatch %})
-* [Blazor Grid]({%slug grid-overview%})
