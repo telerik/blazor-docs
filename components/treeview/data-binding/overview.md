@@ -22,7 +22,7 @@ The TreeView items have features that map to properties in the model. The follow
 
 <div class="skip-repl"></div>
 
-```CSHARP
+````CSHARP
 public class TreeItem
 {
     public int Id { get; set; }
@@ -38,7 +38,7 @@ public class TreeItem
     public ISvgIcon Icon { get; set; }
     public string Url { get; set; }
 }
-```
+````
 
 The above model properties have the following meaning for the TreeView:
 
@@ -86,7 +86,7 @@ It is possible to [configure different bindings for different item levels](#mult
 
 <div class="skip-repl"></div>
 
-```CSHARP
+````CSHARP
 public class TreeItem
 {
     public int UniqueID { get; set; }
@@ -94,7 +94,7 @@ public class TreeItem
     public bool HasChildren { get; set; }
     public IEnumerable<TreeItem> Children { get; set; }
 }
-```
+````
 
 ... then the binding configuration should look like this:
 

@@ -82,7 +82,7 @@ The TextArea provides a `FocusAsync` method that allows the application to focus
 
 >caption Use TextArea methods
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikButton OnClick="@FocusTextArea">Focus TextArea</TelerikButton>
 
 <TelerikTextArea @ref="@TextAreaRef"
