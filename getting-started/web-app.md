@@ -68,7 +68,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you [installed the Telerik NuGet package in **Step 3**](#step-3-install-the-telerik-ui-for-blazor-components). This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
 
-````RAZOR _Imports.razor
+````RAZOR.skip-repl _Imports.razor
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
 @using Telerik.SvgIcons
