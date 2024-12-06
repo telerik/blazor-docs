@@ -20,7 +20,6 @@ res_type: kb
     </tbody>
 </table>
 
-
 ## Description
 
 I have a draggable TreeView and I want to prevent the user from dropping items in specific locations or folders. How can I achieve this? 
