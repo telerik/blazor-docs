@@ -148,7 +148,6 @@ This TreeView does not allow the user to drop items from the Documents folder in
         }
 
         var parentDestinationItem = Data.FirstOrDefault(e => e.Id.Equals(destinationItem.ParentId));
-
         return IsChild(item, parentDestinationItem);
     }
 
