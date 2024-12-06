@@ -131,9 +131,9 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nugetconfig-file):
 
 * Use your Telerik account email as the username, and your Telerik password.
-* Use `api-key` as the username and your personal [NuGet API Key]({%slug installation/nuget-keys%}) as the password.
+* Use `api-key` as the username and your personal [NuGet API Key]({%slug deployment-nuget%}) as the password.
 
-You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments]({%slug installation/nuget-keys%}).
+You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments]({%slug deployment-nuget%}).
 
 > Always use the NuGet API Key in plain text.
 

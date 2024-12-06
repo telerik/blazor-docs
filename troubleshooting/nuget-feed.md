@@ -36,7 +36,9 @@ The most common reasons for issues with the private Telerik NuGet feed are relat
 
 Errors like `Unable to load the service index for source https://nuget.telerik.com/v3/index.json` don't indicate the exact cause of the problem. In such cases, check the additional error information which usually provides an error code.
 
-To verify if you can access the Telerik NuGet server and the expected packages, open the https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0 URL directly in the web browser and enter your Telerik credentials in the prompt.
+### Verify NuGet Credentials and Package Access
+
+To verify if you can access the Telerik NuGet server and the expected packages, open https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0 directly in the web browser and enter your Telerik credentials in the prompt.
 
 As a result, you will see a JSON output with the NuGet packages and versions that are available for you. Depending on your license, search for `Telerik.UI.for.Blazor` or `Telerik.UI.for.Blazor.Trial`.
 
@@ -60,7 +62,23 @@ If you suspect that your saved credentials are wrong, use the following steps to
 
 ## Error 401 Unauthorized
 
-If your credentials are correct and your license includes the requested product and version, then the password probably contains special characters. You need to escape these characters or the authentication can fail on the NuGet server. For example, a common character you must escape is the ampersand (`&`); however, the character causing the issue may be as unique as the section character (`§`).
+`Error 401 Unauthorized` means that the Telerik NuGet server received invalid credentials. There may be different reasons for that:
+
+* No provided credentials
+* Incorrect password
+* [Correct password with unescaped special characters](#special-characters-in-the-password)
+* Using an invalidated (removed) [Telerik NuGet API key]({%slug installation/nuget%}#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/nuget-keys" target="_blank">your Telerik account</a>.
+* Using a valid Telerik NuGet API key with the wrong username. It must be `api-key`.
+
+An easy way to verify your credentials is to [access the Telerik NuGet server directly in the web browser](#tips-for-handling-common-nuget-issues). Then, depending on your setup, check or update your credentials in:
+
+* The applicable `NuGet.Config` file. There may be <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior" target="_blank">multiple such files on the device</a>.
+* [Windows Credential Manager](#removing-saved-credentials)
+* In a [CI/CD workflow]({%slug deployment-nuget%}#using-net-cli-commands), which [obtains the credentials from a secret]({%slug deployment-nuget%}#storing-nuget-keys).
+
+### Special Characters in the Password
+
+[If your credentials are correct and your license includes the requested product and version](#verify-nuget-credentials-and-package-access), then the password probably contains special characters. You need to escape these characters or the authentication can fail on the NuGet server. For example, a common character you must escape is the ampersand (`&`); however, the character causing the issue may be as unique as the section character (`§`).
 
 To solve the issue:
 
