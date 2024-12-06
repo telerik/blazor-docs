@@ -1,8 +1,8 @@
 ---
-title: Displaying Tooltip on Disabled HTML Element
-description: Learn how to show a tooltip for a disabled element by wrapping it with an HTML element in Blazor applications.
+title: Display Tooltip on Disabled HTML Element
+description: Learn how to show a Tooltip for a disabled element by wrapping it with another HTML element in Blazor applications.
 type: how-to
-page_title: How to Displaying Tooltip on Disabled HTML Element
+page_title: How to Display Tooltip on Disabled HTML Element
 slug: tooltip-kb-disabled-element
 tags: tooltip, disabled element
 res_type: kb
