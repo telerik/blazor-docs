@@ -67,7 +67,7 @@ The backslashes `\` below enable multi-line commands for better readability in t
 
 >caption Use the .NET CLI to add the Telerik NuGet source
 
-````SH
+````SH.skip-repl
 dotnet nuget add source https://nuget.telerik.com/v3/index.json \
 --name TelerikOnlineFeed \
 --username <TELERIK EMAIL or api-key> \
@@ -79,7 +79,7 @@ If you have already stored the Telerik package source, you can update the config
 
 >caption Use the .NET CLI to update the Telerik NuGet source
 
-````SH
+````SH.skip-repl
 dotnet nuget update source "TelerikOnlineFeed" \
 --source "https://nuget.telerik.com/v3/index.json" \
 --username <TELERIK EMAIL or api-key> \
@@ -108,23 +108,23 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 
 2. Add the Telerik package source to the config file. Use plain text credentials, because the .NET Core NuGet tooling does not fully support encrypted credentials. Here is an example of how your `NuGet.Config` file can look like:
 
-    ````XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <configuration>
-        <packageSources>
-        <!--To inherit the global NuGet package sources remove the <clear/> line below -->
-        <clear />
-        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
-        <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
-        </packageSources>
-        <packageSourceCredentials>
-        <TelerikOnlineFeed>
-            <add key="Username" value="<TELERIK EMAIL or api-key>" />
-            <add key="ClearTextPassword" value="<TELERIK PASSWORD or NUGET API KEY>" />
-        </TelerikOnlineFeed>
-        </packageSourceCredentials>
-    </configuration>
-    ````
+````XML.skip-repl
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+    <!--To inherit the global NuGet package sources remove the <clear/> line below -->
+    <clear />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+    <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
+    </packageSources>
+    <packageSourceCredentials>
+    <TelerikOnlineFeed>
+        <add key="Username" value="<TELERIK EMAIL or api-key>" />
+        <add key="ClearTextPassword" value="<TELERIK PASSWORD or NUGET API KEY>" />
+    </TelerikOnlineFeed>
+    </packageSourceCredentials>
+</configuration>
+````
 
 ## Use NuGet API Key
 

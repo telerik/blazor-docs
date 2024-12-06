@@ -146,8 +146,7 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 
     Here is an example of matching the decimal places:
 
-    **Razor**
-
+````RAZOR.skip-repl
         @DecimalStepValue.ToString("N2") <br />
         
         <TelerikNumericTextBox @bind-Value=@DecimalStepValue 
@@ -159,6 +158,7 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
         @code {
             decimal DecimalValue = 12.3m;
         }
+````
 
 ## Next Steps
 

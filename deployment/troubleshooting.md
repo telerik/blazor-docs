@@ -39,37 +39,36 @@ At the time of writing, sometimes the following issues have been reported that p
 
     Usually, the following in `Program.cs` of the server project solves the problem, or using `dotnet publish`, or publishing from Visual Studio:
     
-    **C#**
-
-    
-        // Program.cs
-        namespace MyBlazorAppName
-        {
-            public class Program
-            {
-                //more code may be present here
-                
-                //for a server project it may look like this
-                public static IHostBuilder CreateHostBuilder(string[] args) =>
-                    Host.CreateDefaultBuilder(args)
-                        .ConfigureWebHostDefaults(webBuilder =>
-                        {
-                            webBuilder.UseStaticWebAssets(); // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
-                            webBuilder.UseStartup<Startup>();
-                        });
+````C#.skip-repl    
+// Program.cs
+namespace MyBlazorAppName
+{
+    public class Program
+    {
+        //more code may be present here
+        
+        //for a server project it may look like this
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStaticWebAssets(); // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                    webBuilder.UseStartup<Startup>();
+                });
 
 
-                //for a WASM project it may look like this
-                public static IWebHost BuildWebHost(string[] args) =>
-                    WebHost.CreateDefaultBuilder(args)
-                        .UseConfiguration(new ConfigurationBuilder()
-                            .AddCommandLine(args)
-                            .Build())
-                        .UseStaticWebAssets() // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
-                        .UseStartup<Startup>()
-                        .Build();
-            }
-        }
+        //for a WASM project it may look like this
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(new ConfigurationBuilder()
+                    .AddCommandLine(args)
+                    .Build())
+                .UseStaticWebAssets() // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                .UseStartup<Startup>()
+                .Build();
+    }
+}
+````
 
 * On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation.
 
