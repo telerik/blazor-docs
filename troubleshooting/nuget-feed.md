@@ -87,7 +87,7 @@ To solve the issue:
 
 Avoid using an online encoder utility for a password. Instead, use a Powershell command:
 
-````SH.skip-repl
+````PowerShell.skip-repl
 Add-Type -AssemblyName System.Web
 [System.Web.HttpUtility]::HtmlEncode('my§uper&P@§§word')
 ````
