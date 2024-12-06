@@ -155,7 +155,6 @@ This TreeView does not allow the user to drop items from the Documents folder in
     protected override void OnInitialized()
     {
         LoadData();
-
         base.OnInitialized();
     }
 
