@@ -74,29 +74,26 @@ The different serializers are not 100% compatible with each other, and each has 
 Use explicit System.Text.Json serialization when needed:
 
 * to serialize the DataSourceRequest - make it explicit in the WASM app service:
-        
-    **C#**
-        
-        public async Task<DataEnvelope<WeatherForecast>> GetForecastListAsync(DataSourceRequest gridRequest)
-        {
-            HttpResponseMessage response = await Http.PostAsJsonAsync(
-                    "WeatherForecast", 
-                    JsonSerializer.Serialize<DataSourceRequest>(gridRequest)
-            );
-            . . .
-        }
-            
+
+````C#.skip-repl
+public async Task<DataEnvelope<WeatherForecast>> GetForecastListAsync(DataSourceRequest gridRequest)
+{
+    HttpResponseMessage response = await Http.PostAsJsonAsync(
+            "WeatherForecast", 
+            JsonSerializer.Serialize<DataSourceRequest>(gridRequest)
+    );
+}
+````
 
 * when deserializing it - don't let the framework deserialize with the registered serialized (Newtonsoft) but take it as a string in the action and deserialize explicitly there with System.Text.Json:
 
-    **C#**
-    
-        [HttpPost]
-        public async Task<DataEnvelope<WeatherForecast>> Post([FromBody] string gridRequestAsString)
-        {
-            DataSourceRequest gridRequest = JsonSerializer.Deserialize<DataSourceRequest>(gridRequestAsString);
-            . . . 
-        }
+````C#.skip-repl
+[HttpPost]
+public async Task<DataEnvelope<WeatherForecast>> Post([FromBody] string gridRequestAsString)
+{
+    DataSourceRequest gridRequest = JsonSerializer.Deserialize<DataSourceRequest>(gridRequestAsString);
+}
+````
 
 ## Suggested Workarounds
 
