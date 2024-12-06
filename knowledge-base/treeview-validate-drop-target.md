@@ -159,7 +159,6 @@ This TreeView does not allow the user to drop items from the Documents folder in
         base.OnInitialized();
     }
 
-
     private void LoadData()
     {
         Data = new List<TreeItem>()
