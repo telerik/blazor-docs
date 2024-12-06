@@ -137,9 +137,8 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
 
 >caption Using the OnError event with message from the controller
 
-<div class="skip-repl"></div>
 
-````RAZOR
+````RAZOR.skip-repl
 <TelerikUpload OnError="@OnUploadError" />
 
 @code {
@@ -153,7 +152,6 @@ The [`UploadErrorEventArgs` event argument](#event-arguments) contains the follo
     }
 }
 ````
-
 ````C# Controller
 [HttpPost]
 public async Task<IActionResult> Save(IFormFile files)
@@ -681,7 +679,6 @@ Also see:
     }
 }
 ````
-
 ````C# UploadController.cs
 using System;
 using System.IO;
@@ -778,7 +775,6 @@ namespace TelerikBlazorUpload.Controllers
     }
 }
 ````
-
 ````C# Program.cs
 // ...
 
