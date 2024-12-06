@@ -4,7 +4,6 @@ description: How to validate drop target in Telerik TreeView for Blazor and prev
 type: how-to
 page_title: How to Validate Drop Target in TreeView
 slug: treeview-kb-validate-drop-target
-position: 
 tags: treeview, item, node, drop target, draggable, validate, invalid, prevent drop
 ticketid: 1592132
 res_type: kb
