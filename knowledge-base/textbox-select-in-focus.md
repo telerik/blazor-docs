@@ -32,36 +32,37 @@ At the time of writing, Blazor does not have native API for handling focus and s
 
 1. Prepare a small JavaScript function that will call the [select](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select) method of the input.
 
-    **JavaScript**
-    
-        <script>
-            function selectText(tbId) {
-                var tb = document.querySelector("#" + tbId);
-                if (tb.select) {
-                    tb.select();
-                }
-            }
-        </script>
+````JavaScript.skip-repl
+<script>
+    function selectText(tbId) {
+        var tb = document.querySelector("#" + tbId);
+        if (tb.select) {
+            tb.select();
+        }
+    }
+</script>
+````
 
 1. Call that function in the desired event like `@focusin`. See how to get such events [here]({%slug inputs-kb-handle-keyboard-events%}).
 
-    **Razor**
-    
-        @inject IJSRuntime _js
-        
-        <span @onfocusin="@FocusInHandler">
-            <TelerikTextBox @bind-Value="@TbValue" Id="@TheTbId"></TelerikTextBox>
-        </span>
-        
-        @code{
-            string TbValue { get; set; } = "lorem ipsum";
-            string TheTbId { get; set; } = "myTb";
-        
-            async Task FocusInHandler(FocusEventArgs e)
-            {
-                await _js.InvokeVoidAsync("selectText", TheTbId);
-            }
-        }
+
+````RAZOR.skip-repl
+@inject IJSRuntime _js
+
+<span @onfocusin="@FocusInHandler">
+    <TelerikTextBox @bind-Value="@TbValue" Id="@TheTbId"></TelerikTextBox>
+</span>
+
+@code{
+    string TbValue { get; set; } = "lorem ipsum";
+    string TheTbId { get; set; } = "myTb";
+
+    async Task FocusInHandler(FocusEventArgs e)
+    {
+        await _js.InvokeVoidAsync("selectText", TheTbId);
+    }
+}
+````
 
 
 

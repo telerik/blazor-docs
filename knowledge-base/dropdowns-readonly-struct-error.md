@@ -27,7 +27,7 @@ When using the combo box component when the desired data is list of readonly str
 ## Error Message
 A typical error would be null reference exception like the one below:
 
-````C#
+````C#.skip-repl
 NullReferenceException: Object reference not set to an instance of an object.
 Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b__70_0(ListDataItem item)
 ````
@@ -71,12 +71,13 @@ There are two approaches to avoiding this error:
 * When setting the `Data` of the dropdown, make it a collection of anonymous objects, for example:
 
     **Razor**
-    
-        @* See the Select in the Data parameter *@
-        
-        <TelerikComboBox Data="@myComboData.Select(x => new {MyTextField = x.MyTextField, MyValueField = x.MyValueField })" 
-                        TextField="MyTextField" ValueField="MyValueField" 
-                        @bind-Value="selectedValue"
-                        Placeholder="Select an item..." ShowClearButton="true" Filterable="false">
-        </TelerikComboBox>
+````RAZOR.skip-repl
+@* See the Select in the Data parameter *@
+
+<TelerikComboBox Data="@myComboData.Select(x => new {MyTextField = x.MyTextField, MyValueField = x.MyValueField })" 
+                TextField="MyTextField" ValueField="MyValueField" 
+                @bind-Value="selectedValue"
+                Placeholder="Select an item..." ShowClearButton="true" Filterable="false">
+</TelerikComboBox>
+````
 

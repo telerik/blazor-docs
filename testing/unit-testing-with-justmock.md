@@ -37,7 +37,7 @@ As you are already guessing, JustMock is especially useful when unit testing you
 
 Here is example of how this looks:
 
-````C#
+````C#.skip-repl
 [Fact]
 public void TestFetchData_PredefinedForecast()
 {
