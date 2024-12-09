@@ -31,7 +31,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set SplitButton appearance parameters
 
-````HTML
+````CSHTML
 <TelerikSplitButton FillMode="@ThemeConstants.SplitButton.FillMode.Solid"
                     Rounded="@ThemeConstants.SplitButton.Rounded.Large"
                     Size="@ThemeConstants.SplitButton.Size.Large"

@@ -95,7 +95,7 @@ See the [Loader `Type` documentation]({%slug loader-appearance%}#type) for the p
 
 >caption Setting TelerikLoaderContainer LoaderType
 
-````HTML
+````CSHTML
 <TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner" />
 ````
 
@@ -108,7 +108,7 @@ See [Loader `Size`]({%slug loader-appearance%}#size) for a list of possible valu
 
 >caption Setting TelerikLoaderContainer Size
 
-````HTML
+````CSHTML
 <TelerikLoaderContainer Size="@ThemeConstants.Loader.Size.Large" />
 ````
 
@@ -121,7 +121,7 @@ See [Loader `ThemeColor`]({%slug loader-appearance%}#themecolor) for a list of p
 
 >caption Setting TelerikLoaderContainer ThemeColor
 
-````HTML
+````CSHTML
 <TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Info" />
 ````
 
@@ -131,7 +131,7 @@ The following example shows [how to override the CSS styles in the theme]({%slug
 
 >caption Custom LoaderContainer colors
 
-````HTML
+````CSHTML
 <TelerikLoaderContainer Class="custom-loading-colors" />
 
 <style>
