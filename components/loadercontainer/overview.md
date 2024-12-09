@@ -70,7 +70,7 @@ The Blazor LoaderContainer can expand to fill only a specific parent container. 
 
 >caption Use the LoaderContainer to fill a parent element
 
-````HTML
+````CSHTML
 <div style="position: relative; width: 600px; height: 400px;">
     <TelerikLoaderContainer />
 </div>
