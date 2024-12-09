@@ -31,7 +31,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
 
 2. Add a CSS rule to the scoped styles, such as a font size change.
 
-````CSS    
+````CSS.skip-repl
 .my-component-button-class {
     font-size: 20px !important;
 }
@@ -90,7 +90,7 @@ There are two ways to go around this:
 
 >caption Sample CSS selector that uses `::deep` to cascade for nested components
 
-````CSS
+````CSS.skip-repl
 .my-component-button-class,
 ::deep .my-component-button-class {
     font-size: 20px !important;

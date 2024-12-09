@@ -25,7 +25,8 @@ res_type: kb
 For our current project, we are grabbing data from the server and using it to dynamically populate a `TelerikGrid` in Blazor.  This is causing an issue with filtering in the `Grid`.
 
 ## Error Message
-````C#
+
+````C#.skip-repl
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()

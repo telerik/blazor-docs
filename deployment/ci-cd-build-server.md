@@ -69,7 +69,7 @@ A way to pass them along is to mark them as environment variables. You can find 
 
 >caption Example of setting GitHub Secrets into Environment Variables for Telerik Login
 
-````YAML
+````YAML.skip-repl
 jobs:
   build:
     runs-on: windows-latest
@@ -86,7 +86,7 @@ Finally, you need a `NuGet.Config` file that lists the Telerik server in the `pa
 
 >caption Example of Using Environment Variables in NuGet.config
 
-````XML
+````XML.skip-repl
 <packageSources>
   <clear />
   <add key="NuGet" value="https://api.nuget.org/v3/index.json" />
@@ -114,7 +114,7 @@ When building or restoring Blazor apps in Docker, the crucial steps are:
 
 The following code is the build portion of a sample `Dockerfile` that builds a .NET 8 Blazor Web App with two projects. The `dotnet restore` command is executed from the `src` folder of the Docker image (where the `NuGet.Config` is copied), so that the `NuGet.Config` file can be used to restore all projects in the solution.
 
-````SH
+````SH.skip-repl
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 

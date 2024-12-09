@@ -120,8 +120,8 @@ You can change the expand/collapse [icons]({%slug common-features-icons%}) in th
 >The SVG icons customization does not work in the Safari browser. As a workaround, hide the SVG icons and use font icons instead.
 
 >caption Replace the SVG icons with Font icons
-````CSS
 
+````CSS.skip-repl
 <style>
     .custom-icons .k-hierarchy-cell .k-svg-icon svg {
         display:none;
@@ -135,7 +135,6 @@ You can change the expand/collapse [icons]({%slug common-features-icons%}) in th
          font-family: "WebComponentsIcons";
     }
 </style>
-
 ````
 
 >caption Change the built-in expand/collapse icons. The result of the code snippet above.
