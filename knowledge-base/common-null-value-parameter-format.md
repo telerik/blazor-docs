@@ -29,18 +29,18 @@ I am getting an error when I am using a Telerik Blazor component in an applicati
 
 The exact error message can vary. Here are just a few examples:
 
-````C#
+````C#.skip-repl
 Unhandled exception rendering component: Value cannot be null. (Parameter 'format')
 ````
 
-````C#
+````C#.skip-repl
 System.ArgumentNullException: Value cannot be null. (Parameter 'format')
     at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
     at System.String.Format(String format, Object arg0, Object arg1)
     at Telerik.Blazor.Components.TelerikWizard.get_PagerMessage()
 ````
 
-````C#
+````C#.skip-repl
 System.ArgumentNullException: Value cannot be null. (Parameter 'format')
     at System.String.FormatHelper(IFormatProvider provider, String format, ParamsArray args)
     at Telerik.Blazor.Components.Common.Filters.FilterMenu.TelerikFilterMenu.get_FilterMenuSettingsLabel() 

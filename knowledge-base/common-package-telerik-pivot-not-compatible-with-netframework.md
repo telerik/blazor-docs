@@ -32,7 +32,7 @@ This knowledge base article deals with the following issues:
 
 ## Error Message
 
-````C#
+````C#.skip-repl
 The nuget command failed with exit code and error
 
 NU1202: Package Telerik.Pivot.Core 0.1.1 is not compatible with net80 (.NETFramework,Version=v8.0). Package Telerik.Pivot.Core 0.1.1 supports: netstandard2.1 (.NETStandard,Version=v2.1)

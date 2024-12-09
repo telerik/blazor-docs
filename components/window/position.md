@@ -25,13 +25,13 @@ The `Centered` parameter determines if the Window displays centered in the viewp
 
 A centered Window applies the following CSS styles, which maintain the centered position even if the viewport size changes:
 
-```CSS
+````CSS.skip-repl
 .k-centered {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-```
+````
 
 If the `Top` or `Left` parameters are set and not empty, they take precedence over `Centered`. To center the Window dynamically through its `Centered` parameter, bind the `Top` and `Left` parameters too, so you can reset them to `string.Empty` or `null`.
 

@@ -119,7 +119,7 @@ Register your custom Telerik localization service in `Program.cs` after `builder
 
 <div class="skip-repl"></div>
 
-```CS
+````CS
 using Telerik.Blazor.Services;
 using ServerLocalizationResx.Services;
 
@@ -128,7 +128,7 @@ builder.Services.AddTelerikBlazor();
 
 // Register the custom Telerik localization service
 builder.Services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResxLocalizer));
-```
+````
 
 ### Step 5: Inject Your Localization Service
 

@@ -36,7 +36,7 @@ This knowledge base article deals with the following issues:
 
 ## Error Message
 
-````C#
+````C#.skip-repl
 Microsoft.JSInterop.JSException: JSON serialization is attempting to deserialize an unexpected byte array.
     at System.Threading.Tasks.ValueTask`1.get_Result()
     at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.&lt;ReadBytesAsync&gt;d__24.MoveNext()
@@ -72,12 +72,12 @@ To avoid the error, disable implicit parameters from services in the Blazor hub 
 
 <div class="skip-repl"></div>
 
-```C#
+````C#
 builder.Services.AddHubOptions(options =>
 {
     options.DisableImplicitFromServicesParameters = true;
 });
-```
+````
 
 ## See Also
 

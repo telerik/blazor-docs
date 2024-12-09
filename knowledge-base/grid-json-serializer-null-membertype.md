@@ -38,14 +38,14 @@ I see errors when I load the Grid state at initialization (`OnStateInit` event h
 
 The exception messages can vary, for example:
 
-````C#
+````C#.skip-repl
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Common.Filter.FilterOperatorFactory.GetFilterOperatorsForType(Type type, ITelerikStringLocalizer localizer)
 ````
 
 Or alternatively:
 
-````C#
+````C#.skip-repl
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()
@@ -53,7 +53,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
 If the Grid is bound to **OData**, the OData query may be incorrect and the following exception may occur:
 
-````C#
+````C#.skip-repl
 A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
 ````
 
