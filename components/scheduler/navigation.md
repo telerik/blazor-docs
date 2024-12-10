@@ -84,7 +84,6 @@ Change current View:
 
             new SchedulerAppointment
             {
-                Id = Guid.NewGuid(),
                 Title = "Planning meeting",
                 Description = "Kick off the new project.",
                 Start = new DateTime(2019, 12, 6, 9, 30, 0),
