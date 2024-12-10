@@ -10,16 +10,26 @@ position: 5
 
 # Column Template
 
-By default, each Grid cell renders the value of the respective column `Field` of the current data item (row). You can change this behavior by using the `Template` of the column and adding your own content or logic.
+By default, each Grid cell renders the value of the respective column `Field` of the current data item (row). You can change this behavior by using a column `Template` and adding your own content or logic.
 
-The column template (the `<Template>` tag under the column definition) is what the Grid uses to show the "view" representation of the cell. This also includes a column that is marked as `Editable="false"` and is in edit mode.
+## Basics
+
+To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`]({%slug components/grid/columns/bound%}#data-operations), while the cells' parent row is in [inline edit mode]({%slug components/grid/editing/inline%}).
+
+Visual Studio tends to autocomplete the `<Template>` tag with a lowercase `t` which breaks the template logic and does not allow you to access the `context`. Ensure the `Template` tag uses a capital `T`. 
+
+### Template Context
+
+The Grid column template exposes a `context` variable, which is the respective item from the Grid data collection. Cast the `context` to your Grid model type in order to access and use its properties. [Rename the `context` variable when using nested templates, for example a Grid column `Template` inside a Grid `DetailTemplate`]({%slug nest-renderfragment%}).
 
 >tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature]({%slug grid-columns-displayformat%}) without the need to declare a template.
 
+## Example
+
 The example below shows how to:
 
-* Set the `Template` (make sure to use the tag with a capital `T`. The Visual Studio autocomplete tends to use the lowercase `t` which breaks the template logic and does not allow you to access the context).
-* Access the template `context`, which is a data item object from the Grid `Data`. You need to cast the `context` to access the data item properties.
+* Define a Grid column `Template`.
+* Cast and access the template `context`.
 * Render HTML or nest components in the column template.
 * Use inline or multi-line template.
 
@@ -86,7 +96,91 @@ The example below shows how to:
 }
 ````
 
->tip The above example renders read-only checkboxes to display boolean values. It is possible to [use checkboxes in display mode and directly change the underlying data source values]({%slug grid-kb-checkbox-editing%}). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
+>tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values]({%slug grid-kb-checkbox-editing%}). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
+
+## Using Components in Grid Column Templates
+
+The Grid optimizes the UI renders after data operations. If you are using child components inside Grid column templates, <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/element-component-model-relationships" target="_blank">set the `@key` attribute to these components to ensure that they always show the correct values and content after filtering, paging, and sorting</a>.
+
+>caption Seting @key to child components inside a Grid column template
+<div class="skip-repl"></div>
+````Home.razor
+@using YourAppName.Data
+
+<TelerikGrid Data="@GridData"
+             TItem="@SampleModel"
+             FilterMode="GridFilterMode.FilterRow"
+             Pageable="true"
+             PageSize="5"
+             Sortable="true">
+    <GridColumns>
+        <GridColumn Field="@nameof(SampleModel.Name)" Title="Template with Key">
+            <Template>
+                @{ var dataItem = (SampleModel)context; }
+                <Child @key="@dataItem" Model="@dataItem" Color="green" />
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@nameof(SampleModel.Name)" Title="Template without Key">
+            <Template>
+                @{ var dataItem = (SampleModel)context; }
+                <Child Model="@dataItem" Color="red" />
+            </Template>
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private List<SampleModel> GridData { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 77; i++)
+        {
+            GridData.Add(new SampleModel()
+            {
+                Id = i,
+                Name = $"Name {i}"
+            });
+        }
+    }
+}
+````
+````Child.razor
+@using YourAppName.Data
+
+Properties require @@key:
+<strong style="color: @Color; background: yellow; padding: 0 .2em;">@Foo</strong>
+
+<br />
+
+Parameters refresh:
+<strong>@Model.Id</strong>
+
+@code {
+    [Parameter]
+    public SampleModel Model { get; set; } = new();
+
+    [Parameter]
+    public string Color { get; set; } = "inherit";
+
+    private string Foo { get; set; } = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        Foo = Model.Id.ToString();
+    }
+}
+````
+````SampleModel.cs
+namespace YourAppName.Data
+{
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+}
+````
 
 ## See Also
 
