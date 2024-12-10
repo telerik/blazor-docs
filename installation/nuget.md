@@ -114,7 +114,7 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
         <packageSources>
         <!--To inherit the global NuGet package sources remove the <clear/> line below -->
         <clear />
-        <add key="nuget" value="https://api.nuget.org/v3/index.json" />
+        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
         <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
         </packageSources>
         <packageSourceCredentials>
@@ -142,27 +142,35 @@ You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik
 
 The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on `nuget.telerik.com`. On the other hand, the [Telerik icon packages]({%slug common-features-icons%}) reside on `nuget.org`. The correct [package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) configuration should be similar to:
 
+> Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
+
 >caption packageSourceMapping configuration for Telerik UI for Blazor and other Telerik Packages
 
 <div class="skip-repl"></div>
 
 ````CSHTML
-<packageSourceMapping>
-    <packageSource key="nuget.org">
-        <package pattern="*" />
-        <package pattern="Telerik.FontIcons" />
-        <package pattern="Telerik.SvgIcons" />
-    </packageSource>
-    <packageSource key="TelerikOnlineFeed">
-        <package pattern="Telerik*" />
-        <package pattern="Kendo*" />
-        <package pattern="UI.for*" />
-        <package pattern="JustMock*" />
-    </packageSource>
-</packageSourceMapping>
-````
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <packageSources>      
+        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+        <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
+    </packageSources>
 
-> Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
+    <packageSourceMapping>
+        <packageSource key="nuget.org">
+            <package pattern="*" />
+            <package pattern="Telerik.FontIcons" />
+            <package pattern="Telerik.SvgIcons" />
+        </packageSource>
+        <packageSource key="TelerikOnlineFeed">
+            <package pattern="Telerik*" />
+            <package pattern="Kendo*" />
+            <package pattern="UI.for*" />
+            <package pattern="JustMock*" />
+        </packageSource>
+    </packageSourceMapping>
+</configuration>
+````
 
 
 ## Access NuGet Packages behind Firewall
