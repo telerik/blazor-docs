@@ -118,7 +118,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 ![larger pointer size](images/pointer-size-circular.png)
 
 ````CSHTML
-* Change the size of the pointer *@
+@* Change the size of the pointer *@
 
 <TelerikCircularGauge>
     <CircularGaugePointers>

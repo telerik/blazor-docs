@@ -196,17 +196,17 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 @code {
     private TelerikGrid<GridModel> TheGrid { get; set; }
 
-    private void AutoFit()
+    private async Task AutoFit()
     {
-        TheGrid.AutoFitAllColumns();
+        await TheGrid.AutoFitAllColumnsAsync();
     }
 
     private IEnumerable<GridModel> GridData = Enumerable.Range(1, 5)
         .Select(x => new GridModel
-        {
-            Id = x,
-            Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
-        });
+            {
+                Id = x,
+                Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
+            });
 
     public class GridModel
     {

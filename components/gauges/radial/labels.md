@@ -122,7 +122,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 
         <RadialGaugeScale>
             <RadialGaugeScaleLabels Background="yellow">
-                <RadialGaugeScaleLabels Margin Top="10" Bottom="10" Left="10" Right="10"></RadialGaugeScaleLabelsMargin>
+                <RadialGaugeScaleLabelsMargin Top="10" Bottom="10" Left="10" Right="10"></RadialGaugeScaleLabelsMargin>
             </RadialGaugeScaleLabels>
         </RadialGaugeScale>
     </RadialGaugeScales>

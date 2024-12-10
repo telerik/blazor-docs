@@ -435,6 +435,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
     * When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%}) knowledge base article for more details.
 
+    <div class="skip-repl"></div>
     ````CSHTML
     <EditorTemplate>
         <TelerikTextBox Value="@myModel.MyField"
