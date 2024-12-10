@@ -14,6 +14,7 @@ In this article:
 
 * [Basics](#basics)
 * [Customization](#customization)
+    * [Editing of Hidden Columns](#editability-of-hidden-columns)
     * [Popup Customization](#popup-customization)
     * [Edit Form Customization](#edit-form-customization)
     * [Popup Form Customization](#popup-form-customization)
