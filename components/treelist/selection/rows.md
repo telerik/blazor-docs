@@ -31,7 +31,7 @@ To enable row selection:
 >caption TreeList multiple row selection
 
 ````CSHTML
-<<TelerikTreeList Data="@TreeListData"
+<TelerikTreeList Data="@TreeListData"
                   IdField="@nameof(Employee.Id)"
                   ParentIdField="@nameof(Employee.ParentId)"
                   SelectionMode="@TreeListSelectionMode.Multiple"

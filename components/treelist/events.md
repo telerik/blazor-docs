@@ -1203,8 +1203,6 @@ The `OnRowContextMenu` event handler receives a `TreeListRowClickEventArgs` argu
         var clickedRow = args.Item as Employee;
 
         logger = $"OnRowContextMenu event fired from right clicking on {clickedRow.Name}";
-		
-        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
     }
 
     public List<Employee> Data { get; set; }
