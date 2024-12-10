@@ -96,6 +96,7 @@ The table below lists the Carousel methods. Also consult the [Carousel API](/bla
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug carousel-refresh-data%}#rebind-method). |
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikCarousel @ref="@CarouselRef" .../>
 

@@ -44,6 +44,7 @@ Optionally, you may set the `Title` and `Subtitle` parameters to provide custom 
 
 >caption Enable the adaptive rendering
 
+<div class="skip-repl"></div>
 ````CSHTML
 // NOTE: The configurations below includes only the DropDownList, but it is applicable to all of the above listed components
 

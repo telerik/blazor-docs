@@ -57,6 +57,7 @@ The general usage is as simple as defining (or receiving) a `DataSourceRequest` 
 
 >caption Basic Console example for using a `DataSourceRequest` and `DataSourceResult`. Note: it expects that you have referenced the `Telerik.DataSource` NuGet package
 
+<div class="skip-repl"></div>
 ````C#
 using System;
 using System.Collections;
