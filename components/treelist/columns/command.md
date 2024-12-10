@@ -56,6 +56,7 @@ There are four built-in commands:
 
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
 
+<div class="skip-repl"></div>
 ```razor
 <TreeListCommandColumn>
     @{
