@@ -46,7 +46,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 >caption Using MultiSelect Templates
 
 ````CSHTML
-* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, FooterTemplate and NoDataTemplate *@
+@* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>
     <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />

@@ -52,7 +52,7 @@ This feature serves to mark the desired step as disabled, so users cannot click 
 ![Disabled step](images/disabled-step-example.png)
 
 ````CSHTMl
-* Stepper with one disabled step. *@
+@* Stepper with one disabled step. *@
 
 <div style="width:700px">
     <TelerikStepper>

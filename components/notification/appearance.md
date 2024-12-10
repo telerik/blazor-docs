@@ -159,7 +159,7 @@ There are built-in themes for the most common notifications such as Success, Inf
 
     public void AddColoredNotifications()
     {
-        var fields = typeof(Telerik.Blazor.ThemeColors)
+        var fields = typeof(Telerik.Blazor.ThemeConstants.Button.ThemeColor)
                 .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
                    System.Reflection.BindingFlags.FlattenHierarchy)
                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
@@ -170,10 +170,10 @@ There are built-in themes for the most common notifications such as Success, Inf
             var color = currentField.GetValue(null).ToString();
 
             NotificationReference.Show(new NotificationModel()
-            {
-                Text = $"Notification with color theme - {color}",
-                ThemeColor = $"{color}"
-            });
+                {
+                    Text = $"Notification with color theme - {color}",
+                    ThemeColor = $"{color}"
+                });
         }
     }
 }

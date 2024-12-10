@@ -162,6 +162,7 @@ The table below lists the PanelBar methods. Also consult the [PanelBar API](/bla
 | --- | --- |
 | `Rebind` | [Refreshes the component data]({%slug panelbar-refresh-data%}#rebind-method). |
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikPanelBar @ref="@PanelBarRef" .../>
 
