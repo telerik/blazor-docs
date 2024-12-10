@@ -92,6 +92,6 @@ If you want to support panning and zooming the custom image in the Map, you will
 
 ## See Also
 
-* [Map Overview]({%slug %})
+* [Map Overview]({%slug components/map/overview%})
 * [Markers in Map for Blazor]({%slug components/map/layers/marker%})
 * [Tile Layer in Map for Blazor]({%slug components/map/layers/tile%})
