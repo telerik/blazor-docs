@@ -14,6 +14,7 @@ The `TooltipTemplate` provides you with full control over the rendering of the T
 
 The `TooltipTemplate` receives a context of type `object`, that can be cast to `TooltipTemplateContext`. It has the following properties available for display:
 
+<div class="skip-repl"></div>
 ````CSHTML
     <TooltipTemplate>
         <h4>@(((TooltipTemplateContext)context).Title)</h4>

@@ -196,7 +196,7 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
                 Id = LastDependencyId++,
                 PredecessorId = (int)args.PredecessorId,
                 SuccessorId = (int)args.SuccessorId,
-                Type = args.Type
+                Type = (int)args.Type
             };
 
         Dependencies.Add(dependency);
