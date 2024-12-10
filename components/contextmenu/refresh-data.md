@@ -96,7 +96,7 @@ In this article:
             },
             new MenuModel()
             {
-                Text = "Wrench Icon,
+                Text = "Wrench Icon",
                 Icon = SvgIcon.Wrench,
             },
             new MenuModel()

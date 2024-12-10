@@ -158,6 +158,7 @@ You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fo
 
 When using a model with nested objects and fields, specify their `Field` settings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
+<div class="skip-repl"></div>
 ````CSHTML
 @using System.Dynamic
 @using System.ComponentModel.DataAnnotations
@@ -231,10 +232,10 @@ You can use third-party validation libraries that integrate with the standard `E
 
 >note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
 
-<div class="skip-repl"></div>
 
 >caption Using FluentValidation
 
+<div class="skip-repl"></div>
 ````CSHTML
 @using Microsoft.AspNetCore.Components.Forms
 @using FluentValidation

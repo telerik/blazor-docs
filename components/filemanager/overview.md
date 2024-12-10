@@ -367,6 +367,7 @@ The available FileManager methods are:
 
 * `Rebind` - refreshes the FileManager data.
 
+<div class="skip-repl"></div>
 ````CSHTML
 <TelerikFileManager Data="@Data"
                     @ref="@FileManagerRef" />

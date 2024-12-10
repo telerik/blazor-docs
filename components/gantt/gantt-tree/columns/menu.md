@@ -52,7 +52,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
     <GanttColumns>
         <GanttColumn Field="@nameof(FlatModel.Title)" ShowColumnMenu="false">
         </GanttColumn>
-        <GanttColumn Field="@nameof(FlatModel.PercentComplete)"
+        <GanttColumn Field="@nameof(FlatModel.PercentComplete)">
         </GanttColumn>
         <GanttColumn Field="@nameof(FlatModel.Start)">
         </GanttColumn>

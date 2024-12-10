@@ -30,8 +30,8 @@ A key difference in the behavior from the [filter row]({%slug gantt-filter-row%}
 ````CSHTML
 @* Filter menu in the column header *@
 
-<<TelerikGantt Data="@Data"
-              Width="100%"
+<TelerikGantt Data="@Data"
+              Width="900px"
               Height="600px"
               IdField="Id"
               FilterMode="@GanttFilterMode.FilterMenu"
