@@ -103,7 +103,7 @@ The example below shows how to:
 The Grid optimizes the UI renders after data operations. If you are using child components inside Grid column templates, <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/element-component-model-relationships" target="_blank">set the `@key` attribute to these components to ensure that they always show the correct values and content after filtering, paging, and sorting</a>.
 
 >caption Seting @key to child components inside a Grid column template
-
+<div class="skip-repl"></div>
 ````Home.razor
 @using YourAppName.Data
 
