@@ -133,6 +133,14 @@ The following table lists Scheduler parameters, which are not discussed elsewher
 | `Height` | `string` | A `height` style in [any supported unit]({%slug common-features/dimensions%}). |
 | `Width` | `string` | A `width` style in [any supported unit]({%slug common-features/dimensions%}). |
 
+## Scheduler Reference and Methods
+
+To execute Scheduler methods, obtain reference to the component instance with `@ref`.
+
+| Method  | Description |
+|---------|-------------|
+| `Rebind` | Refreshes the component data. |
+| `Refresh` | Use the method to programmatically re-render the Scheduler. |
 
 ## Next Steps
 
