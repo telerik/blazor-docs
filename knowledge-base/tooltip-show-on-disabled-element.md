@@ -36,7 +36,7 @@ To display a Tooltip for a disabled button, wrap the disabled button within anot
 
 Here's an example demonstrating how to implement this solution:
    
-CSHTML````
+````RAZOR
 <div class="disabled-button" style="width: fit-content;">
     <TelerikButton Enabled="false">Hover me</TelerikButton>
 </div>
