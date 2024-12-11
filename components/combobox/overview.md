@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor 
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) enable features like filtering and clear button
 
->caption Combobox [data binding](data-bind) with two-way value binding
+>caption Combobox [data binding](slug://components/combobox/databind) with two-way value binding
 
 ````CSHTML
 Selected value: @selectedValue

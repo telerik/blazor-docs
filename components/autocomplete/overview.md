@@ -41,7 +41,7 @@ User input: @AutoCompleteValue
 }
 ````
 
->tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](../combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
+>tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](slug://components/combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
 
 ## Data Binding
 

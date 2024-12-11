@@ -20,7 +20,7 @@ The Blazor DropDownList component allows the user to choose an option from a pre
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) Set the `Value` property to the initial value of the model.
 
->caption DropDownList [data binding](data-bind), two-way value binding, and main features
+>caption DropDownList [data binding](slug://components/dropdownlist/databind), two-way value binding, and main features
 
 ````RAZOR
 Selected value: @selectedValue

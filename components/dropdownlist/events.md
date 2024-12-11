@@ -167,7 +167,7 @@ You can also call remote data through `async` operations.
 }
 ````
 
->tip This example uses plain strings for brevity, you can use full models - see the [data binding](data-bind) article for examples.
+>tip This example uses plain strings for brevity, you can use full models - see the [data binding](slug://components/dropdownlist/databind) article for examples.
 
 
 >caption Filter large local data through the Telerik DataSource extensions

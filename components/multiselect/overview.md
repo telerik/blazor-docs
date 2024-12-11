@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
 
->caption MultiSelect two-way value binding, main features, and simple [data binding](data-bind)
+>caption MultiSelect two-way value binding, main features, and simple [data binding](slug://multiselect-databind)
 
 ````CSHTML
 @* Main features and simple data binding for the suggestions and the Value *@

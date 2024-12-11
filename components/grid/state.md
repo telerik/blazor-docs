@@ -422,7 +422,7 @@ State properties that pertain to data items (for example, edited item or selecte
 
 ## Examples
 
-You can find multiple examples for using the Grid state in the following [Knowledge Base articles](/blazor-ui/knowledge-base):
+You can find multiple examples for using the Grid state in the following [Knowledge Base articles](/knowledge-base):
 
 * [Save and load the Grid state from `localStorage`]({%slug grid-kb-save-load-state-localstorage%})
 * [Save the Grid state in a WebAssembly app]({%slug grid-kb-save-state-in-webassembly%})

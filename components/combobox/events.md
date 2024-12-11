@@ -244,7 +244,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 }
 ````
 
->tip This example uses plain strings for brevity, you can use full models - see the [data binding](data-bind) article for examples. You can also use [custom values](custom-value).
+>tip This example uses plain strings for brevity, you can use full models - see the [data binding](slug://components/combobox/databind) article for examples. You can also use [custom values](slug://components/combobox/custom-value).
 
 
 >caption Filter large local data through the Telerik DataSource extensions

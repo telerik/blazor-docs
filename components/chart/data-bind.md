@@ -159,7 +159,7 @@ Separate fields for series categories
 }
 ````
 
->tip You can define [multiple x-axes](multiple-axes) to avoid this behavior and have each series populate its own x-axis.
+>tip You can define [multiple x-axes](slug://components/chart/multiple-axes) to avoid this behavior and have each series populate its own x-axis.
 
 >caption If category values match, they will be combined
 

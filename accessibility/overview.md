@@ -22,7 +22,7 @@ Accessibility consists of several aspects:
 
 A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov/sell/vpat/) is a document that explains how information and communication technology (ICT) products such as software, hardware, electronic content, and support documentation meet (conform to) the Revised 508 Standards for IT accessibility.
 
-> You can review and download the latest version of the Telerik UI for Blazor VPAT document <a href="assets/BlazorVPAT.doc" download>here</a>.
+> You can review and download the latest version of the Telerik UI for Blazor VPAT document [here](./assets/BlazorVPAT.doc).
 
 ## See Also
 
