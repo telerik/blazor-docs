@@ -1,0 +1,15 @@
+title: Wai-Aria Support
+component: Spreadsheet
+from: /aria/spreadsheet_aria.md
+dest: ../components/spreadsheet/accessibility/wai-aria-support.md
+slug: spreadsheet-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the Spreadsheet keyboard navigation works, refer to the [Blazor Spreadsheet Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/spreadsheet/keyboard-navigation).
+
+    ## See Also
+
+    * [Blazor Spreadsheet Demos](https://demos.telerik.com/blazor-ui/spreadsheet/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

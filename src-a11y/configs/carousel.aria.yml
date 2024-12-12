@@ -5,8 +5,10 @@ dest: ../components/carousel/accessibility/wai-aria-support.md
 slug: carousel-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Carousel keyboard navigation works, refer to the [Blazor Carousel Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Carousel Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

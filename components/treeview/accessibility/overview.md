@@ -17,7 +17,7 @@ WCAG 2.2 introduces the ["Dragging Movements"](https://www.w3.org/WAI/WCAG22/Und
 
 In our illustrative example below, we've showcased the item reordering actions, achievable through our [Context Menu]({%slug contextmenu-integration%}#context-menu-for-a-treeview-node). Our goal is to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
-The following example demonstrates the [accessibility compliance of the TreeView component]({%slug treeview-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
+The following example demonstrates the [accessibility compliance of the TreeView component]({%slug treeview-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug accessibility-overview%}#color-contrast).
 
 >caption TreeView accessibility compliance example
 

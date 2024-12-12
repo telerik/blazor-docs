@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor Grid provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Grid is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -37,7 +37,7 @@ The Grid is a composite component that consists of 4 logically separated structu
 
 Grid Toolbar follows the specification of the ToolBar component.
 
-[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
+[ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -50,7 +50,7 @@ Grid Toolbar follows the specification of the ToolBar component.
 
 Grid Grouping Header follows the specification of the ToolBar component.
 
-[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
+[ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -156,7 +156,7 @@ The Aggregates totals are placed within a `<tfoot>` element in the Content `<tab
 
 For the Grid Pager WAI-ARIA spec, please review the Pager component.
 
-[Pager accessibility specification](slug://pager-wai-aria-support)
+[Pager accessibility specification]({{pager_a11y_link}})
 
 #### Grid selection aggregates
 
@@ -196,8 +196,10 @@ The Grid has been tested with the following screen readers and browsers combinat
 
 
 
+## Keyboard Navigation
+
+For details on how the Grid keyboard navigation works, refer to the [Blazor Grid Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Grid Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: DropDownButton
+from: /aria/dropdownbutton_aria.md
+dest: ../components/dropdownbutton/accessibility/wai-aria-support.md
+slug: dropdownbutton-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the DropDownButton keyboard navigation works, refer to the [Blazor DropDownButton Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/dropdownbutton/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
