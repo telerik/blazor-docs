@@ -419,13 +419,17 @@ Use the `OnUpload` and [`OnRemove`](#onremove) event handlers to send additional
 * [CSRF/XSRF cross-site antiforgery tokens]({%slug upload-kb-validateantiforgerytoken%})
 * Any metadata related to the app business logic
 
-To send **cookies** with the upload request, set the [`WithCredentials` component parameter]({%slug upload-overview%}#upload-parameters) to `true`.
+To send cookies with the upload request, set the [`WithCredentials` component parameter]({%slug upload-overview%}#upload-parameters) to `true`.
+
+To send a complex object or a collection, serialize it first. Receive it as a `string` argument in the controller method and deserialize it.
 
 >caption Using the OnUpload event to send custom data to the controller
 
 <div class="skip-repl"></div>
 
 ````Razor
+@using System.Text.Json
+
 <TelerikUpload OnUpload="@OnUploadHandler" />
 
 @code {
@@ -436,20 +440,30 @@ To send **cookies** with the upload request, set the [`WithCredentials` componen
             args.IsCancelled = true;
         }
 
-        args.RequestData.Add("dataKey", "dataValue"); // for example, user name
-        args.RequestHeaders.Add("headerKey", "headerValue"); // for example, authentication token
+        string[] collection = { "foo", "bar", "baz" };
+
+        args.RequestHeaders.Add("headerKey", "headerValue"); // for example, token
+        args.RequestData.Add("dataKey", "dataValue"); // for example, new file name
+        args.RequestData.Add("collectionKey", JsonSerializer.Serialize(collection));
     }
 }
 ````
 ````Controller
+using System.Text.Json;
+
 // Get the custom data and header values from additional method arguments
 [HttpPost]
-public async Task<IActionResult> Save(IFormFile files, [FromForm] string dataKey, [FromHeader] string headerKey)
+public async Task<IActionResult> Save(
+    IFormFile files,
+    [FromHeader] string headerKey,
+    [FromForm] string dataKey,
+    [FromForm] string collectionKey)
 {
     // ...
 
-    string customData = dataKey;
     string customHeader = headerKey;
+    string customData = dataKey;
+    string[]? customCollection = JsonSerializer.Deserialize<string[]>(collectionKey);
 
     // ...
 }
@@ -462,8 +476,13 @@ public async Task<IActionResult> Save(IFormFile files)
 {
     // ...
 
-    string customData = Request.Form["dataKey"];
-    string customHeader = Request.Headers["headerKey"];
+    string? customHeader = Request.Headers["headerKey"];
+    string? customData = Request.Form["dataKey"];
+
+    if (Request.Form.ContainsKey("collectionKey"))
+    {
+        string[]? customCollection = JsonSerializer.Deserialize<string[]>(Request.Form["collectionKey"]!);
+    }
 
     // ...
 }
