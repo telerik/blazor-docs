@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: Upload
+from: /aria/upload_aria.md
+dest: ../components/upload/accessibility/wai-aria-support.md
+slug: upload-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the Upload keyboard navigation works, refer to the [Blazor Upload Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/upload/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

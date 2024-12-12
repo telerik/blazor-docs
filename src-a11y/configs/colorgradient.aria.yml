@@ -5,8 +5,10 @@ dest: ../components/colorgradient/accessibility/wai-aria-support.md
 slug: colorgradient-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the ColorGradient keyboard navigation works, refer to the [Blazor ColorGradient Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor ColorGradient Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
