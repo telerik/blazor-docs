@@ -37,8 +37,8 @@ To style filtered columns in a Telerik Grid for Blazor:
 >caption Grid with styled filtered column.
 
 `````CSHTML
-@using Telerik.DataSource.Extensions
 @using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
 <style>
     .highlighted-column {
