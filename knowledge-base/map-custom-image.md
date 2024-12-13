@@ -88,7 +88,7 @@ This method is ideal when using the Map in a static context without the need for
 
 ### Pannable and Zoomable Map
 
-If you want to support panning and zooming the custom image in the Map, you will need to mimic the default Map behavior targeting the [Tile layer]({%slug components/map/layers/tile%}). For that purpose, divide your image into small pieces - separate images that build up the whole picture and serve them to the Map as tiles following the Tile layer specifics.
+If you want to support panning and zooming the custom image in the Map, you will need to mimic the default Map behavior targeting the [Tile layer]({%slug components/map/layers/tile%}). For that purpose, divide your image into small separate pieces that build up the whole map image and serve them to the Map component as tiles compliant to the WGS 84 coordinate system.
 
 ## See Also
 
