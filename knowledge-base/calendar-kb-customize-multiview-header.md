@@ -26,7 +26,7 @@ How to customize the header of a MultiView Calendar to display the month name ab
 
 ## Solution
 
-To display the month name above each view in a MultiView Calendar, use the [`HeaderTemplate`]({%slug calendar-templates-header%}) of the TelerikCalendar and apply custom CSS for styling for label positioning. The following example demonstrates how to achieve this customization. Note that it is applicable only for a horizontal layout
+To display the month name above each view in a MultiView Calendar, use the [`HeaderTemplate`]({%slug calendar-templates-header%}) of the TelerikCalendar and apply custom CSS for styling for label positioning. The following example demonstrates how to achieve this customization. Note that the suggested approach is applicable only for `Horizontal` Calendar `Orientation`.
 
 >caption MultiView Calendar with Header Template.
 
