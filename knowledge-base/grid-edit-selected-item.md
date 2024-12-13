@@ -46,7 +46,7 @@ You can use the regular [TelerikButton]({%slug components/button/overview%}) and
 
 ### Sample Implementation
 
-````CSHTML
+````RAZOR
 @*Edit the SelectedItem with buttons located in the GridToolBarTemplate*@
 
 <TelerikGrid Data="@GridData"

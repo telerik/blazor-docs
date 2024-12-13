@@ -20,7 +20,7 @@ You must also provide the correct value for the `HasChildren` field - for items 
 
 >caption Example of flat data in a PanelBar
 
-````CSHTML
+````RAZOR
 @* Provide self-referencing flat data to the Data parameter *@
 
 <div style="width: 30%;">

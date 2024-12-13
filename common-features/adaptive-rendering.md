@@ -45,7 +45,7 @@ Optionally, you may set the `Title` and `Subtitle` parameters to provide custom 
 >caption Enable the adaptive rendering
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 // NOTE: The configurations below includes only the DropDownList, but it is applicable to all of the above listed components
 
 // Adapts to the screen size to use the appropriate rendering.

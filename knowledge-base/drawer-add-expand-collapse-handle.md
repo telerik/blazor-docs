@@ -39,7 +39,7 @@ To achieve the desired result you can try the following:
 
 
 
-````CSHTML
+````RAZOR
 @* Add Expand/Collapse handle to toggle the Drawer *@
 
 <style>

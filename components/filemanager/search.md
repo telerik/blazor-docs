@@ -16,7 +16,7 @@ The `FileManager` provides an inbuilt Search functionality that allows you to fi
 
 ![Blazor FileManager Search](images/filemanager-search.png)
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

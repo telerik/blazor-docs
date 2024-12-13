@@ -33,7 +33,7 @@ When the data collection is passed to the [Gantt Tree]({%slug gantt-tree%}), the
 
 >caption Basic configuration of the Gantt Chart.
 
-````CSHTML
+````RAZOR
 @* General Gantt Chart with its hierarchical data binding. 80% of this snippet is hardcoded data that is designed to look realistic *@
 
 <TelerikGantt Data="@Data"
@@ -222,7 +222,7 @@ The table below lists the Gantt methods. Also consult the [Gantt API](/blazor-ui
 | `Rebind` | [Refreshes the component data]({%slug gantt-refresh-data%}#rebind-method). |
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikGantt @ref="@GanttRef" .../>
 
 @code{

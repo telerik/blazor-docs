@@ -24,7 +24,7 @@ You can control it through the `Position` parameter, which takes a member of the
 
 >caption Explore the possible tooltip positions
 
-````CSHTML
+````RAZOR
 @* Setting a position is not mandatory, it defaults to Top *@
 
 <select @bind=@position>

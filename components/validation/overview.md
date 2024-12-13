@@ -28,7 +28,7 @@ These components add customization options on top of the standard validation too
 
 You can seamlessly integrate the validation tools with the [Form Component]({%slug form-overview%}). To avoid duplication of validation messages, set the [ValidationMessageType]({%slug form-overview%}#form-parameters) parameter of the form to `FormValidationMessageType.None`. You can also use the validation components in [templates with custom editors]({%slug form-formitems-template%}) that you can define with your own code.
 
-````CSHTML
+````RAZOR
 @* Disable the default validation messages from the Telerik Form and use the validation tools instead *@
 
 @using System.ComponentModel.DataAnnotations
@@ -71,7 +71,7 @@ You can seamlessly integrate the validation tools with the [Form Component]({%sl
 
 ## Integration with the Microsoft EditForm
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@person">

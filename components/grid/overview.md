@@ -26,7 +26,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 >caption Get started with the Blazor Grid
 
-````CSHTML
+````RAZOR
 @* Telerik Blazor Grid with some common features *@
 
 <TelerikGrid Data="@GridData"
@@ -181,7 +181,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 >caption How to obtain a Grid reference and call methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
 
 <TelerikGrid @ref="TheGrid"

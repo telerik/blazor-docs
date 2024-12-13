@@ -14,7 +14,7 @@ By default columns display the name of the corresponding field or their `Title` 
 
 >caption Sample Header Template
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

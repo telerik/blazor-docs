@@ -26,7 +26,7 @@ All parameters are of type `string`.
 
 ## Example
 
-````CSHTML
+````RAZOR
 
 @* Format the dates in the Gantt Timeline by using the corresponding view parameter *@
 

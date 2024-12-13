@@ -39,7 +39,7 @@ There are 3 ways to improve the user experience and make dropping easier:
 
 The example below demonstrates the first two options:
 
-````CSHTML
+````RAZOR
 <div class="box">
     <p>Source Grid</p>
 

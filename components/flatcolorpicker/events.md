@@ -27,7 +27,7 @@ Note that the `OnChange` event may also fire when the actual selected color has 
 
 The event type is `EventCallback<object>`. The `OnChange` event does not prevent two-way binding for the `Value` attribute.
 
-````CSHTML
+````RAZOR
 @* Handle the FlatColorPicker OnChange event *@
 
 <p>@EventLog</p>
@@ -51,7 +51,7 @@ The `ValueChanged` event fires when the user selects a new color and the compone
 
 The event type is `EventCallback<string>`. Using `ValueChanged` requires one-way binding for the `Value` attribute and manual value update in the event handler.
 
-````CSHTML
+````RAZOR
 @* Handle the FlatColorPicker ValueChanged event *@
 
 <TelerikFlatColorPicker Value="@Color" ValueChanged="@FlatColorPickerValueChanged" />
@@ -72,7 +72,7 @@ The `ViewChanged` event fires when the user toggles between the component views.
 
 The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires one-way binding for the `View` attribute and manual value update in the event handler.
 
-````CSHTML
+````RAZOR
 @* Handle the FlatColorPicker ViewChanged event *@
 
 <TelerikFlatColorPicker @bind-Value="@Color" View="@View" ViewChanged="@FlatColorPickerViewChanged" />

@@ -30,7 +30,7 @@ The examples below use binding to string data for simplicity, but you can use [f
 
 >caption Handle ValueChanged with list values
 
-````CSHTML
+````RAZOR
 <ul>
     <li>ComboBox Value: @ComboValue</li>
     <li>Event Log: @EventLog</li>
@@ -61,7 +61,7 @@ The examples below use binding to string data for simplicity, but you can use [f
 
 >caption Handle ValueChanged with custom values - the event fires on every keystroke
 
-````CSHTML
+````RAZOR
 <ul>
     <li>ComboBox Value: @ComboValue</li>
     <li>Event Log: @EventLog</li>
@@ -111,7 +111,7 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 
 >caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 
-````CSHTML
+````RAZOR
 @result
 <br />
 @selectedValue
@@ -143,7 +143,7 @@ See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%
 
 >caption Handle OnChange with custom values - the event fires on blur or enter
 
-````CSHTML
+````RAZOR
 @result
 <br />
 @selectedValue
@@ -194,7 +194,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
 
 
-````CSHTML
+````RAZOR
 <p>@SelectedValue</p>
 
 <TelerikComboBox TItem="@String" TValue="@String"
@@ -249,7 +249,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >caption Filter large local data through the Telerik DataSource extensions
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <p>Selected Id: @SelectedValue</p>
@@ -316,7 +316,7 @@ The event handler receives as an argument an `ComboBoxOpenEventArgs` object that
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikComboBox Data="@Items"
                  OnOpen="@OnComboBoxPopupOpen"
                  ValueField="@nameof(ItemDescriptor.ItemId)"
@@ -357,7 +357,7 @@ The event handler receives as an argument an `ComboBoxCloseEventArgs` object tha
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikComboBox Data="@Items"
@@ -404,7 +404,7 @@ The event handler receives as an argument an `ComboBoxItemRenderEventArgs<TItem>
 | `Item` | The current item that renders in the ComboBox. |
 | `Class` | The custom CSS class that will be added to the item. |
 
-````CSHTML
+````RAZOR
 @* Customize an item in the ComboBox *@
 
 <style>
@@ -451,7 +451,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikComboBox @bind-Value="@TheValue" Data="@Suggestions"

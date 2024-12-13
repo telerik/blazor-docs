@@ -41,7 +41,7 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
 
 >caption Search Grid Programmatically on Button Click
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

@@ -4,7 +4,7 @@
 
 
 #conditional-style-row-and-cell-render
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for a cell and row *@
 
 <style>
@@ -172,7 +172,7 @@ A multi-header column does not show up in the list of columns in the column choo
 The state of a multi-header column is handled in the same way as a standard column. The columns in the state are listed in a flat list in the order of definition. For example, for the following setup:
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikGrid>
     <GridColumns>
         <GridColumn Title="column 1">

@@ -49,7 +49,7 @@ To mark specific data points as "special", follow these steps:
 
 >caption Customizing individual markers
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
 

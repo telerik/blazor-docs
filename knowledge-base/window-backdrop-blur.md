@@ -33,7 +33,7 @@ To adjust the blur amount, override the built-in CSS styles of the background. U
 
 This code will affect all modal Dialogs and Windows on the web page.
 
-````CSHTML
+````RAZOR
 <style>
     div.k-overlay {
         /* prerequisites to make the blurring work with this CSS class */

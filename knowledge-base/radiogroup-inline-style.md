@@ -35,7 +35,7 @@ The RadioGroup renders an `<ul>` element which is block-level by default and fal
 
 >caption Inline RadioGroup
 
-````CSHTML
+````RAZOR
 Before RadioGroup ...
 
 <TelerikRadioGroup Data="@RadioItems"

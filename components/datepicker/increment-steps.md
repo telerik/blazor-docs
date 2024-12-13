@@ -23,7 +23,7 @@ All values default to `1` to provide every possible option. If you set a value l
 
 >caption Change the steps (intervals) in the date picker
 
-````CSHTML
+````RAZOR
 @selectedDate.ToString("yyyy MMM dd")
 
 <TelerikDatePicker Format="yyyy MMM dd" @bind-Value="@selectedDate" Width="250px">

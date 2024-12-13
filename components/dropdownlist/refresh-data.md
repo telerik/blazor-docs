@@ -23,7 +23,7 @@ In this article:
 
 You can refresh the data of the DropDownList by using the `Rebind` method exposed to the reference of the TelerikDropDownList. If you have manually defined the [OnRead event]({%slug components/dropdownlist/events%}#onread) the business logic defined in its event handler will be executed. 
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
 
 @using Telerik.DataSource.Extensions
@@ -75,7 +75,7 @@ You can refresh the data of the DropDownList by using the `Rebind` method expose
 
 >caption Bind the DropDownList component to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option to see how the DropDownList reacts to the change. *@
 
 @using System.Collections.ObjectModel
@@ -138,7 +138,7 @@ You can refresh the data of the DropDownList by using the `Rebind` method expose
 
 >caption Create new collection reference to refresh the DropDownList data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option to see how the DropDownList reacts to the change. *@
 
 <h4>Add option</h4>

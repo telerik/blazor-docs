@@ -33,7 +33,7 @@ The `FillMode` toggles the background and border of the TelerikButton. You can s
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{ 
@@ -66,7 +66,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in rounded edges of the button.  *@
 
 @{
@@ -98,7 +98,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
 
 >caption The built-in button sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Button.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -137,7 +137,7 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
 
 >caption The built-in ThemeColors
 
-````CSHTML
+````RAZOR
 @* The built-in button colors *@
 
 @{

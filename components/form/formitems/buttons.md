@@ -18,7 +18,7 @@ When you add that template, the form will no longer render the built-in Blazor F
 
 You can provide a standard [Telerik UI for Blazor Button]({%slug components/button/overview%}) to allow the user to clear the contents of the editors in the Telerik Form. Refer to below Blazor Form Submit example for more details.
 
-````CSHTML
+````RAZOR
 @* Add a Clear Button to the Telerik Form. We also add a Submit button *@
 
 @inject IServiceProvider ServiceProvider

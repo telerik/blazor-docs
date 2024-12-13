@@ -27,7 +27,7 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
 
 >caption Handle the Blazor ChipList Events
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListSource"
                  SelectionMode="@ChipListSelectionMode.Multiple"
                  SelectedItems="@ChipListSelectedItems"

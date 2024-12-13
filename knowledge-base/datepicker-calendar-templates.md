@@ -45,7 +45,7 @@ The components are wrapped in a container with a `position:relative` style. This
 
 >caption Create a DatePicker with separate DateInput, Button, Calendar and AnimationContainer
 
-````CSHTML
+````RAZOR
 TelerikDateInput:
 <div class="picker-wrapper">
     <TelerikDateInput @bind-Value="@DateValue" />

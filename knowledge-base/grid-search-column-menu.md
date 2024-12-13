@@ -40,7 +40,7 @@ This KB article answers the following questions:
 
 >caption Change search results when the user hides or shows a column
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid @ref="@GridRef"

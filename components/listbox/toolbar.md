@@ -55,7 +55,7 @@ The example below omits all required event handlers for brevity. Consult the [Li
 
 >caption Setting up the ListBox Toolbar
 
-````CSHTML
+````RAZOR
 @* ListBox and Button handlers are not defined for brevity. *@
 
 <h2>Select ListBox toolbar position</h2>

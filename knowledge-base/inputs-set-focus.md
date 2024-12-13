@@ -69,7 +69,7 @@ The example below showcases it for a few of them, but it is available for all in
 
 >caption Focus Telerik Blazor input component programmatically
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@FocusTextbox">Focus TextBox</TelerikButton>
 <TelerikButton OnClick="@FocusDropdown">Focus DropDownList</TelerikButton>
 
@@ -110,7 +110,7 @@ The `FocusAsync` method relies on `JSInterop`, which in turn relies on the compo
 
 >caption Focus on page load and select textbox content
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <TelerikMaskedTextBox @ref="@MaskedTextBoxRef"

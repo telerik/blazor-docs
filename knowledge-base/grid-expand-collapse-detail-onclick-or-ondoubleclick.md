@@ -35,7 +35,7 @@ In the event handlers, get the [Grid State]({%slug grid-state%}) and modify its 
 
 >caption Expand/Collapse Detail page OnRowClick
 
-````CSHTML
+````RAZOR
 @*Handle the OnRowClick event to programmatically expand/collapse the DetailTemplate*@
 
 <TelerikGrid Data="@salesTeamMembers" 
@@ -115,7 +115,7 @@ In the event handlers, get the [Grid State]({%slug grid-state%}) and modify its 
 
 >caption Expand/Collapse Detail page OnRowDoubleClick
 
-````CSHTML
+````RAZOR
 @*Handle the OnRowDoubleClick event to programmatically expand/collapse the DetailTemplate*@
 
 <TelerikGrid Data="@salesTeamMembers" 

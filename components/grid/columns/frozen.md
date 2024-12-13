@@ -26,7 +26,7 @@ This article you can observe Freezing different columns. The examples are separa
 
 ![gif of statically locked first and last columns](images/frozen-first-last.gif)
 
-````CSHTML
+````RAZOR
 @if (!string.IsNullOrEmpty(Result))
 {
     <div class="alert alert-info w-25">@Result</div>
@@ -105,7 +105,7 @@ This article you can observe Freezing different columns. The examples are separa
 
 ![gif of two statically frozen columns](images/FrozenSimple.gif)
 
-````CSHTML
+````RAZOR
 @*You can observe the behavior of a frozen column that is neither first, nor last*@
 
 <TelerikGrid Data="@GridData"

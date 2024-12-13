@@ -45,7 +45,7 @@ The following example demonstrates the described phenomenon without Telerik UI f
 
 >caption File Input Security in Safari
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <p><input type="file" id="fileInput" /></p>
@@ -79,7 +79,7 @@ The only possible way to open a FileSelect or Upload dialog programmatically is 
 
 >caption Open FileSelect or Upload programmatically in Safari
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <p>

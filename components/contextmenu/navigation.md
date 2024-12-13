@@ -20,7 +20,7 @@ To use the Context Menu for navigating between pages:
 
 >caption Use the Context Menu to navigate between pages
 
-````CSHTML
+````RAZOR
 @* This a basic example of a Context Menu used as Navigation. *@
 
 <div id="navigation-trigger" style="height: 100px; background: yellow;">

@@ -16,7 +16,7 @@ By default, the list is vertical, and you can change that through the `Layout` p
 
 >caption Horizontal and Vertical layouts in the Telerik Blazor Button Group Component
 
-````CSHTML
+````RAZOR
 @* If you want a horizontal list, you can set the value directly to the parameter *@
 
 <select @bind="@theLayout">
@@ -39,7 +39,7 @@ In the `Horizontal` layout mode, the individual items do not create a layout and
 
 >caption Items can fall on several lines in Horizontal layout when their container cannot fit them all
 
-````CSHTML
+````RAZOR
 @* This code just creates 20 items and puts them in a container with small width *@
 
 <div style="width: 500px; border: 1px solid red;">

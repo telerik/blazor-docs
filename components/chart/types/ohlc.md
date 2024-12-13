@@ -31,7 +31,7 @@ The <a href="https://www.telerik.com/blazor-ui/ohlc-chart" target="_blank">OHLC 
 
 >caption An OHLC chart that shows product financial stock data
 
-````CSHTML
+````RAZOR
 @* OHLC chart *@
 
 <TelerikChart Height="480px" Width="640px">

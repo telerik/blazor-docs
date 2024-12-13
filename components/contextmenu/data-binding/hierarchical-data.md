@@ -20,7 +20,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption Example of using hierarchical data in a context menu
 
-````CSHTML
+````RAZOR
 @* Hierarchical menu data source and navigation through different views *@
 
 <div class="menuTarget">

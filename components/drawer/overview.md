@@ -28,7 +28,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 >caption Basic configuration of the Drawer.
 
-````CSHTML
+````RAZOR
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
@@ -127,7 +127,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 
 >caption Get a reference to the drawer and use its methods
 
-````CSHTML
+````RAZOR
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"

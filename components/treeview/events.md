@@ -94,7 +94,7 @@ For more details and examples, see the [Treeview Drag and Drop]({%slug treeview-
 
 >caption Handle Blazor TreeView Events
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@TreeViewData"
                  CheckBoxMode="@TreeViewCheckBoxMode.Single"
                  SelectionMode="@TreeViewSelectionMode.Single"

@@ -24,7 +24,7 @@ The <a href = "https://www.telerik.com/blazor-ui/card" target="_blank">Card for 
 
 The below snippet demonstrates the setup of a Card component with all building blocks implemented. You don't have to use them all.
 
-````CSHTML
+````RAZOR
 @* Blazor Card with all building blocks included *@
 
 <TelerikCard Width="300px">

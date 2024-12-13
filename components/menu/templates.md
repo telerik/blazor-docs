@@ -28,7 +28,7 @@ The following example shows how to render `<NavLink>` tags inside the Menu and u
 
 >caption Use Menu item template for navigation
 
-````CSHTML
+````RAZOR
 <h3>Menu with ItemTemplate</h3>
 
 <TelerikMenu Data="@MenuItems">
@@ -159,7 +159,7 @@ The example below shows a Menu configuration that is suitable for use in `MainLa
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @inject NavigationManager NavManager
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">

@@ -38,7 +38,7 @@ This KB article answers the following questions:
 
 >caption AutoSize TextArea up to a maximum height
 
-````CSHTML
+````RAZOR
 <TelerikTextArea @bind-Value="@TextValue"
                  Width="500px"
                  ResizeMode="TextAreaResizeMode.Auto"

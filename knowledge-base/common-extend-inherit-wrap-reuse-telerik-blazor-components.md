@@ -72,7 +72,7 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 @page "/"
 
 @using YourAppName.BaseComponents
@@ -164,7 +164,7 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
     }
 }
 ````
-````ReusableComboBox.razor
+````RAZOR ReusableComboBox.razor
 @using System.Linq.Expressions
 
 @typeparam TItem
@@ -232,7 +232,7 @@ Adjust the `YourAppName.BaseComponents` namespace in `Home.razor` and `Inherited
     }
 }
 ````
-````InheritedComboBox.cs
+````C# InheritedComboBox.cs
 using Microsoft.AspNetCore.Components;
 using Telerik.Blazor.Components;
 

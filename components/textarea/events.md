@@ -24,7 +24,7 @@ The `OnChange` event does not prevent you from using two-way data binding.
 
 >caption Handle OnChange event
 
-````CSHTML
+````RAZOR
 @TextAreaValue
 <br />
 <TelerikTextArea @bind-Value="@TextAreaValue"
@@ -49,7 +49,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged event
 
-````CSHTML
+````RAZOR
 @TextAreaValue
 <br />
 <TelerikTextArea Value="@TextAreaValue"
@@ -78,7 +78,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikTextArea @bind-Value="@TheValue"

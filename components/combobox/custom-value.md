@@ -24,7 +24,7 @@ When custom values are typed in, there may be no selected item in the ComboBox. 
 
 >caption Allow custom user input in the combo box
 
-````CSHTML
+````RAZOR
 Selected value: @selectedValue
 <br />
 
@@ -48,7 +48,7 @@ Selected value: @selectedValue
 
 >caption How to add custom user values into the data source so they are available as items immediately
 
-````CSHTML
+````RAZOR
 @*Type a custom value, press enter or click outside. Then, open the combo again and you will see the new custom item in the list*@
 
 @ComboValue

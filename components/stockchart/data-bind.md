@@ -32,7 +32,7 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption Bind a Candlestick Stock Chart to a model
 
-````CSHTML
+````RAZOR
 @* Bind an Candlestick Stock Chart to a model *@
 
 <TelerikStockChart Width="700px"
@@ -144,7 +144,7 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption Bind a Column Stock Chart to a model
 
-````CSHTML
+````RAZOR
 @* Bind a Column Chart to a model *@ 
 
 <TelerikStockChart Height="450px"

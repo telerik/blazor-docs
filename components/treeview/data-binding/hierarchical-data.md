@@ -29,7 +29,7 @@ The example below uses two levels of hierarchy, but the same idea applies to any
 
 >caption TreeView with different model type at each all level
 
-````CSHTML
+````RAZOR
 Hierarchical data hold collections of the child items
 
 <TelerikTreeView Data="@HierarchicalData" @bind-ExpandedItems="@ExpandedItems">
@@ -96,7 +96,7 @@ Experiment with the `TreeLevels`, `RootItems` and `ItemsPerLevel` values below.
 
 >caption TreeView with random number of levels and same model type on all levels
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@HierarchicalData"
                  CheckBoxMode="@TreeViewCheckBoxMode.Multiple"
                  CheckChildren="true"

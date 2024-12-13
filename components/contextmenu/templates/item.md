@@ -20,7 +20,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >caption Use templates to implement custom navigation between views without the UrlField feature
 
-````CSHTML
+````RAZOR
 @* Use your own link elements for navigation instead of the built-in feature of the menu, and also customize the appearance of items based on some other conditions *@
 
 <div class="menuTarget">

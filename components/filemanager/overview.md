@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
 >caption Telerik Blazor FileManager
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"
@@ -368,7 +368,7 @@ The available FileManager methods are:
 * `Rebind` - refreshes the FileManager data.
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikFileManager Data="@Data"
                     @ref="@FileManagerRef" />
 

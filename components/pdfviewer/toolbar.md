@@ -56,7 +56,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
 >caption Customize the PDF Viewer toolbar
 
-````CSHTML
+````RAZOR
 <TelerikPdfViewer Data="@PdfSource">
     <PdfViewerToolBar>
         <PdfViewerToolBarCustomTool>

@@ -50,7 +50,7 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 >caption Setting up the AIPrompt ToolBar
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">
     <AIPromptToolBar>
         <AIPromptToolBarButton OnClick="@OnToolBarButtonClick">My Button</AIPromptToolBarButton>

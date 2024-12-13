@@ -35,7 +35,7 @@ The RadioGroup will look similar to a [ButtonGroup with single selection]({%slug
 
 >caption Style the RadioGroup like a ButtonGroup
 
-````CSHTML
+````RAZOR
 <h1 style="font-size:1.5rem;">RadioGroup like a ButtonGroup</h1>
 
 <p>Selected Value: <strong><code>@CurrentStatus</code></strong></p>

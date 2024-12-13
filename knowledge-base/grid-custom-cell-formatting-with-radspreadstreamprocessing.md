@@ -57,7 +57,7 @@ To customize the cell format of the exported file before it reaches the client:
 
 >caption Use RadSpreadStreamProcessing to set background to table headers
 
-````CSHTML
+````RAZOR
 @using System.IO
 @using Telerik.Documents.SpreadsheetStreaming
 

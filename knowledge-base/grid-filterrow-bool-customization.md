@@ -37,7 +37,7 @@ This KB article answers the following questions:
 
 >caption Grid with custom display values in the `FilterRow` dropdown and manual filtering.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data=@GridData FilterMode="GridFilterMode.FilterRow"

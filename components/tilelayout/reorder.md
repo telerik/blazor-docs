@@ -24,7 +24,7 @@ Reordering a tile fires the [OnReorder event]({%slug tilelayout-events%}#onreord
 
 >caption Reordering tiles in the TileLayout
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout ColumnWidth="200px"
                    RowHeight="150px"
                    Width="700px"

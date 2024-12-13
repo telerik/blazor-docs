@@ -44,7 +44,7 @@ Let's take the following grid and sample component and grid - try expanding the 
 
 >caption Sample nested component - the object parameter simulates any actual model from the app
 
-````CSHTML
+````RAZOR
 NestedComponent<br />
 
 @SomePrimitiveParam
@@ -86,7 +86,7 @@ NestedComponent<br />
 
 >caption sample grid - actual data and CRUD operations are not implemented for brevity
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@Customers"
              EditMode="@GridEditMode.Inline"
              Height="800px"
@@ -174,7 +174,7 @@ There are a few factors at play:
 
 >caption You can reproduce the same behavior without Telerik components, here is an example:
 
-````CSHTML
+````RAZOR
 @* Much simpler than the actual grid, and only simulates the expand and row click, but shows the general concept *@
 
 <div @onclick="@SimulateGridClickHandler" style="border:1px solid red;">
@@ -232,7 +232,7 @@ There are a few options you can consider:
 
 >note This is just one example that you can use as base for following the component lifecycle and investigating how to achieve the desired behavior. There can be other ways, and you can take further logic into account - such as raising and lowering flags in the CRUD events of the grid to take into account editing modes and avoid requests then too.
 
-````CSHTML
+````RAZOR
 NestedComponent<br />
 
 @SomePrimitiveParam

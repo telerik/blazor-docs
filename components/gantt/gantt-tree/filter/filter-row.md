@@ -25,7 +25,7 @@ The Gantt Chart will render a row below the column headers in the Gantt Tree wit
 
 >caption Filter Row in Telerik Gantt
 
-````CSHTML
+````RAZOR
 @* Filter row mode *@
 
 <TelerikGantt Data="@Data"
@@ -136,7 +136,7 @@ You can customize the default Filter Row behavior for each Gantt Tree column thr
 
 >caption Configure the Filter Row
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Menu*@
 
 @using Telerik.DataSource

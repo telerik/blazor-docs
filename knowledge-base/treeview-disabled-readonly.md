@@ -55,7 +55,7 @@ Normally, the event handlers should update the expanded, checked and selected it
 
 >caption Disable and enable TreeView to prevent user actions
 
-````CSHTML
+````RAZOR
 <p><label> <TelerikCheckBox @bind-Value="@EnableTreeView" /> Enable TreeView </label></p>
 
 <TelerikTreeView Data="@FlatData"

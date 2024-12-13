@@ -55,7 +55,7 @@ To change the color of all borders in the Grid or TreeList:
 
 >caption Apply custom styles to all Grid or TreeList borders
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
@@ -132,7 +132,7 @@ To change the border color of a specific Grid or TreeList column:
 
 >caption Apply custom styles to some Grid or TreeList borders
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"

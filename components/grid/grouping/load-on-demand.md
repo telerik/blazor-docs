@@ -58,7 +58,7 @@ This section contains the following examples:
 
 This example shows the basics of enabling the group load on demand - setting `LoadGroupsOnDemand="true"`. Group the grid by the Team and/or Vacation columns to see the effect.
 
-````CSHTML
+````RAZOR
 Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data="@GridData"
@@ -130,7 +130,7 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 This example shows how you can combine the virtual row scrolling feature with loading group data on demand through a remote service (mocked by a static class in this example so you can run it easily), and how to set the initial state of the grid to have grouping by default.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -274,7 +274,7 @@ To toggle how the Grid loads groups:
 
 >caption Switch the Grid group load mode
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <p>

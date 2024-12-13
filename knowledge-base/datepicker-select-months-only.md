@@ -34,7 +34,7 @@ You can also set a `Format` that shows the month and year only too.
 Here is an example of both:
 
  
-````CSHTML
+````RAZOR
 @selectedDate
 <br />
 <TelerikDatePicker @bind-Value="@selectedDate"

@@ -31,7 +31,7 @@ To enable the shared tooltip:
 
 >caption Basic configuration of a Stock Chart with Shared Tooltip
 
-````CSHTML
+````RAZOR
 @* This example shows how to enable a Shared Tooltip *@
 
 <TelerikStockChart Width="750px"
@@ -177,7 +177,7 @@ Each `Point` contains the following data:
 
 >caption Usage of the SharedTemplate
 
-````CSHTML
+````RAZOR
 @* This example shows how to use the SharedTemplate and extract information on the data points value and get the series name from the context *@
 
 <TelerikStockChart Width="750px"

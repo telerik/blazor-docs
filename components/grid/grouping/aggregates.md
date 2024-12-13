@@ -63,7 +63,7 @@ To enable aggregates:
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data=@GridData

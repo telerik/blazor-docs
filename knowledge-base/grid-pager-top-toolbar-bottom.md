@@ -44,7 +44,7 @@ If, however, you also want to have a Toolbar for some actions, do the following:
 * Add the "k-toolbar" and "k-grid-toolbar" classes to this container to inherit the Grid Toolbar styles
 * Add your custom class as well, so you can target this container and style it separately from the built-in Toolbar if needed
 
-````CSHTML
+````RAZOR
 <style>
     .k-grid-toolbar {
         padding: 0;

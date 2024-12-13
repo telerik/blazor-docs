@@ -29,7 +29,7 @@ To add a `Candlestick` chart to a stock chart component::
 
 >caption Candlestick chart that shows the deviation of stock prices.
 
-````CSHTML
+````RAZOR
 @* Candlestick stock chart *@
 
 <TelerikStockChart Height="450px" 

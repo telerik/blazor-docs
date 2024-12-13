@@ -49,7 +49,7 @@ With this approach you will keep the last value with which `OnChange` fired, com
 
 >caption Execute OnChange once per value selection
 
-````CSHTML
+````RAZOR
 @* monitor the console and try the following to see the difference:
     - selecting the same item several times
     - clicking away from the DropDownList after selecting an item

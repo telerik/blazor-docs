@@ -40,7 +40,7 @@ The example below shows three possible techniques:
 
 >caption Print the Editor Content
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 @inject IJSRuntime js

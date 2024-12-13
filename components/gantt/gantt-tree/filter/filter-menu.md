@@ -27,7 +27,7 @@ A key difference in the behavior from the [filter row]({%slug gantt-filter-row%}
 
 >caption Filter Menu in Telerik Gantt
 
-````CSHTML
+````RAZOR
 @* Filter menu in the column header *@
 
 <TelerikGantt Data="@Data"
@@ -131,7 +131,7 @@ You can customize the default Filter Menu behavior for each column through the f
 
 >caption Configure the Filter Menu
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Menu*@
 
 @using Telerik.DataSource

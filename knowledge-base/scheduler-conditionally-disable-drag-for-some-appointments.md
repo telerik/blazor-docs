@@ -41,7 +41,7 @@ To conditionally disable dragging an appointment based on your desired condition
 
 >caption Disable dragging for some appointments in Blazor Scheduler
 
-````CSHTML
+````RAZOR
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@StartDate"
                   @bind-View="@CurrView"

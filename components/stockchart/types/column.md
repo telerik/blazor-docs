@@ -28,7 +28,7 @@ To add a `Column` chart to a stock chart component:
 
 >caption A column chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Column series
 
 <TelerikStockChart Height="450px"

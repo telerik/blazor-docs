@@ -19,7 +19,7 @@ If there are items for a certain node, it will have an expand icon. The `HasChil
 
 >caption Example of hierarchical data binding
 
-````CSHTML
+````RAZOR
 @* Hierarchical data items hold collections of the child items *@
 
 <TelerikGantt Data="@Data"

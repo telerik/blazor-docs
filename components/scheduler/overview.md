@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/scheduler" target="_blank">Blazor
 
 >caption Basic Scheduler
 
-````CSHTML
+````RAZOR
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@SchedulerStartDate"
                   @bind-View="@SchedulerCurrentView"
@@ -144,7 +144,7 @@ To execute Scheduler methods, obtain reference to the component instance with `@
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@RefreshScheduler">Refresh Scheduler</TelerikButton>
 <TelerikButton OnClick="@RefreshScheduler">Rebind Scheduler</TelerikButton>
 

@@ -19,7 +19,7 @@ The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_bl
 
 1. Set its `Value` and `Max` parameters to denote the completed progress. Read more about the relationship between them in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section.
 
-````CSHTML
+````RAZOR
 @*Basic configuration of the ChunkProgressBar*@
 
 <TelerikChunkProgressBar Value="@ChunkProgressBarValue" Max="@MaxValue" />
@@ -38,7 +38,7 @@ This section explains the connection between the [ChunkCount, Value, and MaxValu
 
 When the `Max` and `ChunkCount` parameters match in value, the `Value` parameter represents the number of chunks that are highlighted.
 
-````CSHTML
+````RAZOR
 <TelerikChunkProgressBar Value="2"
                          Max="3"
                          ChunkCount="3">
@@ -55,7 +55,7 @@ Each chunk (section) represents an equal part of the maximum value (`Max/ChunkCo
 
 In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so the full chunks this covers is `3 / 2.5 = 1.2`, so `1` chunk will be highlighted. If the `Value` is set to `4`, one chunk will remain highlighted, a second chunk will be highlighted when the `Value` becomes `5`.
 
-````CSHTML
+````RAZOR
 <TelerikChunkProgressBar Value="3"
                          Max="10"
                          ChunkCount="4">
@@ -85,7 +85,7 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 >caption The progress bar will resize with the parent element dimensions when you set its width to 100%
 
-````CSHTML
+````RAZOR
 <div style="width: 50%; border: 1px solid red;">
 
     <style>

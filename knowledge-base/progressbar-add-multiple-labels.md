@@ -39,7 +39,7 @@ To display two or more labels in a [ProgressBar]({%slug progressbar-overview%}) 
 
 The code snippet below creates a ProgressBar with a custom label that includes two spans: one for the current value and another for the remaining value. The labels are positioned on the left and right sides of the ProgressBar, respectively, using CSS Flexbox for layout.
 
-````CSHTML
+````RAZOR
 <TelerikProgressBar Value="@PBValue"
                     Max="@MaxValue" 
                     Class="two-labels-progressbar">

@@ -129,7 +129,7 @@ To define multiple bindings, add multiple `TreeViewBinding` tags and set their `
 
 >caption How to use different model fields and binding settings for different levels
 
-````CSHTML
+````RAZOR
 The third level will use the main data bindings settings that do not have a level specified
 
 <TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">

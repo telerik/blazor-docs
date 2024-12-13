@@ -109,7 +109,7 @@ To use the [methods of the Blazor ColorPicker](/blazor-ui/api/Telerik.Blazor.Com
 | `FocusAsync` | Focuses the main element of the component. Always `await` this call, as it relies on `JSInterop`. |
 | `Open` | Opens the component popup. |
 
-````CSHTML
+````RAZOR
 <TelerikColorPicker @ref="@ColorPickerRef"
                     @bind-Value="@Color" />
 

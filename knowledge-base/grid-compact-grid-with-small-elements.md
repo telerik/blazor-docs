@@ -34,7 +34,7 @@ I am using the [Grid sizing feature]({%slug grid-sizing%}) and my Grid is a Comp
 
 >caption Change Blazor Grid Elements Styles
 
-````CSHTML
+````RAZOR
 <div>
     <div class="demo-small-grid">
         <TelerikGrid Size="@ThemeConstants.Grid.Size.Small"

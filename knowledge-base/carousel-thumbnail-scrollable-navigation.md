@@ -36,7 +36,7 @@ To add a thumbnail scrollable navigation:
 
 >caption Component
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime JSRuntime;
 
 <TelerikCarousel Data="@CarouselData"

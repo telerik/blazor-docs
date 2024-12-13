@@ -32,7 +32,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 ![Round shape](images/linecap-parameter.png)
 
-````CSHTML
+````RAZOR
 @* Use a flat shape for the end of the scale *@
 
 <TelerikArcGauge>
@@ -59,7 +59,7 @@ The `PlaceholderColor` (`string`) parameter controls the background color of the
 
 ![placeholder color](images/placeholdercolor-parameter-arc.png)
 
-````CSHTML
+````RAZOR
 @* Set the PlaceholderColor to light blue *@
 
 <TelerikArcGauge>
@@ -86,7 +86,7 @@ The `Color` (`string`) parameter controls the color of the pointer. It accepts *
 
 ![color parameter example](images/color-parameter-arc-pointer.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the pointer to green *@
 
 <TelerikArcGauge>
@@ -111,7 +111,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 
 ![larger pointer size](images/pointer-size-arc.png)
 
-````CSHTML
+````RAZOR
 @* Change the sizes of the pointer *@ 
 
 <TelerikArcGauge>

@@ -34,7 +34,7 @@ To justify the items of the ListView to the center of the content area you can u
 
 ![listview justified items](images/listview-justified-items.png)
 
-````CSHTML
+````RAZOR
 @* Use the Class parameter and some CSS to justify the ListView items to the center of the content area. *@
 
 <style>

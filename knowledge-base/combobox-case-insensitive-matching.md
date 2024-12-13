@@ -32,7 +32,7 @@ In the event handler you can use a `Where()` statement to filter out the result.
 
 >caption How to filter out a result with case insensitive user input while using the `OnChange` event
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the filtering the result when the ComboBox loses focus or the Enter key is pressed *@
 <p>
     @TheValue
@@ -84,7 +84,7 @@ In the event handler you can use a `Where()` statement to filter out the result.
 ````
 >caption How to filter out a result with case insensitive user input while using the `ValueChanged` event.
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the filtering the result when the user presses a key *@
 <p>
     @TheValue

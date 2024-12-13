@@ -22,7 +22,7 @@ If the icon property name in the ContextMenu model is `Icon`, there is no need t
 
 >caption How to use icons in Telerik Context Menu
 
-````CSHTML
+````RAZOR
 <div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
     Right click (or tap-and-hold on a touch device) for a context menu.
 </div>

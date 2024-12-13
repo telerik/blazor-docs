@@ -22,7 +22,7 @@ You must also provide the correct value for the `HasChildren` field - for items 
 
 >caption Example for flat data in a Treeview, using non-default ParentIdField
 
-````CSHTML
+````RAZOR
 Using self-referencing flat data
 
 <TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">

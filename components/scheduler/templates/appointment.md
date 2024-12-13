@@ -28,7 +28,7 @@ You can also style the entire appointments by adding a class to their wrapping e
 
 >caption Example of using appointment templates and all-day appointment templates in the scheduler. The Month view uses a different template than the other views
 
-````CSHTML
+````RAZOR
 @* A few sample customizations for the appointments that are overriden in the Month view where real estate is small *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@CurrView" Height="600px" Width="800px">

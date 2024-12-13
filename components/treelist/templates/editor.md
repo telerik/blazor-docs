@@ -22,7 +22,7 @@ The TreeList row creates an `EditContext` and passes it to the `EditorTemplate`.
 
 >caption Using TreeList Editor Template
 
-````CSHTML
+````RAZOR
 @* This example shows how to use a dropdownlist to edit strings. You can implement any desired logic instead.
     If you have an enum, the treelist can edit and filter it out-of-the-box without the need for an edit template *@
 @* For brevity, only Editing is implemented in this sample *@

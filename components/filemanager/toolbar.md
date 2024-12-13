@@ -44,7 +44,7 @@ Add a `<FileManagerToolBar>` tag inside `<TelerikFileManager>` to configure a cu
 
 >caption Customize the FileManager Toolbar
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager @ref="@FileManagerRef"

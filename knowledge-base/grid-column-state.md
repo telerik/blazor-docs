@@ -59,7 +59,7 @@ The column order in the `ColumnStates` collection matches the `<GridColumn>` tag
 
 >caption Get current Grid column state
 
-````CSHTML
+````RAZOR
 <h1>Get Grid Column Information from State</h1>
 
 <p>Resize, reoder, lock or hide columns...</p>

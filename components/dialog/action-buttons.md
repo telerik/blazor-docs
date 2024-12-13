@@ -29,7 +29,7 @@ The following example demonstrates all supported layout options for the Dialog a
 
 >caption Using Dialog ButtonsLayout
 
-````CSHTML
+````RAZOR
 <TelerikDialog @ref="@DialogRef"
                @bind-Visible="@DialogVisible"
                Title="Select Buttons Layout"

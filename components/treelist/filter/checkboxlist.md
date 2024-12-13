@@ -21,7 +21,7 @@ You can also change the filter menu behavior for a particular column - its own `
 
 >caption CheckList filter in the treelist
 
-````CSHTML
+````RAZOR
 @* Checkbox List Filter for the Name, Team and Vacation columns, the ID column overrides it to Menu *@
 
 <TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterMenu" FilterMenuType="@FilterMenuType.CheckBoxList"
@@ -118,7 +118,7 @@ To customize the checkbox list behavior, you should use the [filter menu templat
 
 >caption Reduce filtering options for a specific column (Team)
 
-````CSHTML
+````RAZOR
 @* The Team column has a custom set of filtering options (only the root-level "CEO Team" option) *@
 
 In this sample the Team column lets you filter only by the CEO Team settings, or to show all data due to the filter menu template customization it has.

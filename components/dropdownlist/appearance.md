@@ -29,7 +29,7 @@ You can increase or decrease the size of the DropDownList by setting the `Size` 
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.DropDownList.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -82,7 +82,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the DropDownList
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -136,7 +136,7 @@ The `FillMode` controls how the TelerikDropDownList is filled. You can set it to
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{

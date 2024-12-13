@@ -55,7 +55,7 @@ The example below includes two Grids - one for each `FilterMode`.
 
 >caption Filtering by a Grid model property that is a list
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <h1>Filtering a List Grid Column</h1>

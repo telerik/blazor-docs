@@ -31,7 +31,7 @@ The `Orientation` parameter controls whether the items nested inside the `Telere
 
 >caption Change the orientation of the StackLayout from the DropDownList
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the StackLayout in its different orientation options *@
 
 <style>
@@ -84,7 +84,7 @@ The `Spacing` parameter controls the spacing of the elements nested inside the `
 
 >caption Use the NumericTextBox to alter the Spacing parameter
 
-````CSHTML
+````RAZOR
 @* Use the NumericTextBox to alter the Spacing parameter *@
 
 <style>
@@ -138,7 +138,7 @@ The `HorizontalAlign` parameter controls the alignment of the items in the `Tele
 
 >caption Change the alignment of the StackLayout from the DropDownList
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the StackLayout in its different horizontal alignment options *@
 
 <style>
@@ -201,7 +201,7 @@ The `VerticalAlign` parameter controls the alignment of the items in the `Teleri
 
 >caption Change the alignment of the StackLayout from the DropDownList
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the StackLayout in its different vertical alignment options *@
 
 <style>

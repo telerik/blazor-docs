@@ -47,7 +47,7 @@ The following code snippet shows how to add a floating label to TextBox, MaskedT
 
 >caption Implement a floating label with static HTML
 
-````CSHTML
+````RAZOR
 <div style="width: 400px;">
     <span class="k-floating-label-container @TextBoxEmptyClass">
         <TelerikTextBox Id="textbox" @bind-Value="@TextBoxValue"></TelerikTextBox>

@@ -33,7 +33,7 @@ For styling customizations such as changing the background, use custom CSS as sh
 
 >caption Add a GridColumn from code
 
-````CSHTML
+````RAZOR
 @*Different styles for the group headers and subheaders*@
 
 Group by "Team" and then "Active Projects"

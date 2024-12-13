@@ -23,7 +23,7 @@ The `Title` parameter allows you to define the desired text that will be rendere
 
 >caption Set the desired title for the tab heading.
 
-````CSHTML
+````RAZOR
 <TelerikTabStrip >
     <TabStripTab Title="First">
         First tab content.
@@ -43,7 +43,7 @@ Control tab visibility through the `Visible` parameter of the `TabStripTab`. If 
 
 >caption Toggle the visibility of the second tab
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ToggleVisible">Toggle Second Tab Visibility</TelerikButton>
 
 <TelerikTabStrip>
@@ -74,7 +74,7 @@ The `Disabled` parameter allows you to mark a tab as disabled, so the user canno
 
 >caption Disable the second tab
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ToggleDisabled">Enable/Disable Second Tab</TelerikButton>
 
 <TelerikTabStrip>

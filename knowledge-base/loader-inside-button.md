@@ -39,7 +39,7 @@ How to add a loading animation inside a Button? The loader indicator show displa
 
 >caption Blazor Loader inside a Button
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@GenerateReport" Enabled="@(!IsGeneratingReport)">
     <TelerikLoader Visible="@IsGeneratingReport" />
     @( IsGeneratingReport ? "Generating Report" : "Generate Report" )

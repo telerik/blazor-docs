@@ -43,7 +43,7 @@ UI for Blazor 2.20 add the [TreeView drag-and-drop feature](https://demos.teleri
 
 Wrap the TreeView `<ItemTemplate>` content inside a `<div @onclick:stopPropagation> </div>`. This will stop click event propagation and the event will not reach the TreeView item.
 
-````CSHTML
+````RAZOR
 @* TreeView with disabled selection, overridden hover styles and clickable nested components *@
 
 <TelerikTreeView Data="@TreeData"

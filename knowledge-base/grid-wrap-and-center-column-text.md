@@ -35,7 +35,7 @@ For older product versions, or to target all columns, use `.k-header` instead of
 
 >caption Grid with centered and wrapping column header content
 
-````CSHTML
+````RAZOR
 <p>Shrink the browser window if necessary:</p>
 
 <TelerikGrid Data="@GridData"

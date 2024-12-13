@@ -35,7 +35,7 @@ The example below shows how to:
 
 >caption Using Grid cell (column) template
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData" Height="400px">
     <GridColumns>
         <GridColumn Field="@(nameof(FoodItem.Id))" Title="Image">
@@ -104,7 +104,7 @@ The Grid optimizes the UI renders after data operations. If you are using child 
 
 >caption Seting @key to child components inside a Grid column template
 <div class="skip-repl"></div>
-````Home.razor
+````RAZOR Home.razor
 @using YourAppName.Data
 
 <TelerikGrid Data="@GridData"
@@ -145,7 +145,7 @@ The Grid optimizes the UI renders after data operations. If you are using child 
     }
 }
 ````
-````Child.razor
+````RAZOR Child.razor
 @using YourAppName.Data
 
 Properties require @@key:
@@ -171,7 +171,7 @@ Parameters refresh:
     }
 }
 ````
-````SampleModel.cs
+````C# SampleModel.cs
 namespace YourAppName.Data
 {
     public class SampleModel

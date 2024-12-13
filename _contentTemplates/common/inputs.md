@@ -19,7 +19,7 @@ When using the [`PrefixTemplate`]({%slug common-features/input-adornments%}#addi
 
 To ensure both the FloatingLabel and the prefix content are properly displayed, move the label with CSS:
 
-````CSHTML
+````RAZOR
 <style>
     .custom-label-class .k-floating-label {
         margin-left: 30px;

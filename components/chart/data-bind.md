@@ -56,7 +56,7 @@ With this approach, the items in each series are independent from the other seri
 
 >caption Bind series independently of each other and of the category axis
 
-````CSHTML
+````RAZOR
 Independent data
 
 <TelerikChart>
@@ -92,7 +92,7 @@ With this, the items from the series will be matched to the items (categories) o
 
 >caption Bind the entire chart to a single collection. 
 
-````CSHTML
+````RAZOR
 One model for all the chart data
 
 <TelerikChart>
@@ -126,7 +126,7 @@ One model for all the chart data
 
 >caption Unique categories are added independently.
 
-````CSHTML
+````RAZOR
 Separate fields for series categories
 
 <TelerikChart>
@@ -163,7 +163,7 @@ Separate fields for series categories
 
 >caption If category values match, they will be combined
 
-````CSHTML
+````RAZOR
 Combining matching standalone categories
 
 <TelerikChart>
@@ -207,7 +207,7 @@ For example, you can take the data for some series from a complex model, and the
 
 >caption Populate categories and one series from standalone data, other series from model
 
-````CSHTML
+````RAZOR
 Mixed data binding
 
 <TelerikChart>
@@ -249,7 +249,7 @@ Mixed data binding
 
 >caption Populate categories from model, and some series from standalone data. Standalone categories are ignored.
 
-````CSHTML
+````RAZOR
 Standalone categories are ignored when there is category data binding to a model
 
 <TelerikChart>
@@ -299,7 +299,7 @@ This means that it is often suitable to provide each series with its own collect
 
 >caption Series with a different number of items can be easily used in numerical charts
 
-````CSHTML
+````RAZOR
 
 @* Standalone collections of the same model type are used for the different series without consideration for matching categories *@
 
@@ -368,7 +368,7 @@ This means that it is often suitable to provide each series with its own collect
 
 >caption The same chart bound to a single model with fields for each series
 
-````CSHTML
+````RAZOR
 @* You can also have a different number of series item if you bind the entire chart to the same model *@
 
 <TelerikChart>

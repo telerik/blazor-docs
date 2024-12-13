@@ -48,7 +48,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
 @using Telerik.SvgIcons
@@ -74,7 +74,7 @@ For example, in a MAUI app, you register the services in `MauiProgram.cs`:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 namespace MyBlazorMauiAppName
 {
     public static class MauiProgram

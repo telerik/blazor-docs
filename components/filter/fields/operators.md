@@ -21,7 +21,7 @@ The `Operators` parameter takes a literal with the available operators for each 
 
 1. Provide list of `<FilterListOperator>` for every Field.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;
 

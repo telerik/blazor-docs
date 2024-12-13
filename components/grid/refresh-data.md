@@ -24,7 +24,7 @@ In this article:
 
 You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event]({%slug components/grid/manual-operations%}) the business logic defined in its event handler will be executed. 
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will change the Name of the first item in the Grid and refresh the data *@
 
 <TelerikButton OnClick="@RebindGrid">Rebind the Grid</TelerikButton>
@@ -114,7 +114,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Bind the Grid to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove employee to see the Blazor DataGrid live update in action. *@
 
 @using System.Collections.ObjectModel
@@ -182,7 +182,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 >caption Create new collection reference to refresh the Grid data.
 
-````CSHTML
+````RAZOR
 @* Add/remove employee to see how the Grid reacts to that change. *@
 
 <TelerikButton OnClick="@AddEmployee">Add employee</TelerikButton>
@@ -268,7 +268,7 @@ To make the Grid fire `OnRead`, execute its [`SetStateAsync` method]({%slug grid
 
 >caption Make the grid call OnRead by using its state
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <TelerikButton OnClick="@RefreshThroughState">Call OnRead to refresh Grid</TelerikButton>
@@ -352,7 +352,7 @@ When you use EF contexts to update your data, you may update or insert an item t
 
 >caption Updating an entity alone may not update the data in the grid
 
-````CSHTML
+````RAZOR
 async Task UpdateHandler(GridCommandEventArgs args)
 {
     using var dbContext = contextFactory.CreateDbContext();

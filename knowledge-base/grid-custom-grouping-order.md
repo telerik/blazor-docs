@@ -42,7 +42,7 @@ To achieve custom grouping order in the Telerik Grid for Blazor, follow these st
 
 5. (Optionally) Disable the Grid's `Groupable` setting to hide the group panel if you want to prevent users from modifying the grouping state.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components
 @using System.Collections.ObjectModel
 @using Telerik.DataSource.Extensions

@@ -23,7 +23,7 @@ A Card with horizontal orientation. The result from the snippet below.
 
 ![Card with horizontal orientation](images/horizontal-orientation-example.png)
 
-````CSHTML
+````RAZOR
 @* Change the orientation of the Card *@
 
 <TelerikCard Orientation="CardOrientation.Horizontal" Width="500px">

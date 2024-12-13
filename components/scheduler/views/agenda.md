@@ -34,7 +34,7 @@ The following parameters allow you to configure the Agenda view:
 
 >caption Declare the Agenda view in the markup
 
-````CSHTML
+````RAZOR
 <label for="hide-emptydays-checkbox" class="k-checkbox-label checkbox-label">Hide Empty Days</label>
 <TelerikCheckBox @bind-Value="@HideEmptyDays" Id="hide-emptydays-checkbox"></TelerikCheckBox>
 

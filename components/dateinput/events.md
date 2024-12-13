@@ -22,7 +22,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 @result
@@ -56,7 +56,7 @@ The DateInput is a generic component, so you must either provide a `Value`, or a
 
 >caption Handle OnChange and use two-way binding
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @DateInputValue
@@ -94,7 +94,7 @@ The `ValueChanged` event fires:
 
 >caption Handle ValueChanged and provide initial value
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @DateInputValue

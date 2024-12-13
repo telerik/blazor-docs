@@ -152,7 +152,7 @@ Let's imagine that our datasource contains 1,000 items, and we want to send only
 
 >caption Using the OnRead event
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid TItem="@SampleModel"
@@ -217,7 +217,7 @@ Also check [how to rebind and refresh a component with a `Timer`]({%slug common-
 
 >caption Rebind DropDownList and Grid when using OnRead
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <TelerikDropDownList @ref="@TheDropDown"

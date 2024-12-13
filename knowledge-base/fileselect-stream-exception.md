@@ -54,7 +54,7 @@ Copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsyn
 
 >caption Copy the FileSelect Stream to another one and use sync methods
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileSelect OnSelect="@ReadSelectedFiles" />

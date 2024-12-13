@@ -37,7 +37,7 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 
 ## Local Data Example
 
-````CSHTML
+````RAZOR
 @SelectedValue
 <br />
 <TelerikComboBox Data="@Data"
@@ -82,7 +82,7 @@ The ComboBox @[template](/_contentTemplates/common/dropdowns-virtualization.md#v
 
 Run this and see how you can display, scroll and filter over 10k records in the combobox without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

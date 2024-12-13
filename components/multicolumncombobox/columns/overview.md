@@ -34,7 +34,7 @@ To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This 
 
 >caption MultiColumnComboBoxColumn with its features
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@BoundValue"
                             ValueField="@nameof(SampleData.Id)"

@@ -37,7 +37,7 @@ The `OverlayThemeColor` parameter sets the color of the LoaderContainer's semi-t
 
 ![Blazor Loadercontainer Overlaythemecolor Light Screenshot](images/loadercontainer-overlaythemecolor-light-screenshot.png)
 
-````CSHTML
+````RAZOR
 @*This example shows the difference between the light and dark overlay theme colors*@
 
 <div class="row">
@@ -68,7 +68,7 @@ The `LoaderPosition` parameter controls the position of the animated loading ind
 
 >caption The position of the Loader indicator
 
-````CSHTML
+````RAZOR
 @*The different positions of the loader indicator based on the predefault values.*@
 
 <div class="row">
@@ -95,7 +95,7 @@ See the [Loader `Type` documentation]({%slug loader-appearance%}#type) for the p
 
 >caption Setting TelerikLoaderContainer LoaderType
 
-````CSHTML
+````RAZOR
 <TelerikLoaderContainer LoaderType="@LoaderType.InfiniteSpinner" />
 ````
 
@@ -108,7 +108,7 @@ See [Loader `Size`]({%slug loader-appearance%}#size) for a list of possible valu
 
 >caption Setting TelerikLoaderContainer Size
 
-````CSHTML
+````RAZOR
 <TelerikLoaderContainer Size="@ThemeConstants.Loader.Size.Large" />
 ````
 
@@ -121,7 +121,7 @@ See [Loader `ThemeColor`]({%slug loader-appearance%}#themecolor) for a list of p
 
 >caption Setting TelerikLoaderContainer ThemeColor
 
-````CSHTML
+````RAZOR
 <TelerikLoaderContainer ThemeColor="@ThemeConstants.Loader.ThemeColor.Info" />
 ````
 
@@ -131,7 +131,7 @@ The following example shows [how to override the CSS styles in the theme]({%slug
 
 >caption Custom LoaderContainer colors
 
-````CSHTML
+````RAZOR
 <TelerikLoaderContainer Class="custom-loading-colors" />
 
 <style>

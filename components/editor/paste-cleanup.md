@@ -20,7 +20,7 @@ To configure the behavior of the Editor when content is pasted, set the desired 
 
 >caption Set pasting behaviors in the Telerik Editor
 
-````CSHTML
+````RAZOR
 <p>Copy this paragraph that has some <font color="red" face="Courier New">inline font </font> and <span style="font-family:Impact, Charcoal, sans-serif;color:#ffffff;background-color:#3366ff;">inline styles</span> and <span data-id="some-metadata">paste it </span> in the Editor<!--I am a comment that will disappear-->.</p>
 
 @* Some sample paste cleanup settings to showcase their usage- the first three ones are commonly used for MS Word and these are their default values *@

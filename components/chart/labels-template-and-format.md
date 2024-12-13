@@ -20,7 +20,7 @@ Where the labels are numerical (series values, the value axis), you can format t
 
 >caption Format numerical values through format strings
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Line"
@@ -171,7 +171,7 @@ function chartLabelFunction(context) {
 
 >caption Using categorical Chart label templates for series, axes and legend
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
@@ -327,7 +327,7 @@ function chartLabelFunction(context) {
 
 >caption Using numerical Chart label templates for series, axes and legend
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartTitle Text="Signal Level vs. Errors per Minute"></ChartTitle>
 
@@ -433,7 +433,7 @@ To do that, you need to:
 
 >caption Hide Chart labels with zero value
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"

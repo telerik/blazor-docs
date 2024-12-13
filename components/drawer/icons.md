@@ -22,7 +22,7 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
 
 >caption How to use icons in the Telerik Drawer
 
-````CSHTML
+````RAZOR
 <TelerikDrawer Data="@Data"
                IconField="@nameof(DrawerItem.Icon)"
                MiniMode="true"

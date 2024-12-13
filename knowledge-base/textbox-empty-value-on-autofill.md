@@ -37,7 +37,7 @@ The issue occurs after an upgrade to version 2.30.
 1. Without any prior interaction on the page press Login and check the username and password values in the popup - they are empty
 1. Close the popup and click Login again - username and password values are updated
 
-````CSHTML
+````RAZOR
 <label for="userId">Username</label>
 <TelerikTextBox Id="userId"
                 @bind-Value="@UserName">
@@ -86,7 +86,7 @@ To solve the case, proceed with one of the following options:
 
 The example below demonstrates the first approach - removing the default DebounceDelay:
 
-````CSHTML
+````RAZOR
 <label for="userId">Username</label>
 <TelerikTextBox Id="userId"
                 @bind-Value="@UserName"

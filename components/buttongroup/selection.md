@@ -26,7 +26,7 @@ When you click a button, it becomes selected. When you click another button, the
 
 ![Single selection in the button group](images/buttongroup-single-selection.gif)
 
-````CSHTML
+````RAZOR
 @* You can use more complex logic to show different components. To load data asynchronously, use the OnClick event or the OnParametersSetAsync event of a component you render *@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
@@ -66,7 +66,7 @@ When you click a button, it becomes selected. When you click another button, the
 
 ![Multiple selection in the button group](images/buttongroup-multiple-selection.gif)
 
-````CSHTML
+````RAZOR
 @* You can use more complex logic to show different components. To load data asynchronously, use the OnClick event or the OnParametersSetAsync event of a component you render *@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">

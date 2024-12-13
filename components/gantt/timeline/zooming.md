@@ -17,7 +17,7 @@ The `RangeSnapTo` parameter receives an argument of type `GanttRangeSnapTo` whic
 * `MinorSlot` - dates are calculated based on the nearest minor slot division of the view.
 
 >caption Change the timeline view based to the minor slot
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

@@ -32,7 +32,7 @@ To disable the Column Menu for a specific column in the TreeList, set the `ShowC
 
 >caption Enable the column menu for all TreeList columns.
 
-````CSHTML
+````RAZOR
 @* Set the ShowColumnMenu parameter to true *@
 
 <TelerikTreeList Data="@TreeListData"
@@ -172,7 +172,7 @@ The example shows the following things:
 * How to use the `TreeListColumnMenuSettings` tag to control the features of the Column Menu.
 * How to use column parameters to affect the column's relationship with the column menu.
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"

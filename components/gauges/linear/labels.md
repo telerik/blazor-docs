@@ -28,7 +28,7 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
 
 ![Format parameter example](images/format-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Use the {0:C0} format string to format the values of the labels as currency. *@
 
 <TelerikLinearGauge>
@@ -62,7 +62,7 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 
 ![Color parameter screenshot](images/color-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the labels to blue *@
 
 <TelerikLinearGauge>
@@ -96,7 +96,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 
 ![Hide the labels](images/visible-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Set the Visible parameter to false to hide the labels *@
 
 <TelerikLinearGauge>
@@ -130,7 +130,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 
 ![Custom Label borders](images/labels-custom-borders.png)
 
-````CSHTML
+````RAZOR
 @* Provide color, solid outline and custom width to the label borders *@
 
 <TelerikLinearGauge Width="25%">

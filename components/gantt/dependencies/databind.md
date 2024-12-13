@@ -29,7 +29,7 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
 
 ### Provide a collection of dependencies to the Gantt Chart
 
-````CSHTML
+````RAZOR
 @* Bind a collection to the Data parameter of GanttDependencies. *@
 
 <TelerikGantt Data="@GanttData"

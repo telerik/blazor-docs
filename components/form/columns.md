@@ -17,7 +17,7 @@ The Form component for Blazor allows you to add multiple columns by using the `C
 
 You can set the `Columns` parameter when the Form component automatically generates the editors. The form will spread the editors evenly across the columns. It will calculate it using this formula: `propertiesInModelCount / Columns`.
 
-````CSHTML
+````RAZOR
 @* Add colums to the Form component *@
 
 <TelerikForm Model="@person"

@@ -23,7 +23,7 @@ If you want to extract details for the selection from `SelectedItems`, you need 
 
 >caption Enable node selection
 
-````CSHTML
+````RAZOR
 @* Observe how the node selection works and preselect the second node. *@
 
 <TelerikTreeView Data="@TreeData"

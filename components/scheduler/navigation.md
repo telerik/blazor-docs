@@ -41,7 +41,7 @@ You can alter the following scheduler parameters through code:
 
 >caption Navigate the scheduler programmatically
 
-````CSHTML
+````RAZOR
 Change active date:
 <TelerikDatePicker @bind-Value="@StartDate" />
 <br />

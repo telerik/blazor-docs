@@ -31,7 +31,7 @@ You can set the aggregation function through the `Aggregate` property of the ser
 
 >caption Date Axis with month grouping and different aggregates on the series
 
-````CSHTML
+````RAZOR
 Grouping by month, aggregates
 
 <TelerikChart>
@@ -97,7 +97,7 @@ Each base unit has a default format for the date it displays. If you want to cha
 
 >caption Steps set to weeks, changed weeks start day to Monday and non-default label format
 
-````CSHTML
+````RAZOR
 Steps, custom label format, non-default start of week
 
 <TelerikChart>
@@ -166,7 +166,7 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 
 >caption ScatterLine chart with day and time values. Markers are rendered after the day labels to also respect the time values.
 
-````CSHTML
+````RAZOR
 @* ScatterLine chart with day and time values for the X-axis *@
 
 <div style="width:800px">
@@ -221,7 +221,7 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 
 >caption ScatterLine chart with only days values. Markers are rendered exactly on the day labels. 
 
-````CSHTML
+````RAZOR
 @* ScatterLine chart with only day values for the X-axis *@
 
 <div style="width:800px">

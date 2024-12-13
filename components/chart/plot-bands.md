@@ -67,7 +67,7 @@ There are two different ways to configure the `From` and `To` values. The correc
 
 ## Categorical Chart PlotBands
 
-````CSHTML
+````RAZOR
 @* Plot bands for the Column series type *@
 
 <TelerikChart>
@@ -110,7 +110,7 @@ There are two different ways to configure the `From` and `To` values. The correc
 
 ## Numerical Chart PlotBands
 
-````CSHTML
+````RAZOR
 @* Plot bands for the Scatter series type *@
 
 <TelerikChart>

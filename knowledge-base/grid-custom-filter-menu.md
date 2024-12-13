@@ -33,7 +33,7 @@ This knowledge base article also answers the following questions:
 To achieve the desired behavior, encapsulate the content of the `FilterMenuTemplate` in a separate Razor component and refresh this component upon selection change in the dropdown list. Below is an example demonstrating this approach:
 
 <div class="skip-repl"></div>
-````Home.razor
+````RAZOR Home.razor
 @using Telerik.DataSource
 
 <TelerikGrid Data="@Countries"
@@ -87,8 +87,7 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
         filterDescriptor.FilterDescriptors.Add(new FilterDescriptor(model, Telerik.DataSource.FilterOperator.IsEqualTo, value));
     }
 
-    private List<Country> Countries { get; set; } = new List<Country>()
-{
+    private List<Country> Countries { get; set; } = new List<Country>() {
     new Country { Id = 1, CountryName = "Albania" },
     new Country { Id = 2, CountryName = "Andorra" },
     new Country { Id = 3, CountryName = "Armenia" },
@@ -147,7 +146,7 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
     }
 }
 ````
-````CustomFilterMenu.razor
+````RAZOR CustomFilterMenu.razor
 @using Telerik.DataSource
 @using Microsoft.AspNetCore.Components
 @using static Home

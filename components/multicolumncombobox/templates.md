@@ -44,7 +44,7 @@ You can access the `context` object and cast it to the bound model to employ som
 
 >caption Using MultiColumnComboBox Templates
 
-````CSHTML
+````RAZOR
 @* MultiColumnComboBox component with RowTemplate, HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>

@@ -39,7 +39,7 @@ To validate the drop target and prevent the user from dropping on an invalid tar
 
 >caption Validate TreeView drop target and prevent drop for invalid target
 
-````CSHTML
+````RAZOR
 This TreeView does not allow the user to drop items from the Documents folder into the Pictures folder.
 
 <TelerikTreeView Data="@Data"

@@ -61,7 +61,7 @@ Note the usage of [`OnModelInit`]({%slug grid-events%}#onmodelinit) in the examp
 
 >caption Data Binding the Grid to an Interface
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              FilterMode="GridFilterMode.FilterRow"
              EditMode="GridEditMode.Inline"

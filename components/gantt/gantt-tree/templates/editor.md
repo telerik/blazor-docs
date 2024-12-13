@@ -17,7 +17,7 @@ In the Editor Template, you can data bind components to the current context, whi
 
 >caption Using Gantt Editor Template
 
-`````CSHTML
+`````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

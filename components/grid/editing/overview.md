@@ -62,7 +62,7 @@ You can customize the editors rendered in the Grid by providing the `EditorType`
 | **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
 
 
-````CSHTML
+````RAZOR
 @* The usage of the EditorType parameter *@
 
 @using System.ComponentModel.DataAnnotations
@@ -207,7 +207,7 @@ The example below shows how you can handle the events the grid exposes, so you c
 
 >caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@ 
 
 Editing is cancelled for the first two records.
@@ -436,7 +436,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
     * When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%}) knowledge base article for more details.
 
     <div class="skip-repl"></div>
-    ````CSHTML
+    ````RAZOR
     <EditorTemplate>
         <TelerikTextBox Value="@myModel.MyField"
                         ValueExpression="@( () => myModel.MyField )">

@@ -61,7 +61,7 @@ There are two ways to ensure that long form labels fit on a single line in the p
 
 >caption Prevent label wrapping in popup edit forms
 
-````CSHTML
+````RAZOR
 @* Prevent label wrapping in popup edit forms *@
 
 <style>

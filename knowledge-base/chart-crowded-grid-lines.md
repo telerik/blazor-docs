@@ -47,7 +47,7 @@ For a [`Date Axis` Chart]({%slug components/chart/date-axis%}), you can set the 
 
 >caption Declutter the grid lines of a Categorical Chart
 
-````CSHTML
+````RAZOR
 @* This example shows how to render every second grid line for the category axis and disable the lines for the value axis *@
 
 <TelerikChart>

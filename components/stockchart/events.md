@@ -57,7 +57,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Basic Click Handler
 
-````CSHTML
+````RAZOR
 @* Get the Category from which the user clicked. *@
 
 <TelerikStockChart Width="750px"
@@ -161,7 +161,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Get The Data Model For The Clicked Series
 
-````CSHTML
+````RAZOR
 @* Receive the data model based on the series the user clicked on *@
 
 <TelerikStockChart Width="750px"

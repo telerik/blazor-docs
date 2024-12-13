@@ -43,7 +43,7 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 
 ![notification animation types gif](images/notification-animationtype-gif.gif)
 
-````CSHTML
+````RAZOR
 @* This sample uses the ZoomOut animation, you can change it *@
 
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
@@ -70,7 +70,7 @@ You can control the Size of the Notification by using CSS. To make the cascading
 
 >caption Chance the Notiication width and height
 
-````CSHTML
+````RAZOR
 <TelerikNotification @ref="@NotificationRef1"
                      Class="large-notification-center">
 </TelerikNotification>
@@ -147,7 +147,7 @@ There are built-in themes for the most common notifications such as Success, Inf
 
 ![Notification Theme Colors](images/notification-themecolor-screenshot.png)
 
-````CSHTML
+````RAZOR
 @* This sample adds a notification with each built-in theme color *@
 
 <TelerikButton OnClick="@AddColoredNotifications">Add colored notifications</TelerikButton>
@@ -185,7 +185,7 @@ The `ThemeColor` parameter renders as the `k-notification-<ThemeColor>` CSS clas
 
 ![custom themecolor screenshot](images/notification-custom-themecolor-screenshot.png)
 
-````CSHTML
+````RAZOR
 @* Sample of using a custom notification theme color from your own styles *@
 
 <style>
@@ -224,7 +224,7 @@ You can use the `Class` of the notification to set a higher z-index for the noti
 
 ![notification z-index settings and behavior](images/notification-zindex.gif)
 
-````CSHTML
+````RAZOR
 @* Add a z-index to a notification so you can show them above layout elements with high z-index *@
 
 <style>

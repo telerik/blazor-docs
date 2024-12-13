@@ -38,7 +38,7 @@ When you show the Loader in a method, which is blocking the UI thread with synch
 
 Another option is to use the [`LoaderContainer`]({%slug loadercontainer-overview%}). The benefit is that it can overlay the whole page or [cover part of the page that contains the FileSelect]({%slug loadercontainer-overview%}#fill-a-parent-container).
 
-````CSHTML
+````RAZOR
 <TelerikLoader Visible="@LoaderVisible" />
 
 <TelerikFileSelect OnSelect="@OnSelectHandler" />

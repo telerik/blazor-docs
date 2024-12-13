@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 
 >caption TabStrip with specified tab position and a disabled tab
 
-````CSHTML
+````RAZOR
 <TelerikTabStrip>
 	<TabStripTab Title="First">
 		First tab content.

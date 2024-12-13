@@ -43,7 +43,7 @@ Add an inline [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) t
 
 >tip The Telerik UI for Blazor Form works with a cloned instance of the edited or added item to support cancellation. If you cancel the addition of a new item, you need to delete it from the Grid data collection.   
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikGrid @ref="@GridRef"

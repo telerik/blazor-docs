@@ -31,7 +31,7 @@ We have a hierarchical Grid where each master item has two child sub-Grids. We w
 
 In order to render two child (detail) Grids at the same time, you just need to declare both of them inside the `DetailTemplate` tag. The example below demonstrates how to achieve this.
 
-````CSHTML
+````RAZOR
 @*Declare two child Grids in the DetailTemplate*@
 
 <TelerikGrid Data="@Users">

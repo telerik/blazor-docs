@@ -16,7 +16,7 @@ You can move the Window for Blazor by dragging its titlebar with the mouse or wi
 
 >important If you set the `Left` and `Top` parameters, you must use two-way binding for them (or update their values in the corresponding [events]({%slug window-events%})), otherwise the old information in the view-model will reset the position of the window.
 
-````CSHTML
+````RAZOR
 @* Movable windows *@
 
 <TelerikWindow Visible="true">

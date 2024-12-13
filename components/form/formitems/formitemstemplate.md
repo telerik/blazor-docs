@@ -70,7 +70,7 @@ The `TelerikFormGroupRenderer` `Template` is nested inside another template - `F
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikForm>
     <FormItemsTemplate Context="formContext">
         ...
@@ -272,7 +272,7 @@ This approach is suitable for scenarios where the custom Form layout can accommo
 
 >caption Use a loop to render Form groups and items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"
@@ -389,7 +389,7 @@ The sample also demonstrates how to display Form items conditionally (in this ca
 
 >caption Render defined Form items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"
@@ -515,7 +515,7 @@ When using only auto-generated Form items with a custom Form layout, you can rem
 
 >caption Render auto-generated and defined Form items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"

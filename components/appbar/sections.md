@@ -25,7 +25,7 @@ The nested `AppBarSection` tag exposes parameters:
 
 >caption The Telerik AppBar sections with its parameter
 
-````CSHTML
+````RAZOR
 @* The AppBar sections with its parameters *@
 
 <style>

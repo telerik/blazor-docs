@@ -28,7 +28,7 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 
 >caption Enable validation in the Telerik Form for Blazor
 
-````CSHTML
+````RAZOR
 @* Basic validation in the Form component *@
 
 @using System.ComponentModel.DataAnnotations
@@ -78,7 +78,7 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 
 >caption Change the type of the validation message to tooltip
 
-````CSHTML
+````RAZOR
 @* Set the FormValidationMessageType to Tooltip *@ 
 
 @using System.ComponentModel.DataAnnotations
@@ -122,7 +122,7 @@ It is also possible to [trigger Form validation programmatically]({%slug form-ov
 
 You can use the built-in `DataAnnotationsValidator` that comes with the Blazor framework.
 
-````CSHTML
+````RAZOR
 @* Use the Telerik Edit Form for Blazor to Validate a model *@
 
 @using System.ComponentModel.DataAnnotations
@@ -159,7 +159,7 @@ You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fo
 When using a model with nested objects and fields, specify their `Field` settings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 @using System.Dynamic
 @using System.ComponentModel.DataAnnotations
 
@@ -236,7 +236,7 @@ You can use third-party validation libraries that integrate with the standard `E
 >caption Using FluentValidation
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 @using Microsoft.AspNetCore.Components.Forms
 @using FluentValidation
 @using Blazored.FluentValidation

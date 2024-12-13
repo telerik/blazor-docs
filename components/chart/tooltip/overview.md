@@ -33,7 +33,7 @@ To enable tooltips for the data points of each individual series:
 
 >caption Enable the tooltip for a specific Chart Series
 
-````CSHTML
+````RAZOR
 @* Enable tooltip for a single Chart Series *@
 
 <TelerikChart>
@@ -73,7 +73,7 @@ To enable the same tooltip for all series:
 
 >caption Set a Common Tooltip for all series at once
 
-````CSHTML
+````RAZOR
 @* This example shows you how to create a common tooltip for all data points *@
 
 <TelerikChart>
@@ -125,7 +125,7 @@ You can customize the appearance of the individual series tooltip by using:
 
 >caption Configuration of the tooltips with applied customization settings
 
-````CSHTML
+````RAZOR
 @* This example shows how to customize the tooltip *@
 
 <TelerikChart>
@@ -205,7 +205,7 @@ The available series data point information in the `context` is:
 
 >caption Use the Tooltip Template and use the DataItem to get the value of the point and add additional information
 
-````CSHTML
+````RAZOR
 @* This example shows how to use the Template to provide an Icon and additional information from the model *@
 
 <TelerikChart>

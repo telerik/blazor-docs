@@ -31,7 +31,7 @@ To enable the shared tooltip:
 
 >caption Basic configuration of a Chart with Shared Tooltip
 
-````CSHTML
+````RAZOR
 @* This example shows how to enable a Shared Tooltip *@
 
 <TelerikChart>
@@ -97,7 +97,7 @@ Each `Point` contains the following data:
 
 >caption Usage of the SharedTemplate
 
-````CSHTML
+````RAZOR
 @* This example shows how to use the SharedTemplate and extract information on the data points value, parse them to int and get the category from the context *@
 
 <TelerikChart>

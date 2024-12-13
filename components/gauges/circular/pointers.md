@@ -32,7 +32,7 @@ The `LineCap` parameter controls the shape of the scale ending and takes a membe
 
 ![Round shape](images/linecap-parameter.png)
 
-````CSHTML
+````RAZOR
 @* Use a flat shape for the end of the scale *@
 
 <TelerikCircularGauge>
@@ -61,7 +61,7 @@ The `PlaceholderColor` (`string`) parameter controls the background color of the
 
 ![placeholder color](images/placeholdercolor-parameter-circular.png)
 
-````CSHTML
+````RAZOR
 @* Set the PlaceholderColor to light blue *@
 
 <TelerikCircularGauge>
@@ -90,7 +90,7 @@ The `Color` (`string`) parameter controls the color of the pointer. It accepts *
 
 ![color parameter example](images/color-parameter-circular-pointer.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the pointer to purple *@
 
 <TelerikCircularGauge>
@@ -117,7 +117,7 @@ The `Size` (`double`) parameter controls the size of the pointer.
 
 ![larger pointer size](images/pointer-size-circular.png)
 
-````CSHTML
+````RAZOR
 @* Change the size of the pointer *@
 
 <TelerikCircularGauge>

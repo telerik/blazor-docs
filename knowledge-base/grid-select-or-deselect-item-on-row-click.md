@@ -35,7 +35,7 @@ When Grid selection is enabled, the built-in option for deselecting a row or sel
 
 The snippet below demonstrates how to achieve the described approach.
 
-````CSHTML
+````RAZOR
 @* Programmatically select/deselect items on row click *@
 
 <TelerikGrid Data="@MyData"

@@ -32,7 +32,7 @@ The default font typeface of the content area of the Editor is based on the defa
 
 >caption Set a default font family for the content area of the Editor in Div edit mode
 
-````CSHTML
+````RAZOR
 @* The style rule is important, it matches the Class of the component *@
 
 <style>
@@ -84,7 +84,7 @@ The default font typeface of the content area of the Editor is based on the defa
 
 This example showcases how to set a default font for the content area of the Editor and add that font to the built-in FontFamily tool.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;

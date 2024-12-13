@@ -26,7 +26,7 @@ To enable cell selection:
 
 >caption Grid multiple cell selection
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedCells="@SelectedCells"
@@ -95,7 +95,7 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
 
 >caption Using the Grid SelectedCellsChanged event
 
-````CSHTML
+````RAZOR
 @* Select cells and handle the SelectedCellsChanged event *@
 
 <TelerikGrid Data="@GridData"

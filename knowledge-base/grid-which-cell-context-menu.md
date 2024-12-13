@@ -34,7 +34,7 @@ To distinguish a column (cell) from the rest, you need to:
 
 >caption How to tell when the context menu on the grid row was triggered by a specific cell
 
-````CSHTML
+````RAZOR
 This example uses a simple boolean flag for brevity, you can extend the logic to also pass the column name/field or any other metadata you need to use.
 
 <TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu"

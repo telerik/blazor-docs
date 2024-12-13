@@ -19,7 +19,7 @@ The Wizard component allows you to control its layout. By default, the internal 
 
 >caption Customize the Wizard layout
 
-````CSHTML
+````RAZOR
 @* Change the position of the internal Stepper to Left *@
 
 <div style="text-align:center">

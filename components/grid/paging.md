@@ -29,7 +29,7 @@ The Grid component can page the entire data source automatically. Alternatively,
 
 >caption Enable paging in Telerik Grid
 
-````CSHTML
+````RAZOR
 Enable paging and start on the second page.
 
 <TelerikGrid Data="@MyData" Pageable="true" PageSize="15" Page="2" Height="500px">
@@ -50,7 +50,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 >caption Bind Page Size to a variable
 
-````CSHTML
+````RAZOR
 Dynamic page size change
 
 <select @onchange=@ChangePageSize>
@@ -101,7 +101,7 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
 
 @[template](/_contentTemplates/common/pager-settings.md#pager-settings)
 
-````CSHTML
+````RAZOR
 @*Configure the Pager Settings*@
 
 <TelerikGrid Data="@MyData" Pageable="true" @bind-PageSize="@PageSize" @bind-Page="@CurrentPage">

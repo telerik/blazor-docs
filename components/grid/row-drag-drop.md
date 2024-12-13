@@ -73,7 +73,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-````CSHTML
+````RAZOR
 @* Drag a row and drop it in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -143,7 +143,7 @@ The following example demonstrates both these options:
 
 >caption Drag and drop items between Grids
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@FirstGridRef"
              Data="@MyData"
              Pageable="true"
@@ -1695,7 +1695,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-````CSHTML
+````RAZOR
 @* Select multiple rows and reorder them in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"

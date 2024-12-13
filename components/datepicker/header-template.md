@@ -16,7 +16,7 @@ The example below is using a [Blazor DatePicker reference and methods]({%slug co
 
 >caption Using DatePicker header template with custom content in the Calendar header
 
-````CSHTML
+````RAZOR
 <TelerikDatePicker @ref="@PickerRef"
                    Value="@DatePickerValue"
                    ValueChanged="@DatePickerValueChanged"

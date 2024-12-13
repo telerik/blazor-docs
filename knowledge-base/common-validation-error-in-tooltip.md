@@ -54,7 +54,7 @@ There are several key aspects in implementing this:
 
 >caption Validation Summary in a Tooltip
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@ValidationModel" OnValidSubmit="@HideTooltip" OnInvalidSubmit="@ShowTooltip">
@@ -142,7 +142,7 @@ This sample uses a Tooltip component and mimics clicks on its targets to make it
 
 >caption Tooltips for validated inputs
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 @inject IJSRuntime JS

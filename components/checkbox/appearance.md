@@ -30,7 +30,7 @@ You can increase or decrease the size of the CheckBox by setting the `Size` attr
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.CheckBox.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -65,7 +65,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the checkbox to 
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{

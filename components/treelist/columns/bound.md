@@ -29,7 +29,7 @@ You can read more details on how to tie the treelist to your data fields and chi
 
 >caption Provide data to the treelist and choose which columns (fields) to see
 
-````CSHTML
+````RAZOR
 @* define data, model and columns for a treelist *@
 
 @using System.ComponentModel.DataAnnotations

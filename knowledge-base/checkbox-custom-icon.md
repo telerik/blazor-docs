@@ -35,7 +35,7 @@ This knowledge base article answers the following questions:
 
 >caption How to change the Checkbox icons
 
-````CSHTML
+````RAZOR
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
 <p>

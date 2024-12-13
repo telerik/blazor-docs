@@ -37,7 +37,7 @@ The example below demonstrates how to conditionally render CSS styles to disable
 
 >caption The Min and Max values should not match the default minimum and maximum values of the Value type.
 
-````CSHTML
+````RAZOR
 <style>
     .disable-increase .k-spinner-increase,
     .disable-decrease .k-spinner-decrease {

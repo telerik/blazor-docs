@@ -30,7 +30,7 @@ System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
 ````
 
 To reproduce the problem, you can use the following code sample:
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData">
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" />

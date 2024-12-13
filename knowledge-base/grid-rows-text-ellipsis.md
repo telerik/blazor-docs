@@ -34,7 +34,7 @@ In order to prevent the Grid from wrapping the text in multiple lines you can us
 You might still want to allow the user to see the whole content, so you can enable the `Resizable` parameter of the Grid. If, however, the content is too long, the user should resize a lot in order to see the cell content. To cover such scenario, you can display the full content in a separate container. One option would be to use a [Window component]({%slug window-overview%}) and handle some of the Grid events to display it ([`OnRowClick`]({%slug grid-events%}#onrowclick), [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick)). Another approach is to show a Tooltip on hover of the cell (similar example is available in [Tooltip in Grid]({%slug tooltip-kb-in-grid%}) knowledge base article). The solution below showcases a sample implementation of the first mentioned approach - using a Window component and handling the `OnRowDoubleClick` event.
 
 
-````CSHTML
+````RAZOR
 @*Use the OnCellRender event to pass a custom CSS class to the Grid column and prevent it from wrapping the text in multiple lines for the Notes column. Display the full content of the column in a separate Window component.
 Use the OnRowRender event to set a custom CSS class to Grid rows.*@
 

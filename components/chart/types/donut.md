@@ -27,7 +27,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 
 >caption A donut chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Donut series
 
 <TelerikChart>
@@ -92,7 +92,7 @@ By default, the first segment starts at the top. You can change that by using th
 
 You can control the color of the individual segments of the donut chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-````CSHTML
+````RAZOR
 @*Set color to the donut chart items*@
 
 <TelerikChart>
@@ -153,7 +153,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 
 >caption Exploded Items
 
-````CSHTML
+````RAZOR
 @*Separate items from the main body of the chart*@
 
 <TelerikChart>
@@ -210,7 +210,7 @@ You can hide certain segments from the legend (for example, if their contributio
 
 >caption Hide segments from the legend
 
-````CSHTML
+````RAZOR
 @*Show only some items in the legend*@
 
 <TelerikChart>
@@ -270,7 +270,7 @@ You can hide certain segments from the legend (for example, if their contributio
 
 You can change the percentage that the hole in the middle takes from the entire diameter of the circle by setting the `HoleSize` property of the series. Setting `0` removes the hole, and `100` means the entire chart is the hole.
 
-````CSHTML
+````RAZOR
 Control the hole size of the donut chart
 
 <TelerikChart>
@@ -323,7 +323,7 @@ You can use multiple series to showcase relationships within a data set, or seve
 
 You can also use the `ColorField` property to define a field with the segments' colors. With this, you can color-code different series and their relationships to one another.
 
-````CSHTML
+````RAZOR
 @* You can bind the entire chart to one collection of data, even though this example shows separate collections for each series *@
 
 <TelerikChart>
@@ -440,7 +440,7 @@ You can also use the `ColorField` property to define a field with the segments' 
 
 >caption Customize Chart Title Margin, Series Label Font, and Borders
 
-````CSHTML
+````RAZOR
 @* Add margin to the Title, changing the Font and Borders of the labels. *@
 
 <TelerikChart>

@@ -20,7 +20,7 @@ To use the PanelBar for navigating between pages:
 
 >caption Use the PanelBar to navigate between pages
 
-````CSHTML
+````RAZOR
 @* This a basic example of a PanelBar used as Navigation. *@
 @* The items that does not have a set Url are not navigation links *@
 

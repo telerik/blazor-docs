@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 
 >caption AutoComplete with two-way value binding and data binding to collection of strings
 
-````CSHTML
+````RAZOR
 @* AutoComplete with two-way value binding and data binding to a collection of strings *@
 
 User input: @AutoCompleteValue
@@ -112,7 +112,7 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare an  `<AutoCompletePopupSettings>` tag inside the `<AutoCompleteSettings>` tag:
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete Data="@AutoCompleteData"
                      @bind-Value="@SelectedItem"
                      Filterable="true"
@@ -148,7 +148,7 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete @ref="@AutoCompleteRef"
                      Data="@Suggestions"
                      @bind-Value="@AutoCompleteValue" 

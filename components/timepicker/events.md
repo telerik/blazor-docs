@@ -24,7 +24,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @result
 <br />
 
@@ -46,7 +46,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged and provide initial value
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @thePickerValue
@@ -77,7 +77,7 @@ The time picker is a generic component, so you must provide either a `Value`, or
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @result
 <br />
 
@@ -101,7 +101,7 @@ The time picker is a generic component, so you must provide either a `Value`, or
 
 >caption Handle OnChange and use two-way binding
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @thePickerValue
@@ -135,7 +135,7 @@ The event handler receives as an argument an `TimePickerOpenEventArgs` object th
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikTimePicker Min="@Min"
                    OnOpen="@OnTimePickerPopupOpen"
                    Max="@Max"
@@ -166,7 +166,7 @@ The event handler receives as an argument an `TimePickerCloseEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikTimePicker Min="@Min"
@@ -198,7 +198,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikTimePicker @bind-Value="@TheTime"

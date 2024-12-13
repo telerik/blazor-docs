@@ -40,7 +40,7 @@ If you detect an A or P key you could change the Value as desired (e.g., add or 
 
 >caption TimePicker - Select AM/PM by pressing A or P on keyboard
 
-````CSHTML
+````RAZOR
 @* Press A or P on keyboard to select AM or PM*@
 
 @TheTime
@@ -72,7 +72,7 @@ If you detect an A or P key you could change the Value as desired (e.g., add or 
 
 >caption DateTimePicker - Select AM/PM by pressing A or P on keyboard
 
-````CSHTML
+````RAZOR
 @* Press A or P on keyboard to select AM or PM*@
 
 @TheDateTime
@@ -104,7 +104,7 @@ If you detect an A or P key you could change the Value as desired (e.g., add or 
 
 >caption DateInput - Select AM/PM by pressing A or P on keyboard
 
-````CSHTML
+````RAZOR
 @* Press A or P on keyboard to select AM or PM*@
 
 @TheTime

@@ -28,7 +28,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Menu data.
 
-````CSHTML
+````RAZOR
 @* Add/remove menu item or change the data collection to see how the Menu reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add menu item</TelerikButton>

@@ -31,7 +31,7 @@ You can increase or decrease the size of the TextArea by setting the `Size` attr
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextArea.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -67,7 +67,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the TextArea to 
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -104,7 +104,7 @@ The `FillMode` controls how the TelerikTextArea is filled. You can set it to a m
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{

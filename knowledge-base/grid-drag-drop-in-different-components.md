@@ -49,7 +49,7 @@ Adjust the `YourAppName` namespace in `Home.razor` and `GridModel.cs` to run the
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 @page "/"
 
 @using YourAppName.Data
@@ -100,7 +100,7 @@ Adjust the `YourAppName` namespace in `Home.razor` and `GridModel.cs` to run the
     }
 }
 ````
-````GridContainer.razor
+````RAZOR GridContainer.razor
 @using YourAppName.Data
 
 <TelerikGrid @ref="@GridRef"
@@ -164,7 +164,7 @@ Adjust the `YourAppName` namespace in `Home.razor` and `GridModel.cs` to run the
     }
 }
 ````
-````GridModel.cs
+````C# GridModel.cs
 namespace YourAppName.Data
 {
     public class GridModel

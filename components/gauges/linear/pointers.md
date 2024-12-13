@@ -38,7 +38,7 @@ The `Shape` parameter controls the shape of the pointer and takes a member of th
 
 ![Arrow Pointers](images/arrow-pointers.png)
 
-````CSHTML
+````RAZOR
 @* Use arrows as pointers in the Linear Gauge *@
 
 <TelerikLinearGauge>
@@ -64,7 +64,7 @@ The `Color` (`string`) parameter controls the color of the pointers. It accepts 
 
 ![color parameter example](images/color-parameter.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the pointers *@
 
 <TelerikLinearGauge>
@@ -108,7 +108,7 @@ The `Opacity` (`double`) parameter controls the opacity of the pointers. The val
 
 The `Size` (`double`) parameter controls the size of the pointers. 
 
-````CSHTML
+````RAZOR
 @* Change the sizes of the pointers *@ 
 
 <TelerikLinearGauge>
@@ -130,7 +130,7 @@ The `Size` (`double`) parameter controls the size of the pointers.
 
 The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug linear-gauge-scale%}) and the pointers.
 
-````CSHTML
+````RAZOR
 @* Change the margin between the scale and the pointers *@
 
 <TelerikLinearGauge>
@@ -156,7 +156,7 @@ The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug
 
 ![custom pointer track](images/custom-pointer-track.png)
 
-````CSHTML
+````RAZOR
 @* Customize the pointer track *@
 
 <TelerikLinearGauge>

@@ -28,7 +28,7 @@ To see the difference in how rounding can have issues with insufficient precisio
 
 ![precision issues with wrong Decimals setting](images/rangeslider-precision-issue.gif)
 
-````CSHTML
+````RAZOR
 @TheStartValue to @TheEndValue
 <br /><br />
 

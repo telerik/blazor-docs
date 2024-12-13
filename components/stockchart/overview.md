@@ -23,7 +23,7 @@ The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to
 
 >caption Basic configuration of a Stock Chart with common settings
 
-````CSHTML
+````RAZOR
 @* Basic Stock Chart with common settings and a navigator *@
 
 <TelerikStockChart Width="700px"
@@ -122,7 +122,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 >caption Change the 100% chart size dynamically to have a responsive chart
 
-````CSHTML
+````RAZOR
 You can make a responsive chart
 
 <TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>

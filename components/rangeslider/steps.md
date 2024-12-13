@@ -38,7 +38,7 @@ You can use a multiplier over the small step to set the large step, and to ensur
 
 ![matching ticks](images/rangeslider-matching-ticks.png)
 
-````CSHTML
+````RAZOR
 from @TheStartValue to @TheEndValue
 <br />
 <TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"
@@ -57,7 +57,7 @@ In this example, the max value does not match the large step, small step and the
 
 ![non-matching values](images/rangeslider-non-matching-ticks.png)
 
-````CSHTML
+````RAZOR
 from @TheStartValue to @TheEndValue
 <br />
 <TelerikRangeSlider @bind-StartValue="@TheStartValue" @bind-EndValue="@TheEndValue"

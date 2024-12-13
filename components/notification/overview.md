@@ -20,7 +20,7 @@ The Notification component renders a brief message to the user which holds infor
 1. Obtain the component reference via `@ref`.
 1. Setup an instance of the [`NotificationModel` class](#notificationmodel-class-properties) (provided by the Telerik Blazor package), and pass it to the `Show()` method of the component instance.
 
-````CSHTML
+````RAZOR
 @* This shows a simple text message that hides automatically *@
 
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
@@ -105,7 +105,7 @@ To use the Blazor Notification methods, you have to get a reference to the compo
 
 >caption Get reference to the Notification and execute methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" />

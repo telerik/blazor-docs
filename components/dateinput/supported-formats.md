@@ -99,7 +99,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption Standard format strings support in Telerik Date Input for Blazor
 
-````CSHTML
+````RAZOR
 @TheDate
 <br />
 
@@ -148,7 +148,7 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 >caption Using supported .NET format specifiers to define relatively common date formats in the Telerik Date Input
 
-````CSHTML
+````RAZOR
 @TheDate
 <br />
 

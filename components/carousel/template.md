@@ -16,7 +16,7 @@ The nested `<Template>` tag of the `<TelerikCarousel>` represents a standard [`R
 
 The template exposes a `context` parameter, which allows access to the Carousel model and its properties. The context variable can assume a custom name, which is needed for nesting templates of different components.
 
-````CSHTML
+````RAZOR
 @* Blazor Carousel - template context usage *@
 
 <TelerikCarousel Data="@CarouselData"

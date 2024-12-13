@@ -26,7 +26,7 @@ The <a href="https://www.telerik.com/blazor-ui/listview" target="_blank">Blazor 
 
 >caption ListView in read mode with paging enabled.
 
-````CSHTML
+````RAZOR
 @* Styles would usually go to to the site stylesheet, and you can read more details about
 the rest of the features the component provides further in this article *@
 

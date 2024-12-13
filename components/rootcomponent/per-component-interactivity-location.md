@@ -40,7 +40,7 @@ Here are the detailed steps:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikRootComponent IconType="@IconType.Svg"
                     EnableRtl="false">
     @ChildContent
@@ -58,7 +58,7 @@ Here are the detailed steps:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @page "/"
 
 @rendermode InteractiveServer
@@ -72,7 +72,7 @@ Here are the detailed steps:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @page "/"
 
 @rendermode InteractiveServer
@@ -99,7 +99,7 @@ In this scenario, [add a `TelerikRootComponent` to a layout]({%slug rootcomponen
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <!DOCTYPE html>
 <html lang="en">
 

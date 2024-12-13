@@ -28,7 +28,7 @@ Is there a way to bind the data source for a Blazor UI RadioGroup to an enum?
 ## Solution
 To achieve this, prepare a list of items that correspond to the enum values that can be shown to the user. Here is an example:
 
-````CSHTML
+````RAZOR
 <TelerikRadioGroup @bind-Value="@Value" Data="@Subscriptions"></TelerikRadioGroup>
 
 @code {

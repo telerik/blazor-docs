@@ -27,7 +27,7 @@ The `OnClick` event fires before `SelectedChanged`.
 
 >caption Handle the Toggle Button OnClick event
 
-````CSHTML
+````RAZOR
 <TelerikToggleButton @bind-Selected="@IsSelected"
                      OnClick="@OnToggleButtonClick">
     Toggle Button
@@ -60,7 +60,7 @@ The `SelectedChanged` event fires after `OnClick`.
 
 >caption Handle the SelectedChanged event
 
-````CSHTML
+````RAZOR
 <TelerikToggleButton Selected="@IsSelected"
                      SelectedChanged="@MySelectedChangedHandler">
     Toggle Button

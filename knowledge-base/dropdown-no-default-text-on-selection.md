@@ -29,7 +29,7 @@ I want the DropDownList to show the default text only when no option is selected
 
 You can modify the default text to be shown only before an item is selected by toggling the DefaultText parameter value depending on your business logic. The example below demonstrates how to achieve that.
 
-````CSHTML
+````RAZOR
 @* Show the default text only when no option is selected *@
 
 Selected value: @selectedValue

@@ -30,7 +30,7 @@ Paging is calculated for the currently expanded and visible items. Children in c
 
 >caption Enable paging in Telerik TreeList
 
-````CSHTML
+````RAZOR
 Enable paging and start on the second page.
 
 <TelerikTreeList Data="@Data"
@@ -106,7 +106,7 @@ Here is one way to implement a page size choice that puts all records on one pag
 
 >caption Bind Page Size to a variable
 
-````CSHTML
+````RAZOR
 Dynamic page size change
 
 <select @onchange=@ChangePageSize>
@@ -213,7 +213,7 @@ In addition to `Page` and `PageSize`, the TreeList provides advanced pager confi
 
 @[template](/_contentTemplates/common/pager-settings.md#pager-settings)
 
-````CSHTML
+````RAZOR
 @*Configure the Pager Settings*@
 
 <TelerikTreeList Data="@Data"

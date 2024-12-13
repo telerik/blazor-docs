@@ -20,7 +20,7 @@ This is an alternative approach for configuring the component instead of manuall
 
 You can find another example with some more details in the following sample project: [Dynamic Tabs](https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs).
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">

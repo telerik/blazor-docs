@@ -51,7 +51,7 @@ You can reproduce this with the following snippet:
 
 >caption Missing TelerikRootComponent from the MainLayout file
 
-````CSHTML
+````RAZOR
 @inherits LayoutComponentBase
 
     <div class="sidebar">
@@ -76,7 +76,7 @@ Wrap the entire content of the `MainLayout.razor` file inside the `<TelerikRootC
 
 >caption Wrapping the content of the MainLayout file inside the TelerikRootComponent
 
-````CSHTML
+````RAZOR
 
 @inherits LayoutComponentBase
 

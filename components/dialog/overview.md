@@ -28,7 +28,7 @@ The Dialog component and its [predefined options]({%slug dialog-predefined%}) ai
 
 >caption A basic configuration of the Telerik Dialog.
 
-````CSHTML
+````RAZOR
 @* An example of the Dialog basic implementation. *@
 
 <TelerikDialog @bind-Visible="@Visible"
@@ -95,7 +95,7 @@ The Dialog methods are accessible through its reference.
 
 >caption Get a reference to the Dialog and use its methods.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example usage of the Refresh() method. *@
 
 <TelerikButton  OnClick="OpenDialog">Open Dialog</TelerikButton>

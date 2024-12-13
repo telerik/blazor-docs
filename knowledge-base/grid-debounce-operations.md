@@ -42,7 +42,7 @@ There are three ideas on the basic approach how to do this:
 
 >caption Debounce grid data source requests
 
-````CSHTML
+````RAZOR
 @* This example debounces all actions. You may want to add logic that checks how the data source request changed
     for example, whether the filters changed or something else, so you can debounce only filtering, for example *@
 
@@ -140,7 +140,7 @@ There are three ideas on the basic approach how to do this:
 
 >caption Own filtering in the grid (header template is used until a [filter template](https://feedback.telerik.com/blazor/1407773-custom-filter-components-filter-template) becomes available)
 
-````CSHTML
+````RAZOR
 <style>
     .block-headers-with-sorting th.k-header .k-icon.k-i-sort-asc-sm,
     .block-headers-with-sorting th.k-header .k-icon.k-i-sort-desc-sm {

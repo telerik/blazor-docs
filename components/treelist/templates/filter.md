@@ -45,7 +45,7 @@ The example below shows a custom filter that:
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 The custom filter textboxes invoke filtering on Enter or blur through the OnChange event.
@@ -208,7 +208,7 @@ The example below shows a custom filter that:
 
 >tip The treelist can create a checkbox filter for you, see the [CheckBoxList Filtering]({%slug treelist-checklist-filter%}) article.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 This custom filter menu lets you choose more than one option to match against the data source

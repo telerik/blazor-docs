@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_bla
 
 >caption MultiColumnComboBox data binding with two-way value binding
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@SelectedProduct"
                             ValueField="@nameof(Product.Id)"
@@ -179,7 +179,7 @@ The table below lists the MultiComboBox methods. Also consult the [MultiColumnCo
 
 >caption Using MultiColumnComboBox methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@Open">Open MultiColumnComboBox</TelerikButton>
 
 <TelerikMultiColumnComboBox @ref="@MultiColumnComboRef"

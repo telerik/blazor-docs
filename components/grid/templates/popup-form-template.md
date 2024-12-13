@@ -36,7 +36,7 @@ When using the template, the default Popup form is replaced by the declared cont
 
 Using a `FormTemplate` to modify the Edit/Create Popup window.
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic;
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions

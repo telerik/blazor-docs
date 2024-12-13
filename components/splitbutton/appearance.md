@@ -31,7 +31,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set SplitButton appearance parameters
 
-````CSHTML
+````RAZOR
 <TelerikSplitButton FillMode="@ThemeConstants.SplitButton.FillMode.Solid"
                     Rounded="@ThemeConstants.SplitButton.Rounded.Large"
                     Size="@ThemeConstants.SplitButton.Size.Large"
@@ -67,7 +67,7 @@ The `FillMode` parameter controls if the SplitButton will have a background and 
 
 >caption SplitButton FillMode example
 
-````CSHTML
+````RAZOR
 <p>SplitButton FillMode</p>
 
 @foreach (var item in FillModes)
@@ -109,7 +109,7 @@ The `Rounded` parameter affects the SplitButton `border-radius` CSS styles. To s
 
 >caption SplitButton Rounded example
 
-````CSHTML
+````RAZOR
 <p>SplitButton Rounded</p>
 
 @foreach (var item in RoundedOptions)
@@ -149,7 +149,7 @@ The `Size` parameter can change some SplitButton dimensions, such as height, mar
 
 >caption SplitButton Size example
 
-````CSHTML
+````RAZOR
 <p>SplitButton Size</p>
 
 @foreach (var item in Sizes)
@@ -198,7 +198,7 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 
 >caption SplitButton ThemeColor example
 
-````CSHTML
+````RAZOR
 <p>SplitButton ThemeColor</p>
 
 @foreach (var item in ThemeColors)

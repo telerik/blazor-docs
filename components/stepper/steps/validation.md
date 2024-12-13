@@ -34,7 +34,7 @@ When validation icons are rendered inside the indicators, they will override the
 
 ![Validation for Steps](images/validation-for-steps-example.gif)
 
-````CSHTML
+````RAZOR
 @* Set validation in Stepper with display mode Steps(default) *@
 
 <div style="width:700px">
@@ -83,7 +83,7 @@ If the Stepper uses the [`Labels`]({%slug stepper-display-modes%}#labels)display
 
 ![Validation for Labels](images/validation-for-labels-example.gif)
 
-````CSHTML
+````RAZOR
 @* Set validation in Stepper with display mode Labels *@
 
 <div style="width:700px">

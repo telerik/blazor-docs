@@ -48,7 +48,7 @@ However, you can also add `<TelerikRootComponent>` directly to an existing appli
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>

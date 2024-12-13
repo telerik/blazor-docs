@@ -35,7 +35,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >tip You can respond to the user click on a node by using the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikTreeView Data="@TreeData">
@@ -122,7 +122,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >tip You can read more information on how to use the Treeview to switch between pages from the [Navigation]({%slug treeview-navigation%}) article
 
-````CSHTML
+````RAZOR
 Implement your own navigation through NavLink elements, instead of using the built-in feature
 
 <TelerikTreeView Data="@TreeData">
@@ -191,7 +191,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 
 ### Different templates for different node levels
 
-````CSHTML
+````RAZOR
 Multiple templates usage.
 
 <TelerikTreeView Data="@HierarchicalData">

@@ -34,7 +34,7 @@ The AIPrompt views provide various parameters that allow you to configure the co
 By default, the AIPrompt will always render both the Prompt and the Output view. The Commands view will be rendered only if you pass a custom set of commands through the `Commands` parameter:
 
 
-````CSHTML
+````RAZOR
 @* The user can only navigate between the Prompt and Output views - the Commands view, for example, will not be rendered, as no commands have been passed to the `Commands` parameter. *@
 
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"></TelerikAIPrompt>
@@ -51,7 +51,7 @@ By default, the AIPrompt will always render both the Prompt and the Output view.
 >caption Using the `ButtonText` and `ButtonIcon` parameters to customize the appearance of the toolbar buttons
 
 
-````CSHTML
+````RAZOR
 @* The example showcases how to customize the appearance of the toolbar through the `ButtonText` and `ButtonIcon` parameters. *@
 
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest">

@@ -18,7 +18,7 @@ It is possible for users to close a modal Window by clicking on the modal backgr
 
 >caption Open and close a modal Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Modal="true"
                @bind-Visible="@isModalVisible"
                CloseOnOverlayClick="true">

@@ -28,7 +28,7 @@ To add a `Line` chart to a stock chart component:
 
 >caption A line chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Line series
 
 <TelerikStockChart Height="450px"

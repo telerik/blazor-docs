@@ -26,7 +26,7 @@ The **LoaderContainer** is designed to cover a whole component, HTML element, or
 
 >caption Basic LoaderContainer
 
-````CSHTML
+````RAZOR
 <p> Data Count: @Data?.Count </p>
 
 <TelerikLoaderContainer Visible="@( Data == null )" Text="Please wait..." />
@@ -70,7 +70,7 @@ The Blazor LoaderContainer can expand to fill only a specific parent container. 
 
 >caption Use the LoaderContainer to fill a parent element
 
-````CSHTML
+````RAZOR
 <div style="position: relative; width: 600px; height: 400px;">
     <TelerikLoaderContainer />
 </div>
@@ -114,7 +114,7 @@ So, if you want to make the loader container block all content on the app while 
 
 The panel is the white rectangular area that surrounds the animated loader indicator and the `Text`. Its purpose is to increase contrast and improve readability. To remove the white rectangle, use custom CSS code:
 
-````CSHTML
+````RAZOR
 @* LoaderContainer with transparent panel *@
 
 <TelerikLoaderContainer Class="no-panel"

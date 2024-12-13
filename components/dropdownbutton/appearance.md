@@ -31,7 +31,7 @@ The following two configurations will produce the same result.
 
 >caption Two ways to set DropDownButton appearance parameters
 
-````CSHTML
+````RAZOR
 <TelerikDropDownButton FillMode="@ThemeConstants.DropDownButton.FillMode.Solid"
                        Rounded="@ThemeConstants.DropDownButton.Rounded.Large"
                        Size="@ThemeConstants.DropDownButton.Size.Large"
@@ -67,7 +67,7 @@ The `FillMode` parameter controls if the primary button of the DropDownButton co
 
 >caption DropDownButton FillMode example
 
-````CSHTML
+````RAZOR
 <p>DropDownButton FillMode</p>
 
 @foreach (var item in FillModes)
@@ -109,7 +109,7 @@ The `Rounded` parameter affects the `border-radius` CSS styles of the DropDownBu
 
 >caption DropDownButton Rounded example
 
-````CSHTML
+````RAZOR
 <p>DropDownButton Rounded</p>
 
 @foreach (var item in RoundedOptions)
@@ -149,7 +149,7 @@ The `Size` parameter can change some dimensions of the DropDownButton's primary 
 
 >caption DropDownButton Size example
 
-````CSHTML
+````RAZOR
 <p>DropDownButton Size</p>
 
 @foreach (var item in Sizes)
@@ -198,7 +198,7 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 
 >caption DropDownButton ThemeColor example
 
-````CSHTML
+````RAZOR
 <p>DropDownButton ThemeColor</p>
 
 @foreach (var item in ThemeColors)

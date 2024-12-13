@@ -18,7 +18,7 @@ You can use the `Context` attribute of the `<FormTemplate>` tag to set the name 
 
 >caption Using a `FormTemplate` to modify the Edit/Create Popup window.
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic
 @using System.ComponentModel.DataAnnotations;
 

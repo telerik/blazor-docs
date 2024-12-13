@@ -27,7 +27,7 @@ You would usually use ScatterLine charts for showing the relation between differ
 
 >caption A scatter line chart that shows battery charging percentage over minutes depending on the charging current
 
-````CSHTML
+````RAZOR
 @* ScatterLine Series *@
 
 <TelerikChart>

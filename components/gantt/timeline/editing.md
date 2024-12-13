@@ -27,7 +27,7 @@ The Gantt component allows you to initiate editing from its Timeline component i
 
 ![Gantt Timeline Editing Example](images/gantt-timeline-editing-example.gif)
 
-````CSHTML
+````RAZOR
 @* Edit the Gantt records from the Timeline component *@
 
 <TelerikGantt Data="@Data"

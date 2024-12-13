@@ -29,7 +29,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
 
 >caption Load on Demand in a TreeList with hierarchical data binding. Code comments offer details.
 
-````CSHTML
+````RAZOR
 @* this sample shows how to load hierarchical data on demand and one way of handling no data being returned. Depending on your models and data logic you may have to tweak some checks, review the code comments for details.
 *@
 
@@ -137,7 +137,7 @@ Below you will find two examples - for [hierarchical](#load-hierarchical-data-on
 
 >caption Load on Demand in a TreeList with flat data binding. Code comments offer details.
 
-````CSHTML
+````RAZOR
 @* this sample shows how to load flat data on demand and one way of handling no data being returned. Depending on your models and data logic you may have to tweak some checks, review the code comments for details.
 *@
 

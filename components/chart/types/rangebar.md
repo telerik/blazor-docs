@@ -30,7 +30,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to arrays
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartTitle Text="Sleep Hours by Age"></ChartTitle>
 
@@ -94,7 +94,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Bar Chart bound to custom objects
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartTitle Text="Sleep Hours by Age"></ChartTitle>
 

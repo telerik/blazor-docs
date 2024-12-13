@@ -32,7 +32,7 @@ The drawer's height is dynamic based on the height of the content (you can chang
 
 ![drawer push mode example](images/drawer-modes-push-example.gif)
 
-````CSHTML
+````RAZOR
 @* This example shows how the drawer behaves in Push mode. It uses item selection to toggle the content for brevity. *@
 
 <div>
@@ -83,7 +83,7 @@ ComboBoxes, DropDownLists, DateTimePickers and similar popup-based components ar
 
 ![drawer overlay mode example](images/drawer-modes-overlay-example.gif)
 
-````CSHTML
+````RAZOR
 @* This example shows how the drawer behaves in Overlay mode. It uses item selection to toggle the content for brevity.
 You may want to add padding to the left of the content so that it is not overlapped by the Drawer in its MiniMode. *@
 

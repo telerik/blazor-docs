@@ -46,7 +46,7 @@ Here are some additional notes to keep in mind, and an example.
 
 >caption Apply custom background colors to dropdown items and the DropDownList component.
 
-````CSHTML
+````RAZOR
 @* The same approach with popup Class is possible with AutoComplete and MultiSelect *@
 
 <TelerikComboBox Data="@ItemsToSelect"

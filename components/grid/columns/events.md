@@ -24,7 +24,7 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 
 >caption Use the OnCellRender event to apply custom format to Grid cells based on certain value
 
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for a cell *@
 
 <style>
@@ -86,7 +86,7 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 
 >caption Use the OnCellRender event to apply custom format to Grid cells based on certain cell value and column name
 
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for cells *@
 
 <style>

@@ -35,7 +35,7 @@ You can also use [aggregates]({%slug grid-aggregates%}) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
-````CSHTML
+````RAZOR
 Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
@@ -96,7 +96,7 @@ You can group the Grid from your code through the [Grid state]({%slug grid-state
 
 >caption Set grouping programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
 

@@ -51,7 +51,7 @@ Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By 
 
 >caption Render empty paragraphs from the Editor Value
 
-````CSHTML
+````RAZOR
 <TelerikEditor @bind-Value="@EditorValue"
                EditMode="@EditorEditMode.Div"
                Height="180px" />

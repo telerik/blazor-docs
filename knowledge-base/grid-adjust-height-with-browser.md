@@ -64,7 +64,7 @@ When setting a `height` in percent, keep in mind the following rule: an element 
 
 >caption Set Grid Height in percent
 
-````CSHTML
+````RAZOR
 <style>
     html, body {
         height: 100%;
@@ -103,7 +103,7 @@ Use <a href="https://web.dev/blog/viewport-units" target="_blank">viewport units
 
 >caption Set Grid Height in viewport units (vh, dvh, and others)
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Pageable="true"
              PageSize="50"
@@ -131,7 +131,7 @@ Use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" target="_bla
 
 >caption Set Grid Height using calc()
 
-````CSHTML
+````RAZOR
 <div style="height:50px;background:#ccc;text-align:center;">Header</div>
 
 <TelerikGrid Data="@GridData"
@@ -169,7 +169,7 @@ Using Telerik layout components can spare the need to use custom CSS and make a 
 
 >caption Set Grid Height to 100% of resizable container
 
-````CSHTML
+````RAZOR
 <TelerikSplitter Height="100vh"
                  Orientation="@SplitterOrientation.Vertical">
     <SplitterPanes>
@@ -214,7 +214,7 @@ You can make the Grid resize automatically, but at the same time, limit how much
 
 >caption Limit a dynamic Grid Height to minimum and maximum values
 
-````CSHTML
+````RAZOR
 <style>
     .responsive-grid-with-limits {
         min-height: 300px;

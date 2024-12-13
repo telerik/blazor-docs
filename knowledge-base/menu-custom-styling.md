@@ -37,7 +37,7 @@ To customize the appearance of the Menu items:
 
 >caption Menu component with custom CSS styles
 
-````CSHTML
+````RAZOR
 <style>
     /* root menu item default state */
     .custom-menu-styles.k-menu > .k-item {

@@ -81,7 +81,7 @@ Refer to the [example](#example) below to customize the available parameters and
 
 The following example lets you experiment with the available settings that control the appearance of the Badge. It starts with the default component behavior.
 
-````CSHTML
+````RAZOR
 <div class="container">
     <div class="row">
         <div class="col-md-3">

@@ -38,7 +38,7 @@ To change the DropDownList icon when the popup is opened, follow these steps:
 
 >caption Change the DropDownList icon when expanded
 
-````CSHTML
+````RAZOR
 @if (isPopupOpen)
 {
     <style>

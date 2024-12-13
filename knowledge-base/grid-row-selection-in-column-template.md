@@ -32,7 +32,7 @@ When you use the [Grid Column Template]({%slug grid-templates-column%}) and want
 
 >caption Prevent row selection when the user clicks inside a template
 
-````CSHTML
+````RAZOR
 <select @bind=@SelectionMode>
     <option value=@GridSelectionMode.Single>Single</option>
     <option value=@GridSelectionMode.Multiple>Multiple</option>

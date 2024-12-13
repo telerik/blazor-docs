@@ -28,7 +28,7 @@ I want to change the built-in plus/minus icons in a Hierarchical Grid.
 ## Solution
 You can change the expand/collapse [icons]({%slug common-features-icons%}) in the Hierarchical Grid by overriding the built-in plus/minus icons with other icons using custom CSS rules. In addition, you can use the Class parameter of the Grid to add custom CSS Class and modify a specific instance of the Grid, instead of all instances on the page. The code block below demonstrates how to achieve the described approach.
 
-````CSHTML
+````RAZOR
 @*Change the icons in the Hierarchical Grid*@
 
 

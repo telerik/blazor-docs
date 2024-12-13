@@ -21,7 +21,7 @@ You can also change the filter menu behavior for a particular column - its own `
 
 >caption CheckList filter in the Gantt
 
-````CSHTML
+````RAZOR
 @* Checkbox List Filter for the Gantt Chart *@
 
 <TelerikGantt Data="@Data"

@@ -52,7 +52,7 @@ To inform the user about the remaining characters, render the TextArea value len
 
 >caption TextArea with counter, MaxLength and conditional message
 
-````CSHTML
+````RAZOR
 <div style="width:400px">
     <TelerikTextArea @bind-Value="@TextValue"
                      Placeholder="Enter your text here"
@@ -97,7 +97,7 @@ To inform the user about the remaining characters, render the TextArea value len
 
 >caption TextArea in Form with counter and validation
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@FormModel"

@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/panelbar" target="_blank">Blazor 
 
 >caption Basic PanelBar with hierarchical data binding
 
-````CSHTML
+````RAZOR
 @* Provide a flat collection of models to the PanelBar *@
 
 <TelerikPanelBar Data="@Items">
@@ -163,7 +163,7 @@ The table below lists the PanelBar methods. Also consult the [PanelBar API](/bla
 | `Rebind` | [Refreshes the component data]({%slug panelbar-refresh-data%}#rebind-method). |
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikPanelBar @ref="@PanelBarRef" .../>
 
 @code{

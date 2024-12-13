@@ -25,7 +25,7 @@ To use a Telerik [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfview
 
 >caption Basic Blazor PDF Viewer
 
-````CSHTML
+````RAZOR
 <TelerikPdfViewer Data="@PdfSource"
                   OnDownload="@OnPdfDownload"
                   Height="600px">
@@ -103,7 +103,7 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 >caption PDF Viewer reference and method usage
 
-````CSHTML
+````RAZOR
 <TelerikPdfViewer @ref="@PdfViewerRef"
                   Data="@PdfSource">
     <PdfViewerToolBar>

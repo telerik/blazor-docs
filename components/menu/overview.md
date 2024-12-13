@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 >caption Basic Menu with hierarchical data binding and built-in navigation
 
-````CSHTML
+````RAZOR
 @*Use a Menu to navigate between views*@
 
 <TelerikMenu Data="@MenuItems"/>

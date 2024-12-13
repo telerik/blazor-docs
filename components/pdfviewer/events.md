@@ -52,7 +52,7 @@ The event handler receives the new zoom level as an argument of type `decimal`. 
 
 >caption Handle or cancel Blazor PDF Viewer Events
 
-````CSHTML
+````RAZOR
 <p> Last event: @EventLog </p>
 
 <p><label> <TelerikCheckBox @bind-Value="@AllowDownloads" /> Allow Downloads </label></p>

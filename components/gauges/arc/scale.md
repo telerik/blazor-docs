@@ -35,7 +35,7 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 ![Min and max parameters example](images/min-and-max-arc-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the Min and Max parameters to change the lowest and highest values for the scale *@
 
 <TelerikArcGauge>
@@ -64,7 +64,7 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 ![Minor and major units parameters](images/minor-and-major-units-arc-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Update the rendering of the major ticks *@
 
 <TelerikArcGauge>
@@ -95,7 +95,7 @@ By default the `StartAngle` is set to `0` and the `EndAngle` to `180`. These val
 
 ![Min and max parameters example](images/start-end-angle-arc-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the StartAngle and EndAngle parameters to curve the scale differently. *@
 
 <TelerikArcGauge>
@@ -122,7 +122,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
 
 ![reverse parameter example](images/reverse-arc-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Set the Reverse parameter to true *@
 
 <TelerikArcGauge>

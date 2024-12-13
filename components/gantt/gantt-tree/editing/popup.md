@@ -54,7 +54,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 
 >caption The Command buttons and the Gantt events let you handle data operations in Popup edit mode.
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic
 @using System.ComponentModel.DataAnnotations;
 
@@ -443,7 +443,7 @@ Parameter | Type | Description
 
 >caption Customize the popup edit form
 
-````CSHTML
+````RAZOR
 @*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikGantt Data="@Data"

@@ -16,7 +16,7 @@ Additionally, the Prompt view can display prompt suggestions related to the prom
 
 >caption Using `PromptSuggestions` to display a set of predefined prompts or hints.
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest" PromptSuggestions="PromptSuggestions"></TelerikAIPrompt>
 
 @code {

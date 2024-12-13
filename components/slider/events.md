@@ -26,7 +26,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes. This ha
 
 >caption Handle the ValueChanged
 
-````CSHTML
+````RAZOR
 @*This example showcases one-way data binding by using Value and ValueChanged*@
 
 @TheValue
@@ -68,7 +68,7 @@ If you use two-way binding, the [`ValueChanged`](#valuechanged) event will fire 
 
 >caption Handle the OnChange event
 
-````CSHTML
+````RAZOR
 @* This example showcases one-way data binding and handling the OnChange event to update the view-model.
     If you want to update the value while the user drags the handle, you can additionally use two-way binding or handle the ValueChanged event.*@
 

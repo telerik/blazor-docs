@@ -20,7 +20,7 @@ The `ExpandedItems` collection is of type `IEnumerable<object>`.
 
 >caption Programmatically expand and collapse items on button click.
 
-````CSHTML
+````RAZOR
 @*To expand a specific node, the parent of this node needs to be expanded as well.*@
 
 <p>

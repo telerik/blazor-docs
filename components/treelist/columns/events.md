@@ -24,7 +24,7 @@ This event fires upon the rendering of the TreeLists columns. It receives an arg
 
 >caption Use the OnCellRender event to apply custom format to TreeList cells based on certain value
 
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for a cell *@
 
 <style>

@@ -42,7 +42,7 @@ This KB article answers the following questions:
 
 >caption Using checkboxes for ListBox selection
 
-````CSHTML
+````RAZOR
 ListBox <code>SelectionMode</code>:
 
 <TelerikRadioGroup Data="@RadioGroupData"

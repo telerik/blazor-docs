@@ -29,7 +29,7 @@ To implement your own paging in the listview, you need to:
 
 >caption Custom Paging in the ListView
 
-````CSHTML
+````RAZOR
 @* This example simulates fetching the page data from a service *@
 
 <TelerikListView TItem="@SampleData"
@@ -85,7 +85,7 @@ The example below shows a relatively simple way to filter and sort over all data
 
 >caption Filter and Sort data in a listview
 
-````CSHTML
+````RAZOR
 @* This is one sample implementation, you should optimize the queries according to your project and needs *@
 
 <TelerikListView Data="@ListViewData" Pageable="true">

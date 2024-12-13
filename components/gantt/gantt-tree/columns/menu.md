@@ -32,7 +32,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
 
 >caption Enable the column menu for all Gantt columns.
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
@@ -177,7 +177,7 @@ The example shows the following things:
 * How to use the `GanttColumnMenuSettings` tag to control the features of the Column Menu.
 * How to use column parameters to affect the column's relationship with the column menu.
 
-````CSHTML
+````RAZOR
 @* Disable filtering and locking columns, hide a column from the chooser (PercentComplete), disable the menu for a column (Title). *@
 
 <TelerikGantt Data="@Data"

@@ -14,7 +14,7 @@ Bound columns render the name of the field or their `Title` in their header. Thr
 
 >caption Sample Header Template
 
-````CSHTML
+````RAZOR
 @* Header templates override the built-in title but leave sorting indicators and filter menu icons *@
 
 <TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId"

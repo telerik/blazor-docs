@@ -30,7 +30,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Column Chart bound to arrays
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Name="University 1"
@@ -107,7 +107,7 @@ Set the `Categories` parameter of the `ChartCategoryAxis` to `object[]`. The mem
 
 >caption Blazor Range Column Chart bound to custom objects
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Name="University 1"

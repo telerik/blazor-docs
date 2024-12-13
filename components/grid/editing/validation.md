@@ -21,7 +21,7 @@ The Telerik UI for Blazor Grid supports built-in validation that is enabled by d
 
 To disable the built-in validation, add a `<GridValidationSettings>` tag to the `<GridSettings>` and set the `Enabled` parameter to `false`.
 
-````CSHTML
+````RAZOR
 @* Disable the built-in validation in the Grid *@
 
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
@@ -183,7 +183,7 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 >note Such third party tools are not included in the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install an appropriate package first. You can find such in the <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">official FluentValidation documentation</a>.
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 @using Blazored.FluentValidation
 @using FluentValidation
 

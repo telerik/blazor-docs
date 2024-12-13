@@ -34,7 +34,7 @@ Add the [Multi Select component]({%slug multiselect-overview%}) to the [EditorTe
 
 >caption MultiSelect column editor in the grid
 
-````CSHTML
+````RAZOR
 @* Use a MultiSelect in the grid to edit multiple values in a column *@
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Groupable="true" PageSize="5"

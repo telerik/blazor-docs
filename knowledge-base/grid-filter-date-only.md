@@ -51,7 +51,7 @@ Note the [difference between `FilterDescriptor` and `CompositeFilterDescriptor`]
 
 >caption Filter Grid by date via filter descriptor changes in OnStateChanged
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -131,7 +131,7 @@ This approach is suitable for [`FilterRow` filter mode]({%slug grid-filter-row%}
 
 >caption Filter Grid by date via filter descriptor changes in OnRead
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -224,7 +224,7 @@ This approach is suitable for both filter menu and filter row modes. It has the 
 
 >caption Filter Grid by date via additional model property
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              TItem="@GridItem"
              Pageable="true"

@@ -37,7 +37,7 @@ The scale of the linear gauge renders the values, pointers and labels. You can c
 
 ![Min and max parameters example](images/min-and-max-linear-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the Min and Max parameters to change the lowest and highest values for the scale *@
 
 <TelerikLinearGauge>
@@ -70,7 +70,7 @@ The scale of the linear gauge renders the values, pointers and labels. You can c
 
 ![Minor and major units parameters](images/minor-and-major-units-linear-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Update the rendering of the major and minor ticks *@
 
 <TelerikLinearGauge>
@@ -95,7 +95,7 @@ If you set the `Mirror` (`bool`) parameter to `true` the scale will render the l
 
 ![Mirror the linear gauge](images/mirror-linear-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Set the Mirror parameter to true *@
 
 <TelerikLinearGauge>
@@ -119,7 +119,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the values of the scale wi
 
 ![reverse parameter example](images/reverse-linear-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Set the Reverse parameter to true *@
 
 <TelerikLinearGauge>
@@ -143,7 +143,7 @@ The `Vertical` (`bool`) parameter controls the orientation of the linear gauge. 
 
 ![horizontal component](images/horizontal-linear-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the Vertical parameter to change the orientation of the scale *@
 
 <TelerikLinearGauge>

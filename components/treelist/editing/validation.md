@@ -21,7 +21,7 @@ The Telerik UI for Blazor TreeList supports built-in validation that is enabled 
 
 To disable the built-in validation, add a `<TreeListValidationSettings>`tag  to the `<TreeListSettings>` and set the `Enabled` parameter to `false`.
 
-````CSHTML
+````RAZOR
 @* Disable the built-in validation in the TreeList *@
 
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@

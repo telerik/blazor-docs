@@ -37,7 +37,7 @@ Animations are best done in CSS (such as CSS3 transitions) or JavaScript. Blazor
 
 >caption Toggle content with CSS animation
 
-````CSHTML
+````RAZOR
 @* Comments in the code offer more details *@
 
 <style>

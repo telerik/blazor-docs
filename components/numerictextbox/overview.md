@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/numeric-textbox" target="_blank">
 
 >caption Basic numeric text box with its key features
 
-````CSHTML
+````RAZOR
 The new value is: @theValue
 
 <TelerikNumericTextBox Format="C" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@theValue"></TelerikNumericTextBox>
@@ -48,7 +48,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 
 >caption Using custom format strings with the Blazor Numeric TextBox
 
-````CSHTML
+````RAZOR
 @Weight
 <br />
 <TelerikNumericTextBox Format="#.00 kg" Max="5m" Min="-5m" Step="0.33m" @bind-Value="@Weight"></TelerikNumericTextBox>
@@ -117,7 +117,7 @@ The following parameters enable you to customize the [appearance]({%slug numeric
 
 The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `@ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
 
 <TelerikNumericTextBox @ref="@NumericTextBoxRef"

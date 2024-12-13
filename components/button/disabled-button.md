@@ -18,7 +18,7 @@ The following example demonstrates how to enable and disable the Button.
 
 >caption Toggle Telerik Button Enabled State
 
-````CSHTML
+````RAZOR
 <p>
     <label>
         <TelerikCheckBox @bind-Value="@ButtonIsEnabled" /> Toggle Button State

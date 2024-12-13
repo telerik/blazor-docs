@@ -28,7 +28,7 @@ The sorting criteria are stored in a [collection of `SortDescriptor`]({%slug com
 
 >caption Enable Sorting in Telerik TreeList
 
-````CSHTML
+````RAZOR
 Click a column header to sort by its data
 
 <TelerikTreeList Data="@Data" Sortable="true"
@@ -106,7 +106,7 @@ You can sort the TreeList from your own code through its [state]({%slug treelist
 
 >caption Set sorting programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/treelist/state.md#set-sort-from-code)
 ````
 

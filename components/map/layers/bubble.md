@@ -29,7 +29,7 @@ The following example demonstrates how to configure the Map Bubble Layer.
 
 >caption The Map Bubble Layer configuration.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of a Bubble Layer configuration. *@
 
 <TelerikMap Center="@Center"

@@ -41,7 +41,7 @@ Add a `<SchedulerToolBar>` tag inside `<TelerikScheduler>` to configure the tool
 
 >caption Customize the Scheduler toolbar
 
-````CSHTML
+````RAZOR
 <TelerikScheduler Data="@Appointments"
                   @bind-Date="@SchedulerStartDate"
                   Height="600px">

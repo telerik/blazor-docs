@@ -65,7 +65,7 @@ To define `Tab` as an auto-switch key, use its ASCII code `9`. Note that this ma
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikDateInput AutoSwitchKeys="@( new List<object>() { "/", 9 } )" />
 ````
 
@@ -102,7 +102,7 @@ The following example lets you experiment with the Date Input typing settings. I
 
 >caption Configure the DateInput typing experience
 
-````CSHTML
+````RAZOR
 <ul>
     <li><label> <TelerikCheckBox @bind-Value="@AllowCaretMode" /> AllowCaretMode </label></li>
     <li><label> <TelerikCheckBox @bind-Value="@AutoCorrectParts" /> AutoCorrectParts </label></li>

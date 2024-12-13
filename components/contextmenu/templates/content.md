@@ -20,7 +20,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >caption Use the content template to implement a custom layout that can also use the current target to alter itself
 
-````CSHTML
+````RAZOR
 @* Use the target to generate different custom layout in the context menu depending on what was clicked *@
 
 <div @oncontextmenu:preventDefault="true"

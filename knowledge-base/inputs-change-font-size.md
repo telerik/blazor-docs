@@ -39,7 +39,7 @@ All input components and the Button provide a `Size` parameter that changes the 
 
 >caption Change input font styles and paddings
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete Data="@DropDownData"
     ValueField="Text"
     @bind-Value="@AutoCompleteValue"

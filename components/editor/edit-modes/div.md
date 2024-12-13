@@ -27,7 +27,7 @@ To use this mode, set the `EditMode` parameter of the editor to `EditorEditMode.
 
 >caption Use the `Div` edit mode
 
-````CSHTML
+````RAZOR
 <TelerikEditor EditMode="@EditorEditMode.Div"></TelerikEditor>
 ````
 
@@ -41,7 +41,7 @@ The example below shows how you can customize the appearance of elements in the 
 
 >caption Customize the content area appearance in Div mode
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 @* The "auto" height makes the browser expand the editor according to its contents *@

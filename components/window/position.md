@@ -37,7 +37,7 @@ If the `Top` or `Left` parameters are set and not empty, they take precedence ov
 
 >caption Center the Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Centered="true" Visible="true">
     <WindowTitle>
         Window Title
@@ -61,7 +61,7 @@ In this case, the Window will render inside the specified container and not as a
 
 >caption Using ContainmentSelector to limit Window dragging and resizing
 
-````CSHTML
+````RAZOR
 <div id="window-container"
      style="position: relative; border: 1px solid red; margin: 20vh; height: 50vh; width: 50vw;">
 
@@ -98,7 +98,7 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 
 >caption Using Top and Left to manage the Window position
 
-````CSHTML
+````RAZOR
 <p>
     <code>WindowLeft</code>: @WindowLeft
     <br />

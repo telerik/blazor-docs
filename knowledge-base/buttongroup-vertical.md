@@ -35,7 +35,7 @@ How to create a vertical button group? What is the best way to make the buttons 
 * Reset the button margins.
 * Change the rounded corners.
 
-````CSHTML
+````RAZOR
 <p>Inline button group</p>
 
 before

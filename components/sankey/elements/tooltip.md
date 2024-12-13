@@ -41,7 +41,7 @@ The `NodeTemplate` controls the content of the Tooltip that will appear when the
 
 >caption Customizing the Sankey Tooltips
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

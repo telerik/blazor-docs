@@ -14,7 +14,7 @@ You can render several instances of the current calendar view next to each other
 
 >caption Render 3 months (a quarter) at a time
 
-````CSHTML
+````RAZOR
 <TelerikCalendar Views="3" View="CalendarView.Month">
 </TelerikCalendar>
 ````
@@ -23,7 +23,7 @@ Additionally, you may configure the orientation of the views through the `Orient
 
 >caption Render 2 months at a time with vertical orientation
 
-````CSHTML
+````RAZOR
 <TelerikCalendar Orientation="@CalendarOrientation.Vertical"
                  Views="2"
                  View="CalendarView.Month">

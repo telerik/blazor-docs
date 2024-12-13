@@ -32,7 +32,7 @@ In order for the ComboBox to function properly, the `Value` parameter should be 
 
 The following example demonstrates the described problematic behavior caused by different data types provided to the `Value` and `ValueField` parameters. The `ValueField` property is of type `int` and the `Value` is bound to an instance of `MyDdlModel`.
 
-````CSHTML
+````RAZOR
 @* Try selecting an item - selection is not done and the popup is not closed until it loses focus *@
 
 Selected value: @selectedValue
@@ -68,7 +68,7 @@ To avoid the above described behavior you need to bind the `Value` parameter to 
 
 The example below demonstrates the correct setup of the ComboBox - `Value` and `ValueField` data types are matching.
 
-````CSHTML
+````RAZOR
 @* Try selecting an item to verify the correct ComboBox behavior on selection - selection is done correctly and the popup is closed afterwards*@
 
 Selected value: @selectedValue

@@ -23,7 +23,7 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
 
 ![toolbar spacers](images/toolbar-separators.png)
 
-````CSHTML
+````RAZOR
 @* Use the ToolBarSpacer to add space between the button group and the rest and the separator to separate the toggle button and the undo button *@
 
 <TelerikToolBar>

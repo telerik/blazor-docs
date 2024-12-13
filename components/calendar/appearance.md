@@ -26,7 +26,7 @@ This configuration affects the size of the whole Calendar and its inner elements
 
 >caption The built-in Calendar sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Calendar.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static

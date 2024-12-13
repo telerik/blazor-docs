@@ -40,7 +40,7 @@ Much like the Stepper component, the internal Stepper of the Wizard provides two
 
 >caption Set up the Wizard to display step labels only
 
-````CSHTML
+````RAZOR
 <div style="text-align:center">
     <TelerikWizard Width="600px" Height="250px">
         <WizardSettings>
@@ -79,7 +79,7 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 ![Disabled Linear flow](images/disabled-linear-flow-example.gif)
 
 
-````CSHTML
+````RAZOR
 @* Disable the Linear flow of the Wizard *@
 
 <div style="text-align:center">
@@ -122,7 +122,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
 
 >caption Set up the desired content for the Wizard Stepper indicators.
 
-````CSHTML
+````RAZOR
 @* Configure the indicators of the Wizard Stepper *@
 
 <div style="text-align:center">
@@ -154,7 +154,7 @@ The Wizard Stepper allows you to set labels for the corresponding step indicator
 
 >caption Set up the desired labels for the Wizard Stepper steps.
 
-````CSHTML
+````RAZOR
 @* Configure the labels of the Wizard Stepper *@
 
 <div style="text-align:center">
@@ -188,7 +188,7 @@ To mark a Wizard step as optional, set the `Optional` parameter of the `WizardSt
 
 >caption Set an optional step in the Wizard Stepper
 
-````CSHTML
+````RAZOR
 @* Set up an optional Wizard step *@
 
 <div style="text-align:center">
@@ -235,7 +235,7 @@ Respectively, if the previous step is disabled, the Previous button will be disa
 
 >caption Disable a Wizard step.
 
-````CSHTMl
+````RAZOR
 @* Set up a disabled Wizard step *@
 
 <TelerikButton OnClick="@ToggleDisabled">Toggle Disabled of the Preview Step</TelerikButton>
@@ -287,7 +287,7 @@ You can toggle the `Valid` parameter value based on your application logic to ac
 
 >caption Set up valid/invalid steps in the Wizard Stepper.
 
-````CSHTMl
+````RAZOR
 @* Wizard with valid and invalid steps *@
 
 <div style="text-align:center">

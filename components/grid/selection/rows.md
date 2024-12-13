@@ -30,7 +30,7 @@ To enable row selection:
 
 >caption Grid multiple row selection
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@SelectedEmployees"
@@ -88,7 +88,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the Grid SelectedItemsChanged event
 
-````CSHTML
+````RAZOR
 @* Select rows and handle the SelectedItemsChanged event *@
 
 <TelerikGrid Data="@GridData"

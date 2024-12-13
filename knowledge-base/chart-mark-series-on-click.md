@@ -32,7 +32,7 @@ You can use the `ColorField` and the `ExplodeField` (for pie-type charts) to vis
 
 >caption Mark a Chart Series On Click
 
-````CSHTML
+````RAZOR
 @* Visually distinguish a clicked chart series *@
 
 @using System.Text.RegularExpressions;

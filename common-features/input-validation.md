@@ -48,7 +48,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 
 >caption How to validate inputs
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameters are not mandatory for validation, they just show better forms integration *@
@@ -196,7 +196,7 @@ Simple textbox-like inputs do not have any special behavior. You need to bind th
 
 The Color Palette component, while not an input, can work with validation so you can, for example, require that the user picks a color. Since it is not an input, it does not have an invalid state, but you can add validation messages around it.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* This Using is for the model class attributes only *@
 
 <EditForm Model="@validationModel" OnValidSubmit="@HandleValidSubmit">
@@ -233,7 +233,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 
 >caption How to validate a combobox without custom values
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
@@ -289,7 +289,7 @@ The ComboBox works with the `Value` of the selected item (through its `ValueFiel
 
 >caption How to validate a combobox with custom values
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
@@ -338,7 +338,7 @@ There is no built-in provision in the framework for validating a field value bas
 
 >caption Validate that the start date is before the end date through a custom attribute
 
-````CSHTML
+````RAZOR
 @* These using statements are for the custom data annotation validation attribute. Check its implementation at the end of this code snippet *@
 @using System.Reflection
 @using System.ComponentModel.DataAnnotations
@@ -419,7 +419,7 @@ This means that for required field validation to work, the current item must hav
 
 >caption How to validate a dropdownlist
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
@@ -480,7 +480,7 @@ Unlike other components, the editor does not trigger form validation on every ke
 
 >caption How to validate the Editor component
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 
@@ -522,7 +522,7 @@ You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#i
 
 >caption Sample DataAnnotation rules that match masks to validate user input
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 
@@ -599,7 +599,7 @@ The MultiSelect has a value that is a `List` and the validation attributes must 
 
 >caption How to validate a MultiSelect
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameter is not mandatory for validation, ut just shows better forms integration *@
@@ -647,7 +647,7 @@ The radio group acts in a way similar to a dropdownlist - there is a collection 
 
 >caption Sample required and range validation in the RadioGroup
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 
@@ -704,7 +704,7 @@ The sliders are, effectively, numeric inputs in terms of behavior and what data 
 
 >caption How to validate Sliders
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 
@@ -792,7 +792,7 @@ The feature is supported by the following components treated as simple textbox-l
 
 >caption Configure the event triggering the input validation
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attributes only *@
 @* The Id parameters are not mandatory for validation, they just show better forms integration *@

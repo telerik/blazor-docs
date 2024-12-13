@@ -48,7 +48,7 @@ My dropdown data model has one numeric property in `ValueField` and two string p
 
 >caption Search in multiple data fields - custom filtering
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

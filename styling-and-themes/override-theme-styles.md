@@ -51,7 +51,7 @@ The example below demonstrates using custom CSS classes with the Grid and the Co
 
 >caption Style Telerik Blazor components with custom CSS classes
 
-````CSHTML
+````RAZOR
 <style>
     .custom-grid {
         border-color: #00f;

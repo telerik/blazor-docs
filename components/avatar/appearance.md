@@ -33,7 +33,7 @@ You can increase or decrease the size of the Avatar by setting the `Size` parame
 
 >caption The built-in Avatar sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Avatar.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -66,7 +66,7 @@ The `Rounded` parameter applies the `border-radius` CSS style to the Avatar to a
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in rounded options of the Avatar.  *@
 
 @{
@@ -101,7 +101,7 @@ The `FillMode` controls whether the TelerikAvatar has background or is just outl
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes of the Avatar*@
 
 @{
@@ -144,7 +144,7 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 
 >caption The built-in ThemeColors
 
-````CSHTML
+````RAZOR
 @* The built-in Avatar colors *@
 
 @{

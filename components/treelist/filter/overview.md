@@ -57,7 +57,7 @@ You can customize the filter editors declaratively for some data types. It is po
 | `FilterEditorType` | `TreeListFilterEditorType` enum | `DateTime` columns | The component, which the TreeList will render for filtering (DatePicker or DateTimePicker). |
 | `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
 
-````CSHTML
+````RAZOR
 @* Using FilterEditorType and FilterEditorFormat parameters *@
 
 <TelerikTreeList Data="@Data" 

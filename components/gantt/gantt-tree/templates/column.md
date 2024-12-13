@@ -19,7 +19,7 @@ The example below shows how to:
 
 >caption Using cell (column) Template
 
-`````CSHTML
+`````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

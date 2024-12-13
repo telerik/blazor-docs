@@ -44,7 +44,7 @@ Steps for drawing vertical and horizontal lines with [plot bands]({%slug chart-p
 
 >caption Drawing Horizontal and Vertical lines with Plot Bands
 
-`````CSHTML
+`````RAZOR
 <TelerikChart>
     <ChartTitle Text="Unrecoverable Errors Per Minute vs. Signal Level"></ChartTitle>
 
@@ -118,7 +118,7 @@ Steps for drawing horizontal and vertical lines with additional [ScatterLine Ser
 
 >caption Drawing Horizontal and Vertical lines with additional ScatterLine Chart
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartLegend Visible="true"></ChartLegend>
 

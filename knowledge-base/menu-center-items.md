@@ -31,7 +31,7 @@ The Menu uses [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 >caption Center the root items in a horizontal menu
 
-````CSHTML
+````RAZOR
 @* Center the root items in a horizontal menu *@
 
 <TelerikMenu Class="centered-menu" Data="@MenuItems" />

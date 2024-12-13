@@ -50,7 +50,7 @@ Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data
 
 >caption Show only selected items in Grid using the Data parameter
 
-````CSHTML
+````RAZOR
 @*Select several items on different pages and then click the filter button in the Checkbox Column Header*@
 
 <TelerikGrid Data=@GridData
@@ -154,7 +154,7 @@ Depending on the flag value, you can make the request based on the corresponding
 
 >caption Show only selected items in Grid using the OnRead event
 
-````CSHTML
+````RAZOR
 @*Select several items on different pages and then click the filter button in the Checkbox Column Header*@
 
 @using Telerik.DataSource.Extensions

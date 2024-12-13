@@ -34,7 +34,7 @@ The Grid does not directly alter the collection of items passed to its `Data` pa
 
 >caption Get the index of a clicked/selected row immediately and after sorting
 
-````CSHTML
+````RAZOR
 @*Get the index of a clicked/selected row immediately and after sorting*@
 
 @using Telerik.DataSource

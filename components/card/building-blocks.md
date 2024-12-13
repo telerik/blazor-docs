@@ -38,7 +38,7 @@ Use the `CardHeader` tag to render header area of the Card.
 
 ![Card Header](images/card-header-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Header *@
 
 <TelerikCard Width="200px">
@@ -81,7 +81,7 @@ Use the `CardFooter` tag to render the footer area of the Card.
 
 ![Card Footer](images/card-footer-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Footer *@
 
 <TelerikCard Width="200px">
@@ -104,7 +104,7 @@ Use the [`CardImage`]({%slug card-image%}) tag to render the image section of th
 
 ![Card Image](images/image-example.png)
 
-````CSHTML
+````RAZOR
 @*Card Image*@
 
 <TelerikCard Width="200px">
@@ -126,7 +126,7 @@ Use the [`CardActions`]({%slug card-actions%}) tag to render the actions area of
 
 ![Card Actions](images/card-actions-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Actions *@
 
 <TelerikCard Width="200px">
@@ -151,7 +151,7 @@ Use the `CardActions` tag to render the actions area of the Card. An example of 
 
 ![Card Separator](images/card-separator-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Separator *@
 
 <TelerikCard Width="200px">
@@ -183,7 +183,7 @@ Use the `CardTitle` tag to render a title (heading). Although the header area is
 
 ![Card Footer](images/card-title-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Title *@
 
 <TelerikCard Width="200px">
@@ -209,7 +209,7 @@ Use the `CardSubTitle` tag to render sub title. Although the header area is suit
 
 ![Card Footer](images/card-subtitle-example.png)
 
-````CSHTML
+````RAZOR
 @* Card Subtitle *@
 
 <TelerikCard Width="200px">

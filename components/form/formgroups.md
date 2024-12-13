@@ -35,7 +35,7 @@ You can organize some FormItems into logical groups. You can configure the label
 
 ![FormItem example](images/formgroups-example.png)
 
-````CSHTML
+````RAZOR
 @* Organize items into groups *@
 
 @using System.ComponentModel.DataAnnotations

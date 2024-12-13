@@ -28,7 +28,7 @@ The `OnCollapse` event fires when a pane is collapsed. It receives the index of 
 
 >caption Handling the OnCollapse event of the splitter
 
-````CSHTML
+````RAZOR
 Try collapsing any of the panes by clicking the corresponding arrow on the adjacent splitbar
 
 <div style="width: 500px; border: 1px solid red;">
@@ -70,7 +70,7 @@ The `OnExpand` event fires when a pane is expanded. It receives the index of the
 
 >caption Handling the OnExpand event of the splitter
 
-````CSHTML
+````RAZOR
 Try collapsing and expanding any of the panes by clicking the corresponding arrow on the adjacent splitbar
 
 <div style="width: 500px; border: 1px solid red;">
@@ -112,7 +112,7 @@ The `OnResize` event fires after the user has finished resizing a pane (after th
 
 >caption Handle the OnResize event of the splitter
 
-````CSHTML
+````RAZOR
 Try resizing any of the panes by dragging the splitbars
 
 <div style="width: 500px; border: 1px solid red;">

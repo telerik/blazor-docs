@@ -65,7 +65,7 @@ The known limitations of the Autofit Columns feature include:
 
 >caption Grid Column Resizing and Autofitting
 
-````CSHTML
+````RAZOR
 <p>Resize the Grid columns and click the AutoFit buttons. The command column is not resizable by the user.</p>
 
 <TelerikButton OnClick="@AutoFitSingleColumn">AutoFit ID Column</TelerikButton>

@@ -19,7 +19,7 @@ The <a href = "https://www.telerik.com/blazor-ui/validationsummary" target="_bla
 
 >caption Use Telerik ValidationSummary in a Telerik Form
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px"
@@ -56,7 +56,7 @@ Use the `<TelerikValidationSummary>` tag instead of `<ValidationSummary>` direct
 
 >caption Use Telerik ValidationSummary in an EditForm
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@customer" width="600px">
@@ -97,7 +97,7 @@ The `TelerikValidationSummary` allows you to control its rendering via a nested 
 
 >caption Using TelerikValidationSummary Template
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
@@ -147,7 +147,7 @@ Use the `Class` parameter of the Validation Summary component to add a custom CS
 
 >caption Using TelerikValidationSummary Class
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">

@@ -38,7 +38,7 @@ Examples:
 
 >note The example below demonstrates how to use just Paging with a remote service. For a more complex setup including other Grid functionalities (such as sorting, filtering etc.) you can check [this project for using Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) in our public repository.
 
-````CSHTML
+````RAZOR
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid TItem="@Employee"
@@ -127,7 +127,7 @@ If you have all the data at once, the Telerik .ToDataSourceResult(request) exten
 
 >caption Use Telerik .ToDataSourceResult() extension method to filter, sort and page data.
 
-````CSHTML
+````RAZOR
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @using Telerik.DataSource.Extensions
@@ -211,7 +211,7 @@ Thus, to use the `OnRead` event with grouping, you must:
 
 >caption Grouping with OnRead
 
-````CSHTML
+````RAZOR
 This sample shows how to set up the grid to use grouping with manual data source operations, and how to use the Telerik DataSource extensions to prepare grouped data.
 
 @using Telerik.DataSource.Extensions
@@ -310,7 +310,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state).
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

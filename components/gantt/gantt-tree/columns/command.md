@@ -70,7 +70,7 @@ The command column provides access to the data item via `context`. This may be u
 Use a **named** context variable to avoid errors when nesting components or `RenderFragment`s in general. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."]({%slug nest-renderfragment%}).
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
         <GanttCommandColumn Context="currTask">
             @{
                 var task = currTask as FlatModel;
@@ -95,7 +95,7 @@ The following code example demonstrates declarations and handling of the built-i
 
 >caption Example of handling built-in and custom commands in the Gantt component
 
-````CSHTML
+````RAZOR
 @* This sample showcases:
     - using the built-in Add and Delete commands
     - a custom command for a row

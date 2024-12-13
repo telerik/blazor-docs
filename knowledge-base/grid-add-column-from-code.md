@@ -32,7 +32,7 @@ You can use the [`RenderFragment Delegate`](https://learn.microsoft.com/en-us/do
 
 >caption Add a Grid column from code
 
-````CSHTML
+````RAZOR
 @* Use the RenderFragment to add a grid column. Click on the Add a column button to see the result *@
 
     <TelerikButton OnClick="@(() => CustomGridColumnFromCode = AddAGridColumn())">Add a column</TelerikButton>

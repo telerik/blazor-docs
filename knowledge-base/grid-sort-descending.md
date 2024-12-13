@@ -52,7 +52,7 @@ Let's assume that the Grid has a `Stock` column which is not sorted, but it shou
 
 >caption Sort a Grid column descending first
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 Grid SortMode:

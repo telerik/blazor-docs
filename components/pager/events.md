@@ -23,7 +23,7 @@ Make sure to update the current page index when using the event.
 
 >caption Handle PageChanged
 
-````CSHTML
+````RAZOR
 <TelerikPager Total="@TotalItems"
               ButtonCount="@ButtonCount"
               PageSize="@ItemsOnPage"
@@ -61,7 +61,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````CSHTML
+````RAZOR
 <TelerikPager Total="@TotalItems"
               Page="@CurrentPage"
               PageSize="@ItemsOnPage"              

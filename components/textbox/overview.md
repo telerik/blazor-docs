@@ -21,7 +21,7 @@ You can control [various attributes](#textbox-parameters) of the `input` element
 
 >caption Basic TextBox with two-way value binding
 
-````CSHTML
+````RAZOR
 <p>TextBox value: @StringValue</p>
 
 <TelerikTextBox @bind-Value="@StringValue" />
@@ -103,7 +103,7 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Customized text box with input attributes
 
-````CSHTML
+````RAZOR
 <label for="email">Email</label>
 <TelerikTextBox Placeholder="john@smith.com" Title="write your email here"
                 TabIndex="3" Width="180px"
@@ -113,7 +113,7 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Password type TextBox
 
-````CSHTML
+````RAZOR
 @* An example of enabling the Password mode of the text box. Make sure to add a form and validation
 for example: https://demos.telerik.com/blazor-ui/textbox/password
 *@
@@ -132,7 +132,7 @@ for example: https://demos.telerik.com/blazor-ui/textbox/password
 
 >caption Programmatically change the TextBox value
 
-````CSHTML
+````RAZOR
 TextBox value: @StringValue
 <br />
 

@@ -53,7 +53,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 >caption Default field names for Breadcrumb item bindings. If you use these, you don't have to specify them in the `TelerikBreadcrumb` tag explicitly.
 
-````CSHTML
+````RAZOR
     public class BreadcrumbItem
     {
         public string Text { get; set; }
@@ -67,7 +67,7 @@ The properties of a Breadcrumb item map directly to fields from the Breadcrumb m
 
 ## Example - Data Binding to Non-Default Field Names
 
-````CSHTML
+````RAZOR
 @*This example shows how you can data bind the Breadcrumb and set the field names it will use from the model*@
 
 <TelerikBreadcrumb Data="@Items"

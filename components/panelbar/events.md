@@ -27,7 +27,7 @@ If that item has children the `OnItemClick` event will fire before the `Expanded
 
 >caption Handle OnItemClick to react to user click action.
 
-````CSHTML
+````RAZOR
 @* Use the OnItemClick event to react to the user click action. *@
 
 <div style="width: 30%;">
@@ -113,7 +113,7 @@ The `ExpandedItemsChanged` event fires when the user expands or collapses a node
 
 >caption Handle the ExpandedItemsChanged events
 
-````CSHTML
+````RAZOR
 @* Use the ExpandedItemsChanged to respond to the user expanding or collapsing items in the PanelBar *@
 
 <div style="width: 30%;">
@@ -208,7 +208,7 @@ The `OnItemRender` event fires upon rendering the nodes of the PanelBar. It rece
 
 If the item that is customized has children, they will also inherit the styles applied in the CSS class passed to the `Class` parameter.
 
-````CSHTML
+````RAZOR
 @* Customize the entire item using CSS rules and appropriate selectors *@
 
 <style>
@@ -317,7 +317,7 @@ Both event arguments expose an `Item` and `IsCancelled` properties. To cancel ea
 
 >caption PanelBar OnExpand and OnCollapse Events
 
-````CSHTML
+````RAZOR
 <TelerikPanelBar Data="@PanelBarItems"
                  OnExpand="@OnPanelBarExpand"
                  OnCollapse="@OnPanelBarCollapse">

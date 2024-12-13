@@ -32,7 +32,7 @@ This KB article answers the following questions:
 
 To reduce the whitespace around a Chart, use the `Padding` parameter of the ChartSeries.
 
-````CSHTML
+````RAZOR
 <TelerikCard Width="330px">
     <CardHeader>
         <CardTitle>Simple Pie Chart</CardTitle>

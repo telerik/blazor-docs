@@ -86,7 +86,7 @@ The `OnLinkLeave` event fires when the user hovers a link. The `OnLinkLeave` eve
 
 >caption Handling the Sankey diagram events
 
-````CSHTML
+````RAZOR
 <div style="display:flex; justify-content:stretch">
     <TelerikSankey Data="@Data"
                    OnNodeClick="@OnNodeClick"

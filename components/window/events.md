@@ -28,7 +28,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 
 >caption React to the user closing the window
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikButton OnClick="@ToggleWindow">Toggle the Window</TelerikButton>
@@ -69,7 +69,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 
 >caption Prevent the user from closing the window based on a condition
 
-````CSHTML
+````RAZOR
 @* Not propagating the visible value from the handler to the model can prevent the user from closing the window
     Using the application code to explicitly set the visibility of the window will still close it as it will not fire the event*@
 
@@ -117,7 +117,7 @@ You can use the `StateChanged` event to get notifications when the user tries to
 
 >caption React to the user actions to minimize, restore or maximize the window
 
-````CSHTML
+````RAZOR
 @lastUserAction
 
 <select @bind=@State>
@@ -165,7 +165,7 @@ You can use the `WidthChanged` and `HeightChanged` events to get notifications w
 
 >caption React to the user actions to resizing the window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Visible="true"
                Resizable="true"
                WidthChanged="@WidthChangedHandler"
@@ -224,7 +224,7 @@ The `LeftChanged` event fires second, so if you intend to store locations in an 
 
 >caption Handle LeftChanged and TopChanged
 
-````CSHTML
+````RAZOR
 @* If you need to react to the user dragging the window you can handle the events. Otherwise you can simply use two-way binding *@
 
 <TelerikWindow Left="@TheLeft" Top="@TheTop" Draggable="true"

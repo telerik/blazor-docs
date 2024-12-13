@@ -24,7 +24,7 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 
 >caption Resizing tiles in the TileLayout
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout ColumnWidth="200px"
                    RowHeight="150px"
                    Width="700px"

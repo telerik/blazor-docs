@@ -28,7 +28,7 @@ The following example demonstrates how to set up the title through a template. T
 
 >caption Title template and no close button in the Telerik Dialog.
 
-````CSHTML
+````RAZOR
 @* An example of a title template and hidden button for closing. *@
 
 <TelerikDialog @bind-Visible="@Visible" ShowCloseButton="false">

@@ -36,7 +36,7 @@ The below example shows how to:
 
 >caption Modify the default ProseMirror Schema
 
-````CSHTML
+````RAZOR
 <style>
     hr.custom-hr {
         border-color: red;

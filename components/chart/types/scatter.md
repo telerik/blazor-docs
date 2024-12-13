@@ -27,7 +27,7 @@ Scatter charts are useful for showing the relation between different sets of dat
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-````CSHTML
+````RAZOR
 @* Scatter Series *@
 
 <TelerikChart>

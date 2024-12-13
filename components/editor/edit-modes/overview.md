@@ -20,7 +20,7 @@ You control which mode is used through the `EditMode` parameter of the editor wh
 
 The key difference is that the `Iframe` mode creates a separate HTML document for editing, and this means that it does not inherit the CSS rules from the current page, and the editor can add some rules of its own to provide styling (for example, for `<table>` elements).
 
-````CSHTML
+````RAZOR
 @* the two different edit modes *@
 
 <TelerikEditor @bind-Value="@Val1" EditMode="@EditorEditMode.Iframe"></TelerikEditor>

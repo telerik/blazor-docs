@@ -21,7 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carou
 
 >caption Carousel with 5 pages and some basic content
 
-````CSHTML
+````RAZOR
 @* Blazor Carousel *@
 
 <TelerikCarousel Data="@CarouselData"
@@ -97,7 +97,7 @@ The table below lists the Carousel methods. Also consult the [Carousel API](/bla
 | `Rebind` | [Refreshes the component data]({%slug carousel-refresh-data%}#rebind-method). |
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikCarousel @ref="@CarouselRef" .../>
 
 @code{

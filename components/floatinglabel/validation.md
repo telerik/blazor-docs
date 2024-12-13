@@ -14,7 +14,7 @@ The Blazor FloatingLabel integrates with form validation of [compatible Telerik 
 
 >caption Floating Label Integration with Forms and Validation
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 @if (ValidSubmit)

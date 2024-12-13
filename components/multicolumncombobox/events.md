@@ -28,7 +28,7 @@ The type of the argument in the lambda expression must match the `Value` type of
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             Value="@BoundValue"
                             ValueChanged="@((int value) => ValueChangedHandler(value))"
@@ -64,7 +64,7 @@ The type of the argument in the lambda expression must match the `Value` type of
 
 >caption Handle ValueChanged with custom values - the event fires on every keystroke
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             AllowCustom="true"
                             Value="@BoundValue"
@@ -112,7 +112,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange without custom values - to get a value from the list, you must write text that will match the text of an item (e.g, "item 5").
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikMultiColumnComboBox Data="@MultiComboData"
@@ -152,7 +152,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange with custom values - the event fires on blur or enter
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikMultiColumnComboBox Data="@MultiComboData"
@@ -214,7 +214,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
 
-````CSHTML
+````RAZOR
 <p>@SelectedValue</p>
 
 <TelerikMultiColumnComboBox TItem="@SuggestionsModel" TValue="int"
@@ -301,7 +301,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >caption Custom sort of grouped data with OnRead
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource
 
@@ -387,7 +387,7 @@ The event handler receives as an argument an `MultiColumnComboBoxOpenEventArgs` 
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@Items"
                             OnOpen="@OnMultiColumnComboBoxPopupOpen"
                             ValueField="@nameof(ItemDescriptor.ItemId)"
@@ -432,7 +432,7 @@ The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs`
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikMultiColumnComboBox Data="@Items"
@@ -478,7 +478,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikMultiColumnComboBox Data="@MultiComboData"

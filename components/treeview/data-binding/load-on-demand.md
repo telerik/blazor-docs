@@ -30,7 +30,7 @@ The **example** below shows how you can handle hierarchical data load on demand 
 
 >caption One Model Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
-````CSHTML
+````RAZOR
 @* Load child nodes on demand *@
 
 <TelerikTreeView Data="@HierarchicalData" OnExpand="@LoadChildren">
@@ -125,7 +125,7 @@ The **example** below shows how you can handle flat data load on demand in detai
 
 >caption Flat Data Load on Demand in a TreeView. Review the code comments for details.
 
-````CSHTML
+````RAZOR
 @* Load child nodes on demand *@
 
 <TelerikTreeView Data="@FlatData" OnExpand="@LoadChildren">
@@ -238,7 +238,7 @@ The **example** below shows how you can handle hierarchical data load on demand 
 
 >caption Different Models Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 @* used for the .AddRange() extension method *@
 

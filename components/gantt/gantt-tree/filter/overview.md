@@ -37,7 +37,7 @@ You can customize the editors rendered in the Gantt by providing the `FilterEdit
 | **DateTime**  | `GanttTreeListFilterEditorType.DatePicker`<br> `GanttTreeListFilterEditorType.DateTimePicker` |
 
 
-````CSHTML
+````RAZOR
 @* The usage of the FilterEditorType parameter *@
 
 <TelerikGantt Data="@Data"

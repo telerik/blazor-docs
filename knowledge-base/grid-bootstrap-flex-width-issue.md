@@ -33,7 +33,7 @@ Setting the width of the grid to 100% and providing widths for the columns which
 
 The simplest way you can reproduce this is to add some layout that you expect to be 100% wide, and a grid with columns wider than that - it will stretch the layout and the scrollbar will come out on the main app element or the body, instead of the grid/layout container:
 
-````CSHTML
+````RAZOR
 @* Sample layout that stretches unexpectedly when you add the grid **@
 <div class="form-group">
     <label for="UserSearch" class="col-form-label">Search (Expected to fit the screen and layout, but adding the grid stretches it)</label>
@@ -72,7 +72,7 @@ You can reproduce this with plain HTML like this:
 
 >caption Simple reproducible of the browser behavior that causes this
 
-````CSHTML
+````RAZOR
 <style>
     .app {
         /* the flex display gets stretched by the table that has width:100% and table-layout:fixed */

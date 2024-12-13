@@ -29,7 +29,7 @@ Use the [`OnChange` event]({%slug wizard-events%}#onchange) of the originating s
 
 This example shows confirmation when moving away from step 1. You can extend it for other steps. You can also add a lambda expression in the handler on each step to provide more data to the method - for example, to form a more meaningful message for the step or to distinguish steps more easily.
 
-````CSHTML
+````RAZOR
 @* Moving away from step 1 will be confirmed. You can attach the handler to more than one step and raise flags whether to require confirmation as per the business logic *@
 
 <TelerikWizard Width="600px"

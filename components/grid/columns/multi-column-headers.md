@@ -32,7 +32,7 @@ The following code snippet shows how you can group columns in the Grid in multi-
 
 ![multi-column headers example](images/multi-column-headers-overview.png)
 
-````CSHTML
+````RAZOR
 @* See the root-level GridColumn tags that have their own Columns collections *@
 
 <TelerikGrid Data=@GridData

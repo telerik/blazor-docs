@@ -43,7 +43,7 @@ The way to reduce the bubbling is to use the `stopPropagation` feature in the ch
 
 >caption How to stop the grid sort when clicking an element in the header template
 
-````CSHTML
+````RAZOR
 @* Stopping the Click event from propagating on the clickable elements in your template prevents the grid column from receiving the event and sorting *@
 
 <TelerikGrid Data="@MyData" Height="400px"

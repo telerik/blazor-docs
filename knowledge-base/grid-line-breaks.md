@@ -33,7 +33,7 @@ This knowledge base article answers the following questions:
 2. To render the `<br>` HTML tag from a string, use a <a href="https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.markupstring?view=aspnetcore-8.0" target="_blank"><code>MarkupString<code></a>. 
 3. To define the `MarkupString`, use the column's `Template`.
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData" Height="400px">
     <GridColumns>
         <GridColumn Field="@(nameof(Item.Text))" Title="Test">

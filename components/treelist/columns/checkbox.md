@@ -37,7 +37,7 @@ On a side note, it is possible to [center the checkboxes in the `TreeListCheckbo
 
 >caption TreeList Checkbox Column Header Template
 
-````CSHTML
+````RAZOR
 <TelerikTreeList @ref="@TreeListRef"
                  Data="@TreeListData"
                  IdField="Id" ParentIdField="ParentId"

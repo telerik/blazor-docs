@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/daterange-picker" target="_blank"
 
 >caption Basic Date Range Picker with custom format, min and max and reverse range
 
-````CSHTML
+````RAZOR
 @StartValue?.ToString("dd MMM yyyy")
 <br />
 @EndValue?.ToString("dd MMM yyyy")
@@ -126,7 +126,7 @@ Add a reference to the component instance to use the [Date Range Picker's method
 | `Refresh` | Re-renders the Calendar popup. |
 
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@FocusStart">Focus Start TextBox</TelerikButton>
 <TelerikButton OnClick="@FocusEnd">Focus End TextBox</TelerikButton>
 <TelerikButton OnClick="@OpenPicker">Open DateRangePicker</TelerikButton>

@@ -116,7 +116,7 @@ The ExpandedItems collection is of type `IEnumerable<object>`.
 
 If the [ExpandMode](#expandmode) is set to `Single` the ExpandedItems collection will contain one item, otherwise it will have a collection of the expanded items.
 
-````CSHTML
+````RAZOR
 @* Get the items the user has expanded. *@
 
 <div style="width: 30%;">
@@ -213,7 +213,7 @@ If the [ExpandMode](#expandmode) is set to `Single` the ExpandedItems collection
 
 >caption Programmatically expand and collapse items on button click
 
-````CSHTML
+````RAZOR
 @* Use the buttons to programmatically expand and collapse items in the PanelBar *@ 
 
 <TelerikButton OnClick="@ExpandItems">Expand First and Second Item</TelerikButton>

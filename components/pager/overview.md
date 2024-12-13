@@ -26,7 +26,7 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 >caption Use the TelerikPager to paginate your own data and content.
 
-````CSHTML
+````RAZOR
 <TelerikPager Total="@Games.Count" PageSize="@PageSize" @bind-Page="@Page"></TelerikPager>
 
 @{
@@ -108,7 +108,7 @@ Loading all the data at once can be a costly operation. In such a case, use the 
 
 >caption Load paged data on demand
 
-````CSHTML
+````RAZOR
 @{
     <div class="card-deck mb-2">
         @foreach (Game game in PagedDataToRender)
@@ -191,7 +191,7 @@ Loading all the data at once can be a costly operation. In such a case, use the 
 
 The `Page` parameter supports two-way binding so it can respond to changes from other element, and to also update other elements. This is the most straightforward use of the component. As an alternative, use the `PageChanged` event to implement additional logic when paging the data, such as [loading it on demand](#load-on-demand).
 
-````CSHTML
+````RAZOR
 @*This example showcases how the Pager reacts when the page is selected from an outside input.*@
 
 <div class="mb-3">

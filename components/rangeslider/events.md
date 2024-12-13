@@ -25,7 +25,7 @@ The `ValueChanged` events fire every time the corresponding `Value` parameter ch
 
 >caption Handle the StartValueChanged and EndValueChanged to filter products
 
-````CSHTML
+````RAZOR
 @* This example showcases one-way data binding by using Value and ValueChanged
     It also shows how you could filter data based on the user selection in the slider *@
 
@@ -139,7 +139,7 @@ If you use two-way binding, this will effectively fire the [`StartValueChanged a
 
 >caption Handle the OnChange event to filter products
 
-````CSHTML
+````RAZOR
 @* This example showcases one-way data binding and handling the OnChange event to update the view-model.
     If you want to update the value while the user drags the handle, you can additionally use two-way binding or handle the ValueChanged event.
     It also shows how you could filter data based on the user selection in the slider *@

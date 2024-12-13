@@ -47,7 +47,7 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 * Display the Predefined Dialog in the `OnCancel` handler
 * Prevent the `OnCancel` event to keep the Grid in edit mode. This will cancel the other user action.
 
-````CSHTML
+````RAZOR
 @*Only OnCancel event is handled for brevity*@
 
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@

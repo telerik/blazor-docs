@@ -44,7 +44,7 @@ This section contains the following examples:
 You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
 
 
-````CSHTML
+````RAZOR
 @* Handle multiple node selection with one-way data binding *@
 
 <TelerikTreeView Data="@Data"
@@ -174,7 +174,7 @@ You can use one-way binding to provide an initial node selection, and respond to
 
 You can use two-way binding to get the node the user has selected. This can be useful if the node model already contains all the information you need to show based on the selection.
 
-````CSHTML
+````RAZOR
 @* Handle multiple node selection with two-way data binding *@
 
 <TelerikTreeView Data="@Data"
@@ -298,7 +298,7 @@ You can use two-way binding to get the node the user has selected. This can be u
 
 You can bind the treeview to different models at each level, and the selection accommodates that. You need to make sure that you cast the node to the correct type.
 
-````CSHTML
+````RAZOR
 @* Handle multiple selection of items from different data models *@
 
 <TelerikTreeView Data="@HierarchicalData"

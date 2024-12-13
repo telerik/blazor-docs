@@ -34,7 +34,7 @@ How to customize the Blazor ToolTip styling? I want to set different text color 
 
 >caption Blazor ToolTip with custom background and text color
 
-````CSHTML
+````RAZOR
 <div class="target" title="ToolTip Text">Blue background, yelow color</div>
 
 <TelerikTooltip TargetSelector=".target" Class="blue-yellow" />

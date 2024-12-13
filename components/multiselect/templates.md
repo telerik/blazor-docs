@@ -45,7 +45,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 
 >caption Using MultiSelect Templates
 
-````CSHTML
+````RAZOR
 @* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>

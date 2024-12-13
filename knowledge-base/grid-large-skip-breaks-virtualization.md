@@ -40,7 +40,7 @@ Ensure that you set a suitable `Skip` value, so that row placeholders don't show
 
 >caption Reproducible and a solution for setting an invalid (too large) Skip
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <ol>

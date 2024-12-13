@@ -23,7 +23,7 @@ To enable Inline editing in the Gantt Tree, set its `TreeListEditMode` property 
 
 >caption The Command buttons and the Gantt events let you handle data operations in Inline edit mode.
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

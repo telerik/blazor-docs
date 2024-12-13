@@ -22,7 +22,7 @@ The Form component for Blazor allows you control its orientation through the `Or
 
 ![Form Orientation example](images/form-orientation-example.gif)
 
-````CSHTML
+````RAZOR
 @* Use the dropdownlist to change the orientation of the Form *@
 
 <div>

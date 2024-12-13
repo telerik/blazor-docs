@@ -48,7 +48,7 @@ If you remove programmatically the currently active tab, when it disposes, the e
 
 >caption Cancel the event
 
-````CSHTML
+````RAZOR
 @* If the tab strip is bound to a field in the view model, when you do not update that field in the event handler, you will effectively cancel the event *@
 
 <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" ActiveTabIndexChanged="@TabChangedHandler">

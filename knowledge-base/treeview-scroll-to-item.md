@@ -52,7 +52,7 @@ Here are two examples:
 
 ### Load All Data Initially
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <label>
@@ -180,7 +180,7 @@ Here are two examples:
 
 The example uses simplified logic for parent-child item relationship. In production scenarios, you may need to find the correct parent item to expand.
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <p>

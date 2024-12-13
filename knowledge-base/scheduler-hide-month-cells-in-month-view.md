@@ -33,7 +33,7 @@ To hide the dates from other months in the month view of the Scheduler component
 
 >caption Scheduler with hidden dates in the current month view
 
-````CSHTML
+````RAZOR
 @using Telerik.SvgIcons
 
 <TelerikScheduler Data="@Data"

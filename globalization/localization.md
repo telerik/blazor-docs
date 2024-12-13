@@ -142,7 +142,7 @@ This step is optional. You need it to manually render localized strings from the
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using ServerLocalizationResx.Resources
 
 @using Telerik.Blazor.Services

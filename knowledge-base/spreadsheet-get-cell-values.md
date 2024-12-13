@@ -51,7 +51,7 @@ This KB article answers the following questions:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using Telerik.Windows.Documents.Spreadsheet.FormatProviders
 @using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx
 @using Telerik.Windows.Documents.Spreadsheet.Formatting

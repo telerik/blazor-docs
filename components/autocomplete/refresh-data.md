@@ -23,7 +23,7 @@ In this article:
 
 To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-events%}#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will delete the first item from the datasource and refresh the data in the UI *@
 
 @using Telerik.DataSource.Extensions
@@ -74,7 +74,7 @@ To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-event
 
 >caption Bind the Autocomplete component to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove a suggestion to see how the Autocomplete reacts to the change. *@
 
 @using System.Collections.ObjectModel
@@ -141,7 +141,7 @@ To refresh the AutoComplete data when using [`OnRead`]({%slug autocomplete-event
 
 >caption Create new collection reference to refresh the Autocomplete data.
 
-````CSHTML
+````RAZOR
 @* Add/remove a suggestion to see how the Autocomplete reacts to the change. *@
 
 <h4>Add suggestion</h4>

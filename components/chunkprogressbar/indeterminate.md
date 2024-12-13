@@ -21,7 +21,7 @@ To put the ChunkProgressBar in Indeterminate state set the `Indeterminate`, `boo
 
 >caption Put the ChunkProgressBar in Indeterminate State
 
-````CSHTML
+````RAZOR
 <div>
     <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ChunkProgressBar in Indeterminate State</TelerikButton>
 </div>

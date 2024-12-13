@@ -71,7 +71,7 @@ The `PromptTextChanged` event fires when the user changes the prompt text. Use t
 
 >caption Using AIPrompt events
 
-````CSHTML
+````RAZOR
 @* All AIPrompt events *@
 
 <TelerikAIPrompt OnPromptRequest="@OnPromptRequestHandler"

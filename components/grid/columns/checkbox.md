@@ -41,7 +41,7 @@ The example below doesn't take into account sorting, filtering and paging. If th
 
 >caption Grid Checkbox Column Header Template
 
-````CSHTML
+````RAZOR
 @*If the Grid has data operations enabled, see
     https://docs.telerik.com/blazor-ui/knowledge-base/grid-get-filtered-data
     on how to get the data collection, which the Grid is currently showing.

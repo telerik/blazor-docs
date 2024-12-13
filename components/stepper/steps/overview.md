@@ -57,7 +57,7 @@ To include the desired steps for the Stepper component, you can either manually 
 
 >caption Loop through your collection and generate a `StepperStep` for every item in the collection.
 
-````CSHTML
+````RAZOR
 @*Loop through a collection to create a step for all items in the collection. *@
 
 <div style="width:700px">

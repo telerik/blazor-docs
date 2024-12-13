@@ -40,7 +40,7 @@ If you want to search in the hidden fields of the Grid, do the following:
 
 >caption Search in hidden Grid columns
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource
 

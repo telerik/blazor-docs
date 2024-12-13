@@ -23,7 +23,7 @@ For specific scenarios, use a [Template]({%slug components/treeview/templates%})
 
 >caption TreeView for page navigation
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@TreeViewData"
                  @bind-ExpandedItems="@ExpandedItems"/>
 

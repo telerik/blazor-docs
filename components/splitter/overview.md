@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 >caption Basic Splitter
 
-````CSHTML
+````RAZOR
 <TelerikSplitter Orientation="@SplitterOrientation.Horizontal"
                  Width="80%"
                  Height="200px">
@@ -87,7 +87,7 @@ Add a reference to the component instance to use the [Splitter methods](/blazor-
 | `GetState` | Gets the current [state]({%slug splitter-state%}) of the Splitter.
 | `SetState` | Sets the current [state]({%slug splitter-state%}) of the Splitter.
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@GetSplitterState">Get Splitter State</TelerikButton>
 
 <TelerikSplitter @ref="@SplitterRef"

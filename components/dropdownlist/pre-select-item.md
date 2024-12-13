@@ -15,7 +15,7 @@ This article provides an example that demonstrates how to pre-select an item for
 
 >caption Pre-select item for the user
 
-````CSHTML
+````RAZOR
 @* Pre-select an item. *@
 
 Selected value: @selectedValue

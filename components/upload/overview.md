@@ -242,7 +242,7 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <p>
     <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
     <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>

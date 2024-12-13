@@ -34,7 +34,7 @@ You can use Grid for data table below the Chart. By using the same data from the
 
 ![Chart with data table](images/chart-with-data-table-below.png)
 
-````CSHTML
+````RAZOR
 @*This chart is using Grid for thr role of data table*@
 
 <TelerikChart Height="400px" Width="800px">

@@ -37,7 +37,7 @@ To control how each enum value will show in the filtering DropDownList, decorate
 
 >caption Filter and Edit an enum in the Blazor Grid - 2.15.0 and later
 
-````CSHTML
+````RAZOR
 @* You can filter and edit enums without any custom code *@
 
 @using System.ComponentModel.DataAnnotations;

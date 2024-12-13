@@ -30,7 +30,7 @@ To enable row selection:
 
 >caption TreeList multiple row selection
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                   IdField="@nameof(Employee.Id)"
                   ParentIdField="@nameof(Employee.ParentId)"
@@ -95,7 +95,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the TreeList SelectedItemsChanged event
 
-````CSHTML
+````RAZOR
 @* Select rows and handle the SelectedItemsChanged event *@
 
 <TelerikTreeList Data="@TreeListData"

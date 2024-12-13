@@ -38,7 +38,7 @@ This KB article answers the following question:
 
 >caption Using a Tooltip in the Grid
 
-````CSHTML
+````RAZOR
 <p>This example shows how to load content on demand for a tooltip that targets elements inside a Grid. Hover over an employee name.</p>
 
 <TelerikGrid Data="@GridData"

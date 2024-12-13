@@ -15,7 +15,7 @@ When the grid is grouped, the top row above the group provides information about
 
 >caption Sample Group Header Template
 
-````CSHTML
+````RAZOR
 @* Group by the Team and Active Projects fields to see the results *@
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="650px">

@@ -18,7 +18,7 @@ The template receives the `DateTime` corresponding to its cell.
 
 ![calendar decade cell template](images/calendar-decade-template.png)
 
-````CSHTML
+````RAZOR
 @* This example adds an icon for certain years *@
 
 <TelerikCalendar @bind-Date="@startDate" @bind-View="@theView">

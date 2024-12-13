@@ -33,7 +33,7 @@ For the time being, you can use the [Grid State]({%slug grid-state%}) to program
 
 Here is an example of the described approach.
 
-````CSHTML
+````RAZOR
 @* Programmatically sort the grouped column. CRUD operations are not handled for brevity *@
 
 @using Telerik.DataSource;

@@ -20,7 +20,7 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
 
 >caption Use tho way data binding for the SelectedItem.
 
-````CSHTML
+````RAZOR
 @* Use two-way data binding with the SelectedItem to display contents according to the user selection *@
 
 <TelerikDrawer Data="@Data"

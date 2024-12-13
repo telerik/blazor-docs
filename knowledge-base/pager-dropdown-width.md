@@ -40,7 +40,7 @@ Use [custom CSS to override the default width]({%slug themes-override%}) in the 
 
 >caption Change the Pager dropdown width
 
-````CSHTML
+````RAZOR
 <h2>Pager in Grid:</h2>
 
 <TelerikGrid Class="wider-pagesizes"

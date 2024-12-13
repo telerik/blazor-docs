@@ -28,7 +28,7 @@ You can use the `OnItemClick` event to react to user choices in a Breadcrumb, an
 
 >caption Handle OnItemClick event of the Breadcrumb
 
-````CSHTML
+````RAZOR
 @* Handle the OnItemClick event of the Breadcrumb and cancel it for Item 3*@
 
 @logger

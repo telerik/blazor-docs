@@ -34,7 +34,7 @@ Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b
 
 ## Steps to Reproduce
 
-````CSHTML
+````RAZOR
 Selected value: @selectedValue
 <br />
 

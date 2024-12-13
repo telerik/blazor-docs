@@ -28,7 +28,7 @@ The `DateChanged` event fires when the currently shown date changes. For example
 
 When handling the `DateChanged` event, you cannot use two-way binding for the `Date` parameter. You should update it yourself in the model. If you do not, the currently shown range may revert to the original value set in the markup or to the default value.
 
-````CSHTML
+````RAZOR
 @EventLog  <br />
 
 <TelerikCalendar Min="@CalendarMin"
@@ -63,7 +63,7 @@ The `ViewChanged` event fires when the user changes the view they are seeing (fo
 
 When handling the `ViewChanged` event, you cannot use two-way binding for the `View` parameter. You should update it yourself in the model. If you do not, the currently shown view may revert to the original value set in the markup or to the default value.
 
-````CSHTML
+````RAZOR
 @result
 <br />
 <TelerikCalendar Min="@min" Max="@max" View="@initialView" ViewChanged="@ViewChangedHandler">
@@ -93,7 +93,7 @@ When the user selects a range from the calendar, the first click always fires th
 
 >caption Example of `Range` Selection with `RangeStartChanged` and `RangeEndChanged` events
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the RangeStartChanged and RangeEndChanged events and adding the selected dates to a List *@
 
 <TelerikCalendar Views="2"
@@ -178,7 +178,7 @@ You can also customize the cells through their [templates]({%slug calendar-templ
 
 >caption Use the CellRender event to style cells based on conditions
 
-````CSHTML
+````RAZOR
 @*
 Special cells in the month view will be red and bold.
 Special cells in the decade view will be purple and yellow on hover.

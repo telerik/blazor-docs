@@ -41,7 +41,7 @@ The required steps to collapse groups programmatically are:
 5. Check the boolean flag value in `OnAfterRenderAsync` to know when to persist the groups collapsed state.
 
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource;
 
 <TelerikGrid Data="@MyData" 

@@ -36,7 +36,7 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 
 >caption Filtering in the DropDownList
 
-````CSHTML
+````RAZOR
 <ul>
     <li>
         <label>

@@ -29,7 +29,7 @@ There are two modes of providing data to a FileManager, and they both use the it
 
 The FileManager has features that map to properties in the model. The following model uses property names that will work automatically, with no additional FileManager configuration:
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

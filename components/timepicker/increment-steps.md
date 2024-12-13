@@ -24,7 +24,7 @@ All values default to `1` to provide every possible option. If you set a value l
 
 >caption Change the steps (intervals) in the time picker
 
-````CSHTML
+````RAZOR
 @* Show every 4th hour, every 10th minute, every 15th second *@
 
 @selectedTime.ToLongTimeString()

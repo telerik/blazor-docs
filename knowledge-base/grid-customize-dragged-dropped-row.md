@@ -37,7 +37,7 @@ Do the following to customize the appearance of the dropped item:
 
 Here is an example. Note that the customized item will match only the last dropped item. Once you drag and drop another item, it will assume the custom styles and the previous one will be treated as a regular Grid item. It is possible to enhance the code logic, preserve all dragged rows in a collection and persist the custom styles for all of them.
 
-````CSHTML
+````RAZOR
 <style>
     .k-grid tr.myCustomRowFormatting,
     .k-grid tr.myCustomRowFormatting:hover {

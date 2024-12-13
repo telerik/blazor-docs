@@ -82,7 +82,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <TelerikGrid @ref="@GridRef" />
@@ -109,7 +109,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <TelerikGrid OnStateInit="@( (GridStateEventArgs<GridModel> args) => OnGridStateInit(args) )" />
@@ -140,7 +140,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 @inject IJSRuntime js
 

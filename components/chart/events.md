@@ -32,7 +32,7 @@ The `OnAxisLabelClick` event fires when the user clicks a label item on any of t
 
 >caption Using the Chart OnAxisLabelClick event
 
-````CSHTML
+````RAZOR
 @* Using the Chart OnAxisLabelClick event *@
 
 <TelerikChart OnAxisLabelClick="@OnChartAxisLabelClick">
@@ -104,7 +104,7 @@ The `OnLegendItemClick` event fires when the user clicks on any item in the Char
 
 >caption Using the Chart OnLegendItemClick event
 
-````CSHTML
+````RAZOR
 <p>Choose what happens on legend item click:</p>
 
 <TelerikRadioGroup Data="@ClickModes" @bind-Value="@SelectedMode" />
@@ -285,7 +285,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Basic Click Handler
 
-````CSHTML
+````RAZOR
 @* Get the Category from which the user clicked. *@
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler">
@@ -333,7 +333,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Get The Data Model For The Clicked Series
 
-````CSHTML
+````RAZOR
 @* Receive the data model based on the series the user clicked on *@
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler">
@@ -400,7 +400,7 @@ These examples showcase the different applications of the `OnSeriesClick` event.
 
 ### Load Data On Demand Based On Series Click
 
-````CSHTML
+````RAZOR
 @* Load data on demand based on series click *@
 
 <TelerikChart OnSeriesClick="@OnSeriesClickHandler">

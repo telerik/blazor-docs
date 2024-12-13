@@ -29,7 +29,7 @@ I would like to reposition the labels of the DateRangePicker so that they are on
 
 By design the labels of the DateRangePicker are placed above the date inputs. If you would like to reposition them you could use CSS. A sample implementation of that can be seen in the example below.
 
-````CSHTML
+````RAZOR
 @*Reposition the labels of the DateRangePicker so that they are on the same line as the date inputs*@
 
 <style>

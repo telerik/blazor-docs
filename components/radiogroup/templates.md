@@ -20,7 +20,7 @@ The template exposes a `context` variable. Cast it to the RadioGroup model type 
 
 >caption Using RadioGroup Item Template
 
-````CSHTML
+````RAZOR
 <TelerikRadioGroup Data="@RadioOptions"
                    @bind-Value="@RadioValue"
                    ValueField="@nameof(RadioModel.Id)"

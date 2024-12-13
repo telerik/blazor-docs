@@ -35,7 +35,7 @@ You can avoid the exception by using a nullable type for the Slider `Value`.
 
 >caption Set Max parameter to zero in the Slider
 
-````CSHTML
+````RAZOR
 @* Example with nullable type of the value  *@
 @Volume
 <br />

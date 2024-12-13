@@ -22,7 +22,7 @@ It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/d
 
 >caption Handle the button click
 
-````CSHTML
+````RAZOR
 @result
 <br />
 @moreInfo

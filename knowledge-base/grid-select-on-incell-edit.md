@@ -51,7 +51,7 @@ Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedIt
 
 ### How to Select the row that is being edited in InCell edit mode using the OnRowClick event
 
-````CSHTML
+````RAZOR
 @* This sample does not require a template for non-editable columns *@
 
 <TelerikGrid Data="@GridData"
@@ -169,7 +169,7 @@ Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedIt
 ### How to Select the row that is being edited in InCell edit mode using Cell Template and the onclick event
 
 
-````CSHTML
+````RAZOR
 @* You can create your own extension method to add an item into IEnumerable collection without the usage of a mediator one. *@
 
 <TelerikGrid Data="@GridData"

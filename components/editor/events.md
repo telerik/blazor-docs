@@ -22,7 +22,7 @@ When you use that event, you cannot use two-way binding and so you must update t
 
 >caption Handle the ValueChanged event
 
-````CSHTML
+````RAZOR
 @* Provide an initial value and update the view-model through the ValueChanged event *@
 
 <TelerikEditor Value="@TheEditorContent" ValueChanged="@ValueChangedHandler">

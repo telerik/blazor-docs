@@ -29,7 +29,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >caption Provide data to the grid and choose which columns (fields) to see
 
-````CSHTML
+````RAZOR
 @* define data, model and columns for a grid *@
 
 @using System.ComponentModel.DataAnnotations

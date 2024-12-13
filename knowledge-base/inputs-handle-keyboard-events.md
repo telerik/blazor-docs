@@ -47,7 +47,7 @@ If you are looking for an event when the user confirms an action, consider the b
 
 >caption Handle keyboard events in Telerik inputs
 
-````CSHTML
+````RAZOR
 @* Add a keyboard event handler on the parent element to capture the events *@
 
 <span @onkeypress="@KeyHandlerTb" @onkeydown="@KeyHandlerTb">

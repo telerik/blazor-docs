@@ -36,7 +36,7 @@ The `SelectedItems` parameter of the ListBox supports two-way binding. In this c
 
 >caption Using ListBox SelectionMode and Custom Deselect Tool
 
-````CSHTML
+````RAZOR
 @* Resetting ListBoxSelectedItems on SelectionMode change is optional *@
 
 <TelerikRadioGroup Data="@RadioGroupData"

@@ -26,7 +26,7 @@ You can hide or more columns in the Grid based on the dimensions of the browser 
 
 >tip If you are [saving the Grid state]({%slug grid-kb-save-load-state-localstorage%}), you need to remove column visibility information in `OnStateChanged`. Otherwise the saved column visibility may conflict with the visibility determined by the MediaQuery component.
 
-````CSHTML
+````RAZOR
 @* Hide Grid columns on small screens - those below 1024px in this example *@
 
 <TelerikMediaQuery Media="(max-width: 1023px)" OnChange="@( (doesMatch) => IsMediumDown = doesMatch )"></TelerikMediaQuery>
@@ -195,7 +195,7 @@ You can use the MediaQuery component to set various [layout-related parameters o
 
 >caption Responsive Form with MediaQuery
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <ul>

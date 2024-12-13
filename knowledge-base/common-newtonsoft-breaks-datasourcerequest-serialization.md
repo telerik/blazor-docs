@@ -39,7 +39,7 @@ Now, when I <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datas
 
 Add the Newtonsoft JSON serialization service to your ASP.NET Core backend that also needs to process the Blazor grid requests.
 
-````CSHTML
+````RAZOR
 //something like 
 
 services.AddRazorPages().AddNewtonsoftJson();

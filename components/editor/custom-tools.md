@@ -50,7 +50,7 @@ In this section you can find the following examples:
 
 >caption Custom tool that manipulates the Value to add a signature at the end
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">
@@ -90,7 +90,7 @@ In this section you can find the following examples:
 
 >caption Custom Tool that uses the editor commands to alter the selected content
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor @ref="@EditorRef" Tools="@Tools" @bind-Value="@TheEditorContent">
@@ -131,7 +131,7 @@ In this section you can find the following examples:
 
 You can call application code from the editor tools to, for example, save the current content.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent">

@@ -44,7 +44,7 @@ To focus any element or component in the [Telerik UI Window for Blazor]({%slug d
 
 >caption Focus a component on Dialog or Window open
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ShowWindow">Show Window and Focus Button</TelerikButton>
 <TelerikButton OnClick="@ShowDialog">Show Dialog and Focus TextBox</TelerikButton>
 

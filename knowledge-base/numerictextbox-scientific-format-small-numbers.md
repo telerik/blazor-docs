@@ -29,7 +29,7 @@ When I try to update a value, the numeric textbox automatically transforms the v
 ## Steps to Reproduce
 Use a sufficiently small number and bind it to the Numeric Textobox, then focus it.
 
-````CSHTML
+````RAZOR
 @* the key thing is the small value below, and the type - double *@
 
 <TelerikNumericTextBox Decimals="6" @bind-Value="@Performance" Format="@format"></TelerikNumericTextBox>
@@ -59,7 +59,7 @@ This rounding makes types with lower precision (such as `double`) show up in sci
 
 You can find a sample approximation of the rounding code at the time of writing here:
 
-````CSHTML
+````RAZOR
 non-focused:
 @Performance.ToString(format)
 <br />
@@ -85,7 +85,7 @@ focused:
 Use a type with sufficient precision that will still be rendered by the framework in decimal notation at the desired precision levels, such as `decimal`.
 
 
-````CSHTML
+````RAZOR
 non-focused:
 @Performance.ToString(format)
 <br />

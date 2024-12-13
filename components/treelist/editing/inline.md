@@ -24,7 +24,7 @@ To enable Inline editing in the treelist, set its `EditMode` property to `Teleri
 
 >caption The Command buttons and the treelist events let you handle data operations in Inline edit mode
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
 
 Editing is cancelled for the first record.

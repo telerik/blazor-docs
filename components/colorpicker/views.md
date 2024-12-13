@@ -36,7 +36,7 @@ The PaletteView uses a [`TelerikColorPalette` component]({%slug colorpalette-ove
 
 ## Example
 
-````CSHTML
+````RAZOR
 @* Blazor ColorPicker Views *@
 
 <TelerikColorPicker @bind-Value="@Color">

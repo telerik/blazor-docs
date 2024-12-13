@@ -24,7 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazo
 
 >caption Basic Radio Button Group configuration.
 
-````CSHTML
+````RAZOR
 Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
 <br />
 

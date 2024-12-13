@@ -42,7 +42,7 @@ The following example shows how to use the `All` toolset.
 
 >caption Use all built-in Editor tools
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor @bind-Value="@EditorValue"
@@ -124,7 +124,7 @@ This example shows how to start from the existing `Default` toolbar collection o
 
 >caption Modify the Default toolset
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;
@@ -223,7 +223,7 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 >caption Customize the default values of the built-in tools - tooltips, available items, class and appearance
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;

@@ -92,7 +92,7 @@ The example below shows how to:
 
 >caption Customizing tools from the default Spreadsheet tool set
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Spreadsheet
 @using Telerik.Blazor.Components.Spreadsheet.ToolBar.ToolTypes
 @using Telerik.Blazor.Resources
@@ -196,7 +196,7 @@ Here is how to define a custom tool set from scratch. You can also [set the avai
 
 >caption Creating a custom tool set collection from scratch
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Spreadsheet
 
 <TelerikSpreadsheet Tools="@SpreadsheetTools">
@@ -247,7 +247,7 @@ The `SpreadsheetCustomTool` type has a `Template` property that is a `RenderFrag
 
 >caption Creating custom Spreadsheet tools
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Spreadsheet
 
 <p>Click on <strong>File</strong> to see and use the custom tool.</p>

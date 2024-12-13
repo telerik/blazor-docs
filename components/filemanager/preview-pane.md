@@ -24,7 +24,7 @@ The preview pane visibility toggles by the Switch Tool in the FileManager Toolba
 
 ![Blazor FileManager Preview Pane](images/filemanager-preview-pane.png)
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

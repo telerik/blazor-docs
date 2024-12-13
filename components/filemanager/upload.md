@@ -32,7 +32,7 @@ The example below demonstrates how to handle successful upload on the FileManage
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

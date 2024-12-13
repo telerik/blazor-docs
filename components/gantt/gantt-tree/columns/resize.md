@@ -41,7 +41,7 @@ Autofitting specific columns preserves the current widths of all the other colum
 
 >caption Enable column resizing in Telerik Gantt Tree
 
-````CSHTML
+````RAZOR
 @* Drag the border between column headers to change the column size. *@
 
 <TelerikGantt Data="@Data"

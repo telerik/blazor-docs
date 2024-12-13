@@ -22,7 +22,7 @@ The Time Picker component supports `DateTime`, `DateTime?`, `DateTimeOffset` and
 
 >caption Basic Time Picker with custom format, min and max
 
-````CSHTML
+````RAZOR
 Selected time: @selectedTime?.ToLongTimeString()
 <br />
 
@@ -120,7 +120,7 @@ Add a reference to the component instance to use the [Time Picker's methods](/bl
 | `FocusAsync` | Focuses the Time Picker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
-````CSHTML
+````RAZOR
 <TelerikTimePicker @ref="@TimePickerRef"
                    @bind-Value="@TimePickerValue"
                    Width="300px">

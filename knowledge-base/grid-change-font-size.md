@@ -33,7 +33,7 @@ res_type: kb
 
 >caption Change Blazor Grid Font Size
 
-````CSHTML
+````RAZOR
 <style>
     /* grid */
     .k-grid.font-size,

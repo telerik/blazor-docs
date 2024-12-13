@@ -51,7 +51,7 @@ There are two options:
 
 >caption Hide And/Or filter options in the Grid/TreeList FilterMenu with CSS
 
-````CSHTML
+````RAZOR
 @* Hide the secondary filter interface with CSS *@
 
 <TelerikGrid Data="@GridData"

@@ -38,7 +38,7 @@ It is up to the data access logic to save the data once it is changed in the dat
 
 >caption Incell Editing Example. See the code comments for details.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
 
 Click a cell, edit it and click outside of the treelist to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
@@ -344,7 +344,7 @@ The incell editor template requires a focusable element to maintain the tab orde
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
     <EditorTemplate>
     @{
         if (myCurrentEditCondition)

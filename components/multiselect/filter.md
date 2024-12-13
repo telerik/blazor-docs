@@ -49,7 +49,7 @@ To keep the filter upon selection, set the `PersistFilterOnSelect` parameter to 
 
 >caption Filtering in the MultiSelect
 
-````CSHTML
+````RAZOR
 <ul>
     <li>
         <label>

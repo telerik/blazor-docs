@@ -29,7 +29,7 @@ To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToo
 
 >caption TreeList SearchBox
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(SampleModel.Id)"
                  ParentIdField="@nameof(SampleModel.ParentId)"
@@ -78,7 +78,7 @@ You can set or remove the search filters programmatically through the `SearchFil
 
 >caption Set and clear the TreeList SearchBox filter programmatically
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikTreeList @ref="@TreeListRef"
@@ -200,7 +200,7 @@ The example below demonstrates all SearchBox settings in action, and also how to
 
 >caption TreeList SearchBox customizaton
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(SampleModel.Id)"
                  ParentIdField="@nameof(SampleModel.ParentId)"

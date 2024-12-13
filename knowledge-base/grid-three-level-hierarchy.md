@@ -35,7 +35,7 @@ Put nested `<TelerikGrid>` instances in the `DetailTemplate` of their parents. T
 
 >caption Three Level Hierarchy in a Grid
 
-````CSHTML
+````RAZOR
 @* A screenshot with the result is available after the code snippet *@
 
 <TelerikGrid Data="salesTeamMembers">

@@ -46,7 +46,7 @@ This how-to article answers the following questions:
 
 >caption Hide the DatePicker DateInput or make it readonly
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <h2>Hidden + ReadOnly DateInput</h2>
