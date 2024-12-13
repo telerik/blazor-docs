@@ -63,7 +63,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
@@ -162,7 +162,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
             </EditorTemplate>
         </GridColumn>
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>

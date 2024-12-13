@@ -202,7 +202,7 @@ In this example, the context menu is used to select/deselect items, put an item 
         <GridColumn Field=@nameof(SampleData.ID) Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>

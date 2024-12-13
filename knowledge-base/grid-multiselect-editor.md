@@ -74,7 +74,7 @@ Add the [Multi Select component]({%slug multiselect-overview%}) to the [EditorTe
             </Template>
         </GridColumn>
         <GridCommandColumn Width="150px">
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>

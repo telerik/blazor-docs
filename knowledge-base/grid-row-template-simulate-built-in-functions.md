@@ -121,7 +121,7 @@ To implement a custom command column:
         <GridColumn Field=@nameof(ArticleDto.ImageUrl) Title="Image" Editable="false" Resizable="true" />
         <GridColumn Field=@nameof(ArticleDto.Title) Title="Article Title" Resizable="true" />
         <GridCommandColumn>
-            <GridCommandButton Icon="SvgIcon.Save" Command="Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Icon="SvgIcon.Save" Command="Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Icon="SvgIcon.Cancel" Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
