@@ -28,7 +28,7 @@ The Bar Chart is similar to the [Range Bar Chart]({%slug components/chart/types/
 
 >caption A bar chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Bar series
 
 <TelerikChart>
@@ -74,7 +74,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Configuring Label Template for the Value Axis and change the Font of the Category Axis.
 
-````CSHTML
+````RAZOR
 @* Add configuration settings for the Category and Value Axes *@
 
 <TelerikChart>

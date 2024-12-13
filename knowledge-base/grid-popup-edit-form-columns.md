@@ -55,7 +55,7 @@ In addition to column layout, you can also limit the maximum popup Window height
 
 >caption Grid Popup Edit Form Columns and Scrolling
 
-````CSHTML
+````RAZOR
 @* Grid popup edit form columns and scrolling *@
 
 <style>

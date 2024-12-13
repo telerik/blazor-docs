@@ -23,7 +23,7 @@ To perform zooming, do either of the following:
 
 >caption Zoomable Chart
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of zoomable Chart. *@
 <TelerikChart>
     <ChartZoomable Enabled="true"></ChartZoomable>
@@ -117,7 +117,7 @@ To specify if users can zoom in and out on a selected area, set the boolean `Ena
 
 >caption Mouse wheel and selection zoom in the Chart
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of mouse wheel and selection zooming Chart. *@
 <TelerikChart>
     <ChartZoomable Enabled="true">
@@ -193,7 +193,7 @@ To specify an axis that users cannot zoom, use the `Lock` parameter within the `
 
 >caption Chart with specified zooming key and locked axis
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of mousewheel and selection zooming Chart with specified key. *@
 Press CTRL + Click and Drag.
 <TelerikChart>

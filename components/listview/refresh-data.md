@@ -22,7 +22,7 @@ In this article:
 
 To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-operations%}), call the `Rebind` method of the `TelerikListView` reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will delete the first item from the ListView and refresh the data *@
 
 @using Telerik.DataSource.Extensions
@@ -110,7 +110,7 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 
 >caption Bind the ListView to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove employee to see how the ListView reacts to that change. *@
 
 @using System.Collections.ObjectModel
@@ -192,7 +192,7 @@ To refresh the `ListView` data when using [`OnRead`]({%slug listview-manual-oper
 
 >caption Create new collection reference to refresh the ListView data.
 
-````CSHTML
+````RAZOR
 @* Add/remove employee or change the collection to see how the ListView reacts to that change. *@
 
 <TelerikButton OnClick="@AddEmployee">Add employee</TelerikButton>

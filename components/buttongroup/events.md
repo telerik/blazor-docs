@@ -25,7 +25,7 @@ The `OnClick` event argument is of type [MouseEventArgs](https://docs.microsoft.
 
 >caption Handle the Button OnClick event in a ButtonGroup
 
-````CSHTML
+````RAZOR
 @* This example shows how to handle button clicks individually or with a shared event handler. *@
 
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
@@ -71,7 +71,7 @@ Normally, the `SelectedChanged` handler should update the `Selected` value of th
 
 >caption Handle the SelectedChanged event
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
     <ButtonGroupToggleButton Selected="@FirstSelected"
                              SelectedChanged="@FirstSelectedChanged">Button 1</ButtonGroupToggleButton>

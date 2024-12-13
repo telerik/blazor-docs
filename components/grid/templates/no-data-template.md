@@ -17,7 +17,7 @@ The Grid will also show its default or custom `NoDataTemplate` while loading its
 
 >caption Using NoDataTemplate
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              FilterMode="@GridFilterMode.FilterRow"
              Height="400px"

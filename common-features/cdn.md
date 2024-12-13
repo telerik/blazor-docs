@@ -41,7 +41,7 @@ Here are a few examples:
 
 <div class="skip-repl"></div>
 
-````CHTML
+````RAZOR
 <!-- Ocean Blue swatch of the Default theme -->
 <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@{{site.themesVersion}}/dist/default-ocean-blue.css" />
 
@@ -68,7 +68,7 @@ Here are a few examples:
 
 <div class="skip-repl"></div>
 
-````CHTML
+````RAZOR
 <!-- Ocean Blue swatch of the Default theme -->
 <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default/swatches/default-ocean-blue.css" />
 
@@ -90,7 +90,7 @@ The CDN hosts the [JavaScript (JSInterop) file of Telerik UI for Blazor]({%slug 
 
 <div class="skip-repl"></div>
 
-````CHTML
+````RAZOR
 <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/telerik-blazor.min.js"></script>
 ````
 

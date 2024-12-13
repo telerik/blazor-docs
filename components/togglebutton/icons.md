@@ -26,7 +26,7 @@ The following example shows how to use SVG and Font icons. If you don't add text
 
 >caption How to use icons in the Telerik Toggle Button
 
-````CSHTML
+````RAZOR
 @* This sample shows how you can use conditional logic to show different icons in the different states.*@
 
 <TelerikToggleButton Icon="@( SvgSelected ? SvgIcon.VolumeUp : SvgIcon.VolumeDown )"

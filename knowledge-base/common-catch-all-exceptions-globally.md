@@ -43,7 +43,7 @@ Consider the following application layout setup:
 
 >caption TelerikLayout.razor
 
-````CSHTML
+````RAZOR
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>
@@ -53,7 +53,7 @@ Consider the following application layout setup:
 
 >caption MainLayout.razor
 
-````CSHTML
+````RAZOR
 @layout TelerikLayout
 @inherits LayoutComponentBase
 
@@ -78,7 +78,7 @@ To handle this, wrap the `ErrorBoundary` component around the `<TelerikRootCompo
 
 >caption TelerikLayout.razor
 
-````CSHTML
+````RAZOR
 @inherits LayoutComponentBase
 
 <ErrorBoundary>
@@ -92,7 +92,7 @@ If the application is using only one layout file, it should look like this:
 
 >caption MainLayout.razor
 
-````CSHTML
+````RAZOR
 @inherits LayoutComponentBase
 
 <ErrorBoundary>

@@ -38,7 +38,7 @@ The `<SankeyLinks>` tag exposes a child `<SankeyLinksHighlight>` tag that allows
 
 >caption Customizing the links in the Sankey diagram
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

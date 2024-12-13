@@ -29,7 +29,7 @@ You can use some custom CSS rules to hide the `Start` and `End` labels. You can 
 
 To make sure you are only styling the desired instance of the DateRangePicker (and not all instances on the page/app) use its `Class` parameter to add your custom CSS class to the component and use it to specify the selector.
 
-````CSHTML
+````RAZOR
 <style>
     .daterangepicker-no-labels .k-label {
         display: none;

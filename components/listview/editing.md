@@ -33,7 +33,7 @@ The CUD operations are implemented through dedicated events that let you alter t
 
 >caption How to edit data in the ListView
 
-````CSHTML
+````RAZOR
 @* The actual data source operations depend on the app and must be implemented in the events the listview provides.
     Implementing beautiful rendering is up to the application, this example shows the basics of the available events and commands.
 *@

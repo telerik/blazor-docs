@@ -29,7 +29,7 @@ To integrate the Checkbox in the Dialog:
 
 >caption Using Checkbox in Dialog
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikDialog @ref="DialogRef" Visible="true">
@@ -62,7 +62,7 @@ To integrate the Filter in the Dialog:
 
 >caption Using Filter in Dialog
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikDialog @ref="DialogRef" Visible="true">

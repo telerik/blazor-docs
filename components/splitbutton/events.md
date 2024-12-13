@@ -23,7 +23,7 @@ The `OnClick` event fires when the user clicks or taps the primary button or a s
 
 >caption SplitButton OnClick event
 
-````CSHTML
+````RAZOR
 <TelerikSplitButton OnClick="@OnReply">
     <SplitButtonContent>Reply</SplitButtonContent>
     <SplitButtonItems>

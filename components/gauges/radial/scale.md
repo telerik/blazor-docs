@@ -16,8 +16,6 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 * [MinorUnit and MajorUnit](#minorunit-and-majorunit)
 
-* [MinorTicks and MajorTicks](#ninorticks-and-majorticks)
-
 * [StartAngle and EndAngle](#startangle-and-endangle)
 
 * [Reverse](#reverse)
@@ -37,7 +35,7 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 ![Min and max parameters example](images/min-and-max-radial-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the Min and Max parameters to change the minimum and the maximum values for the scale *@
 
 <TelerikRadialGauge>
@@ -71,7 +69,7 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 ![Minor and major units parameters](images/minor-and-major-units-radial-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Update the rendering of the major and minor units *@
 
 <TelerikRadialGauge>
@@ -101,7 +99,7 @@ The gauge is rendered clockwise (0 degrees are the 180 degrees in the polar coor
 
 ![StartAngle and EndAngle of the gauge](images/start-end-angles.png)
 
-````CSHTML
+````RAZOR
 @* Change the StartAngle and EndAngle of the radial gauge *@
 
 <TelerikRadialGauge>
@@ -129,7 +127,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the gauge will be rendered
 
 ![reverse parameter example](images/reverse-radial-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Set the Reverse parameter to true *@
 
 <TelerikRadialGauge>
@@ -160,7 +158,7 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 ![Remove the MinorUnit ticks](images/remove-minorunit-ticks-radial-gauge.png)
 
-````CSHMTL
+````RAZOR
 @* Remove the MinorUnit ticks. *@
 
 <TelerikRadialGauge>

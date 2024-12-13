@@ -9,14 +9,14 @@
 
 <div class="skip-repl"></div>
 
-````TelerikLayout.razor
+````RAZOR TelerikLayout.razor
 @inherits LayoutComponentBase
 
 <TelerikRootComponent>
     @Body
 </TelerikRootComponent>
 ````
-````MainLayout.razor
+````RAZOR MainLayout.razor
 @inherits LayoutComponentBase
 @layout TelerikLayout
 

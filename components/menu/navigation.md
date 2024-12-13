@@ -25,7 +25,7 @@ To use the Blazor Menu for navigating between pages:
 
 >caption Use the Menu to navigate between pages
 
-````CSHTML
+````RAZOR
 @* This a basic example of a Menu used as Navigation. *@
 
 <TelerikMenu Data="@MenuData"></TelerikMenu>

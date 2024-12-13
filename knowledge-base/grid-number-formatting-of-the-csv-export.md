@@ -51,7 +51,7 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 1. Pass that `MemoryStream` to the `args.Stream` of the `GridAfterCsvExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
-````
+````RAZOR.skip-repl
 @*Use RadSpreadProcessing to format numeric data in the exported CSV file*@
 
 @using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv

@@ -33,7 +33,7 @@ In this article:
 
 >caption Declare the MultiDay view in the markup
 
-````CSHTML
+````RAZOR
 @* Define the Multiday view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">

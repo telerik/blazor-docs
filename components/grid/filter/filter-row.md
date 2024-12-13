@@ -22,7 +22,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterRow`
 
 >caption Filter Row in Telerik Grid
 
-````CSHTML
+````RAZOR
 @* Filter row mode *@
 
 <TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterRow" Pageable="true" Height="400px">
@@ -84,7 +84,7 @@ You can override the default Filter Row behavior for each column through the fol
 
 >caption Configure the Filter Row
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Row*@
 
 @using Telerik.DataSource

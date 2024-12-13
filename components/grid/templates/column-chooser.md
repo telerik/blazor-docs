@@ -16,7 +16,7 @@ When the Template is setup the list of columns, rendered by default, would not b
 
 >caption Use the Template to provide custom rendering
 
-````CSHTML
+````RAZOR
 @* Use the Template to render the list of columns and add some custom styles *@ 
 
 <TelerikGrid Data="@MyData"

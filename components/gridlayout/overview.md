@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/gridlayout" target="_blank">Blazo
 
 >caption A basic configuration of the Telerik GridLayout
 
-````CSHTML
+````RAZOR
 @* Split the items in the GridLayout in three columns and two rows. *@
 
 <TelerikGridLayout>

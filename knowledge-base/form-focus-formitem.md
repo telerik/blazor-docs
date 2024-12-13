@@ -34,7 +34,7 @@ The `<FormItem>` is an abstraction of the real editor that is rendered in the br
 
 >caption Set programmatic focus to the first FormItem
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@person">

@@ -14,7 +14,7 @@ The `Content` of the Wizard is a `ChildContent` of the `WizardStep`. While it is
 
 >caption Wizard step content example
 
-````CSHTML
+````RAZOR
 @* Include the desired content for the Wizard Steps *@
 
 <div style="text-align:center" >

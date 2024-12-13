@@ -22,7 +22,7 @@ If the icon property name in the PanelBar model is `Icon`, there is no need to s
 
 >caption How to use icons in the Telerik PanelBar
 
-````CSHTML
+````RAZOR
 <TelerikPanelBar Data="@PanelBarData">
     <PanelBarBindings>
         <PanelBarBinding IconField="@nameof(PanelBarItem.Icon)"></PanelBarBinding>

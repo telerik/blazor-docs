@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Sl
 
 >caption Creating Slider with two-way value binding and main features
 
-````CSHTML
+````RAZOR
 @* The user can choose integers with a step of 1 and every 20 there will be a major tick *@
 
 @Volume
@@ -45,7 +45,7 @@ The <a href="https://www.telerik.com/blazor-ui/slider" target="_blank">Blazor Sl
 
 The Slider is a generic component that takes the type of the `Value` which can be e numerical type.
 
-````CSHTML
+````RAZOR
 @TheValue
 <br />
 <TelerikSlider @bind-Value="@TheValue" SmallStep="0.5m" LargeStep="5m" Min="0m" Max="20m" @ref="@TheSlider">

@@ -17,11 +17,11 @@ The <a href="https://www.telerik.com/blazor-ui/autocomplete" target="_blank">Bla
 1. Use the `TelerikAutoComplete` tag to add the component to your razor page.
 1. Populate the `Data` property with the collection of items that you want to appear in the dropdown.
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to the same type as the member of the `ValueField` parameter.
-1. (Optional) Enable features like placeholder text and [clear button](#clear-button).
+1. (Optional) Enable features like placeholder text and clear button.
 
 >caption AutoComplete with two-way value binding and data binding to collection of strings
 
-````CSHTML
+````RAZOR
 @* AutoComplete with two-way value binding and data binding to a collection of strings *@
 
 User input: @AutoCompleteValue
@@ -41,7 +41,7 @@ User input: @AutoCompleteValue
 }
 ````
 
->tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](../combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
+>tip If you want to get a value identifier for the items in the dropdown instead of their text, consider the [ComboBox component](slug://components/combobox/overview). The **AutoComplete** is a **free text** input that accepts any text the user writes, not just the suggestions from the dropdown. Thus, the `Value` of the AutoComplete is always a `string`, while the ComboBox can provide you with a `number` or a `Guid`, not only a `string`.
 
 ## Data Binding
 
@@ -112,7 +112,7 @@ You can find more options for customizing the AutoComplete styling in the [Appea
 
 The AutoComplete exposes settings for its dropdown (popup). To configure the options, declare an  `<AutoCompletePopupSettings>` tag inside the `<AutoCompleteSettings>` tag:
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete Data="@AutoCompleteData"
                      @bind-Value="@SelectedItem"
                      Filterable="true"
@@ -148,7 +148,7 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete @ref="@AutoCompleteRef"
                      Data="@Suggestions"
                      @bind-Value="@AutoCompleteValue" 

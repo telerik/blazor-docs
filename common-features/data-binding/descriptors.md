@@ -130,7 +130,7 @@ The user may group by multiple fields. The groups for subsequent fields will be 
 
 You can obtain the FilterDescriptor, SortDescriptor, and GroupDescriptor in the `OnRead` event handler.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -222,7 +222,7 @@ You can obtain the FilterDescriptor, SortDescriptor, and GroupDescriptor in the 
 
 You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDescriptor through the component's state.
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 @using Telerik.DataSource
 

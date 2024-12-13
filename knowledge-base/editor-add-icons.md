@@ -46,7 +46,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 
 >caption Add icons in an Editor with Iframe edit mode
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @inject IJSRuntime js
 
@@ -137,7 +137,7 @@ This allows you to include the icon stylesheets in the `<head>` of the web page 
 
 >caption Add icons in an Editor with Div edit mode
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 @* Just one example of including custom font icon libraries.

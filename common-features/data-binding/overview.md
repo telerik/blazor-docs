@@ -47,7 +47,7 @@ All databound components are generic and their type depends on the model type `T
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@Grid1" />
 <TelerikComboBox @ref="@Combo1" />
 
@@ -68,7 +68,7 @@ If the component `Data` is not set initially, set the `TItem` parameter to point
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikGrid TItem="@SampleModel" />
 
 <TelerikComboBox TItem="@SampleModel"
@@ -114,7 +114,7 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
 >caption Call `Rebind()` or create new Data reference
 
-````CSHTML
+````RAZOR
 <p>
     <TelerikButton OnClick="@RefreshGridData">Refresh Grid Data</TelerikButton>
 </p>

@@ -45,7 +45,7 @@ To localize selected keys with custom strings:
     
     <div class="skip-repl"></div>
 
-    ````CSHTML
+    ````RAZOR
     using Telerik.Blazor.Services;
 
     public class ResxLocalizer : ITelerikStringLocalizer
@@ -85,7 +85,7 @@ To localize selected keys with custom strings:
 
     <div class="skip-repl"></div>
 
-    ````CSHTML
+    ````RAZOR
     var builder = WebApplication.CreateBuilder(args);
 
     // Add services to the container.
@@ -134,7 +134,7 @@ To localize selected keys with custom strings:
 
     <div class="skip-repl"></div>
 
-    ````CSHTML
+    ````RAZOR
     <ItemGroup>
         <Compile Update="Resources\TelerikMessages.designer.cs">
         <DesignTime>True</DesignTime>

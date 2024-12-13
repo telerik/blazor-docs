@@ -37,7 +37,7 @@ This section contains the following examples:
 
 You can use one-way binding to provide an initial checked node, and respond to the `CheckedItemsChanged` to update the view-model when user checks a node.
 
-````CSHTML
+````RAZOR
 @* Check a single node by using one-way data binding and provide initially checked node. *@
 
 <TelerikTreeView Data="@FlatData"
@@ -163,11 +163,11 @@ You can use one-way binding to provide an initial checked node, and respond to t
 
 ![checking single node example](images/single-node-checking-one-way-binding-example.png)
 
-### Selection of a single node using two-way data binding
+### Checking a single node using two-way data binding
 
 You can use two-way binding to get the node the user has checked. This can be useful if the node model already contains all the information you need to use. It also reduces the amount of code you need to write.
 
-````CSHTML
+````RAZOR
 @* Check a single node using the @bind-CheckedItems syntax for two-way data binding. *@
 
 <TelerikTreeView Data="@FlatData"

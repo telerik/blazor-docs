@@ -36,7 +36,7 @@ Always [`Rebind()`]({%slug listbox-overview%}#listbox-reference-and-methods) the
 
 >caption Using ListBox templates
 
-````CSHTML
+````RAZOR
 @* Add and remove ListBox items to see the item template and no-data template. *@
 
 <TelerikListBox @ref="@ListBoxRef"

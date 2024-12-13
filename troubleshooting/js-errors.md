@@ -13,11 +13,11 @@ position: 2
 This page provides solutions for JavaScript errors that you may encounter while working with Telerik UI for Blazor components.
 
 * [`TelerikBlazor` was undefined](#telerikblazor-was-undefined)
-* [`init[Component]` was undefined](#initcomponent-was-undefined) (also applies to errors about missing Telerik JavaScript functions)
+* [`init[Component]` was undefined](#init-component-was-undefined) (also applies to errors about missing Telerik JavaScript functions)
 * [Cannot read properties of null (reading `addEventListener`)](#cannot-read-properties-of-null-reading-addeventlistener)
 * [SyntaxError: Unexpected token](#syntaxerror-unexpected-token)
 * [KeyNotFoundException: The given key `inputElementValue` was not present](#keynotfoundexception-the-given-key-inputelementvalue-was-not-present)
-* [Object doesn't support property or method `assign`](#object-doesnt-support-property-or-method-assign)
+* [Object doesn't support property or method `assign`](#object-doesn-t-support-property-or-method-assign)
 * [Microsoft.JSInterop.JSException: Maximum call stack size exceeded](#maximum-call-stack-size-exceeded)
 
 ## TelerikBlazor was undefined

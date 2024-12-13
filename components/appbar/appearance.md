@@ -32,7 +32,7 @@ You can change the color of the AppBar by setting the `ThemeColor` parameter to 
 
 >caption The built-in AppBar colors
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@ThemeColors" @bind-Value="@SelectedColor" Width="150px"></TelerikDropDownList>
 
 <TelerikAppBar ThemeColor="@SelectedColor">

@@ -73,7 +73,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row in the same Grid
 
-````CSHTML
+````RAZOR
 @* Drag a row and drop it in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"
@@ -143,7 +143,7 @@ The following example demonstrates both these options:
 
 >caption Drag and drop items between Grids
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@FirstGridRef"
              Data="@MyData"
              Pageable="true"
@@ -252,10 +252,10 @@ The functionality allows dragging items between Grid, [TreeList]({%slug treelist
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
-##### Drag and Drop between Grid and TreeList
+#### Drag and Drop between Grid and TreeList
 
 <div class="skip-repl"></div>
-````Index.razor
+````RAZOR Index.razor
 @using System.Collections.Generic;
 @using System.Collections.ObjectModel;
 
@@ -389,7 +389,7 @@ The functionality allows dragging items between Grid, [TreeList]({%slug treelist
     }
 }
 ````
-````PersonService.cs
+````C# PersonService.cs
 public class PersonService
 {
     private List<Person> _people;
@@ -436,7 +436,7 @@ public class PersonService
     }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 public class Person
@@ -472,7 +472,7 @@ public class Person
     }
 }
 ````
-````TreeListService.cs
+````C# TreeListService.cs
 public class TreeListService
     {
         private List<FlatItem> _flatItems;
@@ -545,7 +545,7 @@ public class TreeListService
         }
     }
 ````
-````FlatItem.cs
+````C# FlatItem.cs
 public class FlatItem
     {
         public Guid Id { get; set; }
@@ -575,7 +575,7 @@ public class FlatItem
         public ProductSize? EnumNullableProp { get; set; }
     }
 ````
-````ProductSize.cs
+````C# ProductSize.cs
 using System.ComponentModel.DataAnnotations;
 
 public enum ProductSize
@@ -590,10 +590,10 @@ public enum ProductSize
     }
 ````
 
-##### Drag and Drop between Grid and TreeView
+#### Drag and Drop between Grid and TreeView
 
 <div class="skip-repl"></div>
-````Index.razor
+````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
 @using System.Collections.Generic;
@@ -726,7 +726,7 @@ public enum ProductSize
     }
 }
 ````
-````PersonService.cs
+````C# PersonService.cs
 public class PersonService
 {
     private List<Person> _people;
@@ -773,7 +773,7 @@ public class PersonService
     }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 public class Person
@@ -809,7 +809,7 @@ public class Person
     }
 }
 ````
-````TreeViewObservableFlatDataService.cs
+````C# TreeViewObservableFlatDataService.cs
 using System.Collections.ObjectModel;
 using Telerik.DataSource.Extensions;
 
@@ -982,7 +982,7 @@ public class TreeViewObservableFlatDataService
     #endregion
 }
 ````
-````BaseFlatItem.cs
+````C# BaseFlatItem.cs
 public class BaseFlatItem
 {
     public Guid Id { get; set; }
@@ -992,10 +992,10 @@ public class BaseFlatItem
 }
 ````
 
-##### Drag and Drop between Grid and Scheduler
+#### Drag and Drop between Grid and Scheduler
 
 <div class="skip-repl"></div>
-````Index.razor
+````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
 @using System.Collections.Generic;
@@ -1175,7 +1175,7 @@ public class BaseFlatItem
     }
 }
 ````
-````PersonService.cs
+````C# PersonService.cs
 public class PersonService
 {
     private List<Person> _people;
@@ -1222,7 +1222,7 @@ public class PersonService
     }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 public class Person
@@ -1258,7 +1258,7 @@ public class Person
     }
 }
 ````
-````AppointmentService.cs
+````C# AppointmentService.cs
 public class AppointmentService
 {
         public async Task<List<Appointment>> GetAppointmentsAsync()
@@ -1551,7 +1551,7 @@ public class AppointmentService
         }
 }
 ````
-````Appointment.cs
+````C# Appointment.cs
 public class Appointment
 {
     public Guid Id { get; set; }
@@ -1579,7 +1579,7 @@ public class Appointment
     }
 }
 ````
-````ResourceService.cs
+````C# ResourceService.cs
 public class ResourceService
 {
         public async Task<List<Resource>> GetResourcesAsync()
@@ -1678,7 +1678,7 @@ public class ResourceService
         }
 }
 ````
-````Resource.cs
+````C# Resource.cs
 public class Resource
 {
     public string Text { get; set; }
@@ -1695,7 +1695,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
-````CSHTML
+````RAZOR
 @* Select multiple rows and reorder them in the Grid. *@
 
 <TelerikGrid Data="@MyData" Height="400px"

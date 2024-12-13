@@ -36,7 +36,7 @@ Determining whether the actual intent of the user is to input `20` as `20%` or `
 
 >caption Simple way to see what values correspond to what percentage format
 
-````CSHTML
+````RAZOR
 <p>NumericTextBox component <code>Value</code>: @NumericValue</p>
 <p>Formatted value: @NumericValue.ToString("P2")</p>
 
@@ -55,7 +55,7 @@ Set the [NumericTextBox `Format` parameter]({%slug components/numerictextbox/ove
 
 >caption NumericTextBox custom format and '%' literal
 
-````CSHTML
+````RAZOR
 <TelerikNumericTextBox @bind-Value="@PctValue"
                        Max="100" Min="0"
                        Decimals="0"
@@ -73,7 +73,7 @@ You can achieve similar behavior with a [MaskedTextbox component]({%slug maskedt
 
 >caption Using the MaskedTextBox component for percent values
 
-````CSHTML
+````RAZOR
 @using System.Globalization
 
 <p><code>MaskedTextBoxValue</code>: @MaskedTextBoxValue</p>

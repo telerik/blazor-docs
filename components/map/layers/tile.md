@@ -27,7 +27,7 @@ The following example demonstrates how to configure the Map Tile Layer.
 
 >caption The Map Tile Layer configuration.
 
-````CSHTML
+````RAZOR
 <TelerikMap Center="@MapCenter"
             Zoom="3">
     <MapLayers>

@@ -24,7 +24,7 @@ When using this event, make sure to update the component `Format` programmatical
 
 >caption Handle the ColorGradient FormatChanged event
 
-````CSHTML
+````RAZOR
 @* Handle the ColorGradient FormatChanged event *@
 
 <TelerikColorGradient
@@ -51,7 +51,7 @@ When using this event, make sure to update the component `Value` programmaticall
 
 >caption Handle the ColorGradient ValueChanged event
 
-````CSHTML
+````RAZOR
 @* Handle the ColorGradient ValueChanged event *@
 
 <TelerikColorGradient

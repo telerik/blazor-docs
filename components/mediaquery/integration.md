@@ -24,9 +24,9 @@ You can hide or more columns in the Grid based on the dimensions of the browser 
 
 >tip You can use similar approach for the Telerik TreeList in order to hide some of the component columns on small devices. You can even replace the entire components with other components that have a simpler layout and limited functionality, such as a ListView, for small devices.
 
->tip If you are [saving the Grid state]({%slug grid-state%}#save-and-load-grid-state-from-browser-localstorage), you need to remove column visibility information in `OnStateChanged`. Otherwise the saved column visibility may conflict with the visibility determined by the MediaQuery component.
+>tip If you are [saving the Grid state]({%slug grid-kb-save-load-state-localstorage%}), you need to remove column visibility information in `OnStateChanged`. Otherwise the saved column visibility may conflict with the visibility determined by the MediaQuery component.
 
-````CSHTML
+````RAZOR
 @* Hide Grid columns on small screens - those below 1024px in this example *@
 
 <TelerikMediaQuery Media="(max-width: 1023px)" OnChange="@( (doesMatch) => IsMediumDown = doesMatch )"></TelerikMediaQuery>
@@ -127,7 +127,7 @@ You can resize the Chart based on the browser size and re-render with the new di
 
 >note You can also see the <a href="https://github.com/telerik/blazor-ui/tree/master/chart/responsive-chart" target="_blank">Responsive Chart demo application</a> for additional examples.
 
-````CSHMTL
+````RAZOR
 @* Resize the chart based on the browser size so it matches the corresponding responsive layout *@
 
 <TelerikMediaQuery Media="(max-width: 767px)" OnChange="@OnChangeHandler"></TelerikMediaQuery>
@@ -195,7 +195,7 @@ You can use the MediaQuery component to set various [layout-related parameters o
 
 >caption Responsive Form with MediaQuery
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <ul>

@@ -28,7 +28,7 @@ You can highlight specific value ranges by providing one or more instances of th
 
 ![From and To parameters example](images/from-to-range.png)
 
-````CSHTML
+````RAZOR
 @* Use the From and To parameters to provide a range on the scale. *@
 
 <TelerikLinearGauge>
@@ -65,7 +65,7 @@ If you do not define the `Color` parameter the range will not be visually render
 
 ![Color parameter screenshot](images/color-parameter-ranges.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the ranges *@
 
 <TelerikLinearGauge>
@@ -102,7 +102,7 @@ The `Opacity` (`double`) parameter controls the of the range. The value passed t
 
 ![Mirror the linear gauge](images/opacity-parameter-ranges.png)
 
-````CSHTML
+````RAZOR
 @* Make a range more opaque *@
 
 <TelerikLinearGauge>

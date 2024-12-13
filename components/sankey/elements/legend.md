@@ -54,7 +54,7 @@ The `<SankeyLegend>` tag exposes nested tags for further customization of the se
 
 >caption Customizing the Sankey legend by using nested tag settings
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

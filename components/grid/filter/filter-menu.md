@@ -18,7 +18,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterMenu
 
 >caption Filter Menu in Telerik Grid
 
-````CSHTML
+````RAZOR
 @* Filter menu in the column header *@
 
 <TelerikGrid Data=@GridData FilterMode="@GridFilterMode.FilterMenu"
@@ -80,7 +80,7 @@ You can override the default Filter Menu behavior for each column through the fo
 
 >caption Configure the Filter Menu
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Menu*@
 
 @using Telerik.DataSource

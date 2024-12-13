@@ -40,7 +40,7 @@ How to dynamically set the Grid popup edit Window title?
 
 >caption Dynamic Grid Popup Edit Form Title
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              TItem="@Product"
              EditMode="@GridEditMode.Popup"

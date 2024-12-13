@@ -38,7 +38,7 @@ Note that Wizard step indexes are zero-based for the developer and 1-based for t
 
 >caption Skip a Wizard Step Based on Business Logic
 
-````CSHTML
+````RAZOR
 @* Skip a Wizard Step Based on Custom Condition *@
 
 <TelerikWizard Width="600px"

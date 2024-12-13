@@ -31,7 +31,7 @@ To define a data item as a running total or total, include a corresponding data 
 
 >caption A Waterfall Chart that shows cash flow
 
-````CSHTML
+````RAZOR
 <TelerikChart Width="100%"
               Height="400px">
     <ChartTitle Text="Cash Flow"></ChartTitle>

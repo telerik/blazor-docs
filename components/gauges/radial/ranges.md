@@ -34,7 +34,7 @@ You can highlight specific value ranges by providing one or more instances of th
 
 ![From and To parameters example](images/from-to-range.png)
 
-````CSHTML
+````RAZOR
 @* Use the From and To parameters to provide a range on the scale. *@
 
 <TelerikRadialGauge>
@@ -63,7 +63,7 @@ The `RangeSize` (`double`) parameter controls the width of the range indicators.
 
 ![Range Size](images/range-size.png)
 
-````CSHTML
+````RAZOR
 @* Provide the desired size of the range. *@
 
 <TelerikRadialGauge>
@@ -95,7 +95,7 @@ The `RangeDistance` (`double`) parameter controls the distance from the range in
 
 ![Range Distance](images/range-distance.png)
 
-````CSHTML
+````RAZOR
 @* Provide the desired distance from the range indicators to the ticks. *@
 
 <TelerikRadialGauge>
@@ -127,7 +127,7 @@ The `RangePlaceholderColor` (`string`) parameter controls the default color for 
 
 ![Default Ranges Color](images/default-ranges-color.png)
 
-````CSHTML
+````RAZOR
 @* Change the default color of the ranges *@
 
 <TelerikRadialGauge>
@@ -159,7 +159,7 @@ The `Color` (`string`) parameter controls the color of the range. It accepts **C
 
 ![Ranges Color](images/ranges-color.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the ranges *@
 
 <TelerikRadialGauge>
@@ -193,7 +193,7 @@ The `Opacity` (`double`) parameter controls the opacity of the range. The value 
 
 ![Ranges opacity](images/ranges-opacity.png)
 
-````CSHTML
+````RAZOR
 @* Make a range more opaque *@
 
 <TelerikRadialGauge>

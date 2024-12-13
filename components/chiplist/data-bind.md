@@ -20,7 +20,7 @@ The ChipList has features that map to properties in the component model class. T
 
 >caption Using default property names in the ChipList model class
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListData"></TelerikChipList>
 
 @code {
@@ -81,7 +81,7 @@ The `IconField` model property can hold:
 
 >caption ChipList with custom model property names
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListData"
                  TextField="@nameof(ChipModel.ChipText)"
                  IconField="@nameof(ChipModel.ChipIcon)"

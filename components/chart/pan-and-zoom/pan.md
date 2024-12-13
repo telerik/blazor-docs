@@ -28,7 +28,7 @@ To perform panning, do either of the following:
 
 >caption Chart with enabled panning
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of pannable Chart. *@
 <TelerikChart>
     <ChartPannable Enabled="true"></ChartPannable>
@@ -102,7 +102,7 @@ To specify an axis that user cannot pan, use the `Lock` parameter within the `Ch
 
 >caption Chart with specified panning keyboard key and locked axis
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of pannable Chart with specified modifier key and locked Axis. *@
 Press CTRL + Click and Drag.
 <TelerikChart>

@@ -12,7 +12,7 @@ position: 15
 
 This page provides information for common issues you may encounter while deploying applications with the Telerik UI for Blazor components.
 
->important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](../installation/nuget) or a [local feed](../installation/zip). See the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article for more details on setting automation up.
+>important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug://installation/nuget) or a [local feed](slug://installation/zip). See the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article for more details on setting automation up.
 
 @[template](/_contentTemplates/common/general-info.md#status-telerik-com)
 
@@ -21,9 +21,9 @@ This page provides information for common issues you may encounter while deployi
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
 * `Unable to find package Telerik.UI.for.Blazor` is a common pitfall in build environments. See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}#unable-to-find-package) article, which also provides other NuGet-related tips.
-* [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazorjs)
+* [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazor-js)
 * [Trial Message](#trial-message)
-* [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-systemtextjson-)
+* [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-system-text-json)
 * [Blazor Server app is slow or breaks in the cloud](#blazor-server-slow-or-breaks-up-in-the-cloud)
 * [The remote certificate is invalid because of errors in the certificate chain](#invalid-certificate)
 
@@ -39,48 +39,47 @@ At the time of writing, sometimes the following issues have been reported that p
 
     Usually, the following in `Program.cs` of the server project solves the problem, or using `dotnet publish`, or publishing from Visual Studio:
     
-    **C#**
-
-    
-        // Program.cs
-        namespace MyBlazorAppName
-        {
-            public class Program
-            {
-                //more code may be present here
-                
-                //for a server project it may look like this
-                public static IHostBuilder CreateHostBuilder(string[] args) =>
-                    Host.CreateDefaultBuilder(args)
-                        .ConfigureWebHostDefaults(webBuilder =>
-                        {
-                            webBuilder.UseStaticWebAssets(); // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
-                            webBuilder.UseStartup<Startup>();
-                        });
+````C#.skip-repl    
+// Program.cs
+namespace MyBlazorAppName
+{
+    public class Program
+    {
+        //more code may be present here
+        
+        //for a server project it may look like this
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStaticWebAssets(); // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                    webBuilder.UseStartup<Startup>();
+                });
 
 
-                //for a WASM project it may look like this
-                public static IWebHost BuildWebHost(string[] args) =>
-                    WebHost.CreateDefaultBuilder(args)
-                        .UseConfiguration(new ConfigurationBuilder()
-                            .AddCommandLine(args)
-                            .Build())
-                        .UseStaticWebAssets() // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
-                        .UseStartup<Startup>()
-                        .Build();
-            }
-        }
+        //for a WASM project it may look like this
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(new ConfigurationBuilder()
+                    .AddCommandLine(args)
+                    .Build())
+                .UseStaticWebAssets() // may be needed when ASPNETCORE_ENVIRONMENT is NOT set to Development
+                .UseStartup<Startup>()
+                .Build();
+    }
+}
+````
 
 * On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation.
 
-    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug themes-overview%}#cdn). This may be related to the static asset configurations from the previous points, however.
+    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug common-features-cdn%}). This may be related to the static asset configurations from the previous points, however.
 
 * We have had reports that indicate missing project references do not copy the static assets. For example, in an ASP.NET Core hosted WebAssembly project the server project usually has a project reference to the Blazor project. If that reference is missing, the static assets might not be present in the output.
 
 
 ### Trial Message
 
-`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message) article.
+`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner) article.
 
 ### Could not load file or assembly 'System.Text.Json, ...
 
@@ -114,5 +113,5 @@ Such errors are related to the local networking security settings and you may ne
 
 ## See Also
 
-* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-message)
+* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner)
 * [Missing JS Interop File]({%slug troubleshooting-js-errors%}#missing-file) 

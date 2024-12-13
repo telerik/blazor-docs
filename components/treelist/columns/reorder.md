@@ -18,7 +18,7 @@ To prevent the user from moving a certain column, set its own parameter `Reorder
 
 >caption Enable column reordering in Telerik treelist
 
-````CSHTML
+````RAZOR
 @* Drag a column header between other columns to change the columns positions. You cannot drag the Name column itself. *@
 
 <TelerikTreeList Data="@Data" Reorderable="true"

@@ -68,7 +68,7 @@ To implement a custom command column:
 
 >caption Row selection, Column resizing and visibility, Editing, Sorting, and Filtering when using Row Template
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@GridRef"
              Data=@GridData
              Pageable="true"

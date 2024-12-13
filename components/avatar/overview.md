@@ -26,7 +26,7 @@ You can set different [Avatar types]({%slug avatar-types%}) and customize its [s
 
 >caption Basic Avatar with text and specified `ThemeColor`
 
-````CSHTML
+````RAZOR
 @*Basic Avatar configuration*@
 
 <TelerikAvatar Type="AvatarType.Text"

@@ -32,7 +32,7 @@ This KB article also answers the following questions:
 
 To display a currency value without decimal places in the NumericTextBox while using the currency format (`C`), set the `Format` parameter to `"C0"`. This explicitly sets the number of decimal places to zero in the formatted currency value.
 
-````CSHTML
+````RAZOR
 
 <TelerikNumericTextBox @bind-Value="@BoundAmountTo" Decimals="0" Format="C0" Step="1m" />
 

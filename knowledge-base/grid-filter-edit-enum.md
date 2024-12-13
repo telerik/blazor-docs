@@ -27,7 +27,7 @@ If I'm filtering a column containing enum values I expect a dropdown of availabl
 
 ## Solution
 
-For versions prior to `2.15.0`, you could use a [custom editor template]({%slug components/grid/features/templates%}#edit-template) and put a [dropdown bound to the enum]({%slug dropdown-kb-bind-to-enum%}) in it. Filtering, however, was based on the numerical values of the enum.
+For versions prior to `2.15.0`, you could use a [custom editor template]({%slug grid-templates-editor%}) and put a [dropdown bound to the enum]({%slug dropdown-kb-bind-to-enum%}) in it. Filtering, however, was based on the numerical values of the enum.
 
 As of **2.15.0**, the grid provides enum filtering and editing through dropdowns out-of-the-box without any additional code.
 
@@ -37,7 +37,7 @@ To control how each enum value will show in the filtering DropDownList, decorate
 
 >caption Filter and Edit an enum in the Blazor Grid - 2.15.0 and later
 
-````CSHTML
+````RAZOR
 @* You can filter and edit enums without any custom code *@
 
 @using System.ComponentModel.DataAnnotations;

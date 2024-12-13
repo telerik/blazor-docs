@@ -42,7 +42,7 @@ There is also a related example in GitHub. It shows how to [add new items from *
 
 >caption Add and select new MultiSelect items
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

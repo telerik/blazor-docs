@@ -40,7 +40,7 @@ Action buttons expose the following properties:
 
 >caption The built-in actions of a Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Visible="true">
 	<WindowActions>
 		@if (!HideMinMax)
@@ -73,7 +73,7 @@ You can create a custom action icon and you must provide its `OnClick` handler.
 
 >caption Handling a custom action
 
-````CSHTML
+````RAZOR
 Custom actions can call C# directly
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
@@ -116,7 +116,7 @@ You can mix custom actions with built-in actions, and you do not have to define 
 
 >caption Mixing built-in actions with custom actions
 
-````CSHTML
+````RAZOR
 @* You can define any collection of actions. The second custom action shows all its features. *@
 
 <TelerikWindow Visible="true">

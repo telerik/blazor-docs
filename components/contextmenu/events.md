@@ -23,7 +23,7 @@ You can use the `OnClick` event to react to user choices, for example load new c
 
 >caption Handle OnClick
 
-````CSHTML
+````RAZOR
 <p>Last clicked item: @ClickedItem?.Text</p>
 
 <div id="context-menu-target" style="padding:1em;background:yellow;">right-click for context menu</div>
@@ -101,7 +101,7 @@ The event handler receives an argument object of type `MenuItemRenderEventArgs` 
 
 >caption Using OnItemRender to customize the appearance of the Context Menu items.
 
-````CSHTML
+````RAZOR
 <div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
     Right-click (or tap and hold on a touch device) for a Context Menu.
 </div>

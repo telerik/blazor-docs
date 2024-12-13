@@ -18,7 +18,7 @@ To prevent the user from moving a certain column, set the column's `Reorderable`
 
 >caption Enable column reordering in Telerik Grid
 
-````CSHTML
+````RAZOR
 @* Drag a column header between other columns to change the columns positions. You cannot drag the command column. Note that actual CRUD operations and settings are not implemented here for brevity. *@
 
 <TelerikGrid Data="@GridData"

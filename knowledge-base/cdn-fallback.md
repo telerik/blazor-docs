@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-The [CDN]({%slug themes-overview%}#cdn) is down, or my users have it filtered by a firewall, proxy, admin policy or other problem. This can cause errors or bad looking sites. How do I ensure the necessary resources will be fetched?
+The [CDN]({%slug common-features-cdn%}) is down, or my users have it filtered by a firewall, proxy, admin policy or other problem. This can cause errors or bad looking sites. How do I ensure the necessary resources will be fetched?
 
 
 ## Solution
@@ -45,7 +45,7 @@ The Telerik themes provide a test class you can easily test against to determine
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <link rel="stylesheet" href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default-aaaaa/all.css" />
 <script>
     function cdnTest() {
@@ -73,7 +73,7 @@ To test for the script, just check if the `TelerikBlazor` object exists. If not,
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <script src="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}-aaaaa/telerik-blazor.min.js"></script>
 <script>
     if (!window.TelerikBlazor) { // the Telerik object is not present
@@ -90,7 +90,7 @@ A server-side Blazor app is bootstrapped in a Razor page (`_Host.cshtml`) and so
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <link rel="stylesheet"
       href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-theme-default-aaaaa/all.css"
       asp-fallback-href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css"

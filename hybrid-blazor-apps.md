@@ -32,9 +32,9 @@ This article outlines the specifics that can arise when configuring Maui apps to
     Check [Introducing Xamarin iOS Interpreter](https://devblogs.microsoft.com/xamarin/introducing-xamarin-ios-interpreter/) and [Could not AOT Assembly on StackOverflow](https://stackoverflow.com/questions/56544520/could-not-aot-the-assembly-for-microsoft-csharp-dll-on-xamarin-ios/65809789#65809789). Add the `Telerik.UI.for.Blazor` assembly to an `MtouchExtraArgs` tag for the iOS Release configuration in the project file:
 
     <div class="skip-repl"></div>
-    ```xml
+    ````xml
     <PropertyGroup>
         <UseInterpreter>true</UseInterpreter>
         <MtouchExtraArgs>--linkskip=Telerik.UI.for.Blazor</MtouchExtraArgs>
     </PropertyGroup>
-    ```
+    ````

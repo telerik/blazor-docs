@@ -38,7 +38,7 @@ Here is a simple example that demonstrates how to use class names, command names
 
 >caption Use tool class names and command names with the Blazor Editor
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;
@@ -83,7 +83,7 @@ Here is a simple example that demonstrates how to use class names, command names
 * [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Command Execution](#programmatic-execution)
 
-When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#addremove-tools-from-existing-toolbar).
+When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#add-remove-tools-from-existing-toolbar).
 
 ## Inline Tools
 
@@ -204,7 +204,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 >caption Customizing the Editor Color Tools
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor Tools="@EditorTools"
@@ -237,7 +237,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;
@@ -378,7 +378,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 The [`Format` tool exposes a `Data` property](/blazor-ui/api/Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor @bind-Value="@EditorValue"
@@ -518,13 +518,13 @@ Some Editor commands have no built-in tools. These commands can only be [invoked
 
 You can invoke the built-in Editor commands from outside the component or from [custom tools]({%slug editor-custom-tools%}).
 
-In order to do so, you need to use the [Editor reference]({%slug editor-overview%}#component-reference) and to call the [ExecuteAsync method]({%slug editor-overview%}#methods).
+In order to do so, you need to use the [Editor reference]({%slug editor-overview%}#editor-reference-and-methods) and to call the [ExecuteAsync method]({%slug editor-overview%}#editor-reference-and-methods).
 
 >tip Use the reference tables above to find the command name and its arguments for the command you want to invoke.
 
 >caption Execute commands from buttons outside the Editor
 
-````CSHTML
+````RAZOR
 @* Click on the buttons to execute the Editor tools *@
 
 @using Telerik.Blazor.Components.Editor

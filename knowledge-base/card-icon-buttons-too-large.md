@@ -62,7 +62,8 @@ There are two ways to prevent icon button expansion:
 
 >caption Prevent CardAction icon buttons becoming too large
 
-````HTML
+
+````RAZOR
 <p>Card 1</p>
 
 <TelerikCard Width="350px">

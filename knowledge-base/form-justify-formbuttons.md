@@ -29,7 +29,7 @@ I am using the Telerik Form for Blazor and I would like to justify the [FormButt
 
 For versions before UI for Blazor 3.1.0, you can customize the appearance of the Telerik Form by using CSS. To justify the FormButtons in a single instance of the Telerik Form you can take advantage of the `Class` parameter that the component provides and cascade the necessary CSS rules to the FormButton HTML element. The example below showcases a sample implementation that you can use as a base in your application.
 
-````CSHTML
+````RAZOR
 @* Justify the FormButtons to the right side of the Form via CSS *@
 
 <style>

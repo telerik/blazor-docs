@@ -35,7 +35,7 @@ You can style anchors to look like Telerik buttons through the `k-button` CSS cl
 
 >caption Open a new browser window from a button
 
-````CSHTML
+````RAZOR
 @inject NavigationManager NavManager
 @inject IJSRuntime JS
 

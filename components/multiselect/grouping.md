@@ -18,7 +18,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 >caption Grouping in the MultiSelect
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@Data"
                  @bind-Value="@SelectedProducts"
                  GroupField="Category.CategoryName"

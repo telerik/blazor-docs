@@ -37,7 +37,7 @@ You need to change the default minimum height of the popup element. The DropDown
 
 >caption Use a Class to set the min-height of the .k-nodata class to auto.
 
-````CSHTML
+````RAZOR
 <div>
     Popup with Height:
     <TelerikDropDownList @bind-Value="@SelectedValue"

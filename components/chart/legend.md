@@ -45,7 +45,7 @@ The structure of the nested tags is `<ChartSeriesLegend*Specifics*>`, where the 
 
 Customize the legend items by using nested tag settings.
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column" Name="Product 1" Data="@series1Data">

@@ -30,7 +30,7 @@ Add the `k-card-deck` class to the wrapping container of the Cards to organize t
 
 ![Deck layout](images/deck-layout-example.png)
 
-````CSHTML
+````RAZOR
 @*Cards with Deck Layout*@
 
 <div class="k-card-deck">
@@ -75,7 +75,7 @@ Add the `k-card-list` class to the wrapping container of the Cards to organize t
 
 ![List layout](images/list-layout-example.png)
 
-````CSHTML
+````RAZOR
 @*Cards with List Layout*@
 
 <div class="k-card-list">
@@ -120,7 +120,7 @@ Add the `k-card-group` class to the wrapping container of the Cards to organize 
 
 ![Group layout](images/group-layout-example.png)
 
-````CSHTML
+````RAZOR
 @*Cards with Group Layout*@
 
 <div class="k-card-group">

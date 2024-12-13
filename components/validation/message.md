@@ -22,7 +22,7 @@ To enable Telerik Validation Messages for a form field:
 
 >caption Use Telerik Validation Message in a TelerikForm
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px"
@@ -70,7 +70,7 @@ To enable Telerik Validation Messages for a form field:
 
 >caption Use Telerik ValidationMessage in an EditForm
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@customer" width="600px">
@@ -112,7 +112,7 @@ To enable Telerik Validation Messages for a form field:
 
 The `TelerikValidationMessage` allows you to control its rendering via a nested `<Template>` tag. The `context` represents an `IEnumerable<string>` collection of all messages for this model property.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <style>
@@ -180,7 +180,7 @@ Use the `Class` parameter of the Validation Message to add a custom CSS class to
 
 >caption Using TelerikValidationMessage Class for EmailAddress.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <style>

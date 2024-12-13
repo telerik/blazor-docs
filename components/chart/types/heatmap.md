@@ -16,13 +16,12 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
 
 #### In this article:
 
-* [Basics](#basics)
 * [Data Binding Notes](#data-binding-notes)
 * [Heatmap Chart Specific Appearance Settings](#heatmap-chart-specific-appearance-settings)
     * [Setting the Marker Type](#setting-the-marker-type)
     * [Color](#color)
     * [ColorField](#colorfield)
-    * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements--nested-tags-settings)
+    * [Customize Chart Elements - Nested Tags Settings](#customize-chart-elements-nested-tags-settings)
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
@@ -39,7 +38,7 @@ The <a href="https://www.telerik.com/blazor-ui/heatmap" target="_blank">Blazor H
 
 >caption A Heatmap Chart that shows commits made by developers
 
-````CSHTML
+````RAZOR
 @*Heatmap series*@
 
 <TelerikChart>
@@ -118,7 +117,7 @@ When you are data binding the Heatmap Chart you should have the following points
 ![problematic behavior](images/heatmap-problematic-behavior.png)
 
 
-````CSHTML
+````RAZOR
 @* Observe the behavior of the Heatmap chart when the values for the YAxis Categories does not match the values provided to the YField. The same behavior extends to the XAxis and XField. *@
 
 <TelerikChart>
@@ -203,7 +202,7 @@ To change the marker type you should set the `Type` parameter, exposed on the `C
 
 >caption Change the Type of the marker.
 
-````CSHTML
+````RAZOR
 @* Set the type of the marker to RoundedRect *@
 
 <TelerikChart>
@@ -276,7 +275,7 @@ The `Color` parameter controls the general color palette for the markers of the 
 
 >caption Change the Color of the Heatmap.
 
-````CSHTML
+````RAZOR
 @* Set the color of the Heatmap to blue. *@
 
 <TelerikChart>
@@ -347,7 +346,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Provide a custom color to all markers in the Heatmap.
 
-````CSHTML
+````RAZOR
 @* Use the ColorField to provide custom color to each individual marker *@ 
 
 <TelerikChart>
@@ -421,7 +420,7 @@ The `ColorField` parameter allows you to control the color of an individual mark
 
 >caption Hide the Labels for both X and Y axes.
 
-````CSHTML
+````RAZOR
 @* Use the nested tag settings to hide the labels for both axes *@
 
 <TelerikChart>

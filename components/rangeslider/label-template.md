@@ -29,7 +29,7 @@ This example shows how to use the current label value and to add styling and a c
 
 ![basic template with currency symbol and styling](images/rangeslider-basic-template-currency.png)
 
-````CSHTML
+````RAZOR
 @TheStartValue.ToString("C2") to @TheEndValue.ToString("C2")
 <br /><br />
 
@@ -59,7 +59,7 @@ This example shows how you can render text only for the min and max values of th
 
 ![labels for the min and max only](images/rangeslider-labels-for-min-and-max-only.png)
 
-````CSHTML
+````RAZOR
 @TheStartValue to @TheEndValue
 <br /><br />
 
@@ -92,7 +92,7 @@ While the slider is a numeric input, you can use its values to match against ind
 
 ![model items in the slider](images/rangeslider-items.png)
 
-````CSHTML
+````RAZOR
 @* scroll after the table to see the slider code *@
 
 <table>

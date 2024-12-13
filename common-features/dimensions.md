@@ -38,7 +38,7 @@ The examples here showcase different units and examples of using them to set dim
 
 >caption Setting sizes in different dimensions (percent, pixel, vw in this sample)
 
-````CSHTML
+````RAZOR
 <div style="width: 500px; border: 1px solid red;">
     <TelerikTextBox Width="50%" />
     <br />
@@ -52,7 +52,7 @@ The examples here showcase different units and examples of using them to set dim
 
 >caption Using auto width to have an element adjust to its contents
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@MyList" @bind-Value="MyItem">
     <DropDownListSettings>
         <DropDownListPopupSettings Width="auto" />
@@ -78,7 +78,7 @@ The examples here showcase different units and examples of using them to set dim
 
 >caption Position is controlled by the parent element with special positioning
 
-````CSHTML
+````RAZOR
 <TelerikWindow Visible="true" Top="100px" Left="100px" Width="30vw" Height="40vh">
     <WindowContent>
         The parent element of the window is the TelerikRootComponent which should match the app element and the viewport.

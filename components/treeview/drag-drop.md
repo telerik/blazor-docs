@@ -20,7 +20,7 @@ This article is divided in the following sections:
 * [`OnDrop` Event](#ondrop-event)
 * [`OnDragEnd` Event](#ondragend-event)
 * [Examples](#examples)
-    * [Events Example](#events-example)
+    * [TreeView Drag and Drop Events Example](#treeview-drag-and-drop-events)
     * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
     * [Flat Data](#flat-data)
     * [Hierarchical Data](#hierarchical-data)
@@ -102,7 +102,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 
 ## Examples
 
-* [Events Example](#events-example)
+* [TreeView Drag and Drop Events Example](#treeview-drag-and-drop-events)
 * [Drag and Drop between TreeView, Grid, TreeList and Scheduler](#drag-and-drop-between-treeview-grid-treelist-and-scheduler)
 * [Flat Data](#flat-data)
 * [Hierarchical Data](#hierarchical-data)
@@ -112,7 +112,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 
 >caption Handle Blazor TreeView Drag Events
 
-````CSHTML
+````RAZOR
 <div>
     Current Item: @CurrentItem
     <br />
@@ -299,10 +299,10 @@ The functionality allows dragging items between TreeView, [Grid]({%slug grid-dra
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
-##### Drag and Drop between TreeView and Grid
+#### Drag and Drop between TreeView and Grid
 
 <div class="skip-repl"></div>
-````Index.razor
+````RAZOR Index.razor
 @* Drag and drop in Grid and TreeView. *@
 
 @using System.Collections.Generic;
@@ -435,7 +435,7 @@ The functionality allows dragging items between TreeView, [Grid]({%slug grid-dra
     }
 }
 ````
-````PersonService.cs
+````C# PersonService.cs
 public class PersonService
 {
     private List<Person> _people;
@@ -482,7 +482,7 @@ public class PersonService
     }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 public class Person
@@ -518,7 +518,7 @@ public class Person
     }
 }
 ````
-````TreeViewObservableFlatDataService.cs
+````C# TreeViewObservableFlatDataService.cs
 using System.Collections.ObjectModel;
 using Telerik.DataSource.Extensions;
 
@@ -691,7 +691,7 @@ public class TreeViewObservableFlatDataService
     #endregion
 }
 ````
-````BaseFlatItem.cs
+````C# BaseFlatItem.cs
 public class BaseFlatItem
 {
     public Guid Id { get; set; }
@@ -706,7 +706,7 @@ See more applicable examples in the [Grid Drag and Drop article]({%slug grid-dra
 ### Flat Data
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @inject TreeViewFlatDataService TreeViewFlatDataService
 
     <TelerikTreeView Data="@FlatData"
@@ -735,7 +735,7 @@ See more applicable examples in the [Grid Drag and Drop article]({%slug grid-dra
     }
 }
 ````
-````Service
+````C# Service
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -857,7 +857,7 @@ using TelerikBlazorAppSource.Models;
         }
     }
 ````
-````Model
+````C# Model
     public class BaseFlatItem
     {
         public Guid Id { get; set; }
@@ -870,7 +870,7 @@ using TelerikBlazorAppSource.Models;
 ### Hierarchical Data
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @inject TreeViewHierarchicalDataService TreeViewHierarchicalDataService
 
 <TelerikTreeView Data="@HierarchicalData"
@@ -900,7 +900,7 @@ using TelerikBlazorAppSource.Models;
     }
 }
 ````
-````Service
+````C# Service
 using System.Collections.Generic;
 using Telerik.Blazor;
 
@@ -1012,7 +1012,7 @@ using Telerik.Blazor;
         }
     }
 ````
-````Extensions
+````C# Extensions
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1066,7 +1066,7 @@ using System.Threading.Tasks;
         }
     }
 ````
-````Model
+````C# Model
     public class BaseHierarchicalItem
     {
         public int Id { get; set; }
@@ -1082,7 +1082,7 @@ using System.Threading.Tasks;
 When you drag and drop items from one instance of the TreeView to another, the `OnDrop` event fires for the TreeView where the item originally was.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @using System.Collections.ObjectModel
 
 <TelerikTreeView @ref="@FirstTree"
@@ -1191,7 +1191,7 @@ When you drag and drop items from one instance of the TreeView to another, the `
     }
 }
 ````
-````Service
+````C# Service
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1336,7 +1336,7 @@ using System.Collections.ObjectModel;
         }
     }
 ````
-````Model
+````C# Model
     public class BaseFlatItem
     {
         public Guid Id { get; set; }

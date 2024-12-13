@@ -60,7 +60,7 @@ The most important part of the example below is in the `RequestCurrentMainGridDa
 
 >caption Get current filtered and sorted Grid data when using Data parameter
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -215,7 +215,7 @@ The most important part of the example below is in the `OnGridRead` handler.
 
 >caption Get current filtered and sorted Grid data when using OnRead event
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

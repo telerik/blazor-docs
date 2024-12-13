@@ -21,7 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/mediaquery" target="_blank">Med
 1. Use the `OnChange` event to determine when the `Media` is matched. 
 
 
-````CSHTML
+````RAZOR
 @* Resize a container based on the browser size *@
 
 <TelerikMediaQuery Media="@SmallScreenMediaQuery" OnChange="@((doesMatch) => IsSmallScreen = doesMatch)"></TelerikMediaQuery>

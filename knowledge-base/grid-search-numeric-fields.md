@@ -82,7 +82,7 @@ Here is an overview of the major steps in the example:
 
 <div class="skip-repl"></div>
 
-````Grid.razor
+````RAZOR Grid.razor
 @* How to use a custom search textbox in the Grid, which supports multiple data types.
     The example shows how to build FilterDescriptors programmatically for all searchable fields in the Grid model.
 *@
@@ -170,7 +170,7 @@ Here is an overview of the major steps in the example:
     }
 }
 ````
-````GridUniversalSearchBox.razor
+````RAZOR GridUniversalSearchBox.razor
 @using System.ComponentModel.DataAnnotations
 @using System.Globalization
 @using System.Reflection

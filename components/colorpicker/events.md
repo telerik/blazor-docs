@@ -30,7 +30,7 @@ Note that the `OnChange` event may also fire when the actual selected color has 
 
 The event type is `EventCallback<object>`. The `OnChange` event does not prevent two-way binding for the `Value` attribute.
 
-````CSHTML
+````RAZOR
 @* Handle the ColorPicker OnChange event *@
 
 <p>@EventLog</p>
@@ -54,7 +54,7 @@ The `ValueChanged` event fires when the user selects a new color and the compone
 
 The event type is `EventCallback<string>`. Using `ValueChanged` requires one-way binding for the `Value` attribute and manual value update in the event handler.
 
-````CSHTML
+````RAZOR
 @* Handle the ColorPicker ValueChanged event *@
 
 <TelerikColorPicker Value="@Color" ValueChanged="@ColorPickerValueChanged" />
@@ -75,7 +75,7 @@ The `ViewChanged` event fires when the user toggles between the popup views.
 
 The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires one-way binding for the `View` attribute and manual value update in the event handler.
 
-````CSHTML
+````RAZOR
 @* Handle the ColorPicker ViewChanged event *@
 
 <TelerikColorPicker @bind-Value="@Color" View="@View" ViewChanged="@ColorPickerViewChanged" />
@@ -103,7 +103,7 @@ The event handler receives as an argument an `ColorPickerOpenEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikColorPicker @bind-Value="@Color" OnOpen="@OnColorPickerPopupOpen" />
 
 @code {
@@ -127,7 +127,7 @@ The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs`
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikColorPicker @bind-Value="@Color" OnClose="@OnColorPickerPopupClose" />

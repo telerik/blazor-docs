@@ -26,7 +26,7 @@ Stepper component allows you to use text for its step indicators. You can define
 
 ![Text Indicators](images/text-indicators-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with text indicators *@
 
 <div style="width:500px">
@@ -50,7 +50,7 @@ More details as well as a list of the available Telerik font icons you can find 
 
 ![Icon Indicators](images/icon-indicators-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with icon indicators *@
 
 <div style="width:500px">

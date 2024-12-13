@@ -73,7 +73,7 @@ Use [custom CSS to override the component theme]({%slug themes-override%}) and h
 
 >caption Hide days from other months in the Calendar
 
-````CSHTML
+````RAZOR
 <p>
     <label>
         <TelerikCheckBox @bind-Value="@TargetAllCalendars" />

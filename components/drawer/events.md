@@ -24,7 +24,7 @@ The `SelectedItemChanged` event fires every time the user clicks on a new item f
 
 >caption Handle SelectedItemChanged event
 
-````CSHTML
+````RAZOR
 @* This example shows how to use one-way data binding for the SelectedItem parameter *@
 
 <TelerikDrawer Data="@Data" Expanded="true" MiniMode="true" Mode="DrawerMode.Push"
@@ -78,7 +78,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 >caption Handle ExpandedChanged event
 
-````CSHTML
+````RAZOR
 @* This example shows how to use one-way data binding for the Expanded parameter and show/hide the Expand Drawer button based on the value of Expanded *@
 
 @if (!Expanded)
@@ -147,7 +147,7 @@ As an argument, the event handler receives an object of type `DrawerItemRenderEv
 
 >caption Customizing the appearance of the Drawer items based on the Drawer mode.
 
-````CSHTML
+````RAZOR
 @* Click on the Toggle button to change the items' classes and Drawer mode. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"

@@ -24,7 +24,7 @@ The Blazor Button provides a variety of styling options through the [built-in th
 
 >caption Basic Blazor Button with `OnClick` event handler
 
-````CSHTML
+````RAZOR
 @result
 <br />
 <TelerikButton OnClick="@OnClickHandler">Hello!</TelerikButton>
@@ -80,13 +80,13 @@ The Blazor Button provides various parameters that allow you to configure the co
 
 ## Button Reference and Methods
 
-Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
 
 | Method | Description |
 | --- | --- |
 | `FocusAsync` | Focuses the Blazor Button component. Always call with `await`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 
-````CSHTML
+````RAZOR
 <TelerikButton @ref="ButtonRef">Hello!</TelerikButton>
 
 @code {

@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 To embed dropdowns in the Breadcrumb "crumbs", use an [`ItemTemplate`]({%slug breadcrumb-templates%}#itemtemplate). This template allows you to customize the Breadcrumb items, and include other components such as dropdowns.
 
-````CSHTML
+````RAZOR
 @*The dropdown's appearance is customized to blend with the Breadcrumb by adjusting the border color and preventing text decoration changes on hover.*@
 
 <TelerikBreadcrumb Data="@Items">

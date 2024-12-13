@@ -37,7 +37,7 @@ Actual: The textbox label is still "inside" the textbox.
 
 >caption Sample reproducible
 
-````CSHTML
+````RAZOR
 <form>
     @* The autofill should populate these lines here, but it does not *@
     @SomeUserModel.UserName

@@ -24,7 +24,7 @@ The `PageChanged` event fires when:
 
 The event can be used to implement custom business logic, or update the Carousel `Page` attribute value, when using one-way binding for it.
 
-````CSHTML
+````RAZOR
 @* Handle the Carousel PageChanged event *@
 
 <p>Page changed to index: @PageIndex</p>

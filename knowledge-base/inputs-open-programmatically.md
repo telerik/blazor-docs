@@ -58,7 +58,7 @@ Note that the Date/Time Pickers move focus to their popup once it is opened. Thi
 
 >caption Focus Component and Open Dropdown Programmatically
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 @* Open dropdown on click or focus *@
 

@@ -22,7 +22,7 @@ This approach of providing items lets you gather separate collections of data th
 
 >caption Example of hierarchical data binding
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

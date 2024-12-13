@@ -22,7 +22,7 @@ Make sure to update the currently selected item when using the event.
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 <TelerikRating Value="@Value"
                ValueChanged="@((double newRating) => ValueChangedHandler(newRating))">
 </TelerikRating>

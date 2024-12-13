@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">T
 
 ![Basic Radial Gauge](images/basic-radial-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Setup a basic radial gauge *@
 
 <TelerikRadialGauge>
@@ -72,7 +72,7 @@ To execute Radial Gauge methods, obtain reference to the component instance via 
 
 >caption Get a component reference and use the Refresh method
 
-````CSHTML
+````RAZOR
 @* Change the Height of the component *@
 
 <TelerikButton OnClick="@ChangeHeight">Change the height</TelerikButton>

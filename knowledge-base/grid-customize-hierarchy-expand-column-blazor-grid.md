@@ -45,7 +45,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 
 >caption Using a custom Grid hierarchy expand/collapse column
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              Pageable="true"

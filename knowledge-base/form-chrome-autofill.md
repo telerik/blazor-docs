@@ -45,7 +45,7 @@ The application is not given the chance to respond to the autofill action of the
 3. In the browser popup asking you to save the form data, confirm and let Chrome save it.
 4. Reload the page - the browser will autofill the saved data.
 
-````CSHTML
+````RAZOR
 @* This example showcases the problematic configuration *@ 
 
 <TelerikForm Model="@person" OnValidSubmit="@HandleValidSubmit" Width="50%">
@@ -97,7 +97,7 @@ To solve this appearance glitch, disable the floating label of the Telerik Textb
 
 You can also add a standard HTML `<label>` element to have a label for your input.
 
-````CSHTML
+````RAZOR
 @* Provide labels for the Textboxes *@
 
 <TelerikForm Model="@person" OnValidSubmit="@HandleValidSubmit" Width="50%">

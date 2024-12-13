@@ -46,7 +46,7 @@ Here are the possible workarounds to remove extra empty space between list items
 
 >caption Remove empty space between list items in the Editor
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <p>Div mode - the styling of the Editor content depends on the web page</p>

@@ -35,7 +35,7 @@ You can also use [aggregates]({%slug grid-aggregates%}) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
-````CSHTML
+````RAZOR
 Drag the column header of the "Team" and/or "On Vacation" column to the group panel at the top
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="400px">
@@ -96,7 +96,7 @@ You can group the Grid from your code through the [Grid state]({%slug grid-state
 
 >caption Set grouping programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
 
@@ -104,7 +104,7 @@ You can group the Grid from your code through the [Grid state]({%slug grid-state
 
 The following articles and sample projects can be helpful when implementing grouping:
 
-* [Capture Group event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+* [Capture Group event]({%slug grid-state%}#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
 
 * [Server Grouping]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 

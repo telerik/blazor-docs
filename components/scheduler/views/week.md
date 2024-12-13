@@ -32,7 +32,7 @@ In this article:
 
 >caption Declare the Week view in the markup
 
-````CSHTML
+````RAZOR
 @* Define the Week view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">

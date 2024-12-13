@@ -32,7 +32,7 @@ In this article:
 
 >caption Declare the Day view in the markup
 
-````CSHTML
+````RAZOR
 @* Define the Day view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px">

@@ -28,7 +28,7 @@ The `ValueChanged` event fires when the user selection changes (the user adds or
 
 >caption Handle MultiSelect ValueChanged
 
-````CSHTML
+````RAZOR
 Selected items count: @( MultiValues?.Count ?? 0 ) <br />
 
 <TelerikMultiSelect Data="@MultiData"
@@ -65,7 +65,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @result
 <br />
 <TelerikMultiSelect Data="@Roles" @bind-Value="@TheValues" OnChange="@MyOnChangeHandler" />
@@ -108,7 +108,7 @@ Find out how to [get the applied filtering and grouping criteria]({%slug common-
 
 >caption Custom Data according to the user input in the MultiSelect
 
-````CSHTML
+````RAZOR
 @* this sample simulates fetching options based on the user input *@
 
 <TelerikMultiSelect TItem="@String" TValue="@String"
@@ -160,7 +160,7 @@ Find out how to [get the applied filtering and grouping criteria]({%slug common-
 
 >caption Filter large local data through the Telerik DataSource extensions
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <TelerikMultiSelect TItem="@Car" TValue="@int"
@@ -237,7 +237,7 @@ The event handler receives as an argument an `MultiSelectOpenEventArgs` object t
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@Items"
                     @bind-Value="@MultiSelectValue"
                     ValueField="@nameof(ItemDescriptor.ItemId)"
@@ -278,7 +278,7 @@ The event handler receives as an argument an `MultiSelectCloseEventArgs` object 
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikMultiSelect Data="@Items"
@@ -325,7 +325,7 @@ The event handler receives as an argument an `MultiSelectItemRenderEventArgs<TIt
 | `Item`   | The current item that renders in the MultiSelect. |
 | `Class`  | The custom CSS class that will be added to the item.     |
 
-````CSHTML
+````RAZOR
 @* Customize an item in the MultiSelect *@
 
 <style>
@@ -376,7 +376,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikMultiSelect @bind-Value="@TheValues" Data="@Options"

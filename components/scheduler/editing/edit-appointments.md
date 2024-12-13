@@ -96,7 +96,7 @@ The example below shows the signature of the event handlers so you can copy the 
 
 >caption Example of handling the CUD events in a Scheduler.
 
-````CSHTML
+````RAZOR
 @* This sample implements only updates to the view model. Your app must also update the database in the CUD events.
     This example uses the default field names for data binding *@
 

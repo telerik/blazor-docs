@@ -27,7 +27,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 >caption A basic configuration of the Telerik Barcode
 
-````CSHTML
+````RAZOR
 <TelerikBarcode Width="300px"
                 Height="200px"
                 Value="123456789">
@@ -46,7 +46,7 @@ The Barcode methods are accessible through it's reference.
 
 >caption Get a reference to the Barcode and use its methods
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example usage of the Refresh() method. *@
 
 <TelerikButton OnClick="@ChangeSize">Change Size!</TelerikButton>

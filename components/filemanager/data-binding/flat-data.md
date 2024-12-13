@@ -20,7 +20,7 @@ You must also provide the correct value for the `HasDirectories` field - for the
 
 >caption Example of flat data in a FileManager
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

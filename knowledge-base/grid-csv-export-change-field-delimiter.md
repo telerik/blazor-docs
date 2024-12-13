@@ -48,7 +48,7 @@ To change the field delimiter, do the following:
 
 1. Pass that `MemoryStream` to the `args.Stream` of the `GridAfterCsvExportEventArgs`, so that the modifications can be saved to the actual exported file.
 
-````CSHTML
+````RAZOR
 @*Customize the field delimiter of the exported CSV file*@
 
 @using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv

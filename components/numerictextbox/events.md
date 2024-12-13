@@ -23,7 +23,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 @result
@@ -55,7 +55,7 @@ The NumericTextBox is a generic component, so you must either provide a `Value`,
 
 >caption Handle OnChange and use two-way binding
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @NumericTextBoxValue
@@ -94,7 +94,7 @@ Using this event requires one-way binding for the `Value` parameter and manual u
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @result
 <br />
 <TelerikNumericTextBox Value="@NumericTextBoxValue"

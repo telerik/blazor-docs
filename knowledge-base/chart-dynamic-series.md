@@ -38,7 +38,7 @@ You may also find useful the [Data Binding article]({%slug components/chart/data
 
 Here is a simple example:
 
-````CSHTML
+````RAZOR
 This example hardcodes the series that are added to showcase the concept of using conditional markup and model loops
 
 <TelerikButton OnClick="@AddSeries">Add series</TelerikButton>

@@ -33,7 +33,7 @@ You can call this JS function after the grid re-renders with new data by using i
 
 The example below shows one way to do that, and to distinguish a particular grid, and to pass the title attribute value from the C# code so you can, for example, localize it.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 @inject IJSRuntime _js
 

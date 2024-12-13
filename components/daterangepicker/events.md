@@ -35,7 +35,7 @@ When the user selects a range from the calendar popup, the first click always fi
 
 >caption Handle StartValueChanged and EndValueChanged
 
-````CSHTML
+````RAZOR
 @StartValue?.ToString("dd MMM yyyy")
 <br />
 @EndValue?.ToString("dd MMM yyyy")
@@ -85,7 +85,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @StartValue?.ToString("dd MMM yyyy")
 <br />
 @EndValue?.ToString("dd MMM yyyy")
@@ -105,7 +105,9 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
         // the fields are of type object because you can use nullable or non-nullable DateTime
         // so you may need to cast them if you want to use the actual DateTime objects
-
+    }
+}
+````
 
 ## OnOpen
 
@@ -119,7 +121,7 @@ The event handler receives as an argument an `DateRangePickerOpenEventArgs` obje
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikDateRangePicker @bind-StartValue="@StartValue"
                         @bind-EndValue="@EndValue"
                         OnOpen="@OnDateRangePickerPopupOpen"
@@ -155,7 +157,7 @@ The event handler receives as an argument an `DateRangePickerCloseEventArgs` obj
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikDateRangePicker @bind-StartValue="@StartValue"
@@ -188,7 +190,7 @@ The `ViewChanged` event fires when the user changes the view they are seeing in 
 
 >caption Handle the ViewChanged event
 
-````CSHTML
+````RAZOR
 @StartValue?.ToString("dd MMM yyyy")
 <br />
 @EndValue?.ToString("dd MMM yyyy")
@@ -225,7 +227,7 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
 
 >caption Handle the OnCalendarCellRender event.
 
-````CSHTML
+````RAZOR
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
 <TelerikDateRangePicker OnCalendarCellRender="@OnCalendarCellRenderHandler"

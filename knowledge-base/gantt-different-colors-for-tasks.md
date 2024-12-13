@@ -37,7 +37,7 @@ Follow these steps to apply the desired colors to the Gantt tasks:
 
 >caption Set Different Colors for the Gantt Tasks
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"

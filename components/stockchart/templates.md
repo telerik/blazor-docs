@@ -13,7 +13,7 @@ position: 31
 
 Starting in **version 7.0.0**, when all StockChart series have no data to show, a default layout with **No data** text is displayed over the StockChart. To customize the default layout content declare a `<NoDataTemplate>` tag inside a `<StockChartSettings>` tag.
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
 <br />
 <TelerikStockChart @ref="StockChartRef"

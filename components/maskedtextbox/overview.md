@@ -22,7 +22,7 @@ You can also add standard attributes such as custom CSS classes, `name`, `placeh
 
 >caption Basic MaskedTextBox with two-way Value binding and a credit card mask
 
-````CSHTML
+````RAZOR
 <TelerikMaskedTextBox @bind-Value="@MaskedValue"
                       Mask="0000-0000-0000-0000"
                       Width="300px" />
@@ -98,7 +98,7 @@ The following parameters enable you to customize the [appearance]({%slug maskedt
 
 The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. To use it, obtain a reference to the component instance through `#ref`. @[template](/_contentTemplates/common/inputs.md#focus-kb)
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@FocusTextBox">Focus TextBox</TelerikButton>
 
 <TelerikMaskedTextBox @ref="@MaskedTextBoxRef"
@@ -140,7 +140,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 >caption Phone, credit card, SSN, UK post code, ZIP code, ZIP+4 code masks
 
-````CSHTML
+````RAZOR
 @* type in the inputs to see the result. Depending on what you want to get, you may want to set IncludeLiterals=tru like for the percentage example at the end *@
 
 <div style="white-space:pre;">
@@ -170,7 +170,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 >caption One way to get percentage input and values
 
-````CSHTML
+````RAZOR
 @* See the method that parses the string into the desired numerical value - you can customize that as needed by your app *@
 
 <div style="white-space:pre;">
@@ -211,7 +211,7 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 >caption Custom mask that presets literals for the user
 
-````CSHTML
+````RAZOR
 @* This example requires an invoice number that starts with a letter, has a second character that is a letter or a number, then a dash, then has the numbers "900" and four more numbers. For example A4-900123 *@
 
 @invoiceNumber

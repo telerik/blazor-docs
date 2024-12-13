@@ -31,7 +31,7 @@ A symptom is that `IsModified()` of the `EditContext` is not correct after chang
 ## Solution
 Call the `NotifyFieldChanged()` method of the `EditContext` to let it know it needs to update.
 
-````CSHTML
+````RAZOR
 @* The CascadingValue is just one sample way of passing the data around *@
 
 <CascadingValue Value="@CurrentModel">

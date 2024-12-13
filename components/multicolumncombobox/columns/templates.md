@@ -23,7 +23,7 @@ The `HeaderTemplate` allows you to control the rendering of the column's header.
 
 >caption Use the HeaderTemplate to add an icon to the header cells
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@BoundValue"
                             ValueField="@nameof(SampleData.Id)"
@@ -68,7 +68,7 @@ The `Template` (Cell Template) allows you to control the rendering of the cells 
 
 >caption Use the Template to visually distinguish some Ids
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@BoundValue"
                             ValueField="@nameof(SampleData.Id)"

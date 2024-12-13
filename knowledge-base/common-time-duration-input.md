@@ -37,7 +37,7 @@ For a better UX, you can also add some custom validation to check whether the mi
 
 The sample below demonstrates the described approach.
 
-````CSHTML
+````RAZOR
 <style>
 	.k-state-invalid .k-textbox {
 		border-color: rgba(213,25,35,.5);

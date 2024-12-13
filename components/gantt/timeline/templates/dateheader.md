@@ -31,7 +31,7 @@ The `CurrentInfo.CurrentCulture` is used when rendering the formats, so if you n
 
 >caption Customize the date header of each slot of the timeline.
 
-````CSHTML
+````RAZOR
 @using System.Globalization
 
 <TelerikGantt Data="@Data"

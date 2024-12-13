@@ -34,7 +34,7 @@ It is possible to search and filter the ListView programmatically. The example b
 
 >caption ListView Search Textbox
 
-````CSHTML
+````RAZOR
 @* ListView SearchBox *@
 
 @using Telerik.DataSource

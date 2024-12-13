@@ -31,7 +31,7 @@ To disable text input in the [DatePicker](https://docs.telerik.com/blazor-ui/com
 1. Disable pointer events on the DatePicker input element using CSS to prevent text input.
 2. Wrap the `TelerikDatePicker` component in a `span` element and utilize its `onclick` event to call the `Open()` method of the DatePicker for opening the calendar.
 
-````CSHTML
+````RAZOR
 @* The CSS class `.my-datepicker` is used for targeting the specific DatePicker instance.*@
 
 <style>

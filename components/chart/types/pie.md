@@ -29,7 +29,7 @@ If you use [simple data binding]({%slug components/chart/databind%}#independent-
 
 >caption A pie chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Pie series
 
 <TelerikChart>
@@ -81,7 +81,7 @@ By default, the first segment starts at the top. You can change that by using th
 
 You can control the color of the individual segments of the pie chart by providing a string with the desired color in the model, and setting the `ColorField` of the series to it. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-````CSHTML
+````RAZOR
 Set color to the pie chart items
 
 <TelerikChart>
@@ -137,7 +137,7 @@ To explode (separate) a segment, use the `ExplodeField` property of the series a
 
 >caption Exploded Items
 
-````CSHTML
+````RAZOR
 Separate items from the main body of the chart
 
 <TelerikChart>
@@ -189,7 +189,7 @@ You can hide certain segments from the legend (for example, if their contributio
 
 >caption Hide segments from the legend
 
-````CSHTML
+````RAZOR
 Show only some items in the legend
 
 <TelerikChart>
@@ -246,7 +246,7 @@ The main part of the Pie Chart is a circle. Thus, you may need to set both the `
 
 >caption Setting Pie Chart Width and Height
 
-````CSHTML
+````RAZOR
 Chart Width
 <TelerikDropDownList Data="@ChartDimensions"
                      Value="@ChartWidth"

@@ -14,16 +14,13 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 >caption Using Upload SelectFilesButtonTemplate
 
-```HTML
-<div>
+```RAZOR
     <TelerikUpload>
         <SelectFilesButtonTemplate>
             <TelerikSvgIcon Icon="@SvgIcon.Upload" />
             Click to Select Files for Upload
         </SelectFilesButtonTemplate>
     </TelerikUpload>
-</div>
-
 ```
 
 ## See Also

@@ -35,7 +35,7 @@ Then, if you want to hide the expand icon, set a CSS class to the row that will 
 
 >caption Hide the expand button conditionally per row
 
-````CSHTML
+````RAZOR
 @* Use CSS and the RowRender event to hide the detail template expand button conditionally *@
 <style>
     /* 

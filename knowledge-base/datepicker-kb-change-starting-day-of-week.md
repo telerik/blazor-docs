@@ -34,7 +34,7 @@ To set the start of the week to a different one in the Telerik DatePicker for Bl
 2. Add the Telerik DatePicker component to your razor page.
 3. Override the `OnInitialized` method to change the current culture's `FirstDayOfWeek` to the desired one.
 
-````CSHTML
+````RAZOR
 
 @using System.Globalization
 

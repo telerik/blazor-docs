@@ -84,7 +84,7 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 
 >caption Customizing the labels in the Sankey diagram
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

@@ -28,7 +28,7 @@ To use the single tag mode, set the `TagMode` parameter to `MultiSelectTagMode.S
 
 >caption MultiSelect with single tag mode
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@SelectedCountries"
                     TagMode="@MultiSelectTagMode.Single"
@@ -65,7 +65,7 @@ When the multiple tag mode is enabled, each selected item will be displayed as a
 
 >caption MultiSelect with multiple tag mode
 
-````CSHTML
+````RAZOR
 @*This is the default mode, so you do not need to explicitly set it.*@
 
 <TelerikMultiSelect Data="@Countries"
@@ -106,7 +106,7 @@ To restrict the allowed number of individual tags, use the `MaxAllowedTags` para
 
 >caption MultiSelect accepting up to 2 individual tags
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@SelectedCountries"
                     TagMode="@MultiSelectTagMode.Multiple"

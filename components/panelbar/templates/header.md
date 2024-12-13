@@ -19,7 +19,7 @@ If no levels are defined the `HeaderTemplate` will apply to the entire data.
 
 >caption Use HeaderTemplate to customize the rendering of the headers in the PanelBar
 
-````CSHTML
+````RAZOR
 @* Customize the rendering of the parent items in the PanelBar *@
 
 <div style="width: 30%;">

@@ -38,7 +38,7 @@ You can change the [icon]({%slug common-features-icons%}) position and add more 
 
 >caption Reposition the Button icon and add more than one icon to the component
 
-````CSHTML
+````RAZOR
 @*This button has two icons, one on the left and one on the right side of the text*@
 <TelerikButton Class="two-icons">
     <TelerikSvgIcon Icon="@SvgIcon.InfoCircle" />

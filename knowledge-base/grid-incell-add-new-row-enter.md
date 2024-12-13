@@ -49,7 +49,7 @@ Here are the required development steps:
 
 >caption Add a new Grid row automatically on Enter or Tab
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <TelerikGrid Id="auto-line-grid"

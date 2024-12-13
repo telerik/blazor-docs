@@ -41,7 +41,7 @@ The key points in the required implementation are:
 
 >caption Blazor Grid with disabled selection of a certain rows
 
-````CSHTML
+````RAZOR
 <p>row with id 3 and id 4 are non-selectable</p>
 
 <TelerikGrid Data="@MyData"

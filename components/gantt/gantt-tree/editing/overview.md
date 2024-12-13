@@ -64,7 +64,7 @@ You can customize the editors rendered in the Gantt Tree by providing the `Edito
 | **DateTime**        | `GanttTreeListEditorType.DatePicker`<br> `GanttTreeEditorType.DateTimePicker`<br> `GanttTreeListEditorType.TimePicker` |
 
 
-````CSHTML
+````RAZOR
 @* The usage of the EditorType parameter *@
 
 <TelerikGantt Data="@Data"
@@ -307,7 +307,7 @@ The example below shows how you can handle the events the Gantt component expose
 
 >caption Handling the CRUD events of the Gantt to save data to the actual data source
 
-````CSHTML
+````RAZOR
 @* Sample CUD operations in the Gantt chart *@
 
 <TelerikGantt Data="@Data"

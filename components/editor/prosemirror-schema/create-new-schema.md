@@ -42,7 +42,7 @@ The below example shows how to:
 
 >caption Create New ProseMirror Schema
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 @* Avoid ambiguous reference with SVG icons *@
 @using EditorNS = Telerik.Blazor.Components.Editor;

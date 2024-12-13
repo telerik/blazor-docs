@@ -36,7 +36,7 @@ If you set dimensions and the Window content does not fit, scrollbars will show.
 
 >caption Configure Window Width and Height, and min/max dimensions
 
-````CSHTML
+````RAZOR
 <TelerikWindow @bind-Visible="@WindowIsVisible"
                MinHeight="200px"
                Height="300px"
@@ -74,7 +74,7 @@ You can invoke those actions by setting the `State` parameter. It takes a member
 
 >caption Maximize, Minimize and Restore the Window programmatically
 
-````CSHTML
+````RAZOR
 @* The user actions also change the state when two-way binding is used *@
 
 <select @bind=@State>
@@ -118,7 +118,7 @@ To disable resizing, set the `Resizable` parameter to `false`.
 
 >caption Window Resizing
 
-````CSHTML
+````RAZOR
 @* Toggle the resizable parameter through a button *@
 
 <TelerikButton OnClick="@(() => WindowResizable = !WindowResizable)">Toggle Resizable</TelerikButton>

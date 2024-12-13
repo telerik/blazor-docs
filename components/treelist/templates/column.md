@@ -25,7 +25,7 @@ The example below shows how to:
 
 >caption Using cell (column) template
 
-````CSHTML
+````RAZOR
 Cell template that renders an image based on model data
 
 <TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId" Width="650px">

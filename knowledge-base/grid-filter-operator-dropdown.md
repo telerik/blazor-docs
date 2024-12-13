@@ -48,7 +48,7 @@ The sample also shows a few additional optional features:
 
 <div class="skip-repl"></div>
 
-````Index.razor
+````RAZOR Index.razor
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -169,7 +169,7 @@ The sample also shows a few additional optional features:
     }
 }
 ````
-````FilterOperatorList.razor
+````RAZOR FilterOperatorList.razor
 @using Telerik.DataSource
 
 @typeparam T
@@ -380,7 +380,7 @@ The sample also shows a few additional optional features:
     };
 }
 ````
-````FilterClearButton.razor
+````RAZOR FilterClearButton.razor
 @typeparam T
 
 <TelerikButton Icon="@SvgIcon.FilterClear"

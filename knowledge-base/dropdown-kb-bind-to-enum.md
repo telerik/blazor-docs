@@ -31,7 +31,7 @@ Here are examples of both.
 
 >caption Enum as string
 
-````CSHTML
+````RAZOR
 @CurrValue
 <br />
 @* note that in this case the value is a string, not an enum *@
@@ -50,7 +50,7 @@ Here are examples of both.
 
 >caption Enum as Value
 
-````CSHTML
+````RAZOR
 @selectedValue
 <br />
 @* in this case the value is the enum type *@
@@ -95,7 +95,7 @@ Nevertheless, if you want to use both an enum and a placeholder, you should use 
 
 >caption Show Placeholder in the combo box when binding to an enum - done through nullable fields
 
-````CSHTML
+````RAZOR
 You will see blank space above the combobox until you select something.
 <br />
 @selectedValue

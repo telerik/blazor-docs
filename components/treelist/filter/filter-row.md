@@ -26,7 +26,7 @@ The treelist will render a row below the column headers with UI that you can use
 
 >caption Filter Row in Telerik TreeList
 
-````CSHTML
+````RAZOR
 @* Filter row mode *@
 
 <TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterRow"
@@ -110,7 +110,7 @@ You can set the TreeList filters from your code through the component [state]({%
 
 >caption Set filtering programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/treelist/state.md#filter-row-from-code)
 ````
 
@@ -130,7 +130,7 @@ You can override the default Filter Row behavior for each column through the fol
 
 >caption Configure the Filter Row
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Row*@
 
 @using Telerik.DataSource

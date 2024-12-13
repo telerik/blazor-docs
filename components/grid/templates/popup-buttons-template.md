@@ -15,7 +15,7 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
 >caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px"

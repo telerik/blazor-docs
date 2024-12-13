@@ -24,7 +24,7 @@ By default the value for all parameters would be `null`, the full format specifi
 
 >caption Provide a custom string to the day, month, and year segments
 
-````CSHTML
+````RAZOR
 @* Provide custom rendering of the day, month, and year segments *@
 
 <TelerikDatePicker @bind-Value="@DateValue">

@@ -1,6 +1,6 @@
 #basic-example
 
-````CSHTML
+````RAZOR
 Sample treeview bound to self-referencing flat data. Also uses the built-in icons from the Telerik suite
 
 <TelerikTreeView Data="@FlatData" @bind-ExpandedItems="@ExpandedItems">

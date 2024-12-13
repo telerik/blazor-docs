@@ -21,7 +21,7 @@ You can customize their position through the optional `TabPosition` attribute of
 
 >caption Set the desired tab position.
 
-````CSHTML
+````RAZOR
 <TelerikTabStrip TabPosition="@TabPosition.Bottom">
     <TabStripTab Title="First">
         First tab content.

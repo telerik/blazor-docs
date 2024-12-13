@@ -51,7 +51,7 @@ You cannot preview the image in the Upload `OnSelect` event, because this event 
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 @inject NavigationManager NavigationManager
 
 <h2>Upload</h2>
@@ -122,7 +122,7 @@ You cannot preview the image in the Upload `OnSelect` event, because this event 
     }
 }
 ````
-````Controller
+````C# Controller
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -217,7 +217,7 @@ namespace TelerikBlazorUpload.Controllers
 
 >caption Preview selected images when using the FileSelect component
 
-````CSHTML
+````RAZOR
 <h2>FileSelect</h2>
 
 <TelerikFileSelect Accept="@string.Join(",", ImageFileExtensions)"

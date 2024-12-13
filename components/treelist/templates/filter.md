@@ -45,7 +45,7 @@ The example below shows a custom filter that:
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 The custom filter textboxes invoke filtering on Enter or blur through the OnChange event.
@@ -57,29 +57,29 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
     <TreeListColumns>
         <TreeListColumn Field="Name" Expandable="true" Width="320px" Filterable="false" />
         <TreeListColumn Field="Id" Filterable="false" Width="100px" />
-            <TreeListColumn Field="Age" Width="350px">
-                <FilterCellTemplate>
-                    @{
-                        // we store a reference to the filter context to use in the business logic
-                        // you can also use it inline in the template, like with the Clear button below
-                        theFilterContext = context;
-                    }
+        <TreeListColumn Field="Age" Width="350px">
+            <FilterCellTemplate>
+                @{
+                    // we store a reference to the filter context to use in the business logic
+                    // you can also use it inline in the template, like with the Clear button below
+                    AgeFilterContext = context;
+                }
 
-                    <label for="min">Min:&nbsp;</label>
-                    <TelerikNumericTextBox Id="min"
-                                           @bind-Value="@MinValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <label for="min">Max:&nbsp;</label>
-                    <TelerikNumericTextBox Id="max"
-                                           @bind-Value="@MaxValue"
-                                           OnChange="@SetupFilterRule">
-                    </TelerikNumericTextBox>
-                    <TelerikButton ButtonType="ButtonType.Button"
-                                   Class="k-clear-button-visible ml-2"
-                                   Icon="@SvgIcon.FilterClear"
-                                   Enabled="@( MinValue != null || MaxValue != null )"
-                                   OnClick="@(async () =>
+                <label for="min">Min:&nbsp;</label>
+                <TelerikNumericTextBox Id="min"
+                                       @bind-Value="@MinValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <label for="min">Max:&nbsp;</label>
+                <TelerikNumericTextBox Id="max"
+                                       @bind-Value="@MaxValue"
+                                       OnChange="@SetupFilterRule">
+                </TelerikNumericTextBox>
+                <TelerikButton ButtonType="ButtonType.Button"
+                               Class="k-clear-button-visible ml-2"
+                               Icon="@SvgIcon.FilterClear"
+                               Enabled="@( MinValue != null || MaxValue != null )"
+                               OnClick="@(async () =>
                                           {
                                               MinValue = MaxValue = null;
 
@@ -181,7 +181,6 @@ For example, try filtering with a Min value of 50+ to leave only root-level item
             margin: unset;
         }
 </style>
-
 ````
 
 ## Filter Menu Template
@@ -209,7 +208,7 @@ The example below shows a custom filter that:
 
 >tip The treelist can create a checkbox filter for you, see the [CheckBoxList Filtering]({%slug treelist-checklist-filter%}) article.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 This custom filter menu lets you choose more than one option to match against the data source

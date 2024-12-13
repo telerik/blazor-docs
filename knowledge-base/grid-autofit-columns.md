@@ -193,7 +193,7 @@ This approach is simpler than the above, because it doesn't require JavaScript a
 
 >caption Autofit Grid columns when using OnRead data binding
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

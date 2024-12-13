@@ -53,7 +53,7 @@ You can find examples of both below.
 
 >caption Two-way binding for the selected date
 
-````CSHTML
+````RAZOR
 <TelerikCalendar @bind-Date="@startDate"
                  @bind-Value="@SelectedDate"
                  SelectionMode="@CalendarSelectionMode.Single">
@@ -71,7 +71,7 @@ You can find examples of both below.
 
 >caption Handle Single selection in the Calendar through an event
 
-````CSHTML
+````RAZOR
 <TelerikCalendar @bind-Date="@StartDate"
                  SelectionMode="@CalendarSelectionMode.Single"
                  Value="@SelectedDate"
@@ -101,7 +101,7 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 
 >caption Handle Multiple selection in the Calendar
 
-````CSHTML
+````RAZOR
 <TelerikCalendar @ref="@CalendarRef"
                  SelectionMode="@CalendarSelectionMode.Multiple"
                  ValueChanged="@OnCalendarValueChanged">
@@ -145,7 +145,7 @@ With range selection mode, you have two options to get the user choice:
 
 >caption Range selection with two-way binding and AllowReverse
 
-````CSHTML
+````RAZOR
 @* This example shows how to handle Range selection through two-way binding *@
 
 <TelerikCheckBox Id="myCheckBox" @bind-Value="@AllowReverse" />
@@ -188,7 +188,7 @@ With `Single` and `Multiple` selection, the user can't select these dates. With 
 
 >caption Add Disabled dates to a Calendar with Multiple selection
 
-````CSHTML
+````RAZOR
 @* The user will not be able to select the first and second of April 2019. *@
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple"

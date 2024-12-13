@@ -40,7 +40,7 @@ Alternative options are to:
 
 >caption Fitler bool? Grid column by null
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"

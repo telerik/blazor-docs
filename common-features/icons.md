@@ -59,7 +59,7 @@ To use the icons, import one or both namespaces, for example in `_Imports.razor`
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using Telerik.FontIcons
 @using Telerik.SvgIcons
 ````
@@ -69,11 +69,11 @@ Some components provide icon-related parameters, which can rely on the above pac
 >caption Icon parameter in Telerik Blazor components
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikButton Icon="@FontIcon.Save">Button with font icon</TelerikButton>
 
 <GridCommandButton Icon="@SvgIcon.Save">Command Button with SVG icon</GridCommandButton>
-```
+````
 
 ### Font Icon Stylesheet
 
@@ -83,7 +83,7 @@ In version 4.6.0 of Telerik UI for Blazor, the font icon styles were separated i
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <!-- If using static assets from the NuGet package -->
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 <!-- If using static assets from a Trial NuGet package -->
@@ -110,7 +110,7 @@ The `TelerikFontIcon` component can show a [built-in Telerik Blazor font icon](#
 
 >caption Using TelerikFontIcon
 
-````CSHTML
+````RAZOR
 <p>
     Font icon with default settings:
     <TelerikFontIcon Icon="@FontIcon.Calculator" />
@@ -154,7 +154,7 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 
 >caption Increase icon size with CSS
 
-````CSHTML
+````RAZOR
 <style>
     .large-icons .k-icon {
         font-size: 32px;
@@ -180,7 +180,7 @@ To use the icons directly, refer to <a href="https://www.telerik.com/design-syst
 
 >caption Use Telerik font icons with plain HTML
 
-````CSHTML
+````RAZOR
 <span class="k-icon k-font-icon k-i-check k-flip-h k-flip-v"></span>
 
 is the same as
@@ -199,14 +199,14 @@ The `TelerikSvgIcon` component can show a [built-in Telerik Blazor SVG icon](#ic
 | Parameter | Type and Default&nbsp;Value | Description |
 |---|---|---|
 | `Flip` | `IconFlip` `enum` <br /> (`None`) | The icon's flip direction, which allows to mirror (turn over) the image horizontally, vertically, or in both directions. |
-| `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#implement-custom-svg-icon-classes). |
+| `Icon` | `ISvgIcon` | Assign a property of the `SvgIcon` static class to use any of the [built-in Telerik Blazor font icons](#icons-list). Alternatively, [implement your own custom SVG Icon class](#use-custom-svg-icon-collection). |
 | `Size` | `string` <br /> (`"md"`) | Any of the predefined icon sizes (from `"xs"` to `"xxxl"`). It is possible to set the parameter value to raw strings such as `"lg"`, `"md"`, or `"sm"`. However, the recommended practice is to use the properties of the static [`ThemeConstants.SvgIcon.Size` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.size). |
 | `ChildContent` | `RenderFragment` | The HTML markup of a custom SVG icon. Do not use together with `Icon`. |
 | `ThemeColor` | `string` | Any of the predefined icon colors. Use the static [`ThemeConstants.SvgIcon.ThemeColor` class](/blazor-ui/api/telerik.blazor.themeconstants.svgicon.themecolor) properties. |
 
 >caption Using TelerikSvgIcon
 
-````CSHTML
+````RAZOR
 <TelerikSvgIcon Icon="@SvgIcon.Calendar" />
 
 <TelerikSvgIcon Icon="@SvgIcon.FileAudio"
@@ -222,7 +222,7 @@ Do not set the `Icon` parameter in this case.
 
 >caption Using custom SVG Icon
 
-````CSHTML
+````RAZOR
 <TelerikSvgIcon Flip="@IconFlip.Horizontal">
     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>moon</title>
@@ -247,7 +247,7 @@ The `ISvgIcon` interface members are:
 
 >caption Define custom SVG icon collection
 
-````CSHTML
+````RAZOR
 <p>
     Moon:
     <TelerikSvgIcon Icon="@MySvgIcons.Moon" />

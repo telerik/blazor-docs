@@ -29,7 +29,7 @@ I want to show certain dates as marked on the calendar so the user always sees t
 ## Suggested Workarounds
 You can keep a list of the items you want to denote as always selected, and ensure that they are always present in the selection, so the user effectively cannot deselect them. To do this, you need a separate collection that you will check against when the date selection changes. For example:
 
-````CSHTML
+````RAZOR
 @* the origSelection contains the immutable list *@
 
 <TelerikCalendar SelectionMode="@CalendarSelectionMode.Multiple" ValueChanged="@MultipleSelectionChangeHandler"

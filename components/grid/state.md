@@ -72,7 +72,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 
 >caption Using Grid OnStateInit
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -180,7 +180,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria]({%slu
 
 >caption Using Grid OnStateChanged
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <div id="demo-container">
@@ -362,7 +362,7 @@ Find out how to [get the applied filtering, sorting and grouping criteria]({%slu
 
 ## Methods
 
-The `GetState` and `SetStateAsync` methods of the [Grid instance]({%slug grid-overview%}#grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
+The `GetState` and `SetStateAsync` methods of the [Grid instance]({%slug grid-overview%}#blazor-grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
 
 * `GetState` returns the current Grid state, so you can save it or [retrieve specific information](#information-in-the-grid-state). For example, you can [use `GetState` to get the current filters, sorts, and page number]({%slug grid-kb-get-filtered-data%}). Or, you can [get the current Grid column properties like order index, width, and others)]({%slug grid-kb-column-state%}).
 
@@ -390,25 +390,25 @@ The tabs below show how to set the Grid state and control filtering, sorting and
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
 <div class="skip-repl"></div>
-````Sorting
+````RAZOR Sorting
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
-````FilterRow
+````RAZOR FilterRow
 @[template](/_contentTemplates/grid/state.md#filter-row-from-code)
 ````
-````FilterMenu
+````RAZOR FilterMenu
 @[template](/_contentTemplates/grid/state.md#filter-menu-from-code)
 ````
-````Search
+````RAZOR Search
 @[template](/_contentTemplates/grid/state.md#search-from-code)
 ````
-````Grouping
+````RAZOR Grouping
 @[template](/_contentTemplates/grid/state.md#group-from-code)
 ````
-````Hierarchy
+````RAZOR Hierarchy
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
-````Columns
+````RAZOR Columns
 @[template](/_contentTemplates/grid/state.md#column-state-from-code)
 ````
 
@@ -422,7 +422,7 @@ State properties that pertain to data items (for example, edited item or selecte
 
 ## Examples
 
-You can find multiple examples for using the Grid state in the following [Knowledge Base articles](/blazor-ui/knowledge-base):
+You can find multiple examples for using the Grid state in the following [Knowledge Base articles](/knowledge-base):
 
 * [Save and load the Grid state from `localStorage`]({%slug grid-kb-save-load-state-localstorage%})
 * [Save the Grid state in a WebAssembly app]({%slug grid-kb-save-state-in-webassembly%})

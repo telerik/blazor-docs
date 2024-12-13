@@ -23,7 +23,7 @@ To configure Chart series for drill-down:
 
 >caption Chart DrillDown
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
@@ -113,7 +113,7 @@ Optionally, you can display a Breadcrumb component to show the drill-down levels
 
 >caption Configuring Breadcrumb for Chart Drilldown
 
-````CSHTML
+````RAZOR
 <TelerikChartBreadcrumb ChartId="@ChartId"></TelerikChartBreadcrumb>
 
 <TelerikChart Id="@ChartId">
@@ -205,7 +205,7 @@ To reset the drilldown level programmatically, use the `ResetDrilldownLevel` met
 
 >caption Reset Chart Drilldown Level Programmatically
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ResetDrilldownLevel">Reset Drilldown level the Chart</TelerikButton>
 
 <TelerikChartBreadcrumb ChartId="@ChartId"></TelerikChartBreadcrumb>

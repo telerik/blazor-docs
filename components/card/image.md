@@ -16,7 +16,7 @@ Every Blazor Card can have a dedicated area to render a card image that will fil
 
 ![Image in Card](images/cardimage-example.png)
 
-````CSHTML
+````RAZOR
 @* Insert an image in the Card *@
 
 <TelerikCard Width="200px">

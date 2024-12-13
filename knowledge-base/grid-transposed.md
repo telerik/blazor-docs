@@ -47,7 +47,7 @@ The following example demonstrates all options.
 
 >caption Implement a PropertyGrid or a transposed Grid
 
-````CSHTML
+````RAZOR
 @using System.Reflection
 
 <h2>Form</h2>

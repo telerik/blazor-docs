@@ -40,7 +40,7 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 ## Local Data Example
 
 
-````CSHTML
+````RAZOR
 @SelectedValue
 <br />
 <TelerikDropDownList Data="@Data"
@@ -87,7 +87,7 @@ The DropDownList @[template](/_contentTemplates/common/dropdowns-virtualization.
 
 Run this and see how you can display, scroll and filter over 10k records in the dropdownlist without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

@@ -21,7 +21,7 @@ To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
 
 >caption CheckList filter in the DataGrid
 
-````CSHTML
+````RAZOR
 @* Checkbox List Filter for the Name, Team and Vacation columns, the ID column overrides it to Menu *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="400px"
@@ -81,7 +81,7 @@ To customize the CheckBoxList behavior, use the [Filter Menu Template]({%slug gr
 
 >caption Provide all filtering options when using OnRead
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

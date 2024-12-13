@@ -30,7 +30,7 @@ How to disable all dates that are not included in the `AllowedDates` collection 
 1. Define a method that populates a collection of disabled dates based on the currently displayed dates by the View and the `AllowedDates` collection.
 1. Define a `ViewChanged` Handler that will refresh the `DisabledDates` when the current View is changed.
 
-````CSHTML
+````RAZOR
 <TelerikCalendar Date="@InitialDate"
                  Min="@MinDate"
                  Max="@MaxDate"

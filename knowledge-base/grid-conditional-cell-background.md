@@ -55,7 +55,7 @@ These events provide you with the data item and cell value, and let you set a cu
 You can use a particular column's [cell template]({%slug grid-templates-column%}) to render conditional markup inside its cell. In this case you will need some CSS to make your element take up the entire size of the cell so the default padding from the grid does not leave some of the original background visible. 
 >caption Cell Template and CSS to change the background of particular cells conditionally
 
-````CSHTML
+````RAZOR
 <style>
     /* remove the default cell padding to remove traces of the original background */
     .k-grid-table .k-table-td {
@@ -120,7 +120,7 @@ You can fully control the row rendering through a [row template]({%slug grid-tem
 
 >caption Use a row template to style individual cells or the entire row conditionally
 
-````CSHTML
+````RAZOR
 <style>
     .yellow-cell-bg {
         background: yellow;
@@ -192,7 +192,7 @@ If you want to change the default row and alternating row backgrounds to match y
 
 >caption Change the built-in row backgrounds with CSS only
 
-````CSHTML
+````RAZOR
 <style>
     .custom-row-colors .k-grid-table .k-master-row {
         background-color: red;

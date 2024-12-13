@@ -35,7 +35,7 @@ In the general case, that logic would be done by the backend, this sample keeps 
 
 >caption Add row numbers to the grid that start from 1 and are always present
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid TItem="@Employee" OnRead="@ReadItems"

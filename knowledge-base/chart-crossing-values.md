@@ -38,7 +38,7 @@ You can control the point where the axes cross each other by using the `AxisCros
 
 >caption Move the X-Axis labels to the bottom of the Chart
 
-````CSHTML
+````RAZOR
 @* This example shows how to move the X-Axis labels to the bottom of the Chart by setting the AxisCrossingValue to a low value *@
 
 <TelerikChart Width="700px">

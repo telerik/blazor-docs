@@ -47,7 +47,7 @@ How to refresh the component data after a few seconds with a Timer?
 
 >caption Rebind Telerik Blazor components with Timer
 
-````CSHTML
+````RAZOR
 @using System.Timers
 @using Telerik.DataSource.Extensions
 

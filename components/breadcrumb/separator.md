@@ -20,7 +20,7 @@ Furthermore, you can take full control over the Separator rendering with the [Se
 
 ![Breadcrumb Separator Icon](images/breadcrumb-separator-example.png)
 
-````CSHTML
+````RAZOR
 @* This example demonstrates how to change the default Telerik icon used as a Breadcrumb Separator*@
 
 <TelerikBreadcrumb SeparatorIcon="@SvgIcon.CaretDoubleAltRight"

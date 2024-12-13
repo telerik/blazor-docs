@@ -55,7 +55,7 @@ The `OnRead` event fires when the data source is read. Its event handler receive
 
 >caption Handle OnRead.
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager @bind-Path="@DirectoryPath"
@@ -365,7 +365,7 @@ The `ViewChanged` event fires when the user toggles between the [two FileManager
 
 >caption Handle FileManager events.
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@Files"

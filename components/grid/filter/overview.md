@@ -59,7 +59,7 @@ You can customize the filter editors declaratively for some data types. It is po
 | `FilterEditorType` | `GridFilterEditorType` enum | `DateTime` columns | The component, which the Grid will render for filtering (DatePicker or DateTimePicker). |
 | `FilterEditorFormat` | `string` | `DateTime` and numeric columns | The `Format` of the filtering component. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`). |
 
-````CSHTML
+````RAZOR
 @* Using FilterEditorType and FilterEditorFormat parameters *@
 
 <TelerikGrid Data=@GridData 
@@ -112,7 +112,7 @@ You can customize the filter editors declaratively for some data types. It is po
 
 The following articles and sample projects can be helpful when implementing filtering:
 
-* [Capture Filtered event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+* [Capture Filtered event]({%slug grid-state%}#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
 
 * [Server Filtering]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 

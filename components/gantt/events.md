@@ -39,7 +39,7 @@ The `OnCollapse` event fires as a response to the user collapsing an item of the
 
 
 >caption Handle OnExpand and OnCollapse events
-````CSHTML
+````RAZOR
 @eventActions
 
 <TelerikGantt Data="@Data"

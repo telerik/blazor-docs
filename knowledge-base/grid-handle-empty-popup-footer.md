@@ -48,7 +48,7 @@ To display custom buttons in the footer and handle form submission, follow these
 
 >caption Displaying custom buttons in the popup footer
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
@@ -252,7 +252,7 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
 >caption Hiding the empty popup footer
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

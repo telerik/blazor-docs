@@ -14,7 +14,8 @@ The `TooltipTemplate` provides you with full control over the rendering of the T
 
 The `TooltipTemplate` receives a context of type `object`, that can be cast to `TooltipTemplateContext`. It has the following properties available for display:
 
-````CSHTML
+<div class="skip-repl"></div>
+````RAZOR
     <TooltipTemplate>
         <h4>@(((TooltipTemplateContext)context).Title)</h4>
         <h5>Percent Complete: @(((TooltipTemplateContext)context).DataAttributes["percent"])%</h5>
@@ -33,7 +34,7 @@ Apart from that, you can add and customize any other content - for example, icon
 ![Gantt TooltipTemplate Example](images/gantt-tooltip-template-example.png)
 
 
-````CSTHML
+````RAZOR
 @* Customize the content of the Tooltip through the TooltipTemplate *@
 
 <TelerikGantt Data="@Data"

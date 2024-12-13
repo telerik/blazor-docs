@@ -17,7 +17,7 @@ You can customize the Splitter orientation through the its `Orientation` paramet
 
 >caption Splitter with vertical orientation
 
-````CSHTML
+````RAZOR
 <p>
     Configure the Splitter Orientation:
 
@@ -67,7 +67,7 @@ Sometimes you need to create a more complex layout that includes both horizontal
 
 >caption Nested splitters that create a complex layout with both horizontal and vertical panes
 
-````CSHTML
+````RAZOR
 <div style="width: 500px; height: 300px; border: 2px solid red;">
 
     <TelerikSplitter Width="100%" Height="100%">

@@ -26,7 +26,7 @@ To hide a TreeList column set its `Visible` parameter to `false`. To hide a colu
 
 >caption Hide a column from the TreeList. Basic example.
 
-````CSHTML
+````RAZOR
 @* Hide the Id TreeList column by setting the Visible parameter to false *@
 
 <TelerikTreeList Data="@Data"
@@ -137,7 +137,7 @@ In this section you will find the following examples:
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
-````CSHTML
+````RAZOR
 @* Toggling the visibily of a column keeps its original order in the TreeList. *@
 
 <div>
@@ -236,7 +236,7 @@ The application can later the value of the `Visible` parameter and that will tog
 
 When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visibility there as well.
 
-````CSHTML
+````RAZOR
 @* The Template for the Name column will not be rendered *@
 
 <TelerikTreeList Data="@Data"
@@ -338,7 +338,7 @@ When cell-specific templates are used, they are not rendered at all. If you are 
 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
-````CSHTML
+````RAZOR
 @* The Id column is hidden, because the data for the TreeList contains 1 *@
 
 <TelerikTreeList Data="@Data"

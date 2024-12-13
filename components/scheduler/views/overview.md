@@ -29,7 +29,7 @@ The available views are:
 
 >caption Allow the user to navigate between Day and Week views only by defining only them. Example how to choose starting View (Week) and Date (29 Nov 2019).
 
-````CSHTML
+````RAZOR
 @* The user can only choose the Day and Week views - the MultiDay view, for example, is not defined *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">

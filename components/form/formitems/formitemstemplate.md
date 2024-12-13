@@ -70,7 +70,7 @@ The `TelerikFormGroupRenderer` `Template` is nested inside another template - `F
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikForm>
     <FormItemsTemplate Context="formContext">
         ...
@@ -112,25 +112,30 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 
 <table>
 <thead><tr><th>Up to 4.0.1</th><th>From 4.2.0</th></tr></thead>
-<tbody><tr><td style="vertical-align:top"><p><strong>Index.razor</strong></p><pre><code>
-&lt;TelerikForm&gt;
-  &lt;FormItems&gt;
-    <strong>&lt;div&gt;
-      content around form items</strong>
-      &lt;FormItem Field="FieldName1" /&gt;
-    <strong>&lt;/div&gt;</strong>
-    <strong>&lt;div&gt;content between items&lt;div&gt;</strong>
-    &lt;FormItem Field="FieldName2"&gt;
-      &lt;Template&gt;
+<tbody><tr>
+<td>
+<p><strong>Index.razor</strong></p>
+
+
+````RAZOR.skip-repl
+<TelerikForm>
+  <FormItems>
+    <div>
+      content around form items
+      <FormItem Field="FieldName1" />
+    </div>
+    <div>content between items<div>
+    <FormItem Field="FieldName2">
+      <Template>
         ...
-      &lt;/Template&gt;
-    &lt;/FormItem&gt;
-    <strong>@if (someCondition)</strong>
+      </Template>
+    </FormItem>
+    @if (someCondition)
     {
-        &lt;FormItem Field="FieldName3" /&gt;
+        <FormItem Field="FieldName3" />
     }
-    <strong>&lt;ChildComponent /&gt;</strong>
-  &lt;/FormItems&gt;
+    <ChildComponent />
+  </FormItems>
 
 
 
@@ -156,71 +161,93 @@ Here are the steps to migrate custom content inside the Form from version 4.0.1-
 
 
 
-&lt;/TelerikForm&gt;
-</code></pre></td><td style="vertical-align:top"><p><strong>Index.razor</strong></p><pre><code>
-&lt;TelerikForm&gt;
-  &lt;FormItems&gt;
+</TelerikForm>
+````
+
+</td>
+<td>
+<p><strong>Index.razor</strong></p>
+
+````RAZOR.skip-repl
+<TelerikForm>
+  <FormItems>
 
 
-    &lt;FormItem Field="FieldName1" /&gt;
+    <FormItem Field="FieldName1" />
 
 
-    &lt;FormItem Field="FieldName2"&gt;
-      &lt;Template&gt;
+    <FormItem Field="FieldName2">
+      <Template>
         ...
-      &lt;/Template&gt;
-    &lt;/FormItem&gt;
+      </Template>
+    </FormItem>
 
 
-    &lt;FormItem Field="FieldName3" /&gt;
+    <FormItem Field="FieldName3" />
 
-    <strong>&lt;FormItem Field="FieldName4" /&gt;</strong>
-  &lt;/FormItems&gt;
-  &lt;FormItemsTemplate Context="formContext"&gt;
+    <FormItem Field="FieldName4" />
+  </FormItems>
+  <FormItemsTemplate Context="formContext">
     @{
       var formItems = formContext.Items
-        .Cast&lt;IFormItem&gt;().ToList();
+        .Cast<IFormItem>().ToList();
     }
-    <strong>&lt;div&gt;
-      content around form items</strong>
-      &lt;TelerikFormItemRenderer
-          Item="@( formItems.First(x =&gt;
-            x.Field == "FieldName1") )" /&gt;
-    <strong>&lt;/div&gt;</strong>
-    <strong>&lt;div&gt;content between items&lt;div&gt;</strong>
-    &lt;TelerikFormItemRenderer
-      Item="@( formItems.First(x =&gt;
-        x.Field == "FieldName2") )" /&gt;
-    <strong>@if (someCondition)</strong>
+    <div>
+      content around form items
+      <TelerikFormItemRenderer
+          Item="@( formItems.First(x =>
+            x.Field == "FieldName1") )" />
+    </div>
+    <div>content between items<div>
+    <TelerikFormItemRenderer
+      Item="@( formItems.First(x =>
+        x.Field == "FieldName2") )" />
+    @if (someCondition)
     {
-        &lt;TelerikFormItemRenderer
-        Item="@( formItems.First(x =&gt;
-            x.Field == "FieldName3") )" /&gt;
+        <TelerikFormItemRenderer
+        Item="@( formItems.First(x =>
+            x.Field == "FieldName3") )" />
     }
-    @{ var formItem4 = formItems.First(x =&gt;
+    @{ var formItem4 = formItems.First(x =>
         x.Field == "FieldName4"); }
-    <strong>&lt;ChildComponent NestedFormItem="@formItem4" /&gt;</strong>
-  &lt;/FormItemsTemplate&gt;
-&lt;/TelerikForm&gt;
-</code></pre></td></tr><tr><td style="vertical-align:top"><p><strong>ChildComponent.razor</strong></p><pre><code>
+    <ChildComponent NestedFormItem="@formItem4" />
+  </FormItemsTemplate>
+</TelerikForm>
+````
 
-&lt;FormItem Field="FieldName4" /&gt;
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>ChildComponent.razor</strong></p>
+
+````RAZOR.skip-repl
+<FormItem Field="FieldName4" />
 
 
 
 
 
 
-</code></pre></td><td style="vertical-align:top"><p><strong>ChildComponent.razor</strong></p><pre><code>
 
-&lt;TelerikFormItemRenderer Item="@NestedFormItem" /&gt;
+````
+
+</td>
+<td>
+<p><strong>ChildComponent.razor</strong></p>
+
+````RAZOR.skip-repl
+<TelerikFormItemRenderer Item="@NestedFormItem" />
 
 @code {
     [Parameter]
     public IFormItem NestedFormItem { get; set; }
 }
+````
 
-</code></pre></td></tr></tbody>
+</td>
+</tr>
+</tbody>
 </table>
 
 
@@ -245,7 +272,7 @@ This approach is suitable for scenarios where the custom Form layout can accommo
 
 >caption Use a loop to render Form groups and items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"
@@ -362,7 +389,7 @@ The sample also demonstrates how to display Form items conditionally (in this ca
 
 >caption Render defined Form items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"
@@ -488,7 +515,7 @@ When using only auto-generated Form items with a custom Form layout, you can rem
 
 >caption Render auto-generated and defined Form items inside a FormItemsTemplate
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@Employee"

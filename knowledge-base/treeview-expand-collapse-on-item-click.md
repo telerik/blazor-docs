@@ -43,7 +43,7 @@ To expand a TreeView item when you click on it:
 
 >caption Expand and collapse TreeView items on click
 
-````CSHTML
+````RAZOR
 @*Expand and collapse items on click in TreeView with flat data.*@
 
 <TelerikTreeView Data="@FlatData"

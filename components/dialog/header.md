@@ -28,14 +28,14 @@ The following example demonstrates how to set up the title through a template. T
 
 >caption Title template and no close button in the Telerik Dialog.
 
-````CSHTML
+````RAZOR
 @* An example of a title template and hidden button for closing. *@
 
 <TelerikDialog @bind-Visible="@Visible" ShowCloseButton="false">
     <DialogTitle>
-        <TelerikSvgIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikSvgIcon>
+        <TelerikSvgIcon Icon="@SvgIcon.CaretDoubleAltUp"></TelerikSvgIcon>
         <strong>@Title</strong>
-        <TelerikSvgIcon IconClass="k-icon k-i-caret-double-alt-up"></TelerikSvgIcon>
+        <TelerikSvgIcon Icon="@SvgIcon.CaretDoubleAltUp"></TelerikSvgIcon>
     </DialogTitle>
     <DialogContent>
         A new version of <strong>Telerik UI for Blazor</strong> is available. Would you like to download and install it now?

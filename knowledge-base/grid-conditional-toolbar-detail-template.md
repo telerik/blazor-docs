@@ -43,7 +43,7 @@ The example below provides one suggestion for option 1 and two suggestions for o
 
 >caption Using conditional Grid toolbar and detail template
 
-````CSHTML
+````RAZOR
 <h1>Conditional Component Elements</h1>
 
 <p><label> <TelerikCheckBox @bind-Value="@ShowOptionalGridElements" /> Enable Grid ToolBar and Hierarchy </label></p>

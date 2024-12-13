@@ -31,7 +31,7 @@ Can you please advise me on how to display validation message as tooltip?
 
 This article contains several different ways to implement validation notifications with popups:
 
-* [Telerik Validation Tooltip Component](#telerikvalidationpopup)
+* [Telerik Validation Tooltip Component](#telerikvalidationtooltip)
 * [Telerik Form Component](#telerikform)
 * [Validation Summary in a Popup](#validation-summary-in-a-popup)
 * [Per-Input Validation Popups](#per-input-validation-popups) - it is much easier to use the Telerik components listed above to get this functionality
@@ -54,7 +54,7 @@ There are several key aspects in implementing this:
 
 >caption Validation Summary in a Tooltip
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@ValidationModel" OnValidSubmit="@HideTooltip" OnInvalidSubmit="@ShowTooltip">
@@ -142,7 +142,7 @@ This sample uses a Tooltip component and mimics clicks on its targets to make it
 
 >caption Tooltips for validated inputs
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 @inject IJSRuntime JS

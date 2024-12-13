@@ -40,7 +40,7 @@ In this article:
 
 >caption Sample reproducible - try dragging the scrollbar to the end - you won't see record number 1 000 000
 
-````CSHTML
+````RAZOR
 Total items: @GridData.Count
 
 <TelerikGrid Data=@GridData
@@ -92,7 +92,7 @@ The issue with the content overflow is the same - when the element size limit is
 
 >caption Add this code just after the grid closing tag to color the element borders like in the image above to see the issue
 
-````CSHTML
+````RAZOR
 </TelerikGrid>
 
 something after the grid that I can't see because of the grid issue

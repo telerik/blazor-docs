@@ -17,7 +17,7 @@ The Form component for Blazor exposes events that allow you to respond to user a
 * [OnValidSubmit](#onvalidsubmit)
 * [OnInvalidSubmit](#oninvalidsubmit)
 
->note The examples in this article use the [`EditContext`]({%slug form-overview%}#use-the-telerik-form-for-blazor-with-an-editcontext), but you can use a [model]({%slug form-overview%}#use-the-telerik-form-for-blazor-with-a-model) instead. 
+>note The examples in this article use the `EditContext`, but you can use a [model]({%slug form-overview%}#creating-blazor-form) instead. 
 
 ## OnSubmit
 
@@ -30,7 +30,7 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
 >caption Handle the OnSubmit event
 
-````CSHTML
+````RAZOR
 @* Use the OnSubmit event to trigger some custom logic depending on the validity of the form *@
 
 @using System.ComponentModel.DataAnnotations 
@@ -105,7 +105,7 @@ The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](/blazor-ui/api
 
 >caption Using the Form OnUpdate event
 
-````CSHTML
+````RAZOR
 <p>OnUpdate will fire on each key stroke that changes a form value:</p>
 
 <TelerikForm Model="@Colleague"
@@ -160,7 +160,7 @@ The `OnValidSubmit` event fires when the form is submitted and there are no vali
 
 >caption Use the OnValidSubmit event
 
-````CSHTML
+````RAZOR
 @* You can use the OnValidSubmit event to provide custom logic when the form is valid *@
 
 @using System.ComponentModel.DataAnnotations
@@ -214,7 +214,7 @@ The `OnInvalidSubmit` event fires when there are validation errors in the Form u
 
 >caption Use the OnInvalidSubmit event
 
-````CSHTML
+````RAZOR
 @* You can use the OnInvalidSubmit event to provide custom logic when the form is not valid *@
 
 @using System.ComponentModel.DataAnnotations

@@ -14,7 +14,7 @@ The Rating allows you to display a label that shows the current value out of the
 
 You can set the desired label via the `Label` parameter value.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value" Label="@Label" />
 
 @code {

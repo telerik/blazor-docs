@@ -22,7 +22,7 @@ If the icon property name in the TreeView model is `Icon`, there is no need to s
 
 >caption How to use icons in the Telerik TreeView
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@TreeViewData"
                  @bind-ExpandedItems="@TreeViewExpandedItems">
     <TreeViewBindings>

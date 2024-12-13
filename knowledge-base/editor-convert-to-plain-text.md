@@ -45,7 +45,7 @@ To export to another format, use the corresponding namespace and format provider
 
 >caption Obtain the Editor HTML value as plain text
 
-````CSHTML
+````RAZOR
 @*TxtFormatProvider*@
 @using Telerik.Windows.Documents.Flow.FormatProviders.Txt;
 @*HtmlFormatProvider*@

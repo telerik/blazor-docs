@@ -35,7 +35,7 @@ To remove the blank (white) space at the core of the circle, triangle and square
 
 >caption Semi transparent markers in the chart that are solid (entirely filled with color)
 
-````CSHTML
+````RAZOR
 @* Compare the two green markers on the right hand side - one has opacity, the other does not *@
 
 <TelerikChart Transitions="false">

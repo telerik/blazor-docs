@@ -37,7 +37,7 @@ The following example binds the Grid with an [`OnRead` event handler]({%slug com
 
 >caption Using an external and the built-in Grid loading animation
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

@@ -43,7 +43,7 @@ The nested `AppBarSpacer` tag exposes the following parameters:
 
 >caption The AppBar separators
 
-````CSHTML
+````RAZOR
 @* The AppBar content dividers with some of their parameters and values *@
 
 <style>

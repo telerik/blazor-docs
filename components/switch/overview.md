@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 >caption Basic setup of the Telerik Switch using two-way data binding
 
-````CSHTML
+````RAZOR
 @* Basic setup of the Telerik Switch Component *@
 
 <label>
@@ -83,7 +83,7 @@ The Switch is a generic component and its type comes from the model field it is 
 | --- | --- |
 | `FocusAsync ` | programmatically focuses the Switch.
 
-````CSHTML
+````RAZOR
 @* Use the Switch reference to programmatically focus the component *@
 
 <TelerikButton OnClick="@FocusSwitch">Focus Switch</TelerikButton>

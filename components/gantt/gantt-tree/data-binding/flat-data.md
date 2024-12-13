@@ -22,7 +22,7 @@ If there are child items for a certain node (items whose `ParentId` points to th
 
 >caption Example of flat data in a Gantt Tree - you need to point the TreeList to the Id and ParentId fields in your model
 
-````CSHTML
+````RAZOR
 @* Using self-referencing flat data. In this model, the field names match the defaults, but they are set to showcase the concept. *@
 
 <TelerikGantt Data="@Data"

@@ -21,7 +21,7 @@ The following example demonstrates the [accessibility compliance of the Gantt co
 
 >caption Gantt accessibility compliance example
 
-````CSHTML
+````RAZOR
 @*Evaluate the example with Axe Core or another accessibility tool*@
 
 <TelerikGantt Data="@Data"

@@ -18,7 +18,7 @@ The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">T
 1. Add an instance of the `<LinearGaugePointer>` to the `<LinearGaugePointers>` collection.
 1. Provide a `Value` for the `<LinearGaugePointer>`.
 
-````CSHTML
+````RAZOR
 
 @* Setup a basic linear gauge *@
 
@@ -69,7 +69,7 @@ The ranges are used to visually distinguish particular values on the scale. [Rea
 
 >caption Get a reference to the Linear Gauge and use the Refresh method
 
-````CSHTML
+````RAZOR
 @* Change the Height of the component *@
 
 <TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>

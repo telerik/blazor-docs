@@ -26,7 +26,7 @@ The <a href="https://www.telerik.com/blazor-ui/line-chart" target="_blank">Blazo
 
 >caption A line chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Line series
 
 <TelerikChart>
@@ -80,7 +80,7 @@ If some values are missing from the series data (they are `null`), you can have 
 
 >caption A line chart that shows how to rotate the labels
 
-````CSHTML
+````RAZOR
 @* Change the rotation angle of the Labels *@
 
 <TelerikChart>

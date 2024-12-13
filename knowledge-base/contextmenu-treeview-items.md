@@ -33,7 +33,7 @@ The ContextMenu exposes an API to associate the component to any DOM element thr
 >tip As of version 2.27, the TreeView exposes [`OnItemContextMenu` event]({%slug treeview-events%}#onitemcontextmenu) that you can use to integrate Telerik Context menu for the TreeView nodes. Here is an example of such a configuration - [Context menu for a TreeView node]({%slug contextmenu-integration%}#context-menu-for-a-treeview-node)
 
 
-````CSHTML
+````RAZOR
 @* Use the oncontextmenu event of the HTML element to show the ContextMenu for the TreeView items *@
 
 <TelerikContextMenu Data="@ContextMenuData"

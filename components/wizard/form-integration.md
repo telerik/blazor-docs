@@ -21,7 +21,7 @@ If the Form validation is not satisfied, you can cancel the `OnChange` event of 
 
 ![Form Integration](images/form-integration-example.gif)
 
-````CSHTML
+````RAZOR
 @* Integrate Form component in the Wizard *@
 
 @using System.ComponentModel.DataAnnotations

@@ -33,7 +33,7 @@ What you need to do is to check if the new value that comes in is the `default` 
 
 >caption Get an event for the Clear button
 
-````CSHTML
+````RAZOR
 Monitor the console to see when the events fire in these examples. You can use only one of the events, this sample showcases both so you can see the options.
 
 <TelerikComboBox Data="@MyList" ShowClearButton="true"

@@ -47,7 +47,7 @@ Here is where the notifications will appear if the outer relative `<div>` is pla
 
 >caption Custom notification position through a wrapping element
 
-````CSHTML
+````RAZOR
 @* Use parent elements and CSS to set the custom position of the notifications *@
 
 <style>
@@ -103,7 +103,7 @@ Here is where the notifications will appear if the outer relative `<div>` is pla
 
 In this case, the `TelerikNotification` is wrapped in a single `<div>` with a `position:fixed` style. This will center the notifications on the screen, no matter the page scroll offset.
 
-````CSHTML
+````RAZOR
 <style>
     .centered-notification-parent {
         /* center this element on the screen, no matter the page scroll offset */

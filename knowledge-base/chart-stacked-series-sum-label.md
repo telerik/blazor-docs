@@ -58,7 +58,7 @@ Here is how to display the total sum of stacked Chart series above each stacked 
 
 >caption Display stack aggregate and group name as axis label with Chart column series
 
-````CSHTML
+````RAZOR
 <TelerikChart>
 
     <ChartTitle Text="Work Items by Team and Period" />
@@ -211,7 +211,7 @@ Here is how to display an additional custom label on the horizontal Chart axis b
 
 >caption Display additional custom column series label on the Chart category axis
 
-````CSHML
+````RAZOR
 <TelerikChart>
 
     <ChartTitle Text="Work Items by Period" />

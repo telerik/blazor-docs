@@ -42,7 +42,7 @@ Another option is, of course, to create a child component that receives the `con
 
 >caption Using a `RenderFragment` in the C# code to create a template by passing a field name to it so you can extract particular information based on that field with Reflection.
 
-````CSHTML
+````RAZOR
 @using System.Reflection;
 
 <TelerikGrid Data="@forecasts" Height="550px" Pageable="true">

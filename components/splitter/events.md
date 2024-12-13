@@ -18,7 +18,7 @@ This article explains the events available in the Telerik Splitter for Blazor:
     * [OnResize](#onresize)
 * Pane
     * [SizeChanged](#sizechanged)
-    * [CollapsedChanged](#collapsed-changed)
+    * [CollapsedChanged](#collapsedchanged)
 
 ## OnCollapse
 
@@ -28,7 +28,7 @@ The `OnCollapse` event fires when a pane is collapsed. It receives the index of 
 
 >caption Handling the OnCollapse event of the splitter
 
-````CSHTML
+````RAZOR
 Try collapsing any of the panes by clicking the corresponding arrow on the adjacent splitbar
 
 <div style="width: 500px; border: 1px solid red;">
@@ -70,7 +70,7 @@ The `OnExpand` event fires when a pane is expanded. It receives the index of the
 
 >caption Handling the OnExpand event of the splitter
 
-````CSHTML
+````RAZOR
 Try collapsing and expanding any of the panes by clicking the corresponding arrow on the adjacent splitbar
 
 <div style="width: 500px; border: 1px solid red;">
@@ -112,7 +112,7 @@ The `OnResize` event fires after the user has finished resizing a pane (after th
 
 >caption Handle the OnResize event of the splitter
 
-````CSHTML
+````RAZOR
 Try resizing any of the panes by dragging the splitbars
 
 <div style="width: 500px; border: 1px solid red;">
@@ -151,7 +151,7 @@ The `SizeChanged` event is triggered when the `Size` parameter of the correspond
 
 >caption Handle the SizeChanged event of a Splitter Pane
 
-````CSTHML
+````RAZOR
 @* Try resizing Pane 1 *@ 
 
 <div style="width: 500px; border: 1px solid red;">
@@ -195,7 +195,7 @@ The `CollapsedChanged` event is triggered when the `Collapsed` parameter of the 
 
 >caption Handle the CollapsedChanged event of a Splitter Pane
 
-````CSTHML
+````RAZOR
 @* Try collapsing Pane 1 *@ 
 
 <div style="width: 500px; border: 1px solid red;">

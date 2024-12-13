@@ -45,7 +45,7 @@ The example below shows how to implement both options - scroll the TreeView and 
 
 >caption Enable TreeView horizontal and vertical scrolling
 
-````CSHTML
+````RAZOR
 <h2>TreeView Component Scrolling</h2>
 
 <TelerikTreeView Data="@FlatData"

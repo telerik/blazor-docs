@@ -20,7 +20,7 @@ The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 
 >caption Handling the DropDownButton OnClick event
 
-````CSHTML
+````RAZOR
 @clickedItemInfo
 <br />
 @moreInfo

@@ -37,7 +37,7 @@ Hooking to your own HTML elements' events lets you determine what to do with the
 
 >caption Use the context menu target and change menu items based on the target data
 
-````CSHTML
+````RAZOR
 @* Get context menu target and alter its items based on it *@
 
 <TelerikContextMenu Data="@MenuItems" @ref="@TheContextMenu"
@@ -179,7 +179,7 @@ In this example, the context menu is used to select/deselect items, put an item 
 
 >caption Use a Context Menu for Grid rows
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
 
@@ -397,7 +397,7 @@ In this example, the context menu is used to select/deselect items and delete it
 
 >caption Use a Context Menu for TreeView nodes
 
-````CSHTML
+````RAZOR
 @* Use the OnItemContextMenu event of the TreeView to show the ContextMenu for its items *@
 
 <TelerikContextMenu Data="@ContextMenuData"

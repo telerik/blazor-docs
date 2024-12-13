@@ -47,7 +47,7 @@ The following approach is valid for both the Grid and the TreeList.
 
 >caption Format or highlight Grid search results
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid @ref="@Grid"

@@ -36,7 +36,7 @@ When the window resizes, you have to resize the Chart dynamically at runtime:
 1. In the C# method call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) to re-render the Chart so it matches the new window size.
 
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <!-- suppress-error allows the script tag to be in the Razor file for this example -->

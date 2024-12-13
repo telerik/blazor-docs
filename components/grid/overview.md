@@ -26,7 +26,7 @@ The Telerik Blazor grid is built on native Blazor from the ground up, by a compa
 
 >caption Get started with the Blazor Grid
 
-````CSHTML
+````RAZOR
 @* Telerik Blazor Grid with some common features *@
 
 <TelerikGrid Data="@GridData"
@@ -181,7 +181,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 >caption How to obtain a Grid reference and call methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
 
 <TelerikGrid @ref="TheGrid"
@@ -196,17 +196,17 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 @code {
     private TelerikGrid<GridModel> TheGrid { get; set; }
 
-    private void AutoFit()
+    private async Task AutoFit()
     {
-        TheGrid.AutoFitAllColumns();
+        await TheGrid.AutoFitAllColumnsAsync();
     }
 
     private IEnumerable<GridModel> GridData = Enumerable.Range(1, 5)
         .Select(x => new GridModel
-        {
-            Id = x,
-            Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
-        });
+            {
+                Id = x,
+                Text = "some longer text here that will not fit on a single line and we would like to expand it " + x
+            });
 
     public class GridModel
     {

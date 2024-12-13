@@ -37,7 +37,7 @@ This scenario requires knowledge about the [Grid State]({%slug grid-state%}). Ge
 There are two ways to obtain the Grid column information programmatically:
 
 * Use the [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged) and check `args.GridState.ColumnStates`, where `args` is the `OnStateChanged` event argument.
-* Use the [Grid `GetState` method]({%slug grid-state%}#getstate) and check the `ColumnStates` property of the returned `GridState` object.
+* Use the [Grid `GetState` method]({%slug grid-state%}#methods) and check the `ColumnStates` property of the returned `GridState` object.
 
 `ColumnStates` is a `ICollection<GridColumnState>`. The `GridColumnState` class has the following properties:
 
@@ -59,7 +59,7 @@ The column order in the `ColumnStates` collection matches the `<GridColumn>` tag
 
 >caption Get current Grid column state
 
-````CSHTML
+````RAZOR
 <h1>Get Grid Column Information from State</h1>
 
 <p>Resize, reoder, lock or hide columns...</p>

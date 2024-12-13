@@ -14,7 +14,7 @@ When the grid is grouped, the columns can display a footer with information abou
 
 >caption Sample Column Group Footer Template
 
-````CSHTML
+````RAZOR
 @* Group by the Team column to see the results and aggregate data in the footer *@
 
 <TelerikGrid Data=@GridData Groupable="true" Pageable="true" Height="650px">

@@ -32,7 +32,7 @@ The following code snippet shows how you can group columns in the Treelist in mu
 
 ![multi-column headers example](images/multi-column-headers-overview.png)
 
-````CSHTML
+````RAZOR
 @* See the root-level TreeListColumn tags that have their own Columns collections *@
 
 <TelerikTreeList Data=@TreeListData

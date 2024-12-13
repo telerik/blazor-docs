@@ -22,7 +22,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange and use two-way binding for the Value
 
-````CSHTML
+````RAZOR
 @TheValue
 <br />
 
@@ -52,7 +52,7 @@ The `ValueChanged` event fires upon every change (for example, keystroke) in the
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @TheValue
 <br />
 
@@ -82,7 +82,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikMaskedTextBox @bind-Value="@TheValue" Mask="0000-0000-0000-0000"

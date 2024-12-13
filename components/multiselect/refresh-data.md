@@ -23,7 +23,7 @@ Sections in this article:
 
 You can refresh the data of the MultiSelect by using the `Rebind` method exposed to the reference of the TelerikMultiSelect. If you have manually defined the [OnRead event]({%slug multiselect-events%}#onread) the business logic defined in its event handler will be executed. 
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
 
 @using Telerik.DataSource.Extensions
@@ -75,7 +75,7 @@ You can refresh the data of the MultiSelect by using the `Rebind` method exposed
 
 >caption Bind the MultiSelect component to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option to see how the MultiSelect reacts to the change. *@
 
 @using System.Collections.ObjectModel
@@ -141,7 +141,7 @@ You can refresh the data of the MultiSelect by using the `Rebind` method exposed
 
 >caption Create new collection reference to refresh the Multiselect data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option or a collection of options to see how the MultiSelect reacts to the change. *@
 
 <h4>Add a new option</h4>
@@ -220,7 +220,7 @@ The `Value` parameter also accepts a collection but it does not support observab
 
 >caption Set/change the selected values or clear the selection programmatically.
 
-````CSHTML
+````RAZOR
 <h4>Set or change selected values</h4>
 <TelerikButton OnClick="@SetSelected">Set selected</TelerikButton>
 <br />

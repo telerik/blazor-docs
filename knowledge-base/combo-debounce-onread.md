@@ -40,7 +40,7 @@ For minimum filter length, add a check in the `OnRead` event handler for the des
 
 >caption Debounce OnRead filter calls in the ComboBox and add minimum filter length.
 
-````CSHTML
+````RAZOR
 @using System.Threading
 
 @using Telerik.DataSource

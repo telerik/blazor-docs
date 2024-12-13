@@ -24,7 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 >caption Basic AnimationContainer
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ToggleAnimationContainer">Toggle Animation Container</TelerikButton>
 
 <TelerikAnimationContainer @ref="@TAC"
@@ -74,7 +74,7 @@ One of the core features of the Animation Container is the customizable open and
 
 >caption AnimationContainer animation options
 
-````CSHTML
+````RAZOR
 <label>
     Animation Type:
     <TelerikDropDownList Data="@AnimationTypes"
@@ -170,7 +170,7 @@ The Animation Container provides methods for programmatic operation. To use them
 
 >caption Use AnimationContainer reference and methods
 
-````CSHTML
+````RAZOR
 <TelerikAnimationContainer @ref="@TAC">
     <div style="padding: 1em; color: #fff; background: #282f89; text-align: center;">
         Telerik Blazor Animation Container

@@ -22,7 +22,7 @@ The following implementation demonstrates the code needed for the Swiss Type:
 
 >caption An example of a Swiss QR Type implementation
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of Swiss type QR code. *@
 
 <TelerikQRCode Size="200px"
@@ -51,7 +51,7 @@ The following implementation demonstrates the code needed for the Image Type:
 
 >caption An example of a QRCode Image Type implementation
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of image type QR code. *@
 
 <TelerikQRCode Size="200px"

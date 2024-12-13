@@ -54,7 +54,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 
 >caption The Command buttons and the Gantt events let you handle data operations in Popup edit mode.
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic
 @using System.ComponentModel.DataAnnotations;
 
@@ -226,7 +226,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
                 Id = LastDependencyId++,
                 PredecessorId = (int)args.PredecessorId,
                 SuccessorId = (int)args.SuccessorId,
-                Type = args.Type
+                Type = (int)args.Type
             };
 
         Dependencies.Add(dependency);
@@ -306,7 +306,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
                     Id = LastDependencyId++,
                     PredecessorId = (int)x.PredecessorId,
                     SuccessorId = (int)x.SuccessorId,
-                    Type = x.Type
+                    Type = (int)x.Type
                 };
 
             Dependencies.Add(dependency);
@@ -319,7 +319,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 
             dependency.SuccessorId = (int)x.SuccessorId;
             dependency.PredecessorId = (int)x.PredecessorId;
-            dependency.Type = x.Type;
+            dependency.Type = (int)x.Type;
 
         });
 
@@ -331,7 +331,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
             Dependencies.Remove(dependency);
         });
 
-        DependencyModel GetDependencyDataItemByDescriptor(DependencyDescriptor descriptor)
+        DependencyModel GetDependencyDataItemByDescriptor(GanttDependencyDescriptor descriptor)
         {
             return Dependencies.FirstOrDefault(dep => dep.Id == (descriptor.DataItem as DependencyModel).Id);
         }
@@ -443,7 +443,7 @@ Parameter | Type | Description
 
 >caption Customize the popup edit form
 
-````CSHTML
+````RAZOR
 @*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikGantt Data="@Data"

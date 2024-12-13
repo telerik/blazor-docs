@@ -42,7 +42,7 @@ The example below demonstrates how to add a Tooltip to the Arc Gauge. The same a
 
 >caption Tooltip in Arc Gauge
 
-````CSHTML
+````RAZOR
 <TelerikArcGauge>
     <ArcGaugePointers>
         <ArcGaugePointer Color="#FFE162"

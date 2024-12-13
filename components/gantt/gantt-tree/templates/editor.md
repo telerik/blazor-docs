@@ -3,7 +3,6 @@ title: Editor
 page_title: Gantt Tree - Editor Template
 description: Use custom editor templates in Gantt Tree for Blazor.
 slug: gantt-templates-editor
-tag: telerik,blazor,gantt,template,editor
 published: True
 position: 15
 ---
@@ -18,7 +17,7 @@ In the Editor Template, you can data bind components to the current context, whi
 
 >caption Using Gantt Editor Template
 
-`````CSHTML
+`````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

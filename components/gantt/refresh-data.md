@@ -21,7 +21,7 @@ In this article:
 
 @[template](/_contentTemplates/common/rebind-method.md#intro)
 
-````CSHTML
+````RAZOR
 @* Add/remove task and rebind the Gantt to react to that change. *@
 
 <TelerikButton OnClick="@AddRootTask">Add root task</TelerikButton>
@@ -190,7 +190,7 @@ In this article:
 
 >caption Bind the Gantt to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove task to see how the Gantt reacts to that change.*@
 
 @using System.Collections.ObjectModel
@@ -354,7 +354,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Gantt data.
 
-````CSHTML
+````RAZOR
 @* Add/remove task and create new collection reference to react to that change.*@
 
 <TelerikButton OnClick="@AddRootTask">Add root task</TelerikButton>

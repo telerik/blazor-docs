@@ -40,7 +40,7 @@ The following example lets you experiment with the available settings that contr
 
 >caption Popover Position and Collision
 
-````CSHTML
+````RAZOR
 <div>
     <label>
         Popover Position

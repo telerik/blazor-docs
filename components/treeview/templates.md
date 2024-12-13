@@ -15,7 +15,7 @@ The Treeview component allows you to define a custom template for its nodes. Thi
 In this article:
 * [Basics](#basics)
 * [Examples](#examples)
-	* [Handle DOM events in a template - e.g., click on a node](#handle-dom-events-in-a-template---eg-click-on-a-node)
+	* [Handle DOM events in a template - e.g., click on a node](#handle-dom-events-in-a-template-e-g-click-on-a-node)
 	* [Use templates to implement navigation between views without the usage of the UrlField feature](#use-templates-to-implement-navigation-between-views-without-the-usage-of-the-urlfield-feature)
 	* [Different templates for different node levels](#different-templates-for-different-node-levels)
 
@@ -35,7 +35,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >tip You can respond to the user click on a node by using the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikTreeView Data="@TreeData">
@@ -122,7 +122,7 @@ You can use the template to render arbitrary content according to your applicati
 
 >tip You can read more information on how to use the Treeview to switch between pages from the [Navigation]({%slug treeview-navigation%}) article
 
-````CSHTML
+````RAZOR
 Implement your own navigation through NavLink elements, instead of using the built-in feature
 
 <TelerikTreeView Data="@TreeData">
@@ -191,7 +191,7 @@ Implement your own navigation through NavLink elements, instead of using the bui
 
 ### Different templates for different node levels
 
-````CSHTML
+````RAZOR
 Multiple templates usage.
 
 <TelerikTreeView Data="@HierarchicalData">

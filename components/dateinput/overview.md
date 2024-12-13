@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazo
 
 >caption Basic Telerik Blazor DateInput
 
-````CSHTML
+````RAZOR
 <TelerikDateInput @bind-Value="@DateValue"
                   Format="dd MMMM yyyy"
                   Min="@MinDate"
@@ -132,7 +132,7 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 >caption Date Input reference and FocusAsync method usage
 
-````CSHTML
+````RAZOR
 <TelerikDateInput @ref="@DateInputRef"
                   @bind-Value="@DateValue"
                   Width="200px">

@@ -33,7 +33,7 @@ Use CSS selectors with higher specificity to customize the looks of the Window. 
 
 >caption Use a Class to change the appearance and style of the Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Class="party-window"
                Visible="true">
     <WindowTitle>

@@ -24,7 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazo
 
 >caption Basic Radio Button Group configuration.
 
-````CSHTML
+````RAZOR
 Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString() )
 <br />
 
@@ -108,7 +108,7 @@ The RadioGroup provides a `FocusAsync` method that allows the application to foc
 
 >caption Using RadioGroup methods
 
-````
+````RAZOR
 <TelerikButton OnClick="@FocusRadioGroup">Focus RadioGroup</TelerikButton>
 
 <TelerikRadioGroup @ref="@RadioGroupRef"

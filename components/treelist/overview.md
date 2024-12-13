@@ -27,7 +27,7 @@ The TreeList supports both flat data and hierarchical data. The example below us
 
 >caption Basic TreeList
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
@@ -169,7 +169,7 @@ The TreeList is a generic component.Its type depends on the type of its model an
 
 >caption Store the TreeList instance reference and execute methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@AutoFit">Autofit All Columns</TelerikButton>
 
 <TelerikTreeList @ref="@TreeListRef"

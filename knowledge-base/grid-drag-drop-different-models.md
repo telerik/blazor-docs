@@ -33,7 +33,7 @@ How can I drag and drop rows between two different Grids, which are bound to dif
 1. Use the interface type in all event handlers related to drag-and-drop.
 1. If the two Grid models include unique property names, disable sorting and filtering for the respective columns. Otherwise, the Grids will be unable to build their internal filtering logic and will throw a null reference exception.
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData1"
              Pageable="true" Sortable="true"
              FilterMode="GridFilterMode.FilterRow"

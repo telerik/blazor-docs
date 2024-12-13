@@ -39,7 +39,7 @@ To enable data navigation you have to:
 
 ![Blazor Navigator Basic Explanation](images/navigator-basic-explanation.png)
 
-````CSHTML
+````RAZOR
 @* Navigator basic setup *@
 
 <TelerikStockChart Width="700px"
@@ -172,7 +172,7 @@ You can control from which side (or both) the data navigation with shorten the t
 
 >caption Common settings for the Navigator
 
-````CSHTML
+````RAZOR
 @* This example shows how to set a specific range of the Navigation upon initialization, allow the slider to be from both sides on mouse wheel rotation and customize the labels *@
 
 <TelerikStockChart Width="750px"

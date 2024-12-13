@@ -48,7 +48,7 @@ You can use the `ValueExpression` and `Value` properties to provide, respectivel
 
 >caption Example of invoking validation messages when handling the ValueChanged event
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations // used for the model annotations only
 
 <EditForm Model="person">

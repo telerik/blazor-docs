@@ -34,7 +34,7 @@ All [Telerik Blazor Dialogs]({%slug dialog-overview%}) render a `k-dialog` CSS c
 
 >caption Set width to Telerik Blazor DialogFactory modal popups
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@( () => DialogVisible = true )">Show Dialog</TelerikButton>
 
 <TelerikButton OnClick="@ShowDialogFactoryPopup">Show DialogFactory Alert</TelerikButton>

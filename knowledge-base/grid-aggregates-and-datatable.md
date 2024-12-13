@@ -43,7 +43,7 @@ I have a TelerikGrid with a [DataTable binding](https://demos.telerik.com/blazor
 
 Attempting to use built-in aggregates with the templates that need to extract their values will throw an exception for the aggregated field, for example `Salary` in this snippet (it is the first one declared).
 
-````CSHTML
+````RAZOR
 @using System.Data
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource
@@ -141,7 +141,7 @@ When using a `DataTable` as the grid data source, aggregates are not supported, 
 ## Solution
 For such scenarios you can pass the desired aggregation functions through the `DataSourceRequest` object to use it with the `.ToDataSourceResult()` method, and get the desired aggregations through fields in the view-model:
 
-````CSHTML
+````RAZOR
 @using System.Data
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource

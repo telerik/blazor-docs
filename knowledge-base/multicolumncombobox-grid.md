@@ -76,7 +76,7 @@ The solution below requires familiarity with:
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 <p>Custom MultiComboBox Value: @CustomComboBoxValue</p>
 
 <ComboBoxGrid Data="@GridData"
@@ -117,7 +117,7 @@ The solution below requires familiarity with:
     }
 }
 ````
-````ComboBoxGrid.razor
+````RAZOR ComboBoxGrid.razor
 @typeparam TItem
 @typeparam TValue
 

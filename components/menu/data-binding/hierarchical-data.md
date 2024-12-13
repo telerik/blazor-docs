@@ -20,7 +20,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 >caption Example of using hierarchical data in a menu (for brevity, URLs are omitted)
 
-````CSHTML
+````RAZOR
 @* Hierarchical menu data source and navigation through different views *@
 
 <TelerikMenu Data="@MenuItems"

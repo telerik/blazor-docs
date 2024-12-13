@@ -62,7 +62,7 @@ All these operations can also be used for [`Incell`]({%slug components/grid/edit
 
 >caption Enter and exit Grid edit mode programmatically
 
-````CSHTML
+````RAZOR
 <h1>Grid Edit Operations via the State</h1>
 
 <h2>Inline and Popup EditMode</h2>

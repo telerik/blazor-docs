@@ -24,7 +24,7 @@ Each `SplitterPaneState` object has the following information:
 >caption How to save and load the state to/from JSON and the browser local storage, and how to manually change the state of the splitter on a button click
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @inject LocalStorage LocalStorage
 @inject IJSRuntime JsRuntine
 
@@ -96,7 +96,7 @@ Each `SplitterPaneState` object has the following information:
 }
 
 ````
-````Service
+````C# Service
 public class LocalStorage
 {
     protected IJSRuntime JSRuntimeInstance { get; set; }

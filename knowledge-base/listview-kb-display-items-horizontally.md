@@ -31,7 +31,7 @@ This KB article answers the following questions:
 
 To display the ListView items horizontally, apply the `display: inline-block;` CSS style to the `k-listview-item` HTML div element. This approach allows you to customize the appearance of each ListView item and arrange them side by side.
 
-`````CSHTML
+`````RAZOR
 <style>
     .horizontal-listview .k-listview-item {
         height: 150px;

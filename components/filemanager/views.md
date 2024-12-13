@@ -28,7 +28,7 @@ The List view uses the [Blazor ListView]({%slug listview-overview%}) component. 
 
 ![Blazor FileManager Views](images/filemanager-views.png)
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

@@ -26,7 +26,7 @@ The Telerik FileSelect component offers parameters to validate the file selectio
 
 For brevity, this sample does not showcase actual upload of the files. You can find an example in the [FileSelect Events article]({%slug fileselect-events%}).
 
-````CSHTML
+````RAZOR
 @* Some images are only allowed, min size 1KB, max size 4MB *@
 
 <div style="width:300px">

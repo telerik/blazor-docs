@@ -39,7 +39,7 @@ The example below uses a `Class` parameter to render a custom CSS class to one o
 
 >caption Blazor Switch with custom background styles
 
-````CSHTML
+````RAZOR
 <p>
     Custom styles:
     <TelerikSwitch @bind-Value="@Value"

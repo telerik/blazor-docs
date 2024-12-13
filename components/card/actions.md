@@ -41,7 +41,7 @@ You can define the orientation of the buttons through the `Orientation` paramete
 
 ![Vertical orientation of the action buttons](images/buttons-orientation-example.png)
 
-````CSHTML
+````RAZOR
 @* Change the orientation of the action buttons *@
 
 <TelerikCard Width="200px">
@@ -76,7 +76,7 @@ The `Layout` parameter takes a member of the `Telerik.Blazor.CardActionsLayout` 
 
 ![Action buttons with stretched layout](images/buttons-layout-example.png)
 
-````CSHTML
+````RAZOR
 @* Change the layout of the action buttons *@
 
 <TelerikCard Width="600px">

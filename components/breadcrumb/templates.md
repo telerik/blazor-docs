@@ -27,7 +27,7 @@ This template receives a `context` argument that is of the data model type and r
 ![Breadcrumb ItemTemplate](images/breadcrumb-item-template-example.png)
 
 
-````CSHTML
+````RAZOR
 @* Customize the rendering of the Breadcrumb items *@
 
 <TelerikBreadcrumb Data="@Items">
@@ -85,7 +85,7 @@ The `<SeparatorTemplate>` allows you to control the rendering of the Breadcrumb 
 
 ![Breadcrumb SeparatorTemplate](images/breadcrumb-separator-template-example.png)
 
-````CSHTML
+````RAZOR
 @* Customize the rendering of the Breadcrumb Separator *@
 
 <TelerikBreadcrumb Data="@Items">

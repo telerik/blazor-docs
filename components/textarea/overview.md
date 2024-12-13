@@ -21,7 +21,7 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 >caption Basic TextArea with two-way value binding
 
-````CSHTML
+````RAZOR
 <TelerikTextArea @bind-Value="@TextAreaValue"
                  MaxLength="200"
                  Rows="5" />
@@ -82,7 +82,7 @@ The TextArea provides a `FocusAsync` method that allows the application to focus
 
 >caption Use TextArea methods
 
-````
+````RAZOR.skip-repl
 <TelerikButton OnClick="@FocusTextArea">Focus TextArea</TelerikButton>
 
 <TelerikTextArea @ref="@TextAreaRef"

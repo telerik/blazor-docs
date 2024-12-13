@@ -22,7 +22,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 >caption Example of flat data in a context menu
 
-````CSHTML
+````RAZOR
 @* Using a self-referencing flat data source for the menu *@
 
 <div class="menuTarget">

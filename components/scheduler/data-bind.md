@@ -67,7 +67,7 @@ The Scheduler edit form works with an instance that that the scheduler creates f
 
 >caption Data Binding to a model that uses the default field names
 
-````CSHTML
+````RAZOR
 @* This model uses the default fields names, so you only need to define the scheduler appearance properties and views *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
@@ -152,7 +152,7 @@ The Scheduler edit form works with an instance that that the scheduler creates f
 
 >caption Data Binding to a model with custom field names
 
-````CSHTML
+````RAZOR
 @* This model uses custom fields that do not match the default settings. The example shows how to tell the Scheduler in which fields to look for the information. You are not required to use the nameof operator, you can "hardcode" the string names as well. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView"

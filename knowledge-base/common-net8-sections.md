@@ -37,7 +37,7 @@ The `ToolBarButton` inside the `SectionOutlet` below doesn't render. How to use 
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikToolBar>
     <SectionOutlet SectionName="ToolbarOutlet"></SectionOutlet>
 </TelerikToolBar>
@@ -47,7 +47,7 @@ The `ToolBarButton` inside the `SectionOutlet` below doesn't render. How to use 
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <SectionContent SectionName="ToolbarOutlet">
     <ToolBarButton>Save</ToolBarButton>
 </SectionContent>
@@ -69,7 +69,7 @@ Use `SectionOutlet` inside Telerik Blazor components only inside officially docu
 
 >caption Test example that shows working and non-working Section integration with Telerik Blazor components
 
-````CSHTML
+````RAZOR
 @using Microsoft.AspNetCore.Components.Sections
 
 <p>Default Configuration</p>

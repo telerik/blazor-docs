@@ -36,7 +36,7 @@ There are three approaches you can take:
 
 >caption Example of cascading dropdowns in grid editor templates in popup edit mode (works for inline mode too)
 
-````CSHTML
+````RAZOR
 @* Field 1 determines what you see in the cascaded field. The code comments offer some more details *@
 
 <TelerikGrid Data=@GridData EditMode="@GridEditMode.Popup" Pageable="true" Height="300px"

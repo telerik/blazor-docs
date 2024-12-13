@@ -29,7 +29,7 @@ You can increase or decrease the size of the TimePicker by setting the `Size` at
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TimePicker.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -64,7 +64,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the TimePicker t
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -100,7 +100,7 @@ The `FillMode` controls how the TelerikTimePicker is filled. You can set it to a
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{

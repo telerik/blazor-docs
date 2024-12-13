@@ -15,7 +15,7 @@ You can group some associated fields in your form (model) by using the [FormItem
 In this article:
 
 * [Features](#features)
-* [Example - Organize FormItems into Groups](#example---organize-formitems-into-groups)
+* [Example - Organize FormItems into Groups](#example-organize-formitems-into-groups)
 
 ## Features
 
@@ -35,7 +35,7 @@ You can organize some FormItems into logical groups. You can configure the label
 
 ![FormItem example](images/formgroups-example.png)
 
-````CSHTML
+````RAZOR
 @* Organize items into groups *@
 
 @using System.ComponentModel.DataAnnotations

@@ -16,7 +16,7 @@ The `GridPagerTemplate` allows you to modify the layout, content, and functional
 
 >caption Using the Telerik UI for Blazor Slider to paginate the Grid data
 
-````CSHTML
+````RAZOR
 @* Telerik Blazor Grid with Pager Template *@
 <TelerikGrid Data="@GridData"
              Pageable="true"

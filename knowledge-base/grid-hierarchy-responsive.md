@@ -35,7 +35,7 @@ Here is an example with bootstrap row holding columns to make responsive layout 
 
 ![responsive hierarchy template](images/grid-responsive-detail-template.gif)
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="salesTeamMembers">
     <DetailTemplate>
         @{

@@ -32,16 +32,16 @@ How can I achieve the following with the Blazor Grid:
 
 To simulate filtering by the selected items:
 
-1. Get the [`SelectedItems`]({%slug grid-selection-row%}#selected-rows) data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
+1. Get the `SelectedItems` data and assign it as Grid data. Thus, the Grid will show only the selected items. This will allow the user to perform the desired data operations only to the selected items.
 
 1. To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
 
 1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug grid-selection-row%}#basics)).
 
-> [Override the `Equals` method]({%slug grid-selection-overview%}#selecteditems-equals-comparison) so that the selection is preserved during filtering.
+> [Override the `Equals` method]({%slug grid-selection-row%}#equals-comparison) so that the selection is preserved during filtering.
 
 The data assignment will vary depending on the [data binding type you are using for the Grid]({%slug grid-data-binding%}#basics). See examples below:
-* [Data binding through the Data parameter](#data-binding-through-the-`data`-parameter)
+* [Data binding through the Data parameter](#data-binding-through-the-data-parameter)
 * [Data binding through the OnRead event](#data-binding-through-the-onread-event)
 
 ### Data binding through the Data parameter
@@ -50,7 +50,7 @@ Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data
 
 >caption Show only selected items in Grid using the Data parameter
 
-````CSHTML
+````RAZOR
 @*Select several items on different pages and then click the filter button in the Checkbox Column Header*@
 
 <TelerikGrid Data=@GridData
@@ -154,7 +154,7 @@ Depending on the flag value, you can make the request based on the corresponding
 
 >caption Show only selected items in Grid using the OnRead event
 
-````CSHTML
+````RAZOR
 @*Select several items on different pages and then click the filter button in the Checkbox Column Header*@
 
 @using Telerik.DataSource.Extensions

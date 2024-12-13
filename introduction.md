@@ -56,7 +56,153 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
 
 ## List of Components
 
-{% include intro-page-table.html %}
+<IntroTable>
+  <IntroTableColumn>
+    <IntroTableSection title="Data Management">
+      <IntroTableAnchor title="Filter" href="slug:filter-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Grid" href="slug:grid-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="ListView" href="slug:listview-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Pager" href="slug:pager-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="PivotGrid" href="slug:pivotgrid-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Spreadsheet" href="slug:spreadsheet-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="TreeList" href="slug:treelist-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="File Management">
+      <IntroTableAnchor title="DropZone" href="slug:dropzone-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="FileManager" href="slug:filemanager-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="FileSelect" href="slug:fileselect-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Upload" href="slug:upload-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Navigation">
+      <IntroTableAnchor title="Breadcrumb" href="slug:breadcrumb-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Button" href="slug:components/button/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Button Group" href="slug:buttongroup-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Toggle Button" href="slug:togglebutton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Drawer" href="slug:drawer-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="DropDownButton" href="slug:dropdownbutton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Menu" href="slug:components/menu/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Context Menu" href="slug:contextmenu-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="PanelBar" href="slug:panelbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="SplitButton" href="slug:splitbutton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Stepper" href="slug:stepper-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Tab Strip" href="slug:components/tabstrip/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="ToolBar" href="slug:toolbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="TreeView" href="slug:treeview-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Wizard" href="slug:wizard-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Maps">
+      <IntroTableAnchor title="Map" href="slug:components/map/overview"></IntroTableAnchor>
+    </IntroTableSection>
+  </IntroTableColumn>
+  <IntroTableColumn>
+    <IntroTableSection title="Editors">
+      <IntroTableAnchor title="AutoComplete" href="slug:autocomplete-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="CheckBox" href="slug:checkbox-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Color Gradient" href="slug:colorgradient-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Color Palette" href="slug:colorpalette-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Color Picker" href="slug:colorpicker-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Flat Color Picker" href="slug:flatcolorpicker-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="ComboBox" href="slug:components/combobox/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="MultiColumnComboBox" href="slug:multicolumncombobox-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Date Input" href="slug:components/dateinput/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Date Picker" href="slug:components/datepicker/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Time Picker" href="slug:components/timepicker/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="DateTime Picker" href="slug:components/datetimepicker/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="DateRange Picker" href="slug:daterangepicker-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="DropDownList" href="slug:components/dropdownlist/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="HTML Editor" href="slug:editor-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="ListBox" href="slug:listbox-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Masked Textbox" href="slug:maskedtextbox-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="MultiSelect" href="slug:multiselect-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Numeric Textbox" href="slug:components/numerictextbox/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Radio Button Group" href="slug:radiogroup-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="RangeSlider" href="slug:rangeslider-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Signature" href="slug:signature-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Slider" href="slug:slider-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Switch" href="slug:switch-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="TextArea" href="slug:textarea-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="TextBox" href="slug:components/textbox/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Validation Tools" href="slug:validation-tools-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Labels">
+      <IntroTableAnchor title="FloatingLabel" href="slug:floatinglabel-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Badge" href="slug:badge-overview"></IntroTableAnchor>
+    </IntroTableSection>
+  </IntroTableColumn>
+  <IntroTableColumn>
+    <IntroTableSection title="Scheduling">
+      <IntroTableAnchor title="Calendar" href="slug:components/calendar/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Gantt" href="slug:gantt-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Scheduler" href="slug:scheduler-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Charts">
+      <IntroTableAnchor title="Charts Overview" href="slug:components/chart/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Area Charts" href="slug:components/chart/types/area"></IntroTableAnchor>
+      <IntroTableAnchor title="Bar Charts" href="slug:components/chart/types/bar"></IntroTableAnchor>
+      <IntroTableAnchor title="Bubble Charts" href="slug:components/chart/types/bubble"></IntroTableAnchor>
+      <IntroTableAnchor title="Candlestick Charts" href="slug:chart-types-candlestick"></IntroTableAnchor>
+      <IntroTableAnchor title="Column Charts" href="slug:components/chart/types/column"></IntroTableAnchor>
+      <IntroTableAnchor title="Donut Charts" href="slug:components/chart/types/donut"></IntroTableAnchor>
+      <IntroTableAnchor title="Heatmap Charts" href="slug:chart-types-heatmap"></IntroTableAnchor>
+      <IntroTableAnchor title="Line Charts" href="slug:components/chart/types/line"></IntroTableAnchor>
+      <IntroTableAnchor title="OHLC Charts" href="slug:chart-types-ohlc"></IntroTableAnchor>
+      <IntroTableAnchor title="Pie Charts" href="slug:components/chart/types/pie"></IntroTableAnchor>
+      <IntroTableAnchor title="Radar Area Charts" href="slug:chart-types-radararea"></IntroTableAnchor>
+      <IntroTableAnchor title="Radar Column Charts" href="slug:chart-types-radarcolumn"></IntroTableAnchor>
+      <IntroTableAnchor title="Radar Line Charts" href="slug:chart-types-radarline"></IntroTableAnchor>
+      <IntroTableAnchor title="Scatter Charts" href="slug:components/chart/types/scatter"></IntroTableAnchor>
+      <IntroTableAnchor title="Scatter Line Charts" href="slug:components/chart/types/scatterline"></IntroTableAnchor>
+      <IntroTableAnchor title="Stock Chart" href="slug:stockchart-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Gauges">
+      <IntroTableAnchor title="Arc Gauge" href="slug:arc-gauge-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Circular Gauge" href="slug:circular-gauge-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Linear Gauge" href="slug:linear-gauge-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Radial Gauge" href="slug:radial-gauge-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Barcodes">
+      <IntroTableAnchor title="Barcode" href="slug:barcode-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="QR Code" href="slug:qrcode-overview"></IntroTableAnchor>
+    </IntroTableSection>
+  </IntroTableColumn>
+  <IntroTableColumn>
+    <IntroTableSection title="Layout">
+      <IntroTableAnchor title="AppBar" href="slug:appbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Animation Container" href="slug:components/animationcontainer/overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Card" href="slug:card-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Carousel" href="slug:carousel-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Dialog" href="slug:dialog-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Form" href="slug:form-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Grid Layout" href="slug:gridlayout-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Media Query" href="slug:mediaquery-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Tile Layout" href="slug:tilelayout-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Splitter" href="slug:splitter-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Stack Layout" href="slug:stacklayout-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Window" href="slug:window-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Interactivity and UX">
+      <IntroTableAnchor title="AIPrompt" href="slug:aiprompt-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Loader" href="slug:loader-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="LoaderContainer" href="slug:loadercontainer-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Skeleton" href="slug:skeleton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Notification" href="slug:notification-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Progress Bar" href="slug:progressbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Chunk Progress Bar" href="slug:chunkprogressbar-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Popover" href="slug:popover-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Tooltip" href="slug:tooltip-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Popup" href="slug:popup-overview"></IntroTableAnchor>
+    </IntroTableSection>
+    <IntroTableSection title="Documents">
+      <IntroTableAnchor title="Document Processing" href="slug:dpl-in-blazor"></IntroTableAnchor>
+      <IntroTableAnchor title="PdfProcessing" href="slug:dpl-in-blazor"></IntroTableAnchor>
+      <IntroTableAnchor title="SpreadProcessing" href="slug:dpl-in-blazor"></IntroTableAnchor>
+      <IntroTableAnchor title="SpreadStreamProcessing" href="slug:dpl-in-blazor"></IntroTableAnchor>
+      <IntroTableAnchor title="WordsProcessing" href="slug:dpl-in-blazor"></IntroTableAnchor>
+      <IntroTableAnchor title="ZipLibrary" href="slug:dpl-in-blazor"></IntroTableAnchor>
+    </IntroTableSection>
+  </IntroTableColumn>
+</IntroTable>
+
 
 Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which components you want us to create and how you intend to use them with Blazor.
 

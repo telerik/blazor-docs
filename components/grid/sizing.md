@@ -19,7 +19,7 @@ You can increase or decrease the size of the Grid by setting the `Size` attribut
 |`Small`|`sm`|
 |`Medium` <br /> default value|`md`|
 
->tip Changing the [`Size`](#size) property affects different building blocks of the component (tables, buttons, inputs, dropdowns, and others). 
+>tip Changing the `Size` property affects different building blocks of the component (tables, buttons, inputs, dropdowns, and others). 
 
 >caption The built-in Size modes
 

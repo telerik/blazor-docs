@@ -33,7 +33,7 @@ To avoid the expand arrows, make sure you have no further child items for the it
 
 >caption A structured mega-menu dropdown
 
-````CSHTML
+````RAZOR
 @* This sample shows how you can make a mega menu with the Telerik Menu
     The key point is to have only one level of nesting so that the mega menu item
     does not render the expand arrow to indicate child items exist,

@@ -30,7 +30,7 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
 
 ![Format parameter example](images/format-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Use the {0:C0} format string to format the values of the labels as currency. *@
 
 
@@ -60,7 +60,7 @@ The center template allows you to take control of the rendering of the central s
 
 ![center template](images/center-template-circular.png)
 
-````CSHTML
+````RAZOR
 @* Print the value of the pointer in the center of the component *@
 
 <TelerikCircularGauge>
@@ -99,7 +99,7 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 
 ![Color parameter screenshot](images/color-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the labels to blue *@
 
 <TelerikCircularGauge>
@@ -128,7 +128,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. I
 
 ![Hide the labels](images/visible-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Set the Visible parameter to true to show the labels *@
 
 <TelerikCircularGauge>
@@ -157,7 +157,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. I
 
 ![Custom Labels](images/labels-customize.png)
 
-````CSHTML
+````RAZOR
 @* Customize the position, border and padding of the labels. *@
 
 <TelerikCircularGauge>

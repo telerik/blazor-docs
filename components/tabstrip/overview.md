@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tabstrip" target = "_blank">Bla
 
 >caption TabStrip with specified tab position and a disabled tab
 
-````CSHTML
+````RAZOR
 <TelerikTabStrip>
 	<TabStripTab Title="First">
 		First tab content.
@@ -99,7 +99,7 @@ The `TabStrip` methods are accessible through its reference.
 
 >caption Get a reference to the TabStrip and use its methods.
 
-````Index.razor
+````RAZOR Index.razor
 @* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
 
 <TelerikTabStrip @ref="@TabRef">
@@ -110,7 +110,7 @@ The `TabStrip` methods are accessible through its reference.
     public TelerikTabStrip TabRef { get; set; }
 }
 ````
-````CityPopulation.razor
+````RAZOR CityPopulation.razor
 @* This code snippet demonstrates usage of the TabStrip Refresh() method. *@
 
 <TabStripTab Title="Sofia">

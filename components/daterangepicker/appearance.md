@@ -29,7 +29,7 @@ You can increase or decrease the size of the DateRangePicker by setting the `Siz
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.DateRangePicker.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -66,7 +66,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the DateRangePic
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -104,7 +104,7 @@ The `FillMode` controls how the TelerikDateRangePicker is filled. You can set it
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{

@@ -21,7 +21,7 @@ The component allows customization of the labels text through the dedicated para
 
 Provide the desired text for the On and Off labels through the corresponding parameters. If the text is longer, you can increase the component `Width` to ensure the label will be visible.
 
-````CSHTML
+````RAZOR
 @* Use the OnLabel and OffLabel to customize the labels of the Switch. Use the Width parameter to manipulate the width of the component. *@
 <p>
     I agree to the terms and conditions
@@ -44,7 +44,7 @@ Provide the desired text for the On and Off labels through the corresponding par
 
 To remove the Switch labels, use a blank space for the `OnLabel` and `OffLabel` parameters.
 
-````CSHTML
+````RAZOR
 @* Use a blank space to remove visible labels *@
 
 <TelerikSwitch @bind-Value="@isSelected" OnLabel=" " OffLabel=" " />

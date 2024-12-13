@@ -17,7 +17,7 @@ The <a href = "https://www.telerik.com/blazor-ui/editor" target="_blank">Blazor 
 1. Use the `TelerikEditor` tag to add the component to your razor page.
 1. Bind its `Value` to the `string` field you want to get the HTML content in.
 
-````CSHTML
+````RAZOR
 @* This sample simulates loading some content from a data source and lets the Editor alter it in the view-model *@
 
 <TelerikEditor @bind-Value="@TheEditorValue" Width="650px" Height="400px"></TelerikEditor>
@@ -120,7 +120,7 @@ The Editor provides methods for programmatic operation. To use them, obtain a re
 
 >caption Paste in the Editor at the cursor position
 
-````CSHTML
+````RAZOR
 @* This snippet shows how to insert a horizontal rule (<hr /> tag) at the cursor position.
 You can replace that string with any other content you can generate/obtain according to your application needs*@
 

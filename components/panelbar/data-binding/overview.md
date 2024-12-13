@@ -76,7 +76,7 @@ Each `PanelBarBinding` tag exposes the following properties that refer to item p
 
 >caption Default field names for PanelBar item bindings. If you use these, you don't have to specify them in the `PanelBarBinding` tag explicitly.
 
-````CSHTML
+````RAZOR
 public class PanelBarItem
 {
 	public int Id { get; set; }
@@ -93,7 +93,7 @@ The following **Example** shows how to define simple binding to match item field
 
 >caption Sample binding on a flat data source. Showcases how to set the properties to match the model. With this model, the only field name you must explicitly specify is `ParentIdField`, the others match the defaults.
 
-````CSHMTL
+````RAZOR
 <div style="width: 30%;">
     <TelerikPanelBar Data="@Items"
                      @bind-ExpandedItems="@ExpandedItems">
@@ -196,7 +196,7 @@ If a certain level does not have an explicit data binding tag, it will use the d
 
 >caption How to use per-level data binding settings to change model fields
 
-````CSHTML
+````RAZOR
 @* Provide data to different levels of the PanelBar *@
 
 <div style="width: 30%;">

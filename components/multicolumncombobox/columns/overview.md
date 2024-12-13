@@ -29,12 +29,12 @@ To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This 
 | `Class` | `string` | The CSS class that will be rendered on the column's content cells. |
 | `HeaderClass` | `string` | The CSS class that will be rendered on the column's header cell. |
 | `Title` | `string` | The string title rendered in the column header. If it is not explicitly declared the value of the `Field` will be rendered. |
-| `HeaderTemplate` | `RenderFragment` | The HeaderTemplate allows you to control the rendering of the column's header cell. Read more in the [Templates]({%slug multicolumncombobox-templates%}#headertemplate) article. |
-| `Template` | `RenderFragment<object>` | The Template allows you to control the rendering of the column's cells. Read more in the [Templates]({%slug multicolumncombobox-templates%}#template) article. |
+| `HeaderTemplate` | `RenderFragment` | The HeaderTemplate allows you to control the rendering of the column's header cell. Read more in the [Templates]({%slug multicolumncombobox-columns-templates%}#headertemplate ) article. |
+| `Template` | `RenderFragment<object>` | The Template allows you to control the rendering of the column's cells. Read more in the [Templates]({%slug multicolumncombobox-columns-templates%}#template) article. |
 
 >caption MultiColumnComboBoxColumn with its features
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@BoundValue"
                             ValueField="@nameof(SampleData.Id)"

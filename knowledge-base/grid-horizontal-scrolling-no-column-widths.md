@@ -44,7 +44,7 @@ As a result, the width-less N number of columns will receive 1/N of the remainin
 
 The Grid will show a horizontal scrollbar when its width is less than the table `min-width`.
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Class="grid-min-width"
              Height="400px">

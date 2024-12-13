@@ -24,7 +24,7 @@ The ButtonGroup component lets you [select one or more toggle buttons]({%slug bu
 
 >caption Blazor ButtonGroup with regular buttons and toggle buttons, and their respective `OnClick` handlers
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup>
     <ButtonGroupButton OnClick="@FirstClick">First button</ButtonGroupButton>
     <ButtonGroupToggleButton OnClick="@SecondClick">Second button</ButtonGroupToggleButton>
@@ -85,7 +85,7 @@ You can style the individual buttons through their `Class` attribute to define y
 
 >caption Set CSS class to the button and change its appearance
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup>
     <ButtonGroupToggleButton>Default</ButtonGroupToggleButton>
     <ButtonGroupToggleButton @bind-Selected="@IsSelected"

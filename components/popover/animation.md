@@ -43,7 +43,7 @@ The [example](#example) below lets you customize the available `AnimationDuratio
 
 The following example lets you experiment with the available settings that control the animation in the Popover. It starts with the default component behavior.
 
-````CSHTML
+````RAZOR
 <label>
     Animation Type:
     <TelerikDropDownList Data="@AnimationTypes"

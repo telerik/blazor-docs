@@ -49,7 +49,7 @@ The CUD event handlers receive an argument of type `GridCommandEventArgs` that e
 * `Field` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates which is the model field the user changed when updating data.
 * `Value` - specific to [InCell editing]({%slug components/grid/editing/incell%}) - indicates what is the new value the user changed when updating data.
 
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state]({%slug grid-kb-add-edit-state%}).
 
 ## Customize The Editor Fields
 
@@ -62,7 +62,7 @@ You can customize the editors rendered in the Grid by providing the `EditorType`
 | **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
 
 
-````CSHTML
+````RAZOR
 @* The usage of the EditorType parameter *@
 
 @using System.ComponentModel.DataAnnotations
@@ -207,7 +207,7 @@ The example below shows how you can handle the events the grid exposes, so you c
 
 >caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@ 
 
 Editing is cancelled for the first two records.
@@ -414,7 +414,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 * If you are [using the `OnRead` event to optimize the data requests]({%slug components/grid/manual-operations%}), it will fire after the CUD events (`OnCreate`, `OnUpdate`, `OnDelete`, `OnCancel`) so that the grid data can be refreshed properly from the real data source. If you want to avoid such calls to the database, you can raise a flag in those four events to avoid calling your data service in the `OnRead` event, and then you can lower that flag at the end of `OnRead` so subsequent calls can fetch fresh data.
 
 * The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a parameterless constructor defined. If you cannot have such a constructor, you must use the [OnModelInit]({%slug grid-events%}#onmodelinit) event.
-    * Another case when you may need to insert items through the grid state is when you use [OnRead with grouping]({%slug components/grid/manual-operations%}#grouping-with-onread). In such cases the Grid is bound to an `object`, not to a particular model. As a result, it can't create new items for you and errors may be thrown. A workaround might be [invoking Edit/Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+    * Another case when you may need to insert items through the grid state is when you use [OnRead with grouping]({%slug components/grid/manual-operations%}#grouping-with-onread). In such cases the Grid is bound to an `object`, not to a particular model. As a result, it can't create new items for you and errors may be thrown. A workaround might be [invoking Edit/Insert through the grid state]({%slug grid-kb-add-edit-state%}) and creating the object with your own code.
 
 * While editing, the Grid creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler. The `OnEdit` event receives the original item from the pristine `Data` collection, because it is a cancellable event and fires before the grid logic creates the copy. The built-in editors and [editor templates]({%slug grid-templates-editor%}) receive the copy for their `context` that the grid will create after `OnEdit`.
     * For the Grid to successfully create a copy of the original object, all properties must have а setter and must not be `readonly`. Otherwise, editing may stop working.
@@ -435,7 +435,8 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
     * When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%}) knowledge base article for more details.
 
-    ````CSHTML
+    <div class="skip-repl"></div>
+    ````RAZOR
     <EditorTemplate>
         <TelerikTextBox Value="@myModel.MyField"
                         ValueExpression="@( () => myModel.MyField )">

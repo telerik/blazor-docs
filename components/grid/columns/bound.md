@@ -29,7 +29,7 @@ To show data in a grid, you must define `GridColumn` instances in the `GridColum
 
 >caption Provide data to the grid and choose which columns (fields) to see
 
-````CSHTML
+````RAZOR
 @* define data, model and columns for a grid *@
 
 @using System.ComponentModel.DataAnnotations
@@ -118,9 +118,9 @@ You can use the following properties on bound columns:
 
 ### Templates
 
-* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug components/grid/features/templates%}#column-template). It can also point to a component name.
+* `Template` - this property can also be used as an inner tag and it lets you define the [column display content]({%slug grid-templates-column%}). It can also point to a component name.
 * `Context` - the standard Blazor context variable name for use inside the inline template.
-* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug components/grid/features/templates%}#edit-template). It can also point to a component name.
+* `EditorTemplate` - this property can also be used as an inner tag and it lets you define the [column edit content]({%slug grid-templates-editor%}). It can also point to a component name.
 * `FilterCellTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Row]({%slug grid-templates-filter%}#filter-row-template). It can also point to a component name.
 * `FilterMenuTemplate` - this property can also be used as an inner tag and it lets you customize [the Grid Filter Menu]({%slug grid-templates-filter%}#filter-menu-template). It can also point to a component name.
 
@@ -155,14 +155,14 @@ You can use the following properties on bound columns:
 * If you want to prevent data mutation for a specific property you can set the `Editable` parameter of the GridColumn or the `[Editable]` data annotation attribute to `false` for the desired model field.
     * Columns generated out of model properties that do not have a `setter` or it is not accessible (private) will not be editable too.
 
-* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) and creating the object with your own code.
+* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert action is invoked, so the Model should have a Parameterless constructor defined. A workaround might be [invoking Insert through the grid state]({%slug grid-kb-add-edit-state%}) and creating the object with your own code.
 
 * The `Data` collection of the grid must contain instances of only one model type. You cannot bind the grid to a base class and populate its data with instances of inherited classes (neither one, nor more than one type) - extra fields from such inherited classes may not work or may even throw exceptions because the grid will not know about them when its `Data` collection is of the base class type.
 
 >tip You can optimize database queries in two ways:
 >
 > * Use an `IQueryable<MyModel>` collection for the grid `Data`. The grid will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
-> * Implement [manual data source operations](../manual-operations) and implement the desired query yourself.
+> * Implement [manual data source operations](slug://components/grid/manual-operations) and implement the desired query yourself.
 
 ## See Also
 

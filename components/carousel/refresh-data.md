@@ -21,7 +21,7 @@ In this article:
 
 @[template](/_contentTemplates/common/rebind-method.md#intro)
 
-````CSHTML
+````RAZOR
 @* Add/remove an item and rebind the Carousel to react to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>
@@ -94,7 +94,7 @@ In this article:
 
 >caption Bind the Carousel component to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item to see how the Carousel reacts to that change. *@
 
 @using System.Collections.ObjectModel
@@ -160,7 +160,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Carousel data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item ot change the data to see how the Carousel reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>

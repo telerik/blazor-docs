@@ -37,7 +37,7 @@ The example below shows the separate CUD event handlers and also how to get the 
 
 >caption Implement CRUD operations in a hierarchy Grid
 
-````CSHTML
+````RAZOR
 @* The events in the detail Grid are defined with lambda functions, so that the handler can receive the master product object.
     This approach is optional. *@
 

@@ -23,7 +23,7 @@ To enable the Crosshairs for the `Category` and/or the `Value` axis:
 ![crosshairs basis example](images/crosshairs-basic-example.gif)
 
 
-````CSHTML
+````RAZOR
 @* Enable the crosshairs for the StockChart *@
 
 <TelerikStockChart Height="450px"
@@ -129,7 +129,7 @@ You can control the appearance of the crosshair by setting the following propert
 
 >caption Customize the appearance of the crosshairs
 
-````CSHTML
+````RAZOR
 @* Use the axis settings to control the appearance of the crosshairs *@
 
 <TelerikStockChart Height="450px"
@@ -239,7 +239,7 @@ For the `Category` axis the `FormattedValue` represents the labels of the catego
 
 >caption Use the Crosshair Tooltip template to customize the value
 
-````CSHTML
+````RAZOR
 @* Use the Crosshair Tooltip template to customize the value *@
 
 <TelerikStockChart Height="450px"

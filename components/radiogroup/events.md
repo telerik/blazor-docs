@@ -27,7 +27,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle the OnChange event and use two-way binding
 
-````CSHTML
+````RAZOR
 @SelectedValue
 <br />
 <TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue" OnChange="@OnChangeHandler"></TelerikRadioGroup>
@@ -55,7 +55,7 @@ The example below uses [binding]({%slug radiogroup-databind%}) to string data fo
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @SelectedValue
 <br />
 <TelerikRadioGroup Data="@Data" Value="@SelectedValue" ValueChanged="@( (string v) => ValueChangedHandler(v) )"></TelerikRadioGroup>
@@ -84,7 +84,7 @@ The `OnBlur` event fires when an element inside the component loses focus (radio
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You may not have to use OnChange to react to loss of focus *@
 
 <TelerikRadioGroup Data="@Data" @bind-Value="@SelectedValue"

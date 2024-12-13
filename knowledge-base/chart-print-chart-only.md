@@ -37,7 +37,7 @@ By using the browser printing engine and some custom CSS while printing you can 
 1. Set the Chart `Width` and `Height` parameters to fit the printing page.
 1. Use JS Interop to call the browser print method that does the actual printing. Ensure that the browser is printing background graphics (this is a checkbox on the browser's Print dialog) so that you can get the proper colors on the chart and/or other elements.
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime JSRuntime
 
 <TelerikButton OnClick="@Print" Icon="@SvgIcon.Print" Class="non-printable-element">Print this chart</TelerikButton>

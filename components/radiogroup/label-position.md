@@ -16,7 +16,7 @@ By default, the labels are after the buttons, and you can change that through th
 
 >caption Labels before and after the radio buttons
 
-````CSHTML
+````RAZOR
 @* If you want the labels before the buttons, you can set the value directly to the parameter *@
 
 <select @bind="@thePosition">

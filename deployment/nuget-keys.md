@@ -52,8 +52,8 @@ The examples below assume that the secret environment variable name is `TELERIK_
 
 There are two common ways to use a [stored NuGet key](#storing-nuget-keys) with the Telerik NuGet server during a build:
 
-* [Using a NuGet.Config file](#using-a-nugetconfig-file)
-* [Using only CLI commands](#using-only-cli-commands)
+* [Using a NuGet.Config file](#using-a-nuget-config-file)
+* [Using only CLI commands](#using-net-cli-commands)
 
 For more information on how to use NuGet keys in a build, check the [Announcing NuGet Keys](https://www.telerik.com/blogs/announcing-nuget-keys) blog post by Lance McCarthy.
 
@@ -63,7 +63,7 @@ In your `NuGet.Config` file, set the `Username` value to `api-key` and the `Clea
 
 <div class="skip-repl"></div>
 
-```xml
+````XML
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <packageSources>
@@ -78,23 +78,23 @@ In your `NuGet.Config` file, set the `Username` value to `api-key` and the `Clea
     </TelerikOnlineFeed>
   </packageSourceCredentials>
 </configuration>
-```
+````
 
 ### Using .NET CLI Commands
 
-You can use the .NET CLI `add source` or `update source` commands to set the credentials of a package source. This CLI approach is applicable if your CI system doesn't support [environment variable secrets](#storing-nuget-keys) or if you do not [use a custom `NuGet.Config`](#using-a-nugetconfig-file).
+You can use the .NET CLI `add source` or `update source` commands to set the credentials of a package source. This CLI approach is applicable if your CI system doesn't support [environment variable secrets](#storing-nuget-keys) or if you do not [use a custom `NuGet.Config`](#using-a-nuget-config-file).
 
 * To set the credentials in Azure DevOps:
 
-    ```
+    ````SH.skip-repl
     dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '$(TELERIK_NUGET_KEY)' --configfile './NuGet.Config' --store-password-in-clear-text
-    ```
+    ````
 
 * To set the credentials in GitHub Actions:
 
-    ```
-    dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '${{ secrets.TELERIK_NUGET_KEY }}' --configfile './NuGet.Config' --store-password-in-clear-text
-    ```
+    ````SH.skip-repl
+    dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '${{ "{{secrets.TELERIK_NUGET_KEY}}" }}' --configfile './NuGet.Config' --store-password-in-clear-text
+    ````
 
 > When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors]({%slug common-kb-package-telerik-pivot-not-compatible-with-netframework%}).
 

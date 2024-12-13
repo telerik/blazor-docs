@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/sankey-chart" target="_blank">B
 
 >caption Sankey diagram with width, height and link colors based on the source nodes
 
-````CSHTMl
+````RAZOR
 <TelerikSankey Data="@Data"
                Width="1000px"
                Height="400px">

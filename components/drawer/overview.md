@@ -28,7 +28,7 @@ The <a href="https://www.telerik.com/blazor-ui/drawer" target="_blank">Blazor Dr
 
 >caption Basic configuration of the Drawer.
 
-````CSHTML
+````RAZOR
 @* This example shows the basic configuration of the Drawer and how to expand or collapse a Drawer with a click of a button. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"
@@ -109,7 +109,7 @@ The Blazor Drawer provides various parameters to configure the component. Also c
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-drawer-container">` element. |
-| `Expanded` | `bool` | Specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#methods). It is possible, however, to use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.|
+| `Expanded` | `bool` | Specifies whether the Drawer is expanded or collapsed. If this parameter is used to expand or collapse the component the animations will not be available. To use animations you have to use the Drawer's [Methods](#drawer-reference-and-methods). It is possible, however, to use the value to implement custom layouts in the drawer [templates]({%slug drawer-templates%}) or in your own layout.|
 | `Mode` | `DrawerMode` enum <br /> (`Overlay`) | Controls whether the Drawer is in `Push` or `Overlay` mode. [Read more about the supported modes]({%slug drawer-modes%}). |
 | `MiniMode` | `bool` | Controls whether there is [mini view]({%slug drawer-mini-mode%}) when the Drawer is collapsed. |
 | `Position` | `DrawerPosition` enum <br /> (`Start`) | Determines on which side of the `DrawerContent` the item list will render. |
@@ -127,7 +127,7 @@ The Drawer methods are accessible through it's reference. These methods change t
 
 >caption Get a reference to the drawer and use its methods
 
-````CSHTML
+````RAZOR
 @* The drawer is a generic components and its reference type depends on the type of the model it is bound to. *@
 
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())"

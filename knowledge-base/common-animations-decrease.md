@@ -37,7 +37,7 @@ You can use a [CSS rule override]({%slug themes-override%}) to change or disable
 
 >caption Disable Telerik Blazor dropdown animations
 
-````CSHTML
+````RAZOR
 <TelerikComboBox Data="@DropDownData"
                  TextField="@nameof(DropDownModel.Text)"
                  ValueField="@nameof(DropDownModel.Id)"

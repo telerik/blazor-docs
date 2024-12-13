@@ -31,7 +31,7 @@ The <a href="https://www.telerik.com/blazor-ui/candlestick-chart" target="_blank
 
 >caption A Candlestick chart that shows product financial stock data
 
-````CSHTML
+````RAZOR
 @* Candlestick chart *@
 
 <TelerikChart Height="480px" Width="640px">

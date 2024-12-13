@@ -18,7 +18,7 @@ This article has the following sections:
 
 * The available (bindable) [features of a drawer item](#drawer-item-features).
 * How to match fields in the model with the drawer item [data bindings](#data-bindings).
-* [Example](#example---data-binding-to-non-default-field-names) of using non-default field names for data binding.
+* [Example](#example-data-binding-to-non-default-field-names) of using non-default field names for data binding.
 
 ## Drawer Item Features
 
@@ -46,7 +46,7 @@ The properties of a drawer item match directly to a field of the model the drawe
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 public class DrawerItem
 {
 	public string Text { get; set; }
@@ -58,7 +58,7 @@ public class DrawerItem
 
 ## Example - Data Binding to Non-Default Field Names
 
-````CSHTML
+````RAZOR
 @* This example shows how you can data bind the drawer and set the field names it will use from the model 
 Place it in the MainLayout.razor so you can use it for navigation:
 https://docs.telerik.com/blazor-ui/components/drawer/navigation

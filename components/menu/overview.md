@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/menu" target="_blank">Blazor Menu
 
 >caption Basic Menu with hierarchical data binding and built-in navigation
 
-````CSHTML
+````RAZOR
 @*Use a Menu to navigate between views*@
 
 <TelerikMenu Data="@MenuItems"/>
@@ -135,7 +135,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````
+````RAZOR
 <TelerikMenu>
     <MenuSettings>
         <MenuPopupSettings HorizontalCollision="..."/>

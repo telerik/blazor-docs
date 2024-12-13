@@ -24,7 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/calendar" target="_blank">Blazor 
 
 >caption Basic Calendar with its key features and ValueChanged event handling
 
-````CSHTML
+````RAZOR
 @* Main Calendar features, ValueChanged event handling. *@
 <br />
 
@@ -114,7 +114,7 @@ Add a reference to the component instance to use the [Blazor Calendar methods](/
 | `NavigateTo` | Navigates to a specified date and view. The method expects a `DateTime` and `CalendarView` arguments. |
 | `Refresh` | Re-renders the Calendar. |
 
-````CSHTML
+````RAZOR
 <p>
     <TelerikButton OnClick="@GoToPreviousMonth">Go To Previous Month</TelerikButton>
     <TelerikButton OnClick="@GoToNextMonth">Go To Next Month</TelerikButton>

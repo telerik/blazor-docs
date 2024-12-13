@@ -23,7 +23,7 @@ The ToggleButton component can have a selected state, which is the main differen
 
 >caption Basic Telerik ToggleButton
 
-````CSHTML
+````RAZOR
 <TelerikToggleButton @bind-Selected="@IsSelected"
                      OnClick="@OnToggleButtonClick">
     Selected: <strong>@IsSelected</strong>
@@ -77,7 +77,7 @@ It is possible to apply custom styles to the button through its `Class` paramete
 
 >caption Set CSS class to the button and change its appearance
 
-````CSHTML
+````RAZOR
 <TelerikToggleButton Class="my-toggle">
     Toggle Button
 </TelerikToggleButton>

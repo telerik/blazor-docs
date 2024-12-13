@@ -22,7 +22,7 @@ This integration enables the users to drag and drop one or multiple files to a d
 1. (Optional) Add a note to the DropZone by using the `NoteText` setting.
 
 >caption Basic configuration of the DropZone with the FileSelect component.
-````CSHTML
+````RAZOR
 <TelerikDropZone Id="@DropZoneId" NoteText="@NoteText" />
 
 <TelerikFileSelect DropZoneId="@DropZoneId" AllowedExtensions="@AllowedExtensions" />

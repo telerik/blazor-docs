@@ -36,7 +36,7 @@ To connect ListBox components:
 
 >caption Connect and move items between ListBoxes
 
-````CSHTML
+````RAZOR
 @* Connect and move items between ListBoxes *@
 
 <TelerikListBox @ref="@ListBoxRef1"

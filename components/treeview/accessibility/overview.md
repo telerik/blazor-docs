@@ -21,7 +21,7 @@ The following example demonstrates the [accessibility compliance of the TreeView
 
 >caption TreeView accessibility compliance example
 
-````CSHTML
+````RAZOR
 @*Evaluate the example with Axe Core or other accessibility tools*@
 
 <TelerikContextMenu Data="@ContextMenuData"

@@ -35,7 +35,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 
 >caption The Command buttons and the treelist events let you handle data operations in Popup edit mode
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* Used for the model annotations only *@
 
@@ -340,7 +340,7 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
 
 >caption Customize the popup edit form
 
-````CSHTML
+````RAZOR
 @*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikTreeList Data="@Data" Pageable="true"

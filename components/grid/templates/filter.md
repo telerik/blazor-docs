@@ -48,7 +48,7 @@ You can find more examples in the [Live Demo: Custom Filter Row](https://demos.t
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 The custom filter textboxes invoke filtering on Enter or blur through the OnChange event
@@ -188,7 +188,7 @@ For an example with the CheckboxList Filter, see the [Custom Data]({%slug grid-c
 
 >tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering]({%slug grid-checklist-filter%}) article.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -323,7 +323,7 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 
 >caption Using custom filter menu buttons
 
-````CSHTML
+````RAZOR
 @* Customize the buttons in the Filter Menu *@
 
 @using Telerik.DataSource

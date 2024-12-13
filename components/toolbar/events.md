@@ -23,11 +23,11 @@ The `OnClick` event fires when the user clicks on a button in the ToolBar (also 
 
 >caption The OnClick event for the ToolBar buttons
 
-````CSHTML
+````RAZOR
 @*When clicking on the button a message will be printed in your console*@
 
 <TelerikToolBar>
-    <ToolBarButton Icon="@SvgIcon.Envelope"Link OnClick="@OnHyperlinkClick">Hyperlink</ToolBarButton>
+    <ToolBarButton Icon="@SvgIcon.Envelope" OnClick="@OnHyperlinkClick">Hyperlink</ToolBarButton>
 </TelerikToolBar>
 
 
@@ -45,11 +45,11 @@ The `SelectedChanged` event will fire when the user changes the state of the [`T
 
 >caption The SelectedChanged event for the ToolBarToggleButton
 
-````CSHTML
+````RAZOR
 @*Handle the SelectedChangedEvent*@
 
 <TelerikToolBar>
-    <TelerikToggleButton Selected="@Selected" SelectedChanged="@SelectedChangedHandler"></TelerikToggleButton>
+    <ToolBarToggleButton Selected="@Selected" SelectedChanged="@SelectedChangedHandler">Select me</ToolBarToggleButton>
 
 </TelerikToolBar>
 

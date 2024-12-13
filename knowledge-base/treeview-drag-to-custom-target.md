@@ -38,7 +38,7 @@ To allow dragging outside the TreeView and dropping on a custom target, follow t
 
 >caption Draggable Treeview that allows dropping items in a custom target
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@Data"
                  @bind-ExpandedItems="@ExpandedItems"
                  Draggable="true"

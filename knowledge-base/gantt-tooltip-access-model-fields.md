@@ -41,7 +41,7 @@ This solution relies on finding the task item in your data based on the properti
 
 >caption Use a custom Tooltip component
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
@@ -161,7 +161,7 @@ This solution relies on disabling the built-in Tooltip and adding a custom one, 
 
 >caption Use a custom Tooltip component
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"

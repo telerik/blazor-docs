@@ -32,7 +32,7 @@ To add the Badge to the Avatar component or any other container that cannot have
 
 >caption Add the Telerik Badge to the Avatar component
 
-````CSHTML
+````RAZOR
 <div style="position: relative; overflow: visible; display: inline-block;">
     <TelerikAvatar Type="AvatarType.Text">
         JD

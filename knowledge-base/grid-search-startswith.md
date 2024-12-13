@@ -42,7 +42,7 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 
 >caption Filter Grid columns with a "StartsWith" operator
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data="@GridData"
@@ -93,7 +93,7 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 
 >caption Search in Grid columns with a "StartsWith" operator
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid @ref="@Grid"

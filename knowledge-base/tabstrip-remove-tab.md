@@ -38,7 +38,7 @@ I want a close button on my tabs so the use can remove (close) them. When that h
 
 >caption Close button on a tab
 
-````CSHTML
+````RAZOR
 Currently active tab index: @ActiveTabIndex
 
 <TelerikTabStrip ActiveTabIndex="@ActiveTabIndex" ActiveTabIndexChanged="@TabIndexChangedHandler">

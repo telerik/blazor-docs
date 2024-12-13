@@ -62,7 +62,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 The following example lets you experiment with the available settings that control the position and collision behavior of the Popup. It starts with the default component behavior.
 
-````CSHTML
+````RAZOR
 <div>
     <label>
         Anchor Horizontal Align

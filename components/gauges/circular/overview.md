@@ -21,7 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/circular-gauge" target="_blank"
 
 >caption Basic Telerik Circular Gauge for Blazor.
 
-````CSHTML
+````RAZOR
 @* Setup a basic circular gauge with center label template *@
 
 <TelerikCircularGauge Width="100px" Height="100px">
@@ -73,7 +73,7 @@ The labels are rendered on the scale of the component to give information to the
 | --- | --- |
 | `Refresh` | Programatically re-render the Circular Gauge. |
 
-````CSHTML
+````RAZOR
 @* Change the Height of the component *@
 
 <TelerikButton OnClick="@ChangeTheHeight">Change the Height of the component</TelerikButton>

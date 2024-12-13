@@ -23,7 +23,7 @@ The Gantt provides the following dependency events:
 
 ## Example
 
-````CSHTML
+````RAZOR
 @* Drag the dependency handle of a task to a new end-point to fire the Oncreate event. Delete a dependency to fire the OnDelete event *@
 
 <TelerikGantt Data="@GanttData"

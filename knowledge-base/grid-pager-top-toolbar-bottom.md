@@ -44,7 +44,7 @@ If, however, you also want to have a Toolbar for some actions, do the following:
 * Add the "k-toolbar" and "k-grid-toolbar" classes to this container to inherit the Grid Toolbar styles
 * Add your custom class as well, so you can target this container and style it separately from the built-in Toolbar if needed
 
-````CSHTML
+````RAZOR
 <style>
     .k-grid-toolbar {
         padding: 0;
@@ -132,6 +132,6 @@ The downside of the listed approach is that you will not be able to use built-in
 
 To handle this, you may proceed with a custom approach:
 
-* `Add` Command Button - use a [`TelerikButton`]({%slug components/button/overview%}) instead. Handle its [`OnClick`]({%slug button-events%}#onclick) to programmatically [initiate inserting of an item through the Grid State]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item).
+* `Add` Command Button - use a [`TelerikButton`]({%slug components/button/overview%}) instead. Handle its [`OnClick`]({%slug button-events%}#onclick) to programmatically [initiate inserting of an item through the Grid State]({%slug grid-kb-add-edit-state%}).
 
 * SearchBox - Use [TelerikTextBox]({%slug components/textbox/overview%}) instead. Handle its [`ValueChanged`]({%slug components/textbox/events%}#valuechanged) or [`OnChange`]({%slug components/textbox/events%}#onchange) event to create [custom filter descriptors]({%slug grid-kb-search-numeric-fields%}).

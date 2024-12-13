@@ -17,7 +17,7 @@ On page load, the MultiSelect will render the selected items in the order in whi
 
 >caption Pre-select MultiSelect items for the user
 
-````CSHTML
+````RAZOR
 Select IDs
 <TelerikNumericTextBox @bind-Value="@Id1" Min="1" Max="10" Width="70px" />
 and

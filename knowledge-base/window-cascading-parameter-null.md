@@ -34,7 +34,7 @@ The solution is to expose a `CascadingParameter` in the component that hosts the
 
 >caption Part 1 - topmost component that passes values to its children
 
-````CSHTML
+````RAZOR
 @* sample data - integer in this case for brevity, can be a real model *@
 
 <CascadingValue Value="@MyData" Name="SomeCascadingData">
@@ -53,7 +53,7 @@ The solution is to expose a `CascadingParameter` in the component that hosts the
 
 >caption Part 2 - ComponentA that hosts the Telerik Window
 
-````CSHTML
+````RAZOR
 @* defines a new CascadingValue that will propagate the data to the WindowContent *@
 
 <h3>ComponentA</h3>
@@ -95,7 +95,7 @@ The solution is to expose a `CascadingParameter` in the component that hosts the
 
 >caption Part 3 - ComponentB in the content of the Window consumes the data as usual
 
-````CSHTML
+````RAZOR
 @* In this example we keep the names of the cascading value and parameter the same everywhere, including on the component that hosts the window, so that they are easier to consume down the tree. *@
 
 <h3>ComponentB</h3>

@@ -24,7 +24,7 @@ To set the tile contents, you have the following options:
 
 >caption Set header and content of tiles
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout ColumnWidth="200px"
                    RowHeight="150px"
                    Width="700px"
@@ -56,7 +56,7 @@ If you want to change that (for example, because you have certain content that r
 
 >caption Content scrollbars and overflow behavior in the Tile Layout
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout ColumnWidth="300px"
                    RowHeight="150px"
                    Columns="3"

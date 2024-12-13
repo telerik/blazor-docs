@@ -20,7 +20,7 @@ To enable the mini view when the drawer is collapsed (minimized), set the `MiniM
 
 >caption Observe the behavior of the MiniMode.
 
-````CSHTML
+````RAZOR
 @* Click on the Toggle MiniMode button to enable or disable it. *@
 @* The same behavior will be observed in both Push and Overlay modes *@
 

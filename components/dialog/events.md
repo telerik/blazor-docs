@@ -23,7 +23,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 
 >caption React to the user closing the Dialog.
 
-````CSHTML
+````RAZOR
 @* An example with the VisibleChanged event. *@
 
 @result
@@ -67,7 +67,7 @@ You can use the `VisibleChanged` event to get notifications when the user tries 
 
 >caption Prevent the user from closing the Dialog based on a condition.
 
-````CSHTML
+````RAZOR
 @* Not propagating the visible value from the handler to the model can prevent the user from closing the Dialog.
     Using the application code to explicitly set the visibility of the Dialog will still close it as it will not fire the event.*@
 

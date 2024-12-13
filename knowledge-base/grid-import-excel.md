@@ -38,7 +38,7 @@ To import the data of an Excel file in the Grid:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* Import Excel File in the Grid *@
 
 @using System.IO;

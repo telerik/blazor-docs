@@ -31,7 +31,7 @@ How can I apply a gradient color effect on the Telerik UI for Blazor Chart serie
 
 >caption How to apply gradient effect on Area Chart.
 
-````CSHTML
+````RAZOR
 
 <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="0" height="0" style="visibility: hidden">
     <defs>

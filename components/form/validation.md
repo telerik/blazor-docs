@@ -28,7 +28,7 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 
 >caption Enable validation in the Telerik Form for Blazor
 
-````CSHTML
+````RAZOR
 @* Basic validation in the Form component *@
 
 @using System.ComponentModel.DataAnnotations
@@ -64,7 +64,7 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 
 When you provide an `EditContext` to the form, you can use its [`EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontextdataannotationsextensions.enabledataannotationsvalidation?view=aspnetcore-8.0#microsoft-aspnetcore-components-forms-editcontextdataannotationsextensions-enabledataannotationsvalidation(microsoft-aspnetcore-components-forms-editcontext-system-iserviceprovider)) method to add the data annotation validation instead of using the markup. This is useful in the following cases:
 * When the model the form is bound to changes at runtime. For example, when you [have a reset button]({%slug form-formitems-buttons%}#how-to-add-a-reset-clear-button-to-the-form).
-* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component]({%slug form-overview%}#component-reference)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
+* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component]({%slug form-overview%}#form-reference-and-methods)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
 
 @[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
 
@@ -78,7 +78,7 @@ With the `ValidationMessageType` parameter of the Telerik Form for Blazor you ca
 
 >caption Change the type of the validation message to tooltip
 
-````CSHTML
+````RAZOR
 @* Set the FormValidationMessageType to Tooltip *@ 
 
 @using System.ComponentModel.DataAnnotations
@@ -122,7 +122,7 @@ It is also possible to [trigger Form validation programmatically]({%slug form-ov
 
 You can use the built-in `DataAnnotationsValidator` that comes with the Blazor framework.
 
-````CSHTML
+````RAZOR
 @* Use the Telerik Edit Form for Blazor to Validate a model *@
 
 @using System.ComponentModel.DataAnnotations
@@ -158,7 +158,8 @@ You can use the <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fo
 
 When using a model with nested objects and fields, specify their `Field` settings as a dot-separate string, do *not* use the `nameof` operator, it does not return the full name of the model.
 
-````CSHTML
+<div class="skip-repl"></div>
+````RAZOR
 @using System.Dynamic
 @using System.ComponentModel.DataAnnotations
 
@@ -231,11 +232,11 @@ You can use third-party validation libraries that integrate with the standard `E
 
 >note Such third party tools are not included with the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install the an appropriate package first. You can find some in <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">their official documentation</a>.
 
-<div class="skip-repl"></div>
 
 >caption Using FluentValidation
 
-````CSHTML
+<div class="skip-repl"></div>
+````RAZOR
 @using Microsoft.AspNetCore.Components.Forms
 @using FluentValidation
 @using Blazored.FluentValidation

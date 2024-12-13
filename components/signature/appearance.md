@@ -26,7 +26,7 @@ Use the `BackgroundColor` parameter to change the background color of the Blazor
 
 >caption Change the background color of the Signature
 
-````CSHTML
+````RAZOR
 @* Provide a valid CSS color for the background color of the Signature *@
 @* This example sets red with HEX code *@
 
@@ -44,7 +44,7 @@ Use the `Color` parameter to change the color of the Signature's stroke.
 
 >caption Change the color of the stroke
 
-````CSHTML
+````RAZOR
 @* Provide a valid CSS color for the background color of the Signature *@
 @* This example sets red with the plain text color name *@
 
@@ -66,7 +66,7 @@ The `FillMode` parameter controls how the TelerikSignature is filled. It takes a
 | `Flat` | `flat` |
 | `Outline` | `outline` |
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{
@@ -107,7 +107,7 @@ The Rounded parameter applies the `border-radius` CSS style to the button to ach
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Signature.Rounded)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -146,7 +146,7 @@ Use the `Size` parameter to apply the `min-height` CSS style to the `<div class=
 
 >caption Set the Size parameter
 
-````CSHTML
+````RAZOR
 <TelerikSignature @bind-Value="@SignatureValue"
                   Width="300px"
                   Height="300px"

@@ -22,7 +22,7 @@ The `ViewTemplate` allows you to control the rendering of view's content. You ca
 
 >caption Using the `ViewTemplate` to alter the appearance of the Prompt view
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
     <AIPromptViews>
         <AIPromptPromptView ButtonIcon="@SvgIcon.Sparkles">
@@ -48,7 +48,7 @@ The `FooterTemplate` allows you to control the rendering of the footer within in
 
 >caption Using the `FooterTemplate` to define a custom button.
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @ref="@AIPromptRef" @bind-Prompt="@Prompt">
     <AIPromptViews>
         <AIPromptPromptView ButtonIcon="@SvgIcon.Sparkles">

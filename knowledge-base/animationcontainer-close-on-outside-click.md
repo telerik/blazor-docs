@@ -38,7 +38,7 @@ To achieve the desired scenario:
 
 >caption Close the AnimationContainer upon an outside click
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 @implements IDisposable

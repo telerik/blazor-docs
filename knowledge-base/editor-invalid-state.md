@@ -47,7 +47,7 @@ You can utilize the capabilities and information provided by the `EditContext` t
 
 >caption Set the Editor in invalid state when validation does not pass
 
-````CSHTML
+````RAZOR
 @*This is the custom class that mimics k-invalid*@
 <style>
     .myCustomInvalidState {

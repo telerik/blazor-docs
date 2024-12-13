@@ -16,7 +16,7 @@ The example below is using a [Calendar reference and methods]({%slug components/
 
 >caption Use custom rendering in the Calendar header
 
-````CSHTML
+````RAZOR
 <TelerikCalendar @bind-Value="@CalendarValue" @bind-Date="@CalendarDate">
     <HeaderTemplate>
 

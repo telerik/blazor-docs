@@ -24,7 +24,7 @@ To create the Context Menu:
 
 >caption A basic Context Menu with hierarchical data binding and an `OnClick` event handler
 
-````CSHTML
+````RAZOR
 @* Use a Context Menu to perform actions *@
 
 <div class="context-menu-target" style="width:200px; height: 100px; background: yellow; margin-bottom: 50px;">
@@ -140,7 +140,7 @@ The popup of the component can be additionally customized via nested tags:
 
 <div class="skip-repl"></div>
 
-````
+````RAZOR
 <TelerikContextMenu>
     <ContextMenuSettings>
         <ContextMenuPopupSettings HorizontalCollision="..."/>
@@ -167,7 +167,7 @@ To use the [Blazor Context Menu methods](/blazor-ui/api/Telerik.Blazor.Component
 | `HideAsync` | Programmatically hides the Context Menu. |
 | `Refresh` | Re-renders the component. |
 
-````CSHTML
+````RAZOR
 @* Open, close, and refresh the Context Menu programmatically *@
 
 <div @oncontextmenu:preventDefault="true"

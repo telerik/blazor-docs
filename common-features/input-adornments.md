@@ -45,7 +45,7 @@ To add a prefix, declare a `<*ComponentName*PrefixTemplate>` tag as a direct chi
 
 >caption Adding a prefix adornment in UI for Blazor
 
-````CSHTML
+````RAZOR
 <div class="component-container">
     <h5>TextArea</h5>
 
@@ -189,7 +189,7 @@ To add a suffix, declare a `<*ComponentName*SuffixTemplate>` tag as a direct chi
 
 >caption Adding a suffix adornment in UI for Blazor
 
-````CSHTML
+````RAZOR
 <div class="component-container">
     <h5>TextArea</h5>
 
@@ -368,7 +368,7 @@ To prevent that behavior, you may wrap the content of the prefix/suffix template
 
 >caption Stop the `keydown` event propagation
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete Data="@Roles"
                      @bind-Value="@SelectedRole"
                      Placeholder="Enter your role (can be free text)"

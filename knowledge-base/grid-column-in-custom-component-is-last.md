@@ -42,7 +42,7 @@ You can observe and reproduce the same behavior with the example below.
 
 ![simulate grid columns rendering order with custom components](images/grid-column-rendering-order-simulation-with-nested-components.PNG)
 
-````GridColumnMimic.razor
+````RAZOR GridColumnMimic
 @* This mimics the <GridColumn> tag *@
 
 <h3>Column Mimic - @Id</h3>
@@ -62,8 +62,7 @@ You can observe and reproduce the same behavior with the example below.
     }
 }
 ````
-
-````NestedComponent.razor
+````RAZOR NestedComponent
 @* This is the custom component that adds grid columns *@
 
 <GridColumnMimic Id="@Id"></GridColumnMimic>
@@ -73,8 +72,7 @@ You can observe and reproduce the same behavior with the example below.
     public int Id { get; set; }
 }
 ````
-
-````Index.razor
+````RAZOR Index
 @page "/"
 
 <CascadingValue Value="this">

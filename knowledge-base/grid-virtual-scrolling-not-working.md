@@ -40,7 +40,7 @@ There are several common causes for that behavior:
 
 >caption Typical PROBLEMATIC example when using Virtual Scrolling
 
-````CSHTML
+````RAZOR
 @*This example showcases typical situation when the Virtual Scrolling will break*@
 
 <TelerikGrid Data=@GridData

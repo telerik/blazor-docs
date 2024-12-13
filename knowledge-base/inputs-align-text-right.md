@@ -41,7 +41,7 @@ The example below shows how to align a numeric textbox and a combo box to the ri
 
 >caption Change the text alignment for inputs in Telerik UI for Blazor
 
-````CSHTML
+````RAZOR
 @* right align and center align text in inputs *@
 
 <style>

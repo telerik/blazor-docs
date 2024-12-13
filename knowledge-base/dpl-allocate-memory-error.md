@@ -29,19 +29,19 @@ When I try to Generate or Export documents through the Telerik Document Processi
 
 ## Error Message
 
-```
+````C#.skip-repl
 WASM: Error: Garbage collector could not allocate 16384 bytes of memory for major heap section
-```
+````
 
-```
+````C#.skip-repl
 WASM: * Assertion at /mnt/jenkins/workspace/test-mono-mainline-wasm/label/ubuntu-1804-amd64/mono/utils/lock-free-alloc.c:145, condition 'sb_header' not met, function:alloc_sb, Failed to allocate memory for the lock free allocator
-```
+````
 
-```
+````C#.skip-repl
 dotnet.js:1 Uncaught RuntimeError: abort(undefined). Build with -s ASSERTIONS=1 for more info.
     at abort (http://localhost:62774/_framework/wasm/dotnet.js:1:16107)
     at _abort (http://localhost:62774/_framework/wasm/dotnet.js:1:117299)
-```
+````
 
 
 ## Possible Cause

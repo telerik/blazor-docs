@@ -51,7 +51,7 @@ The `OnCollapse` event fires when the user collapses an expanded row through the
 
 >caption Handle OnExpand and OnCollapse
 
-````CSHTML
+````RAZOR
 @lastAction
 
 <TelerikTreeList Data="@Data"
@@ -186,7 +186,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
 >caption The different use-cases of the OnModelInit event
 
 <div class="skip-repl"></div>
-````NoParameterlessConstructor
+````RAZOR NoParameterlessConstructor
 @* Bind the TreeList to a class without a parameterless constructor *@
 
 @using System.ComponentModel.DataAnnotations
@@ -440,7 +440,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
     }
 }
 ````
-````Interface
+````RAZOR Interface
 @* Bind the TreeList to an interface *@
 
 @using System.ComponentModel.DataAnnotations
@@ -704,7 +704,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
     }
 }
 ````
-````AbstractClass
+````RAZOR AbstractClass
 @* Bind the TreeList to an abstract class *@
 
 @using System.ComponentModel.DataAnnotations
@@ -968,7 +968,7 @@ The `OnRowClick` event handler receives a `TreeListRowClickEventArgs` argument, 
 
 >caption Using the TreeList OnRowClick event
 
-````CSHTML
+````RAZOR
 @* Use the OnRowClick event for the TreeList *@
 
 <TelerikTreeList Data="@Data"
@@ -1070,7 +1070,7 @@ The `OnRowDoubleClick` event handler receives a `TreeListRowClickEventArgs` argu
 
 >caption Using the TreeList OnRowDoubleClick event
 
-````CSHTML
+````RAZOR
 @* Use the OnRowDoubleClick event for the TreeList. *@ 
 
 <TelerikTreeList Data="@Data"
@@ -1172,7 +1172,7 @@ The `OnRowContextMenu` event handler receives a `TreeListRowClickEventArgs` argu
 
 >caption Using the TreeList OnRowContextMenu event
 
-````CSHTML
+````RAZOR
 @* Get the row model from a context menu action (right click/long tap) *@
 
 <TelerikTreeList Data="@Data"
@@ -1203,8 +1203,6 @@ The `OnRowContextMenu` event handler receives a `TreeListRowClickEventArgs` argu
         var clickedRow = args.Item as Employee;
 
         logger = $"OnRowContextMenu event fired from right clicking on {clickedRow.Name}";
-		
-        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
     }
 
     public List<Employee> Data { get; set; }
@@ -1286,7 +1284,7 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 
 >caption Use the OnRowRender event to apply custom format to TreeList rows based on certain condition
 
-````CSHTML
+````RAZOR
 @* Conditional styling/formatting for a row *@
 
 <style>
@@ -1404,7 +1402,7 @@ The `OnRowDrop` event fires when the user drags and drops rows in the TreeList o
 
 The event fires when the user pages the treelist.
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikTreeList Data="@Data"
@@ -1490,7 +1488,7 @@ Make sure to update the current page size when using the event.
 
 >caption Handle PageSizeChanged
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@Data"
                  Pageable="true"
                  @bind-Page="@CurrentPage"

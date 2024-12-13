@@ -20,7 +20,7 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
 
 >caption Data Binding the TreeList to an Interface
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="Id"
                  ParentIdField="ParentId"

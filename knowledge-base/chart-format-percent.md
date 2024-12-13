@@ -45,7 +45,7 @@ To customize the percentage display, you need to:
 
 >caption Format Pie Chart labels as percent
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Pie"

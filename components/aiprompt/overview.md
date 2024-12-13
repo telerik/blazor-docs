@@ -23,7 +23,7 @@ The component allows you to interact with the output from the AI and execute a s
 
 >caption Basic configuration of the Telerik AIPrompt
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"
                  OnCommandExecute="@HandleCommandExecute"
                  Commands="@PromptCommands">
@@ -113,7 +113,7 @@ The AIPrompt exposes methods for programmatic operation. To use them, define a r
 
 >caption AIPrompt reference and method usage
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @ref="@AIPromptRef" OnPromptRequest="@HandlePromptRequest"></TelerikAIPrompt>
 <div style="margin-top: 2em;">
     <TelerikTextBox @bind-Value="@CustomPrompt"></TelerikTextBox>

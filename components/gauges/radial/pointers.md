@@ -35,7 +35,7 @@ The `Color` (`string`) parameter controls the color of the pointers. It accepts 
 
 ![Pointers color](images/pointer-color.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the pointers in the Radial Gauge *@
 
 <TelerikRadialGauge>
@@ -61,7 +61,7 @@ The `Length` (`string`) parameter controls the pointers length (in percent) that
 
 ![Pointer Length](images/pointer-length.png)
 
-````CSHTML
+````RAZOR
 @* Change the length of the pointers *@
 
 <TelerikRadialGauge>
@@ -87,7 +87,7 @@ The `Color` (`string`) parameter controls the color of the pointer cap. It accep
 
 ![Pointer cap color](images/pointer-cap-color.png)
 
-````CSHML
+````RAZOR
 @* Change the color of the pointer cap *@
 
 <TelerikRadialGauge>
@@ -108,7 +108,7 @@ The `Size` (`double`) parameter controls the size of the pointer cap in percenta
 
 ![Pointer cap size](images/pointer-cap-size.png)
 
-````CSHTML
+````RAZOR
 @* Change the sizes of the pointers *@ 
 
 <TelerikRadialGauge>
@@ -133,7 +133,7 @@ The pointer caps are rendered as per the order they are declared in the markup -
 
 ![Pointer cap size](images/pointer-cap-size-and-color.png)
 
-````CSHTML
+````RAZOR
 @* Change the sizes and colors of the pointer caps *@ 
 
 <TelerikRadialGauge>

@@ -16,11 +16,11 @@ This article explains how to bind the Context Menu for Blazor to hierarchical da
 
 Hierarchical data means that the collection of child items is provided in a field of its parent's model. By default, this is the `Items` field. If there are items for a certain node, it will have an expand icon. The `HasChildren` field can override this, however, but it is not required for hierarchical data binding. Note that all menu item models must be of the same type.
 
-This approach of providing nodes lets you gather separate collections of data for certain sections or areas. Check out the [Know The Target And Adjust Items]({%slug contextmenu-overview%}#know-the-target-and-adjust-items) example to see one way of altering the data (items) in the menu before showing it. 
+This approach of providing nodes lets you gather separate collections of data for certain sections or areas. Check out the [Know The Target And Adjust Items]({%slug contextmenu-integration%}#know-the-target-and-adjust-items) example to see one way of altering the data (items) in the menu before showing it. 
 
 >caption Example of using hierarchical data in a context menu
 
-````CSHTML
+````RAZOR
 @* Hierarchical menu data source and navigation through different views *@
 
 <div class="menuTarget">

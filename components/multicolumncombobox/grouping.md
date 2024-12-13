@@ -18,7 +18,7 @@ The group headers stick to the top of the dropdown during scrolling. In other wo
 
 >caption Grouping in the MultiColumnComboBox
 
-````CSHTML
+````RAZOR
 <TelerikMultiColumnComboBox Data="@MultiComboData"
                             @bind-Value="@SelectedProduct"
                             ValueField="@nameof(Product.Id)"

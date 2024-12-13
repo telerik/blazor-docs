@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/rating" target="_blank">Blazor 
 
 >caption Basic configuration of the Blazor Rating
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                Label="@Label">
 </TelerikRating>

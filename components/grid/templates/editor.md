@@ -18,7 +18,7 @@ The template receives a **copy** of the original model, so that changes can be c
 
 If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form]({%slug grid-kb-custom-edit-form%}).
 
->tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](../editing/incell#editor-template).
+>tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes]({%slug components/grid/editing/incell%}#editor-template).
 
 **In this article:**
 
@@ -43,7 +43,7 @@ If you need more complex logic inside the editor template, compared to simple da
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <EditorTemplate>
     <TelerikTextArea @bind-Value="@((Product)context).Description" />
 </EditorTemplate>
@@ -53,7 +53,7 @@ If you need more complex logic inside the editor template, compared to simple da
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <EditorTemplate>
     @{
         EditedProduct = context as Product;
@@ -75,7 +75,7 @@ This section demonstrates different scenarios with the Editor Template:
 
 The Grid will save changes and close the current edit row (or edit cell) when the user hits Enter. To prevent this inside HTML Editor or TextArea components, stop the propagation of the `keydown` event:
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@Products"
              EditMode="@GridEditMode.Inline"
              OnUpdate="@OnGridUpdate">
@@ -157,7 +157,7 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
 ## Limit the input options with a select element
 
-````CSHTML
+````RAZOR
 @* This example shows how to use a simple <select> to edit strings. You can implement any desired logic instead.
     If you have an enum, the grid can edit and filter it out-of-the-box without the need for an edit template *@
 
@@ -272,7 +272,7 @@ This example uses an ID that represents the foreign key for the grid column `Fie
 
 Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge base article.
 
-````CSHTML
+````RAZOR
 @* This example shows one way to use a dropdownlist to edit values with a foreign key. *@
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px" OnUpdate="@UpdateHandler">

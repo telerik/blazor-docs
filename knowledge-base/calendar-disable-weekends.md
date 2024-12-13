@@ -43,7 +43,7 @@ The example below demonstrates this approach.
 
 >caption Pass the weekends to the Disabled Dates collection and disable all weekends between the Min and Max Value of the Calendar.
 
-````CSHTML
+````RAZOR
 <style>
     /*Ensure that all disabled cells have the same styles.
       Not neccessary when this is fixed https://feedback.telerik.com/blazor/1539828-k-state-disabled-class-is-not-applied-to-all-disabled-cells */

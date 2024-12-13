@@ -33,7 +33,7 @@ If the local data changes programmatically, you need to reset the collection ins
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikPivotGrid Data="@PivotData">
     <PivotGridColumns>
         <PivotGridColumn Name="@nameof(PivotModel.City)" />
@@ -128,7 +128,7 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 >caption PivotGrid bound to XMLA data provider without credentials
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <TelerikPivotGridContainer>
     <TelerikPivotGridConfigurator />
 

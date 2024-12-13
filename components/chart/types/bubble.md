@@ -27,7 +27,7 @@ A Bubble chart is useful for visualizing different scientific relationships (e.g
 
 >caption A bubble chart that shows projected population change on a plot of life expectancy versus fertility rate
 
-````CSHTML
+````RAZOR
 @* Bubble Series *@
 
 <TelerikChart>
@@ -114,7 +114,7 @@ The size field should, generally, have positive values as it correlates to the p
 
 >caption Negative bubble size
 
-````CSHTML
+````RAZOR
 @* Negative bubble sizes can showcase decreases in values and can render in different color than the rest of the series *@
 
 <TelerikChart>
