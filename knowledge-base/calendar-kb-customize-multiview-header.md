@@ -4,7 +4,7 @@ description: Learn how to display the month name above each view in a MultiView 
 type: how-to
 page_title: How to Customize Month Headers in Telerik UI for Blazor MultiView Calendar
 slug: calendar-kb-customize-multiview-header
-tags: telerik, ui, blazor, calendar, multiview, customization, header, template
+tags: telerik, blazor, calendar, multiview
 res_type: kb
 ticketid: 1672888
 ---
@@ -13,86 +13,67 @@ ticketid: 1672888
 
 <table>
     <tbody>
-	    <tr>
-	    	<td>Product</td>
-	    	<td>Calendar for Blazor</td>
-	    </tr>
+        <tr>
+            <td>Product</td>
+            <td>Calendar for Blazor</td>
+        </tr>
     </tbody>
 </table>
 
 ## Description
 
-I want to customize the header of a MultiView Calendar to display the month name above each view.
+How to customize the header of a MultiView Calendar to display the month name above each month view?
 
 ## Solution
 
-To display the month name above each view in a MultiView Calendar, use the [`HeaderTemplate`]({%slug calendar-templates-header%}) of the TelerikCalendar and apply custom CSS for styling for label positioning. The following example demonstrates how to achieve this customization:
+To display the month name above each view in a MultiView Calendar, use the [`HeaderTemplate`]({%slug calendar-templates-header%}) of the TelerikCalendar and apply custom CSS for styling for label positioning. The following example demonstrates how to achieve this customization. Note that it is applicable only for a horizontal layout
 
 >caption MultiView Calendar with Header Template.
 
 ````CSHTML
-@using System.Globalization;
+@using System.Globalization
 
-<style>
-    .my-header {
-        inline-size: var(--INTERNAL--kendo-calendar-view-width, 256px);
-        display: flex;
-        justify-content: center;
-    }
-</style>
-
-<TelerikCalendar @bind-Date="@StartDate" Views="@ViewCount"
-                 @bind-Value="@Value"
-                 @bind-View="@View"
+<TelerikCalendar @bind-Date="@CalendarDate"
                  SelectionMode="@CalendarSelectionMode.Single"
-                 @ref="CalendarRef">
+                 @bind-Value="@CalendarValue"
+                 @bind-View="@CalendarView"
+                 Views="@ViewCount">
     <HeaderTemplate>
-        @for (int i = 0; i < ViewCount; i++)
-        {
-            var monthNumber = Value.Month + i > 12 ? (Value.Month + i) % 12 : Value.Month + i;
-            var month = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(monthNumber);
-            <div class="my-header">@month</div>
-        }
+        <div class="month-names">
+            @for (int i = 0; i < ViewCount; i++)
+            {
+                int monthNumber = CalendarValue.Month + i > 12 ? (CalendarValue.Month + i) % 12 : CalendarValue.Month + i;
+                string month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthNumber);
+
+                <div>@month</div>
+            }
+        </div>
     </HeaderTemplate>
 </TelerikCalendar>
 
+<style>
+    .month-names {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .month-names > div {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+</style>
+
 @code {
-    private int ViewCount = 4;
-    private DateTime StartDate = DateTime.Today;
-    private DateTime Value = DateTime.Today;
-    private CalendarView View = CalendarView.Month;
-    private TelerikCalendar CalendarRef { get; set; }
-
-    private string GetMeetingClass(DateTime date)
-    {
-        if (date.Day % 5 == 0)
-        {
-            return "meeting";
-        }
-        else if (date.Day % 9 == 0)
-        {
-            return "cocktail";
-        }
-        else
-        {
-            return "";
-        }
-    }
-
-    private void NavigateToCurrentMonth()
-    {
-        CalendarRef.NavigateTo(DateTime.Today, CalendarView.Month);
-    }
-
-    private void GoToCenturyView()
-    {
-        View = CalendarView.Century;
-    }
+    private int ViewCount { get; set; } = 3;
+    private DateTime CalendarDate { get; set; } = DateTime.Today;
+    private DateTime CalendarValue { get; set; } = DateTime.Today;
+    private CalendarView CalendarView { get; set; } = CalendarView.Month;
 }
 ````
 
 ## See Also
 
-- [Calendar Overview](https://docs.telerik.com/blazor-ui/components/calendar/overview)
-- [Calendar Header Template](https://docs.telerik.com/blazor-ui/components/calendar/templates/header-template)
-- [Calendar Views](https://docs.telerik.com/blazor-ui/components/calendar/views)
+* [Calendar Overview](https://docs.telerik.com/blazor-ui/components/calendar/overview)
+* [Calendar Header Template](https://docs.telerik.com/blazor-ui/components/calendar/templates/header-template)
+* [Calendar Views](https://docs.telerik.com/blazor-ui/components/calendar/views)
