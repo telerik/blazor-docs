@@ -12,12 +12,12 @@ ticketid: 1656109
 ## Environment
 
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>TreeView for Blazor</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>TreeView for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
