@@ -133,6 +133,37 @@ The following table lists Scheduler parameters, which are not discussed elsewher
 | `Height` | `string` | A `height` style in [any supported unit]({%slug common-features/dimensions%}). |
 | `Width` | `string` | A `width` style in [any supported unit]({%slug common-features/dimensions%}). |
 
+## Scheduler Reference and Methods
+
+To execute Scheduler methods, obtain reference to the component instance with `@ref`.
+
+| Method  | Description |
+|---------|-------------|
+| `Rebind` | Use to refresh the component data. |
+| `Refresh` | Use to programmatically re-render the Scheduler. |
+
+<div class="skip-repl"></div>
+
+````CSHTML
+<TelerikButton OnClick="@RefreshScheduler">Refresh Scheduler</TelerikButton>
+<TelerikButton OnClick="@RefreshScheduler">Rebind Scheduler</TelerikButton>
+
+<TelerikScheduler @ref="SchedulerRef" />
+
+@code {
+    private TekerikScheduler<Appointment>? SchedulerRef { get; set; }
+
+    private void RefreshScheduler()
+    {
+        SchedulerRef?.Refresh();
+    }
+
+    private void RebindScheduler()
+    {
+        SchedulerRef?.Rebind();
+    }
+}
+````
 
 ## Next Steps
 
