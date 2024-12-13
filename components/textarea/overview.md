@@ -15,16 +15,16 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 ## Creating Blazor TextArea
 
 1. Add the `<TelerikTextArea>` tag to a Razor file.
-2. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
-3. (optional) Set the `AutoSize` property to adjust the TextArea height based on the user input.
-4. (optional) Set the `MaxLength ` property to control the maximum amount of characters that the user can type in the component.
+1. Set the `Value` parameter to a `string` object. It supports one-way and two-way binding.
+1. (optional) Set the `MaxLength ` property to control the maximum amount of characters that the user can type in the component.
+1. (optional) Set the `Rows` property to adjust the TextArea height.
 
 >caption Basic TextArea with two-way value binding
 
 ````CSHTML
 <TelerikTextArea @bind-Value="@TextAreaValue"
-                 AutoSize="true" 
-                 MaxLength="200" />
+                 MaxLength="200"
+                 Rows="5" />
 
 <p>TextArea value: @TextAreaValue</p>
 
