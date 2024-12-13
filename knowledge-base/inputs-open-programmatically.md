@@ -56,8 +56,11 @@ Review the `attachFocusHandler` JavaScript function below. It is called in `OnAf
 
 Note that the Date/Time Pickers move focus to their popup once it is opened. This enables keyboard navigation in the popup, but prevents immediate move to another component via tabbing. You need to hit Enter to close the popup and return focus to the DateInput textbox. Then tab.
 
+> Replace the `OnFocusKB` type of the `DotNetObjectReference` in the example below with the type of the component that hosts this code.
+
 >caption Focus Component and Open Dropdown Programmatically
 
+<div class="skip-repl"></div>
 ````RAZOR
 @inject IJSRuntime js
 @* Open dropdown on click or focus *@
@@ -152,6 +155,7 @@ TimePicker:
                    Width="300px" />
 
 @code {
+    //Replace the OnFocusKB type with the type of the component that hosts this code
     private DotNetObjectReference<OnFocusKB>? DotNetRef { get; set; }
 
     private List<Product> ValueCollection { get; set; } = new();
@@ -213,10 +217,10 @@ TimePicker:
         for (int i = 1; i <= 10; i++)
         {
             ValueCollection.Add(new Product()
-            {
-                ID = i,
-                Name = "Product Name " + i.ToString()
-            });
+                {
+                    ID = i,
+                    Name = "Product Name " + i.ToString()
+                });
         }
 
         DotNetRef = DotNetObjectReference.Create(this);
@@ -236,6 +240,7 @@ TimePicker:
 
 [UI for Blazor versions 2.25 - 2.30 have different HTML rendering for the input components]({%slug changes-in-3-0-0%}). Use this `attachFocusHandler` code instead:
 
+<div class="skip-repl"></div>
 ````JS
 function attachFocusHandler(id, componentClass) {
     var element = document.getElementById(id);
