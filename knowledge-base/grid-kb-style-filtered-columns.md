@@ -128,7 +128,7 @@ To style filtered columns in a Telerik Grid for Blazor:
             {
                 ID = i,
                 Name = "Name " + i,
-                HireDate = DateTime.Now.Date.AddDays(rand.Next(-20, 20))
+                HireDate = DateTime.Today.AddDays(rand.Next(-20, 20))
             });
         }
 
