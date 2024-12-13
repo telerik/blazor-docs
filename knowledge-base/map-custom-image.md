@@ -48,7 +48,7 @@ This method is ideal when using the Map in a static context without the need for
         position: relative;
     }
 
-    .custom-map .k-map-controls{
+    .custom-map .k-map-controls {
         display:none;
     }
 </style>
