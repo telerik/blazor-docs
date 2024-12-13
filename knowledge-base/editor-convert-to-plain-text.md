@@ -57,7 +57,7 @@ To export to another format, use the corresponding namespace and format provider
 
 <p><TelerikButton OnClick="@ConvertValue">Convert to Plain Text</TelerikButton></p>
 
-<TelerikTextArea @bind-Value="@PlainTxtValue" Width="100%" AutoSize="true" />
+<TelerikTextArea @bind-Value="@PlainTxtValue" Width="100%" Rows="5" />
 
 @code {
 
