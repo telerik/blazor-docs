@@ -24,12 +24,15 @@ res_type: kb
 
 When using a data-bound component, the application gets a null exception, and the component does not work. When running the Telerik Blazor application the application gets an error similar to the following:
 
-````C#.skip-repl
+<div class="skip-repl"></div>
+````C#
 ArgumentNullException: Value cannot be null. (Parameter 'source')
 System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
 ````
 
 To reproduce the problem, you can use the following code sample:
+
+<div class="skip-repl"></div>
 ````RAZOR
 <TelerikGrid Data="@GridData">
     <GridColumns>
@@ -83,7 +86,6 @@ The cause for this null exception is the binding of Telerik UI for Blazor compon
 The solution is to always bind the component to a `class` model, not a `struct`. For more information, see [Data Binding Overview]({%slug common-features-data-binding-overview%}#how-to-provide-data).
 
 <div class="skip-repl"></div>
-
 ````CS
 public class Product
 {

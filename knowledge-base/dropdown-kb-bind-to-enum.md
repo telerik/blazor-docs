@@ -61,7 +61,7 @@ Here are examples of both.
 
 @* for a combo box, make sure that custom values and clearing are not available unless you are explicitly OK with that *@
 <TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="@selectedValue"
-                 ClearButton="false" AllowCustom="false" Filterable="true">
+                 ShowClearButton="false" AllowCustom="false" Filterable="true">
 </TelerikComboBox>
 
 @code {
@@ -104,7 +104,7 @@ You will see blank space above the combobox until you select something.
 <br />
 
 <TelerikComboBox Data="@myDdlData" TextField="MyTextField" ValueField="MyValueField" @bind-Value="@selectedValue"
-                 ClearButton="false" AllowCustom="false" Filterable="true" Placeholder="Select an option">
+                 ShowClearButton="false" AllowCustom="false" Filterable="true" Placeholder="Select an option">
 </TelerikComboBox>
 
 @code {
