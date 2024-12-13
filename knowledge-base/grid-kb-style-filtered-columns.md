@@ -1,6 +1,6 @@
 ---
 title: Change Filtered Columns Color in Grid for Blazor
-description: Learn how to change the background color of filtered columns in the Grid for Blazor for better visibility using CSS.
+description: Learn how to change the background color of filtered columns in the Telerik Grid for Blazor for better visibility using CSS.
 type: how-to
 page_title: How to Style Filtered Columns in Telerik Grid for Blazor
 slug: grid-kb-style-filtered-columns
