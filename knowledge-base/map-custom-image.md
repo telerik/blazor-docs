@@ -4,7 +4,7 @@ description: Learn how to integrate a custom image with the Blazor Map component
 type: how-to
 page_title: How to Use a Custom Image with Blazor Map for Marker Placement
 slug: map-kb-custom-image
-tags: map, blazor, custom, image, markers
+tags: blazor, map, markers
 res_type: kb
 ticketid: 1652767
 ---
