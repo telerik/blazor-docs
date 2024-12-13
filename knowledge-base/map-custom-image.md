@@ -43,7 +43,7 @@ This method is ideal when using the Map in a static context without the need for
 
 ````CSHTML
 <style>
-    .custom-map{
+    .custom-map-image {
         background-image: url(https://d585tldpucybw.cloudfront.net/sfimages/default-source/productsimages/telerik-ui-for-blazor/blazor-header-ninja.svg?sfvrsn=41f12bb3_3);
         position: relative;
     }
