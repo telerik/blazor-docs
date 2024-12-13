@@ -31,7 +31,7 @@ The grid needs to create a new instance of the model for inserting or editing, a
 
 >caption You can reproduce this behavior with the following simplistic markup without any Telerik components.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations;
 
 <EditForm Model="@cust" OnValidSubmit="@ValidSubmit">

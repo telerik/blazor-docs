@@ -24,7 +24,7 @@ The stepper component will also allow you to [localize]({%slug globalization-loc
 
 ![Optional step](images/optional-step-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with one optional step. *@
 
 <div style="width:700px">
@@ -51,8 +51,8 @@ This feature serves to mark the desired step as disabled, so users cannot click 
 
 ![Disabled step](images/disabled-step-example.png)
 
-````CSHTMl
-* Stepper with one disabled step. *@
+````RAZOR
+@* Stepper with one disabled step. *@
 
 <div style="width:700px">
     <TelerikStepper>

@@ -32,7 +32,7 @@ If you don't want to define a data source, you can provide an empty `List<object
 
 
 
-````CSHTML
+````RAZOR
 <div class="menuTarget">
     right click this context menu target
 </div>

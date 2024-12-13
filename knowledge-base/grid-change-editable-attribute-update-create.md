@@ -34,7 +34,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
 
 >caption Example 1: use editor template and its item to bind the Editable field
 
-````CSHTML
+````RAZOR
 @CurrentlyEditedEmployee?.ID
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
@@ -131,7 +131,7 @@ In the two examples below, the `Name` column uses the `Editable` property, and t
 
 >caption Example 2: Toggle the Editable property by using a flag you can set from the grid events. Does not require an editor template (even though it includes one for comparison).
 
-````CSHTML
+````RAZOR
 @CurrentlyEditedEmployee?.ID
 <br />
 @isEditable

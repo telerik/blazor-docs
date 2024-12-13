@@ -23,7 +23,7 @@ The Wizard uses a [Stepper component]({%slug stepper-overview%}) internally, so 
 
 >caption Basic Telerik Wizard
 
-````CSHTML
+````RAZOR
 <TelerikWizard @bind-Value="@WizardValue">
     <WizardSteps>
         <WizardStep Label="Start" Icon="@SvgIcon.Gear">

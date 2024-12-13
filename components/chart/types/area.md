@@ -30,7 +30,7 @@ The Area Chart is similar to the [Range Area Chart]({%slug components/chart/type
 
 >caption An area chart that shows product revenues
 
-````CSHTML
+````RAZOR
 @*Area series*@
 
 <TelerikChart>
@@ -92,7 +92,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the rendering Step, Color and Font of the Category Axis Labels
 
-````CSHTML
+````RAZOR
 @* Change the rendering Step, Color and Font of the Category Axis Labels *@
 
 <TelerikChart>

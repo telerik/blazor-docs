@@ -28,7 +28,7 @@ The `FillMode` affects the presence of a background and borders. You can set it 
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{
@@ -67,7 +67,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the Chip to achi
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -108,7 +108,7 @@ You can increase or decrease the size of the Chip by setting the `Size` attribut
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -148,7 +148,7 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 
 >caption The built-in ThemeColors
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.ThemeColor)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static

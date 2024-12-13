@@ -29,7 +29,7 @@ In addition, the SVG Chart provides accessibility features such as [general desc
 
 >caption Bar Chart rendered as SVG
 
-````CSHTML
+````RAZOR
 <TelerikChart Width="700px" Height="400px">
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">
@@ -72,7 +72,7 @@ On the downside, rendering a fixed resolution bitmap results in:
 
 >caption Bar Chart rendered as Canvas
 
-````CSHTML
+````RAZOR
 <TelerikChart RenderAs="@RenderingMode.Canvas" Width="700px" Height="400px">
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Bar" Name="Product 1" Data="@series1Data">

@@ -5,7 +5,7 @@ description: Learn how to use the Label Template in the Blazor StockChart and to
 slug: stockchart-labels-format-template
 tags: telerik,blazor,stock,stockchart,chart,label,template,format,customize
 published: true
-position: 22
+position: 23
 ---
 
 # Label Template and Format
@@ -24,7 +24,7 @@ You can use the `Format` parameter to apply standard [numeric format strings](ht
 
 >caption Format the labels on the Value and Category Axes
 
-````CSHTML
+````RAZOR
 Standard number format strings and rotate the labels of the Category Axis
 
 <TelerikStockChart Width="700px"
@@ -144,7 +144,7 @@ In a *value axis* label template, you can use the following fields:
 
 >caption Custom templates in labels
 
-````CSHTML
+````RAZOR
 Label templates
 
 <TelerikStockChart Width="700px"

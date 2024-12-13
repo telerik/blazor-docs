@@ -21,7 +21,7 @@ To configure the precision of the selection, use either of the following setting
 
 The full precision mode is the default mode of the Rating. If not configured, the component will automatically set the `PrecisionMode` option to `Full` which enables only whole stars to be selected by click or keyboard interaction.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                PrecisionMode="RatingPrecisionMode.Full">
 </TelerikRating>
@@ -38,7 +38,7 @@ To configure the half precision mode of the Rating, set the `PrecisionMode` opti
 * A value which is less than or equal to `.5` displays half an item.
 * A value which is greater than `.5` displays a full item.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                PrecisionMode="RatingPrecisionMode.Half">
 </TelerikRating>

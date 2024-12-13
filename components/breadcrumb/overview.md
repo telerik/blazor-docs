@@ -31,7 +31,7 @@ To use a Telerik Breadcrumb for Blazor:
 
 ![Breadcrumb for Blazor](images/breadcrumb-basic-example.png)
 
-````CSHTML
+````RAZOR
 @* This example demonstrates the basic configuration of the Breadcrumb*@
 
 <TelerikBreadcrumb Data="@Items">
@@ -65,7 +65,7 @@ To use a Telerik Breadcrumb for Blazor:
 
 >caption Component namespace and reference
 
-````CSHTML
+````RAZOR
 <TelerikBreadcrumb @ref="theBreadcrumbRef" Data="@Items">
 </TelerikBreadcrumb>
 

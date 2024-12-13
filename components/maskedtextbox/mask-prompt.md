@@ -48,7 +48,7 @@ The Telerik MaskedTextbox provides a set of built-in rules that it recognizes as
 - `&` - Character (excluding `space`)
 - `C` - Character or `space`
 
->tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#some-sample-masks) section of the documentation.
+>tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#mask-examples) section of the documentation.
 
 ### Literals
 
@@ -58,7 +58,7 @@ In some cases, you may want to include a literal that matches a Rule, however. T
 
 >caption Literals and escaped rules as part of the mask
 
-````CSHTML
+````RAZOR
 @* The user will see "ABC---1209" in this example and only the part "12" is editable. The other symbols are escaped rules - "A", "C", "0" and "9" or literals - the "B" and the three dashes "-" *@
 
 @invoiceNumber
@@ -78,7 +78,7 @@ By default, the `Value` of the component only includes the rules from the mask. 
 
 ![Include Literals behavior](images/include-literals.gif)
 
-````CSHTML
+````RAZOR
 @* Toggle the checkbox to see the behavior *@
 
 <TelerikMaskedTextBox Mask="(+999) 000-0000"
@@ -107,7 +107,7 @@ The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedence over t
 
 ![Show mask only when the input is focused](images/show-mask-on-focus-only.gif)
 
-````CSHTML
+````RAZOR
 @* This is the non-default behavior where the user first sees the FloatingLabel or Placeholder if there is no value *@
 
 @TheValue
@@ -146,7 +146,7 @@ The `PromptPlaceholder` is useful when you need to process the user input at a l
 
 ![Prompt and PromptPlaceholder behavior](images/custom-promt-and-promptplaceholder.gif)
 
-````CSHTML
+````RAZOR
 @* Toggle the checkboxex and write a part of the card number to see the difference in the Value and input appearance *@
 
 <div style="white-space: pre; text-decoration: underline;font-family: 'Courier New';">@TheValue</div>

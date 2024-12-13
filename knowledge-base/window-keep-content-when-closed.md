@@ -50,7 +50,7 @@ To customize the closing of a non-modal Window:
 1. Use this class to add the `display: none;` rule to the Window.
 1. Clear this class when the user opens the Window to revert the custom style and display the component.
 
-````CSHTML
+````RAZOR
 @*Hide Window with CSS to preserve its content*@
 
 @using System.ComponentModel.DataAnnotations
@@ -138,7 +138,7 @@ To customize the closing of a modal Window or Dialog:
 
 > The suggested approach prevents the application from using other modal Windows or Dialogs.
 
-````CSHTML
+````RAZOR
 @*Hide modal Window with CSS to preserve its content*@
 
 @using System.ComponentModel.DataAnnotations

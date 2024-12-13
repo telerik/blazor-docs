@@ -18,7 +18,7 @@ You can choose which supported encoding to use by setting the `Type` parameter o
 
 >caption Explore the Barcode Type options
 
-````CSHTML
+````RAZOR
 @*Choose a type from the dropdown*@
 
 <div style="display: flex">

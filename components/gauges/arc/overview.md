@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 1. (optional) Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template)
 
 
-````CSHTML
+````RAZOR
 @* Setup a basic arc gauge *@
 
 <TelerikArcGauge>
@@ -65,7 +65,7 @@ The labels are rendered on the scale of the component to give information to the
 
 >caption Get a reference to the Arc Gauge and use the Refresh method
 
-````CSHTML
+````RAZOR
 @* Change the Width of the component *@
 
 <TelerikButton OnClick="@ChangeTheHeight">Change the Width of the component</TelerikButton>

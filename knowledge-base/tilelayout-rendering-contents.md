@@ -31,7 +31,7 @@ When clicking on a child component in the `<Content>` of another tile you initia
 
 >caption Set the HeaderText based on clicked series of the Chart
 
-````CSHTML
+````RAZOR
 @*Click on a Chart Series to change the HeaderText for the Tile*@
 
 <TelerikTileLayout Columns="3"

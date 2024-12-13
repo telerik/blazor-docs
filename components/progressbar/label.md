@@ -20,7 +20,7 @@ To access the customization settings use the `<ProgressBarLabel>`. It provides a
 
 ![customize the labels of the progress bar](images/progress-bar-customize-label.png)
 
-````CSHTML
+````RAZOR
 <TelerikProgressBar Max="@MaxValue" Value="@PBValue">
     <ProgressBarLabel Visible="true" Position="@ProgressBarLabelPosition.Center">
         <Template>

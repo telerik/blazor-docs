@@ -45,7 +45,7 @@ The example below offers comments in the code on some possible improvements.
 
 >caption Select a Row in Grid Programmatically and Scroll to the Row
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 @inject IJSRuntime JsInterop

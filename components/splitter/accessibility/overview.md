@@ -21,7 +21,7 @@ The following example demonstrates the [accessibility compliance of the Splitter
 
 >caption Splitter accessibility compliance example
 
-````CSHTML
+````RAZOR
 @*Evaluate the example with Axe Core or other accessibility tools*@
 
 @using Telerik.SvgIcons

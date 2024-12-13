@@ -31,17 +31,16 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
 
 2. Add a CSS rule to the scoped styles, such as a font size change.
 
-    **CSS**
-    
-        .my-component-button-class {
-            font-size: 20px !important;
-        }
-
+````CSS.skip-repl
+.my-component-button-class {
+    font-size: 20px !important;
+}
+````
 
 3. Apply that class to a Telerik component.
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <p>This button's class is defined in the component's scoped css file. The class is applied to the button but the random attribute the framework renders is not applied so it does not have effect.</p>
 <TelerikButton Class="my-component-button-class"
                ThemeColor="primary">
@@ -57,7 +56,7 @@ I want to leverage CSS isolation in my projects but am finding that it doesn't w
     The font size is larger thanks to the scoped css file.
 </button>
 ````
-````MyCustomComponent
+````RAZOR MyCustomComponent
 <button class="@Class">
     This is a button from a component, not direct markup
 </button>
@@ -91,18 +90,18 @@ There are two ways to go around this:
 
 >caption Sample CSS selector that uses `::deep` to cascade for nested components
 
-**CSS**
-
-    .my-component-button-class,
-    ::deep .my-component-button-class {
+````CSS.skip-repl
+.my-component-button-class,
+::deep .my-component-button-class {
     font-size: 20px !important;
-    }
+}
+````
 
 
 >caption Sample way to wrap nested components in HTML elements from the current component so `::deep` rules can affect them
 
 <div class="skip-repl"></div>
-````CSHTML
+````RAZOR
 <p>This button's class is defined in the component's scoped css file. It's applied to the wrapping element from this component (a span in this case, make sure to use an appropriate one to have valid HTML) and the ::deep pseudoselector applies it to the button.</p>
 <span>
     <TelerikButton Class="my-component-button-class"

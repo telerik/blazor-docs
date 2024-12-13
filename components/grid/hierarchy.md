@@ -26,7 +26,7 @@ When a detail template is defined, an expand/collapse button is rendered at the 
 
 >caption Define a detail template to show hierarchical data from the model in a nested grid
 
-````CSHTML
+````RAZOR
 Click the + icon to expand the row details
 
 <TelerikGrid Data="salesTeamMembers">
@@ -101,7 +101,7 @@ When the `ExpandedItems` are obtained from a different data source to the Grid (
 
 >caption Expand DetailTemplate hierarchy from code
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/grid/state.md#expand-hierarchy-from-code)
 ````
 

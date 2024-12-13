@@ -25,7 +25,7 @@ To hide a Gantt Tree column set its `Visible` parameter to `false`. To hide a co
 
 >caption Hide a column from the Gantt. Basic example.
 
-````CSHTML
+````RAZOR
 @* Hide the Id Gantt Tree column by setting the Visible parameter to false *@
 
 <TelerikGantt Data="@Data"
@@ -132,7 +132,7 @@ In this section you will find the following examples:
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
-````CSHTML
+````RAZOR
 @* Toggling the visibily of a column keeps its original order in the Gantt Tree. *@
 
 <div>
@@ -230,7 +230,7 @@ The application can later the value of the `Visible` parameter and that will tog
 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
-````CSHTML
+````RAZOR
 @* The Id column is hidden, because the data for the Gantt Chart contains 1 *@
 
 <TelerikGantt Data="@Data"

@@ -30,7 +30,7 @@ similar code is used somewhere else in the application without any problems
 
 
 ## Steps to Reproduce
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
     <GridColumns>
         <GridColumn Field="ID"></GridColumn>

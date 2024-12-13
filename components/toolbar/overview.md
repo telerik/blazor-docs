@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 >caption Basic Telerik Toolbar
 
-````CSHTML
+````RAZOR
 <TelerikToolBar>
     <ToolBarButtonGroup>
         <ToolBarButton Icon="@SvgIcon.Bold" OnClick="@OnBold">Bold</ToolBarButton>
@@ -103,7 +103,7 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 
 >caption Responsive Overflow Popup
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="ChangeWidth">Change Width!</TelerikButton>
 
 <br />

@@ -26,7 +26,7 @@ To enable cell selection:
 
 >caption TreeList multiple cell selection
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
@@ -102,7 +102,7 @@ You can respond to user selection actions through the `SelectedCellsChanged` eve
 
 >caption Using the TreeList SelectedCellsChanged event
 
-````CSHTML
+````RAZOR
 @* Select cells and handle the SelectedCellsChanged event *@
 
 <TelerikTreeList Data="@TreeListData"

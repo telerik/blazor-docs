@@ -46,7 +46,7 @@ The approaches to handle this would depend of the type of data the component is 
 1. Use the [TreeList state]({%slug treelist-state%}) and its `InsertedItem` field to populate the desired information from the current item that you have in the event arguments.
 
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource;
 
 <TelerikTreeList Data="@Data"
@@ -180,7 +180,7 @@ The approaches to handle this would depend of the type of data the component is 
 1. Use the TreeList state and its `InsertedItem` field to populate the desired information from the current item that you have in the event arguments..
 
 
-````CSHTML
+````RAZOR
 @* One way to get metadata in the current item about its parent upon insertion *@
 
 <TelerikTreeList Data="@Data"

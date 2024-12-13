@@ -1,7 +1,7 @@
 ---
 title: Telerik Document Processing  Libraries 
 page_title: Document Processing Libraries - Integration with Telerik Products
-description: "Get started with Telerik UI for {{ site.framework }} and learn how to work with the PdfProcessing, SpreadStreamProcessing, WordsProcessing, and ZipLibrary libraries as part of the Telerik Document Processing Libraries."
+description: "Get started with Telerik UI for Blazor and learn how to work with the PdfProcessing, SpreadStreamProcessing, WordsProcessing, and ZipLibrary libraries as part of the Telerik Document Processing Libraries."
 slug: dpl-in-blazor
 position: 11
 previous_url: /components/document-processing/overview, /components/document-processing/pdf, /components/document-processing/spreadsheet, /components/document-processing/spreadstream, /components/document-processing/words, /components/document-processing/zip

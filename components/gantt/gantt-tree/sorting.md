@@ -28,7 +28,7 @@ The sorting criteria are stored in a [collection of `SortDescriptor`]({%slug com
 
 >caption Enable Sorting in Telerik TreeList
 
-````CSHTML
+````RAZOR
 Click a column header to sort by its data
 
 <TelerikGantt Data="@Data"

@@ -24,7 +24,7 @@ res_type: kb
 
 I want to use the web assembly server-side pre-rendering feature in .NET 5 - the `WebAssemblyPrerendered` mode.
 
-````
+````RAZOR.skip-repl
 <component type="typeof(App)" render-mode="WebAssemblyPrerendered" />
 ````
 

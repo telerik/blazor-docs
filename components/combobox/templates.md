@@ -41,7 +41,7 @@ The ComboBox component allows you to change what is rendered in its items, heade
 
 >caption Using ComboBox Templates
 
-````CSHTML
+````RAZOR
 @* ComboBox component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>

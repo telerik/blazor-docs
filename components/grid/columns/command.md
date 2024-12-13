@@ -70,7 +70,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
 
 <div class="skip-repl"></div>
 
-```razor
+````RAZOR
 <GridCommandColumn Context="dataItem">
     @{ var product = (Product)dataItem; }
 
@@ -89,7 +89,7 @@ Use a **named** context variable to avoid errors when nesting components or `Ren
         Delete
     </GridCommandButton>
 </GridCommandColumn>
-```
+````
 
 ## Example
 
@@ -99,7 +99,7 @@ The following code example demonstrates declarations and handling.
 
 >caption Example of handling custom commands in a grid column
 
-````CSHTML
+````RAZOR
 @* This sample showcases custom command handling for:
     - the built-in Save command that prevents it based on some condition (Name contains "3")
     - a custom command for a row

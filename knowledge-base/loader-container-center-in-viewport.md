@@ -35,7 +35,7 @@ In addition, you may also adjust the position of the inner container - the one t
 
 The example below demonstrates the suggested approach. Uncomment the second styles portion to see the difference.
 
-````CSHTML
+````RAZOR
 @* Center the LoaderContainer in the viewport *@
 
 <style>

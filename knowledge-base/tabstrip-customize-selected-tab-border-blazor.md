@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 To customize the border of the selected tab in the TabStrip or remove it, use the `box-shadow` CSS property. This approach allows you to specify the borders around the tab and its content area. 
 
-````CSHTML
+````RAZOR
 @if (HideFocusBorder)
 {
     <style>

@@ -33,7 +33,7 @@ You can also explore the child tags of the labels for more options on controllin
 
 For more detailed control over the text shown in the labels, see the [Label Template and Format]({%slug components/chart/label-template-format%}) article.
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column" Name="Product 3" Data="@series1Data">

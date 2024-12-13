@@ -20,7 +20,7 @@ The built-in delete confirmation dialog triggers before item deletion. You can e
 
 >caption Enabling of the Delete Confirmation Dialog
 
-````CSHTML
+````RAZOR
 @* Grid with enabled Delete Confirmation Dialog *@
 
 @using System.ComponentModel.DataAnnotations

@@ -30,7 +30,7 @@ The example below uses [binding]({%slug components/dropdownlist/databind%}) to s
 
 >caption Handle DropDownList ValueChanged
 
-````CSHTML
+````RAZOR
 <ul>
     <li>DropDownList Value: @DropDownValue</li>
     <li>Event Log: @EventLog</li>
@@ -72,7 +72,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle the OnChange event and use two-way binding
 
-````CSHTML
+````RAZOR
 @result
 <br />
 from the model: @MySelectedItem
@@ -116,7 +116,7 @@ You can also call remote data through `async` operations.
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
 
 
-````CSHTML
+````RAZOR
 <p>@SelectedValue</p>
 
 <TelerikDropDownList TItem="@String" TValue="@String"
@@ -167,12 +167,12 @@ You can also call remote data through `async` operations.
 }
 ````
 
->tip This example uses plain strings for brevity, you can use full models - see the [data binding](data-bind) article for examples.
+>tip This example uses plain strings for brevity, you can use full models - see the [data binding](slug://components/dropdownlist/databind) article for examples.
 
 
 >caption Filter large local data through the Telerik DataSource extensions
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <p>Selected Id: @SelectedValue</p>
@@ -241,7 +241,7 @@ The event handler receives as an argument an `DropDownListOpenEventArgs` object 
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList Data="@Items"
                      OnOpen="OnDropDownListPopupOpen"
                      ValueField="@nameof(ItemDescriptor.ItemId)"
@@ -283,7 +283,7 @@ The event handler receives as an argument an `DropDownListCloseEventArgs` object
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikDropDownList Data="@Items"
@@ -330,7 +330,7 @@ The event handler receives as an argument an `DropDownListItemRenderEventArgs<TI
 | `Item` | The current item that renders in the DropDownList. |
 | `Class` | The custom CSS class that will be added to the item.     |
 
-````CSHTML
+````RAZOR
 @* Customize an item in the DropDownList *@
 
 <style>
@@ -377,7 +377,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikDropDownList @bind-Value="@TheValue" Data="@Suggestions"

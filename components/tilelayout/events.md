@@ -25,7 +25,7 @@ The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. I
 
 >caption Respond to the Resize event and adjust components in the tile
 
-````CSHTML
+````RAZOR
 @* Respond to a tile resizing to resize its contents, if needed *@
 
 <TelerikTileLayout Columns="4"
@@ -96,7 +96,7 @@ The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`.
 
 >caption Respond to the OnReorder event
 
-````CSHTML
+````RAZOR
 @* Handle the OnResized event *@
 
 <TelerikTileLayout Columns="3"

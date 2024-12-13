@@ -18,7 +18,7 @@ The ChipList component allows you to change what is rendered in the chip. This a
 
 The `<ItemTemplate>` allows you to control the rendering of the chips in the ChipList. This template receives a `context` argument that represents the current item.
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListSource">
     <ItemTemplate>
         @{

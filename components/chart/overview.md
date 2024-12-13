@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 
 >caption Basic chart
 
-````CSHTML
+````RAZOR
 Basic chart and common settings/elements
 
 <TelerikChart>
@@ -80,7 +80,7 @@ You can add a short description of the Chart's purpose by using the `ChartTitle`
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikChart>
     <ChartTitle Text="Product Sales" Description="Product Sales by Year and Country"></ChartTitle>
 </TelerikChart>
@@ -88,7 +88,7 @@ You can add a short description of the Chart's purpose by using the `ChartTitle`
 
 ## Chart Subtitle
 
-You can add a descriptive text that enriches the [Title](#title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
+You can add a descriptive text that enriches the [Title](#chart-title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
 
 ## Chart Size
 
@@ -99,7 +99,7 @@ You can also set the chart size in percentage values so it occupies its containe
 
 >caption Change the 100% chart size dynamically to have a responsive chart
 
-````CSHTML
+````RAZOR
 You can make a responsive chart
 
 <TelerikButton OnClick="@ResizeChart">Resize the container and redraw the chart</TelerikButton>
@@ -169,7 +169,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@RefreshChart">Refresh Chart</TelerikButton>
 
 <TelerikChart @ref="ChartRef" />

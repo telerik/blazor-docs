@@ -48,7 +48,7 @@ The following example demonstrates both options.
 
 >caption Hide Grid Pager conditionally
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ToggleGridData"
                ThemeColor="@ThemeConstants.Button.ThemeColor.Primary">
     Toggle Grid Data

@@ -18,7 +18,7 @@ This approach of providing nodes lets you gather separate collections of data an
 
 >caption Example of hierarchical data that uses different models for the parent and the child. Using different models is not required.
 
-````CSHTML
+````RAZOR
 @* Provide heirarchical collection of items to the PanelBar *@
 
 <div style="width: 30%;">

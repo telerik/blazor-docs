@@ -26,7 +26,7 @@ The selected chips will be stored in the `SelectedItems` collection (`IEnumerabl
 
 Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event when you need to respond to the user selection and add some additional application logic.
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListSource"
                  SelectionMode="@ChipListSelectionMode.Multiple"
                  SelectedItems="@ChipListSelectedItems"
@@ -69,7 +69,7 @@ Use the `SelectedItems` parameter together with the `SelectedItemsChanged` event
 
 When you use the `@bind-SelectedItems` syntax, the ChipList will automatically update the `SelectedItems` collection when the user change the selection.
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListSource"
                  SelectionMode="@ChipListSelectionMode.Single"
                  @bind-SelectedItems="@ChipListSelectedItems">

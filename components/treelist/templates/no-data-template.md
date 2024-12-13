@@ -19,7 +19,7 @@ The `NoDataTemplate` allows you to define custom content when the TreeList has n
 
 >caption Use the NoDataTemplate to override the message shown while the data is still loading or when you try to filter a non-existing item
 
-````CSHTML
+````RAZOR
 @* The example showcases a TreeList with a delay upon initializing its data and filtering on non-existing data *@
 
 <TelerikTreeList Data="@Data"

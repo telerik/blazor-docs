@@ -56,7 +56,7 @@ The code snippets below assume that the application name is `BlazorAppName`.
 
 <div class="skip-repl"></div>
 
-````Program.cs
+````C# Program.cs
 // This is not the complete Program.cs file, but only the relevant bits.
 
 using Microsoft.AspNetCore.Http.Features;
@@ -112,7 +112,7 @@ app.MapDefaultControllerRoute();
 
 app.Run();
 ````
-````Razor
+````RAZOR
 @using Microsoft.AspNetCore.Antiforgery
 
 @inject AntiforgeryStateProvider AfStateProvider
@@ -181,7 +181,7 @@ app.Run();
     }
 }
 ````
-````Controller
+````C# Controller
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorAppName.Controllers

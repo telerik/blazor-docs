@@ -54,7 +54,7 @@ Programmatic autofitting works even if column resizing is disabled.
 
 >caption TreeList Column Resizing and Autofitting
 
-````CSHTML
+````RAZOR
 @* TreeList column resizing and autofitting *@
 @* Drag the border between column headers to change the column width. You cannot resize the ID column itself. *@
 

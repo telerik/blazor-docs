@@ -34,7 +34,7 @@ The Popup editing mode supports [validation]({%slug common-features/input-valida
 
 >caption Grid popup editing example. Please review the code comments
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <strong>Editing is cancelled for the fifth item conditionally.</strong>
@@ -221,7 +221,7 @@ The `GridPopupEditFormSettings` nested tag exposes the following parameters to a
 
 >caption Customize the popup edit form
 
-````CSHTML
+````RAZOR
 @*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Popup" Pageable="true" Height="500px">
@@ -282,6 +282,6 @@ You can specify a `ButtonsTemplate` in the `GridPopupEditFormSettings` to custom
 ## See Also
 
 * [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
-* [Custom Editor Template Per Field]({%slug components/grid/features/templates%}#edit-template)
+* [Custom Editor Template Per Field]({%slug grid-templates-editor%})
 * [Custom Editor Layout](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)
 * [Blazor Grid]({%slug grid-overview%})

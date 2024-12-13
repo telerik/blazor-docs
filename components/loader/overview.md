@@ -30,7 +30,7 @@ The **Loader** is placed inside another component or HTML element. Typically, it
 
 >caption Blazor Loader with non-default appearance settings
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@( _ => LoaderVisible = !LoaderVisible )">Toggle Loader</TelerikButton>
 
 <TelerikLoader Visible="@LoaderVisible"

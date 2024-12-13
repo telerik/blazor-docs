@@ -14,7 +14,7 @@ position: 50
 With the `FormTemplate` feature, you can customize the appearance and content of the create/edit Popup window of the Grid. 
 
 >caption In this article:
-* [Basics](#basics)
+* [Using the Popup Form Template](#using-the-popup-form-template)
 * [Specifics](#specifics)
 * [Example](#example)
 
@@ -36,7 +36,7 @@ When using the template, the default Popup form is replaced by the declared cont
 
 Using a `FormTemplate` to modify the Edit/Create Popup window.
 
-````CSHTML
+````RAZOR
 @using System.Collections.Generic;
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions

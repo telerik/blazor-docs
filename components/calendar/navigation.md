@@ -20,7 +20,7 @@ You can control how far the user can go by setting the `Min` and `Max` propertie
 
 >caption Previous and Next navigation is enabled by default. You can control the min and max range of dates the user can navigate through
 
-````CSHTML
+````RAZOR
 The user starts in April 2019 and can navigate between January 2019 and July 2019.
 <br />
 
@@ -54,7 +54,7 @@ To control how much detail the user can go into, set the [`BottomView` and `TopV
 
 >caption Control current view and how deep the user can go
 
-````CSHTML
+````RAZOR
 The user can only go down to years on both - TopView and BottomView.
 <br />
 
@@ -90,7 +90,7 @@ You can make the Calendar component move to a certain date and view through its 
 
 >caption Navigate the Calendar to a date and view programmatically
 
-````CSHTML
+````RAZOR
 @* Programmatic Calendar navigation *@
 
 <TelerikCalendar @bind-Date="@startDate" @bind-View="@calendarView"

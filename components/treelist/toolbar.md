@@ -37,7 +37,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 >caption How to define a custom command in the treelist toolbar
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
@@ -150,7 +150,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 >caption Custom TreeList Toolbar Layout
 
-````CSHTML
+````RAZOR
 @* for brevity the insert operation is not implemented in this sample *@
 
 @result

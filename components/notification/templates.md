@@ -28,7 +28,7 @@ This section gives examples that show how to:
 
 ### Customize All Notifications From The Same Reference
 
-````CSHTML
+````RAZOR
 @* Customize the notification template *@
 
 <TelerikButton OnClick="@AddNotification">Add a notification</TelerikButton>
@@ -63,7 +63,7 @@ This section gives examples that show how to:
 
 When you are using different references in order to provide multiple templates the Notifications will not [stack]({%slug notification-stacked-notifications%}).
 
-````CSHTML
+````RAZOR
 @* Use different templates for different content and notifications *@
 
 <TelerikButton OnClick="@AddNotifications">Add notifications</TelerikButton>
@@ -106,7 +106,7 @@ When you are using different references in order to provide multiple templates t
 
 You can handle events in the template of the notification like with any other Blazor template. This lets you achieve interactivity in the templates. For example, you can know when the user clicks the notification text.
 
-````CSHTML
+````RAZOR
 @* Get click event for the notifications *@
 
 <TelerikNotification @ref="@NotificationReference">

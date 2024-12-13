@@ -37,7 +37,7 @@ Create a custom tool that programmatically changes the Editor value (inserts the
 
 1. Handle the [`ValueChanged`]({%slug components/dropdownlist/events%}#valuechanged) event of the DropDownList to get the template value and update the Editor value. In the example below, the selected value is deliberately not updated in the viewport, so it is not shown in the main element in the DropDownList - this allows the user to select the same template more than once. You may add the template value to the Editor or replace the whole content depending on the exact desired result. You may also control the position at which the template will be inserted.
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 <TelerikEditor @ref="@EditorRef"

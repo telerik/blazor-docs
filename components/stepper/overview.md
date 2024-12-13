@@ -28,7 +28,7 @@ The Stepper provides several features out of the box, including the ability to d
 
 >caption Simple setup of a Stepper component.
 
-````CSHTML
+````RAZOR
 @* Simple Stepper setup. *@
 
 <div style="width:700px">

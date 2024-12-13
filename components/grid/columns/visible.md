@@ -26,7 +26,7 @@ To hide a Grid column set its `Visible` parameter to `false`. To hide a column b
 
 >caption Hide a column from the Grid. Basic example.
 
-````CSHTML
+````RAZOR
 @* Hide the Hire Date Grid column by setting the Visible parameter to false *@
 
 <TelerikGrid Data="@MyData" 
@@ -83,11 +83,11 @@ In this section you will find the following examples:
 * [Hidden Grid Column With Template](#hidden-grid-column-with-template)
 * [Hide A Grid Column Based On A Condition](#hide-a-grid-column-based-on-a-condition)
 
-### Toggle The Visibility Of A Column On Button
+### Toggle The Visibility Of A Column On Button Click
 
 The application can later the value of the `Visible` parameter and that will toggle the column.
 
-````CSHTML
+````RAZOR
 @* Toggling the visibily of a column keeps its original order in the Grid. *@
 
 <div>
@@ -148,7 +148,7 @@ The application can later the value of the `Visible` parameter and that will tog
 
 When cell-specific templates are used, they are not rendered at all. If you are using the RowTemplate, however, make sure to handle the column visiblity there as well.
 
-````CSHTML
+````RAZOR
 @* The Template for the Salary column will not be rendered *@
 
 <TelerikGrid Data=@MyData
@@ -208,7 +208,7 @@ When cell-specific templates are used, they are not rendered at all. If you are 
 
 This example shows hiding a column based on a simple condition in its data. You can change it to use other view-model data - such as screen dimensions, user preferences you have stored, or any other logic.
 
-````CSHTML
+````RAZOR
 @* The Name column is hidden, because the data for the grid contains "Name 2" *@
 
 <TelerikGrid Data=@MyData

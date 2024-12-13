@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/flatcolorpicker" target="_blank
    * [Basics](#basics)
    * [Example](#example)
    * [Interface](#interface)
-   * [Features](#features)
+   * [Parameters](#flatcolorpicker-parameters)
    * [Supported Value Formats](#supported-value-formats)
 
 ## Basics
@@ -31,7 +31,7 @@ To use a Telerik FlatColorPicker for Blazor:
 
 Here is a simple FlatColorPicker declaration and the resulting UI.
 
-````CSHTML
+````RAZOR
 @* Blazor FlatColorPicker *@
 
 <TelerikFlatColorPicker @bind-Value="@Color" />
@@ -55,7 +55,7 @@ The image below reveals all FlatColorPicker interface elements:
 
 ![FlatColorPicker component](images/flatcolorpicker-overview.png)
 
-## Features
+## FlatColorPicker Parameters
 
 The FlatColorPicker tag exposes the following features via its attributes:
 

@@ -41,7 +41,7 @@ There are three required CSS styles to disable vertical scrolling and ensure pro
 
 >caption Hide the Grid/TreeList vertical scrollbar
 
-````CSHTML
+````RAZOR
 @* Hide the vertical scrollbar of the Grid *@
 
 <TelerikGrid Data="@GridData" Class="grid-no-scroll">

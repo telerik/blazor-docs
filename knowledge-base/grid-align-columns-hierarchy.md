@@ -51,7 +51,7 @@ The steps below describe how to align columns when using a Grid hierarchy.
 
 >caption Align the columns in hierarchical grids
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData.Where(x => x.ParentId == null)"
              TItem="@GridItem"
              OnStateInit="@OnGridStateInit"

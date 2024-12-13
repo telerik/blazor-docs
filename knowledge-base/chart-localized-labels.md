@@ -54,7 +54,7 @@ If you want to render more information in the label, you can utilize the [`Templ
 
 #### Localize numeric labels in the Chart using the Template parameter
 
-````CSHTML
+````RAZOR
 <TelerikChart>
 
     <ChartLegend Visible="true"

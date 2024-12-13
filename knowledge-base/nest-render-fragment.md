@@ -60,7 +60,7 @@ The example below uses three-level Grid hierarchy with different `RenderFragment
 
 >caption Use nested RenderFragments with Telerik UI for Blazor
 
-````CSHTML
+````RAZOR
 <p>CATEGORY Grid with nested <code>RenderFragment</code> templates.</p>
 
 <TelerikGrid Data="@CategoryData">

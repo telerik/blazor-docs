@@ -21,7 +21,7 @@ To configure the selection option, use either of the following settings:
 
 The continuous selection allows the selection of all items from the start to the end. This is the default selection mode of the Rating.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                SelectionMode="RatingSelectionMode.Continuous">
 </TelerikRating>
@@ -35,7 +35,7 @@ The continuous selection allows the selection of all items from the start to the
 
 The single selection allows the selection of a single item. To configure it, set the `SelectionMode` to `Single`.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                SelectionMode="RatingSelectionMode.Single">
 </TelerikRating>

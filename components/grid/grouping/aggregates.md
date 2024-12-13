@@ -63,7 +63,7 @@ To enable aggregates:
 
 >caption Use Aggregates in the Telerik Blazor Grid
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikGrid Data=@GridData
@@ -195,7 +195,7 @@ To enable aggregates:
 
 <div class="skip-repl"></div>
 
-```CS
+````CS
 private async Task OnGridRead(GridReadEventArgs args)
 {
     DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
@@ -204,7 +204,7 @@ private async Task OnGridRead(GridReadEventArgs args)
     args.Total = result.Total;
     args.AggregateResults = result.AggregateResults;
 }
-```
+````
 
 
 ## See Also

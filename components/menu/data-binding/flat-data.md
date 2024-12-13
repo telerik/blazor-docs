@@ -22,7 +22,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 >caption Example of flat data in a menu (for brevity, URLs are omitted)
 
-````CSHTML
+````RAZOR
 Using a self-referencing flat data source for the menu
 
 <TelerikMenu Data="@MenuItems"

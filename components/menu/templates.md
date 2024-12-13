@@ -24,11 +24,11 @@ The Menu item template can contain arbitrary content according such as HTML mark
 
 ### Use ItemTemplate for Navigation
 
-The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. [`<NavLink>` also supports the `target="_blank"` attribute](#use-itemtemplate-for-styling-and-target_blank).
+The following example shows how to render `<NavLink>` tags inside the Menu and use them for navigation instead of the [built-in Menu navigation mechanism]({%slug menu-navigation%}). This approach requires the URL property name to be different from `Url`. [`<NavLink>` also supports the `target="_blank"` attribute](#use-itemtemplate-for-styling-and-target-_blank).
 
 >caption Use Menu item template for navigation
 
-````CSHTML
+````RAZOR
 <h3>Menu with ItemTemplate</h3>
 
 <TelerikMenu Data="@MenuItems">
@@ -159,7 +159,7 @@ The example below shows a Menu configuration that is suitable for use in `MainLa
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @inject NavigationManager NavManager
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClick(item))">

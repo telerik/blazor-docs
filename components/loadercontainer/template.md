@@ -22,7 +22,7 @@ This article provides examples that show how to:
 
 This example shows how to change the contents of the loading text and animation that are shown by default. Once you set the template up, the default white background of that container will be gone so you can have full control over its appearance.
 
-````CSHTML
+````RAZOR
 @* Customize the LoaderContainer content using its Template *@
 
 <TelerikLoaderContainer Visible="@(GridData == null ? true : false)">
@@ -81,7 +81,7 @@ This example shows how to change the contents of the loading text and animation 
 You can use CSS to target the DOM elements that create the Panel around the template so you can style them as required. By default, the Panel is white to contrast with the default dark overlay. This example shows how you can customize its color and content.
 
 
-````CSHTML
+````RAZOR
 @*Create a custom panel to highlight the custom loading indicator and loading text*@
 
 <style>

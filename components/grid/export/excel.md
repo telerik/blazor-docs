@@ -26,7 +26,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 To enable the Grid Excel Export, add a [command button]({%slug components/grid/columns/command%}) with the `ExcelExport` command name to the [Grid toolbar]({%slug components/grid/features/toolbar%}).
 
-````
+````RAZOR.skip-repl
 <GridToolBarTemplate>
     <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
 </GridToolBarTemplate>
@@ -40,7 +40,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 >caption Export the Grid to Excel - Example
 
-````CSHTML
+````RAZOR
 @* You can sort, group, filter, page the grid, resize and reodrder its columns, and you can click the
     Export button to save the current data *@
 
@@ -102,11 +102,11 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 * `SaveAsExcelFileAsync` - `ValueTask` - sends the exported excel file to the browser for download.
 * `ExportToExcelAsync` - `Task<MemoryStream>` - returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
->note The same methods are exposed for exporting a [CSV file]({%slug grid-export-csv%}#programmatic-export-from-code).
+>note The same methods are exposed for exporting a [CSV file]({%slug grid-export-csv%}#programmatic-export).
 
 >caption Invoke the export function from code
 
-````CSHTML
+````RAZOR
 @* Send the exported file for download and get the exported data as a memory stream *@
 
 @using System.IO

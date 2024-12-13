@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/skeleton" target="_blank">Blazo
 
 >caption Basic Skeleton
 
-````CSHTML
+````RAZOR
 @* The Telerik UI for Blazor Skeleton component with its basic settings. *@
 
 @if (String.IsNullOrEmpty(Text))

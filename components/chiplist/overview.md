@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/chiplist" target="_blank">Blazor 
 
 >caption Basic ChipList for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikChipList Data="@ChipListSource"
                  TextField="@(nameof(ChipModel.ChipText))"
                  IconField="@(nameof(ChipModel.ChipIcon))">

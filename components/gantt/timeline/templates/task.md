@@ -20,7 +20,7 @@ The `TaskTemplate` is of type `RenderFragment<TItem>`, so the `context` has the 
 ![Gantt TaskTemplate Example](images/gantt-task-template-example.png)
 
 
-````CSHTML
+````RAZOR
 @* Customize the content of the tasks through the TaskTemplate *@
 
 <TelerikGantt Data="@Data"

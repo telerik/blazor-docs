@@ -34,7 +34,7 @@ Option 1:  Put an [AnimationContainer]({%slug components/animationcontainer/over
 
 Option 2: Override the built-in CSS rules of the window and to put it at the right border of the page through your own class:
 
-````CSHTML
+````RAZOR
 <style>
     .sticky-right{
         right: 0;

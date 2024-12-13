@@ -33,13 +33,13 @@ There are a few alternative ways to center the checkboxes in the GridCheckboxCol
 
 * The easiest option is to set a smaller column width:
 
-    ````CSHTML
+    ````RAZOR
     <GridCheckboxColumn Width="40px" />
     ````
 
 * Use CSS, which centers the content of the first Grid/TreeList column, no matter what that column is.
 
-    ````CSHTML
+    ````RAZOR
     <TelerikGrid Class="center-first-column" />
 
     <style>
@@ -52,7 +52,7 @@ There are a few alternative ways to center the checkboxes in the GridCheckboxCol
 
 * Use the `OnCellRender` event of the [Grid]({%slug grid-column-events%}) or [TreeList]({%slug treelist-column-events%}) to render a custom CSS class for the checkbox column table cells. Then, apply a `text-align:center` style for this class. You will need [CSS specificity](https://css-tricks.com/specifics-on-css-specificity/), which is higher than **0, 0, 1, 1** (one class and one element).
 
-    ````CSHTML
+    ````RAZOR
     <GridCheckboxColumn
         OnCellRender="@( (GridCellRenderEventArgs args) => args.Class = "center-cell" )" />
 
@@ -67,7 +67,7 @@ Here is an example that demonstrates all three options. The TreeList reuses Grid
 
 >caption Center the Grid/TreeList Checkbox Column
 
-````CSHTML
+````RAZOR
 <h1>Center the Checkbox Column</h1>
 
 <h2>Use a Narrow Checkbox Column</h2>

@@ -20,7 +20,7 @@ You can control the rendering of the tasks and their ToolTip in the Timeline thr
 
 >Simple Gantt with Timeline. The result from the snippet below.
 
-````CSHTML
+````RAZOR
 @*Simple Gantt component *@
 
 <TelerikGantt Data="@Data"

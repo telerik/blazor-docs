@@ -20,7 +20,7 @@ The default orientation is horizontal.
 
 >caption Set orientation
 
-````CSHTML
+````RAZOR
 @* Change the orientation of the menu to fit your layout *@
 
 <select @bind=@orientation>

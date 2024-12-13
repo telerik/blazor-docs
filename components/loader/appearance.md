@@ -33,7 +33,7 @@ See them in action in the [Loader Overview live demo](https://demos.telerik.com/
 
 ![loader types](images/loader-types.gif)
 
-````CSHTML
+````RAZOR
 @foreach (LoaderType type in Enum.GetValues(typeof(Telerik.Blazor.Components.LoaderType)))
 {
     <div style="float: left; margin: 20px;">
@@ -59,7 +59,7 @@ See them in action in the [Loader Overview live demo](https://demos.telerik.com/
 
 ![loader size](images/loader-size.png)
 
-````CSHTML
+````RAZOR
 @foreach (string size in LoaderSizes)
 {
     <div style="float: left; margin: 20px;">
@@ -100,7 +100,7 @@ These predefined options match the main [Telerik Theme]({%slug themes-overview%}
 
 ![Loader Theme Colors](images/loader-built-in-theme-colors.png)
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(ThemeConstants.Loader.ThemeColor)
                     .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static |
@@ -127,7 +127,7 @@ The `ThemeColor` parameter renders as the `k-loader-<ThemeColor>` CSS class on t
 
 ![Custom loader color](images/loader-custom-color.png)
 
-````CSHTML
+````RAZOR
 <style>
     .k-loader-custom-color .k-loader-segment {
         background-color: cyan;

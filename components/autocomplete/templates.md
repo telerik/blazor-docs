@@ -40,7 +40,7 @@ The AutoComplete component allows you to change what is rendered in its items, h
 
 >caption Using AutoComplete Templates
 
-````CSHTML
+````RAZOR
 @* AutoComplete component with HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>

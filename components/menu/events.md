@@ -28,7 +28,7 @@ The event handler receives an argument object of type `MenuItemRenderEventArgs` 
 
 >caption Customizing the appearance of the Menu items.
 
-````CSHTML
+````RAZOR
 <TelerikMenu Data="@MenuItems"
              ParentIdField="@nameof(MenuItem.SectionId)"
              IdField="@nameof(MenuItem.Id)"
@@ -135,7 +135,7 @@ You can use the `OnClick` event to react to user choices in a menu without using
 
 >caption Handle OnClick
 
-````CSHTML
+````RAZOR
 Last clicked item: @ClickedItem?.Text
 
 <TelerikMenu Data="@MenuItems" OnClick="@((MenuItem item) => OnClickHandler(item))">

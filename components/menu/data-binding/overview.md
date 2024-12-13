@@ -66,7 +66,7 @@ The properties of a menu item match directly to a field of the model the menu is
 
 >caption Default field names for menu item bindings. If you use these, you don't have to specify them in the `TelerikMenu` tag explicitly.
 
-````CSHTML
+````RAZOR
 public class MenuItem
 {
 	public int Id { get; set; }
@@ -82,7 +82,7 @@ public class MenuItem
 
 >caption Data bind the menu to a model with custom field names
 
-````CSHTML
+````RAZOR
 @* This example shows flat data binding with custom fields, and two separator items around a disabled item at the root level and in the nested menu *@
 
 <TelerikMenu Data="@MenuItems"

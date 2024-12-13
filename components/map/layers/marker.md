@@ -15,7 +15,7 @@ The marker functionality allows you to add points of interest to the Map. These 
 This article describes how to:
 
 * [Create Marker layers](#creating-marker-layers)
-* [Customize the Marker appearance](#customizing-marker-appearances)
+* [Customize the Marker appearance](#customizing-marker-appearance)
 * [Define Marker shapes](#defining-marker-shapes)
 * [Set Marker tooltips](#setting-marker-tooltips)
 
@@ -27,13 +27,13 @@ To define a Marker layer in the Map:
 2. Set the `Type` parameter of the `MapLayer` to `MapLayersType.Marker`.
 3. Set the `Data` parameter.
 4. Set the `LocationField` and `TitleField` parameters to the respective property names of the model class.
-5. (optional) Provide the [tooltip settings](#marker-tooltip-settings) or choose the [Marker shape](#marker-shapes).
+5. (optional) Provide the [tooltip settings](#setting-marker-tooltips) or choose the [Marker shape](#defining-marker-shapes).
 
 The following example demonstrates how to configure the Marker layer of the Map.
 
 >caption The Marker Map layer configuration
 
-````CSHTML
+````RAZOR
 <TelerikMap Center="@MapCenter"
             Zoom="3">
     <MapLayers>
@@ -90,7 +90,7 @@ The following example uses two Marker layers with different templates. One rende
 
 >caption Using Map marker template
 
-````CSHTML
+````RAZOR
 <TelerikMap Center="@MapCenter"
             Zoom="3">
     <MapLayers>
@@ -195,7 +195,7 @@ The Map supports the `Pin` and `PinTarget` Marker types. To define the Marker ty
 
 >caption Different Marker shapes
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Single">
     <ButtonGroupToggleButton Selected="@( MarkerShape == MapMarkersShape.PinTarget )"
                              OnClick="@( () => MarkerShape = MapMarkersShape.PinTarget )">
@@ -261,7 +261,7 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, app
 
 >caption Marker tooltip template
 
-````CSHTML
+````RAZOR
 <TelerikMap Center="@MapCenter"
             Zoom="3">
     <MapLayers>

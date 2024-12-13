@@ -41,7 +41,7 @@ The approach requires [Telerik Document Processing]({%slug dpl-in-blazor%}) to c
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @using System.Reflection
 

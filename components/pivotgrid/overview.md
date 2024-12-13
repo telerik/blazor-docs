@@ -60,7 +60,7 @@ The PivotGrid is an integrated product that includes several Razor components:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikPivotGridContainer>
 
     <TelerikPivotGridConfigurator />
@@ -220,7 +220,7 @@ The Pivot Grid exposes methods for programmatic operation. To use them, define a
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikPivotGrid @ref="@PivotGridRef" />
 
 <TelerikButton OnClick="@OnButtonClick">Rebind PivotGrid</TelerikButton>

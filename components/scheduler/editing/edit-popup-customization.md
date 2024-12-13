@@ -26,7 +26,7 @@ The `SchedulerPopupEditFormSettings` nested tag exposes the following parameters
 
 >caption Customize the popup edit form
 
-````CSHTML
+````RAZOR
 @*The snippet focuses on the popup edit form customization. CRUD events are not handled for brevity*@
 
 <TelerikScheduler Data="@Appointments"

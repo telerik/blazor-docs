@@ -20,9 +20,9 @@ The Blazor DropDownList component allows the user to choose an option from a pre
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) Set the `Value` property to the initial value of the model.
 
->caption DropDownList [data binding](data-bind), two-way value binding, and main features
+>caption DropDownList [data binding](slug://components/dropdownlist/databind), two-way value binding, and main features
 
-````CSHTML
+````RAZOR
 Selected value: @selectedValue
 <br />
 
@@ -115,7 +115,7 @@ The following parameters enable you to customize the [appearance]({%slug dropdow
 
 The DropDownList exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownListPopupSettings>` tag inside a `<DropDownListSettings>` tag:
 
-````CHTML
+````RAZOR
 <TelerikDropDownList Data="@DropDownData"
                      @bind-Value="@SelectedItem"
                      Filterable="true"
@@ -148,7 +148,7 @@ Add a reference to the component instance to use the [DropDownList's methods](/b
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````CSHTML
+````RAZOR
 <TelerikDropDownList @ref="@DropDownListRef"
                      Data="@DropDownListData"
                      @bind-Value="@DropDownListValue"
@@ -187,7 +187,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 >caption Default text (hint) to show when no actual item is selected
 
-````CSHTML
+````RAZOR
 @MyStringItem
 <TelerikDropDownList Data="@MyStringList" @bind-Value="@MyStringItem" DefaultText="Select something">
 </TelerikDropDownList>
@@ -215,7 +215,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 >caption Get selected item from external code
 
-````CSHTML
+````RAZOR
 @result
 <br />
 

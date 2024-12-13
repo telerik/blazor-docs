@@ -23,7 +23,7 @@ The <a href = "https://www.telerik.com/blazor-ui/tilelayout" target="_blank">Bla
 
 >caption Basic Tile Layout
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout Columns="3"
                    RowHeight="150px"
                    Resizable="true"
@@ -117,7 +117,7 @@ Use the component reference to execute methods and [get or set the TileLayout st
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikTileLayout @ref="@TileLayoutRef" />
 
 <TelerikButton OnClick="@GetTileLayoutState">Get TileLayout State</TelerikButton>

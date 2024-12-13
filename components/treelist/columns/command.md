@@ -56,6 +56,7 @@ There are four built-in commands:
 
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
 
+<div class="skip-repl"></div>
 ```razor
 <TreeListCommandColumn>
     @{
@@ -89,7 +90,7 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 >caption Example of handling custom commands in a treelist
 
-````CSHTML
+````RAZOR
 @* This sample showcases custom command handling for:
     - the built-in Save command that prevents it based on some condition  (Name contains "a")
     - a custom command for a row

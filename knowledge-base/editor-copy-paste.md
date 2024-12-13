@@ -44,7 +44,7 @@ To programmatically paste in the Editor:
 
 >caption Programmatic copy and paste in the Telerik UI for Blazor Editor
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor.Components.Editor
 
 @inject IJSRuntime js

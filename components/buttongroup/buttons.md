@@ -35,7 +35,7 @@ To disable a button, set its `Enabled` attribute to `false`.
 
 >caption Disabled buttons in a ButtonGroup
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup>
     <ButtonGroupButton>Enabled</ButtonGroupButton>
     <ButtonGroupButton Enabled="false">Disabled</ButtonGroupButton>
@@ -51,7 +51,7 @@ You can set the `Visible` parameter of individual buttons to `false` to hide the
 
 >caption Hide buttons from a ButtonGroup
 
-````CSHTML
+````RAZOR
 <TelerikButtonGroup>
     <ButtonGroupButton>First</ButtonGroupButton>
     <ButtonGroupButton Visible="false">Hidden</ButtonGroupButton>

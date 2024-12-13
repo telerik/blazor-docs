@@ -37,7 +37,7 @@ The `Row` parameter controls in which row the `GridLayoutItem` will reside. The 
 
 ![rows example](images/gridlayout-items-rows-example.png)
 
-````CSHTML
+````RAZOR
 @* Distribute the GridLayout items across the rows in a custom manner. *@
 
 <TelerikGridLayout>
@@ -89,7 +89,7 @@ The `Column` parameter controls in which column the `GridLayoutItem` will reside
 
 ![rows example](images/gridlayout-items-columns-example.png)
 
-````CSHTML
+````RAZOR
 @* Distribute the GridLayout items across the columns in a custom manner. *@
 
 <TelerikGridLayout>
@@ -141,7 +141,7 @@ When you set the desired `ColumnSpan`, you should also set the `Column` paramete
 
 >caption Change the column span of the first item with the numeric text box
 
-````CSHTML
+````RAZOR
 @* Change the column span of the first item. *@
 
 <TelerikNumericTextBox @bind-Value="@ColumnSpan" Max="3" Min="1" Width="200px"/>
@@ -190,7 +190,7 @@ When you set the desired `RowSpan`, you should also set the `Row` parameter to s
 >caption Change the row span of the first item with the numeric text box
 
 
-````CSHTML
+````RAZOR
 @* Change the row span of the first item. *@
 
 <TelerikNumericTextBox @bind-Value="@RowSpan" Max="3" Min="1" Width="200px"/>
@@ -242,7 +242,7 @@ You can use the exposed parameters of the GridLayout items to create more comple
 
 ![complex layout](images/gridlayout-complex-example.png)
 
-````CSHTML
+````RAZOR
 @* Create a page layout with the Telerik Components *@
 
 <TelerikGridLayout>

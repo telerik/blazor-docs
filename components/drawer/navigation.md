@@ -25,7 +25,7 @@ To use the Drawer for navigating between pages:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* This is a very basic layout to showcase the concept. You may want to add a header, footer, 
     collapse/expand button and add desired heights to the layout and drawer *@
 

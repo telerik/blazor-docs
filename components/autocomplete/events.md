@@ -26,7 +26,7 @@ The `ValueChanged` event fires on every user keystroke that changes the textbox 
 
 >caption Handle AutoComplete ValueChanged
 
-````CSHTML
+````RAZOR
 AutoComplete Value: @AutoCompleteValue <br />
 
 <TelerikAutoComplete Data="@AutoCompleteData"
@@ -54,7 +54,7 @@ AutoComplete Value: @AutoCompleteValue <br />
 
 >caption Handle ValueChanged and provide initial value
 
-````CSHTML
+````RAZOR
 @result
 <br />
 from model: @Role
@@ -90,7 +90,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @result
 <br />
 from model: @Role
@@ -130,7 +130,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >caption Custom Data according to the user input in the AutoComplete
 
-````CSHTML
+````RAZOR
 <p>@AutoCompleteValue</p>
 
 <TelerikAutoComplete TItem="@String"
@@ -176,7 +176,7 @@ When using `OnRead`, make sure to set `TItem` and `TValue`.
 
 >caption Filter large local data through the Telerik DataSource extensions
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 
 <p>@AutoCompleteValue</p>
@@ -244,7 +244,7 @@ The event handler receives as an argument an `AutoCompleteOpenEventArgs` object 
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikAutoComplete Data="@Suggestions"
                      @bind-Value="@AutoCompleteValue"
                      OnOpen="@OnOpenEventHandler" />
@@ -274,7 +274,7 @@ The event handler receives as an argument an `AutoCompleteCloseEventArgs` object
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikAutoComplete Data="@Suggestions"
@@ -310,7 +310,7 @@ The event handler receives as an argument an `AutoCompleteItemRenderEventArgs<TI
 | `Item` | The current item that renders in the AutoComplete. |
 | `Class` | The custom CSS class that will be added to the item. |
 
-````CSHTML
+````RAZOR
 @* Customize an item in the AutoComplete *@
 
 <style>
@@ -360,7 +360,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikAutoComplete @bind-Value="@TheValue" Data="@Suggestions"

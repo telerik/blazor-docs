@@ -28,7 +28,7 @@ All ListBox event arguments are generic and depend on the component model type `
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* Verbose event handler declaration *@
 
 <TelerikListBox Data="@ListBoxData"
@@ -52,7 +52,7 @@ However, you can set the `TItem` parameter and then use simpler syntax in the ev
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* Short event handler declaration *@
 
 <TelerikListBox Data="@ListBoxData"
@@ -138,7 +138,7 @@ Always [`Rebind()`]({%slug listbox-overview%}#listbox-reference-and-methods) the
 
 >caption Using ListBox events
 
-````CSHTML
+````RAZOR
 @* All ListBox events *@
 
 <TelerikListBox @ref="@ListBoxRef1"

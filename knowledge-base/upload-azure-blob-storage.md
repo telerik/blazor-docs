@@ -31,7 +31,7 @@ Can I upload files directly to Azure Blob Storage?
 
 ## Solution
 
-Both the [FileSelect]({%slug fileselect-overview%}) and [Upload]({%slug upload-overview%}) components can help with uploading files to Azure Blob Storage. There are some [differences between how the two components work]({%slug upload-overview%}#comparison-with-the-fileselect), which will determine the exact usage.
+Both the [FileSelect]({%slug fileselect-overview%}) and [Upload]({%slug upload-overview%}) components can help with uploading files to Azure Blob Storage. There are some [differences between how the two components work]({%slug upload-overview%}#upload-vs-fileselect), which will determine the exact usage.
 
 ### Using FileSelect
 

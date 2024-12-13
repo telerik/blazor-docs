@@ -34,7 +34,7 @@ The Gantt Timeline provides four predefined views, which dictate how much time a
 ![Gantt Views Example](images/gantt-views-example.gif)
 
 
-````CSHTML
+````RAZOR
 
 <TelerikGantt Data="@Data"
               @bind-View="@SelectedView"

@@ -23,7 +23,7 @@ By default, the tooltip shows on hover (mouseover) of its target, just like the 
 
 >caption Explore the show events of the Tooltip
 
-````CSHTML
+````RAZOR
 @* Setting a show event is not mandatory, it defaults to Hover *@
 
 <TelerikTooltip TargetSelector="#hoverTarget" ShowOn="@TooltipShowEvent.Hover">

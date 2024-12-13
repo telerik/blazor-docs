@@ -39,7 +39,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
 
 >caption Enable node selection with checkboxes
 
-````CSHTML
+````RAZOR
 @* Allow the user to use checkboxes to select nodes in the TreeView. Use the two-way data binding of the CheckedItems collection to obtain what the user checked. This example shows how to pre-select a node. *@
 
 <TelerikTreeView Data="@FlatData"
@@ -176,7 +176,7 @@ You get or set the checked nodes through the `CheckedItems` parameter of the tre
 Setting the `CheckChildren` boolean parameter to `true` will allow the user to select a parent item using the checkbox and automatically check all of its children.
 
 
-````CSHTML
+````RAZOR
 @* Click on a parent item to observe the behavior of the CheckChildren bool parameter *@
 
 <TelerikTreeView Data="@FlatData"
@@ -317,7 +317,7 @@ Setting the `CheckParents` boolean parameter to `true` will have the following b
 ![check parents example](images/checkparents-example.png)
 
 
-````CSHTML
+````RAZOR
 @* Enable the CheckParents parameter and observe the behavior of this setting. *@
 
 <TelerikTreeView Data="@FlatData"
@@ -449,7 +449,7 @@ You can allow the user to click on the node itself and the TreeView will automat
 
 ![check parents example](images/checkonclick-example.gif)
 
-````CSHTML
+````RAZOR
 @* Set the CheckOnClick parameter to true and click on a node to add it in the CheckedItems collection. *@
 
 <TelerikTreeView Data="@FlatData"
@@ -578,7 +578,7 @@ You can allow the user to click on the node itself and the TreeView will automat
 You can combine both selection and checking nodes. To keep both collections in sync you can assign the same collection to both `SelectedItems` and `CheckedItems` as demonstrated in the example below.
 
 <div class="skip-repl"></div>
-````Single
+````RAZOR Single
 @* You can couple checking the item and placing it in the selected item list. *@
 
 <TelerikTreeView Data="@FlatData"
@@ -697,7 +697,7 @@ You can combine both selection and checking nodes. To keep both collections in s
     }
 }
 ````
-````Multiple
+````RAZOR Multiple
 @* To select and check multiple items change both modes to Multiple *@
 
 <TelerikTreeView Data="@FlatData"

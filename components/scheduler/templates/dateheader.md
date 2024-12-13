@@ -16,7 +16,7 @@ The `DateHeaderTemplate` can be defined for the [day and week Scheduler views]({
 
 >caption Example of using the DateHeaderTemplate
 
-````CSHTML
+````RAZOR
 @* Change the format of the date in the header cells of the scheduler and add a custom icon *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Height="600px" Width="800px">

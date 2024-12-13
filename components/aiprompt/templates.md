@@ -20,7 +20,7 @@ The Prompt view of the AIPrompt renders any suggestions passed to the `PromptSug
 
 >caption Using the `PromptSuggestionItemTemplate` to alter the appearance of the suggestions
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @bind-Prompt="@Prompt" PromptSuggestions="@Suggestions">
     <PromptSuggestionItemTemplate>
         <div @onclick="@OnSuggestionClick" class="my-custom-suggestion-item">

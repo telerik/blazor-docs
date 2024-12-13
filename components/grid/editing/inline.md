@@ -23,7 +23,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
 
 Use the command buttons to control the CUD operations.

@@ -44,7 +44,7 @@ You can find two examples below that showcase doing this:
 
 >caption Static (always selected) item, limit number of selections - plain scenario
 
-````CSHTML
+````RAZOR
 @* The logic is in the MyValueChangeHandler method *@
 
 <TelerikMultiSelect Data="@Roles"
@@ -89,7 +89,7 @@ You can find two examples below that showcase doing this:
 
 >caption Static (always selected) item, limit number of selections - with validation and validation messages
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* for the model only *@
 

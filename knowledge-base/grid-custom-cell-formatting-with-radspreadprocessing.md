@@ -55,7 +55,7 @@ To customize the cell format of the exported file before it reaches the client, 
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @*Use RadSpreadProcessing to set background to table headers*@
 
 @using Telerik.Documents.Media

@@ -33,7 +33,7 @@ You can change the expand/collapse icons in the TreeView by overriding the built
 
 >caption Change the expand/collapse icons in TreeView
 
-````CSHTML
+````RAZOR
 @* In Telerik.UI.for.Blazor version 4.3.0 and later, the components use SVG icons by default. Use the following CSS for versions 4.3.0 and later. *@
 @* Render the desired SVG icon and inspect it with your dev tools to get its path. *@
 <style>

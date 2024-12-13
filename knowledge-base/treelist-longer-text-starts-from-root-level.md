@@ -39,7 +39,7 @@ To align all lines of text to the same level do the following:
 
 ![treelist-long-text-aligned](images/treelist-long-text-aligned.png)
 
-````CSHTML
+````RAZOR
 
 @*Align the child element text with custom CSS*@
 

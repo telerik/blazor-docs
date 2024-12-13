@@ -56,7 +56,7 @@ The example below assumes that the project name is `YourAppName` and the `Person
 
 <div class="skip-repl"></div>
 
-````Home.razor
+````RAZOR Home.razor
 @using YourAppName.Data
 
 <TelerikForm Model="@Employee"
@@ -118,7 +118,7 @@ The example below assumes that the project name is `YourAppName` and the `Person
     }
 }
 ````
-````SingleFormGroup.razor
+````RAZOR SingleFormGroup.razor
 <div style="margin:.6em 0;padding:1em;background:#cf9;border:1px solid #ccc;">
 
     <p><strong><code>SingleFormGroup.razor</code></strong></p>
@@ -139,7 +139,7 @@ The example below assumes that the project name is `YourAppName` and the `Person
     public IFormGroup? FormGroup { get; set; }
 }
 ````
-````MultipleFormItems.razor
+````RAZOR MultipleFormItems.razor
 @using YourAppName.Data
 
 <div style="margin:.4em 0;padding:1em;background:#ffd;border:1px solid #ccc;">
@@ -157,7 +157,7 @@ The example below assumes that the project name is `YourAppName` and the `Person
     public FormGroupRendererTemplateContext? Context { get; set; }
 }
 ````
-````SingleFormItem.razor
+````RAZOR SingleFormItem.razor
 <div style="margin:.4em 0;padding:1em;background:#fdc;border:1px solid #ccc;">
 
     <p><strong><code>SingleFormItem.razor</code></strong></p>
@@ -171,7 +171,7 @@ The example below assumes that the project name is `YourAppName` and the `Person
     public IFormItem? FormItem { get; set; }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 namespace YourAppName.Data

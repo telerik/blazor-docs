@@ -32,7 +32,7 @@ By default, the first column of the view contains Sundays and the last one conta
 
 >caption Add some custom CSS to hide the weekends in Calendar Month view.
 
-````CSHTML
+````RAZOR
 <style>
 /* Hide the first and the last cell of every row. By default, Sunday is first and Saturday is last (seventh). 
 If needed, you can configure the selectors to target and customize other specific n-th child.*/

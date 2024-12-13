@@ -7,7 +7,7 @@ This article assumes you are familiar with the [chart basics]({%slug components/
 
 Bar and Column charts can take the color of the series item from the `ColorField` of the data source. You can pass a valid CSS color (for example, `#abcdef`, `#f00`, or `blue`).
 
-````CSHTML
+````RAZOR
 Colors per series item
 
 <TelerikChart>

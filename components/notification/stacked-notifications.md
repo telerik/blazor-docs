@@ -16,7 +16,7 @@ When you invoke multiple notifications from the same component reference they wi
 
 ![stacked notifications](images/notification-stacked-notifications.png)
 
-````CSHTML
+````RAZOR
 @* Calling Show() before the previous notifications hide will stack the new messages above the old ones *@
 
 <TelerikButton OnClick="@AddStackedNotifications">Add stacked notifications</TelerikButton>

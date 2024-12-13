@@ -48,7 +48,7 @@ To use resources:
 
 ## Examples
 
-The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resource) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
+The examples below showcase [single resource](#one-resource) and [multiple resources](#multiple-resources) respectively. For brevity, they use hardcoded data, but you can populate the corresponding collections dynamically from your actual data service, and you can also use `async` methods to do so (our [live demo](https://demos.telerik.com/blazor-ui/scheduler/resources) shows an example of that).
 
 >tip The examples below hardcode the resource collections for brevity. In a real case you might be fetching them from asynchronous API. If so, initialize the resource collections to avoid null references while the scheduler is initializing, something like `List<SchedulerResource> Managers { get; set; } = new List<SchedulerResource>();`.
 
@@ -58,7 +58,7 @@ The examples below showcase [single resource](#one-resource) and [multiple resou
 
 The field names used for the resource model (`Text`, `Value` and `Color`) are the default ones, so you don't need to explicitly define them in the markup.
 
-````CSHTML
+````RAZOR
 @* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
     Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
 
@@ -161,7 +161,7 @@ The field names used for the resource model (`Text`, `Value` and `Color`) are th
 
 The field names used for the resource model (`Name`, `Id` and `Shade`) are different than the default ones, therefore should be specified in the markup, so that the `TextField`, `ValueField` and `ColorField` will point to them.
 
-````CSHTML
+````RAZOR
 
 @* This example shows how to declare a resource and to match it to appointments, and how to have an appointment that is not associated with that resource.
    Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like.*@
@@ -266,7 +266,7 @@ The field names used for the resource model (`Name`, `Id` and `Shade`) are diffe
 
 >caption Declare multiple resources
 
-````CSHTML
+````RAZOR
 @* This example shows how to declare multiple resources and how their order is importnat when their are being matched with appointments, both for the edit form, and for the appointment color.
 Actual CRUD operations are not implemented for brevity, just the UX is enabled so you can see how the edit form looks like. *@
 

@@ -26,7 +26,7 @@ The default Display mode of the Stepper is `Steps`. If labels are defined, with 
 
 ![Indicators and labels](images/labels-and-indicators-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with both labels and indicators. *@
 
 <div style="width:500px">
@@ -49,7 +49,7 @@ If you want to display only labels for the steps, set the `StepType` parameter o
 
 ![Labels only](images/labels-only-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with only labels. *@
 
 <div style="width:500px">

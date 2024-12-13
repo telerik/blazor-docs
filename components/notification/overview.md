@@ -20,7 +20,7 @@ The Notification component renders a brief message to the user which holds infor
 1. Obtain the component reference via `@ref`.
 1. Setup an instance of the [`NotificationModel` class](#notificationmodel-class-properties) (provided by the Telerik Blazor package), and pass it to the `Show()` method of the component instance.
 
-````CSHTML
+````RAZOR
 @* This shows a simple text message that hides automatically *@
 
 <TelerikButton OnClick="@AddNotification">Add a basic notification</TelerikButton>
@@ -86,7 +86,7 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 | `Closable`  | `bool` <br /> `true` | If set to `true` a close button will appear which will enable the user to close the Notification. If you want the Notification to not close automatically you should set the `Closable` parameter to `true` and the `CloseAfter` to `0`. |
 | `CloseAfter`  | `int` <br /> `5000` | Allows you to configure after how much time the Notification component will close automatically. Set it to `0` to prevent it from closing automatically. |
 | `ShowIcon`  | `bool` <br /> `true` | Allows you to specify whether an icon should appear in the component. |
-| `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug common-features-icons%}#icon-in-telerik-component). |
+| `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article]({%slug common-features-icons%}#icon-namespaces). |
 | `Text`  | `string` | The text that will be rendered in the Notification component. |
 
 ### Styling and Appearance
@@ -105,7 +105,7 @@ To use the Blazor Notification methods, you have to get a reference to the compo
 
 >caption Get reference to the Notification and execute methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@OpenNotification">Open a notification</TelerikButton>
 
 <TelerikNotification @ref="@NotificationReference" />

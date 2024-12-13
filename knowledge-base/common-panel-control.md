@@ -35,7 +35,7 @@ Depending on your needs, you might not even need a top-level element anymore, or
 
 >caption Example of Panel-like Visibility toggle and appearance styling through a CSS class
 
-````CSHTML
+````RAZOR
 @if (SpecialPortionVisible)
 {
     <div class="alert alert-success">this here is the special content</div>

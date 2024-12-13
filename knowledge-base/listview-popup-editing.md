@@ -41,7 +41,7 @@ The steps below assume that the ListView data items are of type `TItem`.
 
 >caption ListView Popup Editing
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikListView @ref="@ListViewRef"

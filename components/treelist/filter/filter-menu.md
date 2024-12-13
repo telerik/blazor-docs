@@ -28,7 +28,7 @@ A key difference in the behavior from the [filter row]({%slug treelist-filter-ro
 
 >caption Filter Menu in Telerik TreeList
 
-````CSHTML
+````RAZOR
 @* Filter menu in the column header *@
 
 <TelerikTreeList Data="@Data" FilterMode="@TreeListFilterMode.FilterMenu"
@@ -109,7 +109,7 @@ You can set the TreeList filters from your code through the component [state]({%
 
 >caption Set filtering programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
 ````
 
@@ -125,7 +125,7 @@ You can override the default Filter Row behavior for each column through the fol
 
 >caption Configure the Filter Menu
 
-````CSHTML
+````RAZOR
 @*Customize the Filter Menu*@
 
 @using Telerik.DataSource

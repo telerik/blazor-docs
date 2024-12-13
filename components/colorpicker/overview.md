@@ -18,7 +18,7 @@ Practically, the ColorPicker is identical to the [Telerik UI for Blazor FlatColo
 
 
 1. Add the `TelerikColorPicker` tag.
-1. Set its `string` `Value` parameter to any of the [supported HEX or RGB formats](#supported-value-formats). The parameter supports [two-way binding](#example) or [one-way binding with a `ValueChanged` handler]({%slug colorpicker-events%}#valuechanged).
+1. Set its `string` `Value` parameter to any of the [supported HEX or RGB formats](#supported-value-formats). The parameter supports two-way binding or [one-way binding with a `ValueChanged` handler]({%slug colorpicker-events%}#valuechanged).
 1. (optional) If your app expects a specific color format, set the `ValueFormat` to `ColorFormat.Hex` or `ColorFormat.Rgb`.
 
 >caption A basic ColorPicker with two-way value binding
@@ -83,7 +83,7 @@ The ColorPicker tag exposes the following features through its attributes:
 | `Enabled` | `bool` <br /> (`true`) | Determines if the user can open the popup and change the value. |
 | `ShowButtons` | `bool` <br /> (`true`) | Controls the visibility of the **Apply** and **Cancel** buttons. |
 | `ShowClearButton` | `bool` <br /> (`true`) | Sets the visibility of the **Clear** button. |
-| `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-in-telerik-component). |
+| `Icon` | `object` | Adds a font icon inside the [main component button](#interface). You can find more information on adding a font icon to a Telerik Component in the [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-namespaces). |
 
 ### Styling and Appearance
 
@@ -109,7 +109,7 @@ To use the [methods of the Blazor ColorPicker](/blazor-ui/api/Telerik.Blazor.Com
 | `FocusAsync` | Focuses the main element of the component. Always `await` this call, as it relies on `JSInterop`. |
 | `Open` | Opens the component popup. |
 
-````CSHTML
+````RAZOR
 <TelerikColorPicker @ref="@ColorPickerRef"
                     @bind-Value="@Color" />
 

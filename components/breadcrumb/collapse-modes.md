@@ -23,7 +23,7 @@ You can specify how the Breadcrumb items are visualized when their total width e
 
 ![Breadcrumb CollapseMode Wrap](images/breadcrumb-collapse-modes-example.png)
 
-````CSHTML
+````RAZOR
 @* This example demonstrates how to change the default Breadcrumb CollapseMode to Wrap *@
 
 <div style="width:400px">

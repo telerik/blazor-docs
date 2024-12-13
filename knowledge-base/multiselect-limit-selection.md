@@ -33,7 +33,7 @@ To restrict the number of selectable items in a MultiSelect component, use one-w
 
 Below is a demonstration of how to implement a selection limit. This example restricts the user to a maximum of three selections and informs them when they have reached this limit.
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@MultiData"
                     Value="@MultiValues"
                     ValueChanged="@( (List<string> newValues) => OnMultiValueChanged(newValues) )"

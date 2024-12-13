@@ -27,7 +27,7 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 >caption Basic DropDownButton
 
-````CSHTML
+````RAZOR
 <TelerikDropDownButton Icon="@SvgIcon.Share" OnClick="@(()=>OnItemClick("Primary"))">
     <DropDownButtonContent>Share</DropDownButtonContent>
 
@@ -85,7 +85,7 @@ The following table lists the DropDownButton parameters, except those related to
 
 The DropDownButton exposes settings for its dropdown (popup). To configure the options, declare a  `<DropDownButtonPopupSettings>` tag inside a `<DropDownButtonSettings>` tag:
 
-````CSHTML
+````RAZOR
 <TelerikDropDownButton Icon="@SvgIcon.Share">
     <DropDownButtonContent>Share</DropDownButtonContent>
 
@@ -134,11 +134,11 @@ The following table lists the `DropDownButtonItem` parameters, except those rela
 
 ## DropDownButton Reference and Methods
 
-The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#notes).
+The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
 
 >caption Get a reference to the DropDownButton and execute methods
 
-````CSHTML
+````RAZOR
 
 <TelerikButton OnClick="@FocusDropDownButton">Focus DropDownButton</TelerikButton>
 

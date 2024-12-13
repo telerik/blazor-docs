@@ -29,7 +29,7 @@ The following properties enable you to customize each command:
 
 >caption Using the `Commands` parameter to pass a collection of predefined commands to the AIPrompt for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt OnPromptRequest="@HandlePromptRequest"
                  OnCommandExecute="@HandleCommandExecute"
                  Commands="@PromptCommands">

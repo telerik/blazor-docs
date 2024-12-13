@@ -33,7 +33,7 @@ To add a new row at the end of the Grid and navigate to the last page:
 
 Below is an example demonstrating this approach:
 
-````CSHTML
+````RAZOR
 @* Add/remove employee to see how the Grid reacts to that change. *@
 
 <TelerikButton OnClick="@AddEmployee">Add employee</TelerikButton>

@@ -22,7 +22,7 @@ To enhance rendering performance, the TreeList reuses the same set of HTML eleme
 
 >caption Enable virtual scrolling in the Telerik TreeList for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  ScrollMode="@TreeListScrollMode.Virtual"
                  Height="500px"

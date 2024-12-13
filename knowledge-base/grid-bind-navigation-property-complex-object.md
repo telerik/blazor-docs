@@ -88,7 +88,7 @@ The correct approach is to use a concatenated string that includes the property 
 
 >caption Using complex models with navigation properties in the Grid without flattening the model
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Sortable="true"
              FilterMode="@GridFilterMode.FilterRow"
@@ -153,7 +153,7 @@ The example below demonstrates all three options. Pick one, according to your pr
 
 >caption Editing and inserting complex nested (navigation) objects
 
-````CSHTML
+````RAZOR
 @* Three alternative ways to ensure nested objects can be edited and inserted.
     1. Initialize the nested object in its property declaration in the main Grid model class.
     2. Initialize the nested object in the parent object constructor.

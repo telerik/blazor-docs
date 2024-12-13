@@ -30,8 +30,8 @@ To enable row selection:
 
 >caption TreeList multiple row selection
 
-````CSHTML
-<<TelerikTreeList Data="@TreeListData"
+````RAZOR
+<TelerikTreeList Data="@TreeListData"
                   IdField="@nameof(Employee.Id)"
                   ParentIdField="@nameof(Employee.ParentId)"
                   SelectionMode="@TreeListSelectionMode.Multiple"
@@ -95,7 +95,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 >caption Using the TreeList SelectedItemsChanged event
 
-````CSHTML
+````RAZOR
 @* Select rows and handle the SelectedItemsChanged event *@
 
 <TelerikTreeList Data="@TreeListData"
@@ -172,7 +172,7 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 When the TreeList `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
 * When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [TreeList `OnUpdate` event]({%slug treelist-editing-overview%}#events).
-* When the user deletes a selected item, the TreeList automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged) fires.
+* When the user deletes a selected item, the TreeList automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged-event) fires.
 * To select a new item in the TreeList you can use the [`OnCreate` event]({%slug treelist-editing-overview%}#events) to update the `SelectedItems` collection.
 
 ## Equals Comparison

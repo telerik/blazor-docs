@@ -14,7 +14,7 @@ You can provide your own set of colors to the Blazor Color Palette component. Yo
 
 >caption Custom collection of colors in the Color Palette component
 
-````CSHTML
+````RAZOR
 @MyColor
 <br />
 

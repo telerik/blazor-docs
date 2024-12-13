@@ -18,7 +18,7 @@ By default, the Output view is rendered and is part of the predefined views. How
 
 >caption Use the `ButtonText` and `ButtonIcon` to alter the appearance of view button.
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @bind-Prompt="@Prompt">
     <AIPromptViews>
         <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />
@@ -33,7 +33,7 @@ By default, the Output view is rendered and is part of the predefined views. How
 
 >caption Use the `ShowOutputRating` to include visuals related to upvoting or downvoting a specific output.
 
-````CSHTML
+````RAZOR
 <TelerikAIPrompt @bind-Prompt="@Prompt" ShowOutputRating="true" OnOutputRate="@OnOutputRateHandler">
     <AIPromptViews>
         <AIPromptPromptView ButtonText="Prompt View" ButtonIcon="@SvgIcon.Sparkles" />

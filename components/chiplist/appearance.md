@@ -29,7 +29,7 @@ The `FillMode` controls how the individual chip is filled. You can set it to a m
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{
@@ -88,7 +88,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the chip to achi
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in rounded edges of the chip.  *@
 
 @{
@@ -146,7 +146,7 @@ You can increase or decrease the size of the chips by setting the `Size` paramet
 
 >caption The built-in chip sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Chip.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static

@@ -24,7 +24,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popover" target="_blank">Blazor
 
 >caption Basic Telerik Popover for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikPopover @ref="@PopoverRef"
                 AnchorSelector=".popover-target"
                 ShowOn="@PopoverShowOn.Click"
@@ -94,7 +94,7 @@ To execute Popover methods, obtain a reference to the component instance with `@
 | `Show` | Use this method to display the Popover. |
 | `Hide` | Use this method to close the Popover. |
 
-````CSHTML
+````RAZOR
 <TelerikPopover @ref="@PopoverRef"
                 AnchorSelector=".popover-target"
                 Position="@PopoverPosition.Bottom"

@@ -45,7 +45,7 @@ There are two possible solutions:
 You can control the popup width for the DatePicker by using the `PopupWidth` parameter that the components exposes. You can set it in `pixels` or any other valid CSS dimensions to fit the content of the popup.
 
 
-````CSHTML
+````RAZOR
 <TelerikDatePicker @bind-Value="datePickerValue" PopupWidth="300px"></TelerikDatePicker>
 
 @code  {
@@ -63,7 +63,7 @@ This example utilizes CSS to reduce the font-size of the month's name in the dro
 
 >note If you are using it for the Calendar component you can pass a custom CSS class to the `Class` parameter of the Calendar and cascade the styles through that class.
 
-````CSHTML
+````RAZOR
 <style>
     .k-calendar .k-calendar-header .k-title.k-button {
         font-size: 10px;

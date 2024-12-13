@@ -45,7 +45,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
 >caption Handling the `OnSelect` event of the FileSelect
 
-````CSHTML
+````RAZOR
 @*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
 
 @using System.IO
@@ -111,7 +111,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
 >caption Handling the `OnRemove` event of the FileSelect
 
-````CSHTML
+````RAZOR
 @*Handle the OnRemove event of the FileSelect to access and delete the uploaded files*@
 
 @using System.IO

@@ -35,7 +35,7 @@ To control the expanded or collapsed state of items in the TreeList programmatic
 
 Below is an example demonstrating how to use the TreeList State to expand or collapse items programmatically:
 
-````CSHTML
+````RAZOR
 <div>
     <span>
         <TelerikButton OnClick="@SetTreeListExpandedItems">Expand/Collapse All Items</TelerikButton>

@@ -33,7 +33,7 @@ How to ensure a group is always set for the grid?
 I would like to not show the buttons to remove the grouping options for this grid.
 
 ## Solution
-To ensure certain grid state (like always having the grid grouped by a certain field), you can use the [grid state]({%slug grid-state%}) - through its `OnStateChanged` event, you can know what the user did and [prevent or override that action]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid).
+To ensure certain grid state (like always having the grid grouped by a certain field), you can use the [grid state]({%slug grid-state%}) - through its `OnStateChanged` event, you can know what the user did and [prevent or override that action]({%slug grid-state%}#onstatechanged).
 
 You can hide the group header or [x] buttons on group indicators with CSS rules.
 
@@ -41,7 +41,7 @@ Examples of both follow below, see the code comments for details.
 
 >caption Ensure the grid is always grouped by a static field set in the code
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource;
 
 <TelerikGrid Data="@MyData" Height="400px" Pageable="true" FilterMode="@GridFilterMode.FilterMenu" Groupable="true"
@@ -143,7 +143,7 @@ Examples of both follow below, see the code comments for details.
 
 The key thing is to set `Visible=false`, the other settings are to ensure it cannot be shown, resized, edited, moved or otherwise interacted with. Hiding it from the column chooser will also prevent the user from showing it on their own, the other settings are to showcase you can disable them, and to limit the options in case your other state modifications require that you show it at some point. You can tweak this as necessary.
 
-````CSHTML
+````RAZOR
     <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" Width="0px" VisibleInColumnChooser="false" Visible="false"
                 Reorderable="false" Resizable="false" Filterable="false" Sortable="false" Groupable="false" Editable="false" Lockable="false">
     </GridColumn>
@@ -151,7 +151,7 @@ The key thing is to set `Visible=false`, the other settings are to ensure it can
 
 >caption Sample CSS rules to hide the group header and/or the [x] buttons on group indicators
 
-````CSHTML
+````RAZOR
 <style>
     /* if you add the no-group-header Class to the grid, the following rule 
     will hide the group header so the user cannot change grouping on their own */

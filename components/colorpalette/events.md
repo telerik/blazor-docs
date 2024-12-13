@@ -23,7 +23,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 >caption Handle OnChange and use two-way binding for the Value
 
-````CSHTML
+````RAZOR
 @MyColor
 <br />
 
@@ -52,7 +52,7 @@ The `ValueChanged` event fires upon every change (selection of color) in the com
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @MyColor
 <br />
 
@@ -83,7 +83,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 @MyColor

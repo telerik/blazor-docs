@@ -18,7 +18,7 @@ The tooltip metadata is available from the the `context` object, in the followin
 
 This article contains the following examples for generating the tooltip content:
 
-* [Markup generated in the template](#basic-example---inline-markup). Shows how you can access the metadata.
+* [Markup generated in the template](#basic-example-inline-markup). Shows how you can access the metadata.
 
 * [Markup generated from a string through a method](#markup-from-generated-string). Shows how you can loop over all the keys in the metadata and render markup from a function call.
 
@@ -28,7 +28,7 @@ This article contains the following examples for generating the tooltip content:
 
 >caption Different content for different targets, generated from the same tooltip
 
-````CSHTML
+````RAZOR
 @* You can add more than text, you can also use the data to generate attributes for images
     or even entire components *@
 
@@ -60,7 +60,7 @@ This article contains the following examples for generating the tooltip content:
 
 >caption Generate tooltip content based on target metadata through a method
 
-````CSHTML
+````RAZOR
 @* Generate the HTML content through a markup string *@
 
 <TelerikTooltip TargetSelector="p strong[title]">
@@ -102,7 +102,7 @@ This example shows how you can use a standalone component to generate the toolti
 >caption Generate tooltip content through a separate component
 
 <div class="skip-repl"></div>
-````MainComponent
+````RAZOR MainComponent
 @* Tip: set dimensions that will accommodate the data/content you fetch/generate
     to avoid sizing and/or positioning issues when the new content is rendered *@
 
@@ -120,7 +120,7 @@ This example shows how you can use a standalone component to generate the toolti
     and even a <strong class="target">third target</strong>.
 </p>
 ````
-````TooltipContentComponent
+````RAZOR TooltipContentComponent
 @* You can apply more styling, add different content or more components
     This example showcases the concept, you can modify it to match you needs.
     Using the OnParametersSet event and loading data on demand is not required *@

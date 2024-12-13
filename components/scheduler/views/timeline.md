@@ -45,7 +45,7 @@ Generally, the views are designed around the timeframe that they show and the da
 
 >caption Declare the Timeline view in the markup
 
-````CSHTML
+````RAZOR
 @* Define the Timeline view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">

@@ -16,7 +16,7 @@ This article contains the following sections:
 
 * [Basics](#basics)
 * [OnRowDrop Event](#onrowdrop-event)
-* [TreeListRowDraggableSettings](#treelistdrowdraggablesettings)
+* [TreeListRowDraggableSettings](#treelistrowdraggablesettings)
 * [Examples](#examples)
     * [Drag and Drop a Row in the same TreeList](#drag-and-drop-a-row-in-the-same-treelist)
     * [Drag and Drop a Row between TreeLists](#drag-and-drop-a-row-between-treelists)
@@ -71,7 +71,7 @@ This section contains the following examples:
 ### Drag and Drop a Row in the same TreeList
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @* Drag a row and drop it in the TreeList. *@
 
 <TelerikTreeList Data="@Data"
@@ -206,7 +206,7 @@ This section contains the following examples:
     #endregion
 }
 ````
-````Extensions
+````C# Extensions
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -265,7 +265,7 @@ namespace TelerikBlazorAppServer.Shared
     }
 }
 ````
-````Model
+````C# Model
 public class Employee
 {
     // hierarchical data collections
@@ -284,7 +284,7 @@ public class Employee
 When you drag and drop items from one instance of the TreeList to another, the `OnRowDrop` event fires for both instances of the component so you can update both their data sources. All instances must be bound to the same model.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 <TelerikTreeList Data="@Data"
                  ItemsField="@(nameof(Employee.DirectReports))"
                  Pageable="true" Width="850px"
@@ -514,7 +514,7 @@ When you drag and drop items from one instance of the TreeList to another, the `
     #endregion
 }
 ````
-````Extensions
+````C# Extensions
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -573,7 +573,7 @@ namespace TelerikBlazorAppServer.Shared
     }
 }
 ````
-````Model
+````C# Model
 public class Employee
 {
     // hierarchical data collections
@@ -593,10 +593,10 @@ The functionality allows dragging items between TreeList, [Grid]({%slug grid-dra
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
-##### Drag and Drop between Grid and TreeList
+#### Drag and Drop between Grid and TreeList
 
 <div class="skip-repl"></div>
-````Index.razor
+````RAZOR Index.razor
 @using System.Collections.Generic;
 @using System.Collections.ObjectModel;
 
@@ -730,7 +730,7 @@ The functionality allows dragging items between TreeList, [Grid]({%slug grid-dra
     }
 }
 ````
-````PersonService.cs
+````C# PersonService.cs
 public class PersonService
 {
     private List<Person> _people;
@@ -777,7 +777,7 @@ public class PersonService
     }
 }
 ````
-````Person.cs
+````C# Person.cs
 using System.ComponentModel.DataAnnotations;
 
 public class Person
@@ -813,7 +813,7 @@ public class Person
     }
 }
 ````
-````TreeListService.cs
+````C# TreeListService.cs
 public class TreeListService
     {
         private List<FlatItem> _flatItems;
@@ -886,7 +886,7 @@ public class TreeListService
         }
     }
 ````
-````FlatItem.cs
+````C# FlatItem.cs
 public class FlatItem
     {
         public Guid Id { get; set; }
@@ -916,7 +916,7 @@ public class FlatItem
         public ProductSize? EnumNullableProp { get; set; }
     }
 ````
-````ProductSize.cs
+````C# ProductSize.cs
 using System.ComponentModel.DataAnnotations;
 
 public enum ProductSize
@@ -940,7 +940,7 @@ You can drag and drop multiple rows in one or between multiple instances of the 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @* Select multiple rows and reorder them in the TreeList. *@
 
 <TelerikTreeList Data="@Data"
@@ -1079,7 +1079,7 @@ When you select multiple rows, the row drag clue will be `N items selected` wher
     #endregion
 }
 ````
-````Extensions
+````C# Extensions
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1138,7 +1138,7 @@ namespace TelerikBlazorAppServer.Shared
     }
 }
 ````
-````Model
+````C# Model
 public class Employee
 {
     // hierarchical data collections

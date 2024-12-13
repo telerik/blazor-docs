@@ -30,7 +30,7 @@ The issue stems from the Iframe support of the Safari browser and especially whe
 
 >caption Set the height of the content area of the Editor
 
-````CSHTML
+````RAZOR
 @*Use CSS to set the height of the content area*@
 
 <style>

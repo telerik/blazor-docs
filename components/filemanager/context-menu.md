@@ -50,7 +50,7 @@ Clicking the command will open a delete confirmation dialog. Pressing the `OK` b
 
 The following example demonstrates handling of the ContextMenu commends.
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

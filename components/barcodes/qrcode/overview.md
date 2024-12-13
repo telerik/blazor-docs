@@ -26,7 +26,7 @@ The generated image from the component is a machine-readable label that contains
 
 >caption A basic configuration of the Telerik QRCode
 
-````CSHTML
+````RAZOR
 <TelerikQRCode Size="200px"
                Value="https://docs.telerik.com/blazor-ui/introduction">
 </TelerikQRCode>

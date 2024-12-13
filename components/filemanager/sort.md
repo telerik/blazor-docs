@@ -24,7 +24,7 @@ The dropdown in the toolbar exposes several more options to sort by:
 
 ![Blazor FileManager Sort](images/filemanager-sort.png)
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

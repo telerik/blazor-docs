@@ -25,7 +25,7 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 
 >caption The following example showcases the use of a `<HeaderTemplate>`, including `TelerikIcons`
 
-````CSHTML
+````RAZOR
 @*A couple of tabs with defferent header configuration.*@
 
 <TelerikTabStrip>

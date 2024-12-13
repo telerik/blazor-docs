@@ -36,7 +36,7 @@ The DatePicker requires a [different approach. See the Notes below](#notes).
 
 >caption Sample of how the Telerik DateTime inputs work with a DateTimeOffset
 
-````CSHTML
+````RAZOR
 <p>UTC: @DateValue.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
 <p>Local: @DateValue.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
 <p>DateTime (used by Telerik components): @DateValue.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
@@ -83,7 +83,7 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
 
 >caption DatePicker with DateTimeOffset - one way to account for the time difference
 
-````CSHTML
+````RAZOR
 <p>UTC: @DateEffective.UtcDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
 <p>Local: @DateEffective.LocalDateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
 <p>DateTime (used by Telerik components): @DateEffective.DateTime.ToString("dd MMM yyyy, HH:mm:ss")</p>
@@ -122,7 +122,7 @@ The example below shows how you can use the ValueChanged event of the TelerikDat
 
 >caption DatePicker with nullable DateTimeOffset - one way to avoid null reference errors
 
-````CSHTML
+````RAZOR
 @* If you try to directly use the MyDateTimeOffset.Value.Date for the Date Picker, you can get
 null reference exeptions when the struct is null,
 such as "Nullable object must have a value." - you can reproduce this without Telerik components

@@ -31,7 +31,7 @@ You can increase or decrease the size of the TextBox by setting the `Size` param
 
 >caption Built-in TextBox sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Size)
         .GetFields(System.Reflection.BindingFlags.Public
@@ -67,7 +67,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the textbox to a
 
 >caption Built-in values of the TextBox Rounded parameter
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.Rounded)
         .GetFields(System.Reflection.BindingFlags.Public
@@ -103,7 +103,7 @@ The `FillMode` controls how the TelerikTextBox is filled. You can set it to a me
 
 >caption Built-in TextBox fill modes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.TextBox.FillMode)
         .GetFields(System.Reflection.BindingFlags.Public

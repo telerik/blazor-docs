@@ -16,8 +16,7 @@ To scroll the tabs only, set the `Scrollable` bool parameter of the TabStrip to 
 
 >caption Scroll the tabs only
 
-<div class="skip-repl"></div>
-````HorizontalScrolling
+````RAZOR Horizontal Scrolling
 <TelerikTabStrip Scrollable="true"
                  Width="300px"
                  TabPosition="Telerik.Blazor.TabPosition.Top">
@@ -31,10 +30,10 @@ To scroll the tabs only, set the `Scrollable` bool parameter of the TabStrip to 
     }
 </TelerikTabStrip>
 ````
-````VerticalScrolling
+````RAZOR Vertical Scrolling
 <TelerikTabStrip Scrollable="true"
-                 Width="300px"
-                 TabPosition="Telerik.Blazor.TabPosition.Top">
+                 Height="200px"
+                 TabPosition="Telerik.Blazor.TabPosition.Left">
     @{
         for (int i = 0; i < 10; i++)
         {

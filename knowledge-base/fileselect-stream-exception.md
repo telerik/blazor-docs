@@ -30,10 +30,10 @@ The FileSelect `Stream` (`FileInfoStream`) has exposed methods that are "not imp
 
 ## Error Message
 
-```
+````C#.skip-repl
 System.NotImplementedException: The method or operation is not implemented.
     at Telerik.Blazor.Components.FileSelect.Stream.FileInfoStream.Read()
-```
+````
 
 The same exception will occur for the following methods and properties:
 
@@ -54,7 +54,7 @@ Copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsyn
 
 >caption Copy the FileSelect Stream to another one and use sync methods
 
-```CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileSelect OnSelect="@ReadSelectedFiles" />

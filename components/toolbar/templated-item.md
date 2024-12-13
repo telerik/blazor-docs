@@ -18,7 +18,7 @@ You can use that item to add complex toolbars to your application, which have dr
 
 ![templated item for the ToolBar](images/toolbar-templated-item.png)
 
-````CSHTML
+````RAZOR
 @*Use the templated item to add a Telerik DropDownList to the ToolBar*@
 
 <TelerikToolBar>

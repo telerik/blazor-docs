@@ -22,7 +22,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 >caption Handle ValueChanged
 
-````CSHTML
+````RAZOR
 @* This example showcases one-way data binding by using Value and ValueChanged *@
 
 <TelerikSwitch Value="@toggleSwitch" 
@@ -59,7 +59,7 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @*This example showcases the usage of OnChange event in conjunction with two-way data binding*@
 
 <TelerikSwitch @bind-Value="@toggleSwitch"
@@ -95,7 +95,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikSwitch @bind-Value="@TheValue"

@@ -24,7 +24,7 @@ Since `horizontal` is the default value for the Stepper `Orientation` parameter,
 
 ![Horizontal Stepper](images/horizontal-stepper-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with horizontal orientation *@
 
 <div style="width:500px">
@@ -46,7 +46,7 @@ Set the `Orientation` parameter of the Stepper to `vertical` to change its defau
 
 ![Simple Stepper](images/vertical-stepper-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with vertical orientation *@
 
 <TelerikStepper Orientation="StepperOrientation.Vertical">

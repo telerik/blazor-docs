@@ -39,7 +39,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
 
 >caption Display icon over TextBox input
 
-````CSHTML
+````RAZOR
 <p>
     <label>
         Fixed Label
@@ -99,7 +99,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
 
 >caption How to add icon to the textbox
 
-````CSHTML
+````RAZOR
 <h3>Bootstrap prepend or append approach</h3>
 
 <div style="width: 500px;">

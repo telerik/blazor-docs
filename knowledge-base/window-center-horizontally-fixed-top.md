@@ -35,7 +35,7 @@ To center a Telerik Window horizontally while maintaining a fixed distance from 
 
 >caption Telerik Blazor Window Centered Horizontally with Fixed Top Value
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
 
 <style>

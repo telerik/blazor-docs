@@ -29,7 +29,7 @@ You can prevent the user from sorting a certain field by setting `Sortable="fals
 
 >caption Enable Sorting in Telerik Grid
 
-````CSHTML
+````RAZOR
 Click a column header to sort by its data
 
 <TelerikGrid Data="@MyData" Sortable="true" Height="500px">
@@ -57,7 +57,7 @@ To allow sorting on more than one column at a time, set the `SortMode` parameter
 
 >caption Enable multi column sorting
 
-````CSHTML
+````RAZOR
 @* Try sorting by Team, then by Name to see how the multiple sorts apply *@
 
 <TelerikGrid Data=@GridData Sortable="true" SortMode="@SortMode.Multiple"
@@ -110,7 +110,7 @@ You can sort the grid from your own code through its [state]({%slug grid-state%}
 
 >caption Set sorting programmatically
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/grid/state.md#set-sort-from-code)
 ````
 
@@ -118,7 +118,7 @@ You can sort the grid from your own code through its [state]({%slug grid-state%}
 
 The following articles and sample projects can be helpful when implementing sorting:
 
-* [Capture Sorted event]({%slug grid-state%}#get-and-override-user-action-that-changes-the-grid) - the grid state lets you know when it changes so you can capture different aspects of the change
+* [Capture Sorted event]({%slug grid-state%}#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change
 
 * [Server Sorting]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 

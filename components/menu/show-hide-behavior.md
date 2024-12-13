@@ -32,7 +32,7 @@ By default, the Menu items are shown on hover (mouse enter) over the Menu and hi
 
 >caption Explore the show and hide behavior of the Menu items
 
-````CSHTML
+````RAZOR
 @* Setting `ShowOn` and `HideOn` is not mandatory. The default values are `MenuShowEvent.MouseEnter` & `MenuHideEvent.MouseLeave`. *@
 
 <div>

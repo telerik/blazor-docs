@@ -16,7 +16,7 @@ position: 2
 
 >caption Use C# format strings in the Gantt Tree through the component markup
 
-````CSHTML
+````RAZOR
 
 @* Format the dates in the Gantt Tree by using the DisplayFormat parameter *@
 

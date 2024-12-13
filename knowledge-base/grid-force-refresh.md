@@ -43,7 +43,7 @@ If you don't use an `ObservableCollection`, then [create a `new` instance of the
 >caption Refresh grid data with automatic data source operations
 
 
-````CSHTML
+````RAZOR
 @* change grid data on external action. 
     Try grouping or filtering the grid, for example, then change its data through the button above it *@
 

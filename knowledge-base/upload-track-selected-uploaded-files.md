@@ -52,7 +52,7 @@ To count the total number of selected, valid and uploaded files in multiple user
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @inject NavigationManager NavigationManager
 
 <ul>

@@ -23,7 +23,7 @@ The **Upgrade Information** step of the Upgrade Project Wizard describes the fil
 The Telerik Blazor Upgrade Wizard will do the following:
 
 * Update the version of the referenced Blazor NuGet package. It will also update the package source in the solution-based NuGet config file.
-* Update the version of the theme reference, but only when using CDN. Otherwise, [update the theme manually]({%slug getting-started-vs-integration-new-project%}#step-3-configure-additional-project-settings).
+* Update the version of the theme reference, but only when using CDN. Otherwise, [update the theme manually]({%slug getting-started-vs-integration-new-project%}#step-3-select-theme).
 * Update all local script and style and NuGet package references if you upgrade from a Trial to a Dev version.
 * It will add the new keys in the default (English) localization file.
 

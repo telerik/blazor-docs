@@ -16,7 +16,7 @@ The example below is using a [DateRangePicker reference and methods]({%slug date
 
 >caption Header template with custom content in the DateRangePicker Calendar header
 
-````CSHTML
+````RAZOR
 <TelerikDateRangePicker StartValue="@StartDate"
                         EndValue="@EndDate"
                         Format="dd MMMM yyyy"

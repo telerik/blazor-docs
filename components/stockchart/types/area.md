@@ -30,7 +30,7 @@ To add a `Area` chart to a stock chart component:
 
 >caption An area chart that shows product revenues
 
-````CSHTML
+````RAZOR
 @*Area series*@
 
 <TelerikStockChart Height="450px"
@@ -117,7 +117,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Change the rendering Step and Color of the Category Axis Labels
 
-````CSHTML
+````RAZOR
 @* Change the rendering Step and Color of the Category Axis Labels *@
 
 <TelerikStockChart Height="450px"

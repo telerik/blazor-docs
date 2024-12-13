@@ -16,7 +16,7 @@ To keep Tab content in the DOM after the Tab is deactivated, set the `PersistCon
 
 >caption Persist the TabStrip content
 
-````CSHTML
+````RAZOR
 <h3>PersistTabContent="true"</h3>
 
 <TelerikTabStrip PersistTabContent="true">

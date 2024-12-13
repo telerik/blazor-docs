@@ -51,7 +51,7 @@ The following sample used as a component will cause exceptions:
 
 >caption RenderFragment elements used as properties cause exceptions
 
-````CSHTML
+````RAZOR
 typeparam TItem
 @typeparam TValue
 
@@ -78,7 +78,7 @@ typeparam TItem
 
 >caption Simple usage of the problematic component that causes an error
 
-````CSHTML
+````RAZOR
 <CustomCombo Data="@myDdlData" TItem="@MyDdlModel" TValue="int"
                   TextField="MyTextField" ValueField="MyValueField" @bind-Value="@selectedValue">
 </CustomCombo>
@@ -105,7 +105,7 @@ The solution is to implement checks in the custom component so that you can rend
 
 >caption Custom Component wrapping a component that uses a RenderFragment
 
-````CSHTML
+````RAZOR
 @typeparam TItem
 @typeparam TValue
 
@@ -155,7 +155,7 @@ The solution is to implement checks in the custom component so that you can rend
 
 >caption How to consume that component - like usual
 
-````CSHTML
+````RAZOR
 @selectedValue
 
 <hr />

@@ -44,7 +44,7 @@ To manage nested TileLyouts with resizing and reordering:
 
 >caption Enable resize and reorder for only one level of nested TileLayouts
 
-````CSHTML
+````RAZOR
 <style>
     .parent-tilelayout .k-tilelayout-item {
         overflow: auto;

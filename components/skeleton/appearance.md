@@ -28,7 +28,7 @@ The `ShapeType` parameter sets the shape of the Skeleton. It takes a member of t
 
 >caption Change the ShapeType
 
-````CSHTML
+````RAZOR
 @*This example shows the difference between the shapes of the Skeleton*@
 
 <div class="row">
@@ -60,7 +60,7 @@ The `AnimationType` parameter controls the type of animation for the Skeleton. T
 
 >caption The animations for the Skeleton
 
-````CSHTML
+````RAZOR
 @* The different animations for the Skeleton. *@
 
 <div class="row">

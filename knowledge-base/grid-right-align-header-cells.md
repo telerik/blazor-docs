@@ -34,7 +34,7 @@ To align the Grid header cell labels to the right, use custom CSS as per the exa
 
 >caption Align Grid header cells and data cells to the right
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Sortable="true"
              FilterMode="GridFilterMode.FilterMenu"

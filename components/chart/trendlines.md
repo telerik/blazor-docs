@@ -62,7 +62,7 @@ Use the Linear Trendline to visualize the rise or decline of a specific quantity
 
 >caption Linear trendline in scatter line Chart series
 
-`````CSHTML
+`````RAZOR
 <TelerikChart Width="100%" 
               Height="400px">
     <ChartPannable Enabled="true" 
@@ -216,7 +216,7 @@ Use the Moving Average Trendline to smooth out data fluctuations. This trendline
 
 >caption Line Chart with a moving average trendline
 
-`````CSHTML
+`````RAZOR
 <TelerikChart Width="100%" 
               Height="400px">
     <ChartPannable Enabled="true" 
@@ -357,7 +357,7 @@ Use the Exponential Trendline to visualize data with rapidly accelerating growth
 
 >caption Chart with an Exponential Trendline
 
-`````CSHTML
+`````RAZOR
 <TelerikChart>
     <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
     <ChartZoomable Enabled="true" />
@@ -543,7 +543,7 @@ Use the Logarithmic Trendline to visualize data with rapid initial growth that s
 
 >caption Chart with a Logarithmic Trendline
 
-`````CSHTML
+`````RAZOR
 <TelerikChart>
     <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
     <ChartZoomable Enabled="true" />
@@ -729,7 +729,7 @@ Use the Power Trendline to visualize data that follows a power-law relationship,
 
 >caption Chart with a Power Trendline
 
-`````CSHTML
+`````RAZOR
 <TelerikChart>
     <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
     <ChartZoomable Enabled="true" />
@@ -916,7 +916,7 @@ Use the Polynomial Trendline to visualize complex data patterns not fitting the 
 
 >caption Chart with a Polynomial Trendline
 
-`````CSHTML
+`````RAZOR
 <TelerikChart>
     <ChartPannable Enabled="true" Lock="@ChartAxisLock.Y" />
     <ChartZoomable Enabled="true" />

@@ -34,7 +34,7 @@ To reproduce, double click quickly a row in the `Role` column.
 
 
  
-````CSHTML
+````RAZOR
 @* Grid with slow rendering performance causing issue with the DropDownList opening *@
 
 <TelerikGrid Data=@GridData
@@ -132,7 +132,7 @@ The described behavior can be resolved if you optimize the rendering performance
 
 The sample below demonstrates how to achieve the desired behavior by using the `Pageable` property of the Grid to display less records at a time and thus to reduce the time needed for re-rendering the Grid.
 
-````CSHTML
+````RAZOR
 @* Grid with improved rendering performance - DropDownList opening correctly *@
 
 <TelerikGrid Data=@GridData

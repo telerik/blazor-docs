@@ -27,7 +27,7 @@ I would like to stop the cascading `EditContext` for a specific editor in my For
 
 To stop the cascading `EditContext` for a specific editor in the TelerikForm you should use the [Template]({%slug form-formitems-template%}) and wrap the custom editor in a `<CascadingValue>` tag. In the `Value` attribute of the `CascadingValue` you should reset the `EditContext`.
 
-````CSHTML
+````RAZOR
 @* Stop the cascading EditContext for the Edit the DoB checkbox. *@ 
 
 @using System.ComponentModel.DataAnnotations

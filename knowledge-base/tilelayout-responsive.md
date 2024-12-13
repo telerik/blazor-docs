@@ -32,7 +32,7 @@ This works well for the initial rendering and the component will be "responsive"
 
 When the layout changes dynamically at runtime, you can use the [TelerikMediaQuery]({%slug mediaquery-overview%}) component to respond to changes of the browser window size. This would allow you to change one or more of the parameters of the component like `Columns`, `ColumnWidth`, and `RowHeight`.
 
-````CSHTML
+````RAZOR
 @* Resize the browser to width to less than 767px to change the layout of the component.  *@
 
 <TelerikMediaQuery Media="@MediaQuery" OnChange="@((doesMatch) => isSmallScreen = doesMatch)"></TelerikMediaQuery>

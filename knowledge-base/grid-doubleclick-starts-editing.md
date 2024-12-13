@@ -29,7 +29,7 @@ The Grid currently supports an [OnRowDoubleClick event]({%slug grid-events%}#onr
 
 See the following example for reference:
 
-````CSHTML
+````RAZOR
 @*Use the OnRowDoubleClick event to set a row in edit mode*@ 
 
 <TelerikGrid Data="@MyData"

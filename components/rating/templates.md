@@ -20,7 +20,7 @@ The Rating `ItemTemplate` enables you to change the default HTML output and CSS 
 
 The `<ItemTemplate>` tag is a Blazor `RenderFragment`. It exposes a `context` variable that is the current data item object and you can access its properties directly without casting.
 
-````CSHTML
+````RAZOR
 <TelerikRating @bind-Value="@Value"
                Max="5"
                Label="@Label">

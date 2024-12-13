@@ -22,7 +22,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the grid to se
 
 >caption Using a row template
 
-````CSHTML
+````RAZOR
 Render the entire row with your own code and logic
 
 <TelerikGrid Data=@MyData Height="500px">

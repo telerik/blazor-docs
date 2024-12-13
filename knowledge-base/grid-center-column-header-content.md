@@ -36,7 +36,7 @@ For older product versions, or to target all columns, use `.k-header` instead of
 
 >caption Grid with centered or right-aligned column header content
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              TItem="@Product"
              Pageable="true"

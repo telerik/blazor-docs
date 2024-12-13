@@ -13,13 +13,13 @@ Consider setting `DebounceDelay="0"` to the component inside the editor template
 
 The component allows you to add custom elements as prefixes and suffixes. [Read more about how to render custom adornments before and after the input element...]({%slug common-features/input-adornments%})
 #end
-
+ 
 #floating-label-and-preffix
-When using the [`PrefixTemplate`]({%slug common-features/input-adornments%}#adding-prefix-in-ui-for-blazor-components) for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
+When using the [`PrefixTemplate`]({%slug common-features/input-adornments%}#adding-a-prefix-adornment) for a component wrapped in a [FloatingLabel]({%slug floatinglabel-overview%}), the label will overlap the prefix.
 
 To ensure both the FloatingLabel and the prefix content are properly displayed, move the label with CSS:
 
-````CSHTML
+````RAZOR
 <style>
     .custom-label-class .k-floating-label {
         margin-left: 30px;

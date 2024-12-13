@@ -19,14 +19,14 @@ You can perform all data operations yourself (e.g. on the server) and load data 
 
 ## Examples
 
-Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](editing/overview) article.
+Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](slug://components/grid/editing/overview) article.
 
 The comments in the code provide explanations on what is done and why.
 
 Examples:
 
 * [Custom paging with a remote service](#custom-paging-with-a-remote-service)
-* [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresultrequest)
+* [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresult-request)
 * [Grouping with OnRead](#grouping-with-onread)
 * [Aggregates with OnRead](#aggregates-with-onread)
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
@@ -38,7 +38,7 @@ Examples:
 
 >note The example below demonstrates how to use just Paging with a remote service. For a more complex setup including other Grid functionalities (such as sorting, filtering etc.) you can check [this project for using Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server) in our public repository.
 
-````CSHTML
+````RAZOR
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid TItem="@Employee"
@@ -127,7 +127,7 @@ If you have all the data at once, the Telerik .ToDataSourceResult(request) exten
 
 >caption Use Telerik .ToDataSourceResult() extension method to filter, sort and page data.
 
-````CSHTML
+````RAZOR
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @using Telerik.DataSource.Extensions
@@ -211,7 +211,7 @@ Thus, to use the `OnRead` event with grouping, you must:
 
 >caption Grouping with OnRead
 
-````CSHTML
+````RAZOR
 This sample shows how to set up the grid to use grouping with manual data source operations, and how to use the Telerik DataSource extensions to prepare grouped data.
 
 @using Telerik.DataSource.Extensions
@@ -285,7 +285,7 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 >note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
 >
-> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) in order to ensure a model reference exists.
+> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-kb-add-edit-state%}) in order to ensure a model reference exists.
 
 
 ## Aggregates with OnRead
@@ -294,7 +294,7 @@ When using [aggregates]({%slug grid-aggregates%}) with `OnRead`, the Grid expect
 
 <div class="skip-repl"></div>
 
-```CS
+````CS
 private async Task OnGridRead(GridReadEventArgs args)
 {
     DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
@@ -303,14 +303,14 @@ private async Task OnGridRead(GridReadEventArgs args)
     args.Total = result.Total;
     args.AggregateResults = result.AggregateResults;
 }
-```
+````
 
 
 ## Get Information From the DataSourceRequest
 
 With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state).
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

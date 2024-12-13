@@ -26,7 +26,7 @@ The comments in the code provide explanations on what is done and why.
 
 >caption Custom paging with a remote service
 
-````CSHTML
+````RAZOR
 Custom paging. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 <TelerikGrid Data=@GridData TotalCount=@Total
@@ -112,7 +112,7 @@ Custom paging. There is a deliberate delay in the data source operations in this
 
 >caption If you have all the data at once, the Telerik .ToDataSourceResult(request) extension method can manage the operations for you
 
-````CSHTML
+````RAZOR
 Using Telerik DataSource extension methods to manipulate all the data into paged chunks and also perform other operations like filtering, sorting, etc. There is a deliberate delay in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
 
 @using Telerik.DataSource.Extensions

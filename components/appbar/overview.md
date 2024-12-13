@@ -20,7 +20,7 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 
 >caption Basic configuration of the Telerik AppBar
 
-````CSHTML
+````RAZOR
 <TelerikAppBar>
     <AppBarSection>
         <span>Company Logo</span>
@@ -104,7 +104,7 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@RefreshAppBar">Refresh AppBar</TelerikButton>
 
 <TelerikAppBar @ref="AppBarRef" />

@@ -27,7 +27,7 @@ The `OnChange` event fires before the current step has changed. The handler rece
 
 ![OnChange](images/onchange-example.gif)
 
-````CSHTML
+````RAZOR
 @* Handle the OnChange event of the steps *@
 
 Next targeted step index: @TargetIndex
@@ -74,7 +74,7 @@ The Telerik Stepper for Blazor supports ValueChanged event. It fires upon every 
 
 ![ValueChanged example](images/value-changed-example.gif)
 
-````CSHTML
+````RAZOR
 @* Handle ValueChanged event of the Stepper *@
 
 @Result

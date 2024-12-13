@@ -32,7 +32,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
 
 >caption Enable the column menu for all Gantt columns.
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="900px"
               Height="600px"
@@ -52,7 +52,7 @@ To disable the Column Menu for a specific column in the Gantt, set the `ShowColu
     <GanttColumns>
         <GanttColumn Field="@nameof(FlatModel.Title)" ShowColumnMenu="false">
         </GanttColumn>
-        <GanttColumn Field="@nameof(FlatModel.PercentComplete)"
+        <GanttColumn Field="@nameof(FlatModel.PercentComplete)">
         </GanttColumn>
         <GanttColumn Field="@nameof(FlatModel.Start)">
         </GanttColumn>
@@ -177,7 +177,7 @@ The example shows the following things:
 * How to use the `GanttColumnMenuSettings` tag to control the features of the Column Menu.
 * How to use column parameters to affect the column's relationship with the column menu.
 
-````CSHTML
+````RAZOR
 @* Disable filtering and locking columns, hide a column from the chooser (PercentComplete), disable the menu for a column (Title). *@
 
 <TelerikGantt Data="@Data"
@@ -283,7 +283,7 @@ The example shows the following things:
 
 * The settings applied to a Gantt column take precedence over the settings applied to the Column Menu through the `<GanttColumnMenuSettings>` tag. For example, if you set `Lockable="false"` to a Gantt column and `Lockable="true"` to the Gantt Column Menu, the Frozen Columns functionality will be disabled.
 
-* When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all Gantt Columns.
+* When using the [Column Chooser Template]({%slug gantt-templates-column-chooser%}) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all Gantt Columns.
 
 ## See Also
   * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)

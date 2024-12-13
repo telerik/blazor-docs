@@ -17,7 +17,7 @@ The Stepper component allows you to set labels for the corresponding step indica
 
 ![Indicators and Labels](images/labels-and-indicators-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with icon indicators and labels *@
 
 <div style="width:500px">
@@ -38,7 +38,7 @@ The Stepper component allows you to set labels for the corresponding step indica
 
 ![Some Labels](images/some-labels-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with icon indicators and only a couple labels *@
 
 <div style="width:500px">
@@ -59,7 +59,7 @@ The Stepper component allows you to set labels for the corresponding step indica
 
 ![Only Indicators](images/only-indicators-example.png)
 
-````CSHTML
+````RAZOR
 @* Stepper with only indicators and no labels *@
 
 <div style="width:500px">

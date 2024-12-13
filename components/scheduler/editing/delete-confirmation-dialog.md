@@ -22,7 +22,7 @@ The built-in delete confirmation dialog triggers before event deletion. You can 
 
 >caption Enabling of the Delete Confirmation Dialog
 
-````CSHTML
+````RAZOR
 @* Scheduler with enabled Delete Confirmation Dialog *@
 
 <TelerikScheduler Data="@Appointments"

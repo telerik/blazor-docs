@@ -25,7 +25,7 @@ When using an `ItemTemplate`, the Drawer can still [navigate automatically if th
 
 >caption Use ItemTemplate to control the rendering of the items in the Drawer.
 
-````CSHTML
+````RAZOR
 @* This example shows how to control the rendering of the items in the Drawer menu *@
 
 <style>
@@ -100,7 +100,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
 
 >caption Using a template with manual item selection, header and footer
 
-````CSHTML
+````RAZOR
 @* This example shows how to create header and footer for the Drawer and select an item manually. *@
 
 @using Telerik.FontIcons

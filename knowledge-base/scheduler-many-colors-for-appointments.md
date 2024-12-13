@@ -32,7 +32,7 @@ I want to set different background colors to the appointments dynamically. I can
 * Wrap the appointment template content in a container that will hold the custom styles.
 * (optional) Remove the default `padding` of the `.k-event` elements.
 
-````CSHTML
+````RAZOR
 <style>
 /* remove the default padding, so the template container expands to cover the whole appointment */
     .k-scheduler .k-event{

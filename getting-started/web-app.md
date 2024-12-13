@@ -38,13 +38,13 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 1. Right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
 
-  * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
-  * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
+    * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
+    * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.
 
 1. Install the Telerik Blazor NuGet package:
 
-  1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) username and password.
-  1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders must install `Telerik.UI.for.Blazor`. Trial users must install `Telerik.UI.for.Blazor.Trial`.
+   1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) username and password.
+   1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders must install `Telerik.UI.for.Blazor`. Trial users must install `Telerik.UI.for.Blazor.Trial`.
 
 ## Step 4: Enable the Blazor UI Components
 
@@ -68,12 +68,12 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you [installed the Telerik NuGet package in **Step 3**](#step-3-install-the-telerik-ui-for-blazor-components). This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
 
-**_Imports.razor**
-    
-    @using Telerik.Blazor
-    @using Telerik.Blazor.Components
-    @using Telerik.SvgIcons
-    @using Telerik.FontIcons
+````RAZOR.skip-repl _Imports.razor
+@using Telerik.Blazor
+@using Telerik.Blazor.Components
+@using Telerik.SvgIcons
+@using Telerik.FontIcons
+````
 
 ### 4.3. Add the TelerikRootComponent
 

@@ -38,7 +38,7 @@ This example demonstrates the usage of the Window's `Refresh()` method, ensuring
 
 >caption DropDownList inside a Window
 
-`````CSHTML
+`````RAZOR
 <TelerikWindow @ref="@WindowRef" @bind-Visible="@WindowIsVisible">
     <WindowTitle>
         Window Title

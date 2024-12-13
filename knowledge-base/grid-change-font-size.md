@@ -10,7 +10,7 @@ ticketid: 1648462, 1646767, 1642310
 res_type: kb
 ---
 
-# Environment
+## Environment
 
 <table>
     <tbody>
@@ -33,7 +33,7 @@ res_type: kb
 
 >caption Change Blazor Grid Font Size
 
-````CSHTML
+````RAZOR
 <style>
     /* grid */
     .k-grid.font-size,

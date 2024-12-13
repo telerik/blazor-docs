@@ -29,7 +29,7 @@ You can increase or decrease the size of the MultiSelect by setting the `Size` a
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.MultiSelect.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -85,7 +85,7 @@ The `Rounded` attribute applies the `border-radius` CSS rule to the MultiSelect 
 
 >caption The built-in values of the Rounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the Rounded attribute.  *@
 
 @{
@@ -142,7 +142,7 @@ The `FillMode` controls how the TelerikMultiSelect is filled. You can set it to 
 
 >caption The built-in Fill modes
 
-````CSHTML
+````RAZOR
 @* These are all built-in fill modes *@
 
 @{

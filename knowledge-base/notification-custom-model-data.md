@@ -32,7 +32,7 @@ I need to get a custom field with different value to each notification (i.e. the
 1. In the [Notification `<Template>`]({%slug notification-templates%}), cast the `context` to `MyExtendedNotificationModel`. This will allow you to access and consume the additional data.
 1. If you use [both overloads of `Show()`]({%slug notification-open-close-hide%}#open), make sure to check if the cast is successful, otherwise you may get a `NullReferenceException`.
 
-````CSHTML
+````RAZOR
 <TelerikNotification @ref="@NotificationReference">
     <Template>
         @{

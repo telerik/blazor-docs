@@ -32,7 +32,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
 >caption Stop the Drawer from collapsing on item click
 
-````CSHTML
+````RAZOR
 @* Toggle the expanded or collapsed state only by a button click. Clicking on a Drawer item will navigate you to the value of the Text property of the DrawerItem class. See the SelectAndNavigate method for reference *@
 
 @inject NavigationManager navManager

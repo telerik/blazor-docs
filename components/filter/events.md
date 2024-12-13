@@ -20,7 +20,7 @@ The `ValueChanged` event fires when the value has changed. Its event handler rec
 
 >caption Handle ValueChanged.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the ValueChanged event. *@
 
 @using Telerik.DataSource

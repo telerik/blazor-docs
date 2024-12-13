@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/datepicker" target="_blank">Blazo
 
 >caption Basic Date Picker with custom format, min and max
 
-````CSHTML
+````RAZOR
 <p> The DatePicker Value is: @DatePickerValue.ToShortDateString() </p>
 
 <TelerikDatePicker @bind-Value="DatePickerValue"
@@ -129,7 +129,7 @@ Add a reference to the component instance to use the [Date Picker's methods](/bl
 
 >caption Using Blazor DatePicker methods
 
-````CSHTML
+````RAZOR
 <TelerikDatePicker @ref="@DatePickerRef"
                    @bind-Value="@DatePickerValue"
                    Width="200px" />

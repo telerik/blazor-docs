@@ -33,7 +33,7 @@ The `<FormItems>` tag doesn't render Form items directly. This tag is used only 
 
 To preserve the rendering place of each form item, you need to use the `TelerikFormItemRenderer`.
 
-````CSHTML
+````RAZOR
 <TelerikForm Model="@model">
     <FormItems>
 

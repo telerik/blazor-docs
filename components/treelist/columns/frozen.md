@@ -20,7 +20,7 @@ If the column you want to freeze is not the first in the list, the treelist must
 
 ![TreeList frozen columns behavior](images/frozen-columns-overview.gif)
 
-````CSHTML
+````RAZOR
 @* Explore how locked (frozen) columns behave when scrolling. For brevity, editing is not implemented *@
 
 <TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId"

@@ -28,7 +28,7 @@ Radar area charts are often used to make comparisons between several units that 
 
 >caption A radar area chart that shows comparison between character evaluations
 
-````CSHTML
+````RAZOR
 @* Radar Area series*@
 
 <TelerikChart>
@@ -92,7 +92,7 @@ You can render the lines between the points with different styles. The supported
 
 >caption Change the first series line settings, the Color and Font of the Category Axis Labels and the legend border
 
-````CSHTML
+````RAZOR
 @* Change the line of the series, the category labels and the legend border *@
 
 <TelerikChart>

@@ -32,7 +32,7 @@ Note that the [`HeaderTemplate`]({%slug grid-templates-column-header%}) does not
 
 ### Example
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData">
     <GridColumns>
         <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />

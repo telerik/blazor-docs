@@ -16,7 +16,7 @@ The `TreeListPagerTemplate` allows you to modify the layout, content, and functi
 
 >caption Using the Telerik UI for Blazor Slider to paginate the TreeList data
 
-````CSHTML
+````RAZOR
 @* Telerik Blazor TreeList with Pager Template *@
 
 <TelerikTreeList Data="@TreeListData"

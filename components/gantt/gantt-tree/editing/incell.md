@@ -24,7 +24,7 @@ It is up to the data access logic to save the data once it is changed in the dat
 
 >caption InCell Editing Example.
 
-````CSHTML
+````RAZOR
 <TelerikGantt Data="@Data"
               Width="1200px"
               Height="600px"

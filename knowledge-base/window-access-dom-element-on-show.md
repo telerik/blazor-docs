@@ -42,7 +42,7 @@ Comments in the sample below provide more explanations:
 
 >caption sample component
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime JSRuntime;
 
 <TelerikButton OnClick="@ShowWindowAndCallJs">Show Window and call JS</TelerikButton>

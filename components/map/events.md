@@ -31,7 +31,7 @@ The `OnClick` event fires when the user clicks or taps on the Map. The `OnClick`
 
 >caption Handle OnClick.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the Map OnClick event. *@
 
 <TelerikMap Center="@Center"
@@ -138,7 +138,7 @@ The `OnMarkerClick` event fires when the user clicks or taps a marker. The `OnMa
 
 >caption Handle OnMarkerClick.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the Map OnMarkerClick event. *@
 
 <TelerikMap Center="@Center"
@@ -246,7 +246,7 @@ The `OnShapeClick` event fires when the user clicks or taps a shape. The `OnShap
 
 >caption Handle OnShapeClick.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the Map OnShapeClick event. *@
 
 <TelerikMap Center="@Center"
@@ -354,7 +354,7 @@ The `OnZoomEnd` event fires when the user has finished zooming the Map. The `OnZ
 
 >caption Handle OnZoomEnd.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the Map OnZoomEnd event. *@
 
 <TelerikMap Center="@Center"
@@ -462,7 +462,7 @@ The `OnPanEnd` event fires when the user has finished moving (panning) the Map. 
 
 >caption Handle the Map OnPanEnd event
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of how to handle the Map OnPanEnd event. *@
 
 <TelerikMap Center="@Center"

@@ -59,7 +59,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
 
 <div class="skip-repl"></div>
 
-````Razor
+````RAZOR
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 
@@ -254,7 +254,7 @@ The tabs below show a possible implementation for the Razor UI, `Save` and `Remo
     }
 }
 ````
-````Controller
+````C# Controller
 [Route("api/[controller]/[action]")]
 public class UploadController : Controller
 {
@@ -322,7 +322,7 @@ public class UploadController : Controller
     }
 }
 ````
-````Program.cs
+````C# Program.cs
 // ...
 
 builder.Services.AddHttpClient();

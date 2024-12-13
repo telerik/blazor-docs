@@ -29,7 +29,7 @@ When using two-way binding, the selected items will be automatically updated in 
 
 >caption Use two-way binding for the `SelectedItems`
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"
@@ -238,7 +238,7 @@ In this case, you need to manually update the view-model as the framework does n
 
 >caption Use one-way data binding for the SelectedItems
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"

@@ -46,7 +46,7 @@ Set the **Width** attribute of the Window or the Grid. To maintain [responsive b
 
 >caption Prevent Window expansion on drag with a relative Width
 
-````CSHTML
+````RAZOR
 <TelerikWindow Draggable="true"
                Visible="true"
                Top="10px"

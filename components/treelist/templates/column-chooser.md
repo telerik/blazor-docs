@@ -16,7 +16,7 @@ When you set up the Column Chooser Template, the list of columns that are render
 
 >caption Using the Template to provide custom rendering
 
-````CSHTML
+````RAZOR
 @* Use the Template to render the list of columns and add some custom styles. *@ 
 
 <TelerikTreeList Data="@TreeListData"

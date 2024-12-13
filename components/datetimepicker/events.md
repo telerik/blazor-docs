@@ -26,7 +26,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 @result
@@ -67,7 +67,7 @@ As an argument, the event handler receives a [`DateTimePickerCalendarCellRenderE
 
 >caption Handle the OnCalendarCellRender event.
 
-````CSHTML
+````RAZOR
 @* Customize the calendar cells using the OnCalendarCellRender event. *@
 
 <TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
@@ -110,7 +110,7 @@ The DateTimePicker is a generic component, so you must either provide a `Value`,
 
 >caption Handle OnChange and use two-way binding
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @DateTimePickerValue
@@ -148,7 +148,7 @@ As an argument, the event handler receives a [`DateTimePickerCloseEventArgs` obj
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the closing of the popup. |
 
-````CSHTML
+````RAZOR
 @* Cancel the OnClose event based on a condition *@
 
 <TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
@@ -183,7 +183,7 @@ As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` obje
 | --- | --- |
 | `IsCancelled` | Set the `IsCancelled` property to `true` to cancel the opening of the popup. |
 
-````CSHTML
+````RAZOR
 <TelerikDateTimePicker @bind-Value="@DateTimePickerValue"
                        OnOpen="@OnDateTimePickerPopupOpen">
 </TelerikDateTimePicker>
@@ -210,7 +210,7 @@ The `ValueChanged` event fires:
 
 >caption Handle ValueChanged and provide initial value
 
-````CSHTML
+````RAZOR
 @result
 <br />
 model value: @DateTimePickerValue

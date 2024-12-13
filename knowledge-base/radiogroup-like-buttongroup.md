@@ -31,11 +31,11 @@ Use custom CSS to make the radio inputs invisible and style their labels to look
 
 The RadioGroup will look similar to a [ButtonGroup with single selection]({%slug buttongroup-selection%}#single-selection). The major difference is that the RadioGroup has a single value of type `<T>`, while each button in the ButtonGroup is bound to a separate `boolean` value for its selected state.
 
->tip The following example is for versions 6.0 and later, which feature an [updated HTML rendering for the RadioGroup]({%slug rendering-changes-in-6-0-0%}#radiogroup). If you are using an older version, use the [alternative CSS code from the section below](#solution-up-to-version-511).
+>tip The following example is for versions 6.0 and above, which feature an [updated HTML rendering for the RadioGroup]({%slug rendering-changes-in-6-0-0%}#radiogroup). If you are using an older version, use the [alternative CSS code from the section below](#solution-up-to-version-5-1-1).
 
 >caption Style the RadioGroup like a ButtonGroup
 
-````CSHTML
+````RAZOR
 <h1 style="font-size:1.5rem;">RadioGroup like a ButtonGroup</h1>
 
 <p>Selected Value: <strong><code>@CurrentStatus</code></strong></p>

@@ -28,7 +28,7 @@ The Column Chart is similar to the [Range Column Chart]({%slug components/chart/
 
 >caption A column chart that shows product revenues
 
-````CSHTML
+````RAZOR
 Column series
 
 <TelerikChart>
@@ -84,7 +84,7 @@ The color of a series is controlled through the `Color` property that can take a
 
 >caption Configuring Label Rotation, Skipping the rendering of every second label and adding borders and padding to the Labels.
 
-````CSHTML
+````RAZOR
 @* Skip rendering every second label and customize them to have borders, padding and rotation. *@
 
 <TelerikChart>

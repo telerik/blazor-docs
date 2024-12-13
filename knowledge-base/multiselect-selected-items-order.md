@@ -44,7 +44,7 @@ Optionally, use the [MultiSelect `OnChange` or `ValueChanged` events]({%slug mul
 
 >caption Reorder MultiSelect Data to match the selected items order in Value
 
-````CSHTML
+````RAZOR
 @* Match the Data order to the Value order *@
 
 <TelerikMultiSelect @ref="@MultiSelectRef"

@@ -24,7 +24,7 @@ The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Stac
 
 >caption StackLayout basic configuration.
 
-````CSHTML
+````RAZOR
 @* This example showcases how the StackLayout fills the entire parent container and some of its core features. *@
 
 <style>
@@ -78,7 +78,7 @@ Sometimes you may need to create a more complex layout that includes both horizo
 
 >caption Use nested StackLayout to create a page layout.
 
-````CSHTML
+````RAZOR
 <TelerikStackLayout Orientation="StackLayoutOrientation.Vertical" Height="100%">
     <div class="red">
         Header

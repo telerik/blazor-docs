@@ -39,7 +39,7 @@ The example below shows how to customize some of the theme variables.
 
 >caption Override theme variables
 
-````CSHTML
+````RAZOR
 @if (RenderCustomVariables)
 {
     <style>

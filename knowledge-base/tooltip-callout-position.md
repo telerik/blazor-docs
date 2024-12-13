@@ -37,7 +37,7 @@ This Knowledge Base article answers the following questions:
 
 >caption Blazor Tooltip with custom callouts positions
 
-````CSHTML
+````RAZOR
 <TelerikTooltip Class="left-callout" TargetSelector=".tooltip-callout-left" />
 <TelerikTooltip Class="no-callout" TargetSelector=".tooltip-no-callout" />
 <TelerikTooltip Class="right-callout" TargetSelector=".tooltip-callout-right" />

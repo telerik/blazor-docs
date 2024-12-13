@@ -69,7 +69,7 @@ Use a [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the d
 * Cancel the event or proceed with the `OnDelete` logic depending on the user choice.
 * The same approach is applicable to the `OnCreate` and `OnUpdate` events.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikGrid Data="@GridData"
@@ -192,7 +192,7 @@ Using the [Dialog component]({%slug dialog-overview%}) will let you have fully c
     * Hide the Dialog on Cancel. Optionally, [exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
 * The same approach is applicable to the `OnCreate` and `OnUpdate` events.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikGrid @ref="@GridRef"

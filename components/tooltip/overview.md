@@ -22,7 +22,7 @@ The Blazor Tooltip will automatically display the value of `title` and `alt` att
 
 >caption Basic Tooltip attached to multiple targets
 
-````CSHTML
+````RAZOR
 <TelerikTooltip TargetSelector=".tooltip-target" />
 
 <div style="padding: 5em;">

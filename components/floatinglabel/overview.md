@@ -32,7 +32,7 @@ The Telerik FloatingLabel enhances HTML `label` functionality in the following w
 
 >caption How to use a Floating Label
 
-````CSHTML
+````RAZOR
 <TelerikFloatingLabel Text="Your Name">
     <TelerikTextBox Id="name" @bind-Value="@Name" />
 </TelerikFloatingLabel>

@@ -38,7 +38,7 @@ The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows yo
 
 >caption Customizing the nodes in the Sankey diagram
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

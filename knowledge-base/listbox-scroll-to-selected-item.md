@@ -39,7 +39,7 @@ This knowledge base article answers the following questions:
 
 >caption Scrolling to the first selected item in each ListBox
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <TelerikListBox Data="@ListBoxData"

@@ -23,7 +23,7 @@ The `ValueChanged` event fires every time the `Value` parameter changes.
 
 >caption Handle CheckBox ValueChanged
 
-````CSHTML
+````RAZOR
 @* CheckBox one-way Value binding with ValueChanged *@
 
 <h2>Deliveries:</h2>
@@ -114,7 +114,7 @@ The `OnChange` event fires every time the `Value` parameter changes. The key dif
 
 >caption Handle OnChange
 
-````CSHTML
+````RAZOR
 @*This example showcases the usage of OnChange event in conjunction with two-way data binding*@
 
 <TelerikCheckBox Id="myCheckBox"
@@ -148,7 +148,7 @@ The `IndeterminateChanged` event fires every time the `Indeterminate` parameter 
 
 >caption Handle IndeterminateChanged event
 
-````CSHTML
+````RAZOR
 @* Click the checkbox when it is indeterminate to toggle its state to see when the event fires. *@
 
 <div class="m-3">
@@ -189,7 +189,7 @@ The `OnBlur` event fires when the component loses focus.
 
 >caption Handle the OnBlur event
 
-````CSHTML
+````RAZOR
 @* You do not have to use OnChange to react to loss of focus *@
 
 <TelerikCheckBox @bind-Value="@TheValue"

@@ -48,7 +48,7 @@ To disable the copy and paste functionality in a TextBox and other Telerik Blazo
 
 3. Use JS Interop to invoke the JavaScript function during the `OnAfterRenderAsync` lifecycle method. It fires when the DOM tree is built, but before the HTML output is actually rendered in the browser. This makes it the most appropriate place to listen to and prevent the `oncopy` and `onpaste` events.
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <TelerikTextBox @bind-Value="@TBValue"

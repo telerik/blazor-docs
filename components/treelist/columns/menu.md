@@ -32,7 +32,7 @@ To disable the Column Menu for a specific column in the TreeList, set the `ShowC
 
 >caption Enable the column menu for all TreeList columns.
 
-````CSHTML
+````RAZOR
 @* Set the ShowColumnMenu parameter to true *@
 
 <TelerikTreeList Data="@TreeListData"
@@ -172,7 +172,7 @@ The example shows the following things:
 * How to use the `TreeListColumnMenuSettings` tag to control the features of the Column Menu.
 * How to use column parameters to affect the column's relationship with the column menu.
 
-````CSHTML
+````RAZOR
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
@@ -249,7 +249,7 @@ The example shows the following things:
 
 * Settings applied to a TreeList column take precedence over the settings applied to the Column Menu through the `<TreeListColumnMenuSettings>` tag. For example, if you set `Filterable="false"` to a TreeList column and `Filterable="true"` to a TreeList Column Menu, the filtering functionality will be disabled.
 
-* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#sections), add the `Title` parameter to all TreeList Columns.
+* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all TreeList Columns.
 
 ## See Also
   * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)

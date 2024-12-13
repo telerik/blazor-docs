@@ -37,7 +37,7 @@ When I switch the number of dynamic columns or the column definitions, the comma
 
 >caption Static Grid column will reorder when adding more columns
 
-````CSHTML
+````RAZOR
 <TelerikRadioGroup Data="@ColumnOptions"
                    Value="@CurrentColumns"
                    Layout="@RadioGroupLayout.Horizontal"
@@ -116,7 +116,7 @@ To make a specific Grid column appear always last:
 
 >caption Static Grid column will remain last when adding new columns
 
-````CSHTML
+````RAZOR
 <TelerikRadioGroup Data="@ColumnOptions"
                    Value="@CurrentColumns"
                    Layout="@RadioGroupLayout.Horizontal"

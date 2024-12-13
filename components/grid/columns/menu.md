@@ -22,7 +22,8 @@ The Grid allows you to set up a menu for its columns. It enables you to perform 
     * [Sections](#sections)
     * [Sorting](#sorting)
     * [Reorderable](#reorderable)
-* [Example](#example)
+* [Column Menu Configuration Example](#column-menu-configuration-example)
+* [Column Menu Features Example](#column-menu-features-example)
 * [Notes](#notes)
 
 ## Basics
@@ -35,7 +36,7 @@ You can see what the column menu can do and how to control its settings in the [
 
 >caption Enable the column menu for all Grid columns.
 
-````CSHTML
+````RAZOR
 @* Set the ShowColumnMenu parameter to true *@
 
 <TelerikGrid Data="@GridData"
@@ -140,7 +141,7 @@ The following example shows the basic configuration of the `ColumnMenuSettings`.
 
 The columns in the Column Chooser are divided into sections. The Lockable option is disabled from the Column Menu. Filtering in the Column Menu is disabled, so the Grid can use a `FilterRow`. The `Id` column has no Column Menu and the `HireDate` column is not visible in Column Chooser.
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              Pageable="true"
              FilterMode="@GridFilterMode.FilterRow"
@@ -200,7 +201,7 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 >caption Use the GridColumnMenuSettings tag to control the common features of the Column Menu, use column parameters to affect its relationship with the column menu
 
-````CSHTML
+````RAZOR
 @* Disable filtering and locking columns, hide a column from the chooser (Team), disable the menu for a column (Name). *@
 
 <TelerikGrid Data="@MyData"

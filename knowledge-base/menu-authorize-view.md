@@ -35,7 +35,7 @@ For example, a `.Where()` filter can be used to return only items based on certa
 
 >caption Pseudocode example of showing menu items according to user authorization level
 
-````CSHTML
+````RAZOR
 <AuthorizeView>
 	<h1>Hello, @context.User.Identity.Name!</h1>
 	<TelerikMenu Data="@AuthService.GetMenuData(context.User.Identity.Name)" />

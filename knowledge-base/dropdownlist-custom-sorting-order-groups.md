@@ -34,7 +34,7 @@ To sort the groups in a DropDownList by a custom order, perform a manual sorting
 4. Pass the sorted data as [`args.Data`]({%slug common-features-data-binding-onread%}#todatasourceresult-method).
 
 >caption Apply a custom grouping order in the DropDownList
-````CSHTML
+````RAZOR
 @using Telerik.DataSource.Extensions
 @using Telerik.DataSource
 

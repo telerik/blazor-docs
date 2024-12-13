@@ -40,7 +40,7 @@ How to export custom Grid data (for example the Grid selection) to CSV?
 
 >caption Export only the selected Grid rows to Excel or CSV
 
-````CSHTML
+````RAZOR
 <TelerikGrid Data="@GridData"
              SelectionMode="@GridSelectionMode.Multiple"
              @bind-SelectedItems="@GridSelectedItems">

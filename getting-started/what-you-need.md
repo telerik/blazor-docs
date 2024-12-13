@@ -88,7 +88,7 @@ There are a few other optional namespaces that may be needed often. You can impo
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @* required *@
 @using Telerik.Blazor // set component parameters
 @using Telerik.Blazor.Components // recognize components tags
@@ -241,7 +241,7 @@ The Blazor application is ready to use Telerik components.
 
 >caption Home.razor
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@OnButtonClick">
     Telerik Blazor Button
 </TelerikButton>

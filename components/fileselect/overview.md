@@ -109,7 +109,7 @@ The File Select exposes methods for programmatic operation. To use them, define 
 
 >caption Get reference to the FileSelect and execute methods
 
-````CSHTML
+````RAZOR
 <p>
     <TelerikButton OnClick="@SelectFiles">Open File Selection Dialog</TelerikButton>
     <TelerikButton OnClick="@Clear">Clear File List</TelerikButton>

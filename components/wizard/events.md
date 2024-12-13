@@ -31,7 +31,7 @@ The `OnChange` event handler is defined in the respective `<WizardStep>` tag.
 
 ![OnChange](images/onchange-example.gif)
 
-````CSHTML
+````RAZOR
 @* Handle the OnChange event of the steps *@
 
 Next targeted step index: @TargetIndex
@@ -85,7 +85,7 @@ The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the l
 
 >caption Handle the `ValueChanged` event of the Wizard
 
-````CSHTML
+````RAZOR
 <TelerikWizard ValueChanged="@ValueChangedHandler" Value="@WizardValue">
     <WizardSteps>
         <WizardStep Text="1">
@@ -130,7 +130,7 @@ The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
 >caption Handle the `OnFinish` event of the Wizard (code snippet below)
 
-````CSHTML
+````RAZOR
 @* Handle the OnFinish event of the Wizard *@
 
 <div style="text-align:center">

@@ -29,7 +29,7 @@ You can increase or decrease the size of the Switch by setting the `Size` attrib
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.Switch.Size)
         .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static
@@ -65,7 +65,7 @@ The `ThumbRounded` attribute applies the `border-radius` CSS rule to the thumb o
 
 >caption The built-in values of the ThumbRounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the ThumbRounded attribute.  *@
 
 @{
@@ -105,7 +105,7 @@ The `TrackRounded` attribute applies the `border-radius` CSS rule to the track o
 
 >caption The built-in values of the TrackRounded attribute
 
-````CSHTML
+````RAZOR
 @* The built-in values of the TrackRounded attribute.  *@
 
 @{

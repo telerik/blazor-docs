@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/treeview" target="_blank">Blazor 
 
 >caption TreeView with flat self-referencing data and icons
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@FlatData"
                  @bind-ExpandedItems="@ExpandedItems" />
 
@@ -151,7 +151,7 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 | `Rebind` | [Refreshes the component data]({%slug treeview-refresh-data%}#rebind-method). |
 | `GetItemFromDropIndex` <br /> `(string index)` | gets the corresponding `TItem` of the destination TreeView from the passed [`DestinationIndex`]({%slug grid-drag-drop-overview%}#event-arguments) |
 
-````CSHTML
+````RAZOR
 <TelerikTreeView @ref="@TreeViewRef" .../>
 
 @code{

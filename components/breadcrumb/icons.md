@@ -22,7 +22,7 @@ If the icon property name in the Breadcrumb model is `Icon`, there is no need to
 
 >caption How to use icons in Telerik Breadcrumb
 
-````CSHTML
+````RAZOR
 <TelerikBreadcrumb Data="@Data"></TelerikBreadcrumb>
 
 <style>

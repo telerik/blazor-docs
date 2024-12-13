@@ -78,7 +78,7 @@ Thus, to show a loading indicator during the initial data load, you can do eithe
 >caption Loading Sign for the initial data load - a few examples
 
 <div class="skip-repl"></div>
-````Grid
+````RAZOR Grid
 This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
 
 <div style="position: relative; width:100%; min-height: 400px;">
@@ -145,7 +145,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     }
 }
 ````
-````Scheduler
+````RAZOR Scheduler
 This sample shows only an indicator for the initial data load, only the DELETE operation is slowed down so you can see a loading sign.
 
 <div style="position: relative; width:100%; min-height: 600px;">
@@ -252,7 +252,7 @@ This sample shows only an indicator for the initial data load, only the DELETE o
     }
 }
 ````
-````TreeView
+````RAZOR TreeView
 This sample shows a loading panel over the treeview container (tweak as required by your layout and design) in addition to the loading indicators the treeview provides while loading data on demand.
 
 <div style="position: relative; width:100%; min-height: 400px;">
@@ -355,7 +355,7 @@ We understand, however, that you might want to disable this feature in some case
 
 >caption Remove the main loading animation from the grid with a parameter
 
-````CSHTML
+````RAZOR
 @* The data operations (such as filtering, sorting, paging) are slow in this example, but there is no loading sign *@
 
 <TelerikGrid EnableLoaderContainer="false"
@@ -422,7 +422,7 @@ There are some components that show small (inline) loading indicators, and you c
 
 >caption How to hide inline loading signs with CSS (example with TreeView)
 
-````CSHTML
+````RAZOR
 @* The CSS rule hides the loading sign. If you want to disable it for all treeviews, remove the custom Class from the treeview declaration and the CSS rule.
 In a similar fashion you can inspect the rendered HTML and target the element you want to hide for other components.
 Make sure to have the proper cascade so that you do not break other components on the page you do not intend to affect. *@
@@ -511,7 +511,7 @@ In some situations, performing a certain action will show a loading indicator th
 
     * **Solution**: To solve this, monitor the console/logs and look for errors thrown during the problematic operation. Enabling the detailed Blazor errors may help you <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors" target="_blank">troubleshoot</a> application errors:
     
-        **Enable Detailed Errors in Server-side Blazor**
-        
-            services.AddServerSideBlazor(opts => opts.DetailedErrors = true);
+    ````C#.skip-repl Enable
+        services.AddServerSideBlazor(opts => opts.DetailedErrors = true);
+    ````
 

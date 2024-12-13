@@ -22,7 +22,7 @@ The <a href = "https://www.telerik.com/blazor-ui/file-manager" target="_blank">B
 
 >caption Telerik Blazor FileManager
 
-````CSHTML
+````RAZOR
 @using System.IO
 
 <TelerikFileManager Data="@FileManagerData"
@@ -336,7 +336,7 @@ The following list of resources provides details and examples for data binding a
 
 * Using hierarchical data source with item collections nested in each item - [Bind FileManager to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%}).
 
-* Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`]({%slug filemanager-events%}#onread).
+* Handling the `OnRead` event to provide only the current folder data - [FileManager `OnRead`]({%slug filemanager-events%}#read-event).
 
 ## Views
 
@@ -367,7 +367,8 @@ The available FileManager methods are:
 
 * `Rebind` - refreshes the FileManager data.
 
-````CSHTML
+<div class="skip-repl"></div>
+````RAZOR
 <TelerikFileManager Data="@Data"
                     @ref="@FileManagerRef" />
 

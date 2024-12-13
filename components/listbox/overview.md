@@ -27,7 +27,7 @@ To use a Telerik ListBox for Blazor:
 
 >caption Basic Blazor ListBox
 
-````CSHML
+````RAZOR
 @* ListBox with item selection and reordering *@
 
 <TelerikListBox @ref="@ListBoxRef"
@@ -87,7 +87,7 @@ The ListBox supports [binding to a model class](#creating-blazor-listbox), which
 
 >caption Bind ListBox to List&lt;string&gt;
 
-````CSHTML
+````RAZOR
 <TelerikListBox Data="@ListBoxStrings"
                 @bind-SelectedItems="@ListBoxSelectedStrings"
                 SelectionMode="@ListBoxSelectionMode.Multiple"
@@ -187,7 +187,7 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 
 >caption ListBox reference and method usage
 
-````CSHTML
+````RAZOR
 <TelerikListBox @ref="@ListBoxRef"
                 Data="@ListBoxData"
                 TextField="@nameof(ListBoxModel.Name)"

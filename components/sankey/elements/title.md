@@ -46,7 +46,7 @@ The `<SankeyTitle>` tag exposes nested tags for further customization. The struc
 
 >caption Customizing the Sankey title by using nested tag settings
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                DisableAutoLayout="true"
                Height="400px">

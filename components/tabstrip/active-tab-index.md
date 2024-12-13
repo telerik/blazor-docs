@@ -16,7 +16,7 @@ To deactivate all tabs, set the `ActiveTabIndex` parameter to `-1`.
 
 >caption Get and set the selected tab index
 
-````CSHTML
+````RAZOR
 Active Tab Index: @ActiveTabIndex
 
 <TelerikTabStrip @bind-ActiveTabIndex="@ActiveTabIndex">

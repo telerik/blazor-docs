@@ -17,7 +17,7 @@ You can customize the whole appearance of the steps through their Template. It a
 
 ![Step Template](images/step-template-example.png)
 
-````CSTHML
+````RAZOR
 
 @* Step Template *@
 

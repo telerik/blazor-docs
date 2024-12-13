@@ -45,7 +45,7 @@ To implement a Context menu on appointments and on empty slots in the Scheduler,
 1. Add the desired [Context menu]({%slug contextmenu-overview%}) and create its items, commands and actions as needed.
 
 >caption Different Context menu commands depending on the IsImportant appointment model property
-````CSHTML
+````RAZOR
 
 <TelerikScheduler @ref="@SchedulerRef"
                   Data="@Appointments"

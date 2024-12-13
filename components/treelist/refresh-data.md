@@ -22,7 +22,7 @@ In this article:
 
 @[template](/_contentTemplates/common/rebind-method.md#intro)
 
-````CSHTML
+````RAZOR
 @* Add/remove item and rebind the Treelist to react to that change. *@
 
 <TelerikButton OnClick="@AddRootItem">Add root item at the end of the collection</TelerikButton>
@@ -117,7 +117,7 @@ In this article:
 
 >caption Bind the TreeList to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove item to see how the Treelist reacts to that change. *@
 
 @using System.Collections.ObjectModel
@@ -208,7 +208,7 @@ In this article:
 
 >caption Create new collection reference to refresh the TreeList data.
 
-````CSHTML
+````RAZOR
 @* Add/remove item or change the collection to see how the Treelist reacts to that change. *@
 
 <TelerikButton OnClick="@AddRootItem">Add root item at the end of the collection</TelerikButton>

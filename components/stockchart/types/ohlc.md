@@ -28,7 +28,7 @@ To add a `OHLC` chart to a stock chart component:
 
 >caption An OHLC chart that shows the deviation of stocks
 
-````CSHTML
+````RAZOR
 @* OHLC stock chart *@
 
 <TelerikStockChart Height="450px"
@@ -114,7 +114,7 @@ To add a `OHLC` chart to a stock chart component:
 
 ## OHLC Chart Specific Appearance Settings
 
-@[template](/_contentTemplates/stockchart/link-to-basics.md##color-field-column-ohlc-candlestick)
+@[template](/_contentTemplates/stockchart/link-to-basics.md#color-field-column-ohlc-candlestick)
 
 @[template](/_contentTemplates/stockchart/link-to-basics.md#gap-and-spacing)
 

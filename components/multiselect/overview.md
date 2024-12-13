@@ -22,9 +22,9 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 1. (Optional) Enable features like placeholder text, clear button, and AutoClose.
 
->caption MultiSelect two-way value binding, main features, and simple [data binding](data-bind)
+>caption MultiSelect two-way value binding, main features, and simple [data binding](slug://multiselect-databind)
 
-````CSHTML
+````RAZOR
 @* Main features and simple data binding for the suggestions and the Value *@
 <TelerikMultiSelect Data="@Countries"
                     @bind-Value="@Values"
@@ -132,7 +132,7 @@ The following parameters enable you to customize the [appearance]({%slug multise
 
 The MultiSelect exposes settings for its dropdown (popup). To configure the options, declare a  `<MultiSelectPopupSettings>` tag inside a `<MultiSelectSettings>` tag:
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect Data="@MultiSelectData"
                     @bind-Value="@SelectedItems"
                     Filterable="true"
@@ -167,7 +167,7 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````CSHTML
+````RAZOR
 <TelerikMultiSelect @ref="@MultiSelectRef"
                     Data="@MultiSelectData"
                     @bind-Value="@MultiSelectValue"

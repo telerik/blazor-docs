@@ -17,7 +17,7 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
 
 >caption Footer Template with grand total data
 
-````CSHTML
+````RAZOR
 @* grand total footer that is always visible *@
 
 <TelerikGrid Data=@GridData Pageable="true" Height="300px">

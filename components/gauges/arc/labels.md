@@ -30,7 +30,7 @@ The `Format` (`string`) parameter allows you to customize the rendering of the l
 
 ![Format parameter example](images/format-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Use the {0:P0} format string to format the values of the labels as percentage. *@
 
 <TelerikArcGauge>
@@ -58,7 +58,7 @@ The center template allows you to take control of the rendering of the central s
 
 ![center template](images/center-template-arc.png)
 
-````CSHTML
+````RAZOR
 @* Print the value of the pointer in the center of the component *@
 
 <TelerikArcGauge>
@@ -95,7 +95,7 @@ The `Color` (`string`) parameter controls the color of the labels. It accepts **
 
 ![Color parameter screenshot](images/color-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Change the color of the labels to red *@
 
 <TelerikArcGauge>
@@ -124,7 +124,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. B
 
 ![Hide the labels](images/visible-parameter-labels.png)
 
-````CSHTML
+````RAZOR
 @* Set the Visible parameter to true to show the labels *@
 
 <TelerikArcGauge>
@@ -152,7 +152,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. B
 
 ![Custom Label borders](images/labels-custom-borders.png)
 
-````CSHTML
+````RAZOR
 @* Provide color, solid outline and custom width to the label borders *@
 
 <TelerikArcGauge>

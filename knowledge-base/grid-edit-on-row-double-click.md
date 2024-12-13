@@ -32,7 +32,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
 >caption Use the OnRowDoubleClick event to put the Grid in Edit mode
 
 <div class="skip-repl"></div>
-````InlineMode
+````RAZOR InlineMode
 @* Click on a Grid row twice to place the Grid in edit mode *@ 
 
 <TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" @ref="@GridRef"
@@ -200,7 +200,7 @@ The Grid exposes two events that allows you to respond to the user clicking on i
     }
 }
 ````
-````PopupMode
+````RAZOR PopupMode
 @* Click on a Grid row twice to see the custom popup edit form *@ 
 
 <TelerikGrid Data="@MyData"

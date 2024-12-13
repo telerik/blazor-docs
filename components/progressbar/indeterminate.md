@@ -21,7 +21,7 @@ To put the ProgressBar in Indeterminate state set the `Indeterminate`, `boolean`
 
 >caption Put the ProgressBar in Indeterminate State
 
-````CSHTML
+````RAZOR
 <div>
     <TelerikButton ThemeColor="primary" OnClick="(_ => isIndeterminate = true)">Put the ProgressBar in Indeterminate State</TelerikButton>
 </div>

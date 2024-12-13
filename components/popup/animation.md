@@ -43,7 +43,7 @@ See the [example](#example) below to customize the available parameters and see 
 
 The following example lets you experiment with the available settings that control the animation in the Popup. It starts with the default component behavior.
 
-````CSHTML
+````RAZOR
 <label>
     Animation Type:
     <TelerikDropDownList Data="@AnimationTypes"

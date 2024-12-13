@@ -40,7 +40,7 @@ This KB article answers the following questions:
 
 >caption Customized Blazor DateRangePicker
 
-````CSHTML
+````RAZOR
 <span style="display:inline-block;border: 1px solid red;">
     <TelerikDateRangePicker @bind-StartValue="@StartValue"
                             @bind-EndValue="@EndValue"

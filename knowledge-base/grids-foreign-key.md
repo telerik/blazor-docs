@@ -58,7 +58,7 @@ There are a few ways to implement the scenario:
 
 >caption Using Foreign Key column in Grid or TreeList with sorting, filtering, editing, grouping and aggregates
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

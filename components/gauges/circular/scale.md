@@ -37,7 +37,7 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 ![Minor and major ticks parameters](images/minor-and-major-ticks-circular-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Render and customize the minor and major ticks. *@
 
 <TelerikCircularGauge>
@@ -70,7 +70,7 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 ![Min and max parameters example](images/min-and-max-circular-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use the Min and Max parameters to change the minimum and maximum values for the scale *@
 
 <TelerikCircularGauge>
@@ -103,7 +103,7 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 ![Minor and major units parameters](images/minor-and-major-units-circular-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Update the rendering of the major and minor units. *@
 
 <TelerikCircularGauge>
@@ -135,7 +135,7 @@ The `StartAngle` (`double`) parameter controls the start angle of the gauge. The
 
 ![Start Angle parameter](images/start-angle-circular-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Use StartAngle parameter to change the start angle of the scale. *@
 
 <TelerikCircularGauge>
@@ -166,7 +166,7 @@ If you set the `Reverse` (`bool`) parameter to `true` the scale direction will b
 
 ![Reverse parameter example](images/reverse-circular-gauge.png)
 
-````CSHTML
+````RAZOR
 @* Reverse the scale. *@
 
 <TelerikCircularGauge>

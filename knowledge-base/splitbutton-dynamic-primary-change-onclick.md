@@ -41,7 +41,7 @@ This KB article answers the following questions:
 
 >caption Using dynamic primary SplitButton action
 
-````CSHTML
+````RAZOR
 @* Change SplitButton primary action on click *@
 
 <p>Last click action: @SplitButtonLog</p>

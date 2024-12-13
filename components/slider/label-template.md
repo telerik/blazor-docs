@@ -29,7 +29,7 @@ This example shows how to use the current label value and to add styling and a c
 
 ![basic template with currency symbol and styling](images/slider-basic-template-currency.png)
 
-````CSHTML
+````RAZOR
 @TheValue
 <br /><br />
 
@@ -57,7 +57,7 @@ This example shows how you can render text only for the min and max values of th
 
 ![labels for the min and max only](images/slider-labels-for-min-and-max-only.png)
 
-````CSHTML
+````RAZOR
 @TheValue
 <br /><br />
 
@@ -88,7 +88,7 @@ While the slider is a numeric input, you can use its values to match against ind
 
 ![model items in the slider](images/slider-items.png)
 
-````CSHTML
+````RAZOR
 actual slider value: @TheIndex
 <br />slider item text: @SliderItems[TheIndex].Text
 <br />selected item value: @SliderItems[TheIndex].Value

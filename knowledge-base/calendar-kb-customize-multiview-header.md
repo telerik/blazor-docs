@@ -30,7 +30,7 @@ To display the month name above each view in a MultiView Calendar, use the [`Hea
 
 >caption MultiView Calendar with Header Template.
 
-````CSHTML
+````RAZOR
 @using System.Globalization
 
 <TelerikCalendar @bind-Date="@CalendarDate"

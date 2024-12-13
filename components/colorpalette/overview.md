@@ -21,7 +21,7 @@ If unlimited choice of colors is preferred, consider the [ColorGradient componen
 
 >caption Basic color palette with two-way value binding and a default predefined palette.
 
-````CSHTML
+````RAZOR
 <TelerikColorPalette @bind-Value="@MyColor" />
 
 <p>Selected color: <span style="color: @MyColor">@MyColor</span></p>
@@ -69,7 +69,7 @@ The Blazor ColorPallete provides appearance settings. Control the size of the co
 
 >caption Make a large color palette with few columns
 
-````CSHTML
+````RAZOR
 @SelectedColor
 <TelerikColorPalette Colors="@ColorPalettePresets.Basic" @bind-Value="@SelectedColor"
                      Columns="5" TileHeight="3em" TileWidth="3em">

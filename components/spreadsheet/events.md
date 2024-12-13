@@ -48,7 +48,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
 >caption Using the Spreadsheet events
 
-````CSHTML
+````RAZOR
 <p><label><TelerikCheckBox @bind-Value="@ShouldCancelEvents" /> Cancel Spreadsheet Events</label></p>
 
 <p>Spreadsheet Event Log: @( new MarkupString(SpreadSheetEventLog) )</p>

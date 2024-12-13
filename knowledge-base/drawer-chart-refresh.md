@@ -32,7 +32,7 @@ This knowledge base article answers the following questions:
 1. To indicate when the Chart requires a refresh, create a bool flag and set it within the Drawer's [`ExpandedChanged`]({%slug drawer-events%}#expandedchanged) handler.
 2. Call the Chart's [`Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) within the `OnAfterRenderAsync` lifecycle method. Set a brief delay to allow the Drawer to finish expanding before the refresh.
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@(() => DrawerRef.ToggleAsync())" Icon="@SvgIcon.Menu">Toggle Drawer</TelerikButton>
 
 <TelerikDrawer Expanded="@Expanded"

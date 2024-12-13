@@ -23,7 +23,7 @@ To enable Telerik Validation Tooltip for a field in the Telerik Form:
 
 >caption Use Telerik Validation Tooltip in a Telerik Form
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px"
@@ -74,7 +74,7 @@ To enable Telerik Validation Tooltip for a field in the Telerik Form:
 
 >caption Use Telerik Validation Tooltip in an EditForm
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <EditForm Model="@customer" width="600px">
@@ -121,7 +121,7 @@ Control the position of the validation tooltips through their `Position` paramet
 * `Right`
 * `Left`
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 <TelerikForm Model="@customer" Width="600px" ValidationMessageType="@FormValidationMessageType.None">
@@ -165,7 +165,7 @@ Control the position of the validation tooltips through their `Position` paramet
 
 The `ValidationTooltip` allows you to control its rendering via a nested `<Template>` tag. The `context` is an `IEnumerable<string>` collection of all messages for the property.
 
-````CSHTML
+````RAZOR
 <TelerikForm Model="@customer" Width="600px"
              ValidationMessageType="@FormValidationMessageType.None">
     <FormValidation>
@@ -222,7 +222,7 @@ The `ValidationTooltip` allows you to control its rendering via a nested `<Templ
 
 Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to `div.k-animation-container`. This element wraps the `div.k-tooltip` element.
 
-````CSHTML
+````RAZOR
 <style>
     .my-custom-tooltip-class .k-tooltip {
         color: #f00;

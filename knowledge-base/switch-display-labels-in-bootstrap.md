@@ -34,7 +34,7 @@ In order to display the ON/OFF labels when using Bootstrap or Material themes, y
 
 >caption Display the ON/OFF labels in Bootstrap
 
-````CSHTML
+````RAZOR
 @* Display and style ON/OFF Switch labels in Bootstrap *@
 
 <style>
@@ -69,7 +69,7 @@ In order to display the ON/OFF labels when using Bootstrap or Material themes, y
 >caption Display the ON/OFF labels in Material
 
 
-````CSHTML
+````RAZOR
 @* Display and style ON/OFF Switch labels in Material *@
 
 <style>

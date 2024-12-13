@@ -24,7 +24,7 @@ The `FillMode` parameter controls if the ToolBar will have a background and bord
 
 >caption The built-in fill modes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.ToolBar.FillMode)
         .GetFields(System.Reflection.BindingFlags.Public
@@ -59,7 +59,7 @@ You can increase or decrease the size of the ToolBar by setting the `Size` param
 
 >caption The built-in sizes
 
-````CSHTML
+````RAZOR
 @{
     var fields = typeof(Telerik.Blazor.ThemeConstants.ToolBar.Size)
         .GetFields(System.Reflection.BindingFlags.Public 

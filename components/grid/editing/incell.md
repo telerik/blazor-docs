@@ -37,7 +37,7 @@ It is up to the data access logic to save the data once it is changed in the dat
 
 >caption Incell Editing Example. See the code comments for details.
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations @* for the validation attributes *@
 
 Click a cell, edit it and click outside of the grid to see the change. You can also use Tab, Shift+Tab and Enter to navigate between the cells.
@@ -196,7 +196,7 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 * The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
 
-    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the Grid [State]({%slug grid-state%}). If you want to insert items programmatically in the Grid, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug grid-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the Grid [State]({%slug grid-state%}). If you want to insert items programmatically in the Grid, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug grid-kb-add-edit-state%}) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
 
 * The `OnEdit` event fires every time a cell is opened for editing. Until version **2.27**, the event fired **once per row** - when the user edits a cell from a different row.
 
@@ -220,7 +220,7 @@ The incell editor template requires a focusable element to maintain the tab orde
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <EditorTemplate>
     @{
         if (myCurrentEditCondition)

@@ -33,7 +33,7 @@ To prevent the user from sorting on a column header click, use custom CSS - disa
 
 The sample below demonstrates the described approach.
 
-````CSHTML
+````RAZOR
 @* No sort on column header click *@
 
 <style>

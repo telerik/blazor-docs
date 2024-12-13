@@ -31,8 +31,8 @@ You can control how many labels render, their rotation angle and even font in or
 
 You can also skip directly to the examples:
 
-* [Example - Rotate the Chart Labels](#example---rotate-the-chart-labels)
-* [Example - Skip rendering every n-th label](#example---skip-rendering-every-n-th-label)
+* [Example - Rotate the Chart Labels](#example-rotate-the-chart-labels)
+* [Example - Skip rendering every n-th label](#example-skip-rendering-every-n-th-label)
 
 
 The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the tag is 
@@ -54,7 +54,7 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
 
 ### Example - Rotate the Chart Labels
 
-````CSHTML
+````RAZOR
 @* This example shows how to rotate the labels of a Categorical Chart by a certain angle *@
 
 <TelerikChart>
@@ -103,7 +103,7 @@ You can also control other visual settings of the Labels such as `Padding`, `Bor
 
 The chart can try to calculate whether the labels will fit and rotate them only if they won't. Here's how you can enable this:
 
-````CSHTML
+````RAZOR
 This example shows how to enable automatic label rotation - try running the page with one browser size, then with a small one
 
 <TelerikChart>
@@ -153,7 +153,7 @@ This example shows how to enable automatic label rotation - try running the page
 
 ### Example - Skip rendering every n-th label
 
-````CSHTML
+````RAZOR
 @* This example shows how render only every third label *@
 
 <TelerikChart>

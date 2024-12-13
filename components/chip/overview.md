@@ -22,7 +22,7 @@ To use a Telerik Chip for Blazor:
 
 >caption Basic Chip for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikChip @bind-Selected="@Chip1Selected"
              Text="Audio"
              Icon="@SvgIcon.FileAudio">

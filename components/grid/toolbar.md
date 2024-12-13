@@ -36,7 +36,7 @@ The grid offers built-in commands that you can invoke through its toolbar. To us
 
 >caption How to insert a new item in the grid
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
@@ -161,7 +161,7 @@ You can use the toolbar to add buttons that invoke actions specific to your appl
 
 >caption How to define a custom command in the grid toolbar
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15">
@@ -213,7 +213,7 @@ You can add your own HTML and components to create a more complex layout in the 
 
 >caption Custom Grid Toolbar Layout
 
-````CSHTML
+````RAZOR
 @result
 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">

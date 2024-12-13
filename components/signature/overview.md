@@ -23,7 +23,7 @@ The Blazor Signature component provides an area where users can draw their signa
 
 >caption Blazor Signature with basic configuration
 
-````CSHTML
+````RAZOR
 <TelerikSignature @bind-Value="@SignatureValue" Width="300px" Height="300px">
 </TelerikSignature>
 
@@ -40,7 +40,7 @@ To test with physical PNG files, uncomment the code below and run the example in
 
 >caption Using the Signature Value with images
 
-````CSHTML
+````RAZOR
 @*@inject IWebHostEnvironment HostingEnvironment*@
 
 <p>Draw something to see how the Signature Value looks like.</p>
@@ -157,7 +157,7 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 
 >caption Obtain reference to the Signature instance and execute methods
 
-````CSHTML
+````RAZOR
 @* Get a reference to the Signature component and refresh it on button click *@
 
 <TelerikButton OnClick="@RefreshClickHandler">Refresh the Signature</TelerikButton>

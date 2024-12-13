@@ -25,7 +25,7 @@ The Window component displays a popup with a title bar and shows custom content.
 
 >caption Basic Blazor Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow @bind-Visible="@WindowIsVisible">
     <WindowTitle>
         Window Title
@@ -116,7 +116,7 @@ The Window methods are accessible through its reference.
 
 >caption Get a reference to the Window and use its Refresh method.
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@OpenWindow">Open Window</TelerikButton>
 
 <TelerikWindow @ref="WindowRef" @bind-Visible="@WindowVisible">

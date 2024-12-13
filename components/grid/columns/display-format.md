@@ -17,7 +17,7 @@ position: 2
 
 >caption Use C# format strings in the grid through the component markup and a data annotation attribute in the model
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 @* This Using is for the model class attribute only *@
 

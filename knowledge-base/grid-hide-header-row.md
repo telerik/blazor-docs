@@ -33,7 +33,7 @@ To hide the header row in a Grid or TreeList, set the CSS property value of the 
 
 >caption Hide the Grid/TreeList header row
 
-````CSHTML
+````RAZOR
 @* Hide the header row of the Grid *@
 
 <style>

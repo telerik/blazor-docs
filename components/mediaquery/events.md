@@ -21,7 +21,7 @@ The `OnChange` event fires to notify you whether the media query string provided
 
 >caption Use the OnChange event to resize a parent container
 
-````CSHTML
+````RAZOR
 @* Resize the parent container *@
 
 <TelerikMediaQuery Media="@MediaQuery" OnChange="@OnChange"></TelerikMediaQuery>

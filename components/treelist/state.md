@@ -102,7 +102,7 @@ You can find the following examples in this section:
 * [Save and Load TreeList State from Browser LocalStorage](#save-and-load-treelist-state-from-browser-localstorage)
 * [Set TreeList Options Through State](#set-treelist-options-through-state)
 * [Set Default (Initial) State](#set-default-initial-state)
-* [Get The User Action That Changes The TreeList](#get-the-user-action-that-changes-the-treelist)
+* [Get and Override The User Action That Changes The TreeList](#get-and-override-the-user-action-that-changes-the-treelist)
 * [Initiate Editing or Inserting of an Item](#initiate-editing-or-inserting-of-an-item)
 * [Get Current Columns Visibility, Order, Field](#get-current-columns-visibility-order-field)
 
@@ -117,7 +117,7 @@ The following example shows one way you can store the TreeList state - through a
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
 <div class="skip-repl"></div>
-````Component
+````RAZOR Component
 @using Telerik.DataSource;
 
 @inject LocalStorage LocalStorage
@@ -323,7 +323,7 @@ The following example shows one way you can store the TreeList state - through a
     }
 }
 ````
-````Service
+````C# Service
 using System.Threading.Tasks;
 using Microsoft.JSInterop;
 using System.Text.Json;
@@ -374,19 +374,19 @@ The TreeList state allows you to control the behavior of the TreeList programmat
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
 <div class="skip-repl"></div>
-````ExpandedItems
+````RAZOR ExpandedItems
 @[template](/_contentTemplates/treelist/state.md#expand-items-from-code)
 ````
-````Sorting
+````RAZOR Sorting
 @[template](/_contentTemplates/treelist/state.md#set-sort-from-code)
 ````
-````FilterRow
+````RAZOR FilterRow
 @[template](/_contentTemplates/treelist/state.md#filter-row-from-code)
 ````
-````FilterMenu
+````RAZOR FilterMenu
 @[template](/_contentTemplates/treelist/state.md#filter-menu-from-code)
 ````
-````Columns
+````RAZOR Columns
 @[template](/_contentTemplates/treelist/state.md#column-state-from-code)
 ````
 
@@ -399,7 +399,7 @@ If you want the TreeList to start with certain settings for your end users, you 
 
 >caption Choose a default state of the TreeList for your users
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource;
 
 <TelerikTreeList Data="@Data"
@@ -541,7 +541,7 @@ Find out how to [get the applied filtering and sorting criteria]({%slug common-f
 
 >caption Know when the TreeList state changes, which parameter changed and amend the change
 
-````CSHTML
+````RAZOR
 @* This example does the following:
         * Renders a result string informing what changed in the TreeList
         * If the user changes the Name column filtering, the filter is always overriden to "Contains" and its value to "second level child 1 of 1 and 1"
@@ -714,7 +714,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
 >caption Put and item in Edit mode or start Inserting a new item
 
-````CSHTML
+````RAZOR
 @* This example shows how to make the grid edit a certain item or start insert operation
     through your own code, without requiring the user to click the Command buttons.
     The buttons that initiate these operations can be anywhere on the page, including inside the grid.
@@ -1051,7 +1051,7 @@ In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `Inser
 
 The `ColumnStates` field of the state object provides you with information about the current columns in the TreeList. The `Index` field describes the position the user chose, and the `Visible` parameter indicates whether the column is hidden or not. By looping over that collection you can know what the user sees. You could, for example, sort by the index and filter by the visibility of the columns to approximate the view of the user.
 
-````CSHTML
+````RAZOR
 @[template](/_contentTemplates/treelist/state.md#get-column-state-from-code)
 ````
 

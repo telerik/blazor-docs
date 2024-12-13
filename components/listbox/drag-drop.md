@@ -27,7 +27,7 @@ To enable drag and drop between ListBox components:
 
 >caption Using ListBox drag and drop
 
-````CSHTML
+````RAZOR
 @* Drag and drop items between ListBoxes *@
 
 <TelerikListBox @ref="@ListBoxRef1"

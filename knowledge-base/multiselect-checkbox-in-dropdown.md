@@ -39,7 +39,7 @@ The MultiSelect offers a highlighted state for the selected items already, yet i
 
 >caption Add checkboxes in the multiselect
 
-````CSHTML
+````RAZOR
 @* Note: If you use complex models, the GetChecked() method will be more complex and 
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
 
@@ -81,7 +81,7 @@ You can add a "Select All" feature through the `HeaderTemplate` - it only has to
 
 >caption Select all MultiSelect items with a checkbox
 
-````CSHTML
+````RAZOR
 @* Note: If you use complex models, the GetChecked() method will be more complex and
     you would need to implement another convention for the id attribute, and you would need to cast the context *@
     

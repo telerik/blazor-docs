@@ -30,7 +30,7 @@ To stack all series together, set the `Enabled` property to `true` in the `Chart
 
 >caption All series stacked together
 
-````CSHTML
+````RAZOR
 Basic stacking of series
 
 <TelerikChart>
@@ -68,7 +68,7 @@ You can choose which series to cluster together through the `Group` property of 
 
 >caption Stack certain series together in a separate group
 
-````CSHTML
+````RAZOR
 Stack clustering in groups
 
 <TelerikChart>
@@ -112,7 +112,7 @@ You can use separate groups, or you can stack all series together with just the 
 
 >caption Stack 100% with groups
 
-````CSHTML
+````RAZOR
 Stack to 100%
 
 <TelerikChart>

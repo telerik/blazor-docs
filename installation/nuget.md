@@ -18,7 +18,7 @@ You can set up the remote Telerik NuGet feed in the following ways:
 
 * [Use Visual Studio](#use-visual-studio)
 * [Use the .NET CLI](#use-the-net-cli)
-* [Edit the Nuget.Config file](#edit-the-nugetconfig-file)
+* [Edit the Nuget.Config file](#edit-the-nuget-config-file)
 
 >tip When working with the .NET CLI or editing the `NuGet.Config` manually, you can use your Telerik account credentials or a [NuGet API Key](#use-nuget-api-key). If you are logging in to telerik.com through single sign-on (SSO), use a [NuGet API Key](#use-nuget-api-key).
 
@@ -59,7 +59,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 When adding NuGet sources from the .NET CLI, the credentials are stored in the `NuGet.Config` file. The [password can be encrypted on Windows, but with limitations](#store-encrypted-credentials). You can use a plain text password, but for better security, [generate a NuGet API Key](#use-nuget-api-key), and use it with the .NET CLI instead of a password.
 
-To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. This command creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nugetconfig-file).
+To add the Telerik NuGet package source with the .NET CLI, use the [`dotnet nuget add source`](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source) command. This command creates or updates a `NuGet.Config` file for you, so you don't have to [edit it manually](#edit-the-nuget-config-file).
 
 The command below stores the password or NuGet API Key in plain text in the [global config file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses).
 
@@ -67,25 +67,25 @@ The backslashes `\` below enable multi-line commands for better readability in t
 
 >caption Use the .NET CLI to add the Telerik NuGet source
 
-```
+````SH.skip-repl
 dotnet nuget add source https://nuget.telerik.com/v3/index.json \
 --name TelerikOnlineFeed \
 --username <TELERIK EMAIL or api-key> \
 --password <TELERIK PASSWORD or NUGET API KEY> \
 --store-password-in-clear-text
-```
+````
 
 If you have already stored the Telerik package source, you can update the configuration with the command below.
 
 >caption Use the .NET CLI to update the Telerik NuGet source
 
-```
+````SH.skip-repl
 dotnet nuget update source "TelerikOnlineFeed" \
 --source "https://nuget.telerik.com/v3/index.json" \
 --username <TELERIK EMAIL or api-key> \
 --password <TELERIK PASSWORD or NUGET API KEY> \
 --store-password-in-clear-text
-```
+````
 
 ### Store Encrypted Credentials
 
@@ -108,27 +108,27 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 
 2. Add the Telerik package source to the config file. Use plain text credentials, because the .NET Core NuGet tooling does not fully support encrypted credentials. Here is an example of how your `NuGet.Config` file can look like:
 
-    ````
-    <?xml version="1.0" encoding="utf-8"?>
-    <configuration>
-        <packageSources>
-        <!--To inherit the global NuGet package sources remove the <clear/> line below -->
-        <clear />
-        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
-        <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
-        </packageSources>
-        <packageSourceCredentials>
-        <TelerikOnlineFeed>
-            <add key="Username" value="<TELERIK EMAIL or api-key>" />
-            <add key="ClearTextPassword" value="<TELERIK PASSWORD or NUGET API KEY>" />
-        </TelerikOnlineFeed>
-        </packageSourceCredentials>
-    </configuration>
-    ````
+````XML.skip-repl
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+    <!--To inherit the global NuGet package sources remove the <clear/> line below -->
+    <clear />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+    <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
+    </packageSources>
+    <packageSourceCredentials>
+    <TelerikOnlineFeed>
+        <add key="Username" value="<TELERIK EMAIL or api-key>" />
+        <add key="ClearTextPassword" value="<TELERIK PASSWORD or NUGET API KEY>" />
+    </TelerikOnlineFeed>
+    </packageSourceCredentials>
+</configuration>
+````
 
 ## Use NuGet API Key
 
-There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nugetconfig-file):
+There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nuget-config-file):
 
 * Use your Telerik account email as the username, and your Telerik password.
 * Use `api-key` as the username and your personal [NuGet API Key]({%slug deployment-nuget%}) as the password.
@@ -148,7 +148,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````XML
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <packageSources>      

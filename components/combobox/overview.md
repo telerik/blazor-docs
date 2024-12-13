@@ -20,9 +20,9 @@ The <a href="https://www.telerik.com/blazor-ui/combobox" target="_blank">Blazor 
 1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) enable features like filtering and clear button
 
->caption Combobox [data binding](data-bind) with two-way value binding
+>caption Combobox [data binding](slug://components/combobox/databind) with two-way value binding
 
-````CSHTML
+````RAZOR
 Selected value: @selectedValue
 <br />
 
@@ -115,7 +115,7 @@ The following parameters enable you to customize the [appearance]({%slug combobo
 
 The ComboBox exposes settings for its dropdown (popup). To configure the options, declare a  `<ComboBoxPopupSettings>` tag inside a `<ComboBoxSettings>` tag:
 
-````CSHTML
+````RAZOR
 <TelerikComboBox Data="@ComboBoxData"
                      @bind-Value="@SelectedItem"
                      Filterable="true"
@@ -148,7 +148,7 @@ Add a reference to the component instance to use the [ComboBox's methods](/blazo
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
-````CSHTML
+````RAZOR
 <TelerikComboBox @ref="@ComboBoxRef"
                      Data="@Suggestions"
                      @bind-Value="@ComboBoxValue" 

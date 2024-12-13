@@ -21,7 +21,7 @@ The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map c
 
 >caption Basic Telerik Map for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikMap>
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
@@ -72,7 +72,7 @@ Both syntax options provide the same capabilities. The legacy inline syntax depe
 
 >caption CSP-compliant Map
 
-````CSHTML
+````RAZOR
 <TelerikMap>
     <MapLayers>
         <MapLayer Type="@MapLayersType.Tile"
@@ -142,7 +142,7 @@ The Map exposes a `Refresh` method. Use it to redraw the component after making 
 
 >caption Get the Map reference and use its methods
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@ChangeMapZoom">Change Map Zoom</TelerikButton>
 
 <TelerikMap @ref="MapRef"

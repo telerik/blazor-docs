@@ -32,7 +32,7 @@ The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is 
 
 ### 1. Get the Telerik UI for Blazor Package
 
-To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#getting-the-telerik-packages)
+To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...]({%slug getting-started/what-you-need%}#nuget-packages)
 
 ### 2. Add the Telerik Client Assets
 
@@ -48,7 +48,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using Telerik.Blazor
 @using Telerik.Blazor.Components
 @using Telerik.SvgIcons
@@ -74,7 +74,7 @@ For example, in a MAUI app, you register the services in `MauiProgram.cs`:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 namespace MyBlazorMauiAppName
 {
     public static class MauiProgram

@@ -43,7 +43,7 @@ You can find a basic example in the [Local Data](#local-data-example) section be
 
 ## Local Data Example
 
-````CSHTML
+````RAZOR
 @SelectedValue
 <br />
 <TelerikMultiColumnComboBox Data="@Data"
@@ -90,7 +90,7 @@ You can find a basic example in the [Local Data](#local-data-example) section be
 
 Run this and see how you can display, scroll and filter over 10k records in the combobox without delays and performance issues from a remote endpoint. There is artificial delay in these operations for the sake of the demonstration.
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

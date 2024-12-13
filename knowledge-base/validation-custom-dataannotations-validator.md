@@ -47,7 +47,7 @@ This KB answers the following questions:
 
 >caption Use custom conditional required DataAnnotations validator with Telerik components for Blazor
 
-````CSHTML
+````RAZOR
 @using System.ComponentModel.DataAnnotations
 
 @using System.Reflection

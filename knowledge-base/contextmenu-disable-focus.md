@@ -37,7 +37,7 @@ This Knowledge Base article answers the following questions:
 
 >caption ContextMenu with disabled shadow of the first item
 
-````CSHTML
+````RAZOR
 <style>
      /* The CSS combinator that targets the first item of the menu */
     .no-shadow .k-menu.k-context-menu .k-item:focus > .k-link {

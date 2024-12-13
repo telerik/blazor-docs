@@ -41,7 +41,7 @@ This technique prevents automatic closing of the DatePicker popup after the user
 
 >caption Hide Date/Time Picker TextBox
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 <p>DatePickerValue: @DatePickerValue.ToLongDateString()</p>

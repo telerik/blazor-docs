@@ -22,7 +22,7 @@ The <a href="https://www.telerik.com/blazor-ui/checkbox" target="_blank">Blazor 
 
 >caption Basic setup of the Telerik CheckBox using two-way data binding.
 
-````CSHTML
+````RAZOR
 @*Basic setup of the Telerik CheckBox Component*@
 
 <TelerikCheckBox Id="myCheckBox" @bind-Value="@isSelected" />
@@ -68,7 +68,7 @@ See also the [Input Validation]({%slug common-features/input-validation%}) artic
 
 >caption Example that showcases the "I agree to the terms and conditions" basic scenario.
 
-````CSHTML
+````RAZOR
 @if (hasAgreed)
 {
     <div class="alert alert-success w-50">

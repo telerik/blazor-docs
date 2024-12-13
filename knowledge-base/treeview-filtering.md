@@ -57,7 +57,7 @@ In both scenarios, there should be no [loading of TreeView items on demand]({%sl
 
 >caption Searching TreeView items with different filter operators
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

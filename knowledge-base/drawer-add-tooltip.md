@@ -35,7 +35,7 @@ When using an `ItemTemplate`, the Drawer can still [navigate automatically if th
 
 >caption Add a tooltip to the Drawer navigation icons
 
-````CSHTML
+````RAZOR
 <TelerikTooltip TargetSelector=".k-drawer-items span.icon-container[title]" />
 
 <p>

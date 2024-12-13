@@ -38,7 +38,7 @@ To display only all-day events in the Scheduler, apply the following points in y
 
 >caption Scheduler with a Timeline View displaying only all-day appointments
 
-````CSHTML
+````RAZOR
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" Width="1000px">
     <SchedulerViews>
         <SchedulerTimelineView StartTime="@DayStart"

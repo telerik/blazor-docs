@@ -32,7 +32,7 @@ The `SelectedChanged` event fires when the `Selectable` parameter is `true` and 
 
 >caption Handle the Chip events
 
-````CSHTML
+````RAZOR
 <TelerikChip Selected="@IsChipSelected"
              SelectedChanged="@((bool value) => OnChipSelectedChanged(value))"
              OnClick="@OnChipClick"

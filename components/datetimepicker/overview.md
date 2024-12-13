@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">B
 
 >caption Basic datetime picker with custom format, min and max
 
-````CSHTML
+````RAZOR
 Selected time: @selectedTime
 <br />
 
@@ -115,7 +115,7 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 | `FocusAsync` | Focuses the DateTimePicker textbox. Always `await` this call, as it relies on `JSInterop`. @[template](/_contentTemplates/common/inputs.md#focus-kb) |
 | `Open` | Opens the Calendar popup. |
 
-````CSHTML
+````RAZOR
 <TelerikDateTimePicker @ref="@DateTimePickerRef"
                        @bind-Value="@DateTimePickerValue"
                        Width="300px">

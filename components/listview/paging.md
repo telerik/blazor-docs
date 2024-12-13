@@ -27,7 +27,7 @@ The ListView component can page the entire data source automatically. Alternativ
 
 >caption Enable Paging in the ListView component and set a custom page size
 
-````CSHTML
+````RAZOR
 @* The Listview can page the entire data source your provide to it so only certain items are rendered at once *@
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
@@ -74,7 +74,7 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
 
 >caption ListView Pager Settings
 
-````CSHTML
+````RAZOR
 @*Configure the Pager Settings*@
 
 <TelerikListView Data="@ListViewData"

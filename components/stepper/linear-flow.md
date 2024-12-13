@@ -20,7 +20,7 @@ To enable Linear flow of the Stepper, set its `Linear` parameter to `true`. By d
 
 ![Linear Flow](images/linear-flow-example.gif)
 
-````CSHTML
+````RAZOR
 @* Stepper with Linear Flow enabled *@
 
 <TelerikStepper Linear="true">

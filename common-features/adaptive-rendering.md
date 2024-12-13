@@ -5,7 +5,7 @@ description: Explore how the components with popup elements can react to the cha
 slug: adaptive-rendering
 tags: telerik,blazor,adaptive,rendering,mobile
 published: True
-position: 0
+position: 1
 ---
 
 # Adaptive Rendering
@@ -44,7 +44,8 @@ Optionally, you may set the `Title` and `Subtitle` parameters to provide custom 
 
 >caption Enable the adaptive rendering
 
-````CSHTML
+<div class="skip-repl"></div>
+````RAZOR
 // NOTE: The configurations below includes only the DropDownList, but it is applicable to all of the above listed components
 
 // Adapts to the screen size to use the appropriate rendering.

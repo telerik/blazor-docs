@@ -60,7 +60,7 @@ The `SankeyDataNode` object contains all the information for the node and its la
 
 The example below showcases binding the Sankey data and adding some specific options for the separate nodes, links and labels.
 
-````CSHTML
+````RAZOR
 <TelerikSankey Data="@Data"
                Width="1000px"
                Height="400px">

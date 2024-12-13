@@ -21,7 +21,7 @@ The component gives a unified way to build filter descriptors using its [fields]
 
 >caption A basic configuration of the Telerik Filter.
 
-````CSHTML
+````RAZOR
 @* This code snippet showcases an example of a basic Filter configuration. *@
 
 @using Telerik.DataSource
@@ -75,7 +75,7 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 
 >caption Using the Filter component reference and methods
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 

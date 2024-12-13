@@ -25,19 +25,19 @@ The `Centered` parameter determines if the Window displays centered in the viewp
 
 A centered Window applies the following CSS styles, which maintain the centered position even if the viewport size changes:
 
-```
+````CSS.skip-repl
 .k-centered {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-```
+````
 
 If the `Top` or `Left` parameters are set and not empty, they take precedence over `Centered`. To center the Window dynamically through its `Centered` parameter, bind the `Top` and `Left` parameters too, so you can reset them to `string.Empty` or `null`.
 
 >caption Center the Window
 
-````CSHTML
+````RAZOR
 <TelerikWindow Centered="true" Visible="true">
     <WindowTitle>
         Window Title
@@ -61,7 +61,7 @@ In this case, the Window will render inside the specified container and not as a
 
 >caption Using ContainmentSelector to limit Window dragging and resizing
 
-````CSHTML
+````RAZOR
 <div id="window-container"
      style="position: relative; border: 1px solid red; margin: 20vh; height: 50vh; width: 50vw;">
 
@@ -98,7 +98,7 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 
 >caption Using Top and Left to manage the Window position
 
-````CSHTML
+````RAZOR
 <p>
     <code>WindowLeft</code>: @WindowLeft
     <br />

@@ -25,7 +25,7 @@ The `Icon` parameter type is `object` and it accepts:
 
 >caption How to use icons in Telerik Button
 
-````CSHTML
+````RAZOR
 <TelerikButton Icon="@SvgIcon.Export">SVG Icon</TelerikButton>
 
 <TelerikButton Icon="@FontIcon.Filter">Font Icon</TelerikButton>

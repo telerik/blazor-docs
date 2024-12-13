@@ -31,7 +31,7 @@ The Switch relies on absolute positioning styles, which require defined dimensio
 
 >caption Expand the Switch on the fly, depending on the text label length
 
-````CSHTML
+````RAZOR
 <TelerikSwitch Value="@Value"
                Width="@Width"
                OnLabel="@OnLabel"

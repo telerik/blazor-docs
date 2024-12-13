@@ -44,7 +44,7 @@ A possible workaround is to change the component `Width` and `Height` at runtime
 
 >caption Resize Signature with the browser viewport
 
-````CSHTML
+````RAZOR
 @inject IJSRuntime js
 
 @implements IDisposable

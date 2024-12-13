@@ -23,7 +23,7 @@ This is the main building block of the listview component. You define the layout
 
 >caption Item template in the ListView
 
-````CSHTML
+````RAZOR
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
     <Template>
         @{
@@ -63,7 +63,7 @@ This is the template that an item in edit or insert mode renders, instead of its
 
 >caption Declaring an edit template in the ListView. Note: The CUD operations are not implemented in this example.
 
-````CSHTML
+````RAZOR
 @* This example showcases a minimal edit template declaration. For more details on
 the available commands and the event handlers you need to implement, see the following article:
 https://docs.telerik.com/blazor-ui/components/listview/editing
@@ -102,11 +102,11 @@ https://docs.telerik.com/blazor-ui/components/listview/editing
 
 ## Header Template
 
-This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source]({%slug listview-manual-operations%}#custom-operations), or [edit data]({%slug listview-editing%})).
+This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source]({%slug listview-manual-operations%}#filter-and-sort), or [edit data]({%slug listview-editing%})).
 
 >caption Header Template in the ListView
 
-````CSHTML
+````RAZOR
 @* The item template is mandatory. You can also add other components in the header template. *@
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">
@@ -144,7 +144,7 @@ This piece of code renders just below the items, but within the main listview wr
 
 >caption Footer Template in the ListView
 
-````CSHTML
+````RAZOR
 @* As with the other templates, layout and nice visual distinctions are up to the application *@
 
 <TelerikListView Data="@ListViewData" Pageable="true" PageSize="15">

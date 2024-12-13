@@ -23,7 +23,7 @@ For example, if you bind the checkbox to a nullable field and its value is `null
 
 >caption Basic setup - show Indeterminate checkbox when its Value is not defined (null)
 
-````CSHTML
+````RAZOR
 @* 
     This example shows how to make a checkbox indeterminate when its Value is unknown (e.g., null)
     It also shows that when the user changes the state of the CheckBox, the Indeterminate status is set to false
@@ -48,7 +48,7 @@ Checked: @TheValue
 
 >caption Observe the behavior of the Indeterminate state
 
-````CSHTML
+````RAZOR
 
 @*Observe the behavior of the Select all checkbox*@
 

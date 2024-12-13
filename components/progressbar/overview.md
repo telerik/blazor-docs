@@ -19,7 +19,7 @@ The <a href = "https://www.telerik.com/blazor-ui/progressbar" target = "_blank">
 
 >caption ProgressBar with maximum and initial values
 
-````CSHTML
+````RAZOR
 @*Set the maximum and the current values of the ProgressBar*@
 
 <TelerikProgressBar Max="@MaxValue" Value="@PBValue" />
@@ -42,7 +42,7 @@ In some scenarios the estimated time of completion is unknown or the progress ca
 
 The ProgressBar will resize with the parent element dimensions when you set its width to 100%:
 
-````CSHTML
+````RAZOR
 <div style="width: 50%; border: 1px solid red;">
 
     <style>

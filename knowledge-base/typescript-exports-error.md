@@ -43,7 +43,7 @@ export function test() {
 
 >caption Referencing the resulting JS file in the index file
 
-````CSHTML
+````RAZOR
     . . .
     <script src="js/MyScript.js"></script>
     <script>

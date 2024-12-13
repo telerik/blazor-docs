@@ -37,7 +37,7 @@ How to use columns and rows for the Blazor Calendar multi-month feature?
 
 >caption Wrapping Calendar Views
 
-````CSHTML
+````RAZOR
 <h1>Calendar View Wrapping</h1>
 
 <h2>Fixed Width</h2>

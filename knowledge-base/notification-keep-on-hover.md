@@ -42,7 +42,7 @@ This KB article answers the following questions:
 
 >caption Keep notifications visible on hover
 
-````CSHTML
+````RAZOR
 @implements IDisposable
 
 @using System.Timers

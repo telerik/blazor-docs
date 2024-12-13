@@ -28,7 +28,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Drawer data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item or change the data collection to see how the Drawer reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>

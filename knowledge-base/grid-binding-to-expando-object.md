@@ -46,7 +46,7 @@ The key points in the required implementation are:
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Dynamic
 
 <TelerikGrid Data="@GridData"
@@ -193,7 +193,7 @@ If any non-string property in the `ExpandoObject` is `nullable`, then do not set
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 <GridColumn Field="PropertyDate"
             FieldType="@GetPropertyType("PropertyDate")"
             Title="Date declared">
@@ -276,7 +276,7 @@ The following example demonstrates how the Grid can edit, filter, and group null
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 @using System.Dynamic

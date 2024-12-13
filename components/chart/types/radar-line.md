@@ -28,7 +28,7 @@ Radar line charts are often used to make comparisons between several units that 
 
 >caption A radar column chart that shows comparison between the nutritional composition of two foods
 
-````CSHTML
+````RAZOR
 @* Radar Line series*@
 
 <TelerikChart>

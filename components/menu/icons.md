@@ -22,7 +22,7 @@ If the icon property name in the Menu model is `Icon`, there is no need to set t
 
 >caption How to use icons in the Telerik Menu
 
-````CSHTML
+````RAZOR
 <TelerikMenu Data="@MenuData"
              IconField="@(nameof(MenuItem.Icon))"
              Orientation="@MenuOrientation.Vertical">

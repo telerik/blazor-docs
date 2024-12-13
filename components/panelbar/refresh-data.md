@@ -21,7 +21,7 @@ In this article:
 
 @[template](/_contentTemplates/common/rebind-method.md#intro)
 
-````CSHTML
+````RAZOR
 @* Add/remove an item and rebind the PanelBar to react to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>
@@ -141,7 +141,7 @@ In this article:
 
 >caption Bind the PanelBar to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item to see how the PanelBar reacts to that change. *@
 
 @using System.Collections.ObjectModel
@@ -255,7 +255,7 @@ In this article:
 
 >caption Create new collection reference to refresh the PanelBar data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item to see how the PanelBar reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>

@@ -23,7 +23,7 @@ In this article:
 
 To refresh the ComboBox data when using [`OnRead`]({%slug components/combobox/events%}#onread), call the `Rebind` method of the TelerikComboBox reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
-````CSHTML
+````RAZOR
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
 
 @using Telerik.DataSource.Extensions
@@ -97,7 +97,7 @@ To refresh the ComboBox data when using [`OnRead`]({%slug components/combobox/ev
 
 >caption Bind the ComboBox component to an ObservableCollection, so it can react to collection changes.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option to see how the ComboBox reacts to the change. *@
 
 @using System.Collections.ObjectModel
@@ -160,7 +160,7 @@ To refresh the ComboBox data when using [`OnRead`]({%slug components/combobox/ev
 
 >caption Create new collection reference to refresh the ComboBox data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an option to see how the ComboBox reacts to the change. *@
 
 <h4>Add option</h4>

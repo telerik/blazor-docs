@@ -5,7 +5,7 @@ description: Refresh Context Menu Data using Observable Data or creating a new C
 slug: context-menu-refresh-data
 tags: telerik,blazor,context,menu,observable,data,new,collection
 published: True
-position: 25
+position: 26
 ---
 
 # Context Menu - Refresh Data
@@ -28,7 +28,7 @@ In this article:
 
 >caption Create new collection reference to refresh the Context Menu data.
 
-````CSHTML
+````RAZOR
 @* Add/remove an item or change the data collection to see how the Context Menu reacts to that change. *@
 
 <TelerikButton OnClick="@AddItem">Add item</TelerikButton>
@@ -96,7 +96,7 @@ In this article:
             },
             new MenuModel()
             {
-                Text = "Wrench Icon,
+                Text = "Wrench Icon",
                 Icon = SvgIcon.Wrench,
             },
             new MenuModel()

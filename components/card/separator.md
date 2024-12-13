@@ -31,7 +31,7 @@ In the example below no separator is used after the `CardHeader`, the horizontal
 
 ![Standalone CardSeparator](images/stanalone-card-separator-example.png)
 
-````CSHTML
+````RAZOR
 @*CardSeparator as a standalone building block*@
 
 <TelerikCard Width="200px">
@@ -58,7 +58,7 @@ Use the `CardSeparator` to distinguish two separate sections in the `CardBody`. 
 
 ![Nested CardSeparator](images/nested-card-separator-example.png)
 
-````CSHTML
+````RAZOR
 @*CardSeparator as a nested building block*@
 
 <TelerikCard Width="200px">
@@ -83,7 +83,7 @@ You can change the `CardSeparator` orientation through its `Orientation` paramet
 
 ![Vertical CardSeparator](images/vertical-card-separator-example.PNG)
 
-````CSHTML
+````RAZOR
 @*CardSeparator with vertical orientation*@
 
 <TelerikCard Width="200px">

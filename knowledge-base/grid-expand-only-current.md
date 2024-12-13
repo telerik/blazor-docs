@@ -32,7 +32,7 @@ I have a Grid with hierarchy enabled. When I expand one row, I want to programma
 1. Set the `ShouldRender` property of the `GridRowExpandEventArgs` argument to `true`.
 1. Use the [Grid State]({%slug grid-state%}) to programmatically set its `ExpandedItems` property. Set `ExpandedItems` to a `List<T>` that should only contain the currently expanded item. This will result in collapsing all previously expanded items.
 
-````CSHTML
+````RAZOR
 <TelerikGrid @ref="@GridRef"
              Data="@SalesTeamMembers"
              OnRowExpand="@OnExpand">

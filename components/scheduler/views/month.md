@@ -41,7 +41,7 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 
 >caption Declare the Month and Day views in the markup
 
-````CSHTML
+````RAZOR
 @* Define the Month view. *@
 
 <TelerikScheduler Data="@Appointments" @bind-Date="@StartDate" @bind-View="@SelectedView" Height="600px">

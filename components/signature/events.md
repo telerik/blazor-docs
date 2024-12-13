@@ -34,7 +34,7 @@ The `ValueChanged` event fires when signature is fully drawn.
 
 >caption Handle the Blazor Signature Events
 
-````CSHTML
+````RAZOR
 <p>Last event: @EventLog</p>
 
 <TelerikSignature Value="@SignatureValue"

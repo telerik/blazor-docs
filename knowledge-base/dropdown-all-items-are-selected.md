@@ -62,7 +62,7 @@ The test page below demonstrates several incorrect and correct configurations fo
 
 >caption Bind ComboBox and DropDownList to a Model
 
-````CSHTML
+````RAZOR
 <div id="dropdown-container">
     <div>
         Incorrect (no ValueField, Value is a not a string or value type): <br />

@@ -38,24 +38,24 @@ I see errors when I load the Grid state at initialization (`OnStateInit` event h
 
 The exception messages can vary, for example:
 
-```
+````C#.skip-repl
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Common.Filter.FilterOperatorFactory.GetFilterOperatorsForType(Type type, ITelerikStringLocalizer localizer)
-```
+````
 
 Or alternatively:
 
-```
+````C#.skip-repl
 System.NullReferenceException: Object reference not set to an instance of an object.
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.GetFilterOperators()
     at Telerik.Blazor.Components.Common.Filters.FilterList.TelerikFilterList.InitFilterOperators()
-```
+````
 
 If the Grid is bound to **OData**, the OData query may be incorrect and the following exception may occur:
 
-```
+````C#.skip-repl
 A binary operator with incompatible types was detected. Found operand types '...' and '...' for operator kind '...'.", "type": "Microsoft.OData.ODataException".
-```
+````
 
 
 ## Possible Cause
@@ -71,7 +71,7 @@ All suggested options are demonstrated in the examples below.
 
 * Restore the Grid State later than `OnStateInit`. For example, use `OnAfterRenderAsync` and the Grid `SetStateAsync()` method instead.
 * Manually set the missing `MemberType` property values in the restored [filter descriptors]({%slug components/grid/filtering%}#filter-descriptors) in `OnStateInit`. There is no need to include filter descriptors for all columns in the state object.
-* Restore the Grid State in a `try {} catch() {}` block. The Grid `OnStateInit` event fires two times - [once in the prerender phase and once in the render phase](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0#component-initialization-oninitializedasync). The deserialization problem will occur only if the Grid state is restored in the prerender phase. It is possible to skip state restoration during prerender with a `JSInterop` call. This is not allowed during prerender, so it will trigger an `InvalidOperationException` and `OnStateInit` execution will abort. This approach is used in example [Save and Load Grid State from Browser LocalStorage]({%slug grid-state%}#save-and-load-grid-state-from-browser-localstorage)
+* Restore the Grid State in a `try {} catch() {}` block. The Grid `OnStateInit` event fires two times - [once in the prerender phase and once in the render phase](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-6.0#component-initialization-oninitializedasync). The deserialization problem will occur only if the Grid state is restored in the prerender phase. It is possible to skip state restoration during prerender with a `JSInterop` call. This is not allowed during prerender, so it will trigger an `InvalidOperationException` and `OnStateInit` execution will abort. This approach is used in example [Save and Load Grid State from Browser LocalStorage]({%slug grid-kb-save-load-state-localstorage%})
 
 > There are serializers which support `Type` serialization, for example Newtonsoft Json.NET. They, however, can [cause other undesired side effects]({%slug common-kb-newtonsoft-breaks-datasourcerequest-serialization%}).
 
@@ -82,7 +82,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <TelerikGrid @ref="@GridRef" />
@@ -109,7 +109,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 
 <TelerikGrid OnStateInit="@( (GridStateEventArgs<GridModel> args) => OnGridStateInit(args) )" />
@@ -140,7 +140,7 @@ All suggested options are demonstrated in the examples below.
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 @using System.Text.Json
 @inject IJSRuntime js
 

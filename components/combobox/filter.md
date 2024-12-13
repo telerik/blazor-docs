@@ -32,7 +32,7 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
 >caption Filtering in the ComboBox
 
-````CSHTML
+````RAZOR
 <ul>
     <li>
         <label>

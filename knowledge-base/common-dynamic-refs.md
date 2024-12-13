@@ -37,7 +37,7 @@ The algorithm below is using a `TelerikGrid`, but it's identical for all Telerik
 
 >caption Generate dynamic component @refs
 
-````CSHTML
+````RAZOR
 @using Telerik.DataSource
 
 <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"

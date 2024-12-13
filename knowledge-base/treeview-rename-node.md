@@ -30,7 +30,7 @@ This KB article answers the following questions:
 ## Solution
 Use the `ItemTemplate` to determine the node text's rendering and customize the editing UI. For example, you can define a button that initiates editing, a TextBox that modifies the node's name, and another button that saves the changes.
 
-````CSHTML
+````RAZOR
 <TelerikTreeView Data="@FlatData">
     <TreeViewBindings>
         <TreeViewBinding>

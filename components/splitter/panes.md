@@ -32,7 +32,7 @@ Each Splitter pane is configured individually and offers the following parameter
 
 >caption Configure Splitter Panes
 
-````CSHTML
+````RAZOR
 <TelerikSplitter Width="600px" Height="300px">
     <SplitterPanes>
 
@@ -120,7 +120,7 @@ The example below demonstrates:
 
 >caption Behavior and dimensions of flex and static Splitter panes
 
-````CSHTML
+````RAZOR
 Splitter Orientation:
 <TelerikRadioGroup Data="@SplitterOrientations"
                    @bind-Value="@SplitterOrientation"

@@ -21,7 +21,7 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 >caption Basic configuration of the Telerik Popup for Blazor
 
-````CSHTML
+````RAZOR
 <TelerikPopup @ref="@PopupRef"
               AnchorSelector=".popup-target"
               AnimationType="@AnimationType.SlideDown"
@@ -92,7 +92,7 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 | `Show` | Displays the Popup. |
 | `Hide` | Closes the Popup. |
 
-````CSHTML
+````RAZOR
 <TelerikButton OnClick="@TogglePopup"
                Class="popup-target">Toggle Popup</TelerikButton>
 

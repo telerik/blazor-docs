@@ -29,7 +29,7 @@ You can read more details on how to tie the Gantt to your data fields and child 
 
 >caption Provide data to the Gantt and choose which columns (fields) to see
 
-````CSHTML
+````RAZOR
 @* define data, model and columns for a Gantt chart *@
 
 <TelerikGantt Data="@Data"

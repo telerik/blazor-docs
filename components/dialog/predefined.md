@@ -19,7 +19,7 @@ To use the alert, confirm, and prompt dialogs (popup messages), receive a cascad
 
 <div class="skip-repl"></div>
 
-````CSHTML
+````RAZOR
 [CascadingParameter]
 public DialogFactory Dialogs { get; set; }
 ````
@@ -52,7 +52,7 @@ The alert dialog is a Blazor popup message. It shows the user that something wen
 
 >caption Use an Alert dialog
 
-````CSHTML
+````RAZOR
 @* Use Alert dialogs, monitor the console for when the code continues *@
 
 <TelerikButton OnClick="@ShowAlert">Show Alert</TelerikButton>
@@ -93,7 +93,7 @@ The confirm dialog returns a `bool` value that indicates which button the user c
 
 >caption Use a Confirm dialog
 
-````CSHTML
+````RAZOR
 @* Use Confirm dialogs, monitor the console for when and how the code continues *@
 
 <TelerikButton OnClick="@ShowConfirm">Show Confirm</TelerikButton>
@@ -141,7 +141,7 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 
 >caption Use a Prompt dialog
 
-````CSHTML
+````RAZOR
 @* Use Prompt as Blazor popup message, monitor the console for when and how the code continues *@
 
 <TelerikButton OnClick="@ShowPrompt">Show Prompt</TelerikButton>

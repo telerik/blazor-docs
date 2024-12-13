@@ -48,7 +48,7 @@ The `ValueTemplate` exposes a `context` which represents the selected item objec
 
 >caption Using AutoComplete Templates
 
-````CSHTML
+````RAZOR
 @* DropDownList component with ValueTemplate, HeaderTemplate, ItemTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>

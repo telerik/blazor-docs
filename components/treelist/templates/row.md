@@ -22,7 +22,7 @@ You can use the `Context` attribute of the `<RowTemplate>` tag of the treelist t
 
 >caption Using a row template
 
-````CSHTML
+````RAZOR
 Render the entire row with your own code and logic
 
 <TelerikTreeList Data="@Data" Pageable="true" IdField="Id" ParentIdField="ParentId" Width="750px">
