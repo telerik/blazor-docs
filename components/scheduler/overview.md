@@ -151,16 +151,16 @@ To execute Scheduler methods, obtain reference to the component instance with `@
 <TelerikScheduler @ref="SchedulerRef" />
 
 @code {
-    private TekerikScheduler<Appointment> SchedulerRef { get; set; }
+    private TekerikScheduler<Appointment>? SchedulerRef { get; set; }
 
     private void RefreshScheduler()
     {
-        SchedulerRef.Refresh();
+        SchedulerRef?.Refresh();
     }
 
     private void RebindScheduler()
     {
-        SchedulerRef.Rebind();
+        SchedulerRef?.Rebind();
     }
 }
 ````
