@@ -48,12 +48,12 @@ This method is ideal when using the Map in a static context without the need for
         position: relative;
     }
 
-    .custom-map .k-map-controls {
-        display:none;
-    }
+        .custom-map-image .k-map-controls {
+            display: none;
+        }
 </style>
 
-<TelerikMap Class="custom-map" Zoomable="false" Pannable="false" Width="515px" Height="440px">
+<TelerikMap Class="custom-map-image" Zoomable="false" Pannable="false" Width="515px" Height="440px">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Marker"
                   Data="@MarkerData"
