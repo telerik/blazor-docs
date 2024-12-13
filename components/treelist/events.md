@@ -208,7 +208,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
             <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
             <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</TreeListCommandButton>
             <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
@@ -462,7 +462,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
             <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
             <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</TreeListCommandButton>
             <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 
@@ -726,7 +726,7 @@ Visit the [TreeList Cell Selection article to see an example]({%slug treelist-se
             <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
             <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
             <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</TreeListCommandButton>
             <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
 

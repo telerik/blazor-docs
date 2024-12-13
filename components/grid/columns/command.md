@@ -115,7 +115,7 @@ The following code example demonstrates declarations and handling.
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
         <GridCommandColumn>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true" OnClick="@CustomSaveOnClickHandler">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
             <GridCommandButton Command="MyOwnCommand" Icon="@SvgIcon.InfoCircle" ShowInEdit="false" OnClick="@MyCustomCommandOnClickHandler">My Command</GridCommandButton>
         </GridCommandColumn>

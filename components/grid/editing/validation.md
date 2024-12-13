@@ -39,7 +39,7 @@ To disable the built-in validation, add a `<GridValidationSettings>` tag to the 
         <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
         <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>

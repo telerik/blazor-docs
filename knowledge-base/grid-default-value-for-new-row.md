@@ -77,7 +77,7 @@ Click the <strong>Add</strong> button to see the default values for the HireDate
         <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date (has default value)" />
         <GridColumn Field=@nameof(SampleData.Salary) Title="Salary (has default value)" />
         <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
             <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
             <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
