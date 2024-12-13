@@ -4,7 +4,7 @@ description: Learn how to change the background color of filtered columns in the
 type: how-to
 page_title: How to Style Filtered Columns in Telerik Grid for Blazor
 slug: grid-kb-style-filtered-columns
-tags: grid, blazor, styling, filtered columns, css, oncellrender, onstatechanged
+tags: grid, blazor, styling, filtering, css, oncellrender, onstatechanged
 res_type: kb
 ticketid: 1672604
 ---
