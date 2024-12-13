@@ -12,12 +12,12 @@ ticketid: 1652767
 ## Environment
 
 <table>
-<tbody>
-<tr>
-<td>Product</td>
-<td>Map for Blazor</td>
-</tr>
-</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Map for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
 ## Description
