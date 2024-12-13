@@ -21,7 +21,7 @@ ticketid: 1656109
 </table>
 
 ## Description
-I want to customize the icons used for expanding and collapsing items in the [TreeView]({%slug treeview-overview%}) for Blazor. 
+I want to customize the icons used for expanding and collapsing items in the [TreeView for Blazor]({%slug treeview-overview%}). 
 
 This knowledge base article answers the following questions:
 - How can I use custom icons for the TreeView expand and collapse functionality?
