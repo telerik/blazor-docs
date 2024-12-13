@@ -124,7 +124,7 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 		<GridColumn Field=@nameof(Employee.Name) Title="Name" />
 		<GridColumn Field=@nameof(Employee.HireDate) Title="Hire Date" />
 		<GridCommandColumn>
-			<GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Update</GridCommandButton>
+			<GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
 			<GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
 			<GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
 			<GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>

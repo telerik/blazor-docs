@@ -88,7 +88,7 @@ All these operations can also be used for [`Incell`]({%slug components/grid/edit
         <GridColumn Field="@nameof(Product.Stock)" />
         <GridCommandColumn>
             <GridCommandButton Command="Edit">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" ShowInEdit="true">Update</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
             <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
