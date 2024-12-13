@@ -1,6 +1,6 @@
 ---
 title: Change the Expand and Collapse Icons in TreeView
-description: Learn how to customize the expand and collapse icons in the TreeView component for Blazor.
+description: Learn how to customize the expand and collapse icons in the Telerik TreeView component for Blazor.
 type: how-to
 page_title: How to Customize Expand and Collapse Icons in Blazor TreeView
 slug: treeview-kb-change-expand-collapse-icons
