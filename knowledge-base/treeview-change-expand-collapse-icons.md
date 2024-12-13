@@ -34,7 +34,7 @@ You can change the expand/collapse icons in the TreeView by overriding the built
 >caption Change the expand/collapse icons in TreeView
 
 ````CSHTML
-@* If your Telerik.UI.for.Blazor version is 4.3.0 or later, use the following CSS. *@
+@* In Telerik.UI.for.Blazor version 4.3.0 and later, the components use SVG icons by default. Use the following CSS for versions 4.3.0 and later. *@
 @* Render the desired SVG icon and inspect it with your dev tools to get its path. *@
 <style>
     .custom-icons .k-treeview-toggle .k-svg-icon.k-svg-i-caret-alt-down svg path {
@@ -45,7 +45,7 @@ You can change the expand/collapse icons in the TreeView by overriding the built
         d: path("m158.059 129.941 126.06 126.06-126.06 126.061L192 416l160-159.999L192 96z");
 </style>
 
-@* If your Telerik.UI.for.Blazor version is below 4.3.0, use this CSS. *@
+@* In Telerik.UI.for.Blazor version below 4.3.0, the components use Font icons by default. Use this CSS for versions prior to 4.3.0. *@
 @* Copy the unicode of your desired icon from the Progress Design System - https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/ *@
 
 @* <style>
@@ -71,7 +71,7 @@ You can change the expand/collapse icons in the TreeView by overriding the built
     {
         FlatData = GetFlatData();
 
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true).ToList();
+        ExpandedItems = FlatData.Where(x => x.HasChildren == true && x.Id != 3).ToList();
     }
 
     List<TreeItem> GetFlatData()
