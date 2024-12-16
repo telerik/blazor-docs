@@ -99,23 +99,23 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | ProgressBar | Yes | AA | N/A | [Documentation]({%slug progressbar-wai-aria-support%}) |
 | Popover | No | AA | TBA | TBA |
 | Popup | No | AA | TBA | TBA |
-| QRCode | N/A | N/A | N/A | N/A |
+| QRCode | No | N/A | N/A | N/A |
 | RadialGauge | No | AA | N/A | N/A |
 | RadioGroup | Yes | AA | [Standard](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) | [Documentation]({%slug radiogroup-wai-aria-support%}) |
 | RangeSlider | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation) | [Documentation]({%slug rangeslider-wai-aria-support%}) |
-| Rating | Yes | AA | N/A | N/A |
-| Sankey | Yes | AA | TBA | TBA |
+| Rating | No | AA | N/A | N/A |
+| Sankey | No | AA | TBA | TBA |
 | Scheduler | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation) | [Documentation]({%slug scheduler-wai-aria-support%}) |
 | Signature | Yes | AA | N/A | [Documentation]({%slug signature-wai-aria-support%}) |
 | Skeleton | No | N/A | N/A | N/A |
 | Slider | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation) | [Documentation]({%slug slider-wai-aria-support%}) |
 | SplitButton | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation) | [Documentation]({%slug splitbutton-wai-aria-support%}) |
 | Splitter | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation) | [Documentation]({%slug splitter-wai-aria-support%}) |
-| Spreadsheet | Yes | AA | TBA | TBA |
-| StackLayout | N/A | N/A | N/A | N/A |
+| Spreadsheet | No | AA | TBA | TBA |
+| StackLayout | No | N/A | N/A | N/A |
 | Stepper | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation) | [Documentation]({%slug stepper-wai-aria-support%}) |
 | StockChart | No | AA | [Enhanced](https://demos.telerik.com/blazor-ui/stockchart/overview) | TBA |
-| SvgIcon | N/A | N/A | N/A | N/A |
+| SvgIcon | No | N/A | N/A | N/A |
 | Switch | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation) | [Documentation]({%slug switch-wai-aria-support%}) |
 | TabStrip | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation) | [Documentation]({%slug tabstrip-wai-aria-support%}) |
 | TextArea | Yes | AAA | [Standard](https://demos.telerik.com/blazor-ui/textarea/overview) | [Documentation]({%slug textarea-wai-aria-support%}) |
