@@ -74,6 +74,5 @@ To display the month name above each view in a MultiView Calendar, use the [`Hea
 
 ## See Also
 
-* [Calendar Overview](https://docs.telerik.com/blazor-ui/components/calendar/overview)
-* [Calendar Header Template](https://docs.telerik.com/blazor-ui/components/calendar/templates/header-template)
-* [Calendar Views](https://docs.telerik.com/blazor-ui/components/calendar/views)
+* [Calendar Header Template]({%slug calendar-templates-header%})
+* [Calendar Views]({%slug components/calendar/multiview%})
