@@ -81,4 +81,4 @@ The Slider has been tested with the following screen readers and browsers combin
 
 * [Blazor Slider Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

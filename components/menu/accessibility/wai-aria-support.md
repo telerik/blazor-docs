@@ -70,4 +70,4 @@ The Menu has been tested with the following screen readers and browsers combinat
 
 * [Blazor Menu Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

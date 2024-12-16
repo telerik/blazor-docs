@@ -71,4 +71,4 @@ The Dialog has been tested with the following screen readers and browsers combin
 
 * [Blazor Dialog Overview (Demo)](https://demos.telerik.com/blazor-ui/dialog/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

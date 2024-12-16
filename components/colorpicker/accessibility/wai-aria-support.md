@@ -76,4 +76,4 @@ The ColorPicker has been tested with the following screen readers and browsers c
 
 * [Blazor ColorPicker Overview (Demo)](https://demos.telerik.com/blazor-ui/colorpicker/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

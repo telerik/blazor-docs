@@ -71,4 +71,4 @@ The Filter has been tested with the following screen readers and browsers combin
 
 * [Blazor Filter Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

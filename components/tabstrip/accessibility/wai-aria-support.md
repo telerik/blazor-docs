@@ -70,4 +70,4 @@ The TabStrip has been tested with the following screen readers and browsers comb
 
 * [Blazor TabStrip Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/tabstrip/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

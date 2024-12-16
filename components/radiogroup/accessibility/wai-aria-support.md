@@ -66,4 +66,4 @@ The RadioGroup has been tested with the following screen readers and browsers co
 
 * [Blazor RadioGroup Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

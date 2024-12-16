@@ -8,5 +8,5 @@ after:  |
     ## See Also
 
     * [Blazor PDFViewer Overview (Demo)](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+    * [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

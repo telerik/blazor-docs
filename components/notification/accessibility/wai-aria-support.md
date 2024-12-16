@@ -66,4 +66,4 @@ The Notification has been tested with the following screen readers and browsers 
 
 * [Blazor Notification Overview (Demo)](https://demos.telerik.com/blazor-ui/notification/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

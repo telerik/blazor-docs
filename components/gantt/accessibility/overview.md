@@ -17,7 +17,7 @@ WCAG 2.2 introduces the <a href="https://www.w3.org/WAI/WCAG22/Understanding/dra
 
 The illustrative example below shows the Gantt tree columns reorder action, achievable through the [Column Menu]({%slug gantt-column-menu%}). Telerik UI for Blazor aims to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
-The following example demonstrates the [accessibility compliance of the Gantt component]({%slug gantt-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
+The following example demonstrates the [accessibility compliance of the Gantt component]({%slug gantt-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug accessibility-overview%}#color-contrast).
 
 >caption Gantt accessibility compliance example
 

@@ -113,5 +113,5 @@ The DropDownList has been tested with the following screen readers and browsers 
 
 * [Blazor DropDownList Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)
 * [Blazor DropDownList]({%slug components/dropdownlist/overview%})

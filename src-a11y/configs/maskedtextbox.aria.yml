@@ -8,5 +8,5 @@ after:  |
     ## See Also
 
     * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+    * [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

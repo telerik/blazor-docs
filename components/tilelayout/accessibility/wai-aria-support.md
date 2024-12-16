@@ -63,4 +63,4 @@ The TileLayout has been tested with the following screen readers and browsers co
 
 * [Blazor TileLayout Overview (Demo)](https://demos.telerik.com/blazor-ui/tilelayout/overview)
 * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

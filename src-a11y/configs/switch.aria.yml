@@ -8,5 +8,5 @@ after:  |
     ## See Also
 
     * [Blazor Switch Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+    * [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)
