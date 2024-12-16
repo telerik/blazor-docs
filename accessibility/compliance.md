@@ -37,11 +37,11 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | --- | --- | --- | --- | --- |
 | AIPrompt | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/aiprompt/overview) | TBA |
 | AppBar | N/A | N/A | N/A | N/A |
-| ArcGauge | N/A | AA | N/A | N/A |
+| ArcGauge | No | AA | N/A | N/A |
 | AutoComplete | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation) | [Documentation]({%slug autocomplete-wai-aria-support%}) |
 | Avatar | Yes | AA | N/A | N/A |
 | Badge | N/A | N/A | N/A | N/A |
-| Barcode | N/A | N/A | N/A | N/A |
+| Barcode | No | N/A | N/A | N/A |
 | Breadcrumb | Yes | AAA | [Enhanced](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation) | [Documentation]({%slug breadcrumb-wai-aria-support%}) |
 | Button | Yes | AAA | [Standard](https://demos.telerik.com/blazor-ui/button/keyboard-navigation) | [Documentation]({%slug button-wai-aria-support%}) |
 | ButtonGroup | Yes | AAA | [Standard](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation) | [Documentation]({%slug buttongroup-wai-aria-support%}) |
@@ -50,10 +50,10 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | Carousel | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/carousel/keyboard-navigation) | [Documentation]({%slug carousel-wai-aria-support%}) |
 | Chart | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation) | [Documentation]({%slug chart-wai-aria-support %}) |
 | CheckBox | Yes | AA | [Standard](https://demos.telerik.com/blazor-ui/checkbox/overview) | [Documentation]({%slug checkbox-wai-aria-support%}) |
-| Chip | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation) | TBA |
-| ChipList | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation) | TBA |
+| Chip | No | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation) | TBA |
+| ChipList | No | AA | [Enhanced](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation) | TBA |
 | ChunkProgressBar | Yes | AA | N/A | [Documentation]({%slug chunkprogressbar-wai-aria-support%}) |
-| CircularGauge | N/A | N/A | N/A | N/A |
+| CircularGauge | No | N/A | N/A | N/A |
 | ColorGradient | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) | [Documentation]({%slug colorgradient-wai-aria-support%}) |
 | ColorPalette | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation) | [Documentation]({%slug colorpalette-wai-aria-support%}) |
 | ColorPicker | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorpicker/overview) <br /> Also see the [ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) and [ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation). | [Documentation]({%slug colorpicker-wai-aria-support%}) |
@@ -67,19 +67,19 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | Drawer | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/drawer/keyboard-navigation) | [Documentation]({%slug drawer-wai-aria-support%}) |
 | DropDownButton | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dropdownbutton/keyboard-navigation) | TBA |
 | DropDownList | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation) | [Documentation]({%slug dropdownlist-wai-aria-support%}) |
-| DropZone | N/A | N/A | N/A | N/A |
+| DropZone | No | N/A | N/A | N/A |
 | Editor | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation) | [Documentation]({%slug editor-wai-aria-support%}) |
 | FileManager | No | AA |[Enhanced](https://demos.telerik.com/blazor-ui/filemanager/overview) | TBA |
 | FileSelect | No | N/A | [Enhanced](https://demos.telerik.com/blazor-ui/fileselect/keyboard-navigation) | TBA |
 | Filter | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation) | [Documentation]({%slug filter-wai-aria-support%}) |
 | FlatColorPicker | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview) | [Documentation]({%slug flatcolorpicker-wai-aria-support%}) |
-| FloatingLabel | N/A | N/A | N/A | N/A |
-| FontIcon | N/A | N/A | N/A | N/A |
+| FloatingLabel | No | N/A | N/A | N/A |
+| FontIcon | No | N/A | N/A | N/A |
 | Form | No | AA | [Standard](https://demos.telerik.com/blazor-ui/form/overview) | N/A |
 | Gantt | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/gantt/keyboard-navigation) | [Documentation]({%slug gantt-wai-aria-support%}) |
 | Grid | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation) | [Documentation]({%slug grid-wai-aria-support%}) |
 | GridLayout | No | N/A | N/A | N/A |
-| LinearGauge | N/A | AA | N/A | N/A |
+| LinearGauge | No | AA | N/A | N/A |
 | ListBox | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/listbox/keyboard-navigation) | TBA |
 | ListView | Yes | AAA | [Enhanced](https://demos.telerik.com/blazor-ui/listview/keyboard-navigation) | [Documentation]({%slug listview-wai-aria-support%}) |
 | Loader | No | N/A | N/A | N/A |
@@ -93,14 +93,14 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | Notification | Yes | AA | N/A | [Documentation]({%slug notification-wai-aria-support%}) |
 | NumericTextbox | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/numerictextbox/keyboard-navigation) | [Documentation]({%slug numerictextbox-wai-aria-support%}) |
 | Pager | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation) | [Documentation]({%slug pager-wai-aria-support%}) |
-| PanelBar | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation) | N/A |
-| PdfViewer | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/pdfviewer/overview) | N/A |
+| PanelBar | No | AA | [Enhanced](https://demos.telerik.com/blazor-ui/panelbar/keyboard-navigation) | N/A |
+| PdfViewer | No | AA | [Enhanced](https://demos.telerik.com/blazor-ui/pdfviewer/overview) | N/A |
 | PivotGrid | Yes | AA | TBA | TBA |
 | ProgressBar | Yes | AA | N/A | [Documentation]({%slug progressbar-wai-aria-support%}) |
-| Popover | Yes | AA | TBA | TBA |
-| Popup | Yes | AA | TBA | TBA |
+| Popover | No | AA | TBA | TBA |
+| Popup | No | AA | TBA | TBA |
 | QRCode | N/A | N/A | N/A | N/A |
-| RadialGauge | N/A | AA | N/A | N/A |
+| RadialGauge | No | AA | N/A | N/A |
 | RadioGroup | Yes | AA | [Standard](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation) | [Documentation]({%slug radiogroup-wai-aria-support%}) |
 | RangeSlider | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation) | [Documentation]({%slug rangeslider-wai-aria-support%}) |
 | Rating | Yes | AA | N/A | N/A |
