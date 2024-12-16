@@ -59,7 +59,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 @code {
     private string EditorValue { get; set; } = @"<p>Here is an example icon in the Editor content <i class='fa fa-info-circle'></i></p>";
 
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() { new ViewHtml() };
+    private List<IEditorTool> EditorTools { get; set; } = EditorToolSets.All;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -103,9 +103,13 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
+        // remove the default i mark that does not support the class attribute
+        let marks = schema.spec.marks.remove("i");
+
+        // add the modified i as a node
         let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
-        const newSchema = new Schema({ nodes });
+        const newSchema = new Schema({ nodes, marks });
         return newSchema;
     }
 
@@ -155,7 +159,7 @@ Make sure to use the correct way and resources for your actual project *@
 @code {
     private string EditorValue { get; set; } = @"Here is an example icon in the Editor content <i class='fa fa-info-circle'></i>";
 
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() { new ViewHtml() };
+    private List<IEditorTool> EditorTools { get; set; } = EditorToolSets.All;
 }
 
 @* Move JavaScript code to a separate JS file in production *@
@@ -185,16 +189,19 @@ Make sure to use the correct way and resources for your actual project *@
             return ["i", attrs];
         },
     };
-    debugger
 
     //add the icon node to the Editor ProseMirror schema
     window.schemaProvider = (args) => {
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
+        // remove the default i mark that does not support the class attribute
+        let marks = schema.spec.marks.remove("i");
+
+        // add the modified i as a node
         let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
-        const newSchema = new Schema({ nodes });
+        const newSchema = new Schema({ nodes, marks });
         return newSchema;
     }
 
