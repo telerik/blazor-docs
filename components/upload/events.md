@@ -415,6 +415,7 @@ Use the `OnUpload` and [`OnRemove`](#onremove) event handlers to send additional
 
 * Authentication
 * [CSRF/XSRF cross-site antiforgery tokens]({%slug upload-kb-validateantiforgerytoken%})
+* New file name (also see section [Renaming a File](#renaming-a-file))
 * Any metadata related to the app business logic
 
 To send cookies with the upload request, set the [`WithCredentials` component parameter]({%slug upload-overview%}#upload-parameters) to `true`.
