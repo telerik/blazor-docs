@@ -28,7 +28,7 @@ A *theme* is a collection of styles in a CSS file, which determine the appearanc
 
 ### Swatch
 
-A *theme swatch* is a color variation of a theme. All <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/" target="_blank">swatches of a given theme></a> use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, *Default Ocean Blue* and *Bootstrap Nordic* are two built-in swatch names.
+A *theme swatch* is a color variation of a theme. All <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/" target="_blank">swatches of a given theme</a> use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, *Default Ocean Blue* and *Bootstrap Nordic* are two built-in swatch names.
 
 When the Telerik UI for Blazor documentation talks about a given theme name, for example *Default*, this implies the *Main* swatch of this theme. In addition, the word "theme" as a general term can imply any swatch of any theme.
 
