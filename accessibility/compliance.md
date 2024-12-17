@@ -5,31 +5,30 @@ description: Compliance with the accessibility standards and requirements in the
 slug: accessibility-compliance
 tags: telerik,blazor,accessibility,standards,compliance
 published: True
-position: 4
+position: 10
 previous_url: /accessibility/wcag-section-508-wai-aria
 ---
 
 # Accessibility Standards Compliance
 
-This article lists the compliance with the various accessibility standards that the Telerik UI for Blazor components provide.
+This article lists the accessibility compliance of the Telerik UI for Blazor components.
 
-For details on the keyboard support and how it works, see the [Keyboard Navigation]({%slug accessibility-overview%}#keyboard-navigation) section.
+## Accessibility Conformance Report
 
-All components implement the required WAI-ARIA attributes without the need for any extra configuration.
+The [Accessibility Conformance Report (ACR)](https://www.section508.gov/sell/acr/) is a document that explains how information and communication technology products such as software, hardware, electronic content, and support documentation conform to the <a href="https://www.access-board.gov/ict/" target="_blank">Revised 508 Standards for IT accessibility</a>. Progress Software provides an ACR for Telerik UI for Blazor through a <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank">Voluntary Product Accessibility Template (VPAT®)</a>.
 
-Due to the complexity of some of the components in the suite, we sometimes run into scenarios that are not covered by the WAI-ARIA specification. In those cases, we benefit from the know-how of the dedicated accessibility professionals at Progress Software and feedback from accessibility-minded users.
-
-The Telerik UI for Blazor components are highly extensible and customizable. This means that, depending on the level of customization applied, you may be introducing rendering that is not accessible. Therefore, it is recommended that you test any modifications and templates you create to ensure the components still meet the desired level of accessibility standards. Additionally, be mindful of components working with custom input (images, text, HTML content, and so on) and make sure your content is accessible too.
-
-## Voluntary Product Accessibility Template
-
-A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov/sell/vpat/) is a document that explains how information and communication technology (ICT) products such as software, hardware, electronic content, and support documentation meet (conform to) the Revised 508 Standards for IT accessibility.
-
->tip Download and review the latest version of the <a href="assets/BlazorVPAT.doc" download>Telerik UI for Blazor VPAT document</a>.
+>tip Download the latest version of the <a href="assets/BlazorVPAT.doc" download>Telerik UI for Blazor Accessibility Conformance Report</a>.
 
 ## Compliance Table
 
-> The compliance and accessibility of some components may depend on the enabled features. The compliance levels in the table below are achievable with the [*Default Ocean Blue A11y* theme swatch]({%slug accessibility-overview%}#color-contrast).
+The compliance table below is subject to the following considerations:
+
+* All components implement the required WAI-ARIA attributes without the need for any extra configuration. Some components may provide parameters that render additional optional WAI-ARIA attributes, for example, `aria-label` or `aria-describedby`.
+* The compliance levels are achievable with the [*Default Ocean Blue A11y* theme swatch]({%slug accessibility-overview%}#color-contrast).
+* The accessibility and compliance of some components may depend on the enabled features. Component templates may introduce custom markup that is not accessible. Test any modifications to ensure the components still meet the desired level of accessibility compliance. Additionally, be mindful of components that work with user input such as images, text, or HTML content. Make sure that content is accessible too.
+* Due to the complexity of some components, there are scenarios that are not covered by the WAI-ARIA specification. In those cases, we benefit from the know-how of the dedicated accessibility professionals at Progress Software and feedback from accessibility-minded users.
+
+The *Keyboard Navigation* column links to component-specific online demos or keyboard shortcut lists. For general information on how the keyboard support works, see the [Keyboard Navigation]({%slug accessibility-overview%}#keyboard-navigation) section.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -56,7 +55,7 @@ A [Voluntary Product Accessibility Template (VPAT®)](https://www.section508.gov
 | CircularGauge | No | N/A | N/A | N/A |
 | ColorGradient | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) | [Documentation]({%slug colorgradient-wai-aria-support%}) |
 | ColorPalette | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation) | [Documentation]({%slug colorpalette-wai-aria-support%}) |
-| ColorPicker | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorpicker/overview) <br /> Also see the [ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) and [ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation). | [Documentation]({%slug colorpicker-wai-aria-support%}) |
+| ColorPicker | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/colorpicker/overview) <br /> Also see [ColorGradient](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation) and [ColorPalette](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation). | [Documentation]({%slug colorpicker-wai-aria-support%}) |
 | ComboBox | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/combobox/keyboard-navigation) | [Documentation]({%slug combobox-wai-aria-support%}) |
 | ContextMenu | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation) | [Documentation]({%slug contextmenu-wai-aria-support%}) |
 | DateInput | Yes | AA | [Enhanced](https://demos.telerik.com/blazor-ui/dateinput/keyboard-navigation) | [Documentation]({%slug dateinput-wai-aria-support%}) |
