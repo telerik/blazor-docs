@@ -43,22 +43,30 @@ This KB answers the following questions:
 
 <TelerikTextBox @bind-Value="@TextBoxValue1" Password="@TextBoxPassword1" Width="200px">
     <TextBoxSuffixTemplate>
-        <TelerikToggleButton Icon="@SvgIcon.Eye"
+        <TelerikToggleButton Icon="@( TextBoxPassword1 ? SvgIcon.Eye : SvgIcon.EyeSlash )"
                              OnClick="@( () => TextBoxPassword1 = !TextBoxPassword1 )"
                              Selected="@( !TextBoxPassword1 )" />
     </TextBoxSuffixTemplate>
 </TelerikTextBox>
 
-<p>Reveal password on HTML element mousedown</p>
+<p>Reveal password on HTML element @@onmousedown</p>
 
 <TelerikTextBox @bind-Value="@TextBoxValue2" Password="@TextBoxPassword2" Width="200px">
     <TextBoxSuffixTemplate>
         <span @onmousedown="@( () => TextBoxPassword2 = false )"
               @onmouseup="@( () => TextBoxPassword2 = true )">
-            <TelerikButton Icon="@SvgIcon.Eye" />
+            <TelerikButton Icon="@SvgIcon.Eye" ButtonType="@ButtonType.Button" />
         </span>
     </TextBoxSuffixTemplate>
 </TelerikTextBox>
+
+<style>
+    /* Hide native browser eye icon in Edge if enabled */
+    input.k-input-inner[type="password"]::-ms-reveal,
+    input.k-input-innerinput[type="password"]::-ms-clear {
+        display: none;
+    }
+</style>
 
 @code {
     private string TextBoxValue1 { get; set; } = "abcde1";
