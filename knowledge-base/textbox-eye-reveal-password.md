@@ -27,7 +27,7 @@ This KB answers the following questions:
 * How to add an eye icon to a text input and click the icon to show and hide the entered password?
 * How to implement a button that reveals the password in a Telerik TextBox on click?
 * How to make an eye toggle appear in a password textbox no matter if the textbox is focused or not?
-* How to use mouseup and mousedown events on the `TelerikSvgIcon` control to toggle a password field?
+* How to use `mouseup` and `mousedown` events on the `TelerikSvgIcon` control to toggle a password field?
 
 ## Solution
 
