@@ -34,7 +34,7 @@ Even when [`PersistTabContent="true"`]({%slug tabstrip-persist-content%}), the T
 
 In scenarios where all TabStrip tabs must render initially and be in the DOM at all times, use the following approach:
 
-1. Move the tab content outside the TabStrip. Use one HTML `<div>` to hold the contents of each tab.
+1. Move the tab content outside the TabStrip. Use one HTML `<div>` to hold the contents of each tab. The `<TabStripTab>` tags cannot remain completely empty, so add some dummy content such as `&nbsp;`.
 1. Hide the TabStrip tab container elements (`<div class="k-tabstrip-content">`) with a `display:none` CSS style.
 1. Toggle the `display` styles of the HTML `<div>`s in the [TabStrip `ActiveTabIndexChanged` event]({%slug tabstrip-events%}#activetabindexchanged).
 
