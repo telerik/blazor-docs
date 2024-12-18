@@ -79,7 +79,7 @@ In this screen, you can choose:
 
 The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`]({%slug getting-started/what-you-need%}).
 
-> The **Admin**, **Dashboard**, **CRUD**, **Form** and **Chart** templates were deprecated. Their source code is available in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
+> The **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates were deprecated. Their source code is available in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
 ### Step 3: Select Theme
 
