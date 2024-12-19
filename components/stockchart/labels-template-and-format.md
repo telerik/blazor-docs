@@ -24,6 +24,8 @@ You can use the `Format` parameter to apply standard [numeric format strings](ht
 
 >caption Format the labels on the Value and Category Axes
 
+<!-- REPL skipped due to https://github.com/telerik/blazor-repl/issues/323 -->
+<div class="skip-repl"></div>
 ````RAZOR
 Standard number format strings and rotate the labels of the Category Axis
 
@@ -144,6 +146,8 @@ In a *value axis* label template, you can use the following fields:
 
 >caption Custom templates in labels
 
+<!-- REPL skipped due to https://github.com/telerik/blazor-repl/issues/323 -->
+<div class="skip-repl"></div>
 ````RAZOR
 Label templates
 
