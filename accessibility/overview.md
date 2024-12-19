@@ -86,6 +86,7 @@ You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-overvi
 
 When implementing a Telerik Blazor component, the team:
 
+* Benefits from the know-how of dedicated accessibility professionals at Progress Software.
 * Follows the WCAG standard and WAI-ARIA specification to lay the right foundation for the component accessibility.
 * Implements automated unit tests to guarantee accessible and semantically correct rendering.
 * Localizes messages for labels, titles, and other elements.

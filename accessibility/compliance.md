@@ -140,7 +140,7 @@ The information in the compliance table above is subject to the following consid
 * The compliance levels are achievable with the [*Default Ocean Blue A11y* theme swatch]({%slug accessibility-overview%}#color-contrast) or any other [custom theme swatch]({%slug themes-customize%}) that provides the minimum required color contrast.
 * The accessibility and compliance of some components may depend on the enabled features. In such cases, the compliance table information is based on the default component configuration.
 * Component templates introduce custom markup that may not be accessible. Test any modifications to ensure the web content still meets the desired level of accessibility compliance. Be mindful of components that work with user input such as images, text, or HTML content.
-* Due to the complexity of some components, there are scenarios that are not covered by the WAI-ARIA specification. In those cases, we benefit from the know-how of the dedicated accessibility professionals at Progress Software and feedback from accessibility-minded users.
+* Due to the complexity of some components, there are scenarios that are not covered by the WAI-ARIA specification.
 
 ## See Also
 
