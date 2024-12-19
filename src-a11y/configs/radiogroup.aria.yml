@@ -5,8 +5,10 @@ dest: ../components/radiogroup/accessibility/wai-aria-support.md
 slug: radiogroup-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the RadioGroup keyboard navigation works, refer to the [Blazor RadioGroup Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor RadioGroup Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/radiogroup/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

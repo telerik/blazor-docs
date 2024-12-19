@@ -163,7 +163,7 @@ The following table lists Grid parameters, which are not discussed elsewhere in 
 | --- | --- | --- |
 | `Class` | `string` | Additional CSS class for the `<div class="k-grid">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). For example, [change the Grid font size]({%slug grid-kb-change-font-size%}). |
 | `Height` | `string` | A height style in [any supported CSS unit]({%slug common-features/dimensions%}). You can also [make the Grid height change automatically with the browser window]({%slug grid-kb-adjust-height-with-browser%}). |
-| `Navigable` | `bool` | Enables [keyboard navigation]({%slug accessibility-keyboard-navigation%}). |
+| `Navigable` | `bool` | Enables [keyboard navigation]({%slug accessibility-overview%}#keyboard-navigation). |
 | `Width` | `string` | A width style in [any supported CSS unit]({%slug common-features/dimensions%}). The Grid has no default width, but expands horizontally to fill its container. |
 
 

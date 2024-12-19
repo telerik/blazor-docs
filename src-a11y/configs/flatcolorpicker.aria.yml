@@ -5,8 +5,14 @@ dest: ../components/flatcolorpicker/accessibility/wai-aria-support.md
 slug: flatcolorpicker-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the FlatColorPicker keyboard navigation works, refer to:
+
+    * [Blazor ColorGradient Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
+    * [Blazor ColorPalette Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
+
     ## See Also
 
-    * [Blazor FlatColorPicker Overview (Demo)](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Blazor FlatColorPicker Demos](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
