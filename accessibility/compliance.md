@@ -21,19 +21,13 @@ The [Accessibility Conformance Report (ACR)](https://www.section508.gov/sell/acr
 
 ## Compliance Table
 
-The table below specifies the level of WCAG 2.2 compliance of each Telerik component for Blazor. The table also provides links to information about keyboard shortcuts, WAI-ARIA attributes, and additional component-specific accessibility documentation.
+The table below specifies the level of WCAG 2.2 compliance of each Telerik component for Blazor.
 
-The information is subject to the following considerations:
+* The *Keyboard Navigation* column links to component-specific online demos or keyboard shortcut lists. For general information on how the keyboard support works, see the [Keyboard Navigation]({%slug accessibility-overview%}#keyboard-navigation) section.
+* The *Accessibility Documentation* column links to component-specific details and information about WAI-ARIA attributes.
+* For information about **Section 508** of the US Rehabilitation Act, the **European Accessibility Act** in the EU, or any other national accessibility legislation, see section [Legal and Technical Compliance]({%slug accessibility-overview%}#legal-and-technical-compliance).
 
-* All components implement the required WAI-ARIA attributes without the need for any extra configuration. Some components may provide parameters that render additional optional WAI-ARIA attributes, for example, `aria-label` or `aria-describedby`.
-* The compliance levels are achievable with the [*Default Ocean Blue A11y* theme swatch]({%slug accessibility-overview%}#color-contrast).
-* The accessibility and compliance of some components may depend on the enabled features. In such cases, the compliance level below is based on the default component configuration.
-* Component templates introduce custom markup that may not be accessible. Test any modifications to ensure the web content still meets the desired level of accessibility compliance. Be mindful of components that work with user input such as images, text, or HTML content.
-* Due to the complexity of some components, there are scenarios that are not covered by the WAI-ARIA specification. In those cases, we benefit from the know-how of the dedicated accessibility professionals at Progress Software and feedback from accessibility-minded users.
-
-For information about **Section 508** of the US Rehabilitation Act, the **European Accessibility Act** in the EU, or any other national accessibility legislation, see section [Legal and Technical Compliance]({%slug accessibility-overview%}#legal-and-technical-compliance).
-
-The *Keyboard Navigation* column links to component-specific online demos or keyboard shortcut lists. For general information on how the keyboard support works, see the [Keyboard Navigation]({%slug accessibility-overview%}#keyboard-navigation) section.
+Also check the [notes below the table](#accessibility-compliance-notes).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -137,6 +131,16 @@ The *Keyboard Navigation* column links to component-specific online demos or key
 | ValidationSummary | AA | N/A | TBA |
 | Window | AA | [Enhanced](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) | [Documentation]({%slug window-wai-aria-support%}) |
 | Wizard | AA | [Enhanced](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation) | [Documentation]({%slug wizard-wai-aria-support%}) |
+
+## Accessibility Compliance Notes
+
+The information in the compliance table above is subject to the following considerations:
+
+* All components implement the required WAI-ARIA attributes without the need for any extra configuration. Some components may provide parameters that render additional optional WAI-ARIA attributes, for example, `aria-label` or `aria-describedby`.
+* The compliance levels are achievable with the [*Default Ocean Blue A11y* theme swatch]({%slug accessibility-overview%}#color-contrast) or any other [custom theme swatch]({%slug themes-customize%}) that provides the minimum required color contrast.
+* The accessibility and compliance of some components may depend on the enabled features. In such cases, the compliance table information is based on the default component configuration.
+* Component templates introduce custom markup that may not be accessible. Test any modifications to ensure the web content still meets the desired level of accessibility compliance. Be mindful of components that work with user input such as images, text, or HTML content.
+* Due to the complexity of some components, there are scenarios that are not covered by the WAI-ARIA specification. In those cases, we benefit from the know-how of the dedicated accessibility professionals at Progress Software and feedback from accessibility-minded users.
 
 ## See Also
 

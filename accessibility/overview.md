@@ -21,7 +21,10 @@ Web applications are accessible when they provide control over their features to
 
 ## Legal and Technical Compliance
 
-Accessibility compliance can be considered from a legal and technical perspective, but these ultimately merge. <a href="https://www.w3.org/WAI/policies/" target="_blank">Different countries have different regulations about web content accessibility compliance</a>, for example, Section 508 of the US Rehabilitation Act or the EU European Accessibility Act.
+Accessibility compliance can be considered from a legal and technical perspective, but these ultimately merge. <a href="https://www.w3.org/WAI/policies/" target="_blank">Different countries have different regulations about web content accessibility compliance</a>, for example:
+
+* Section 508 of the US Rehabilitation Act
+* The EU European Accessibility Act
 
 The national regulations normally share the following characteristics:
 
@@ -36,6 +39,7 @@ From technical point of view, Telerik UI for Blazor achieves accessibility throu
 * [WAI-ARIA attributes](#wai-aria)
 * [Keyboard navigation](#keyboard-navigation)
 * [Color contrast](#color-contrast)
+* [Best practices in component development and testing](#development-practices)
 
 ## Web Context Accessibility Guidelines
 
@@ -78,7 +82,16 @@ You can [obtain and use the Default Ocean Blue A11y swatch]({%slug themes-overvi
 * [Telerik UI for Blazor version 4.0.1](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-4-0-1)
 * [Themes version 6.0.3](https://github.com/telerik/kendo-themes/releases/tag/v6.0.3). Check section [Theme Version Compatibility]({%slug themes-overview%}#compatibility-and-maintenance) on how to align Telerik UI for Blazor versions with theme versions.
 
-## Screen Readers
+## Development Practices
+
+When implementing a Telerik Blazor component, the team:
+
+* Follows the WCAG standard and WAI-ARIA specification to lay the right foundation for the component accessibility.
+* Implements automated unit tests guarantee accessible and semantically correct rendering.
+* Localizes messages for labels, titles, and other elements.
+* Manually tests the component to with regard to its keyboard navigation and usage with screen readers.
+
+### Screen Readers
 
 There are a lot of existing screen readers, for example:
 
