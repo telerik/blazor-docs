@@ -219,6 +219,10 @@ The following code example demonstrates declarations and handling.
 
 ![Blazor Grid Command Column Result](images/command-column-result.png)
 
+## Using Components in Grid Command Column
+
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
+
 ## See Also
 
   * [Live Demo: Grid Command Column](https://demos.telerik.com/blazor-ui/grid/editing-inline)

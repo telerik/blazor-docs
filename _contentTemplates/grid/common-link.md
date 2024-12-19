@@ -211,3 +211,7 @@ Therefore, we advise that you do not set `Locked=false` for child columns of loc
 The keyboard navigation in the multi-column headers follows the functionality of Excel.
 
 #end
+
+#using-components-in-templates
+See specifics and example in this knowledge base article: [Using Components in Grid Templates]({%slug grid-kb-using-components-in-templates%}).
+#end
