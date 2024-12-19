@@ -5,8 +5,10 @@ dest: ../components/datepicker/accessibility/wai-aria-support.md
 slug: datepicker-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the DatePicker keyboard navigation works, refer to the [Blazor DatePicker Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor DatePicker Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

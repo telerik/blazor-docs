@@ -5,8 +5,10 @@ dest: ../components/breadcrumb/accessibility/wai-aria-support.md
 slug: breadcrumb-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Breadcrumb keyboard navigation works, refer to the [Blazor Breadcrumb Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Breadcrumb Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

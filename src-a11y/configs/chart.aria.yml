@@ -5,8 +5,10 @@ dest: ../components/chart/accessibility/wai-aria-support.md
 slug: chart-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Chart keyboard navigation works, refer to the [Blazor Chart Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Chart Overview (Demo)](https://demos.telerik.com/blazor-ui/chart/overview)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

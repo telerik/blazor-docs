@@ -16,14 +16,14 @@ position: 50
 Out of the box, the Telerik UI for Blazor RangeSlider provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The RangeSlider is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The RangeSlider is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
 
 This section lists the selectors, attributes, and behavior patterns supported by the component and its composite elements, if any.
 
-[Slider accessibility specification](slug://slider-wai-aria-support)
+[Slider accessibility specification]({{slider_a11y_link}})
 
 
 The two focusable elements of the RangeSlider must implement the specification for the **Slider** component. Here is just one clarification for the use of `aria-valuetext` attribute:
@@ -61,8 +61,10 @@ The RangeSlider has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the RangeSlider keyboard navigation works, refer to the [Blazor RangeSlider Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation).
+
 ## See Also
 
-* [Blazor RangeSlider Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

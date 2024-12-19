@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor Window provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The Window is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Window is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -32,7 +32,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 Action buttons follow the **Button** specification.
 
-[Button accessibility specification](slug://button-wai-aria-support)
+[Button accessibility specification]({{button_a11y_link}})
 
 ## Resources
 
@@ -63,8 +63,10 @@ The Window has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Window keyboard navigation works, refer to the [Blazor Window Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Window Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

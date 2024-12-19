@@ -5,8 +5,10 @@ dest: ../components/scheduler/accessibility/wai-aria-support.md
 slug: scheduler-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Scheduler keyboard navigation works, refer to the [Blazor Scheduler Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Scheduler Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

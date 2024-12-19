@@ -5,8 +5,10 @@ dest: ../components/colorpalette/accessibility/wai-aria-support.md
 slug: colorpalette-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the ColorPalette keyboard navigation works, refer to the [Blazor ColorPalette Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor ColorPalette Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

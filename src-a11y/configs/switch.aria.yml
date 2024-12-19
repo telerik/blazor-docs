@@ -5,8 +5,10 @@ dest: ../components/switch/accessibility/wai-aria-support.md
 slug: switch-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Switch keyboard navigation works, refer to the [Blazor Switch Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Switch Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

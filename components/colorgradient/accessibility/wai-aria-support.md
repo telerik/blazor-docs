@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor ColorGradient provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The ColorGradient is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The ColorGradient is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -38,7 +38,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 All the `k-draghandle` elements implement the **Slider** specification.
 
-[Slider accessibility specification](slug://slider-wai-aria-support)
+[Slider accessibility specification]({{slider_a11y_link}})
 
 
 Apart from that the HSV draghandle must also cover the following additional requirements:
@@ -54,7 +54,7 @@ Apart from that the HSV draghandle must also cover the following additional requ
 
 The Numeric inputs must implement the **NumericTextBox** specification.
 
-[NumericTextBox accessibility specification](slug://numerictextbox-wai-aria-support)
+[NumericTextBox accessibility specification]({{numerictextbox_a11y_link}})
 
 
 Here is one additional requirement for those numerics as their visible labels have only a single letter as text:
@@ -88,8 +88,10 @@ The ColorGradient has been tested with the following screen readers and browsers
 
 
 
+## Keyboard Navigation
+
+For details on how the ColorGradient keyboard navigation works, refer to the [Blazor ColorGradient Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation).
+
 ## See Also
 
-* [Blazor ColorGradient Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
