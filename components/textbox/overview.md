@@ -61,7 +61,7 @@ The Blazor TextBox provides various parameters to configure the component:
 | `MaxLength` | `int?` | Maps to the `maxlength` attribute of the HTML `<input />` element. |
 | `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
-| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Live Demo: Password Textbox](https://demos.telerik.com/blazor-ui/textbox/password) |
+| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Password Textbox demo](https://demos.telerik.com/blazor-ui/textbox/password) and the [Add Eye Icon to Reveal a TextBox Password]({%slug textbox-kb-eye-reveal-password%}) article. |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
@@ -113,22 +113,7 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Password type TextBox
 
-````RAZOR
-@* An example of enabling the Password mode of the text box. Make sure to add a form and validation
-for example: https://demos.telerik.com/blazor-ui/textbox/password
-*@
-
-<TelerikTextBox Password="true"
-                @bind-Value="@ThePassword"
-                AutoComplete="current-password"
-                Name="password" Id="password" />
-
-@code {
-    // in a real case you should have a form, a model, and validation
-    // the form may also need autocomplete attribute and other corresponding inputs to enable autocompletion
-    string ThePassword { get; set; }
-}
-````
+See [Add Eye Icon to Reveal a TextBox Password]({%slug textbox-kb-eye-reveal-password%}).
 
 >caption Programmatically change the TextBox value
 
