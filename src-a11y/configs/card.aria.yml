@@ -1,0 +1,15 @@
+title: Wai-Aria Support
+component: Card
+from: /aria/card_aria.md
+dest: ../components/card/accessibility/wai-aria-support.md
+slug: card-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
+    ## See Also
+
+    * [Blazor Card Demos](https://demos.telerik.com/blazor-ui/card/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
