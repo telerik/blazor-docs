@@ -100,8 +100,7 @@ The example below shows how to:
 
 ## Using Components in Grid Column Templates
 
-See specifics and example in this knowledge base article: [Using Components in Grid Templates]({%slug grid-kb-using-components-in-templates%})
-
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
 
 ## See Also
 

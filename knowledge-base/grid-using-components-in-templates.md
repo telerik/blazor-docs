@@ -40,11 +40,12 @@ This applies to the following Grid elements:
 * [RowTemplate]({%slug grid-templates-row%})
 * [Template]({%slug grid-templates-column%})
 
-> caption Seting @key to child components inside Grid templates
+>caption Setting @key to child components inside Grid templates
 
 <div class="skip-repl"></div>
 ````RAZOR Home.razor
 @using YourAppName.Data
+
 <ul>
     <li>Filter and sort the Grid to see the difference between the two columns.</li>
     <li>Group the Grid by the first column to test the GroupFooterTemplate.</li>
