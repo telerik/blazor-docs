@@ -13,7 +13,7 @@ previous_url: /accessibility/keyboard-navigation,/accessibility/accessibility-sw
 
 Web applications are accessible when they provide control over their features to users with physical or situational disabilities. These disabilities can include various categories, for example, user who are:
 
-* Unable to perceive content visually or auditory;
+* Unable to perceive content visually or auditory.
 * Unable to use a mouse or a keyboard for any reason.
 * Consuming electronic content through assistive technologies.
 
