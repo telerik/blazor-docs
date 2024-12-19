@@ -63,8 +63,10 @@ The Breadcrumb has been tested with the following screen readers and browsers co
 
 
 
+## Keyboard Navigation
+
+For details on how the Breadcrumb keyboard navigation works, refer to the [Blazor Breadcrumb Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Breadcrumb Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/breadcrumb/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

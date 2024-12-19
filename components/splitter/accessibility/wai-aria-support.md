@@ -75,8 +75,10 @@ The Splitter has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the Splitter keyboard navigation works, refer to the [Blazor Splitter Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Splitter Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/splitter/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

@@ -124,8 +124,10 @@ The Scheduler has been tested with the following screen readers and browsers com
 
 
 
+## Keyboard Navigation
+
+For details on how the Scheduler keyboard navigation works, refer to the [Blazor Scheduler Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Scheduler Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/scheduler/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

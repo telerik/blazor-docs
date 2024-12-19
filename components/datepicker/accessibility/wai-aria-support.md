@@ -81,8 +81,10 @@ The DatePicker has been tested with the following screen readers and browsers co
 
 
 
+## Keyboard Navigation
+
+For details on how the DatePicker keyboard navigation works, refer to the [Blazor DatePicker Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation).
+
 ## See Also
 
-* [Blazor DatePicker Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/datepicker/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

@@ -88,9 +88,11 @@ The TreeList has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the TreeList keyboard navigation works, refer to the [Blazor TreeList Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation).
+
 ## See Also
 
-* [Blazor TreeList Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation)
 * [Blazor TreeList Accessibility Example]({%slug treelist-accessibility-overview%}#blazor-treelist-accessibility-example)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

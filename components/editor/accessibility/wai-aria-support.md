@@ -57,8 +57,10 @@ The Editor has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Editor keyboard navigation works, refer to the [Blazor Editor Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Editor Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/editor/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

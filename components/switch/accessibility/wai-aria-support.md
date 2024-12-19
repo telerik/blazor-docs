@@ -63,8 +63,10 @@ The Switch has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Switch keyboard navigation works, refer to the [Blazor Switch Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Switch Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/switch/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

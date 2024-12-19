@@ -61,8 +61,10 @@ The RangeSlider has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the RangeSlider keyboard navigation works, refer to the [Blazor RangeSlider Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation).
+
 ## See Also
 
-* [Blazor RangeSlider Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/rangeslider/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

@@ -53,8 +53,10 @@ The SplitButton has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the SplitButton keyboard navigation works, refer to the [Blazor SplitButton Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation).
+
 ## See Also
 
-* [Blazor SplitButton Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/splitbutton/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

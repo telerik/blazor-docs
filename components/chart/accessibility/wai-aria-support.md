@@ -68,8 +68,10 @@ The Chart has been tested with the following screen readers and browsers combina
 
 
 
+## Keyboard Navigation
+
+For details on how the Chart keyboard navigation works, refer to the [Blazor Chart Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/chart/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Chart Overview (Demo)](https://demos.telerik.com/blazor-ui/chart/overview)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

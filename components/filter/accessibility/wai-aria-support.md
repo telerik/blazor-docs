@@ -67,8 +67,10 @@ The Filter has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Filter keyboard navigation works, refer to the [Blazor Filter Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Filter Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/filter/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

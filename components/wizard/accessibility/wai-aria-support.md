@@ -73,8 +73,10 @@ The Wizard has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Wizard keyboard navigation works, refer to the [Blazor Wizard Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Wizard Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/wizard/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

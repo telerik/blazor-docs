@@ -66,8 +66,10 @@ The Stepper has been tested with the following screen readers and browsers combi
 
 
 
+## Keyboard Navigation
+
+For details on how the Stepper keyboard navigation works, refer to the [Blazor Stepper Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Stepper Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/stepper/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

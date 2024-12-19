@@ -56,8 +56,10 @@ The Button has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Button keyboard navigation works, refer to the [Blazor Button Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/button/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Button Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/button/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

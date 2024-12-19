@@ -63,8 +63,10 @@ The Window has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Window keyboard navigation works, refer to the [Blazor Window Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Window Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

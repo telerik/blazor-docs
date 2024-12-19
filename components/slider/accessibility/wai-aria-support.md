@@ -77,8 +77,10 @@ The Slider has been tested with the following screen readers and browsers combin
 
 
 
+## Keyboard Navigation
+
+For details on how the Slider keyboard navigation works, refer to the [Blazor Slider Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Slider Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/slider/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

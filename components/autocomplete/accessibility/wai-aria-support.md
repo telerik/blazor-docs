@@ -95,8 +95,10 @@ The AutoComplete has been tested with the following screen readers and browsers 
 
 
 
+## Keyboard Navigation
+
+For details on how the AutoComplete keyboard navigation works, refer to the [Blazor AutoComplete Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation).
+
 ## See Also
 
-* [Blazor AutoComplete Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/autocomplete/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

@@ -76,8 +76,10 @@ The Pager has been tested with the following screen readers and browsers combina
 
 
 
+## Keyboard Navigation
+
+For details on how the Pager keyboard navigation works, refer to the [Blazor Pager Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Pager Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/pager/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

@@ -66,8 +66,10 @@ The Menu has been tested with the following screen readers and browsers combinat
 
 
 
+## Keyboard Navigation
+
+For details on how the Menu keyboard navigation works, refer to the [Blazor Menu Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Menu Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/menu/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

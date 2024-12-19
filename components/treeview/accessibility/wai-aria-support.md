@@ -71,8 +71,10 @@ The TreeView has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the TreeView keyboard navigation works, refer to the [Blazor TreeView Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation).
+
 ## See Also
 
-* [Blazor TreeView Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/treeview/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

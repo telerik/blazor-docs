@@ -69,8 +69,14 @@ The FlatColorPicker has been tested with the following screen readers and browse
 
 
 
+## Keyboard Navigation
+
+For details on how the FlatColorPicker keyboard navigation works, refer to:
+
+* [Blazor ColorGradient Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
+* [Blazor ColorPalette Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
+
 ## See Also
 
-* [Blazor FlatColorPicker Overview (Demo)](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
+* [Blazor FlatColorPicker Demos](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

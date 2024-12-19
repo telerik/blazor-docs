@@ -196,8 +196,10 @@ The Grid has been tested with the following screen readers and browsers combinat
 
 
 
+## Keyboard Navigation
+
+For details on how the Grid keyboard navigation works, refer to the [Blazor Grid Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Grid Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

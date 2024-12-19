@@ -62,8 +62,11 @@ The TextArea has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
 ## See Also
 
-* [Blazor TextArea Overview (Demo)](https://demos.telerik.com/blazor-ui/textarea/overview)
+* [Blazor TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/overview)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

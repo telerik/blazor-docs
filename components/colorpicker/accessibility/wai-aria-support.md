@@ -72,8 +72,14 @@ The ColorPicker has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the ColorPicker keyboard navigation works, refer to:
+
+* [Blazor ColorGradient Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorgradient/keyboard-navigation)
+* [Blazor ColorPalette Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/colorpalette/keyboard-navigation)
+
 ## See Also
 
-* [Blazor ColorPicker Overview (Demo)](https://demos.telerik.com/blazor-ui/colorpicker/overview)
+* [Blazor ColorPicker Demos](https://demos.telerik.com/blazor-ui/colorpicker/overview)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

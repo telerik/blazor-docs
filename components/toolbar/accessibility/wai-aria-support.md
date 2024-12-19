@@ -57,8 +57,10 @@ The ToolBar has been tested with the following screen readers and browsers combi
 
 
 
+## Keyboard Navigation
+
+For details on how the Toolbar keyboard navigation works, refer to the [Blazor Toolbar Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation).
+
 ## See Also
 
-* [Blazor Toolbar Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/toolbar/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

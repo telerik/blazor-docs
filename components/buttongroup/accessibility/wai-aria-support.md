@@ -60,8 +60,10 @@ The ButtonGroup has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the ButtonGroup keyboard navigation works, refer to the [Blazor ButtonGroup Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation).
+
 ## See Also
 
-* [Blazor ButtonGroup Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/buttongroup/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

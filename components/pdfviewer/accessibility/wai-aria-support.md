@@ -62,8 +62,11 @@ The PDF Viewer has been tested with the following screen readers and browsers co
 
 
 
+## Keyboard Navigation
+
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
 ## See Also
 
-* [Blazor PDFViewer Overview (Demo)](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
+* [Blazor PDFViewer Demos](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)

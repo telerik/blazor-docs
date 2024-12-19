@@ -101,8 +101,10 @@ The MultiSelect has been tested with the following screen readers and browsers c
 
 
 
+## Keyboard Navigation
+
+For details on how the MultiSelect keyboard navigation works, refer to the [Blazor MultiSelect Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation).
+
 ## See Also
 
-* [Blazor MultiSelect Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/multiselect/keyboard-navigation)
 * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
-* [Accessibility Theme]({%slug accessibility-overview%}#color-contrast)
