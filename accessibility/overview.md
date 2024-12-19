@@ -65,7 +65,7 @@ Most components represent a single tab stop. Once users reach and focus a compon
 
 The Telerik UI for Blazor components may provide enhanced, standard, or no keyboard support. See the [compliance table]({%slug accessibility-compliance%}#compliance-table) for component-specific information.
 
-* *Standard keyboard support* implies similar keyboard navigation capabilities as standard HTML elements. For example, the Button components support `Enter` and `Space` for clicking them. All components with standard keyboard support are reachable through the `Tab` key and provide focus styles.
+* *Standard keyboard support* implies similar keyboard navigation capabilities as standard HTML elements. For example, the Button components support `Enter` and `Space` for triggering clicks. All components with standard keyboard support are reachable through the `Tab` key and provide focus styles.
 * *Enhanced keyboard support* builds on top of the standard key combinations and provides additional built-in shortcuts for improved flexibility and user experience.
 * Components with no keyboard support may serve a purely visual purpose, or be containers with no available interaction.
 
