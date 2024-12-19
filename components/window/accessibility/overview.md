@@ -17,7 +17,7 @@ WCAG 2.2 introduces the <a href="https://www.w3.org/WAI/WCAG22/Understanding/dra
 
 The illustrative example below shows the window resize action, achievable through the [Dialog]({%slug dialog-overview%}) and window position change through a button. Telerik UI for Blazor to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
-The following example demonstrates the [accessibility compliance of the Window component]({%slug window-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug themes-accessibility-swatch%}).
+The following example demonstrates the [accessibility compliance of the Window component]({%slug window-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug accessibility-overview%}#color-contrast).
 
 >caption Window accessibility compliance example
 

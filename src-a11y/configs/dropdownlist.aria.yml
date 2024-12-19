@@ -5,8 +5,10 @@ dest: ../components/dropdownlist/accessibility/wai-aria-support.md
 slug: dropdownlist-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the DropDownList keyboard navigation works, refer to the [Blazor DropDownList Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor DropDownList Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/dropdownlist/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

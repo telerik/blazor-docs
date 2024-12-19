@@ -5,8 +5,11 @@ dest: ../components/signature/accessibility/wai-aria-support.md
 slug: signature-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
     ## See Also
 
-    * [Blazor Signature Overview (Demo)](https://demos.telerik.com/blazor-ui/signature/overview)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Blazor Signature Demos](https://demos.telerik.com/blazor-ui/signature/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
