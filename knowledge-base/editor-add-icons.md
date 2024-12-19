@@ -148,7 +148,7 @@ Make sure to use the correct way and resources for your actual project *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
 <TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools"
+               Tools="@EditorToolSets.All"
                Schema="schemaProvider"
                EditMode="@EditorEditMode.Div"
                Height="300px">
@@ -156,8 +156,6 @@ Make sure to use the correct way and resources for your actual project *@
 
 @code {
     private string EditorValue { get; set; } = @"Here is an example icon in the Editor content <i class='fa fa-info-circle'></i>";
-
-    private List<IEditorTool> EditorTools { get; set; } = EditorToolSets.All;
 }
 
 @* Move JavaScript code to a separate JS file in production *@
