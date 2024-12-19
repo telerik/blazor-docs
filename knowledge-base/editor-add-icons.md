@@ -51,15 +51,13 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 @inject IJSRuntime js
 
 <TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools"
+               Tools="@EditorToolSets.All"
                Schema="schemaProvider"
                Height="300px">
 </TelerikEditor>
 
 @code {
     private string EditorValue { get; set; } = @"<p>Here is an example icon in the Editor content <i class='fa fa-info-circle'></i></p>";
-
-    private List<IEditorTool> EditorTools { get; set; } = EditorToolSets.All;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
