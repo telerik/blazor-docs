@@ -89,7 +89,7 @@ When implementing a Telerik Blazor component, the team:
 * Follows the WCAG standard and WAI-ARIA specification to lay the right foundation for the component accessibility.
 * Implements automated unit tests to guarantee accessible and semantically correct rendering.
 * Localizes messages for labels, titles, and other elements.
-* Manually tests the component to with regard to its keyboard navigation and usage with screen readers.
+* Manually tests the component with regard to its keyboard navigation and usage with screen readers.
 
 ### Screen Readers
 
