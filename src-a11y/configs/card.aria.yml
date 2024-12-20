@@ -1,8 +1,8 @@
 title: Wai-Aria Support
-component: TileLayout
-from: /aria/tilelayout_aria.md
-dest: ../components/tilelayout/accessibility/wai-aria-support.md
-slug: tilelayout-wai-aria-support
+component: Card
+from: /aria/card_aria.md
+dest: ../components/card/accessibility/wai-aria-support.md
+slug: card-wai-aria-support
 position: 50
 after:  |
     ## Keyboard Navigation
@@ -11,5 +11,5 @@ after:  |
 
     ## See Also
 
-    * [Blazor TileLayout Demos](https://demos.telerik.com/blazor-ui/tilelayout/overview)
+    * [Blazor Card Demos](https://demos.telerik.com/blazor-ui/card/overview)
     * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
