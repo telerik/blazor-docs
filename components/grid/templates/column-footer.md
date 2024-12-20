@@ -82,6 +82,9 @@ You can use [aggregates]({%slug grid-aggregates%}) for the current field directl
 
 ![Blazor Grid Footer Template](images/footer-template.png)
 
+## Using Components in Grid Column Footer Templates
+
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
 
 ## Notes
 
