@@ -1,8 +1,8 @@
 title: Wai-Aria Support
-component: TileLayout
-from: /aria/tilelayout_aria.md
-dest: ../components/tilelayout/accessibility/wai-aria-support.md
-slug: tilelayout-wai-aria-support
+component: Skeleton
+from: /aria/skeleton_aria.md
+dest: ../components/skeleton/accessibility/wai-aria-support.md
+slug: skeleton-wai-aria-support
 position: 50
 after:  |
     ## Keyboard Navigation
@@ -11,5 +11,5 @@ after:  |
 
     ## See Also
 
-    * [Blazor TileLayout Demos](https://demos.telerik.com/blazor-ui/tilelayout/overview)
+    * [Blazor Skeleton Demos](https://demos.telerik.com/blazor-ui/skeleton/overview)
     * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
