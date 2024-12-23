@@ -68,6 +68,6 @@ To use the Drawer for navigating between pages:
 
 ## See Also
 
-* [Drawer Overview]({% slug drawer-overview%})
 * [Drawer Data Binding]({%slug drawer-data-binding%})
 * [Drawer Templates]({%slug drawer-templates%})
+* [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

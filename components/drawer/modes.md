@@ -126,6 +126,6 @@ You may want to add padding to the left of the content so that it is not overlap
 
 ## See Also
 
-  * [Drawer MiniMode]({%slug drawer-mini-mode%})
-  * [Drawer Data Binding]({%slug drawer-data-binding%})
-  * [Drawer Navigation]({%slug drawer-navigation%})
+* [Drawer MiniMode]({%slug drawer-mini-mode%})
+* [Drawer Navigation]({%slug drawer-navigation%})
+* [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

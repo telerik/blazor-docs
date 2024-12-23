@@ -64,6 +64,5 @@ If you use the drawer for [page navigation]({%slug drawer-navigation%}), the sel
 ## See Also
 
 * [Drawer Events]({%slug drawer-events%})
-* [Drawer Data Binding]({%slug drawer-data-binding%})
 * [Drawer Navigation]({%slug drawer-navigation%})
-
+* [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

@@ -170,5 +170,5 @@ The Drawer methods are accessible through it's reference. These methods change t
 
 ## See Also
 
-  * [Live Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)
-  * [Drawer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1)
+* [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)
+* [Drawer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1)
