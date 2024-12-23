@@ -215,5 +215,7 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
 
 ## See Also
 
+* [Drawer Templates Demo](https://demos.telerik.com/blazor-ui/drawer/overview)
 * [Drawer Data Binding]({%slug drawer-data-binding%})
 * [Drawer Navigation]({%slug drawer-navigation%})
+* [Hierarchical Drawer Demo](https://demos.telerik.com/blazor-ui/drawer/hierarchical-drawer)
