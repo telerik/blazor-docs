@@ -90,6 +90,9 @@ The following example uses two Marker layers with different templates. One rende
 
 >caption Using Map marker template
 
+<!-- REPL skipped due to https://github.com/telerik/blazor-repl/issues/323 -->
+<div class="skip-repl"></div>
+
 ````RAZOR
 <TelerikMap Center="@MapCenter"
             Zoom="3">

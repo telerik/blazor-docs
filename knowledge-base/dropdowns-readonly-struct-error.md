@@ -34,6 +34,7 @@ Telerik.Blazor.Components.TelerikComboBox<TItem, TValue>.<OnParametersSetAsync>b
 
 ## Steps to Reproduce
 
+<div class="skip-repl"></div>
 ````RAZOR
 Selected value: @selectedValue
 <br />
@@ -70,7 +71,7 @@ There are two approaches to avoiding this error:
 
 * When setting the `Data` of the dropdown, make it a collection of anonymous objects, for example:
 
-    **Razor**
+<div class="skip-repl"></div>
 ````RAZOR.skip-repl
 @* See the Select in the Data parameter *@
 

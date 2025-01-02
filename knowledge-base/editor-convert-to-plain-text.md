@@ -45,6 +45,7 @@ To export to another format, use the corresponding namespace and format provider
 
 >caption Obtain the Editor HTML value as plain text
 
+<div class="skip-repl"></div>
 ````RAZOR
 @*TxtFormatProvider*@
 @using Telerik.Windows.Documents.Flow.FormatProviders.Txt;
