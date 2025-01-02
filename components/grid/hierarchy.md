@@ -119,6 +119,9 @@ The following articles and sample projects can be helpful when implementing hier
 
 * [Custom Excel Export that Includes Hierarchy](https://github.com/telerik/blazor-ui/tree/master/grid/export-to-xlsx-hierarchy)
 
+## Using Components in Grid Detail Templates
+
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
 
 ## See Also
 

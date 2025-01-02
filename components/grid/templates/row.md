@@ -62,6 +62,10 @@ Render the entire row with your own code and logic
 
 ![Blazor Grid Row Template](images/row-template.png)
 
+## Using Components in Grid Row Templates
+
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
+
 
 ## See Also
 
