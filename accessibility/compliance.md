@@ -17,7 +17,7 @@ This article lists the accessibility compliance of the Telerik UI for Blazor com
 
 The [Accessibility Conformance Report (ACR)](https://www.section508.gov/sell/acr/) is a document that explains how information and communication technology products such as software, hardware, electronic content, and support documentation conform to leading global accessibility standards. Telerik UI for Blazor provides an ACR through the <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank">Voluntary Product Accessibility Template (VPAT®)</a>.
 
->tip Download the latest version of the <a href="../assets/telerik-ui-for-blazor-acr-vpat.doc" download>Telerik UI for Blazor Accessibility Conformance Report</a>.
+>tip Download the latest version of the [Telerik UI for Blazor Accessibility Conformance Report](./assets/telerik-ui-for-blazor-acr-vpat.doc).
 
 ## Compliance Table
 
