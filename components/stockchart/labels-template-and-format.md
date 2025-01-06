@@ -24,19 +24,18 @@ You can use the `Format` parameter to apply standard [numeric format strings](ht
 
 >caption Format the labels on the Value and Category Axes
 
-<!-- REPL skipped due to https://github.com/telerik/blazor-repl/issues/323 -->
-<div class="skip-repl"></div>
 ````RAZOR
 Standard number format strings and rotate the labels of the Category Axis
 
 <TelerikStockChart Width="700px"
-                    Height="450px"
-                    DateField="@nameof(StockDataPoint.Date)">
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
-            <StockChartCategoryAxisLabels Format="{0:D}"></StockChartCategoryAxisLabels>
-            <StockChartCategoryAxisLabelsRotation Angle="30"></StockChartCategoryAxisLabelsRotation>
+            <StockChartCategoryAxisLabels Format="{0:D}">
+                <StockChartCategoryAxisLabelsRotation Angle="30"></StockChartCategoryAxisLabelsRotation>
+            </StockChartCategoryAxisLabels>
         </StockChartCategoryAxis>
     </StockChartCategoryAxes>
 
@@ -48,23 +47,28 @@ Standard number format strings and rotate the labels of the Category Axis
 
     <StockChartSeriesItems>
         <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                            Name="Product 1"
-                            Data="@StockChartProduct1Data"
-                            OpenField="@nameof(StockDataPoint.Open)"
-                            CloseField="@nameof(StockDataPoint.Close)"
-                            HighField="@nameof(StockDataPoint.High)"
-                            LowField="@nameof(StockDataPoint.Low)">
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
         </StockChartSeries>
     </StockChartSeriesItems>
 
     <StockChartNavigator>
-        <StockChartNavigatorCategoryAxisLabels Format="" Template=""></StockChartNavigatorCategoryAxisLabels>
+        <StockChartNavigatorCategoryAxis>
+            <StockChartNavigatorCategoryAxisLabels>
+                <StockChartNavigatorCategoryAxisLabels Format="dd MMM yyyy"></StockChartNavigatorCategoryAxisLabels>
+            </StockChartNavigatorCategoryAxisLabels>
+        </StockChartNavigatorCategoryAxis>
+        
         <StockChartNavigatorSeriesItems>
             <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
-                                        Name="Product 1"
-                                        Data="@StockChartProduct1Data"
-                                        Field="@(nameof(StockDataPoint.High))"
-                            CategoryField="@(nameof(StockDataPoint.Date))">
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
             </StockChartNavigatorSeries>
         </StockChartNavigatorSeriesItems>
     </StockChartNavigator>
@@ -146,8 +150,6 @@ In a *value axis* label template, you can use the following fields:
 
 >caption Custom templates in labels
 
-<!-- REPL skipped due to https://github.com/telerik/blazor-repl/issues/323 -->
-<div class="skip-repl"></div>
 ````RAZOR
 Label templates
 
@@ -179,7 +181,9 @@ Label templates
     </StockChartSeriesItems>
 
     <StockChartNavigator>
-        <StockChartNavigatorCategoryAxisLabels Format="" Template=""></StockChartNavigatorCategoryAxisLabels>
+        <StockChartNavigatorCategoryAxis>
+            <StockChartNavigatorCategoryAxisLabels Template="#= value.toLocaleDateString('en-US') #"></StockChartNavigatorCategoryAxisLabels>
+        </StockChartNavigatorCategoryAxis>
         <StockChartNavigatorSeriesItems>
             <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                         Name="Product 1"
