@@ -25,6 +25,7 @@ The adaptive rendering functionality is supported by the following components:
 
 * [AutoComplete]({%slug autocomplete-overview%})
 * [ComboBox]({%slug components/combobox/overview%})
+* [ColorPicker]({%slug colorpicker-overview%})
 * [DatePicker]({%slug components/datepicker/overview%})
 * [DateRangePicker]({%slug daterangepicker-overview%})
 * [DateTimePicker]({%slug components/datetimepicker/overview%})
@@ -73,6 +74,7 @@ Some of the [supported components](#supported-components) allow custom values, f
 
 * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/adaptive)
 * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/adaptive)
+* [Live Demo: ColorPicker](https://demos.telerik.com/blazor-ui/colorpicker/adaptive)
 * [Live Demo: DatePicker](https://demos.telerik.com/blazor-ui/datepicker/adaptive)
 * [Live Demo: DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/adaptive)
 * [Live Demo: DateTimePicker](https://demos.telerik.com/blazor-ui/datetimepicker/adaptive)
