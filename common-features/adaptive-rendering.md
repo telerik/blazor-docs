@@ -70,6 +70,7 @@ Three breakpoints define the rendering options as follows:
 
 You can customize the default adaptive breakpoints at the root level by configuring the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}). To specify your desired breakpoints:
 
+1. Wrap the content of the `<TelerikRootComponent>` (`@Body` and potentially other elements) in `<ChildContent>` tag.
 1. Add the `<RootComponentSettings>` component inside the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}).
 1. Add the `<AdaptiveSettings>` component inside the `<RootComponentSettings>` tag and configure its properties:
 
