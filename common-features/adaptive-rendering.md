@@ -17,6 +17,7 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 * [Supported components](#supported-components)
 * [Basics](#basics)
 * [Rendering specifics](#rendering-specifics)
+* [Customize the Default Adaptive Breakpoints](#customize-the-default-adaptive-breakpoints)
 * [Limitations](#limitations)
 
 ## Supported Components
@@ -64,6 +65,34 @@ Three breakpoints define the rendering options as follows:
 |-------|-------|--------|-------|
 **Dimensions** | up to 500px | 501px to 768px | over 768px |
 **Rendering** | The popup is rendered as a fullscreen action sheet. | The popup is rendered as an action sheet docked to the bottom of the screen. | The popup is rendered as an animation container docked to the main element of the component. |
+
+## Customize the Default Adaptive Breakpoints
+
+You can customize the default adaptive breakpoints at the root level by configuring the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}). To specify your desired breakpoints:
+
+1. Add the `<RootComponentSettings>` component inside the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}).
+1. Add the `<AdaptiveSettings>` component inside the `<RootComponentSettings>` tag and configure its properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Small` | `int` | The min threshold and the lower boundary of the medium threshold |
+| `Medium` | `int` | The max threshold and the upper boundary of the medium threshold. |
+
+>caption Customize the default adaptive breakpoints
+
+<div class="skip-repl"></div>
+````RAZOR
+    <TelerikRootComponent>
+        <RootComponentSettings>
+            <AdaptiveSettings Small="400" Medium="900"></AdaptiveSettings>
+        </RootComponentSettings>
+        <ChildContent>
+             @Body
+        </ChildContent>
+    </TelerikRootComponent>
+````
 
 ## Limitations
 
