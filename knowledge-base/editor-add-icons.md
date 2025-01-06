@@ -51,15 +51,13 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 @inject IJSRuntime js
 
 <TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools"
+               Tools="@EditorToolSets.All"
                Schema="schemaProvider"
                Height="300px">
 </TelerikEditor>
 
 @code {
     private string EditorValue { get; set; } = @"<p>Here is an example icon in the Editor content <i class='fa fa-info-circle'></i></p>";
-
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() { new ViewHtml() };
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -103,9 +101,13 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
+        // remove the default i mark that does not support the class attribute
+        let marks = schema.spec.marks.remove("i");
+
+        // add the modified i as a node
         let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
-        const newSchema = new Schema({ nodes });
+        const newSchema = new Schema({ nodes, marks });
         return newSchema;
     }
 
@@ -146,7 +148,7 @@ Make sure to use the correct way and resources for your actual project *@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
 <TelerikEditor @bind-Value="@EditorValue"
-               Tools="@EditorTools"
+               Tools="@EditorToolSets.All"
                Schema="schemaProvider"
                EditMode="@EditorEditMode.Div"
                Height="300px">
@@ -154,8 +156,6 @@ Make sure to use the correct way and resources for your actual project *@
 
 @code {
     private string EditorValue { get; set; } = @"Here is an example icon in the Editor content <i class='fa fa-info-circle'></i>";
-
-    private List<IEditorTool> EditorTools { get; set; } = new List<IEditorTool>() { new ViewHtml() };
 }
 
 @* Move JavaScript code to a separate JS file in production *@
@@ -185,16 +185,19 @@ Make sure to use the correct way and resources for your actual project *@
             return ["i", attrs];
         },
     };
-    debugger
 
     //add the icon node to the Editor ProseMirror schema
     window.schemaProvider = (args) => {
         const schema = args.getSchema();
         const Schema = args.ProseMirror.Schema
 
+        // remove the default i mark that does not support the class attribute
+        let marks = schema.spec.marks.remove("i");
+
+        // add the modified i as a node
         let nodes = schema.spec.nodes.addToEnd("i", iconNode);
 
-        const newSchema = new Schema({ nodes });
+        const newSchema = new Schema({ nodes, marks });
         return newSchema;
     }
 

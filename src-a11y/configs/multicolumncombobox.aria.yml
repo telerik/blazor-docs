@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: MultiColumnComboBox
+from: /aria/multicolumncombobox_aria.md
+dest: ../components/multicolumncombobox/accessibility/wai-aria-support.md
+slug: multicolumncombobox-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the MultiColumnComboBox keyboard navigation works, refer to the [Blazor MultiColumnComboBox Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/multicolumncombobox/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

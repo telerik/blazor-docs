@@ -150,7 +150,7 @@ The following table lists Tree List parameters, which are not related to other f
 |---|---|---|
 | `Class` | `string` | The additional CSS class that will be rendered to the `div.k-treelist` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). For example, [change the TreeList font size]({%slug grid-kb-change-font-size%}). |
 | `Height` | `string` | The height value in [any supported CSS unit]({%slug common-features/dimensions%}). |
-| `Navigable` | `bool` | Whether [keyboard navigation]({%slug accessibility-keyboard-navigation%}) is enabled. |
+| `Navigable` | `bool` | Whether [keyboard navigation]({%slug accessibility-overview%}#keyboard-navigation) is enabled. |
 | `Width` | `string` | The width value in [any supported CSS unit]({%slug common-features/dimensions%}). The TreeList has no default width, but expands horizontally to fill its container. |
 
 

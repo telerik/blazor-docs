@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor Gantt provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The Gantt is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The Gantt is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -33,17 +33,17 @@ The Gantt component is a composite component that is used to represent project p
 
 The Gantt component integrates the toolbar component and follows its wai-aria support.
 
-[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
+[ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 
 The main inner component in the Gantt is the TreeList.
 
-[TreeList accessibility specification](slug://treelist-wai-aria-support)
+[TreeList accessibility specification]({{treelist_a11y_link}})
 
 
 Another part of the component is the Splitter component and Wai-Aria support.
 
-[Splitter accessibility specification](slug://splitter-wai-aria-support)
+[Splitter accessibility specification]({{splitter_a11y_link}})
 
 
 The following Wai-Aria support is implemented in the TimeLine of the Gantt.
@@ -85,8 +85,11 @@ The Gantt has been tested with the following screen readers and browsers combina
 
 
 
+## Keyboard Navigation
+
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
 ## See Also
 
-* [Blazor Gantt Overview (Demo)](https://demos.telerik.com/blazor-ui/gantt/overview)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Blazor Gantt Demos](https://demos.telerik.com/blazor-ui/gantt/overview)
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

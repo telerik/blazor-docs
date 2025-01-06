@@ -171,5 +171,5 @@ public class Role
 
 ## See Also
 
-- [Grid Columns](https://docs.telerik.com/blazor-ui/components/grid/columns/bound)
-- [Grid Templates](https://docs.telerik.com/blazor-ui/components/grid/templates)
+- [Grid Columns]({%slug components/grid/columns/bound%})
+- [Grid Templates]({%slug components/grid/features/templates%})

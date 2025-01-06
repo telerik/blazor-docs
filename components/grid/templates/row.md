@@ -58,6 +58,9 @@ Render the entire row with your own code and logic
 }
 ````
 
+## Using Components in Grid Row Templates
+
+@[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
 
 ## See Also
 

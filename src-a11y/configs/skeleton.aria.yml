@@ -1,0 +1,15 @@
+title: Wai-Aria Support
+component: Skeleton
+from: /aria/skeleton_aria.md
+dest: ../components/skeleton/accessibility/wai-aria-support.md
+slug: skeleton-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
+    ## See Also
+
+    * [Blazor Skeleton Demos](https://demos.telerik.com/blazor-ui/skeleton/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

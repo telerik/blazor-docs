@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor DateTimePicker provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The DateTimePicker is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The DateTimePicker is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -48,21 +48,21 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The Calendar in the Popup element of the component should implement the specification for the **Calendar** component.
 
-[Calendar accessibility specification](slug://calendar-wai-aria-support)
+[Calendar accessibility specification]({{calendar_a11y_link}})
 
 ### Popup Date/Time View Chooser
 
 
 The Date/Time view chooser in the Popup element of the component should implement the specification for the **ButtonGroup** component.
 
-[ButtonGroup accessibility specification](slug://buttongroup-wai-aria-support)
+[ButtonGroup accessibility specification]({{buttongroup_a11y_link}})
 
 ### TimePicker Popup
 
 
 Time Popup implementation should follow the specification for the TimePicker component.
 
-[TimePicker accessibility specification](slug://timepicker-wai-aria-support)
+[TimePicker accessibility specification]({{timepicker_a11y_link}})
 
 ## Resources
 
@@ -97,8 +97,10 @@ The DateTimePicker has been tested with the following screen readers and browser
 
 
 
+## Keyboard Navigation
+
+For details on how the DateTimePicker keyboard navigation works, refer to the [Blazor DateTimePicker Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation).
+
 ## See Also
 
-* [Blazor DateTimePicker Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/datetimepicker/keyboard-navigation)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

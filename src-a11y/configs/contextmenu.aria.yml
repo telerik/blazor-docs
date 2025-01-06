@@ -5,8 +5,10 @@ dest: ../components/contextmenu/accessibility/wai-aria-support.md
 slug: contextmenu-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the ContextMenu keyboard navigation works, refer to the [Blazor ContextMenu Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor ContextMenu Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/contextmenu/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

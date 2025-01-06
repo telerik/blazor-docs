@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor TreeList provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The TreeList is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The TreeList is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -35,7 +35,7 @@ The TreeList is a composite component that consists of 2 logically separated str
 
 TreeList Toolbar follows the specification of the ToolBar component.
 
-[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
+[ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -48,7 +48,7 @@ TreeList Toolbar follows the specification of the ToolBar component.
 
 The element with `role=treegrid` must not include the ToolBar element as it does not belong to the `role=treegrid` element itself. It implements the ARIA specification for the Grid component with some exceptions listed below.
 
-[Grid accessibility specification](slug://grid-wai-aria-support)
+[Grid accessibility specification]({{grid_a11y_link}})
 
 
 The below table lists the ARIA requirements for the TreeList which are not present in the Grid specification:
@@ -88,9 +88,11 @@ The TreeList has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the TreeList keyboard navigation works, refer to the [Blazor TreeList Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation).
+
 ## See Also
 
-* [Blazor TreeList Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/treelist/keyboard-navigation)
 * [Blazor TreeList Accessibility Example]({%slug treelist-accessibility-overview%}#blazor-treelist-accessibility-example)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

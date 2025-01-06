@@ -1,0 +1,15 @@
+title: Wai-Aria Support
+component: Form
+from: /aria/form_aria.md
+dest: ../components/form/accessibility/wai-aria-support.md
+slug: form-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
+    ## See Also
+
+    * [Blazor Form Demos](https://demos.telerik.com/blazor-ui/form/overview)
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

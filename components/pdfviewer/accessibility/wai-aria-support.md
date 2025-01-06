@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor PDF Viewer provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The PDF Viewer is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The PDF Viewer is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -26,7 +26,7 @@ This section lists the selectors, attributes, and behavior patterns supported by
 
 The PDF Viewer component contains two inner elements - a toolbar and a page container.
 
-[ToolBar accessibility specification](slug://toolbar-wai-aria-support)
+[ToolBar accessibility specification]({{toolbar_a11y_link}})
 
 | Selector | Attribute | Usage |
 | -------- | --------- | ----- |
@@ -62,8 +62,11 @@ The PDF Viewer has been tested with the following screen readers and browsers co
 
 
 
+## Keyboard Navigation
+
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
 ## See Also
 
-* [Blazor PDFViewer Overview (Demo)](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Blazor PDFViewer Demos](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

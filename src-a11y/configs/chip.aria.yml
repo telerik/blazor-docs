@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: Chip
+from: /aria/chip_aria.md
+dest: ../components/chip/accessibility/wai-aria-support.md
+slug: chip-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the Chip keyboard navigation works, refer to the [Blazor Chip Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/chip/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

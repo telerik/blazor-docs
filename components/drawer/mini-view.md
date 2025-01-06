@@ -50,6 +50,6 @@ To enable the mini view when the drawer is collapsed (minimized), set the `MiniM
 }
 ````
 
+## See Also
 
-
-
+* [Drawer Mini View Demo](https://demos.telerik.com/blazor-ui/drawer/mini)

@@ -5,8 +5,10 @@ dest: ../components/window/accessibility/wai-aria-support.md
 slug: window-wai-aria-support
 position: 50
 after:  |
+    ## Keyboard Navigation
+
+    For details on how the Window keyboard navigation works, refer to the [Blazor Window Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/window/keyboard-navigation).
+
     ## See Also
 
-    * [Blazor Window Accessibility and Keyboard Navigation (Demo)](https://demos.telerik.com/blazor-ui/window/keyboard-navigation)
-    * [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-    * [Accessibility Theme]({% slug themes-accessibility-swatch %})
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

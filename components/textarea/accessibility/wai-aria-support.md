@@ -16,7 +16,7 @@ position: 50
 Out of the box, the Telerik UI for Blazor TextArea provides extensive accessibility support and enables users with disabilities to acquire complete control over its features.
 
 
-The TextArea is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AAA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation]({%slug accessibility-keyboard-navigation%}) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
+The TextArea is compliant with the [Web Content Accessibility Guidelines (WCAG) 2.2 AAA](https://www.w3.org/TR/WCAG22/) standards and [Section 508](https://www.section508.gov/) requirements, follows the [Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA)](https://www.w3.org/WAI/ARIA/apg/) best practices for implementing the [keyboard navigation](#keyboard-navigation) for its `component` role, provides options for managing its focus and is tested against the most popular screen readers.
 
 ## WAI-ARIA
 
@@ -62,8 +62,11 @@ The TextArea has been tested with the following screen readers and browsers comb
 
 
 
+## Keyboard Navigation
+
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+
 ## See Also
 
-* [Blazor TextArea Overview (Demo)](https://demos.telerik.com/blazor-ui/textarea/overview)
-* [Accessibility in Telerik UI for Blazor]({% slug accessibility-overview %})
-* [Accessibility Theme]({% slug themes-accessibility-swatch %})
+* [Blazor TextArea Demos](https://demos.telerik.com/blazor-ui/textarea/overview)
+* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

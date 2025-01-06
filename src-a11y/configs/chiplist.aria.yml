@@ -1,0 +1,14 @@
+title: Wai-Aria Support
+component: ChipList
+from: /aria/chiplist_aria.md
+dest: ../components/chiplist/accessibility/wai-aria-support.md
+slug: chiplist-wai-aria-support
+position: 50
+after:  |
+    ## Keyboard Navigation
+
+    For details on how the ChipList keyboard navigation works, refer to the [Blazor ChipList Accessibility and Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/chiplist/keyboard-navigation).
+
+    ## See Also
+
+    * [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})

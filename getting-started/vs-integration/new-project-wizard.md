@@ -77,20 +77,10 @@ In this screen, you can choose:
 
 ### Step 2: Select Project Template
 
-This step allows you to select one of the [predefined Telerik project](#predefined-project-templates) templates. The available templates vary depending on the selected target framework and hosting model in [**Step 1**](#step-1-select-initial-project-configuration).
+The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`]({%slug getting-started/what-you-need%}).
 
-The Client and Server projects for .NET 6 and .NET 7 support all the templates below. The Hybrid projects and the .NET 8 Web App support only the **Blank** template.
+> The **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates were deprecated. Their source code is available in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
-<a id="predefined-project-templates"> **Predefined Project Templates**</a>
-
-The **Create New Project** wizard provides the following project templates:
-
-* **Blank**&mdash;A blank solution based on the Microsoft template with added Telerik UI components (NuGet package reference, assets, service, and the `TelerikRootComponent`).
-* **CRUD, Form, Chart**&mdash;A small app that showcases the Telerik UI Data Grid, Chart, and forms validation. The Grid also uses a basic CRUD service which is a common pattern for data updates in real applications.
-* **Dashboard**&mdash;A basic dashboard layout that uses the TileLayout component for customizable dashboards, and showcases several ways individual blocks (tiles) can fetch data.
-* **Admin**&mdash;A small app that shows a dashboard for admin. The app uses some of the main Telerik UI components like the [Data Grid]({%slug grid-overview%}), [Chart]({%slug components/chart/overview%}), [TileLayout]({%slug tilelayout-overview%}), [Form]({%slug form-overview%}), and more.
-
-> The **Admin**, **Dashboard**, **CRUD**, **Form** and **Chart** templates are deprecated and are planned to be removed with the Q1 2025 release. The source code for these projects will be moved to the [blazor-ui repo](https://github.com/telerik/blazor-ui) for continued access.
 ### Step 3: Select Theme
 
 Finally, you can apply one of the available [themes]({%slug themes-overview%}) to your project.
