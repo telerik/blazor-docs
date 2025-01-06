@@ -60,13 +60,19 @@ The following sections demonstrate different ways to make a Grid resize vertical
 
 Use percentage heights to define dimensions as a portion of the parent element.
 
-When setting a `height` in percent, keep in mind the following rule: an element with a percentage `height` requires its parent to have an explicit height. The rule applies recursively until a fixed height is reached, or until the `<html>` element is reached.
+When setting a `height` in percent, keep in mind the following rule: an element with a percentage `height` requires its parent to have an explicit height in any absolute or relative CSS unit. The rule applies recursively until a fixed (absolute) height is reached, or until the `<html>` element is reached.
 
 >caption Set Grid Height in percent
 
 ````RAZOR
 <style>
-    html, body {
+    html,
+    body,
+    /* Take into account any other app-specific containers
+        that are in the layout file or App.razor */
+    div.main,
+    div.main > div.content
+    {
         height: 100%;
         margin: 0;
     }
@@ -75,9 +81,9 @@ When setting a `height` in percent, keep in mind the following rule: an element 
 <div style="height:100%">
     <div style="height:100%">
         <TelerikGrid Data="@GridData"
-                        Pageable="true"
-                        PageSize="50"
-                        Height="100%">
+                     Pageable="true"
+                     PageSize="50"
+                     Height="100%">
             <GridColumns>
                 <GridColumn Field="@nameof(SampleModel.Name)" />
             </GridColumns>
