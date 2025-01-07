@@ -92,7 +92,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
                 // OR
 
                 // Save to local file system.
-                // This works ony in server apps and the Upload component may be a better choice.
+                // This works only in server apps and the Upload component may be a better choice.
                 //await UploadFile(file);
             }
         }
