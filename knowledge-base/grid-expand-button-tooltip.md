@@ -89,6 +89,8 @@ The example below shows one way to do that, and to distinguish a particular grid
         {
             // using try-catch to prevent JSInterop calls at too early stage
             // ensure the hierarchy expand icons have the desired tooltip after the grid re-renderes with new data
+            // ensure the HTML is rendered in the browser
+            await Task.Delay(100);
             await _js.InvokeVoidAsync("setGridExpandButtonTitles", ".titles-on-expand-buttons", "Expand Details");
         }
         catch (InvalidOperationException e) { }

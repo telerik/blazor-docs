@@ -51,6 +51,7 @@ The following sample used as a component will cause exceptions:
 
 >caption RenderFragment elements used as properties cause exceptions
 
+<div class="skip-repl"></div>
 ````RAZOR
 typeparam TItem
 @typeparam TValue
@@ -78,6 +79,7 @@ typeparam TItem
 
 >caption Simple usage of the problematic component that causes an error
 
+<div class="skip-repl"></div>
 ````RAZOR
 <CustomCombo Data="@myDdlData" TItem="@MyDdlModel" TValue="int"
                   TextField="MyTextField" ValueField="MyValueField" @bind-Value="@selectedValue">
@@ -155,6 +157,7 @@ The solution is to implement checks in the custom component so that you can rend
 
 >caption How to consume that component - like usual
 
+<div class="skip-repl"></div>
 ````RAZOR
 @selectedValue
 

@@ -28,13 +28,14 @@ You can use the `Format` parameter to apply standard [numeric format strings](ht
 Standard number format strings and rotate the labels of the Category Axis
 
 <TelerikStockChart Width="700px"
-                    Height="450px"
-                    DateField="@nameof(StockDataPoint.Date)">
+                   Height="450px"
+                   DateField="@nameof(StockDataPoint.Date)">
 
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
-            <StockChartCategoryAxisLabels Format="{0:D}"></StockChartCategoryAxisLabels>
-            <StockChartCategoryAxisLabelsRotation Angle="30"></StockChartCategoryAxisLabelsRotation>
+            <StockChartCategoryAxisLabels Format="{0:D}">
+                <StockChartCategoryAxisLabelsRotation Angle="30"/>
+            </StockChartCategoryAxisLabels>
         </StockChartCategoryAxis>
     </StockChartCategoryAxes>
 
@@ -46,23 +47,28 @@ Standard number format strings and rotate the labels of the Category Axis
 
     <StockChartSeriesItems>
         <StockChartSeries Type="StockChartSeriesType.Candlestick"
-                            Name="Product 1"
-                            Data="@StockChartProduct1Data"
-                            OpenField="@nameof(StockDataPoint.Open)"
-                            CloseField="@nameof(StockDataPoint.Close)"
-                            HighField="@nameof(StockDataPoint.High)"
-                            LowField="@nameof(StockDataPoint.Low)">
+                          Name="Product 1"
+                          Data="@StockChartProduct1Data"
+                          OpenField="@nameof(StockDataPoint.Open)"
+                          CloseField="@nameof(StockDataPoint.Close)"
+                          HighField="@nameof(StockDataPoint.High)"
+                          LowField="@nameof(StockDataPoint.Low)">
         </StockChartSeries>
     </StockChartSeriesItems>
 
     <StockChartNavigator>
-        <StockChartNavigatorCategoryAxisLabels Format="" Template=""></StockChartNavigatorCategoryAxisLabels>
+        <StockChartNavigatorCategoryAxis>
+            <StockChartNavigatorCategoryAxisLabels>
+                <StockChartNavigatorCategoryAxisLabels Format="dd MMM yyyy"/>
+            </StockChartNavigatorCategoryAxisLabels>
+        </StockChartNavigatorCategoryAxis>
+        
         <StockChartNavigatorSeriesItems>
             <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
-                                        Name="Product 1"
-                                        Data="@StockChartProduct1Data"
-                                        Field="@(nameof(StockDataPoint.High))"
-                            CategoryField="@(nameof(StockDataPoint.Date))">
+                                       Name="Product 1"
+                                       Data="@StockChartProduct1Data"
+                                       Field="@(nameof(StockDataPoint.High))"
+                                       CategoryField="@(nameof(StockDataPoint.Date))">
             </StockChartNavigatorSeries>
         </StockChartNavigatorSeriesItems>
     </StockChartNavigator>
@@ -175,7 +181,9 @@ Label templates
     </StockChartSeriesItems>
 
     <StockChartNavigator>
-        <StockChartNavigatorCategoryAxisLabels Format="" Template=""></StockChartNavigatorCategoryAxisLabels>
+        <StockChartNavigatorCategoryAxis>
+            <StockChartNavigatorCategoryAxisLabels Template="#= value.toLocaleDateString('en-US') #"/>
+        </StockChartNavigatorCategoryAxis>
         <StockChartNavigatorSeriesItems>
             <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
                                         Name="Product 1"

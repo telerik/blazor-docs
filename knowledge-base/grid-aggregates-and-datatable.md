@@ -43,6 +43,7 @@ I have a TelerikGrid with a [DataTable binding](https://demos.telerik.com/blazor
 
 Attempting to use built-in aggregates with the templates that need to extract their values will throw an exception for the aggregated field, for example `Salary` in this snippet (it is the first one declared).
 
+<div class="skip-repl"></div>
 ````RAZOR
 @using System.Data
 @using Telerik.DataSource.Extensions

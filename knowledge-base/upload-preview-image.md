@@ -218,6 +218,8 @@ namespace TelerikBlazorUpload.Controllers
 >caption Preview selected images when using the FileSelect component
 
 ````RAZOR
+@using System.IO;
+
 <h2>FileSelect</h2>
 
 <TelerikFileSelect Accept="@string.Join(",", ImageFileExtensions)"

@@ -135,8 +135,7 @@ You can fully control the row rendering through a [row template](slug://grid-tem
             // to style the entire row, you can use the same class for all cells, or their style attribute
             // to style individual cells - either use their style attribute, or apply a conditional class only to them
 
-            <td style="@GetConditionalCellStyle(currRowData)" class="@GetConditionalCellClass(currRowData)">
-                <img class="rounded-circle" src="@($"/images/{currRowData.ID}.jpg")" alt="employee photo" />
+            <td style="@GetConditionalCellStyle(currRowData)" class="@GetConditionalCellClass(currRowData)">               
                 <strong>@currRowData.Name</strong>
             </td>
             <td class="@GetConditionalCellClass(currRowData)">
@@ -162,7 +161,7 @@ You can fully control the row rendering through a [row template](slug://grid-tem
 
     string GetConditionalCellClass(SampleData rowData)
     {
-        if(rowData.ID % 3 == 0)
+        if (rowData.ID % 3 == 0)
         {
             return "yellow-cell-bg";
         }
@@ -177,11 +176,11 @@ You can fully control the row rendering through a [row template](slug://grid-tem
     }
 
     public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-    {
-        ID = x,
-        Name = "name " + x,
-        HireDate = DateTime.Now.AddDays(-x)
-    });
+        {
+            ID = x,
+            Name = "name " + x,
+            HireDate = DateTime.Now.AddDays(-x)
+        });
 }
 ````
 
