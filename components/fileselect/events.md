@@ -72,7 +72,7 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
 <TelerikFileSelect AllowedExtensions="@AllowedExtensions"
                    OnRemove="@RemoveFiles"
-                   OnSelect=@HandleFiles>
+                   OnSelect="@HandleFiles">
 </TelerikFileSelect>
 
 @code {
