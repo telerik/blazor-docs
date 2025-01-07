@@ -151,6 +151,7 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 | `Rebind` | [Refreshes the component data]({%slug treeview-refresh-data%}#rebind-method). |
 | `GetItemFromDropIndex` <br /> `(string index)` | gets the corresponding `TItem` of the destination TreeView from the passed [`DestinationIndex`]({%slug grid-drag-drop-overview%}#event-arguments) |
 
+<div class="skip-repl"></div>
 ````RAZOR
 <TelerikTreeView @ref="@TreeViewRef" .../>
 

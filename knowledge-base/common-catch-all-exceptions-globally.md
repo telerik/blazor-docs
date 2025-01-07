@@ -43,6 +43,7 @@ Consider the following application layout setup:
 
 >caption TelerikLayout.razor
 
+<div class="skip-repl"></div>
 ````RAZOR
 @inherits LayoutComponentBase
 
@@ -53,6 +54,7 @@ Consider the following application layout setup:
 
 >caption MainLayout.razor
 
+<div class="skip-repl"></div>
 ````RAZOR
 @layout TelerikLayout
 @inherits LayoutComponentBase
@@ -78,6 +80,7 @@ To handle this, wrap the `ErrorBoundary` component around the `<TelerikRootCompo
 
 >caption TelerikLayout.razor
 
+<div class="skip-repl"></div>
 ````RAZOR
 @inherits LayoutComponentBase
 
@@ -92,6 +95,7 @@ If the application is using only one layout file, it should look like this:
 
 >caption MainLayout.razor
 
+<div class="skip-repl"></div>
 ````RAZOR
 @inherits LayoutComponentBase
 

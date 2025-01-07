@@ -28,7 +28,7 @@ Render the entire row with your own code and logic
 <TelerikGrid Data=@MyData Height="500px">
 	<RowTemplate Context="employee">
 		<td>
-			<img class="rounded-circle" src="@($"/images/{employee.ID}.jpg")" alt="employee photo" />
+			<TelerikAvatar Type="AvatarType.Text">E @employee.ID</TelerikAvatar>
 			<strong>@employee.Name</strong>
 		</td>
 		<td>
@@ -50,22 +50,17 @@ Render the entire row with your own code and logic
 	}
 
 	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
+		{
+			ID = x,
+			Name = "name " + x,
+			HireDate = DateTime.Now.AddDays(-x)
+		});
 }
 ````
-
->caption The result from the code snippet above
-
-![Blazor Grid Row Template](images/row-template.png)
 
 ## Using Components in Grid Row Templates
 
 @[template](/_contentTemplates/grid/common-link.md#using-components-in-templates)
-
 
 ## See Also
 

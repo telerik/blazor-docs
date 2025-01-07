@@ -39,6 +39,7 @@ Now, when I <a href="https://github.com/telerik/blazor-ui/tree/master/grid/datas
 
 Add the Newtonsoft JSON serialization service to your ASP.NET Core backend that also needs to process the Blazor grid requests.
 
+<div class="skip-repl"></div>
 ````RAZOR
 //something like 
 
@@ -75,7 +76,8 @@ Use explicit System.Text.Json serialization when needed:
 
 * to serialize the DataSourceRequest - make it explicit in the WASM app service:
 
-````C#.skip-repl
+<div class="skip-repl"></div>
+````C#
 public async Task<DataEnvelope<WeatherForecast>> GetForecastListAsync(DataSourceRequest gridRequest)
 {
     HttpResponseMessage response = await Http.PostAsJsonAsync(
@@ -87,7 +89,8 @@ public async Task<DataEnvelope<WeatherForecast>> GetForecastListAsync(DataSource
 
 * when deserializing it - don't let the framework deserialize with the registered serialized (Newtonsoft) but take it as a string in the action and deserialize explicitly there with System.Text.Json:
 
-````C#.skip-repl
+<div class="skip-repl"></div>
+````C#
 [HttpPost]
 public async Task<DataEnvelope<WeatherForecast>> Post([FromBody] string gridRequestAsString)
 {

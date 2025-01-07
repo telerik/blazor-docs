@@ -35,6 +35,7 @@ For example, a `.Where()` filter can be used to return only items based on certa
 
 >caption Pseudocode example of showing menu items according to user authorization level
 
+<div class="skip-repl"></div>
 ````RAZOR
 <AuthorizeView>
 	<h1>Hello, @context.User.Identity.Name!</h1>

@@ -92,6 +92,7 @@ The issue with the content overflow is the same - when the element size limit is
 
 >caption Add this code just after the grid closing tag to color the element borders like in the image above to see the issue
 
+<div class="skip-repl"></div>
 ````RAZOR
 </TelerikGrid>
 

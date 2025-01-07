@@ -34,6 +34,7 @@ The PdfViewer does not currently have the capability to manage digital signature
 
 ## Example
 
+<div class="skip-repl"></div>
 ```csharp
 <TelerikPdfViewer Data="@PdfSource">
     <PdfViewerToolBar>
