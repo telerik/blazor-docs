@@ -34,7 +34,7 @@ Standard number format strings and rotate the labels of the Category Axis
     <StockChartCategoryAxes>
         <StockChartCategoryAxis BaseUnit="@ChartCategoryAxisBaseUnit.Months">
             <StockChartCategoryAxisLabels Format="{0:D}">
-                <StockChartCategoryAxisLabelsRotation Angle="30"></StockChartCategoryAxisLabelsRotation>
+                <StockChartCategoryAxisLabelsRotation Angle="30"/>
             </StockChartCategoryAxisLabels>
         </StockChartCategoryAxis>
     </StockChartCategoryAxes>
