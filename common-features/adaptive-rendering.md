@@ -72,22 +72,27 @@ You can customize the [above-listed default adaptive breakpoints](#rendering-spe
 
 1. Wrap the content of the `<TelerikRootComponent>` (`@Body` and potentially other elements) in `<ChildContent>` tag.
 1. Add the `<RootComponentSettings>` component inside the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}).
-1. Add the `<AdaptiveSettings>` component inside the `<RootComponentSettings>` tag and configure its properties:
+1. Add the `<RootComponentAdaptiveSettings>` component inside the `<RootComponentSettings>` tag and configure its properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Small` | `int` | The min threshold and the lower boundary of the medium threshold |
-| `Medium` | `int` | The max threshold and the upper boundary of the medium threshold. |
+| `Small` | `int` | The upper boundary of the small threshold. Sets the `max-width` of the small media query in `px`. |
+| `Medium` | `int` | The upper boundary of the medium threshold. Sets the `max-width` of the medium media query in `px`.|
 
 >caption Customize the default adaptive breakpoints
 
 <div class="skip-repl"></div>
 ````RAZOR
+@* The below configuration sets the following thresholds:
+- Small: 0 to 400px
+- Medium: 401px to 900px
+- Large: over 900px *@
+
     <TelerikRootComponent>
         <RootComponentSettings>
-            <AdaptiveSettings Small="400" Medium="900"></AdaptiveSettings>
+            <RootComponentAdaptiveSettings Small="400" Medium="900"></RootComponentAdaptiveSettings>
         </RootComponentSettings>
         <ChildContent>
              @Body
