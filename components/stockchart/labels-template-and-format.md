@@ -182,7 +182,7 @@ Label templates
 
     <StockChartNavigator>
         <StockChartNavigatorCategoryAxis>
-            <StockChartNavigatorCategoryAxisLabels Template="#= value.toLocaleDateString('en-US') #"></StockChartNavigatorCategoryAxisLabels>
+            <StockChartNavigatorCategoryAxisLabels Template="#= value.toLocaleDateString('en-US') #"/>
         </StockChartNavigatorCategoryAxis>
         <StockChartNavigatorSeriesItems>
             <StockChartNavigatorSeries Type="StockChartSeriesType.Line"
