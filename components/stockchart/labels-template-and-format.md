@@ -59,7 +59,7 @@ Standard number format strings and rotate the labels of the Category Axis
     <StockChartNavigator>
         <StockChartNavigatorCategoryAxis>
             <StockChartNavigatorCategoryAxisLabels>
-                <StockChartNavigatorCategoryAxisLabels Format="dd MMM yyyy"></StockChartNavigatorCategoryAxisLabels>
+                <StockChartNavigatorCategoryAxisLabels Format="dd MMM yyyy"/>
             </StockChartNavigatorCategoryAxisLabels>
         </StockChartNavigatorCategoryAxis>
         
