@@ -78,8 +78,8 @@ You can customize the [above-listed default adaptive breakpoints](#rendering-spe
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Small` | `int` | The upper boundary of the small threshold. Sets the `max-width` of the small media query in `px`. |
-| `Medium` | `int` | The upper boundary of the medium threshold. Sets the `max-width` of the medium media query in `px`.|
+| `Small` | `int` <br/> (`500`) | The upper boundary of the small threshold. Sets the `max-width` of the small media query in `px`. |
+| `Medium` | `int` <br/> (`768`) | The upper boundary of the medium threshold. Sets the `max-width` of the medium media query in `px`.|
 
 >caption Customize the default adaptive breakpoints
 
