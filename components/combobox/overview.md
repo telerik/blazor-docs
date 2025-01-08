@@ -93,6 +93,7 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 |`Filterable` | `bool` | whether [filtering]({%slug components/combobox/filter%}) is enabled for the end user. |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | the method of [filtering]({%slug components/combobox/filter%}) the items. |
 | `Id` | `string` | renders as the `id` attribute on the `<input />` element, so you can attach a `<label for="">` to the input. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
 | `Placeholder` | `string` | the text the user sees as a hint when no item is selected. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. |
 | `TItem` | `Type` | the type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
