@@ -10,14 +10,14 @@ position: 0
 
 # Blazor DropDownList Overview
 
-The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data]({%slug components/dropdownlist/databind%}), sizes, and various appearance options like class and [templates]({%slug components/dropdownlist/templates%}).
+The Blazor DropDownList component allows the user to choose an option from a predefined set of choices presented in a dropdown list popup. The developer can control the [data](slug://components/dropdownlist/databind), sizes, and various appearance options like class and [templates](slug://components/dropdownlist/templates).
 
 ## Creating Blazor DropDownList
 
 1. Use the `TelerikDropDownList` tag to add the Blazor dropdown list to your razor page.
 1. Populate its `Data` property with the collection of items you want to appear in the dropdown list.
 1. Set the `TextField` and `ValueField` properties to point to the corresponding names of the model.
-1. [Bind the value of the component]({%slug get-started-value-vs-data-binding %}#value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
+1. [Bind the value of the component](slug://get-started-value-vs-data-binding #value-binding) to a variable of the same type as the type defined in the `ValueField` parameter.
 1. (optional) Set the `Value` property to the initial value of the model.
 
 >caption DropDownList [data binding](slug://components/dropdownlist/databind), two-way value binding, and main features
@@ -50,19 +50,19 @@ Selected value: @selectedValue
 
 ## Data Binding
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...](slug://components/dropdownlist/databind).
 
 ## Filtering
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor DropDownList filter...]({% slug components/dropdownlist/filter %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor DropDownList filter...](slug://components/dropdownlist/filter).
 
 ## Grouping
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping %}).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...](slug://components/dropdownlist/grouping).
 
 ## Templates
 
-@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates %}).
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...](slug://components/dropdownlist/templates).
 
 ## Validation
 
@@ -70,7 +70,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor DropDownList virtualization...]({% slug dropdownlist-virtualization %})
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor DropDownList virtualization...](slug://dropdownlist-virtualization)
 
 ## Adaptive Rendering
 
@@ -84,19 +84,19 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 | Parameter      | Type | Description
 | ----------- | ----------- | -----------|
-| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode](slug://adaptive-rendering) of the component. |
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
-| `DefaultText` | `string` | Simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation]({%slug common-features/input-validation%}#dropdownlist) article. |
+| `DefaultText` | `string` | Simple hint to be displayed when no item is selected yet. In order for it to be shown, the `Value` parameter should be set to a default value depending on the type defined in the `ValueField` parameter. For example, `0` for an `int`, and `null` for an `int?` or `string`. You need to make sure that it does not match the value of an existing item in the data source. See the first example in the [Examples section](#examples) in this article and in the [Input Validation](slug://common-features/input-validation#dropdownlist) article. |
 | `Enabled` | `bool` | Whether the component is enabled. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-|`Filterable` | `bool` | Whether [filtering]({%slug components/dropdownlist/filter%}) is enabled for the end user. |
+|`Filterable` | `bool` | Whether [filtering](slug://components/dropdownlist/filter) is enabled for the end user. |
 | `FilterDebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the filter input value update. Applicable to filtering only. Use it to balance between client-side performance and number of database queries. |
-| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| The method of [filtering]({%slug components/dropdownlist/filter%}) the items. |
+| `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| The method of [filtering](slug://components/dropdownlist/filter) the items. |
 | `FilterPlaceholder` |  `string` | The hint that will be displayed in the filter input when it has no value.
 | `Id` | `string` | The `id` attribute rendered on the main wrapping element of the component (`<span class="k-dropdownlist">`). You can use it to attach a `<label for="">` to it. |
 | `TItem` | `Type`| The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
-| `Title` | `string` | The title text rendered in the header of the dropdown list popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`]({%slug adaptive-rendering%}). |
+| `Title` | `string` | The title text rendered in the header of the dropdown list popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`](slug://adaptive-rendering). |
 | `TabIndex` | `int?` | The `tabindex` attribute rendered on the dropdown list. |
 | `TextField` | `string` <br /> (`Text`)| The name of the field from the model that will be shown to the user. |
 | `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will be the underlying `value`. |
@@ -105,7 +105,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the [appearance]({%slug dropdownlist-appearance%}) of the Blazor DropDownList component:
+The following parameters enable you to customize the [appearance](slug://dropdownlist-appearance) of the Blazor DropDownList component:
 
 @[template](/_contentTemplates/dropdowns/features.md#styling)
 
@@ -142,7 +142,7 @@ The DropDownList provides the following popup settings:
 
 ## DropDownList Reference and Methods
 
-The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference]({%slug components/dropdownlist/databind%}#component-reference) section in the Data Binding article for details and examples.
+The DropDownList is a generic component and its type comes from the model it is bound to and from the value field type. See the [Component Reference](slug://components/dropdownlist/databind#component-reference) section in the Data Binding article for details and examples.
 
 Add a reference to the component instance to use the [DropDownList's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownList-2).
 
@@ -259,11 +259,11 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 
 ## Next Steps
 
-* [Binding the DropDownList to Data]({%slug components/dropdownlist/databind%})
-* [Pre-Selecting Items for the User]({% slug dropdownlist-pre-select-item %})
+* [Binding the DropDownList to Data](slug://components/dropdownlist/databind)
+* [Pre-Selecting Items for the User](slug://dropdownlist-pre-select-item)
 
 ## See Also
 
-* [Data Binding]({%slug components/dropdownlist/databind%})
+* [Data Binding](slug://components/dropdownlist/databind)
 * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/overview)
 * [Live Demo: DropDownList Validation](https://demos.telerik.com/blazor-ui/dropdownlist/validation)

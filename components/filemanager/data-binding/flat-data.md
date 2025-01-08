@@ -10,7 +10,7 @@ position: 1
 
 # FileManager Data Binding to Flat Data
 
-This article explains how to bind the FileManager for Blazor to flat data. Before continuing, make sure you are familiar with the [FileManager data binding basics]({%slug filemanager-data-binding-overview%}).
+This article explains how to bind the FileManager for Blazor to flat data. Before continuing, make sure you are familiar with the [FileManager data binding basics](slug://filemanager-data-binding-overview).
 
 Flat data means that the entire collection of FileManager items (both files and directories) is available at one level, for example `List<FlatFileEntry>`.
 
@@ -217,7 +217,7 @@ You must also provide the correct value for the `HasDirectories` field - for the
 
 ## See Also
 
-* [FileManager Data Binding Basics]({%slug filemanager-data-binding-overview%})
-* [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
+* [FileManager Data Binding Basics](slug://filemanager-data-binding-overview)
+* [Binding to Hierarchical Data](slug://filemanager-data-binding-hierarchical-data)
 * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
 * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)

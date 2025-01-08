@@ -93,7 +93,7 @@ TextBoxes (`<input>` elements) can only hold plain text. It is possible to rende
 
 ### Version 2.30 and Older
 
-[UI for Blazor 3.0 changed the HTML rendering of input components]({%slug changes-in-3-0-0%}#rendering-and-themes). For older versions use the code below.
+[UI for Blazor 3.0 changed the HTML rendering of input components](slug://changes-in-3-0-0#rendering-and-themes). For older versions use the code below.
 
 ![add icon to the textbox - result](images/textbox-icon-example.png)
 

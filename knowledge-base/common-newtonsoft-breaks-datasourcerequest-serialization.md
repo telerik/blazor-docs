@@ -107,5 +107,5 @@ There are three other paths forward you can consider:
 
 ## Notes
 
-Telerik supports serialization of the `DataSourceRequest` as part of the [`Telerik.DataSource` package]({%slug common-features-datasource-package%}) (which is used by UI for Blazor) with the `System.Text.Json` serializer only.
+Telerik supports serialization of the `DataSourceRequest` as part of the [`Telerik.DataSource` package](slug://common-features-datasource-package) (which is used by UI for Blazor) with the `System.Text.Json` serializer only.
 

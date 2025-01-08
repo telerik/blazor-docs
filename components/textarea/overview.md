@@ -10,7 +10,7 @@ position: 0
 
 # Blazor TextArea Overview
 
-The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank">Blazor TextArea component</a> is a highly customizable multi-line text input area. It provides features like auto resizing based on the user input and [events]({%slug textarea-events%}) to respond to user actions.
+The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank">Blazor TextArea component</a> is a highly customizable multi-line text input area. It provides features like auto resizing based on the user input and [events](slug://textarea-events) to respond to user actions.
 
 ## Creating Blazor TextArea
 
@@ -35,7 +35,7 @@ The Telerik <a href ="https://www.telerik.com/blazor-ui/textarea" target="_blank
 
 ## Appearance
 
-The TextArea component provides settings to control its appearance. [Read more about the Blazor TextArea appearance settings]({%slug TextArea-appearance%}).
+The TextArea component provides settings to control its appearance. [Read more about the Blazor TextArea appearance settings](slug://TextArea-appearance).
 
 >tip To learn more about the appearance, anatomy, and accessibility of the TextArea, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/textarea/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
@@ -43,7 +43,7 @@ The TextArea component provides settings to control its appearance. [Read more a
 
 ## Events
 
-The Blazor TextArea fires **blur** and value **change** events to respond to user actions. [Read more about the Blazor TextArea events]({%slug textarea-events%}).
+The Blazor TextArea fires **blur** and value **change** events to respond to user actions. [Read more about the Blazor TextArea events](slug://textarea-events).
 
 ## TextArea Parameters
 
@@ -55,7 +55,7 @@ The Blazor TextArea provides various parameters to configure the component:
 | ----------- | ----------- | ----------- |
 | `AutoCapitalize` | `string` | A `string` that maps to the [`autocapitalize`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) attribute of the HTML element. It's applicable only for touch devices and virtual keyboards. |
 | `AutoComplete` | `bool` | Maps to the autocomplete attribute of the HTML `<textarea>`. |
-| `ResizeMode` | `TextAreaResizeMode?` | Specifies the TextArea's resize behavior. The default behavior is the one set by the browser. You can also [use CSS to limit the resizing up to a max height]({%slug textarea-kb-autosize-max-height%}). |
+| `ResizeMode` | `TextAreaResizeMode?` | Specifies the TextArea's resize behavior. The default behavior is the one set by the browser. You can also [use CSS to limit the resizing up to a max height](slug://textarea-kb-autosize-max-height). |
 | `Class` | `string` | The custom CSS class to be rendered on the `<span class="k-textarea">` element. |
 | `Cols` | `int?` | Maps to the `cols` attribute of the HTML `<textarea>` element. Do not use together with `Width`.
 | `DebounceDelay` | `int` | Specifies the time in milliseconds between the last typed symbol and the updating of the value. The default value is 150ms. |
@@ -68,12 +68,12 @@ The Blazor TextArea provides various parameters to configure the component:
 | `Rows` | `int?` | Maps to the `rows` attribute of the HTML `<textarea>` element.
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | `Nullable<int>` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [Blazor Tooltip]({%slug tooltip-overview%}). |
-| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [Blazor Tooltip](slug://tooltip-overview). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs). |
 | `Value` | `string` | The value of the component. Supports two-way binding. |
-| `Width` | `string` | The component width. See [Dimensions]({%slug common-features/dimensions%}). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. Do not use together with `Cols`.|
+| `Width` | `string` | The component width. See [Dimensions](slug://common-features/dimensions). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. Do not use together with `Cols`.|
 
-See the [Input Validation]({%slug common-features/input-validation%}) article.
+See the [Input Validation](slug://common-features/input-validation) article.
 
 ## TextArea Reference and Methods
 
@@ -103,8 +103,8 @@ The TextArea provides a `FocusAsync` method that allows the application to focus
 
 ## Next Steps
 
-* [Handle the TextArea Events]({%slug textarea-events%})
-* [Explore the TextArea Appearance Settings]({%slug TextArea-appearance%})
+* [Handle the TextArea Events](slug://textarea-events)
+* [Explore the TextArea Appearance Settings](slug://TextArea-appearance)
 
 ## See Also
 

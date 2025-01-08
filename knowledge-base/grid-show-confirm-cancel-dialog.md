@@ -29,7 +29,7 @@ How to prompt the user to confirm canceling the edit/create before proceeding wi
 
 ## Solution
 
-If the user performs another operation (such as sorting or filtering) while the Grid is in edit mode, then editing will be canceled. Check the last bullet in the [Editing Notes section]({%slug components/grid/editing/overview%}#notes) for more details. The Grid `OnCancel` event will fire and you can handle it to display a Dialog to allow the user to choose whether they want to cancel the editing or not.
+If the user performs another operation (such as sorting or filtering) while the Grid is in edit mode, then editing will be canceled. Check the last bullet in the [Editing Notes section](slug://components/grid/editing/overview#notes) for more details. The Grid `OnCancel` event will fire and you can handle it to display a Dialog to allow the user to choose whether they want to cancel the editing or not.
 
 Telerik UI for Blazor provides predefined and custom Dialogs:
 
@@ -37,13 +37,13 @@ Telerik UI for Blazor provides predefined and custom Dialogs:
 
 * [Dialog Component](#dialog-component) - this solution allows full control over the dialog content. You can add any custom text, HTML elements or other components.
 
-This article lists samples for the Grid component. The suggested solutions, however, are applicable for the [TreeList]({%slug treelist-overview%}), too.
+This article lists samples for the Grid component. The suggested solutions, however, are applicable for the [TreeList](slug://treelist-overview), too.
 
 ### Predefined Confirm Dialog
 
-Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
+Use [Predefined Confirm Dialog](slug://dialog-predefined#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
 
-* Handle the [`OnCancel`]({%slug grid-events%}#cud-events) event of the Grid
+* Handle the [`OnCancel`](slug://grid-events#cud-events) event of the Grid
 * Display the Predefined Dialog in the `OnCancel` handler
 * Prevent the `OnCancel` event to keep the Grid in edit mode. This will cancel the other user action.
 
@@ -121,10 +121,10 @@ Use [Predefined Confirm Dialog]({%slug dialog-predefined%}#confirm) with the des
 
 ### Dialog Component
 
-Using the [Dialog component]({%slug dialog-overview%}) will let you have fully customized confirmation Dialog. To handle the scenario:
+Using the [Dialog component](slug://dialog-overview) will let you have fully customized confirmation Dialog. To handle the scenario:
 
 * Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least one button - for confirmation of the cancel operation.
-* Handle the [`OnCancel`]({%slug grid-events%}#cud-events) event of the Grid to show the custom Dialog.
+* Handle the [`OnCancel`](slug://grid-events#cud-events) event of the Grid to show the custom Dialog.
 * Wait for the user choice to prevent or proceed with the cancel operation.
 * Hide the Dialog.
 

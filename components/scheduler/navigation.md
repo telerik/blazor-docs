@@ -113,7 +113,7 @@ Change current View:
 
 ## See Also
 
-* [Scheduler Overview]({%slug scheduler-overview%})
-* [Scheduler Views]({%slug scheduler-views-overview%})
+* [Scheduler Overview](slug://scheduler-overview)
+* [Scheduler Views](slug://scheduler-views-overview)
 
 

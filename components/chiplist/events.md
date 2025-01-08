@@ -21,7 +21,7 @@ The `OnRemove` event fires when the user clicks the remove icon on any chip in t
 
 ## SelectedItemsChanged
 
-The `SelectedItemsChanged` fires when the user selects a chip from the ChipList. [Read the Selection article for more information on the SelectedItemsChanged event...]({%slug chiplist-selection%}#one-way-binding)
+The `SelectedItemsChanged` fires when the user selects a chip from the ChipList. [Read the Selection article for more information on the SelectedItemsChanged event...](slug://chiplist-selection#one-way-binding)
 
 ## Example
 
@@ -81,5 +81,5 @@ The `SelectedItemsChanged` fires when the user selects a chip from the ChipList.
 
 ## See Also
 
-* [ChipList Overview]({%slug chiplist-overview%})
-* [ChipList Selection]({%slug chiplist-selection%})
+* [ChipList Overview](slug://chiplist-overview)
+* [ChipList Selection](slug://chiplist-selection)

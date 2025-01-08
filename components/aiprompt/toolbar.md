@@ -34,7 +34,7 @@ The `AIPromptToolBarButton` tag exposes parameters that allow you to customize t
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the AIPromptToolBarButton. You could use that class to cascade styles. |
-| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article]({%slug common-features-icons%}#icon-namespaces). |
+| `Icon` | `object` | Adds a font icon to the button. You can find more information on adding a font icon to a Telerik Component in [Telerik Font and Svg Icons article](slug://common-features-icons#icon-namespaces). |
 | `OnClick` | `EventCallback<MouseEventArgs>` | The onclick event handler. |
 | `ChildContent` | `RenderFragment` | The child content rendered within the button. |
 
@@ -88,11 +88,11 @@ The example below omits any event handlers for brevity. Custom buttons are to be
 
 ## Next Steps
 
-* [Customize the AIPrompt Views]({%slug aiprompt-views-overview%})
-* [Implement AIPrompt Templates]({%slug aiprompt-templates%})
-* [Handle AIPrompt Events]({%slug aiprompt-events%})
+* [Customize the AIPrompt Views](slug://aiprompt-views-overview)
+* [Implement AIPrompt Templates](slug://aiprompt-templates)
+* [Handle AIPrompt Events](slug://aiprompt-events)
 
 ## See Also
 
-* [Views Templates]({%slug aiprompt-views-templates%})
+* [Views Templates](slug://aiprompt-views-templates)
 * [Live Demo: AIPrompt Overview](https://demos.telerik.com/blazor-ui/aiprompt/overview)

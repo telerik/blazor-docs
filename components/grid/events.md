@@ -37,11 +37,11 @@ The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data i
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when the want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
-You can read more about the CUD events in the [Editing Overview]({%slug components/grid/editing/overview%}) article.
+You can read more about the CUD events in the [Editing Overview](slug://components/grid/editing/overview) article.
 
 ## Read Event
 
-In the common case, you provide all the data to the Grid's `Data` collection and the Grid performs operations like paging, filtering, sorting on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by handling the `OnRead` event where you can perform all the data read operations in the Grid. Read more about the [`OnRead` event fundamentals]({%slug common-features-data-binding-onread%}) and check the article about [Manual Data Source Operations with the Grid]({%slug components/grid/manual-operations%}).
+In the common case, you provide all the data to the Grid's `Data` collection and the Grid performs operations like paging, filtering, sorting on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by handling the `OnRead` event where you can perform all the data read operations in the Grid. Read more about the [`OnRead` event fundamentals](slug://common-features-data-binding-onread) and check the article about [Manual Data Source Operations with the Grid](slug://components/grid/manual-operations).
 
 ## State Events
 
@@ -51,15 +51,15 @@ The grid state lets you control through code the aspects of the grid the user ca
 
 * `OnStateChanged` - fires when the user performs an action so you can see what area was changed and, if needed, alter the grid state.
 
-Review the [grid state]({%slug grid-state%}) article for more details and examples on how the grid state works and what you can do with it.
+Review the [grid state](slug://grid-state) article for more details and examples on how the grid state works and what you can do with it.
 
 ## Column Events
 
-The Grid columns emit the `OnCellRender` event, so you can customize each cell separately. Read more and find examples in the [Grid Column Events]({%slug grid-column-events%}) article.
+The Grid columns emit the `OnCellRender` event, so you can customize each cell separately. Read more and find examples in the [Grid Column Events](slug://grid-column-events) article.
 
 ## Command Button Click
 
-The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column]({%slug components/grid/columns/command%}), and from a [Toolbar Button]({%slug components/grid/features/toolbar%})
+The command buttons of a grid provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column](slug://components/grid/columns/command), and from a [Toolbar Button](slug://components/grid/features/toolbar)
 
 ## Export Events
 
@@ -70,7 +70,7 @@ During export, the Grid will fire events like `OnBeforeExport` and `OnAfterExpor
 * Cancel the export;
 * Get the final file output;
 
-Read more about them and find code examples in the [Grid Export Events]({%slug grid-export-events%}) article.
+Read more about them and find code examples in the [Grid Export Events](slug://grid-export-events) article.
 
 ## OnModelInit
 
@@ -707,7 +707,7 @@ The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument
 
 ## OnRowExpand
 
-The `OnRowExpand` event fires as a response to the user expanding the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
+The `OnRowExpand` event fires as a response to the user expanding the [`DetailTemplate`](slug://components/grid/features/hierarchy) of the Grid.
 
 The event handler receives a `GridRowExpandEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
@@ -797,7 +797,7 @@ The event handler receives a `GridRowExpandEventArgs` object which provides the 
 
 ## OnRowCollapse
 
-The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`]({%slug components/grid/features/hierarchy%}) of the Grid.
+The `OnRowCollapse` event fires as a response to the user collapsing the [`DetailTemplate`](slug://components/grid/features/hierarchy) of the Grid.
 
 The event handler receives a `GridRowCollapseEventArgs` object which provides the model of the clicked row in the `Item` field that you can cast to your model type.
 
@@ -957,7 +957,7 @@ This event fires when each Grid row renders. This can happen in the following ca
 
 ## OnRowDrop
 
-The `OnRowDrop` event fires when the user drags and drops rows in the grid or between grids. You can read more on setting it up and using the grid row dragging feature in the [Row Drag and Drop]({%slug grid-drag-drop-overview%}) article.
+The `OnRowDrop` event fires when the user drags and drops rows in the grid or between grids. You can read more on setting it up and using the grid row dragging feature in the [Row Drag and Drop](slug://grid-drag-drop-overview) article.
 
 
 ## PageChanged
@@ -1056,20 +1056,20 @@ Make sure to update the current page size when using the event.
 
 ## SelectedItemsChanged
 
-Fires when [row selection is enabled]({%slug grid-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one row or multiple rows, depending on the [selection mode]({%slug grid-selection-overview%}#use-single-or-multiple-selection).
+Fires when [row selection is enabled](slug://grid-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one row or multiple rows, depending on the [selection mode](slug://grid-selection-overview#use-single-or-multiple-selection).
 
-Visit the [Grid Row Selection article to see an example]({%slug grid-selection-row%}#selecteditemschanged-event).
+Visit the [Grid Row Selection article to see an example](slug://grid-selection-row#selecteditemschanged-event).
 
 ## SelectedCellsChanged
 
-Fires when [cell selection is enabled]({%slug grid-selection-overview%}#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode]({%slug grid-selection-overview%}#use-single-or-multiple-selection).
+Fires when [cell selection is enabled](slug://grid-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode](slug://grid-selection-overview#use-single-or-multiple-selection).
 
-Visit the [Grid Cell Selection article to see an example]({%slug grid-selection-cell%}#selectedcellschanged-event).
+Visit the [Grid Cell Selection article to see an example](slug://grid-selection-cell#selectedcellschanged-event).
 
 ## See Also
 
-  * [Grid Overview]({%slug grid-overview%})
-  * [Grid Editing Overview]({%slug components/grid/editing/overview%})
-  * [Grid Column Events]({%slug grid-column-events%})
-  * [Manual Data Source Operations]({%slug components/grid/manual-operations%})
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Grid Overview](slug://grid-overview)
+  * [Grid Editing Overview](slug://components/grid/editing/overview)
+  * [Grid Column Events](slug://grid-column-events)
+  * [Manual Data Source Operations](slug://components/grid/manual-operations)
+  * [Blazor Grid](slug://grid-overview)

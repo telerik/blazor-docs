@@ -57,8 +57,8 @@ There are two CSS styles in the Telerik Blazor theme, which cause the action ico
 
 There are two ways to prevent icon button expansion:
 
-* [Use **Horizontal** `CardOrientation` together with **Center** `CardActionsLayout`]({%slug card-actions%}).
-* Use a custom CSS class to [override the theme styles]({%slug themes-override%}) and remove the square aspect ratio.
+* [Use **Horizontal** `CardOrientation` together with **Center** `CardActionsLayout`](slug://card-actions).
+* Use a custom CSS class to [override the theme styles](slug://themes-override) and remove the square aspect ratio.
 
 >caption Prevent CardAction icon buttons becoming too large
 

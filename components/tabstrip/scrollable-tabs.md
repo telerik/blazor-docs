@@ -12,7 +12,7 @@ position: 15
 
 If the TabStrip dimensions exceed the width or height of the page, a browser-level scrollbar will appear.
 
-To scroll the tabs only, set the `Scrollable` bool parameter of the TabStrip to `true` (defaults to `false`). You should also set the `Width` (for tabs with [Position]({%slug tabstrip-tabs-position%}) set to top and bottom) and `Height` (for tabs with [Position]({%slug tabstrip-tabs-position%}) set to left and right) to achieve the desired behavior.
+To scroll the tabs only, set the `Scrollable` bool parameter of the TabStrip to `true` (defaults to `false`). You should also set the `Width` (for tabs with [Position](slug://tabstrip-tabs-position) set to top and bottom) and `Height` (for tabs with [Position](slug://tabstrip-tabs-position) set to left and right) to achieve the desired behavior.
 
 >caption Scroll the tabs only
 

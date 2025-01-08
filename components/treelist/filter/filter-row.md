@@ -10,7 +10,7 @@ position: 5
 
 # TreeList Filter Row
 
-One of the [filter modes of the treelist]({%slug treelist-filtering%}) is a row of filter elements below the column headers.
+One of the [filter modes of the treelist](slug://treelist-filtering) is a row of filter elements below the column headers.
 
 In this article:
 
@@ -104,7 +104,7 @@ The treelist will render a row below the column headers with UI that you can use
 
 ## Filter From Code
 
-You can set the TreeList filters from your code through the component [state]({%slug treelist-state%}).
+You can set the TreeList filters from your code through the component [state](slug://treelist-state).
 
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
@@ -222,10 +222,10 @@ You can override the default Filter Row behavior for each column through the fol
 
 ### Filter Row Template
 
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example [Filter Row Template]({%slug treelist-templates-filter%}#filter-row-template) article.
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example [Filter Row Template](slug://treelist-templates-filter#filter-row-template) article.
 
 
 ## See Also
 
-  * [Treelist Filtering Overview]({%slug treelist-filtering%})
+  * [Treelist Filtering Overview](slug://treelist-filtering)
   * [Live Demo: TreeList Filter Row](https://demos.telerik.com/blazor-ui/treelist/filter-row)

@@ -101,5 +101,5 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [SplitButton Events]({%slug splitbutton-events%})
-* [SplitButton Icons]({%slug splitbutton-icons%})
+* [SplitButton Events](slug://splitbutton-events)
+* [SplitButton Icons](slug://splitbutton-icons)

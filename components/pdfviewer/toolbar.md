@@ -23,14 +23,14 @@ By default, the [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfviewe
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Open | `PdfViewerToolBarOpenTool` | An open command that shows in a submenu upon a hamburger menu click. Fires the [`OnOpen` event]({%slug pdfviewer-events%}#onopen). |
-| Download | `PdfViewerToolBarDownloadTool` | A download command that shows in a submenu upon a hamburger menu click. Fires the [`OnDownload` event]({%slug pdfviewer-events%}#ondownload). |
-| Print | `PdfViewerToolBarPrintTool` | A print command that shows in a submenu upon a hamburger menu click. The component also provides a [`Print` method]({%slug pdfviewer-overview%}#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
-| Pager | `PdfViewerToolBarPagerTool` | A pager to navigate the PDF document via automatic scrolling. Paging requires the [`Height` parameter]({%slug pdfviewer-overview%}#pdfviewer-parameters) to be set, otherwise the component expands and doesn't have its own scrollbar. |
+| Open | `PdfViewerToolBarOpenTool` | An open command that shows in a submenu upon a hamburger menu click. Fires the [`OnOpen` event](slug://pdfviewer-events#onopen). |
+| Download | `PdfViewerToolBarDownloadTool` | A download command that shows in a submenu upon a hamburger menu click. Fires the [`OnDownload` event](slug://pdfviewer-events#ondownload). |
+| Print | `PdfViewerToolBarPrintTool` | A print command that shows in a submenu upon a hamburger menu click. The component also provides a [`Print` method](slug://pdfviewer-overview#pdfviewer-reference-and-methods). Printing uses an additional browser window with only the PDF document inside. This window may require user confirmation or appropriate browser settings to display. |
+| Pager | `PdfViewerToolBarPagerTool` | A pager to navigate the PDF document via automatic scrolling. Paging requires the [`Height` parameter](slug://pdfviewer-overview#pdfviewer-parameters) to be set, otherwise the component expands and doesn't have its own scrollbar. |
 | Zoom | `PdfViewerToolBarZoomTool` | Zoom in and zoom out buttons with an additional dropdown with common options (Fit to page, Fit to width, 100%, etc.) |
 | Selection | `PdfViewerToolBarSelectionTool` | Two toggle buttons that enable either text selection or panning. |
 | Search | `PdfViewerToolBarSearchTool` | A search button. It opens an additional search bar that contains a textbox and arrow buttons to navigate the search results. |
-| Annotations | `PdfViewerToolBarAnnotationsTool` | A button that toggles the Annotations bar. Explore the [available annotation types and how to work with them]({%slug pdfviewer-annotations%}). |
+| Annotations | `PdfViewerToolBarAnnotationsTool` | A button that toggles the Annotations bar. Explore the [available annotation types and how to work with them](slug://pdfviewer-annotations). |
 
 ### Layout Tools
 
@@ -94,7 +94,7 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 
 ## Next Steps
 
-* [Handle PDF Viewer events]({%slug pdfviewer-events%})
+* [Handle PDF Viewer events](slug://pdfviewer-events)
 
 
 ## See Also

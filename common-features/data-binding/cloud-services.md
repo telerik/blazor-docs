@@ -12,7 +12,7 @@ position: 30
 
 This article suggests options for data binding the Telerik Blazor components to cloud data services. Applicable scenarios may include serverless Blazor apps, or any web apps that use cloud data. The article provides an overview of a series of posts on the [Telerik Blazor blog](https://www.telerik.com/blogs/web-blazor) and links to specific points of interest.
 
->tip [Telerik Blazor components are datasource-agnostic]({%slug common-features-data-binding-overview%}#how-to-provide-data). The data-binding integrations below are not subject to technical support.
+>tip [Telerik Blazor components are datasource-agnostic](slug://common-features-data-binding-overview#how-to-provide-data). The data-binding integrations below are not subject to technical support.
 
 This article contains the following sections, which map to blog posts from the series:
 

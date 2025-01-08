@@ -131,8 +131,8 @@ The following parameters allow you to configure the Agenda view:
 
 ## See Also
 
-* [Views]({%slug scheduler-views-overview%})
-* [Navigation]({%slug scheduler-navigation%})
+* [Views](slug://scheduler-views-overview)
+* [Navigation](slug://scheduler-navigation)
 * [Live Demo: Scheduler Agenda View](https://demos.telerik.com/blazor-ui/scheduler/agenda-view)
-* [Resource Grouping]({%slug scheduler-resource-grouping%})
+* [Resource Grouping](slug://scheduler-resource-grouping)
 

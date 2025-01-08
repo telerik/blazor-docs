@@ -16,7 +16,7 @@ The ButtonGroup lets you select one or more of its `ButtonGroupToggleButton` ins
 * [Single](#single-selection) (default) - the buttons act like radio buttons
 * [Multiple](#multiple-selection) - the buttons act like checkboxes
 
-You can control whether a button is selected (it is in its `Primary` state) through its `Selected` parameter. It offers two-way binding and an [SelectedChanged event]({%slug buttongroup-events%}) so you can respond to the user actions.
+You can control whether a button is selected (it is in its `Primary` state) through its `Selected` parameter. It offers two-way binding and an [SelectedChanged event](slug://buttongroup-events) so you can respond to the user actions.
 
 ## Single Selection
 
@@ -100,6 +100,6 @@ When you click a button, it becomes selected. When you click another button, the
 
 ## See Also
 
-  * [ButtonGroup Overview]({%slug buttongroup-overview%})
-  * [ButtonGroup Events]({%slug buttongroup-events%})
+  * [ButtonGroup Overview](slug://buttongroup-overview)
+  * [ButtonGroup Events](slug://buttongroup-events)
   * [Live Demo: ButtonGroup Selection](https://demos.telerik.com/blazor-ui/buttongroup/selection)

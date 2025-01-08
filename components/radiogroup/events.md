@@ -16,7 +16,7 @@ This article explains the events available in the Telerik RadioGroup for Blazor:
 * [ValueChanged](#valuechanged)
 * [OnBlur](#onblur)
 
-The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding]({%slug radiogroup-databind%}) article for more details.
+The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding](slug://radiogroup-databind) article for more details.
 
 
 ## OnChange
@@ -51,7 +51,7 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The example below uses [binding]({%slug radiogroup-databind%}) to string data for brevity. You can use a model class as well.
+The example below uses [binding](slug://radiogroup-databind) to string data for brevity. You can use a model class as well.
 
 >caption Handle ValueChanged
 
@@ -107,4 +107,4 @@ The `OnBlur` event fires when an element inside the component loses focus (radio
 
 ## See Also
 
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
+* [ValueChanged and Validation](slug://value-changed-validation-model)

@@ -114,7 +114,7 @@ You are *not* required to provide a value for the `HasChildren` field. @[templat
 
 ## See Also
 
-  * [Menu Data Binding Basics]({%slug components/menu/data-binding/overview%})
+  * [Menu Data Binding Basics](slug://components/menu/data-binding/overview)
   * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
-  * [Binding to Hierarchical Data]({%slug components/menu/data-binding/hierarchical-data%})
+  * [Binding to Hierarchical Data](slug://components/menu/data-binding/hierarchical-data)
 

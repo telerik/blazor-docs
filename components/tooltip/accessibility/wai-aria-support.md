@@ -62,9 +62,9 @@ The Tooltip has been tested with the following screen readers and browsers combi
 
 ## Keyboard Navigation
 
-For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug://accessibility-overview#keyboard-navigation) article.
 
 ## See Also
 
 * [Blazor Tooltip Demos](https://demos.telerik.com/blazor-ui/tooltip/overview)
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

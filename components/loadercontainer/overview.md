@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/loader-container" target="_blan
 
 ## Comparison with the Loader
 
-The **LoaderContainer** is designed to cover a whole component, HTML element, or the whole page. On the other hand, the [**Loader** component]({%slug loader-overview%}) is more suitable for showing a loading indicator in a smaller area of the page and without an overlay.
+The **LoaderContainer** is designed to cover a whole component, HTML element, or the whole page. On the other hand, the [**Loader** component](slug://loader-overview) is more suitable for showing a loading indicator in a smaller area of the page and without an overlay.
 
 
 ## Creating LoaderContainer
@@ -50,7 +50,7 @@ The **LoaderContainer** is designed to cover a whole component, HTML element, or
 
 ## Appearance
 
-The Blazor LoaderContainer provides various [settings for its visual appearance]({%slug loadercontainer-appearance%}):
+The Blazor LoaderContainer provides various [settings for its visual appearance](slug://loadercontainer-appearance):
 
 * overlay color
 * graphic and text position
@@ -61,7 +61,7 @@ The Blazor LoaderContainer provides various [settings for its visual appearance]
 
 ## Templates
 
-The LoaderContainer can display different nested content. Read more in the [LoaderContainer Template article]({%slug loadercontainer-template%}).
+The LoaderContainer can display different nested content. Read more in the [LoaderContainer Template article](slug://loadercontainer-template).
 
 
 ## Fill a Parent Container
@@ -85,13 +85,13 @@ The following table lists the LoaderContainer parameters. Also check the [Loader
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader-container">` element. Use it to [override theme styles]({%slug themes-override%}). See an example at [Custom LoaderContainer Colors]({%slug loadercontainer-appearance%}#custom-loadercontainer-colors). |
-| `OverlayThemeColor` | `string`<br />(`"dark"`) | Sets the [color of the semi-transparent overlay]({%slug loadercontainer-appearance%}#overlaythemecolor). Use `"light"` or ``"dark"``. |
-| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic]({%slug loadercontainer-appearance%}#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader-container">` element. Use it to [override theme styles](slug://themes-override). See an example at [Custom LoaderContainer Colors](slug://loadercontainer-appearance#custom-loadercontainer-colors). |
+| `OverlayThemeColor` | `string`<br />(`"dark"`) | Sets the [color of the semi-transparent overlay](slug://loadercontainer-appearance#overlaythemecolor). Use `"light"` or ``"dark"``. |
+| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug://loadercontainer-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
 | `Text` | `string`<br />(`"Loading..."`) | Sets the text below the loading animation. Set to `null` or `String.Empty` to remove the text and its containing HTML element. |
-| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic and text]({%slug loadercontainer-appearance%}#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
-| `LoaderPosition`| `LoaderPosition` enum<br />(`Top`) | Defines the [loading animation position]({%slug loadercontainer-appearance%}#loaderposition) in relation to the loading text. |
-| `LoaderType`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape]({%slug loadercontainer-appearance%}#loadertype). |
+| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic and text](slug://loadercontainer-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
+| `LoaderPosition`| `LoaderPosition` enum<br />(`Top`) | Defines the [loading animation position](slug://loadercontainer-appearance#loaderposition) in relation to the loading text. |
+| `LoaderType`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape](slug://loadercontainer-appearance#loadertype). |
 | `Visible` | `bool`<br />(`true`) | Controls if the LoaderContainer is rendered on the page. |
 
 
@@ -128,13 +128,13 @@ The panel is the white rectangular area that surrounds the animated loader indic
 </style>
 ````
 
->note The panel is not rendered when using a [LoaderContainer Template]({%slug loadercontainer-template%}).
+>note The panel is not rendered when using a [LoaderContainer Template](slug://loadercontainer-template).
 
 
 ## Next Steps
 
-* [Check the LoaderContainer appearance settings]({%slug loadercontainer-appearance%})
-* [Experiment with LoaderContainer templates]({%slug loadercontainer-template%})
+* [Check the LoaderContainer appearance settings](slug://loadercontainer-appearance)
+* [Experiment with LoaderContainer templates](slug://loadercontainer-template)
 
 
 ## See Also

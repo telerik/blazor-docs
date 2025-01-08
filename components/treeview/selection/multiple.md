@@ -41,7 +41,7 @@ This section contains the following examples:
 
 ### Multiple selection using one-way data binding
 
-You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`]({%slug treeview-events%}#onitemclick) event.
+You can use one-way binding to provide an initial node selection, and respond to the `SelectedItemsChanged` to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled. If you want to load async data on demand based on the chosen node, use the [`OnItemClick`](slug://treeview-events#onitemclick) event.
 
 
 ````RAZOR
@@ -395,5 +395,5 @@ You can bind the treeview to different models at each level, and the selection a
 
 ## See Also
 
-  * [Selection Overview]({%slug treeview-selection-overview%})
-  * [Single Selection]({%slug treeview-selection-single%})
+  * [Selection Overview](slug://treeview-selection-overview)
+  * [Single Selection](slug://treeview-selection-single)

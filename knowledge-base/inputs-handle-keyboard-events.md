@@ -43,7 +43,7 @@ The keyboard events bubble up the DOM, so you can attach event handlers for them
 
 If you are looking for an event when the user confirms an action, consider the built-in `OnChange` event which fires when the user presses `Enter` or blurs the input.
 
->important Optionally, you can set the [**`DebounceDelay`**]({%slug components/textbox/overview%}#textbox-parameters) parameter of the textbox to 0. This can prevent textbox value mismatch in the `onkeypress` and [**`ValueChanged`**]({%slug components/textbox/events%}#valuechanged) event handlers. Such mismatch can occur due to the default `DebounceDelay` value.
+>important Optionally, you can set the [**`DebounceDelay`**](slug://components/textbox/overview#textbox-parameters) parameter of the textbox to 0. This can prevent textbox value mismatch in the `onkeypress` and [**`ValueChanged`**](slug://components/textbox/events#valuechanged) event handlers. Such mismatch can occur due to the default `DebounceDelay` value.
 
 >caption Handle keyboard events in Telerik inputs
 
@@ -87,4 +87,4 @@ If you are looking for an event when the user confirms an action, consider the b
 
 ## Notes
 
-The same approach can work for capturing events from the Editor component when it is in its [Div mode]({%slug editor-edit-modes-div%}).
+The same approach can work for capturing events from the Editor component when it is in its [Div mode](slug://editor-edit-modes-div).

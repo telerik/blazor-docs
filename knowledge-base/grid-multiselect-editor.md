@@ -30,7 +30,7 @@ I want to use a MultiSelect for a column editor in the Grid to let the user sele
 
 ## Solution
 
-Add the [Multi Select component]({%slug multiselect-overview%}) to the [EditorTemplate]({%slug grid-templates-editor%}) of the desired column.
+Add the [Multi Select component](slug://multiselect-overview) to the [EditorTemplate](slug://grid-templates-editor) of the desired column.
 
 >caption MultiSelect column editor in the grid
 
@@ -194,9 +194,9 @@ Add the [Multi Select component]({%slug multiselect-overview%}) to the [EditorTe
 
 ## Notes
 
-* See the [Grid Bound Column Notes]({%slug components/grid/columns/bound%}#notes) for important information on how the grid can work with models. The key points are:
+* See the [Grid Bound Column Notes](slug://components/grid/columns/bound#notes) for important information on how the grid can work with models. The key points are:
     * A grid column cannot use a collection for its `Field`.
     * The built-in grid operations (such as filtering and sorting) are available only for columns with a defined `Field`.
-* This example uses an approach where a foreign key denotes the actual data, but the MultiSelet editor uses a collection of specific data to present it to users in a meaningful way. You can find more detailed examples of handling that in the  [ForeignKey column]({%slug grids-foreign-key%}) article.
-    * The MultiSelect works with certain value types only, and not with entire models, see more in the [MultiSelect - Data Binding]({%slug multiselect-databind%}) article and in the [MultiSelect - Overview - Parameters]({%slug multiselect-overview%}#parameters) section (see the `TValue` notes).
+* This example uses an approach where a foreign key denotes the actual data, but the MultiSelet editor uses a collection of specific data to present it to users in a meaningful way. You can find more detailed examples of handling that in the  [ForeignKey column](slug://grids-foreign-key) article.
+    * The MultiSelect works with certain value types only, and not with entire models, see more in the [MultiSelect - Data Binding](slug://multiselect-databind) article and in the [MultiSelect - Overview - Parameters](slug://multiselect-overview#parameters) section (see the `TValue` notes).
 

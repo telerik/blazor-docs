@@ -12,7 +12,7 @@ position: 15
 
 The DatePicker `<HeaderTemplate>` allows you to customize the header of the Calendar popup. If the application defines this template, the component will not render any of the built-in buttons and labels in the Calendar header area.
 
-The example below is using a [Blazor DatePicker reference and methods]({%slug components/datepicker/overview%}#datepicker-reference-and-methods).
+The example below is using a [Blazor DatePicker reference and methods](slug://components/datepicker/overview#datepicker-reference-and-methods).
 
 >caption Using DatePicker header template with custom content in the Calendar header
 

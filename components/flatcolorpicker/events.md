@@ -90,5 +90,5 @@ The event type is `EventCallback<ColorPickerView>`. Using `ViewChanged` requires
 
 ## See Also
 
-* [FlatColorPicker Overview]({%slug flatcolorpicker-overview%})
-* [FlatColorPicker Views]({%slug flatcolorpicker-views%})
+* [FlatColorPicker Overview](slug://flatcolorpicker-overview)
+* [FlatColorPicker Views](slug://flatcolorpicker-views)

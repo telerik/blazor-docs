@@ -20,7 +20,7 @@ To use a Telerik [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfview
 1. Add the `TelerikPdfViewer` tag.
 2. Set the `Data` parameter to a byte array (`byte[]`) that holds the PDF file contents.
 3. If you are developing a Blazor **Server** app, [increase the maximum SignalR message size](#large-file-support).
-4. (optional) Subscribe to the [PDF Viewer's events]({%slug pdfviewer-events%}). For example, use the `OnDownload` event to set the name of the downloaded file.
+4. (optional) Subscribe to the [PDF Viewer's events](slug://pdfviewer-events). For example, use the `OnDownload` event to set the name of the downloaded file.
 5. (optional) Set [`Width` or `Height`](#pdfviewer-parameters) for the component.
 
 >caption Basic Blazor PDF Viewer
@@ -53,7 +53,7 @@ To use a Telerik [Blazor PDF Viewer](https://demos.telerik.com/blazor-ui/pdfview
 
 ## Toolbar
 
-The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-toolbar%}). The default tools enable built-in features such as:
+The [PdfViewer toolbar can render built-in and custom tools](slug://pdfviewer-toolbar). The default tools enable built-in features such as:
 
 * Page, zoom and pan documents
 * Search and select text
@@ -61,16 +61,16 @@ The [PdfViewer toolbar can render built-in and custom tools]({%slug pdfviewer-to
 
 ## Annotations
 
-The PdfViewer provides a built-in option for creating and editing annotations. Explore the [available annotation types and how to work with them]({%slug pdfviewer-annotations%}).
+The PdfViewer provides a built-in option for creating and editing annotations. Explore the [available annotation types and how to work with them](slug://pdfviewer-annotations).
 
 ## Large File Support
 
 In Blazor **Server** apps, the PDF Viewer uses the **SignalR WebSocket** to:
 
 * Open PDF files from the server and send them to the browser.
-* Read the PDF file `Stream` from the user device in the [`OnOpen` event handler]({%slug pdfviewer-events%}#onopen). The PDF Viewer uses internally a [FileSelect component]({%slug fileselect-overview%}) to get the user file.
+* Read the PDF file `Stream` from the user device in the [`OnOpen` event handler](slug://pdfviewer-events#onopen). The PDF Viewer uses internally a [FileSelect component](slug://fileselect-overview) to get the user file.
 
-The SignalR WebSocket has a default maximum message size of **32 KB**. To work with larger files in the above two scenarios, [increase the max WebSocket message size for the Blazor application]({%slug common-kb-increase-signalr-max-message-size%}).
+The SignalR WebSocket has a default maximum message size of **32 KB**. To work with larger files in the above two scenarios, [increase the max WebSocket message size for the Blazor application](slug://common-kb-increase-signalr-max-message-size).
 
 
 ## PdfViewer Parameters
@@ -81,14 +81,14 @@ The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme]({%slug themes-override%}). |
+| `Class` | `string` | An additional CSS class for the `<div class="k-pdf-viewer">` element. Use it to [customize the component styles and override the theme](slug://themes-override). |
 | `Data` | `byte[]` | The source of the currently displayed PDF file. |
 | `EnableLoaderContainer` | `bool` <br /> (`true`) | Determines if the PDF Viewer will show a loading animation during opening, downloading or zooming a PDF file. |
-| `Height` | `string` | The PdfViewer height as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
+| `Height` | `string` | The PdfViewer height as a [CSS length value](slug://common-features/dimensions). If not set, the component will expand vertically, based on the loaded file. `Height` is required for the component paging and scrolling to work. |
 | `MaxZoom` | `decimal` <br /> (`4m`) | The largest possible zoom level. The default value allows zooming in 4 times (400%). |
 | `MinZoom` | `decimal` <br /> (`0.5m`) | The smallest possible zoom level. The default value allows zooming out to 50%. |
-| `Width` | `string` | The PdfViewer width as a [CSS length value]({%slug common-features/dimensions%}). If not set, the component will expand horizontally to fill its parent. |
-| `Zoom` | `decimal` <br /> (`1.25m`) | The current zoom level. Use the parameter with two-way binding or with a [`ZoomChanged` event handler]({%slug pdfviewer-events%}#zoomchanged). |
+| `Width` | `string` | The PdfViewer width as a [CSS length value](slug://common-features/dimensions). If not set, the component will expand horizontally to fill its parent. |
+| `Zoom` | `decimal` <br /> (`1.25m`) | The current zoom level. Use the parameter with two-way binding or with a [`ZoomChanged` event handler](slug://pdfviewer-events#zoomchanged). |
 | `ZoomRate` | `decimal` <br /> (`0.25m`) | The zoom level change that is used by the zoom in and zoom out buttons. |
 
 
@@ -98,8 +98,8 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 | Method | Description |
 | --- | --- |
-| `Print` | Prints the loaded PDF document as an alternative to the [built-in Print button in the PDF Viewer toolbar]({%slug pdfviewer-toolbar%}#built-in-tools). |
-| `Rebind` | Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically]({%slug common-features-data-binding-overview%}#refresh-data). |
+| `Print` | Prints the loaded PDF document as an alternative to the [built-in Print button in the PDF Viewer toolbar](slug://pdfviewer-toolbar#built-in-tools). |
+| `Rebind` | Refreshes the PDF Viewer and ensures it is displaying the latest file `Data`. [`Rebind` is necessary when the Blazor framework cannot re-render components automatically](slug://common-features-data-binding-overview#refresh-data). |
 
 >caption PDF Viewer reference and method usage
 
@@ -157,8 +157,8 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 
 ## Next Steps
 
-* [Customize the PDF Viewer toolbar]({%slug pdfviewer-toolbar%})
-* [Handle PDF Viewer events]({%slug pdfviewer-events%})
+* [Customize the PDF Viewer toolbar](slug://pdfviewer-toolbar)
+* [Handle PDF Viewer events](slug://pdfviewer-events)
 
 
 ## See Also

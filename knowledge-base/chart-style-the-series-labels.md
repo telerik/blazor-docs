@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-The [UI for Blazor Chart]({%slug components/chart/overview%}) is rendered using the [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas) or [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG) and that means manipulating the styling and appearance is not possible without an existing API from the chart component.
+The [UI for Blazor Chart](slug://components/chart/overview) is rendered using the [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas) or [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG) and that means manipulating the styling and appearance is not possible without an existing API from the chart component.
  
 ## Solution
 
@@ -31,7 +31,7 @@ In this case, use the [ChartSeriesLabelsBase API](/blazor-ui/api/Telerik.Blazor.
 
 You can also explore the child tags of the labels for more options on controlling borders, margins and paddings. The third series showcases that.
 
-For more detailed control over the text shown in the labels, see the [Label Template and Format]({%slug components/chart/label-template-format%}) article.
+For more detailed control over the text shown in the labels, see the [Label Template and Format](slug://components/chart/label-template-format) article.
 
 ````RAZOR
 <TelerikChart>
@@ -83,8 +83,8 @@ For more detailed control over the text shown in the labels, see the [Label Temp
 
 ## See Also
 
-*   [UI for Blazor Chart]({%slug components/chart/overview%})
+*   [UI for Blazor Chart](slug://components/chart/overview)
 *   [ChartSeriesLabelsBase API Reference](/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabels)
-*   [Label Template and Format]({%slug components/chart/label-template-format%})
+*   [Label Template and Format](slug://components/chart/label-template-format)
 *   [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas)
 *   [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG)

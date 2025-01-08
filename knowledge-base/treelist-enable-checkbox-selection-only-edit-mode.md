@@ -39,10 +39,10 @@ This article suggests two options to disable the TreeList Checkbox selection in 
 
 ### Solution 1: Toggle the visibility of the CheckboxColumn
 
-1. Enable the [`CheckBoxOnlySelection` parameter]({%slug treelist-columns-checkbox%}#parameters) of the `TreeListCheckboxColumn` to prevent users from selecting rows with a click outside of edit mode.
-2. Bind the [`Visible` parameter]({%slug treelist-columns-checkbox%}#parameters) of the `TreeListCheckboxColumn` to a variable. This allows toggling its visibility based on whether the TreeList is in edit mode.
+1. Enable the [`CheckBoxOnlySelection` parameter](slug://treelist-columns-checkbox#parameters) of the `TreeListCheckboxColumn` to prevent users from selecting rows with a click outside of edit mode.
+2. Bind the [`Visible` parameter](slug://treelist-columns-checkbox#parameters) of the `TreeListCheckboxColumn` to a variable. This allows toggling its visibility based on whether the TreeList is in edit mode.
 3. Handle the CUD (Create, Update, Delete) events to manage the visibility of the `TreeListCheckboxColumn`.
-    - For [`Inline`]({%slug treelist-editing-inline%}) and [`Popup`]({%slug treelist-editing-popup%}) edit modes, this approach works directly. In the [`Incell` edit mode the events flow is a bit different]({%slug treelist-editing-incell%}), so you may need to adjust the logic.
+    - For [`Inline`](slug://treelist-editing-inline) and [`Popup`](slug://treelist-editing-popup) edit modes, this approach works directly. In the [`Incell` edit mode the events flow is a bit different](slug://treelist-editing-incell), so you may need to adjust the logic.
 
 Below is an example implementation that toggles the visibility of the Checkbox Column:
 
@@ -363,6 +363,6 @@ Alternatively, if you prefer not to toggle the `CheckboxColumn` visibility but j
 
 ## See Also
 
-- [TreeList Overview]({%slug treelist-overview%})
-- [TreeList Editing]({%slug treelist-editing-overview%})
-- [TreeList Selection]({%slug treelist-selection-overview%})
+- [TreeList Overview](slug://treelist-overview)
+- [TreeList Editing](slug://treelist-editing-overview)
+- [TreeList Selection](slug://treelist-selection-overview)

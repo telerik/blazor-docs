@@ -264,6 +264,6 @@ If there are items for a certain node, it will have an expand icon. The `HasChil
 
 ## See Also
 
-  * [Gantt Data Binding Basics]({%slug gantt-data-binding-overview%})
-  * [Binding to Flat Data]({%slug gantt-data-binding-flat-data%})
+  * [Gantt Data Binding Basics](slug://gantt-data-binding-overview)
+  * [Binding to Flat Data](slug://gantt-data-binding-flat-data)
 

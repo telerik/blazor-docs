@@ -42,10 +42,10 @@ If you apply both approaches and the issue persists, generate a Visual Studio [A
 
 ## Issues occur when converting existing projects
 
-For any issues with the **Convert Project** wizard, see its [dedicated troubleshooting section]({%slug getting-started-vs-integration-convert-project%}#troubleshooting).
+For any issues with the **Convert Project** wizard, see its [dedicated troubleshooting section](slug://getting-started-vs-integration-convert-project#troubleshooting).
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
-* [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project %})
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version %})
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
+* [Creating New Projects with Visual Studio](slug://getting-started-vs-integration-new-project)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)

@@ -15,9 +15,9 @@ The UI for Blazor TreeList component is [WCAG 2.2 AA](https://www.w3.org/TR/WCAG
 
 WCAG 2.2 introduces the ["Dragging Movements"](https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements) criterion as an important part of the Operable principle. Its primary goal is to guarantee that any feature reliant on drag actions offers an alternative method that can be executed with a single click, enhancing user accessibility.
 
-In our illustrative example below, we've showcased the column reorder actions, achievable through our Column Menu functionality. We've demonstrated also the row reordering achievable through our [Context Menu]({%slug contextmenu-integration%}#context-menu-for-a-grid-row). Our goal is to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
+In our illustrative example below, we've showcased the column reorder actions, achievable through our Column Menu functionality. We've demonstrated also the row reordering achievable through our [Context Menu](slug://contextmenu-integration#context-menu-for-a-grid-row). Our goal is to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
-The following example demonstrates the [accessibility compliance of the TreeList component]({%slug grid-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug accessibility-overview%}#color-contrast).
+The following example demonstrates the [accessibility compliance of the TreeList component](slug://grid-wai-aria-support). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch](slug://accessibility-overview#color-contrast).
 
 >caption TreeList accessibility compliance example
 

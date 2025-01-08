@@ -29,7 +29,7 @@ Here a few notes on the resizing behavior:
 
 * If the column `Width` is less than `MinResizableWidth` and the user tries to resize the column, it will snap to its minimum width.
 * Similarly, if the column `Width` is greater than `MaxResizableWidth`, the column will snap to its maximum width.
-* In [multi-column header scenarios]({%slug grid-columns-multiple-column-headers%}), you may set `MinResizableWidth` or `MaxResizableWidth` to child columns only. Setting these attributes to parent columns will have no effect.
+* In [multi-column header scenarios](slug://grid-columns-multiple-column-headers), you may set `MinResizableWidth` or `MaxResizableWidth` to child columns only. Setting these attributes to parent columns will have no effect.
 
 ## Autofit Columns
 
@@ -37,7 +37,7 @@ When column resizing is enabled, a double click on the resize handle between the
 
 The Grid also exposes methods to programmatically resize columns to fit their contents:
 
-* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute]({% slug components/grid/columns/bound%}#identification).
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug://components/grid/columns/bound#identification).
 * `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
 * `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 
@@ -50,11 +50,11 @@ Programmatic autofitting works even if column resizing is disabled.
 
 The known limitations of the Autofit Columns feature include:
 
-* Autofitting the columns is not supported with [Virtual Columns]({%slug grid-columns-virtual%}).
+* Autofitting the columns is not supported with [Virtual Columns](slug://grid-columns-virtual).
 
 * Autofitting the columns on initial load of the Grid is not supported.
 
->important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-based article]({%slug grid-autofit-columns-on-initial-load%}) to see a possible solution to achieve this behavior. 
+>important Trying to autofit the columns on initial load will throw a `NullReferenceException`. Check the [AutoFit all Grid columns on initial load knowledge-based article](slug://grid-autofit-columns-on-initial-load) to see a possible solution to achieve this behavior. 
 
 
 ## Example
@@ -141,4 +141,4 @@ The known limitations of the Autofit Columns feature include:
 ## See Also
 
   * [Live Demo: Column Resizing](https://demos.telerik.com/blazor-ui/grid/column-resizing)
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Blazor Grid](slug://grid-overview)

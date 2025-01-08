@@ -18,7 +18,7 @@ The default language input for most users on the web is left-to-right. However, 
 
 Right-to-left support is configured at the root level so it affects all UI for Blazor components in the application. You cannot mix right-to-left and left-to-right orientation in the same application.
 
-To enable right-to-left direction of the components in your application, set the `EnableRtl` parameter of the [`TelerikRootComponent`]({%slug rootcomponent-overview%})  to `true`.
+To enable right-to-left direction of the components in your application, set the `EnableRtl` parameter of the [`TelerikRootComponent`](slug://rootcomponent-overview)  to `true`.
 
 ````TelerikLayout.razor
 <TelerikRootComponent EnableRtl="true">
@@ -30,7 +30,7 @@ To enable right-to-left direction of the components in your application, set the
 
 ## Supported Components
 
-The majority of the UI for Blazor components incorporate RTL support. Check the [Internationalization Support table]({%slug globalization-overview%}#internationalization-support) for a complete list of the supported components and links to their demo pages.
+The majority of the UI for Blazor components incorporate RTL support. Check the [Internationalization Support table](slug://globalization-overview#internationalization-support) for a complete list of the supported components and links to their demo pages.
 
 ## Limitations
 
@@ -44,10 +44,10 @@ If you need to change the `EnableRtl` parameter of the `TelerikRootComponent` at
 
 ## Keyboard Navigation
 
-When the [right-to-left direction is enabled]({%slug rtl-support%}), the keyboard shortcuts for the components that support keyboard navigation remain unchanged except for the `Left arrow` and `Right arrow` keys—their functionality is reversed to follow the right-to-left direction.
+When the [right-to-left direction is enabled](slug://rtl-support), the keyboard shortcuts for the components that support keyboard navigation remain unchanged except for the `Left arrow` and `Right arrow` keys—their functionality is reversed to follow the right-to-left direction.
 
 
 ## See Also
 
-  * [Localization]({%slug globalization-localization%})
-  * [Globalization Formats]({%slug globalization-formats%})
+  * [Localization](slug://globalization-localization)
+  * [Globalization Formats](slug://globalization-formats)

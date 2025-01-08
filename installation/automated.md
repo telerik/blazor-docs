@@ -13,7 +13,7 @@ position: 3
 
 This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
-The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed]({%slug installation/nuget%}). However, you can also use a wizard installer, or a [ZIP archive]({%slug installation/zip%}).
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed](slug://installation/nuget). However, you can also use a wizard installer, or a [ZIP archive](slug://installation/zip).
 
 There is an automated installer for:
 
@@ -23,11 +23,11 @@ There is an automated installer for:
 
 The automated installer provides the following:
 
-* The [necessary `.nupkg` files]({%slug getting-started/what-you-need%}) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
+* The [necessary `.nupkg` files](slug://getting-started/what-you-need) so you can setup a [local feed in Visual Studio](#set-up-a-local-nuget-feed-in-visual-studio). You can find them in the `packages` folder under the installation folder.
 * An offline version of our [demos](https://demos.telerik.com/blazor-ui) that you can run and inspect in your IDE. You can find them in the `demos` folder in the installation. @[template](/_contentTemplates/common/get-started.md#demos-project-net-version)
-* The [document processing]({%slug dpl-in-blazor%}) `.nupkg` files (in the `dpl` folder).
+* The [document processing](slug://dpl-in-blazor) `.nupkg` files (in the `dpl` folder).
 * A shortcut to our [online demos](https://demos.telerik.com/blazor-ui).
-* Our [Visual Studio extension]({%slug getting-started-vs-integration-overview%}). We also have an [extension for VS Code]({%slug getting-started-vs-code-integration-overview%}) and you can <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">install it from the VS Code marketplace</a>.
+* Our [Visual Studio extension](slug://getting-started-vs-integration-overview). We also have an [extension for VS Code](slug://getting-started-vs-code-integration-overview) and you can <a href="https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard" target="_blank">install it from the VS Code marketplace</a>.
 
 
 ## How to Download the Automated Installer
@@ -71,11 +71,11 @@ There are several approaches you can try:
     
     * Or, get around Apple's security precautions by removing the quarantine Extended Attribute on the `.pkg` file by executing `xattr -d com.apple.quarantine /path/to/file`
 
-* You can, alternatively, obtain all the files you need from the [ZIP archive we provide]({%slug installation/zip%}) which does not require an installation.
+* You can, alternatively, obtain all the files you need from the [ZIP archive we provide](slug://installation/zip) which does not require an installation.
 
 ## See Also
 
-* [What You Need To Install]({%slug getting-started/what-you-need%})
-* [Get Started with Client-side Blazor]({%slug getting-started/client-side%})
-* [Get Started with Server-side Blazor]({%slug getting-started/server-side%})
+* [What You Need To Install](slug://getting-started/what-you-need)
+* [Get Started with Client-side Blazor](slug://getting-started/client-side)
+* [Get Started with Server-side Blazor](slug://getting-started/server-side)
 

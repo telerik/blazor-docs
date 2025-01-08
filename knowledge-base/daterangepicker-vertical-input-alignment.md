@@ -58,7 +58,7 @@ Here is an example implementation:
 }
 ```
 
-This CSS ensures that the labels and inputs of the DateRangePicker display one below the other. Adjust the styles as needed to fit your design requirements better. Additionally, consider [repositioning the labels so they appear on the side and not on top of the inputs]({%slug daterangepicker-kb-reposition-labels%}).
+This CSS ensures that the labels and inputs of the DateRangePicker display one below the other. Adjust the styles as needed to fit your design requirements better. Additionally, consider [repositioning the labels so they appear on the side and not on top of the inputs](slug://daterangepicker-kb-reposition-labels).
 
 ## See Also
 

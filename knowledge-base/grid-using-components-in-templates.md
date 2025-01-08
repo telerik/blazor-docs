@@ -33,12 +33,12 @@ The Grid optimizes the UI renders after data operations. If you are using child 
 
 This applies to the following Grid elements:
 
-* [CommandColumn]({%slug components/grid/columns/command%})
-* [DetailTemplate]({%slug components/grid/features/hierarchy%})
-* [FooterTemplate]({%slug grid-templates-column-footer%})
-* [GroupFooterTemplate]({%slug grid-templates-column-group-footer%})
-* [RowTemplate]({%slug grid-templates-row%})
-* [Template]({%slug grid-templates-column%})
+* [CommandColumn](slug://components/grid/columns/command)
+* [DetailTemplate](slug://components/grid/features/hierarchy)
+* [FooterTemplate](slug://grid-templates-column-footer)
+* [GroupFooterTemplate](slug://grid-templates-column-group-footer)
+* [RowTemplate](slug://grid-templates-row)
+* [Template](slug://grid-templates-column)
 
 >caption Setting @key to child components inside Grid templates
 

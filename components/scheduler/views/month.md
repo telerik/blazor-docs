@@ -31,7 +31,7 @@ The following parameters allow you to configure the month view:
 | `ItemsPerSlot` | `int` <br /> (`2`) | Indicates the number of appointments that are displayed per day. |
 
 
-If there are more appointments for a day than per the `ItemsPerSlot` parameter, an ellipsis button provides access to the DayView for the specific day. You must [define a day view]({%slug scheduler-views-day%}) so the user can see it. The Scheduler sorts and displays the number of appointments per the `ItemsPerSlot` parameter, by start time (ascending) and then by end time (descending).
+If there are more appointments for a day than per the `ItemsPerSlot` parameter, an ellipsis button provides access to the DayView for the specific day. You must [define a day view](slug://scheduler-views-day) so the user can see it. The Scheduler sorts and displays the number of appointments per the `ItemsPerSlot` parameter, by start time (ascending) and then by end time (descending).
 
 If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOfRangeException` is thrown.
 
@@ -141,7 +141,7 @@ If the `ItemsPerSlot` parameter is a zero or a negative value, an `ArgumentOutOf
 
 ## See Also
 
-* [Views]({%slug scheduler-views-overview%})
-* [Navigation]({%slug scheduler-navigation%})
+* [Views](slug://scheduler-views-overview)
+* [Navigation](slug://scheduler-navigation)
 * [Live Demo: Scheduler Month View](https://demos.telerik.com/blazor-ui/scheduler/month-view)
-* [Resource Grouping]({%slug scheduler-resource-grouping%})
+* [Resource Grouping](slug://scheduler-resource-grouping)

@@ -10,15 +10,15 @@ position: 15
 
 # Editor Template
 
-The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing]({%slug components/grid/editing/overview%}) the field. It is also used when inserting a new item.
+The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug://components/grid/editing/overview) the field. It is also used when inserting a new item.
 
 You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid row. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
-The template receives a **copy** of the original model, so that changes can be canceled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview]({%slug components/grid/editing/overview%}#notes) for more details on how and when that copy is created.
+The template receives a **copy** of the original model, so that changes can be canceled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview](slug://components/grid/editing/overview#notes) for more details on how and when that copy is created.
 
-If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form]({%slug grid-kb-custom-edit-form%}).
+If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug://grid-kb-custom-edit-form).
 
->tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes]({%slug components/grid/editing/incell%}#editor-template).
+>tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug://components/grid/editing/incell#editor-template).
 
 **In this article:**
 
@@ -32,7 +32,7 @@ If you need more complex logic inside the editor template, compared to simple da
 
 * @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
-* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview]({%slug components/grid/editing/overview%}#notes) article.
+* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview](slug://components/grid/editing/overview#notes) article.
 
 * We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. Do not share a global variable within multiple templates, like column (cell) template and editor template. Variable sharing can lead to unexpected behavior.
 
@@ -268,9 +268,9 @@ The Grid will save changes and close the current edit row (or edit cell) when th
 
 ## Editor template for a foreign key column
 
-This example uses an ID that represents the foreign key for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model]({%slug grid-use-navigation-properties%})) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
+This example uses an ID that represents the foreign key for the grid column `Field`. You may want to use a text field that you can add to your model (or from a [nested model](slug://grid-use-navigation-properties)) instead - this will change what renders in the `Template` by default, and will change the rules and operators for filtering, sorting, and so using a field with human-readable information (like strings) might provide better UX.
 
-Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge base article.
+Also check the [Grid Foreign Key Column](slug://grids-foreign-key) knowledge base article.
 
 ````RAZOR
 @* This example shows one way to use a dropdownlist to edit values with a foreign key. *@
@@ -411,4 +411,4 @@ Also check the [Grid Foreign Key Column]({%slug grids-foreign-key%}) knowledge b
 
 * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
 * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)

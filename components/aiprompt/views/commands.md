@@ -24,7 +24,7 @@ The following properties enable you to customize each command:
 | ----------- | ----------- | ----------- |
 | `Id` | `string` | The `Id` of the command. |
 | `Title` | `string` | The title of the command. Rendered as text within the Command view. |
-| `Icon` | `object` | The [Telerik Font or SVG icon]({%slug common-features-icons%}) rendered before the title within the Command view. |
+| `Icon` | `object` | The [Telerik Font or SVG icon](slug://common-features-icons) rendered before the title within the Command view. |
 | `Children` | `List<AIPromptCommandDescriptor>` | The nested commands (if any) of the command. |
 
 >caption Using the `Commands` parameter to pass a collection of predefined commands to the AIPrompt for Blazor
@@ -86,7 +86,7 @@ The following properties enable you to customize each command:
 ## See Also
 
   * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-  * [Views Overview]({%slug aiprompt-views-overview%})
-  * [Prompt View]({%slug aiprompt-views-prompt%})
-  * [Output View]({%slug aiprompt-views-output%})
-  * [Views Templates]({%slug aiprompt-views-templates%})
+  * [Views Overview](slug://aiprompt-views-overview)
+  * [Prompt View](slug://aiprompt-views-prompt)
+  * [Output View](slug://aiprompt-views-output)
+  * [Views Templates](slug://aiprompt-views-templates)

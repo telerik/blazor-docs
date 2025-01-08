@@ -21,8 +21,8 @@ First, review:
 
 There are two modes of providing data to a PanelBar, and they both use the items' features. Once you are familiar with the current article, choose the data binding mode you wish to use:
 
-* [Flat data]({%slug panelbar-data-binding-flat%}) - a single collection of items with defined parent-child relationships.
-* [Hierarchical data]({%slug panelbar-data-binding-hierarchical%}) - separate collections of items and their child items.
+* [Flat data](slug://panelbar-data-binding-flat) - a single collection of items with defined parent-child relationships.
+* [Hierarchical data](slug://panelbar-data-binding-hierarchical) - separate collections of items and their child items.
 
 ## PanelBar Item Features
 
@@ -38,9 +38,9 @@ The PanelBar items provide the following features that you control through the c
 
 * `Text` - `string` - the text that will be shown on the item.
 
-* `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`]({%slug panelbar-events%}#onitemclick) will not be fired if the item is disabled.
+* `DisabledField` - `string` - whether the item is disabled. If an item is disabled it will not be clickable and cannot be expanded by the user. The [`OnItemClick`](slug://panelbar-events#onitemclick) will not be fired if the item is disabled.
 
-* `Icon` - The [Telerik Font or SVG icon]({%slug common-features-icons%}) that will be rendered in the item. Read more in the [Icons article]({%slug panelbar-icons%}).
+* `Icon` - The [Telerik Font or SVG icon](slug://common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug://panelbar-icons).
 
 * `Url` - the view the item will navigate to by generating a link.
 
@@ -184,9 +184,9 @@ The following **Example** shows how to define simple binding to match item field
 
 ### Multiple Level Bindings
 
-You can define different binding settings for the different levels of nodes in the PanelBar. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding]({%slug panelbar-data-binding-hierarchical%}), the children can even use a different field or model from their parent.
+You can define different binding settings for the different levels of nodes in the PanelBar. With this, the children of a node can consume a different field than their parent, and this may make your application more flexible. If you use [hierarchical data binding](slug://panelbar-data-binding-hierarchical), the children can even use a different field or model from their parent.
 
-This also allows you to define different [header and content templates]({%slug panelbar-templates%}) for different levels.
+This also allows you to define different [header and content templates](slug://panelbar-templates) for different levels.
 
 To define multiple bindings, add multiple `PanelBarBinding` tags and define their `Level`.
 
@@ -297,11 +297,11 @@ If a certain level does not have an explicit data binding tag, it will use the d
 }
 ````
 
->note To improve performance when using [flat data binding]({%slug panelbar-data-binding-flat%}), all the bindings for all the levels should use the same `ParentIdField`.
+>note To improve performance when using [flat data binding](slug://panelbar-data-binding-flat), all the bindings for all the levels should use the same `ParentIdField`.
 
 ## See Also
 
-  * [Binding to Flat Data]({%slug panelbar-data-binding-flat%})
-  * [Binding to Hierarchical Data]({%slug panelbar-data-binding-hierarchical%})
+  * [Binding to Flat Data](slug://panelbar-data-binding-flat)
+  * [Binding to Hierarchical Data](slug://panelbar-data-binding-hierarchical)
   * [Live Demo: PanelBar Flat Data](https://demos.telerik.com/blazor-ui/panelbar/flat-data)
   * [Live Demo: PanelBar Hierarchical Data](https://demos.telerik.com/blazor-ui/panelbar/hierarchical-data)

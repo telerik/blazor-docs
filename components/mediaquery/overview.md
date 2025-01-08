@@ -74,8 +74,8 @@ The MediaQuery component facilitates the usage of CSS media queries in your C# c
 
 ## Next Steps
 
-* [Explore the MediaQuery events]({%slug mediaquery-events%})
-* [Integrate the MediaQuery with other Telerik Blazor components]({%slug mediaquery-integration%})
+* [Explore the MediaQuery events](slug://mediaquery-events)
+* [Integrate the MediaQuery with other Telerik Blazor components](slug://mediaquery-integration)
 
 ## See Also
 

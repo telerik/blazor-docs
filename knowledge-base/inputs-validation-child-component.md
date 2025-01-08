@@ -184,4 +184,4 @@ public class MyDdlModelString
 
 ## See also
 
-* [Knowledge Base article: How to handle the ValueChanged event and use forms and validation. ]({%slug value-changed-validation-model%})
+* [Knowledge Base article: How to handle the ValueChanged event and use forms and validation. ](slug://value-changed-validation-model)

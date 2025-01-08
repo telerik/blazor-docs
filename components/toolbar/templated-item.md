@@ -62,7 +62,7 @@ You can use that item to add complex toolbars to your application, which have dr
 ## Notes
 
 * Template items cannot be part of a `ToolBarButtonGroup`.
-* Template items do not participate in the [ToolBar's adaptive behavior]({%slug toolbar-overview%}#toolbar-parameters) and don't expose `Overflow` and `OverFlowText` parameters. This is because template items do not have a predefined click action to be triggered from an item in the overflow popup.
+* Template items do not participate in the [ToolBar's adaptive behavior](slug://toolbar-overview#toolbar-parameters) and don't expose `Overflow` and `OverFlowText` parameters. This is because template items do not have a predefined click action to be triggered from an item in the overflow popup.
 
 ## See Also
 

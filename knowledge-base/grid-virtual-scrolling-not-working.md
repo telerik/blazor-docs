@@ -21,7 +21,7 @@ res_type: kb
 
 
 ## Description
-I have a Grid with [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) enabled. When I scroll up or down the rows for the current view port are not rendered as the loading indicator remains visible as shown in the image below.
+I have a Grid with [Virtual Scrolling](slug://components/grid/virtual-scrolling) enabled. When I scroll up or down the rows for the current view port are not rendered as the loading indicator remains visible as shown in the image below.
 
 >caption A depiction of the problem and symptom
 
@@ -95,4 +95,4 @@ There are several common causes for that behavior:
 ## Solution
 Set the `RowHeight` parameter to a fixed value in pixels so that it accommodates the content (depending on the content, padding, margins, font-size and other rules and settings on your app such the Theme and CSS related rules) and matches the monitor and browser settings.
 
-You can read more in the [Notes section of the Virtual Scrolling article]({%slug components/grid/virtual-scrolling%}).
+You can read more in the [Notes section of the Virtual Scrolling article](slug://components/grid/virtual-scrolling).

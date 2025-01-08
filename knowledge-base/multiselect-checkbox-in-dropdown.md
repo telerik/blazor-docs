@@ -35,7 +35,7 @@ We have the MultiSelect component for this in Blazor: https://demos.telerik.com/
 
 The AutoClose feature allows the MultiSelect to stay open while the user selects the input.
 
-The MultiSelect offers a highlighted state for the selected items already, yet if you want to add checkboxes, you can do that through the [`ItemTemplate`]({%slug multiselect-templates%}#item-template) and you can get their `checked` attribute by comparing the current item against the selected items.
+The MultiSelect offers a highlighted state for the selected items already, yet if you want to add checkboxes, you can do that through the [`ItemTemplate`](slug://multiselect-templates#item-template) and you can get their `checked` attribute by comparing the current item against the selected items.
 
 >caption Add checkboxes in the multiselect
 

@@ -24,11 +24,11 @@ res_type: kb
 
 ## Description
 
-The [Telerik Spreadsheet component for Blazor]({%slug spreadsheet-overview%}) can display data from a byte array (`byte[]`). This KB demonstrates how to bind the Spreadsheet to object data, for example, `IEnumerable`, `List` or any other collection, including deserialized `JSON`.
+The [Telerik Spreadsheet component for Blazor](slug://spreadsheet-overview) can display data from a byte array (`byte[]`). This KB demonstrates how to bind the Spreadsheet to object data, for example, `IEnumerable`, `List` or any other collection, including deserialized `JSON`.
 
 ## Solution
 
-The approach requires [Telerik Document Processing]({%slug dpl-in-blazor%}) to create an [Excel file in memory](https://docs.telerik.com/devtools/document-processing/knowledge-base/generate-excel-files-from-ienumerable-collections) and convert it to a byte array which is compatible with the Spreadsheet component.
+The approach requires [Telerik Document Processing](slug://dpl-in-blazor) to create an [Excel file in memory](https://docs.telerik.com/devtools/document-processing/knowledge-base/generate-excel-files-from-ienumerable-collections) and convert it to a byte array which is compatible with the Spreadsheet component.
 
 1. Install the required [Telerik Document Processing NuGet packages](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started):
     * `Telerik.Documents.Spreadsheet`
@@ -180,4 +180,4 @@ The approach requires [Telerik Document Processing]({%slug dpl-in-blazor%}) to c
 ## See Also
 
 * [Create Excel Documents with SpreadProcessing](https://docs.telerik.com/devtools/document-processing/knowledge-base/generate-excel-files-from-ienumerable-collections)
-* [Spreadsheet Overview]({%slug spreadsheet-overview%})
+* [Spreadsheet Overview](slug://spreadsheet-overview)

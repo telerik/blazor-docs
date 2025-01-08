@@ -33,8 +33,8 @@ Programmatic printing relies on the [JavaScript `print()` method](https://develo
 
 The example below shows three possible techniques:
 
-1. If the Editor's [`EditMode`]({%slug editor-edit-modes-overview%}) is [`Iframe`]({%slug editor-edit-modes-iframe%}), then call the `print()` method of the iframe `window` object.
-1. If `EditMode` is [`Div`]({%slug editor-edit-modes-div%}), there are two options:
+1. If the Editor's [`EditMode`](slug://editor-edit-modes-overview) is [`Iframe`](slug://editor-edit-modes-iframe), then call the `print()` method of the iframe `window` object.
+1. If `EditMode` is [`Div`](slug://editor-edit-modes-div), there are two options:
     * Call the `print()` method of the current page's `window` object. Use [CSS `@media` query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) to implement print-only styles and hide everything outside the Editor's content area.
     * Open a new browser window with JavaScript. Inject the Editor value as content of the new window. Call the `print()` method of the new `window` object. Note that browser popups may be disabled by the user.
 

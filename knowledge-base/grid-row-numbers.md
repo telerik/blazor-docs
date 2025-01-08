@@ -27,7 +27,7 @@ Is there a way to add row numbers to the grid?
 I want them to update every time the grid changes, so whenever I filter it or sort it. So basically if it's sorted by date ascending, the rows start at 1 and increase as you travel down the grid.  If you then sort descending, the row numbers will again start at 1 and increase as you travel down the grid.
 
 ## Solution
-Add a property to the row model that will display the row index. Populate the index in the [Grid `OnRead` event]({%slug components/grid/manual-operations%}) by iterating the items collection.
+Add a property to the row model that will display the row index. Populate the index in the [Grid `OnRead` event](slug://components/grid/manual-operations) by iterating the items collection.
 
 You can then use a Grid column to show them. This column should have the various data operations disabled (such as filtering, sorting, grouping, editing) because it does not carry actual information about the data.
 

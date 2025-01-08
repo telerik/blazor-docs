@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I use the Grid [ColumnMenu]({%slug grid-column-menu%}) which provides sorting functionality. By default, click in the column header also triggers the sorting (if enabled). I want to allow the user only sort from the ColumnMenu and prevent sorting the column on click in its header.
+I use the Grid [ColumnMenu](slug://grid-column-menu) which provides sorting functionality. By default, click in the column header also triggers the sorting (if enabled). I want to allow the user only sort from the ColumnMenu and prevent sorting the column on click in its header.
 
 How to disable the built-in sorting on column header click?
 

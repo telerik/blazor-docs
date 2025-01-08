@@ -22,7 +22,7 @@ In this article:
 
 ## Rebind Method
 
-You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event]({%slug components/grid/manual-operations%}) the business logic defined in its event handler will be executed. 
+You can refresh the Grid data by using the `Rebind` method exposed to the reference of the TelerikGrid. If you have manually defined the [OnRead event](slug://components/grid/manual-operations) the business logic defined in its event handler will be executed. 
 
 ````RAZOR
 @* Clicking on the Rebind button will change the Name of the first item in the Grid and refresh the data *@
@@ -255,14 +255,14 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 }
 ````
 
->note You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh]({%slug grid-force-refresh%}) Knowledge Base article.
+>note You can find some more explanations and examples for the Grid component in the [Force a Grid to Refresh](slug://grid-force-refresh) Knowledge Base article.
 
 
 ## Call OnRead
 
-If you are [using the `OnRead` event to optimize the data requests]({%slug components/grid/manual-operations%}), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations]({%slug components/grid/editing/overview%}), yet you may need to do it on your own.
+If you are [using the `OnRead` event to optimize the data requests](slug://components/grid/manual-operations), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations](slug://components/grid/editing/overview), yet you may need to do it on your own.
 
-To make the Grid fire `OnRead`, execute its [`SetStateAsync` method]({%slug grid-state%})
+To make the Grid fire `OnRead`, execute its [`SetStateAsync` method](slug://grid-state)
 
 >caption Make the grid call OnRead by using its state
 
@@ -365,7 +365,7 @@ The reason for such behavior is that the `Data` collection of the grid is a sepa
 
 This means that you need to ensure that the view-model will be updated as well, so that the `Data` parameter of the grid changes too. There are, generally, two ways to do this:
 
-* Use the [`OnRead` event to perform the grid data operations]({%slug components/grid/manual-operations%}) - the grid will call it after the [CUD events like `OnUpdate`, `OnDelete`, `OnCreate`]({%slug components/grid/editing/overview%}#notes) and it will let you query the database that was already update (which will also bring in other updates that other uses may have made).
+* Use the [`OnRead` event to perform the grid data operations](slug://components/grid/manual-operations) - the grid will call it after the [CUD events like `OnUpdate`, `OnDelete`, `OnCreate`](slug://components/grid/editing/overview#notes) and it will let you query the database that was already update (which will also bring in other updates that other uses may have made).
 
 * Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
 
@@ -374,8 +374,8 @@ This means that you need to ensure that the view-model will be updated as well, 
 
 ## See Also
 
-  * [ObservableCollection]({%slug common-features-observable-data%})
+  * [ObservableCollection](slug://common-features-observable-data)
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui)
-  * [Knowledge Base: Force a Grid to Refresh]({%slug grid-force-refresh%})
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Knowledge Base: Force a Grid to Refresh](slug://grid-force-refresh)
+  * [Blazor Grid](slug://grid-overview)

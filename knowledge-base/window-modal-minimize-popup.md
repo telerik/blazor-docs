@@ -29,7 +29,7 @@ To implement a responsible popup that can be minimized to the bottom of the page
 
 1. Set the `Top` and `Left` parameters to control the position of the modal.
 2. Use boolean flags to show and hide the popup.
-3. Use the [MediaQuery]({%slug mediaquery-overview%}) component to make the modal window responsive.
+3. Use the [MediaQuery](slug://mediaquery-overview) component to make the modal window responsive.
 
 >caption The result from the code snippet below on a big screen.
 

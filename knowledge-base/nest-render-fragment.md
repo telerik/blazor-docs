@@ -49,7 +49,7 @@ You may also see the following error:
 
 ## Possible Cause
 
-When nesting components, you will usually do that under tags of type `RenderFragment`. For example, the [`DetailTemplate`]({%slug grid-three-level-hierarchy%}) or the [`GridCommandColumn`]({%slug components/grid/columns/command%}#context) are such examples. Blazor provides an internal variable called [`context`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/templated-components) for the delegate of the `RenderFragment`. However, if there are nested `RenderFragment`s, this will create multiple `context` variables with the same name in the same programming context. This conflict triggers the exception.
+When nesting components, you will usually do that under tags of type `RenderFragment`. For example, the [`DetailTemplate`](slug://grid-three-level-hierarchy) or the [`GridCommandColumn`](slug://components/grid/columns/command#context) are such examples. Blazor provides an internal variable called [`context`](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/templated-components) for the delegate of the `RenderFragment`. However, if there are nested `RenderFragment`s, this will create multiple `context` variables with the same name in the same programming context. This conflict triggers the exception.
 
 
 ## Solution

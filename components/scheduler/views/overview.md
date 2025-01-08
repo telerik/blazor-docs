@@ -16,16 +16,16 @@ You can choose which views the user can switch between. To do that, declare the 
 
 You can also control which is the default one through the `View` parameter. You should usually use it in the `@bind-View` syntax to prevent it from resetting to its initial view when re-rendering happens.
 
-You can read more about this in the [Navigation]({%slug scheduler-navigation%}) article.
+You can read more about this in the [Navigation](slug://scheduler-navigation) article.
 
 The available views are:
 
-* [Scheduler**Day**View]({%slug scheduler-views-day%})
-* [Scheduler**Week**View]({%slug scheduler-views-week%})
-* [Scheduler**MultiDay**View]({%slug scheduler-views-multiday%})
-* [Scheduler**Month**View]({%slug scheduler-views-month%})
-* [Scheduler**Timeline**View]({%slug scheduler-views-timeline%})
-* [Scheduler**Agenda**View]({%slug scheduler-views-agenda%})
+* [Scheduler**Day**View](slug://scheduler-views-day)
+* [Scheduler**Week**View](slug://scheduler-views-week)
+* [Scheduler**MultiDay**View](slug://scheduler-views-multiday)
+* [Scheduler**Month**View](slug://scheduler-views-month)
+* [Scheduler**Timeline**View](slug://scheduler-views-timeline)
+* [Scheduler**Agenda**View](slug://scheduler-views-agenda)
 
 >caption Allow the user to navigate between Day and Week views only by defining only them. Example how to choose starting View (Week) and Date (29 Nov 2019).
 
@@ -99,5 +99,5 @@ The available views are:
 ## See Also
 
   * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-  * [Day View]({%slug scheduler-views-day%})
+  * [Day View](slug://scheduler-views-day)
 

@@ -25,7 +25,7 @@ The `context` of the`ValueTemplate` is of type [`FilterFieldValueTemplateContext
 > The `FilterDescriptor` `Value` property is of type `object` and is `null` by default. As a result, the `Value` of the component inside the `ValueTemplate` must be `nullable` for all types, except `string`.
 
 
-To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField]({%slug filter-fields%}).
+To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [FilterField](slug://filter-fields).
 
 >caption Using FilterField ValueTemplate
 
@@ -140,4 +140,4 @@ To use the Filter Field value template, add a `<ValueTemplate>` tag inside the [
 ## See Also
 
   * [Live Demo: Filter](https://demos.telerik.com/blazor-ui/filter/templates)
-  * [FilterField: Overview]({%slug filter-fields%})
+  * [FilterField: Overview](slug://filter-fields)

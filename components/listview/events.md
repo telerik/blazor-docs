@@ -24,12 +24,12 @@ The `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data item that 
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when the want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
-You can read more about the CUD events in the [ListView Editing]({%slug listview-editing%}) article.
+You can read more about the CUD events in the [ListView Editing](slug://listview-editing) article.
 
 
 ## Read Event
 
-In the common case, you provide all the data to the listview's Data collection and the listview performs paging on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by attaching to the [`OnRead` event]({%slug common-features-data-binding-onread%}) where you can perform all the data read operations in the listview. You can read more about it in the [Manual Data Source Operations]({%slug listview-manual-operations%}) article.
+In the common case, you provide all the data to the listview's Data collection and the listview performs paging on it for you. In some cases you may want to do this with your own code (for example, to retrieve only a small number of items in order to improve the backend performance). You can do this by attaching to the [`OnRead` event](slug://common-features-data-binding-onread) where you can perform all the data read operations in the listview. You can read more about it in the [Manual Data Source Operations](slug://listview-manual-operations) article.
 
 ### OnModelInit
 
@@ -630,4 +630,4 @@ Make sure to update the current page size when using the event.
 
 ## See Also
 
-* [ListView Overview]({%slug listview-overview%})
+* [ListView Overview](slug://listview-overview)

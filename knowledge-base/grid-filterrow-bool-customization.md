@@ -30,7 +30,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Define a [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template).
+1. Define a [Filter Row Template](slug://grid-templates-filter#filter-row-template).
 1. Create a `DropDownList` that includes the custom display values.
 1. Create a `Button` that will replicate the `FilterRow` clear button.
 1. Implement a method that manually filters the Grid based on the DropDownList selection.
@@ -150,7 +150,7 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [Grid Filtering]({%slug components/grid/filtering%})
-* [Grid Filter Templates]({%slug grid-templates-filter%})
-* [Grid Filter From Code]({%slug grid-filter-row%}#filter-from-code)
-* [Use Filter Operator Drop-Down in Filter Template]({%slug grid-kb-filter-operator-dropdown%})
+* [Grid Filtering](slug://components/grid/filtering)
+* [Grid Filter Templates](slug://grid-templates-filter)
+* [Grid Filter From Code](slug://grid-filter-row#filter-from-code)
+* [Use Filter Operator Drop-Down in Filter Template](slug://grid-kb-filter-operator-dropdown)

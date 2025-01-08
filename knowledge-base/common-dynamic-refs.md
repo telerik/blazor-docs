@@ -29,7 +29,7 @@ How to have unique references a collection of components that are generated in a
 
 ## Solution
 
-The algorithm below is using a `TelerikGrid`, but it's identical for all Telerik Blazor components. The only difference is the type of the `Dictionary` `Value`s, which must match the component type (`TelerikTextBox`, `TelerikUpload`, etc.). The type of some components may [depend on the model type]({%slug common-features-data-binding-overview%}#component-type), as in this example.
+The algorithm below is using a `TelerikGrid`, but it's identical for all Telerik Blazor components. The only difference is the type of the `Dictionary` `Value`s, which must match the component type (`TelerikTextBox`, `TelerikUpload`, etc.). The type of some components may [depend on the model type](slug://common-features-data-binding-overview#component-type), as in this example.
 
 1. Create a `Dictionary<object, TelerikGrid<GridModel>>`. The actual `Key` type will depend on the data or the component generation algorithm.
 1. Add a new `KeyValuePair` to the `Dictionary` for every new component instance. Check if the dictionary key already exists to prevent duplications during UI refresh.

@@ -22,7 +22,7 @@ The generated image from the component is a machine-readable label that contains
 
 1. Set its `Size` property.
 
-1. Optionally, choose a `QRCode Type` (one of the [types we support]({%slug  qrcode-qr-code-types%})).
+1. Optionally, choose a `QRCode Type` (one of the [types we support](slug://qrcode-qr-code-types)).
 
 >caption A basic configuration of the Telerik QRCode
 
@@ -34,11 +34,11 @@ The generated image from the component is a machine-readable label that contains
 
 ## Encoding
 
-Encoding represents the mapping between messages and qr codes. [Read more about the supported Blazor QRCode Encodings]({%slug qrcode-encoding%}).
+Encoding represents the mapping between messages and qr codes. [Read more about the supported Blazor QRCode Encodings](slug://qrcode-encoding).
 
 ## Types
 
-The component exposes Swiss and Image QRCode types. [Read more about the supported Blazor QRCode Types...]({%slug qrcode-qr-code-types%})
+The component exposes Swiss and Image QRCode types. [Read more about the supported Blazor QRCode Types...](slug://qrcode-qr-code-types)
 
 ## Methods
 
@@ -46,7 +46,7 @@ The QRCode methods are accessible through its reference.
 
 * `Refresh` - redraws the component.
 
-You can see the [example with the Barcode]({%slug barcode-overview%}#methods) and use the `Refresh()` method in the same way with QRCode.
+You can see the [example with the Barcode](slug://barcode-overview#methods) and use the `Refresh()` method in the same way with QRCode.
 
 ## Parameters
 
@@ -58,7 +58,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | `QRCodeEncoding` | `enum` | The encoding mode used to encode the value. |
 | `QRCodeErrorCorrection` | `enum` | The error correction level used to encode the value. |
 | `Value` | `string` | Defines the initial value of the QRCode. |
-| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article]({%slug common-features/dimensions%}). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
+| `Size` | `string` | Specifies the size (`Width` and `Height`) of a QR code in pixels (i.e. "200px") as the QRCode is a square. You can read more details for the dimension properties in the [Dimensions article](slug://common-features/dimensions). Setting both `Size` and `Width` and/or `Height` will throw an error. Setting different values to `Width` and `Height` will also cause an issue. |
 | `Width` | `string` | Sets the width of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Width` should be set to `Height`. |
 | `Height` | `string` | Sets the height of the QRCode. If `Height` is set and the `Size` property is not set, the same value as `Height` should be set to `Width`. |
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the QRCode component. |
@@ -88,11 +88,11 @@ The nested `QRCodeBorder` tag exposes parameters that enable you to customize th
 
 ## Next Steps
 
-[Explore the QRCode Encodings]({%slug qrcode-encoding%})
+[Explore the QRCode Encodings](slug://qrcode-encoding)
 
-[Explore the QRCode Types]({%slug qrcode-qr-code-types%})
+[Explore the QRCode Types](slug://qrcode-qr-code-types)
 
 ## See Also
 
 * [Live Demo: QRCode](https://demos.telerik.com/blazor-ui/qrcode/overview)
-* [Export QRCode to Image]({%slug qrcode-barcode-chart-kb-export-to-image%})
+* [Export QRCode to Image](slug://qrcode-barcode-chart-kb-export-to-image)

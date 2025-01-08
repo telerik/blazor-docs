@@ -72,4 +72,4 @@ For details on how the Menu keyboard navigation works, refer to the [Blazor Menu
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

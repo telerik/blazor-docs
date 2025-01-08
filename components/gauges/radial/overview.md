@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Radial Gauge Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">Telerik Radial Gauge for Blazor</a> represents numerical values on a [scale]({%slug radial-gauge-scale%}) of ranges in a radial format.
+The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">Telerik Radial Gauge for Blazor</a> represents numerical values on a [scale](slug://radial-gauge-scale) of ranges in a radial format.
 
 ## Creating Radial Gauge
 
@@ -35,19 +35,19 @@ The <a href = "https://www.telerik.com/blazor-ui/radial-gauge" target="_blank">T
 
 ## Scale
 
-The scale of the Radial Gauge renders the values of the [pointers]({%slug radial-gauge-pointers%}), the [labels]({%slug radial-gauge-labels%}), and different [ranges]({%slug radial-gauge-ranges%}). [See the Scale article for more information...]({%slug radial-gauge-scale%})
+The scale of the Radial Gauge renders the values of the [pointers](slug://radial-gauge-pointers), the [labels](slug://radial-gauge-labels), and different [ranges](slug://radial-gauge-ranges). [See the Scale article for more information...](slug://radial-gauge-scale)
 
 ## Pointers
 
-The distinct values on the scale of the Radial Gauge. [See the Pointers article for more information...]({%slug radial-gauge-pointers%})
+The distinct values on the scale of the Radial Gauge. [See the Pointers article for more information...](slug://radial-gauge-pointers)
 
 ## Ranges
 
-You can use the ranges to visually distinguish multiple pointers from the others on the scale. [See the Ranges article for more information...]({%slug radial-gauge-ranges%})
+You can use the ranges to visually distinguish multiple pointers from the others on the scale. [See the Ranges article for more information...](slug://radial-gauge-ranges)
 
 ## Labels
 
-The labels are rendered on the scale of the Radial Gauge to give information to the users about the value of the pointers. [See the Labels article for more information...]({%slug radial-gauge-labels%})
+The labels are rendered on the scale of the Radial Gauge to give information to the users about the value of the pointers. [See the Labels article for more information...](slug://radial-gauge-labels)
 
 ## Radial Gauge Parameters
 

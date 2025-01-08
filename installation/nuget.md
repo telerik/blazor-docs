@@ -10,7 +10,7 @@ position: 1
 
 # Telerik Private NuGet Source
 
-This article explains how to add the private Telerik NuGet package feed to your environment. You can use it to obtain the Telerik UI for Blazor components instead of [setting up a local NuGet feed]({%slug installation/zip%}#set-up-a-local-nuget-feed-in-visual-studio).
+This article explains how to add the private Telerik NuGet package feed to your environment. You can use it to obtain the Telerik UI for Blazor components instead of [setting up a local NuGet feed](slug://installation/zip#set-up-a-local-nuget-feed-in-visual-studio).
 
 The benefit of using an online NuGet source is that you will receive notifications for newer component versions.
 
@@ -24,9 +24,9 @@ You can set up the remote Telerik NuGet feed in the following ways:
 
 >warning Never hard-code Telerik account credentials or NuGet API keys in a `NuGet.Config` file in a GitHub repository, Docker image, or any location that may be accessed by unauthorized parties. A NuGet key is valuable and bad actors can use it to access the NuGet packages that are licensed under your account. A credentials abuse can lead to a review of the affected Telerik account.
 
-For NuGet-related issues, see [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}).
+For NuGet-related issues, see [NuGet Feed Troubleshooting](slug://troubleshooting-nuget).
 
-For information on automated builds, CI and CD, see [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}).
+For information on automated builds, CI and CD, see [CI, CD, Build Server](slug://deployment-ci-cd-build-pc).
 
 
 ## Use Visual Studio
@@ -43,7 +43,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
 
 1. Click OK.
 
-1. Open a project that references a Telerik NuGet package. For example, generate one through our [New Project Wizard]({%slug getting-started-vs-integration-new-project%}).
+1. Open a project that references a Telerik NuGet package. For example, generate one through our [New Project Wizard](slug://getting-started-vs-integration-new-project).
     * Make sure to remove local `NuGet.Config` files from the solution that contain information about Telerik packages. 
     
 1. Rebuild the solution.
@@ -52,7 +52,7 @@ Refer to the [Microsoft documentation about using packages in Visual Studio](htt
     * Check the Remember My Password checkbox.
     
 1. Your project should now build and restore all packages - including those from nuget.org and from Telerik.
-    * If you experience issues, see the [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%}) article.
+    * If you experience issues, see the [NuGet Feed Troubleshooting](slug://troubleshooting-nuget) article.
 
 
 ## Use the .NET CLI
@@ -131,16 +131,16 @@ To edit a `NuGet.Config` file and add the Telerik feed, you need to:
 There are two ways to authenticate with the Telerik NuGet server when you add the Telerik NuGet source [with the .NET CLI](#use-the-net-cli) or [edit the `NuGet.Config` file manually](#edit-the-nuget-config-file):
 
 * Use your Telerik account email as the username, and your Telerik password.
-* Use `api-key` as the username and your personal [NuGet API Key]({%slug deployment-nuget%}) as the password.
+* Use `api-key` as the username and your personal [NuGet API Key](slug://deployment-nuget) as the password.
 
-You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments]({%slug deployment-nuget%}).
+You can [generate your Telerik NuGet API Key on telerik.com](https://www.telerik.com/account/downloads/nuget-keys). Read more about [using NuGet API Keys in different environments](slug://deployment-nuget).
 
 > Always use the NuGet API Key in plain text.
 
 
 ## Package Source Mapping
 
-The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on `nuget.telerik.com`. On the other hand, the [Telerik icon packages]({%slug common-features-icons%}) reside on `nuget.org`. The correct [package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) configuration should be similar to:
+The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on `nuget.telerik.com`. On the other hand, the [Telerik icon packages](slug://common-features-icons) reside on `nuget.org`. The correct [package source mapping](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) configuration should be similar to:
 
 > Make sure that the `key` values in the `packageSourceMapping` section match the `key` values in the `packageSources` section, otherwise you will get a "Package not found" error.
 
@@ -196,7 +196,7 @@ In addition to feed URL `https://nuget.telerik.com/v3/index.json`, there is also
 
 ## Troubleshooting
 
-See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article for tips about common pitfalls when working with the Telerik NuGet feed.
+See the [NuGet Troubleshooting](slug://troubleshooting-nuget) article for tips about common pitfalls when working with the Telerik NuGet feed.
 
 
 ## Next Steps
@@ -211,5 +211,5 @@ See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}) article for tips
 
 ## See Also
 
-* [NuGet Feed Troubleshooting]({%slug troubleshooting-nuget%})
-* [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%})
+* [NuGet Feed Troubleshooting](slug://troubleshooting-nuget)
+* [CI, CD, Build Server](slug://deployment-ci-cd-build-pc)

@@ -27,7 +27,7 @@ I want to define readonly time slots in the Scheduler. The user should not be ab
 
 ## Solution
 
-You can implement custom validation method to check if an appointment is valid and handle the [Scheduler CRUD events]({%slug scheduler-appointments-edit%}) to update the data only if the appointment meets the desired criteria.
+You can implement custom validation method to check if an appointment is valid and handle the [Scheduler CRUD events](slug://scheduler-appointments-edit) to update the data only if the appointment meets the desired criteria.
 
 Additionally, you can include some custom CSS styles to visually mark the corresponding slots as readonly (for example, set a different background color).
 

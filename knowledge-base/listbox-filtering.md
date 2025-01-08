@@ -37,14 +37,14 @@ This KB article answers the following questions:
 ## Solution
 
 1. Implement a user interface that includes:
-    * A [`TextBox`]({%slug components/textbox/overview%}) for the search string;
+    * A [`TextBox`](slug://components/textbox/overview) for the search string;
     * (optional) A selection component (DropDownButton, DropDownList, ContextMenu, SplitButton) for the filter operator;
-    * (optional) A [Button]({%slug components/button/overview%}) to clear the TextBox `Value`.
-    * (optional) A Button to start the filtering. Alternatively, use the [`ValueChanged` or `OnChange` event of the TextBox]({%slug components/textbox/events%}).
+    * (optional) A [Button](slug://components/button/overview) to clear the TextBox `Value`.
+    * (optional) A Button to start the filtering. Alternatively, use the [`ValueChanged` or `OnChange` event of the TextBox](slug://components/textbox/events).
 1. Create a [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) and populate its `Filters` property with a single [`FilterDescriptor`](/blazor-ui/api/Telerik.DataSource.FilterDescriptor).
     * If you need more complex filtering logic, use one or more [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor).
-1. Execute the [`ToDataSourceResult()` extension method]({%slug common-features-data-binding-onread%}#todatasourceresult-method) on the ListBox data. You will need to import the [`Telerik.DataSource.Extensions` namespace](/blazor-ui/api/Telerik.DataSource.Extensions).
-1. (optional) Show a [Loader]({%slug loader-overview%}) or a [LoaderContainer]({%slug loadercontainer-overview%}) during the filtering process.
+1. Execute the [`ToDataSourceResult()` extension method](slug://common-features-data-binding-onread#todatasourceresult-method) on the ListBox data. You will need to import the [`Telerik.DataSource.Extensions` namespace](/blazor-ui/api/Telerik.DataSource.Extensions).
+1. (optional) Show a [Loader](slug://loader-overview) or a [LoaderContainer](slug://loadercontainer-overview) during the filtering process.
 
 >tip If the filtering operator is fixed (for example, `Contains`), you can replace steps 2 and 3 with a standard LINQ expression:
 >
@@ -228,6 +228,6 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [`ToDataSourceResult` Method]({%slug common-features-data-binding-onread%}#todatasourceresult-method)
+* [`ToDataSourceResult` Method](slug://common-features-data-binding-onread#todatasourceresult-method)
 * [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
-* [ListBox Overview]({%slug listbox-overview%})
+* [ListBox Overview](slug://listbox-overview)

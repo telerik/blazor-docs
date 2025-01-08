@@ -33,7 +33,7 @@ The standard approach in Blazor is to loop over a view model with the needed dat
 
 This also applies to other collections in other components, or for generating a given number of component instances.
 
-You may also find useful the [Data Binding article]({%slug components/chart/databind%}) on different ways to provide the data to the series and the chart.
+You may also find useful the [Data Binding article](slug://components/chart/databind) on different ways to provide the data to the series and the chart.
 
 
 Here is a simple example:

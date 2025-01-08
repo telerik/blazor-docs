@@ -20,7 +20,7 @@ The Grid component supports row and cell selection. When you select a row or a c
 
 ## Enable Row or Cell Selection
 
-You can configure the Grid either for row or cell selection. See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details and examples.
+You can configure the Grid either for row or cell selection. See [Rows Selection Basics](slug://grid-selection-row#basics) and [Cells Selection Basics](slug://grid-selection-cell#basics) for more details and examples.
 
 ## Use Single or Multiple Selection
 
@@ -39,23 +39,23 @@ The Grid exposes two parameters to get or set its selected rows and cells.
 
 Both parameters support two-way binding. You can also use the parameters to pre-select rows or cells for your users.
 
-See [Rows Selection Basics]({%slug grid-selection-row%}#basics) and [Cells Selection Basics]({%slug grid-selection-cell%}#basics) for more details.
+See [Rows Selection Basics](slug://grid-selection-row#basics) and [Cells Selection Basics](slug://grid-selection-cell#basics) for more details.
 
 ## Events
 
 You can respond to the user action of selecting a new item through the Grid events:
 
-* Use the [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) to respond to row selection.
-* Use the [`SelectedCellsChanged` event]({%slug grid-selection-cell%}#selectedcellschanged-event) to respond to cell selection.
+* Use the [`SelectedItemsChanged` event](slug://grid-selection-row#selecteditemschanged-event) to respond to row selection.
+* Use the [`SelectedCellsChanged` event](slug://grid-selection-cell#selectedcellschanged-event) to respond to cell selection.
 
 ## Integration with Other Grid Features
 
 The selection feature behavior may differ when the Grid configuration includes row or cell selection and other Grid features. In these situations, certain limitations might arise, or additional adjustments may be required.
 
-See [Rows Selection and Other Grid Features]({%slug grid-selection-row%}#row-selection-and-other-grid-features) and [Cells Selection and Other Grid Features]({%slug grid-selection-cell%}#cell-selection-and-other-grid-features) for more details.
+See [Rows Selection and Other Grid Features](slug://grid-selection-row#row-selection-and-other-grid-features) and [Cells Selection and Other Grid Features](slug://grid-selection-cell#cell-selection-and-other-grid-features) for more details.
 
 ## See Also
 
 * [Live Demo: Grid Row Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
 * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)

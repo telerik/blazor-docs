@@ -25,7 +25,7 @@ Bugs in UI for Blazor components are fixed depending on the priority set by the 
 
 Bug fixes are then implemented in the product by the Development team and later introduced in the first [official product release](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
 
-To get a bug fix, you have to [upgrade]({%slug upgrade-tutorial%}) your project to the same release as the release that contains the fix, or later.
+To get a bug fix, you have to [upgrade](slug://upgrade-tutorial) your project to the same release as the release that contains the fix, or later.
 
 If a workaround for an earlier version is technically feasible, you may be provided with such in the ticketing system. However, Progress Software Corporation cannot guarantee that bug fixes in earlier versions will be available and cannot give warranty for any workarounds that are provided.
 
@@ -46,4 +46,4 @@ For earlier versions, you can get suggestions on how to implement certain scenar
 ## See Also
 
 * [License Agreement](https://www.telerik.com/purchase/license-agreement/blazor-ui)
-* [Framework Versions Support]({%slug framework-versions-support%})
+* [Framework Versions Support](slug://framework-versions-support)

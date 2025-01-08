@@ -12,7 +12,7 @@ position: 4
 
 This article explains how the grid column width behaves depending on the settings applied by the developer.
 
-You can set the grid column `Width` parameter in any CSS unit, such as `px`, `%`, `vw`, `em`, `rem`. You can read more on how to set sizes in Telerik components in the [Dimensions]({%slug common-features/dimensions%}) article. You must, however, provide the unit so that the browser can understand it.
+You can set the grid column `Width` parameter in any CSS unit, such as `px`, `%`, `vw`, `em`, `rem`. You can read more on how to set sizes in Telerik components in the [Dimensions](slug://common-features/dimensions) article. You must, however, provide the unit so that the browser can understand it.
 
 With regard to the widths of its columns, the scrollable (default) Grid typically behaves as any regular HTML table with a `table-layout: fixed` and `width: 100%`.
 
@@ -26,9 +26,9 @@ With regard to the widths of its columns, the scrollable (default) Grid typicall
 
 * When no column widths are set, the available width is distributed evenly between all Grid columns.
 
-* To allow the users to auto-fit the column widths to the content, enable [column resizing]({%slug components/grid/columns/resize%}) - a double click on the border between the headers will have the grid adjust the column width according to the size of the data, headers and footers content. It is also possible to [auto-fit columns programmatically]({%slug components/grid/columns/resize%}#autofit-columns).
+* To allow the users to auto-fit the column widths to the content, enable [column resizing](slug://components/grid/columns/resize) - a double click on the border between the headers will have the grid adjust the column width according to the size of the data, headers and footers content. It is also possible to [auto-fit columns programmatically](slug://components/grid/columns/resize#autofit-columns).
 
 # See Also
 
-* [Column Resizing]({%slug components/grid/columns/resize%})
-* [Blazor Grid]({%slug grid-overview%})
+* [Column Resizing](slug://components/grid/columns/resize)
+* [Blazor Grid](slug://grid-overview)

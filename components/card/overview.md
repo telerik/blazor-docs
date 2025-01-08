@@ -11,16 +11,16 @@ position: 0
 
 # Blazor Card Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/card" target="_blank">Card for Blazor</a> is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogs, dashboards, blogs, e-shops, etc. It has dedicated areas for its [building blocks]({%slug card-building-blocks%}) and that provides various ways of component usage.
+The <a href = "https://www.telerik.com/blazor-ui/card" target="_blank">Card for Blazor</a> is a component that combines text, visual content and actions about a single subject. It quickly grabs the user’s attention with its clean layout, consisting of a title, usually an image, some text as the body and perhaps a footer. You can use it to easily organize content when building catalogs, dashboards, blogs, e-shops, etc. It has dedicated areas for its [building blocks](slug://card-building-blocks) and that provides various ways of component usage.
 
 
 ## Creating Card
 
 1. Use the `TelerikCard` tag to add the component to your razor page.
 
-1. Add the desired Building Blocks - explore the available elements in the [Card Building Blocks]({%slug card-building-blocks%}) article.
+1. Add the desired Building Blocks - explore the available elements in the [Card Building Blocks](slug://card-building-blocks) article.
 
-1. (Optional) Configure the Card settings such as ThemeColor, [Orientation]({%slug card-orientation%}).
+1. (Optional) Configure the Card settings such as ThemeColor, [Orientation](slug://card-orientation).
 
 The below snippet demonstrates the setup of a Card component with all building blocks implemented. You don't have to use them all.
 
@@ -63,20 +63,20 @@ The Card provides various parameters that allow you to configure the component:
 | Parameter   | Type | Description |
 | ----------- | ----------- | -------|
 | `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Card.
-| `ChildContent` | `RenderFragment` | Defines the child content of the component. All possible [Card Building Blocks]({%slug card-building-blocks%}) can be directly used as a `ChildContent` of the Card.
+| `ChildContent` | `RenderFragment` | Defines the child content of the component. All possible [Card Building Blocks](slug://card-building-blocks) can be directly used as a `ChildContent` of the Card.
 | `Height` | `string` | Defines the height of the component.
-| `Orientation` | `CardOrientation` | Defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article]({%slug card-orientation%}).
+| `Orientation` | `CardOrientation` | Defines the orientation of the card. Takes a member of the `Telerik.Blazor.CardOrientation` enum (`Horizontal` or `Vertical`). Read more in the [Card Orientation article](slug://card-orientation).
 | `ThemeColor` | `string` | Defines the appearance of the component. We support predefined theme colors such as primary, secondary, tertiary, success, info, warning, error, dark, light, and inverse (members of the `Telerik.Blazor.ThemeConstants.Card` class). Test changing the Card theme colors in our [live demo](https://demos.telerik.com/blazor-ui/card/appearance).
 | `Width` | `string` | Defines the width of the component.
 
 
->tip To make multiple Cards occupy the same **height** automatically, use the predefined [Deck or Group layouts]({%slug card-layouts%}). If the Cards should wrap to multiple rows, use the custom [Tile layout](https://demos.telerik.com/blazor-ui/card/data-cards). It is also possible to set a specific height to Cards with a CSS rule.
+>tip To make multiple Cards occupy the same **height** automatically, use the predefined [Deck or Group layouts](slug://card-layouts). If the Cards should wrap to multiple rows, use the custom [Tile layout](https://demos.telerik.com/blazor-ui/card/data-cards). It is also possible to set a specific height to Cards with a CSS rule.
 
 
 ## Next Steps
 
-* [Card Building Blocks]({%slug card-building-blocks%})
-* [Card Actions]({%slug card-actions%})
+* [Card Building Blocks](slug://card-building-blocks)
+* [Card Actions](slug://card-actions)
 
 ## See Also
 

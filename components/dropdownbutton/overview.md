@@ -50,21 +50,21 @@ The <a href = "https://www.telerik.com/blazor-ui/dropdownbutton" target="_blank"
 
 ## Icons
 
-The primary DropDownButton action and each secondary item in the dropdown can [display an icon or an image]({%slug dropdownbutton-icons%}) for better looks and user experience.
+The primary DropDownButton action and each secondary item in the dropdown can [display an icon or an image](slug://dropdownbutton-icons) for better looks and user experience.
 
 ## Appearance
 
-The DropDownButton provides a [variety of settings to control its visual appearance]({%slug dropdownbutton-appearance%}), for example, the colors, borders, and size. This spares the need to use custom CSS code.
+The DropDownButton provides a [variety of settings to control its visual appearance](slug://dropdownbutton-appearance), for example, the colors, borders, and size. This spares the need to use custom CSS code.
 
 >tip To learn more about the appearance, anatomy, and accessibility of the DropDownButton, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/dropdownbutton/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Events
 
-Each DropDownButton action [fires a separate `OnClick` event]({%slug dropdownbutton-events%}) so that the application can react to user behavior.
+Each DropDownButton action [fires a separate `OnClick` event](slug://dropdownbutton-events) so that the application can react to user behavior.
 
 ## DropDownButton Parameters
 
-The following table lists the DropDownButton parameters, except those related to [built-in styling]({%slug dropdownbutton-appearance%}) and [icons]({%slug dropdownbutton-icons%}). Also check the [DropDownButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton) for a full list of properties, methods, and events.
+The following table lists the DropDownButton parameters, except those related to [built-in styling](slug://dropdownbutton-appearance) and [icons](slug://dropdownbutton-icons). Also check the [DropDownButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton) for a full list of properties, methods, and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -73,7 +73,7 @@ The following table lists the DropDownButton parameters, except those related to
 | `AriaDescribedBy` | `string` | Sets the `aria-describedby` attribute of the primary button element `<button class="k-button">`.
 | `AriaLabel` | `string` | Sets the `aria-label` attribute of the primary button element `<button class="k-button">`. |
 | `AriaLabelledBy` | `string` | Sets the `aria-labelledby` attribute of the primary button element `<button class="k-button">`.
-| `Class` | `string` | Renders a custom CSS class to the main component element `<div class="k-dropdown-button">`. Use it to [override the theme styles]({%slug themes-override%}) and achieve a specific appearance if none of the [DropDownButton appearance settings]({%slug dropdownbutton-appearance%}) can do this. |
+| `Class` | `string` | Renders a custom CSS class to the main component element `<div class="k-dropdown-button">`. Use it to [override the theme styles](slug://themes-override) and achieve a specific appearance if none of the [DropDownButton appearance settings](slug://dropdownbutton-appearance) can do this. |
 | `Enabled` | `bool`<br />(`true`) | Defines whether the primary button is enabled. |
 | `Id` | `string` | Sets the `id` attribute of the primary button element `<button class="k-button">`. |
 | `ShowArrowButton` | `bool` | Sets the visibility of the Arrow button that displays the popup of the component. |
@@ -118,13 +118,13 @@ The DropDownButton provides the following popup settings:
 | `MaxWidth` | `string` | The maximum width of the popup. |
 | `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 
-The parameters that modify the popup dimensions (`Height`, `Width`, `MaxWidth`, etc.) expect [valid CSS values]({%slug common-features/dimensions%}). 
+The parameters that modify the popup dimensions (`Height`, `Width`, `MaxWidth`, etc.) expect [valid CSS values](slug://common-features/dimensions). 
 
 The `MinHeight` and `MaxHeight` have no effect if the `Height` is always within their range. The min and max values are useful only when the dropdown height is set to a relative unit or changes at runtime.
 
 ### Item Settings
 
-The following table lists the `DropDownButtonItem` parameters, except those related to [icons]({%slug dropdownbutton-icons%}).
+The following table lists the `DropDownButtonItem` parameters, except those related to [icons](slug://dropdownbutton-icons).
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -134,7 +134,7 @@ The following table lists the `DropDownButtonItem` parameters, except those rela
 
 ## DropDownButton Reference and Methods
 
-The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load]({%slug inputs-kb-focus%}#focus-on-page-load).
+The DropDownButton exposes a `FocusAsync` method that allows you to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Consider the Blazor life cycle if you want to [focus the component on page load](slug://inputs-kb-focus#focus-on-page-load).
 
 >caption Get a reference to the DropDownButton and execute methods
 
@@ -166,9 +166,9 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 
 ## Next Steps
 
-* [Add DropDownButton Icons]({%slug dropdownbutton-icons%})
-* [Handle DropDownButton Events]({%slug dropdownbutton-events%})
-* [Configure the DropDownButton appearance]({%slug dropdownbutton-appearance%})
+* [Add DropDownButton Icons](slug://dropdownbutton-icons)
+* [Handle DropDownButton Events](slug://dropdownbutton-events)
+* [Configure the DropDownButton appearance](slug://dropdownbutton-appearance)
 
 
 ## See Also

@@ -10,7 +10,7 @@ position: 15
 
 # Context Menu Icons
 
-You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the ContextMenu items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons](slug://common-features-icons) to the ContextMenu items. The component also supports custom icons.
 
 To use ContextMenu item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the ContextMenu.
 
@@ -92,4 +92,4 @@ If the icon property name in the ContextMenu model is `Icon`, there is no need t
 ## See Also
 
 * [Online Demo: Context Menu Icons](https://demos.telerik.com/blazor-ui/contextmenu/icons)
-* [Context Menu Overview]({%slug contextmenu-overview%})
+* [Context Menu Overview](slug://contextmenu-overview)

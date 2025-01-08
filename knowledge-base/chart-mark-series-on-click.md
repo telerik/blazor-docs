@@ -23,7 +23,7 @@ res_type: kb
 
 ## Description
 
-I would like to mark a Chart Series [on click]({%slug chart-events%}#onseriesclick) by changing the color and opacity or to separate the clicked item from the rest.
+I would like to mark a Chart Series [on click](slug://chart-events#onseriesclick) by changing the color and opacity or to separate the clicked item from the rest.
 
 
 ## Solution

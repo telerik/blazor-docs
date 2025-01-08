@@ -14,7 +14,7 @@ The treelist lets you freeze one or more columns. This will allow the user to sc
 
 To enable the column freezing, set the `Locked` parameter of the column to `true`.
 
-If the column you want to freeze is not the first in the list, the treelist must be scrollable. This requires that there are enough columns with their `Width` set so that the treelist has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the treelist). You can read more about the scrolling behavior of the treelist in the [TreeList Column Width Behavior]({%slug treelist-columns-width%}) article.
+If the column you want to freeze is not the first in the list, the treelist must be scrollable. This requires that there are enough columns with their `Width` set so that the treelist has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the treelist). You can read more about the scrolling behavior of the treelist in the [TreeList Column Width Behavior](slug://treelist-columns-width) article.
 
 >caption Frozen columns in the beginning, middle and at the end of the treelist
 

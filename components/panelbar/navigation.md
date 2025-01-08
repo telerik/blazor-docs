@@ -10,7 +10,7 @@ position: 5
 
 # PanelBar for Navigation
 
-The PanelBar can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding]({%slug panelbar-data-binding-overview%}).
+The PanelBar can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding](slug://panelbar-data-binding-overview).
 
 To use the PanelBar for navigating between pages:
 
@@ -104,5 +104,5 @@ To use the PanelBar for navigating between pages:
 
 ## See Also
 
-* [PanelBar Overview]({%slug panelbar-overview%})
-* [PanelBar Data Binding]({%slug panelbar-data-binding-overview%})
+* [PanelBar Overview](slug://panelbar-overview)
+* [PanelBar Data Binding](slug://panelbar-data-binding-overview)

@@ -14,9 +14,9 @@ You can enable built-in dialogs in Grid to provide an extra step for the end-use
 
 The Grid component can use built-in dialogs for: 
 
-* [delete confirmation]({%slug grid-delete-confirmation%}) - displays a confirmation dialog when the user clicks the "**delete**" command button.
+* [delete confirmation](slug://grid-delete-confirmation) - displays a confirmation dialog when the user clicks the "**delete**" command button.
 
-The default texts of the dialogs are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
+The default texts of the dialogs are exposed in the [localization](slug://globalization-localization) messages of the component, and you can customize them.
 
 ## See Also
 
@@ -25,6 +25,6 @@ The default texts of the dialogs are exposed in the [localization]({%slug global
 * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
 * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
 * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
-* [How to show a Cancel Confirmation Dialog]({%slug grid-kb-show-confirm-cancel-dialog%})
-* [Blazor Grid]({%slug grid-overview%})
+* [How to show a Cancel Confirmation Dialog](slug://grid-kb-show-confirm-cancel-dialog)
+* [Blazor Grid](slug://grid-overview)
 

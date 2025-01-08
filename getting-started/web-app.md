@@ -52,13 +52,13 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to your `App.razor` file as a [static asset]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files).
+1\. Add the `telerik-blazor.js` file to your `App.razor` file as a [static asset](slug://getting-started/what-you-need#css-theme-and-javascript-files).
 
 **HTML**
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset]({%slug themes-overview%}#using-a-theme) in your `App.razor` file.
+2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset](slug://themes-overview#using-a-theme) in your `App.razor` file.
 
 **HTML**
 
@@ -66,7 +66,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 4.2. Include @using Statements
 
-Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you [installed the Telerik NuGet package in **Step 3**](#step-3-install-the-telerik-ui-for-blazor-components). This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use]({%slug common-features-icons%}).
+Add the `@using` directives below in the `~/_Imports.razor` file in all projects in which you [installed the Telerik NuGet package in **Step 3**](#step-3-install-the-telerik-ui-for-blazor-components). This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you use](slug://common-features-icons).
 
 ````RAZOR.skip-repl _Imports.razor
 @using Telerik.Blazor
@@ -77,11 +77,11 @@ Add the `@using` directives below in the `~/_Imports.razor` file in all projects
 
 ### 4.3. Add the TelerikRootComponent
 
-Use a single [`TelerikRootComponent`]({%slug rootcomponent-overview%}) component as a top-level component in the app.
+Use a single [`TelerikRootComponent`](slug://rootcomponent-overview) component as a top-level component in the app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-> The `TelerikRootComponent` requires an [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). Layout components are interactive only in applications with **Global** Interactivity location. This section 4.3 applies only to apps with **Global** interactivity. If your app is using **Per page/component** interactivity, then check [Using TelerikRootComponent in apps with per component interactivity]({%slug rootcomponent-percomponent%}) instead.
+> The `TelerikRootComponent` requires an [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). Layout components are interactive only in applications with **Global** Interactivity location. This section 4.3 applies only to apps with **Global** interactivity. If your app is using **Per page/component** interactivity, then check [Using TelerikRootComponent in apps with per component interactivity](slug://rootcomponent-percomponent) instead.
 
 ### 4.4. Register the Telerik Blazor Service
 
@@ -104,8 +104,8 @@ The final step in this tutorial is to use a Telerik UI for Blazor component in a
 
 ## See Also
 
-* [Workflow Details for Telerik UI for Blazor]({%slug getting-started/what-you-need%})
-* [Using Blazor Sections inside Telerik Components]({%slug common-kb-net8-sections%})
+* [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)
+* [Using Blazor Sections inside Telerik Components](slug://common-kb-net8-sections)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
-* [First Steps with Blazor Server]({%slug getting-started/server-side%})
-* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})
+* [First Steps with Blazor Server](slug://getting-started/server-side)
+* [First Steps with Blazor WebAssembly](slug://getting-started/client-side)

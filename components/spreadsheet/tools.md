@@ -83,7 +83,7 @@ The Spreadsheet uses Telerik Blazor components to create its built-in tool sets 
 
 The example below shows how to:
 
-* Get the **File** and **Home** tool set items. The built-in tool set items are distinguishable by their index or `Title`. The title can change in localized applications, so you may need to use the [`ITelerikStringLocalizer` service]({%slug globalization-localization%}) to search for the localized `Title` string.
+* Get the **File** and **Home** tool set items. The built-in tool set items are distinguishable by their index or `Title`. The title can change in localized applications, so you may need to use the [`ITelerikStringLocalizer` service](slug://globalization-localization) to search for the localized `Title` string.
 * Change the label of the **File** tool set item.
 * Obtain reference to a few built-in tools inside the **Home** tool set item. You can find tools by their type or order index. Using order index is not future-proof, as the built-in tool sets can change.
 * Set the `Data` property of the **Font Family** and **Font Size** tools to change the available drop down options.
@@ -243,7 +243,7 @@ Here is how to define a custom tool set from scratch. You can also [set the avai
 The `SpreadsheetCustomTool` type has a `Template` property that is a `RenderFragment`. Generally, custom tools can do one of the following:
 
 * Perform actions that relate to the Spreadsheet component, loaded Excel document, or app business logic.
-* Modify the Excel document programmatically with the help of [RadSpreadProcessing]({%slug dpl-in-blazor%}).
+* Modify the Excel document programmatically with the help of [RadSpreadProcessing](slug://dpl-in-blazor).
 
 >caption Creating custom Spreadsheet tools
 

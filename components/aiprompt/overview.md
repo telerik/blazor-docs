@@ -64,22 +64,22 @@ The component allows you to interact with the output from the AI and execute a s
 
 ## ToolBar
 
-The AIPrompt includes a toolbar with built-in buttons that activate the view they are related to. The component also exposes the option to add custom tools, which may be associated with arbitrary handlers. [Read more about the AIPrompt's ToolBar...]({%slug aiprompt-toolbar%})
+The AIPrompt includes a toolbar with built-in buttons that activate the view they are related to. The component also exposes the option to add custom tools, which may be associated with arbitrary handlers. [Read more about the AIPrompt's ToolBar...](slug://aiprompt-toolbar)
 
 
 ## Views
 
-The AIPrompt component offers the Prompt, Output, and Commands views that relate to the current state of the prompt-response lifecycle. You can also customize the component through custom views. [Read more about the AIPrompt views...]({%slug aiprompt-views-overview%}) 
+The AIPrompt component offers the Prompt, Output, and Commands views that relate to the current state of the prompt-response lifecycle. You can also customize the component through custom views. [Read more about the AIPrompt views...](slug://aiprompt-views-overview) 
 
 
 ## Templates
 
-The AIPrompt component provides templates that enable developers to customize the rendering and appearance of the component. [Read more about the AIPrompt templates...]({%slug aiprompt-templates%})
+The AIPrompt component provides templates that enable developers to customize the rendering and appearance of the component. [Read more about the AIPrompt templates...](slug://aiprompt-templates)
 
 
 ## Events
 
-The various AIPrompt events allow you to implement custom functionality and handle user interactions with the component's ToolBar. [Read more about the AIPrompt events...]({%slug aiprompt-events%}) 
+The various AIPrompt events allow you to implement custom functionality and handle user interactions with the component's ToolBar. [Read more about the AIPrompt events...](slug://aiprompt-events) 
 
 
 ## AIPrompt Parameters
@@ -98,9 +98,9 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
 | `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
 | `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme]({%slug themes-override%}). |
-| `Height` | `string` | The `height` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default AIPrompt dimensions depend on the CSS theme. |
-| `Width` | `string` | The `width` style of the component in any [supported CSS unit]({%slug common-features/dimensions%}). The default AIPrompt dimensions depend on the CSS theme. |
+| `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme](slug://themes-override). |
+| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
+| `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
 
 ## AIPrompt Reference and Methods
 
@@ -147,12 +147,12 @@ The AIPrompt exposes methods for programmatic operation. To use them, define a r
 
 ## Next Steps
 
-* [Configure the AIPrompt ToolBar]({%slug aiprompt-toolbar%})
-* [Customize the AIPrompt Views]({%slug aiprompt-views-overview%})
-* [Make the AIPrompt Your Own through Custom Commands]({%slug aiprompt-views-commands%})
-* [Implement AIPrompt Views Templates]({%slug aiprompt-views-templates%})
-* [Implement AIPrompt Templates]({%slug aiprompt-templates%})
-* [Handle the AIPrompt Events]({%slug aiprompt-events%})
+* [Configure the AIPrompt ToolBar](slug://aiprompt-toolbar)
+* [Customize the AIPrompt Views](slug://aiprompt-views-overview)
+* [Make the AIPrompt Your Own through Custom Commands](slug://aiprompt-views-commands)
+* [Implement AIPrompt Views Templates](slug://aiprompt-views-templates)
+* [Implement AIPrompt Templates](slug://aiprompt-templates)
+* [Handle the AIPrompt Events](slug://aiprompt-events)
 
 ## See Also
 

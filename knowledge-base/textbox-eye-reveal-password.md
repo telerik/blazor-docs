@@ -31,10 +31,10 @@ This KB answers the following questions:
 
 ## Solution
 
-1. Add a [Button]({%slug components/button/overview%}) or a [ToggleButton]({%slug togglebutton-overview%}) with the desired [icon]({%slug button-icons%}) next to the TextBox or inside the [TextBox `SuffixTemplate`]({%slug common-features/input-adornments%}).
-1. Use the [Button's `OnClick` event handler]({%slug button-events%}) to toggle the [TextBox `Password` parameter]({%slug components/textbox/overview%}#textbox-parameters) value.
-1. (optional) Instead of Button `OnClick`, use `@onmousedown` and `@onmouseup` Blazor events on a generic HTML element to toggle the TextBox `Password` parameter. This approach allows using events with Telerik components that do not expose them, for example, a [Telerik SVG icon or a font icon]({%slug common-features-icons%}).
-1. To use the TextBox with a reveal button inside a [Telerik Form, use a `FormItem` `Template`]({%slug form-formitems-template%}).
+1. Add a [Button](slug://components/button/overview) or a [ToggleButton](slug://togglebutton-overview) with the desired [icon](slug://button-icons) next to the TextBox or inside the [TextBox `SuffixTemplate`](slug://common-features/input-adornments).
+1. Use the [Button's `OnClick` event handler](slug://button-events) to toggle the [TextBox `Password` parameter](slug://components/textbox/overview#textbox-parameters) value.
+1. (optional) Instead of Button `OnClick`, use `@onmousedown` and `@onmouseup` Blazor events on a generic HTML element to toggle the TextBox `Password` parameter. This approach allows using events with Telerik components that do not expose them, for example, a [Telerik SVG icon or a font icon](slug://common-features-icons).
+1. To use the TextBox with a reveal button inside a [Telerik Form, use a `FormItem` `Template`](slug://form-formitems-template).
 
 >caption Add an eye icon to reveal a password
 
@@ -79,5 +79,5 @@ This KB answers the following questions:
 
 ## See Also
 
-* [Input Adornments]({%slug common-features/input-adornments%})
-* [Form Item Templates]({%slug form-formitems-template%})
+* [Input Adornments](slug://common-features/input-adornments)
+* [Form Item Templates](slug://form-formitems-template)

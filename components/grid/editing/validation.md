@@ -10,7 +10,7 @@ position: 40
 
 # Grid Validation
 
-The Telerik UI for Blazor Grid supports built-in validation that is enabled by default. The Grid passes an `EditContext` as a cascading value to the editable cells. When you use [inline]({%slug components/grid/editing/inline%}) or [incell]({%slug components/grid/editing/incell%}) editing, if any validation messages are present, the Grid will render them as [Validation Tooltips]({%slug validation-tools-tooltip%}) on hover of the edited input. 
+The Telerik UI for Blazor Grid supports built-in validation that is enabled by default. The Grid passes an `EditContext` as a cascading value to the editable cells. When you use [inline](slug://components/grid/editing/inline) or [incell](slug://components/grid/editing/incell) editing, if any validation messages are present, the Grid will render them as [Validation Tooltips](slug://validation-tools-tooltip) on hover of the edited input. 
 
 #### In this Article:
 
@@ -319,6 +319,6 @@ You can validate the Grid with any validator that uses the `EditContext`. To cha
 
 ## See Also
 
-* [Grid Editing]({%slug components/grid/editing/overview%})
-* [Custom Grid `DataAnnotations` Validation]({%slug validation-kb-custom-dataannotations-validator%})
-* [Blazor Grid]({%slug grid-overview%})
+* [Grid Editing](slug://components/grid/editing/overview)
+* [Custom Grid `DataAnnotations` Validation](slug://validation-kb-custom-dataannotations-validator)
+* [Blazor Grid](slug://grid-overview)

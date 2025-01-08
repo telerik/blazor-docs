@@ -52,7 +52,7 @@ The `OnRowContextMenu` event fires when the user:
 * Right-clicks or taps-and-holds a data row;
 * Hits the context menu keyboard button while the row has focus. This scenario requires enabled keyboard navigation (`Navigable="true"`).
 
-Use `OnRowContextMenu` to [integrate the Context menu]({%slug contextmenu-integration%}#context-menu-for-a-grid-row) with the table rows.
+Use `OnRowContextMenu` to [integrate the Context menu](slug://contextmenu-integration#context-menu-for-a-grid-row) with the table rows.
 
 #end
 

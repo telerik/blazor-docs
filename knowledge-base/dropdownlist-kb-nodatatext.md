@@ -33,7 +33,7 @@ The default `min-height` of the `.k-nodata` class is `140px`. The default `heigh
 
 ## Solution
 
-You need to change the default minimum height of the popup element. The DropDownList [popup setting `Class`]({%slug components/dropdownlist/overview%}#popup-settings) lets you define a CSS class. The defined rules from the CSS will change the appearance and properties of the popup element. With the CSS rule `min-height: auto` the popup element's height is flexible and adjusts dynamically based on its content.
+You need to change the default minimum height of the popup element. The DropDownList [popup setting `Class`](slug://components/dropdownlist/overview#popup-settings) lets you define a CSS class. The defined rules from the CSS will change the appearance and properties of the popup element. With the CSS rule `min-height: auto` the popup element's height is flexible and adjusts dynamically based on its content.
 
 >caption Use a Class to set the min-height of the .k-nodata class to auto.
 
@@ -129,4 +129,4 @@ You need to change the default minimum height of the popup element. The DropDown
 
 ## See Also
 
-[Override Theme Styles]({%slug themes-override%})
+[Override Theme Styles](slug://themes-override)

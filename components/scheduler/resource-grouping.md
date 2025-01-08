@@ -543,4 +543,4 @@ public class Appointment
 ## See Also
 
 * [Live Demo: Scheduler Grouping](https://demos.telerik.com/blazor-ui/scheduler/grouping)
-* [Scheduler Overview]({%slug scheduler-overview%})
+* [Scheduler Overview](slug://scheduler-overview)

@@ -15,7 +15,7 @@ The ListView component is all about your templates - it does not have an item re
 * [Template](#template) - mandatory, this is what is used to display all items
 * [Edit Template](#edit-template) - the rendering of an item in edit or insert mode
 * [Header Template](#header-template) - your own content above the list of items
-* [Footer Template](#footer-template) - your own content after the list of items and before the [pager]({%slug listview-paging%})
+* [Footer Template](#footer-template) - your own content after the list of items and before the [pager](slug://listview-paging)
 
 ## Template
 
@@ -57,7 +57,7 @@ This is the main building block of the listview component. You define the layout
 
 ## Edit Template
 
-This is the template that an item in edit or insert mode renders, instead of its item template. You can use it to add inputs or other editors so the user can modify the data. You can read more about editing data and see examples of using this template in the [ListView Editing]({%slug listview-editing%}) article.
+This is the template that an item in edit or insert mode renders, instead of its item template. You can use it to add inputs or other editors so the user can modify the data. You can read more about editing data and see examples of using this template in the [ListView Editing](slug://listview-editing) article.
 
 @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
@@ -102,7 +102,7 @@ https://docs.telerik.com/blazor-ui/components/listview/editing
 
 ## Header Template
 
-This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source]({%slug listview-manual-operations%}#filter-and-sort), or [edit data]({%slug listview-editing%})).
+This piece of code renders just above the items, but within the main listview wrapper. You would commonly use it to show a heading or other description of the data. You can also add buttons or other components that will invoke actions (such as [filter or sort the data source](slug://listview-manual-operations#filter-and-sort), or [edit data](slug://listview-editing)).
 
 >caption Header Template in the ListView
 
@@ -140,7 +140,7 @@ This piece of code renders just above the items, but within the main listview wr
 
 ## Footer Template
 
-This piece of code renders just below the items, but within the main listview wrapper, and before the [pager]({%slug listview-paging%}). You would commonly use it to show a summary of the data or add components to invoke commands or business logic.
+This piece of code renders just below the items, but within the main listview wrapper, and before the [pager](slug://listview-paging). You would commonly use it to show a summary of the data or add components to invoke commands or business logic.
 
 >caption Footer Template in the ListView
 

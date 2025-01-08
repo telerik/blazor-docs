@@ -12,11 +12,11 @@ position: 30
 
 The AIPrompt component provides the `PromptSuggestionItemTemplate` that allows you to change the appearance of the prompt suggestions made by the component.
 
->tip The AIPrompt component also implements [View templates]({%slug aiprompt-templates%}) that control the rendering of the Prompt, Output, and Command views.
+>tip The AIPrompt component also implements [View templates](slug://aiprompt-templates) that control the rendering of the Prompt, Output, and Command views.
 
 The Prompt view of the AIPrompt renders any suggestions passed to the `PromptSuggestions` parameter in the form of elevated bubbles within a collapsible section. The `PromptSuggestionItemTemplate` allows you to control the rendering of individual suggestions.
 
->note By default, clicking on a suggestion will populate the prompt's input with the suggestion's value and also trigger a `PromptTextChanged` event. If you use the `PromptSuggestionItemTemplate`, you should also handle [any event]({%slug aiprompt-events%}) you deem necessary (such as `onclick`).
+>note By default, clicking on a suggestion will populate the prompt's input with the suggestion's value and also trigger a `PromptTextChanged` event. If you use the `PromptSuggestionItemTemplate`, you should also handle [any event](slug://aiprompt-events) you deem necessary (such as `onclick`).
 
 >caption Using the `PromptSuggestionItemTemplate` to alter the appearance of the suggestions
 
@@ -71,4 +71,4 @@ The Prompt view of the AIPrompt renders any suggestions passed to the `PromptSug
 
 ## See Also
 
-* [Views Templates]({%slug aiprompt-views-templates%})
+* [Views Templates](slug://aiprompt-views-templates)

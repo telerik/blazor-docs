@@ -2,7 +2,7 @@
 | Parameter    | Type  | Description |
 | ----------- | ----------- | -------|
 | `Class` | `string` | the CSS class that will be rendered on the main wrapping element of the slider.
-|`Width` | `stirng` | the width of the main element. In case you would like it to fit to a container you could set it to `100%` or other percent value depending on the application needs. You can read more in the [Dimensions]({%slug common-features/dimensions%}) article.
+|`Width` | `stirng` | the width of the main element. In case you would like it to fit to a container you could set it to `100%` or other percent value depending on the application needs. You can read more in the [Dimensions](slug://common-features/dimensions) article.
 #end
 
 #large-step

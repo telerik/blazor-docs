@@ -12,11 +12,11 @@ position: 4
 
 Since version 2.27, the TreeList supports binding to a collection of multiple model types that implement the same interface.
 
-Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the example below. The event handler sets the model type to be used for new items in the TreeList. One-type model creation is supported out-of-the-box. If you need to support adding instances of different types:
+Note the usage of [`OnModelInit`](slug://treelist-events#onmodelinit) in the example below. The event handler sets the model type to be used for new items in the TreeList. One-type model creation is supported out-of-the-box. If you need to support adding instances of different types:
 
-* Use custom **Add** buttons in the [TreeList Toolbar]({%slug treelist-toolbar%}), one for each model type.
-* In each button click handler, define an `InsertedItem` of the correct type in the [TreeList State]({%slug treelist-state%}).
-* [Put the TreeList in Insert mode]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) with the [SetStateAsync method]({%slug treelist-state%}#methods).
+* Use custom **Add** buttons in the [TreeList Toolbar](slug://treelist-toolbar), one for each model type.
+* In each button click handler, define an `InsertedItem` of the correct type in the [TreeList State](slug://treelist-state).
+* [Put the TreeList in Insert mode](slug://treelist-state#initiate-editing-or-inserting-of-an-item) with the [SetStateAsync method](slug://treelist-state#methods).
 
 >caption Data Binding the TreeList to an Interface
 
@@ -121,9 +121,9 @@ Note the usage of [`OnModelInit`]({%slug treelist-events%}#onmodelinit) in the e
 
 ## See Also
 
-  * [Binding to Flat Data]({%slug treelist-data-binding-flat-data%})
-  * [Binding to Hierarchical Data]({%slug treelist-data-binding-hierarchical-data%})
-  * [Load on Demand]({%slug treelist-data-binding-load-on-demand%})
+  * [Binding to Flat Data](slug://treelist-data-binding-flat-data)
+  * [Binding to Hierarchical Data](slug://treelist-data-binding-hierarchical-data)
+  * [Load on Demand](slug://treelist-data-binding-load-on-demand)
   * [Live Demo: TreeList Flat Data](https://demos.telerik.com/blazor-ui/treelist/binding-flat-data)
   * [Live Demo: TreeList Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/binding-hierarchical-data)
   * [Live Demo: TreeList Load on Demand](https://demos.telerik.com/blazor-ui/treelist/load-on-demand)

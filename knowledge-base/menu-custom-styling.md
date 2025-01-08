@@ -115,5 +115,5 @@ To customize the appearance of the Menu items:
 
 ## See Also
 
-- [Telerik Blazor Menu - Overview]({%slug components/menu/overview%})
-- [Telerik Blazor Styling and Themes - Override Theme Styles]({%slug themes-override%})
+- [Telerik Blazor Menu - Overview](slug://components/menu/overview)
+- [Telerik Blazor Styling and Themes - Override Theme Styles](slug://themes-override)

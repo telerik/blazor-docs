@@ -80,6 +80,6 @@ General suggestions on the Internet are to handle events like `mouseover` or `mo
 
 ## See Also
 
-* [Chrome autofills the Form and the floating label overlaps the values]({%slug form-chrome-autofill%})
+* [Chrome autofills the Form and the floating label overlaps the values](slug://form-chrome-autofill)
 
-* [Empty TextBox value on Chrome autofill]({%slug textbox-kb-empty-value-on-autofill%})
+* [Empty TextBox value on Chrome autofill](slug://textbox-kb-empty-value-on-autofill)

@@ -49,7 +49,7 @@ The Telerik Blazor components use built-in icons with the help of two NuGet pack
 * `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** icons
 * `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in **SVG** icons
 
->tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available on the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`]({%slug installation/nuget%}#package-source-mapping).
+>tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available on the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`](slug://installation/nuget#package-source-mapping).
 
 ### Icon Namespaces
 
@@ -172,7 +172,7 @@ Our font icons are designed on a 16px grid base. For better display quality, use
 
 ### Render Font Icons with HTML
 
-Telerik UI for Blazor shares the same [themes]({%slug themes-overview%}) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
+Telerik UI for Blazor shares the same [themes](slug://themes-overview) with several other Telerik and Kendo UI web component suites. All these products use the same font icons.
 
 You can use the built-in font icons directly with HTML tags, without the `<TelerikFontIcon>` component. Such direct HTML usage may provide more flexibility, but if you don't really need it, we recommend using `FontIcon` objects and the `<TelerikFontIcon>` component instead.
 
@@ -293,7 +293,7 @@ The `ISvgIcon` interface members are:
 
 It is possible to configure the icon type for the whole application:
 
-1. Locate the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
+1. Locate the [`<TelerikRootComponent>`](slug://rootcomponent-overview) tag in the Blazor app. Normally, it's in a layout file such as `MainLayout.razor` or `TelerikLayout.razor`.
 2. Set the RootComponent `IconType` parameter to an [`IconType` enum](/blazor-ui/api/telerik.blazor.icontype) value (`Svg` or `Font`). The default icon type is `Svg`.
 
 >caption Define global icon type via TelerikRootComponent
@@ -334,7 +334,7 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 
 * [In the `SvgIcon` component](#use-custom-svg-icon-collection).
 * [In the `FontIcon` component](#fonticon-component).
-* In [Buttons]({%slug button-icons%}), [Menu items]({%slug menu-icons%}), [Drawer items]({%slug drawer-icons%}) and other [navigation components]({%slug blazor-overview%}#list-of-components).
+* In [Buttons](slug://button-icons), [Menu items](slug://menu-icons), [Drawer items](slug://drawer-icons) and other [navigation components](slug://blazor-overview#list-of-components).
 
 [Using custom icons for the automatically rendered icons is not supported yet](https://feedback.telerik.com/blazor/1641361-ability-to-change-the-built-in-icons). For example, the sort and filter icons in the Grid header cells, or the open arrow in the DropDownList.
 
@@ -343,4 +343,4 @@ Telerik UI for Blazor supports using custom (third-party) icons:
 
 * <a href="https://www.telerik.com/design-system/docs/foundation/iconography/icon-list/" target="_blank">Built-in Icon List</a>
 * [Blazor Live Demos](https://demos.telerik.com/blazor-ui)
-* [CSS Themes]({%slug themes-overview%})
+* [CSS Themes](slug://themes-overview)

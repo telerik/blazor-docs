@@ -43,7 +43,7 @@ This knowledge base article answers the following questions:
 
 ## Solution
 
-Use [custom CSS to override the component theme]({%slug themes-override%}) and hide the days from next and previous months in the Calendar month view. There are two options:
+Use [custom CSS to override the component theme](slug://themes-override) and hide the days from next and previous months in the Calendar month view. There are two options:
 
 * Apply a custom CSS class and target specific Calendar components.
 * Use Telerik CSS classes and target all Calendar components.

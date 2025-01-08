@@ -10,7 +10,7 @@ position: 25
 
 # Form Groups
 
-You can group some associated fields in your form (model) by using the [FormItems]({%slug form-formitems%}). and putting them inside `FormGroup` tags.
+You can group some associated fields in your form (model) by using the [FormItems](slug://form-formitems). and putting them inside `FormGroup` tags.
 
 In this article:
 
@@ -82,10 +82,10 @@ You can organize some FormItems into logical groups. You can configure the label
 
 ## See Also
 
-  * [Overview]({%slug form-overview%})
-  * [FormItems]({%slug form-formitems%})
-  * [Template]({%slug form-formitems-template%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
+  * [Overview](slug://form-overview)
+  * [FormItems](slug://form-formitems)
+  * [Template](slug://form-formitems-template)
+  * [Orientation](slug://form-orientation)
+  * [Events](slug://form-events)
    
    

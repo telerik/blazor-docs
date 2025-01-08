@@ -74,4 +74,4 @@ For details on how the Chart keyboard navigation works, refer to the [Blazor Cha
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

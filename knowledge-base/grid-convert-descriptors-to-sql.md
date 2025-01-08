@@ -22,12 +22,12 @@ ticketid: 1666625, 1653361
 
 ## Description
 
-When using the Grid [`OnRead` event]({%slug grid-events%}#read-event) to execute SQL queries, I need to convert the Grid's filter and sort descriptors into SQL query statements. This way I can create SQL clauses for filtering and ordering items directly through SQL.
+When using the Grid [`OnRead` event](slug://grid-events#read-event) to execute SQL queries, I need to convert the Grid's filter and sort descriptors into SQL query statements. This way I can create SQL clauses for filtering and ordering items directly through SQL.
 
 This KB article also answers the following questions:
 - How can I convert Grid filters and sorters to SQL `WHERE` and `ORDER BY` clauses?
 - Is there a way to parse Grid filter and sort descriptors into SQL queries?
-- Can I use [`DataSourceRequest`]({%slug common-features-data-binding-onread%}#event-argument) to generate SQL query statements for filtering and sorting?
+- Can I use [`DataSourceRequest`](slug://common-features-data-binding-onread#event-argument) to generate SQL query statements for filtering and sorting?
 
 ## Solution
 
@@ -189,6 +189,6 @@ Below is a simplified example demonstrating how to parse filter and sort descrip
 
 ## See Also
 
-- [OnRead Event Documentation]({%slug grid-events%}#read-event)
+- [OnRead Event Documentation](slug://grid-events#read-event)
 - [Forum Post on Using DataSourceRequest in SQL Query](https://www.telerik.com/forums/can-datasourcerequest-be-used-in-sql-query-to-add-where-and-order-by-clauses)
-- [Get Information From the DataSourceRequest]({%slug components/grid/manual-operations%}#get-information-from-the-datasourcerequest)
+- [Get Information From the DataSourceRequest](slug://components/grid/manual-operations#get-information-from-the-datasourcerequest)

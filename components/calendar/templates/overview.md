@@ -14,15 +14,15 @@ You can customize the calendar appearance through the various templates it provi
 
 The Calendar component provides templates for: 
 
-* [Month Cell]({%slug calendar-templates-month%}) - the rendering of each cell in the Month view.
+* [Month Cell](slug://calendar-templates-month) - the rendering of each cell in the Month view.
 
-* [Year Cell]({%slug calendar-templates-year%}) - the rendering of each cell in the Year view.
+* [Year Cell](slug://calendar-templates-year) - the rendering of each cell in the Year view.
 
-* [Decade Cell]({%slug calendar-templates-decade%}) - the rendering of each cell in the Decade view.
+* [Decade Cell](slug://calendar-templates-decade) - the rendering of each cell in the Decade view.
 
-* [Century Cell]({%slug calendar-templates-century%}) - the rendering of each cell in the Century view.
+* [Century Cell](slug://calendar-templates-century) - the rendering of each cell in the Century view.
 
-* [Header Template]({%slug calendar-templates-header%}) - the header segment of the Calendar.
+* [Header Template](slug://calendar-templates-header) - the header segment of the Calendar.
 
 ## See Also
 

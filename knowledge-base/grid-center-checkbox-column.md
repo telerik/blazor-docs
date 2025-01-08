@@ -50,7 +50,7 @@ There are a few alternative ways to center the checkboxes in the GridCheckboxCol
     </style>
     ````
 
-* Use the `OnCellRender` event of the [Grid]({%slug grid-column-events%}) or [TreeList]({%slug treelist-column-events%}) to render a custom CSS class for the checkbox column table cells. Then, apply a `text-align:center` style for this class. You will need [CSS specificity](https://css-tricks.com/specifics-on-css-specificity/), which is higher than **0, 0, 1, 1** (one class and one element).
+* Use the `OnCellRender` event of the [Grid](slug://grid-column-events) or [TreeList](slug://treelist-column-events) to render a custom CSS class for the checkbox column table cells. Then, apply a `text-align:center` style for this class. You will need [CSS specificity](https://css-tricks.com/specifics-on-css-specificity/), which is higher than **0, 0, 1, 1** (one class and one element).
 
     ````RAZOR
     <GridCheckboxColumn
