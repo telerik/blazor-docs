@@ -57,7 +57,7 @@ There are four built-in commands:
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
 
 <div class="skip-repl"></div>
-```razor
+````RAZOR
 <TreeListCommandColumn>
     @{
         var product = context as ProductModel;
@@ -71,7 +71,7 @@ The command column provides access to the data item via `context`. This may be u
         }
     }
 </TreeListCommandColumn>
-```
+````
 
 ### OnClick Handler
 
@@ -88,7 +88,7 @@ The `OnClick` handler of the commands receives an argument of type `TreeListComm
 
 ## Example
 
->caption Example of handling custom commands in a treelist
+>caption Example of handling custom commands in a TreeList
 
 ````RAZOR
 @* This sample showcases custom command handling for:
