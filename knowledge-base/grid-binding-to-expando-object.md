@@ -185,7 +185,7 @@ The key points in the required implementation are:
 
 ## Notes
 
-The following list contains information about requirements and limitations when binding the Grid to `ExpandoObject`. They are related to using nullable data, editing, filtering, grouping, and nested model properties.
+The following list contains information about requirements and limitations when binding the Grid to `ExpandoObject`. They are related to using nullable data, editing, filtering, grouping, and nested model properties. A [complete example](#example) is available later in the article.
 
 ### Editing
 
