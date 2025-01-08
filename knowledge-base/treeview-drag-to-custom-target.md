@@ -29,7 +29,7 @@ I have a TreeView that allows dragging and reordering items inside the component
 
 To allow dragging outside the TreeView and dropping on a custom target, follow these steps:
 
-1. Handle the [`OnDragStart`]({%slug treeview-events%}#drag-events) event of the TreeView to get the item that the user started dragging.
+1. Handle the [`OnDragStart`](slug://treeview-events#drag-events) event of the TreeView to get the item that the user started dragging.
 1. Handle the [`@onpointerup`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerup_event) event of your custom target to add the TreeView inside as needed. Based on product specifics, the TreeView internally does not use draggable events, it uses pointer events to handle the dragging. Therefore, `@ondrop` of your custom target will not fire when dragging a TreeView item in it as the component expects a subsequent pointer event. Use the `@onpointerup` instead of `@ondrop`.
 1. Change the icon in the drag clue when the user drags over the custom target to indicate it is an allowed target. Once the [Drag Clue Template](https://feedback.telerik.com/blazor/1501043-drag-clue-template) is available, you may use it to change the rendering as needed. At the time of writing, changing the icon is only possible with CSS. For that purpose:
    1. Handle [`@onpointerenter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerenter_event) and [`@onpointerout`](https://developer.mozilla.org/en-US/docs/Web/API/Element/pointerout_event) events of the custom target to detect when the user drags the item over it.

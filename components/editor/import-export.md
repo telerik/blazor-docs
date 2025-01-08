@@ -9,7 +9,7 @@ position: 100
 
 # Editor Import and Export
 
-The [Telerik Document Processing tools]({%slug dpl-in-blazor%}) that come with your Blazor license let you import and export the HTML string for the Editor component.
+The [Telerik Document Processing tools](slug://dpl-in-blazor) that come with your Blazor license let you import and export the HTML string for the Editor component.
 
 You can easily import from formats such as `docx`, `rtf`, `txt`, `html` and export to them and to `pdf`.
 
@@ -19,4 +19,4 @@ Allowing the application to decide how to import and export the content makes th
 
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
+  * [Editor Overview](slug://editor-overview)

@@ -11,7 +11,7 @@ position: 20
 
 # Editor Toolbar
 
-The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools]({%slug editor-custom-tools%}) you can define.
+The toolbar of the editor is where it command buttons reside and they let the end user apply various formatting and styling - from bold and italic words, to creating lists, tables, inserting images or [custom tools](slug://editor-custom-tools) you can define.
 
 ![The Editor Toolbar](images/editor-toolbar-overview.png)
 
@@ -56,7 +56,7 @@ The following example shows how to use the `All` toolset.
 
 ### Predefined Toolset Configurations
 
-The following code snippets show the built-in toolset configurations in `EditorToolSets`. See the [Built-in Editor Tools]({%slug editor-built-in-tools%}) article for more information on each tool.
+The following code snippets show the built-in toolset configurations in `EditorToolSets`. See the [Built-in Editor Tools](slug://editor-built-in-tools) article for more information on each tool.
 
 <div class="skip-repl"></div>
 
@@ -95,13 +95,13 @@ public static List<IEditorTool> All = new List<IEditorTool>()
 
 ## Choose Toolbar Items
 
-To define your own customized collection of tools, you use the `Tools` parameter of the Editor component and populate it with the commands you want available. They can include [custom tools]({%slug editor-custom-tools%}).
+To define your own customized collection of tools, you use the `Tools` parameter of the Editor component and populate it with the commands you want available. They can include [custom tools](slug://editor-custom-tools).
 
 The `Tools` collection is a `List<IEditorTool>`.
 
 Editor tools can be individual buttons (such as Undo, Bold), dropdowns (such as Format or FontSize), and button groups that hold several buttons. 
 
-To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table]({%slug editor-built-in-tools%}#built-in-tools-and-commands). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
+To add a button, add a `new <Command>()` where `Command` is the name of the tool from [this table](slug://editor-built-in-tools#built-in-tools-and-commands). The VS Intellisense can also show you the classes in the `Telerik.Blazor.Components.Editor.` namespace.
 
 To define a button group, add a `new EditorButtonGroup(comma-separated collection of button commands)`.
 
@@ -292,4 +292,4 @@ When adding a built-in tool to the collection, you can set various parameters to
 
 ## See Also
 
-* [Editor Overview]({%slug editor-overview%})
+* [Editor Overview](slug://editor-overview)

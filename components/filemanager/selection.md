@@ -14,7 +14,7 @@ The FileManager lets the user select one or multiple files and folders in its ma
 
 To get or set the selected items, use the `SelectedItems` parameter. It is a collection of items from the FileManager's `Data`.
 
-The `SelectedItems` parameter supports two-way binding (`@bind-SelectedItems`) and one-way binding together with the [`SelectedItemsChanged`]({%slug filemanager-events%}#selecteditemschanged) event.
+The `SelectedItems` parameter supports two-way binding (`@bind-SelectedItems`) and one-way binding together with the [`SelectedItemsChanged`](slug://filemanager-events#selecteditemschanged) event.
 
 See examples of both approaches:
 * [Two-way binding of the SelectedItems](#two-way-binding-of-the-selecteditems)
@@ -232,7 +232,7 @@ When using two-way binding, the selected items will be automatically updated in 
 
 ## One-Way Binding of the SelectedItems
 
-You can use one-way binding of the `SelectedItems` in combination with handling the [`SelectedItemsChanged` event]({%slug filemanager-events%}#selecteditemschanged) when you need to respond to the user action of selecting a file/folder.
+You can use one-way binding of the `SelectedItems` in combination with handling the [`SelectedItemsChanged` event](slug://filemanager-events#selecteditemschanged) when you need to respond to the user action of selecting a file/folder.
 
 In this case, you need to manually update the view-model as the framework does not do that automatically when using one-way binding.
 

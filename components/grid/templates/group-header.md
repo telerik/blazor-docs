@@ -11,7 +11,7 @@ position: 30
 
 # Group Header
 
-When the grid is grouped, the top row above the group provides information about the current group value by default. You can use this template to add custom content there in addition to the current value. For more information and examples, see the [Aggregates]({%slug grid-aggregates%}) article.
+When the grid is grouped, the top row above the group provides information about the current group value by default. You can use this template to add custom content there in addition to the current value. For more information and examples, see the [Aggregates](slug://grid-aggregates) article.
 
 >caption Sample Group Header Template
 
@@ -87,5 +87,5 @@ When the grid is grouped, the top row above the group provides information about
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
- * [Blazor Grid]({%slug grid-overview%})
+ * [Blazor Grid](slug://grid-overview)
 

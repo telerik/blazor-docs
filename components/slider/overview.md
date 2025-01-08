@@ -60,7 +60,7 @@ The Slider is a generic component that takes the type of the `Value` which can b
 
 ## Steps
 
-The Slider works with small and large steps and they are both required. Read more for their configuration and explore examples in the [Steps article]({%slug slider-steps%}).
+The Slider works with small and large steps and they are both required. Read more for their configuration and explore examples in the [Steps article](slug://slider-steps).
 
 ## Ticks Position
 
@@ -72,11 +72,11 @@ You can customize the default horizontal orientation of the Slider through its `
 
 ## Decimals
 
-This setting helps avoid [round-off errors](https://en.wikipedia.org/wiki/Round-off_error) when calculating steps (see more about this type of errors [here](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems)). Explore the [Decimals article]({%slug rangeslider-decimals%}) for details on how to configure this option.
+This setting helps avoid [round-off errors](https://en.wikipedia.org/wiki/Round-off_error) when calculating steps (see more about this type of errors [here](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems)). Explore the [Decimals article](slug://rangeslider-decimals) for details on how to configure this option.
 
 ## Validation
 
-You can validate Slider value using the built-in validation. See the [Input Validation]({%slug common-features/input-validation%}) article for more details.
+You can validate Slider value using the built-in validation. See the [Input Validation](slug://common-features/input-validation) article for more details.
 
 ## Parameters
 
@@ -89,10 +89,10 @@ The Slider provides various parameters that allow you to configure the component
 | `Decimals` | `int` | The number precision for the steps.
 | `Enabled` | `bool` | Sets if the component accepts user interaction.
 | `LabelTemplate` | `RenderFragment<TValue>` | A container for custom labels for the major ticks.
-| `LargeStep` | `TValue` | The numeric interval between the large ticks. Read more in [Slider Steps]({%slug slider-steps%}).
+| `LargeStep` | `TValue` | The numeric interval between the large ticks. Read more in [Slider Steps](slug://slider-steps).
 | `Max` | `TValue` | The maximum value of the Slider. Required.
 | `Min` | `TValue` | The minimum value on the Slider. Required and must be less than `Max`.
-| `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks, but such a value can only be set programmatically. Read more in [Slider Steps]({%slug slider-steps%}).
+| `SmallStep` | `TValue` | The numeric interval between all selectable Slider values. The parameter also defines where small ticks appear on the track. The Slider `Value` may be between two small ticks, but such a value can only be set programmatically. Read more in [Slider Steps](slug://slider-steps).
 | `Orientation` | `SliderOrientation` <br/> (`Horizontal`) | Defines whether the Slider is horizontal or vertical.
 | `TickPosition` | `SliderTickPosition` <br/> (`Both`) | Sets which side of the Slider shows ticks.
 | `ShowButtons` | `bool` <br /> (`true`) | Sets if the Slider renders buttons to increase and decrease the `Value`.
@@ -107,11 +107,11 @@ The following parameters enable you to customize the appearance of the Blazor Sl
 
 ## Next Steps
 
-* [Slider Steps]({%slug slider-steps%})
+* [Slider Steps](slug://slider-steps)
 
 ## See Also
 
 * [Live Demo: Slider](https://demos.telerik.com/blazor-ui/slider/overview)
 * [Live Demo: Slider Settings](https://demos.telerik.com/blazor-ui/slider/customization)
-* [Slider Events]({%slug slider-events%})
+* [Slider Events](slug://slider-events)
 

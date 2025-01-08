@@ -10,7 +10,7 @@ position: 20
 
 # TreeList Toolbar Searchbox
 
-In addition to [TreeList filtering]({%slug treelist-filtering%}), you can also add a `SearchBox` in the [TreeList Toolbar]({%slug treelist-toolbar%}). The search box can filter in multiple TreeList columns at he same time.
+In addition to [TreeList filtering](slug://treelist-filtering), you can also add a `SearchBox` in the [TreeList Toolbar](slug://treelist-toolbar). The search box can filter in multiple TreeList columns at he same time.
 
 >caption In this Article:
 
@@ -25,7 +25,7 @@ The SearchBox lets the user type their query and the TreeList will look up all v
 
 The SearchBox is independent from the TreeList filtering. If the TreeList has applied filters, the SearchBox will respect them and add additional filtering criteria. Thus, you can also apply filtering to search results.
 
-To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToolBarTemplate>`]({%slug treelist-toolbar%}).
+To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToolBarTemplate>`](slug://treelist-toolbar).
 
 >caption TreeList SearchBox
 
@@ -74,7 +74,7 @@ To enable the SearchBox, add the `<TreeListSearchBox>` tag in the [`<TreeListToo
 
 ## Search From Code
 
-You can set or remove the search filters programmatically through the `SearchFilter` property of the [TreeList state]({%slug treelist-state%}).
+You can set or remove the search filters programmatically through the `SearchFilter` property of the [TreeList state](slug://treelist-state).
 
 >caption Set and clear the TreeList SearchBox filter programmatically
 
@@ -192,8 +192,8 @@ The `TreeListSearchBox` component offers the following parameters to customize i
 | --- | --- | --- |
 | `Class` | `string`| The custom CSS class that renders on the SearchBox wrapper (`<span class="k-searchbox">`). |
 | `DebounceDelay` | `int` <br /> (`300`) | The time in milliseconds between the user typing ends and the search starts. Filtering does not occur on every keystroke during fast typing, unless `DebounceDelay` is set to `0`. |
-| `Fields` | `List<string>` | The collection of model properties to search in. By default, the TreeList searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the TreeList]({%slug grid-kb-search-in-hidden-fields%}). |
-| `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized]({%slug globalization-localization%}). |
+| `Fields` | `List<string>` | The collection of model properties to search in. By default, the TreeList searches in all visible columns that are bound to `string` fields. You can only define a subset of those fields. It is also possible to programmatically [search in `string` fields, which are not displayed in the TreeList](slug://grid-kb-search-in-hidden-fields). |
+| `Placeholder` | `string` <br /> (`"Search..."`) | The textbox placeholder that hints the user what the SearchBox does. The built-in default value is [localized](slug://globalization-localization). |
 | `Width` | `string` | Specifies the width of the SearchBox component. |
 
 The example below demonstrates all SearchBox settings in action, and also how to move the SearchBox on the opposite side of the TreeList toolbar.
@@ -258,8 +258,8 @@ The example below demonstrates all SearchBox settings in action, and also how to
 ## See Also
 
 * [Live Demo: TreeList SearchBox](https://demos.telerik.com/blazor-ui/treelist/searchbox)
-* [Format or Bold Search Results in the TreeList]({%slug grid-kb-search-highlight-results%})
-* [Search the TreeList in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
-* [Search the TreeList with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
-* [Search the TreeList on Button Click]({%slug grid-kb-search-button-click%})
-* [Treelist Filtering Overview]({%slug treelist-filtering%})
+* [Format or Bold Search Results in the TreeList](slug://grid-kb-search-highlight-results)
+* [Search the TreeList in Numeric and Date Model Fields](slug://grid-kb-search-numeric-fields)
+* [Search the TreeList with a `StartsWith` operator](slug://grid-kb-search-startswith)
+* [Search the TreeList on Button Click](slug://grid-kb-search-button-click)
+* [Treelist Filtering Overview](slug://treelist-filtering)

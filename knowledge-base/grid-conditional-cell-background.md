@@ -36,13 +36,13 @@ There are several approaches you can take depending on the goals and situation t
 * [Row Template](#row-template) - change the entire contents of the row
 * [CSS Only Approach](#css-only-approach) - override built-in CSS rules with your own without conditions or custom themes
 
->note These approaches, including the [OnCellRender]({%slug treelist-column-events%}) and [OnRowRender]({%slug treelist-events%}) events, are applicable for the TreeList as well.
+>note These approaches, including the [OnCellRender](slug://treelist-column-events) and [OnRowRender](slug://treelist-events) events, are applicable for the TreeList as well.
 
 ### OnCellRender and OnRowRender Events
 
-To customize the formatting of the cells you can use the [OnCellRender]({%slug grid-column-events%}#oncellrender) event, exposed for the Grid Column.
+To customize the formatting of the cells you can use the [OnCellRender](slug://grid-column-events#oncellrender) event, exposed for the Grid Column.
 
-To customize the formatting of the entire row, use the [OnRowRender]({%slug grid-events%}#onrowrender) event for the Grid.
+To customize the formatting of the entire row, use the [OnRowRender](slug://grid-events#onrowrender) event for the Grid.
 
 These events provide you with the data item and cell value, and let you set a custom class to the corresponding element, so you can cascade the needed CSS rules through it.
 
@@ -52,7 +52,7 @@ These events provide you with the data item and cell value, and let you set a cu
 
 ### Cell Template
 
-You can use a particular column's [cell template]({%slug grid-templates-column%}) to render conditional markup inside its cell. In this case you will need some CSS to make your element take up the entire size of the cell so the default padding from the grid does not leave some of the original background visible. 
+You can use a particular column's [cell template](slug://grid-templates-column) to render conditional markup inside its cell. In this case you will need some CSS to make your element take up the entire size of the cell so the default padding from the grid does not leave some of the original background visible. 
 >caption Cell Template and CSS to change the background of particular cells conditionally
 
 ````RAZOR
@@ -116,7 +116,7 @@ You can use a particular column's [cell template]({%slug grid-templates-column%}
 
 ### Row Template
 
-You can fully control the row rendering through a [row template]({%slug grid-templates-row%}) and apply the classes or inline rules you require to individual cells, or to all cells. Review the requirements and limitations of the row templates and if they suit you needs.
+You can fully control the row rendering through a [row template](slug://grid-templates-row) and apply the classes or inline rules you require to individual cells, or to all cells. Review the requirements and limitations of the row templates and if they suit you needs.
 
 >caption Use a row template to style individual cells or the entire row conditionally
 

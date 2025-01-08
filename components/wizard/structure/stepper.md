@@ -10,7 +10,7 @@ position: 0
 
 # Wizard Stepper
 
-One of the main elements of the Wizard component is the Stepper. The Wizard component utilizes the [Telerik UI for Blazor Stepper]({%slug stepper-overview%}) internally.
+One of the main elements of the Wizard component is the Stepper. The Wizard component utilizes the [Telerik UI for Blazor Stepper](slug://stepper-overview) internally.
 
 You can use the parameters the `WizardStep` exposes to customize the following properties of the internal stepper:
 
@@ -33,7 +33,7 @@ You can set the desired general settings of the internal Stepper through the par
 
 ## StepType
 
-Much like the Stepper component, the internal Stepper of the Wizard provides two [display modes]({%slug stepper-display-modes%}) for the steps. You can configure the desired display mode through the `StepType` parameter of the `WizardStepperSettings` which takes a member of the `StepperStepType` enum:
+Much like the Stepper component, the internal Stepper of the Wizard provides two [display modes](slug://stepper-display-modes) for the steps. You can configure the desired display mode through the `StepType` parameter of the `WizardStepperSettings` which takes a member of the `StepperStepType` enum:
 
 * `Steps` (default) - the Stepper will render both indicators and labels
 * `Labels` - the Stepper will render only labels
@@ -70,7 +70,7 @@ Much like the Stepper component, the internal Stepper of the Wizard provides two
 
 ## Linear flow
 
-The `Linear` flow property of the internal Stepper matches the functionality of the [Stepper component Linear flow]({%slug stepper-linear-flow%}). It allows you to configure it, so that completion of the previous step is required before proceeding to the next step. The user will be able to go one step at a time (back or forth).
+The `Linear` flow property of the internal Stepper matches the functionality of the [Stepper component Linear flow](slug://stepper-linear-flow). It allows you to configure it, so that completion of the previous step is required before proceeding to the next step. The user will be able to go one step at a time (back or forth).
 
 You can enable/disable the Linear flow of the Wizard Stepper through the `Linear` parameter of the `WizardStepperSettings`. It takes a `bool` and its default value is `true`.
 
@@ -116,9 +116,9 @@ You can enable/disable the Linear flow of the Wizard Stepper through the `Linear
 You can configure the content that will be rendered in the step indicators of the internal Stepper through the following parameters the `WizardStep` exposes:
 
 * `Text` - `string` - Specifies the step indicator text
-* `Icon` - `object` - Specifies the [Telerik Font or SVG icon]({%slug common-features-icons%}) which will be put inside the step indicator.
+* `Icon` - `object` - Specifies the [Telerik Font or SVG icon](slug://common-features-icons) which will be put inside the step indicator.
 
-The priority and rules applied for their rendering is the same as for the [Stepper component indicators]({%slug stepper-indicators%}).
+The priority and rules applied for their rendering is the same as for the [Stepper component indicators](slug://stepper-indicators).
 
 >caption Set up the desired content for the Wizard Stepper indicators.
 
@@ -150,7 +150,7 @@ The priority and rules applied for their rendering is the same as for the [Stepp
 
 ### Labels
 
-The Wizard Stepper allows you to set labels for the corresponding step indicators following the [Stepper component Labels]({%slug stepper-labels%}) practice. You can define the desired labels through the `Label` parameter the `WizardStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the corresponding step indicator.
+The Wizard Stepper allows you to set labels for the corresponding step indicators following the [Stepper component Labels](slug://stepper-labels) practice. You can define the desired labels through the `Label` parameter the `WizardStep` exposes. If you don't set value to the `Label` parameter, no label will be rendered for the corresponding step indicator.
 
 >caption Set up the desired labels for the Wizard Stepper steps.
 
@@ -182,7 +182,7 @@ The Wizard Stepper allows you to set labels for the corresponding step indicator
 
 ### Optional
 
-Likewise the [Stepper component Optional property]({%slug stepper-state%}#optional), the Wizard Stepper also supports that.
+Likewise the [Stepper component Optional property](slug://stepper-state#optional), the Wizard Stepper also supports that.
 
 To mark a Wizard step as optional, set the `Optional` parameter of the `WizardStep` to `true` (its default value is `false`). This configuration strives to visually notify the user that a certain step is not required by rendering "(Optional)" text underneath the corresponding step. It doesn't come with a built-in functionality to skip the Wizard step if a [linear flow](#linear-flow) is enabled.
 
@@ -222,7 +222,7 @@ To mark a Wizard step as optional, set the `Optional` parameter of the `WizardSt
 
 ### Disabled
 
-The Wizard Stepper also allows you to mark a step as disabled following the functionality if the [Stepper component `Disabled` property]({%slug stepper-state%}#disabled).
+The Wizard Stepper also allows you to mark a step as disabled following the functionality if the [Stepper component `Disabled` property](slug://stepper-state#disabled).
 
 You can disable a step by setting the `Disabled` parameter of the the desired `WizardStep` to `true` (its default value is `false`). You can also toggle its value to conditionally enable/disable the Wizard steps based on your application logic.
 
@@ -279,7 +279,7 @@ Respectively, if the previous step is disabled, the Previous button will be disa
 
 ### Valid
 
-Likewise the [Stepper component validation feature]({%slug stepper-steps-validation%}), the Wizard Stepper also provides an option to set validation logic for each step.
+Likewise the [Stepper component validation feature](slug://stepper-steps-validation), the Wizard Stepper also provides an option to set validation logic for each step.
 
 You can set a visual indication whether a step is valid or not through the `Valid` parameter of the `WizardStep`. It accepts `bool?` and its default value is `null`.
 

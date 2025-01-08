@@ -170,7 +170,7 @@ The color of the Avatar is controlled through the `ThemeColor` parameter. You ca
 
 ## Next Steps
 
-* [Explore the Avatar types]({%slug avatar-types%})
+* [Explore the Avatar types](slug://avatar-types)
 
 ## See Also
 

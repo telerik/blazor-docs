@@ -12,7 +12,7 @@ position: 45
 
 The grid provides a toolbar where you can add a variety of actions that are not tied to a concrete row.
 
-To use a toolbar, define the `GridToolBarTemplate` tag of the grid. In it, you can use arbitrary HTML and components to get the desired layout, and also `GridCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug components/grid/columns/command%}) article).
+To use a toolbar, define the `GridToolBarTemplate` tag of the grid. In it, you can use arbitrary HTML and components to get the desired layout, and also `GridCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
 
 >note The toolbar is not associated with an item from the data source. The `Item` field on the click event handler argument of a `GridCommandButton` will always be `null` and the `Edit`, `Update`, `Cancel` commands do not work with it.
 
@@ -27,11 +27,11 @@ In this article, you will learn how to use:
 
 The grid offers built-in commands that you can invoke through its toolbar. To use them, set the `Command` property of the button to the command name. The built-in command names are:
 
-* `Add` - starts [inserting a new item in the grid]({%slug components/grid/editing/overview%}).
+* `Add` - starts [inserting a new item in the grid](slug://components/grid/editing/overview).
 
-* `ExcelExport` - starts an [Excel export of the grid data]({%slug grid-export-excel%}).
+* `ExcelExport` - starts an [Excel export of the grid data](slug://grid-export-excel).
 
-* `CsvExport` - starts an [CSV export of the grid data]({%slug grid-export-csv%}).
+* `CsvExport` - starts an [CSV export of the grid data](slug://grid-export-csv).
 
 
 >caption How to insert a new item in the grid
@@ -288,4 +288,4 @@ You can add your own HTML and components to create a more complex layout in the 
 ## See Also
 
   * [Live Demo: Grid Toolbar](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Blazor Grid](slug://grid-overview)

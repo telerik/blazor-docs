@@ -73,4 +73,4 @@ For details on how the Filter keyboard navigation works, refer to the [Blazor Fi
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

@@ -25,11 +25,11 @@ res_type: kb
 
 How to skip one or more Wizard steps, based on the results of another step?
 
-The [Wizard flow is set to linear]({%slug wizard-structure-stepper%}#linear-flow), so I can't disable steps, but I need to skip an unneeded step programmatically, based on a custom condition in a previous step.
+The [Wizard flow is set to linear](slug://wizard-structure-stepper#linear-flow), so I can't disable steps, but I need to skip an unneeded step programmatically, based on a custom condition in a previous step.
 
 ## Solution
 
-1. Subscribe to the [`OnChange`]({%slug wizard-events%}#onchange) event of the originating step.
+1. Subscribe to the [`OnChange`](slug://wizard-events#onchange) event of the originating step.
 1. Check `args.TargetIndex` to find out if the user is navigating in the desired direction.
 1. Set `args.IsCancelled` to `true` to cancel navigation to the next step.
 1. Set the Wizard `Value` to the desired step.

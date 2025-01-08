@@ -231,4 +231,4 @@ from @StartValue to @EndValue
 
 ## See Also
 
-* [RangeSlider Overview]({%slug rangeslider-overview%})
+* [RangeSlider Overview](slug://rangeslider-overview)

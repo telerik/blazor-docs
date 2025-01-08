@@ -173,5 +173,5 @@ While the slider is a numeric input, you can use its values to match against ind
 
 ## See Also
 
-* [RangeSlider Overview]({%slug rangeslider-overview%})
+* [RangeSlider Overview](slug://rangeslider-overview)
 * [Live Demo: RangeSlider Label Template](https://demos.telerik.com/blazor-ui/rangeslider/label-template)

@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Set a [`Class` to the TextArea]({%slug textarea-overview%}#textarea-parameters).
+1. Set a [`Class` to the TextArea](slug://textarea-overview#textarea-parameters).
 1. Apply a `max-height` style and `overflow-y: auto !important;` to the `textarea` children of the CSS class from the previous step.
 
 >caption AutoSize TextArea up to a maximum height
@@ -60,5 +60,5 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [TextArea Overview]({%slug textarea-overview%})
-* [TextArea Appearance]({%slug TextArea-appearance%})
+* [TextArea Overview](slug://textarea-overview)
+* [TextArea Appearance](slug://TextArea-appearance)

@@ -24,7 +24,7 @@ Sorting keeps the expanded/collapsed state of items. For example, if filtering b
 
 You can let the user sort by more than one field by setting the `SortMode` parameter to `Telerik.Blazor.SortMode.Multiple`.
 
-The sorting criteria are stored in a [collection of `SortDescriptor`]({%slug common-features-descriptors%}#sorting).
+The sorting criteria are stored in a [collection of `SortDescriptor`](slug://common-features-descriptors#sorting).
 
 >caption Enable Sorting in Telerik TreeList
 

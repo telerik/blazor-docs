@@ -78,4 +78,4 @@ The `SelectedChanged` event fires after `OnClick`.
 
 ## See Also
 
-* [ToggleButton Overview]({%slug togglebutton-overview%})
+* [ToggleButton Overview](slug://togglebutton-overview)

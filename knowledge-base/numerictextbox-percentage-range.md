@@ -51,7 +51,7 @@ Determining whether the actual intent of the user is to input `20` as `20%` or `
 
 ## Solution
 
-Set the [NumericTextBox `Format` parameter]({%slug components/numerictextbox/overview%}#numeric-textbox-parameters) to a [custom format string with a '%' literal](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings#character-literals):
+Set the [NumericTextBox `Format` parameter](slug://components/numerictextbox/overview#numeric-textbox-parameters) to a [custom format string with a '%' literal](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings#character-literals):
 
 >caption NumericTextBox custom format and '%' literal
 
@@ -69,7 +69,7 @@ Set the [NumericTextBox `Format` parameter]({%slug components/numerictextbox/ove
 
 ## Notes
 
-You can achieve similar behavior with a [MaskedTextbox component]({%slug maskedtextbox-overview%}). Prepare a proper mask and parse the string to a double for later logic. The example below also shows how to use a culture-aware decimal separator:
+You can achieve similar behavior with a [MaskedTextbox component](slug://maskedtextbox-overview). Prepare a proper mask and parse the string to a double for later logic. The example below also shows how to use a culture-aware decimal separator:
 
 >caption Using the MaskedTextBox component for percent values
 
@@ -117,5 +117,5 @@ You can achieve similar behavior with a [MaskedTextbox component]({%slug maskedt
 
 ## See Also
 
-* [NumericTextBox overview]({%slug components/numerictextbox/overview%})
-* [MaskedTextbox overview]({%slug maskedtextbox-overview%})
+* [NumericTextBox overview](slug://components/numerictextbox/overview)
+* [MaskedTextbox overview](slug://maskedtextbox-overview)

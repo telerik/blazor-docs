@@ -24,16 +24,16 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 
 The adaptive rendering functionality is supported by the following components:
 
-* [AutoComplete]({%slug autocomplete-overview%})
-* [ComboBox]({%slug components/combobox/overview%})
-* [ColorPicker]({%slug colorpicker-overview%})
-* [DatePicker]({%slug components/datepicker/overview%})
-* [DateRangePicker]({%slug daterangepicker-overview%})
-* [DateTimePicker]({%slug components/datetimepicker/overview%})
-* [DropDownList]({%slug components/dropdownlist/overview%})
-* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-* [MultiSelect]({%slug multiselect-overview%})
-* [TimePicker]({%slug components/timepicker/overview%})
+* [AutoComplete](slug://autocomplete-overview)
+* [ColorPicker](slug://colorpicker-overview)
+* [ComboBox](slug://components/combobox/overview)
+* [DatePicker](slug://components/datepicker/overview)
+* [DateRangePicker](slug://daterangepicker-overview)
+* [DateTimePicker](slug://components/datetimepicker/overview)
+* [DropDownList](slug://components/dropdownlist/overview)
+* [MultiColumnComboBox](slug://multicolumncombobox-overview)
+* [MultiSelect](slug://multiselect-overview)
+* [TimePicker](slug://components/timepicker/overview)
 
 ## Basics
 
@@ -103,7 +103,7 @@ You can customize the [above-listed default adaptive breakpoints](#rendering-spe
 
 ## Limitations
 
-Some of the [supported components](#supported-components) allow custom values, for example, [ComboBox]({%slug components/combobox/custom-value%}) and [MultiColumnComboBox]({%slug multicolumncombobox-custom-value%}). Using custom values with `AdaptiveMode.Auto` is currently not supported. To expedite the development of this feature, vote for the related feature request in the Blazor Feedback Portal: [Support for custom values in `AdaptiveMode`](https://feedback.telerik.com/blazor/1611829-support-for-custom-values-in-adaptivemode).
+Some of the [supported components](#supported-components) allow custom values, for example, [ComboBox](slug://components/combobox/custom-value) and [MultiColumnComboBox](slug://multicolumncombobox-custom-value). Using custom values with `AdaptiveMode.Auto` is currently not supported. To expedite the development of this feature, vote for the related feature request in the Blazor Feedback Portal: [Support for custom values in `AdaptiveMode`](https://feedback.telerik.com/blazor/1611829-support-for-custom-values-in-adaptivemode).
 
 ## See also
 

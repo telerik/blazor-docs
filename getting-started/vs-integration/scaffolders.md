@@ -23,21 +23,21 @@ To use the Telerik UI for Blazor scaffolders, install the Telerik UI for Blazor 
 
 ## Supported Components
 
-* [Data Grid]({%slug grid-overview%})
-* [TreeList]({%slug treelist-overview%})
-* [Scheduler]({%slug scheduler-overview%})
-* [Chart]({%slug components/chart/overview%})
-* [ListView]({%slug listview-overview%})
-* [Gantt]({%slug gantt-overview%})
-* [Form]({%slug form-overview%})
-* [Button]({%slug components/button/overview%})
-* [Drawer]({%slug drawer-overview%})
-* [Menu]({%slug components/menu/overview%})
-* [DropDownList]({%slug components/dropdownlist/overview%})
-* [ComboBox]({%slug components/combobox/overview%})
+* [Data Grid](slug://grid-overview)
+* [TreeList](slug://treelist-overview)
+* [Scheduler](slug://scheduler-overview)
+* [Chart](slug://components/chart/overview)
+* [ListView](slug://listview-overview)
+* [Gantt](slug://gantt-overview)
+* [Form](slug://form-overview)
+* [Button](slug://components/button/overview)
+* [Drawer](slug://drawer-overview)
+* [Menu](slug://components/menu/overview)
+* [DropDownList](slug://components/dropdownlist/overview)
+* [ComboBox](slug://components/combobox/overview)
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
-* [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project %})
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version %})
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
+* [Creating New Projects with Visual Studio](slug://getting-started-vs-integration-new-project)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)

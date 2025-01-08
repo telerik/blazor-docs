@@ -26,7 +26,7 @@ res_type: kb
 
 How to enter edit mode from code?
 
-How to initiate insert and edit operations programmatically, instead of using [command buttons]({%slug components/grid/columns/command%})?
+How to initiate insert and edit operations programmatically, instead of using [command buttons](slug://components/grid/columns/command)?
 
 How to add new Grid rows with a custom button, which is outside the component?
 
@@ -39,10 +39,10 @@ How to implement Grid command buttons outside the Grid?
 
 ## Solution
 
-This scenario requires knowledge about the [Grid State]({%slug grid-state%}). Get familiar with the following sections first:
+This scenario requires knowledge about the [Grid State](slug://grid-state). Get familiar with the following sections first:
 
-* [Information in the Grid State]({%slug grid-state%}#information-in-the-grid-state)
-* [Grid State Methods]({%slug grid-state%}#methods)
+* [Information in the Grid State](slug://grid-state#information-in-the-grid-state)
+* [Grid State Methods](slug://grid-state#methods)
 
 To enter and exit edit mode, set the following properties of the `GridState` object:
 
@@ -56,9 +56,9 @@ Each property that is not relevant to a desired Grid state, should be set to `nu
 
 ## Example
 
-The sample below shows how to add, edit, cancel and save items in [`Inline`]({%slug components/grid/editing/inline%}) and [`Popup`]({%slug components/grid/editing/popup%}) `EditMode`.
+The sample below shows how to add, edit, cancel and save items in [`Inline`](slug://components/grid/editing/inline) and [`Popup`](slug://components/grid/editing/popup) `EditMode`.
 
-All these operations can also be used for [`Incell`]({%slug components/grid/editing/incell%}). However, blurring the edited cell triggers [`OnUpdate`]({%slug components/grid/editing/overview%}#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`]({%slug grid-templates-editor%}) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
+All these operations can also be used for [`Incell`](slug://components/grid/editing/incell). However, blurring the edited cell triggers [`OnUpdate`](slug://components/grid/editing/overview#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`](slug://grid-templates-editor) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
 
 >caption Enter and exit Grid edit mode programmatically
 
@@ -321,5 +321,5 @@ All these operations can also be used for [`Incell`]({%slug components/grid/edit
 
 ## See Also
 
-* [Grid State documentation]({%slug grid-state%})
+* [Grid State documentation](slug://grid-state)
 * [GridState API reference](/blazor-ui/api/Telerik.Blazor.Components.GridState-1)

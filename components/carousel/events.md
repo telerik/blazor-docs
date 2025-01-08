@@ -73,4 +73,4 @@ The event can be used to implement custom business logic, or update the Carousel
 
 ## See Also
 
-* [Carousel Overview]({%slug carousel-overview%})
+* [Carousel Overview](slug://carousel-overview)

@@ -21,7 +21,7 @@ Sections in this article:
 
 ## Rebind Method
 
-You can refresh the data of the MultiSelect by using the `Rebind` method exposed to the reference of the TelerikMultiSelect. If you have manually defined the [OnRead event]({%slug multiselect-events%}#onread) the business logic defined in its event handler will be executed. 
+You can refresh the data of the MultiSelect by using the `Rebind` method exposed to the reference of the TelerikMultiSelect. If you have manually defined the [OnRead event](slug://multiselect-events#onread) the business logic defined in its event handler will be executed. 
 
 ````RAZOR
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
@@ -276,6 +276,6 @@ The `Value` parameter also accepts a collection but it does not support observab
 
 ## See Also
 
-  * [ObservableCollection]({%slug common-features-observable-data%})
+  * [ObservableCollection](slug://common-features-observable-data)
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui)

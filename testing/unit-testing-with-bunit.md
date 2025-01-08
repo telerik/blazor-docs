@@ -103,7 +103,7 @@ Considering the above-listed JS limitation, you may experience some issues when 
 | --- | --- |
 | Issue | In test environment, `OnRead` is not raised after invoking `Rebind`. |
 | Cause | When `Rebind` is called, the Grid shows a loader. This loader is invoked with JS Interop, so the test fails silently. |
-| Workaround | Disable the [built-in loader]({%slug grid-loading%}). |
+| Workaround | Disable the [built-in loader](slug://grid-loading). |
 
 ## Resources
 

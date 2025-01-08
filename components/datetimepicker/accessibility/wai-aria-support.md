@@ -103,4 +103,4 @@ For details on how the DateTimePicker keyboard navigation works, refer to the [B
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

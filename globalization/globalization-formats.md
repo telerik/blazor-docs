@@ -15,7 +15,7 @@ The Telerik UI for Blazor components use the culture of the current thread to re
 | Component | Date And Number Format Specifics |
 |---|---|
 | [Calendar](https://demos.telerik.com/blazor-ui/calendar/globalization) | The names of the months and days of the week are taken from the current culture, and the `FirstDayOfWeek` of the culture is honored when ordering the days of the week. The Calendar uses the  `ShortestDayNames` array to get the short names for the days of the week and it expects them in the default order coming from the framework - Sunday to Saturday. |
-| [Chart](https://demos.telerik.com/blazor-ui/chart/globalization) | The [Label Format Strings]({%slug components/chart/label-template-format%}) and [Tooltip]({%slug chart-tooltip-overview%}) allow using culture-aware content such as formatted numbers and dates. You can find examples at [How to localize numeric labels in the Chart]({%slug chart-kb-localized-numeric-labels%}) and at [Render culture-aware date axis labels](https://feedback.telerik.com/blazor/1629173-render-culture-aware-labels-on-the-date-axis). |
+| [Chart](https://demos.telerik.com/blazor-ui/chart/globalization) | The [Label Format Strings](slug://components/chart/label-template-format) and [Tooltip](slug://chart-tooltip-overview) allow using culture-aware content such as formatted numbers and dates. You can find examples at [How to localize numeric labels in the Chart](slug://chart-kb-localized-numeric-labels) and at [Render culture-aware date axis labels](https://feedback.telerik.com/blazor/1629173-render-culture-aware-labels-on-the-date-axis). |
 | [DateInput](https://demos.telerik.com/blazor-ui/dateinput/globalization) | @[template](/_contentTemplates/common/general-info.md#date-format-per-culture) |
 | [DatePicker](https://demos.telerik.com/blazor-ui/datepicker/globalization) | @[template](/_contentTemplates/common/general-info.md#date-format-per-culture) |
 | [DateRangePicker](https://demos.telerik.com/blazor-ui/daterangepicker/globalization) | @[template](/_contentTemplates/common/general-info.md#date-format-per-culture) |
@@ -30,5 +30,5 @@ The Telerik UI for Blazor components use the culture of the current thread to re
 
 ## See Also
 
-* [Localization]({%slug globalization-localization%})
-* [Supported Date Formats]({%slug components/dateinput/supported-formats%})
+* [Localization](slug://globalization-localization)
+* [Supported Date Formats](slug://components/dateinput/supported-formats)

@@ -35,9 +35,9 @@ The marker type is defined per series level, so it is not possible to set differ
 
 To mark specific data points as "special", follow these steps:
 
-1. Use a Chart type with lines for the first series and provide it with all available data points (for example, [ScatterLine]({%slug components/chart/types/scatterline%})).
+1. Use a Chart type with lines for the first series and provide it with all available data points (for example, [ScatterLine](slug://components/chart/types/scatterline)).
 
-2. Use a Chart type without lines for the second series, so the lines do not mix (for example, [Scatter]({%slug components/chart/types/scatter%})).
+2. Use a Chart type without lines for the second series, so the lines do not mix (for example, [Scatter](slug://components/chart/types/scatter)).
 
 3. In the second series data include only the points that you want to mark as special.
 
@@ -118,5 +118,5 @@ To mark specific data points as "special", follow these steps:
 
 ## See Also
 
-* [ScatterLine Chart Overview]({%slug components/chart/types/scatterline%})
-* [Scatter Chart Overview]({%slug components/chart/types/scatter%})
+* [ScatterLine Chart Overview](slug://components/chart/types/scatterline)
+* [Scatter Chart Overview](slug://components/chart/types/scatter)

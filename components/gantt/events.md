@@ -21,7 +21,7 @@ The `OnCreate`, `OnUpdate` and `OnDelete` events lets you get the data item that
 
 The `OnEdit` event lets you respond to user actions when they want to edit an item. For example, you can use it to prevent editing of certain items based on some condition.
 
-You can read more about the CUD events in the [Gantt Tree Editing Overview]({%slug gantt-tree-editing%}) article.
+You can read more about the CUD events in the [Gantt Tree Editing Overview](slug://gantt-tree-editing) article.
 
 ## TreeListWidthChanged
 

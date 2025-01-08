@@ -128,7 +128,7 @@ The `Size` (`double`) parameter controls the size of the pointers.
 
 ## Margin
 
-The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug linear-gauge-scale%}) and the pointers.
+The `Margin` (`double`) parameter controls the margin between the [Scale](slug://linear-gauge-scale) and the pointers.
 
 ````RAZOR
 @* Change the margin between the scale and the pointers *@
@@ -177,5 +177,5 @@ The `Margin` (`double`) parameter controls the margin between the [Scale]({%slug
 
 * [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
 * [Live Demo: Linear Gauge - Multiple Pointers](https://demos.telerik.com/blazor-ui/lineargauge/multiple-pointers)
-* [Linear Gauge: Overview]({%slug linear-gauge-overview%})
-* [Linear Gauge: Scale]({%slug linear-gauge-scale%})
+* [Linear Gauge: Overview](slug://linear-gauge-overview)
+* [Linear Gauge: Scale](slug://linear-gauge-scale)

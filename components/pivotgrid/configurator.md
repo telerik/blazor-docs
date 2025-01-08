@@ -60,12 +60,12 @@ The following user actions do not require users to click on *Apply*:
 
 ## Example
 
-Refer to the [example of a Pivot Grid using an XMLA Data Provider Type]({%slug pivotgrid-data-binding%}#xmla).
+Refer to the [example of a Pivot Grid using an XMLA Data Provider Type](slug://pivotgrid-data-binding#xmla).
 
 
 ## Next Steps
 
-* [Implement PivotGrid templates]({%slug pivotgrid-templates%})
+* [Implement PivotGrid templates](slug://pivotgrid-templates)
 
 
 ## See Also

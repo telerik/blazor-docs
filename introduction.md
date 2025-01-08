@@ -25,14 +25,14 @@ Visit the <a href="https://www.telerik.com/blazor-ui" target="_blank">Telerik UI
 
 If you are new to Telerik UI for Blazor, visit the Getting Started tutorials that demonstrate how to add the Telerik components to your application:
 
-* [Get Started with a .NET 8 or 9 Blazor Web App]({%slug getting-started/web-app%})
-* [Get Started with a Blazor WebAssembly Standalone App]({%slug getting-started/client-side%})
-* [Get Started with a .NET 6 or 7 Blazor Server app]({%slug getting-started/server-side%})
-* [Get Started with Blazor Hybrid]({%slug getting-started/hybrid-blazor%})
+* [Get Started with a .NET 8 or 9 Blazor Web App](slug://getting-started/web-app)
+* [Get Started with a Blazor WebAssembly Standalone App](slug://getting-started/client-side)
+* [Get Started with a .NET 6 or 7 Blazor Server app](slug://getting-started/server-side)
+* [Get Started with Blazor Hybrid](slug://getting-started/hybrid-blazor)
 
 >tip This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.
 
-Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details]({%slug getting-started/what-you-need%}) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
+Developers who are familiar with the IDE and Blazor could prefer the [Workflow Details](slug://getting-started/what-you-need) article. This is a shorter, more advanced version of the getting started tutorials above and explains the basics about the Telerik UI packages and how to set up a project.
 
 <!--
 If you are not familiar with Blazor yet, you may find our Blazor Quick Start Guide video series useful:
@@ -234,7 +234,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 ## Learning Resources
 
-* <a href="https://demos.telerik.com/blazor-ui" target="_blank">Online Demos</a> - also available as a project that you can inspect and run locally. You can find them in the `demos` folder of your [installation]({%slug installation/msi%}).
+* <a href="https://demos.telerik.com/blazor-ui" target="_blank">Online Demos</a> - also available as a project that you can inspect and run locally. You can find them in the `demos` folder of your [installation](slug://installation/msi).
 
 * <a href="https://docs.telerik.com/blazor-ui/knowledge-base" target="_blank">Knowledge Base</a> - contains answers to some common questions, problems and errors. Free-text search is also available.
 
@@ -242,17 +242,17 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 
 * <a href="https://www.telerik.com/support/blazor-ui" target="_blank">Blazor UI Support and Learning Resources</a> - a hub with links to all resources such as blogs, videos, repos, docs and so on.
 
-* [Video Onboarding Course]({%slug getting-started/video-onboarding%}) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
+* [Video Onboarding Course](slug://getting-started/video-onboarding) - through the Telerik Virtual Classroom, you can watch videos and learn how to build a Blazor app at your leisure.
 
 * [Offline PDF documentation](https://www.telerik.com/account/downloads) for all product versions - select *Telerik UI for Blazor*, then choose a *version* from the dropdown and look for the ZIP files in the *Documentation* section.
 
 
 ## Next Steps
 
-* [First Steps with Blazor Server]({%slug getting-started/server-side%})
-* [First Steps with Blazor WebAssembly]({%slug getting-started/client-side%})
-* [First Steps with Blazor Hybrid]({%slug getting-started/hybrid-blazor%})
-* [Workflow Details for using the Telerik UI for Blazor components]({%slug getting-started/what-you-need%}) (a concise version of the tutorials above)
-* Use guided wizards to generate new Telerik Projects in [Visual Studio]({%slug getting-started-vs-integration-new-project%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}).
-* [Convert an existing project to a Telerik-enabled project]({%slug getting-started-vs-integration-convert-project%})
-* [Style the Telerik Blazor Components]({%slug themes-overview%})
+* [First Steps with Blazor Server](slug://getting-started/server-side)
+* [First Steps with Blazor WebAssembly](slug://getting-started/client-side)
+* [First Steps with Blazor Hybrid](slug://getting-started/hybrid-blazor)
+* [Workflow Details for using the Telerik UI for Blazor components](slug://getting-started/what-you-need) (a concise version of the tutorials above)
+* Use guided wizards to generate new Telerik Projects in [Visual Studio](slug://getting-started-vs-integration-new-project) and [Visual Studio Code](slug://getting-started-vs-code-integration-overview).
+* [Convert an existing project to a Telerik-enabled project](slug://getting-started-vs-integration-convert-project)
+* [Style the Telerik Blazor Components](slug://themes-overview)

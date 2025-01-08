@@ -35,18 +35,18 @@ This KB article answers the following questions:
 
 The event arguments of all Upload events provide:
 
-* The [number of files]({%slug upload-events%}#event-arguments) in each user action;
-* Which files are [valid in terms of size and extension]({%slug upload-events%}#uploadfileinfo).
+* The [number of files](slug://upload-events#event-arguments) in each user action;
+* Which files are [valid in terms of size and extension](slug://upload-events#uploadfileinfo).
 
 To count the total number of selected, valid and uploaded files in multiple user actions and events, define additional variables in the Razor component. Then, increment and decrement the variables in the Upload events.
 
-1. Use the [Upload `OnSelect` event]({%slug upload-events%}#onselect) to detect selection of one or multiple files.
-    * If [`Multiple="true"`]({%slug upload-overview%}#upload-parameters), then set [`IsCancelled` in the event argument]({%slug upload-events%}#event-arguments) to `true` when the number of selected files exceeds the maximum limit.
+1. Use the [Upload `OnSelect` event](slug://upload-events#onselect) to detect selection of one or multiple files.
+    * If [`Multiple="true"`](slug://upload-overview#upload-parameters), then set [`IsCancelled` in the event argument](slug://upload-events#event-arguments) to `true` when the number of selected files exceeds the maximum limit.
     * If `Multiple="false"`, the Upload component will replace the current file in the list with the newly selected one.
-1. Use the [Upload `OnCancel` event]({%slug upload-events%}#oncancel) to detect when the user aborts an ongoing file upload.
-1. Use the [Upload `OnSuccess` event]({%slug upload-events%}#onsuccess) to detect a successful file upload or deletion on the server. Note that removal of uploaded files also fires `OnSuccess`.
-1. Use the [Upload `OnRemove` event]({%slug upload-events%}#onremove) to detect when the user deletes an uploaded file, or removes a file that hasn't been uploaded yet. Note that removal of uploaded files also fires `OnRemove`.
-1. Use the [Upload `OnClear` event]({%slug upload-events%}#onclear) to detect when the user removes all items from the file list.
+1. Use the [Upload `OnCancel` event](slug://upload-events#oncancel) to detect when the user aborts an ongoing file upload.
+1. Use the [Upload `OnSuccess` event](slug://upload-events#onsuccess) to detect a successful file upload or deletion on the server. Note that removal of uploaded files also fires `OnSuccess`.
+1. Use the [Upload `OnRemove` event](slug://upload-events#onremove) to detect when the user deletes an uploaded file, or removes a file that hasn't been uploaded yet. Note that removal of uploaded files also fires `OnRemove`.
+1. Use the [Upload `OnClear` event](slug://upload-events#onclear) to detect when the user removes all items from the file list.
 
 >caption Track and count the number of all selected and uploaded files
 
@@ -204,4 +204,4 @@ To count the total number of selected, valid and uploaded files in multiple user
 
 ## See Also
 
-* [Upload Events]({%slug upload-events%})
+* [Upload Events](slug://upload-events)

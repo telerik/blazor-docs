@@ -114,6 +114,6 @@ If there are child items for a certain node (items whose `ParentId` points to th
 
 ## See Also
 
-  * [TreeList Data Binding Basics]({%slug gantt-data-binding-overview%})
-  * [Binding to Hierarchical Data]({%slug gantt-data-binding-hierarchical-data%})
+  * [TreeList Data Binding Basics](slug://gantt-data-binding-overview)
+  * [Binding to Hierarchical Data](slug://gantt-data-binding-hierarchical-data)
 

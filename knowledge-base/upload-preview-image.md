@@ -33,17 +33,17 @@ This KB article answers the following questions:
 
 ## Solution
 
-Users can preview images that are uploaded through the [Upload component]({%slug upload-overview%}) or selected through the [FileSelect component]({%slug fileselect-overview%}).
+Users can preview images that are uploaded through the [Upload component](slug://upload-overview) or selected through the [FileSelect component](slug://fileselect-overview).
 
-In Blazor, [previewing images is easier when using the FileSelect](#using-the-fileselect), but based on your requirements you might [choose the Upload over the FileSelect]({%slug upload-overview%}#upload-vs-fileselect) or vice versa.
+In Blazor, [previewing images is easier when using the FileSelect](#using-the-fileselect), but based on your requirements you might [choose the Upload over the FileSelect](slug://upload-overview#upload-vs-fileselect) or vice versa.
 
 ### Using the Upload
 
-1. Set the [`Accept`, `AllowedExtensions`, and `MaxFileSize`]({%slug upload-overview%}#upload-parameters) parameters of the Upload.
-1. [Ensure the Blazor app can handle large uploaded files]({%slug upload-overview%}#large-file-uploads) with a size that matches or exceeds `MaxFileSize`.
-1. [Implement a controller action method to receive the uploaded files]({%slug upload-overview%}#implement-controller-methods). Also see the [example on the Upload Events page]({%slug upload-events%}#example).
+1. Set the [`Accept`, `AllowedExtensions`, and `MaxFileSize`](slug://upload-overview#upload-parameters) parameters of the Upload.
+1. [Ensure the Blazor app can handle large uploaded files](slug://upload-overview#large-file-uploads) with a size that matches or exceeds `MaxFileSize`.
+1. [Implement a controller action method to receive the uploaded files](slug://upload-overview#implement-controller-methods). Also see the [example on the Upload Events page](slug://upload-events#example).
 1. Read the uploaded image(s) in the controller and return an image URL or [Base64 data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) for the `<img>` tag(s) to render. You can choose to provide the original image to the UI or a smaller version for greater efficiency.
-1. Subscribe to the [Upload `OnSuccess` event]({%slug upload-events%}#onsuccess) to detect completed file uploads and obtain the `<img>` tag's `src` value. You can also use `OnSuccess` to detect file removals in the Upload component and remove the respective `<img>` tags.
+1. Subscribe to the [Upload `OnSuccess` event](slug://upload-events#onsuccess) to detect completed file uploads and obtain the `<img>` tag's `src` value. You can also use `OnSuccess` to detect file removals in the Upload component and remove the respective `<img>` tags.
 
 You cannot preview the image in the Upload `OnSelect` event, because this event handler has no access to the file contents.
 
@@ -209,11 +209,11 @@ namespace TelerikBlazorUpload.Controllers
 
 ### Using the FileSelect
 
-1. Set the [`Accept`, `AllowedExtensions`, and `MaxFileSize`]({%slug fileselect-overview%}#fileselect-parameters) parameters of the FileSelect.
-1. [Increase the SignalR message size]({%slug common-kb-increase-signalr-max-message-size%}) to match or exceed `MaxFileSize`.
-1. Subscribe to the [FileSelect `OnSelect` event]({%slug fileselect-events%}#onselect).
+1. Set the [`Accept`, `AllowedExtensions`, and `MaxFileSize`](slug://fileselect-overview#fileselect-parameters) parameters of the FileSelect.
+1. [Increase the SignalR message size](slug://common-kb-increase-signalr-max-message-size) to match or exceed `MaxFileSize`.
+1. Subscribe to the [FileSelect `OnSelect` event](slug://fileselect-events#onselect).
 1. Read the selected image(s) and create a [Base64 data URI](https://en.wikipedia.org/wiki/Data_URI_scheme) for the `<img>` tag(s) to render.
-1. (optional) Subscribe to the [FileSelect `OnRemove` event]({%slug fileselect-events%}#onremove) to remove the image preview.
+1. (optional) Subscribe to the [FileSelect `OnRemove` event](slug://fileselect-events#onremove) to remove the image preview.
 
 >caption Preview selected images when using the FileSelect component
 
@@ -299,7 +299,7 @@ namespace TelerikBlazorUpload.Controllers
 
 ## See Also
 
-* [Upload Overview]({%slug upload-overview%})
-* [Handle Upload Events]({%slug upload-events%})
-* [FileSelect Overview]({%slug fileselect-overview%})
-* [Handle FileSelect Events]({%slug fileselect-events%})
+* [Upload Overview](slug://upload-overview)
+* [Handle Upload Events](slug://upload-events)
+* [FileSelect Overview](slug://fileselect-overview)
+* [Handle FileSelect Events](slug://fileselect-events)

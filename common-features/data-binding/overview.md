@@ -10,7 +10,7 @@ position: 0
 
 # Data Binding Overview
 
-This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding]({%slug get-started-value-vs-data-binding%}).
+This article describes the fundamentals of data binding the Telerik Blazor components. For the sake of clarity, also check article [Value Binding vs Data Binding](slug://get-started-value-vs-data-binding).
 
 * [Data binding options](#how-to-provide-data)
 * [Supported data types](#data-type)
@@ -25,7 +25,7 @@ The Telerik Blazor components are detached from the application's data layer. Th
 There are two main ways to provide data to the components:
 
 * `Data` parameter - use it to provide all the data at once.
-* [`OnRead` event]({%slug common-features-data-binding-onread%}) - use it to load data on demand in chunks. 
+* [`OnRead` event](slug://common-features-data-binding-onread) - use it to load data on demand in chunks. 
 
 Hierarchy components like the TreeList and the TreeView don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
 
@@ -95,11 +95,11 @@ Some components handle properties with specific names in a predefined way. For e
 
 There are three ways to refresh the component data:
 
-* [Bind the component to Observable data]({%slug common-features-observable-data%}). **This option applies only** if the `Data` parameter is set. The component will refresh automatically when items are **added or removed**.
-* Call the component's `Rebind()` method. UI for Blazor version **3.3.0** exposed `Rebind()` for all databound components. Until then, the method was available only for the [components that have an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event). If the component is databound via `OnRead`, the [`Rebind()` method will fire the `OnRead` event]({%slug common-features-data-binding-onread%}#refresh-data).
+* [Bind the component to Observable data](slug://common-features-observable-data). **This option applies only** if the `Data` parameter is set. The component will refresh automatically when items are **added or removed**.
+* Call the component's `Rebind()` method. UI for Blazor version **3.3.0** exposed `Rebind()` for all databound components. Until then, the method was available only for the [components that have an `OnRead` event](slug://common-features-data-binding-onread#components-with-onread-event). If the component is databound via `OnRead`, the [`Rebind()` method will fire the `OnRead` event](slug://common-features-data-binding-onread#refresh-data).
 * Reset the `Data` parameter reference. Sometimes, you may also need to call `StateHasChanged()` - for example, if the refreshing occurs in `OnAfterRenderAsync`.
 
-The [example below](#example) demonstrates the second and third option. Also check [how to rebind and refresh a component with a `Timer`]({%slug common-kb-rebind-timer%}).
+The [example below](#example) demonstrates the second and third option. Also check [how to rebind and refresh a component with a `Timer`](slug://common-kb-rebind-timer).
 
 ### Reset the Collection Reference
 
@@ -176,6 +176,6 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
 ## Next Steps
 
-* [Data Binding with the OnRead event]({%slug common-features-data-binding-onread%})
-* [Data Binding to Observable Data]({%slug common-features-observable-data%})
-* [Data Binding to cloud data services]({%slug common-features-data-binding-cloud%})
+* [Data Binding with the OnRead event](slug://common-features-data-binding-onread)
+* [Data Binding to Observable Data](slug://common-features-observable-data)
+* [Data Binding to cloud data services](slug://common-features-data-binding-cloud)

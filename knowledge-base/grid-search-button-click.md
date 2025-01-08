@@ -29,15 +29,15 @@ I am using the Grid SearchBox, but I don't want it to search for every typed let
 
 ## Solution
 
-1. [Bind the Grid with an OnRead event handler]({%slug components/grid/manual-operations%}).
-1. Replace the [**GridSearchBox**]({%slug grid-searchbox%}) with a [TextBox]({%slug components/textbox/overview%}) and a [Button]({%slug components/button/overview%}) with an [OnClick event handler]({%slug button-events%}).
-1. Optionally, handle the [TextBox `OnChange` event]({%slug components/textbox/events%}) too. This will allow searching on textbox blur and Enter keypress.
+1. [Bind the Grid with an OnRead event handler](slug://components/grid/manual-operations).
+1. Replace the [**GridSearchBox**](slug://grid-searchbox) with a [TextBox](slug://components/textbox/overview) and a [Button](slug://components/button/overview) with an [OnClick event handler](slug://button-events).
+1. Optionally, handle the [TextBox `OnChange` event](slug://components/textbox/events) too. This will allow searching on textbox blur and Enter keypress.
 1. In the click/change handler, build a [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) with a `LogicalOperator` of `Or`. Populate its `FilterDescriptors` collection with filters for all searchable Grid model fields.
-1. [Add the composite filter descriptor to the Grid State to search programmatically]({%slug grid-state%}#setstateasync-examples).
+1. [Add the composite filter descriptor to the Grid State to search programmatically](slug://grid-state#setstateasync-examples).
 
-Note the [difference between searching and filtering in the Grid state]({%slug grid-state%}#information-in-the-grid-state). Filtering affects the Grid's filtering UI (row or menu), while searching does not.
+Note the [difference between searching and filtering in the Grid state](slug://grid-state#information-in-the-grid-state). Filtering affects the Grid's filtering UI (row or menu), while searching does not.
 
-Also see the [Filter Descriptors documentation]({%slug components/grid/filtering%}#filter-descriptors), which explains the differences between `FilterDescriptor` and `CompositeFilterDescriptor`.
+Also see the [Filter Descriptors documentation](slug://components/grid/filtering#filter-descriptors), which explains the differences between `FilterDescriptor` and `CompositeFilterDescriptor`.
 
 >caption Search Grid Programmatically on Button Click
 
@@ -136,7 +136,7 @@ Also see the [Filter Descriptors documentation]({%slug components/grid/filtering
 
 ## See Also
 
-* [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
-* [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
-* [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
-* [Format or Bold Search Results in the Grid]({%slug grid-kb-search-highlight-results%})
+* [Search the Grid in Numeric and Date Model Fields](slug://grid-kb-search-numeric-fields)
+* [Search the Grid in Hidden Fields](slug://grid-kb-search-in-hidden-fields)
+* [Search the Grid with a `StartsWith` operator](slug://grid-kb-search-startswith)
+* [Format or Bold Search Results in the Grid](slug://grid-kb-search-highlight-results)

@@ -64,4 +64,4 @@ For details on how the Chip keyboard navigation works, refer to the [Blazor Chip
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

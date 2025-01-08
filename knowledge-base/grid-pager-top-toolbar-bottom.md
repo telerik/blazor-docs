@@ -34,7 +34,7 @@ The Grid Toolbar is placed on top of the Grid and Pager at the bottom. You can f
 
 For the time being, this scenario can be handled with a custom approach.
 
-It is possible to integrate a separate [Pager component]({%slug pager-overview%}) in the [Grid Toolbar]({%slug components/grid/features/toolbar%}) - [this demo](https://demos.telerik.com/blazor-ui/pager/integration) demonstrates how it can be achieved. This will suffice if you do not need to use the Toolbar for other content.
+It is possible to integrate a separate [Pager component](slug://pager-overview) in the [Grid Toolbar](slug://components/grid/features/toolbar) - [this demo](https://demos.telerik.com/blazor-ui/pager/integration) demonstrates how it can be achieved. This will suffice if you do not need to use the Toolbar for other content.
 
 If, however, you also want to have a Toolbar for some actions, do the following:
 
@@ -128,10 +128,10 @@ If, however, you also want to have a Toolbar for some actions, do the following:
 
 ## Notes
 
-The downside of the listed approach is that you will not be able to use built-in Grid actions in the custom toolbar container as it is not essentially part of the Grid (for example, [`Add` Command Button]({%slug components/grid/columns/command%}#the-gridcommandbutton-tag), [SearchBox]({%slug grid-searchbox%})).
+The downside of the listed approach is that you will not be able to use built-in Grid actions in the custom toolbar container as it is not essentially part of the Grid (for example, [`Add` Command Button](slug://components/grid/columns/command#the-gridcommandbutton-tag), [SearchBox](slug://grid-searchbox)).
 
 To handle this, you may proceed with a custom approach:
 
-* `Add` Command Button - use a [`TelerikButton`]({%slug components/button/overview%}) instead. Handle its [`OnClick`]({%slug button-events%}#onclick) to programmatically [initiate inserting of an item through the Grid State]({%slug grid-kb-add-edit-state%}).
+* `Add` Command Button - use a [`TelerikButton`](slug://components/button/overview) instead. Handle its [`OnClick`](slug://button-events#onclick) to programmatically [initiate inserting of an item through the Grid State](slug://grid-kb-add-edit-state).
 
-* SearchBox - Use [TelerikTextBox]({%slug components/textbox/overview%}) instead. Handle its [`ValueChanged`]({%slug components/textbox/events%}#valuechanged) or [`OnChange`]({%slug components/textbox/events%}#onchange) event to create [custom filter descriptors]({%slug grid-kb-search-numeric-fields%}).
+* SearchBox - Use [TelerikTextBox](slug://components/textbox/overview) instead. Handle its [`ValueChanged`](slug://components/textbox/events#valuechanged) or [`OnChange`](slug://components/textbox/events#onchange) event to create [custom filter descriptors](slug://grid-kb-search-numeric-fields).

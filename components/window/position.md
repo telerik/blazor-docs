@@ -16,7 +16,7 @@ The Window offers several ways to control its position:
 * [`ContainmentSelector` parameter](#containmentselector)
 * [`Top` and `Left` parameters](#top-and-left)
 
-The Window renders [in the root of the application]({%slug window-overview%}#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window]({%slug troubleshooting-general-issues%}#wrong-popup-position).
+The Window renders [in the root of the application](slug://window-overview#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug://troubleshooting-general-issues#wrong-popup-position).
 
 
 ## Centered
@@ -57,7 +57,7 @@ By default, users can drag and resize the Window without constraints. You can re
 1. Set the Window `ContainmentSelector` parameter to a unique CSS selector, which points to the container.
 1. Apply a `position:relative` style to the container.
 
-In this case, the Window will render inside the specified container and not as a child of the [`TelerikRootComponent`]({%slug rootcomponent-overview%}).
+In this case, the Window will render inside the specified container and not as a child of the [`TelerikRootComponent`](slug://rootcomponent-overview).
 
 >caption Using ContainmentSelector to limit Window dragging and resizing
 

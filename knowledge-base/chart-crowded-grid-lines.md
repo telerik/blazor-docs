@@ -30,8 +30,8 @@ You can choose which grid lines to show (every `n`-th `Step`) and to `Skip` the 
 
 The general approach to customize a Chart is to apply settings using nested tags. In the case of the grid lines the parent tag is
 
-* for [categorical charts]({%slug components/chart/databind%}#series-types): x-axis `<ChartCategoryAxis>` and y-axis `<ChartValueAxis>`.
-* for [numerical charts]({%slug components/chart/databind%}#series-types): x-axis `<ChartXAxis>` and y-axis `<ChartYAxis>`.
+* for [categorical charts](slug://components/chart/databind#series-types): x-axis `<ChartCategoryAxis>` and y-axis `<ChartValueAxis>`.
+* for [numerical charts](slug://components/chart/databind#series-types): x-axis `<ChartXAxis>` and y-axis `<ChartYAxis>`.
 
 You can control the `MajorGridLines` for both axes from their respective nested tags - `<ChartCategoryAxisMajorGridLines />` (the vertical grid lines) and `<ChartValueAxisMajorGridLines />` (the horizontal grid lines).
 
@@ -43,7 +43,7 @@ You can apply the following settings:
 
 You can do the same for the `MinorGridLines` too.
 
-For a [`Date Axis` Chart]({%slug components/chart/date-axis%}), you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines - this is what the number of categories and, thus, grid lines, depends on.
+For a [`Date Axis` Chart](slug://components/chart/date-axis), you can set the `BaseUnit` parameter of the `<ChartCategoryAxis>` tag according to the data of your application to further control the granularity of the grid lines - this is what the number of categories and, thus, grid lines, depends on.
 
 >caption Declutter the grid lines of a Categorical Chart
 
@@ -99,4 +99,4 @@ For a [`Date Axis` Chart]({%slug components/chart/date-axis%}), you can set the 
 
 ## Notes
 
-You can also see the Knowledge base article regarding [overlapping labels]({%slug chart-kb-crowded-labels%}) to further improve the layout of the Chart.
+You can also see the Knowledge base article regarding [overlapping labels](slug://chart-kb-crowded-labels) to further improve the layout of the Chart.

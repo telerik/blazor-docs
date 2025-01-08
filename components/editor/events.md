@@ -46,4 +46,4 @@ When you use that event, you cannot use two-way binding and so you must update t
 
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
+  * [Editor Overview](slug://editor-overview)

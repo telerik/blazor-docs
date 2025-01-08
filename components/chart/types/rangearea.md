@@ -10,7 +10,7 @@ position: 0
 
 # Range Area Chart
 
-The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by pairs of `from` and `to` values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart]({%slug components/chart/types/area%}), which can be regarded as a Range Area Chart with zero `from` values.
+The <a href="https://www.telerik.com/blazor-ui/range-area-chart" target="_blank">Blazor Range Area Chart</a> shows the data as a colored area between two continuous lines that pass through points defined by pairs of `from` and `to` values. The graph between the border lines has a different customizable color for each series. The Range Area Chart is similar to the [Area Chart](slug://components/chart/types/area), which can be regarded as a Range Area Chart with zero `from` values.
 
 You can use the Range Area Chart to emphasize the difference between pairs of continuous value sequences.
 
@@ -24,7 +24,7 @@ By default, the series backgrounds are semi-transparent, which lets the user cle
 2. Set the series `Type` parameter to `ChartSeriesType.RangeArea`.
 3. Provide a data collection to its `Data` property. You can use a [collection of arrays](#binding-range-area-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-area-series-to-custom-objects).
 4. If the Range Area data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
-5. (optional) Set `Visible="true"` to `<ChartSeriesLabels>` to show both the `from` and `to` labels. Alternatively, enable visibility or define [label `Template`]({%slug components/chart/label-template-format%}) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
+5. (optional) Set `Visible="true"` to `<ChartSeriesLabels>` to show both the `from` and `to` labels. Alternatively, enable visibility or define [label `Template`](slug://components/chart/label-template-format) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
 
 ### Binding Range Area Series to Collection of Arrays
 

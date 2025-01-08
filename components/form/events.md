@@ -17,7 +17,7 @@ The Form component for Blazor exposes events that allow you to respond to user a
 * [OnValidSubmit](#onvalidsubmit)
 * [OnInvalidSubmit](#oninvalidsubmit)
 
->note The examples in this article use the `EditContext`, but you can use a [model]({%slug form-overview%}#creating-blazor-form) instead. 
+>note The examples in this article use the `EditContext`, but you can use a [model](slug://form-overview#creating-blazor-form) instead. 
 
 ## OnSubmit
 
@@ -90,9 +90,9 @@ The `OnSubmit` event is mapped to the `OnSubmit` event of the <a target="_blank"
 
 The `OnUpdate` event fires when the user changes a value in the Form. The event is tied to the `FieldChanged` event of the Form's `EditContext`.
 
-By default, `OnUpdate` will fire on each keystroke for [auto-generated form items]({%slug form-overview%}#automatic-generation-of-fields) and [`FormItem` templates]({%slug form-formitems-template%}). To change this behavior, define a `FormItem` `Template` and set [`ValidateOn` to `ValidationEvent.Change`]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) for the field editor component. In this case, `OnUpdate` will fire when the user blurs the field editor or hits Enter while the editor is focused.
+By default, `OnUpdate` will fire on each keystroke for [auto-generated form items](slug://form-overview#automatic-generation-of-fields) and [`FormItem` templates](slug://form-formitems-template). To change this behavior, define a `FormItem` `Template` and set [`ValidateOn` to `ValidationEvent.Change`](slug://common-features/input-validation#validation-modes-for-simple-inputs) for the field editor component. In this case, `OnUpdate` will fire when the user blurs the field editor or hits Enter while the editor is focused.
 
-You can use the `OnUpdate` event to programmatically [refresh the UI outside the current Form item]({%slug form-formitems%}#ui-rendering-inside-the-form).
+You can use the `OnUpdate` event to programmatically [refresh the UI outside the current Form item](slug://form-formitems#ui-rendering-inside-the-form).
 
 The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.FormUpdateEventArgs) with the following properties:
 
@@ -263,9 +263,9 @@ The `OnInvalidSubmit` event fires when there are validation errors in the Form u
 
 ## See Also
 
-  * [Overview]({%slug form-overview%})
-  * [FormItems]({%slug form-formitems%})
-  * [Template]({%slug form-formitems-template%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
+  * [Overview](slug://form-overview)
+  * [FormItems](slug://form-formitems)
+  * [Template](slug://form-formitems-template)
+  * [Orientation](slug://form-orientation)
+  * [Events](slug://form-events)
    

@@ -11,7 +11,7 @@ position: 0
 # Blazor Filter Overview
 The <a href="https://www.telerik.com/blazor-ui/filter" target="_blank">Blazor Filter component</a> serves as a complementary addition to data-bound components that do not have built-in filtering.
 
-The component gives a unified way to build filter descriptors using its [fields]({%slug filter-fields%}). You can also define different [operators]({%slug filter-operators%}) and use these filter descriptors to filter data.
+The component gives a unified way to build filter descriptors using its [fields](slug://filter-fields). You can also define different [operators](slug://filter-operators) and use these filter descriptors to filter data.
 
 ## Creating Blazor Filter
 1. Use the `TelerikFilter` tag to add the component to your razor page.
@@ -52,10 +52,10 @@ The component gives a unified way to build filter descriptors using its [fields]
 ````
 
 ## Fields
-The fields are responsible for setting up the Filter information. [Read more about the supported Blazor Filter fields...]({%slug filter-fields%})
+The fields are responsible for setting up the Filter information. [Read more about the supported Blazor Filter fields...](slug://filter-fields)
 
 ## Events
-The Blazor Filter generates events that you can handle and further customize its behavior. [Read more about the Blazor Filter events...]({%slug filter-events%}).
+The Blazor Filter generates events that you can handle and further customize its behavior. [Read more about the Blazor Filter events...](slug://filter-events).
 
 ## Filter Parameters
 The Blazor Filter provides parameters that allow you to configure the component:
@@ -63,7 +63,7 @@ The Blazor Filter provides parameters that allow you to configure the component:
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Class` | `string` | The class that will be rendered on the outermost element. |
-| `Value` | [`CompositeFilterDescriptor`]({%slug common-features-descriptors%}#filtering) | Sets the value of the Filter component. |
+| `Value` | [`CompositeFilterDescriptor`](slug://common-features-descriptors#filtering) | Sets the value of the Filter component. |
 
 ## Filter Reference and Methods
 
@@ -189,9 +189,9 @@ The Filter exposes methods for programmatic operation. To use them, define a ref
 
 
 ## Next Steps
-[Configure the Filter Fields]({%slug filter-fields%})
+[Configure the Filter Fields](slug://filter-fields)
 
-[Using the Filter Events]({%slug filter-events%})
+[Using the Filter Events](slug://filter-events)
 
 ## See Also
 

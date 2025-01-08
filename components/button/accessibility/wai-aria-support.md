@@ -62,4 +62,4 @@ For details on how the Button keyboard navigation works, refer to the [Blazor Bu
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

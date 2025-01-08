@@ -1,5 +1,5 @@
 #initial-state
->tip If you want to set an initial state to the TreeList, use a similar snippet, but in the [`OnStateInit event`]({%slug treelist-state%}#set-default-initial-state)
+>tip If you want to set an initial state to the TreeList, use a similar snippet, but in the [`OnStateInit event`](slug://treelist-state#set-default-initial-state)
 #end
 
 

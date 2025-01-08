@@ -1,21 +1,21 @@
 #prerequisites-tip
->tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details]({%slug getting-started/what-you-need%}) article. It provides more setup options and suggests possible enhancements.
+>tip This step-by-step tutorial starts with the basics and is suitable for first-time Blazor or Telerik component users. If you are already familiar with the Telerik NuGet source, components, and Blazor in general, you may prefer the [Telerik UI for Blazor Workflow Details](slug://getting-started/what-you-need) article. It provides more setup options and suggests possible enhancements.
 
 #end
 
 #prerequisites-download
 
-* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial]({%slug getting-started/what-you-need%}).
+* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial](slug://getting-started/what-you-need).
 
-* To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements]({%slug system-requirements%}).
+* To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements](slug://system-requirements).
 
-* This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation]({%slug blazor-overview%}#learning-resources) for the required older product version.
+* This online documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF documentation](slug://blazor-overview#learning-resources) for the required older product version.
 
 ## Step 0: Download Telerik UI for Blazor
 
 * If you have already purchased a Telerik UI for Blazor license, continue with the [next step and create a new project](#step-1-create-a-new-project).
 
-* If you are new to UI for Blazor and haven't purchased a license yet, you must <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download and install the trial version</a> of the UI for Blazor components&mdash;this will activate your free trial and allow you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox and the installer will configure the Telerik [online NuGet feed]({%slug installation/nuget%}) automatically. You will use this feed later in the tutorial. 
+* If you are new to UI for Blazor and haven't purchased a license yet, you must <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download and install the trial version</a> of the UI for Blazor components&mdash;this will activate your free trial and allow you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox and the installer will configure the Telerik [online NuGet feed](slug://installation/nuget) automatically. You will use this feed later in the tutorial. 
 
 >Trial users must complete the installation of the components. Otherwise their trial license will not activate and you cannot complete the tutorial successfully.
 
@@ -25,7 +25,7 @@
 #add-nuget-feed
 ## Step 2: Add the Telerik NuGet Feed to Visual Studio
 
-In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuget%}) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
+In this tutorial, you will use the [Telerik NuGet feed](slug://installation/nuget) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
 
 1. In Visual Studio and go to **Tools** > **NuGet Package Manager** > **Package Manager Settings**.
 
@@ -39,7 +39,7 @@ In this tutorial, you will use the [Telerik NuGet feed]({%slug installation/nuge
 
 1. Whenever Visual Studio displays a dialog to enter credentials for `nuget.telerik.com`, use your Telerik account email and password.
 
->tip For alternative NuGet package download options, check the [Workflow article]({%slug getting-started/what-you-need%}). You can also [authenticate with `nuget.telerik.com` with an API key]({%slug installation/nuget%}#use-nuget-api-key).
+>tip For alternative NuGet package download options, check the [Workflow article](slug://getting-started/what-you-need). You can also [authenticate with `nuget.telerik.com` with an API key](slug://installation/nuget#use-nuget-api-key).
 
 #end
 
@@ -86,11 +86,11 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 #next-steps-after-getting-started
 ## Next Steps
 
-* [Check the list of available components]({%slug blazor-overview%}#list-of-components).
+* [Check the list of available components](slug://blazor-overview#list-of-components).
 * [Explore the live Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui).
-* [Learn the data binding fundamentals for Telerik UI for Blazor components]({%slug common-features-data-binding-overview%}).
-* [Get started with the data Grid]({%slug grid-overview%}).
-* [Review the built-in themes or create custom ones]({%slug themes-overview%}).
+* [Learn the data binding fundamentals for Telerik UI for Blazor components](slug://common-features-data-binding-overview).
+* [Get started with the data Grid](slug://grid-overview).
+* [Review the built-in themes or create custom ones](slug://themes-overview).
 
 #end
 
@@ -100,7 +100,7 @@ Well done! Now you have your first Telerik UI for Blazor component running in yo
 
 
 #after-install
-Once you have the Telerik NuGet source set up, follow the instructions to [create a Telerik Blazor app]({%slug blazor-overview%}#getting-started).
+Once you have the Telerik NuGet source set up, follow the instructions to [create a Telerik Blazor app](slug://blazor-overview#getting-started).
 #end
 
 #setup-local-feed-vs
@@ -146,7 +146,7 @@ Add a `<TelerikRootComponent>` to the app layout file (by default, `MainLayout.r
 </TelerikRootComponent>
 ````
 
-You can learn more about the [`TelerikRootComponent` purpose and usage]({%slug rootcomponent-overview%}) in its dedicated documentation.
+You can learn more about the [`TelerikRootComponent` purpose and usage](slug://rootcomponent-overview) in its dedicated documentation.
 #end
 
 

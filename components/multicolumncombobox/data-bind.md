@@ -19,14 +19,14 @@ This article explains how to provide data to the MultiColumnComboBox component, 
 
 Bind the MultiColumnComboBox to a model in your application. Unlike other drop down components such as ComboBox or DropDownList, binding to a collection of strings, primitives, or value types is not supported.
 
-Consult the [MultiColumnComboBox basic usage example]({%slug multicolumncombobox-overview%}#creating-multiColumnComboBox).
+Consult the [MultiColumnComboBox basic usage example](slug://multicolumncombobox-overview#creating-multiColumnComboBox).
 
 @[template](/_contentTemplates/common/get-model-from-dropdowns.md#get-model-from-dropdowns)
 
 
 ## Value and Selected Item
 
-By default, if no `Value` is provided, the MultiColumnComboBox will appear empty, or will display the `Placeholder` string. If a `Value` is provided and `AllowCustom` is `false`, the `Value` should match an item in the data source (see the [Value Out of Range]({%slug multicolumncombobox-data-binding%}#value-out-of-range) section.
+By default, if no `Value` is provided, the MultiColumnComboBox will appear empty, or will display the `Placeholder` string. If a `Value` is provided and `AllowCustom` is `false`, the `Value` should match an item in the data source (see the [Value Out of Range](slug://multicolumncombobox-data-binding#value-out-of-range) section.
 
 The MultiColumnComboBox acts as an input, so it will not always have a selected item. There will be no selected item in the following cases:
 
@@ -53,13 +53,13 @@ Missing selection is most common when:
 
 ## Missing Value or Data
 
-The MultiColumnCombobox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects its [object reference]({%slug multicolumncombobox-overview%}#component-reference-and-methods).
+The MultiColumnCombobox component attempts to infer the type of its model and value based on the provided `Data` and initial `Value`. This affects its [object reference](slug://multicolumncombobox-overview#component-reference-and-methods).
 
-In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters]({%slug common-features-data-binding-overview%}#component-type).
+In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
 ## Value Out of Range
 
-This specific is applicable for the case when [custom value input]({%slug components/combobox/custom-value%}) is disabled (`AllowCustom="false"` which is its default value).
+This specific is applicable for the case when [custom value input](slug://components/combobox/custom-value) is disabled (`AllowCustom="false"` which is its default value).
 
 When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the ComboBox component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
 
@@ -71,5 +71,5 @@ When `AllowCustom="true"`, what the user types in the input will be set to the `
 
 ## See Also
 
-* [MultiColumnComboBox Overview]({%slug multicolumncombobox-overview%})
+* [MultiColumnComboBox Overview](slug://multicolumncombobox-overview)
 * [Live Demo: MultiColumnComboBox](https://demos.telerik.com/blazor-ui/multicolumncombobox/overview)

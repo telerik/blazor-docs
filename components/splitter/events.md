@@ -236,4 +236,4 @@ The `CollapsedChanged` event is triggered when the `Collapsed` parameter of the 
 
 ## See Also
 
-* [Splitter Overview]({%slug splitter-overview%})
+* [Splitter Overview](slug://splitter-overview)

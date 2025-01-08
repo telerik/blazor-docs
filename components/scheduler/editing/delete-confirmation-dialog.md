@@ -16,7 +16,7 @@ This article provides information on how to enable the built-in delete confirmat
 
 ## Basics
 
-The built-in delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter of the Scheduler to `true`. The default texts of the dialog are exposed in the [localization]({%slug globalization-localization%}) messages of the component, and you can customize them.
+The built-in delete confirmation dialog triggers before event deletion. You can enable it by setting the `ConfirmDelete` parameter of the Scheduler to `true`. The default texts of the dialog are exposed in the [localization](slug://globalization-localization) messages of the component, and you can customize them.
 
 >important This dialog displays only for **single** events, **not** for recurring. The built-in delete confirmation dialog for recurring events is **not** changed.
 
@@ -160,8 +160,8 @@ The built-in delete confirmation dialog triggers before event deletion. You can 
 
 ## See Also
 
-  * [Data Binding]({%slug scheduler-appointments-databinding%})
+  * [Data Binding](slug://scheduler-appointments-databinding)
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   * [Custom Edit Form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form)
-  * [Customize the Delete Confirmation Dialog]({%slug grid-kb-customize-delete-confirmation-dialog%})
+  * [Customize the Delete Confirmation Dialog](slug://grid-kb-customize-delete-confirmation-dialog)
 

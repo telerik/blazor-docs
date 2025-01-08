@@ -10,7 +10,7 @@ position: 15
 
 # TreeView Icons
 
-You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the TreeView items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons](slug://common-features-icons) to the TreeView items. The component also supports custom icons.
 
 To use TreeView item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the respective `TreeViewBinding`.
 
@@ -108,4 +108,4 @@ If the icon property name in the TreeView model is `Icon`, there is no need to s
 
 ## See Also
 
-* [TreeView Overview]({%slug treeview-overview%})
+* [TreeView Overview](slug://treeview-overview)

@@ -179,4 +179,4 @@ The event handler receives an argument object of type `MenuItemRenderEventArgs` 
 
 ## See Also
 
-* [Templates]({%slug contextmenu-templates-overview%})
+* [Templates](slug://contextmenu-templates-overview)

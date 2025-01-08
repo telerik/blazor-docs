@@ -22,7 +22,7 @@ This article describes the events of the Telerik MultiColumnComboBox for Blazor.
 
 ## ValueChanged
 
-The `ValueChanged` event fires upon every change of the user selection. When [custom values]({%slug multicolumncombobox-custom-value%}) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
+The `ValueChanged` event fires upon every change of the user selection. When [custom values](slug://multicolumncombobox-custom-value) are enabled, it fires upon every keystroke, like in a regular `<input>` element.
 
 The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
@@ -194,21 +194,21 @@ The `OnChange` event represents a user action - confirmation of the current valu
 
 ## OnRead
 
->tip Get familiar with the [common `OnRead` event documentation]({%slug common-features-data-binding-onread%}) first.
+>tip Get familiar with the [common `OnRead` event documentation](slug://common-features-data-binding-onread) first.
 
-You can use the `OnRead` event to provide data to the component according to some custom logic, the user input, or the current [virtual scroll]({%slug multicolumncombobox-virtualization%}) position. The event fires when:
+You can use the `OnRead` event to provide data to the component according to some custom logic, the user input, or the current [virtual scroll](slug://multicolumncombobox-virtualization) position. The event fires when:
 
 * The component initializes.
-* The user [filters]({%slug multicolumncombobox-filter%}).
-* The user scrolls with [virtualization]({%slug multicolumncombobox-virtualization%}) enabled.
+* The user [filters](slug://multicolumncombobox-filter).
+* The user scrolls with [virtualization](slug://multicolumncombobox-virtualization) enabled.
 
 You can also call remote data through `async` operations.
 
-Find out how to [get the applied by filtering and grouping criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied by filtering and grouping criteria](slug://common-features-descriptors).
 
 When using `OnRead`, make sure to set `TItem` and `TValue`.
 
->tip You can also [debounce the service calls and implement minimum filter length]({%slug combo-kb-debounce-onread%}).
+>tip You can also [debounce the service calls and implement minimum filter length](slug://combo-kb-debounce-onread).
 
 >caption Custom Data according to the user input in the ComboBox
 
@@ -519,6 +519,6 @@ The `OnBlur` event fires when the component loses focus.
 
 ## See Also
 
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
-* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})
+* [ValueChanged and Validation](slug://value-changed-validation-model)
+* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)
 

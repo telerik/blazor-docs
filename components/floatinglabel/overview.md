@@ -65,7 +65,7 @@ The FloatingLabel does not support third-party components and generic HTML input
 
 ## Forms and Validation
 
-The FloatingLabel can change its styles, based on validation state. See [Validation]({%slug floatinglabel-validation%}) for details and example.
+The FloatingLabel can change its styles, based on validation state. See [Validation](slug://floatinglabel-validation) for details and example.
 
 
 ## Placeholder Behavior
@@ -89,13 +89,13 @@ The following table lists the FloatingLabel parameters. Also check the [Floating
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders additional CSS class to the `span.k-floating-label-container` element, which holds the `<label>` child element. Use `Class` to apply custom styles or [override the theme]({%slug themes-override%}). |
+| `Class` | `string` | Renders additional CSS class to the `span.k-floating-label-container` element, which holds the `<label>` child element. Use `Class` to apply custom styles or [override the theme](slug://themes-override). |
 | `Id` | `string` | Renders an `id` attribute to the `label.k-label` element. To improve accessibility, set the same string as floating label `Id` and `AriaLabelledBy` value of the associated Telerik component. |
 
 
 ## Next Steps
 
-* [Review Floating Label integration with form validation]({%slug floatinglabel-validation%})
+* [Review Floating Label integration with form validation](slug://floatinglabel-validation)
 
 
 ## See Also

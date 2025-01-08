@@ -52,7 +52,7 @@ There are two ways to ensure that long form labels fit on a single line in the p
     }
     ````
 
-> If you place the above CSS rules in the global app stylesheet (usually `site.css`), they will affect **all** popup forms in the app. To avoid this, keep the CSS code in the Razor file, which defines the edit form. [CSS isolation (scoped styles)]({%slug common-kb-css-isolation%}) will not work, because the Window is rendered as a child of the page `<body>`, i.e. outside the Razor component.
+> If you place the above CSS rules in the global app stylesheet (usually `site.css`), they will affect **all** popup forms in the app. To avoid this, keep the CSS code in the Razor file, which defines the edit form. [CSS isolation (scoped styles)](slug://common-kb-css-isolation) will not work, because the Window is rendered as a child of the page `<body>`, i.e. outside the Razor component.
 >
 > For full control of the edit form layout and more advanced customizations, you can also use a [custom edit form in a separate TelerikWindow](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form).
 

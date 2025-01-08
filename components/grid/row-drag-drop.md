@@ -132,12 +132,12 @@ This section contains the following examples:
 
 ### Drag and Drop a Row between Grids
 
-When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface]({%slug grid-kb-drag-drop-different-models%}).
+When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface](slug://grid-kb-drag-drop-different-models).
 
 The target drop area in the Grid is the `<table>` element. Users cannot drop items in the empty space below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
 
 * Do not set a Grid `Height`, so that there is no empty space below the last table row.
-* Define a [`NoDataTemplate`]({%slug grid-templates-no-data%}), which fills the Grid data area.
+* Define a [`NoDataTemplate`](slug://grid-templates-no-data), which fills the Grid data area.
 
 The following example demonstrates both these options:
 
@@ -248,7 +248,7 @@ The following example demonstrates both these options:
 
 ### Drag and Drop between Grid, TreeList, TreeView and Scheduler
 
-The functionality allows dragging items between Grid, [TreeList]({%slug treelist-drag-drop-overview%}), [TreeView]({%slug treeview-drag-drop-overview%}), and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
+The functionality allows dragging items between Grid, [TreeList](slug://treelist-drag-drop-overview), [TreeView](slug://treeview-drag-drop-overview), and [Scheduler](slug://scheduler-overview). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
@@ -1691,7 +1691,7 @@ public class Resource
 
 ### Drag and Drop multiple Rows
 
-You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the [`SelectionMode` parameter]({%slug grid-selection-overview%}) of the TelerikGrid to `GridSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
+You can drag and drop multiple rows in one or between multiple instances of the Grid. To enable it, you should set the [`SelectionMode` parameter](slug://grid-selection-overview) of the TelerikGrid to `GridSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
@@ -1764,12 +1764,12 @@ When you select multiple rows, the row drag clue will be `N items selected` wher
 
 List on known limitations for the Grid Drag and Drop features:
 
-* [Grouping]({%slug components/grid/features/grouping%}) is not supported.
+* [Grouping](slug://components/grid/features/grouping) is not supported.
 
 ## See Also
 
 * [Live Demo: Grid Drag and Drop](https://demos.telerik.com/blazor-ui/grid/drag-drop)
-* [Drag and Drop between Different Parent Components]({%slug grid-kb-drag-drop-in-different-components%})
+* [Drag and Drop between Different Parent Components](slug://grid-kb-drag-drop-in-different-components)
 * [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)
 

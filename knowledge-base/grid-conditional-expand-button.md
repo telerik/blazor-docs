@@ -29,7 +29,7 @@ I would like the expand to only be visible when it has further data to expand.
 
 ## Solution
 
-Use the [`OnRowRender` event]({%slug grid-events%}#onrowrender) to evaluate the current row item (for example, whether it has child items in a collection or some other flag your application has).
+Use the [`OnRowRender` event](slug://grid-events#onrowrender) to evaluate the current row item (for example, whether it has child items in a collection or some other flag your application has).
 
 Then, if you want to hide the expand icon, set a CSS class to the row that will hide the icon in the expand cell. It is also important to disable the pointer events of the cells with no expand icons, so the user cannot click them to open the empty child Grid even though the plus icon is hidden.
 

@@ -46,5 +46,5 @@ When you invoke multiple notifications from the same component reference they wi
 ## See Also
 
   * [Live Demo: Notification Overview](https://demos.telerik.com/blazor-ui/notification/overview)
-  * [Notification Overview]({%slug notification-overview%})
+  * [Notification Overview](slug://notification-overview)
   * [One Notification Instance for All Components Sample Project](https://github.com/telerik/blazor-ui/tree/master/notification/single-instance-per-app)

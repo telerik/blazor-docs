@@ -67,7 +67,7 @@ The components require a model when binding so it can be instantiated with a par
 ## Solution
 There are two approaches to avoiding this error:
 
-* Use a model (class), not a struct, as shown [here]({%slug components/combobox/databind%}#bind-to-a-model), for example
+* Use a model (class), not a struct, as shown [here](slug://components/combobox/databind#bind-to-a-model), for example
 
 * When setting the `Data` of the dropdown, make it a collection of anonymous objects, for example:
 

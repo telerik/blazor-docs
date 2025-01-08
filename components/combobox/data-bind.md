@@ -109,7 +109,7 @@ The ComboBox component attempts to infer the type of its model and value based o
 
 ### Value Out of Range
 
-This specific is applicable for the case when [custom value input]({%slug components/combobox/custom-value%}) is disabled (`AllowCustom="false"` which is its default value).
+This specific is applicable for the case when [custom value input](slug://components/combobox/custom-value) is disabled (`AllowCustom="false"` which is its default value).
 
 When the `Value` the application provides does not match any of the values present in the `ValueField` of the `Data` collection, the ComboBox component will not change the `Value` or select a new item. In the common case, it will show up blank to indicate there is nothing selected from its data.
 
@@ -210,5 +210,5 @@ In case you cannot provide strongly-typed `Value` or `Data` at compile time, you
 
 ## See Also
 
-* [Blazor ComboBox Overview]({%slug components/combobox/overview%})
+* [Blazor ComboBox Overview](slug://components/combobox/overview)
 * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)

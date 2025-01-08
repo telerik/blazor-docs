@@ -11,7 +11,7 @@ position: 3
 
 # Editor Div Edit Mode
 
-The Div [edit mode]({%slug editor-edit-modes-overview%}) uses a `<div>` element for the editable area of the Editor.
+The Div [edit mode](slug://editor-edit-modes-overview) uses a `<div>` element for the editable area of the Editor.
 
 This has the following implications:
 
@@ -107,6 +107,6 @@ The example below shows how you can customize the appearance of elements in the 
 
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
-  * [Editor Toolbar]({%slug editor-toolbar%})
+  * [Editor Overview](slug://editor-overview)
+  * [Editor Toolbar](slug://editor-toolbar)
 

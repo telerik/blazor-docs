@@ -20,11 +20,11 @@ You can choose which mode you want to use though the `Mode` parameter which take
 
 If the `Mode` is not set, by default the Drawer will be in `Overlay` mode.
 
-You can control how large the drawer is by setting its `Width` parameter to a [CSS value]({%slug common-features/dimensions%}). We recommend using pixel values for better control over its size - there are many ways a drawer can be placed in the layout and percentage values depend highly on the DOM hierarchy and CSS rules applied to the elements.
+You can control how large the drawer is by setting its `Width` parameter to a [CSS value](slug://common-features/dimensions). We recommend using pixel values for better control over its size - there are many ways a drawer can be placed in the layout and percentage values depend highly on the DOM hierarchy and CSS rules applied to the elements.
 
 ## Push Mode
 
-When `Mode` is set to `Push`, the Drawer's default width is `240px` when expanded, and `50px` when collapsed in [MiniMode]({%slug drawer-mini-mode%}). When it's state is changed (expanded/collapsed) the content is resized - the width is increased or decreased based on the state.
+When `Mode` is set to `Push`, the Drawer's default width is `240px` when expanded, and `50px` when collapsed in [MiniMode](slug://drawer-mini-mode). When it's state is changed (expanded/collapsed) the content is resized - the width is increased or decreased based on the state.
 
 The drawer's height is dynamic based on the height of the content (you can change it with CSS).
 
@@ -126,6 +126,6 @@ You may want to add padding to the left of the content so that it is not overlap
 
 ## See Also
 
-* [Drawer MiniMode]({%slug drawer-mini-mode%})
-* [Drawer Navigation]({%slug drawer-navigation%})
+* [Drawer MiniMode](slug://drawer-mini-mode)
+* [Drawer Navigation](slug://drawer-navigation)
 * [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

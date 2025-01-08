@@ -31,7 +31,7 @@ To remove a group setting, click the `[x]` button on its indicator in the group 
 
 To prevent grouping by a field, set `Groupable="false"` on its column. This can be useful for fields with unique values like IDs or names.
 
-You can also use [aggregates]({%slug grid-aggregates%}) for the grouped data.
+You can also use [aggregates](slug://grid-aggregates) for the grouped data.
 
 >caption Enable grouping in Telerik Grid
 
@@ -81,16 +81,16 @@ Drag the column header of the "Team" and/or "On Vacation" column to the group pa
 
 ## Aggregates
 
-The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates]({%slug grid-aggregates%}) article.
+The grid lets you define and use aggregates that it can calculate for you. You can read more about using them in the [Aggregates](slug://grid-aggregates) article.
 
 ## Load On Demand
 
-The grid can load the grouped data on demand only. This can be useful if you have many groups and you want the user to first scroll through them without having to load all their data at once. Instead, the child items for a group can be loaded only when the user expands the group. This mode can also be used with Virtual Scrolling. You can read more about this feature in the [Grid - Load Group Data On Demand]({%slug grid-group-lod%}) article.
+The grid can load the grouped data on demand only. This can be useful if you have many groups and you want the user to first scroll through them without having to load all their data at once. Instead, the child items for a group can be loaded only when the user expands the group. This mode can also be used with Virtual Scrolling. You can read more about this feature in the [Grid - Load Group Data On Demand](slug://grid-group-lod) article.
 
 
 ## Group From Code
 
-You can group the Grid from your code through the [Grid state]({%slug grid-state%}). This is possible even if `Groupable="false"` and the group panel is not visible. You can define the list of fields by which the grid is grouped and indexes of groups that will be collapsed (all groups are expanded by default).
+You can group the Grid from your code through the [Grid state](slug://grid-state). This is possible even if `Groupable="false"` and the group panel is not visible. You can define the list of fields by which the grid is grouped and indexes of groups that will be collapsed (all groups are expanded by default).
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -104,16 +104,16 @@ You can group the Grid from your code through the [Grid state]({%slug grid-state
 
 The following articles and sample projects can be helpful when implementing grouping:
 
-* [Capture Group event]({%slug grid-state%}#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
+* [Capture Group event](slug://grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change.
 
-* [Server Grouping]({%slug components/grid/manual-operations%}) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+* [Server Grouping](slug://components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
-* [Static group that is always present]({%slug grid-kb-static-group%})
+* [Static group that is always present](slug://grid-kb-static-group)
 
 ## See Also
 
   * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-  * [Grid Aggregates]({%slug grid-aggregates%})
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Grid Aggregates](slug://grid-aggregates)
+  * [Blazor Grid](slug://grid-overview)
    
   

@@ -18,7 +18,7 @@ The Breadcrumb can be customized by using Templates. This article explains the a
 
 ## ItemTemplate
 
-The `<ItemTemplate>` controls the rendering of the [data bound items]({%slug breadcrumb-data-binding%}) in the Breadcrumb, in case you want to use a rendering different than the default one.
+The `<ItemTemplate>` controls the rendering of the [data bound items](slug://breadcrumb-data-binding) in the Breadcrumb, in case you want to use a rendering different than the default one.
 
 This template receives a `context` argument that is of the data model type and represents the current item.
 

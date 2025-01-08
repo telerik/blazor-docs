@@ -31,14 +31,14 @@ This KB article answers the following questions:
 
 ## Solution
 
-By default, the hierarchy expand/collapse column in the Telerik UI for Blazor [Grid]({%slug grid-overview%}) is not declared in the markup like the other data-bound columns. It renders automatically when a `DetailTemplate` is added to the Grid. At the time of writing (UI for Blazor **6.0.2**), this built-in hierarchy expand/collapse column does not support being locked or other common configurations like managing its position, setting its width, or adding a title.
+By default, the hierarchy expand/collapse column in the Telerik UI for Blazor [Grid](slug://grid-overview) is not declared in the markup like the other data-bound columns. It renders automatically when a `DetailTemplate` is added to the Grid. At the time of writing (UI for Blazor **6.0.2**), this built-in hierarchy expand/collapse column does not support being locked or other common configurations like managing its position, setting its width, or adding a title.
 
 >tip Vote for and follow the [feature request for the Grid to support controlling the position of the expand column](https://feedback.telerik.com/blazor/1647135-ability-to-control-the-position-of-the-expand-column-in-a-hierarchical-grid).
 
 To customize the hierarchy expand/collapse column, follow these steps:
 
-1. Hide the default hierarchy expand column using [custom CSS]({%slug themes-override%}).
-2. Add another [column with a template]({%slug grid-templates-column%}) for expanding and collapsing the detail templates through the [Grid state]({%slug components/grid/features/hierarchy%}#expand-rows-from-code).
+1. Hide the default hierarchy expand column using [custom CSS](slug://themes-override).
+2. Add another [column with a template](slug://grid-templates-column) for expanding and collapsing the detail templates through the [Grid state](slug://components/grid/features/hierarchy#expand-rows-from-code).
 3. Do not set `Field` for the column, so the data operations for this column (filtering, sorting, etc.) are disabled.
 4. Toggle the icon in the custom hierarchy expand column based on the item's expanded state.
 5. Configure the custom hierarchy expand column. For example, set its order in the `GridColumns` declaration or enable the `ColumnMenu` to lock the column.
@@ -182,7 +182,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 
 ## See Also
 
-- [Telerik Blazor Grid - Overview]({%slug grid-overview%})
-- [Telerik Blazor Grid - Column Templates]({%slug grid-templates-column%})
-- [Telerik Blazor Grid - Hierarchy]({%slug components/grid/features/hierarchy%})
-- [Telerik Documentation - Styling and Themes]({%slug themes-override%})
+- [Telerik Blazor Grid - Overview](slug://grid-overview)
+- [Telerik Blazor Grid - Column Templates](slug://grid-templates-column)
+- [Telerik Blazor Grid - Hierarchy](slug://components/grid/features/hierarchy)
+- [Telerik Documentation - Styling and Themes](slug://themes-override)

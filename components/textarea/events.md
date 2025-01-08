@@ -98,6 +98,6 @@ The `OnBlur` event fires when the component loses focus.
 
 ## See Also
 
-* [TextArea Overview]({%slug textarea-overview%})
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
-* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})
+* [TextArea Overview](slug://textarea-overview)
+* [ValueChanged and Validation](slug://value-changed-validation-model)
+* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)

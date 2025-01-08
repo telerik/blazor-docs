@@ -23,7 +23,7 @@ To enable the filter menu, set the `FilterMode` property of the grid to `Telerik
 
 The Gantt will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
 
-A key difference in the behavior from the [filter row]({%slug gantt-filter-row%}) is that the filter is now applied only upon a button click, not upon input change. This may improve performance with large data sets.
+A key difference in the behavior from the [filter row](slug://gantt-filter-row) is that the filter is now applied only upon a button click, not upon input change. This may improve performance with large data sets.
 
 >caption Filter Menu in Telerik Gantt
 
@@ -233,5 +233,5 @@ You can customize the default Filter Menu behavior for each column through the f
 
 ## See Also
 
-  * [Gantt Filtering Overview]({%slug gantt-filtering-overview%})
+  * [Gantt Filtering Overview](slug://gantt-filtering-overview)
   * [Live Demo: Gantt Filter Menu](https://demos.telerik.com/blazor-ui/gantt/filter-menu)

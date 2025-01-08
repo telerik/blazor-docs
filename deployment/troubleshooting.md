@@ -12,7 +12,7 @@ position: 15
 
 This page provides information for common issues you may encounter while deploying applications with the Telerik UI for Blazor components.
 
->important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug://installation/nuget) or a [local feed](slug://installation/zip). See the [CI, CD, Build Server]({%slug deployment-ci-cd-build-pc%}) article for more details on setting automation up.
+>important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug://installation/nuget) or a [local feed](slug://installation/zip). See the [CI, CD, Build Server](slug://deployment-ci-cd-build-pc) article for more details on setting automation up.
 
 @[template](/_contentTemplates/common/general-info.md#status-telerik-com)
 
@@ -20,7 +20,7 @@ This page provides information for common issues you may encounter while deployi
 
 At the time of writing, sometimes the following issues have been reported that pertain to the Telerik UI for Blazor suite:
 
-* `Unable to find package Telerik.UI.for.Blazor` is a common pitfall in build environments. See the [NuGet Troubleshooting]({%slug troubleshooting-nuget%}#unable-to-find-package) article, which also provides other NuGet-related tips.
+* `Unable to find package Telerik.UI.for.Blazor` is a common pitfall in build environments. See the [NuGet Troubleshooting](slug://troubleshooting-nuget#unable-to-find-package) article, which also provides other NuGet-related tips.
 * [404 not found for telerik-blazor.js](#404-not-found-for-telerik-blazor-js)
 * [Trial Message](#trial-message)
 * [Could not load file or assembly 'System.Text.Json, ...](#could-not-load-file-or-assembly-system-text-json)
@@ -33,7 +33,7 @@ At the time of writing, sometimes the following issues have been reported that p
 
 `404 not found for telerik-blazor.js` - this indicates that the framework did not copy our static assets to the publish location.
 
-* Some solutions are available in the [JS Errors - Missing File]({%slug troubleshooting-js-errors%}#missing-file) article.
+* Some solutions are available in the [JS Errors - Missing File](slug://troubleshooting-js-errors#missing-file) article.
 
 * When using `dotnet run` or `dotnet build` to publish an app, the static assets may not work when the `ASPNETCORE_ENVIRONMENT` is _not_ set to `Development`. This may be due to a missing server configuration for allowing static assets ([MSDN link](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.1&tabs=visual-studio#consume-content-from-a-referenced-rcl)). 
 
@@ -70,16 +70,16 @@ namespace MyBlazorAppName
 }
 ````
 
-* On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files]({%slug getting-started/what-you-need%}#css-theme-and-javascript-files) section of the documentation.
+* On Linux (and often Docker), paths are case-sensitive. Make sure you have the correct casing when registering the styles and scripts. See the [CSS Theme and JavaScript Files](slug://getting-started/what-you-need#css-theme-and-javascript-files) section of the documentation.
 
-    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN]({%slug common-features-cdn%}). This may be related to the static asset configurations from the previous points, however.
+    * Some reports indicate that deploying to a Docker container never copies over the static assets and you may have to either copy the file manually, or use it from [our CDN](slug://common-features-cdn). This may be related to the static asset configurations from the previous points, however.
 
 * We have had reports that indicate missing project references do not copy the static assets. For example, in an ASP.NET Core hosted WebAssembly project the server project usually has a project reference to the Blazor project. If that reference is missing, the static assets might not be present in the output.
 
 
 ### Trial Message
 
-`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner) article.
+`Trial Message` - if the machine that performs the build has access to a trial version of our NuGet package, the framework may get confused and copy a trial assembly to the publish location and you may see the trial messages live. Solutions are available in the [Upgrade Troubleshooting - I Still See the Trial Message](slug://upgrade-tutorial#i-still-see-the-trial-watermark-and-banner) article.
 
 ### Could not load file or assembly 'System.Text.Json, ...
 
@@ -108,10 +108,10 @@ or
 
 `The remote certificate is invalid because of errors in the certificate chain: PartialChain`
 
-Such errors are related to the local networking security settings and you may need the assistance of your network or system administrators to resolve it. As a first step, make sure the [required Telerik NuGet domains are accessible]({%slug installation/nuget%}#access-nuget-packages-behind-firewall).
+Such errors are related to the local networking security settings and you may need the assistance of your network or system administrators to resolve it. As a first step, make sure the [required Telerik NuGet domains are accessible](slug://installation/nuget#access-nuget-packages-behind-firewall).
 
 
 ## See Also
 
-* [I Still See the Trial Message]({%slug upgrade-tutorial%}#i-still-see-the-trial-watermark-and-banner)
-* [Missing JS Interop File]({%slug troubleshooting-js-errors%}#missing-file) 
+* [I Still See the Trial Message](slug://upgrade-tutorial#i-still-see-the-trial-watermark-and-banner)
+* [Missing JS Interop File](slug://troubleshooting-js-errors#missing-file) 

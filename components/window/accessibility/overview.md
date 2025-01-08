@@ -15,9 +15,9 @@ The UI for Blazor Window component is <a href="https://www.w3.org/TR/WCAG22" tar
 
 WCAG 2.2 introduces the <a href="https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements" target="_blank">"Dragging Movements"</a> criterion as an important part of the Operable principle. Its primary goal is to guarantee that any feature reliant on drag actions offers an alternative method that can be executed with a single click, enhancing user accessibility.
 
-The illustrative example below shows the window resize action, achievable through the [Dialog]({%slug dialog-overview%}) and window position change through a button. Telerik UI for Blazor to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
+The illustrative example below shows the window resize action, achievable through the [Dialog](slug://dialog-overview) and window position change through a button. Telerik UI for Blazor to offer a versatile API that allows users to trigger all functions programmatically or externally, meeting diverse accessibility requirements for any applications.
 
-The following example demonstrates the [accessibility compliance of the Window component]({%slug window-wai-aria-support%}). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch]({%slug accessibility-overview%}#color-contrast).
+The following example demonstrates the [accessibility compliance of the Window component](slug://window-wai-aria-support). The described level of compliance is achievable with the [Ocean Blue A11y Accessibility Swatch](slug://accessibility-overview#color-contrast).
 
 >caption Window accessibility compliance example
 

@@ -22,7 +22,7 @@ res_type: kb
 
 
 ## Description
-We use [virtualization]({%slug components/grid/virtual-scrolling%}) and set the `Skip` of the grid through its [state]({%slug grid-state%}) (for example, to restore state from the user or to scroll the grid programmatically).
+We use [virtualization](slug://components/grid/virtual-scrolling) and set the `Skip` of the grid through its [state](slug://grid-state) (for example, to restore state from the user or to scroll the grid programmatically).
 
 When the sum of the skip and the page size is bigger then the total count of the items and we try to set the Skip property for the second time, some of the top items are not shown.
 

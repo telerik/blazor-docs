@@ -34,7 +34,7 @@ The following example showcases a CSS way to change the described behavior.
 To align all lines of text to the same level do the following:
 
 1. Use the `Class` parameter to set a CSS class to the TreeList and cascade so you affect only its elements, not all instances on the page/app.
-1. Create a CSS class setting a default height for the cell and add it to the row through the [`OnCellRender` event]({%slug treelist-column-events%}#oncellrender).
+1. Create a CSS class setting a default height for the cell and add it to the row through the [`OnCellRender` event](slug://treelist-column-events#oncellrender).
 1. The treelist component implements child hierarchy levels padding through hidden spans with classes `k-icon` and `k-i-none`. Use those classes along with the TreeList class to cascade the spans and expand their `height` to `100%` and `float` to `left` so that they take up the height of the cell and text remains only to their right.
 
 ![treelist-long-text-aligned](images/treelist-long-text-aligned.png)

@@ -18,9 +18,9 @@ To enable custom user input set the `AllowCustom` parameter to `true`.
 
 >note When custom values are enabled, the `TextField`, `ValueField` and the `Value` must be of type `string`. Otherwise an exception will be thrown. Strings are required because the user input can take any form and may not be parsable to other types (such as numbers or GUID).
 
-When custom input is allowed, the [ValueChanged event]({%slug components/combobox/events%}) fires on every keystroke, and not when an item is selected, because the ComboBox component acts as a text input.
+When custom input is allowed, the [ValueChanged event](slug://components/combobox/events) fires on every keystroke, and not when an item is selected, because the ComboBox component acts as a text input.
 
-When custom values are typed in, there may be no selected item in the ComboBox. See the [ComboBox Overview - Selected Item]({%slug components/combobox/overview%}#selected-item) article for details on when how item selection and `Value` work together.
+When custom values are typed in, there may be no selected item in the ComboBox. See the [ComboBox Overview - Selected Item](slug://components/combobox/overview#selected-item) article for details on when how item selection and `Value` work together.
 
 >caption Allow custom user input in the combo box
 
@@ -103,7 +103,7 @@ Selected value: @selectedValue
 
 ## Limitations
 
-* `AllowCustom` is not compatible with [Adaptive rendering]({%slug adaptive-rendering%}).
+* `AllowCustom` is not compatible with [Adaptive rendering](slug://adaptive-rendering).
 
 ## See Also
 

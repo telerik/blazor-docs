@@ -30,7 +30,7 @@ A popup's position is usually controlled through the `Top` and `Left` parameters
 
 ## Solution
 
-Option 1:  Put an [AnimationContainer]({%slug components/animationcontainer/overview%}) in an element that's positioned as desired - the AnimationContainer renders at its place of declaration and can easily have 100% width of its parent.
+Option 1:  Put an [AnimationContainer](slug://components/animationcontainer/overview) in an element that's positioned as desired - the AnimationContainer renders at its place of declaration and can easily have 100% width of its parent.
 
 Option 2: Override the built-in CSS rules of the window and to put it at the right border of the page through your own class:
 

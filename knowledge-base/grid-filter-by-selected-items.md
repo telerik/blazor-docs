@@ -36,17 +36,17 @@ To simulate filtering by the selected items:
 
 1. To clear this "filter" and show all items (not only the selected ones), assign the actual data source to the Grid.
 
-1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar]({%slug components/grid/features/toolbar%}) or the [Checkbox Column Header]({%slug components/grid/columns/checkbox%}#header-template)(in case you are using [CheckBox selection]({%slug grid-selection-row%}#basics)).
+1. Consider and choose the desired UI for triggering that custom filtering, for example, a filter button or menu. Use the needed template to declare the custom filter UI in the Grid. Useful options can be the [Toolbar](slug://components/grid/features/toolbar) or the [Checkbox Column Header](slug://components/grid/columns/checkbox#header-template)(in case you are using [CheckBox selection](slug://grid-selection-row#basics)).
 
-> [Override the `Equals` method]({%slug grid-selection-row%}#equals-comparison) so that the selection is preserved during filtering.
+> [Override the `Equals` method](slug://grid-selection-row#equals-comparison) so that the selection is preserved during filtering.
 
-The data assignment will vary depending on the [data binding type you are using for the Grid]({%slug grid-data-binding%}#basics). See examples below:
+The data assignment will vary depending on the [data binding type you are using for the Grid](slug://grid-data-binding#basics). See examples below:
 * [Data binding through the Data parameter](#data-binding-through-the-data-parameter)
 * [Data binding through the OnRead event](#data-binding-through-the-onread-event)
 
 ### Data binding through the Data parameter
 
-Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data-binding-overview%}) of the Grid. [Refresh the Grid]({%slug grid-refresh-data%}) each time you change its data so the changes are visible in the viewport.
+Assign the `SelectedItems` to the [`Data` parameter](slug://common-features-data-binding-overview) of the Grid. [Refresh the Grid](slug://grid-refresh-data) each time you change its data so the changes are visible in the viewport.
 
 >caption Show only selected items in Grid using the Data parameter
 
@@ -146,7 +146,7 @@ Assign the `SelectedItems` to the [`Data` parameter]({%slug common-features-data
 
 ### Data binding through the OnRead event
 
-Bind the Grid [through the `OnRead` event]({%slug common-features-data-binding-onread%}).
+Bind the Grid [through the `OnRead` event](slug://common-features-data-binding-onread).
 
 Toggle a flag when the user initiates the filtering. Then call the `Rebind` method - this will force the Grid to fire its `OnRead` event. 
 
@@ -275,5 +275,5 @@ Depending on the flag value, you can make the request based on the corresponding
 
 ## See Also
 
-* [Data Binding to through the `Data` parameter]({%slug common-features-data-binding-overview%})
-* [Data Binding to through the `OnRead` event]({%slug common-features-data-binding-onread%})
+* [Data Binding to through the `Data` parameter](slug://common-features-data-binding-overview)
+* [Data Binding to through the `OnRead` event](slug://common-features-data-binding-onread)

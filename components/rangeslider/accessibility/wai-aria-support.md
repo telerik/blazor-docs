@@ -67,4 +67,4 @@ For details on how the RangeSlider keyboard navigation works, refer to the [Blaz
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

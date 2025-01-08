@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Splitter Overview
 
-The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task. You can also [save and load its state]({%slug splitter-state%}), and respond to [events]({%slug splitter-events%}).
+The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor Splitter component</a> lets you divide a portion of the page into several pieces that the user can resize and collapse. This provides real estate management for the app and the end user so they can focus on the content that is important in their current task. You can also [save and load its state](slug://splitter-state), and respond to [events](slug://splitter-events).
 
 ## Creating Blazor Splitter
 
@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 1. Set the `Width` and `Height` parameters in any valid CSS unit. See [Splitter Parameters](#splitter-parameters) for more information about the component behavior when dimensions are not set.
 1. Inside the `<SplitterPanes>` child tag, add the desired `<SplitterPane>` tags to create sections of content.
 1. Inside each `<SplitterPane>`, add the desired content as HTML markup or other components.
-1. Configure the panes. For example, [set their `Size`, `Min`, `Max`, `Collapsible`, and `Resizable` parameters]({%slug splitter-panes%}#pane-parameters). By default, Splitter panes are resizable, but not collapsible.
+1. Configure the panes. For example, [set their `Size`, `Min`, `Max`, `Collapsible`, and `Resizable` parameters](slug://splitter-panes#pane-parameters). By default, Splitter panes are resizable, but not collapsible.
 
 >caption Basic Splitter
 
@@ -48,23 +48,23 @@ The <a href="https://www.telerik.com/blazor-ui/splitter" target="_blank">Blazor 
 
 ## Panes
 
-Тhe Panes are the building blocks of the Splitter. Each pane controls its own behaviors such as the ability to change its size and collapse. [Read more about the Splitter Panes...]({%slug splitter-panes%})
+Тhe Panes are the building blocks of the Splitter. Each pane controls its own behaviors such as the ability to change its size and collapse. [Read more about the Splitter Panes...](slug://splitter-panes)
 
 ## Orientation
 
-The Splitter panes can stack horizontally or vertically. [Read more about how to configure the Splitter orientation...]({%slug splitter-orientation%})
+The Splitter panes can stack horizontally or vertically. [Read more about how to configure the Splitter orientation...](slug://splitter-orientation)
 
 ## State
 
-The Splitter allows you to save its state and programmatically control it. [Read more about the Splitter state...]({%slug splitter-state%})
+The Splitter allows you to save its state and programmatically control it. [Read more about the Splitter state...](slug://splitter-state)
 
 ## Events
 
-The Splitter fires events that you can handle to further customize the component behavior and respond to the user actions. [Read more about the Blazor Splitter events...]({%slug splitter-events%})
+The Splitter fires events that you can handle to further customize the component behavior and respond to the user actions. [Read more about the Blazor Splitter events...](slug://splitter-events)
 
 ## Splitter Parameters
 
-The Blazor Splitter provides various parameters for its configuration. The following table lists Splitter parameters on component level. Explore the [Splitter Panes]({%slug splitter-panes%}) article for details on the individual Panes configuration.
+The Blazor Splitter provides various parameters for its configuration. The following table lists Splitter parameters on component level. Explore the [Splitter Panes](slug://splitter-panes) article for details on the individual Panes configuration.
 
 Check the [Splitter API Reference ](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitter) for a full list of properties, methods and events.
 
@@ -74,9 +74,9 @@ Check the [Splitter API Reference ](/blazor-ui/api/Telerik.Blazor.Components.Tel
 | --- | --- | --- |
 | `AriaLabel` | `string` | The `aria-label` attribute of the splitbars elements (`<div class="k-splitbar">`). |
 | `Class` | `string` | The CSS class that renders on the Splitter element (`<div class="k-splitter">`). |
-| `Height` | `string` | The height style of the Splitter. See the [Dimensions]({%slug common-features/dimensions%}) article for details on what units you can use and how percentage dimensions work. If not set, the Splitter will shrink and expand, according to the [pane sizes]({%slug splitter-panes%}#pane-size) and content. |
+| `Height` | `string` | The height style of the Splitter. See the [Dimensions](slug://common-features/dimensions) article for details on what units you can use and how percentage dimensions work. If not set, the Splitter will shrink and expand, according to the [pane sizes](slug://splitter-panes#pane-size) and content. |
 | `Orientation` | `SplitterOrientation` enum <br/> (`SplitterOrientation.Horizontal`) | Whether the content will be split up (how the panes will stack) horizontally or vertically. |
-| `Width`| `string` | The width style of the Splitter in any [valid CSS unit]({%slug common-features/dimensions%}). If not set, the Splitter will expand horizontally to 100%. |
+| `Width`| `string` | The width style of the Splitter in any [valid CSS unit](slug://common-features/dimensions). If not set, the Splitter will expand horizontally to 100%. |
 
 ## Splitter Reference and Methods
 
@@ -84,8 +84,8 @@ Add a reference to the component instance to use the [Splitter methods](/blazor-
 
 | Method | Description |
 | --- | --- |
-| `GetState` | Gets the current [state]({%slug splitter-state%}) of the Splitter.
-| `SetState` | Sets the current [state]({%slug splitter-state%}) of the Splitter.
+| `GetState` | Gets the current [state](slug://splitter-state) of the Splitter.
+| `SetState` | Sets the current [state](slug://splitter-state) of the Splitter.
 
 ````RAZOR
 <TelerikButton OnClick="@GetSplitterState">Get Splitter State</TelerikButton>
@@ -114,10 +114,10 @@ Add a reference to the component instance to use the [Splitter methods](/blazor-
 
 ## Next Steps
 
-* [Explore the Splitter pane settings]({%slug splitter-panes%})
-* [Set the Splitter orientation]({%slug splitter-orientation%})
-* [Manage the Splitter state]({%slug splitter-state%})
-* [Handle Splitter events]({%slug splitter-events%})
+* [Explore the Splitter pane settings](slug://splitter-panes)
+* [Set the Splitter orientation](slug://splitter-orientation)
+* [Manage the Splitter state](slug://splitter-state)
+* [Handle Splitter events](slug://splitter-events)
 
 ## See Also
 

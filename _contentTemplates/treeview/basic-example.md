@@ -100,6 +100,6 @@ Sample treeview bound to self-referencing flat data. Also uses the built-in icon
 #end
 
 #data-binding-basics-link
-Before continuing, make sure you are familiar with the [treeview data binding basics]({%slug components/treeview/data-binding/overview%}).
+Before continuing, make sure you are familiar with the [treeview data binding basics](slug://components/treeview/data-binding/overview).
 #end
 

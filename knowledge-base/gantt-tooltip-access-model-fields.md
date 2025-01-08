@@ -21,7 +21,7 @@ ticketid: 1653280
 
 ## Description
 
-I want to access and display model fields in the Gantt Timeline Tooltip. In the [`TooltipTemplate`]({%slug gantt-tooltip-template%}) I can access some of the model fields, which [match the properties of a Gantt Tree item]({%slug gantt-data-binding-overview%}#data-bindings). But how to access and show all model fields?
+I want to access and display model fields in the Gantt Timeline Tooltip. In the [`TooltipTemplate`](slug://gantt-tooltip-template) I can access some of the model fields, which [match the properties of a Gantt Tree item](slug://gantt-data-binding-overview#data-bindings). But how to access and show all model fields?
 
 ## Solution
 
@@ -35,7 +35,7 @@ You have two options to display the other fields form you model in the Tooltip:
 
 This solution relies on finding the task item in your data based on the properties that the `TooltipTemplateContext` provides. The approach is applicable only if all items in your data have unique values for these properties and the task titles are not localized.
 
-1. Cast the [`TooltipTemplate`]({%slug gantt-tooltip-template%}) `context` to `TooltipTemplateContext`.
+1. Cast the [`TooltipTemplate`](slug://gantt-tooltip-template) `context` to `TooltipTemplateContext`.
 2. Use the [available properties of the `TooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.TooltipTemplateContext) to find the data item in the Gantt data collection. The example below uses the `Title` property.
 3. Display the desired fields of the model instance in the `TooltipTemplate`.
 
@@ -152,12 +152,12 @@ This solution relies on finding the task item in your data based on the properti
 This solution relies on disabling the built-in Tooltip and adding a custom one, so you have full control over its rendering and content.
 
 1. Disable the built-in Tooltip by setting the Gantt `ShowTooltip` parameter to `false`.
-1. Use a [`TaskTemplate`]({%slug gantt-task-template%}) to render a unique `id` attribute to each task.
-1. Add a [TelerikTooltip]({%slug tooltip-overview%}) in the `TaskTemplate`.
-1. Set the Tooltip's [`TargetSelector`]({%slug tooltip-overview%}#tooltip-parameters) to point to the task wrapper unique `id`.
+1. Use a [`TaskTemplate`](slug://gantt-task-template) to render a unique `id` attribute to each task.
+1. Add a [TelerikTooltip](slug://tooltip-overview) in the `TaskTemplate`.
+1. Set the Tooltip's [`TargetSelector`](slug://tooltip-overview#tooltip-parameters) to point to the task wrapper unique `id`.
 1. Access the model from the `context` of the `TaskTemplate` and get the needed properties to display in the Tooltip.
 
-> This approach renders a dedicated Tooltip for each task. This makes it useful if you don't have too many tasks - otherwise, you may face performance issues. In this case, either use the [above approach](#get-the-gantt-data-item-from-context-properties) or [add only one Tooltip instance as shown here]({%slug tooltip-kb-in-grid%}).
+> This approach renders a dedicated Tooltip for each task. This makes it useful if you don't have too many tasks - otherwise, you may face performance issues. In this case, either use the [above approach](#get-the-gantt-data-item-from-context-properties) or [add only one Tooltip instance as shown here](slug://tooltip-kb-in-grid).
 
 >caption Use a custom Tooltip component
 
@@ -272,5 +272,5 @@ This solution relies on disabling the built-in Tooltip and adding a custom one, 
 
 ## See Also
 
-- [Gantt Overview - Telerik UI for Blazor]({%slug gantt-overview%})
+- [Gantt Overview - Telerik UI for Blazor](slug://gantt-overview)
 - <a href="https://demos.telerik.com/blazor-ui/gantt/templates" target="_blank">Live Demo: Gantt Templates</a>

@@ -67,12 +67,12 @@ To hide a Grid column set its `Visible` parameter to `false`. To hide a column b
 
 Non-visible columns (`Visible="false"`) will have the following behavior:
 
-* Will not be [editable]({%slug components/grid/editing/overview%}).
-* Will not be exported in [excel export]({%slug grid-export-excel%}).
-* Will not be visible when the data is [grouped]({%slug components/grid/features/grouping%}).
-* [Templates]({%slug components/grid/features/templates%}) will not be rendered.
-    * When using [Row Template]({%slug grid-templates-row%}) the visiblity of the column should be implemented by the application in the row template itself - the grid can only toggle the visibility of the header.
-* You can control the visibility of the column through the [Grid State]({%slug grid-state%}).
+* Will not be [editable](slug://components/grid/editing/overview).
+* Will not be exported in [excel export](slug://grid-export-excel).
+* Will not be visible when the data is [grouped](slug://components/grid/features/grouping).
+* [Templates](slug://components/grid/features/templates) will not be rendered.
+    * When using [Row Template](slug://grid-templates-row) the visiblity of the column should be implemented by the application in the row template itself - the grid can only toggle the visibility of the header.
+* You can control the visibility of the column through the [Grid State](slug://grid-state).
 
 
 ## Examples
@@ -260,4 +260,4 @@ This example shows hiding a column based on a simple condition in its data. You 
 ## See Also
 
   * [Live Demo: Visible Columns](https://demos.telerik.com/blazor-ui/grid/columns)
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Blazor Grid](slug://grid-overview)

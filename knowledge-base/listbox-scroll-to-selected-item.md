@@ -133,4 +133,4 @@ This knowledge base article answers the following questions:
 
 ## See Also
 
-* [ListBox Selection]({%slug listbox-selection%})
+* [ListBox Selection](slug://listbox-selection)

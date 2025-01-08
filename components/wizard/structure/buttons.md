@@ -24,16 +24,16 @@ In this article:
 The Wizard provides the following default buttons:
 
 * `Next` - navigates to the next step of the Wizard. If the next step is <strong>disabled</strong>, the button will also appear as disabled. If the next step is <strong>enabled</strong> the following process will be triggered:
-    * Invoke [`OnStepChange`]({%slug wizard-events%}#onchange),
+    * Invoke [`OnStepChange`](slug://wizard-events#onchange),
     * Go to the next page (if the event is not canceled from `event args`)
-    * Invoke [`ValueChanged`]({%slug wizard-events%}#valuechanged) after the step is changed
+    * Invoke [`ValueChanged`](slug://wizard-events#valuechanged) after the step is changed
 
 * `Previous` - navigates to the previous step of the Wizard. If the previous step is <strong>disabled</strong>, the button will also appear as disabled. If the previous step is <strong>enabled</strong> the following process will be triggered:
-    * Invoke [`OnStepChange`]({%slug wizard-events%}#onchange),
+    * Invoke [`OnStepChange`](slug://wizard-events#onchange),
     * Go to the previous page (if the event is not canceled from `event args`)
-    * Invoke [`ValueChanged`]({%slug wizard-events%}#valuechanged) after the step is changed
+    * Invoke [`ValueChanged`](slug://wizard-events#valuechanged) after the step is changed
 
-* `Done` - allows the user to complete the wizard. Invokes the [OnFinish]({%slug wizard-events%}#onfinish) event.
+* `Done` - allows the user to complete the wizard. Invokes the [OnFinish](slug://wizard-events#onfinish) event.
 
 >caption Wizard with default buttons
 
@@ -69,7 +69,7 @@ The Wizard component allows you to include your custom buttons. You can define t
 
 This configuration overrides the whole rendering of the bottom-right section of the Wizard, including the built-in buttons and thus provides a full control over it. If you want to include Next and Previous buttons as per the default setup of the Wizard, you need to also add them inside the `WizardButtons`.
 
->Custom Wizard buttons do not trigger the component [`OnChange`]({%slug wizard-events%}#onchange) and [`OnFinish`]({%slug wizard-events%}#onfinish) events. See section [Execute Business Logic With Custom Wizard Buttons](#execute-business-logic-with-custom-wizard-buttons) below.
+>Custom Wizard buttons do not trigger the component [`OnChange`](slug://wizard-events#onchange) and [`OnFinish`](slug://wizard-events#onfinish) events. See section [Execute Business Logic With Custom Wizard Buttons](#execute-business-logic-with-custom-wizard-buttons) below.
 
 >caption Wizard with custom buttons (code snippet below)
 
@@ -124,11 +124,11 @@ This configuration overrides the whole rendering of the bottom-right section of 
 
 ### Execute Business Logic With Custom Wizard Buttons
 
-The built-in (default) Wizard buttons fire the Wizard [`OnChange`]({%slug wizard-events%}#onchange) and [`OnFinish`]({%slug wizard-events%}#onfinish) events. This allows the app to execute custom business logic and guide the user to the next or previous step under certain conditions.
+The built-in (default) Wizard buttons fire the Wizard [`OnChange`](slug://wizard-events#onchange) and [`OnFinish`](slug://wizard-events#onfinish) events. This allows the app to execute custom business logic and guide the user to the next or previous step under certain conditions.
 
-Custom Wizard buttons cannot fire the `OnChange` and `OnFinish` events. As a result, custom business logic should be implemented in the `OnClick` events of the buttons. On the other hand, the [Wizard Stepper]({%slug wizard-structure-stepper%}) always fires the Wizard `OnChange` event. This creates a situation where user navigation can trigger different events. To execute business logic between steps, use one of the following options:
+Custom Wizard buttons cannot fire the `OnChange` and `OnFinish` events. As a result, custom business logic should be implemented in the `OnClick` events of the buttons. On the other hand, the [Wizard Stepper](slug://wizard-structure-stepper) always fires the Wizard `OnChange` event. This creates a situation where user navigation can trigger different events. To execute business logic between steps, use one of the following options:
 
-* [Disable all Stepper steps]({%slug wizard-structure-stepper%}#disabled). The user will still be able to navigate with the custom Wizard buttons.
+* [Disable all Stepper steps](slug://wizard-structure-stepper#disabled). The user will still be able to navigate with the custom Wizard buttons.
 * [Disable Stepper clicks with CSS](#disable-stepper-clicks-with-css). In this way, the Stepper will not look disabled. It is also possible to [hide the Stepper completely](#hide-the-stepper).
 * [Call the `OnChange` and `OnFinish` handlers from the button `OnClick` handlers](#call-onchange-and-onfinish-from-button-onclick), to avoid duplicate code.
 * Execute the same code in both the step `OnChange` handlers and the button `OnClick` handlers.

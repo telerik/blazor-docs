@@ -34,5 +34,5 @@ The [sample app in GitHub](https://github.com/telerik/blazor-ui/tree/master/grid
 
 ## See Also
 
-* [Grid State]({%slug grid-state%})
-* [Save and load the Grid state from `localStorage`]({%slug grid-kb-save-load-state-localstorage%})
+* [Grid State](slug://grid-state)
+* [Save and load the Grid state from `localStorage`](slug://grid-kb-save-load-state-localstorage)
