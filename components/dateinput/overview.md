@@ -98,6 +98,7 @@ The following section lists some Date Input parameters and links to other pages 
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
 | `Format` | `string` <br /> (`ShortDatePattern`) | The textbox mask and date format that the user input must match. The default value depends on `CultureInfo.CurrentCulture`. Read more in the [Supported Formats](slug://components/dateinput/supported-formats) article. |
 | `Id` | `string` | The `id` attribute of the `input`. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Max` | `DateTime` <br /> (`new DateTime(2099, 12, 31)`)| The latest allowed date that the user can type. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1)`)| The earliest allowed date that the user can type. |
 | `Placeholder` | `string` | The [`placeholder` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder) of the `input`. The placeholder will appear only if the component is bound to nullable `DateTime?` object, the `Value` is `null` and the component is not focused. Once the user focuses it to start typing, the `FormatPlaceholder` (default or [custom one](#format-placeholder)) will override the `Placeholder` to indicate the expected date format. |

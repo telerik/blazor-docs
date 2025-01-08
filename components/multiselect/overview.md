@@ -107,6 +107,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | `Filterable` | `bool` | Whether [filtering](slug://multiselect-filter) is enabled for the end user (suggestions will get narrowed down as they type). |
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`) | The string operation that will be used for [filtering](slug://multiselect-filter). |
 | `Id` | `string` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
 | `MinLength` | `int` | How many characters the user must type before the suggestion list appears. Often works together with [filtering](slug://multiselect-filter). |
 | `PersistFilterOnSelect` | `bool` | Controls whether the filter input will be cleared when the user selects an item. Applies when [MultiSelect filtering](slug://multiselect-filter) is enabled and `AutoClose="false"`. 

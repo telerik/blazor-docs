@@ -94,6 +94,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 | `FilterOperator` | `StringFilterOperator` <br /> (`StartsWith`)| The method of [filtering](slug://components/dropdownlist/filter) the items. |
 | `FilterPlaceholder` |  `string` | The hint that will be displayed in the filter input when it has no value.
 | `Id` | `string` | The `id` attribute rendered on the main wrapping element of the component (`<span class="k-dropdownlist">`). You can use it to attach a `<label for="">` to it. |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `TItem` | `Type`| The type of the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. |
 | `TValue` | `Type` | The type of the value field from the model to which the component is bound. Required if you can't provide `Data` or `Value`. Determines the type of the reference object. The type of the values can be:<br /> - `number` (such as `int`, `double`, and so on)<br /> - `string`<br /> - `Guid`<br /> - `Enum` |
 | `Title` | `string` | The title text rendered in the header of the dropdown list popup (action sheet). Applicable only when [`AdaptiveMode` is set to `Auto`](slug://adaptive-rendering). |
