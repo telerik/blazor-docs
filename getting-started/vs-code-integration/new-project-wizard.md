@@ -86,7 +86,7 @@ After configuring the preferred settings, click the **Create Project** button. T
 ## See Also
 
 * [Telerik UI for Blazor Visual Studio Code Extensions Overview](slug://getting-started-vs-code-integration-overview)
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug://getting-started/client-side)
 * [Getting Started with Server-Side Apps](slug://getting-started/server-side)
 * [Getting Started with Web Apps](slug://getting-started/web-app)

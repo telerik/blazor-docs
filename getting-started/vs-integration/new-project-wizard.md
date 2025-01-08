@@ -87,8 +87,8 @@ Finally, you can apply one of the available [themes](slug://themes-overview) to 
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview )
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version )
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)
 * [Getting Started with Client-Side Apps](slug://getting-started/client-side)
 * [Getting Started with Server-Side Apps](slug://getting-started/server-side)
 * [Workflow for Using the UI Components for Blazor](slug://getting-started/what-you-need)

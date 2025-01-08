@@ -47,21 +47,21 @@ Selected value: @selectedValue
 
 ## Data Binding
 
-The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor ComboBox data binding...]({% slug components/combobox/databind ).
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor ComboBox data binding...](slug://components/combobox/databind).
 
 ## Filtering
 
-The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...]({% slug components/combobox/filter ).
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor ComboBox filter...](slug://components/combobox/filter).
 
 ## Grouping
 
-The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor ComboBox grouping...]({% slug components/combobox/grouping ).
+The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor ComboBox grouping...](slug://components/combobox/grouping).
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
 ## Templates
 
-@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor ComboBox templates...]({% slug components/combobox/templates ).
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor ComboBox templates...](slug://components/combobox/templates).
 
 ## Validation
 
@@ -69,7 +69,7 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor ComboBox virtualization...]({% slug combobox-virtualization )
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor ComboBox virtualization...](slug://combobox-virtualization)
 
 ## Adaptive Rendering
 
@@ -204,7 +204,7 @@ Missing selection is most common when the initial value is `null` as data source
 
 * [Binding the ComboBox to Data](slug://components/combobox/databind)
 
-* [Pre-Selecting Items for the User]({% slug  combobox-pre-select-item )
+* [Pre-Selecting Items for the User](slug://combobox-pre-select-item)
 
 ## See Also
 

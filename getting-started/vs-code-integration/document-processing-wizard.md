@@ -56,4 +56,4 @@ The table below lists the assemblies that will be selected for each library:
 ## See Also
 
 * [Telerik Document Processing Overview](slug://dpl-in-blazor)
-* [Visual Studio Code Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-code-integration-overview )
+* [Visual Studio Code Integration for Telerik UI for Blazor Overview](slug://getting-started-vs-code-integration-overview)

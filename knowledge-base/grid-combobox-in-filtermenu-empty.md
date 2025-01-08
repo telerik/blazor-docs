@@ -33,7 +33,7 @@ The behavior is related to the filter menu popup. It is rendered outside the Gri
 
 ## Suggested Workarounds
 * Upgrade to UI for Blazor **3.0** or later. It uses different `OnRead` mechanism for loading asynchronous data and updating the ComboBox. The component dropdown will update even after it has been opened.
-* Load the ComboBox data before the filter menu is opened for the first time. Use Blazor events like `OnInitializedAsync`, or Grid events like [**OnStateInit**]({% slug grid-state #events) or [OnRead]({% slug grid-events #read-event).
+* Load the ComboBox data before the filter menu is opened for the first time. Use Blazor events like `OnInitializedAsync`, or Grid events like [**OnStateInit**](slug://grid-state #events) or [OnRead](slug://grid-events#read-event).
 * Load the ComboBox data synchronously.
 * Enable Grid filtering with a delay, after the ComboBox data has been loaded.
 

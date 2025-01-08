@@ -61,21 +61,21 @@ The <a href="https://www.telerik.com/blazor-ui/multiselect" target="_blank">Blaz
 
 ## Data Binding
 
-The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiSelect data binding...]({% slug multiselect-databind )
+The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiSelect data binding...](slug://multiselect-databind)
 
 ## Filtering
 
-The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiSelect filter...]({% slug multiselect-filter )
+The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiSelect filter...](slug://multiselect-filter)
 
 ## Grouping
 
-The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiSelect grouping...]({% slug components/multiselect/grouping )
+The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiSelect grouping...](slug://components/multiselect/grouping)
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
 ## Templates
 
-@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiSelect templates...]({% slug multiselect-templates )
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiSelect templates...](slug://multiselect-templates)
 
 ## Validation
 
@@ -83,7 +83,7 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiSelect virtualization...]({% slug multiselect-virtualization )
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiSelect virtualization...](slug://multiselect-virtualization)
 
 ## Adaptive Rendering
 
@@ -197,7 +197,7 @@ Add a reference to the component instance to use the [MultiSelect's methods](/bl
 
 * [Binding the MultiSelect to Data](slug://multiselect-databind)
 
-* [Pre-Selecting Items for the User]({% slug multiselect-pre-select-items )
+* [Pre-Selecting Items for the User](slug://multiselect-pre-select-items)
 
 ## See Also
 

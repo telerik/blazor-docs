@@ -22,7 +22,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 1. Set the `Height` and `Width` properties.
 
-1. Optionally, choose a `Type` (one of the [encodings we support](slug:// barcode-encoding)).
+1. Optionally, choose a `Type` (one of the [encodings we support](slug://barcode-encoding)).
     * Its default encoding is `Code39`.
 
 >caption A basic configuration of the Telerik Barcode
@@ -83,7 +83,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | ----------- | ----------- | ----------- |
 | `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode - svg/canvas. |
 | `Checksum` | `bool` | By setting it to true, the Barcode will display the checksum digit next to the value in the text area. |
-| `Type` | `BarcodeType` enum <br /> `Code39` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings](slug:// barcode-encoding)) |
+| `Type` | `BarcodeType` enum <br /> `Code39` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings](slug://barcode-encoding)) |
 | `Value` | `string` | Defines the initial value of the Barcode. |
 | `Width` | `string` | |
 | `Height` | `string` | |

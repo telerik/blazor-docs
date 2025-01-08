@@ -52,7 +52,7 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 ## Upgrade Wizard
 
-To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard](slug://getting-started-vs-integration-upgrade-project) that comes as part of the [Telerik UI for Blazor Visual Studio Extension]({% slug getting-started-vs-integration-overview ).
+To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard](slug://getting-started-vs-integration-upgrade-project) that comes as part of the [Telerik UI for Blazor Visual Studio Extension](slug://getting-started-vs-integration-overview).
 
 ## Upgrade from Trial to Commercial
 

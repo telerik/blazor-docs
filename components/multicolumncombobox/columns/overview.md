@@ -98,5 +98,5 @@ To bind data to the `<MultiColumnComboBoxColumn>` you can use the `Field`. This 
 
 ## See Also
 
-* [Templates]({% slug multicolumncombobox-templates )
+* [Templates](slug://multicolumncombobox-templates)
 * [Use Custom MultiColumnComboBox with Grid](slug://multicolumncombobox-kb-grid)

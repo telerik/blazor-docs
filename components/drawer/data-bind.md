@@ -92,4 +92,4 @@ https://docs.telerik.com/blazor-ui/components/drawer/navigation
 ## See Also
 
 * [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)
-* [Drawer Navigation]({% slug drawer-navigation)
+* [Drawer Navigation](slug://drawer-navigation)

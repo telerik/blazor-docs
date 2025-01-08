@@ -67,7 +67,7 @@ The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_bla
 
 ## Data Binding
 
-The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiColumnComboBox data binding...]({% slug multicolumncombobox-data-binding ).
+The Blazor MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor MultiColumnComboBox data binding...](slug://multicolumncombobox-data-binding).
 
 The linked article also explains how the component behaves when the current value is not present in the data.
 
@@ -77,17 +77,17 @@ The MultiColumnComboBox renders its dropdown items in a grid-like column layout.
 
 ## Filtering
 
-The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiColumnComboBox filtering...]({% slug multicolumncombobox-filter ).
+The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor MultiColumnComboBox filtering...](slug://multicolumncombobox-filter).
 
 ## Grouping
 
-The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiColumnComboBox grouping...]({% slug multicolumncombobox-grouping ).
+The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor MultiColumnComboBox grouping...](slug://multicolumncombobox-grouping).
 
 @[template](/_contentTemplates/common/inputs.md#adornments)
 
 ## Templates
 
-@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiColumnComboBox templates...]({% slug multicolumncombobox-templates ).
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor MultiColumnComboBox templates...](slug://multicolumncombobox-templates).
 
 ## Validation
 
@@ -95,7 +95,7 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiColumnComboBox virtualization...]({% slug multicolumncombobox-virtualization )
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor MultiColumnComboBox virtualization...](slug://multicolumncombobox-virtualization)
 
 ## Adaptive Rendering
 
@@ -116,8 +116,8 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Whether the user can interact with the component. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Filterable` | `bool` | Enables [filtering]({% slug multicolumncombobox-filter ) for the end user. |
-| `FilterOperator` | `StringFilterOperator` enum <br /> (`StartsWith`) | The [filtering method]({% slug multicolumncombobox-filter ). |
+| `Filterable` | `bool` | Enables [filtering](slug://multicolumncombobox-filter) for the end user. |
+| `FilterOperator` | `StringFilterOperator` enum <br /> (`StartsWith`) | The [filtering method](slug://multicolumncombobox-filter). |
 | `Id` | `string` | The `id` attribute of the `<input class="k-input-inner" />` element. Use it to attach a `<label for="...">` to the input. |
 | `LoaderShowDelay` | `int ` <br /> 300 | Time in milliseconds between opening the popup and showing the loading skeleton in it when the data is not yet available. |
 | `Placeholder` | `string` | The hint text the user sees when no item is selected. The placeholder will shown when the `Value` is set to the default value of the `ValueField` type. For example, `0` for `int`, and `null` for `int?` or `string`. |

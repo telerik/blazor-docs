@@ -38,6 +38,6 @@ To use the Telerik UI for Blazor scaffolders, install the Telerik UI for Blazor 
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview )
-* [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project )
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version )
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
+* [Creating New Projects with Visual Studio](slug://getting-started-vs-integration-new-project)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)

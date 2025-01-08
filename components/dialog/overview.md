@@ -24,7 +24,7 @@ The Dialog component and its [predefined options](slug://dialog-predefined) aim 
 
 4. Set the Dialog content through the `DialogContent` RenderFragment parameter
 
-5. (optional) Configure the [`DialogButtons`](slug:// dialog-action-buttons) inside the `TelerikDialog` tag.
+5. (optional) Configure the [`DialogButtons`](slug://dialog-action-buttons) inside the `TelerikDialog` tag.
 
 >caption A basic configuration of the Telerik Dialog.
 
@@ -73,12 +73,12 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
-| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretch`) | The layout of the actions button in the footer. See more in the [Action Buttons article](slug:// dialog-action-buttons)). |
+| `ButtonsLayout` | `DialogButtonsLayout` enum <br /> (`Stretch`) | The layout of the actions button in the footer. See more in the [Action Buttons article](slug://dialog-action-buttons)). |
 | `Class` | `string` | A custom CSS class to the `<div class="k-window k-dialog">` element. |
 | `CloseOnOverlayClick` | `bool` | Defines if clicking on the modal overlay should close the Dialog. |
 | `FocusedElementSelector` | `string` | The CSS selector of the initially focused item on open. By default, it is the first focusable item in the Dialog. |
 | `Height` | `string` | The height of the Dialog in any [supported CSS unit](slug://common-features/dimensions). |
-| `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article](slug:// dialog-header). |
+| `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article](slug://dialog-header). |
 | `ThemeColor` | `string` | A predefined color scheme for the Dialog, especially the titlebar. Use the available members of the static class [`ThemeConstants.Dialog.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Dialog.ThemeColor). |
 | `Title` | `string` | The Dialog title. |
 | `Visible` | `bool` | Defines the Dialog visibility. |

@@ -51,4 +51,4 @@ When you select a package, the main page of the Wizard will appear. In the **SEL
 
 ## See Also
 
-* [Visual Studio Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-integration-overview )
+* [Visual Studio Integration for Telerik UI for Blazor Overview](slug://getting-started-vs-integration-overview)

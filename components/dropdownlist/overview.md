@@ -50,19 +50,19 @@ Selected value: @selectedValue
 
 ## Data Binding
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...]({% slug components/dropdownlist/databind ).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#data-binding) [Read more about the Blazor DropDownList data binding...](slug://components/dropdownlist/databind).
 
 ## Filtering
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor DropDownList filter...]({% slug components/dropdownlist/filter ).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#filtering) [Read more about the Blazor DropDownList filter...](slug://components/dropdownlist/filter).
 
 ## Grouping
 
-The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...]({% slug components/dropdownlist/grouping ).
+The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#grouping) [Read more about the Blazor DropDownList grouping...](slug://components/dropdownlist/grouping).
 
 ## Templates
 
-@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...]({% slug components/dropdownlist/templates ).
+@[template](/_contentTemplates/dropdowns/features.md#templates) [Read more about the Blazor DropDownList templates...](slug://components/dropdownlist/templates).
 
 ## Validation
 
@@ -70,7 +70,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor DropDownList virtualization...]({% slug dropdownlist-virtualization )
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor DropDownList virtualization...](slug://dropdownlist-virtualization)
 
 ## Adaptive Rendering
 
@@ -260,7 +260,7 @@ By default, if no `Value` is provided and no `DefaultText` is defined, the DropD
 ## Next Steps
 
 * [Binding the DropDownList to Data](slug://components/dropdownlist/databind)
-* [Pre-Selecting Items for the User]({% slug dropdownlist-pre-select-item )
+* [Pre-Selecting Items for the User](slug://dropdownlist-pre-select-item)
 
 ## See Also
 

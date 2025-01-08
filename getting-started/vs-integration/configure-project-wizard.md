@@ -35,5 +35,5 @@ The **Project Settings** page allows you to enable or disable:
 
 ## See Also
 
-* [Visual Studio Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-integration-overview )
-* [Converting to Telerik Projects]({% slug getting-started-vs-integration-convert-project )
+* [Visual Studio Integration for Telerik UI for Blazor Overview](slug://getting-started-vs-integration-overview)
+* [Converting to Telerik Projects](slug://getting-started-vs-integration-convert-project)

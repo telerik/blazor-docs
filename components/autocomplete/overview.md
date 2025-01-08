@@ -67,7 +67,7 @@ The Blazor AutoComplete @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Virtualization
 
-@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor AutoComplete virtualization...]({% slug autocomplete-virtualization )
+@[template](/_contentTemplates/dropdowns/features.md#virtualization) [Read more about the Blazor AutoComplete virtualization...](slug://autocomplete-virtualization)
 
 ## Adaptive Rendering
 

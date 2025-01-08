@@ -37,7 +37,7 @@ When column resizing is enabled, a double click on the resize handle between the
 
 The Grid also exposes methods to programmatically resize columns to fit their contents:
 
-* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute]({% slug components/grid/columns/bound#identification).
+* `AutoFitColumnAsync(string id)`—Autofits the column with the specified [`Id` attribute](slug://components/grid/columns/bound#identification).
 * `AutoFitColumnsAsync(IEnumerable<string> ids)`—Autofits multiple columns at once.
 * `AutoFitAllColumnsAsync()`—Autofits all applicable columns. For example, this method does not affect the hierarchy expand/collapse columns.
 

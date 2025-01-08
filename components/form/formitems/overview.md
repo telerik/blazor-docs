@@ -265,7 +265,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
     public Action<string>? OnChange { get; set; }
 
     // Get a validation expression from a parent component.
-    // See https://docs.telerik.com/blazor-ui/{%slug inputs-kb-validate-child-component%}
+    // See https://www.telerik.com/blazor-ui/documentation/knowledge-base/inputs-validation-child-component
     [Parameter]
     public Expression<Func<string>>? ValueExpression { get; set; }
 
@@ -289,4 +289,5 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
 
 * [Online demo: Form Items](https://demos.telerik.com/blazor-ui/form/overview)
 * [Form Groups](slug://form-formgroups)
-* [Orientation](slug://form-orientation)
+* [Form Orientation](slug://form-orientation)
+* [Validate in Child Component](slug://inputs-kb-validate-child-component)

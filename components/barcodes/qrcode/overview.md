@@ -22,7 +22,7 @@ The generated image from the component is a machine-readable label that contains
 
 1. Set its `Size` property.
 
-1. Optionally, choose a `QRCode Type` (one of the [types we support](slug:// qrcode-qr-code-types)).
+1. Optionally, choose a `QRCode Type` (one of the [types we support](slug://qrcode-qr-code-types)).
 
 >caption A basic configuration of the Telerik QRCode
 
