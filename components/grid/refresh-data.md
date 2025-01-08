@@ -174,8 +174,6 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 @[template](/_contentTemplates/common/observable-data.md#tip-for-new-collection)
 
->note If you are using the [OnRead event to implement the data operations manually](slug://components/grid/manual-operations), you must not use the `.Add()`, `.Remove()` or `.Clear()` method of an observable collection - the grid monitors that collection and it fires the `OnRead` event when it changes, so calling those methods will result in an infinite loop. Either create a new collection, or use a simple List, or do not use OnRead with observable data.
-
 ## New Collection Reference
 
 @[template](/_contentTemplates/common/observable-data.md#refresh-data)
