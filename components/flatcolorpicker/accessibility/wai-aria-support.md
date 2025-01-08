@@ -79,4 +79,4 @@ For details on how the FlatColorPicker keyboard navigation works, refer to:
 ## See Also
 
 * [Blazor FlatColorPicker Demos](https://demos.telerik.com/blazor-ui/flatcolorpicker/overview)
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

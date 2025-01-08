@@ -13,12 +13,12 @@ position: 10
 There are a few ways to style the Button component:
 
 * Set a [primary button](#primary-button) style.
-* Use another [built-in theme]({%slug themes-overview%}).
+* Use another [built-in theme](slug://themes-overview).
 * Use the [Button `Class`](#button-class) attribute.
 
 ## Primary Button
 
-To set a Primary button you should set the `ThemeColor` parameter to `primary`. [Read the Appearance article for further information...]({%slug button-appearance%}).
+To set a Primary button you should set the `ThemeColor` parameter to `primary`. [Read the Appearance article for further information...](slug://button-appearance).
 
 ## Button Class
 

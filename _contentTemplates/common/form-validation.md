@@ -7,5 +7,5 @@ The Telerik Blazor validation tools let you match the style of your validation m
 #end
 
 #note-editcontext-formitem-template
-> When using the [Form `EditContext` parameter]({%slug form-overview%}#creating-blazor-form) together with [validation components]({%slug validation-tools-overview%}) or [Form item `<Template>`s]({%slug form-formitems-template%}), make sure to create the `EditContext` from the model instance, which is used by the validation components and inside the Form item templates. Otherwise, the Form will not update the correct object instance and validation will not work as expected.
+> When using the [Form `EditContext` parameter](slug://form-overview#creating-blazor-form) together with [validation components](slug://validation-tools-overview) or [Form item `<Template>`s](slug://form-formitems-template), make sure to create the `EditContext` from the model instance, which is used by the validation components and inside the Form item templates. Otherwise, the Form will not update the correct object instance and validation will not work as expected.
 #end

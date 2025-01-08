@@ -54,7 +54,7 @@ The <a href="https://www.telerik.com/blazor-ui/stacklayout" target="_blank">Stac
 
 ## Layout
 
-The layout is the building block of the StackLayout component. Control its appearance via different parameters. [Read more about the Blazor StackLayout layout]({%slug stacklayout-layout%}).
+The layout is the building block of the StackLayout component. Control its appearance via different parameters. [Read more about the Blazor StackLayout layout](slug://stacklayout-layout).
 
 ## StackLayout Parameters
 
@@ -64,13 +64,13 @@ The Blazor StackLayout provides various parameters that allow you to configure t
 
 | Parameter | Type and Default Value | Description |
 | ----------- | ----------- | ----------- |
-| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the StackLayout component, which is `<div class="k-stack-layout">`. Use for [styling customizations]({%slug themes-override%}). |
-| `Height` | `string` | The StackLayout height as a CSS unit. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how percentage dimensions work. |
-| `Width` | `string` | The StackLayout width as a CSS unit. See the [Dimensions]({%slug common-features/dimensions%}) article for more details on what units you can use and how percentage dimensions work. |
-| `Orientation` | `StackLayoutOrientation` enum <br/> (`StackLayoutOrientation.Horizontal`) | Whether the content will be aligned horizontally or vertically. See the [Layout Orientation]({%slug stacklayout-layout%}#orientation) article for more information. |
-| `Spacing` | `string` | The space between the elements in the StackLayout. See the [Layout Spacing]({%slug stacklayout-layout%}#spacing) article for more information. |
-| `HorizontalAlign` | `StackLayoutHorizontalAlign` enum <br/> (`StackLayoutHorizontalAlign.Stretch`) | The StackLayout items alignment based on the X axis. See the [Layout HorizontalAlign]({%slug stacklayout-layout%}#horizontalalign) article for more information. |
-| `VerticalAlign` | `StackLayoutVerticalAlign` enum <br/> (`StackLayoutVerticalAlign.Stretch`) | The StackLayout items alignment based on the Y axis. See the [Layout VerticalAlign]({%slug stacklayout-layout%}#verticalalign) article for more information. |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the StackLayout component, which is `<div class="k-stack-layout">`. Use for [styling customizations](slug://themes-override). |
+| `Height` | `string` | The StackLayout height as a CSS unit. See the [Dimensions](slug://common-features/dimensions) article for more details on what units you can use and how percentage dimensions work. |
+| `Width` | `string` | The StackLayout width as a CSS unit. See the [Dimensions](slug://common-features/dimensions) article for more details on what units you can use and how percentage dimensions work. |
+| `Orientation` | `StackLayoutOrientation` enum <br/> (`StackLayoutOrientation.Horizontal`) | Whether the content will be aligned horizontally or vertically. See the [Layout Orientation](slug://stacklayout-layout#orientation) article for more information. |
+| `Spacing` | `string` | The space between the elements in the StackLayout. See the [Layout Spacing](slug://stacklayout-layout#spacing) article for more information. |
+| `HorizontalAlign` | `StackLayoutHorizontalAlign` enum <br/> (`StackLayoutHorizontalAlign.Stretch`) | The StackLayout items alignment based on the X axis. See the [Layout HorizontalAlign](slug://stacklayout-layout#horizontalalign) article for more information. |
+| `VerticalAlign` | `StackLayoutVerticalAlign` enum <br/> (`StackLayoutVerticalAlign.Stretch`) | The StackLayout items alignment based on the Y axis. See the [Layout VerticalAlign](slug://stacklayout-layout#verticalalign) article for more information. |
 
 ## Nested StackLayouts
 
@@ -132,7 +132,7 @@ Sometimes you may need to create a more complex layout that includes both horizo
 
 ## Next Steps
 
-* [Configure StackLayout orientation, spacing and alignment]({%slug stacklayout-layout%})
+* [Configure StackLayout orientation, spacing and alignment](slug://stacklayout-layout)
 
 ## See Also
 

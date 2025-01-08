@@ -56,7 +56,7 @@ So, for example, typing merely "20" would actually be the year 0020 (twenty year
 
 ## Culture Awareness
 
-The format strings are culture aware (see [Globalization - Overview]({%slug globalization-overview %})) and the same `Format` may render different things depending on the culture. For example:
+The format strings are culture aware (see [Globalization - Overview](slug://globalization-overview )) and the same `Format` may render different things depending on the culture. For example:
 
 * If a custom format string includes the `/` format specifier, the DateInput displays the value of `System.Globalization.DateTimeFormat.DateSeparator` in place of `/` in the result string.
 
@@ -181,4 +181,4 @@ Console.WriteLine(date.ToString("hh:mm:ss tt", CultureInfo.GetCultureInfo("bg-bg
 
 ## See Also
 
-* [DateInput Overview]({%slug components/dateinput/overview%})
+* [DateInput Overview](slug://components/dateinput/overview)

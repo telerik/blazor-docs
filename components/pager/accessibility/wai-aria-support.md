@@ -82,4 +82,4 @@ For details on how the Pager keyboard navigation works, refer to the [Blazor Pag
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

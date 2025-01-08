@@ -86,4 +86,4 @@ The Telerik components cannot get an instance of the model in any other way, so 
 
 * Create a custom edit form ([inline](https://demos.telerik.com/blazor-ui/grid/editing-custom-form) or [popup](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form)) where you can implement the model generation and validation as required in a way that works for your project.
 
-* If you have the same models and can create an instance that has the desired validation, you can try setting it through the [grid state]({%slug grid-state%}) to initiate insertion or editing for a particular model instance, rather than let the grid create it.
+* If you have the same models and can create an instance that has the desired validation, you can try setting it through the [grid state](slug://grid-state) to initiate insertion or editing for a particular model instance, rather than let the grid create it.

@@ -97,4 +97,4 @@ else
 
 * [Telerik TabStrip Overview](https://docs.telerik.com/blazor-ui/components/tabstrip/overview)
 * [Telerik TabStrip Tabs Configuration](https://docs.telerik.com/blazor-ui/components/tabstrip/tabs-configuration)
-* [Override the Theme or Apply Custom CSS Styles]({%slug themes-override%})
+* [Override the Theme or Apply Custom CSS Styles](slug://themes-override)

@@ -98,6 +98,6 @@ The `SchedulerPopupEditFormSettings` nested tag exposes the following parameters
 
 ## See Also
 
-  * [Data Binding]({%slug scheduler-appointments-databinding%})
+  * [Data Binding](slug://scheduler-appointments-databinding)
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   * [Custom Edit Form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form)

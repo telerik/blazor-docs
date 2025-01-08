@@ -10,13 +10,13 @@ position: 0
 
 # Blazor ColorGradient Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">ColorGradient for Blazor</a> enables users to select a color from an [HSVA](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas, or to type a specific RGB/HEX color value. Compared to our [ColorPalette component]({%slug colorpalette-overview%}), the ColorGradient allows selection from unlimited number of colors. It may also be preferred by advanced users.
+The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">ColorGradient for Blazor</a> enables users to select a color from an [HSVA](https://en.wikipedia.org/wiki/HSL_and_HSV) canvas, or to type a specific RGB/HEX color value. Compared to our [ColorPalette component](slug://colorpalette-overview), the ColorGradient allows selection from unlimited number of colors. It may also be preferred by advanced users.
 
 
 ## Creating Blazor ColorGradient
 
 1. Add the `TelerikColorGradient` tag.
-1. Set its `Value` attribute to a [HEX/RGB](#supported-value-formats) `string` variable via [one-way]({%slug colorgradient-events%}#valuechanged) or two-way binding.
+1. Set its `Value` attribute to a [HEX/RGB](#supported-value-formats) `string` variable via [one-way](slug://colorgradient-events#valuechanged) or two-way binding.
 1. (optional) Set the [`ValueFormat` and `Format` attributes](#colorgradient-parameters) to the desired color format.
 
 
@@ -36,7 +36,7 @@ The <a href = "https://www.telerik.com/blazor-ui/colorgradient" target="_blank">
 
 ## Events
 
-The Blazor ColorGradient fires value change and format change events that you can handle and further customize its behavior. [Read more about the Blazor ColorGradient events]({%slug colorgradient-events%}).
+The Blazor ColorGradient fires value change and format change events that you can handle and further customize its behavior. [Read more about the Blazor ColorGradient events](slug://colorgradient-events).
 
 ## Supported Value Formats
 
@@ -44,7 +44,7 @@ The ColorGradient accepts values by the application code in the following format
 
 @[template](/_contentTemplates/common/coloreditors.md#value-formats)
 
-Color keywords are not supported. If this is the preferred use case scenario, consider the [ColorPalette component]({%slug colorpalette-overview%}).
+Color keywords are not supported. If this is the preferred use case scenario, consider the [ColorPalette component](slug://colorpalette-overview).
 
 ## ColorGradient Parameters
 
@@ -64,9 +64,9 @@ The Blazor ColorGradient provides various parameters to configure the component.
 
 ## Next Steps
 
-* [Handle the ColorGradient Events]({%slug colorgradient-events%})
+* [Handle the ColorGradient Events](slug://colorgradient-events)
 
 ## See Also
 
-* [ColorGradient Events]({%slug colorgradient-events%})
+* [ColorGradient Events](slug://colorgradient-events)
 * [ColorGradient Live Demo](https://demos.telerik.com/blazor-ui/colorgradient/overview)

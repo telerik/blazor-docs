@@ -22,7 +22,7 @@ The `OnClick` event fires when the user clicks or taps on the Chip component. Th
 
 ## OnRemove
 
-The `OnRemove` event fires when the user clicks the remove icon of the Chip. The event handler receives a `ChipRemoveEventArgs` object which provides the value of the [`Text` parameter]({%slug chip-overview%}#chip-parameters) of the clicked Chip. You can cancel the event by setting the `IsCancelled` property to `true`.
+The `OnRemove` event fires when the user clicks the remove icon of the Chip. The event handler receives a `ChipRemoveEventArgs` object which provides the value of the [`Text` parameter](slug://chip-overview#chip-parameters) of the clicked Chip. You can cancel the event by setting the `IsCancelled` property to `true`.
 
 ## SelectedChanged
 
@@ -69,4 +69,4 @@ The `SelectedChanged` event fires when the `Selectable` parameter is `true` and 
 ## See Also
 
 * [Live Demo: Chip Events](https://demos.telerik.com/blazor-ui/chip/events)
-* [Chip OverView]({%slug chip-overview%})
+* [Chip OverView](slug://chip-overview)

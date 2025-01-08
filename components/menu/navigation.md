@@ -10,7 +10,7 @@ position: 3
 
 # Menu for Navigation
 
-The Menu can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding]({%slug components/menu/data-binding/overview%}).
+The Menu can be used to navigate between different pages in the application. It can generate the needed links for you through its `UrlField` when [data binding](slug://components/menu/data-binding/overview).
 
 ## Basics
 
@@ -90,6 +90,6 @@ To use the Blazor Menu for navigating between pages:
 
 ## See Also
 
-* [Menu Overview]({%slug components/menu/overview%})
-* [Menu Data Binding]({%slug components/menu/data-binding/overview%})
-* [Menu Templates]({%slug components/menu/templates%})
+* [Menu Overview](slug://components/menu/overview)
+* [Menu Data Binding](slug://components/menu/data-binding/overview)
+* [Menu Templates](slug://components/menu/templates)

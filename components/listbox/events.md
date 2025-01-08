@@ -76,7 +76,7 @@ This technique is used in the [example at the end of this article](#example). Of
 
 The `OnDrop` event fires when the user releases the currently dragged ListBox item. The event fires from the originating (source) ListBox instance.
 
-The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxDropEventArgs-1). See the [example below](#example) and the [example in article Drag and Drop]({%slug listbox-dragdrop%}#example).
+The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxDropEventArgs-1). See the [example below](#example) and the [example in article Drag and Drop](slug://listbox-dragdrop#example).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -89,9 +89,9 @@ The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](/blaz
 
 ## OnRemove
 
-The `OnRemove` event fires when the user clicks on the Remove button in the [ListBox toolbar]({%slug listbox-toolbar%}).
+The `OnRemove` event fires when the user clicks on the Remove button in the [ListBox toolbar](slug://listbox-toolbar).
 
-The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxRemoveEventArgs-1). See the [example below](#example) and the [example in article ListBox Templates]({%slug listbox-templates%}#example).
+The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxRemoveEventArgs-1). See the [example below](#example) and the [example in article ListBox Templates](slug://listbox-templates#example).
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -100,9 +100,9 @@ The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](/bl
 
 ## OnReorder
 
-The `OnReorder` event fires when the user clicks on a Reorder button in the [ListBox toolbar]({%slug listbox-toolbar%}) (Move Up or Move Down).
+The `OnReorder` event fires when the user clicks on a Reorder button in the [ListBox toolbar](slug://listbox-toolbar) (Move Up or Move Down).
 
-The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxReorderEventArgs-1). See the [example below](#example) and the example at [Creating Blazor ListBox]({%slug listbox-overview%}#creating-blazor-listbox).
+The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxReorderEventArgs-1). See the [example below](#example) and the example at [Creating Blazor ListBox](slug://listbox-overview#creating-blazor-listbox).
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -113,9 +113,9 @@ The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](/b
 
 ## OnTransfer
 
-The `OnTransfer` event fires when the user clicks on any of the Transfer buttons in the [ListBox toolbar]({%slug listbox-toolbar%}) (Transfer To, Transfer From, Transfer All To, and Transfer All From).
+The `OnTransfer` event fires when the user clicks on any of the Transfer buttons in the [ListBox toolbar](slug://listbox-toolbar) (Transfer To, Transfer From, Transfer All To, and Transfer All From).
 
-The event handler receives an argument of type [`ListBoxTransferEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxTransferEventArgs-1). See the [example below](#example) and the [example in article Connect ListBoxes]({%slug listbox-connect%}#example).
+The event handler receives an argument of type [`ListBoxTransferEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxTransferEventArgs-1). See the [example below](#example) and the [example in article Connect ListBoxes](slug://listbox-connect#example).
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -134,7 +134,7 @@ The event argument is of type `IEnumerable<T>`. See the example below.
 
 All events in the example below are fired by the first ListBox, except `OnDrop`, which is fired by the originating (source) ListBox instance.
 
-Always [`Rebind()`]({%slug listbox-overview%}#listbox-reference-and-methods) the ListBox after making programmatic changes to its `Data`.
+Always [`Rebind()`](slug://listbox-overview#listbox-reference-and-methods) the ListBox after making programmatic changes to its `Data`.
 
 >caption Using ListBox events
 

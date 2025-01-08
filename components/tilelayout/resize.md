@@ -20,7 +20,7 @@ To enable resizing:
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
-Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
+Resizing a tile fires the [OnResize event](slug://tilelayout-events#onresize).
 
 >caption Resizing tiles in the TileLayout
 
@@ -52,12 +52,12 @@ Resizing a tile fires the [OnResize event]({%slug tilelayout-events%}#onresize).
 
 ## Next Steps
 
-* Enable [tile reordering]({%slug tilelayout-reorder%}).
-* [Handle Tile Layout events]({%slug tilelayout-events%}).
-* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+* Enable [tile reordering](slug://tilelayout-reorder).
+* [Handle Tile Layout events](slug://tilelayout-events).
+* [Manage the Tile Layout state](slug://tilelayout-state).
 
 
 ## See Also
 
-* [Overview]({%slug tilelayout-overview%})
+* [Overview](slug://tilelayout-overview)
 * [Live Demo: TileLayout Resizing](https://demos.telerik.com/blazor-ui/tilelayout/resizing)

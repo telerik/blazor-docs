@@ -38,9 +38,9 @@ Use the [`scrollIntoView` JavaScript method](https://developer.mozilla.org/en-US
 The whole process involves these steps:
 
 1. Get the TreeView item from the data.
-1. [Load additional items on demand]({%slug components/treeview/data-binding/load-on-demand%}), if necessary.
-1. Expand parent(s) via [`ExpandedItems`]({%slug components/treeview/data-binding/overview%}), if necessary. Older **UI for Blazor** versions (up to 2.30) require a [different implementation with an `Expanded` property of the TreeView items]({%slug changes-in-3-0-0%}).
-1. [Select the item]({%slug treeview-selection-overview%}) or implement some way to find it in the DOM.
+1. [Load additional items on demand](slug://components/treeview/data-binding/load-on-demand), if necessary.
+1. Expand parent(s) via [`ExpandedItems`](slug://components/treeview/data-binding/overview), if necessary. Older **UI for Blazor** versions (up to 2.30) require a [different implementation with an `Expanded` property of the TreeView items](slug://changes-in-3-0-0).
+1. [Select the item](slug://treeview-selection-overview) or implement some way to find it in the DOM.
 1. Set a boolean flag and use it in `OnAfterRenderAsync` to execute the JavaScript.
 1. Execute the JavaScript code with [some timeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) to ensure that the new HTML markup has been rendered by the browser. The timeout value will depend on the server-client latency and number of newly rendered items.
 1. (Optional) Focus the TreeView item element (`<li class="k-treeview-item">`) to continue the keyboard navigation from that item.

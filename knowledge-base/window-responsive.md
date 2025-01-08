@@ -117,4 +117,4 @@ If you want to use the CSS media queries, you have to create a separate CSS file
 
 ## See also:
 
- * [Documentation Window for Blazor | Size]({%slug components/window/size%})
+ * [Documentation Window for Blazor | Size](slug://components/window/size)

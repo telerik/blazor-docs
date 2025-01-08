@@ -22,16 +22,16 @@ ticketid: 1666981, 1579415
 
 ## Description
 
-I am using the [grouping feature of the DropDownList]({%slug components/dropdownlist/grouping%}). My DropDownList model has a nested model as property. The DropDownList `GroupField` parameter is bound to a property of the nested model. I want the groups to appear in a non-alphabetical, custom order. I can see that there is a feature request to add a <a href="https://feedback.telerik.com/blazor/1565506-sort-direction-parameter-for-grouping" target="_blank">sort direction option when grouping</a>. But in the meantime how can I customize the grouping order in the DropDownList?
+I am using the [grouping feature of the DropDownList](slug://components/dropdownlist/grouping). My DropDownList model has a nested model as property. The DropDownList `GroupField` parameter is bound to a property of the nested model. I want the groups to appear in a non-alphabetical, custom order. I can see that there is a feature request to add a <a href="https://feedback.telerik.com/blazor/1565506-sort-direction-parameter-for-grouping" target="_blank">sort direction option when grouping</a>. But in the meantime how can I customize the grouping order in the DropDownList?
 
 ## Solution
 
-To sort the groups in a DropDownList by a custom order, perform a manual sorting operation in the [`OnRead` event]({%slug components/dropdownlist/events%}#onread) handler. Follow these steps:
+To sort the groups in a DropDownList by a custom order, perform a manual sorting operation in the [`OnRead` event](slug://components/dropdownlist/events#onread) handler. Follow these steps:
 
 1. Create a list of strings that represents the values of the group headers. This list will determine the preferred sorting order.
-2. Cast the [`DataSourceResult`]({%slug common-features-data-binding-onread%}#event-argument) to [`AggregateFunctionsGroup`](/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup).
+2. Cast the [`DataSourceResult`](slug://common-features-data-binding-onread#event-argument) to [`AggregateFunctionsGroup`](/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup).
 3. Sort the casted data using the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?view=net-8.0" target="_blank">`Sort` method</a> with a custom comparison function.
-4. Pass the sorted data as [`args.Data`]({%slug common-features-data-binding-onread%}#todatasourceresult-method).
+4. Pass the sorted data as [`args.Data`](slug://common-features-data-binding-onread#todatasourceresult-method).
 
 >caption Apply a custom grouping order in the DropDownList
 ````RAZOR
@@ -106,7 +106,7 @@ To sort the groups in a DropDownList by a custom order, perform a manual sorting
 
 ## See Also
 
-- [Telerik DropDownList for Blazor - Overview]({%slug components/dropdownlist/overview%})
-- [OnRead Event in Telerik DropDownList]({%slug components/dropdownlist/events%}#onread)
-- [Grouping in Telerik DropDownList]({%slug components/dropdownlist/grouping%})
-- [Custom Grouping Order in Grid]({%slug grid-custom-grouping-order%})
+- [Telerik DropDownList for Blazor - Overview](slug://components/dropdownlist/overview)
+- [OnRead Event in Telerik DropDownList](slug://components/dropdownlist/events#onread)
+- [Grouping in Telerik DropDownList](slug://components/dropdownlist/grouping)
+- [Custom Grouping Order in Grid](slug://grid-custom-grouping-order)

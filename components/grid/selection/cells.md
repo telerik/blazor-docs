@@ -9,7 +9,7 @@ position: 5
 
 # Cell Selection
 
-The Grid component supports [single or multiple cell selection]({%slug grid-selection-overview%}#use-single-or-multiple-selection). You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can subscribe to selection events.
+The Grid component supports [single or multiple cell selection](slug://grid-selection-overview#use-single-or-multiple-selection). You can select a cell with mouse click anywhere in the cell. You can access the collection of selected cells, use this collection and manipulate it. You can subscribe to selection events.
 
 ## Basics
 
@@ -17,7 +17,7 @@ To select a cell, click anywhere in it.
 
 To select a range of cells in one or more columns, hold the **Shift** key, while clicking on the first and last cell of the range. To select or deselect multiple cells that don't belong to a range, hold the **Ctrl** key.
 
-You can also select a cell range by holding and dragging the mouse cursor. The dragging motion defines the diagonal of a rectangle and the Grid will select the cells under this rectangle. This kind of cell selection depends on the `DragToSelect` parameter in [`GridSelectionSettings`]({%slug grid-selection-overview%}#enable-row-or-cell-selection). The default value of `DragToSelect` is `true` and in this case standard browser text selection is not supported.
+You can also select a cell range by holding and dragging the mouse cursor. The dragging motion defines the diagonal of a rectangle and the Grid will select the cells under this rectangle. This kind of cell selection depends on the `DragToSelect` parameter in [`GridSelectionSettings`](slug://grid-selection-overview#enable-row-or-cell-selection). The default value of `DragToSelect` is `true` and in this case standard browser text selection is not supported.
 
 To enable cell selection:
 
@@ -91,7 +91,7 @@ To enable cell selection:
 
 You can respond to user selection actions through the `SelectedCellsChanged` event. The event handler receives a collection of type `IEnumerable<GridSelectedCellDescriptor>`. The collection may have multiple, single, or no objects in it, depending on the `SelectionMode` and the last user selection.
 
-> The `SelectedCellsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`]({%slug grid-events%}#onrowclick) or [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick) event instead.
+> The `SelectedCellsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`](slug://grid-events#onrowclick) or [`OnRowDoubleClick`](slug://grid-events#onrowdoubleclick) event instead.
 
 >caption Using the Grid SelectedCellsChanged event
 
@@ -180,17 +180,17 @@ The `GridSelectedCellDescriptor` type exposes the following properties:
 
 | Property Name | Type | Description |
 | --- | --- | --- |
-| `ColumnField` | `string` | The value of the [Grid column `Field`]({%slug components/grid/columns/bound%}#data-binding) parameter, if set. |
-| `ColumnId` | `string` | The value of the [Grid column `Id`]({%slug components/grid/columns/bound%}#identification) parameter, if set. |
+| `ColumnField` | `string` | The value of the [Grid column `Field`](slug://components/grid/columns/bound#data-binding) parameter, if set. |
+| `ColumnId` | `string` | The value of the [Grid column `Id`](slug://components/grid/columns/bound#identification) parameter, if set. |
 | `DataItem` | `object` | The Grid data item instance. Cast it to the actual Grid model type before use. |
 
 ## Selection When Data Changes
 
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
-* When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event]({%slug components/grid/editing/overview%}#events).
+* When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event](slug://components/grid/editing/overview#events).
 * When the user deletes a row with selected cells, update the `SelectedCells` collection in the the Grid `OnDelete` event handler.
-* To select cells from a new item in the Grid you can use the [`OnCreate` event]({%slug components/grid/editing/overview%}#events) to update the `SelectedCells` collection.
+* To select cells from a new item in the Grid you can use the [`OnCreate` event](slug://components/grid/editing/overview#events) to update the `SelectedCells` collection.
 
 ### Equals Comparison
 
@@ -199,7 +199,7 @@ The items in `SelectedCells` are compared against the items in the Grid data in 
 * The Grid is databound through its `OnRead` event and each data request returns different data item instances.
 * The `SelectedCells` are obtained from a different data source than the all Grid items, for example, from a separate service.
 
-In such cases, the selected cells may not appear as expected. You have to [override the `Equals` method of the Grid model class]({%slug grid-state%}#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
+In such cases, the selected cells may not appear as expected. You have to [override the `Equals` method of the Grid model class](slug://grid-state#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Cell Selection and Other Grid Features
 
@@ -209,12 +209,12 @@ The selection feature behavior may vary when the Grid configuration combines cel
 
 When you want to edit a Grid item, the cell selection has the following behavior:
 
-* Cell selection is not supported with [`Incell` edit mode]({%slug components/grid/editing/incell%}) due to the overlapping pointer events that trigger selection and editing.
-* [`Inline` edit mode]({%slug components/grid/editing/inline%}) and [`Popup` edit mode]({%slug components/grid/editing/popup%}) integrate with cell selection without limitations.
+* Cell selection is not supported with [`Incell` edit mode](slug://components/grid/editing/incell) due to the overlapping pointer events that trigger selection and editing.
+* [`Inline` edit mode](slug://components/grid/editing/inline) and [`Popup` edit mode](slug://components/grid/editing/popup) integrate with cell selection without limitations.
 
 ### Selection and Virtual Scrolling
 
-When the Grid has [virtual scrolling]({%slug components/grid/virtual-scrolling%}), the component is able to select a range of cells with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
+When the Grid has [virtual scrolling](slug://components/grid/virtual-scrolling), the component is able to select a range of cells with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
 
 1. Select a cell.
 1. Scroll down, so that virtualization kicks in and the rendered rows are no longer the same.
@@ -228,12 +228,12 @@ The `SelectedCells` collection persists across paging.
 
 ### Selection and Templates
 
-When using [Grid templates]({%slug components/grid/features/templates%}) with cell selection:
+When using [Grid templates](slug://components/grid/features/templates) with cell selection:
 
-* If you are using a [Grid column template]({%slug grid-templates-column%}) and you have a clickable element in the template, wrap this element in a container with a `@onclick:stopPropagation` directive. You can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template]({%slug grid-kb-row-selection-in-column-template%}). It applies for both row and cell selection.
-* If you are using a [row template]({%slug grid-templates-row%}) the Grid does not support cell selection. The row template removes the built-in cell instances and the HTML markup may not even include the expected number of cells.
+* If you are using a [Grid column template](slug://grid-templates-column) and you have a clickable element in the template, wrap this element in a container with a `@onclick:stopPropagation` directive. You can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template](slug://grid-kb-row-selection-in-column-template). It applies for both row and cell selection.
+* If you are using a [row template](slug://grid-templates-row) the Grid does not support cell selection. The row template removes the built-in cell instances and the HTML markup may not even include the expected number of cells.
 
 ## See Also
 
 * [Live Demo: Grid Cell Selection](https://demos.telerik.com/blazor-ui/grid/cell-selection)
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)

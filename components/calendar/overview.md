@@ -51,23 +51,23 @@ The selected date is: @selectedDate
 
 ## Navigation
 
-The Blazor Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...]({%slug components/calendar/navigation%}) 
+The Blazor Calendar navigation allows the user to navigate through several views that represent different periods of time, for example, a month or a year. You can control the calendar level (view) at which the user starts, to what detail (view) they can go, the min, max, and current date. To make the Calendar display a specific date programmatically, you can use the `Date` and `View` parameters that support two-way binding. [Read more about the Calendar navigation...](slug://components/calendar/navigation) 
 
 ## Selection
 
-The Calendar allows you to configure every aspect of the date selection. You can control whether the user can select only one or more dates. You can create a collection of disabled dates so that the user cannot select from them or define selectable ranges of days. [Read more about the Calendar selection...]({%slug components/calendar/selection%})
+The Calendar allows you to configure every aspect of the date selection. You can control whether the user can select only one or more dates. You can create a collection of disabled dates so that the user cannot select from them or define selectable ranges of days. [Read more about the Calendar selection...](slug://components/calendar/selection)
 
 ## Templates
 
-The Blazor Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates]({%slug calendar-templates-overview%}).
+The Blazor Calendar provides different types of templates to customize the component's content and styling. These include [month cell, year cell, decade cell, century cell and header templates](slug://calendar-templates-overview).
 
 ## Multiple Views
 
-You can display a wider range of dates by rendering multiple instances of the Calendar so that the users can find the desired date easier. [Read more about the multiple views in the Calendar...]({%slug components/calendar/multiview%})
+You can display a wider range of dates by rendering multiple instances of the Calendar so that the users can find the desired date easier. [Read more about the multiple views in the Calendar...](slug://components/calendar/multiview)
 
 ## Events
 
-The Blazor Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...]({%slug components/calendar/events%}).
+The Blazor Calendar generates events that you can handle and further customize ist behavior. [Read more about the Blazor Calendar events...](slug://components/calendar/events).
 
 ## Calendar Parameters
 
@@ -77,23 +77,23 @@ The Blazor Calendar provides various parameters that allow you to configure the 
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `AllowReverse` | `bool` | When [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled, defines if the range is valid when the selected end date is a date before the start date. |
+| `AllowReverse` | `bool` | When [range selection](slug://components/calendar/selection#range-selection-mode) is enabled, defines if the range is valid when the selected end date is a date before the start date. |
 | `BottomView` | `CalendarView` enum <br /> (`Month`) | The most detailed view of the Calendar to which the user can navigate to. |
 | `Date` | `DateTime` | The date that indicates the view the user is currently in. Supports two-way binding. |
 | `DisabledDates` | `List<DateTime>` | A list of dates that cannot be selected as the start or end of the range. See the <a href="https://demos.telerik.com/blazor-ui/calendar/disabled-dates" target="_blank">Live Demo: Calendar - Disabled Dates</a>. |
 | `Max` | `DateTime` | The latest date that the user can select. |
 | `Min` | `DateTime` | The earliest date that the user can select. |
-| `Orientation` | `CalendarOrientation` enum <br /> (`Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when using [more than one view]({%slug components/calendar/multiview%}). |
-| `RangeStart` | `DateTime` | The selected start date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
-| `RangeEnd` | `DateTime` | The selected end date when [range selection]({%slug components/calendar/selection%}#range-selection-mode) is enabled. Supports two-way binding. |
-| `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection]({%slug components/calendar/selection%}#multiple-selection-mode) is used. |
-| `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode]({%slug components/calendar/selection%}) of the calendar. |
+| `Orientation` | `CalendarOrientation` enum <br /> (`Horizontal`) | The orientation of the Calendar. The available options are `Horizontal` and `Vertical`. Applicable when using [more than one view](slug://components/calendar/multiview). |
+| `RangeStart` | `DateTime` | The selected start date when [range selection](slug://components/calendar/selection#range-selection-mode) is enabled. Supports two-way binding. |
+| `RangeEnd` | `DateTime` | The selected end date when [range selection](slug://components/calendar/selection#range-selection-mode) is enabled. Supports two-way binding. |
+| `SelectedDates` | `List<DateTime>` | The selected dates when [multiple selection](slug://components/calendar/selection#multiple-selection-mode) is used. |
+| `SelectionMode` | `CalendarSelectionMode` enum <br /> (`Single`) | The [selection mode](slug://components/calendar/selection) of the calendar. |
 | `ShowWeekNumbers` | `bool` | Sets if the Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `ShowOtherMonthDays` | `bool` <br /> (`true`) | Defines whether the leading and trailing days from other months are visible in the current month view. |
 | `TopView` | `CalendarView` enum <br /> (`Century`) | The most aggregated view of the Calendar to which the user can navigate. |
-| `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection]({%slug components/calendar/selection%}#single-selection-mode) is used. Supports two-way binding. |
+| `Value` | `DateTime` or `DateTime?` | The current value of the component when [single selection](slug://components/calendar/selection#single-selection-mode) is used. Supports two-way binding. |
 | `View` | ` CalendarView` enum <br /> (`Month`)| The current view that will be displayed in the Calendar. Supports two-way binding. |
-| `Views` | ` int` <br/> (`1`) | The [number of views]({%slug components/calendar/multiview%}) that will be rendered to each other. |
+| `Views` | ` int` <br/> (`1`) | The [number of views](slug://components/calendar/multiview) that will be rendered to each other. |
 
 ### Styling and Appearance
 
@@ -143,14 +143,14 @@ Add a reference to the component instance to use the [Blazor Calendar methods](/
 
 ## Next Steps
 
-* [Configuring the Date Selection]({%slug components/calendar/selection%})
+* [Configuring the Date Selection](slug://components/calendar/selection)
 
-* [Using the Calendar Events]({%slug components/calendar/events%})
+* [Using the Calendar Events](slug://components/calendar/events)
 
 ## See Also
 
-* [Navigation]({%slug components/calendar/navigation%})
-* [Selection]({%slug components/calendar/selection%})
-* [Multiple Views]({%slug components/calendar/multiview%})
+* [Navigation](slug://components/calendar/navigation)
+* [Selection](slug://components/calendar/selection)
+* [Multiple Views](slug://components/calendar/multiview)
 * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/overview)
 * [Calendar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar)

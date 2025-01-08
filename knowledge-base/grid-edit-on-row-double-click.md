@@ -27,7 +27,7 @@ I would like to edit a row in the Grid when the user clicks or double-clicks on 
 
 ## Solution
 
-The Grid exposes two events that allows you to respond to the user clicking on its rows - [OnRowClick]({%slug grid-events%}#onrowclick) and [OnRowDoubleClick]({%slug grid-events%}#onrowdoubleclick). You can use either one of them together with the [Window]({%slug window-overview%}) to create a custom popup form on a click of a row.
+The Grid exposes two events that allows you to respond to the user clicking on its rows - [OnRowClick](slug://grid-events#onrowclick) and [OnRowDoubleClick](slug://grid-events#onrowdoubleclick). You can use either one of them together with the [Window](slug://window-overview) to create a custom popup form on a click of a row.
 
 >caption Use the OnRowDoubleClick event to put the Grid in Edit mode
 

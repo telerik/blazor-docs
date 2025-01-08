@@ -29,11 +29,11 @@ You can use it in two ways:
 * [Use Only the Text and ThemeColor Properties](#use-only-the-text-and-themecolor-properties)
 * [Pass a NotificationModel to the Method](#pass-a-notificationmodel-to-the-method)
 
-You can also [show all notifications for your app from a single instance](#show-from-anywhere) so they all [stack together]({%slug notification-stacked-notifications%}) and also stay between page navigations.
+You can also [show all notifications for your app from a single instance](#show-from-anywhere) so they all [stack together](slug://notification-stacked-notifications) and also stay between page navigations.
 
 ### Use Only the Text and ThemeColor Properties
 
-If you do not need to customize the [closing](#close-and-hide) or the icon of the component you can quickly create them by passing only what text and [theme color]({%slug notification-appearance%}#themecolor) should the Notification have.
+If you do not need to customize the [closing](#close-and-hide) or the icon of the component you can quickly create them by passing only what text and [theme color](slug://notification-appearance#themecolor) should the Notification have.
 
 ````RAZOR
 @* At minimum, you can pass a text message and a color to the Show() method *@
@@ -54,7 +54,7 @@ If you do not need to customize the [closing](#close-and-hide) or the icon of th
 
 ### Pass a NotificationModel to the Method
 
-You can pass the entire [NotificationModel]({%slug notification-overview%}#notificationmodel-class-properties) to provide detailed information for the component - whether it should be closable or specify the icon. 
+You can pass the entire [NotificationModel](slug://notification-overview#notificationmodel-class-properties) to provide detailed information for the component - whether it should be closable or specify the icon. 
 
 ````RAZOR
 @* You can pass the entire NotificationModel with all its features for complete control over the message settings *@
@@ -93,7 +93,7 @@ There are two separate ways to close a notification:
 
 ### Automatically Closing a Notification
 
-By default each notification is an automatically closing one. You can define the time it stays visible by adjusting the `CloseAfter` parameter of the [NotificationModel]({%slug notification-overview%}#notificationmodel-class-properties). It defaults to `5000ms`.
+By default each notification is an automatically closing one. You can define the time it stays visible by adjusting the `CloseAfter` parameter of the [NotificationModel](slug://notification-overview#notificationmodel-class-properties). It defaults to `5000ms`.
 
 You can also let the user dismiss a notification message before that timer elapses through a closing button by setting the `Closable` parameter of the `NotificationModel` to `true` (its default value).
 
@@ -207,5 +207,5 @@ To hide all notifications, you use the `HideAll` method. This function enables y
 
 ## See Also
 
-* [Keep Notifications Visible on Hover]({%slug notification-kb-keep-on-hover%})
-* [Notification Overview]({%slug notification-overview%})
+* [Keep Notifications Visible on Hover](slug://notification-kb-keep-on-hover)
+* [Notification Overview](slug://notification-overview)

@@ -20,7 +20,7 @@ In this article you will find:
 
 To enable data navigation you have to:
 
-1. set up a [`<TelerikStockChart>`]({%slug stockchart-overview%})
+1. set up a [`<TelerikStockChart>`](slug://stockchart-overview)
 1. add a `<StockChartNavigator>` inside the main `<TelerikStockChart>`
 1. add a `<StockChartNavigatorSeries>` to the `<StockChartNavigatorSeriesItems>` collection.
 1. set its `Type` property to one of the following:

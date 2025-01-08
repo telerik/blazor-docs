@@ -25,7 +25,7 @@ Using vector graphics ensures that:
 * The browser zoom does not degrade the image.
 * The prints are crisp regardless of the resolution.
 
-In addition, the SVG Chart provides accessibility features such as [general description]({%slug components/chart/overview%}#chart-title) and [aria label templates]({%slug components/chart/label-template-format%}#series-label-aria-template) out of the box.
+In addition, the SVG Chart provides accessibility features such as [general description](slug://components/chart/overview#chart-title) and [aria label templates](slug://components/chart/label-template-format#series-label-aria-template) out of the box.
 
 >caption Bar Chart rendered as SVG
 

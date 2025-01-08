@@ -26,7 +26,7 @@ I have a Grid and I would like to know the new index of a row when sorting or fi
 
 ## Solution
 
-The Grid does not directly alter the collection of items passed to its `Data` parameter. When performing operations like Sorting or Filtering the collection will not be changed, thus the index of an item will remain unchanged. In order to get the sorted/filtered collection, use the [OnRead event]({%slug components/grid/manual-operations%}) of the Grid.
+The Grid does not directly alter the collection of items passed to its `Data` parameter. When performing operations like Sorting or Filtering the collection will not be changed, thus the index of an item will remain unchanged. In order to get the sorted/filtered collection, use the [OnRead event](slug://components/grid/manual-operations) of the Grid.
 
 * Use the `OnRead` event to cache the Grid data in its current sort state.
 * Use the `SelectedItemsChanged` or `OnRowClick` event to find the item index.

@@ -69,13 +69,13 @@ The issue occurs after an upgrade to version 2.30.
 
 ## Possible Cause
 
-UI for Blazor 2.30 adds a [`DebounceDelay` parameter for the TextBox]({%slug components/textbox/overview%}#textbox-parameters). It specifies the time in milliseconds between the last typed symbol and the actual value update. DebounceDelay has a default value of 150ms and depends on the `oninput` event to count this time.
+UI for Blazor 2.30 adds a [`DebounceDelay` parameter for the TextBox](slug://components/textbox/overview#textbox-parameters). It specifies the time in milliseconds between the last typed symbol and the actual value update. DebounceDelay has a default value of 150ms and depends on the `oninput` event to count this time.
 
 However, when the browser (Chrome, for example) autofills form field values, the `oninput` event is not fired until some interaction with the page occurs. This means that the browser does not notify the fields that their values have changed.
 
 Thus, when clicking Login for the first time (interacting with the page), the `oninput` fires but the default DebounceDelay of 150ms postpones the TextBox value update.
 
-Other components that also have DebounceDelay property and might be affected are [TextArea]({%slug textarea-overview%}#textarea-parameters) and [MaskedTextBox]({%slug maskedtextbox-overview%}#maskedtextbox-parameters).
+Other components that also have DebounceDelay property and might be affected are [TextArea](slug://textarea-overview#textarea-parameters) and [MaskedTextBox](slug://maskedtextbox-overview#maskedtextbox-parameters).
 
 ## Suggested Workarounds
 
@@ -120,6 +120,6 @@ The example below demonstrates the first approach - removing the default Debounc
 
 ## See Also
 
-* [Chrome autofills the Form and the floating label overlaps the values]({%slug form-chrome-autofill%})
+* [Chrome autofills the Form and the floating label overlaps the values](slug://form-chrome-autofill)
 
-* [Label not moved from input on browser autofill in Chrome]({%slug textbox-chrome-autofill-label%})
+* [Label not moved from input on browser autofill in Chrome](slug://textbox-chrome-autofill-label)

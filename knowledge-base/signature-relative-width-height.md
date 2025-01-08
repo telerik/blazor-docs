@@ -151,5 +151,5 @@ A possible workaround is to change the component `Width` and `Height` at runtime
 
 ## See Also
 
-* [Signature Overview]({%slug signature-overview%})
+* [Signature Overview](slug://signature-overview)
 * [Resize Signature without hiding it](https://feedback.telerik.com/blazor/1588545)

@@ -118,7 +118,7 @@ To hide a Gantt Tree column set its `Visible` parameter to `false`. To hide a co
 
 Non-visible columns (`Visible="false"`) will have the following behavior:
 
-* Will not be [editable]({%slug gantt-tree-editing%}).
+* Will not be [editable](slug://gantt-tree-editing).
 
 
 ## Examples

@@ -147,4 +147,4 @@ If the model has validation attached, updating the `EditContext` does not update
 
 ## See Also
 
-[Changing data in a component with a window does not change the parent]({%slug window-does-not-update-parent%})
+[Changing data in a component with a window does not change the parent](slug://window-does-not-update-parent)

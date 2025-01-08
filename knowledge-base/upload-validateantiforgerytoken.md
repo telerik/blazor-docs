@@ -41,14 +41,14 @@ Here are the suggested steps to configure .NET Core Blazor antiforgery validatio
     * (optional) Add `builder.Services.AddAntiforgery()` with custom `HeaderName` or `FormFieldName`.
     * Verify that `app.UseAntiforgery();` is present.
     * Add `app.MapDefaultControllerRoute();` to configure routing.
-1. [Implement the `Save` and `Remove` controller methods]({%slug upload-overview%}#implement-controller-methods).
+1. [Implement the `Save` and `Remove` controller methods](slug://upload-overview#implement-controller-methods).
 1. Decorate the controller class or specific action methods with `[ValidateAntiForgeryToken]`
 1. Configure the Razor component, which contains the Telerik Blazor Upload:
     * Inject `AntiforgeryStateProvider` to use its `GetAntiforgeryToken()` method.
     * Inject `IAntiforgery` to use its `GetAndStoreTokens(httpContext)` method.
     * Inject `IHttpContextAccessor` to use its `HttpContext` property in the `GetAndStoreTokens()` method.
     * Execute `GetAndStoreTokens()` and/or `GetAntiforgeryToken()` in `OnInitialized` to obtain the required antiforgery information.
-    * Add the required antiforgery information in the Upload component's [`OnUpload` and `OnRemove` event handlers]({%slug upload-events%}).
+    * Add the required antiforgery information in the Upload component's [`OnUpload` and `OnRemove` event handlers](slug://upload-events).
 
 The code snippets below assume that the application name is `BlazorAppName`.
 
@@ -224,6 +224,6 @@ namespace BlazorAppName.Controllers
 
 ## See Also
 
-* [Upload Overview]({%slug upload-overview%})
-* [Upload Events]({%slug upload-events%})
-* [Upload Troubleshooting]({%slug upload-troubleshooting%})
+* [Upload Overview](slug://upload-overview)
+* [Upload Events](slug://upload-events)
+* [Upload Troubleshooting](slug://upload-troubleshooting)

@@ -53,7 +53,7 @@ If you want to build layouts only with Telerik UI for Blazor, there are several 
 Other components that may be relevant to application layouts are:
 
 * The [Card](https://demos.telerik.com/blazor-ui/card/overview) lets you display items and sets of information through predefined building blocks.
-* [Various popup components]({%slug common-kb-popup-component-comparison%}) let you conserve real estate on the screen.
+* [Various popup components](slug://common-kb-popup-component-comparison) let you conserve real estate on the screen.
 * Many other components help with navigation and layouts, review the [list of available components in our demos](https://demos.telerik.com/blazor-ui).
 
 

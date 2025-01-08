@@ -108,8 +108,8 @@ The `<SankeyLegend>` tag exposes nested tags for further customization of the se
 ## See Also
 
 * [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
-* [Sankey Links]({%slug sankey-links%})
-* [Sankey Nodes]({%slug sankey-nodes%})
-* [Sankey Labels]({%slug sankey-labels%})
-* [Sankey Tooltip]({%slug sankey-tooltip%})
-* [Sankey Title]({%slug sankey-title%})
+* [Sankey Links](slug://sankey-links)
+* [Sankey Nodes](slug://sankey-nodes)
+* [Sankey Labels](slug://sankey-labels)
+* [Sankey Tooltip](slug://sankey-tooltip)
+* [Sankey Title](slug://sankey-title)

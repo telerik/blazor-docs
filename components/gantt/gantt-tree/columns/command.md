@@ -10,7 +10,7 @@ position: 1
 
 # Gantt Tree Command Column
 
-The command column of a Gantt Tree allows you to initiate [editing]({%slug gantt-tree-editing%}), or to execute your own commands.
+The command column of a Gantt Tree allows you to initiate [editing](slug://gantt-tree-editing), or to execute your own commands.
 
 To define it, add a `GanttCommandColumn` in the `GanttColumns` collection of a Gantt Chart. The command column takes a collection of `GanttCommandButton` instances that invoke the commands.
 
@@ -40,7 +40,7 @@ The Blazor Gantt Command Column provides various parameters to configure the com
 | `ShowInEdit` | Defines if the button is visible only when the user is editing or inserting data. |
 | `ChildContent` | The text of the button. You can also place it between the command button's opening and closing tags. |
 
-See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Telerik UI for Blazor Button Component features]({%slug components/button/overview%}).
+See also Appearance properties like `Icon`, `Class`, `Enabled` that are coming from the underlying [Telerik UI for Blazor Button Component features](slug://components/button/overview).
 
 ### Built-in Commands
 
@@ -67,7 +67,7 @@ The `OnClick` handler of the commands receives an argument of type `GanttTaskCom
 
 The command column provides access to the data item via `context`. This may be useful for conditional statements or passing parameters to custom business logic.
 
-Use a **named** context variable to avoid errors when nesting components or `RenderFragment`s in general. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."]({%slug nest-renderfragment%}).
+Use a **named** context variable to avoid errors when nesting components or `RenderFragment`s in general. In such cases, the exception will be similar to ["Child content element ... uses the same parameter name ('context') as enclosing child content element ..."](slug://nest-renderfragment).
 
 <div class="skip-repl"></div>
 ````RAZOR

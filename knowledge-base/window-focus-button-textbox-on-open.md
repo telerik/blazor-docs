@@ -34,13 +34,13 @@ This KB article answers the following questions:
 
 ## Solution
 
-To focus any element or component in the [Telerik UI Window for Blazor]({%slug dialog-overview%}), follow the steps below. They are also applicable for the [Dialog component]({%slug dialog-overview%}).
+To focus any element or component in the [Telerik UI Window for Blazor](slug://dialog-overview), follow the steps below. They are also applicable for the [Dialog component](slug://dialog-overview).
 
-1. To focus a Telerik UI for Blazor component, [set the `@ref` attribute to obtain the component's reference]({%slug components/textbox/overview%}#textbox-reference-and-methods).
+1. To focus a Telerik UI for Blazor component, [set the `@ref` attribute to obtain the component's reference](slug://components/textbox/overview#textbox-reference-and-methods).
 1. Raise a `bool` flag when showing the Window.
 1. Check the boolean flag's value in `OnAfterRenderAsync()`.
 1. Use a small `Task.Delay()` to wait for the Window to display and gain focus. Without a delay, the focusable component will either not exist yet, or the Window will steal the focus.
-1. Focus the desired button, textbox, or input component. If it's a Telerik UI for Blazor component, use the [`FocusAsync()` method]({%slug inputs-kb-focus%}).
+1. Focus the desired button, textbox, or input component. If it's a Telerik UI for Blazor component, use the [`FocusAsync()` method](slug://inputs-kb-focus).
 
 >caption Focus a component on Dialog or Window open
 
@@ -134,6 +134,6 @@ To focus any element or component in the [Telerik UI Window for Blazor]({%slug d
 
 ## See Also
 
-* [Dialog Overview]({%slug dialog-overview%})
-* [Window Overview]({%slug window-overview%})
-* [Focus Telerik Input Components]({%slug inputs-kb-focus%})
+* [Dialog Overview](slug://dialog-overview)
+* [Window Overview](slug://window-overview)
+* [Focus Telerik Input Components](slug://inputs-kb-focus)

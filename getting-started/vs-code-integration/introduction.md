@@ -16,9 +16,9 @@ The **Telerik UI for Blazor Template Wizard** Extension for [Visual Studio Code]
 
 The extension for Visual Studio Code provides the following advantages:
 
-* It facilitates the [creation of projects]({% slug getting-started-vs-code-integration-new-project %}).
+* It facilitates the [creation of projects]({% slug getting-started-vs-code-integration-new-project ).
 
-* It allows you to [add the Telerik Components to an existing project]({%slug getting-started-vs-code-integration-convert-project %}) with a few clicks.
+* It allows you to [add the Telerik Components to an existing project](slug://getting-started-vs-code-integration-convert-project ) with a few clicks.
 
 
 

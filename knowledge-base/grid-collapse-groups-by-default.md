@@ -29,15 +29,15 @@ How to collapse all Grid groups by default when the Grid is loaded. The Grid sho
 
 There are two ways to collapse all groups of the Grid both on initialization and after paging:
 
-* [Load groups on demand]({%slug grid-group-lod%}) - in this case, all groups automatically render as collapsed
+* [Load groups on demand](slug://grid-group-lod) - in this case, all groups automatically render as collapsed
 * Collapse groups programmatically
 
 The required steps to collapse groups programmatically are:
 
-1. Use the Grid [`OnStateInit event`]({%slug grid-state%}#onstateinit).
+1. Use the Grid [`OnStateInit event`](slug://grid-state#onstateinit).
 2. Set [group descriptors](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [GridState](/blazor-ui/api/Telerik.Blazor.Components.GridState-1) to group the Grid by default.
 3. Set `CollapsedGroups` in the `GridState`. 
-4. Set a boolean flag in the Grid [`OnStateChanged event`]({%slug grid-state%}#events) when the user is paging.
+4. Set a boolean flag in the Grid [`OnStateChanged event`](slug://grid-state#events) when the user is paging.
 5. Check the boolean flag value in `OnAfterRenderAsync` to know when to persist the groups collapsed state.
 
 

@@ -23,11 +23,11 @@ res_type: kb
 
 ## Description
 
-I would like to autofit the Grid columns on initial page load using the [AutoFitAllColumns]({%slug components/grid/columns/resize%}#autofit-columns) method of the Grid. The goal is for all column widths to match the column content.
+I would like to autofit the Grid columns on initial page load using the [AutoFitAllColumns](slug://components/grid/columns/resize#autofit-columns) method of the Grid. The goal is for all column widths to match the column content.
 
 ## Background
 
-The Grid has [methods to autofit columns programmatically]({%slug components/grid/columns/resize%}#autofit-columns). I would like to achieve that behavior on initial load of the component, but can not find a suitable event to call the methods.
+The Grid has [methods to autofit columns programmatically](slug://components/grid/columns/resize#autofit-columns). I would like to achieve that behavior on initial load of the component, but can not find a suitable event to call the methods.
 
 If I call the autofit methods too early (e.g. on component initialization), I get a `NullReferenceException`.
 
@@ -37,13 +37,13 @@ Autofitting columns on initial load is a current limitation of the built-in auto
 
 While the autofitting feature includes fitting the headers, it also targets the data cells and the footers, so it needs all the rows in the process.
 
-There are two possible implementations to work this around and autofit the Grid columns as the component initializes. They depend on whether the Grid is data-bound with the [`Data` parameter](#data-parameter) or the [`OnRead` event](#onread-event). In both cases, the Grid [`Resizable` parameter]({%slug components/grid/columns/resize%}) must be set to `true`.
+There are two possible implementations to work this around and autofit the Grid columns as the component initializes. They depend on whether the Grid is data-bound with the [`Data` parameter](#data-parameter) or the [`OnRead` event](#onread-event). In both cases, the Grid [`Resizable` parameter](slug://components/grid/columns/resize) must be set to `true`.
 
 ### Data Parameter
 
 To autofit the Grid columns on the initial load of the component:
 
-* Use the Grid [`Class` parameter]({%slug grid-overview%}#grid-parameters) to identify the Grid that you want to autofit.
+* Use the Grid [`Class` parameter](slug://grid-overview#grid-parameters) to identify the Grid that you want to autofit.
 * When the Grid is rendered for the first time, call a JavaScript function in `OnAfterRenderAsync` to observe the Grid.
 * Listen for DOM changes using JavaScript and invoke the `AutoFitAllColumns` method after the table rows in the Grid have rendered.
 

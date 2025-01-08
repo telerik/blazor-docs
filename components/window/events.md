@@ -204,7 +204,7 @@ You can use the `WidthChanged` and `HeightChanged` events to get notifications w
 
 ## Action Click
 
-Window actions expose the `OnClick` event. You can use it to implement custom buttons that invoke application logic from the Window's titlebar. See the [Window Actions]({%slug components/window/actions%}) article for examples.
+Window actions expose the `OnClick` event. You can use it to implement custom buttons that invoke application logic from the Window's titlebar. See the [Window Actions](slug://components/window/actions) article for examples.
 
 If you use the `OnClick` event on a built-in action, it will act as a custom action and it will no longer perform the built-in feature (for example, close the window). If you want the invoke both a built-in action and custom logic from the same button, you have two options:
 
@@ -214,7 +214,7 @@ If you use the `OnClick` event on a built-in action, it will act as a custom act
 
 ## LeftChanged and TopChanged
 
-These two events fire when the user finishes [moving the window]({%slug window-draggable%}). If you set the `Top` and `Left` parameters of the window, you must update their values in these events - either by handling them yourself, or through using two-way binding.
+These two events fire when the user finishes [moving the window](slug://window-draggable). If you set the `Top` and `Left` parameters of the window, you must update their values in these events - either by handling them yourself, or through using two-way binding.
 
 The values will be in pixels, in a `string` format, rounded to one decimal place.
 
@@ -269,7 +269,7 @@ The `LeftChanged` event fires second, so if you intend to store locations in an 
 
 ## See Also
 
-* [Window Overview]({%slug window-overview%})
-* [Window State]({%slug components/window/size%})
-* [Window Actions]({%slug components/window/actions%})
-* [Focus TextBox on Window Open]({%slug window-kb-focus-button-textbox-on-open%})
+* [Window Overview](slug://window-overview)
+* [Window State](slug://components/window/size)
+* [Window Actions](slug://components/window/actions)
+* [Focus TextBox on Window Open](slug://window-kb-focus-button-textbox-on-open)

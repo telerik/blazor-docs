@@ -25,7 +25,7 @@ In this article:
 
 ## Basics
 
-The `Telerik.DataSource` package is distributed through the [Telerik NuGet package source]({%slug installation/nuget%}) and is available to both trial and commercial licenses. It is also available as a resource in the [offline installer]({%slug installation/msi%}) and [resources archive]({%slug installation/zip%}) of Telerik UI for Blazor and some other Telerik suites, such as UI for ASP.NET Core.
+The `Telerik.DataSource` package is distributed through the [Telerik NuGet package source](slug://installation/nuget) and is available to both trial and commercial licenses. It is also available as a resource in the [offline installer](slug://installation/msi) and [resources archive](slug://installation/zip) of Telerik UI for Blazor and some other Telerik suites, such as UI for ASP.NET Core.
 
 The `Telerik.DataSource` package targets `netstandard2.1`.
 
@@ -41,7 +41,7 @@ The following classes and extension methods are the key components to the packag
 
     * The `ToDataSourceResult` method generates a LINQ expressions based on the `DataSourceRequest` and passes them to the `IQueryable.Provider`. It is up to the provider (collection) to resolve it and execute it against the database (for example, an `IQueryable` coming from an EntityFrameworkCore context will create and run an SQL query for you).
 
-* [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) - the class that describes the request for data - what page index, page size, filters and sorts, groups and aggregates are required by the client. You can receive it from Telerik components (such as the [Blazor grid in its manual data operations mode]({%slug components/grid/manual-operations%})), or over the wire and deserialize it (such as for requests coming from widgets like the [UI for ASP.NET Core Grid with remote data](https://demos.telerik.com/aspnet-core/grid/remote-data-binding)). You can even create a `new` instance of the object and populate its fields according to some other business logic (like an OData query string or some other case). This object is in the `Telerik.DataSource` namespace.
+* [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) - the class that describes the request for data - what page index, page size, filters and sorts, groups and aggregates are required by the client. You can receive it from Telerik components (such as the [Blazor grid in its manual data operations mode](slug://components/grid/manual-operations)), or over the wire and deserialize it (such as for requests coming from widgets like the [UI for ASP.NET Core Grid with remote data](https://demos.telerik.com/aspnet-core/grid/remote-data-binding)). You can even create a `new` instance of the object and populate its fields according to some other business logic (like an OData query string or some other case). This object is in the `Telerik.DataSource` namespace.
 
     * When you receive such an object from a Telerik component, you can iterate over the information it provides and implement you own data source operations, you are not obliged to use the `ToDataSourceResult` method (but it helps shape the data accordingly, so you may want to examine its `DataSourceResult` from a simple run to see what it contains).
 

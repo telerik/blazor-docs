@@ -16,7 +16,7 @@ The <a href="https://www.telerik.com/blazor-ui/area-chart" target="_blank">Blazo
 
 An Area chart emphasizes the volume of money, data or any other unit that the given series has encompassed. When backgrounds are semi-transparent, it lets the user clearly see where different sets of data overlap.
 
-The Area Chart is similar to the [Range Area Chart]({%slug components/chart/types/rangearea%}), which allows the area to raise above the horizontal axis.
+The Area Chart is similar to the [Range Area Chart](slug://components/chart/types/rangearea), which allows the area to raise above the horizontal axis.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 

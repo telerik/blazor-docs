@@ -18,12 +18,12 @@ You can find the following sections:
 
 ## Categorical charts
 
-Categorical charts (such as [Column]({%slug components/chart/types/column%}), [Line]({%slug components/chart/types/line%}), [Area]({%slug components/chart/types/area%})) support displaying dates on the x-axis. A date axis aggregates the data points that fall within its scope to a single data point that gets rendered.
+Categorical charts (such as [Column](slug://components/chart/types/column), [Line](slug://components/chart/types/line), [Area](slug://components/chart/types/area)) support displaying dates on the x-axis. A date axis aggregates the data points that fall within its scope to a single data point that gets rendered.
 
 To enable a date axis:
 
 1. Set the `Type` property of the `ChartCategoryAxis` to `ChartCategoryAxisType.Date`.
-1. Provide categories of type `DateTime` to it (see [data binding a chart]({%slug components/chart/databind%})).
+1. Provide categories of type `DateTime` to it (see [data binding a chart](slug://components/chart/databind)).
 
 You can control the aggregation level through the `BaseUnit` property of the axis. It takes a member of the `Telerik.Blazor.ChartCategoryAxisBaseUnit` class.
 
@@ -142,10 +142,10 @@ Steps, custom label format, non-default start of week
 
 ## Numerical charts
 
-The numerical [Scatter]({%slug components/chart/types/scatter%}) and [ScatterLine]({%slug components/chart/types/scatterline%}) charts also support `DateTime` values for the x-axis. To enable such scenario:
+The numerical [Scatter](slug://components/chart/types/scatter) and [ScatterLine](slug://components/chart/types/scatterline) charts also support `DateTime` values for the x-axis. To enable such scenario:
 
 1. Set the `Type` property of the `ChartXAxis` to "date".
-1. Provide a field of type `DateTime` to the `XField` parameter of the `ChartSeries` (see [data binding a chart]({%slug components/chart/databind%})).
+1. Provide a field of type `DateTime` to the `XField` parameter of the `ChartSeries` (see [data binding a chart](slug://components/chart/databind)).
 
 You can control the aggregation level through the `BaseUnit` property of the axis. It takes a string and the available options are "milliseconds", "seconds", "minutes", "hours", "days", "weeks", "months" or "years".
 
@@ -274,5 +274,5 @@ For example, if the chosen `BaseUnit` is `days`, the X labels mark the beginning
 
 ## See Also
 
-  * [Data Binding a Chart]({%slug components/chart/databind%})
+  * [Data Binding a Chart](slug://components/chart/databind)
   * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)

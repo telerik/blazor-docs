@@ -28,7 +28,7 @@ previous_url: /knowledge-base/scheduler-appointment-context-menu
 
 This KB article answers the following questions:
 
-* How to add a [Context menu]({%slug contextmenu-overview%}) to the appointments to provide shortcuts to custom features?
+* How to add a [Context menu](slug://contextmenu-overview) to the appointments to provide shortcuts to custom features?
 * How to add a Context menu that can be opened anywhere on the scheduler board, not just on appointments?
 * Is there any way to get the timeslot of where the Context menu is open?
 * How do I add a new appointment at a specific timeslot through the Context menu?
@@ -37,12 +37,12 @@ This KB article answers the following questions:
 
 To implement a Context menu on appointments and on empty slots in the Scheduler, follow these steps:
 
-1. Use the Scheduler templates to [integrate the Context menu]({%slug contextmenu-integration%}):
-    * Use the [Appointment Templates]({%slug scheduler-templates-appointment%}) to enable the Context menu to appear on appointments. 
-    * Use the [Slot Templates]({%slug scheduler-templates-slot%}) to enable the Context menu to appear on cells without appointments. 
+1. Use the Scheduler templates to [integrate the Context menu](slug://contextmenu-integration):
+    * Use the [Appointment Templates](slug://scheduler-templates-appointment) to enable the Context menu to appear on appointments. 
+    * Use the [Slot Templates](slug://scheduler-templates-slot) to enable the Context menu to appear on cells without appointments. 
 1. Pass the context of the template in the `@oncontextmenu` event.
 1. Use the timeslot or appointment information obtained from the context of the template.
-1. Add the desired [Context menu]({%slug contextmenu-overview%}) and create its items, commands and actions as needed.
+1. Add the desired [Context menu](slug://contextmenu-overview) and create its items, commands and actions as needed.
 
 >caption Different Context menu commands depending on the IsImportant appointment model property
 ````RAZOR
@@ -370,8 +370,8 @@ To implement a Context menu on appointments and on empty slots in the Scheduler,
 ````
 
 ## See Also
-* [Scheduler Overview]({%slug scheduler-overview%})
-* [Scheduler Appointment Templates]({%slug scheduler-templates-appointment%})
-* [Scheduler Slot Templates]({%slug scheduler-templates-slot%})
-* [Context menu Overview]({%slug contextmenu-overview%})
-* [Context menu Integration]({%slug contextmenu-integration%})
+* [Scheduler Overview](slug://scheduler-overview)
+* [Scheduler Appointment Templates](slug://scheduler-templates-appointment)
+* [Scheduler Slot Templates](slug://scheduler-templates-slot)
+* [Context menu Overview](slug://contextmenu-overview)
+* [Context menu Integration](slug://contextmenu-integration)

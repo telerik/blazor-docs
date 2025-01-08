@@ -42,9 +42,9 @@ How I can prevent this? How to keep the Drawer open when selecting items in the 
 
 ## Possible Cause
 
-By design, the popup elements of our components are not rendered in their place of declaration but at root level in the Razor component tree. Thus, when you are using a [DropDownList]({%slug components/dropdownlist/overview%}), for example, its popup is not technically part of the DropDownList component, it is rendered outside of it.
+By design, the popup elements of our components are not rendered in their place of declaration but at root level in the Razor component tree. Thus, when you are using a [DropDownList](slug://components/dropdownlist/overview), for example, its popup is not technically part of the DropDownList component, it is rendered outside of it.
 
-As the popup of the DropDownList is rendered at root level, it is practically outside of the Drawer as well. So, when you click on an item in the dropdown, you are basically clicking outside of the Drawer. By design in [Overlay mode]({%slug drawer-modes%}#overlay-mode), clicking outside of the Drawer container is expected to close the Drawer.
+As the popup of the DropDownList is rendered at root level, it is practically outside of the Drawer as well. So, when you click on an item in the dropdown, you are basically clicking outside of the Drawer. By design in [Overlay mode](slug://drawer-modes#overlay-mode), clicking outside of the Drawer container is expected to close the Drawer.
 
 You can verify this yourself using your dev tools to inspect the rendering. You can also test selecting an item from the DropDownList with keyboard navigation only (no click in the popup) - as a result, the Drawer will remain opened as you haven't clicked outside of it, in the DropDownList popup. The same behavior can be observed if you scroll without a click in the scrollbar.
 
@@ -61,7 +61,7 @@ You may try the Push mode of the Drawer. When this mode is enabled, clicking out
 
 This mode, however, introduces different appearance and positioning of the Drawer compared to the Overlay mode. If you'd like to keep the styles of the Overlay mode but prevent the Drawer from closing on click in the popup, try the following:
 
-* Select the [Push mode]({%slug drawer-modes%}#push-mode).
+* Select the [Push mode](slug://drawer-modes#push-mode).
 * Customize the Drawer to incorporate the styles of the Overlay mode.
 
 The example below demonstrates the described approach. In this case, the Drawer will not close when you click outside of it, so you may consider some UI option for that. In the sample below, the Drawer contains a close button, for instance.
@@ -136,8 +136,8 @@ The example below demonstrates the described approach. In this case, the Drawer 
 
 ### Use AnimationContainer component 
 
-The [AnimationContainer]({%slug components/animationcontainer/overview%}) allows you to create similar expandable container. You can toggle its visibility through the ShowAsync() and HideAsync() methods. In addition, you can control the size and animation type of the container. If needed, you can copy the styles of an Overlay Drawer to achieve the same look. 
+The [AnimationContainer](slug://components/animationcontainer/overview) allows you to create similar expandable container. You can toggle its visibility through the ShowAsync() and HideAsync() methods. In addition, you can control the size and animation type of the container. If needed, you can copy the styles of an Overlay Drawer to achieve the same look. 
 
 ## See Also
 
-* [Prevent Drawer from collapsing on item click]({%slug drawer-kb-prevent-collapse%})
+* [Prevent Drawer from collapsing on item click](slug://drawer-kb-prevent-collapse)

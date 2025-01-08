@@ -8,7 +8,7 @@ position: 7
 
 # Upgrading Projects
 
-This article demonstrates how to use the [Telerik Visual Studio Extension]({% slug getting-started-vs-integration-overview %}) to upgrade a project that is pre-configured for the Progress&reg; Telerik&reg; UI for Blazor components.
+This article demonstrates how to use the [Telerik Visual Studio Extension]({% slug getting-started-vs-integration-overview ) to upgrade a project that is pre-configured for the Progress&reg; Telerik&reg; UI for Blazor components.
 
 ## Basics
 
@@ -23,7 +23,7 @@ The **Upgrade Information** step of the Upgrade Project Wizard describes the fil
 The Telerik Blazor Upgrade Wizard will do the following:
 
 * Update the version of the referenced Blazor NuGet package. It will also update the package source in the solution-based NuGet config file.
-* Update the version of the theme reference, but only when using CDN. Otherwise, [update the theme manually]({%slug getting-started-vs-integration-new-project%}#step-3-select-theme).
+* Update the version of the theme reference, but only when using CDN. Otherwise, [update the theme manually](slug://getting-started-vs-integration-new-project#step-3-select-theme).
 * Update all local script and style and NuGet package references if you upgrade from a Trial to a Dev version.
 * It will add the new keys in the default (English) localization file.
 
@@ -58,8 +58,8 @@ The **Finish** button will display a tooltip, indicating a page error when:
 
 ## See Also
 
-* [Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
-* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version %})
-* [Getting Started with Client-Side Apps]({%slug getting-started/client-side%})
-* [Getting Started with Server-Side Apps]({%slug getting-started/server-side%})
-* [Workflow for Using the UI Components for Blazor]({%slug getting-started/what-you-need%})
+* [Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview )
+* [Downloading the Latest Telerik UI for Blazor Versions]({% slug getting-started-vs-integration-latest-version )
+* [Getting Started with Client-Side Apps](slug://getting-started/client-side)
+* [Getting Started with Server-Side Apps](slug://getting-started/server-side)
+* [Workflow for Using the UI Components for Blazor](slug://getting-started/what-you-need)

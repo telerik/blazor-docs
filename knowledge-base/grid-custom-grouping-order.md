@@ -32,9 +32,9 @@ This KB article answers the following questions:
 
 To achieve custom grouping order in the Telerik Grid for Blazor, follow these steps:
 
-1. Bind the Grid with the `OnRead` event to handle data operations manually. Refer to the official documentation for [`OnRead`]({%slug common-features-data-binding-onread%}) and [Grouping with `OnRead`]({%slug components/grid/manual-operations%}#grouping-with-onread)
+1. Bind the Grid with the `OnRead` event to handle data operations manually. Refer to the official documentation for [`OnRead`](slug://common-features-data-binding-onread) and [Grouping with `OnRead`](slug://components/grid/manual-operations#grouping-with-onread)
 
-2. Instead of using the `ToDataSourceResult()` method, group the data with custom code. Each group must be represented by an `AggregateFunctionsGroup` object. To understand the Grid's expectations, inspect the `datasourceResult` variable structure and content with a debugger, as shown in [Grouping with `OnRead`]({%slug components/grid/manual-operations%}#grouping-with-onread).
+2. Instead of using the `ToDataSourceResult()` method, group the data with custom code. Each group must be represented by an `AggregateFunctionsGroup` object. To understand the Grid's expectations, inspect the `datasourceResult` variable structure and content with a debugger, as shown in [Grouping with `OnRead`](slug://components/grid/manual-operations#grouping-with-onread).
 
 3. Implement custom sorting logic for grouped data based on your specific order requirements (e.g., D, A, C, B) within the `OnRead` method.
 

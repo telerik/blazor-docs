@@ -10,7 +10,7 @@ position: 20
 
 ## Arc Gauge Labels
 
-You can customize the appearance of the labels rendered on the [scale]({%slug arc-gauge-scale%}) of the Arc Gauge by using the `<ArcGaugeScaleLabels>`, child tag of the `<ArcGaugeScale>`, and the parameters it exposes:
+You can customize the appearance of the labels rendered on the [scale](slug://arc-gauge-scale) of the Arc Gauge by using the `<ArcGaugeScaleLabels>`, child tag of the `<ArcGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
 
@@ -178,6 +178,6 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. B
 
 * [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
 * [Live Demo: Arc Gauge - Center Template](https://demos.telerik.com/blazor-ui/arcgauge/center-template)
-* [Arc Gauge: Overview]({%slug arc-gauge-overview%})
-* [Arc Gauge: Scale]({%slug arc-gauge-scale%})
-* [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
+* [Arc Gauge: Overview](slug://arc-gauge-overview)
+* [Arc Gauge: Scale](slug://arc-gauge-scale)
+* [Arc Gauge: Pointers](slug://arc-gauge-pointers)

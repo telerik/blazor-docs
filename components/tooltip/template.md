@@ -173,5 +173,5 @@ else
 
 ## See Also
 
-* [Blazor Tooltip Overview]({%slug tooltip-overview%})
+* [Blazor Tooltip Overview](slug://tooltip-overview)
 * [Live Demo: Tooltip Template](https://demos.telerik.com/blazor-ui/tooltip/template)

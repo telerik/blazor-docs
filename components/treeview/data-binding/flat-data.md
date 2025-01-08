@@ -117,7 +117,7 @@ Using self-referencing flat data
 
 ## See Also
 
-  * [TreeView Data Binding Basics]({%slug components/treeview/data-binding/overview%})
+  * [TreeView Data Binding Basics](slug://components/treeview/data-binding/overview)
   * [Live Demo: TreeView Flat Data](https://demos.telerik.com/blazor-ui/treeview/flat-data)
-  * [Binding to Hierarchical Data]({%slug components/treeview/data-binding/hierarchical-data%})
-  * [Load on Demand]({%slug components/treeview/data-binding/load-on-demand%})
+  * [Binding to Hierarchical Data](slug://components/treeview/data-binding/hierarchical-data)
+  * [Load on Demand](slug://components/treeview/data-binding/load-on-demand)

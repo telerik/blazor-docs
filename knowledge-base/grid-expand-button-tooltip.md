@@ -29,7 +29,7 @@ I want to add a tooltip to the hierarchy expand button for the detail template a
 ## Solution
 You can use JS Interop to add title attributes on the grid elements.
 
-You can call this JS function after the grid re-renders with new data by using its [OnRead event]({%slug components/grid/manual-operations%}).
+You can call this JS function after the grid re-renders with new data by using its [OnRead event](slug://components/grid/manual-operations).
 
 The example below shows one way to do that, and to distinguish a particular grid, and to pass the title attribute value from the C# code so you can, for example, localize it.
 

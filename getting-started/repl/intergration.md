@@ -43,7 +43,7 @@ Most code examples in the Telerik UI for Blazor documentation are directly runna
 
 ## Visual Studio and Visual Studio Code Integration
 
-Telerik Extensions for [Visual Studio]({%slug getting-started-vs-integration-overview%}) and [Visual Studio Code]({%slug getting-started-vs-code-integration-overview%}) provide option to easily share your code to the Telerik REPL for Blazor with a few clicks. You can share the whole file or just a selection.
+Telerik Extensions for [Visual Studio](slug://getting-started-vs-integration-overview) and [Visual Studio Code](slug://getting-started-vs-code-integration-overview) provide option to easily share your code to the Telerik REPL for Blazor with a few clicks. You can share the whole file or just a selection.
 
 The command can be used if more than 10 symbols are selected. Otherwise Visual Studio will disable the command, and Visual Studio Code will show an error message ("Expected at least 10 characters"). In case of multiple selection, every new piece will be concatenated on a new line.
 
@@ -66,7 +66,7 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ### Sharing to REPL Visual Studio Code
 
-1. [Get the Visual Studio Code extension]({%slug getting-started-vs-code-integration-overview%}) from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
+1. [Get the Visual Studio Code extension](slug://getting-started-vs-code-integration-overview) from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TelerikInc.blazortemplatewizard).
 
 1. Access the command using either the context menu or the command palette:
 
@@ -81,5 +81,5 @@ If no selection is made, the whole file will be shared to Telerik REPL for Blazo
 
 ## See Also
 
-* [User Snippets in Telerik REPL for Blazor]({%slug blazor-repl-user-snippets%})
-* [Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor]({%slug blazor-repl-snippets-scaffolders%})
+* [User Snippets in Telerik REPL for Blazor](slug://blazor-repl-user-snippets)
+* [Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor](slug://blazor-repl-snippets-scaffolders)

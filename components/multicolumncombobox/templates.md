@@ -22,7 +22,7 @@ The MultiColumnComboBox component allows you to change what is rendered in its h
 
 ## Row Template
 
-The `RowTemplate` allows you to control the rendering of each whole row in the dropdown. Use a row template if separate [column templates]({%slug multicolumncombobox-columns-templates%}) do not allow enough customization.
+The `RowTemplate` allows you to control the rendering of each whole row in the dropdown. Use a row template if separate [column templates](slug://multicolumncombobox-columns-templates) do not allow enough customization.
 
 You can access the `context` object and cast it to the bound model to employ some custom business logic. The `contenxt` represents the current data item for the row.
 

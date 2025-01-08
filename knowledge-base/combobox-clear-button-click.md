@@ -96,4 +96,4 @@ Monitor the console to see when the events fire in these examples. You can use o
 ````
 
 ## See Also
-[ComboBox Events]({%slug components/combobox/events%})
+[ComboBox Events](slug://components/combobox/events)

@@ -28,9 +28,9 @@ I have a Grid with hierarchy enabled. When I expand one row, I want to programma
 
 ## Solution
 
-1. Handle the [Grid `OnRowExpand` event]({%slug grid-events%}#onrowexpand). It provides argument of type `GridRowExpandEventArgs` with a `Item` field that refers to the currently expanded Grid item.
+1. Handle the [Grid `OnRowExpand` event](slug://grid-events#onrowexpand). It provides argument of type `GridRowExpandEventArgs` with a `Item` field that refers to the currently expanded Grid item.
 1. Set the `ShouldRender` property of the `GridRowExpandEventArgs` argument to `true`.
-1. Use the [Grid State]({%slug grid-state%}) to programmatically set its `ExpandedItems` property. Set `ExpandedItems` to a `List<T>` that should only contain the currently expanded item. This will result in collapsing all previously expanded items.
+1. Use the [Grid State](slug://grid-state) to programmatically set its `ExpandedItems` property. Set `ExpandedItems` to a `List<T>` that should only contain the currently expanded item. This will result in collapsing all previously expanded items.
 
 ````RAZOR
 <TelerikGrid @ref="@GridRef"

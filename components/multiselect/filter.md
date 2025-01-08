@@ -14,8 +14,8 @@ The MultiSelect component can filter the available suggestions according to the 
 
 To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
 
-You can also use the [`OnRead` event]({%slug multiselect-events%}#onread) to:
-* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+You can also use the [`OnRead` event](slug://multiselect-events#onread) to:
+* Get the [applied filtering criteria](slug://common-features-descriptors#through-the-onread-event).
 * Implement custom (server) filtering and set data dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
@@ -30,7 +30,7 @@ To control when the filter list appears, set the `MinLength` parameter. This can
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multiselect-overview%}#parameters) parameter of the component.
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`](slug://multiselect-overview#parameters) parameter of the component.
 
 ## Persist Filter
 
@@ -139,5 +139,5 @@ To keep the filter upon selection, set the `PersistFilterOnSelect` parameter to 
 
 * [Live Demo: MultiSelect Filtering](https://demos.telerik.com/blazor-ui/multiselect/filtering)
 
-* [Custom Filtering by Multiple Fields]({%slug dropdowns-kb-search-in-multiple-fields%})
+* [Custom Filtering by Multiple Fields](slug://dropdowns-kb-search-in-multiple-fields)
 

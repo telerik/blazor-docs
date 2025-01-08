@@ -39,15 +39,15 @@ The <a href = "https://www.telerik.com/blazor-ui/switch" target="_blank">Blazor 
 
 ## Labels
 
-The Switch has dedicated `On` and `Off` labels serving as text representation of the component value. [Read more about the Switch labels....]({%slug switch-labels%})
+The Switch has dedicated `On` and `Off` labels serving as text representation of the component value. [Read more about the Switch labels....](slug://switch-labels)
 
 ## Events
 
-The Blazor Switch generates events that you can handle and further customize its behavior. [Read more about the Switch events....]({%slug switch-events%})
+The Blazor Switch generates events that you can handle and further customize its behavior. [Read more about the Switch events....](slug://switch-events)
 
 ## Validation
 
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation....]({%slug common-features/input-validation%}) 
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation....](slug://common-features/input-validation) 
 
 ## Switch Parameters
 
@@ -70,8 +70,8 @@ The following parameters enable you to customize the appearance of the Blazor Sw
 
 | Attribute | Type and Default Value | Description |
 |----------|----------|----------|
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles]({%slug switch-kb-change-background-color%})
-| `Width` | `string` | The width of the component. You can set the Width parameter to any of the [supported units]({%slug common-features/dimensions%}).
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the Switch. Use it to [customize the Switch background color and other styles](slug://switch-kb-change-background-color)
+| `Width` | `string` | The width of the component. You can set the Width parameter to any of the [supported units](slug://common-features/dimensions).
 
 >tip To learn more about the appearance, anatomy, and accessibility of the Switch, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/switch/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
@@ -103,10 +103,10 @@ The Switch is a generic component and its type comes from the model field it is 
 
 ## Next Steps
 
-* [Customize the Switch labels]({%slug switch-labels%})
-* [Handle the Switch events]({%slug switch-events%})
+* [Customize the Switch labels](slug://switch-labels)
+* [Handle the Switch events](slug://switch-events)
 
 ## See Also
 * [Live Demo: Switch](https://demos.telerik.com/blazor-ui/switch/overview)
-* [Switch Events]({%slug switch-events%})
+* [Switch Events](slug://switch-events)
 * [Switch API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1)

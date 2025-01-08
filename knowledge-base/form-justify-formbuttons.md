@@ -21,11 +21,11 @@ res_type: kb
 
 ## Description
 
-I am using the Telerik Form for Blazor and I would like to justify the [FormButtons]({%slug form-formitems-buttons%}) to the right side of the Form.
+I am using the Telerik Form for Blazor and I would like to justify the [FormButtons](slug://form-formitems-buttons) to the right side of the Form.
 
 ## Solution
 
->tip As of [UI for Blazor 3.1.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-1-0) the Form exposes a [`ButtonsLayout` parameter]({%slug form-overview%}#form-layout-customization) that you can use to configure the position of the buttons.
+>tip As of [UI for Blazor 3.1.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-1-0) the Form exposes a [`ButtonsLayout` parameter](slug://form-overview#form-layout-customization) that you can use to configure the position of the buttons.
 
 For versions before UI for Blazor 3.1.0, you can customize the appearance of the Telerik Form by using CSS. To justify the FormButtons in a single instance of the Telerik Form you can take advantage of the `Class` parameter that the component provides and cascade the necessary CSS rules to the FormButton HTML element. The example below showcases a sample implementation that you can use as a base in your application.
 

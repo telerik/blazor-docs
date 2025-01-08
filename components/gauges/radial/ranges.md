@@ -220,8 +220,8 @@ The `Opacity` (`double`) parameter controls the opacity of the range. The value 
 ## See Also
 
 * [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
-* [Radial Gauge: Overview]({%slug radial-gauge-overview%})
-* [Radial Gauge: Scale]({%slug radial-gauge-scale%})
-* [Radial Gauge: Labels]({%slug radial-gauge-labels%})
-* [Radial Gauge: Pointers]({%slug radial-gauge-pointers%})
+* [Radial Gauge: Overview](slug://radial-gauge-overview)
+* [Radial Gauge: Scale](slug://radial-gauge-scale)
+* [Radial Gauge: Labels](slug://radial-gauge-labels)
+* [Radial Gauge: Pointers](slug://radial-gauge-pointers)
 

@@ -145,5 +145,5 @@ You can use CSS to target the DOM elements that create the Panel around the temp
 ## See Also
 
   * [Live Demo: LoaderContainer](https://demos.telerik.com/blazor-ui/loadercontainer/overview)
-  * [Appearance Settings]({%slug loadercontainer-appearance%})
+  * [Appearance Settings](slug://loadercontainer-appearance)
    

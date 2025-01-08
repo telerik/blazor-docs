@@ -68,4 +68,4 @@ For details on how the RadioGroup keyboard navigation works, refer to the [Blazo
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

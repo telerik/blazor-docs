@@ -37,4 +37,4 @@ When there is no data in the TreeView, you can't drop items into it because it d
 ## Solution
 Ensure you always have at least one dummy node with text like "(empty)" or "(drag here)" so there is a drop target.
 
-When [processing the data in the `OnDrop` event]({%slug treeview-drag-drop-overview%}), consider checking if this is the target (only) item and if so - removing it from the data source you will build, so that newly added data will have its proper structure and that placeholder item will now be gone.
+When [processing the data in the `OnDrop` event](slug://treeview-drag-drop-overview), consider checking if this is the target (only) item and if so - removing it from the data source you will build, so that newly added data will have its proper structure and that placeholder item will now be gone.

@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateInput Overview
 
-The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hint the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker]({%slug components/datepicker/overview%}), [DateTimePicker]({%slug components/datetimepicker/overview%}) and [DateRangePicker]({%slug daterangepicker-overview%}).
+The <a href="https://www.telerik.com/blazor-ui/date-input" target="_blank">Blazor Date Input component</a> allows the user to type a date in a more convenient and user-friendly way, compared to a regular textbox. The DateInput can display its value with a specific date format and hint the user to follow it during typing. The component also provides multiple settings that are related to the typing and auto-correction user experience. The DateInput is a base for other components such as the [DatePicker](slug://components/datepicker/overview), [DateTimePicker](slug://components/datetimepicker/overview) and [DateRangePicker](slug://daterangepicker-overview).
 
 
 ## Creating Blazor DateInput
@@ -58,27 +58,27 @@ The Date Input behavior differs, depend on the type of field it is bound to, and
 
 ## Typing Settings
 
-The Date Input provides various [options to configure the Date Input keyboard typing]({%slug dateinput-keyboard-typing%}) and user experience. They are related to the caret movement, two-digit years, and automatic correction of invalid values.
+The Date Input provides various [options to configure the Date Input keyboard typing](slug://dateinput-keyboard-typing) and user experience. They are related to the caret movement, two-digit years, and automatic correction of invalid values.
 
 
 ## Increment Steps
 
-The Date Input enables users to change the value by pressing the arrow keys. Use the `<DateInputSteps>` nested tag to [set the increment and decrement steps for each part of the date format]({%slug dateinput-steps%}).
+The Date Input enables users to change the value by pressing the arrow keys. Use the `<DateInputSteps>` nested tag to [set the increment and decrement steps for each part of the date format](slug://dateinput-steps).
 
 
 ## Validation
 
-The [built-in Date Input validation]({%slug common-features/input-validation%}) ensures that the component value is acceptable for the application business logic.
+The [built-in Date Input validation](slug://common-features/input-validation) ensures that the component value is acceptable for the application business logic.
 
 
 ## Events
 
-The [Blazor Date Input fires events]({%slug components/dateinput/events%}) such as `change` and `blur`. Handle these events to react to user actions and customize the component behavior.
+The [Blazor Date Input fires events](slug://components/dateinput/events) such as `change` and `blur`. Handle these events to react to user actions and customize the component behavior.
 
 
 ## Appearance
 
-The [DateInput exposes a few parameters for its styling]({%slug dateinput-appearance%}). Use them to change the component appearance declaratively and without custom CSS.
+The [DateInput exposes a few parameters for its styling](slug://dateinput-appearance). Use them to change the component appearance declaratively and without custom CSS.
 
 
 ## DateInput Parameters
@@ -96,28 +96,28 @@ The following section lists some Date Input parameters and links to other pages 
 | `DebounceDelay` | `int` <br/> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the Date Input is enabled and accepts new values. |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Format` | `string` <br /> (`ShortDatePattern`) | The textbox mask and date format that the user input must match. The default value depends on `CultureInfo.CurrentCulture`. Read more in the [Supported Formats]({%slug components/dateinput/supported-formats%}) article. |
+| `Format` | `string` <br /> (`ShortDatePattern`) | The textbox mask and date format that the user input must match. The default value depends on `CultureInfo.CurrentCulture`. Read more in the [Supported Formats](slug://components/dateinput/supported-formats) article. |
 | `Id` | `string` | The `id` attribute of the `input`. |
 | `Max` | `DateTime` <br /> (`new DateTime(2099, 12, 31)`)| The latest allowed date that the user can type. |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1)`)| The earliest allowed date that the user can type. |
 | `Placeholder` | `string` | The [`placeholder` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder) of the `input`. The placeholder will appear only if the component is bound to nullable `DateTime?` object, the `Value` is `null` and the component is not focused. Once the user focuses it to start typing, the `FormatPlaceholder` (default or [custom one](#format-placeholder)) will override the `Placeholder` to indicate the expected date format. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. Use it to control the tabbing order of the inputs on the page. |
-| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
-| `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler]({%slug components/dateinput/events%}#valuechanged). |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs) |
+| `Value` | `DateTime` or `DateTime?` | The component value. Use with two-way binding or [`ValueChanged` event handler](slug://components/dateinput/events#valuechanged). |
 
 ### Typing User Experience
 
-The component provides multiple parameters, which control the [caret placement, two-digit year values and the auto-correct behavior of the Date Input]({%slug dateinput-keyboard-typing%}).
+The component provides multiple parameters, which control the [caret placement, two-digit year values and the auto-correct behavior of the Date Input](slug://dateinput-keyboard-typing).
 
 ### Styling and Appearance
 
 | Parameter | Type and Default Value | Description |
 |---|---|---|
-| `Class` | `string` | A custom CSS class to be rendered on the `<span class="k-dateinput">` element. Use it for [custom CSS styling and theme overrides]({%slug themes-override%}). |
+| `Class` | `string` | A custom CSS class to be rendered on the `<span class="k-dateinput">` element. Use it for [custom CSS styling and theme overrides](slug://themes-override). |
 | `Width` | `string` | The width of the Date Input. |
 
-The [Date Input Appearance article lists more parameters, which configure the component styling]({%slug dateinput-appearance%}).
+The [Date Input Appearance article lists more parameters, which configure the component styling](slug://dateinput-appearance).
 
 @[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
@@ -155,14 +155,14 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 ## Next Steps
 
-* [Learn about the flexible Date Input typing user experience]({%slug dateinput-keyboard-typing%})
-* [Set Date Input format]({%slug components/dateinput/supported-formats%})
-* [Customize the Date Input appearance]({%slug dateinput-appearance%})
-* [Handle Date Input events]({%slug components/dateinput/events%})
+* [Learn about the flexible Date Input typing user experience](slug://dateinput-keyboard-typing)
+* [Set Date Input format](slug://components/dateinput/supported-formats)
+* [Customize the Date Input appearance](slug://dateinput-appearance)
+* [Handle Date Input events](slug://components/dateinput/events)
 
 
 ## See Also
 
 * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/overview)
-* [Input Validation]({%slug common-features/input-validation%})
+* [Input Validation](slug://common-features/input-validation)
 * [Date Input API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1)

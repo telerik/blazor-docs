@@ -38,6 +38,6 @@ By default, the labels are after the buttons, and you can change that through th
 
 ## See Also
 
-* [RadioGroup Overview]({%slug radiogroup-overview%})
-* [RadioGroup Data Binding]({%slug radiogroup-databind%})
+* [RadioGroup Overview](slug://radiogroup-overview)
+* [RadioGroup Data Binding](slug://radiogroup-databind)
 * [Live Demo: RadioGroup Customization](https://demos.telerik.com/blazor-ui/radiogroup/customization)

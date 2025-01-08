@@ -36,12 +36,12 @@ Large amounts of data require loading in chunks and on demand. This improves the
 
 `OnRead` allows full control over the data operations. For example, it is possible to use custom sorting and filtering algorithms, if the built-in ones do not fit a given scenario. Here are just a few examples, but there are many more possible scenarios:
 
-* [Search by multiple data fields in ComboBox and DropDownList]({%slug dropdowns-kb-search-in-multiple-fields%})
-* [Search in hidden Grid columns]({%slug grid-kb-search-in-hidden-fields%})
-* [Debounce Grid data requests]({%slug grid-kb-debounce-operations%})
-* [Debounce ComboBox filter requests]({%slug combo-kb-debounce-onread%})
+* [Search by multiple data fields in ComboBox and DropDownList](slug://dropdowns-kb-search-in-multiple-fields)
+* [Search in hidden Grid columns](slug://grid-kb-search-in-hidden-fields)
+* [Debounce Grid data requests](slug://grid-kb-debounce-operations)
+* [Debounce ComboBox filter requests](slug://combo-kb-debounce-onread)
 
-`OnRead` enables [data binding to **OData** services]({%slug common-kb-odata%}).
+`OnRead` enables [data binding to **OData** services](slug://common-kb-odata).
 
 `OnRead` also allows the application to know the exact data items, which the user is currently seeing.
 
@@ -54,15 +54,15 @@ Each component name points to component-specific `OnRead` documentation and exam
 
 | Component | Supports Paging | Supports Virtualization |
 | --- | --- | --- |
-| [AutoComplete]({%slug autocomplete-events%}#onread) | - | [AutoComplete virtualization]({%slug autocomplete-virtualization%}) |
-| [ComboBox]({%slug components/combobox/events%}#onread) | - | [ComboBox virtualization]({%slug combobox-virtualization%}) |
-| [DropDownList]({%slug components/dropdownlist/events%}#onread) | - | [DropDownList virtualization]({%slug dropdownlist-virtualization%}) |
-| [Grid]({%slug components/grid/manual-operations%}) | [Grid paging]({%slug components/grid/features/paging%}) | [Grid row virtualization]({%slug components/grid/virtual-scrolling%}) |
-| [ListView]({%slug listview-manual-operations%}) | [ListView paging]({%slug listview-paging%}) | - |
-| [MultiColumnComboBox]({%slug multicolumncombobox-events%}#onread) | - | [MultiColumnComboBox virtualization]({%slug multicolumncombobox-virtualization%}) |
-| [MultiSelect]({%slug multiselect-events%}#onread) | - | [MultiSelect virtualization]({%slug multiselect-virtualization%}) |
+| [AutoComplete](slug://autocomplete-events#onread) | - | [AutoComplete virtualization](slug://autocomplete-virtualization) |
+| [ComboBox](slug://components/combobox/events#onread) | - | [ComboBox virtualization](slug://combobox-virtualization) |
+| [DropDownList](slug://components/dropdownlist/events#onread) | - | [DropDownList virtualization](slug://dropdownlist-virtualization) |
+| [Grid](slug://components/grid/manual-operations) | [Grid paging](slug://components/grid/features/paging) | [Grid row virtualization](slug://components/grid/virtual-scrolling) |
+| [ListView](slug://listview-manual-operations) | [ListView paging](slug://listview-paging) | - |
+| [MultiColumnComboBox](slug://multicolumncombobox-events#onread) | - | [MultiColumnComboBox virtualization](slug://multicolumncombobox-virtualization) |
+| [MultiSelect](slug://multiselect-events#onread) | - | [MultiSelect virtualization](slug://multiselect-virtualization) |
 
-Components like the [**TreeList**]({%slug treelist-data-binding-load-on-demand%}) and the [**TreeView**]({%slug components/treeview/data-binding/load-on-demand%}) don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
+Components like the [**TreeList**](slug://treelist-data-binding-load-on-demand) and the [**TreeView**](slug://components/treeview/data-binding/load-on-demand) don't have an `OnRead` event. Instead, they load data on demand via `OnExpand` events.
 
 
 ## Event Argument
@@ -213,7 +213,7 @@ The components fire an `OnRead` event when the user performs an action, such as 
 
 All components with an `OnRead` event have a `Rebind` method as well. To refresh the component data programmatically, call this method. It will force the component to fire `OnRead` and receive new data.
 
-Also check [how to rebind and refresh a component with a `Timer`]({%slug common-kb-rebind-timer%}).
+Also check [how to rebind and refresh a component with a `Timer`](slug://common-kb-rebind-timer).
 
 >caption Rebind DropDownList and Grid when using OnRead
 
@@ -316,5 +316,5 @@ Also check [how to rebind and refresh a component with a `Timer`]({%slug common-
 
 ## See Also
 
-* [Using the Grid with OnRead]({%slug components/grid/manual-operations%})
-* [Data Binding to cloud services]({%slug common-features-data-binding-cloud%})
+* [Using the Grid with OnRead](slug://components/grid/manual-operations)
+* [Data Binding to cloud services](slug://common-features-data-binding-cloud)

@@ -72,4 +72,4 @@ For details on how the Stepper keyboard navigation works, refer to the [Blazor S
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

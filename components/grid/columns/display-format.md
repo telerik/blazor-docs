@@ -65,4 +65,4 @@ position: 2
 ## See Also
 
   * [Live Demo: Cell Formatting](https://demos.telerik.com/blazor-ui/grid/cell-formatting)
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Blazor Grid](slug://grid-overview)

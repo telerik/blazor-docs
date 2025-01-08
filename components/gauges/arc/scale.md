@@ -56,7 +56,7 @@ The scale of the arc gauge renders the values, pointers and labels. You can cust
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `ArcGaugePointer` will render as a `MajorUnit` tick. The [labels]({%slug arc-gauge-labels%}) will be rendered next to the `MajorUnit` ticks.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `ArcGaugePointer` will render as a `MajorUnit` tick. The [labels](slug://arc-gauge-labels) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component. In order to use the `MinorUnit` ticks you must [enable them](#example-enable-the-minorunit-ticks) explicitly.
 
@@ -177,5 +177,5 @@ You can enable the MinorUnit ticks on the scale by using the `<ArcGaugeScaleMino
 
 * [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
 * [Live Demo: Arc Gauge - Scale Options](https://demos.telerik.com/blazor-ui/arcgauge/scale-options)
-* [Arc Gauge: Overview]({%slug arc-gauge-overview%})
-* [Arc Gauge: Pointers]({%slug arc-gauge-pointers%})
+* [Arc Gauge: Overview](slug://arc-gauge-overview)
+* [Arc Gauge: Pointers](slug://arc-gauge-pointers)

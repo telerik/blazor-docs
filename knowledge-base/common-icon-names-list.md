@@ -27,7 +27,7 @@ res_type: kb
 
 ## Description
 
-If you have used the obsolete `Telerik.Blazor.IconName` class, here is the list of icon names in its stead. The [Built-in Icons page]({%slug common-features-icons%}#icons-list) provides an up-to-date list of all available font icons in our themes.
+If you have used the obsolete `Telerik.Blazor.IconName` class, here is the list of icon names in its stead. The [Built-in Icons page](slug://common-features-icons#icons-list) provides an up-to-date list of all available font icons in our themes.
 
 * IconName.Undo -> `undo`;
 * IconName.Redo -> `redo`;

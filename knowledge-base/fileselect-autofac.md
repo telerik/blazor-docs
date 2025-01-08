@@ -81,4 +81,4 @@ builder.Services.AddHubOptions(options =>
 
 ## See Also
 
-* [FileSelect Overview]({%slug fileselect-overview%})
+* [FileSelect Overview](slug://fileselect-overview)

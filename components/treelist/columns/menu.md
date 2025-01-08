@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The TreeList enables you to show a menu with quick actions for its columns. The Column Menu enables you to perform high-level customization like [sorting]({%slug treelist-sorting%}), [filtering]({%slug treelist-filtering%}), [showing or hiding]({%slug treelist-columns-visible%}) columns and [freezing or unfreezing]({%slug treelist-columns-frozen%}) them.
+The TreeList enables you to show a menu with quick actions for its columns. The Column Menu enables you to perform high-level customization like [sorting](slug://treelist-sorting), [filtering](slug://treelist-filtering), [showing or hiding](slug://treelist-columns-visible) columns and [freezing or unfreezing](slug://treelist-columns-frozen) them.
 
 >caption In this article:
 * [Basics](#basics)
@@ -134,7 +134,7 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 To control whether filtering is possible from the Column Menu, set the `FilterMode` parameter of the `TreeListColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
-* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode]({%slug treelist-filter-row%}).
+* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug://treelist-filter-row).
 * `FilterMenu`—enables filtering from a filter menu.
 
 ### Frozen Columns
@@ -155,7 +155,7 @@ The TreeList Column Menu lets you group the columns in the [Column Chooser](#col
 
 1. Use the `TreeListColumnMenuChooser` tag (child to the `TreeListColumnMenuSettings`).
 
-1. Add the [Template]({%slug treelist-templates-column-chooser%}) tag.
+1. Add the [Template](slug://treelist-templates-column-chooser) tag.
 
 1. Provide a `TreeListColumnMenuChooserGroup` which is a collection of the columns that will be in the section. To render a title for the section, use the `Title` parameter.
 
@@ -249,7 +249,7 @@ The example shows the following things:
 
 * Settings applied to a TreeList column take precedence over the settings applied to the Column Menu through the `<TreeListColumnMenuSettings>` tag. For example, if you set `Filterable="false"` to a TreeList column and `Filterable="true"` to a TreeList Column Menu, the filtering functionality will be disabled.
 
-* When using the [Column Chooser Template]({%slug treelist-templates-column-chooser%}) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all TreeList Columns.
+* When using the [Column Chooser Template](slug://treelist-templates-column-chooser) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all TreeList Columns.
 
 ## See Also
   * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)

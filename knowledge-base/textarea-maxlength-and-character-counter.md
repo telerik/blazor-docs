@@ -91,7 +91,7 @@ When the TextArea is inside a Form, you can use the built-in Form validation and
 
 With this setup, the user will be able to type more than the allowed characters, but in this case they will get a validation error. An error message will be automatically displayed for this field, if you have provided such in the `MaxLength` attribute.
 
-If you are declaring the TextArea inside a [`FormItem Template`]({%slug form-formitems-template%}), such a validation message will not be displayed out of the box. In this case, add a [ValidationMessage component]({%slug validation-tools-message%}).
+If you are declaring the TextArea inside a [`FormItem Template`](slug://form-formitems-template), such a validation message will not be displayed out of the box. In this case, add a [ValidationMessage component](slug://validation-tools-message).
 
 To inform the user about the remaining characters, render the TextArea value length and the `MaxLength` value—this will serve as a character counter. Add the desired CSS rules or classes to style the counter as needed.
 

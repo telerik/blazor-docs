@@ -138,5 +138,5 @@ function test() {
 
 ## Notes
 
-There can be other reasons for getting errors related to the Telerik JS Interop files, and you can read more about them in the [JavaScript Errors]({%slug troubleshooting-js-errors%}) article.
+There can be other reasons for getting errors related to the Telerik JS Interop files, and you can read more about them in the [JavaScript Errors](slug://troubleshooting-js-errors) article.
 

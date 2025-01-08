@@ -12,13 +12,13 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/maskedtextbox" target="_blank">Blazor MaskedTextbox component</a> provides a mask and prompts the user to enter the data in the required format. The component prevents input that does not match the mask. Use it to show the user the required format for values like phone numbers, credit card numbers, ZIP codes, IP addresses, percentage values, and so on.
 
-You can also add standard attributes such as custom CSS classes, `name`, `placeholder`, `tabindex`, and [more](#maskedtextbox-parameters), and also respond to [events]({%slug maskedtextbox-events%}).
+You can also add standard attributes such as custom CSS classes, `name`, `placeholder`, `tabindex`, and [more](#maskedtextbox-parameters), and also respond to [events](slug://maskedtextbox-events).
 
 ## Creating Blazor MaskedTextBox
 
 1. Add the `<TelerikMaskedTextBox>` tag to your razor page.
 1. Set its `Value` parameter to a `string`. The parameter supports two-way binding.
-1. Set the desired [`Mask`]({%slug maskedtextbox-mask-prompt%}) to prompt the user.
+1. Set the desired [`Mask`](slug://maskedtextbox-mask-prompt) to prompt the user.
 
 >caption Basic MaskedTextBox with two-way Value binding and a credit card mask
 
@@ -39,15 +39,15 @@ The component value is: @MaskedValue
 
 ## Validation
 
-You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox]({%slug common-features/input-validation%}#maskedtextbox).
+You can validate the content of the `TelerikMaskedTextBox` using the Data Annotation attributes. [See the Input Validation article for an example on how to validate the content of the MaskedTextBox](slug://common-features/input-validation#maskedtextbox).
 
 ## Events
 
-The [MaskedTextBox component fires events for value changes and blur]({%slug maskedtextbox-events%}). Use them to respond to user actions.
+The [MaskedTextBox component fires events for value changes and blur](slug://maskedtextbox-events). Use them to respond to user actions.
 
 ## Mask-Related Parameters
 
-The table below provides a quick overview of the mask-related parameters. See the [Mask and Prompt article]({%slug maskedtextbox-mask-prompt%}) for additional details.
+The table below provides a quick overview of the mask-related parameters. See the [Mask and Prompt article](slug://maskedtextbox-mask-prompt) for additional details.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -55,7 +55,7 @@ The table below provides a quick overview of the mask-related parameters. See th
 |---|---|---|
 | `IncludeLiterals` | `bool` | Controls if the literal characters from the mask are included in the `Value`. These are the characters that don't carry a special meaning such as brackets or dashes. |
 | `Mask` | `string` | The mask (pattern) that the user has to follow. |
-| `MaskOnFocus` | `bool` | Controls if the mask appears only while the input is focused. When `true` and no value is set, the user sees the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` instead of the mask. When a value is set, the user sees both the mask and value. |
+| `MaskOnFocus` | `bool` | Controls if the mask appears only while the input is focused. When `true` and no value is set, the user sees the [FloatingLabel](slug://floatinglabel-overview) or `Placeholder` instead of the mask. When a value is set, the user sees both the mask and value. |
 | `Prompt` | `char` <br /> (`_`) | The character that will show in the mask where there is no user input already. |
 | `PromptPlaceholder` | `char?` <br /> (` ` space) | The character that is added to the raw `Value` for places where there is no user input yet. |
 
@@ -79,13 +79,13 @@ See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.T
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | `int` | The `tabindex` attribute of the `input`. |
-| `Title` | `string` | The `title` attribute of `input`. Use it to add a [Blazor Tooltip]({%slug tooltip-overview%}). |
-| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs). |
+| `Title` | `string` | The `title` attribute of `input`. Use it to add a [Blazor Tooltip](slug://tooltip-overview). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | The event that will trigger validation (if validation is enabled). See [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs). |
 | `Value` | `string` | The value of the component. Supports two-way binding. |
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the [appearance]({%slug maskedtextbox-appearance%}) of the Blazor MaskedTextBox:
+The following parameters enable you to customize the [appearance](slug://maskedtextbox-appearance) of the Blazor MaskedTextBox:
 
 | Parameter | Type and Default value | Description |
 |---|---|---|
@@ -120,7 +120,7 @@ The MaskedTextBox proves a `FocusAsync` method that enables programmatic focus. 
 
 ## Mask Examples
 
-The examples below demonstrates how to create a few [masks]({%slug maskedtextbox-mask-prompt%}) for commonly used input types:
+The examples below demonstrates how to create a few [masks](slug://maskedtextbox-mask-prompt) for commonly used input types:
 
 * **phone** - Utilizes literals (the brackets and the plus sign for the country code; and dashes for readability) and rules for numbers.
 
@@ -225,13 +225,13 @@ The examples below demonstrates how to create a few [masks]({%slug maskedtextbox
 
 ## Next Steps
 
-* [Configure the MaskedTextBox mask]({%slug maskedtextbox-mask-prompt%})
-* [Explore the MaskedTextBox behavior when pasting content]({%slug maskedtextbox-paste%})
-* [Handle MaskedTextBox events]({%slug maskedtextbox-events%})
+* [Configure the MaskedTextBox mask](slug://maskedtextbox-mask-prompt)
+* [Explore the MaskedTextBox behavior when pasting content](slug://maskedtextbox-paste)
+* [Handle MaskedTextBox events](slug://maskedtextbox-events)
 
 ## See Also
 
 * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
 * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
-* [Add Floating Label]({%slug inputs-kb-floating-label%})
+* [Add Floating Label](slug://inputs-kb-floating-label)
 * [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)

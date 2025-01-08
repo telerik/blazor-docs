@@ -23,7 +23,7 @@ This article contains the following sections:
 
 ## Mask
 
-The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions so they must obey those requirements. By default, the mask is constantly shown, but you can change that to also show a [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder`.
+The `Mask` is the main feature of the component. It defines what input is allowed from the user at what positions so they must obey those requirements. By default, the mask is constantly shown, but you can change that to also show a [FloatingLabel](slug://floatinglabel-overview) or `Placeholder`.
 
 You can use special characters called `Rules` in the Mask to define its behavior. The other characters that have no special meaning but are always shown and the user cannot change them are called `Literal` characters.
 
@@ -48,7 +48,7 @@ The Telerik MaskedTextbox provides a set of built-in rules that it recognizes as
 - `&` - Character (excluding `space`)
 - `C` - Character or `space`
 
->tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks]({%slug maskedtextbox-overview%}#mask-examples) section of the documentation.
+>tip You can find some examples of different masks in the [Masks Live Demo](https://demos.telerik.com/blazor-ui/maskedtextbox/masks) and in the [Some Sample Masks](slug://maskedtextbox-overview#mask-examples) section of the documentation.
 
 ### Literals
 
@@ -99,9 +99,9 @@ By default, the `Value` of the component only includes the rules from the mask. 
 
 ### Mask on Focus, FloatingLabel and Placeholder
 
-The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the [FloatingLabel]({%slug floatinglabel-overview%}) or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
+The `MaskOnFocus` parameter lets you instruct the component to show the mask only when the user is about to type in the input - when it is focused. This lets you show the [FloatingLabel](slug://floatinglabel-overview) or `Placeholder` that you can set so you can provide an easier to read prompt first, before you show the actual format to your users.
 
-The [FloatingLabel]({%slug floatinglabel-overview%}) will take precedence over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` instead of a [FloatingLabel]({%slug floatinglabel-overview%}) if you do not want the animated effect or the increased height it causes.
+The [FloatingLabel](slug://floatinglabel-overview) will take precedence over the `Placeholder` if the MaskedTextBox is not focused. Neither will be shown if there is a `Value` already. You should use the `Placeholder` instead of a [FloatingLabel](slug://floatinglabel-overview) if you do not want the animated effect or the increased height it causes.
 
 >caption Showing the mask on focus only
 
@@ -175,6 +175,6 @@ The `PromptPlaceholder` is useful when you need to process the user input at a l
 
 ## See Also
 
-* [MaskedTextbox Overview]({%slug maskedtextbox-overview%})
+* [MaskedTextbox Overview](slug://maskedtextbox-overview)
 * [Live Demo: Masks](https://demos.telerik.com/blazor-ui/maskedtextbox/masks)
 * [Live Demo: Customization](https://demos.telerik.com/blazor-ui/maskedtextbox/customization)

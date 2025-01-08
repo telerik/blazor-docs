@@ -132,7 +132,7 @@ The Editor will call this function and will pass an argument object that contain
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Plugins](https://demos.telerik.com/blazor-ui/editor/prosemirror-plugins)
-* [ProseMirror Schema]({%slug editor-prosemirror-schema-overview%})
+* [ProseMirror Schema](slug://editor-prosemirror-schema-overview)
 
 
 <!-- # Examples

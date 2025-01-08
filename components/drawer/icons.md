@@ -10,7 +10,7 @@ position: 22
 
 # Drawer Icons
 
-You can add [Telerik Font or SVG icons]({%slug common-features-icons%}) to the Drawer items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons](slug://common-features-icons) to the Drawer items. The component also supports custom icons.
 
 To use Drawer item icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Drawer.
 
@@ -89,5 +89,5 @@ If the icon property name in the Drawer model is `Icon`, there is no need to set
 
 ## See Also
 
-* [Drawer Data Binding]({%slug drawer-data-binding%})
+* [Drawer Data Binding](slug://drawer-data-binding)
 * [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

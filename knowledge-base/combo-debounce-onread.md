@@ -33,8 +33,8 @@ I also want to implement a minimum filter length, if the input is below that len
 
 There are two ways to implement debouncing:
 
-* Use the built-in [ComboBox `DebounceDelay` parameter]({%slug components/combobox/overview%}#parameters).
-* Implement logic in the [ComboBox `OnRead` event]({%slug components/combobox/events%}#onread) to debounce the calls to the data service with the desired timeout. For example, use a `CancellationTokenSource`.
+* Use the built-in [ComboBox `DebounceDelay` parameter](slug://components/combobox/overview#parameters).
+* Implement logic in the [ComboBox `OnRead` event](slug://components/combobox/events#onread) to debounce the calls to the data service with the desired timeout. For example, use a `CancellationTokenSource`.
 
 For minimum filter length, add a check in the `OnRead` event handler for the desired string length.
 

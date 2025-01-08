@@ -127,6 +127,6 @@ You can combine this approach with a loop over a column descriptor so you can cr
 
 Generally, casting of the `Template` `context` is required because an `object` is passed to the `RenderFragment`. Currently, there is no option to pass the `typeparam` of a parent component down to its children, and that is why we are using an `object` instead of the `TItem` that you have bound the Grid to: <a href="https://github.com/dotnet/aspnetcore/issues/7268" target="_blank">https://github.com/dotnet/aspnetcore/issues/7268</a>
 
-For example, the [`RowTemplate`]({%slug grid-templates-row%}) of the Grid uses `RenderFragment<TItem>` where no additional casting is needed, but the [cell template]({%slug grid-templates-column%}) is a child component of the row so it can only get an `object`.
+For example, the [`RowTemplate`](slug://grid-templates-row) of the Grid uses `RenderFragment<TItem>` where no additional casting is needed, but the [cell template](slug://grid-templates-column) is a child component of the row so it can only get an `object`.
 
 To summarize, once the framework provides the ability to pass the `typeparam` to child components, there will be no need to cast the `context` to the model and the code will look cleaner. Until then, there is no other way to avoid those lines of casting.

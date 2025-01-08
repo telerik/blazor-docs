@@ -31,7 +31,7 @@ The InCell edit mode provides a specific user experience and behaves differently
 
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
 
-To add a new item, you must add a [toolbar]({%slug components/grid/features/toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
+To add a new item, you must add a [toolbar](slug://components/grid/features/toolbar) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
 
 It is up to the data access logic to save the data once it is changed in the data collection. The example below showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
@@ -194,9 +194,9 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 ## Event Sequence
 
-* The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
+* The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values](slug://grid-kb-default-value-for-new-row) that satisfy any initial validation and requirements your models may have.
 
-    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the Grid [State]({%slug grid-state%}). If you want to insert items programmatically in the Grid, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug grid-kb-add-edit-state%}) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the Grid [State](slug://grid-state). If you want to insert items programmatically in the Grid, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item](slug://grid-kb-add-edit-state) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
 
 * The `OnEdit` event fires every time a cell is opened for editing. Until version **2.27**, the event fired **once per row** - when the user edits a cell from a different row.
 
@@ -209,9 +209,9 @@ Click a cell, edit it and click outside of the grid to see the change. You can a
 
 ## Incell Editing and Selection
 
-* To enable row selection with InCell Edit Mode, add a `<GridCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Row Selection]({%slug grid-selection-row%}#selection-and-editing-modes) article.
+* To enable row selection with InCell Edit Mode, add a `<GridCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Row Selection](slug://grid-selection-row#selection-and-editing-modes) article.
 
-    * To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode]({%slug grid-kb-row-select-incell-edit%}) Knowledge Base article.
+    * To see how to select the row that is being edited in InCell edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode](slug://grid-kb-row-select-incell-edit) Knowledge Base article.
 
 
 ## Editor Template
@@ -238,5 +238,5 @@ The incell editor template requires a focusable element to maintain the tab orde
 ## See Also
 
 * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
-* [Grid Selection Documentation]({%slug grid-selection-overview%})
-* [Blazor Grid]({%slug grid-overview%})
+* [Grid Selection Documentation](slug://grid-selection-overview)
+* [Blazor Grid](slug://grid-overview)

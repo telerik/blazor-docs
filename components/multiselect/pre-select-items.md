@@ -13,7 +13,7 @@ position: 8
 
 This article provides an example that shows how to pre-select MultiSelect items for the user. The approach allows you to pre-select a single item or a set of items if they exist in the data source.
 
-On page load, the MultiSelect will render the selected items in the order in which these items appear in the `Data` collection. To preserve the order of the initially selected items, [sort the data to match the selected items order]({%slug multiselect-kb-selected-items-order%}).
+On page load, the MultiSelect will render the selected items in the order in which these items appear in the `Data` collection. To preserve the order of the initially selected items, [sort the data to match the selected items order](slug://multiselect-kb-selected-items-order).
 
 >caption Pre-select MultiSelect items for the user
 

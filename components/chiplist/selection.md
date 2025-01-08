@@ -103,6 +103,6 @@ When you use the `@bind-SelectedItems` syntax, the ChipList will automatically u
 
 ## See Also
 
-* [ChipList Events]({%slug chiplist-events%})
-* [ChipList Data Binding]({%slug chiplist-bound%})
+* [ChipList Events](slug://chiplist-events)
+* [ChipList Data Binding](slug://chiplist-bound)
 

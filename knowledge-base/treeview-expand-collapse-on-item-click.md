@@ -33,11 +33,11 @@ By design, the parent TreeView items are expanded or collapsed on click of the e
 
 To expand a TreeView item when you click on it:
 
-* Handle the [TreeView `OnItemClick` event]({%slug treeview-events%}#onitemclick).
+* Handle the [TreeView `OnItemClick` event](slug://treeview-events#onitemclick).
 * Verify if the clicked item is a parent, so it can be expanded:
-	* For [flat data]({%slug components/treeview/data-binding/flat-data%}) check if `HasChildren` field equals `true`.
-	* For [hierarchical data]({%slug components/treeview/data-binding/hierarchical-data%}) check if the `Items` field (or your custom field name) contains any child items.
-* Check if the clicked item exists in the [`ExpandedItems`]({%slug treeview-expand-items%})  collection:	
+	* For [flat data](slug://components/treeview/data-binding/flat-data) check if `HasChildren` field equals `true`.
+	* For [hierarchical data](slug://components/treeview/data-binding/hierarchical-data) check if the `Items` field (or your custom field name) contains any child items.
+* Check if the clicked item exists in the [`ExpandedItems`](slug://treeview-expand-items)  collection:	
 	* If the clicked item is not part of the collection, you may add it to programmatically expand it.
 	* If the clicked item is already part of the collection, this means the item is currently expanded. You may programmatically collapse it by removing it from the `ExpandedItems`.
 

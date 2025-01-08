@@ -68,7 +68,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterRow`
 
 ## Filter From Code
 
-To learn how to programmatically filter the Grid, refer to the [Grid State]({%slug grid-state%}) documentation article.
+To learn how to programmatically filter the Grid, refer to the [Grid State](slug://grid-state) documentation article.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -133,10 +133,10 @@ You can override the default Filter Row behavior for each column through the fol
 
 ### Filter Row Template
 
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template]({%slug grid-templates-filter%}#filter-row-template) article.
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template](slug://grid-templates-filter#filter-row-template) article.
 
 ## See Also
 
-  * [Grid Filtering Overview]({%slug components/grid/filtering%})
+  * [Grid Filtering Overview](slug://components/grid/filtering)
   * [Live Demo: Grid Filter Row](https://demos.telerik.com/blazor-ui/grid/filter-row)
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Blazor Grid](slug://grid-overview)

@@ -213,7 +213,7 @@ This KB answers the following questions:
 
 ## See Also
 
-* [Conditional Form Validation Options]({%slug form-kb-conditional-validation%})
-* [Form Validation]({%slug form-validation%})
-* [Grid Validation]({%slug grid-editing-validation%})
-* [Validation Tools Overview]({%slug validation-tools-overview%})
+* [Conditional Form Validation Options](slug://form-kb-conditional-validation)
+* [Form Validation](slug://form-validation)
+* [Grid Validation](slug://grid-editing-validation)
+* [Validation Tools Overview](slug://validation-tools-overview)

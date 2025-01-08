@@ -35,7 +35,7 @@ How to change the default css styles for the input controls? I need to alter the
 
 ## Solution
 
-All input components and the Button provide a `Size` parameter that changes the component padding styles. For example, [here is the corresponding article about the ComboBox]({%slug combobox-appearance%}). For more advanced customization, [override the theme styles]({%slug themes-override%}) and set the desired font styles to the components.
+All input components and the Button provide a `Size` parameter that changes the component padding styles. For example, [here is the corresponding article about the ComboBox](slug://combobox-appearance). For more advanced customization, [override the theme styles](slug://themes-override) and set the desired font styles to the components.
 
 >caption Change input font styles and paddings
 
@@ -108,4 +108,4 @@ All input components and the Button provide a `Size` parameter that changes the 
 
 ## See Also
 
-* [Change Grid Font Size]({%slug grid-kb-change-font-size%})
+* [Change Grid Font Size](slug://grid-kb-change-font-size)

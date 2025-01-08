@@ -181,5 +181,5 @@ The DropDownList is a generic component and its type depends on the type of its 
 
 ## See Also
 
-* [Blazor DropDownList]({%slug components/dropdownlist/overview%})
+* [Blazor DropDownList](slug://components/dropdownlist/overview)
 * [Live Demo: DropDownList](https://demos.telerik.com/blazor-ui/dropdownlist/overview)

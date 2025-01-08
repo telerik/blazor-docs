@@ -13,10 +13,10 @@ position: 10
 
 This article explains how to retrieve the applied filtering, searching, sorting, and grouping criteria in Blazor components. The article applies to components that support these features. The components that offer one or all of the functionalities are:
 
-* Components that [expose an `OnRead` event]({%slug common-features-data-binding-onread%}#components-with-onread-event), excluding the [ListView]({%slug listview-overview%}), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
-* [Filter]({%slug filter-overview%})
-* [Gantt]({%slug gantt-overview%})
-* [TreeList]({%slug treelist-overview%})
+* Components that [expose an `OnRead` event](slug://common-features-data-binding-onread#components-with-onread-event), excluding the [ListView](slug://listview-overview), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
+* [Filter](slug://filter-overview)
+* [Gantt](slug://gantt-overview)
+* [TreeList](slug://treelist-overview)
 
 ## Get Sort, Filter, Group, and Search Descriptors
 
@@ -27,7 +27,7 @@ You can obtain the applied filtering, searching, sorting, and grouping criteria 
 
 ### Through the OnRead Event
 
-Use the [`Request` property]({%slug common-features-data-binding-onread%}#event-argument) of the [`OnRead` event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
+Use the [`Request` property](slug://common-features-data-binding-onread#event-argument) of the [`OnRead` event argument object](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs):
 
 <div class="skip-repl"></div>
 
@@ -335,13 +335,13 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
 
 ## See Also
 
-* [AutoComplete OnRead Event]({%slug autocomplete-events%}#onread)
-* [ComboBox OnRead Event]({%slug components/combobox/events%}#onread)
-* [DropDownList OnRead Event]({%slug components/dropdownlist/events%}#onread)
-* [Filter Overview]({%slug filter-overview%})
-* [Gantt State]({%slug gantt-state%})
-* [Grid OnRead Event]({%slug components/grid/manual-operations%})
-* [Grid State]({%slug grid-state%})
-* [MultiColumnComboBox OnRead Event]({%slug multicolumncombobox-events%}#onread)
-* [MultiSelect OnRead Event]({%slug multiselect-events%}#onread)
-* [TreeList State]({%slug treelist-state%})
+* [AutoComplete OnRead Event](slug://autocomplete-events#onread)
+* [ComboBox OnRead Event](slug://components/combobox/events#onread)
+* [DropDownList OnRead Event](slug://components/dropdownlist/events#onread)
+* [Filter Overview](slug://filter-overview)
+* [Gantt State](slug://gantt-state)
+* [Grid OnRead Event](slug://components/grid/manual-operations)
+* [Grid State](slug://grid-state)
+* [MultiColumnComboBox OnRead Event](slug://multicolumncombobox-events#onread)
+* [MultiSelect OnRead Event](slug://multiselect-events#onread)
+* [TreeList State](slug://treelist-state)

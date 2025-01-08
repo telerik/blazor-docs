@@ -10,7 +10,7 @@ position: 15
 
 # TreeList CheckBoxList Filtering
 
-You can change the [filter menu]({%slug treelist-filter-menu%}) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
+You can change the [filter menu](slug://treelist-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
 
 To enable the checkbox list filtering in the treelist:
 
@@ -108,7 +108,7 @@ You can also change the filter menu behavior for a particular column - its own `
 
 By default, the treelist takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
-To customize the checkbox list behavior, you should use the [filter menu template]({%slug treelist-templates-filter%}#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default treelist UI. It provides the following settings:
+To customize the checkbox list behavior, you should use the [filter menu template](slug://treelist-templates-filter#filter-menu-template). To help you with that, we have exposed the `TelerikCheckBoxListFilter` component that you can place inside the `FilterMenuTemplate` to get the default treelist UI. It provides the following settings:
 
 * `FilterDescriptor` - the filter descriptor where filters will be populated when checkboxes are selected. The component creates the necessary descriptors for you and reads existing ones. This makes it easy to plug into the treelist without any additional code through two-way binding (`@bind-FilterDescriptor="@context.FilterDescriptor"`).
 
@@ -242,6 +242,6 @@ In this sample the Team column lets you filter only by the CEO Team settings, or
 
 ## See Also
 
-  * [Treelist Filtering Overview]({%slug treelist-filtering%})
+  * [Treelist Filtering Overview](slug://treelist-filtering)
   * [Live Demo: Treelist CheckBox List Filter](https://demos.telerik.com/blazor-ui/treelist/filter-checkboxlist)
   

@@ -14,7 +14,7 @@ The PdfViewer supports a set of annotation types to enhance PDF documents. For e
 
 The PdfViewer creates a dedicated layer for the annotations and includes them when downloading or printing the file. If the user opens a file with annotations, they can edit only the annotations that were added using the PdfViewer `Annotations` tool. The PdfViewer does not support editing annotations added in a different PDF editor.
 
-To add and manage the annotations, the user can click on the dedicated button in the [PdfViewer Toolbar]({%slug pdfviewer-toolbar%}). It opens an annotations bar with the available annotation types.
+To add and manage the annotations, the user can click on the dedicated button in the [PdfViewer Toolbar](slug://pdfviewer-toolbar). It opens an annotations bar with the available annotation types.
 
 ## Supported Annotations
 
@@ -31,7 +31,7 @@ The PdfViewer provides the following annotation types:
 
 **To manage the annotations the user should:**
 
-1. Click on the `Annotations` tool in the [Toolbar]({%slug pdfviewer-toolbar%}) to open the Annotations bar with the available annotation types.
+1. Click on the `Annotations` tool in the [Toolbar](slug://pdfviewer-toolbar) to open the Annotations bar with the available annotation types.
 1. Click the desired annotation type to toggle it. You need to first "turn on" the annotation tool to add or edit annotations of the corresponding type. If none of the annotation tools are enabled, the PdfViewer will not allow interacting with the document to create or edit annotations.
 
 **From this point the user can:**
@@ -45,9 +45,9 @@ The PdfViewer provides the following annotation types:
 
 ## Disabling Annotations
 
-The Annotations tool is included in the [Toolbar]({%slug pdfviewer-toolbar%}) by default. To prevent users from creating annotations, you can [configure the Toolbar and not include the `PdfViewerToolBarAnnotationsTool`]({%slug pdfviewer-toolbar%}#toolbar-configuration).
+The Annotations tool is included in the [Toolbar](slug://pdfviewer-toolbar) by default. To prevent users from creating annotations, you can [configure the Toolbar and not include the `PdfViewerToolBarAnnotationsTool`](slug://pdfviewer-toolbar#toolbar-configuration).
 
 ## See Also
 
 * [PdfViewer Live Demo](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
-* [PdfViewer Toolbar]({%slug pdfviewer-toolbar%})
+* [PdfViewer Toolbar](slug://pdfviewer-toolbar)

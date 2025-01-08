@@ -22,7 +22,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 1. Set the `Height` and `Width` properties.
 
-1. Optionally, choose a `Type` (one of the [encodings we support]({%slug  barcode-encoding%})).
+1. Optionally, choose a `Type` (one of the [encodings we support](slug:// barcode-encoding)).
     * Its default encoding is `Code39`.
 
 >caption A basic configuration of the Telerik Barcode
@@ -36,7 +36,7 @@ All graphics are rendered on the client by using [Scalable Vector Graphics (SVG)
 
 ## Encoding
 
-Encoding represents the mapping between messages and barcodes. [Read more about the supported Blazor Barcode Encodings]({%slug barcode-encoding%}).
+Encoding represents the mapping between messages and barcodes. [Read more about the supported Blazor Barcode Encodings](slug://barcode-encoding).
 
 ## Methods
 
@@ -83,7 +83,7 @@ The Blazor Barcode provides various parameters that allow you to configure the c
 | ----------- | ----------- | ----------- |
 | `RenderAs` | `RenderingMode` enum <br /> `Svg` | Defines the preferred rendering mode - svg/canvas. |
 | `Checksum` | `bool` | By setting it to true, the Barcode will display the checksum digit next to the value in the text area. |
-| `Type` | `BarcodeType` enum <br /> `Code39` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings]({%slug  barcode-encoding%})) |
+| `Type` | `BarcodeType` enum <br /> `Code39` | Defines the symbology (encoding) the Barcode will use - ([full list of supported encodings](slug:// barcode-encoding)) |
 | `Value` | `string` | Defines the initial value of the Barcode. |
 | `Width` | `string` | |
 | `Height` | `string` | |
@@ -129,10 +129,10 @@ The nested `BarcodePadding` tag exposes parameters that enable you to customize 
 
 ## Next Steps
 
-[Explore the Barcode Encodings]({%slug barcode-encoding%})
+[Explore the Barcode Encodings](slug://barcode-encoding)
 
 ## See Also
 
 * [Live Demo: Barcode](https://demos.telerik.com/blazor-ui/barcode/overview)
 * [Live Demo: Barcode Encoding](https://demos.telerik.com/blazor-ui/barcode/encodings)
-* [Export Barcode to Image]({%slug qrcode-barcode-chart-kb-export-to-image%})
+* [Export Barcode to Image](slug://qrcode-barcode-chart-kb-export-to-image)

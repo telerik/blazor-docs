@@ -28,15 +28,15 @@ This KB article explains how to programmatically filter a Grid column bound to a
 
 To filter a Grid column bound to a `bool?` by the `null` values:
 
-1. Get the current [Grid state]({%slug grid-state%}).
-1. Create a `CompositeFilterDescriptor` for the desired column. Add a child [`FilterDescriptor`]({%slug components/grid/filtering%}) with an `Operator` property that is equal to `FilterOperator.IsNull`.
+1. Get the current [Grid state](slug://grid-state).
+1. Create a `CompositeFilterDescriptor` for the desired column. Add a child [`FilterDescriptor`](slug://components/grid/filtering) with an `Operator` property that is equal to `FilterOperator.IsNull`.
 1. Add the new `CompositeFilterDescriptor` to the `FilterDescriptors` property of the Grid state.
 1. Use the Grid `SetStateAsync` method to update the Grid state.
 
 Alternative options are to:
 
-* Customize the Grid filter state in the [Grid `OnStateInit` event]({%slug grid-state%}#onstateinit).
-* [Use a Grid filter template to enable filtering by `null` from the Grid's UI]({%slug grid-kb-filterrow-bool-customization%}).
+* Customize the Grid filter state in the [Grid `OnStateInit` event](slug://grid-state#onstateinit).
+* [Use a Grid filter template to enable filtering by `null` from the Grid's UI](slug://grid-kb-filterrow-bool-customization).
 
 >caption Fitler bool? Grid column by null
 
@@ -121,5 +121,5 @@ Alternative options are to:
 
 ## See Also
 
-* [FilterMenu: Filter From Code]({%slug grid-filter-menu%}#filter-from-code)
-* [Working with the Grid State]({%slug grid-state%})
+* [FilterMenu: Filter From Code](slug://grid-filter-menu#filter-from-code)
+* [Working with the Grid State](slug://grid-state)

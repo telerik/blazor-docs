@@ -14,8 +14,8 @@ The DropDownList filter textbox allows users to filter the available items by th
 
 To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
 
-You can also use the [`OnRead` event]({%slug components/dropdownlist/events%}#onread) to:
-* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+You can also use the [`OnRead` event](slug://components/dropdownlist/events#onread) to:
+* Get the [applied filtering criteria](slug://common-features-descriptors#through-the-onread-event).
 * Implement custom (server) filtering and set data dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
@@ -26,7 +26,7 @@ The default filter operator is `starts with`. You can choose a different operato
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. Configure that with the [`FilterDebounceDelay`]({%slug components/dropdownlist/overview%}#dropdownlist-parameters) parameter of the component.
+By default, the filtering is debounced with 150ms. Configure that with the [`FilterDebounceDelay`](slug://components/dropdownlist/overview#dropdownlist-parameters) parameter of the component.
 
 ## Placeholder
 
@@ -107,5 +107,5 @@ By default, the filter input in the popup is empty. Set the desired hint in it t
 ## See Also
 
 * [Live Demo: DropDownList Filtering](https://demos.telerik.com/blazor-ui/dropdownlist/filtering)
-* [Custom Filtering by Multiple Fields]({%slug dropdowns-kb-search-in-multiple-fields%})
-* [Blazor DropDownList]({%slug components/dropdownlist/overview%})
+* [Custom Filtering by Multiple Fields](slug://dropdowns-kb-search-in-multiple-fields)
+* [Blazor DropDownList](slug://components/dropdownlist/overview)

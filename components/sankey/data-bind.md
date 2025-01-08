@@ -37,7 +37,7 @@ The `SankeyDataLink` object contains all the information for the link. It expose
 | `TargetId` | `object` | The target node ID of the link. The target node is the node to which the link points. Required. |
 | `Value` | `double?` | The value of the link. The value represents the weight of the link and determines the width of the link. Required. |
 
->tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate links through the data](#customize-elements-through-data). If you want to apply the same settings for all the links in the Sankey use the [component options]({%slug sankey-links%}).
+>tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate links through the data](#customize-elements-through-data). If you want to apply the same settings for all the links in the Sankey use the [component options](slug://sankey-links).
 
 ### Node
 
@@ -54,7 +54,7 @@ The `SankeyDataNode` object contains all the information for the node and its la
 | `Width` | `double?` <br/> (`24`)| The width of the node. |
 | `Align` | [`SankeyNodesAlign?` enum](/blazor-ui/api/telerik.blazor.sankeynodesalign) <br/> (`Stretch`) | The alignment of the node.|
 
->tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data).  If you want to apply the same settings for all the nodes and labels in the Sankey use the component options for [nodes]({%slug sankey-nodes%}) and [labels]({%slug sankey-labels%}).
+>tip The visual properties (`Color`, `Opacity` etc.) are not required. You can use these properties to [provide custom settings for the separate nodes through the data](#customize-elements-through-data).  If you want to apply the same settings for all the nodes and labels in the Sankey use the component options for [nodes](slug://sankey-nodes) and [labels](slug://sankey-labels).
 
 ## Customize Elements Through Data
 
@@ -142,13 +142,13 @@ The example below showcases binding the Sankey data and adding some specific opt
 
 ## Next Steps
 
-* [Add a Title to the Sankey Diagram]({%slug sankey-title%})
-* [Configure the Sankey Legend]({%slug sankey-legend%})
-* [Explore the Sankey Events]({%slug sankey-events%})
+* [Add a Title to the Sankey Diagram](slug://sankey-title)
+* [Configure the Sankey Legend](slug://sankey-legend)
+* [Explore the Sankey Events](slug://sankey-events)
 
 ## See Also
 
 * [Live Demo: Sankey Diagram](https://demos.telerik.com/blazor-ui/sankey/overview)
-* [Sankey Links]({%slug sankey-links%})
-* [Sankey Nodes]({%slug sankey-nodes%})
-* [Sankey Labels]({%slug sankey-labels%})
+* [Sankey Links](slug://sankey-links)
+* [Sankey Nodes](slug://sankey-nodes)
+* [Sankey Labels](slug://sankey-labels)

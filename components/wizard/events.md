@@ -23,7 +23,7 @@ The `OnChange` event is triggered on the current step and fires before the step 
 * `TargetIndex` - contains the index of the targeted new Wizard step.
 * `IsCancelled` - specifies whether the event is canceled and the built-in action is prevented.
 
->[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) do not trigger the `OnChange` event. See section [Execute Business Logic With Custom Wizard Buttons]({%slug wizard-structure-buttons%}#execute-business-logic-with-custom-wizard-buttons).
+>[Custom Wizard buttons](slug://wizard-structure-buttons#custom-buttons) do not trigger the `OnChange` event. See section [Execute Business Logic With Custom Wizard Buttons](slug://wizard-structure-buttons#execute-business-logic-with-custom-wizard-buttons).
 
 The `OnChange` event handler is defined in the respective `<WizardStep>` tag.
 
@@ -126,7 +126,7 @@ The `ValueChanged` event fires after the [`OnChange`](#onchange) event, if the l
 
 The `OnFinish` event fires when the **Done** button of the Wizard is clicked.
 
->[Custom Wizard buttons]({%slug wizard-structure-buttons%}#custom-buttons) do not trigger the `OnFinish` event. See section [Execute Business Logic With Custom Wizard Buttons]({%slug wizard-structure-buttons%}#execute-business-logic-with-custom-wizard-buttons).
+>[Custom Wizard buttons](slug://wizard-structure-buttons#custom-buttons) do not trigger the `OnFinish` event. See section [Execute Business Logic With Custom Wizard Buttons](slug://wizard-structure-buttons#execute-business-logic-with-custom-wizard-buttons).
 
 >caption Handle the `OnFinish` event of the Wizard (code snippet below)
 

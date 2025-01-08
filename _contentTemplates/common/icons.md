@@ -1,6 +1,6 @@
 #font-icons-css-note
 
-> Make sure to [register `font-icons.css` if using Telerik font icons]({%slug common-features-icons%}#font-icon-stylesheet).
+> Make sure to [register `font-icons.css` if using Telerik font icons](slug://common-features-icons#font-icon-stylesheet).
 
 #end
 

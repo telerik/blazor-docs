@@ -158,4 +158,4 @@ With the `ButtonsTemplate`, you can personalize the appearance and behavior of t
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Popup Edit Form Template](https://demos.telerik.com/blazor-ui/grid/popup-edit-form-template)
- * [Blazor Grid]({%slug grid-overview%})
+ * [Blazor Grid](slug://grid-overview)

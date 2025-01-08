@@ -28,16 +28,16 @@ res_type: kb
 
 ## Solution
 
-This scenario requires knowledge about the [Grid State]({%slug grid-state%}). Get familiar with the following sections first:
+This scenario requires knowledge about the [Grid State](slug://grid-state). Get familiar with the following sections first:
 
-* [Information in the Grid State]({%slug grid-state%}#information-in-the-grid-state)
-* [Grid `OnStateChanged` Event]({%slug grid-state%}#onstatechanged)
-* [Grid State Methods]({%slug grid-state%}#methods)
+* [Information in the Grid State](slug://grid-state#information-in-the-grid-state)
+* [Grid `OnStateChanged` Event](slug://grid-state#onstatechanged)
+* [Grid State Methods](slug://grid-state#methods)
 
 There are two ways to obtain the Grid column information programmatically:
 
-* Use the [Grid `OnStateChanged` event]({%slug grid-state%}#onstatechanged) and check `args.GridState.ColumnStates`, where `args` is the `OnStateChanged` event argument.
-* Use the [Grid `GetState` method]({%slug grid-state%}#methods) and check the `ColumnStates` property of the returned `GridState` object.
+* Use the [Grid `OnStateChanged` event](slug://grid-state#onstatechanged) and check `args.GridState.ColumnStates`, where `args` is the `OnStateChanged` event argument.
+* Use the [Grid `GetState` method](slug://grid-state#methods) and check the `ColumnStates` property of the returned `GridState` object.
 
 `ColumnStates` is a `ICollection<GridColumnState>`. The `GridColumnState` class has the following properties:
 
@@ -176,4 +176,4 @@ The column order in the `ColumnStates` collection matches the `<GridColumn>` tag
 
 ## See Also
 
-* [Grid State]({%slug grid-state%})
+* [Grid State](slug://grid-state)

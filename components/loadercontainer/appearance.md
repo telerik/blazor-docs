@@ -17,7 +17,7 @@ The LoaderContainer component provides multiple parameters that control its appe
 * [OverlayThemeColor](#overlaythemecolor)
 * [LoaderPosition](#loaderposition)
 
-The LoaderContainer uses a nested internal [Loader component]({%slug loader-overview%}) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's appearance:
+The LoaderContainer uses a nested internal [Loader component](slug://loader-overview) to show the animated indicator. The LoaderContainer exposes parameters, which directly control the Loader's appearance:
 
 * [LoaderType](#loadertype)
 * [Size](#size)
@@ -89,9 +89,9 @@ The `LoaderPosition` parameter controls the position of the animated loading ind
 
 ## LoaderType
 
-The `LoaderType` parameter of the LoaderContainer will affect the shape of animated loading indicator. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
+The `LoaderType` parameter of the LoaderContainer will affect the shape of animated loading indicator. The parameter works only when there is **no** [`<Template>`](slug://loadercontainer-template).
 
-See the [Loader `Type` documentation]({%slug loader-appearance%}#type) for the possible values and how the component looks.
+See the [Loader `Type` documentation](slug://loader-appearance#type) for the possible values and how the component looks.
 
 >caption Setting TelerikLoaderContainer LoaderType
 
@@ -102,9 +102,9 @@ See the [Loader `Type` documentation]({%slug loader-appearance%}#type) for the p
 
 ## Size
 
-The `Size` parameter of the LoaderContainer will affect the dimensions of animated loading indicator. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
+The `Size` parameter of the LoaderContainer will affect the dimensions of animated loading indicator. The parameter works only when there is **no** [`<Template>`](slug://loadercontainer-template).
 
-See [Loader `Size`]({%slug loader-appearance%}#size) for a list of possible values and how to set them more easily.
+See [Loader `Size`](slug://loader-appearance#size) for a list of possible values and how to set them more easily.
 
 >caption Setting TelerikLoaderContainer Size
 
@@ -115,9 +115,9 @@ See [Loader `Size`]({%slug loader-appearance%}#size) for a list of possible valu
 
 ## ThemeColor
 
-The `ThemeColor` parameter of the LoaderContainer will affect the text color and the loading indicator color. The parameter works only when there is **no** [`<Template>`]({%slug loadercontainer-template%}).
+The `ThemeColor` parameter of the LoaderContainer will affect the text color and the loading indicator color. The parameter works only when there is **no** [`<Template>`](slug://loadercontainer-template).
 
-See [Loader `ThemeColor`]({%slug loader-appearance%}#themecolor) for a list of possible values and how the component looks.
+See [Loader `ThemeColor`](slug://loader-appearance#themecolor) for a list of possible values and how the component looks.
 
 >caption Setting TelerikLoaderContainer ThemeColor
 
@@ -127,7 +127,7 @@ See [Loader `ThemeColor`]({%slug loader-appearance%}#themecolor) for a list of p
 
 ### Custom LoaderContainer Colors
 
-The following example shows [how to override the CSS styles in the theme]({%slug themes-override%}) and apply custom colors to all LoaderContainer elements.
+The following example shows [how to override the CSS styles in the theme](slug://themes-override) and apply custom colors to all LoaderContainer elements.
 
 >caption Custom LoaderContainer colors
 
@@ -162,7 +162,7 @@ The following example shows [how to override the CSS styles in the theme]({%slug
 
 ## Next Steps
 
-* [Experiment with LoaderContainer templates]({%slug loadercontainer-template%})
+* [Experiment with LoaderContainer templates](slug://loadercontainer-template)
 
 
 ## See Also

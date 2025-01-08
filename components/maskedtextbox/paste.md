@@ -14,7 +14,7 @@ This article explains the behavior the Telerik MaskedTextbox has when the user p
 
 While typing is the most common way people write in textboxes, they can also paste the data from somewhere else.
 
-The user can put the cursor at any place in the textbox and write, and the next [rule]({%slug maskedtextbox-mask-prompt%}) will handle the input.
+The user can put the cursor at any place in the textbox and write, and the next [rule](slug://maskedtextbox-mask-prompt) will handle the input.
 
 With pasting, there are several scenarios depending on the relationship between the rules, the pasted value and what is selected (highlighted) in the input.
 
@@ -66,5 +66,5 @@ For example, if the user has 5 symbols which are matching the input rules in the
 
 ## See Also
 
-* [MaskedTextbox Overview]({%slug maskedtextbox-overview%})
-* [Rules, Masks, Prompts]({%slug maskedtextbox-mask-prompt%})
+* [MaskedTextbox Overview](slug://maskedtextbox-overview)
+* [Rules, Masks, Prompts](slug://maskedtextbox-mask-prompt)

@@ -200,4 +200,4 @@ Last clicked item: @ClickedItem?.Text
 
 ## See Also
 
-* [Templates]({%slug components/menu/templates%})
+* [Templates](slug://components/menu/templates)

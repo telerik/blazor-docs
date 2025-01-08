@@ -35,7 +35,7 @@ Additionally, you may configure the orientation of the views through the `Orient
 
 ## See Also
 
-  * [Blazor Calendar Overview]({%slug components/calendar/overview%})
+  * [Blazor Calendar Overview](slug://components/calendar/overview)
   * [Live Demo: Calendar - MultiView](https://demos.telerik.com/blazor-ui/calendar/multiview)
   * [Live Demo: Calendar - Orientation](https://demos.telerik.com/blazor-ui/calendar/orientation)
 

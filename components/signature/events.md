@@ -72,4 +72,4 @@ The `ValueChanged` event fires when signature is fully drawn.
 
 ## See Also
 
-* [Signature Overview]({%slug signature-overview%})
+* [Signature Overview](slug://signature-overview)

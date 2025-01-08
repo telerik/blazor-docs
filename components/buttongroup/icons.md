@@ -11,7 +11,7 @@ position: 15
 
 # ButtonGroup Icons
 
-You can add a [Telerik Font or SVG icon]({%slug common-features-icons%}) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon](slug://common-features-icons) to the ButtonGroup items to illustrate its purpose by using the `Icon` parameter.
 
 The example below also includes conditional logic to show different icons in the different button states.
 
@@ -51,4 +51,4 @@ Images used as icons should generally be small enough to fit in a line of text. 
 
 ## See Also
 
-* [ButtonGroup Overview]({%slug buttongroup-overview%})
+* [ButtonGroup Overview](slug://buttongroup-overview)

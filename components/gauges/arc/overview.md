@@ -10,14 +10,14 @@ position: 0
 
 # Blazor Arc Gauge Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Telerik Arc Gauge for Blazor</a> represents [numerical values]({%slug arc-gauge-pointers%}) on an arc [scale]({%slug arc-gauge-scale%}).
+The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Telerik Arc Gauge for Blazor</a> represents [numerical values](slug://arc-gauge-pointers) on an arc [scale](slug://arc-gauge-scale).
 
 ## Creating Blazor Arc Gauge
 
 1. Add the `<TelerikArcGauge>` tag.
 1. Add an instance of the `<ArcGaugePointer>` to the `<ArcGaugePointers>` collection.
 1. Provide a `Value` for the `<ArcGaugePointer>`.
-1. (optional) Add a [Center Label Template]({%slug arc-gauge-labels%}#center-template)
+1. (optional) Add a [Center Label Template](slug://arc-gauge-labels#center-template)
 
 
 ````RAZOR
@@ -36,15 +36,15 @@ The <a href = "https://www.telerik.com/blazor-ui/arc-gauge" target="_blank">Tele
 
 ## Scale
 
-The scale of the Arc Gauge renders the values of the [pointers]({%slug arc-gauge-pointers%}) and [labels]({%slug arc-gauge-labels%}). See the [Scale]({%slug arc-gauge-scale%}) article for more information on how to customize the scale of the component.
+The scale of the Arc Gauge renders the values of the [pointers](slug://arc-gauge-pointers) and [labels](slug://arc-gauge-labels). See the [Scale](slug://arc-gauge-scale) article for more information on how to customize the scale of the component.
 
 ## Pointers
 
-The pointers indicate the values on the scale of the component. See the [Pointers]({%slug arc-gauge-pointers%}) article for more information on how to customize the pointers of the component.
+The pointers indicate the values on the scale of the component. See the [Pointers](slug://arc-gauge-pointers) article for more information on how to customize the pointers of the component.
 
 ## Labels
 
-The labels are rendered on the scale of the component to give information to the users. See the [Labels]({%slug arc-gauge-labels%}) article for more information on how to customize the labels on the scale of the component.
+The labels are rendered on the scale of the component to give information to the users. See the [Labels](slug://arc-gauge-labels) article for more information on how to customize the labels on the scale of the component.
 
 ## Arc Gauge Parameters
 
@@ -52,8 +52,8 @@ The labels are rendered on the scale of the component to give information to the
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-arcgauge">` element. |
-| `Width` | `string` | Controls the width of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article.|
-| `Height` | `string` | Controls the height of the Arc Gauge. You can read more information in the [Dimensions]({%slug common-features/dimensions%}) article. |
+| `Width` | `string` | Controls the width of the Arc Gauge. You can read more information in the [Dimensions](slug://common-features/dimensions) article.|
+| `Height` | `string` | Controls the height of the Arc Gauge. You can read more information in the [Dimensions](slug://common-features/dimensions) article. |
 | `Transitions` | `bool?` | Controls if the Arc Gauge uses animations for its value changes. |
 | `RenderAs` | `RenderingMode?` <br /> (`SVG`) | Controls if the gauge renders as `SVG` or `Canvas`. |
 
@@ -94,8 +94,8 @@ The labels are rendered on the scale of the component to give information to the
 
 ## Next Steps
 
-* [Explore the Arc Gauge Scale]({%slug arc-gauge-scale%})
-* [Learn more about the Arc Gauge Pointers]({%slug arc-gauge-pointers%})
+* [Explore the Arc Gauge Scale](slug://arc-gauge-scale)
+* [Learn more about the Arc Gauge Pointers](slug://arc-gauge-pointers)
 
 ## See Also
 

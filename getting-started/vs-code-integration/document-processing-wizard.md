@@ -48,12 +48,12 @@ The table below lists the assemblies that will be selected for each library:
 
 | Library | Packages |
 | --- | --- |
-| [RadPdfProcessing]({%slug dpl-in-blazor%}) | Documents.Core <br /> Documents.Fixed <br /> Zip <br /> Documents.ImageUtils <br /> Documents.Fixed.FormatProviders.Image.Skia <br /> Documents.CMapUtils |
-| [RadSpreadProcessing]({%slug dpl-in-blazor%}) | Documents.Core <br /> Documents.Fixed <br /> Documents.Spreadsheet <br /> Documents.SpreadSheet.FormatProviders.OpenXml <br /> Documents.SpreadSheet.FormatProviders.Pdf <br /> Documents.Spreadsheet.FormatProviders.Xls <br /> Documents.ImageUtils <br /> Zip |
-| [RadWordsProcessing]({%slug dpl-in-blazor%}) | Documents.Core <br /> Documents.Fixed <br /> Documents.Flow <br /> Documents.Flow.FormatProviders.Pdf <br /> Documents.ImageUtils <br /> Documents.Flow.FormatProviders.Doc <br /> Documents.DrawingML <br /> Zip |
+| [RadPdfProcessing](slug://dpl-in-blazor) | Documents.Core <br /> Documents.Fixed <br /> Zip <br /> Documents.ImageUtils <br /> Documents.Fixed.FormatProviders.Image.Skia <br /> Documents.CMapUtils |
+| [RadSpreadProcessing](slug://dpl-in-blazor) | Documents.Core <br /> Documents.Fixed <br /> Documents.Spreadsheet <br /> Documents.SpreadSheet.FormatProviders.OpenXml <br /> Documents.SpreadSheet.FormatProviders.Pdf <br /> Documents.Spreadsheet.FormatProviders.Xls <br /> Documents.ImageUtils <br /> Zip |
+| [RadWordsProcessing](slug://dpl-in-blazor) | Documents.Core <br /> Documents.Fixed <br /> Documents.Flow <br /> Documents.Flow.FormatProviders.Pdf <br /> Documents.ImageUtils <br /> Documents.Flow.FormatProviders.Doc <br /> Documents.DrawingML <br /> Zip |
 
 
 ## See Also
 
-* [Telerik Document Processing Overview]({%slug dpl-in-blazor%})
-* [Visual Studio Code Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-code-integration-overview %})
+* [Telerik Document Processing Overview](slug://dpl-in-blazor)
+* [Visual Studio Code Integration for Telerik UI for Blazor Overview]({% slug getting-started-vs-code-integration-overview )

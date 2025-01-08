@@ -10,7 +10,7 @@ position: 1
 
 # PDF Export
 
-The [Telerik Document Processing tools]({%slug dpl-in-blazor%}) that come with your Blazor license let you generate a PDF file based on the data in the grid.
+The [Telerik Document Processing tools](slug://dpl-in-blazor) that come with your Blazor license let you generate a PDF file based on the data in the grid.
 
 The following sample projects show two ways to implement a PDF export
 
@@ -23,4 +23,4 @@ You can also follow the feature request for <a href="https://feedback.telerik.co
 
 ## See Also
 
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)

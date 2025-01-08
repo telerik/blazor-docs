@@ -27,11 +27,11 @@ I am using the TelerikGrid component for Blazor. One of my columns contains a lo
 
 ## Solution
 
-In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event]({%slug grid-column-events%}#oncellrender) that the component exposes.
+In order to prevent the Grid from wrapping the text in multiple lines you can use CSS and target the `<td>` HTML tags, which contain the data. In order to make that easier you can take advantage of the [OnCellRender event](slug://grid-column-events#oncellrender) that the component exposes.
 
->note You can achieve the same behavior if you use the [Template]({%slug grid-templates-column%}) instead of the OnCellRender event. If you choose to go for the `Template` approach you should wrap the `(context as <YourModel>).FieldName` into a HTML element and add the CSS class to the `class` attribute of that element.
+>note You can achieve the same behavior if you use the [Template](slug://grid-templates-column) instead of the OnCellRender event. If you choose to go for the `Template` approach you should wrap the `(context as <YourModel>).FieldName` into a HTML element and add the CSS class to the `class` attribute of that element.
 
-You might still want to allow the user to see the whole content, so you can enable the `Resizable` parameter of the Grid. If, however, the content is too long, the user should resize a lot in order to see the cell content. To cover such scenario, you can display the full content in a separate container. One option would be to use a [Window component]({%slug window-overview%}) and handle some of the Grid events to display it ([`OnRowClick`]({%slug grid-events%}#onrowclick), [`OnRowDoubleClick`]({%slug grid-events%}#onrowdoubleclick)). Another approach is to show a Tooltip on hover of the cell (similar example is available in [Tooltip in Grid]({%slug tooltip-kb-in-grid%}) knowledge base article). The solution below showcases a sample implementation of the first mentioned approach - using a Window component and handling the `OnRowDoubleClick` event.
+You might still want to allow the user to see the whole content, so you can enable the `Resizable` parameter of the Grid. If, however, the content is too long, the user should resize a lot in order to see the cell content. To cover such scenario, you can display the full content in a separate container. One option would be to use a [Window component](slug://window-overview) and handle some of the Grid events to display it ([`OnRowClick`](slug://grid-events#onrowclick), [`OnRowDoubleClick`](slug://grid-events#onrowdoubleclick)). Another approach is to show a Tooltip on hover of the cell (similar example is available in [Tooltip in Grid](slug://tooltip-kb-in-grid) knowledge base article). The solution below showcases a sample implementation of the first mentioned approach - using a Window component and handling the `OnRowDoubleClick` event.
 
 
 ````RAZOR
@@ -152,4 +152,4 @@ Ellipsis for all columns via OnRowRender.
 
 ## See also
 
-* [Knowledge-Base article: Long text in TreeList does not align with the corresponding level]({%slug treelist-longer-text-starts-from-root-level%})
+* [Knowledge-Base article: Long text in TreeList does not align with the corresponding level](slug://treelist-longer-text-starts-from-root-level)

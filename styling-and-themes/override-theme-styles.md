@@ -11,9 +11,9 @@ previous_url: /styling-and-themes/good-styling-practices
 
 # Override Theme Styles
 
-Sometimes you may need to make a small change to the appearance of a component, while still using the same [built-in]({%slug themes-overview%}) or [custom]({%slug themes-customize%}) theme.
+Sometimes you may need to make a small change to the appearance of a component, while still using the same [built-in](slug://themes-overview) or [custom](slug://themes-customize) theme.
 
-This article provides high-level guidance about the knowledge and tools required to override existing CSS styles without changing the theme's CSS file. In scenarios with a larger number of customizations, it may be [more practical to use a different approach, for example, a custom theme]({%slug common-kb-theme-customization-options%}).
+This article provides high-level guidance about the knowledge and tools required to override existing CSS styles without changing the theme's CSS file. In scenarios with a larger number of customizations, it may be [more practical to use a different approach, for example, a custom theme](slug://common-kb-theme-customization-options).
 
 ## CSS Knowledge
 
@@ -35,7 +35,7 @@ To see what CSS styles are applied on an HTML element, use the browser's develop
 
 [CSS isolation](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation) is a .NET feature, which scopes styles to a specific Razor component.
 
-* There are two cases when CSS isolation may not work with UI for Blazor components. We explain the reasons and suggest workarounds in [this knowledge base article]({%slug common-kb-css-isolation%}). The two cases are:
+* There are two cases when CSS isolation may not work with UI for Blazor components. We explain the reasons and suggest workarounds in [this knowledge base article](slug://common-kb-css-isolation). The two cases are:
    * Using isolated styles with a component `Class`.
    * Using isolated styles for popups (Window, Dialog).
 
@@ -44,7 +44,7 @@ To see what CSS styles are applied on an HTML element, use the browser's develop
 When implementing CSS overrides, it's usually best to set custom CSS classes through the exposed component parameters and event arguments. This brings the following benefits:
 
 * There is less need to be familiar with the components' HTML rendering and built-in CSS styles, although this knowledge is recommended and cannot be fully avoided.
-* The custom CSS code in the application is more future-proof if a [rendering change]({%slug versions-with-rendering-changes%}) occurs.
+* The custom CSS code in the application is more future-proof if a [rendering change](slug://versions-with-rendering-changes) occurs.
 * The custom CSS classes may follow a naming convention of the app, instead of the naming convention of the Telerik themes.
 
 The example below demonstrates using custom CSS classes with the Grid and the ComboBox.
@@ -128,4 +128,4 @@ The example below demonstrates using custom CSS classes with the Grid and the Co
 
 ## See Also
 
-* [How to customize the look of Telerik Blazor components]({%slug common-kb-theme-customization-options%})
+* [How to customize the look of Telerik Blazor components](slug://common-kb-theme-customization-options)

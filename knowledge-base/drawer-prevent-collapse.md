@@ -27,7 +27,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
 ## Solution
 
-1. Use the [Template]({%slug drawer-templates%}#template) to take control over the rendering of the entire component. The Drawer renders as `ul` with `li` elements for the individual items.
+1. Use the [Template](slug://drawer-templates#template) to take control over the rendering of the entire component. The Drawer renders as `ul` with `li` elements for the individual items.
 2. In order to stop the component from collapsing on item click you need to add the `@onclick:stopPropagation` to the `<li>` tag.
 
 >caption Stop the Drawer from collapsing on item click
@@ -106,4 +106,4 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
 
 ## See Also
 
-* [Click in dropdown closes the Drawer]({%slug drawer-kb-click-in-dropdown-closes-drawer%})
+* [Click in dropdown closes the Drawer](slug://drawer-kb-click-in-dropdown-closes-drawer)

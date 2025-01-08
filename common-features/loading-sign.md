@@ -12,7 +12,7 @@ position: 5
 
 Many times a component loads or saves data and that can take some time. To show your users the app is working, and to prevent them from performing the same action multiple times, the Telerik Blazor components can show a busy indicator while such an operation is under way.
 
-The Telerik components use the Telerik [Loader]({%slug loader-overview%}) and [LoaderContainer]({%slug loadercontainer-overview%}) components internally to match the theme and design.
+The Telerik components use the Telerik [Loader](slug://loader-overview) and [LoaderContainer](slug://loadercontainer-overview) components internally to match the theme and design.
 
 There are three patterns for showing a loading indicator:
 
@@ -342,7 +342,7 @@ Another example could be a slow calculation (for example, grouping a large amoun
 
 A fourth example could be a dropdown that has far too many items in it - expanding the dropdown will take some time to render because the DOM operation itself takes time. This would affect server-side Blazor apps too.
 
-To combat such performance issues, see the [Slow Performance]({%slug troubleshooting-general-issues%}#slow-performance) section of the documentation.
+To combat such performance issues, see the [Slow Performance](slug://troubleshooting-general-issues#slow-performance) section of the documentation.
 
 Truly asynchronous operations will still allow for a loading sign - such as the grid's `OnRead` event that is really `async` (for example, calls some WebAPI) will let the framework release the UI thread and re-render the component with a loading sign until the data response comes back.
 
