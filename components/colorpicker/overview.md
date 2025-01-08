@@ -74,6 +74,7 @@ The ColorPicker tag exposes the following features through its attributes:
 
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
 | `Value` | `string` | The ColorPicker value in a few [different color formats](#supported-value-formats). Supports two-way binding. |
 | `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | Sets the color format, which the component will return in the application code - `Rgb` or `Hex`. |
 | `ColorPickerViews` | `RenderFragment` | A nested container to list the [ColorPicker views]({%slug colorpicker-views%}). All views are enabled by default and the user can switch between them with the buttons. Each view tag has its own configuration attributes. |
