@@ -17,6 +17,7 @@ Telerik UI for Blazor supports adaptive rendering for the components that incorp
 * [Supported components](#supported-components)
 * [Basics](#basics)
 * [Rendering specifics](#rendering-specifics)
+* [Customize the Default Adaptive Breakpoints](#customize-the-default-adaptive-breakpoints)
 * [Limitations](#limitations)
 
 ## Supported Components
@@ -65,6 +66,40 @@ Three breakpoints define the rendering options as follows:
 |-------|-------|--------|-------|
 **Dimensions** | up to 500px | 501px to 768px | over 768px |
 **Rendering** | The popup is rendered as a fullscreen action sheet. | The popup is rendered as an action sheet docked to the bottom of the screen. | The popup is rendered as an animation container docked to the main element of the component. |
+
+## Customize the Default Adaptive Breakpoints
+
+You can customize the [above-listed default adaptive breakpoints](#rendering-specifics) at the root level by configuring the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}). To specify your desired breakpoints:
+
+1. Wrap the content of the `<TelerikRootComponent>` (`@Body` and potentially other elements) in `<ChildContent>` tag.
+1. Add the `<RootComponentSettings>` component inside the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}).
+1. Add the `<RootComponentAdaptiveSettings>` component inside the `<RootComponentSettings>` tag and configure its properties:
+
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type | Description |
+| ----------- | ----------- | ----------- |
+| `Small` | `int` <br/> (`500`) | The upper boundary of the small threshold. Sets the `max-width` of the small media query in `px`. |
+| `Medium` | `int` <br/> (`768`) | The upper boundary of the medium threshold. Sets the `max-width` of the medium media query in `px`.|
+
+>caption Customize the default adaptive breakpoints
+
+<div class="skip-repl"></div>
+````RAZOR
+@* The below configuration sets the following thresholds:
+- Small: 0 to 400px
+- Medium: 401px to 900px
+- Large: over 900px *@
+
+    <TelerikRootComponent>
+        <RootComponentSettings>
+            <RootComponentAdaptiveSettings Small="400" Medium="900"></RootComponentAdaptiveSettings>
+        </RootComponentSettings>
+        <ChildContent>
+             @Body
+        </ChildContent>
+    </TelerikRootComponent>
+````
 
 ## Limitations
 

@@ -77,6 +77,9 @@ If you are using Telerik components in a Blazor app with **Per page/component** 
 | `IconType` | `IconType` enum <br /> (`Svg`) | The icon type, which other Telerik components will use to render internal icons. Regardless of this parameter value, you can freely use the [`<TelerikFontIcon>`]({%slug common-features-icons%}#fonticon-component) and [`<TelerikSvgIcon>`]({%slug common-features-icons%}#svgicon-component) components, and [set the `Icon` parameter of other Telerik components]({%slug button-icons%}) to any type that you wish. |
 | `Localizer` | `Telerik.Blazor.Services.ITelerikStringLocalizer` | The Telerik localization service. The recommended approach is to [define the localizer as a service in `Program.cs`]({%slug globalization-localization%}). Use the `Localizer` parameter only in special cases when this is not possible. |
 
+### TelerikRootComponent Settings
+
+The `TelerikRootComponent` exposes and additional `<RootComponentSettings>` tag for further customizations. You can use it to configure the screen breakpoints for the adaptive rendering of the supported components. [Learn how to customize the default adaptive breakpoints](slug://adaptive-rendering#customize-the-default-adaptive-breakpoints).
 
 ## See Also
 
