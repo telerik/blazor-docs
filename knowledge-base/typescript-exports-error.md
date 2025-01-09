@@ -57,7 +57,7 @@ export function test() {
 >caption Resulting output in the JS file (generated through the `Microsoft.TypeScript.MSBuild` package Visual Studio offers to install for you to build TS, other compilers often have similar default output)
 
 <div class="skip-repl"></div>
-````MyScript.js
+````JavaScript MyScript.js
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.test = void 0;
