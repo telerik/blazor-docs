@@ -20,6 +20,8 @@ Right-to-left support is configured at the root level so it affects all UI for B
 
 To enable right-to-left direction of the components in your application, set the `EnableRtl` parameter of the [`TelerikRootComponent`](slug://rootcomponent-overview)  to `true`.
 
+>caption MainLayout.razor
+
 <div class="skip-repl"></div>
 ````RAZOR
 <TelerikRootComponent EnableRtl="true">
