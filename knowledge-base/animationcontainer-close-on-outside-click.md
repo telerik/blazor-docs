@@ -54,7 +54,6 @@ To achieve the desired scenario:
 
 @* suppress-error allows script tags in Razor files. Move this script to a separate file *@
 <script suppress-error="BL9992">
-    //
     function attachCloseTAC(dotNetReference) {
         dotNet = dotNetReference;
         document.documentElement.addEventListener("click", checkHideTAC);
