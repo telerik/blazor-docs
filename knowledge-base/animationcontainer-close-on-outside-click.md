@@ -67,7 +67,7 @@ To achieve the desired scenario:
             dotNet.invokeMethodAsync("HideTAC");
         }
     }
-    //</script>
+</script>
 
 @code {
     private TelerikAnimationContainer TAC { get; set; }
