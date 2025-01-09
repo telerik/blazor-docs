@@ -36,8 +36,11 @@ To achieve the desired scenario:
 1. If the target is outside, [call a .NET method from the JavaScript code](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript) that will close the AnimationContainer.
 1. When closing the AnimationContainer from JavaScript, [detach](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener) the `click` handler from step 2.
 
+> Replace the `Index` type of the `DotNetObjectReference` in the example below with the type of the component that hosts this code.
+
 >caption Close the AnimationContainer upon an outside click
 
+<div class="skip-repl"></div>
 ````RAZOR
 @inject IJSRuntime js
 
@@ -50,7 +53,7 @@ To achieve the desired scenario:
 </TelerikAnimationContainer>
 
 @* suppress-error allows script tags in Razor files. Move this script to a separate file *@
-<script suppress-error="BL9992">//
+<script suppress-error="BL9992">
     function attachCloseTAC(dotNetReference) {
         dotNet = dotNetReference;
         document.documentElement.addEventListener("click", checkHideTAC);
@@ -64,13 +67,14 @@ To achieve the desired scenario:
             dotNet.invokeMethodAsync("HideTAC");
         }
     }
-//</script>
+</script>
 
 @code {
     private TelerikAnimationContainer TAC { get; set; }
 
     private bool TACOpen { get; set; }
 
+    //Replace the Index type with the type of the component that hosts this code
     private DotNetObjectReference<Index>? DotNetRef;
 
     private async Task ShowTAC()

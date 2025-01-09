@@ -98,7 +98,8 @@ The example below shows how to:
 @using Telerik.Blazor.Resources
 @using Telerik.Blazor.Services
 
-@inject ITelerikStringLocalizer Localizer
+@* Needed to find the built-in Home tool by its localized title if the application is using more than one language *@
+@* @inject ITelerikStringLocalizer Localizer *@
 
 <TelerikSpreadsheet Tools="@DefaultToolsWithCustomizations">
 </TelerikSpreadsheet>
@@ -117,10 +118,13 @@ The example below shows how to:
             fileToolSetItem.Title = "Custom File Label";
         }
 
-        // Find the built-in Home tool set item by its localized title.
-        // You can hard-code the title string (for example, "Home") if the application is using just one language.
+        // Find the built-in Home tool set item.
+        // This example uses hard-coded title string ("Home") but you may use the tool's localized title if the application is using more than one language.
+        // SpreadsheetToolSetItem? homeToolSetItem = DefaultToolsWithCustomizations.Items
+        //     .FirstOrDefault(x => x.Title == Localizer[nameof(Messages.Spreadsheet_ToolBar_HomeMenu)]);
+
         SpreadsheetToolSetItem? homeToolSetItem = DefaultToolsWithCustomizations.Items
-            .FirstOrDefault(x => x.Title == Localizer[nameof(Messages.Spreadsheet_ToolBar_HomeMenu)]);
+        .FirstOrDefault(x => x.Title == "Home");
 
         var fontFamilyTool = homeToolSetItem?.Tools.FirstOrDefault(x => x is SpreadsheetFontFamilyTool) as SpreadsheetFontFamilyTool;
 

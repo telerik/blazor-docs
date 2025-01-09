@@ -39,69 +39,11 @@ Property | Type | Description
 
 ## OnSelect
 
-The `OnSelect` fires when one or more files have been selected. The selection of files is achieved either through the **Select files** button or by dropping the files anywhere in the component.
+The `OnSelect` fires when one or more files have been selected. The selection of files is achieved either through the **Select Files** button or by dropping the files anywhere in the component.
 
 The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo), which contains a list of `FileInfo` objects that allow the processing of the files.
 
->caption Handling the `OnSelect` event of the FileSelect
-
-````RAZOR
-@*Handle the OnSelect event of the FileSelect to access the selected files and upload them*@
-
-@using System.IO
-@using Microsoft.AspNetCore.Hosting
-@using System.Threading
-@using Telerik.Blazor.Components.FileSelect
-
-@inject IWebHostEnvironment HostingEnvironment
-
-<div style="width:300px">
-    <TelerikFileSelect OnSelect=@HandleFiles
-                       AllowedExtensions="@AllowedExtensions">
-    </TelerikFileSelect>
-    <div class="k-form-hint">
-        Expected files: <strong>JPG, PNG, GIF</strong>
-    </div>
-</div>
-
-@code {
-    public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
-    public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
-
-    private async Task HandleFiles(FileSelectEventArgs args)
-    {
-        foreach (var file in args.Files)
-        {
-            if (!file.InvalidExtension)
-            {
-                // save to local file system
-                await UploadFile(file);
-                // or read file in-memory
-                //await ReadFile(file);
-            }
-        }
-    }
-
-    private async Task UploadFile(FileSelectFileInfo file)
-    {
-        // This code will work in Blazor Server apps.
-        // Saving files on the user device is not allowed in WebAssembly apps.
-        Tokens.Add(file.Id, new CancellationTokenSource());
-        var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
-        await using FileStream fs = new FileStream(path, FileMode.Create);
-        await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
-    }
-
-    private async Task ReadFile(FileSelectFileInfo file)
-    {
-        Tokens.Add(file.Id, new CancellationTokenSource());
-        var byteArray = new byte[file.Size];
-        await using MemoryStream ms = new MemoryStream(byteArray);
-        await file.Stream.CopyToAsync(ms, Tokens[file.Id].Token);
-    }
-}
-````
-
+See the [example below](#example).
 
 ## OnRemove
 
@@ -109,32 +51,73 @@ The `OnRemove` fires when a file has been removed from the list of selected file
 
 The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo). As the FileSelect component allows deleting one item at a time, the collection contains only one `FileSelectFileInfo` object (the deleted one).
 
->caption Handling the `OnRemove` event of the FileSelect
+## Example
+
+>caption Handling the `OnSelect` and `OnRemove` events of the FileSelect
 
 ````RAZOR
-@*Handle the OnRemove event of the FileSelect to access and delete the uploaded files*@
-
-@using System.IO
-@using Microsoft.AspNetCore.Hosting
 @using System.Threading
-@using Telerik.Blazor.Components.FileSelect
 
-@inject IWebHostEnvironment HostingEnvironment
+@*This code works only in Blazor Server apps.*@
+@*@using Microsoft.AspNetCore.Hosting*@
+@*@inject IWebHostEnvironment HostingEnvironment*@
 
-<div style="width:300px">
-	<TelerikFileSelect OnRemove=@HandleRemoveFiles
-					   AllowedExtensions="@AllowedExtensions">
-	</TelerikFileSelect>
-	<div class="k-form-hint">
-		Expected files: <strong>JPG, PNG, GIF</strong>		
-	</div>
+@* Avoid namespace conflict with SvgIcons.File *@
+@using IONS = System.IO
+
+
+<div class="k-form-hint">
+    Expected files: <strong>@string.Join(", ", AllowedExtensions)</strong>
 </div>
 
-@code {
-	public List<string> AllowedExtensions { get; set; } = new List<string>() { ".jpg", ".png", ".gif" };
-	public Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new Dictionary<string, CancellationTokenSource>();
+<TelerikFileSelect AllowedExtensions="@AllowedExtensions"
+                   OnRemove="@RemoveFiles"
+                   OnSelect="@HandleFiles">
+</TelerikFileSelect>
 
-	private async Task HandleRemoveFiles(FileSelectEventArgs args)
+@code {
+    private readonly List<string> AllowedExtensions = new() { ".jpg", ".png", ".gif" };
+
+    private Dictionary<string, CancellationTokenSource> Tokens { get; set; } = new();
+
+    private async Task HandleFiles(FileSelectEventArgs args)
+    {
+        foreach (var file in args.Files)
+        {
+            if (!file.InvalidExtension)
+            {
+                // Read file in-memory.
+                await ReadFile(file);
+
+                // OR
+
+                // Save to local file system.
+                // This works only in server apps and the Upload component may be a better choice.
+                //await UploadFile(file);
+            }
+        }
+    }
+
+    private async Task ReadFile(FileSelectFileInfo file)
+    {
+        Tokens.Add(file.Id, new CancellationTokenSource());
+        byte[] byteArray = new byte[file.Size];
+        await using IONS.MemoryStream ms = new(byteArray);
+        await file.Stream.CopyToAsync(ms, Tokens[file.Id].Token);
+    }
+
+    private async Task UploadFile(FileSelectFileInfo file)
+    {
+        // This code works only in Blazor Server apps.
+        // Saving files on the user device is not allowed in WebAssembly apps.
+
+        //Tokens.Add(file.Id, new CancellationTokenSource());
+        //string path = Path.Combine(HostingEnvironment.WebRootPath, file.Name);
+        //await using FileStream fs = new FileStream(path, FileMode.Create);
+        //await file.Stream.CopyToAsync(fs, Tokens[file.Id].Token);
+    }
+
+    private async Task RemoveFiles(FileSelectEventArgs args)
     {
         foreach (var file in args.Files)
         {
@@ -144,18 +127,22 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 
             await Task.Delay(1);
 
-            var path = Path.Combine(HostingEnvironment?.WebRootPath, file.Name);
+            // This code works only in Blazor Server apps.
+            // Saving files on the user device is not allowed in WebAssembly apps.
 
-            // Remove the file from the file system
-            File.Delete(path);
+            //string path = Path.Combine(HostingEnvironment.WebRootPath, file.Name);
+
+            //if (IONS.File.Exists(path))
+            //{
+            //    // Remove the file from the file system
+            //    IONS.File.Delete(path);
+            //}
         }
-
     }
 }
 ````
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
-
 
 ## See Also
 

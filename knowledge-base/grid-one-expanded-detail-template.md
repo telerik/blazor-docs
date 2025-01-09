@@ -68,7 +68,7 @@ You can use the [grid state](slug://grid-state) to make sure only one item is ex
         state.ExpandedItems = new List<MainModel> { currItem };
         // Note: SetState() will call OnRead, so you may want to
         // consider raising flags and caching data if you want to reduce requests for remote data
-        await Grid.SetState(state);
+        await Grid.SetStateAsync(state);
     }
 
     async Task OnRowClickHandler(GridRowClickEventArgs args)

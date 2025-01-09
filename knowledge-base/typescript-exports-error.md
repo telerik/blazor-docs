@@ -35,6 +35,7 @@ To reproduce the basic error, just add a TypeScript file, `export` a function fr
 
 >caption Sample TypeScript file - `wwwroot/js/MyScript.ts`
 
+<div class="skip-repl"></div>
 ````TypeScript
 export function test() {
     alert("test");
@@ -43,6 +44,7 @@ export function test() {
 
 >caption Referencing the resulting JS file in the index file
 
+<div class="skip-repl"></div>
 ````RAZOR
     . . .
     <script src="js/MyScript.js"></script>
@@ -54,7 +56,8 @@ export function test() {
 
 >caption Resulting output in the JS file (generated through the `Microsoft.TypeScript.MSBuild` package Visual Studio offers to install for you to build TS, other compilers often have similar default output)
 
-````MyScript.js
+<div class="skip-repl"></div>
+````JavaScript MyScript.js
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.test = void 0;
@@ -75,6 +78,7 @@ Then, if you add a workaround that is commonly offered on the Internet for that,
 
 >caption Commonly shared workaround for the error above
 
+<div class="skip-repl"></div>
 ````JavaScript
     <script>
         var exports = {}; // defining an empty exports object is that common workaround
@@ -105,6 +109,7 @@ To get scripts running from TypeScript files, you may want to look into using to
 
 >caption Sample `tsconfig.json` to disable generation of exports so you don't get the first error
 
+<div class="skip-repl"></div>
 ````JSON
 {
   "compilerOptions": {
@@ -115,6 +120,7 @@ To get scripts running from TypeScript files, you may want to look into using to
 
 >caption Updated `MyScript.ts` file without exports
 
+<div class="skip-repl"></div>
 ````TypeScript
 function test() {
     alert("test");
@@ -123,6 +129,7 @@ function test() {
 
 >caption Result from the compiled TypeScript
 
+<div class="skip-repl"></div>
 ````JavaScript
 function test() {
     alert("test");

@@ -34,7 +34,9 @@ The PdfViewer does not currently have the capability to manage digital signature
 
 ## Example
 
-```csharp
+<div class="skip-repl"></div>
+
+````C#
 <TelerikPdfViewer Data="@PdfSource">
     <PdfViewerToolBar>
         <PdfViewerToolBarOpenTool />
@@ -142,7 +144,7 @@ The PdfViewer does not currently have the capability to manage digital signature
         return signedDocBytes;
     }
 }
-```
+````
 
 ## Notes
 
