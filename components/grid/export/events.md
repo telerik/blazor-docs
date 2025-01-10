@@ -17,9 +17,11 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
   - [OnBeforeExport](#onbeforeexport)
     - [For Excel Export](#for-excel-export)
     - [For CSV Export](#for-csv-export)
+    - [For PDF Export](#for-pdf-export)
   - [OnAfterExport](#onafterexport)
     - [For Excel Export](#for-excel-export-1)
     - [For CSV Export](#for-csv-export-1)
+    - [For PDF Export](#for-pdf-export)
 
 ## OnBeforeExport
 
@@ -251,6 +253,10 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 }
 ````
 
+### For Pdf Export
+
+xzxz
+
 ## OnAfterExport
 
 The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and before the generated file is provided to the user. You can use the event to make changes to the exported file. The event handler receives a `GridAfterExcelExportEventArgs` or `GridAfterCsvExportEventArgs` object, depending on the type of export, which provides the following fields:
@@ -405,6 +411,9 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 }
 ````
 
+### For Pdf Export
+
+xzxz
 
 ## See Also
 
