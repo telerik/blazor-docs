@@ -68,6 +68,7 @@ This section contains the following examples:
 
 * [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
 * [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
+    * [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
 * [Drag and Drop between Grid, TreeList, TreeView and Scheduler](#drag-and-drop-between-grid-treelist-treeview-and-scheduler)
 * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
@@ -132,7 +133,7 @@ This section contains the following examples:
 
 ### Drag and Drop a Row between Grids
 
-When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for both Grid instances, so you can update their data sources. All Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface](slug://grid-kb-drag-drop-different-models).
+When you drag and drop items from one Grid to another, the `OnRowDrop` event fires for the source Grid instance and provides information about the destination Grid. Thus you can update the data sources of both Grids. The Grid instances must be bound to the same model type. It is also possible to [bind the Grids to different models, but they must be derived from the same interface](slug://grid-kb-drag-drop-different-models).
 
 The target drop area in the Grid is the `<table>` element. Users cannot drop items in the empty space below the last table row and this includes the `NoDataTemplate` too. There are two ways to prevent possible confusion and enhance the UX:
 
@@ -1769,7 +1770,6 @@ List on known limitations for the Grid Drag and Drop features:
 ## See Also
 
 * [Live Demo: Grid Drag and Drop](https://demos.telerik.com/blazor-ui/grid/drag-drop)
+* [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
 * [Drag and Drop between Different Parent Components](slug://grid-kb-drag-drop-in-different-components)
 * [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
-* [Blazor Grid](slug://grid-overview)
-
