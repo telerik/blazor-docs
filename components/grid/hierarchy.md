@@ -125,8 +125,7 @@ The following articles and sample projects can be helpful when implementing hier
 
 ## See Also
 
-  * [Live Demo: Grid Hierarchy](https://demos.telerik.com/blazor-ui/grid/hierarchy)
-  * [KB: Customize Hierarchy Expand Column in Blazor Grid](slug://grid-kb-customize-hierarchy-expand-column-blazor-grid)
-  * [Blazor Grid](slug://grid-overview)
-   
-  
+* [Live Demo: Grid Hierarchy](https://demos.telerik.com/blazor-ui/grid/hierarchy)
+* [Customize Hierarchy Expand Column in Blazor Grid](slug://grid-kb-customize-hierarchy-expand-column-blazor-grid)
+* [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
+* [Blazor Grid](slug://grid-overview)
