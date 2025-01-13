@@ -115,31 +115,36 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 >caption Call `Rebind()` or create new Data reference
 
 ````RAZOR
-<p>
-    <TelerikButton OnClick="@RefreshGridData">Refresh Grid Data</TelerikButton>
-</p>
-
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
-             AutoGenerateColumns="true" />
+             AutoGenerateColumns="true">
+    <GridToolBarTemplate>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@RefreshGridData">Modify Grid Data And Refresh</TelerikButton>
+    </GridToolBarTemplate>
+</TelerikGrid>
 
 @code {
-    TelerikGrid<SampleModel> GridRef { get; set; }
-    List<SampleModel> GridData { get; set; }
+    private TelerikGrid<SampleModel>? GridRef { get; set; }
 
-    void RefreshGridData()
+    private List<SampleModel> GridData { get; set; } = new();
+
+    private int LastId { get; set; }
+
+    private void RefreshGridData()
     {
-        var newId = GridData.Count + 1;
+        GridData.RemoveAt(0);
 
-        GridData.FirstOrDefault().Text = DateTime.Now.Ticks.ToString();
+        GridData.ElementAt(Random.Shared.Next(0, GridData.Count)).Text = DateTime.Now.Ticks.ToString();
 
-        GridData.Add(new SampleModel() {
-            Id = newId,
-            Text = "Text " + newId
+        GridData.Add(new SampleModel()
+        {
+            Id = ++LastId,
+            Text = "Text " + LastId
         });
 
         // Call Rebind...
-        GridRef.Rebind();
+        GridRef?.Rebind();
 
         // ...OR...
 
@@ -152,13 +157,12 @@ Thus, you will usually need to create a new reference for `Data` value in order 
 
     protected override void OnInitialized()
     {
-        GridData = new List<SampleModel>();
-
-        for (int i = 1; i <= 3; i++)
+        for (int i = 1; i <= 5; i++)
         {
-            GridData.Add(new SampleModel() {
-                Id = i,
-                Text = "Text " + i
+            GridData.Add(new SampleModel()
+            {
+                Id = ++LastId,
+                Text = $"Text {LastId}"
             });
         }
 
@@ -168,7 +172,7 @@ Thus, you will usually need to create a new reference for `Data` value in order 
     public class SampleModel
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
