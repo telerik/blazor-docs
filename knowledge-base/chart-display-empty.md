@@ -105,4 +105,4 @@ By applying the `.k-chart-overlay { display: none; }` style, the No Data templat
 ## See Also
 
 - [Blazor Charts Overview](slug://components/chart/overview)
-- [Customizing the Appearance of Blazor Charts](slug://themes-override)
+- [Override Theme Styles](slug://themes-override)
