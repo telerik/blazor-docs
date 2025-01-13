@@ -220,7 +220,13 @@ Also check [how to rebind and refresh a component with a `Timer`](slug://common-
 ````RAZOR
 @using Telerik.DataSource.Extensions
 
-<TelerikDropDownList @ref="@TheDropDown"
+<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+               OnClick="@RebindComponents">Rebind Components</TelerikButton>
+
+<br />
+<br />
+
+<TelerikDropDownList @ref="@DropDownListRef"
                      TItem="@SampleModel"
                      TValue="@int"
                      OnRead="@OnDropDownRead"
@@ -236,13 +242,10 @@ Also check [how to rebind and refresh a component with a `Timer`](slug://common-
     </ItemTemplate>
 </TelerikDropDownList>
 
-<TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
-               OnClick="@RebindComponents">Rebind Components</TelerikButton>
-
 <br />
 <br />
 
-<TelerikGrid @ref="@TheGrid"
+<TelerikGrid @ref="@GridRef"
              TItem="@SampleModel"
              OnRead="@OnGridRead"
              AutoGenerateColumns="true"
@@ -251,34 +254,34 @@ Also check [how to rebind and refresh a component with a `Timer`](slug://common-
              PageSize="5" />
 
 @code {
-    TelerikGrid<SampleModel> TheGrid { get; set; }
-    TelerikDropDownList<SampleModel, int> TheDropDown { get; set; }
+    private TelerikGrid<SampleModel>? GridRef { get; set; }
+    private TelerikDropDownList<SampleModel, int>? DropDownListRef { get; set; }
 
-    List<SampleModel> GridData { get; set; }
-    List<SampleModel> DropDownData { get; set; }
+    private List<SampleModel> GridData { get; set; } = new();
+    private List<SampleModel> DropDownData { get; set; } = new();
 
-    int DropDownValue { get; set; } = 1;
+    private int DropDownValue { get; set; } = 1;
 
-    int ItemCounter { get; set; } = 3;
+    private int ItemCounter { get; set; } = 3;
 
-    void RebindComponents()
+    private void RebindComponents()
     {
-        GenerateData(); // simulate change in the data
+        GenerateData(); // simulate data change
 
-        TheGrid.Rebind();
-        TheDropDown.Rebind();
+        GridRef?.Rebind();
+        DropDownListRef?.Rebind();
     }
 
-    async Task OnGridRead(GridReadEventArgs args)
+    private async Task OnGridRead(GridReadEventArgs args)
     {
-        var result = GridData.ToDataSourceResult(args.Request);
+        var result = await GridData.ToDataSourceResultAsync(args.Request);
         args.Data = result.Data;
         args.Total = result.Total;
     }
 
-    async Task OnDropDownRead(DropDownListReadEventArgs args)
+    private async Task OnDropDownRead(DropDownListReadEventArgs args)
     {
-        var result = DropDownData.ToDataSourceResult(args.Request);
+        var result = await DropDownData.ToDataSourceResultAsync(args.Request);
         args.Data = result.Data;
         args.Total = result.Total;
     }
@@ -290,17 +293,15 @@ Also check [how to rebind and refresh a component with a `Timer`](slug://common-
         base.OnInitialized();
     }
 
-    void GenerateData()
+    private void GenerateData()
     {
         GridData = new List<SampleModel>();
         DropDownData = new List<SampleModel>();
 
-        var rnd = new Random();
-
         for (int i = 1; i <= ItemCounter; i++)
         {
-            GridData.Add(new SampleModel() { Id = i, Text = $"Text {rnd.Next(1, 100)}" });
-            DropDownData.Add(new SampleModel() { Id = i, Text = $"Text {rnd.Next(1, 100)}" });
+            GridData.Add(new SampleModel() { Id = i, Text = $"Text {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}" });
+            DropDownData.Add(new SampleModel() { Id = i, Text = $"Text {(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)}" });
         }
 
         ItemCounter++;
@@ -309,7 +310,7 @@ Also check [how to rebind and refresh a component with a `Timer`](slug://common-
     public class SampleModel
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
     }
 }
 ````
