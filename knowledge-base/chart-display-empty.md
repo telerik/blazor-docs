@@ -1,9 +1,9 @@
 ---
-title: How to Display an Empty Chart Without Data
+title: How to Show Empty Chart Instead the Default No Data Template
 description: Learn how to show an empty Chart component when there is no data, instead of displaying the default No Data template.
 type: how-to
-page_title: How to Display an Empty Chart Without Data
-slug: chark-kb-display-empty-chart
+page_title: How to Show Empty Chart Instead the Default No Data Template
+slug: chart-kb-display-empty-chart
 tags: charts, blazor, no data template, empty chart
 res_type: kb
 ticketid: 1675313
