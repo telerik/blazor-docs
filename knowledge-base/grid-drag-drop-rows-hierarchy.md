@@ -1,6 +1,6 @@
 ---
 title: Drag and Drop Grid Rows in Hierarchy
-description: Learn how to implement and setup drag-and-drop in hierarchical Blazor Grid scenarios. Enable or disable dragging and dropping in specific Grid instances in the hierarchy.
+description: Learn how to implement and set up drag-and-drop in hierarchical Blazor Grid scenarios. Enable or disable dragging and dropping in specific Grid instances in the hierarchy.
 type: how-to
 page_title: How to Drag and Drop Grid Rows in Hierarchy
 slug: grid-kb-drag-drop-rows-hierarchy
