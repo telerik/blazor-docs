@@ -68,7 +68,6 @@ This section contains the following examples:
 
 * [Drag and Drop a Row in the same Grid](#drag-and-drop-a-row-in-the-same-grid)
 * [Drag and Drop a Row between Grids](#drag-and-drop-a-row-between-grids)
-    * [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
 * [Drag and Drop between Grid, TreeList, TreeView and Scheduler](#drag-and-drop-between-grid-treelist-treeview-and-scheduler)
 * [Drag and Drop multiple Rows](#drag-and-drop-multiple-rows)
 
@@ -140,7 +139,7 @@ The target drop area in the Grid is the `<table>` element. Users cannot drop ite
 * Do not set a Grid `Height`, so that there is no empty space below the last table row.
 * Define a [`NoDataTemplate`](slug://grid-templates-no-data), which fills the Grid data area.
 
-The following example demonstrates both these options:
+The following example demonstrates both these options. You can also check how to [drag and drop rows in a Grid hierarchy](slug://grid-kb-drag-drop-rows-hierarchy).
 
 >caption Drag and drop items between Grids
 
