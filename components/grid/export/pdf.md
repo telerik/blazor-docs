@@ -33,7 +33,7 @@ To enable the Grid PDF Export, add a [command button](slug:components/grid/colum
 </GridToolBarTemplate>
 ````
 
-Optionally, you can also set the `GridPdfExport` tag settings under the `GridExport` tag to subscribe to [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the PDF export options:
+Optionally, you can also set the `GridPdfExport` tag settings under the `GridExport` tag to subscribe to the [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the PDF export options:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -78,8 +78,9 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 </TelerikGrid>
 
 @code {
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -158,16 +159,16 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private MemoryStream exportedPdfStream { get; set; }
 
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
+
     private async Task GetTheDataAsAStream()
     {
         MemoryStream finalizedStream = await GridRef.ExportToPdfAsync();
 
         exportedPdfStream = new MemoryStream(finalizedStream.ToArray());
     }
-
-    private List<SampleData> GridData { get; set; }
-
-    private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -198,7 +199,7 @@ To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` e
 
 The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title` and more.
 
-For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license. Find examples on how to [format the cells of the exported PDF file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing) and how to [format the cells of the exported PDF file with RadSpreadStreamProcessing](slug: grid-kb-custom-cell-formatting-with-radspreadstreamprocessing).
+For more advanced customization the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`PdfProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library that is available with your license.
 
 Read more about how to [customize the exported file](slug:grid-export-events).
 

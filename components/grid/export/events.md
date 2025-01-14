@@ -21,7 +21,7 @@ You can customize the files exported to Excel and CSV by using the [OnBeforeExpo
   - [OnAfterExport](#onafterexport)
     - [For Excel Export](#for-excel-export-1)
     - [For CSV Export](#for-csv-export-1)
-    - [For PDF Export](#for-pdf-export)
+    - [For PDF Export](#for-pdf-export-1)
 
 ## OnBeforeExport
 
@@ -258,14 +258,14 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 * `Columns` - `List<GridPdfExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into PDF:
 
     * `Width` - define the width of the column **in pixels**.
-    * `Title` - define the column title to be shown in the Excel file header. 
+    * `Title` - define the column title to be shown in the PDF file header. 
     * `NumberFormat` - provide an PDF-compatible number/date format
     * `Field` - set the data bound field of the column.
     
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridPdfExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
 
 * `isCancelled` -  `bool` - cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
 
@@ -390,6 +390,8 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 * `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
+>caption Get the stream of the exported Excel file
+
 ````RAZOR Excel
 @* Get the output of the excel export as a memory stream *@
 
@@ -465,6 +467,8 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 * `Stream` - `MemoryStream` - The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
+>caption Get the stream of the exported CSV file
+
 ````RAZOR CSV
 @* Get the output of the CSV export as a memory stream *@
 
@@ -536,9 +540,11 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 }
 ````
 
-### For Pdf Export
+### For PDF Export
 
 * `Stream` - `MemoryStream` - The output of the PDF export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+
+>caption Get the stream of the exported PDF file
 
 ````RAZOR
 @* Get the output of the PDF export as a MemoryStream *@
