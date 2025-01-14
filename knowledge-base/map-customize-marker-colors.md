@@ -1,21 +1,13 @@
 ---
-title: How to Customize Map Marker Colors in Blazor Applications
+title: How to Customize Map Marker Colors
 description: Learn how to customize the appearance of map markers by setting and changing their colors in a Blazor application.
 type: how-to
-page_title: How to Customize Map Marker Colors in Blazor Applications
+page_title: How to Customize Map Marker Colors
 slug: map-kb-customize-marker-colors
 tags: map, markers
 res_type: kb
 ticketid: 1675518
 ---
-
-## Description
-
-When integrating a [Map for Blazor](slug://components/map/layers), you might want to customize the appearance of your map markers to differentiate them or match your application's theme. This knowledge base article also answers the following questions:
-
-- How can I set the color of a map marker in Blazor?
-- How to change the color of specific map markers based on their titles?
-- How to apply custom styles to map markers in a Blazor application?
 
 ## Environment
 
@@ -27,6 +19,14 @@ When integrating a [Map for Blazor](slug://components/map/layers), you might wan
         </tr>
     </tbody>
 </table>
+
+## Description
+
+When integrating a [Map for Blazor](slug://components/map/layers), you might want to customize the appearance of your map markers to differentiate them or match your application's theme. This knowledge base article also answers the following questions:
+
+- How can I set the color of a map marker in Blazor?
+- How to change the color of specific map markers based on their titles?
+- How to apply custom styles to map markers in a Blazor application?
 
 ## Solution
 
