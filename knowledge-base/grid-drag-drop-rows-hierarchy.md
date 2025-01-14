@@ -27,7 +27,7 @@ res_type: kb
 This KB answers the following questions:
 
 * How to configure drag-and-drop in a hierarchy of Telerik Grids for Blazor?
-* How to drag detail row from a child Grid and drop them on the master (parent) Grid?
+* How to drag detail rows from a child Grid and drop them on the master (parent) Grid?
 * How to prevent users from dragging and dropping master Grid rows to detail (child) Grids?
 
 ## Solution
