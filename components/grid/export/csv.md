@@ -38,7 +38,6 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-
 | `FileName` | `string` | The name of the file. The grid will add the `.csv` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 

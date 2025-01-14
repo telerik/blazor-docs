@@ -200,6 +200,12 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 </TelerikGrid>
 
 @code {
+    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
+
+    private List<SampleData> GridData { get; set; }
+    
+    private bool ExportAllPages { get; set; }
+
     private async Task OnBeforeCsvExport(GridBeforeCsvExportEventArgs args)
     {
         //export the SelectedItems
@@ -220,11 +226,6 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
         args.IsCancelled = false;
     }
-
-    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
-
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -425,18 +426,19 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 </TelerikGrid>
 
 @code {
+    private MemoryStream excelStream { get; set; }
+
+    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
+
+    private List<SampleData> GridData { get; set; }
+    
+    private bool ExportAllPages { get; set; }
+
     private async Task OnExcelAfterExport(GridAfterExcelExportEventArgs args)
     {
         var bytes = args.Stream.ToArray();
         var excelStream = new MemoryStream(bytes);        
     }
-
-    private MemoryStream excelStream { get; set; }
-
-    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
-
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -502,18 +504,19 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 </TelerikGrid>
 
 @code {
+    private MemoryStream csvStream { get; set; }
+
+    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
+
+    private List<SampleData> GridData { get; set; }
+    
+    private bool ExportAllPages { get; set; }
+
     private async Task OnCSVAfterExport(GridAfterCsvExportEventArgs args)
     {
         var bytes = args.Stream.ToArray();
         var excelStream = new MemoryStream(bytes);       
     }
-
-    private MemoryStream csvStream { get; set; }
-
-    private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
-
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -583,12 +586,6 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 </TelerikGrid>
 
 @code {
-    private async Task OnAfterPDFExport(GridAfterPdfExportEventArgs args)
-    {
-        var bytes = args.Stream.ToArray();
-        var pdfStream = new MemoryStream(bytes);
-    }
-
     private MemoryStream pdfStream { get; set; }
 
     private IEnumerable<object> SelectedItems = Enumerable.Empty<object>();
@@ -596,6 +593,12 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
     private List<SampleData> GridData { get; set; }
 
     private bool ExportAllPages { get; set; }
+
+    private async Task OnAfterPDFExport(GridAfterPdfExportEventArgs args)
+    {
+        var bytes = args.Stream.ToArray();
+        var pdfStream = new MemoryStream(bytes);
+    }
 
     protected override void OnInitialized()
     {

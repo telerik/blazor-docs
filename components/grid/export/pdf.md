@@ -10,7 +10,7 @@ position: 1
 
 # PDF Export
 
-You can export the grid to PDF with a click of a button. The current filter, sort, page, grouping, column order and column size are applied to the exported PDF document.
+You can export the Grid to PDF with a click of a button. The current filter, sort, page, grouping, column order and column size are applied to the exported PDF document.
 
 When you click the Export button, your browser will receive the resulting file.
 
@@ -38,7 +38,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `FileName` | `string` | The name of the file. The grid will add the `.pdf` extension for you. |
+| `FileName` | `string` | The name of the file. The Grid will add the `.pdf` extension for you. |
 | `AllPages` | `bool` |  Whether to export the current page only, or the entire data from the data source. |
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
 | `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page - portrait and landscape. |
@@ -206,10 +206,10 @@ Read more about how to [customize the exported file](slug:grid-export-events).
 
 The PDF export has the following specifics:
 
-* When exporting grid columns, the developer must provide column widths that are appropriate for exporting the data. While an Excel file allows resizing its columns, the PDF file format does not allow resizing the columns. The width of the column can be changed from the `OnBeforeExportEventArgs.Columns[0].Width property`, so developers have full control over this value (note that it can be different from the one defined in the corresponding grid column, thus ensuring flexibility to render the grid columns with one widths and export them in others).
-* We do not recommend exporting columns without widths - while Excel has a default width for a column,  PDF requires fixed dimensions. We recommend setting specific widths to all columns  when exporting (note that this is unrelated to the width of the column of the grid as the export width can be configured in `OnBeforeExportEventArgs.Columns[0].Width` property.
+* When exporting Grid columns, the developer must provide column widths that are appropriate for exporting the data. While an Excel file allows resizing its columns, the PDF file format does not allow resizing the columns. You can change the width of the column from the [`OnBeforeExportEventArgs.Columns[0].Width property`](slug://grid-export-events#for-pdf-export), so you have full control over this value (note that it can be different from the one defined in the corresponding Grid column, thus ensuring flexibility to render the Grid columns with one width and export them in other).
+* We do not recommend exporting columns without widths - while Excel has a default width for a column,  PDF requires fixed dimensions. We recommend setting specific widths to all columns  when exporting (note that this is unrelated to the width of the column as the export width can be configured through the [`OnBeforeExport` event](slug://grid-export-events#for-pdf-export).
 * PDF does not understand units different than `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
-* When exporting grid columns, the developer must provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in a A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
+* When exporting Grid columns, you must provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in a A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
 * Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
 * Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own PDF file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-Pdf).
 
