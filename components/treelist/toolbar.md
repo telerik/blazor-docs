@@ -12,7 +12,7 @@ position: 45
 
 The treelist provides a toolbar where you can add a variety of actions that are not tied to a concrete row.
 
-To use a toolbar, define the `TreeListToolBarTemplate` tag of the treelist. In it, you can use arbitrary HTML and components to get the desired layout, and also `TreeListCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column]({%slug treelist-columns-command%}) article).
+To use a toolbar, define the `TreeListToolBarTemplate` tag of the treelist. In it, you can use arbitrary HTML and components to get the desired layout, and also `TreeListCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column](slug://treelist-columns-command) article).
 
 >note The toolbar is not associated with an item from the data source. The `Item` and `ParentItem` fields on the click event handler argument of a `TreeListCommandButton` will always be `null`, and the `Edit`, `Update`, `Cancel` commands do not work with it.
 
@@ -29,7 +29,7 @@ The treelist offers built-in commands that you can invoke through its toolbar. T
 
 * `Add` - starts inserting a new item in the treelist.
 
-For an example of using the toolbar to insert a new item, see the [TreeList Editing Overview]({%slug treelist-editing-overview%}) article.
+For an example of using the toolbar to insert a new item, see the [TreeList Editing Overview](slug://treelist-editing-overview) article.
 
 ## Custom Commands
 

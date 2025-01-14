@@ -21,7 +21,7 @@ res_type: kb
 
 ## Description
 
-When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
+When using the [InCell](slug://components/grid/editing/incell) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
 
  By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
 
@@ -29,7 +29,7 @@ When using the [InCell]({%slug components/grid/editing/incell%}) Editing Mode, I
 
 ## Solution
 
-Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedItems` collection as required:
+Use the [Grid events](slug://grid-events#cud-events) to update the `SelectedItems` collection as required:
 
 * In the handler for the `OnEdit` event add the currently edited item, passed to the method through the object of type `GridCommandEventArgs`, into the `SelectedItems` collection.
 
@@ -37,9 +37,9 @@ Use the [Grid events]({%slug grid-events%}#cud-events) to update the `SelectedIt
 
 * In the handler for the `OnUpdate` event, update the `SelectedItems` collection with the new value of the edited item to ensure data integrity.
 
-* For non-editable cells you can use the [OnRowClick]({%slug grid-events%}#onrowclick) event. 
+* For non-editable cells you can use the [OnRowClick](slug://grid-events#onrowclick) event. 
 
-    * Alternatively, add a [Column Template]({%slug grid-templates-column%}). Use a `<div>` block and add an `onclick` event with a method where the row data is added to the SelectedItems collection as shown in the second example.
+    * Alternatively, add a [Column Template](slug://grid-templates-column). Use a `<div>` block and add an `onclick` event with a method where the row data is added to the SelectedItems collection as shown in the second example.
 
 >caption Examples
 

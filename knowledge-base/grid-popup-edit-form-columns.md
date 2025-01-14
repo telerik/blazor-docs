@@ -27,7 +27,7 @@ How do I display the Grid popup edit form in a multiple-column layout? How do I 
 
 ## Solution
 
-Customize the Grid edit from through the [`GridPopupEditFormSettings` tag]({%slug components/grid/editing/popup%}#edit-form-customization).
+Customize the Grid edit from through the [`GridPopupEditFormSettings` tag](slug://components/grid/editing/popup#edit-form-customization).
 
 https://docs.telerik.com/blazor-ui/components/grid/editing/popup#edit-form-customization
 
@@ -49,7 +49,7 @@ In addition to column layout, you can also limit the maximum popup Window height
 }
 ````
 
-> If you place the above CSS rules in the global app stylesheet (usually `site.css`), they will affect **all** TelerikWindows in the app. To avoid this, add the CSS code to the Razor file which holds the Grid. [CSS isolation (scoped styles)]({%slug common-kb-css-isolation%}) will not work, because the Window is rendered as a child of the page `<body>`, i.e. outside the Razor component.
+> If you place the above CSS rules in the global app stylesheet (usually `site.css`), they will affect **all** TelerikWindows in the app. To avoid this, add the CSS code to the Razor file which holds the Grid. [CSS isolation (scoped styles)](slug://common-kb-css-isolation) will not work, because the Window is rendered as a child of the page `<body>`, i.e. outside the Razor component.
 >
 > For full control of the edit form layout and more advanced customizations, you can also use a [custom edit form in a separate TelerikWindow](https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form).
 

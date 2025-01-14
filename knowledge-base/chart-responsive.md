@@ -33,7 +33,7 @@ This works well for the initial rendering and the Chart will be "responsive" imm
 When the window resizes, you have to resize the Chart dynamically at runtime:
 
 1. Add a JS function that listens for the [window resize event](https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event) and invokes a C# method. Ensure that the method name in the JS function matches the one in your C# code.
-1. In the C# method call the [Chart `.Refresh()` method]({%slug components/chart/overview%}#chart-reference-and-methods) to re-render the Chart so it matches the new window size.
+1. In the C# method call the [Chart `.Refresh()` method](slug://components/chart/overview#chart-reference-and-methods) to re-render the Chart so it matches the new window size.
 
 
 ````RAZOR

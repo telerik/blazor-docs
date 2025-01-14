@@ -20,7 +20,7 @@ Clicking the **Update Now** button starts the Latest Version Acquirer tool which
 -->
 
 
-Clicking the **Get Latest** button in the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. To continue, you must use your Telerik credentials.
+Clicking the **Get Latest** button in the [Create New Project](slug://getting-started-vs-integration-new-project) wizard starts the Latest Version Acquirer tool. The tool checks for new versions of the UI components and allows you to download them to your computer. To continue, you must use your Telerik credentials.
 
 1. Click on the LOG IN button. This will open a browser window with a login form on the telerik.com website.
 
@@ -30,11 +30,11 @@ Clicking the **Get Latest** button in the [Create New Project]({% slug getting-s
 1. Return to Visual Studio and confirm any privacy-related requests.
 1. In the next dialog that appears, click the **Download** button.
 
-1. Return to the [Create New Project]({% slug getting-started-vs-integration-new-project %}) wizard and select the newly downloaded version.
+1. Return to the [Create New Project](slug://getting-started-vs-integration-new-project) wizard and select the newly downloaded version.
 
 The Latest Version Acquirer tool downloads a `.zip` file that contains the latest Telerik UI for Blazor packages. By default, the file is saved in the `%APPDATA%\Telerik\Updates` folder. If the list with the offered packages gets too long and you do not need the prior versions, close VS and use the Windows Explorer to delete these distributions.
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview]({% slug getting-started-vs-integration-overview %})
-* [Creating New Projects with Visual Studio]({% slug getting-started-vs-integration-new-project %})
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
+* [Creating New Projects with Visual Studio](slug://getting-started-vs-integration-new-project)

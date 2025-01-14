@@ -17,7 +17,7 @@ This article explains the events available in the Telerik TileLayout for Blazor:
 
 ## OnResize
 
-The `OnResize` event is fired when any tile is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
+The `OnResize` event is fired when any tile is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug://tilelayout-state) for your users.
 
 The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. It exposes two properties:
 
@@ -88,7 +88,7 @@ The `OnResize` event provides an argument of type `TileLayoutResizeEventArgs`. I
 
 ## OnReorder
 
-The `OnReorder` event fires when tiles have been reordered. You can use it to, for example, update the saved [state]({%slug tilelayout-state%}) for your users.
+The `OnReorder` event fires when tiles have been reordered. You can use it to, for example, update the saved [state](slug://tilelayout-state) for your users.
 
 The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`. It exposes two properties:
 
@@ -128,9 +128,9 @@ The `OnReorder` event provides an argument of type `TileLayoutReorderEventArgs`.
 
 ## Next Steps
 
-* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+* [Manage the Tile Layout state](slug://tilelayout-state).
 
 
 ## See Also
 
-* [TileLayout Overview]({%slug tilelayout-overview%})
+* [TileLayout Overview](slug://tilelayout-overview)

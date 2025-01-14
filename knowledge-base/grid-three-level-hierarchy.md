@@ -31,7 +31,7 @@ I'm trying to see more than 1 level of hierarchy in my grid but i don't know how
 
 Put nested `<TelerikGrid>` instances in the `DetailTemplate` of their parents. This allows you to have multiple levels of nested grids. The example below shows a three-level hierarchy.
 
->note It is important to use named `context` variables, otherwise such code will not compile. Read more [here]({%slug nest-renderfragment%}).
+>note It is important to use named `context` variables, otherwise such code will not compile. Read more [here](slug://nest-renderfragment).
 
 >caption Three Level Hierarchy in a Grid
 

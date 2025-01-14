@@ -135,6 +135,6 @@ The `Opacity` (`double`) parameter controls the of the range. The value passed t
 
 * [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
 * [Live Demo: Linear Gauge - Scale Ranges](https://demos.telerik.com/blazor-ui/lineargauge/scale-ranges)
-* [Linear Gauge: Overview]({%slug linear-gauge-overview%})
-* [Linear Gauge: Overview]({%slug linear-gauge-scale%})
-* [Linear Gauge: Pointers]({%slug linear-gauge-pointers%})
+* [Linear Gauge: Overview](slug://linear-gauge-overview)
+* [Linear Gauge: Overview](slug://linear-gauge-scale)
+* [Linear Gauge: Pointers](slug://linear-gauge-pointers)

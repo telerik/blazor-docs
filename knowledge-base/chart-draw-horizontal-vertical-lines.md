@@ -32,15 +32,15 @@ This KB article answers the following questions:
 
 ## Solution
 
-To configure the Chart for drawing horizontal and vertical lines, you can use [plot bands]({%slug chart-plot-bands%}) or additional [line series]({%slug components/chart/types/line%}).
+To configure the Chart for drawing horizontal and vertical lines, you can use [plot bands](slug://chart-plot-bands) or additional [line series](slug://components/chart/types/line).
 
 ### Using Plot Bands
 
-Steps for drawing vertical and horizontal lines with [plot bands]({%slug chart-plot-bands%}):
+Steps for drawing vertical and horizontal lines with [plot bands](slug://chart-plot-bands):
 
 1. Add `PlotBand` instances inside the `PlotBands` collection of a Chart axis.
 2. Provide a valid CSS color to the `Color` parameter.
-3. [Set the `From` and `To`]({%slug chart-plot-bands%}#setting-from-and-to) plot band parameters.
+3. [Set the `From` and `To`](slug://chart-plot-bands#setting-from-and-to) plot band parameters.
 
 >caption Drawing Horizontal and Vertical lines with Plot Bands
 
@@ -111,7 +111,7 @@ Steps for drawing vertical and horizontal lines with [plot bands]({%slug chart-p
 
 ### Using Additional ScatterLine Series
 
-Steps for drawing horizontal and vertical lines with additional [ScatterLine Series]({%slug components/chart/types/scatterline%}):
+Steps for drawing horizontal and vertical lines with additional [ScatterLine Series](slug://components/chart/types/scatterline):
 
 1. Add `ChartSeries` instances of type `ChartSeriesType.ScatterLine` based on the needed number of lines.
 2. Set data for the lines based on the information shown from the main Chart.
@@ -220,5 +220,5 @@ Steps for drawing horizontal and vertical lines with additional [ScatterLine Ser
 
 ## See Also
 
-* [Charts Plot Bands]({%slug chart-plot-bands%})
+* [Charts Plot Bands](slug://chart-plot-bands)
 * [ScatterLine Chart](https://demos.telerik.com/blazor-ui/chart/scatter-line-chart)

@@ -33,7 +33,7 @@ This KB article answers the following questions:
 * How to build the `telerik-blazor.js` file without some of the components?
 * How to exclude components from the Telerik Blazor JSInterop file and rebuild `telerik-blazor.js`?
 * How to remove components from the client-side code of Telerik UI for Blazor?
-* How to remove the Spreadsheet component from `telerik-blazor.js` in order to achieve [strict Content Security Policy compliance]({%slug troubleshooting-csp%})?
+* How to remove the Spreadsheet component from `telerik-blazor.js` in order to achieve [strict Content Security Policy compliance](slug://troubleshooting-csp)?
 * How to remove the PDF Viewer component from `telerik-blazor.js` in order to avoid conflicts with other third-party tools that depend on PDF.js?
 * How to reduce the file size of the Telerik Blazor JavaScript asset?
 
@@ -58,10 +58,10 @@ Here are the required steps to exclude Telerik UI for Blazor components from `te
 1. Run `npm install` in the `javascript` folder.
 1. Run `gulp build-cdn` in the `javascript` folder.
 1. Copy the generated `telerik-blazor.js` file to the `wwwroot` folder or your Blazor app.
-1. Remove the existing `telerik-blazor.js` file registration as a [static asset]({%slug getting-started/what-you-need%}#javascript-file) or [CDN URL]({%slug common-features-cdn%}#javascript-urls). Register the custom `telerik-blazor.js` from `wwwroot`.
+1. Remove the existing `telerik-blazor.js` file registration as a [static asset](slug://getting-started/what-you-need#javascript-file) or [CDN URL](slug://common-features-cdn#javascript-urls). Register the custom `telerik-blazor.js` from `wwwroot`.
 
-> Repeat the above steps and rebuild `telerik-blazor.js` after every [version update of Telerik UI for Blazor]({%slug upgrade-tutorial%}).
+> Repeat the above steps and rebuild `telerik-blazor.js` after every [version update of Telerik UI for Blazor](slug://upgrade-tutorial).
 
 ## See Also
 
-* [Adding Telerik UI for Blazor to a Blazor app]({%slug getting-started/what-you-need%})
+* [Adding Telerik UI for Blazor to a Blazor app](slug://getting-started/what-you-need)

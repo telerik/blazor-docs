@@ -134,4 +134,4 @@ The `TrackRounded` attribute applies the `border-radius` CSS rule to the track o
 
 ## See Also
 
-* [Change the Switch Background Color]({%slug switch-kb-change-background-color%})
+* [Change the Switch Background Color](slug://switch-kb-change-background-color)

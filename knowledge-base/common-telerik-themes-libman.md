@@ -29,7 +29,7 @@ This KB article answers the following questions:
 * How to use LibMan to add Telerik themes to your Telerik Blazor app.
 * How to update local themes in `wwwroot` automatically when a new version is available.
 
-[LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/) is a client-side dependency manager, which is included in ASP.NET Core. You can use it to automatically download a Telerik theme to the `wwwroot` folder of your app, instead of using [static NuGet assets]({%slug themes-overview%}#loading-themes-from-the-nuget-package) or [Telerik CDN]({%slug common-features-cdn%}).
+[LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/) is a client-side dependency manager, which is included in ASP.NET Core. You can use it to automatically download a Telerik theme to the `wwwroot` folder of your app, instead of using [static NuGet assets](slug://themes-overview#loading-themes-from-the-nuget-package) or [Telerik CDN](slug://common-features-cdn).
 
 The benefits of Libman are:
 
@@ -42,8 +42,8 @@ The benefits of Libman are:
 
 You can use Libman to consume the following **npm** packages that are published on the **UNPKG** CDN:
 
-* [`@progress/kendo-font-icons`](https://www.npmjs.com/package/@progress/kendo-font-icons) provides font icon styles when using [font icons instead of SVG icons]({%slug common-features-icons%}).
-* All [built-in themes]({%slug themes-overview%}) and their [swatches]({%slug themes-overview%}#basics):
+* [`@progress/kendo-font-icons`](https://www.npmjs.com/package/@progress/kendo-font-icons) provides font icon styles when using [font icons instead of SVG icons](slug://common-features-icons).
+* All [built-in themes](slug://themes-overview) and their [swatches](slug://themes-overview#basics):
     * [`@progress/kendo-theme-bootstrap`](https://www.npmjs.com/package/@progress/kendo-theme-bootstrap)
     * [`@progress/kendo-theme-default`](https://www.npmjs.com/package/@progress/kendo-theme-default)
     * [`@progress/kendo-theme-fluent`](https://www.npmjs.com/package/@progress/kendo-theme-fluent)
@@ -68,9 +68,9 @@ Use the following information when creating the `libman.json` file:
 
 > Using the `@latest` theme version requires the latest Telerik UI for Blazor version as well.
 
-> In rare cases the `@latest` version may produce an error similar to `The "@progress/kendo-theme-default@latest" library could not be resolved by the "unpkg" provider`. In such cases, replace the `@latest` moniker with a [specific theme version](https://github.com/telerik/kendo-themes/releases), depending on the [theme version compatibility with Telerik UI for Blazor]({%slug themes-overview%}#compatibility-and-maintenance). For example, use `^8.0.0` to get the latest version of the major release `8`.
+> In rare cases the `@latest` version may produce an error similar to `The "@progress/kendo-theme-default@latest" library could not be resolved by the "unpkg" provider`. In such cases, replace the `@latest` moniker with a [specific theme version](https://github.com/telerik/kendo-themes/releases), depending on the [theme version compatibility with Telerik UI for Blazor](slug://themes-overview#compatibility-and-maintenance). For example, use `^8.0.0` to get the latest version of the major release `8`.
 
-The `libman.json` file below adds the **Main** swatches of [all built-in themes]({%slug themes-overview%}#built-in-themes) and the font icon stylesheet. Remove the theme or font icons entries that you don't need.
+The `libman.json` file below adds the **Main** swatches of [all built-in themes](slug://themes-overview#built-in-themes) and the font icon stylesheet. Remove the theme or font icons entries that you don't need.
 
 >caption libman.js
 
@@ -143,4 +143,4 @@ Install the `Microsoft.Web.LibraryManager.Build` NuGet package in your Blazor ap
 
 ## See Also
 
-* [Themes Overview]({%slug themes-overview%})
+* [Themes Overview](slug://themes-overview)

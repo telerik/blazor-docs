@@ -17,9 +17,9 @@ The TreeList component offers built-in support for filtering.
 
 To enable filtering, set the `FilterMode` property of the treelist to one of the following values:
 
-* [`Telerik.Blazor.TreeListFilterMode.FilterRow`]({%slug treelist-filter-row%}) - a row of filter options is rendered below the column headers
+* [`Telerik.Blazor.TreeListFilterMode.FilterRow`](slug://treelist-filter-row) - a row of filter options is rendered below the column headers
 
-* [`Telerik.Blazor.TreeListFilterMode.FilterMenu`]({%slug treelist-filter-menu%}) - the column headers render a button that shows a popup with filtering options
+* [`Telerik.Blazor.TreeListFilterMode.FilterMenu`](slug://treelist-filter-menu) - the column headers render a button that shows a popup with filtering options
 
 The behavior of the filter input and the available filter operators will depend on the column data type. For example, a boolean field will only have the options "is true" and "is false" and will not have operators like "contains" or "greater than".
 
@@ -36,15 +36,15 @@ Filtering keeps the expanded/collapsed state of items. For example, if filtering
 
 In addition to the two main filtering modes, the treelist offers two more features that can enhance the user experience when looking for data:
 
-* A [searchbox in the toolbar]({%slug treelist-searchbox%}) can amend the filters and let the user look up many fields at once
+* A [searchbox in the toolbar](slug://treelist-searchbox) can amend the filters and let the user look up many fields at once
 
-* The filter menu can show a [list of checkboxes]({%slug treelist-checklist-filter%}) with the distinct values from the data to make filtering resemble Excel.
+* The filter menu can show a [list of checkboxes](slug://treelist-checklist-filter) with the distinct values from the data to make filtering resemble Excel.
 
-* You can customize the appearance and behavior of the filters through the [filter templates]({%slug treelist-templates-filter%}).
+* You can customize the appearance and behavior of the filters through the [filter templates](slug://treelist-templates-filter).
 
 ## Filter Descriptors
 
-You can get the applied filtering criteria for each filtered field. Use the [TreeList state]({%slug treelist-state%}) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article]({%slug common-features-descriptors%}#filtering).
+You can get the applied filtering criteria for each filtered field. Use the [TreeList state](slug://treelist-state) to obtain the user input, the filter operator and other filtering properties. Find out how in the [Data Operation Descriptors article](slug://common-features-descriptors#filtering).
 
 ## Customize The Filter Editors
 

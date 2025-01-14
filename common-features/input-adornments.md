@@ -29,14 +29,14 @@ A prefix input adornment refers to an element placed before the user input field
 
 The following input components support prefix and suffix adornments:
 
-* [AutoComplete]({%slug autocomplete-overview%})
-* [ComboBox]({%slug components/combobox/overview%})
-* [MaskedTextbox]({%slug maskedtextbox-overview%})
-* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-* [MultiSelect]({%slug multiselect-overview%})
-* [NumericTextBox]({%slug components/numerictextbox/overview%})
-* [TextArea]({%slug textarea-overview%})
-* [TextBox]({%slug components/textbox/overview%})
+* [AutoComplete](slug://autocomplete-overview)
+* [ComboBox](slug://components/combobox/overview)
+* [MaskedTextbox](slug://maskedtextbox-overview)
+* [MultiColumnComboBox](slug://multicolumncombobox-overview)
+* [MultiSelect](slug://multiselect-overview)
+* [NumericTextBox](slug://components/numerictextbox/overview)
+* [TextArea](slug://textarea-overview)
+* [TextBox](slug://components/textbox/overview)
 
 ## Adding a Prefix Adornment
 
@@ -357,10 +357,10 @@ In addition to the common configuration settings listed in this article, the Tex
 
 This section applies to the components that incorporate popup element:
 
-* [AutoComplete]({%slug autocomplete-overview%})
-* [ComboBox]({%slug components/combobox/overview%})
-* [MultiColumnComboBox]({%slug multicolumncombobox-overview%})
-* [MultiSelect]({%slug multiselect-overview%})
+* [AutoComplete](slug://autocomplete-overview)
+* [ComboBox](slug://components/combobox/overview)
+* [MultiColumnComboBox](slug://multicolumncombobox-overview)
+* [MultiSelect](slug://multiselect-overview)
 
 By design, `Alt` + `Down` key combination opens the popup element when the component is focused. If you have added another dropdown component as a prefix or suffix adornment, focusing that component and pressing `Alt` + `Down` keys will open both popup elements - the one that belongs to the main component and the other associated with the dropdown in the prefix/suffix template.
 

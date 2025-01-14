@@ -10,7 +10,7 @@ position: 1
 
 # TreeView Checkbox Selection
 
-The Checkbox Selection of nodes is an alternative to the [standard selection]({%slug treeview-selection-overview%}). It provides a different UX by not adding the background highlight color on the selected node. Instead, a checkbox is rendered to the left of each item in the TreeView and the user utilizes them to select the desired nodes. 
+The Checkbox Selection of nodes is an alternative to the [standard selection](slug://treeview-selection-overview). It provides a different UX by not adding the background highlight color on the selected node. Instead, a checkbox is rendered to the left of each item in the TreeView and the user utilizes them to select the desired nodes. 
 
 The TreeView lets the user select one or more nodes by using checkboxes. You can also pre-select them with your own code.
 
@@ -29,13 +29,13 @@ To enable the selection of nodes with checkboxes set the `CheckBoxMode` paramete
 
 * `None` - disable the node selection. This is the default setting.
 
-* [`Single`]({%slug treeview-checkboxes-single%}) - only one node can be checked at a time.
+* [`Single`](slug://treeview-checkboxes-single) - only one node can be checked at a time.
 
-* [`Multiple`]({%slug treeview-checkboxes-multiple%}) - many nodes can be checked simultaneously.
+* [`Multiple`](slug://treeview-checkboxes-multiple) - many nodes can be checked simultaneously.
 
 ## CheckedItems
 
-You get or set the checked nodes through the `CheckedItems` parameter of the treeview. It takes an `IEnumerable<object>` collection that you need to cast to the actual model type. This is required because you can [bind the treeview]({%slug components/treeview/data-binding/overview%}) to different model types at each level. The selection allows two-way binding (`@bind-CheckedItems`) and one-way binding + [`CheckedItemsChanged`]({%slug treeview-events%}#checkeditemschanged) event.
+You get or set the checked nodes through the `CheckedItems` parameter of the treeview. It takes an `IEnumerable<object>` collection that you need to cast to the actual model type. This is required because you can [bind the treeview](slug://components/treeview/data-binding/overview) to different model types at each level. The selection allows two-way binding (`@bind-CheckedItems`) and one-way binding + [`CheckedItemsChanged`](slug://treeview-events#checkeditemschanged) event.
 
 >caption Enable node selection with checkboxes
 
@@ -827,5 +827,5 @@ You can combine both selection and checking nodes. To keep both collections in s
 ## See Also
 
   * [Live Demo: TreeView CheckBoxes](https://demos.telerik.com/blazor-ui/treeview/checkboxes)
-  * [Single Node]({%slug treeview-checkboxes-single%})
-  * [Multiple Nodes]({%slug treeview-checkboxes-multiple%})
+  * [Single Node](slug://treeview-checkboxes-single)
+  * [Multiple Nodes](slug://treeview-checkboxes-multiple)

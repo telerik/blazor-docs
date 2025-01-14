@@ -11,9 +11,9 @@ position: 5
 
 # Sankey Labels
 
-The Sankey diagram Labels represent the [node]({%slug sankey-nodes%}) names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey diagram. Each setting applies to all labels in the Sankey diagram.
+The Sankey diagram Labels represent the [node](slug://sankey-nodes) names. The labels can show over the nodes or next to them. This article explains how to customize the labels in the UI for Blazor Sankey diagram. Each setting applies to all labels in the Sankey diagram.
 
->tip Each setting applies to all labels in the Sankey diagram. If you want to provide different settings for the separate labels, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
+>tip Each setting applies to all labels in the Sankey diagram. If you want to provide different settings for the separate labels, [customize them through the data source](slug://sankey-data-binding#customize-elements-through-data).
 
 ## Basic Customization
 
@@ -134,8 +134,8 @@ The `<SankeyLabelsStroke>` child tag provides the following properties:
 ## See Also
 
 * [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
-* [Sankey Links]({%slug sankey-links%})
-* [Sankey Nodes]({%slug sankey-nodes%})
-* [Sankey Legend]({%slug sankey-legend%})
-* [Sankey Title]({%slug sankey-title%})
-* [Sankey Tooltip]({%slug sankey-tooltip%})
+* [Sankey Links](slug://sankey-links)
+* [Sankey Nodes](slug://sankey-nodes)
+* [Sankey Legend](slug://sankey-legend)
+* [Sankey Title](slug://sankey-title)
+* [Sankey Tooltip](slug://sankey-tooltip)

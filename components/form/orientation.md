@@ -59,9 +59,9 @@ The Form component for Blazor allows you control its orientation through the `Or
 
 ## See Also
   
-  * [Overview]({%slug form-overview%})
-  * [FormItems]({%slug form-formitems%})
-  * [FormGroups]({%slug form-formgroups%})
-  * [Columns]({%slug form-columns%})
-  * [Events]({%slug form-events%})
+  * [Overview](slug://form-overview)
+  * [FormItems](slug://form-formitems)
+  * [FormGroups](slug://form-formgroups)
+  * [Columns](slug://form-columns)
+  * [Events](slug://form-events)
    

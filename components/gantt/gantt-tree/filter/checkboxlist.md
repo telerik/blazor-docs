@@ -10,7 +10,7 @@ position: 15
 
 # Gantt CheckBoxList Filtering
 
-You can change the [filter menu]({%slug gantt-filter-menu%}) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
+You can change the [filter menu](slug://gantt-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
 
 To enable the checkbox list filtering in the Gantt:
 

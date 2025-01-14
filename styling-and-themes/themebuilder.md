@@ -10,7 +10,7 @@ position: 20
 
 # Progress ThemeBuilder
 
-[ThemeBuilder](https://themebuilderapp.telerik.com) is a SaaS tool that enables you to create custom themes and instantly preview how they affect the appearance of the components. The tool generates a [CSS file that you can use in your Blazor app]({%slug themes-customize%}#loading-custom-themes) instead of a built-in theme.
+[ThemeBuilder](https://themebuilderapp.telerik.com) is a SaaS tool that enables you to create custom themes and instantly preview how they affect the appearance of the components. The tool generates a [CSS file that you can use in your Blazor app](slug://themes-customize#loading-custom-themes) instead of a built-in theme.
 
 ## Key Procedures
 

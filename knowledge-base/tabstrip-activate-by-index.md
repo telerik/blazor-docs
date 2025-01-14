@@ -26,5 +26,5 @@ I have a TabStrip that renders tabs dynamically based on a list. Is there a way 
 
 ## Solution
 
-As of version 2.0.0, tabs are selected by index out of the box through the `ActiveTabIndex` parameter. See the examples in the [Tab Strip documentation]({%slug components/tabstrip/overview%}).
+As of version 2.0.0, tabs are selected by index out of the box through the `ActiveTabIndex` parameter. See the examples in the [Tab Strip documentation](slug://components/tabstrip/overview).
 

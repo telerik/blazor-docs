@@ -21,9 +21,9 @@ First, review:
 
 There are two modes of providing data to a FileManager, and they both use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Flat data]({%slug filemanager-data-binding-flat-data%}) - a collection of self-referencing items with parent-child relationships See the `Id` and `ParentId` settings.
+* [Flat data](slug://filemanager-data-binding-flat-data) - a collection of self-referencing items with parent-child relationships See the `Id` and `ParentId` settings.
 
-* [Hierarchical data]({%slug filemanager-data-binding-hierarchical-data%}) - each item holds its children in a nested property. See the `Directories` setting.
+* [Hierarchical data](slug://filemanager-data-binding-hierarchical-data) - each item holds its children in a nested property. See the `Directories` setting.
 
 ## FileManager Item Features
 
@@ -243,10 +243,10 @@ The above model properties have the following meaning for the FileManager:
 | `DateModified` | The modification date of the file.
 | `DateModifiedUtc` | The modification date of the file in UTC. Required.
 | **Item relations** | |
-| `Id `| The unique identifier of the file. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}).
-| `ParentId` | Identifies the file's parent. Required for [**binding to flat data**]({%slug filemanager-data-binding-flat-data%}). Set to `null` for root items. Do *not* use `ParentId` with hierarchical data.
-| `HasDirectories` | Determines whether the item has subdirectories. Required for binding to [**flat data**]({%slug filemanager-data-binding-flat-data%}) If `true`, the directory will show an expand arrow. With [**hierarchical data**]({%slug filemanager-data-binding-hierarchical-data%}), the FileManager renders expand icons based on `Directories`, but `HasDirectories` will take precedence.
-| `Directories` | Defines the item subdirectories. Required for [binding to **hierarchical data**]({%slug filemanager-data-binding-hierarchical-data%}).
+| `Id `| The unique identifier of the file. Required for [**binding to flat data**](slug://filemanager-data-binding-flat-data).
+| `ParentId` | Identifies the file's parent. Required for [**binding to flat data**](slug://filemanager-data-binding-flat-data). Set to `null` for root items. Do *not* use `ParentId` with hierarchical data.
+| `HasDirectories` | Determines whether the item has subdirectories. Required for binding to [**flat data**](slug://filemanager-data-binding-flat-data) If `true`, the directory will show an expand arrow. With [**hierarchical data**](slug://filemanager-data-binding-hierarchical-data), the FileManager renders expand icons based on `Directories`, but `HasDirectories` will take precedence.
+| `Directories` | Defines the item subdirectories. Required for [binding to **hierarchical data**](slug://filemanager-data-binding-hierarchical-data).
 | `Items` | Defines all the subitems (directories and files) of the item.
 
 ## Data Bindings
@@ -278,13 +278,13 @@ All [FileManager item features](#fileManager-item-features) map to model propert
 
 Learn the different ways to provide data to a TreeView:
 
-* [Use flat data]({%slug filemanager-data-binding-flat-data%})
-* [Use hierarchical data]({%slug filemanager-data-binding-hierarchical-data%}) - each item holds its children in a nested property
+* [Use flat data](slug://filemanager-data-binding-flat-data)
+* [Use hierarchical data](slug://filemanager-data-binding-hierarchical-data) - each item holds its children in a nested property
 
 
 ## See Also
 
-* [Binding to Flat Data]({%slug filemanager-data-binding-flat-data%})
-* [Binding to Hierarchical Data]({%slug filemanager-data-binding-hierarchical-data%})
+* [Binding to Flat Data](slug://filemanager-data-binding-flat-data)
+* [Binding to Hierarchical Data](slug://filemanager-data-binding-hierarchical-data)
 * [Live Demo: FileManager Flat Data](https://demos.telerik.com/blazor-ui/filemanager/flat-data)
 * [Live Demo: FileManager Hierarchical Data](https://demos.telerik.com/blazor-ui/filemanager/hierarchical-data)

@@ -177,7 +177,7 @@ The `ThemeColor` parameter applies a predefined text color and background color.
 
 ## Next Steps
 
-* [Handle Chip events]({%slug chip-events%})
+* [Handle Chip events](slug://chip-events)
 
 ## See Also
 

@@ -15,7 +15,7 @@ You can use the functionality of the built-in templates and customize the defaul
 #end
 
 #validation
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...](slug://common-features/input-validation).
 #end
 
 #virtualization
@@ -25,7 +25,7 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 #styling
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to [override the theme or apply custom styles]({%slug themes-override%}). |
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to [override the theme or apply custom styles](slug://themes-override). |
 | `Width` | `string` | The width of the component. It will target both the dropdown and the main element if the dropdown has no specific width set. @[template](/_contentTemplates/inputs/inputs-width-template.md#inputs-width-information) |
 #end
 
@@ -43,7 +43,7 @@ By virtualizing the elements in the dropdown, you can use huge data sources with
 | `MaxWidth` | `string` | The maximum width of the popup. |
 | `Width` | `string` | The width of the popup. If you don't specify a value, the dropdown width will match the anchor element width which can help with responsive layouts and 100% widths. |
 
-The parameters that modify the popup dimensions (`Height`, `Width`, `MaxWidth`, etc.) expect [valid CSS values]({%slug common-features/dimensions%}). 
+The parameters that modify the popup dimensions (`Height`, `Width`, `MaxWidth`, etc.) expect [valid CSS values](slug://common-features/dimensions). 
 
 The `MinHeight` and `MaxHeight` have no effect if the `Height` is always within their range. The min and max values are useful only when the dropdown height is set to a relative unit or changes at runtime.
 

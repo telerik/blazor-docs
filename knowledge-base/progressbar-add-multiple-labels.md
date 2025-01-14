@@ -32,7 +32,7 @@ This KB article also answers the following questions:
 
 ## Solution
 
-To display two or more labels in a [ProgressBar]({%slug progressbar-overview%}) for Blazor, use the [Label Template]({%slug progressbar-label%}#template):
+To display two or more labels in a [ProgressBar](slug://progressbar-overview) for Blazor, use the [Label Template](slug://progressbar-label#template):
 1. Declare the `Template` inside the `ProgressBarLabel` label tag.
 1. Add your desired labels in separate HTML containers.
 1. Use CSS to position them based on your preferences.
@@ -73,4 +73,4 @@ The code snippet below creates a ProgressBar with a custom label that includes t
 
 ## See Also
 
-* [ProgressBar Label Documentation]({%slug progressbar-label%})
+* [ProgressBar Label Documentation](slug://progressbar-label)

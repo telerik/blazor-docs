@@ -23,7 +23,7 @@ The <a href="https://www.telerik.com/blazor-ui/donut-chart" target="_blank">Blaz
 3. Provide a data model collection to its `Data` property
 4. Set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
 
-If you use [simple data binding]({%slug components/chart/databind%}#independent-series-binding) and only provide values, the chart will not render a legend.
+If you use [simple data binding](slug://components/chart/databind#independent-series-binding) and only provide values, the chart will not render a legend.
 
 >caption A donut chart that shows product revenues
 

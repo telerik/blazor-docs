@@ -64,9 +64,9 @@ The ProgressBar has been tested with the following screen readers and browsers c
 
 ## Keyboard Navigation
 
-For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview]({%slug accessibility-overview%}#keyboard-navigation) article.
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug://accessibility-overview#keyboard-navigation) article.
 
 ## See Also
 
 * [Blazor ProgressBar Demos](https://demos.telerik.com/blazor-ui/progressbar/overview)
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

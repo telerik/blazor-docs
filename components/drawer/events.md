@@ -19,7 +19,7 @@ This article explains the events available in the Telerik Drawer for Blazor:
 
 ## SelectedItemChanged
 
-The `SelectedItemChanged` event fires every time the user clicks on a new item from the Drawer. You can use it with one-way data binding to respond to the user [selection]({%slug drawer-selection%}). It receives an argument of the Drawer data model type.
+The `SelectedItemChanged` event fires every time the user clicks on a new item from the Drawer. You can use it with one-way data binding to respond to the user [selection](slug://drawer-selection). It receives an argument of the Drawer data model type.
 
 >caption Handle SelectedItemChanged event
 
@@ -135,7 +135,7 @@ The `ExpandedChanged` event fires every time the component's state is changed - 
 
 ## OnItemRender
 
-The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`]({%slug drawer-templates%}#template), as the template disables all item related built-in features of the Drawer.
+The `OnItemRender` event fires when each item in the Drawer renders. It allows you to customize the appearance of an item. Note that the event does not work alongside a [`<Template>`](slug://drawer-templates#template), as the template disables all item related built-in features of the Drawer.
 
 As an argument, the event handler receives an object of type `DrawerItemRenderEventArgs` that contains the following properties: 
 

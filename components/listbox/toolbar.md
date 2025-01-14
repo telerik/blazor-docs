@@ -23,17 +23,17 @@ Each button becomes enabled when it can be used, for example, when the user sele
 
 | Tool Name | Tool Tag | Event On Click | Description |
 | --- | --- | --- | --- |
-| Move Up | `<ListBoxToolBarMoveUpTool />` | [`OnReorder`]({%slug listbox-events%}#onreorder) | Moves the selected item(s) down by one position. |
-| Move Down | `<ListBoxToolBarMoveDownTool />` | [`OnReorder`]({%slug listbox-events%}#onreorder) | Moves the selected items up by one position. |
-| Transfer To | `<ListBoxToolBarTransferToTool />` | [`OnTransfer`]({%slug listbox-events%}#ontransfer) | Moves the selected items to a connected ListBox component. |
-| Transfer From | `<ListBoxToolBarTransferFromTool />` | [`OnTransfer`]({%slug listbox-events%}#ontransfer) | Moves the selected items from a connected ListBox component to the current one. |
-| Transfer All To | `<ListBoxToolBarTransferAllToTool />` | [`OnTransfer`]({%slug listbox-events%}#ontransfer) | Moves all items to a connected ListBox component. |
-| Transfer All From | `<ListBoxToolBarTransferAllFromTool />` | [`OnTransfer`]({%slug listbox-events%}#ontransfer) | Moves all items from the connected ListBox component to the current one. |
-| Remove | `<ListBoxToolBarRemoveTool />` | [`OnRemove`]({%slug listbox-events%}#onremove) | Removes the selected item(s). |
+| Move Up | `<ListBoxToolBarMoveUpTool />` | [`OnReorder`](slug://listbox-events#onreorder) | Moves the selected item(s) down by one position. |
+| Move Down | `<ListBoxToolBarMoveDownTool />` | [`OnReorder`](slug://listbox-events#onreorder) | Moves the selected items up by one position. |
+| Transfer To | `<ListBoxToolBarTransferToTool />` | [`OnTransfer`](slug://listbox-events#ontransfer) | Moves the selected items to a connected ListBox component. |
+| Transfer From | `<ListBoxToolBarTransferFromTool />` | [`OnTransfer`](slug://listbox-events#ontransfer) | Moves the selected items from a connected ListBox component to the current one. |
+| Transfer All To | `<ListBoxToolBarTransferAllToTool />` | [`OnTransfer`](slug://listbox-events#ontransfer) | Moves all items to a connected ListBox component. |
+| Transfer All From | `<ListBoxToolBarTransferAllFromTool />` | [`OnTransfer`](slug://listbox-events#ontransfer) | Moves all items from the connected ListBox component to the current one. |
+| Remove | `<ListBoxToolBarRemoveTool />` | [`OnRemove`](slug://listbox-events#onremove) | Removes the selected item(s). |
 
 The descriptions above mention the typical user operation that each button implies. However, the exact operation depends entirely on the business requirements and event handler implementation. For example:
 
-* Clicking on the Remove button can apply custom disabled styling to an item, instead of removing it. The app may also prevent selection of this item through the [ListBox `SelectedItemsChanged` event]({%slug listbox-events%}#selecteditemschanged).
+* Clicking on the Remove button can apply custom disabled styling to an item, instead of removing it. The app may also prevent selection of this item through the [ListBox `SelectedItemsChanged` event](slug://listbox-events#selecteditemschanged).
 * Transferred items can be copied to another ListBox component, rather than moved.
 * Reordered non-adjacent items can be moved with or without the gap between them.
 
@@ -51,7 +51,7 @@ The following example demonstrates how to:
 * Mimic the default toolbar configuration, except for the custom tool.
 * Enable or disable a custom toolbar button, depending on the current ListBox selection.
 
-The example below omits all required event handlers for brevity. Consult the [ListBox Events article]({%slug listbox-events%}) for more information and complete examples.
+The example below omits all required event handlers for brevity. Consult the [ListBox Events article](slug://listbox-events) for more information and complete examples.
 
 >caption Setting up the ListBox Toolbar
 
@@ -135,11 +135,11 @@ The example below omits all required event handlers for brevity. Consult the [Li
 
 ## Next Steps
 
-* [Choose the ListBox selection mode]({%slug listbox-selection%})
-* [Connect Multiple ListBoxes]({%slug listbox-connect%})
-* [Enable ListBox drag-and-drop]({%slug listbox-dragdrop%})
-* [Implement ListBox templates]({%slug listbox-templates%})
-* [Handle ListBox events]({%slug listbox-events%})
+* [Choose the ListBox selection mode](slug://listbox-selection)
+* [Connect Multiple ListBoxes](slug://listbox-connect)
+* [Enable ListBox drag-and-drop](slug://listbox-dragdrop)
+* [Implement ListBox templates](slug://listbox-templates)
+* [Handle ListBox events](slug://listbox-events)
 
 ## See Also
 

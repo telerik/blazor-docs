@@ -25,7 +25,7 @@ res_type: kb
 
 ## Description
 
-I am using the Grid [**SearchBox**]({%slug grid-searchbox%}). How to format the Grid cell values to bold the search keyword? Is there a suitable event to highlight the text, which matches the search string in the cells?
+I am using the Grid [**SearchBox**](slug://grid-searchbox). How to format the Grid cell values to bold the search keyword? Is there a suitable event to highlight the text, which matches the search string in the cells?
 
 How to highlight matching search results in the Grid cells?
 
@@ -34,12 +34,12 @@ How to highlight matching search results in the Grid cells?
 
 The following approach is valid for both the Grid and the TreeList.
 
-1. Define [column templates]({%slug grid-templates-column%}) for all string columns in the Grid.
-1. Inside the column template, obtain the search string from the [Grid state]({%slug grid-state%}):
+1. Define [column templates](slug://grid-templates-column) for all string columns in the Grid.
+1. Inside the column template, obtain the search string from the [Grid state](slug://grid-state):
     * Check the `SearchFilter` property of the [`GridState` object](/blazor-ui/api/Telerik.Blazor.Components.GridState-1).
-    * It will contain a [`CompositeFilterDescriptor` with multiple nested `FilterDescriptor`s inside]({%slug components/grid/filtering%}#filter-descriptors).
+    * It will contain a [`CompositeFilterDescriptor` with multiple nested `FilterDescriptor`s inside](slug://components/grid/filtering#filter-descriptors).
     * The search string will be the `Value` of any nested `FilterDescriptor` object.
-    * The example below uses the [Grid `OnStateChanged` event]({%slug grid-state%}#events) to cache the search string.
+    * The example below uses the [Grid `OnStateChanged` event](slug://grid-state#events) to cache the search string.
 1. Insert HTML tags inside the column template that will format or style the cell content:
     * Use some string manipulation or replacement.
     * Render the cell content with a [`MarkupString`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.markupstring), otherwise the Blazor framework will encode the tags and the user will see them.
@@ -149,7 +149,7 @@ The following approach is valid for both the Grid and the TreeList.
 
 ## See Also
 
-* [Search the Grid in Numeric and Date Model Fields]({%slug grid-kb-search-numeric-fields%})
-* [Search the Grid in Hidden Fields]({%slug grid-kb-search-in-hidden-fields%})
-* [Search the Grid with a `StartsWith` operator]({%slug grid-kb-search-startswith%})
-* [Search the Grid on Button Click]({%slug grid-kb-search-button-click%})
+* [Search the Grid in Numeric and Date Model Fields](slug://grid-kb-search-numeric-fields)
+* [Search the Grid in Hidden Fields](slug://grid-kb-search-in-hidden-fields)
+* [Search the Grid with a `StartsWith` operator](slug://grid-kb-search-startswith)
+* [Search the Grid on Button Click](slug://grid-kb-search-button-click)

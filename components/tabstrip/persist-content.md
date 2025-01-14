@@ -47,4 +47,4 @@ To keep Tab content in the DOM after the Tab is deactivated, set the `PersistCon
 ## See Also
 
 * [Live Demo: TabStrip - Persist Tab Content](https://demos.telerik.com/blazor-ui/tabstrip/persist-content)
-* [Render All TabStrip Tabs Initially]({%slug tabstrip-kb-load-all-tabs%})
+* [Render All TabStrip Tabs Initially](slug://tabstrip-kb-load-all-tabs)

@@ -14,8 +14,8 @@ The MultiColumnComboBox component allows users to filter items by their text, so
 
 To enable filtering, set the `Filterable` parameter to `true`. The filtering is case insensitive.
 
-You can also use the [`OnRead` event]({%slug multicolumncombobox-events%}#onread) to:
-* Get the [applied filtering criteria]({%slug common-features-descriptors%}#through-the-onread-event).
+You can also use the [`OnRead` event](slug://multicolumncombobox-events#onread) to:
+* Get the [applied filtering criteria](slug://common-features-descriptors#through-the-onread-event).
 * Implement custom (server) filtering and set data dynamically.
 
 Filtering looks in the `TextField`, and the filter is reset when the dropdown closes.
@@ -26,7 +26,7 @@ The default filter operator is `starts with`. You can choose a different operato
 
 ## Performance
 
-By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`]({%slug multicolumncombobox-overview%}#multicolumncombobox-parameters) parameter of the component.
+By default, the filtering is debounced with 150ms. Configure that with the [`DebounceDelay`](slug://multicolumncombobox-overview#multicolumncombobox-parameters) parameter of the component.
 
 ## Filtering Example
 
@@ -111,4 +111,4 @@ By default, the filtering is debounced with 150ms. Configure that with the [`Deb
 
 * [Live Demo: MultiColumnComboBox Filtering](https://demos.telerik.com/blazor-ui/multicolumncombobox/filtering)
 
-* [Custom Filtering by Multiple Fields]({%slug dropdowns-kb-search-in-multiple-fields%})
+* [Custom Filtering by Multiple Fields](slug://dropdowns-kb-search-in-multiple-fields)

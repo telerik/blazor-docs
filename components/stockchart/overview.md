@@ -12,14 +12,14 @@ position: 0
 
 The <a href = "https://www.telerik.com/blazor-ui/stock-chart" target="_blank">Blazor Stock Chart component</a> allows you to visualize the deviation of a financial unit over a period of time to the user in a meaningful way so they can draw conclusions. You can use a variety of chart types and control all aspects of the chart's appearance - from colors and fonts, to paddings, margins, tooltips and templates.
 
-The Telerik Stock Chart provides a [Navigator]({%slug stockchart-navigator%}) to widen or shorten the defined period of time and zoom on particular part of the chart; and a [crosshair]({%slug stockchart-crosshairs%}) to see precise values in data-dense charts.
+The Telerik Stock Chart provides a [Navigator](slug://stockchart-navigator) to widen or shorten the defined period of time and zoom on particular part of the chart; and a [crosshair](slug://stockchart-crosshairs) to see precise values in data-dense charts.
 
 ## Creating Stock Chart
 
 1. Add the `TelerikStockChart` tag to your razor page.
-2. Set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model for the [`OHLC`]({%slug stockchart-ohlc%}) and the [`Candlestick`]({%slug stockchart-candlestick%}) StockChart types.
-3. Provide [data]({%slug stockchart-data-binding%}) to the series.
-4. (optional) Enable the [navigator]({%slug stockchart-navigator%}) by including its `StockChartNavigator` tag and adding a series that mirrors the main chart data to it.
+2. Set the `DateField` parameter of the `TelerikStockChart` to the corresponding property of the model for the [`OHLC`](slug://stockchart-ohlc) and the [`Candlestick`](slug://stockchart-candlestick) StockChart types.
+3. Provide [data](slug://stockchart-data-binding) to the series.
+4. (optional) Enable the [navigator](slug://stockchart-navigator) by including its `StockChartNavigator` tag and adding a series that mirrors the main chart data to it.
 
 >caption Basic configuration of a Stock Chart with common settings
 
@@ -252,9 +252,9 @@ To execute StockChart methods, obtain reference to the component instance via `@
 
 ## Next Steps
 
-* [Bind Data to the StockChart]({%slug stockchart-data-binding%})
-* [Explore the Navigator]({%slug stockchart-navigator%})
-* [Learn more about the Crosshair]({%slug stockchart-crosshairs%})
+* [Bind Data to the StockChart](slug://stockchart-data-binding)
+* [Explore the Navigator](slug://stockchart-navigator)
+* [Learn more about the Crosshair](slug://stockchart-crosshairs)
 
 ## See Also
 

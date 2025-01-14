@@ -285,5 +285,5 @@ You can use two-way binding to get the node the user has checked. This can be us
 
 ## See Also
 
-  * [Selection Overview]({%slug treeview-checkboxes-overview%})
-  * [Multiple Selection]({%slug treeview-checkboxes-multiple%})
+  * [Selection Overview](slug://treeview-checkboxes-overview)
+  * [Multiple Selection](slug://treeview-checkboxes-multiple)

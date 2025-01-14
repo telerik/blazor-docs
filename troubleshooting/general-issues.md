@@ -12,25 +12,25 @@ position: 1
 
 This page provides solutions for common issues you may encounter while working with Telerik UI for Blazor components.
 
-* [TelerikRootComponent is missing]({%slug common-kb-component-requires-telerikrootcomponent%})
+* [TelerikRootComponent is missing](slug://common-kb-component-requires-telerikrootcomponent)
 * [Popups do not work](#popups-do-not-work)
 * [Wrong popup position](#wrong-popup-position)
 * [Unable to find package Telerik.Documents.SpreadsheetStreaming](#unable-to-find-package-telerik-documents-spreadsheetstreaming)
 * [Cannot provide a value for property 'Localizer'](#cannot-provide-a-value-for-property-localizer)
 * [Slow Performance](#slow-performance)
 * [Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...](#failed-to-find-a-valid-digest-in-the-integrity-attribute-for-resource-with-computed-sha-256-integrity)
-* [JavaScript errors]({%slug troubleshooting-js-errors%})
-* [Issues after deployment]({%slug deployment-troubleshooting%})
-* [Content Security Policy]({%slug troubleshooting-csp%})
-* [NuGet feed troubleshooting]({%slug troubleshooting-nuget%})
-* [Upload troubleshooting]({%slug upload-troubleshooting%})
+* [JavaScript errors](slug://troubleshooting-js-errors)
+* [Issues after deployment](slug://deployment-troubleshooting)
+* [Content Security Policy](slug://troubleshooting-csp)
+* [NuGet feed troubleshooting](slug://troubleshooting-nuget)
+* [Upload troubleshooting](slug://upload-troubleshooting)
 
 
 ## Popups Do Not Work
 
 There are three common reasons for this
-* Missing [`<TelerikRootComponent>`]({%slug getting-started/what-you-need%}#telerikrootcomponent) from the app.
-* [Missing `telerik-blazor.js` file]({%slug troubleshooting-js-errors%}#telerikblazor-was-undefined)
+* Missing [`<TelerikRootComponent>`](slug://getting-started/what-you-need#telerikrootcomponent) from the app.
+* [Missing `telerik-blazor.js` file](slug://troubleshooting-js-errors#telerikblazor-was-undefined)
 * Special positioning on the `<app>` element or any other parent of the `TelerikRootComponent`.
 
 The `<app>` element is the topmost component that a developer can access in Blazor. This means that we cannot place our popups higher than that in the DOM. Thus, their position and visibility depend on the position of the `<app>` element matching the position of the `<body>` element.
@@ -56,7 +56,7 @@ app {
 
 The position of popups (Window, various dropdowns such as DropDownList, ComboBox, DatePicker) can be wrong or offset.
 
-The most common reason for such a problem is that the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
+The most common reason for such a problem is that the [`<TelerikRootComponent>`](slug://rootcomponent-overview) does not match the `<body>` and the browser viewport - this is required because that component is the topmost element our components can access in order to render popups/dropdowns.
 
 There are several common cases when such a mismatch occurs:
 
@@ -87,9 +87,9 @@ The most common reasons and solutions for seeing this error (being unable to res
 
 * An offline package source is being used that does not contain it. Make sure that you add the packages from both the `packages` and `dpl` folders to such a custom local feed.
 
-* There is an issue with connecting to our online feed. For example, a firewall, network downtime or wrong credentials are used. Check the [Troubleshooting NuGet Feed Issues]({%slug installation/nuget%}#troubleshooting) section of the documentation to see how to handle that.
+* There is an issue with connecting to our online feed. For example, a firewall, network downtime or wrong credentials are used. Check the [Troubleshooting NuGet Feed Issues](slug://installation/nuget#troubleshooting) section of the documentation to see how to handle that.
 
-* There is a mismatch between the versions available for restore and the referenced versions, while the Visual Studio "treat warnings as errors" setting is turned on. This can happen if one version is referenced, but another is available (for example, only certain versions are available in a custom local feed for the [Document Processing]({%slug dpl-in-blazor%}) packages, but the main package references an older version). In such cases, the tooling would usually resolve the newest version, but it will show a warning and VS can treat it as an error and not let you build. The solution is to check the version that is referenced by `Telerik.UI.for.Blazor` and ensure you can access that. Cleaning the solution, manually restoring the packages and re-building can also help.
+* There is a mismatch between the versions available for restore and the referenced versions, while the Visual Studio "treat warnings as errors" setting is turned on. This can happen if one version is referenced, but another is available (for example, only certain versions are available in a custom local feed for the [Document Processing](slug://dpl-in-blazor) packages, but the main package references an older version). In such cases, the tooling would usually resolve the newest version, but it will show a warning and VS can treat it as an error and not let you build. The solution is to check the version that is referenced by `Telerik.UI.for.Blazor` and ensure you can access that. Cleaning the solution, manually restoring the packages and re-building can also help.
  
 
 
@@ -101,9 +101,9 @@ If you get an error similar to this one:
 
 There can be two common causes for the problem:
 
-* The [Telerik services are not registered]({%slug getting-started/what-you-need%}#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
+* The [Telerik services are not registered](slug://getting-started/what-you-need#service) in the app, a line similar to `builder.Services.AddTelerikBlazor();` is missing.
 
-* The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization]({%slug globalization-localization%}) article.
+* The application uses localization, or there is a code snippet that does (e.g., a grid with custom buttons that are localized, copied over from another place), but the current app does not provide the necessary project-specific service. You can read more about implementing one in the [Localization](slug://globalization-localization) article.
 
 
 ## Slow Performance
@@ -119,9 +119,9 @@ When building a Blazor app, especially on the WebAssembly flavor, it is likely t
 
 There are also certain measures a web app should take to improve its performance in general. For example:
 
-* Enable [Paging]({%slug components/grid/features/paging%}) or [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) in the grid, and use a reasonable page size (for example, 10 to 20 or 40, as more than 20 items can rarely fit on a screen anyway). Also, if you have many columns, enable [Column Virtualization]({%slug grid-columns-virtual%}).
+* Enable [Paging](slug://components/grid/features/paging) or [Virtual Scrolling](slug://components/grid/virtual-scrolling) in the grid, and use a reasonable page size (for example, 10 to 20 or 40, as more than 20 items can rarely fit on a screen anyway). Also, if you have many columns, enable [Column Virtualization](slug://grid-columns-virtual).
 
-* Avoid loading all the data at once, only load and render relevant chunks. For example, use the [OnRead event of the Grid]({%slug components/grid/manual-operations%}) for the grid to perform all operations, and use [custom filtering in the ComboBox through its own OnRead event]({%slug components/combobox/events%}#onread). This also applies to creating lists of a lot of components in your own `foreach` loops - consider implementing your own virtual scrolling or use the [Telerik Pager]({%slug pager-overview%}) to help you separate them into smaller sets.
+* Avoid loading all the data at once, only load and render relevant chunks. For example, use the [OnRead event of the Grid](slug://components/grid/manual-operations) for the grid to perform all operations, and use [custom filtering in the ComboBox through its own OnRead event](slug://components/combobox/events#onread). This also applies to creating lists of a lot of components in your own `foreach` loops - consider implementing your own virtual scrolling or use the [Telerik Pager](slug://pager-overview) to help you separate them into smaller sets.
 
 * When using a series of your own components on the page, consider overriding their `ShouldRender` methods so they render only when needed. For example, an `EventCallback` whose handler is an `async Task` will render its own component, its parent and siblings twice, and you can reduce that to once.
 
@@ -131,10 +131,10 @@ There are also certain measures a web app should take to improve its performance
 
 ## Failed to find a valid digest in the 'integrity' attribute for resource ... with computed SHA-256 integrity ...
 
-The error is a general Blazor WebAssembly issue, which can result from the build process, publishing process, or browser cache. Our [knowledge base article about the `Failed to find a valid digest in the 'integrity' attribute` exception]({%slug common-kb-failed-to-find%}) contains discussions and documentation with possible solutions.
+The error is a general Blazor WebAssembly issue, which can result from the build process, publishing process, or browser cache. Our [knowledge base article about the `Failed to find a valid digest in the 'integrity' attribute` exception](slug://common-kb-failed-to-find) contains discussions and documentation with possible solutions.
 
 
 ## See Also
 
-* [JavaScript Errors Troubleshooting]({%slug troubleshooting-js-errors%})
-* [Content Security Policy]({%slug troubleshooting-csp%})
+* [JavaScript Errors Troubleshooting](slug://troubleshooting-js-errors)
+* [Content Security Policy](slug://troubleshooting-csp)

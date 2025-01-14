@@ -14,7 +14,7 @@ Virtual scrolling provides an alternative to paging. Instead of utilizing a page
 
 To enhance rendering performance, the Grid reuses the same set of HTML elements. As the next data loads, a loading indicator appears on the cells. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
-You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization]({%slug grid-columns-virtual%}) article for more information.
+You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization](slug://grid-columns-virtual) article for more information.
 
 ## Using Virtual Scrolling
 
@@ -243,7 +243,7 @@ Set the `RowHeight` parameter to a `decimal` value which will always be interpre
 Consider the following specifics when setting the row height value:
 
 * The Grid renders padding in the cells by default. The loading skeletons have a line height in order to render. This results in some minimum row heights, which can vary depending on the theme and custom CSS styles on the page.
-* Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template]({%slug grid-templates-row%}).
+* Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template](slug://grid-templates-row).
 * Do not change the value of the `RowHeight` parameter at runtime.
 
 ````RAZOR
@@ -320,20 +320,20 @@ Set the `PageSize` parameter to an `int` value. The `PageSize` determines how ma
 
 ## Limitations
 
-The Blazor Grid virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging]({%slug components/grid/features/paging%}) combined with [manual data source operations]({%slug components/grid/manual-operations%}) to achieve the desired data retrieval performance.
+The Blazor Grid virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging](slug://components/grid/features/paging) combined with [manual data source operations](slug://components/grid/manual-operations) to achieve the desired data retrieval performance.
 
 These are the known limitations of the virtual scrolling feature:
 
-* [Hierarchy]({%slug components/grid/features/hierarchy%}) is not supported.
+* [Hierarchy](slug://components/grid/features/hierarchy) is not supported.
 
-* [Grouping]({%slug components/grid/features/grouping%}) is not supported. [Loading Group Data On Demand]({%slug grid-group-lod%}) is supported, however.
+* [Grouping](slug://components/grid/features/grouping) is not supported. [Loading Group Data On Demand](slug://grid-group-lod) is supported, however.
 
 
 ## See Also
 
   * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
-  * [Selection in Grid with Virtualized Rows]({%slug grid-selection-row%}#selection-and-virtual-scrolling)
-  * [Knowledge Base Article: Virtual Scroll Does Not Show All Items]({%slug grid-kb-virtualization-many-records%})
-  * [Knowledge Base Article: Virtual Scrolling Does Not Work]({%slug grid-kb-virtual-scrolling-troubleshooting%})
-  * [Knowledge Base Article: Setting Too Large Skip]({%slug grid-kb-large-skip-virtualization%})
-  * [Blazor Grid]({%slug grid-overview%})
+  * [Selection in Grid with Virtualized Rows](slug://grid-selection-row#selection-and-virtual-scrolling)
+  * [Knowledge Base Article: Virtual Scroll Does Not Show All Items](slug://grid-kb-virtualization-many-records)
+  * [Knowledge Base Article: Virtual Scrolling Does Not Work](slug://grid-kb-virtual-scrolling-troubleshooting)
+  * [Knowledge Base Article: Setting Too Large Skip](slug://grid-kb-large-skip-virtualization)
+  * [Blazor Grid](slug://grid-overview)

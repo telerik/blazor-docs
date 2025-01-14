@@ -38,11 +38,11 @@ This article contains several different ways to implement validation notificatio
 
 ### TelerikValidationTooltip
 
-You can use the [TelerikValidationTooltip]({%slug validation-tools-tooltip%}) to enable tooltip validation messages either in the [Telerik Form]({%slug form-overview%}) or in the Microsoft EditForm.
+You can use the [TelerikValidationTooltip](slug://validation-tools-tooltip) to enable tooltip validation messages either in the [Telerik Form](slug://form-overview) or in the Microsoft EditForm.
 
 ### TelerikForm
 
-The [Telerik Form]({%slug form-overview%}) component comes with a [popup validation mode]({%slug form-validation%}#validation-message-type) out-of-the-box.
+The [Telerik Form](slug://form-overview) component comes with a [popup validation mode](slug://form-validation#validation-message-type) out-of-the-box.
 
 ### Validation Summary in a Popup
 

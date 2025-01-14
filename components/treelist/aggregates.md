@@ -10,7 +10,7 @@ position: 23
 
 # Grid Aggregates
 
-The Grid component provides built-in aggregates for column values based on [grouping]({%slug components/grid/features/grouping%}).
+The Grid component provides built-in aggregates for column values based on [grouping](slug://components/grid/features/grouping).
 
 There are several available aggregate functions under the `Telerik.Blazor.GridAggregateType` enum:
 

@@ -133,5 +133,5 @@ The `Size` (`double`) parameter controls the size of the pointer.
 ## See Also
 
 * [Live Demo: Arc Gauge](https://demos.telerik.com/blazor-ui/arcgauge/overview)
-* [Arc Gauge: Overview]({%slug arc-gauge-overview%})
-* [Arc Gauge: Scale]({%slug arc-gauge-scale%})
+* [Arc Gauge: Overview](slug://arc-gauge-overview)
+* [Arc Gauge: Scale](slug://arc-gauge-scale)

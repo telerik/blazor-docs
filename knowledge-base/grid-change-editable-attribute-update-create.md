@@ -27,7 +27,7 @@ Can I dynamically change column attributes during update and create?  Specifical
 ## Solution
 There are two general ways to do this:
 
-* Use a [Grid editor template]({%slug grid-templates-editor%}) and add logic to it that renders an actual editor only when needed (for example, the edited item has no ID, so it is a Create operation for a new item).
+* Use a [Grid editor template](slug://grid-templates-editor) and add logic to it that renders an actual editor only when needed (for example, the edited item has no ID, so it is a Create operation for a new item).
 * Bind the `Editable` property of the column to logic that returns `true|false` as needed.
 
 In the two examples below, the `Name` column uses the `Editable` property, and the `Role` column uses the editor template.

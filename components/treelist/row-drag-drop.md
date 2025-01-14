@@ -589,7 +589,7 @@ public class Employee
 
 ### Drag and Drop between TreeList, Grid, TreeView and Scheduler
 
-The functionality allows dragging items between TreeList, [Grid]({%slug grid-drag-drop-overview%}), [TreeView]({%slug treeview-drag-drop-overview%}), and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
+The functionality allows dragging items between TreeList, [Grid](slug://grid-drag-drop-overview), [TreeView](slug://treeview-drag-drop-overview), and [Scheduler](slug://scheduler-overview). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
@@ -931,11 +931,11 @@ public enum ProductSize
     }
 ````
 
-See more applicable examples in the [Grid Drag and Drop article]({%slug grid-drag-drop-overview%}).
+See more applicable examples in the [Grid Drag and Drop article](slug://grid-drag-drop-overview).
 
 ### Drag and Drop multiple Rows
 
-You can drag and drop multiple rows in one or between multiple instances of the TreeList. To enable it, you should set the [`SelectionMode`]({%slug treelist-selection-overview%}) parameter of the TelerikTreeList to `TreeListSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
+You can drag and drop multiple rows in one or between multiple instances of the TreeList. To enable it, you should set the [`SelectionMode`](slug://treelist-selection-overview) parameter of the TelerikTreeList to `TreeListSelectionMode.Multiple`. Then, if you drag a selected row, you will effectively drag all the selected rows.
 
 When you select multiple rows, the row drag clue will be `N items selected` where `N` is the number of selected rows.
 
@@ -1155,5 +1155,5 @@ public class Employee
 ## See Also
 
 * [Live Demo: TreeList Drag and Drop](https://demos.telerik.com/blazor-ui/treelist/drag-drop)
-* [Drag and Drop between Different Parent Components]({%slug grid-kb-drag-drop-in-different-components%})
+* [Drag and Drop between Different Parent Components](slug://grid-kb-drag-drop-in-different-components)
 * [TreeList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)

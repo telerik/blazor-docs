@@ -61,8 +61,8 @@ All general guidance from the [Microsoft documentation](https://learn.microsoft.
 ````
 
 * The assembly requirements depend on component usage, and not on feature usage. For example, both icon assemblies are always required, as our components render icons internally and must be aware of both types of icons. The assemblies, which are related to Excel export, are always required when using a Grid. `Telerik.Recurrence.dll` is required only when using the Scheduler.
-* Move the [`<TelerikRootComponent>`]({%slug rootcomponent-overview%}) to a layout that is used only on pages that have the Telerik assemblies loaded.
-* Lazy loading of assemblies does not support dynamic service injection. As a result, remove the Telerik service registration (`builder.Services.AddTelerikBlazor();`) from `Program.cs`. If you are using [localization for the Telerik Blazor components]({%slug globalization-localization%}), define the the localization service for the Telerik components with the `Localizer` parameter of the `<TelerikRootComponent>`. The key thing is to instantiate the localization service inline. It cannot be injected as a variable from the `@code { }` block, because that will throw runtime errors.
+* Move the [`<TelerikRootComponent>`](slug://rootcomponent-overview) to a layout that is used only on pages that have the Telerik assemblies loaded.
+* Lazy loading of assemblies does not support dynamic service injection. As a result, remove the Telerik service registration (`builder.Services.AddTelerikBlazor();`) from `Program.cs`. If you are using [localization for the Telerik Blazor components](slug://globalization-localization), define the the localization service for the Telerik components with the `Localizer` parameter of the `<TelerikRootComponent>`. The key thing is to instantiate the localization service inline. It cannot be injected as a variable from the `@code { }` block, because that will throw runtime errors.
 
 
 ````RAZOR.skip-repl

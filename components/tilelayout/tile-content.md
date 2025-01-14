@@ -90,6 +90,6 @@ If you want to change that (for example, because you have certain content that r
 
 ## Next Steps
 
-* Enable tile [resizing]({%slug tilelayout-resize%}) and [reordering]({%slug tilelayout-reorder%}).
-* [Handle Tile Layout events]({%slug tilelayout-events%}).
-* [Manage the Tile Layout state]({%slug tilelayout-state%}).
+* Enable tile [resizing](slug://tilelayout-resize) and [reordering](slug://tilelayout-reorder).
+* [Handle Tile Layout events](slug://tilelayout-events).
+* [Manage the Tile Layout state](slug://tilelayout-state).

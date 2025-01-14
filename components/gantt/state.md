@@ -70,7 +70,7 @@ If you want to put the Gantt in a certain configuration without preserving the o
 
 To reset the Gantt state, call `SetStateAsync(null)`.
 
-You should avoid calling `SetStateAsync` in the Gantt [CRUD methods]({%slug gantt-tree-editing%}#events) (such as `OnUpdate`, `OnEdit`, `OnCreate`). Doing so may lead to unexpected results because the Gantt has more logic to execute after the event.
+You should avoid calling `SetStateAsync` in the Gantt [CRUD methods](slug://gantt-tree-editing#events) (such as `OnUpdate`, `OnEdit`, `OnCreate`). Doing so may lead to unexpected results because the Gantt has more logic to execute after the event.
 
 ## Information in the Gantt State
 
@@ -84,7 +84,7 @@ The following information is present in the Gantt state:
 
 * **Expanded Items** - list of expanded parent items.
 
-* **View** - the current [`GanttView`]({%slug gantt-timeline-views%})
+* **View** - the current [`GanttView`](slug://gantt-timeline-views)
 
 * **TreeList Width** - the width of the Gantt TreeList.
 
@@ -563,7 +563,7 @@ Sometimes you may want to know what the user changed in the Gantt (e.g., when th
 
 Find out what the user changed in the Gantt through the `PropertyName` of the `GanttStateEventArgs`. Override the user action by changing and then setting your desired state.
 
-Find out how to [get the applied filtering and sorting criteria]({%slug common-features-descriptors%}).
+Find out how to [get the applied filtering and sorting criteria](slug://common-features-descriptors).
 
 >caption Know when the Gantt state changes, which parameter changes, and amend the change
 
@@ -736,9 +736,9 @@ To test it out, try filtering the Title column
 
 ### Initiate Editing or Inserting of an Item
 
-The Gantt state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Gantt state. If you want to save on every keystroke instead of on `OnChange` - use a custom [EditorTemplate]({%slug gantt-templates-editor%}) and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
+The Gantt state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the Gantt state. If you want to save on every keystroke instead of on `OnChange` - use a custom [EditorTemplate](slug://gantt-templates-editor) and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the Gantt in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button]({%slug gantt-columns-command%}).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the Gantt in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button](slug://gantt-columns-command).
 
 >caption Start Gantt Editing or Insertion Programmatically
 

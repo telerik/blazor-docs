@@ -27,11 +27,11 @@ res_type: kb
 
 ## Description
 
-[Telerik UI for Blazor version 4.0 renamed]({%slug changes-in-4-0-0%}) some of the [built-in icons]({%slug common-features-icons%}). Using the old icon names won't work and may produce errors, depending on the exact component configuration.
+[Telerik UI for Blazor version 4.0 renamed](slug://changes-in-4-0-0) some of the [built-in icons](slug://common-features-icons). Using the old icon names won't work and may produce errors, depending on the exact component configuration.
 
 ## Solution
 
->tip While the below listed names will render the proper icons, the recommended approach for declaring icons is to use `FontIcon` or `SvgIcon` followed by PascalCase for the icon name. See details in [Icons List]({%slug common-features-icons%}#icons-list).
+>tip While the below listed names will render the proper icons, the recommended approach for declaring icons is to use `FontIcon` or `SvgIcon` followed by PascalCase for the icon name. See details in [Icons List](slug://common-features-icons#icons-list).
 
 Here is a list of the renamed icons:
 
@@ -1004,4 +1004,4 @@ Here is a list of the renamed icons:
 
 ## See Also
 
-* [Breaking Changes in Telerik UI for Blazor 4.0]({%slug changes-in-4-0-0%})
+* [Breaking Changes in Telerik UI for Blazor 4.0](slug://changes-in-4-0-0)

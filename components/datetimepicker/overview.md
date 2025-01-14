@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateTime Picker Overview
 
-The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input]({%slug components/dateinput/overview%}) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events]({%slug components/datetimepicker/events %}).
+The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input](slug://components/dateinput/overview) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events](slug://components/datetimepicker/events ).
 
 ## Creating Blazor DateTimePicker
 
@@ -42,15 +42,15 @@ DateTimePicker.
 
 ## Increment Steps
 
-The DateTime Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateTimePickerSteps` tag and its parameters. [Read more about the Blazor DateTime Picker increment steps...]({%slug datetimepicker-steps%})
+The DateTime Picker enables the end users to change the selected value by clicking the rendered arrows. You can set the increment and decrement steps through the nested `DateTimePickerSteps` tag and its parameters. [Read more about the Blazor DateTime Picker increment steps...](slug://datetimepicker-steps)
 
 ## Events
 
-The Blazor DateTime Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor DateTime Picker events...]({%slug components/datetimepicker/events%}).
+The Blazor DateTime Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor DateTime Picker events...](slug://components/datetimepicker/events).
 
 ## Validation
 
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...]({%slug common-features/input-validation%}).
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...](slug://common-features/input-validation).
 
 ## Action Buttons
 
@@ -72,13 +72,14 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 
 | Attribute | Type and Default Value | Description |
 |---|---|---|
-| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode]({%slug adaptive-rendering%}) of the component. |
+| `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode](slug://adaptive-rendering) of the component. |
 | `AutoComplete` | `string` <br /> (`"off"`) | The `autocomplete` HTML attribute of the `input`. |
 | `DebounceDelay` | `int` <br/> (`150`) | Time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Enabled` | `bool` | Defines if the `DateTimePicker` is enabled |
 | `ReadOnly` | `bool` | If set to `true`, the component will be readonly and will not allow user input. The component is not readonly by default and allows user input. |
-| `Format` | `string` <br /> (`FullDateTimePattern`) | The format of the DateTimePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput]({%slug components/dateinput/supported-formats%}). |
+| `Format` | `string` <br /> (`FullDateTimePattern`) | The format of the DateTimePicker's DateInput. The default value depends on `CultureInfo.CurrentCulture`. Read more at [Supported date formats by the DateInput](slug://components/dateinput/supported-formats). |
 | `Id` | `string` | The `id` HTML attribute of the `input` |
+| `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Max` | `DateTime` <br /> (`DateTime(2099, 12, 31, 23, 59, 59)`) | The latest date and time that the user can select |
 | `Min` | `DateTime` <br /> (`DateTime(1900, 1, 1, 0, 0, 0)`) | The earliest date and time that the user can select |
 | `Placeholder` | `string` | The `placeholder` attribute of the HTML element. The placeholder will appear if the component is bound to nullable DateTime object - `DateTime?`, but will not be rendered if the component is bound to the default value of a non-nullable DateTime object. The Placeholder value will be displayed when the input is not focused. Once the user focuses it to start typing, the Format Placeholder (default or [customized one](#format-placeholder)) will override the Placeholder to indicate the format the date should be entered in. |
@@ -86,7 +87,7 @@ The Blazor Date Time Picker provides various parameters that allow you to config
 | `ShowWeekNumbers` | `bool` | Sets if the popup Calendar will display week numbers according to the [ISO-8601 format](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.isoweek.getweekofyear). Note that the [ISO week number may differ from the conventional .NET week number](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.calendar.getweekofyear). |
 | `ShowOtherMonthDays` | `bool` <br/> (`true`) | Defines whether the leading and trailing days from other months in the Calendar popup are visible in the current month view. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs]({%slug common-features/input-validation%}#validation-modes-for-simple-inputs) |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) |`ValidateOn` - configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs) |
 | `Value` | `DateTime` or `DateTime?` | The current value of the component. Supports two-way binding. |
 
 @[template](/_contentTemplates/date-inputs/general.md#typing-parameters)
@@ -101,7 +102,7 @@ The following parameters enable you to customize the appearance of the Blazor Da
 |`PopupClass`|`string`|Additional CSS class to customize the appearance of the DateTimePicker's dropdown|
 |`Width`|`string`|The width of the `DateTimePicker`|
 
-You can find more options for customizing the DateTimePicker styling in the [Appearance article]({%slug datetimepicker-appearance%}).
+You can find more options for customizing the DateTimePicker styling in the [Appearance article](slug://datetimepicker-appearance).
 
 @[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
@@ -138,12 +139,12 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 
 ## Next Steps
 
-* [DateTimePicker Events]({%slug components/datetimepicker/events%})
+* [DateTimePicker Events](slug://components/datetimepicker/events)
 
 
 ## See Also
 
 * [Live Demo: DateTime Picker](https://demos.telerik.com/blazor-ui/datetimepicker/overview)
-* [Input Validation]({%slug common-features/input-validation%})
-* [Supported Input Date Formats]({%slug components/dateinput/supported-formats%})
+* [Input Validation](slug://common-features/input-validation)
+* [Supported Input Date Formats](slug://components/dateinput/supported-formats)
 * [DateTimePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1)

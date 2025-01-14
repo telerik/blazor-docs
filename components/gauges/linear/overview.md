@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Linear Gauge Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">Telerik Linear Gauge for Blazor</a> represents [numerical values]({%slug linear-gauge-pointers%}) on a [scale]({%slug linear-gauge-scale%}) of ranges in a linear format.
+The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">Telerik Linear Gauge for Blazor</a> represents [numerical values](slug://linear-gauge-pointers) on a [scale](slug://linear-gauge-scale) of ranges in a linear format.
 
 ## Creating Blazor Linear Gauge
 
@@ -35,19 +35,19 @@ The <a href = "https://www.telerik.com/blazor-ui/linear-gauge" target="_blank">T
 
 ## Scale
 
-The scale of the Linear Gauge renders the values of the [pointers]({%slug linear-gauge-pointers%}) and [labels]({%slug linear-gauge-labels%}). [See the Scale article for more information on how to customize the scale of the component...]({%slug linear-gauge-scale%})
+The scale of the Linear Gauge renders the values of the [pointers](slug://linear-gauge-pointers) and [labels](slug://linear-gauge-labels). [See the Scale article for more information on how to customize the scale of the component...](slug://linear-gauge-scale)
 
 ## Pointers
 
-The pointers indicate the values on the scale of the component. [See the Pointers article for more information on how to customize the pointers of the component...]({%slug linear-gauge-pointers%})
+The pointers indicate the values on the scale of the component. [See the Pointers article for more information on how to customize the pointers of the component...](slug://linear-gauge-pointers)
 
 ## Labels
 
-The labels are rendered on the scale of the component to give information to the users. [See the Labels article for more information on how to customize the labels on the scale of the component...]({%slug linear-gauge-labels%})
+The labels are rendered on the scale of the component to give information to the users. [See the Labels article for more information on how to customize the labels on the scale of the component...](slug://linear-gauge-labels)
 
 ## Ranges
 
-The ranges are used to visually distinguish particular values on the scale. [Read the Ranges article for more information...]({%slug linear-gauge-ranges%})
+The ranges are used to visually distinguish particular values on the scale. [Read the Ranges article for more information...](slug://linear-gauge-ranges)
 
 ## Linear Gauge Parameters
 
@@ -99,8 +99,8 @@ The ranges are used to visually distinguish particular values on the scale. [Rea
 
 ## Next Steps
 
-* [Explore the Linear Gauge Scale]({%slug linear-gauge-scale%})
-* [Learn more about the Linear Gauge Pointers]({%slug linear-gauge-pointers%})
+* [Explore the Linear Gauge Scale](slug://linear-gauge-scale)
+* [Learn more about the Linear Gauge Pointers](slug://linear-gauge-pointers)
 
 ## See Also
 

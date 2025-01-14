@@ -46,9 +46,9 @@ You can set the `Columns` parameter when the Form component automatically genera
 
 ## See Also
 
-  * [Overview]({%slug form-overview%})
-  * [FormItems]({%slug form-formitems%})
-  * [FormGroups]({%slug form-formgroups%})
-  * [Orientation]({%slug form-orientation%})
-  * [Events]({%slug form-events%})
+  * [Overview](slug://form-overview)
+  * [FormItems](slug://form-formitems)
+  * [FormGroups](slug://form-formgroups)
+  * [Orientation](slug://form-orientation)
+  * [Events](slug://form-events)
    

@@ -14,7 +14,7 @@ The <a href="https://www.telerik.com/blazor-ui/bar-chart" target="_blank">Blazor
 
 ![bar chart](images/bar-chart.png)
 
-The Bar Chart is similar to the [Range Bar Chart]({%slug components/chart/types/rangebar%}), which allows the bar to move away from the category axis.
+The Bar Chart is similar to the [Range Bar Chart](slug://components/chart/types/rangebar), which allows the bar to move away from the category axis.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 

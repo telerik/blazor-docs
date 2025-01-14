@@ -73,7 +73,7 @@ Defining a new `GridLayoutColumn` tag to the GridLayout renders a new column in 
 
 ## Items
 
-The GridLayout Item defines the content of the TelerikGridLayout. [See the Items article for more information...]({%slug gridlayout-items%})
+The GridLayout Item defines the content of the TelerikGridLayout. [See the Items article for more information...](slug://gridlayout-items)
 
 ## GridLayout Parameters
 
@@ -90,7 +90,7 @@ The GridLayout Item defines the content of the TelerikGridLayout. [See the Items
 
 ## Next Steps
 
-* [Explore the GridLayout Items]({%slug gridlayout-items%})
+* [Explore the GridLayout Items](slug://gridlayout-items)
 
 ## See Also
 

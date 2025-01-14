@@ -12,7 +12,7 @@ position: 1
 
 The <a href="https://www.telerik.com/blazor-ui/pager" target="_blank">Blazor Pager component</a> will enable you to add paging for your data in a Blazor application. We use it in components like the Grid and ListView, and you can also use it for your own templates and data as a standalone component.
 
-The Pager provides the UI for the user to change the page. To the developer, it provides the page index so you can render only the relevant data portion and an [event]({%slug pager-events%}) that you can use to implement [load on demand](#load-on-demand).
+The Pager provides the UI for the user to change the page. To the developer, it provides the page index so you can render only the relevant data portion and an [event](slug://pager-events) that you can use to implement [load on demand](#load-on-demand).
 
 ## Creating Blazor Pager
 
@@ -70,7 +70,7 @@ The Pager provides the UI for the user to change the page. To the developer, it 
 
 ## Events
 
-The Blazor Pager exposes PageChanged and PageSizeChanged events that you can handle and further customize its behavior. [Read more about the Blazor Pager events]({%slug pager-events%}).
+The Blazor Pager exposes PageChanged and PageSizeChanged events that you can handle and further customize its behavior. [Read more about the Blazor Pager events](slug://pager-events).
 
 ## Pager Parameters
 
@@ -98,7 +98,7 @@ The following parameters enable you to customize the appearance of the Blazor Pa
 | --- | --- | --- |
 | `Size` | `Telerik.Blazor.ThemeConstants.Pager.Size` | Adjust the size of the Pager |
 
-You can find more information for customizing the Pager appearance in the [Appearance article]({%slug pager-appearance%}).
+You can find more information for customizing the Pager appearance in the [Appearance article](slug://pager-appearance).
 
 ## Examples
 
@@ -211,10 +211,10 @@ The `Page` parameter supports two-way binding so it can respond to changes from 
 
 ## Next Steps
 
-* [Explore the Pager Events]({%slug pager-events%})
+* [Explore the Pager Events](slug://pager-events)
 
 ## See Also
 
 * [Live Pager Demos](https://demos.telerik.com/blazor-ui/pager/overview)
 * [Pager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPager)
-* [How to increase the pager dropdownlist width]({%slug pager-kb-dropdown-width%})
+* [How to increase the pager dropdownlist width](slug://pager-kb-dropdown-width)

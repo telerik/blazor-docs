@@ -10,11 +10,11 @@ position: 55
 
 # Manual Data Source Operations
 
-By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging]({%slug components/grid/features/paging%}), [sorting]({%slug components/grid/features/sorting%}), [filtering]({%slug components/grid/filtering%})) internally.
+By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug://components/grid/features/paging), [sorting](slug://components/grid/features/sorting), [filtering](slug://components/grid/filtering)) internally.
 
-You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation]({%slug components/grid/editing/overview%}) as well, to ensure fresh data.
+You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug://components/grid/editing/overview) as well, to ensure fresh data.
 
->tip Make sure to get familiar with all the general [`OnRead` event documentation]({%slug common-features-data-binding-onread%}) first.
+>tip Make sure to get familiar with all the general [`OnRead` event documentation](slug://common-features-data-binding-onread) first.
 
 
 ## Examples
@@ -32,7 +32,7 @@ Examples:
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [Debounce Data Source Operations and Requests]({%slug grid-kb-debounce-operations%})
+* [Debounce Data Source Operations and Requests](slug://grid-kb-debounce-operations)
 
 ## Custom paging with a remote service
 
@@ -203,7 +203,7 @@ Thus, to use the `OnRead` event with grouping, you must:
 1. Use an `IEnumerable<object>` for the Grid data.
     * This is required so the special data structure for grouped data can be used, otherwise you will get compile-time errors.
 1. Set the `FieldType` of the columns to match the type of the field you will be showing.
-    * If you also use [filtering]({%slug components/grid/filtering%}), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`.
+    * If you also use [filtering](slug://components/grid/filtering), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`.
     * This is required because the grid is not bound to a specific type anymore, but to an `object`, and cannot infer the column type in order to define filters and new items.
 1. Prepare the appropriate group collections.
     * The example below shows a simple way through the Telerik `.ToDataSourceResult` extension method that is easy to use when you have all the data, or when you can pass objects by reference, like in a server-side Blazor app.
@@ -285,12 +285,12 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 >note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
 >
-> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state]({%slug grid-kb-add-edit-state%}) in order to ensure a model reference exists.
+> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state](slug://grid-kb-add-edit-state) in order to ensure a model reference exists.
 
 
 ## Aggregates with OnRead
 
-When using [aggregates]({%slug grid-aggregates%}) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
+When using [aggregates](slug://grid-aggregates) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
 
 <div class="skip-repl"></div>
 
@@ -391,10 +391,10 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
 ## See Also
 
-* [CRUD Operations Overview]({%slug components/grid/editing/overview%})
+* [CRUD Operations Overview](slug://components/grid/editing/overview)
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
 * [DataSourceRequest Object API](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
 * [DataSourceResult Object API](/blazor-ui/api/Telerik.DataSource.DataSourceResult)
-* [Blazor Grid]({%slug grid-overview%})
+* [Blazor Grid](slug://grid-overview)

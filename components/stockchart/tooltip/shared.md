@@ -302,5 +302,5 @@ Each `Point` contains the following data:
 
 ## See also
 
-* [Stock Chart Overview]({%slug stockchart-overview%})
-* [Stock Chart Tooltip Overview]({%slug stockchart-tooltip-overview%})
+* [Stock Chart Overview](slug://stockchart-overview)
+* [Stock Chart Tooltip Overview](slug://stockchart-tooltip-overview)

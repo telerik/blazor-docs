@@ -32,7 +32,7 @@ The InCell edit mode provides a specific user experience and behaves differently
 
 To enable InCell editing mode, set the `EditMode` property of the TreeList to `Telerik.Blazor.TreeListEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below.
 
-To add a new item, you must add a [toolbar]({%slug treelist-toolbar%}) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
+To add a new item, you must add a [toolbar](slug://treelist-toolbar) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
 
 It is up to the data access logic to save the data once it is changed in the data collection. The example above showcases when that happens and adds some code to provide a visual indication of the change. In a real application, the code for handling data updates may be entirely different.
 
@@ -315,9 +315,9 @@ Editing is cancelled for the first record.
 
 ## Event Sequence
 
-* The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values]({%slug grid-kb-default-value-for-new-row%}) that satisfy any initial validation and requirements your models may have.
+* The `OnCreate` event will fire as soon as you click the `Add` button. The Grid will render the new row and enter edit mode for the first editable column (to fire `OnEdit` and let the user alter the column). This means you should have [default values](slug://grid-kb-default-value-for-new-row) that satisfy any initial validation and requirements your models may have.
 
-    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the TreeList [State]({%slug treelist-state%}). If you want to insert items programmatically in the TreeList, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item]({%slug treelist-state%}#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
+    * This means that there is no actual inserted item, an item in InCell editing is always in Edit mode, never in Insert mode. Thus, you cannot use the `InsertedItem` field of the TreeList [State](slug://treelist-state). If you want to insert items programmatically in the TreeList, alter the `Data` collection, and use the `OriginalEditItem` feature of the state (see the [Initiate Editing or Inserting of an Item](slug://treelist-state#initiate-editing-or-inserting-of-an-item) example - it can put the InLine and Popup edit modes in Insert mode, but this cannot work for InCell editing).
 
 * The `OnEdit` event fires every time a cell is opened for editing. Until version **2.27**, the event fired **once per row** - when the user edits a cell from a different row.
 
@@ -330,7 +330,7 @@ Editing is cancelled for the first record.
 
 ## Incell Editing and Selection
 
-* To enable item selection with InCell Edit Mode, add a `<TreeListCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection]({%slug treelist-selection-row%}#selection-and-editing-modes ) article.
+* To enable item selection with InCell Edit Mode, add a `<TreeListCheckboxColumn />` to the `<Columns>` collection. More information on that can be read in the [Selection](slug://treelist-selection-row#selection-and-editing-modes ) article.
 
 
 ## Adding Children to Collapsed Items
@@ -362,4 +362,4 @@ The incell editor template requires a focusable element to maintain the tab orde
 ## See Also
 
 * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
-* [TreeList Selection Documentation]({%slug treelist-selection-overview%})
+* [TreeList Selection Documentation](slug://treelist-selection-overview)

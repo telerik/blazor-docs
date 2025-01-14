@@ -40,7 +40,7 @@ This article provides examples of validating the Telerik Blazor components. The 
 * [Sliders](#sliders)
 
 
->tip Telerik offers the [Form Component]({%slug form-overview%}) that lets you generate and manage forms with predefined layouts and less code.
+>tip Telerik offers the [Form Component](slug://form-overview) that lets you generate and manage forms with predefined layouts and less code.
 
 ### Simple Inputs
 
@@ -514,11 +514,11 @@ Unlike other components, the editor does not trigger form validation on every ke
 
 ### MaskedTextbox
 
-The Masked Textbox prompts the user for their input and restricts it according to its [Mask]({%slug maskedtextbox-mask-prompt%}). 
+The Masked Textbox prompts the user for their input and restricts it according to its [Mask](slug://maskedtextbox-mask-prompt). 
 
 The Blazor validation is, however, controlled by data annotation attributes on the model and so the application must have the appropriate rules set that match the desired input and masks. The RegularExpression annotation is commonly used to require a specific input format and values, or you can implement custom data annotation attributes too.
 
-You may want to set the [`IncludeLiterals`]({%slug maskedtextbox-mask-prompt%}#include-literals-in-the-value) parameter to `true` and/or set the [`PromptPlaceholder`]({%slug maskedtextbox-mask-prompt%}#prompt) parameter accordingly to keep the prompt characters in the `Value` so you can validate the content more easily.
+You may want to set the [`IncludeLiterals`](slug://maskedtextbox-mask-prompt#include-literals-in-the-value) parameter to `true` and/or set the [`PromptPlaceholder`](slug://maskedtextbox-mask-prompt#prompt) parameter accordingly to keep the prompt characters in the `Value` so you can validate the content more easily.
 
 >caption Sample DataAnnotation rules that match masks to validate user input
 
@@ -920,8 +920,8 @@ The feature is supported by the following components treated as simple textbox-l
 ## See Also
 
 * [Data annotation attributes](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation)
-* [Conditional validation]({%slug form-kb-conditional-validation%})
-* [ValueChanged and validation]({%slug value-changed-validation-model%})
-* [Validate on blur or change]({%slug textbox-validate-on-change%})
-* [Error: Requires a value for ValueExpression]({%slug common-kb-requires-valueexpression%})
-* [Form component]({%slug form-overview%})
+* [Conditional validation](slug://form-kb-conditional-validation)
+* [ValueChanged and validation](slug://value-changed-validation-model)
+* [Validate on blur or change](slug://textbox-validate-on-change)
+* [Error: Requires a value for ValueExpression](slug://common-kb-requires-valueexpression)
+* [Form component](slug://form-overview)

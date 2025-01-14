@@ -101,4 +101,4 @@ Note that the Editor uses the [ProseMirror engine](https://prosemirror.net). By 
 
 ## See Also
 
-* [Editor Paste Cleanup]({%slug editor-paste-cleanup%})
+* [Editor Paste Cleanup](slug://editor-paste-cleanup)

@@ -84,4 +84,4 @@ For details on how the DateRangePicker keyboard navigation works, refer to the [
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor]({%slug accessibility-overview%})
+* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)

@@ -19,7 +19,7 @@ The Window offers different features to control its size:
 
 ## Width and Height
 
-If you know the size you need, just set the `Width` or `Height` parameters. They can take valid CSS values (see the [Dimensions]({%slug common-features/dimensions%}) article).
+If you know the size you need, just set the `Width` or `Height` parameters. They can take valid CSS values (see the [Dimensions](slug://common-features/dimensions) article).
 
 The Window also provides parameters that control its dimensions in a more flexible way:
 
@@ -30,7 +30,7 @@ The Window also provides parameters that control its dimensions in a more flexib
 
 Min/max dimensions take precedence over [user resizing](#resizing) and `Width` / `Height` settings.
 
-If no dimensions are set, the Window will expand, according to its contents, like any other `<div>` element. This may affect the [Window's positioning]({%slug components/window/position%}).
+If no dimensions are set, the Window will expand, according to its contents, like any other `<div>` element. This may affect the [Window's positioning](slug://components/window/position).
 
 If you set dimensions and the Window content does not fit, scrollbars will show.
 
@@ -60,7 +60,7 @@ If you set dimensions and the Window content does not fit, scrollbars will show.
 
 ## Maximize and Minimize
 
-The user can maximize and minimize the Window through [action buttons in its titlebar]({%slug components/window/actions%}).
+The user can maximize and minimize the Window through [action buttons in its titlebar](slug://components/window/actions).
 
 You can invoke those actions by setting the `State` parameter. It takes a member of the `Telerik.Blazor.WindowState` enum:
 
@@ -69,7 +69,7 @@ You can invoke those actions by setting the `State` parameter. It takes a member
 | `WindowState`&nbsp;Value | Description |
 | --- | --- |
 | `Default` | The size and position will depend on the `Top`, `Left`, `Centered`, `Width`, `Height`, `Size` parameters. |
-| `Minimized` | The Window will show its titlebar only. The component will dispose its content and remove it from the page DOM. If you prefer to just hide the Window content with CSS, [set `PersistContent` to `true`]({%slug window-overview%}#window-parameters). |
+| `Minimized` | The Window will show its titlebar only. The component will dispose its content and remove it from the page DOM. If you prefer to just hide the Window content with CSS, [set `PersistContent` to `true`](slug://window-overview#window-parameters). |
 | `Maximized` | The Window will take up the entire viewport. |
 
 >caption Maximize, Minimize and Restore the Window programmatically
@@ -107,7 +107,7 @@ You can invoke those actions by setting the `State` parameter. It takes a member
 }
 ````
 
->tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window]({%slug window-kb-block-all-content%}) article on ensuring that the CSS rules in the project can enable that.
+>tip With a maximized window you may want to ensure all other content stays "behind" it. To do that, see the [Block all content with a Window](slug://window-kb-block-all-content) article on ensuring that the CSS rules in the project can enable that.
 
 
 ## Resizing

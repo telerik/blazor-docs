@@ -106,4 +106,4 @@ We don't recommend and don't officially support custom markup or custom componen
 
 ## See Also
 
-* [Add Telerik Blazor components to the Blazor Web App Template]({%slug getting-started/web-app%})
+* [Add Telerik Blazor components to the Blazor Web App Template](slug://getting-started/web-app)

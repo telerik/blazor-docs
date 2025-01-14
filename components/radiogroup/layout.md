@@ -59,6 +59,6 @@ In the `Horizontal` layout mode, the individual items do not create a layout and
 
 ## See Also
 
-* [RadioGroup Overview]({%slug radiogroup-overview%})
-* [RadioGroup Data Binding]({%slug radiogroup-databind%})
+* [RadioGroup Overview](slug://radiogroup-overview)
+* [RadioGroup Data Binding](slug://radiogroup-databind)
 * [Live Demo: RadioGroup Customization](https://demos.telerik.com/blazor-ui/radiogroup/customization)

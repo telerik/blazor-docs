@@ -14,19 +14,19 @@ You can customize the TreeList appearance and behavior through the various templ
 
 The TreeList component can use templates for: 
 
-* [columns (cells)]({%slug treelist-templates-column%}) - the rendering of each cell (column). You can, for example, change string formats or add your own components.
+* [columns (cells)](slug://treelist-templates-column) - the rendering of each cell (column). You can, for example, change string formats or add your own components.
 
-* [editing of a cell]({%slug treelist-templates-editor%}) - when a cell is in edit mode, it will render this template where you can use custom editors, components and logic.
+* [editing of a cell](slug://treelist-templates-editor) - when a cell is in edit mode, it will render this template where you can use custom editors, components and logic.
 
-* [rows]({%slug treelist-templates-row%}) - the entire rendering of the `tr` element of the row, so you can fully customize the treelist behavior and rendering.
+* [rows](slug://treelist-templates-row) - the entire rendering of the `tr` element of the row, so you can fully customize the treelist behavior and rendering.
 
-* [column header]({%slug treelist-templates-column-header%}) - the title portion of the column.
+* [column header](slug://treelist-templates-column-header) - the title portion of the column.
 
-* [filter]({%slug treelist-templates-filter%}) - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
+* [filter](slug://treelist-templates-filter) - the content of the filter cell or filter menu where you can implement custom rendering and logic for the filters.
 
-* [no data available]({%slug treelist-templates-no-data%}) - when the TreeList Data collection is empty or null, you can customize the content inside.
+* [no data available](slug://treelist-templates-no-data) - when the TreeList Data collection is empty or null, you can customize the content inside.
 
-* [pager]({%slug treelist-templates-pager%}) - the template modifies the layout, content, and functionality of the Pager.
+* [pager](slug://treelist-templates-pager) - the template modifies the layout, content, and functionality of the Pager.
 
 Like other Blazor content, most of them can receive a `context` argument that is the type of the model. To use templates, you must bind the treelist to a named model. The filter and header templates are the exception as they are not related to rows and models.
 

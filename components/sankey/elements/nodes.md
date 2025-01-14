@@ -11,9 +11,9 @@ position: 0
 
 # Sankey Nodes
 
-The Sankey diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links]({%slug sankey-links%}). This article explains how to customize the nodes in the UI for Blazor Sankey diagram. 
+The Sankey diagram Nodes are rectangular elements that are being connected. They can be source and target for the [links](slug://sankey-links). This article explains how to customize the nodes in the UI for Blazor Sankey diagram. 
 
->tip Each setting applies to all nodes in the Sankey diagram. If you want to provide different settings for the separate nodes, [customize them through the data source]({%slug sankey-data-binding%}#customize-elements-through-data).
+>tip Each setting applies to all nodes in the Sankey diagram. If you want to provide different settings for the separate nodes, [customize them through the data source](slug://sankey-data-binding#customize-elements-through-data).
 
 ## Basic Customization
 
@@ -86,8 +86,8 @@ The `<SankeyNodes>` tag exposes a child `<SankeyNodesOffset>` tag that allows yo
 ## See Also
 
 * [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
-* [Sankey Links]({%slug sankey-links%})
-* [Sankey Labels]({%slug sankey-labels%})
-* [Sankey Legend]({%slug sankey-legend%})
-* [Sankey Title]({%slug sankey-title%})
-* [Sankey Tooltip]({%slug sankey-tooltip%})
+* [Sankey Links](slug://sankey-links)
+* [Sankey Labels](slug://sankey-labels)
+* [Sankey Legend](slug://sankey-legend)
+* [Sankey Title](slug://sankey-title)
+* [Sankey Tooltip](slug://sankey-tooltip)

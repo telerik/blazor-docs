@@ -17,7 +17,7 @@ position: 10
 
 The `TelerikRootComponent` must [reside in an interactive layout or component in order to pass cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-8.0#cascading-valuesparameters-and-render-mode-boundaries) to all other Telerik Blazor components. The `TelerikRootComponent` placement in the app depends on the selected **Interactivity location** during app creation.
 
-In apps with **Global** interactivity location, it's best to [add the `TelerikRootComponent` to a layout]({%slug rootcomponent-overview%}#using-telerikrootcomponent).
+In apps with **Global** interactivity location, it's best to [add the `TelerikRootComponent` to a layout](slug://rootcomponent-overview#using-telerikrootcomponent).
 
 In apps with **Per page/component** interactivity, the layout files are static. There are three options to use the `TelerikRootComponent` in this case:
 
@@ -30,7 +30,7 @@ The sections below provide additional information for each of the three options.
 
 ## Add TelerikRootComponent to Interactive Pages
 
-In this scenario, add a `TelerikRootComponent` to all interactive `.razor` pages, which host Telerik Blazor components. The `TelerikRootComponent` will not wrap all the page content, so a possible side effect may be [wrong popup position]({%slug troubleshooting-general-issues%}#wrong-popup-position). Component interactivity is inherited, so nested components will not need to be explicitly interactive.
+In this scenario, add a `TelerikRootComponent` to all interactive `.razor` pages, which host Telerik Blazor components. The `TelerikRootComponent` will not wrap all the page content, so a possible side effect may be [wrong popup position](slug://troubleshooting-general-issues#wrong-popup-position). Component interactivity is inherited, so nested components will not need to be explicitly interactive.
 
 Here are the detailed steps:
 
@@ -88,12 +88,12 @@ Here are the detailed steps:
 }
 ````
 
-> When the `TelerikRootComponent` is added to a `.razor` file, you cannot reference the `DialogFactory` and use [predefined dialogs]({%slug dialog-predefined%}) in the same `.razor` file. The `DialogFactory` will be available to child components of the `TelerikRootComponent`. However, a [workaround exists](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer).
+> When the `TelerikRootComponent` is added to a `.razor` file, you cannot reference the `DialogFactory` and use [predefined dialogs](slug://dialog-predefined) in the same `.razor` file. The `DialogFactory` will be available to child components of the `TelerikRootComponent`. However, a [workaround exists](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer).
 
 
 ## Change the App Render Mode at Runtime
 
-In this scenario, [add a `TelerikRootComponent` to a layout]({%slug rootcomponent-overview%}#using-telerikrootcomponent) as if the application has **Global** interactivity location. Then, enable global interactivity at runtime when the user navigates to a page (component) with Telerik components inside. To do this, [set the `@rendermode` conditionally in `App.razor`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-by-component-instance). Blazor Web Apps with identity use the [same approach to disable interactivity in the `Account` section](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#area-folder-of-static-ssr-components).
+In this scenario, [add a `TelerikRootComponent` to a layout](slug://rootcomponent-overview#using-telerikrootcomponent) as if the application has **Global** interactivity location. Then, enable global interactivity at runtime when the user navigates to a page (component) with Telerik components inside. To do this, [set the `@rendermode` conditionally in `App.razor`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#set-the-render-mode-by-component-instance). Blazor Web Apps with identity use the [same approach to disable interactivity in the `Account` section](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-8.0#area-folder-of-static-ssr-components).
 
 >caption Change render mode at runtime in App.razor
 
@@ -137,12 +137,12 @@ In this scenario, use a regular layout (`MainLayout.razor`) for static pages and
 1. [Reference `EmptyLayout.razor` in a Razor component with Telerik Blazor components inside](https://github.com/telerik/blazor-ui/blob/master/rootcomponent/BlazorWebAppServer/Components/Pages/PageWithEmptyLayout.razor).
 1. Wrap all Telerik components in a `<LayoutContainer>` component.
 
-This code duplication requires more effort to maintain, but avoids [possible issues with popup position]({%slug troubleshooting-general-issues%}#wrong-popup-position). The approach is applicable to Blazor Web Apps with **Server** render mode. Apps with **WebAssembly** or **Auto** render mode, and **Per page/component** interactivity, have their layout files and interactive `.razor` components in separate projects, which limits the ability to switch layouts.
+This code duplication requires more effort to maintain, but avoids [possible issues with popup position](slug://troubleshooting-general-issues#wrong-popup-position). The approach is applicable to Blazor Web Apps with **Server** render mode. Apps with **WebAssembly** or **Auto** render mode, and **Per page/component** interactivity, have their layout files and interactive `.razor` components in separate projects, which limits the ability to switch layouts.
 
 
 ## See Also
 
 * [Blazor Web App sample project on GitHub](https://github.com/telerik/blazor-ui/tree/master/rootcomponent/BlazorWebAppServer)
-* [Setting up Telerik Blazor apps]({%slug getting-started/what-you-need%})
+* [Setting up Telerik Blazor apps](slug://getting-started/what-you-need)
 * [ASP.NET Core Blazor render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes)
 * [Video: Intro to Blazor in .NET 8 - SSR, Stream Rendering, Auto](https://www.youtube.com/watch?v=walv3nLTJ5g)

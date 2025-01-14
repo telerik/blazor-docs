@@ -10,7 +10,7 @@ position: 2
 
 # Shared Tooltip for Telerik Blazor Chart
 
-The Telerik Chart allows you to show a unified tooltip for all categories in [Categorical]({%slug components/chart/databind%}#series-types) Charts.
+The Telerik Chart allows you to show a unified tooltip for all categories in [Categorical](slug://components/chart/databind#series-types) Charts.
 
 In this article:
 * [Basics](#basics)
@@ -21,7 +21,7 @@ In this article:
 
 ## Basics
 
-The shared tooltip provides summarized information of all data points from the hovered category (applies for [Categorical Charts]({%slug components/chart/databind%}#series-types)). This tooltip will take precedence over tooltip settings defined for a specific series.
+The shared tooltip provides summarized information of all data points from the hovered category (applies for [Categorical Charts](slug://components/chart/databind#series-types)). This tooltip will take precedence over tooltip settings defined for a specific series.
 
 To enable the shared tooltip:
 
@@ -145,5 +145,5 @@ Each `Point` contains the following data:
 
 ## See also
 
-* [Chart Overview]({%slug components/chart/overview%})
-* [Chart Tooltip Overview]({%slug chart-tooltip-overview%})
+* [Chart Overview](slug://components/chart/overview)
+* [Chart Tooltip Overview](slug://chart-tooltip-overview)

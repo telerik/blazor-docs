@@ -27,7 +27,7 @@ By default, the group and subgroup headers are styled in the exact same way and 
 
 ## Solution
 
-You can customize the default rendering of the Grid group headers through [Group Header Template]({%slug grid-templates-group-header%}). It allows you to place the desired content in the specific group header.
+You can customize the default rendering of the Grid group headers through [Group Header Template](slug://grid-templates-group-header). It allows you to place the desired content in the specific group header.
 
 For styling customizations such as changing the background, use custom CSS as shown in the example below.
 

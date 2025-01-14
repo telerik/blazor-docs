@@ -26,12 +26,12 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to [select rows]({%slug grid-selection-row%}) in the Grid when using a [Row Template]({%slug grid-templates-row%})?
-* How to add a [checkbox column]({%slug components/grid/columns/checkbox%}) in the Grid when using a Row Template? I want to be able to select the row through its checkbox, but also to have the functionality to [select all rows]({%slug components/grid/columns/checkbox%}#parameters) from the header of the checkbox column.
+* How to [select rows](slug://grid-selection-row) in the Grid when using a [Row Template](slug://grid-templates-row)?
+* How to add a [checkbox column](slug://components/grid/columns/checkbox) in the Grid when using a Row Template? I want to be able to select the row through its checkbox, but also to have the functionality to [select all rows](slug://components/grid/columns/checkbox#parameters) from the header of the checkbox column.
 * Do the built-in keyboard options to select a range of rows by clicking the `Shift` or `Ctrl` key work when using a Row Template? How to check the checkbox of the row when I select a row by clicking the row?
-* How to add a [command column]({%slug components/grid/columns/command%}) in the Grid when using a Row Template?
+* How to add a [command column](slug://components/grid/columns/command) in the Grid when using a Row Template?
 * When using a Row Template, how to prevent the selection of Grid rows when clicking on command buttons?
-* How to implement Grid column [resizing]({%slug components/grid/columns/resize%}), [auto-fitting]({%slug components/grid/columns/resize%}#autofit-columns), [visibility]({%slug grid-columns-visible%}), [locking]({%slug grid-columns-frozen%}), and [reordering]({%slug components/grid/columns/reorder%}) when using a Row Template?
+* How to implement Grid column [resizing](slug://components/grid/columns/resize), [auto-fitting](slug://components/grid/columns/resize#autofit-columns), [visibility](slug://grid-columns-visible), [locking](slug://grid-columns-frozen), and [reordering](slug://components/grid/columns/reorder) when using a Row Template?
 
 ## Solution
 
@@ -41,9 +41,9 @@ By default, using the Row Template disables most built-in functionalities of the
 
 To implement custom selection functionality:
 
-* In the [`<GridColumns>` collection]({%slug components/grid/columns/bound%}#show-data-in-a-grid) add the [`<GridCheckboxColumn>`]({%slug components/grid/columns/checkbox%}) and use the [`HeaderTemplate`]({%slug components/grid/columns/checkbox%}#header-template) to add a [CheckBox component]({%slug checkbox-overview%}). This CheckBox component handles the [select all rows]({%slug components/grid/columns/checkbox%}#parameters) functionallity.
+* In the [`<GridColumns>` collection](slug://components/grid/columns/bound#show-data-in-a-grid) add the [`<GridCheckboxColumn>`](slug://components/grid/columns/checkbox) and use the [`HeaderTemplate`](slug://components/grid/columns/checkbox#header-template) to add a [CheckBox component](slug://checkbox-overview). This CheckBox component handles the [select all rows](slug://components/grid/columns/checkbox#parameters) functionallity.
 * In the Row Template, add a `<td>` element with a CheckBox component. Add a Boolean property to the Grid model to indicate selection so you can use it for the state of this CheckBox.
-* Handle the Grid's [`SelectedItemsChanged` event]({%slug grid-selection-row%}#selecteditemschanged-event) and the CheckBox's [`OnChange` event]({%slug checkbox-events%}#onchange) to manage the [`SelectedItems` collection]({%slug grid-selection-overview%}#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the checkbox column.
+* Handle the Grid's [`SelectedItemsChanged` event](slug://grid-selection-row#selecteditemschanged-event) and the CheckBox's [`OnChange` event](slug://checkbox-events#onchange) to manage the [`SelectedItems` collection](slug://grid-selection-overview#access-selected-rows-or-cells). The `OnChange` event fires after the `SelectedItemsChanged` event. In this case, you need to create a separate collection of selected items to persist the selected items when multiselecting through the checkbox column.
 
 ### Editing, Sorting, Filtering
 
@@ -53,8 +53,8 @@ The built-in editing, sorting, and filtering will work if the Row Template struc
 
 To implement a custom command column:
 
-* In the `<GridColumns>` collection add the [`<GridCommandColumn>`]({%slug components/grid/columns/command%}) and use the [built-in `Save` and `Cancel` commands]({%slug components/grid/columns/command%}#built-in-commands). 
-* In the Row Template add a `<td>` element with a [Button component]({%slug components/button/overview%}) and handle the Grid items editing and deleting programmatically. Refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically]({%slug grid-kb-add-edit-state%}).
+* In the `<GridColumns>` collection add the [`<GridCommandColumn>`](slug://components/grid/columns/command) and use the [built-in `Save` and `Cancel` commands](slug://components/grid/columns/command#built-in-commands). 
+* In the Row Template add a `<td>` element with a [Button component](slug://components/button/overview) and handle the Grid items editing and deleting programmatically. Refer to the knowledge base article on how to [enter and exit Grid edit mode programmatically](slug://grid-kb-add-edit-state).
 * Set the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">`stopPropagation` method</a> of the <a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">`onclick` event</a> to the `<td>` element to prevent row selection when clicking a command button.
 
 ### Column Resizing, Auto-Fitting, Visibility, Locking, Reordering
@@ -300,12 +300,12 @@ To implement a custom command column:
 
 ## See Also
 
-* [Grid Row Template]({%slug grid-templates-row%})
-* [Grid Row Selection]({%slug grid-selection-row%})
-* [Grid Command Column]({%slug components/grid/columns/command%})
-* [Grid Column Resizing]({%slug components/grid/columns/resize%})
-* [Grid Column Auto-fitting]({%slug components/grid/columns/resize%}#autofit-columns)
-* [Grid Column Visibility]({%slug grid-columns-visible%})
-* [Grid Column Locking]({%slug grid-columns-frozen%})
-* [Grid Column Reordering]({%slug components/grid/columns/reorder%})
-* [Enter And Exit Grid Edit Mode Programmatically]({%slug grid-kb-add-edit-state%})
+* [Grid Row Template](slug://grid-templates-row)
+* [Grid Row Selection](slug://grid-selection-row)
+* [Grid Command Column](slug://components/grid/columns/command)
+* [Grid Column Resizing](slug://components/grid/columns/resize)
+* [Grid Column Auto-fitting](slug://components/grid/columns/resize#autofit-columns)
+* [Grid Column Visibility](slug://grid-columns-visible)
+* [Grid Column Locking](slug://grid-columns-frozen)
+* [Grid Column Reordering](slug://components/grid/columns/reorder)
+* [Enter And Exit Grid Edit Mode Programmatically](slug://grid-kb-add-edit-state)

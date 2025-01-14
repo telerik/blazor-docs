@@ -12,13 +12,13 @@ position: 1
 
 The Context Menu component provides templates you can use to customize its appearance and behavior:
 
-* [Item Template]({%slug contextmenu-item-template%}) - the rendering of each individual context menu item so you can render more than the built-in text and icon fields.
+* [Item Template](slug://contextmenu-item-template) - the rendering of each individual context menu item so you can render more than the built-in text and icon fields.
 
-* [Content Template]({%slug contextmenu-content-template%}) - lets you control the rendering of the entire popup, without having to us the built-in `<ul> --> <li>` structure.
+* [Content Template](slug://contextmenu-content-template) - lets you control the rendering of the entire popup, without having to us the built-in `<ul> --> <li>` structure.
 
 
 ## See Also
 
-  * [Data Binding a Context Menu]({%slug contextmenu-data-binding-overview%})
+  * [Data Binding a Context Menu](slug://contextmenu-data-binding-overview)
   * [Live Demo: Context Menu Templates](https://demos.telerik.com/blazor-ui/contextmenu/templates)
 

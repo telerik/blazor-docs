@@ -14,7 +14,6 @@ You can export the grid to PDF with a click of a button. The current filter, sor
 
 When you click the Export button, your browser will receive the resulting file.
 
-
 #### In This Article
 
   - [Basics](#basics)
@@ -230,4 +229,4 @@ The following sample projects show two ways to implement a PDF export
 ## See Also
 
 * [Blazor Grid](slug:grid-overview)
-* [Live Demo: Grid PDF Export](https://demos.telerik.com/blazor-ui/grid/export-Pdf)
+* [Live Demo: Grid PDF Export](https://demos.telerik.com/blazor-ui/grid/export-pdf)

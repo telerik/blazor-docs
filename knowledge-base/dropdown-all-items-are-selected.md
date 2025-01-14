@@ -169,5 +169,5 @@ The test page below demonstrates several incorrect and correct configurations fo
 
 # See Also
 
-* [ComboBox data binding to model]({%slug components/combobox/databind%}#bind-to-a-model)
-* [DropDownList data binding to model]({%slug components/dropdownlist/databind%}#bind-to-a-model)
+* [ComboBox data binding to model](slug://components/combobox/databind#bind-to-a-model)
+* [DropDownList data binding to model](slug://components/dropdownlist/databind#bind-to-a-model)

@@ -22,4 +22,4 @@ To clear the cache files:
 
 ## Convert Project Command Issues
 
-If you are trying to convert your project through the `Convert Command` in the Telerik UI for Blazor Visual Studio Code Extension and observe any issues, see the dedicated [Convert Project troubleshooting section]({%slug getting-started-vs-code-integration-convert-project%}#troubleshooting).
+If you are trying to convert your project through the `Convert Command` in the Telerik UI for Blazor Visual Studio Code Extension and observe any issues, see the dedicated [Convert Project troubleshooting section](slug://getting-started-vs-code-integration-convert-project#troubleshooting).

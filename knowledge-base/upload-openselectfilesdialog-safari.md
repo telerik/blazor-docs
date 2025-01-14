@@ -119,5 +119,5 @@ The only possible way to open a FileSelect or Upload dialog programmatically is 
 
 ## See Also
 
-* [FileSelect Component]({%slug fileselect-overview%})
-* [Upload Component]({%slug upload-overview%})
+* [FileSelect Component](slug://fileselect-overview)
+* [Upload Component](slug://upload-overview)

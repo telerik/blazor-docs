@@ -60,14 +60,14 @@ Steps 4 and 5 are optional, but strongly recommended.
     * The argument name (`FormData` request key) must match the Upload [`SaveField` parameter](#upload-parameters) value. By default, that is `files`.
     * The method name must match the last part of the `SaveUrl` value.
     * The correct binding source attribute for the file argument is `[FromForm]`. Normally, .NET will infer and set it automatically.
-    * Use the Upload [`OnUpload` event]({%slug upload-events%}#onupload) to [send additional custom data with the file]({%slug upload-events%}#send-custom-data-with-the-file) as an argument to the `Save` controller method.
+    * Use the Upload [`OnUpload` event](slug://upload-events#onupload) to [send additional custom data with the file](slug://upload-events#send-custom-data-with-the-file) as an argument to the `Save` controller method.
 
 * **Remove** action method
     * Its argument must be `string` or `IEnumerable<string>`.
     * The argument name (`FormData` request key) must match the Upload [`RemoveField` parameter](#upload-parameters) value. By default, that is `files`.
     * The method name must match the last part of the `RemoveUrl` value.
     * The correct binding source attribute for the file name argument is `[FromForm]`. Set it explicitly if you are using an [`[ApiController]` attribute](https://learn.microsoft.com/en-gb/aspnet/core/web-api/).
-    * Use the Upload [`OnRemove` event]({%slug upload-events%}#onremove) to [send additional custom data with the file]({%slug upload-events%}#send-custom-data-with-the-file) as an argument to the `Remove` controller method.
+    * Use the Upload [`OnRemove` event](slug://upload-events#onremove) to [send additional custom data with the file](slug://upload-events#send-custom-data-with-the-file) as an argument to the `Remove` controller method.
 
 Both action methods must accept `POST` requests. Correct request routing depends on the application.
 
@@ -75,7 +75,7 @@ The `UploadController` class below assumes that the project name and namespace i
 
 Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
 
-Also check the [Upload Troubleshooting]({%slug upload-troubleshooting%}) page.
+Also check the [Upload Troubleshooting](slug://upload-troubleshooting) page.
 
 >caption Sample Upload Controller
 
@@ -163,7 +163,7 @@ namespace TelerikBlazorUpload.Controllers
 
 ### Security
 
-The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add headers, authentication tokens and custom data to the request.
+The Telerik Upload component makes XHR requests from the browser to the designated endpoints. If needed, use the [`OnUpload` and `OnRemove` events](slug://upload-events) to add headers, authentication tokens and custom data to the request.
 
 Authentication and authorization depends on the application.
 
@@ -177,19 +177,19 @@ Authentication and authorization depends on the application.
 
 ## Validation
 
-The Upload includes [built-in client-side validation]({%slug upload-validation%}) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event]({%slug upload-events%}#onselect).
+The Upload includes [built-in client-side validation](slug://upload-validation) for the file size and type (extension). Additional custom validation can take place in the [OnSelect event](slug://upload-events#onselect).
 
 ## Initial Files
 
-The Initial Files feature allows you to display a set of pre-selected files in the Upload when the component loads. This functionality is helpful when you want to show files that were previously provided by the user. [Read more about the Upload Initial Files feature...]({%slug upload-initial-files%})
+The Initial Files feature allows you to display a set of pre-selected files in the Upload when the component loads. This functionality is helpful when you want to show files that were previously provided by the user. [Read more about the Upload Initial Files feature...](slug://upload-initial-files)
 
 ## Templates
 
-You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...]({%slug upload-templates%})
+You can use the functionality of the built-in template and modify the appearance of the **Select files...** button. [Read more about the Telerik Upload templates...](slug://upload-templates)
 
 ## Large File Uploads
 
-The Upload `MaxFileSize` parameter is used only for [client-side validation]({%slug upload-validation%}). The component sends files in one piece and the server needs a separate configuration to support large file uploads. Here are some examples for common server settings:
+The Upload `MaxFileSize` parameter is used only for [client-side validation](slug://upload-validation). The component sends files in one piece and the server needs a separate configuration to support large file uploads. Here are some examples for common server settings:
 
 * [IIS `maxAllowedContentLength`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#iis) (also check the [`requestLimits` article](https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/) and this [StackOverflow thread](https://stackoverflow.com/questions/10871881/iis7-the-request-filtering-module-is-configured-to-deny-a-request-that-exceeds))
 * [ASP.NET Core `MultipartBodyLengthLimit`](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#multipart-body-length-limit)
@@ -197,9 +197,9 @@ The Upload `MaxFileSize` parameter is used only for [client-side validation]({%s
 
 ## Drag-and-Drop File Support
 
-The Upload provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`]({%slug upload-events%}#onselect) and [`OnUpload`]({%slug upload-events%}#onupload) events are raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
+The Upload provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect`](slug://upload-events#onselect) and [`OnUpload`](slug://upload-events#onupload) events are raised upon dropping the file. You can handle this behavior to perform further actions with the selected file.
 
-Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component]({%slug dropzone-overview%}).
+Additionally, you can define an external drop zone by using the [Telerik UI for Blazor DropZone component](slug://dropzone-overview).
 
 ## Upload Parameters
 
@@ -210,21 +210,21 @@ The following table lists the Upload parameters. Also check the [Upload API Refe
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Accept` | `string` | The [`accept` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept) of the file `<input>`. It controls what file types and MIME types the browser will allow users to select. Compare with `AllowedExtensions`. |
-| `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation]({%slug upload-validation%}). |
+| `AllowedExtensions` | `List<string>` | The list of allowed file types. The component will check if the selected files are compliant **after selection**. Compare with `Accept`. Read more at [Validation](slug://upload-validation). |
 | `AutoUpload` | `bool`<br />(`true`) | When `true`, the upload process starts automatically after file selection. When `false`, the component renders an upload button. |
 | `Capture` | `string` | The [`capture` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture) of the `<input type="file" />` element. It enables users to provide a file directly from their device camera. |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-upload">` element. |
-| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone]({%slug dropzone-overview%}). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
+| `DropZoneId` | `string` | The id that is used to connect the Upload to an external [DropZone](slug://dropzone-overview). Assign a value matching the `Id` of the DropZone you are connecting the component with. |
 | `Enabled` | `bool`<br />(`true`) | Enables file selection and upload. |
 | `Id` | `string` | Renders an `id` attribute to the `<input type="file" />` element. Can be used together with a `<label>`. |
-| `MaxFileSize` | `long?` | The maximum allowed file size in bytes. Read more in the [Large File Uploads](#large-file-uploads) section and in the [Validation]({%slug upload-validation%}) article. |
-| `MinFileSize` | `long?` | The minimum allowed file size in bytes. Read more at [Validation]({%slug upload-validation%}). |
+| `MaxFileSize` | `long?` | The maximum allowed file size in bytes. Read more in the [Large File Uploads](#large-file-uploads) section and in the [Validation](slug://upload-validation) article. |
+| `MinFileSize` | `long?` | The minimum allowed file size in bytes. Read more at [Validation](slug://upload-validation). |
 | `Multiple` | `bool`<br />(`true`) | Sets if the user can select several files at the same time. The component always uploads files one by one, and the controller method receives them separately. |
 | `RemoveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file name submitted for deletion to the [`RemoveUrl` endpoint](#implement-controller-methods). The `RemoveField` value must match the delete controller method's argument name. The user triggers remove requests when clicking on the [x] buttons in the uploaded file list. |
 | `RemoveUrl` | `string` | The URL which receives the file names for deletion. |
 | `SaveField` | `string`<br />(`"files"`) | Sets the `FormData` key, which contains the file submitted to the [`SaveUrl` endpoint](#implement-controller-methods). The `SaveField` value must match the save controller method's argument name. |
 | `SaveUrl` | `string` | The URL which receives the uploaded files. `SaveUrl` and `RemoveUrl` **cannot change** between file selection and file upload, because the component will be recreated and the selected files will be lost. |
-| `WithCredentials` | `bool` | Controls if the Upload will send credentials such as cookies or HTTP headers for [**cross-site** requests](#cross-origin-requests). See [XMLHttpRequest.withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). On the other hand, use the [`OnUpload` and `OnRemove` events]({%slug upload-events%}) to add authentication tokens and other metadata to the component requests. |
+| `WithCredentials` | `bool` | Controls if the Upload will send credentials such as cookies or HTTP headers for [**cross-site** requests](#cross-origin-requests). See [XMLHttpRequest.withCredentials](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials). On the other hand, use the [`OnUpload` and `OnRemove` events](slug://upload-events) to add authentication tokens and other metadata to the component requests. |
 | `Files` | `IEnumerable<UploadFileInfo>` | Collection of files that will be initially displayed in the Upload file list. |
 
 
@@ -235,8 +235,8 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 | Method | Description |
 | --- | --- |
 | `ClearFiles` | Clears all files from the list, both uploaded and in queue. |
-| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions]({%slug upload-kb-openselectfilesdialog-safari%}). |
-| `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload]({%slug upload-events%}#onupload) event. |
+| `OpenSelectFilesDialog` | Shows the browser's file selection dialog. This method [doesn't work in Safari due to browser security restrictions](slug://upload-kb-openselectfilesdialog-safari). |
+| `UploadFiles` | Uploads all valid selected files. Fires the [OnUpload](slug://upload-events#onupload) event. |
 
 >caption Get reference to the Upload and execute methods
 
@@ -277,13 +277,13 @@ The Upload exposes methods for programmatic operation. To use them, define a ref
 
 ## Troubleshooting
 
-The Upload component requires integration with remote endpoints and controller methods to work. See how to [detect and troubleshoot issues with the endpoint implementation, and how to fix them]({%slug upload-troubleshooting%}).
+The Upload component requires integration with remote endpoints and controller methods to work. See how to [detect and troubleshoot issues with the endpoint implementation, and how to fix them](slug://upload-troubleshooting).
 
 
 ## Next Steps
 
-* [Use Upload Validation]({%slug upload-validation%})
-* [Subscribe to Upload Events]({%slug upload-events%})
+* [Use Upload Validation](slug://upload-validation)
+* [Subscribe to Upload Events](slug://upload-events)
 
 
 ## See Also

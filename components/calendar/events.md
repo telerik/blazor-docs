@@ -20,11 +20,11 @@ This article explains the events available in the Telerik Calendar for Blazor:
 
 ## ValueChanged
 
-The `ValueChanged` event fires when the user selects a date. To see how to handle it and to obtain the user selection, review the [Selection]({%slug components/calendar/selection%}) article.
+The `ValueChanged` event fires when the user selects a date. To see how to handle it and to obtain the user selection, review the [Selection](slug://components/calendar/selection) article.
 
 ## DateChanged
 
-The `DateChanged` event fires when the currently shown date changes. For example, when the user [navigates]({%slug components/calendar/navigation%}) from one month to the next through the arrows.
+The `DateChanged` event fires when the currently shown date changes. For example, when the user [navigates](slug://components/calendar/navigation) from one month to the next through the arrows.
 
 When handling the `DateChanged` event, you cannot use two-way binding for the `Date` parameter. You should update it yourself in the model. If you do not, the currently shown range may revert to the original value set in the markup or to the default value.
 
@@ -174,7 +174,7 @@ The event arguments are of type `CalendarCellRenderEventArgs` and provide the fo
 | `Date` | `DateTime` | The date of the cell |
 | `View` | `CalendarView` enum <br /> (`Month`) | The currently visible view. You can use it to determine if the calendar is rendering the MonthView, YearView, and so on. |
 
-You can also customize the cells through their [templates]({%slug calendar-templates-overview%}). You can use the event together with the templates.
+You can also customize the cells through their [templates](slug://calendar-templates-overview). You can use the event together with the templates.
 
 >caption Use the CellRender event to style cells based on conditions
 
@@ -216,5 +216,5 @@ Special cells in the decade view will be purple and yellow on hover.
 
 ## See Also
 
-* [Selection]({%slug components/calendar/selection%})
-* [Navigation]({%slug components/calendar/navigation%})
+* [Selection](slug://components/calendar/selection)
+* [Navigation](slug://components/calendar/navigation)

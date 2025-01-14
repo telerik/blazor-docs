@@ -25,7 +25,7 @@ res_type: kb
 When a user wants to move to the next step, I need to confirm the move and show them a popup warning for some situations. If they choose to "continue", take them to the next step as normal, otherwise back to the current step.
 
 ## Solution
-Use the [`OnChange` event]({%slug wizard-events%}#onchange) of the originating step to show a [confirm Dialog]({%slug dialog-predefined%}#confirm). Cancel the event if the user does not confirm. It is also possible to use a Window component, but a confirmation Dialog is likely more suitable.
+Use the [`OnChange` event](slug://wizard-events#onchange) of the originating step to show a [confirm Dialog](slug://dialog-predefined#confirm). Cancel the event if the user does not confirm. It is also possible to use a Window component, but a confirmation Dialog is likely more suitable.
 
 This example shows confirmation when moving away from step 1. You can extend it for other steps. You can also add a lambda expression in the handler on each step to provide more data to the method - for example, to form a more meaningful message for the step or to distinguish steps more easily.
 

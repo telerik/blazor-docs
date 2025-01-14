@@ -26,7 +26,7 @@ This article showcases how to match case insensitive user input with the `AllowC
 
 ## Solution
 
-Depending on your business logic and application workflow you need to use either [OnChange]({%slug components/combobox/events%}#onchange) or [ValueChanged]({%slug components/combobox/events%}#valuechanged) events of the ComboBox.
+Depending on your business logic and application workflow you need to use either [OnChange](slug://components/combobox/events#onchange) or [ValueChanged](slug://components/combobox/events#valuechanged) events of the ComboBox.
 
 In the event handler you can use a `Where()` statement to filter out the result. In case you want the filter to be applied on every keystroke of the user input - use `ValueChanged`, otherwise use `OnChange` event. There are examples of both below.
 

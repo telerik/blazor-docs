@@ -105,5 +105,5 @@ To achieve the desired result you can try the following:
 
 ## See Also
 
-* [CSS Isolation does not work for Telerik components]({%slug common-kb-css-isolation%})
-* [Override Theme Styles]({%slug themes-override%})
+* [CSS Isolation does not work for Telerik components](slug://common-kb-css-isolation)
+* [Override Theme Styles](slug://themes-override)

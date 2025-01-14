@@ -12,7 +12,7 @@ previous_url: /components/editor/custom-tool
 
 # Editor Custom Tools
 
-The [Blazor Editor](https://www.telerik.com/blazor-ui/editor) component lets you add custom tools to its [toolbar]({%slug editor-toolbar%}). In those tools, you can use both the [built-in tools and commands]({%slug editor-built-in-tools%}) the editor provides, and also your own custom logic.
+The [Blazor Editor](https://www.telerik.com/blazor-ui/editor) component lets you add custom tools to its [toolbar](slug://editor-toolbar). In those tools, you can use both the [built-in tools and commands](slug://editor-built-in-tools) the editor provides, and also your own custom logic.
 
 In this article:
 
@@ -32,13 +32,13 @@ To create a custom tool:
 
 1. Inside that tag, add your custom content (e.g., buttons, dropdowns, etc.) with their desired rendering, data, logic, event handlers.
 
-1. [Add the custom tool to the Editor toolbar via the `Tools` collection]({%slug editor-toolbar%}#choose-toolbar-items). You can add the custom tools in the desired order and position, regardless of their order in the markup. Custom tools can be added as standalone tools only, not inside an `EditorButtonGroup`.
+1. [Add the custom tool to the Editor toolbar via the `Tools` collection](slug://editor-toolbar#choose-toolbar-items). You can add the custom tools in the desired order and position, regardless of their order in the markup. Custom tools can be added as standalone tools only, not inside an `EditorButtonGroup`.
 
-1. Manipulate the editor content as desired from the custom content events (like clicks) - either through the [editor commands]({%slug editor-built-in-tools%}), or with your own code that manipulates its `Value` field contents.
+1. Manipulate the editor content as desired from the custom content events (like clicks) - either through the [editor commands](slug://editor-built-in-tools), or with your own code that manipulates its `Value` field contents.
 
 ## Examples
 
-When [choosing which Editor tools to render]({%slug editor-toolbar%}#choose-toolbar-items), it is possible to [create a tools collection from scratch]({%slug editor-toolbar%}#create-a-toolbar-from-scratch) or [append additional tools to a preset collection]({%slug editor-toolbar%}#add-remove-tools-from-existing-toolbar).
+When [choosing which Editor tools to render](slug://editor-toolbar#choose-toolbar-items), it is possible to [create a tools collection from scratch](slug://editor-toolbar#create-a-toolbar-from-scratch) or [append additional tools to a preset collection](slug://editor-toolbar#add-remove-tools-from-existing-toolbar).
 
 In this section you can find the following examples:
 
@@ -174,7 +174,7 @@ The [blazor-ui repo]() contains more exmaples of creating custom tools - they al
 
 ## See Also
 
-  * [Editor Overview]({%slug editor-overview%})
-  * [Built-in Tools]({%slug editor-built-in-tools%})
-  * [Toolbar]({%slug editor-toolbar%})
+  * [Editor Overview](slug://editor-overview)
+  * [Built-in Tools](slug://editor-built-in-tools)
+  * [Toolbar](slug://editor-toolbar)
 

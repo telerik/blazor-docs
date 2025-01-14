@@ -25,7 +25,7 @@ res_type: kb
 Is there a way to start the edit command with a double click on a specific cell or row?
 
 ## Solution
-The Grid currently supports an [OnRowDoubleClick event]({%slug grid-events%}#onrowdoubleclick) which can be used to programmatically set a row in edit mode through the Grid [state]({%slug grid-state%}). 
+The Grid currently supports an [OnRowDoubleClick event](slug://grid-events#onrowdoubleclick) which can be used to programmatically set a row in edit mode through the Grid [state](slug://grid-state). 
 
 See the following example for reference:
 

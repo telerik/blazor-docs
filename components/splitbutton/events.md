@@ -57,8 +57,8 @@ at <strong> @ClickTimeString </strong>.
 
 ## Next Steps
 
-* [Add SplitButton Icons]({%slug splitbutton-icons%})
-* [Configure the SplitButton appearance]({%slug splitbutton-appearance%})
+* [Add SplitButton Icons](slug://splitbutton-icons)
+* [Configure the SplitButton appearance](slug://splitbutton-appearance)
 
 
 ## See Also

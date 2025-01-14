@@ -242,5 +242,5 @@ model value: @DateTimePickerValue
 
 ## See Also
 
-* [ValueChanged and Validation]({%slug value-changed-validation-model%})
-* [Fire OnChange Only Once]({%slug ddl-kb-onchange-fires-twice%})
+* [ValueChanged and Validation](slug://value-changed-validation-model)
+* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)

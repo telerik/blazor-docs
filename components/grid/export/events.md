@@ -39,7 +39,7 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
 
 * `isCancelled` -  `bool` - cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
 
@@ -152,7 +152,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 ### For CSV Export
 
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
+* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
 
 * `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
 
@@ -624,11 +624,12 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 ## See Also
 
-* [Grid Excel Export]({%slug grid-export-excel%})
-* [Grid CSV Export]({%slug grid-export-csv%})
-* [Grid PDF Export](slug:grid-export-pdf)
-* [Custom cell formatting of the exported file with RadSpreadProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadprocessing%})
-* [Custom cell formatting of the exported file with RadSpreadStreamProcessing]({%slug grid-kb-custom-cell-formatting-with-radspreadstreamprocessing%})  
-* [Format numbers and dates in the exported CSV file from the Grid]({%slug grid-kb-number-formatting-of-the-csv-export%})
-* [Change the default CSV delimiter (comma) during Grid export]({%slug grid-kb-csv-export-change-field-delimiter%})
-* [Blazor Grid]({%slug grid-overview%})
+* [Grid Excel Export](slug://grid-export-excel)
+* [Grid CSV Export](slug://grid-export-csv)
+* [Grid PDF Export](slug://grid-export-pdf)
+* [Custom cell formatting of the exported file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
+* [Custom cell formatting of the exported file with RadSpreadStreamProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadstreamprocessing)  
+* [Format numbers and dates in the exported CSV file from the Grid](slug://grid-kb-number-formatting-of-the-csv-export)
+* [Change the default CSV delimiter (comma) during Grid export](slug://grid-kb-csv-export-change-field-delimiter)
+* [Blazor Grid](slug://grid-overview)
+

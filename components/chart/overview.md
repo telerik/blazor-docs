@@ -15,7 +15,7 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 ## Creating Blazor Chart
 
 1. Add the `<TelerikChart>` tag to your razor page.
-1. Define [Chart series](/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data]({%slug components/chart/databind%}).
+1. Define [Chart series](/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data](slug://components/chart/databind).
 1. Configure the [category axis](/blazor-ui/api/Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
 1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](/blazor-ui/api/Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
 
@@ -92,9 +92,9 @@ You can add a descriptive text that enriches the [Title](#chart-title) by adding
 
 ## Chart Size
 
-To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions]({%slug common-features/dimensions%}) article.
+To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions](slug://common-features/dimensions) article.
 
-You can also set the chart size in percentage values so it occupies its container when it renders. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example and guidelines for making Charts refresh on `window.resize` in the knowledge base article for [responsive Chart]({%slug chart-kb-responsive%}).
+You can also set the chart size in percentage values so it occupies its container when it renders. If the parent container size changes, you must call the chart's `Refresh()` C# method after the DOM has been redrawn and the new container dimensions are rendered. You can do this when you explicitly change container sizes (like in the example below), or from code that gets called by events like `window.resize`. You can find an example and guidelines for making Charts refresh on `window.resize` in the knowledge base article for [responsive Chart](slug://chart-kb-responsive).
 
 
 >caption Change the 100% chart size dynamically to have a responsive chart
@@ -165,7 +165,7 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 | Method  | Description |
 |---------|-------------|
 | `Refresh` | Use the method to programmatically re-render the Chart.  |
-| `ResetDrilldownLevel` | Use the method to programmatically reset the drilldown level of the Chart. For more information refer to the [DrillDown article]({%slug chart-drilldown%}#reset-drilldown-level). |
+| `ResetDrilldownLevel` | Use the method to programmatically reset the drilldown level of the Chart. For more information refer to the [DrillDown article](slug://chart-drilldown#reset-drilldown-level). |
 
 <div class="skip-repl"></div>
 
@@ -186,9 +186,9 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 
 ## Next Steps
 
-* [Data bind the Chart]({%slug components/chart/databind%})
-* [Explore the Chart events]({%slug chart-events%})
-* [Learn more about Chart Tooltips]({%slug chart-tooltip-overview%})
+* [Data bind the Chart](slug://components/chart/databind)
+* [Explore the Chart events](slug://chart-events)
+* [Learn more about Chart Tooltips](slug://chart-tooltip-overview)
 
 ## See Also
 

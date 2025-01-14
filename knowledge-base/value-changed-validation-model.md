@@ -35,7 +35,7 @@ res_type: kb
 
 ### Problem
 
-Handling the `ValueChanged` event exposed from inputs interferes with two-way binding through `@bind-Value` and thus, with [validation]({%slug common-features/input-validation%}).
+Handling the `ValueChanged` event exposed from inputs interferes with two-way binding through `@bind-Value` and thus, with [validation](slug://common-features/input-validation).
 
 You cannot use both `@bind-Value` and `ValueChanged`, you will get a compilation error similar to
 
@@ -97,4 +97,4 @@ from model: @person.theTbValue
 
 ## See also
 
-* [Knowledge Base article: Validate a Telerik component as child control and apply invalid border ]({%slug inputs-kb-validate-child-component%})
+* [Knowledge Base article: Validate a Telerik component as child control and apply invalid border ](slug://inputs-kb-validate-child-component)

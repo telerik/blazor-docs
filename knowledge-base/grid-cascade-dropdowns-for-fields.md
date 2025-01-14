@@ -29,7 +29,7 @@ There are three approaches you can take:
 
 * For full freedom, implement a custom edit form (here are examples for <a href="https://demos.telerik.com/blazor-ui/grid/editing-custom-form" target="_blank">inline</a>, and <a href="https://github.com/telerik/blazor-ui/tree/master/grid/custom-popup-form" target="_blank">popup</a>)
 
-* Implement the general approach for [cascading dropdowns]({%slug dropdown-kb-cascading%}) in the [editor templates]({%slug grid-templates-editor%}) of those fields. a key thing is to create new data collections, and to use the OnChange event. You may also want to handle the `OnEdit` event of the grid to provide initial data for the second column.
+* Implement the general approach for [cascading dropdowns](slug://dropdown-kb-cascading) in the [editor templates](slug://grid-templates-editor) of those fields. a key thing is to create new data collections, and to use the OnChange event. You may also want to handle the `OnEdit` event of the grid to provide initial data for the second column.
 
 * Use load on demand for the dropdowns themselves (their `OnRead` event) so that when they initialize, they will fire the event, and you can load the data there. The component fires the event when needed and you can use the currently edited item you store in the view-model to provide more information to your service.
 

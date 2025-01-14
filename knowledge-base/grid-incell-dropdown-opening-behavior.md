@@ -124,11 +124,11 @@ If you quickly click (double click) on the cell containing a DropDownList, the f
 
 The described behavior can be resolved if you optimize the rendering performance of the Grid. There are a couple of ways you can try in order to achieve that:
 
-* [Paging]({%slug components/grid/features/paging%}) - you can enable the `Pageable` property of the Grid and control the number of records that will be displayed per page, so you don't display all records per once and deal with slow performance due to the large data portion that the Grid has to render. Using the pager, you will reduce the time needed for the Grid to re-render.
+* [Paging](slug://components/grid/features/paging) - you can enable the `Pageable` property of the Grid and control the number of records that will be displayed per page, so you don't display all records per once and deal with slow performance due to the large data portion that the Grid has to render. Using the pager, you will reduce the time needed for the Grid to re-render.
 
-* [Virtual Scrolling]({%slug components/grid/virtual-scrolling%}) - it is an alternative to paging. Instead of using a pager, the user scrolls vertically through all records in the data source. The same set of elements is reused to improve the rendering performance.
+* [Virtual Scrolling](slug://components/grid/virtual-scrolling) - it is an alternative to paging. Instead of using a pager, the user scrolls vertically through all records in the data source. The same set of elements is reused to improve the rendering performance.
 
-* [Column virtualization]({%slug grid-columns-virtual%}) - Virtual Scrolling for the columns of the Grid allows the columns and the corresponding data to be rendered only for the currently visible viewport and thus improving the component's performance. The targeted scenario for this feature is for a Grid with big number of columns.
+* [Column virtualization](slug://grid-columns-virtual) - Virtual Scrolling for the columns of the Grid allows the columns and the corresponding data to be rendered only for the currently visible viewport and thus improving the component's performance. The targeted scenario for this feature is for a Grid with big number of columns.
 
 The sample below demonstrates how to achieve the desired behavior by using the `Pageable` property of the Grid to display less records at a time and thus to reduce the time needed for re-rendering the Grid.
 

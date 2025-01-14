@@ -34,9 +34,9 @@ Implement this scenario in two steps:
 
 Handle the Splitter events to save its state in the LocalStorage when the user changes the component layout:
 
-* [OnCollapse]({%slug splitter-events%}#oncollapse)
-* [OnExpand]({%slug splitter-events%}#onexpand)
-* [OnResize]({%slug splitter-events%}#onresize)
+* [OnCollapse](slug://splitter-events#oncollapse)
+* [OnExpand](slug://splitter-events#onexpand)
+* [OnResize](slug://splitter-events#onresize)
 
 ### Load the Splitter state
 

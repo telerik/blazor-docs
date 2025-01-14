@@ -102,4 +102,4 @@ To preserve the rendering place of each form item, you need to use the `TelerikF
 
 ## See Also
 
-* [Form Template for All Items]({%slug form-formitems-formitemstemplate%})
+* [Form Template for All Items](slug://form-formitems-formitemstemplate)

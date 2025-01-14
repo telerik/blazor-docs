@@ -295,7 +295,7 @@ The `OnDragEnd` event handler receives as an argument an object of type `TreeVie
 
 ### Drag and Drop between TreeView, Grid, TreeList and Scheduler
 
-The functionality allows dragging items between TreeView, [Grid]({%slug grid-drag-drop-overview%}), [TreeList]({%slug treelist-drag-drop-overview%}) and [Scheduler]({%slug scheduler-overview%}). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
+The functionality allows dragging items between TreeView, [Grid](slug://grid-drag-drop-overview), [TreeList](slug://treelist-drag-drop-overview) and [Scheduler](slug://scheduler-overview). To achieve it, set the `Draggable`/`RowDraggable` parameter, and implement it through an event -  `OnDrop`/`OnRowDrop`.
 
 >important Drag and Drop from **Scheduler** to Grid, TreeList, TreeView is **not** yet supported. Only the reversed way.
 
@@ -701,7 +701,7 @@ public class BaseFlatItem
 }
 ````
 
-See more applicable examples in the [Grid Drag and Drop article]({%slug grid-drag-drop-overview%}).
+See more applicable examples in the [Grid Drag and Drop article](slug://grid-drag-drop-overview).
 
 ### Flat Data
 
@@ -1350,6 +1350,6 @@ using System.Collections.ObjectModel;
 ## See Also
 
 * [Live Demo: TreeView Drag and Drop](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
-* [Data Binding a TreeView]({%slug components/treeview/data-binding/overview%})
+* [Data Binding a TreeView](slug://components/treeview/data-binding/overview)
 * [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
-* [Drag TreeView Items to a Custom Target]({%slug treeview-kb-drag-to-custom-target%})
+* [Drag TreeView Items to a Custom Target](slug://treeview-kb-drag-to-custom-target)
