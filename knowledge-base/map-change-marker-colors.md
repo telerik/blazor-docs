@@ -1,9 +1,9 @@
 ---
-title: How to Customize Map Marker Colors
+title: How to Change Map Markers Colors
 description: Learn how to customize the appearance of map markers by setting and changing their colors in a Blazor application.
 type: how-to
-page_title: How to Customize Map Marker Colors
-slug: map-kb-customize-marker-colors
+page_title: How to Change Map Markers Colors
+slug: map-kb-change-marker-colors
 tags: map, markers
 res_type: kb
 ticketid: 1675518
@@ -75,12 +75,17 @@ To change the color of specific markers, target them based on their titles using
 </TelerikMap>
 
 <style>
-    .my-map .k-marker[title="San Francisco, CA"] {
-        color: blue;
+    /* targets the default state */
+    .my-map .k-marker[title="@MarkerData1[0].Title"],
+    /* targets the hover state */
+    .my-map .k-marker[data-title="@MarkerData1[0].Title"] {
+        color: @MarkerData1[0].Color;
     }
-
-    .my-map .k-marker[title="Austin, TX"] {
-        color: green;
+    /* targets the default state */
+    .my-map .k-marker[title="@MarkerData2[0].Title"],
+    /* targets the hover state */
+    .my-map .k-marker[data-title="@MarkerData2[0].Title"] {
+        color: @MarkerData2[0].Color;
     }
 </style>
 
@@ -95,7 +100,8 @@ To change the color of specific markers, target them based on their titles using
         new MarkerModel()
         {
             LatLng = new double[] { 30.268107, -97.744821 },
-            Title = "Austin, TX"
+            Title = "Austin, TX",
+            Color = "#008000"
         }
     };
 
@@ -104,14 +110,16 @@ To change the color of specific markers, target them based on their titles using
         new MarkerModel()
         {
             LatLng = new double[] { 37.7749, -122.4194 },
-            Title = "San Francisco, CA"
+            Title = "San Francisco, CA",
+            Color = "#0000FF"
         }
     };
 
     public class MarkerModel
     {
-        public double[] LatLng { get; set; }
+        public double[]? LatLng { get; set; }
         public string Title { get; set; } = null!;
+        public string Color { get; set; } = null!;
     }
 }
 ````
