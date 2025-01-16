@@ -10,11 +10,11 @@ position: 45
 
 # TreeList Toolbar
 
-The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or customize the toolbar.
+The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or [customize the toolbar](#custom-toolbar-configuration).
 
 ## Built-in Tools
 
-By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the tool tag if you need to define a tool explicitly in a [custom toolbar configuration](#toolbar-configuration).
+By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the tool tag if you need to define a tool explicitly in a [toolbar configuration](#toolbar-tools-configuration).
 
 ### Command Tools
 
@@ -27,8 +27,6 @@ By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/o
 
 ### Layout Tools
 
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
 | Spacer | `TreeListToolBarSpacerTool` | Consumes the available empty space and pushes the rest of the tools next to one another. |
@@ -37,15 +35,17 @@ By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/o
 
 In addition to built-in tools, the TreeList also supports custom tools. Use the `<TreeListToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
-## Toolbar Configuration
+## Toolbar Tools Configuration
 
-Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a custom toolbar, for example:
+Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar, for example:
 
 * Arrange the TreeList toolbar tools in a specific order;
 * Remove some of the built-in tools;
 * Add custom tools.
 
->caption Customize the TreeList toolbar
+>important When configuring the Toolbar, you can use either the `<TreeListToolBar>` or the `<TreeListToolBarTemplate>`. Note that both cannot be used together.
+
+>caption TreeList Toolbar Tools
 
 ````RAZOR
 <TelerikTreeList Data="@Data"
@@ -224,6 +224,132 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a custom t
 }
 ````
 
+## Custom Toolbar Configuration
+
+Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the TreeList header to match your business needs and also `TreeListCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://treelist-columns-command) article).
+
+>caption Custom TreeList Toolbar
+
+````RAZOR
+@* for brevity the insert operation is not implemented in this sample *@
+
+@result
+
+<TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
+
+    <TreeListToolBarTemplate>
+        <div style="display: block; flex-grow: 1;">
+            @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
+                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+
+            <div style="background:yellow">
+                <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</TreeListCommandButton>
+            </div>
+            <div style="background: green;">
+                <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
+            </div>
+
+            <div style="border: 1px solid red;">
+                @* one example of aligning content to the right with flex *@
+                <button style="display: flex; margin-left: auto;"
+                        @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
+                    Click me
+                </button>
+            </div>
+        </div>
+    </TreeListToolBarTemplate>
+
+    <TreeListColumns>
+        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
+        <TreeListColumn Field="Id" Editable="false" Width="120px" />
+        <TreeListColumn Field="EmailAddress" Width="220px" />
+        <TreeListColumn Field="HireDate" Width="220px" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private List<Employee> Data { get; set; }
+
+    // sample custom command handling
+    private string result;
+    private async Task MyCommandFromToolbar(TreeListCommandEventArgs args)
+    {
+        //note - the args.Item object is null because the command item is not associated with an item
+
+        result = "my custom toolbar command fired at " + DateTime.Now.ToString();
+    }
+
+    // sample model
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public DateTime HireDate { get; set; }
+
+        public List<Employee> DirectReports { get; set; }
+        public bool HasChildren { get; set; }
+    }
+
+    // data generation
+    private int LastId { get; set; } = 1;
+    protected override async Task OnInitializedAsync()
+    {
+        Data = await GetTreeListData();
+    }
+
+    private async Task<List<Employee>> GetTreeListData()
+    {
+        List<Employee> data = new List<Employee>();
+
+        for (int i = 1; i < 15; i++)
+        {
+            Employee root = new Employee
+            {
+                Id = LastId,
+                Name = $"root: {i}",
+                EmailAddress = $"{i}@example.com",
+                HireDate = DateTime.Now.AddYears(-i),
+                DirectReports = new List<Employee>(),
+                HasChildren = true
+            };
+            data.Add(root);
+            LastId++;
+
+            for (int j = 1; j < 4; j++)
+            {
+                int currId = LastId;
+                Employee firstLevelChild = new Employee
+                {
+                    Id = currId,
+                    Name = $"first level child {j} of {i}",
+                    EmailAddress = $"{currId}@example.com",
+                    HireDate = DateTime.Now.AddDays(-currId),
+                    DirectReports = new List<Employee>(),
+                    HasChildren = true
+                };
+                root.DirectReports.Add(firstLevelChild);
+                LastId++;
+
+                for (int k = 1; k < 3; k++)
+                {
+                    int nestedId = LastId;
+                    firstLevelChild.DirectReports.Add(new Employee
+                    {
+                        Id = LastId,
+                        Name = $"second level child {k} of {j} and {i}",
+                        EmailAddress = $"{nestedId}@example.com",
+                        HireDate = DateTime.Now.AddMinutes(-nestedId)
+                    }); ;
+                    LastId++;
+                }
+            }
+        }
+
+        return await Task.FromResult(data);
+    }
+}
+````
 
 ## Next Steps
 
