@@ -1,8 +1,8 @@
 ---
-title: How to Show Empty Chart Instead the Default No Data Template
+title: How to Show Empty Chart Instead of the Default No Data Template
 description: Learn how to show an empty Chart component when there is no data, instead of displaying the default No Data template.
 type: how-to
-page_title: How to Show Empty Chart Instead the Default No Data Template
+page_title: How to Show Empty Chart Instead of the Default No Data Template
 slug: chart-kb-display-empty-chart
 tags: charts, blazor, no data template, empty chart
 res_type: kb
@@ -21,7 +21,7 @@ ticketid: 1675313
 
 ## Description
 
-As of version 7.1.0, the [No Data Template](slug://chart-no-data-template) was introduced for Charts in Blazor. In some scenarios, displaying an empty Chart, rather than the No Data template, is preferred when there is no data. This knowledge base article also answers the following questions:
+As of version 7.1.0 of Telerik UI for Blazor, the [No Data Template](slug://chart-no-data-template) was introduced for Charts in Blazor. In some scenarios, displaying an empty Chart, rather than the No Data template, is preferred when there is no data. This knowledge base article also answers the following questions:
 
 - How can I hide the No Data Template in Blazor Charts?
 - Is it possible to display an empty Chart in Blazor when there's no data?
@@ -29,7 +29,7 @@ As of version 7.1.0, the [No Data Template](slug://chart-no-data-template) was i
 
 ## Solution
 
-To display an empty Chart when there is no data, [override the default theme styles](slug://themes-override) by applying custom CSS. The following example demonstrates how to achieve an empty Chart display by hiding the No Data Template overlay through CSS.
+To display an empty Chart when there is no data, [override the default theme styles](slug://themes-override) with custom CSS. The following example demonstrates how to achieve an empty Chart display by hiding the No Data Template overlay through CSS.
 
 
 
@@ -37,7 +37,6 @@ To display an empty Chart when there is no data, [override the default theme sty
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
 <br />
 <TelerikChart @ref="ChartRef" Width="800px" Height="400px">
-    <ChartTitle Text="Product Sales Over the Years" Position="@ChartTitlePosition.Bottom"></ChartTitle>
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@ChartData"
@@ -59,7 +58,7 @@ To display an empty Chart when there is no data, [override the default theme sty
     private const string Remove = "Remove Data";
 
     private TelerikChart ChartRef { get; set; }
-    private List<ChartSeriesData> ChartData { get; set; } = new List<ChartSeriesData>();
+    private List<ChartSeriesData> ChartData { get; set; } = new ();
     private string ButtonContent { get; set; } = Add;
 
     private void UpdateData()
