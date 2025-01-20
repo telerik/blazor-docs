@@ -153,7 +153,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
 Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the Grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
 
-Note that when using `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate through the items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements, unlike `<GridToolBar>`, where the default keyboard navigation between tools is handled using the arrow keys.
+When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<GridToolBar>` uses the [built-in keyboard navigation](slug://accessibility-overview#keyboard-navigation) through arrow keys.
 
 >caption Custom Grid Toolbar
 
