@@ -14,7 +14,7 @@ The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) too
 
 ## Built-In Tools
 
-By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the respective tool tag if you need to define a tool explicitly in a [toolbar configuration](#toolbar-tools-configuration).
+The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the respective tool tag if you need to define a tool explicitly in a [toolbar configuration](#toolbar-tools-configuration).
 
 ### Command Tools
 
@@ -43,7 +43,7 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 * Remove some of the built-in tools;
 * Add custom tools.
 
->important When configuring the Toolbar, you can use either the `<TreeListToolBar>` or the `<TreeListToolBarTemplate>`. Note that both cannot be used together.
+>important `<TreeListToolBar>` and `<TreeListToolBarTemplate>` cannot be used together in the same TreeList instance.
 
 >caption TreeList Toolbar Tools
 
@@ -228,7 +228,7 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
 Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the TreeList header to match your business needs and also `TreeListCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://treelist-columns-command) article).
 
-Note that when using `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navigate through the items. This is because the `<TreeListToolBarTemplate>` allows rendering of custom elements, unlike `<TreeListToolBar>`, where the default keyboard navigation between tools is handled using the arrow keys.
+When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<TreeListToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<TreeListToolBar>` uses the [built-in keyboard navigation](slug://accessibility-overview#keyboard-navigation) through arrow keys.
 
 >caption Custom TreeList Toolbar
 
