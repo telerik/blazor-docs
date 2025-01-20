@@ -49,7 +49,7 @@ To change the color for all markers use the following CSS approach:
 </style>
 ````
 
-### Customizing Specific Markers
+### Customize Specific Markers
 
 To change the color of specific markers, target them based on their titles using CSS. Check the runnable example below:
 
@@ -57,7 +57,7 @@ To change the color of specific markers, target them based on their titles using
 <TelerikMap Center="@Center" Zoom="3" Class="my-map">
     <MapLayers>
         <MapLayer Type="@MapLayersType.Marker"
-                  Data="@MarkerData1"
+                  Data="@MarkerData"
                   LocationField="@nameof(MarkerModel.LatLng)"
                   TitleField="@nameof(MarkerModel.Title)">
         </MapLayer>
@@ -67,27 +67,24 @@ To change the color of specific markers, target them based on their titles using
                   UrlTemplate="@UrlTemplate">
         </MapLayer>
         <MapLayer Type="@MapLayersType.Marker"
-                  Data="@MarkerData2"
+                  Data="@MarkerData"
                   LocationField="@nameof(MarkerModel.LatLng)"
                   TitleField="@nameof(MarkerModel.Title)">
         </MapLayer>
     </MapLayers>
 </TelerikMap>
 
-<style>
-    /* targets the default state */
-    .my-map .k-marker[title="@MarkerData1[0].Title"],
-    /* targets the hover state */
-    .my-map .k-marker[data-title="@MarkerData1[0].Title"] {
-        color: @MarkerData1[0].Color;
-    }
-    /* targets the default state */
-    .my-map .k-marker[title="@MarkerData2[0].Title"],
-    /* targets the hover state */
-    .my-map .k-marker[data-title="@MarkerData2[0].Title"] {
-        color: @MarkerData2[0].Color;
-    }
-</style>
+@foreach (var mrk in MarkerData)
+{
+    <style>
+        @* targets the default state  *@
+        .my-map .k-marker[title="@mrk.Title"],
+        @* targets the hover state  *@
+        .my-map .k-marker[data-title="@mrk.Title"] {
+            color: @mrk.Color;
+        }
+    </style>
+}
 
 @code {
     private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
@@ -95,18 +92,14 @@ To change the color of specific markers, target them based on their titles using
     private string Attribution { get; set; } = "&copy; <a href='https://osm.org/copyright'>OpenStreetMap contributors</a>";
     private double[] Center { get; set; } = new double[] { 30.268107, -97.744821 };
 
-    private List<MarkerModel> MarkerData1 { get; set; } = new List<MarkerModel>()
+    private List<MarkerModel> MarkerData { get; set; } = new List<MarkerModel>()
     {
         new MarkerModel()
         {
             LatLng = new double[] { 30.268107, -97.744821 },
             Title = "Austin, TX",
             Color = "#008000"
-        }
-    };
-
-    private List<MarkerModel> MarkerData2 { get; set; } = new List<MarkerModel>()
-    {
+        },
         new MarkerModel()
         {
             LatLng = new double[] { 37.7749, -122.4194 },
