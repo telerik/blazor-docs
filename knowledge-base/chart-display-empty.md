@@ -1,31 +1,36 @@
 ---
-title: No Data Template
-page_title: Chart - No Data Template
-description: The NoDataTemplate in the Chart for Blazor lets you customize the content displayed when no data is available for all series.
-slug: chart-no-data-template
-tags: telerik,blazor,chart,templates
-published: True
-position: 101
+title: How to Show Empty Chart Instead of the Default No Data Template
+description: Learn how to show an empty Chart component when there is no data, instead of displaying the default No Data template.
+type: how-to
+page_title: How to Show Empty Chart Instead of the Default No Data Template
+slug: chart-kb-display-empty-chart
+tags: charts, blazor, no data template, empty chart
+res_type: kb
+ticketid: 1675313
 ---
 
+## Environment
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Chart for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
-# No Data Template
+## Description
 
-Starting in **version 7.0.0**, when all Chart series have no data to show, a default layout with **No data** text is displayed over the Chart. To customize the default layout content declare a `<NoDataTemplate>` tag inside a `<ChartSettings>` tag:
+As of version 7.1.0 of Telerik UI for Blazor, the [No Data Template](slug://chart-no-data-template) was introduced for Charts in Blazor. In some scenarios, displaying an empty Chart, rather than the No Data template, is preferred when there is no data.
+
+## Solution
+
+To display an empty Chart when there is no data, [override the default theme styles](slug://themes-override) with custom CSS. The following example demonstrates how to achieve an empty Chart display by hiding the No Data Template overlay through CSS.
 
 ````RAZOR
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
 <br />
 <TelerikChart @ref="ChartRef" Width="800px" Height="400px">
-    <ChartTitle Text="Product Sales Over the Years" Position="@ChartTitlePosition.Bottom"></ChartTitle>
-
-    <ChartSettings>
-        @* Define what should be shown when there's no data in the chart *@
-        <NoDataTemplate>
-            <p>No data available to display. Please add product data or check back later.</p>
-        </NoDataTemplate>
-    </ChartSettings>
-
     <ChartSeriesItems>
         <ChartSeries Type="ChartSeriesType.Column"
                      Data="@ChartData"
@@ -36,12 +41,18 @@ Starting in **version 7.0.0**, when all Chart series have no data to show, a def
     </ChartSeriesItems>
 </TelerikChart>
 
+<style>
+    .k-chart-overlay {
+        display: none;
+    }
+</style>
+
 @code {
     private const string Add = "Add Data";
     private const string Remove = "Remove Data";
 
     private TelerikChart ChartRef { get; set; }
-    private List<ChartSeriesData> ChartData { get; set; } = new List<ChartSeriesData>();
+    private List<ChartSeriesData> ChartData { get; set; } = new ();
     private string ButtonContent { get; set; } = Add;
 
     private void UpdateData()
@@ -84,6 +95,5 @@ Starting in **version 7.0.0**, when all Chart series have no data to show, a def
 
 ## See Also
 
- * [Live Demo: Chart - No Data Template](https://demos.telerik.com/blazor-ui/chart/no-data-template)
- * [How to Show Empty Chart Instead the Default No Data Template](slug:// chart-kb-display-empty-chart)
-
+- [Blazor Charts Overview](slug://components/chart/overview)
+- [Override Theme Styles](slug://themes-override)
