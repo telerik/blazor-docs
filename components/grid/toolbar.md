@@ -14,7 +14,7 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) toolbar can
 
 ## Built-In Tools
 
-By default, the [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) does not automatically render all built-in tools when a toolbar is added. To include specific tools in a [toolbar configuration](#toolbar-tools-configuration), you need to explicitly define them using the respective tool tags below.
+The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides several built-in tools that can be added to the component toolbar. To include a specific tool in the [toolbar configuration](#toolbar-tools-configuration), use the respective tool tags below.
 
 ### Command Tools
 
