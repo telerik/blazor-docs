@@ -21,17 +21,11 @@ ticketid: 1675313
 
 ## Description
 
-As of version 7.1.0 of Telerik UI for Blazor, the [No Data Template](slug://chart-no-data-template) was introduced for Charts in Blazor. In some scenarios, displaying an empty Chart, rather than the No Data template, is preferred when there is no data. This knowledge base article also answers the following questions:
-
-- How can I hide the No Data Template in Blazor Charts?
-- Is it possible to display an empty Chart in Blazor when there's no data?
-- Can I override the No Data Template in Blazor Charts?
+As of version 7.1.0 of Telerik UI for Blazor, the [No Data Template](slug://chart-no-data-template) was introduced for Charts in Blazor. In some scenarios, displaying an empty Chart, rather than the No Data template, is preferred when there is no data.
 
 ## Solution
 
 To display an empty Chart when there is no data, [override the default theme styles](slug://themes-override) with custom CSS. The following example demonstrates how to achieve an empty Chart display by hiding the No Data Template overlay through CSS.
-
-
 
 ````RAZOR
 <TelerikButton OnClick="@UpdateData">@ButtonContent</TelerikButton>
@@ -98,8 +92,6 @@ To display an empty Chart when there is no data, [override the default theme sty
     }
 }
 ````
-
-By applying the `.k-chart-overlay { display: none; }` style, the No Data template overlay is hidden, allowing the Chart to appear empty when there is no data.
 
 ## See Also
 
