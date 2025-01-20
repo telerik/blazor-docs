@@ -45,7 +45,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 * Remove some of the built-in tools;
 * Add custom tools.
 
->important When configuring the Toolbar, you can use either the `<GridToolBar>` or the `<GridToolBarTemplate>`. Note that both cannot be used together.
+>important `<GridToolBar>` and `<GridToolBarTemplate>` cannot be used together in the same Grid instance.
 
 >caption Grid Toolbar Tools
 
