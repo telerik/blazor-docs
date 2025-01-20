@@ -12,9 +12,9 @@ position: 45
 
 The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add [custom tools](#custom-tools) or create a [custom toolbar](#custom-toolbar-configuration).
 
-## Built-in Tools
+## Built-In Tools
 
-By default, the [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) does not automatically render all built-in tools when a toolbar is added. To include specific tools in a [toolbar configuration](#toolbar-tools-configuration), you need to explicitly define them using the tool tags below.
+By default, the [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) does not automatically render all built-in tools when a toolbar is added. To include specific tools in a [toolbar configuration](#toolbar-tools-configuration), you need to explicitly define them using the respective tool tags below.
 
 ### Command Tools
 
@@ -35,7 +35,7 @@ By default, the [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview)
 
 ## Custom Tools
 
-In addition to built-in tools, the Grid also supports custom tools. Use the `<GridToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
+In addition to the built-in tools, the Grid also supports custom tools. Use the `<GridToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
 ## Toolbar Tools Configuration
 
@@ -151,7 +151,9 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
 ## Custom Toolbar Configuration
 
-Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
+Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the Grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
+
+Note that when using `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate through the items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements, unlike `<GridToolBar>`, where the default keyboard navigation between tools is handled using the arrow keys.
 
 >caption Custom Grid Toolbar
 
@@ -161,24 +163,14 @@ Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom t
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">
 
     <GridToolBarTemplate>
-        <div style="display: block; flex-grow: 1;">
-            @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
-                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+        <div style="display: flex; width: 100%; justify-content: space-between;">
+            <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">
+                Add Employee
+            </GridCommandButton>
 
-            <div style="background:yellow">
-                <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-            </div>
-            <div style="background: green;">
-                <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
-            </div>
-
-            <div style="border: 1px solid red;">
-                @* one example of aligning content to the right with flex *@
-                <button style="display: flex; margin-left: auto;"
-                        @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
-                    Click me
-                </button>
-            </div>
+            <button @onclick="@( () => result = $"Custom button click on {DateTime.Now}" )">
+                Click Me
+            </button>
         </div>
     </GridToolBarTemplate>
 

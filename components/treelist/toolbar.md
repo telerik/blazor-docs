@@ -1,7 +1,7 @@
 ---
 title: Toolbar
 page_title: TreeList - Toolbar
-description: Use toolbar and custom actions in treelist for Blazor.
+description: Use toolbar and custom actions in Treelist for Blazor.
 slug: treelist-toolbar
 tags: telerik,blazor,treelist,toolbar
 published: True
@@ -12,9 +12,9 @@ position: 45
 
 The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add custom tools or [customize the toolbar](#custom-toolbar-configuration).
 
-## Built-in Tools
+## Built-In Tools
 
-By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the tool tag if you need to define a tool explicitly in a [toolbar configuration](#toolbar-tools-configuration).
+By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) displays all its built-in tools in the order below. Use the respective tool tag if you need to define a tool explicitly in a [toolbar configuration](#toolbar-tools-configuration).
 
 ### Command Tools
 
@@ -33,7 +33,7 @@ By default, the [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/o
 
 ## Custom Tools
 
-In addition to built-in tools, the TreeList also supports custom tools. Use the `<TreeListToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
+In addition to the built-in tools, the TreeList also supports custom tools. Use the `<TreeListToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
 ## Toolbar Tools Configuration
 
@@ -228,6 +228,8 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
 Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the TreeList header to match your business needs and also `TreeListCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://treelist-columns-command) article).
 
+Note that when using `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navigate through the items. This is because the `<TreeListToolBarTemplate>` allows rendering of custom elements, unlike `<TreeListToolBar>`, where the default keyboard navigation between tools is handled using the arrow keys.
+
 >caption Custom TreeList Toolbar
 
 ````RAZOR
@@ -238,24 +240,14 @@ Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a 
 <TelerikTreeList Data="@Data" Pageable="true" ItemsField="@(nameof(Employee.DirectReports))" Width="850px">
 
     <TreeListToolBarTemplate>
-        <div style="display: block; flex-grow: 1;">
-            @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
-                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+        <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+            <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">
+                Add Employee
+            </TreeListCommandButton>
 
-            <div style="background:yellow">
-                <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</TreeListCommandButton>
-            </div>
-            <div style="background: green;">
-                <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
-            </div>
-
-            <div style="border: 1px solid red;">
-                @* one example of aligning content to the right with flex *@
-                <button style="display: flex; margin-left: auto;"
-                        @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
-                    Click me
-                </button>
-            </div>
+            <button @onclick="@( () => result = $"Custom button click on {DateTime.Now}" )">
+                Click Me
+            </button>
         </div>
     </TreeListToolBarTemplate>
 
