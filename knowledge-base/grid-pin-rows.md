@@ -1,11 +1,12 @@
 ---
-title: Pin rows on top of the Grid 
-description: Pin one or more rows on top of the Grid 
+title: Pin Rows at the Top of the Grid 
+description: Learn how to pin (freeze, lock) one or more rows at the top of the Grid, so that they don't scroll together with the other table rows.
 type: how-to
-page_title: Pin rows on top of the Grid 
-slug: grid-pin-rows
+page_title: How to Pin Rows on top of the Grid 
+slug: grid-kb-pin-rows
 position: 
-tags: grid, pin, rows, sticky, frozen, locked
+tags: blazor, grid, pin, sticky, freeze, lock
+ticketid: 1676279
 res_type: kb
 ---
 
@@ -22,11 +23,16 @@ res_type: kb
 
 ## Description
 
-I would like to pin one or more rows on top of the Grid so that they are always visible to the users.
+This KB article answers the following questions:
+
+* How to pin one or more rows on top of the Grid so that they are always visible to the users.
+* How to lock Grid rows, so that they don't scroll with the other table rows?
+* How to implement frozen rows at the top of the Grid?
+* How to make some Grid rows stick to the top of the component's data area during scrolling?
 
 ## Solution
 
-To achieve the desired behavior you can:
+To freeze Grid rows you can:
 
 * Use the [`OnRead event`](slug://components/grid/manual-operations) to place the row/rows on top of the data collection for the Grid. 
 * Use the [`OnRowRender event`](slug://grid-events#onrowrender) to add a custom CSS class to the rows you want to pin.
