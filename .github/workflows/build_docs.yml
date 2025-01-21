@@ -5,7 +5,7 @@ on:
 
 jobs:
   build_blazor:
-    runs-on: kendo
+    runs-on: ununtu-22.04
 
     permissions:
       id-token: write # Required by Akeyless
@@ -18,7 +18,7 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ github.token }}
-      options: --user 1000 --shm-size="8g"
+      options: --user 1001 --shm-size="8g"
 
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
