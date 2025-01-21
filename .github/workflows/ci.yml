@@ -11,5 +11,5 @@ on:
 
 jobs:
   build_docs:
-    uses: ./.github/workflows/build_docs_no_api.yml
+    uses: ./.github/workflows/build.yml
     secrets: inherit
