@@ -2,12 +2,12 @@ name: CI
 
 on:
   workflow_dispatch:
-  push:
-    branches: [master, production]
-    paths:
-      - "**.md"
-  pull_request:
-    branches: [master, production]
+  # push:
+  #   branches: [master, production]
+  #   paths:
+  #     - "**.md"
+  # pull_request:
+  #   branches: [master, production]
 
 jobs:
   build_docs:
