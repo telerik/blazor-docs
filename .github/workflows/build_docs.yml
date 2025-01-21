@@ -3,15 +3,14 @@ name: Docs Build
 on:
   workflow_call:
 
+permissions:
+    id-token: write # Required by Akeyless
+    contents: write
+    packages: read
+
 jobs:
   build_blazor:
     runs-on: ubuntu-22.04
-
-    permissions:
-      id-token: write # Required by Akeyless
-      contents: write
-      packages: read
-      attestations: write
 
     container:
       image: ghcr.io/telerik/blazor-build:dev
@@ -23,6 +22,12 @@ jobs:
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_INSTALL_DIR: ./.dotnet
+      SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
+    defaults:
+      run:
+        # Use a login Bash shell to enable RVM
+        shell: bash -leo pipefail {0}
 
     steps:
       - name: Import Secrets
