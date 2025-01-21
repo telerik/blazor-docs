@@ -74,17 +74,18 @@ To change the color of specific markers, target them based on their titles using
     </MapLayers>
 </TelerikMap>
 
-@foreach (var mrk in MarkerData)
+<style>
+/* The first line is for the default marker style. The second one is for the hover state. */
+@foreach (MarkerModel marker in MarkerData)
 {
-    <style>
-        @* targets the default state  *@
-        .my-map .k-marker[title="@mrk.Title"],
-        @* targets the hover state  *@
-        .my-map .k-marker[data-title="@mrk.Title"] {
-            color: @mrk.Color;
-        }
-    </style>
+    <text>
+    .my-map .k-marker[title="@marker.Title"],
+    .my-map .k-marker[data-title="@marker.Title"] {
+        color: @marker.Color;
+    }
+    </text>
 }
+</style>
 
 @code {
     private string[] Subdomains { get; set; } = new string[] { "a", "b", "c" };
