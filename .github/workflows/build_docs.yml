@@ -5,7 +5,7 @@ on:
 
 jobs:
   build_blazor:
-    runs-on: ununtu-22.04
+    runs-on: ubuntu-22.04
 
     permissions:
       id-token: write # Required by Akeyless
