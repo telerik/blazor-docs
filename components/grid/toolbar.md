@@ -222,4 +222,4 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 ## See Also
 
 * [Grid Live Demo](https://demos.telerik.com/blazor-ui/grid/overview)
-* [Grid API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid)
+* [Grid API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)

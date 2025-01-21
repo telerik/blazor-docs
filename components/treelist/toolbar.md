@@ -351,4 +351,4 @@ When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navig
 ## See Also
 
 * [TreeList Live Demo](https://demos.telerik.com/blazor-ui/treelist/overview)
-* [TreeList API](/blazor-ui/api/Telerik.Blazor.Components.TreeList)
+* [TreeList API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
