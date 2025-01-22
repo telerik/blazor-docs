@@ -21,7 +21,7 @@ The `Rounded` parameter applies the `border-radius` CSS rule to the button to ac
 |`Small` |`sm`|
 |`Medium`|`md`|
 |`Large`|`lg`|
-|`Full`|`full`(default)|
+|`Full`|`full` (default)|
 
 ## Size
 
