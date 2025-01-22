@@ -38,7 +38,7 @@ To minimize the Window to the bottom-right corner of the viewport:
 1. Set a custom CSS class to the Window with the `Class` parameter, for example, `minimized-at-bottom`.
 1. Apply the following styles to the `.k-window-minimized.minimized-at-bottom` CSS combinator:
     * `top` and `left` must be `auto !important`
-    * `bottom` and `right` must be zero or an arbitrary some small value
+    * `bottom` and `right` must be zero or an arbitrary small value
     * `transform` must be `none`
 
 ````RAZOR
