@@ -30,7 +30,7 @@ You can increase or decrease the size of the button by setting the `Size` parame
 | Class members | Manual declarations |
 |---------------|--------|
 | `Small`   |`sm`|
-| `Medium`   |`md`(default)|
+| `Medium`   |`md` (default)|
 | `Large`   |`lg`|
 
 ## ThemeColor
