@@ -12,16 +12,20 @@ position: 3
 
 This page provides solutions for license key errors that you may encounter while building Telerik Blazor apps.
 
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
+
 ## Basics
 
 A Telerik license key error may occur in the following scenarios:
 
-* Using a perpetual license with a product version that was released outside the validity period of your license.
+* Missing license key.
 * Using an expired subscription license after the end of the subscription term.
+* Using a perpetual license with a product version that was released outside the validity period of your license.
 * Using an expired trial license.
-* Missing license key. [Install a license key file](slug://installation-license-key). If you already downloaded it, make sure it's [saved at the right place](slug://installation-license-key#manual-installation).
-* Using an outdated license key. Always [update your license key](slug://installation-license-key#updates) after renewing your licenses or purchasing additional Telerik products.
-* Using a license key that doesn't include Telerik UI for Blazor. If you already have a commercial or trial Telerik UI for Blazor license, then [update your license key](slug://installation-license-key#updates). Otherwise, purchase or renew Telerik UI for Blazor, or start a trial to evaluate the product.
+* Using an outdated license key after making renewals or purchases.
+* Using a license key that doesn't include Telerik UI for Blazor.
+
+Refer to the error messages below for specific tips.
 
 ## Error Messages
 
@@ -42,13 +46,13 @@ Follow the [automatic](slug://installation-license-key#automatic-installation) o
 
 ### Your subscription license has expired
 
-<a href="https://www.telerik.com/account/your-licenses" target="_blank">Renew your subscribtion</a>. Then, [update your license key](slug://installation-license-key).
+<a href="https://www.telerik.com/account/your-licenses" target="_blank">Renew your subscribtion</a>. Then, [update your license key](slug://installation-license-key#license-key-updates).
 
 ### Your perpetual license is invalid
 
 You are using a product version released outside the validity period of your perpetual license. To remove the error message, do either of the following:
 
-* <a href="https://www.telerik.com/account/your-licenses" target="_blank">Renew your subscribtion</a>. Then, [download and install a new license key](slug://installation-license-key).
+* <a href="https://www.telerik.com/account/your-licenses" target="_blank">Renew your subscribtion</a>. Then, [update your license key](slug://installation-license-key#license-key-updates).
 * Downgrade your app to a Telerik UI for Blazor version that was released within the subscription period of your perpetual license.
 
 ### Your trial license has expired
@@ -57,8 +61,9 @@ You are using a product version released outside the validity period of your per
 
 ### Your license is not valid for the detected product(s)
 
-<a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">Review the purchase options for Telerik UI for Blazor</a>. Then, [update your license key](slug://installation-license-key).
+<a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">Review the purchase options for Telerik UI for Blazor</a>. Then, [update your license key](slug://installation-license-key#license-key-updates).
 
 ## See Also
 
-* [Prevent browser caching during version upgrades](slug://common-kb-browser-cache-buster)
+* [Download and Install License Key](slug://installation-license-key)
+* [Use License Keys in CI/CD](slug://deployment-license-key)

@@ -12,6 +12,8 @@ position: 5
 
 This article explains some concepts and how to troubleshoot the most common errors related to setting up the Telerik NuGet packages for automated builds, CI and CD.
 
+> Telerik license keys are outside the scope of this article. Refer to article [Telerik License Key in CI/CD](slug://deployment-license-key)
+
 Sections in this article:
 
 * [Basics](#basics)
@@ -38,25 +40,19 @@ You must protect your credentials and/or the Telerik packages and ensure they ar
 When using Azure pipelines, we encourage you to review the following resources on setting things up:
 
 * Blog post: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
-
 * Sample Repo and Video Tutorial: [Telerik DevOpsExamples by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 
->caption There are a couple of common questions and issues:
+There are a couple of common questions and issues:
 
 * Obtaining credentials - see the points above for either using your own credentials, or using a shared package source.
-
 * Telerik feed not being found - the most common reason for a problem is that the path to the `NuGet.Config` file is wrong (it should, by default, be at the root level).
-
 * An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/v3/index.json` and Incorrect: `https://nuget.telerik.com/v3/index.json/`.
 
->caption A few things to double check to ensure correct setup:
+A few things to double check to ensure correct setup:
 
 * The Service connection is using Basic Authentication and the URL is correct (`https://nuget.telerik.com/v3/index.json` exactly, no trailing slash).
-
 * That Service Connection is selected as the credentials source.
-
 * The credentials being used have a UI for Blazor license.
-
 * Make sure that you use `dotnet restore` and not `nuget restore` in your pipeline step.
 
 
@@ -74,8 +70,8 @@ jobs:
     runs-on: windows-latest
 
     env:
-      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the space between the brackets
-      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the space between the brackets
+      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the spaces between the brackets
+      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the spaces between the brackets
 
 ````
 
@@ -137,6 +133,11 @@ COPY . .
 WORKDIR "/src/MyBlazorApp/MyBlazorApp"
 RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 ````
+
+
+## Next Steps
+
+* [Set Up Telerik License Key in CI/CD Environment](slug://deployment-license-key)
 
 
 ## Further Reading

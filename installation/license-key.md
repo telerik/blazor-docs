@@ -12,7 +12,7 @@ position: 1
 
 Telerik UI for Blazor requires activation through a license key for both trial and commercial licenses. This article describes how to download your personal license key and use it to activate the Telerik Blazor components.
 
->tip This article applies to Telerik UI for Blazor version **7.2.0** and above.
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 ## Basics
 
@@ -36,7 +36,7 @@ To download and install the license key automatically, use one of the following 
 
 Any of the above two tools will install a license key for you and make it available for all projects that you develop on your local machine.
 
->tip Update the license key [whenever necessary](#updates).
+>tip Update the license key [whenever necessary](#license-key-updates).
 
 ## Manual Installation
 
@@ -50,13 +50,13 @@ To download and install a license key file manually:
 
 The above step will make the license key available to all projects that you develop on your local machine. If you need to activate Telerik UI for Blazor only in a specific app, then save `telerik-license.txt` to the root folder of your project or solution.
 
->tip Update the license key [whenever necessary](#updates).
+>tip Update the license key [whenever necessary](#license-key-updates).
 
 >warning The license key file is personal and confidential. Do not commit this file to source control!
 
-## Updates
+## License Key Updates
 
-Whenever you renew or purchase a new Telerik product, always download and install a new license key. The new license key includes information about all previous purchases. This process is referred to as a *license key update*.
+Whenever you renew or purchase a new Telerik license, always install a new license key. The new license key includes information about all previous purchases. This process is referred to as a *license key update*.
 
 * If you used [automatic license key installation](#automatic-installation), then open the tool that you used to download and install the license key file. You can also update the license key file by using the [manual steps above](#manual-installation).
 * If you used the [manual license key installation](#manual-installation), then repeat the same steps.
@@ -68,5 +68,6 @@ Whenever you renew or purchase a new Telerik product, always download and instal
 
 ## See Also
 
+* [Troubleshoot License Key Errors](slug://troubleshooting-license-key-errors)
 * [Get Started with a Blazor Web App](slug://getting-started/web-app)
 * [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)

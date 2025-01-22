@@ -10,6 +10,46 @@ position: 7
 
 # Telerik License Key in CI/CD Environment
 
+This article describes how to set up and activate your [Telerik UI for Blazor license key](slug://installation-license-key) across a few popular CI/CD services by using environment variables.
+
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
+
+## Basics
+
+When working with CI/CD platforms, always add the [`Telerik.Licensing` NuGet package](slug://getting-started/what-you-need#nuget-packages) as a project dependency. This package activates the Telerik Blazor components at build time by using the provided license key.
+
+The license activation process in a CI/CD environment involves the following steps:
+
+1. Add the `Telerik.Licensing` NuGet package as a dependency to all projects that reference Telerik UI for Blazor or Telerik Document Processing:
+    ````XML.skip-repl
+    <PackageReference Include="Telerik.Licensing" Version="1.*" />
+    ````
+1. Go to the <a href="https://www.telerik.com/account/your-licenses/license-keys" target="_blank">License Keys page</a> in your Telerik account and get your license key.
+1. Set your license key value as an environment variable with a name `TELERIK_LICENSE`.
+
+## Creating Environment Variables
+
+The recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environment is to use environment variables. Each CI/CD platform has a different process for setting environment variables. This article lists only some of the most popular examples.
+
+### Azure Pipelines (YAML)
+
+1. Create a new <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch" target="_blank">user-defined variable</a> named `TELERIK_LICENSE`.
+1. Paste the contents of the license key file as a value.
+
+### Azure Pipelines (Classic)
+
+1. Create a new <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch" target="_blank">user-defined variable</a> named `TELERIK_LICENSE`.
+1. Paste the contents of the license key file as a value.
+
+### GitHub Actions
+
+1. Create a new <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository" target="_blank">Repository Secret</a> or an <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization" target="_blank">Organization Secret</a>.
+1. Set the name of the secret to `TELERIK_LICENSE` and paste the contents of the license file as a value.
+1. After running `npm install` or `yarn`, add a build step to activate the license:
+    ````YAML
+    env:
+        TELERIK_LICENSE: ${ { secrets.TELERIK_LICENSE } } # remove the spaces between the brackets
+    ````
 
 ## Next Steps
 

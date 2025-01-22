@@ -179,3 +179,9 @@ You can learn more about the [`TelerikRootComponent` purpose and usage](slug://r
 }
 </style>
 #end
+
+#license-key-version
+
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
+
+#end

@@ -14,6 +14,7 @@ position: 1
 This article explains the basics of deploying a Telerik-enabled Blazor web application. It consists of the following sections:
 
 * [Prerequisites](#prerequisites)
+* [License Key](#license-key)
 * [Telerik Components](#telerik-components)
 * [Next Steps and Troubleshooting](#next-steps-and-troubleshooting)
 
@@ -27,6 +28,9 @@ Refer to the Microsoft Blazor deployment documentation and make sure you can dep
 * [Host and deploy Blazor Server apps](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/server)
 * [Host and deploy Blazor WebAssembly apps](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly)
 
+## License Key
+
+Before building a Telerik Blazor app in a CI/CD environment, [set up a Telerik license key in CI/CD](slug://deployment-license-key). The process is different than in a [local development environment](slug://installation-license-key).
 
 ## Telerik Components
 
