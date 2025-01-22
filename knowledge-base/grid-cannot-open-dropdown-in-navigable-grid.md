@@ -33,9 +33,9 @@ When the Grid keyboard navigation is enabled, the table cells automatically gain
 
 ## Solution
 
-Normally, editor components belong to [`<EditorTemplate>`]({%slug grid-templates-editor%})s, but this article assumes that editor templates are not an option. Thus, other possible options include:
+Normally, editor components belong to [`<EditorTemplate>`](slug://grid-templates-editor)s, but this article assumes that editor templates are not an option. Thus, other possible options include:
 
-* If data operations like sorting and filtering are not necessary for the affected columns, place buttons or dropdown components like ComboBox or DropDownList inside a [Grid Command Column]({%slug components/grid/columns/command%}) instead. Grid command columns do not gain focus automatically when a nested focusable element is clicked.
+* If data operations like sorting and filtering are not necessary for the affected columns, place buttons or dropdown components like ComboBox or DropDownList inside a [Grid Command Column](slug://components/grid/columns/command) instead. Grid command columns do not gain focus automatically when a nested focusable element is clicked.
 * If data operations for the affected columns are required, then use a container with `@onclick:stopPropagation` inside the `<GridColumn>` template. This will prevent the Grid from knowing about the clicks, so the data cell will not gain focus automatically.
 
 >caption Using dropdowns, buttons and other focusable elements inside a navigable Grid
@@ -123,5 +123,5 @@ Normally, editor components belong to [`<EditorTemplate>`]({%slug grid-templates
 ## See Also
 
 * [Grid Keyboard Navigation Demo](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation)
-* [Grid Column Template]({%slug grid-templates-column%})
-* [Grid Command Column]({%slug components/grid/columns/command%})
+* [Grid Column Template](slug://grid-templates-column)
+* [Grid Command Column](slug://components/grid/columns/command)
