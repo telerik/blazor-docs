@@ -14,7 +14,7 @@ You can position and align the Blazor Floating Action Button component relative 
 
 ## Position
 
-The `PositionMode` parameter accepts a member of the FloatingActionButtonPositionMode enum and controls the CSS position of the FloatingActionButton:
+The `PositionMode` parameter accepts a member of the `FloatingActionButtonPositionMode` enum and controls the CSS position of the Floating Action Button:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
