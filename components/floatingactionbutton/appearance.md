@@ -123,3 +123,7 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
     };
 }
 ````
+
+## See Also
+
+* [Appearance - Design System Docs](https://www.telerik.com/design-system/docs/components/floatingactionbutton/#appearance)

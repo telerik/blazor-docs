@@ -377,7 +377,7 @@ navigation:
         title: "Form"
      "*flatcolorpicker":
         title: "FlatColorPicker"
-     "*/floatingactionbutton":
+     "*floatingactionbutton":
         title: "Floating Action Button"
      "*floatinglabel":
         title: "FloatingLabel"
