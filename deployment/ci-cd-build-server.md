@@ -14,7 +14,6 @@ This article explains some concepts and how to troubleshoot the most common erro
 
 Sections in this article:
 
-
 * [Basics](#basics)
 * [Azure DevOps Pipelines](#azure-devops-pipelines)
 * [GitHub Secrets](#github-secrets)
@@ -29,7 +28,7 @@ There are a couple of common ways people implement CI/CD automated builds.
 
 * You can [restore the Telerik NuGet packages](slug://deployment-nuget) by downloading them from the Telerik NuGet server. You can achieve this by using the more secure token-based authentication with the Telerik NuGet server. If you prefer the basic authentication with a username and password, you can use your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the `NuGet.Config` of the build machine/pipeline. In this case, make sure that your credentials are encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue. See more on setting up the [Telerik NuGet package source](slug://installation/nuget).
 
-* Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated](slug://installation/msi) and from the [zip archive](slug://installation/zip)).
+* Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated](slug://installation-msi) and from the [zip archive](slug://installation-zip)).
 
 You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). As long as your credentials are obfuscated/masked, they can be used by your colleagues (e.g. developers, QAs, designers, front-end devs, DBAs, etc.) for building and running a solution, provided they do not use the Telerik components to create functionality. Most importantly, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
 
@@ -147,8 +146,8 @@ RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 
 ## See Also
 
+* [Install License Key in CI/CD Environment](slug://deployment-license-key)
 * [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 * [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 * [Setup of the Telerik Online Private NuGet Feed](slug://installation/nuget)
 * [NuGet Feed Troubleshooting](slug://troubleshooting-nuget)
-

@@ -55,7 +55,7 @@ Depending on the particular service implementation, an empty string or the Engli
 ## Solution
 Ensure that all the keys used by the Telerik components are present and translated in your application. 
 
-You can find an up-to-date list of those keys in the `demos` folder of your local installation (both [automated](slug://installation/msi) and the [zip archive](slug://installation/zip)) - this is our online demos solution and the `Resources` folder in it contains a few sample localization files. We add the new keys for every release in the default translation file.
+You can find an up-to-date list of those keys in the `demos` folder of your local installation (both [automated](slug://installation-msi) and the [zip archive](slug://installation-zip)) - this is our online demos solution and the `Resources` folder in it contains a few sample localization files. We add the new keys for every release in the default translation file.
 
 ## Notes
 

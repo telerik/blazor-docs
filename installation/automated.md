@@ -2,18 +2,18 @@
 title: Automated Installer
 page_title: Automated Installer
 description: What the Automated installation package of Telerik UI for Blazor brings.
-slug: installation/msi
+slug: installation-msi
 previous_url: /installation/msi
 tags: get,started,installation,msi,p,wizard
 published: True
-position: 3
+position: 20
 ---
 
 # Automated Wizard Installer
 
 This article explains what the automated install wizard does for Telerik UI for Blazor components, and how to get it.
 
-The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed](slug://installation/nuget). However, you can also use a wizard installer, or a [ZIP archive](slug://installation/zip).
+The most common way to install the Telerik UI for Blazor components is to use the [Telerik NuGet feed](slug://installation/nuget). However, you can also use a wizard installer, or a [ZIP archive](slug://installation-zip).
 
 There is an automated installer for:
 
@@ -71,7 +71,7 @@ There are several approaches you can try:
     
     * Or, get around Apple's security precautions by removing the quarantine Extended Attribute on the `.pkg` file by executing `xattr -d com.apple.quarantine /path/to/file`
 
-* You can, alternatively, obtain all the files you need from the [ZIP archive we provide](slug://installation/zip) which does not require an installation.
+* You can, alternatively, obtain all the files you need from the [ZIP archive we provide](slug://installation-zip) which does not require an installation.
 
 ## See Also
 

@@ -5,12 +5,12 @@ description: Explore the different ways to add the Telerik private NuGet feed to
 slug: installation/nuget
 tags: get,started,installation,nuget,feed
 published: True
-position: 1
+position: 5
 ---
 
 # Telerik Private NuGet Source
 
-This article explains how to add the private Telerik NuGet package feed to your environment. You can use it to obtain the Telerik UI for Blazor components instead of [setting up a local NuGet feed](slug://installation/zip#set-up-a-local-nuget-feed-in-visual-studio).
+This article explains how to add the private Telerik NuGet package feed to your environment. You can use it to obtain the Telerik UI for Blazor components instead of [setting up a local NuGet feed](slug://installation-zip#set-up-a-local-nuget-feed-in-visual-studio).
 
 The benefit of using an online NuGet source is that you will receive notifications for newer component versions.
 
@@ -151,7 +151,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
 ````XML
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <packageSources>      
+    <packageSources>
         <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
         <add key="TelerikOnlineFeed" value="https://nuget.telerik.com/v3/index.json" />
     </packageSources>
@@ -159,6 +159,7 @@ The `Telerik.UI.for.Blazor` NuGet package and most of its dependencies reside on
     <packageSourceMapping>
         <packageSource key="nuget.org">
             <package pattern="*" />
+            <package pattern="Telerik.Licensing" />
             <package pattern="Telerik.FontIcons" />
             <package pattern="Telerik.SvgIcons" />
         </packageSource>
