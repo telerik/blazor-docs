@@ -1,6 +1,6 @@
 ---
 title: Minimize a Window to the Bottom Right of the Page
-description: Learn how to to collapse a Window to the bottom of a page and create a responsive popup that is a chat bubble?
+description: Learn how to collapse a Window to the bottom of a page and create a responsive popup that is a chat bubble.
 type: how-to
 page_title: How to Minimize a Popup Window to the Bottom Right of the Page
 slug: window-modal-minimize-popup
