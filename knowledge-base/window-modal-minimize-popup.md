@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 ### Minimize Window to the Bottom Right
 
-To minimize the Window at the bottom-right corner of the viewport:
+To minimize the Window to the bottom-right corner of the viewport:
 
 1. Set a custom CSS class to the Window with the `Class` parameter, for example, `minimized-at-bottom`.
 1. Apply the following styles to the `.k-window-minimized.minimized-at-bottom` CSS combinator:
