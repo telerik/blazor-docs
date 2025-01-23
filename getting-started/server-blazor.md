@@ -20,7 +20,15 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
 
-## Step 1: Create a New Project
+## Step 1: Install a License Key
+
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
+
+@[template](/_contentTemplates/common/get-started.md#license-key-manual-steps)
+
+@[template](/_contentTemplates/common/get-started.md#license-key-know-more-link)
+
+## Step 2: Create a New Project
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -30,7 +38,7 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 @[template](/_contentTemplates/common/get-started.md#add-nuget-feed)
 
-## Step 3: Install the Telerik UI for Blazor Components
+## Step 4: Install the Telerik UI for Blazor Components
 
 1. Right-click  the Blazor Server project in the solution and select **Manage NuGet Packages**.
 
@@ -38,16 +46,16 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 2. Install the Telerik Blazor NuGet package:
 
-   1. Select the `telerik.com` **Package source** that you [added earlier](#step-2-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) user name and password.
+   1. Select the `telerik.com` **Package source** that you [added earlier](#step-3-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) user name and password.
    1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders should install `Telerik.UI.for.Blazor`. Trial users should install `Telerik.UI.for.Blazor.Trial`.
 
 ![Add Telerik Blazor Package to the project](images/add-telerik-nuget-to-server-app.png)
 
-## Step 4: Enable the Blazor UI Components
+## Step 5: Enable the Blazor UI Components
 
 To enable the Telerik UI for Blazor components, you must add several client-side dependencies to the application, include the required `@using` statements, add the `TelerikRootComponent` component, and register the Telerik Blazor service.
 
-### 4.1. Add the Telerik UI for Blazor Client Assets
+### 5.1. Add the Telerik UI for Blazor Client Assets
 
 1\. Add the `telerik-blazor.js` file to the `<head>` of your main index file:
 
@@ -65,7 +73,7 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
-### 4.2. Include @using Statements
+### 5.2. Include @using Statements
 
 In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using](slug://common-features-icons).
 
@@ -76,13 +84,13 @@ In the `~/_Imports.razor` file, add the `@using` directives below. This configur
 @using Telerik.FontIcons
 ````
 
-### 4.3. Add the TelerikRootComponent
+### 5.3. Add the TelerikRootComponent
 
 Use a single [`TelerikRootComponent`](slug://rootcomponent-overview) component as a top-level component in the app.
 
 @[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
-### 4.4. Register the Telerik Blazor Service
+### 5.4. Register the Telerik Blazor Service
 
 In the `Program.cs` file of your Blazor Server project, register the Telerik Blazor Service:
 
@@ -91,7 +99,7 @@ In the `Program.cs` file of your Blazor Server project, register the Telerik Bla
 
 Now your Blazor Server project can use the Telerik UI for Blazor components.
 
-## Step 5: Add a Component to a View
+## Step 6: Add a Component to a View
 
 The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
 

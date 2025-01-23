@@ -36,6 +36,8 @@ To upgrade the Telerik UI for Blazor components used in your project, perform th
 
 1. @[template](/_contentTemplates/common/general-info.md#ensure-nuget-packge-for-upgrade)
 
+1. [Update your license key](slug://installation-license-key#license-key-updates) if the component version upgrade is related to a license renewal or purchase.
+
 1. Update the version of the `Telerik.UI.for.Blazor` NuGet package in all applicable projects. If you are using a trial version, the package name is `Telerik.UI.for.Blazor.Trial`.
 
 1. If you are [loading `telerik-blazor.js` from CDN](slug://common-features-cdn#javascript-urls), update the version number in the CDN URL to match the NuGet package version.
@@ -59,6 +61,8 @@ To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard]
 If you have just purchased a license and you need to migrate from the trial package to the licensed version, perform the following steps:
 
 1. @[template](/_contentTemplates/common/general-info.md#ensure-nuget-packge-for-upgrade)
+
+1. [Update your license key](slug://installation-license-key#license-key-updates) if you purchased Telerik UI for Blazor after your last license key install.
 
 1. Replace the reference to the `Telerik.UI.for.Blazor.Trial` package in your project with a reference to the `Telerik.UI.for.Blazor` package.
 
@@ -89,19 +93,22 @@ The Trial version of our assembly has the `Telerik.Blazor Trial version` Title. 
 
 ## Troubleshooting
 
-## Microsoft.JSInterop.JSException: Could not find ...
+### Microsoft.JSInterop.JSException: Could not find ...
 
 The most common problem you will encounter when upgrading is wrong references to our JS Interop file. You can read more about fixing them in the [Troubleshoot JavaScript Errors](slug://troubleshooting-js-errors) article.
 
-## I Still See the Trial Watermark and Banner
+### I Still See the Trial Watermark and Banner
 
 While using a trial license, a watermark will be rendered over the components and you will see a banner with the following message:
 
 > Thank you for using the Trial Version of Telerik UI for Blazor to build more powerful applications faster. Purchase the Commercial Version now to get access to all product updates and the Telerik expert support.
 
-If you have a commercial license, but you still see the trial watermark and banner, especially after publishing an app to a staging or live server, your build has used the trial `Telerik.Blazor.dll` assembly.
+If you have a commercial license, but you still see the trial watermark and banner, then possible reasons may be:
 
-The most common reason for the problem is that the framework decides to incorrectly copy a trial version of the Telerik UI for Blazor assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework.
+* [Your license key must be updated](slug://installation-license-key#license-key-updates).
+* The build has used the trial `Telerik.Blazor.dll` assembly.
+
+The most common reason for the second problem is that the framework decides to incorrectly copy a trial version of the Telerik UI for Blazor assembly into the `dist` folder of the app, even though it puts the correct licensed version at the root of the publish folder. This seems like a problem in the build process of the framework.
 
 To fix this in the meantime, try the following process (you can try a new test build after each step where you make a change):
 

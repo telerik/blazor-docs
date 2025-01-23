@@ -13,7 +13,7 @@
 
 ## Step 0: Download Telerik UI for Blazor
 
-* If you have already purchased a Telerik UI for Blazor license, continue with the [next step and create a new project](#step-1-create-a-new-project).
+* If you have already purchased a Telerik UI for Blazor license, continue with the [next step and create a new project](#step-2-create-a-new-project).
 
 * If you are new to UI for Blazor and haven't purchased a license yet, you must <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download and install the trial version</a> of the UI for Blazor components&mdash;this will activate your free trial and allow you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox and the installer will configure the Telerik [online NuGet feed](slug://installation/nuget) automatically. You will use this feed later in the tutorial. 
 
@@ -23,7 +23,7 @@
 
 
 #add-nuget-feed
-## Step 2: Add the Telerik NuGet Feed to Visual Studio
+## Step 3: Add the Telerik NuGet Feed to Visual Studio
 
 In this tutorial, you will use the [Telerik NuGet feed](slug://installation/nuget) to download the UI for Blazor components. This NuGet feed is private and requires you to authenticate with your Telerik user name and password:
 
@@ -182,6 +182,32 @@ You can learn more about the [`TelerikRootComponent` purpose and usage](slug://r
 
 #license-key-version
 
->tip This article applies to Telerik UI for Blazor version **7.2.0** and above. Older versions do not require a license key.
+>tip This documentation section applies to Telerik UI for Blazor version **7.2.0** and above. Older versions do not require a license key.
+
+#end
+
+#license-key-update-whenever
+
+>tip Update your license key [whenever you renew or purchase a new Telerik license](slug://installation-license-key#license-key-updates).
+
+#end
+
+#license-key-manual-steps
+
+To download and install your Telerik license key:
+
+1. Go to the <a href="https://www.telerik.com/account/your-licenses/license-keys" target="_blank">License Keys page</a> in your Telerik account.
+1. Click the **Download License Key** button.
+1. Save the `telerik-license.txt` file to:
+    * (on Windows) `%AppData%\Telerik\telerik-license.txt`, for example, `C:\Users\...\AppData\Roaming\telerik-license.txt`
+    * (on Mac or Linux) `~/.telerik/telerik-license.txt`, for example, `/Users/.../.telerik/telerik-license.txt`
+
+This will make the license key available to all Telerik .NET apps that you develop on your local machine.
+
+#end
+
+#license-key-know-more-link
+
+The [Telerik License Key](slug://installation-license-key) article provides additional details on installing and updating your Telerik license key in different scenarios.
 
 #end

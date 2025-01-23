@@ -32,7 +32,7 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 The required milestones to obtain and use Telerik UI for Blazor are:
 
 1. Install the [Telerik Blazor NuGet packages](#nuget-packages) in your Blazor application.
-1. Install a [Telerik License file](#license-file).
+1. Install a [Telerik license key](#license-key).
 1. Register the [required namespaces](#namespaces).
 1. Add the [Telerik Blazor service](#service).
 1. Add the [CSS theme and JavaScript file](#css-theme-and-javascript-files).
@@ -51,7 +51,7 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 | NuGet Package Name | Description |
 | --- | --- |
 | `Telerik.UI.for.Blazor` | Contains the main code of the UI components. Required for all Telerik UI for Blazor applications. |
-| [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing) | Verifies the licensing status of the developer during app build. Requires a [license file](#license-file). Available on `nuget.org`. |
+| [`Telerik.Licensing`](https://www.nuget.org/packages/Telerik.Licensing) | Verifies the licensing status of the developer during app build. Requires a [license key](#license-key). Available on `nuget.org`. |
 | [`Telerik.SvgIcons`](https://www.nuget.org/packages/Telerik.SvgIcons) | Contains all Telerik SVG icons. Available on `nuget.org`. |
 | [`Telerik.FontIcons`](https://www.nuget.org/packages/Telerik.FontIcons) | Contains all Telerik font icons. Available on `nuget.org`. |
 | `Telerik.DataSource` | Adds support for data operations. All databound UI components use it for paging, sorting, filtering, or grouping. |
@@ -65,7 +65,7 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 
 ### Getting the Telerik NuGet Packages
 
-To get the two public icon packages and `Telerik.Licensing`, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
+To get the public Telerik icon and licensing packages, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
 
 * [Telerik.Licensing](https://www.nuget.org/packages/Telerik.Licensing)
 * [Telerik.SvgIcons](https://www.nuget.org/packages/Telerik.SvgIcons)
@@ -81,9 +81,13 @@ You can get the private Telerik UI for Blazor packages in four ways:
 > Always check the [Telerik UI for Blazor release notes](https://www.telerik.com/support/whats-new/blazor-ui/release-history) when updating the components. New [major versions can contain breaking changes](slug://versions-with-breaking-changes).
 
 
-## License File
+## License Key
 
+@[template](/_contentTemplates/common/get-started.md#license-key-version)
 
+@[template](/_contentTemplates/common/get-started.md#license-key-manual-steps)
+
+@[template](/_contentTemplates/common/get-started.md#license-key-know-more-link)
 
 ## Namespaces
 

@@ -28,19 +28,23 @@ Before adding the Telerik UI for Blazor components, ensure that the correspondin
 
 ## Adding the UI for Blazor Components
 
-The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is similar to including the components in a [native Blazor app](slug://getting-started/what-you-need) and involves the six steps listed below. 
+The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is similar to including the components in a [native Blazor app](slug://getting-started/what-you-need) and involves the steps listed below. 
 
 ### 1. Get the Telerik UI for Blazor Package
 
 To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...](slug://getting-started/what-you-need#nuget-packages)
 
-### 2. Add the Telerik Client Assets
+### 2. Install the Telerik License Key
+
+[Install your Telerik license key](slug://getting-started/what-you-need#license-key) to activate Telerik UI for Blazor during application build.
+
+### 3. Add the Telerik Client Assets
 
 To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets](slug://getting-started/what-you-need#css-theme-and-javascript-files). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
 You can add the Telerik resources as [static assets](slug://getting-started/what-you-need#css-theme-and-javascript-files).
 
-### 3. Include @using Statements 
+### 4. Include @using Statements 
 
 You can set the project to recognize all Telerik components without explicit `@using` statements in every `.razor` file. To achieve this, add the code below to your `~/_Imports.razor` file. You can register one or both icon namespaces depending on the [icon type you will be using](slug://common-features-icons).
 
@@ -55,7 +59,7 @@ You can set the project to recognize all Telerik components without explicit `@u
 @using Telerik.FontIcons
 ````
 
-### 4. Add the TelerikRootComponent
+### 5. Add the TelerikRootComponent
 
 Use a single [`TelerikRootComponent`](slug://rootcomponent-overview) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
 
@@ -66,7 +70,7 @@ Make sure that the `TelerikRootComponent` matches the web view viewport and remo
 
 Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration](slug://getting-started/what-you-need#telerikrootcomponent)).
 
-### 5. Register the Telerik Services
+### 6. Register the Telerik Services
 
 The next step is to register the Telerik services. Add the Telerik services in accordance to the practice your native app requires.
 
@@ -106,7 +110,7 @@ namespace MyBlazorMauiAppName
 }
 ````
 
-### 5. Add the UI for Blazor Components
+### 7. Add the UI for Blazor Components
 
 Add your desired Telerik Blazor components in the app as in a native Blazor app. Explore the available UI for Blazor components and their features in our [live demos](https://demos.telerik.com/blazor-ui).
 

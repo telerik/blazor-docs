@@ -131,5 +131,5 @@ Visit [status.telerik.com](https://status.telerik.com) to check the status of th
 
 
 #ci-cd-support
-> All deployment articles in this documentation provide general guidance and fundamentals. Telerik does not provide technical support for setting up CI/CD environments or application publishing infrastructure.
+> The deployment articles in this documentation provide general guidance and fundamentals. Telerik does not provide technical support for setting up CI/CD environments or application publishing infrastructure, except for questions about [using Telerik license keys](slug://deployment-license-key).
 #end

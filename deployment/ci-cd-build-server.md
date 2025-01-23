@@ -12,7 +12,7 @@ position: 5
 
 This article explains some concepts and how to troubleshoot the most common errors related to setting up the Telerik NuGet packages for automated builds, CI and CD.
 
-> Telerik license keys are outside the scope of this article. Refer to article [Telerik License Key in CI/CD](slug://deployment-license-key)
+> To successfully set up a CI/CD environment for Telerik Blazor apps, also refer to the article about [Telerik license keys in CI/CD](slug://deployment-license-key).
 
 Sections in this article:
 

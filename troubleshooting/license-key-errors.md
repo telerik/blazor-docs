@@ -24,6 +24,7 @@ A Telerik license key error may occur in the following scenarios:
 * Using an expired trial license.
 * Using an outdated license key after making renewals or purchases.
 * Using a license key that doesn't include Telerik UI for Blazor.
+* Using conflicting license keys in the same environment. For example, using one global license key and one in the app. Or, using a license key file together with an environment variable in CI/CD environment.
 
 Refer to the error messages below for specific tips.
 
