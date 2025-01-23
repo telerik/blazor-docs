@@ -9,16 +9,24 @@ res_type: kb
 ticketid: 1675338
 ---
 
+## Environment
+
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>
+                Grid for Blazor
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 ## Description
 In some scenarios, you might want to conditionally show or hide command buttons in a [Grid for Blazor](slug://grid-overview) based on the data of the current row. For instance, you may want to display a delete button only for items that meet certain criteria. This article demonstrates how to achieve this behavior by using the context of the command column.
 
-This knowledge base article also answers the following questions:
-- How can I hide a GridCommandButton based on a row value in Blazor?
-- What is the way to conditionally display command buttons in a Telerik Blazor Grid?
-- Can I dynamically control the visibility of command buttons in a Grid for Blazor?
-
 ## Solution
-To conditionally show or hide command buttons in a Grid for Blazor, use the context parameter of the `GridCommandColumn` to access the current row's data. Based on this data, you can conditionally render the command button.
+To conditionally show or hide command buttons in a Grid, use the context parameter of the `GridCommandColumn` to access the current row's data. Based on this data, you can conditionally render the command button.
 
 ````RAZOR
 @CustomCommandResult
@@ -123,8 +131,8 @@ To conditionally show or hide command buttons in a Grid for Blazor, use the cont
 ````
 
 ### Note
-If you prefer not to remove the button from the DOM but simply hide it, you can conditionally set the `Class` parameter of the `GridCommandButton` tag and utilize CSS to hide the button.
+If you prefer not to remove the button from the DOM but simply hide it, you can conditionally set the `Class` parameter of the `GridCommandButton` tag and use CSS to hide the button.
 
 ## See Also
-- [Blazor Grid Overview](slug://grid-overview)
-- [Blazor Grid Command Column](slug://components/grid/columns/command)
+* [Grid Overview](slug://grid-overview)
+* [Grid Command Column](slug://components/grid/columns/command)
