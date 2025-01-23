@@ -116,6 +116,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
                 case "BeginEdit":
                     LoaderVisible = true;
                     await Task.Delay(1); // triggers UI refresh for the LoaderContainer to show
+                    await Task.Delay(3000); // replace with the actual long-running task
                     LoaderVisible = false;
 
                     var currState = GridRef.GetState();
@@ -127,6 +128,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
                 case "ToggleSelect":
                     LoaderVisible = true;
                     await Task.Delay(1); // triggers UI refresh for the LoaderContainer to show
+                    await Task.Delay(3000); // replace with the actual long-running task
                     LoaderVisible = false;
 
                     var selItems = SelectedItems.ToList();
