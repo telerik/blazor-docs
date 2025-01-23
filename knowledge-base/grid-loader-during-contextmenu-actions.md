@@ -1,10 +1,10 @@
 ---
-title: Display Loader During Actions in TelerikGrid with ContextMenu
-description: Learn how to show a loading indicator while performing actions from a ContextMenu in a TelerikGrid for Blazor.
+title: Display Loader During ContextMenu Actions in Grid
+description: Learn how to show a loading indicator while performing actions from a ContextMenu in a Telerik Grid for Blazor.
 type: how-to
 page_title: How to Display a Loader in TelerikGrid for Blazor During ContextMenu Actions
 slug: grid-kb-loader-during-contextmenu-actions
-tags: contextmenu,grid,loader,loading, loadercontainer,actions
+tags: contextmenu, grid, loader, loading, loadercontainer
 res_type: kb
 ticketid: 1675767
 ---
@@ -115,7 +115,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
             {
                 case "BeginEdit":
                     LoaderVisible = true;
-                    await Task.Delay(3000); //initiates delay
+                    await Task.Delay(1); // triggers UI refresh for the LoaderContainer to show
                     LoaderVisible = false;
 
                     var currState = GridRef.GetState();
@@ -126,7 +126,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
                     break;
                 case "ToggleSelect":
                     LoaderVisible = true;
-                    await Task.Delay(3000); //initiates delay
+                    await Task.Delay(1); // triggers UI refresh for the LoaderContainer to show
                     LoaderVisible = false;
 
                     var selItems = SelectedItems.ToList();
@@ -159,13 +159,13 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
         GridData = new ObservableCollection<SampleData>();
         var rand = new Random();
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 1; i < 100; i++)
         {
             GridData.Add(new SampleData()
-                {
-                    ID = i,
-                    Name = "Employee " + i.ToString(),
-                });
+            {
+                ID = i,
+                Name = "Employee " + i.ToString(),
+            });
         }
     }
 
@@ -232,6 +232,6 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
 
 ## See Also
 
-- [LoaderContainer Overview](slug://loadercontainer-overview)
-- [Grid Documentation](slug://grid-overview)
-- [ContextMenu Documentation](slug://contextmenu-overview)
+* [LoaderContainer Overview](slug://loadercontainer-overview)
+* [Grid Overview](slug://grid-overview)
+* [ContextMenu Overview](slug://contextmenu-overview)
