@@ -52,6 +52,10 @@ The Blazor TabStrip component allows you to control the position of the tabs. [R
 
 The Blazor TabStrip component allows you to control the alignment of the tabs. [Read more about the Tabs Alignment...](slug://tabstrip-tabs-alignment)
 
+## Size of the Tabs
+
+The TabStrip provides predefined options which allow you to set different size of the tabs and scroll buttons. [Read more about the TabStrip Sizing...](slug://tabstrip-tabs-size)
+
 ## Persist Content
 
 The Blazor TabStrip component can persist the content of the tabs. When the user navigates between the tabs, their content will be hidden with CSS only to avoid re-initialization. [Read more about the Persist Content...](slug://tabstrip-persist-content)
@@ -75,6 +79,9 @@ The TabStrip provides the following features to allow further customization of i
 | `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding.
 |`PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content](slug://tabstrip-persist-content)
 | `Scrollable` | `bool` | Whether the tabs will be scrollable. See [Scrollable Tabs](slug://tabstrip-scroll-tabs)
+| `ScrollButtonsPosition` | `TabStripScrollButtonsPosition` enum <br/> (`TabStripScrollButtonsPosition.Split`)| Specifies the position of the buttons when the TabStrip is Scrollable.
+| `ScrollButtonsVisibility` | `TabStripScrollButtonsVisibility` enum <br/> (`TabStripScrollButtonsVisibility.Visible`)| Specifies the visibility of the buttons when the TabStrip is Scrollable.
+| `Size` | `string` <br/> (`ThemeConstants.TabStrip.Size.Medium`)| Controls the size of the tabs.
 | `TabPosition` | `TabPosition` enum <br/> (`TabPosition.Top`)| Controls the position of the tabs.
 | `TabAlignment` | `TabStripTabAlignment` enum <br/> (`TabStripTabAlignment.Start`)| Controls the alignment of the tabs.
 
