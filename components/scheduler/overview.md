@@ -122,7 +122,7 @@ The [Scheduler component fires events](slug://scheduler-events) related to CRUD 
 
 ## Scheduler Parameters
 
-The following table lists Scheduler parameters, which are not discussed elsewhere in the component documentation. Also check the [Scheduler API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1) for a full list of parameters, events and methods.
+The following table lists Scheduler parameters, which are not discussed elsewhere in the component documentation. Also check the [Scheduler API Reference](slug://Telerik.Blazor.Components.TelerikScheduler-1) for a full list of parameters, events and methods.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -175,4 +175,4 @@ To execute Scheduler methods, obtain reference to the component instance with `@
 ## See Also
 
 * [Live Demo: Scheduler](https://demos.telerik.com/blazor-ui/scheduler/overview)
-* [Scheduler API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikScheduler-1)
+* [Scheduler API Reference](slug://Telerik.Blazor.Components.TelerikScheduler-1)

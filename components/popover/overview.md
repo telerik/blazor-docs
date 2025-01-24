@@ -58,7 +58,7 @@ Use the available parameters to customize the animation type and its duration. [
 
 ## Popover Parameters
 
-The Blazor Popover provides parameters to configure the component. Also check the [Popover API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPopover) for a full list of properties.
+The Blazor Popover provides parameters to configure the component. Also check the [Popover API Reference](slug://Telerik.Blazor.Components.TelerikPopover) for a full list of properties.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -125,5 +125,5 @@ To execute Popover methods, obtain a reference to the component instance with `@
 ## See Also
 
 * [Live Popover Demos](https://demos.telerik.com/blazor-ui/popover/overview)
-* [Popover API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPopover)
+* [Popover API Reference](slug://Telerik.Blazor.Components.TelerikPopover)
 * [Comparison between All Popup Components](slug://common-kb-popup-component-comparison)

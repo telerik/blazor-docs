@@ -28,7 +28,7 @@ The information about the Editor tools and commands is organized in tables below
 
 * `Command Name` - use it to [execute the command programmatically](#programmatic-execution). In this case, also use the syntax from the `Argument` column.
 
-* `Tool Type` - a tool can be a [button](/blazor-ui/api/Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](/blazor-ui/api/Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](/blazor-ui/api/Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar](slug://editor-toolbar).
+* `Tool Type` - a tool can be a [button](slug://Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](slug://Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](slug://Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar](slug://editor-toolbar).
 
 * `Description` - information about what the tool and command do.
 
@@ -198,7 +198,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 | Property | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](/blazor-ui/api/Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug://colorpicker-overview#supported-value-formats). |
+| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](slug://Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug://colorpicker-overview#supported-value-formats). |
 | `Title` | `string` | The tooltip content that shows on tool mouse over. |
 | `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | The format, which the Color tool will set in the generated HTML markup. Use `Rgb` or `Hex`. |
 
@@ -235,7 +235,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 ### Font Tool Customization
 
-The [`FontFamily`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](/blazor-ui/api/Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
+The [`FontFamily`](slug://Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](slug://Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor
@@ -376,7 +376,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 ### Format Tool Customization
 
-The [`Format` tool exposes a `Data` property](/blazor-ui/api/Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
+The [`Format` tool exposes a `Data` property](slug://Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor

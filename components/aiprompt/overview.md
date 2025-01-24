@@ -84,7 +84,7 @@ The various AIPrompt events allow you to implement custom functionality and hand
 
 ## AIPrompt Parameters
 
-The table below lists the AIPrompt parameters. For a full list of the AIPrompt API members (parameters, methods, and events), check the [AIPrompt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAIPrompt).
+The table below lists the AIPrompt parameters. For a full list of the AIPrompt API members (parameters, methods, and events), check the [AIPrompt API Reference](slug://Telerik.Blazor.Components.TelerikAIPrompt).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -157,4 +157,4 @@ The AIPrompt exposes methods for programmatic operation. To use them, define a r
 ## See Also
 
 * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-* [AIPrompt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAIPrompt)
+* [AIPrompt API Reference](slug://Telerik.Blazor.Components.TelerikAIPrompt)

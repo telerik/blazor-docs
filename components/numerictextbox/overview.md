@@ -171,4 +171,4 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor-ui/numerictextbox/validation)
 * [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
 * [Input Validation](slug://common-features/input-validation)
-* [NumericTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikNumericTextBox-1)
+* [NumericTextBox API Reference](slug://Telerik.Blazor.Components.TelerikNumericTextBox-1)

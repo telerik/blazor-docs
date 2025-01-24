@@ -21,7 +21,7 @@ To customize the nodes, declare the `<SankeyLinks>` tag as a direct child of `<T
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `ColorType` | [`SankeyLinksColorType` enum](/blazor-ui/api/telerik.blazor.sankeylinkscolortype) <br /> (`Static`) | The origin of the link color: could be based on the `Color` property, on the source node color, or on the target node color. |
+| `ColorType` | [`SankeyLinksColorType` enum](slug://telerik.blazor.sankeylinkscolortype) <br /> (`Static`) | The origin of the link color: could be based on the `Color` property, on the source node color, or on the target node color. |
 | `Color` | `string` <br/> (`#666666`) | The color of the links. Applies when `ColorType="@SankeyLinksColorType.Static"`. |
 | `Opacity` | `double?` <br/> (`0.4`) | The opacity of the links. |
 

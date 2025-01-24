@@ -36,7 +36,7 @@ The following approach is valid for both the Grid and the TreeList.
 
 1. Define [column templates](slug://grid-templates-column) for all string columns in the Grid.
 1. Inside the column template, obtain the search string from the [Grid state](slug://grid-state):
-    * Check the `SearchFilter` property of the [`GridState` object](/blazor-ui/api/Telerik.Blazor.Components.GridState-1).
+    * Check the `SearchFilter` property of the [`GridState` object](slug://Telerik.Blazor.Components.GridState-1).
     * It will contain a [`CompositeFilterDescriptor` with multiple nested `FilterDescriptor`s inside](slug://components/grid/filtering#filter-descriptors).
     * The search string will be the `Value` of any nested `FilterDescriptor` object.
     * The example below uses the [Grid `OnStateChanged` event](slug://grid-state#events) to cache the search string.

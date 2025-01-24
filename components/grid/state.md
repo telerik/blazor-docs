@@ -23,7 +23,7 @@ This article describes:
 
 ## Information in the Grid State
 
-The Grid state is a generic [class `GridState<TItem>`](/blazor-ui/api/Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model. The `GridState<TItem>` object exposes the following properties:
+The Grid state is a generic [class `GridState<TItem>`](slug://Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model. The `GridState<TItem>` object exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -434,5 +434,5 @@ You can find multiple examples for using the Grid state in the following [Knowle
 ## See Also
 
 * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
-* [GridState API reference](/blazor-ui/api/Telerik.Blazor.Components.GridState-1)
+* [GridState API reference](slug://Telerik.Blazor.Components.GridState-1)
 * [Blazor Grid](slug://grid-overview)

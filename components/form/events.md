@@ -94,7 +94,7 @@ By default, `OnUpdate` will fire on each keystroke for [auto-generated form item
 
 You can use the `OnUpdate` event to programmatically [refresh the UI outside the current Form item](slug://form-formitems#ui-rendering-inside-the-form).
 
-The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.FormUpdateEventArgs) with the following properties:
+The `OnUpdate` event argument is a [`FormUpdateEventArgs` object](slug://Telerik.Blazor.Components.FormUpdateEventArgs) with the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

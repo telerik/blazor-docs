@@ -75,7 +75,7 @@ The SignalR WebSocket has a default maximum message size of **32 KB**. To work w
 
 ## PdfViewer Parameters
 
-The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer) for all parameters, methods and events.
+The table below lists the PDF Viewer parameters. Also check the [PDF Viewer API Reference](slug://Telerik.Blazor.Components.TelerikPdfViewer) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -164,4 +164,4 @@ The PdfViewer exposes methods for programmatic operation. To use them, define a 
 ## See Also
 
 * [PdfViewer Live Demo](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
-* [PdfViewer API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer)
+* [PdfViewer API](slug://Telerik.Blazor.Components.TelerikPdfViewer)

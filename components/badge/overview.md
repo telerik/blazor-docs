@@ -35,7 +35,7 @@ You can control how the Badge is positioned relative to its associated container
 
 ## Badge Parameters
 
-The Blazor Badge provides various parameters that allow you to configure the component. Also check the [Badge API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikBadge) for a full list of properties.
+The Blazor Badge provides various parameters that allow you to configure the component. Also check the [Badge API Reference](slug://Telerik.Blazor.Components.TelerikBadge) for a full list of properties.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -69,4 +69,4 @@ You can find more information for customizing the Badge appearance in the [Appea
 ## See Also
 
 * [Live Badge Demos](https://demos.telerik.com/blazor-ui/badge/overview)
-* [Badge API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikBadge)
+* [Badge API Reference](slug://Telerik.Blazor.Components.TelerikBadge)

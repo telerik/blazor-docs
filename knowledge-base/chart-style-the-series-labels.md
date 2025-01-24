@@ -27,7 +27,7 @@ The [UI for Blazor Chart](slug://components/chart/overview) is rendered using th
  
 ## Solution
 
-In this case, use the [ChartSeriesLabelsBase API](/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabels) properties to alter the style and appearance as desired. The properties accept typical CSS styling convention. For example, to bold the Font use a common CSS font-family designation as shown below in the code snippet.
+In this case, use the [ChartSeriesLabelsBase API](slug://Telerik.Blazor.Components.ChartSeriesLabels) properties to alter the style and appearance as desired. The properties accept typical CSS styling convention. For example, to bold the Font use a common CSS font-family designation as shown below in the code snippet.
 
 You can also explore the child tags of the labels for more options on controlling borders, margins and paddings. The third series showcases that.
 
@@ -84,7 +84,7 @@ For more detailed control over the text shown in the labels, see the [Label Temp
 ## See Also
 
 *   [UI for Blazor Chart](slug://components/chart/overview)
-*   [ChartSeriesLabelsBase API Reference](/blazor-ui/api/Telerik.Blazor.Components.ChartSeriesLabels)
+*   [ChartSeriesLabelsBase API Reference](slug://Telerik.Blazor.Components.ChartSeriesLabels)
 *   [Label Template and Format](slug://components/chart/label-template-format)
 *   [HTML Canvas API](https://developer.mozilla.org/en-US/docs/web/html/element/canvas)
 *   [Scalable Vector Graphic](https://developer.mozilla.org/en-US/docs/Web/SVG)

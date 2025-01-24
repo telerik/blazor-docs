@@ -1771,4 +1771,4 @@ List on known limitations for the Grid Drag and Drop features:
 * [Live Demo: Grid Drag and Drop](https://demos.telerik.com/blazor-ui/grid/drag-drop)
 * [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
 * [Drag and Drop between Different Parent Components](slug://grid-kb-drag-drop-in-different-components)
-* [Grid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGrid-1)
+* [Grid API Reference](slug://Telerik.Blazor.Components.TelerikGrid-1)
