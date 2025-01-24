@@ -154,8 +154,7 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
         MenuItems = new List<MenuItem>()
         {
             new MenuItem(){ Text = "Select", Icon = SvgIcon.CheckboxChecked, CommandName="ToggleSelect" },
-            new MenuItem(){ Text = "Edit", Icon = SvgIcon.Pencil, CommandName="BeginEdit" },
-            new MenuItem(){ Text = "Delete", Icon = SvgIcon.Trash, Action = DeleteItem }
+            new MenuItem(){ Text = "Edit", Icon = SvgIcon.Pencil, CommandName="BeginEdit" }
         };
 
         GridData = new ObservableCollection<SampleData>();
@@ -178,13 +177,6 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
         argsItem.ID = GridData.Count + 1;
 
         GridData.Insert(0, argsItem);
-    }
-
-    private void DeleteItem()
-    {
-        var argsItem = SelectedPerson;
-
-        GridData.Remove(argsItem);
     }
 
     private async Task UpdateHandler(GridCommandEventArgs args)
