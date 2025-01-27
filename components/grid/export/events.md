@@ -410,8 +410,8 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 * [Grid Excel Export](slug://grid-export-excel)
 * [Grid CSV Export](slug://grid-export-csv)
-* [Custom cell formatting of the exported file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
-* [Custom cell formatting of the exported file with RadSpreadStreamProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadstreamprocessing)  
+* [Apply custom cell formatting in the exported Excel file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
+* [Apply custom cell formatting in the exported Excel file with RadSpreadStreamProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadstreamprocessing)
+* [Remove the Sum and Count aggregate labels in the exported Excel file](slug://grid-kb-remove-aggregate-labels-in-excel-footer)
 * [Format numbers and dates in the exported CSV file from the Grid](slug://grid-kb-number-formatting-of-the-csv-export)
 * [Change the default CSV delimiter (comma) during Grid export](slug://grid-kb-csv-export-change-field-delimiter)
-* [Blazor Grid](slug://grid-overview)
