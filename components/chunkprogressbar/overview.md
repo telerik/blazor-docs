@@ -105,4 +105,4 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 ## See Also
 
 * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/chunkprogressbar/overview)
-* [ChunkProgressBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChunkProgressBar)
+* [ChunkProgressBar API Reference](slug://Telerik.Blazor.Components.TelerikChunkProgressBar)

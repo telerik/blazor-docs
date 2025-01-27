@@ -155,4 +155,4 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 ## See Also
 
 * [Live ToolBar Demos](https://demos.telerik.com/blazor-ui/toolbar/overview)
-* [ToolBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikToolBar)
+* [ToolBar API Reference](slug://Telerik.Blazor.Components.TelerikToolBar)

@@ -53,7 +53,7 @@ The Rating events allow you to implement custom functionality and handle user in
 
 ## Rating Parameters
 
-The Blazor Rating provides various parameters that allow you to configure the component. Also check the [Rating API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikRating) for a full list of properties.
+The Blazor Rating provides various parameters that allow you to configure the component. Also check the [Rating API Reference](slug://Telerik.Blazor.Components.TelerikRating) for a full list of properties.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -79,4 +79,4 @@ The Blazor Rating provides various parameters that allow you to configure the co
 ## See Also
 
 * [Live Rating Demos](https://demos.telerik.com/blazor-ui/rating/overview)
-* [Rating API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikRating)
+* [Rating API Reference](slug://Telerik.Blazor.Components.TelerikRating)

@@ -67,7 +67,7 @@ Components like the [**TreeList**](slug://treelist-data-binding-load-on-demand) 
 
 ## Event Argument
 
-The `OnRead` event handler receives an argument, which inherits from [`ReadEventArgs`](/blazor-ui/api/Telerik.Blazor.Components.ReadEventArgs). The exact type depends on the component. For example, the Grid handler receives `GridReadEventArgs`. The ComboBox handler receives `ComboBoxReadEventArgs`, and so on.
+The `OnRead` event handler receives an argument, which inherits from [`ReadEventArgs`](slug://Telerik.Blazor.Components.ReadEventArgs). The exact type depends on the component. For example, the Grid handler receives `GridReadEventArgs`. The ComboBox handler receives `ComboBoxReadEventArgs`, and so on.
 
 The following properties of the event argument object are common for all [components with an `OnRead` event](#components-with-onread-event). Other properties are discussed in component-specific articles.
 
@@ -75,7 +75,7 @@ The following properties of the event argument object are common for all [compon
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `Request` | [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) | This object carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
+| `Request` | [`DataSourceRequest`](slug://Telerik.DataSource.DataSourceRequest) | This object carries information about the requested data items. It will reveal the page index or virtual scroll offset, the sorting and filtering state, etc. |
 | `Data` | `IEnumerable` | Set it to the **chunk** of data items, which the component will **render**. |
 | `Total` | `int` | Set it to the **total number** of items. This value will help the component generate its **pager** or **virtual scrollbar** correctly. |
 
@@ -102,11 +102,11 @@ async Task GridReadHandler(GridReadEventArgs args)
 
 ## ToDataSourceResult Method
 
-The [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
+The [`DataSourceRequest` object](slug://Telerik.DataSource.DataSourceRequest) provides information about the needed data. The question is how to retrieve this data most easily. Sometimes `OnRead` data binding is called "manual", but in most cases it doesn't have to be manual at all. The solution is **`ToDataSourceResult`**.
 
-The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik.DataSource.Extensions](/blazor-ui/api/Telerik.DataSource.Extensions) namespace. It expects a `DataSourceRequest` argument.
+The `ToDataSourceResult` extension method is able to extract the requested data items from `IEnumerable`, `IQueryable` and `DataTable`. The method is part of the [Telerik.DataSource.Extensions](slug://Telerik.DataSource.Extensions) namespace. It expects a `DataSourceRequest` argument.
 
-`ToDataSourceResult` returns a [`DataSourceResult` object](/blazor-ui/api/Telerik.DataSource.DataSourceResult). Its most important properties are:
+`ToDataSourceResult` returns a [`DataSourceResult` object](slug://Telerik.DataSource.DataSourceResult). Its most important properties are:
 
 | Property | Type | Description |
 | --- | --- | --- |

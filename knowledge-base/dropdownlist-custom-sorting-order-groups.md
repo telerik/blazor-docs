@@ -29,7 +29,7 @@ I am using the [grouping feature of the DropDownList](slug://components/dropdown
 To sort the groups in a DropDownList by a custom order, perform a manual sorting operation in the [`OnRead` event](slug://components/dropdownlist/events#onread) handler. Follow these steps:
 
 1. Create a list of strings that represents the values of the group headers. This list will determine the preferred sorting order.
-2. Cast the [`DataSourceResult`](slug://common-features-data-binding-onread#event-argument) to [`AggregateFunctionsGroup`](/blazor-ui/api/Telerik.DataSource.AggregateFunctionsGroup).
+2. Cast the [`DataSourceResult`](slug://common-features-data-binding-onread#event-argument) to [`AggregateFunctionsGroup`](slug://Telerik.DataSource.AggregateFunctionsGroup).
 3. Sort the casted data using the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?view=net-8.0" target="_blank">`Sort` method</a> with a custom comparison function.
 4. Pass the sorted data as [`args.Data`](slug://common-features-data-binding-onread#todatasourceresult-method).
 

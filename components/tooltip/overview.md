@@ -54,7 +54,7 @@ The Blazor Tooltip accepts a nested `<Template>` tag, which is a standard Blazor
 
 ## Tooltip Parameters
 
-The Blazor Tooltip provides the following configuration parameters. Also check the [Tooltip component API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTooltip).
+The Blazor Tooltip provides the following configuration parameters. Also check the [Tooltip component API](slug://Telerik.Blazor.Components.TelerikTooltip).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

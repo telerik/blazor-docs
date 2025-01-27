@@ -278,4 +278,5 @@ You can add your own HTML and components to create a more complex layout in the 
 
 ## See Also
 
-  * [Live Demo: TreeList Toolbar](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [Live Demo: TreeList Toolbar](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [TreeList API](slug://Telerik.Blazor.Components.TelerikTreeList-1)

@@ -83,4 +83,4 @@ The table below, lists the available parameters for the Skeleton component.
 ## See Also
 
 * [Live Demo: Skeleton](https://demos.telerik.com/blazor-ui/skeleton/overview)
-* [Skeleton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSkeleton)
+* [Skeleton API Reference](slug://Telerik.Blazor.Components.TelerikSkeleton)

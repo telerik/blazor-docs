@@ -83,7 +83,7 @@ The [DateInput exposes a few parameters for its styling](slug://dateinput-appear
 
 ## DateInput Parameters
 
-The following section lists some Date Input parameters and links to other pages that provide information for more parameters. Also check the [DateInput API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1) for all parameters, methods and events.
+The following section lists some Date Input parameters and links to other pages that provide information for more parameters. Also check the [DateInput API Reference](slug://Telerik.Blazor.Components.TelerikDateInput-1) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -165,4 +165,4 @@ The Date Input exposes methods for programmatic operation. To use them, define a
 
 * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/overview)
 * [Input Validation](slug://common-features/input-validation)
-* [Date Input API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateInput-1)
+* [Date Input API Reference](slug://Telerik.Blazor.Components.TelerikDateInput-1)

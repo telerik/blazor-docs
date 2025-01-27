@@ -81,5 +81,5 @@ The Initial Files feature of the FileSelect allows you to save a list of files t
 
 ## See Also
 
-* [FileSelect API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileSelect)
+* [FileSelect API](slug://Telerik.Blazor.Components.TelerikFileSelect)
 * [FileSelect Overview](slug://fileselect-overview)

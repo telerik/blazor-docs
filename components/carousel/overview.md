@@ -67,7 +67,7 @@ The Blazor Carousel generates events that you can handle and further customize i
 
 ## Carousel Parameters
 
-The following table lists Carousel parameters. Check the [Carousel API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1) for a full list of properties, methods and events.
+The following table lists Carousel parameters. Check the [Carousel API Reference](slug://Telerik.Blazor.Components.TelerikCarousel-1) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -90,7 +90,7 @@ To execute Carousel methods, obtain reference to the component instance via `@re
 
 The Carousel is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
-The table below lists the Carousel methods. Also consult the [Carousel API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1).
+The table below lists the Carousel methods. Also consult the [Carousel API](slug://Telerik.Blazor.Components.TelerikCarousel-1).
 
 | Method | Description |
 | --- | --- |
@@ -115,4 +115,4 @@ The table below lists the Carousel methods. Also consult the [Carousel API](/bla
 * [Carousel Template](slug://carousel-template)
 * [Carousel Events](slug://carousel-events)
 * [Carousel Live Demo](https://demos.telerik.com/blazor-ui/carousel/overview)
-* [Carousel API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCarousel-1)
+* [Carousel API Reference](slug://Telerik.Blazor.Components.TelerikCarousel-1)

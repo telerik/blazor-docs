@@ -71,7 +71,7 @@ The Blazor Calendar generates events that you can handle and further customize i
 
 ## Calendar Parameters
 
-The Blazor Calendar provides various parameters that allow you to configure the component. Also check the [Calendar's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+The Blazor Calendar provides various parameters that allow you to configure the component. Also check the [Calendar's public API](slug://Telerik.Blazor.Components.TelerikCalendar).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -105,7 +105,7 @@ The following parameters enable you to customize the appearance of the Blazor Ca
 
 ## Calendar Reference and Methods
 
-Add a reference to the component instance to use the [Blazor Calendar methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar).
+Add a reference to the component instance to use the [Blazor Calendar methods](slug://Telerik.Blazor.Components.TelerikCalendar).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -153,4 +153,4 @@ Add a reference to the component instance to use the [Blazor Calendar methods](/
 * [Selection](slug://components/calendar/selection)
 * [Multiple Views](slug://components/calendar/multiview)
 * [Live Demo: Calendar](https://demos.telerik.com/blazor-ui/calendar/overview)
-* [Calendar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCalendar)
+* [Calendar API Reference](slug://Telerik.Blazor.Components.TelerikCalendar)

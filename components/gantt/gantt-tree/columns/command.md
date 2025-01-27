@@ -28,7 +28,7 @@ In this article:
 
 ## Command Column Parameters
 
-The Blazor Gantt Command Column provides various parameters to configure the component. Also check the [Gantt public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Command Column provides various parameters to configure the component. Also check the [Gantt public API](slug://Telerik.Blazor.Components.TelerikGantt-1).
 
 ### The GanttCommandButton Tag
 

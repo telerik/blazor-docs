@@ -194,7 +194,7 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 ## Grouping with OnRead
 
-When the Grid needs to be grouped, the shape of the data changes and it is no longer a flat list of models. Instead, the data is a nested list of [`AggregateFunctionsGroup` objects](/blazor-ui/api/telerik.datasource.aggregatefunctionsgroup) that describe each group and include its data items.
+When the Grid needs to be grouped, the shape of the data changes and it is no longer a flat list of models. Instead, the data is a nested list of [`AggregateFunctionsGroup` objects](slug://telerik.datasource.aggregatefunctionsgroup) that describe each group and include its data items.
 
 When you bind the Grid with its `Data` parameter, or when [using `OnRead` with `ToDataSourceResult()`](slug://common-features-data-binding-onread#todatasourceresult-method), this complexity is hidden. But if you perform the data operations yourself, you need to create and populate the `AggregateFunctionsGroup` objects manually.
 
@@ -380,6 +380,6 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [DataSourceRequest Object API](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
-* [DataSourceResult Object API](/blazor-ui/api/Telerik.DataSource.DataSourceResult)
+* [DataSourceRequest Object API](slug://Telerik.DataSource.DataSourceRequest)
+* [DataSourceResult Object API](slug://Telerik.DataSource.DataSourceResult)
 * [Blazor Grid](slug://grid-overview)

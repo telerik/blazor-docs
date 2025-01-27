@@ -77,4 +77,4 @@ The ProgressBar provides the following features to further customize its behavio
 * [Live Demo: ProgressBar](https://demos.telerik.com/blazor-ui/progressbar/overview)
 * [Label](slug://progressbar-label)
 * [Indeterminate state](slug://progressbar-indeterminate-state)
-* [ProgressBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikProgressBar)
+* [ProgressBar API Reference](slug://Telerik.Blazor.Components.TelerikProgressBar)

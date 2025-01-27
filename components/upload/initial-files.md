@@ -82,5 +82,5 @@ The Initial Files feature of the Upload allows you to save a list of files that 
 
 ## See Also
 
-* [Upload API](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload)
+* [Upload API](slug://Telerik.Blazor.Components.TelerikUpload)
 * [Upload Overview](slug://upload-overview)

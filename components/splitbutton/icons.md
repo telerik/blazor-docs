@@ -62,4 +62,4 @@ The `Icon` parameter type is `object` and it accepts:
 ## See Also
 
 * [Live Demo: SplitButton Icons](https://demos.telerik.com/blazor-ui/splitbutton/overview)
-* [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)

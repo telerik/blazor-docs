@@ -53,7 +53,7 @@ You can customize the appearance of the Blazor Chip via a variety of built-in cu
 
 ## Chip Parameters
 
-The table below lists the Chip parameters. Also check the [Chip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChip) for all parameters, methods and events.
+The table below lists the Chip parameters. Also check the [Chip API Reference](slug://Telerik.Blazor.Components.TelerikChip) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -80,4 +80,4 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](/
 ## See Also
 
 * [Live Demo: Chip Overview](https://demos.telerik.com/blazor-ui/chip/overview)
-* [Chip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChip)
+* [Chip API Reference](slug://Telerik.Blazor.Components.TelerikChip)

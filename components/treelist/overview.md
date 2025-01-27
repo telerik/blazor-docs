@@ -142,7 +142,7 @@ The various [TreeList templates](slug://treelist-templates-overview) provide bet
 
 ## TreeList Parameters
 
-The following table lists Tree List parameters, which are not related to other features on this page. Check the [TreeList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1) for a full list of properties, methods and events.
+The following table lists Tree List parameters, which are not related to other features on this page. Check the [TreeList API Reference](slug://Telerik.Blazor.Components.TelerikTreeList-1) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -244,4 +244,4 @@ The TreeList is a generic component.Its type depends on the type of its model an
 ## See Also
 
 * [Live Demos: TreeList](https://demos.telerik.com/blazor-ui/treelist/overview)
-* [TreeList API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeList-1)
+* [TreeList API Reference](slug://Telerik.Blazor.Components.TelerikTreeList-1)

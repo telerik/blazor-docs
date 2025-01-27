@@ -76,7 +76,7 @@ Each SplitButton action [fires a separate `OnClick` event](slug://splitbutton-ev
 
 ## SplitButton Parameters
 
-The following table lists the SplitButton parameters, except those related to [built-in styling](slug://splitbutton-appearance) and [icons](slug://splitbutton-icons). Also check the [SplitButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
+The following table lists the SplitButton parameters, except those related to [built-in styling](slug://splitbutton-appearance) and [icons](slug://splitbutton-icons). Also check the [SplitButton API Reference](slug://Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -178,6 +178,6 @@ Last action clicked: <strong> @LastActionClicked </strong>
 
 ## See Also
 
-* [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
 * [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)
 * [KB: Change Primary SplitButton Action on Click](slug://splitbutton-kb-change-primary-action-onclick)

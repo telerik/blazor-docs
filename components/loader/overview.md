@@ -61,15 +61,15 @@ It is possible to place the Loader component inside another component for better
 
 ## Loader Parameters
 
-The following table lists the Loader parameters. Also check the [Loader API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader).
+The following table lists the Loader parameters. Also check the [Loader API Reference](slug://Telerik.Blazor.Components.TelerikLoader).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader">` element. Use it to [override theme styles](slug://themes-override). |
-| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug://loader-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.Size). |
-| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic](slug://loader-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
+| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug://loader-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](slug://Telerik.Blazor.ThemeConstants.Loader.Size). |
+| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic](slug://loader-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](slug://Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
 | `Type`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape](slug://loader-appearance#type). |
 | `Visible` | `bool`<br /> (`true`) | Sets if the Loader is rendered on the page. |
 
@@ -82,4 +82,4 @@ The following table lists the Loader parameters. Also check the [Loader API Refe
 ## See Also
 
 * [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
-* [Loader API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikLoader)
+* [Loader API Reference](slug://Telerik.Blazor.Components.TelerikLoader)

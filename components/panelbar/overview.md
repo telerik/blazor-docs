@@ -140,7 +140,7 @@ The Blazor PanelBar generates events that you can handle to respond to the user 
 
 ## PanelBar Parameters
 
-The following table lists PanelBar parameters, which are not related to other features on this page. Check the [PanelBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar) for a full list of properties, methods and events.
+The following table lists PanelBar parameters, which are not related to other features on this page. Check the [PanelBar API Reference](slug://Telerik.Blazor.Components.TelerikPanelBar) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -156,7 +156,7 @@ To execute PanelBar methods, obtain reference to the component instance via `@re
 
 The PanelBar is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
-The table below lists the PanelBar methods. Also consult the [PanelBar API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar).
+The table below lists the PanelBar methods. Also consult the [PanelBar API](slug://Telerik.Blazor.Components.TelerikPanelBar).
 
 | Method | Description |
 | --- | --- |
@@ -182,4 +182,4 @@ The table below lists the PanelBar methods. Also consult the [PanelBar API](/bla
 
 * [Data Binding a PanelBar](slug://panelbar-data-binding-overview)
 * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)
-* [PanelBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPanelBar)
+* [PanelBar API Reference](slug://Telerik.Blazor.Components.TelerikPanelBar)

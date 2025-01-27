@@ -68,7 +68,7 @@ The ColorPicker does not support color keywords.
 
 ## ColorPicker Parameters
 
-The Blazor ColorPicker provides various parameters to configure the component. For more configuration options, see the [public Telerik UI for Blazor ColorPicker API](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker).
+The Blazor ColorPicker provides various parameters to configure the component. For more configuration options, see the [public Telerik UI for Blazor ColorPicker API](slug://Telerik.Blazor.Components.TelerikColorPicker).
 
 The ColorPicker tag exposes the following features through its attributes:
 
@@ -99,7 +99,7 @@ For more information on customizing the ColorPicker styling, see the article abo
 
 ## ColorPicker Reference and Methods
 
-To use the [methods of the Blazor ColorPicker](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker), add a reference to the component instance.
+To use the [methods of the Blazor ColorPicker](slug://Telerik.Blazor.Components.TelerikColorPicker), add a reference to the component instance.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -136,4 +136,4 @@ To use the [methods of the Blazor ColorPicker](/blazor-ui/api/Telerik.Blazor.Com
 ## See Also
 
 * [Blazor ColorPicker Overview (Live Demo)](https://demos.telerik.com/blazor-ui/colorpicker/overview)
-* [Blazor ColorPicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPicker)
+* [Blazor ColorPicker API Reference](slug://Telerik.Blazor.Components.TelerikColorPicker)

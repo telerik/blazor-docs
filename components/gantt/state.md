@@ -96,7 +96,7 @@ The following information is present in the Gantt state:
     
         If you want to change the visibility of columns, we recommend you use their `Visible` parameter rather than conditional markup - this parameter will be present in the state and will not change the columns collection count which makes it easier to reconcile changes.
 
->tip Check the [Gantt State API Reference](/blazor-ui/api/Telerik.Blazor.Components.GanttState-1) for a full list of the properties available in the state.
+>tip Check the [Gantt State API Reference](slug://Telerik.Blazor.Components.GanttState-1) for a full list of the properties available in the state.
 
 ## Examples
 

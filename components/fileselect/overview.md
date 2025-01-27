@@ -79,7 +79,7 @@ You can use the functionality of the built-in template and modify the appearance
 
 ## FileSelect Parameters
 
-The following table lists the FileSelect parameters. Also check the [FileSelect API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileSelect) for a full list of properties, methods and events.
+The following table lists the FileSelect parameters. Also check the [FileSelect API Reference](slug://Telerik.Blazor.Components.TelerikFileSelect) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -141,5 +141,5 @@ The File Select exposes methods for programmatic operation. To use them, define 
 
 ## See Also
 
-* [FileSelect API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileSelect)
+* [FileSelect API](slug://Telerik.Blazor.Components.TelerikFileSelect)
 * [Live Demo: FileSelect](https://demos.telerik.com/blazor-ui/fileselect/overview)

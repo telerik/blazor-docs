@@ -68,7 +68,7 @@ The DateRangePicker allows you to customize the rendering of the Calendar popup 
 
 ## DateRangePicker Parameters
 
-The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
+The Blazor Date Range Picker provides various parameters that allow you to configure the component. Also check the [DateRangePicker's public API](slug://Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -114,7 +114,7 @@ You can find more options for customizing the Date Range Picker styling in the [
 
 ## DateRangePicker Reference and Methods
 
-Add a reference to the component instance to use the [Date Range Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1).
+Add a reference to the component instance to use the [Date Range Picker's methods](slug://Telerik.Blazor.Components.TelerikDateRangePicker-1).
 
 | Method | Description |
 | --- | --- |
@@ -169,4 +169,4 @@ Add a reference to the component instance to use the [Date Range Picker's method
 * [Live Demo: Date Range Picker](https://demos.telerik.com/blazor-ui/daterangepicker/overview)
 * [Input Validation](slug://common-features/input-validation)
 * [Supported Input Date Formats](slug://components/dateinput/supported-formats)
-* [DateRangePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateRangePicker-1)
+* [DateRangePicker API Reference](slug://Telerik.Blazor.Components.TelerikDateRangePicker-1)

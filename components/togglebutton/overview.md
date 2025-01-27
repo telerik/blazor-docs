@@ -58,7 +58,7 @@ The Toggle Button provides several parameters that control its [styling and appe
 
 ## ToggleButton Parameters
 
-The following table lists Toggle Button parameters, which are not discussed elsewhere. Check the [ToggleButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton) for a full list of properties, methods and events.
+The following table lists Toggle Button parameters, which are not discussed elsewhere. Check the [ToggleButton API Reference](slug://Telerik.Blazor.Components.TelerikToggleButton) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -105,4 +105,4 @@ It is possible to apply custom styles to the button through its `Class` paramete
 ## See Also
 
 * [Live Demo: ToggleButton](https://demos.telerik.com/blazor-ui/togglebutton/overview)
-* [ToggleButton API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikToggleButton)
+* [ToggleButton API Reference](slug://Telerik.Blazor.Components.TelerikToggleButton)
