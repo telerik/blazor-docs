@@ -46,7 +46,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 >caption Export the Grid to PDF - Example
 
 ````RAZOR
-@* You can sort, group, filter, page the grid, resize and reodrder its columns, and you can click the
+@* You can sort, group, filter, page the grid, resize and reorder its columns, and you can click the
     Export button to save the current data *@
 
 <TelerikGrid Data="@GridData"
