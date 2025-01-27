@@ -377,8 +377,6 @@ navigation:
         title: "Form"
      "*flatcolorpicker":
         title: "FlatColorPicker"
-     "*floatingactionbutton":
-        title: "Floating Action Button"
      "*floatinglabel":
         title: "FloatingLabel"
      "*gantt":
@@ -536,7 +534,6 @@ intro_columns:
       "Toggle Button": "togglebutton-overview"
       "Drawer": "drawer-overview"
       "DropDownButton": "dropdownbutton-overview"
-      "Floating Action Button": "fab-overview"
       "Menu": "components/menu/overview"
       "Context Menu": "contextmenu-overview"
       "PanelBar": "panelbar-overview"
