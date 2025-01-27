@@ -41,7 +41,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 | `FileName` | `string` | The name of the file. The Grid will add the `.pdf` extension for you. |
 | `AllPages` | `bool` |  Whether to export the current page only, or the entire data from the data source. |
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
-| `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page - portrait and landscape. |
+| `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page&mdash;portrait or landscape. |
  
 >caption Export the Grid to PDF - Example
 
