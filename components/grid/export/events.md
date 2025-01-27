@@ -260,7 +260,7 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
     * `Width` - define the width of the column **in pixels**.
     * `Title` - define the column title to be shown in the PDF file header. 
-    * `NumberFormat` - provide an PDF-compatible number/date format
+    * `NumberFormat` - provide a PDF-compatible number/date format.
     * `Field` - set the data bound field of the column.
     
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridPdfExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
