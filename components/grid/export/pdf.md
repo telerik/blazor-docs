@@ -115,7 +115,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 | `ExportToPdfAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
 | `SaveAsPdfFileAsync` | `ValueTask` | Sends the exported PDF file to the browser for download. |
 
->caption Invoke the export function from code
+>caption Invoke the PDF export function from code
 
 ````RAZOR
 @* Send the exported file for download and get the exported data as a memory stream *@
