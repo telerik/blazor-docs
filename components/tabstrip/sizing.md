@@ -16,7 +16,7 @@ You can customize their size through the `Size` parameter. It supports the follo
 
 * `small` - Reduces the default padding of the TabStrip tabs. Especially useful when you want to fit more tabs in a limited space.
 * `medium` (default) - Represents the default padding of the TabStrip tabs.
-* `large` - Increases the default padding of the TabStrip tabs. Useful when you want to provide larger elements for easier end user interaction.
+* `large` - Increases the default padding of the TabStrip tabs. This size is useful when you want to provide larger elements for easier end-user interaction.
 
 >caption Set the desired tab size.
 
