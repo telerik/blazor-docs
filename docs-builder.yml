@@ -149,6 +149,8 @@ meta:
     title: Gauges
   "*gantt":
     title: Gantt
+  "*floatingactionbutton":
+    title: Floating Action Button
   "*floatinglabel":
     title: FloatingLabel
   "*flatcolorpicker":
