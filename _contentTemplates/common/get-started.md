@@ -199,7 +199,7 @@ To download and install your Telerik license key:
 1. Go to the <a href="https://www.telerik.com/account/your-licenses/license-keys" target="_blank">License Keys page</a> in your Telerik account.
 1. Click the **Download License Key** button.
 1. Save the `telerik-license.txt` file to:
-    * (on Windows) `%AppData%\Telerik\telerik-license.txt`, for example, `C:\Users\...\AppData\Roaming\telerik-license.txt`
+    * (on Windows) `%AppData%\Telerik\telerik-license.txt`, for example, `C:\Users\...\AppData\Roaming\Telerik\telerik-license.txt`
     * (on Mac or Linux) `~/.telerik/telerik-license.txt`, for example, `/Users/.../.telerik/telerik-license.txt`
 
 This will make the license key available to all Telerik .NET apps that you develop on your local machine.
@@ -208,6 +208,6 @@ This will make the license key available to all Telerik .NET apps that you devel
 
 #license-key-know-more-link
 
-The [Telerik License Key](slug://installation-license-key) article provides additional details on installing and updating your Telerik license key in different scenarios.
+The [Telerik License Key](slug://installation-license-key) article provides additional details on installing and updating your Telerik license key in different scenarios. [Automatic license key maintenance](slug://installation-license-key#automatic-installation) is more effective and recommended in the long run.
 
 #end

@@ -11,12 +11,7 @@ position: 1
 
 # Blazor Deployment Overview
 
-This article explains the basics of deploying a Telerik-enabled Blazor web application. It consists of the following sections:
-
-* [Prerequisites](#prerequisites)
-* [License Key](#license-key)
-* [Telerik Components](#telerik-components)
-* [Next Steps and Troubleshooting](#next-steps-and-troubleshooting)
+This article lists the fundamentals of deploying a Telerik-enabled Blazor web application.
 
 @[template](/_contentTemplates/common/general-info.md#ci-cd-support)
 

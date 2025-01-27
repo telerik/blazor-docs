@@ -86,7 +86,7 @@ You can choose to back up the project state before the conversion (in a folder c
 
 ### Step 4: Install or Update License Key
 
-If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will help you resolve the issue.
+If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
 
 ## Troubleshooting
 

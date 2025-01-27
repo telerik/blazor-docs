@@ -87,7 +87,7 @@ Finally, you can apply one of the available [themes](slug://themes-overview) to 
 
 ### Step 4: Install or Update License Key
 
-If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will help you resolve the issue.
+If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
 
 ## See Also
 
