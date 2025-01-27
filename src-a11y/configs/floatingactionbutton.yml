@@ -2,7 +2,7 @@ title: Wai-Aria Support
 component: Floating Action Button
 from: /aria/floatingactionbutton_aria.md
 dest: ../components/floatingactionbutton/accessibility/wai-aria-support.md
-slug: fab-accessibility
+slug: floatingactionbutton-wai-aria-support
 position: 5
 after:  |
     ## Keyboard Navigation
