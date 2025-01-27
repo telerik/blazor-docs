@@ -78,6 +78,7 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
       <IntroTableAnchor title="Button" href="slug:components/button/overview"></IntroTableAnchor>
       <IntroTableAnchor title="Button Group" href="slug:buttongroup-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Toggle Button" href="slug:togglebutton-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Floating Action Button" href="slug:fab-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Drawer" href="slug:drawer-overview"></IntroTableAnchor>
       <IntroTableAnchor title="DropDownButton" href="slug:dropdownbutton-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Menu" href="slug:components/menu/overview"></IntroTableAnchor>
