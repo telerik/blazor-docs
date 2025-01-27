@@ -196,7 +196,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` events the Grid exposes. 
 
-The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title` and more.
+The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title`, and more.
 
 For more advanced customization the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`PdfProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library that is available with your license.
 
