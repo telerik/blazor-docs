@@ -145,7 +145,7 @@ The ComboBox provides the following popup settings:
 
 The ComboBox is a generic component and its type is determined by the type of the model you pass to it, and the type of its value field. You can find examples in the [Data Bind - Considerations](slug://components/combobox/databind#considerations) article.
 
-Add a reference to the component instance to use the [ComboBox's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikComboBox-2).
+Add a reference to the component instance to use the [ComboBox's methods](slug://Telerik.Blazor.Components.TelerikComboBox-2).
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
@@ -212,4 +212,4 @@ Missing selection is most common when the initial value is `null` as data source
 * [Data Binding](slug://components/combobox/databind)
 * [Live Demo: ComboBox](https://demos.telerik.com/blazor-ui/combobox/overview)
 * [Live Demo: ComboBox Validation](https://demos.telerik.com/blazor-ui/combobox/validation)
-* [ComboBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikComboBox-2)
+* [ComboBox API Reference](slug://Telerik.Blazor.Components.TelerikComboBox-2)

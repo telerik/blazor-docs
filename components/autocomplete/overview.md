@@ -145,7 +145,7 @@ The AutoComplete provides the following popup settings:
 
 The AutoComplete is a generic component and its type is determined by the type of the model you use as its data source. You can find examples in the [Data Bind - Considerations](slug://autocomplete-databind#considerations) article.
 
-Add a reference to the component instance to use the [AutoComplete's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1).
+Add a reference to the component instance to use the [AutoComplete's methods](slug://Telerik.Blazor.Components.TelerikAutoComplete-1).
 
 @[template](/_contentTemplates/dropdowns/methods.md#methods-list)
 
@@ -183,4 +183,4 @@ Add a reference to the component instance to use the [AutoComplete's methods](/b
 * [Data Binding](slug://autocomplete-databind)
 * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)
 * [Live Demo: AutoComplete Validation](https://demos.telerik.com/blazor-ui/autocomplete/validation)
-* [AutoComplete API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAutoComplete-1)
+* [AutoComplete API Reference](slug://Telerik.Blazor.Components.TelerikAutoComplete-1)

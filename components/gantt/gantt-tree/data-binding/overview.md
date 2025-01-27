@@ -27,7 +27,7 @@ There are two modes of providing data to a Gantt Tree, and they all use the item
 
 ## Gantt Tree Item Features
 
-The Blazor Gantt Tree provides various parameters to configure its items. Also, check the [Gantt public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Tree provides various parameters to configure its items. Also, check the [Gantt public API](slug://Telerik.Blazor.Components.TelerikGantt-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

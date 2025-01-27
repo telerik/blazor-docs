@@ -48,7 +48,7 @@ Color keywords are not supported. If this is the preferred use case scenario, co
 
 ## ColorGradient Parameters
 
-The Blazor ColorGradient provides various parameters to configure the component. Also check the [ColorGradient public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorGradient).
+The Blazor ColorGradient provides various parameters to configure the component. Also check the [ColorGradient public API](slug://Telerik.Blazor.Components.TelerikColorGradient).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

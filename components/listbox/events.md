@@ -76,7 +76,7 @@ This technique is used in the [example at the end of this article](#example). Of
 
 The `OnDrop` event fires when the user releases the currently dragged ListBox item. The event fires from the originating (source) ListBox instance.
 
-The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxDropEventArgs-1). See the [example below](#example) and the [example in article Drag and Drop](slug://listbox-dragdrop#example).
+The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](slug://Telerik.Blazor.Components.ListBoxDropEventArgs-1). See the [example below](#example) and the [example in article Drag and Drop](slug://listbox-dragdrop#example).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -91,7 +91,7 @@ The event handler receives an argument of type [`ListBoxDropEventArgs<T>`](/blaz
 
 The `OnRemove` event fires when the user clicks on the Remove button in the [ListBox toolbar](slug://listbox-toolbar).
 
-The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxRemoveEventArgs-1). See the [example below](#example) and the [example in article ListBox Templates](slug://listbox-templates#example).
+The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](slug://Telerik.Blazor.Components.ListBoxRemoveEventArgs-1). See the [example below](#example) and the [example in article ListBox Templates](slug://listbox-templates#example).
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ The event handler receives an argument of type [`ListBoxRemoveEventArgs<T>`](/bl
 
 The `OnReorder` event fires when the user clicks on a Reorder button in the [ListBox toolbar](slug://listbox-toolbar) (Move Up or Move Down).
 
-The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxReorderEventArgs-1). See the [example below](#example) and the example at [Creating Blazor ListBox](slug://listbox-overview#creating-blazor-listbox).
+The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](slug://Telerik.Blazor.Components.ListBoxReorderEventArgs-1). See the [example below](#example) and the example at [Creating Blazor ListBox](slug://listbox-overview#creating-blazor-listbox).
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -115,7 +115,7 @@ The event handler receives an argument of type [`ListBoxReorderEventArgs<T>`](/b
 
 The `OnTransfer` event fires when the user clicks on any of the Transfer buttons in the [ListBox toolbar](slug://listbox-toolbar) (Transfer To, Transfer From, Transfer All To, and Transfer All From).
 
-The event handler receives an argument of type [`ListBoxTransferEventArgs<T>`](/blazor-ui/api/Telerik.Blazor.Components.ListBoxTransferEventArgs-1). See the [example below](#example) and the [example in article Connect ListBoxes](slug://listbox-connect#example).
+The event handler receives an argument of type [`ListBoxTransferEventArgs<T>`](slug://Telerik.Blazor.Components.ListBoxTransferEventArgs-1). See the [example below](#example) and the [example in article Connect ListBoxes](slug://listbox-connect#example).
 
 | Property | Type | Description |
 | --- | --- | --- |

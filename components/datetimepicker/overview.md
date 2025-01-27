@@ -66,7 +66,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 ## DateTime Picker Parameters
 
-The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
+The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](slug://Telerik.Blazor.Components.TelerikDateTimePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -108,7 +108,7 @@ You can find more options for customizing the DateTimePicker styling in the [App
 
 ## DateTimePicker Reference and Methods
 
-Add a reference to the component instance to use the [Date Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1).
+Add a reference to the component instance to use the [Date Time Picker's methods](slug://Telerik.Blazor.Components.TelerikDateTimePicker-1).
 
 | Method | Description |
 | --- | --- |
@@ -147,4 +147,4 @@ Add a reference to the component instance to use the [Date Time Picker's methods
 * [Live Demo: DateTime Picker](https://demos.telerik.com/blazor-ui/datetimepicker/overview)
 * [Input Validation](slug://common-features/input-validation)
 * [Supported Input Date Formats](slug://components/dateinput/supported-formats)
-* [DateTimePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDateTimePicker-1)
+* [DateTimePicker API Reference](slug://Telerik.Blazor.Components.TelerikDateTimePicker-1)

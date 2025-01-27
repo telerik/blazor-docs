@@ -63,4 +63,4 @@ The `Icon` parameter type is `object` and it accepts:
 ## See Also
 
 * [Live Demo: DropDownButton Overview](https://demos.telerik.com/blazor-ui/dropdownbutton/overview)
-* [DropDownButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton)
+* [DropDownButton API](slug://Telerik.Blazor.Components.TelerikDropDownButton)

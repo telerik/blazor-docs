@@ -203,7 +203,7 @@ Additionally, you can define an external drop zone by using the [Telerik UI for 
 
 ## Upload Parameters
 
-The following table lists the Upload parameters. Also check the [Upload API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload) for a full list of properties, methods and events.
+The following table lists the Upload parameters. Also check the [Upload API Reference](slug://Telerik.Blazor.Components.TelerikUpload) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -289,4 +289,4 @@ The Upload component requires integration with remote endpoints and controller m
 ## See Also
 
 * [Live Upload Demos](https://demos.telerik.com/blazor-ui/upload/overview)
-* [Upload API](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload)
+* [Upload API](slug://Telerik.Blazor.Components.TelerikUpload)

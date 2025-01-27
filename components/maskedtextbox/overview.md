@@ -61,7 +61,7 @@ The table below provides a quick overview of the mask-related parameters. See th
 
 ## MaskedTextBox Parameters
 
-See the [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox) for a full list of parameters, methods and events.
+See the [MaskedTextBox API Reference](slug://Telerik.Blazor.Components.TelerikMaskedTextBox) for a full list of parameters, methods and events.
 
 | Parameter | Type and Default value | Description |
 |---|---|---|
@@ -234,4 +234,4 @@ The examples below demonstrates how to create a few [masks](slug://maskedtextbox
 * [Live Demo: MaskedTextbox](https://demos.telerik.com/blazor-ui/maskedtextbox/overview)
 * [Live Demo: MaskedTextbox Validation](https://demos.telerik.com/blazor-ui/maskedtextbox/validation)
 * [Add Floating Label](slug://inputs-kb-floating-label)
-* [MaskedTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikMaskedTextBox)
+* [MaskedTextBox API Reference](slug://Telerik.Blazor.Components.TelerikMaskedTextBox)

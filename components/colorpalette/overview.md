@@ -45,7 +45,7 @@ The Blazor ColorPalette fires value change and blur events that you can handle a
 
 ## ColorPalette Parameters
 
-The Blazor ColorPalette provides various parameters to configure the component. Also check the [ColorPalette public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette).
+The Blazor ColorPalette provides various parameters to configure the component. Also check the [ColorPalette public API](slug://Telerik.Blazor.Components.TelerikColorPalette).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -87,4 +87,4 @@ The Blazor ColorPallete provides appearance settings. Control the size of the co
 ## See Also
 
 * [Live ColorPalette Demos](https://demos.telerik.com/blazor-ui/colorpalette/overview)
-* [ColorPalette API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikColorPalette)
+* [ColorPalette API Reference](slug://Telerik.Blazor.Components.TelerikColorPalette)

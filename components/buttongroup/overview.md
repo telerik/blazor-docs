@@ -67,7 +67,7 @@ The Blazor ButtonGroup fires events that you can handle and respond to user acti
 
 ## ButtonGroup Parameters
 
-The following table lists ButtonGroup parameters. Check the [ButtonGroup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonGroup) for a full list of properties, methods and events.
+The following table lists ButtonGroup parameters. Check the [ButtonGroup API Reference](slug://Telerik.Blazor.Components.TelerikButtonGroup) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -121,4 +121,4 @@ You can style the individual buttons through their `Class` attribute to define y
 * [Events](slug://buttongroup-events)
 * [Selection](slug://buttongroup-selection)
 * [Icons](slug://buttongroup-icons)
-* [ButtonGroup API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikButtonGroup)
+* [ButtonGroup API Reference](slug://Telerik.Blazor.Components.TelerikButtonGroup)

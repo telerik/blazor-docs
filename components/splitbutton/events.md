@@ -63,5 +63,5 @@ at <strong> @ClickTimeString </strong>.
 
 ## See Also
 
-* [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
 * [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)

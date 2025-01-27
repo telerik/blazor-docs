@@ -145,4 +145,4 @@ The `TabStrip` methods are accessible through its reference.
 * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
 * [Live Demo: Tabs Position and Alignment](https://demos.telerik.com/blazor-ui/tabstrip/tab-positions)
 * [Events](slug://tabstrip-events)
-* [TabStrip API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTabStrip)
+* [TabStrip API Reference](slug://Telerik.Blazor.Components.TelerikTabStrip)

@@ -12,7 +12,7 @@ position: 47
 
 This feature attempts to address the need for a **Compact Grid**, which renders more items by utilizing the available space, mainly through setting smaller padding in its cells.
 
-You can increase or decrease the size of the Grid by setting the `Size` attribute to a member of the [`Telerik.Blazor.ThemeConstants.Grid.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Grid.Size).Size class:
+You can increase or decrease the size of the Grid by setting the `Size` attribute to a member of the [`Telerik.Blazor.ThemeConstants.Grid.Size`](slug://Telerik.Blazor.ThemeConstants.Grid.Size).Size class:
 
 | Class members | Manual declarations |
 |------------|--------|

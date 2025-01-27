@@ -34,7 +34,7 @@ If you want to search in the hidden fields of the Grid, do the following:
 
 * Bind the Grid with an [`OnRead` event handler](slug://common-features-data-binding-onread).
 * In the `OnRead` handler, [check if there is a filter applied](slug://components/grid/manual-operations#get-information-from-the-datasourcerequest) in `args.Request.Filters`.
-* The applied filters are of type [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor). The composite filter descriptor has a `FilterDescriptors` property, which holds a collection plain [single-field `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptor). Each of the `FilterDescriptor` in the search descriptor targets one of the visible columns.
+* The applied filters are of type [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor). The composite filter descriptor has a `FilterDescriptors` property, which holds a collection plain [single-field `FilterDescriptor`s](slug://Telerik.DataSource.FilterDescriptor). Each of the `FilterDescriptor` in the search descriptor targets one of the visible columns.
 * Obtain the search string from the `SearchFilter` property of the Grid state. It holds a `CompositeFilterDescriptor` too.
 * Add one additional `FilterDescriptor` to the search `CompositeFilterDescriptor` for every hidden column.
 
