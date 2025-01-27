@@ -110,11 +110,9 @@ No, the license validation and activation occur offline.
 
 #### Do I have to add the license key to source control?
 
-No, you do not have to add the `telerik-license.txt` license key file or its contents to source control.
+No, do not add the `telerik-license.txt` license key file or its contents to source control.
 
-Build servers [must use the `TELERIK_LICENSE` environment variable](slug://deployment-license-key).
-
->warning Do not store the license key in plain text, for example, in a GitHub Actions Workflow definition.
+Do not store the license key in plain text in GitHub Actions Workflow definitions. Build servers [must use the `TELERIK_LICENSE` environment variable](slug://deployment-license-key).
 
 #### What happens if both the environment variable and the license key file are present?
 
