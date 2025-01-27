@@ -27,7 +27,7 @@ This KB article answers the following questions:
 * How to remove the **Sum:** and **Count:** strings in the Grid footer cells when using Excel export with `GridAggregates`?
 * How to get the customized text from the Grid `FooterTemplate` into the Excel download, instead of the aggregate function name itself?
 * How to make the exported Grid Excel file match the Grid footer template content?
-* How to remove the word **Sum** aggregate label in the footer of Grid when exporting data to Excel? I want to only keep the number in the footer of the Excel file.
+* How to remove the **Sum** aggregate label in the footer of Grid when exporting data to Excel? I want to only keep the number in the footer of the Excel file.
 * How to customize the footer cell content in the exported Excel file?
 
 ## Solution
