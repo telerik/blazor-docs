@@ -105,7 +105,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsExcelFileAsync` | `ValueTask` | sends the exported excel file to the browser for download. |
+| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. |
 | `ExportToExcelAsync` | `Task<MemoryStream>` | returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
 
 >note The same methods are exposed for exporting a [CSV file](slug://grid-export-csv#programmatic-export).
