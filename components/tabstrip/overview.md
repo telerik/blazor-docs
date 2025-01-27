@@ -79,7 +79,7 @@ The TabStrip provides the following features to allow further customization of i
 | `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding.
 |`PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content](slug://tabstrip-persist-content)
 | `Scrollable` | `bool` | Whether the tabs will be scrollable. See [Scrollable Tabs](slug://tabstrip-scroll-tabs)
-| `ScrollButtonsPosition` | `TabStripScrollButtonsPosition` enum <br/> (`TabStripScrollButtonsPosition.Split`)| Specifies the position of the buttons when the TabStrip is Scrollable.
+| `ScrollButtonsPosition` | `TabStripScrollButtonsPosition` enum <br/> (`TabStripScrollButtonsPosition.Split`)| Specifies the position of the buttons when the TabStrip is scrollable.
 | `ScrollButtonsVisibility` | `TabStripScrollButtonsVisibility` enum <br/> (`TabStripScrollButtonsVisibility.Visible`)| Specifies the visibility of the buttons when the TabStrip is scrollable.
 | `Size` | `string` <br/> (`ThemeConstants.TabStrip.Size.Medium`)| Controls the size of the tabs.
 | `TabPosition` | `TabPosition` enum <br/> (`TabPosition.Top`)| Controls the position of the tabs.
