@@ -8,7 +8,7 @@ published: True
 position: 1
 ---
 
-# PDF Export
+# Grid PDF Export
 
 You can export the Grid to PDF with the click of a button. The current filter, sort, page, grouping, column order, and column size are applied to the exported PDF document.
 
@@ -43,7 +43,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
 | `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page&mdash;portrait or landscape. |
  
->caption Export the Grid to PDF - Example
+>caption Export the Grid to PDF
 
 ````RAZOR
 @* You can sort, group, filter, page the grid, resize and reorder its columns, and you can click the
@@ -51,13 +51,12 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 <TelerikGrid Data="@GridData"
              FilterMode="@GridFilterMode.FilterMenu"
-             Pageable="true"
-             Sortable="true"
-             Reorderable="true"
-             Resizable="true"
              Groupable="true"
+             Pageable="true"
+             Reorderable="true"
+             Resizable="true"             
+             Sortable="true"
              Width="650px">
-
     <GridToolBarTemplate>
         <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to PDF</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
@@ -88,7 +87,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
                 ProductId = x,
                 ProductName = $"Product {x}",
                 UnitsInStock = x * 2,
-                Price = 3.14159m * x,
+                Price = 3.15m * x,
                 Discontinued = x % 4 == 0,
             }).ToList();
     }
@@ -128,13 +127,12 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              FilterMode="@GridFilterMode.FilterMenu"
+             Groupable="true"
              Pageable="true"
-             Sortable="true"
              Reorderable="true"
              Resizable="true"
-             Groupable="true"
+             Sortable="true"            
              Width="650px">
-
     <GridToolBarTemplate>
         <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to PDF</GridCommandButton>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
@@ -156,7 +154,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 @code {
     private TelerikGrid<SampleData> GridRef { get; set; }
 
-    private MemoryStream exportedPdfStream { get; set; }
+    private MemoryStream ExportedPdfStream { get; set; }
 
     private List<SampleData> GridData { get; set; }
 
@@ -166,7 +164,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
     {
         MemoryStream finalizedStream = await GridRef.ExportToPdfAsync();
 
-        exportedPdfStream = new MemoryStream(finalizedStream.ToArray());
+        ExportedPdfStream = new MemoryStream(finalizedStream.ToArray());
     }
 
     protected override void OnInitialized()
@@ -176,7 +174,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
                 ProductId = x,
                 ProductName = $"Product {x}",
                 UnitsInStock = x * 2,
-                Price = 3.14159m * x,
+                Price = 3.15m * x,
                 Discontinued = x % 4 == 0,
             }).ToList();
     }
@@ -208,10 +206,10 @@ The PDF export has the following specifics:
 
 * When exporting Grid columns, the developer must provide column widths that are appropriate for exporting the data. While an Excel file allows resizing its columns, the PDF file format does not allow resizing the columns. You can change the width of the column from the [`OnBeforeExportEventArgs.Columns[0].Width property`](slug://grid-export-events#for-pdf-export), so you have full control over this value (note that it can be different from the one defined in the corresponding Grid column, thus ensuring flexibility to render the Grid columns with one width and export them with another).
 * Avoid exporting columns without widths&mdash;while Excel has a default width for a column,  PDF requires fixed dimensions. Set specific widths to all columns  when exporting (note that this is unrelated to the width of the column as the export width can be configured through the [`OnBeforeExport` event](slug://grid-export-events#for-pdf-export).
-* PDF does not understand units different than `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
+* PDF does not understand units different from `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
 * When exporting Grid columns, you must provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
 * Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own PDF file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-Pdf).
+* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own PDF file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
 
 @[template](/_contentTemplates/grid/export.md#export-common-notes)
 

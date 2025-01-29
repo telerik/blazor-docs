@@ -29,19 +29,19 @@ The `OnBeforeExport` event fires after the user clicks the `ExcelExport` or `Csv
 
 ### For Excel Export
 
-* `Columns` - `List<GridExcelExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns`&mdash;`List<GridExcelExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
 
-    * `Width` - define the width of the column **in pixels**.
-    * `Title` - define the column title to be shown in the Excel file header. 
-    * `NumberFormat` - provide an Excel-compatible number/date format
-    * `Field` - set the data bound field of the column.
+    * `Width`&mdash;Define the width of the column **in pixels**.
+    * `Title`&mdash;Define the column title to be shown in the Excel file header. 
+    * `NumberFormat`&mdash;Provide an Excel-compatible number/date format
+    * `Field`&mdash;Set the data bound field of the column.
     
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridExcelExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
     
     
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
+* `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to Excel, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
 
-* `isCancelled` -  `bool` - cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
+* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
 
 >caption Using the Grid OnBeforeExport with Excel export
 
@@ -152,16 +152,16 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 ### For CSV Export
 
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
+* `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to CSV, [for example only the selected items in the Grid](slug://grid-kb-export-selected-rows).
 
-* `Columns` - `List<GridCsvExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
+* `Columns`&mdash;`List<GridCsvExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into Excel:
 
-    * `Title` - define the column title to be shown in the Excel file header.
-    * `Field` - set the data bound field of the column.
+    * `Title`&mdash;Define the column title to be shown in the Excel file header.
+    * `Field`&mdash;Set the data bound field of the column.
 
 To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridCsvExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
 
-* `isCancelled` -  `bool` - you can cancel the OnBeforeExcel event by setting the `isCancelled` field to `true`.
+* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` field to `true`.
 
 ````RAZOR
 @* This example showcases the capabilities of the OnBeforeExport event when exporting the Grid to CSV file. *@
@@ -256,19 +256,18 @@ To export a hidden Grid column that has its `Visible` parameter set to `false`, 
 
 ### For PDF Export
 
-* `Columns` - `List<GridPdfExportColumn>` - a collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into PDF:
+* `Columns`&mdash;`List<GridPdfExportColumn>`&mdash;A collection of all exportable columns in the Grid. These are all visible `GridColumn` instances. You can customize the following attributes of the Grid column before exporting it into PDF:
 
-    * `Width` - define the width of the column **in pixels**.
-    * `Title` - define the column title to be shown in the PDF file header. 
-    * `NumberFormat` - provide a PDF-compatible number/date format.
-    * `Field` - set the data bound field of the column.
+    * `Width`&mdash;Define the width of the column **in pixels**.
+    * `Title`&mdash;Define the column title to be shown in the PDF file header. 
+    * `NumberFormat`&mdash;Provide a PDF-compatible number/date format.
+    * `Field`&mdash;Set the data bound field of the column.
     
-To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridPdfExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.
+To export a hidden Grid column that has its `Visible` parameter set to `false`, you can manually define an instance of the `GridPdfExportColumn` in the handler for the `OnBeforeExport` event and add that column to the `args.Columns` collection.  
     
-    
-* `Data` - `IEnumerable<object>` - assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
+* `Data`&mdash;`IEnumerable<object>`&mdash;Assign a custom collection of data to be exported to PDF, [for example only the selected items in the Grid]({%slug grid-kb-export-selected-rows%}).
 
-* `isCancelled` -  `bool` - cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
+* `isCancelled`&mdash; `bool`&mdash;Cancel the `OnBeforeExcel` event by setting the `isCancelled` property to `true`.
 
 >caption Using the Grid OnBeforeExport with PDF export
 
@@ -389,7 +388,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 ### For Excel Export
 
-* `Stream` - `MemoryStream` - The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+* `Stream`&mdash;`MemoryStream`&mdash;The output of the Excel export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 >caption Get the stream of the exported Excel file
 
@@ -467,7 +466,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 ### For CSV Export
 
-* `Stream` - `MemoryStream` - The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+* `Stream`&mdash;`MemoryStream`&mdash;The output of the CSV export as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 >caption Get the stream of the exported CSV file
 
@@ -545,7 +544,7 @@ The `OnAfterExport` event fires after [OnBeforeExport](#onbeforeexport) and befo
 
 ### For PDF Export
 
-* `Stream` - `MemoryStream` - The output of the PDF export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+* `Stream`&mdash;`MemoryStream`&mdash;The output of the PDF export as a memory stream. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
 
 >caption Get the stream of the exported PDF file
 
