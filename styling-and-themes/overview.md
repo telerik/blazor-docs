@@ -1,7 +1,7 @@
 ---
 title: Themes Overview
 page_title: Themes Overview
-description: The UI for Blazor suite comes with a set of built-in themes that you can choose from. Bootstrap and Material themes are also included.
+description: Telerik comes with built-in CSS Blazor themes that control the visual appearance of your UI components.
 slug: themes-overview
 tags: telerik,blazor,theme,built-in
 published: True
@@ -15,7 +15,7 @@ Telerik UI for Blazor comes with a set of built-in CSS themes that control the v
 
 >caption In This Article
 
-* [Definitions for *theme* and *swatch*](#basics) and [how the themes relate to the components](#integration-with-the-telerik-components)
+* [Definitions for *theme* and *swatch*](#basics) and [how the themes in Blazor relate to the components](#integration-with-the-telerik-components)
 * [All built-in theme and swatch names](#built-in-themes) and how to [preview them](#comparing-themes-and-swatches)
 * How to [register a theme in your app](#using-a-theme)
 * How to [ensure compatibility between the Telerik components and the theme version](#compatibility-and-maintenance)
@@ -68,7 +68,7 @@ There are three ways to load a Telerik theme, in terms of physical CSS file loca
 
 > The Blazor app must load only one Telerik theme file at a time. Upgrade the theme with every Telerik UI for Blazor version upgrade, unless you are loading the theme as a static NuGet asset.
 
-### Loading Themes from the NuGet Package
+### Loading Themes in Blazor from the NuGet Package
 
 The easiest way to load a Telerik theme in a Blazor app is to reference a static asset from the NuGet package. The .NET SDK will copy the CSS file to the output folder during build automatically. Static assets provide the following benefits:
 

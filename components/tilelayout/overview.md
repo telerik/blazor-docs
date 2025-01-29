@@ -77,7 +77,7 @@ The Tile Layout fires [events when the user resizes or rearranges tiles](slug://
 
 ## TileLayout Parameters
 
-The following table lists the Tile Layout parameters. Also check the [TileLayout API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTileLayout) for a full list of all properties, methods and events.
+The following table lists the Tile Layout parameters. Also check the [TileLayout API Reference](slug://Telerik.Blazor.Components.TelerikTileLayout) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -112,7 +112,7 @@ Use the component reference to execute methods and [get or set the TileLayout st
 
 | Method | Description |
 | --- | --- |
-| `GetState` | Returns the current state of the Tile Layout as a [`TileLayoutState` object](/blazor-ui/api/Telerik.Blazor.Components.TileLayoutState). |
+| `GetState` | Returns the current state of the Tile Layout as a [`TileLayoutState` object](slug://Telerik.Blazor.Components.TileLayoutState). |
 | `SetState` | Applies the provided `TileLayoutState` argument as a new state of the Tile Layout. |
 
 <div class="skip-repl"></div>
@@ -145,4 +145,4 @@ Use the component reference to execute methods and [get or set the TileLayout st
 ## See Also
 
 * [Live Demo: TileLayout](https://demos.telerik.com/blazor-ui/tilelayout/overview)
-* [TileLayout API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTileLayout)
+* [TileLayout API Reference](slug://Telerik.Blazor.Components.TelerikTileLayout)

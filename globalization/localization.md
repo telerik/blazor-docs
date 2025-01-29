@@ -19,9 +19,9 @@ The localization of the Telerik components builds on top of the standard .NET me
 * [ASP.NET Core Blazor Globalization and Localization](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
 * [Globalization and Localization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization)
 
-The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](/blazor-ui/api/Telerik.Blazor.Services.ITelerikStringLocalizer) service to resolve localization keys to strings that will render in the UI. The key format is `<ComponentName>_<Key>`.
+The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](slug://Telerik.Blazor.Services.ITelerikStringLocalizer) service to resolve localization keys to strings that will render in the UI. The key format is `<ComponentName>_<Key>`.
 
-The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.Messages` class](/blazor-ui/api/telerik.blazor.resources.messages) and a resource file with the default English message strings. The components use the built-in `resx` file internally if the app does not define another localization service for the Telerik components. The API reference for the `Messages` class lists all supported localization keys.
+The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.Messages` class](slug://telerik.blazor.resources.messages) and a resource file with the default English message strings. The components use the built-in `resx` file internally if the app does not define another localization service for the Telerik components. The API reference for the `Messages` class lists all supported localization keys.
 
 
 ## Localize Telerik Blazor Components
@@ -48,7 +48,7 @@ The purpose of this step is to supply the correct application culture to the `Re
 
 Create and add localization resource `resx` files to your app, based on the languages that the app must support. Use the following links for reference:
 
-* A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](/blazor-ui/api/Telerik.Blazor.Resources.Messages).
+* A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](slug://Telerik.Blazor.Resources.Messages).
 * An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug://installation-msi) or [UI for Blazor ZIP archive](slug://installation-zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
 * Community resource files are available in the <a href="https://github.com/telerik/blazor-ui-messages" target="_blank">`blazor-ui-messages` GitHub repository</a>. These resource files are updated and maintained by the Telerik community. They may not be compatible with the latest product version. You are welcome to contribute your own resource files.
 
@@ -83,7 +83,7 @@ Make sure the `resx` files are defined as `EmbeddedResource` in the **Build Acti
 
 ### Step 3: Implement ITelerikStringLocalizer Service
 
-Create a service that implements [`Telerik.Blazor.Services.ITelerikStringLocalizer`](/blazor-ui/api/Telerik.Blazor.Services.ITelerikStringLocalizer). The service must implement an indexer that returns the desired string based on the requested localization key. Normally, the returned string also depends on the current culture, unless you are [using the localization mechanism to override specific UI labels only](slug://common-kb-localize-selected-localization-keys).
+Create a service that implements [`Telerik.Blazor.Services.ITelerikStringLocalizer`](slug://Telerik.Blazor.Services.ITelerikStringLocalizer). The service must implement an indexer that returns the desired string based on the requested localization key. Normally, the returned string also depends on the current culture, unless you are [using the localization mechanism to override specific UI labels only](slug://common-kb-localize-selected-localization-keys).
 
 The example below obtains localized strings from resource `resx` files. You can obtain the required strings from any other source, such as a database, `json` files, hash tables, and so on.
 

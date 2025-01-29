@@ -41,11 +41,11 @@ To mark specific data points as "special", follow these steps:
 
 3. In the second series data include only the points that you want to mark as special.
 
-4. Increase the [ZIndex](/blazor-ui/api/Telerik.Blazor.Components.ChartSeries#Telerik_Blazor_Components_ChartSeries_ZIndex) of the second series to ensure its points are rendered on top of the first series.
+4. Increase the [ZIndex](slug://Telerik.Blazor.Components.ChartSeries#Telerik_Blazor_Components_ChartSeries_ZIndex) of the second series to ensure its points are rendered on top of the first series.
 
-5. Choose a different marker type for the second series from the options available in the [`ChartSeriesMarkersType`](/blazor-ui/api/Telerik.Blazor.ChartSeriesMarkersType) enum. Once available, you may consider using the [visual template](https://feedback.telerik.com/blazor/1582456-custom-rendering-for-the-chart-series-markers-visual-template) to completely customize the markers.
+5. Choose a different marker type for the second series from the options available in the [`ChartSeriesMarkersType`](slug://Telerik.Blazor.ChartSeriesMarkersType) enum. Once available, you may consider using the [visual template](https://feedback.telerik.com/blazor/1582456-custom-rendering-for-the-chart-series-markers-visual-template) to completely customize the markers.
 
-5. Optionally, set a different [color](/blazor-ui/api/Telerik.Blazor.Components.ChartSeries#Telerik_Blazor_Components_ChartSeries_Color) for the second series to distinguish the "special" points further.
+5. Optionally, set a different [color](slug://Telerik.Blazor.Components.ChartSeries#Telerik_Blazor_Components_ChartSeries_Color) for the second series to distinguish the "special" points further.
 
 >caption Customizing individual markers
 

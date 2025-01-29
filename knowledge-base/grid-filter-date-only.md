@@ -43,7 +43,7 @@ Here are 4 different ways to achieve date-only filtering with `is equal to` filt
 This approach is suitable for [`FilterMenu` filter mode](slug://grid-filter-menu). The Grid will reveal the filtering customization in its filter menu - the filter operators will change and the two DatePickers will show adjacent date values. After the initial `is equal to` filtering, the application business logic should determine how to handle the next user actions.
 
 1. Subscribe to the [`OnStateChanged` event](slug://grid-state#events).
-1. Check if [`args.PropertyName`](/blazor-ui/api/Telerik.Blazor.Components.GridStateEventArgs-1) is `"FilterDescriptors"`.
+1. Check if [`args.PropertyName`](slug://Telerik.Blazor.Components.GridStateEventArgs-1) is `"FilterDescriptors"`.
 1. Iterate the filter descriptors in `args.GridState.FilterDescriptors`.
 1. If there is an active filter for the date column, [modify the filter descriptors to filter the Grid rows between two dates](slug://grid-state#setstateasync-examples).
 
@@ -126,7 +126,7 @@ This approach is suitable for [`FilterRow` filter mode](slug://grid-filter-row).
 
 1. Bind the Grid via its [`OnRead` event](slug://common-features-data-binding-onread).
 1. Check for existing filters in the [`DataSourceRequest` argument](slug://common-features-data-binding-onread#event-argument) (`args.Request.Filters`).
-1. If there is an active filter for the date column, change the `Operator` and `Value` of the existing [`FilterDescriptor`](/blazor-ui/api/Telerik.DataSource.FilterDescriptor). Add one more filter descriptor for the same column (`Member`), so that the date column is filtered between two dates.
+1. If there is an active filter for the date column, change the `Operator` and `Value` of the existing [`FilterDescriptor`](slug://Telerik.DataSource.FilterDescriptor). Add one more filter descriptor for the same column (`Member`), so that the date column is filtered between two dates.
 1. Continue the `OnRead` handler execution with the modified `DataSourceRequest` object.
 
 >caption Filter Grid by date via filter descriptor changes in OnRead

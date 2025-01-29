@@ -21,7 +21,7 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 ## Using the Popup Form Template
 
 1. Declare the desired custom content inside the `<FormTemplate>` inner tag of the `<GridPopupEditFormSettings>`. For example, [`TelerikForm`](slug://form-overview) or [`EditForm`](https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/).
-1. The `FormTemplate` provides a `context` of type [`GridPopupEditFormTemplateContext`](/blazor-ui/api/telerik.blazor.components.gridpopupeditformtemplatecontext). It contains a clone of the Grid data item in its `Item` property, and reveals if the user is adding a new item or editing an existing one through its `IsNew` boolean property. Cast `context.Item` to your model type, so you can pass it to the custom form.
+1. The `FormTemplate` provides a `context` of type [`GridPopupEditFormTemplateContext`](slug://telerik.blazor.components.gridpopupeditformtemplatecontext). It contains a clone of the Grid data item in its `Item` property, and reveals if the user is adding a new item or editing an existing one through its `IsNew` boolean property. Cast `context.Item` to your model type, so you can pass it to the custom form.
 1. (optional) Use the `Context` attribute of the `<FormTemplate>` tag to set the name of the `context` variable.
 
 ## Specifics

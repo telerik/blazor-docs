@@ -380,7 +380,7 @@ The available FileManager methods are:
 
 ## FileManager Parameters
 
-The following table lists the FileManager parameters. Also check the [FileManager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager-1) for a full list of properties, methods and events.
+The following table lists the FileManager parameters. Also check the [FileManager API Reference](slug://Telerik.Blazor.Components.TelerikFileManager-1) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -409,5 +409,5 @@ The following parameters enable you to customize the appearance of the Blazor Fi
 
 ## See Also
 
-* [FileManager API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileManager-1)
+* [FileManager API](slug://Telerik.Blazor.Components.TelerikFileManager-1)
 * [Live Demo: FileManager](https://demos.telerik.com/blazor-ui/filemanager/overview)

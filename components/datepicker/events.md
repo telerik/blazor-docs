@@ -57,7 +57,7 @@ The `OnCalendarCellRender` event fires when each calendar cell in each view is a
 * Find out the cell date.
 * Set a custom CSS class for the `<td>` element.
 
-As an argument, the event handler receives a [`DatePickerCalendarCellRenderEventArgs` object](/blazor-ui/api/telerik.blazor.components.datepickercalendarcellrendereventargs), which contains the following properties:
+As an argument, the event handler receives a [`DatePickerCalendarCellRenderEventArgs` object](slug://telerik.blazor.components.datepickercalendarcellrendereventargs), which contains the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -143,7 +143,7 @@ model value: @DatePickerValue
 
 The `OnClose` event fires before the DatePicker popup closes.
 
-The event handler receives as an argument an [`DatePickerCloseEventArgs` object](/blazor-ui/api/telerik.blazor.components.datepickercloseeventargs) that contains:
+The event handler receives as an argument an [`DatePickerCloseEventArgs` object](slug://telerik.blazor.components.datepickercloseeventargs) that contains:
 
 | Property | Description |
 | --- | --- |
@@ -177,7 +177,7 @@ The event handler receives as an argument an [`DatePickerCloseEventArgs` object]
 
 The `OnOpen` event fires before the DatePicker popup renders. 
 
-As an argument, the event handler receives a [`DatePickerOpenEventArgs` object](/blazor-ui/api/Telerik.Blazor.Components.DatePickerOpenEventArgs), which contains the following properties:
+As an argument, the event handler receives a [`DatePickerOpenEventArgs` object](slug://Telerik.Blazor.Components.DatePickerOpenEventArgs), which contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

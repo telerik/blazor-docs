@@ -51,7 +51,7 @@ You can ensure that the component value is acceptable by using the built-in vali
 
 ## Switch Parameters
 
-The following table lists the Switch parameters. Also check the [Switch API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1) for a full list of all properties, methods and events.
+The following table lists the Switch parameters. Also check the [Switch API Reference](slug://Telerik.Blazor.Components.TelerikSwitch-1) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -77,7 +77,7 @@ The following parameters enable you to customize the appearance of the Blazor Sw
 
 ## Switch Reference and Methods
 
-The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1#methods).
+The Switch is a generic component and its type comes from the model field it is bound to - it is either `bool` or `bool?` (a `null` value is treated as `false`). Add a reference to the component instance to use the [Switch methods](slug://Telerik.Blazor.Components.TelerikSwitch-1#methods).
 
 | Method | Description |
 | --- | --- |
@@ -109,4 +109,4 @@ The Switch is a generic component and its type comes from the model field it is 
 ## See Also
 * [Live Demo: Switch](https://demos.telerik.com/blazor-ui/switch/overview)
 * [Switch Events](slug://switch-events)
-* [Switch API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSwitch-1)
+* [Switch API Reference](slug://Telerik.Blazor.Components.TelerikSwitch-1)

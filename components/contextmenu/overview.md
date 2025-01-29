@@ -127,7 +127,7 @@ The Context Menu generates events that you can handle and further customize its 
 
 ## Context Menu Parameters
 
-The following table lists Context Menu parameters, which are not related to other features on this page. For the full list of properties, methods, and events, see the [Context Menu API reference documentation](/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1).
+The following table lists Context Menu parameters, which are not related to other features on this page. For the full list of properties, methods, and events, see the [Context Menu API reference documentation](slug://Telerik.Blazor.Components.TelerikContextMenu-1).
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -157,7 +157,7 @@ The ContextMenu provides the following popup settings:
 
 ## Context Menu Reference and Methods
 
-To use the [Blazor Context Menu methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1), add a reference to the component instance.
+To use the [Blazor Context Menu methods](slug://Telerik.Blazor.Components.TelerikContextMenu-1), add a reference to the component instance.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -258,4 +258,4 @@ To use the [Blazor Context Menu methods](/blazor-ui/api/Telerik.Blazor.Component
 
 * [Binding the Blazor Context Menu to Data](slug://contextmenu-data-binding-overview)
 * [Live Demo: Overview of the Blazor Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)
-* [Context Menu API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikContextMenu-1)
+* [Context Menu API Reference](slug://Telerik.Blazor.Components.TelerikContextMenu-1)

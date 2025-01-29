@@ -57,7 +57,7 @@ The app either needs to implement localization for the Telerik components correc
 To solve the issue, make sure that:
 
 * The [application is correctly configured to use localization](slug://globalization-localization)
-* The resx files are up-to-date and contain [all required localization strings](/blazor-ui/api/Telerik.Blazor.Resources.Messages)
+* The resx files are up-to-date and contain [all required localization strings](slug://Telerik.Blazor.Resources.Messages)
 
 Find the latest localization files in two places:
 

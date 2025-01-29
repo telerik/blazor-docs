@@ -15,9 +15,9 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 ## Creating Blazor Chart
 
 1. Add the `<TelerikChart>` tag to your razor page.
-1. Define [Chart series](/blazor-ui/api/Telerik.Blazor.Components.ChartSeries) and [bind them to data](slug://components/chart/databind).
-1. Configure the [category axis](/blazor-ui/api/Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
-1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](/blazor-ui/api/Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
+1. Define [Chart series](slug://Telerik.Blazor.Components.ChartSeries) and [bind them to data](slug://components/chart/databind).
+1. Configure the [category axis](slug://Telerik.Blazor.Components.ChartCategoryAxis) (X axis). Either set a `CategoryField` for each `<ChartSeries>`, or provide all `Categories` in bulk in a `<ChartCategoryAxis>` tag.
+1. Set a `<ChartTitle>` and the `Position` of the [`<ChartLegend>`](slug://Telerik.Blazor.Components.ChartLegend). To make the legend appear, define a `Name` for each `<ChartSeries>`.
 
 >caption Basic chart
 
@@ -193,4 +193,4 @@ To execute Chart methods, obtain reference to the component instance via `@ref`.
 ## See Also
 
 * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
-* [Chart API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikChart)
+* [Chart API Reference](slug://Telerik.Blazor.Components.TelerikChart)

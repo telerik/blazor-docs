@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | `Class` | `string` | The CSS class of the edit popup |
 | `Title` | `string` | The title of the edit popup |
-| `ThemeColor` | `string` | The color scheme of the window. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
+| `ThemeColor` | `string` | The color scheme of the window. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](slug://Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Width` | `string` | The Width of the edit popup |
 | `MaxWidth` | `string` | The maximum width of the window |
 | `MinWidth` | `string` | The minimum width of the window |

@@ -67,7 +67,7 @@ The Blazor Dialog fires a `VisibleChanged` event to customize the application be
 
 ## Dialog Parameters
 
-The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog).
+The Blazor Dialog provides various parameters to configure the component. Also check the [Dialog public API](slug://Telerik.Blazor.Components.TelerikDialog).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -79,7 +79,7 @@ The Blazor Dialog provides various parameters to configure the component. Also c
 | `FocusedElementSelector` | `string` | The CSS selector of the initially focused item on open. By default, it is the first focusable item in the Dialog. |
 | `Height` | `string` | The height of the Dialog in any [supported CSS unit](slug://common-features/dimensions). |
 | `ShowCloseButton` | `bool` <br /> (`true`) | Defines if the component will render a Close button in the titlebar. See more in the [Header article](slug://dialog-header). |
-| `ThemeColor` | `string` | A predefined color scheme for the Dialog, especially the titlebar. Use the available members of the static class [`ThemeConstants.Dialog.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Dialog.ThemeColor). |
+| `ThemeColor` | `string` | A predefined color scheme for the Dialog, especially the titlebar. Use the available members of the static class [`ThemeConstants.Dialog.ThemeColor`](slug://Telerik.Blazor.ThemeConstants.Dialog.ThemeColor). |
 | `Title` | `string` | The Dialog title. |
 | `Visible` | `bool` | Defines the Dialog visibility. |
 | `Width` | `string` | The width of the Dialog in any [supported CSS unit](slug://common-features/dimensions). |
@@ -144,5 +144,5 @@ The Dialog methods are accessible through its reference.
 ## See Also
 
 * [Live Dialog Demos](https://demos.telerik.com/blazor-ui/dialog/overview)
-* [Dialog API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDialog)
+* [Dialog API Reference](slug://Telerik.Blazor.Components.TelerikDialog)
 * [Comparison between All Popup Components](slug://common-kb-popup-component-comparison)

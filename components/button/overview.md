@@ -63,7 +63,7 @@ To customize the style and the appearance of the Blazor Button, you can use the 
 
 ## Button Parameters
 
-The Blazor Button provides various parameters that allow you to configure the component. Also check the [Button's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton).
+The Blazor Button provides various parameters that allow you to configure the component. Also check the [Button's public API](slug://Telerik.Blazor.Components.TelerikButton).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -80,7 +80,7 @@ The Blazor Button provides various parameters that allow you to configure the co
 
 ## Button Reference and Methods
 
-Add a reference to the component instance to use the [Button methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load](slug://inputs-kb-focus#focus-on-page-load).
+Add a reference to the component instance to use the [Button methods](slug://Telerik.Blazor.Components.TelerikButton). Be aware of the Blazor life cycle if you want to [focus the component on page load](slug://inputs-kb-focus#focus-on-page-load).
 
 | Method | Description |
 | --- | --- |
@@ -113,4 +113,4 @@ Add a reference to the component instance to use the [Button methods](/blazor-ui
 * [Live Demo: Button](https://demos.telerik.com/blazor-ui/button/overview)
 * [Events](slug://button-events)
 * [Type](slug://button-type)
-* [Button API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikButton)
+* [Button API Reference](slug://Telerik.Blazor.Components.TelerikButton)

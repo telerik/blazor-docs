@@ -10,208 +10,152 @@ position: 45
 
 # Grid Toolbar
 
-The grid provides a toolbar where you can add a variety of actions that are not tied to a concrete row.
+The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) toolbar can render built-in and custom tools. This article describes the built-in tools and shows how to add [custom tools](#custom-tools) or create a [custom toolbar](#custom-toolbar-configuration).
 
-To use a toolbar, define the `GridToolBarTemplate` tag of the grid. In it, you can use arbitrary HTML and components to get the desired layout, and also `GridCommandButton` instances in (you can read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
+## Built-In Tools
 
->note The toolbar is not associated with an item from the data source. The `Item` field on the click event handler argument of a `GridCommandButton` will always be `null` and the `Edit`, `Update`, `Cancel` commands do not work with it.
+The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides several built-in tools that can be added to the component toolbar. To include a specific tool in the [toolbar configuration](#toolbar-tools-configuration), use the respective tool tags below.
 
-In this article, you will learn how to use:
+### Command Tools
 
-* [Built-in Commands](#built-in-commands)
-* [Custom Commands](#custom-commands)
-* [Custom Layout](#custom-layout)
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
+| Tool Name | Tool Tag | Description |
+| --- | --- | --- |
+| Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug://components/grid/editing/overview#events). |
+| CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug://grid-export-events#onbeforeexport). |
+| ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug://grid-export-events#onbeforeexport). |
+| SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
 
-## Built-in Commands
+### Layout Tools
 
-The grid offers built-in commands that you can invoke through its toolbar. To use them, set the `Command` property of the button to the command name. The built-in command names are:
+| Tool Name | Tool Tag | Description |
+| --- | --- | --- |
+| Spacer | `GridToolBarSpacerTool` | Consumes the available empty space and pushes the rest of the tools next to one another. |
 
-* `Add` - starts [inserting a new item in the grid](slug://components/grid/editing/overview).
+## Custom Tools
 
-* `ExcelExport` - starts an [Excel export of the grid data](slug://grid-export-excel).
+In addition to the built-in tools, the Grid also supports custom tools. Use the `<GridToolBarCustomTool>` tag, which is a standard Blazor `RenderFragment`. See the example below.
 
-* `CsvExport` - starts an [CSV export of the grid data](slug://grid-export-csv).
+## Toolbar Tools Configuration
 
+Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for example:
 
->caption How to insert a new item in the grid
+* Arrange the Grid tools in a specific order;
+* Remove some of the built-in tools;
+* Add custom tools.
+
+>important `<GridToolBar>` and `<GridToolBarTemplate>` cannot be used together in the same Grid instance.
+
+>caption Grid Toolbar Tools
 
 ````RAZOR
-@result
+<TelerikGrid Data=@GridData
+             EditMode="@GridEditMode.Inline"
+             Pageable="true"
+             OnUpdate=@UpdateItem
+             OnCreate=@CreateItem>
+    <GridToolBar>
+        <GridToolBarCustomTool>
+            <TelerikButton OnClick="@OnToolbarCustomClick">Custom Grid Tool</TelerikButton>
+        </GridToolBarCustomTool>
 
-<TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px"
-             OnUpdate="@UpdateHandler" OnCreate="@CreateHandler">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
+        <GridToolBarAddTool>
+            Add a product
+        </GridToolBarAddTool>
+
+        <GridToolBarCsvExportTool>
+            Export to CSV
+        </GridToolBarCsvExportTool>
+
+        <GridToolBarExcelExportTool>
+            Export to Excel
+        </GridToolBarExcelExportTool>
+
+        <GridToolBarSpacerTool />
+
+        <GridToolBarSearchBoxTool />
+    </GridToolBar>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Editable="false" Title="Employee ID" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" Visible="true" Width="200px" />
+        <GridColumn Field=@nameof(Person.Name) Width="200px" />
+        <GridColumn Field=@nameof(Person.AgeInYears) Title="Age" Visible="false" Width="240px" />
+        <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" Width="230px" />
+        <GridCommandColumn Width="200px">
+            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil"></GridCommandButton>
+            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true"></GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    string result;
-    public List<SampleData> MyData { get; set; }
+    private List<Person> GridData { get; set; }
 
-    private async Task UpdateHandler(GridCommandEventArgs args)
+    private void OnToolbarCustomClick()
     {
-        SampleData item = args.Item as SampleData;
-
-        // perform actual data source operations here through your service
-        SampleData updatedItem = await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        result = string.Format("Employee with ID {0} now has name {1} and hire date {2}", updatedItem.ID, updatedItem.Name, updatedItem.HireDate);
+        Console.WriteLine("Custom Grid Toolbar tool clicked!");
     }
 
-    private async Task CreateHandler(GridCommandEventArgs args)
+    protected override void OnInitialized()
     {
-        SampleData item = args.Item as SampleData;
+        var data = new List<Person>();
+        var rand = new Random();
 
-        // perform actual data source operations here through your service
-        SampleData insertedItem = await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        result = string.Format("On {2} you added the employee {0} who was hired on {1}.", insertedItem.Name, insertedItem.HireDate, DateTime.Now);
+        for (int i = 0; i < 50; i++)
+        {
+            data.Add(new Person()
+            {
+                EmployeeId = i,
+                Name = "Employee " + i.ToString(),
+                HireDate = DateTime.Now.Date.AddDays(-(i * 2)),
+                AgeInYears = 20
+            });
+        }
+        GridData = new List<Person>(data);
     }
 
-    //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    private void CreateItem(GridCommandEventArgs args)
     {
-        public int ID { get; set; }
+        var argsItem = args.Item as Person;
+
+        argsItem.EmployeeId = GridData.Count + 1;
+
+        GridData.Insert(0, argsItem);
+    }
+
+    private void UpdateItem(GridCommandEventArgs args)
+    {
+        var argsItem = args.Item as Person;
+        var itemForEdit = GridData.FirstOrDefault(i => i.EmployeeId == argsItem.EmployeeId);
+
+        if (itemForEdit != null)
+        {
+            itemForEdit.AgeInYears = argsItem.AgeInYears;
+            itemForEdit.HireDate = argsItem.HireDate;
+            itemForEdit.Name = argsItem.Name;
+        }
+    }
+
+    public class Person
+    {
+        public int? EmployeeId { get; set; }
+
         public string Name { get; set; }
+
+        public int? AgeInYears { get; set; }
+
         public DateTime HireDate { get; set; }
     }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task<SampleData> Create(SampleData itemToInsert)
-        {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-
-            return await Task.FromResult(itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "Name " + i.ToString(),
-                        HireDate = DateTime.Now.AddDays(-i)
-                    });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task<SampleData> Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-                return await Task.FromResult(_data[index]);
-            }
-
-            throw new Exception("no item to update");
-        }
-    }
 }
 ````
 
->caption The result from the code snippet above, after the built-in Create button in the toolbar was clicked
+## Custom Toolbar Configuration
 
-![Blazor Create Toolbar Button](images/create-toolbar-button.png)
+Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the Grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
 
-## Custom Commands
+When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<GridToolBar>` uses the [built-in keyboard navigation](slug://accessibility-overview#keyboard-navigation) through arrow keys.
 
-You can use the toolbar to add buttons that invoke actions specific to your application.
-
->caption How to define a custom command in the grid toolbar
-
-````RAZOR
-@result
-
-<TelerikGrid Data=@MyData Pageable="true" PageSize="15">
-	<GridToolBarTemplate>
-		<GridCommandButton Command="MyToolbarCommand" OnClick="@MyCommandFromToolbar" Icon="@SvgIcon.InfoCircle">Fire My Command</GridCommandButton>
-	</GridToolBarTemplate>
-	<GridColumns>
-		<GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
-		<GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date" />
-	</GridColumns>
-</TelerikGrid>
-
-@code {
-	string result;
-
-	private void MyCommandFromToolbar(GridCommandEventArgs args)
-	{
-		//note - the args.Item object is null because the command item is not associated with an item
-
-		result = "my custom toolbar command fired at " + DateTime.Now.ToString();
-
-		StateHasChanged();
-	}
-
-	//in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-	public class SampleData
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public DateTime HireDate { get; set; }
-	}
-
-	public IEnumerable<SampleData> MyData = Enumerable.Range(1, 50).Select(x => new SampleData
-	{
-		ID = x,
-		Name = "name " + x,
-		HireDate = DateTime.Now.AddDays(-x)
-	});
-}
-````
-
->caption The result from the code snippet above, after the custom command button in the toolbar was clicked
-
-![Blazor Custom Command Toolbar](images/custom-command-toolbar.png)
-
-## Custom Layout
-
-You can add your own HTML and components to create a more complex layout in the grid header to match your business needs. You can still use the grid command buttons, as well as other components and logic.
-
->caption Custom Grid Toolbar Layout
+>caption Custom Grid Toolbar
 
 ````RAZOR
 @result
@@ -219,24 +163,14 @@ You can add your own HTML and components to create a more complex layout in the 
 <TelerikGrid Data=@MyData Pageable="true" PageSize="15" EditMode="@GridEditMode.Inline" Height="500px" OnCreate="@CreateHandler">
 
     <GridToolBarTemplate>
-        <div style="display: block; flex-grow: 1;">
-            @* the first level children in the toolbar get display: inline-flex and flex-shrink: 0 inherited from the grid,
-                we change it here to show we can, or you can work with the layout the grid defines if it suits your needs *@
+        <div style="display: flex; width: 100%; justify-content: space-between;">
+            <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">
+                Add Employee
+            </GridCommandButton>
 
-            <div style="background:yellow">
-                <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-            </div>
-            <div style="background: green;">
-                <TelerikDropDownList Data="@( new List<string>() { "first", "second", "third" } )" TValue="string" TItem="string" ValueChanged="@( (string itm) => result = itm )"></TelerikDropDownList>
-            </div>
-
-            <div style="border: 1px solid red;">
-                @* one example of aligning content to the right with flex *@
-                <button style="display: flex; margin-left: auto;"
-                        @onclick="@( () => result = $"Custom button click on {DateTime.Now}"  )">
-                    Click me
-                </button>
-            </div>
+            <button @onclick="@( () => result = $"Custom button click on {DateTime.Now}" )">
+                Click Me
+            </button>
         </div>
     </GridToolBarTemplate>
 
@@ -252,7 +186,7 @@ You can add your own HTML and components to create a more complex layout in the 
 </TelerikGrid>
 
 @code {
-    string result;
+    private string result;
 
     private void CreateHandler(GridCommandEventArgs args)
     {
@@ -273,19 +207,19 @@ You can add your own HTML and components to create a more complex layout in the 
 
     public List<SampleData> MyData = Enumerable.Range(1, 50).Select(
         x => new SampleData
-        {
-            ID = x,
-            Name = "name " + x,
-            HireDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ID = x,
+                Name = "name " + x,
+                HireDate = DateTime.Now.AddDays(-x)
+            }).ToList();
 }
 ````
 
->caption The result from the code snippet above, after adding a row, changing the dropdown and clicking the custom button.
+## Next Steps
 
-![Blazor Custom Toolbar Layout](images/custom-toolbar-layout.png)
+* [Handle Grid events](slug://grid-events)
 
 ## See Also
 
-  * [Live Demo: Grid Toolbar](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Blazor Grid](slug://grid-overview)
+* [Grid Live Demo](https://demos.telerik.com/blazor-ui/grid/overview)
+* [Grid API](slug://Telerik.Blazor.Components.TelerikGrid-1)

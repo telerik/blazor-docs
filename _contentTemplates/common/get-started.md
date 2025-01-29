@@ -5,7 +5,7 @@
 
 #prerequisites-download
 
-* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the .NET version of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial](slug://getting-started/what-you-need).
+* To successfully complete the steps in this tutorial, make sure you have an <a href="https://visualstudio.microsoft.com/vs/" target="_blank">up-to-date Visual Studio</a>, which is compatible with the [supported .NET version](slug://system-requirements#supported-net-versions) of your choice. If you are not using Visual Studio, some of the steps require using the .NET CLI or editing files manually. In this case, also refer to the [Workflow Details tutorial](slug://getting-started/what-you-need).
 
 * To learn more about the compatibility of the Telerik UI for Blazor components with different browser and .NET versions, see the [system requirements](slug://system-requirements).
 
@@ -77,7 +77,7 @@ In this tutorial, you will use the [Telerik NuGet feed](slug://installation/nuge
 
 ![Telerik Blazor app in the browser](images/blazor-app-in-browser.png)
 
-Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app.
+Well done! Now you have your first Telerik UI for Blazor component running in your Blazor app, showcasing the power of front-end development with Blazor.
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 

@@ -27,7 +27,7 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 ## See Also
 
-* [FileSelect API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFileSelect)
+* [FileSelect API](slug://Telerik.Blazor.Components.TelerikFileSelect)
 * [FileSelect Overview](slug://fileselect-overview)
 * [FileSelect Validation](slug://fileselect-validation)
 * [FileSelect Events](slug://fileselect-events)

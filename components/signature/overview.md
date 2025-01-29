@@ -121,7 +121,7 @@ The Signature parameters, which affect the `Value` size are `ExportScale`, `Heig
 
 ## Signature Parameters
 
-The following table lists the Signature parameters. Also check the [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature).
+The following table lists the Signature parameters. Also check the [Signature API Reference](slug://Telerik.Blazor.Components.TelerikSignature).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -189,4 +189,4 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 ## See Also
 
 * [Live Demo: Signature](https://demos.telerik.com/blazor-ui/signature/overview)
-* [Signature API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSignature)
+* [Signature API Reference](slug://Telerik.Blazor.Components.TelerikSignature)

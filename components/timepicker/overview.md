@@ -73,7 +73,7 @@ The `Min` and `Max` properties require a `DateTime` object, but will only use th
 
 ## Time Picker Parameters
 
-The Blazor Time Picker component provides various parameters that allow you to configure the component. Also check the [TimePicker's public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1).
+The Blazor Time Picker component provides various parameters that allow you to configure the component. Also check the [TimePicker's public API](slug://Telerik.Blazor.Components.TelerikTimePicker-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -112,7 +112,7 @@ You can find more options for customizing the Time Picker styling in the [Appear
 
 ## TimePicker Reference and Methods
 
-Add a reference to the component instance to use the [Time Picker's methods](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1).
+Add a reference to the component instance to use the [Time Picker's methods](slug://Telerik.Blazor.Components.TelerikTimePicker-1).
 
 | Method | Description |
 | --- | --- |
@@ -152,4 +152,4 @@ Add a reference to the component instance to use the [Time Picker's methods](/bl
 * [Live Demo: Time Picker](https://demos.telerik.com/blazor-ui/timepicker/overview)
 * [Input Validation](slug://common-features/input-validation)
 * [Supported Input Date Formats](slug://components/dateinput/supported-formats)
-* [TimePicker API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTimePicker-1)
+* [TimePicker API Reference](slug://Telerik.Blazor.Components.TelerikTimePicker-1)

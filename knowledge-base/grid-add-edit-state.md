@@ -322,4 +322,4 @@ All these operations can also be used for [`Incell`](slug://components/grid/edit
 ## See Also
 
 * [Grid State documentation](slug://grid-state)
-* [GridState API reference](/blazor-ui/api/Telerik.Blazor.Components.GridState-1)
+* [GridState API reference](slug://Telerik.Blazor.Components.GridState-1)

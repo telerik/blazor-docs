@@ -1,0 +1,196 @@
+name: Docs Build
+
+on:
+  workflow_call:
+
+permissions:
+    id-token: write # Required by Akeyless
+    contents: write
+    packages: read
+
+jobs:
+  build_blazor:
+    runs-on: ubuntu-22.04
+
+    container:
+      image: ghcr.io/telerik/blazor-build:dev
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+      options: --user 1001 --shm-size="8g"
+
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_INSTALL_DIR: ./.dotnet
+      SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+
+    defaults:
+      run:
+        # Use a login Bash shell to enable RVM
+        shell: bash -leo pipefail {0}
+
+    steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: LanceMcCarthy/akeyless-action@v3
+        with:
+          access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+          static-secrets: |
+            {
+              "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN"
+            }
+          export-secrets-to-environment: false
+
+      - name: Clone Blazor Repository
+        uses: actions/checkout@v4
+        with:
+          repository: telerik/blazor 
+          path: temp/blazor
+          fetch-depth: "0"
+          ref: master
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.x.x"
+
+      - name: Setup Telerik Nuget Feeds
+        uses: telerik/actions/setup-telerik-nuget-feeds@master
+        with:
+          ak-vault-token: ${{ secrets.AK_VAULT_TOKEN_PACKAGE_READER }}
+
+      - name: Pack Telerik.Blazor and copy docs API needed resources
+        run: |
+          mkdir -p BinAndXml
+          dotnet pack blazor/Telerik.Blazor/Telerik.Blazor.csproj --configuration Release -p:IsTrial='false'
+          cp blazor/Telerik.Blazor/bin/Release/net6.0/Telerik.Blazor.dll BinAndXml
+          cp blazor/Telerik.Blazor/bin/Release/net6.0/Telerik.Blazor.xml BinAndXml
+          ls BinAndXml
+        working-directory: temp
+
+      - name: Get DataSource bin and xml files
+        uses: telerik/actions/get-release-assets@master
+        with:
+          repo: telerik-datasource
+          pattern: debug-assets.zip
+          dir: temp/datasource
+          token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
+          unzip: true
+          verify-attestation: true
+
+      - name: Move DataSource bin and xml to BinAndXml folder
+        run: |
+          cp datasource/net6.0/Telerik.DataSource.dll BinAndXml
+          cp datasource/net6.0/Telerik.DataSource.xml BinAndXml
+          ls BinAndXml
+        working-directory: temp
+
+      - name: Upload BinAndXml folder artifacts
+        uses: actions/upload-artifact@v4.3.6
+        with:
+          name: BinAndXml
+          retention-days: 2
+          path: temp/BinAndXml
+
+  extract-metadata:
+    runs-on: windows-latest
+    needs: build_blazor
+    permissions:
+      id-token: write # Required by Akeyless
+      contents: write
+    steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: LanceMcCarthy/akeyless-action@v3
+        with:
+          access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+          static-secrets: |
+            {
+              "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN"
+            }
+          export-secrets-to-environment: false
+
+      - name: Check out Blazor-Docs repo
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: _assetsApi
+          ref: ${{ github.ref_name }}
+          token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
+          fetch-depth: "0"
+
+      - name: Download Binaries
+        uses: actions/download-artifact@v4.1.7
+        with:
+          name: BinAndXml
+          path: src
+
+      - name: Copy docfx config files
+        run: |
+          copy .\_assetsApi\filterConfig.yml .\filterConfig.yml
+          copy .\_assetsApi\metadata-config.json .\metadata-config.json
+
+      - name: Install docfx
+        run: dotnet tool update -g docfx
+
+      - name: Generate metadata
+        run: docfx metadata-config.json
+
+      - name: Zip metadata
+        run: 7z a metadata.zip .\metadata\*
+
+      - name: Upload metadata artifacts
+        uses: actions/upload-artifact@v4.3.6
+        with:
+          name: metadata
+          retention-days: 2
+          path: .\metadata.zip
+
+  build-docs:
+    needs: extract-metadata
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required by Akeyless
+      contents: write
+    steps:
+      - name: Import Secrets
+        id: import-secrets
+        uses: LanceMcCarthy/akeyless-action@v3
+        with:
+          access-id: ${{ secrets.GH_AKEYLESS_ACCESS_ID }}
+          static-secrets: |
+            {
+              "/WebComponents/prod/tokens/GH_TOKEN": "GH_TOKEN"
+            }
+          export-secrets-to-environment: false
+
+      - name: Check out Blazor-Docs repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
+          fetch-depth: "0"
+
+      - name: Download Api Metadata
+        uses: actions/download-artifact@v4.1.7
+        with:
+          name: metadata
+          path: metadata
+
+      - name: Extract Api Metadata
+        run: 7z x ./metadata/metadata.zip -ometadata
+
+      - name: Check out docs builder repository
+        uses: actions/checkout@v4
+        with:
+            repository: telerik/docs-builder
+            ref: master
+            path: docs-builder
+            token: ${{ steps.import-secrets.outputs.GH_TOKEN }}
+
+      - name: install packages
+        run: npm ci
+        working-directory: docs-builder
+
+      - name: Build Content
+        run: npm run prod-build --docsPath=../blazor-docs --docfxFilesPath=../metadata
+        working-directory: docs-builder

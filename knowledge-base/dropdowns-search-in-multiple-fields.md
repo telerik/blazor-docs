@@ -34,7 +34,7 @@ My dropdown data model has one numeric property in `ValueField` and two string p
 ## Solution
 
 * [Bind the component with the `OnRead` event](slug://common-features-data-binding-onread). This will allow programmatic changes to the data request filter.
-* Create a new [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](/blazor-ui/api/Telerik.DataSource.FilterDescriptor) (see note below).
+* Create a new [`DataSourceRequest`](slug://Telerik.DataSource.DataSourceRequest) object in the `OnRead` handler. Set its `Filters` collection to include one [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor) instead of the default [`FilterDescriptor`](slug://Telerik.DataSource.FilterDescriptor) (see note below).
 * The `CompositeFilterDescriptor` object should have its `LogicalOperator` set to `FilterCompositionLogicalOperator.Or` (unless you want **all** searchable fields to contain the search string).
 * The `CompositeFilterDescriptor` object should have its `FilterDescriptors` collection contain one `FilterDescriptor` for each searchable field in the data.
 * (optional) The new `DataSourceRequest` should copy the `PageSize` and `Skip` property values of the original `OnRead` event argument. This applies to **virtual scrolling** scenarios.
@@ -42,7 +42,7 @@ My dropdown data model has one numeric property in `ValueField` and two string p
 * Configure the component `ValueField`, according to the application and business requirements. The dropdown items can display any `string` field via `TextField`. The `TextField` should be a `string` property, because the built-in filtering uses string filter operators. (Note that the AutoComplete does not have a `TextField` parameter and its `ValueField` should be a `string`.)
 * (optional) Use an `ItemTemplate` to display multiple fields in the dropdown, including non-string fields.
 
-> Each `FilterDescriptor` defines **one** filtering criterion for one data field (`Member`). The `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](/blazor-ui/api/Telerik.DataSource.FilterDescriptorCollection), which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
+> Each `FilterDescriptor` defines **one** filtering criterion for one data field (`Member`). The `CompositeFilterDescriptor` contains a [**collection** of `FilterDescriptor`s](slug://Telerik.DataSource.FilterDescriptorCollection), which can target the same field or different fields. All descriptors in the collection are applied with an *AND* or an *OR* `LogicalOperator`.
 
 >tip The `OnRead` handler below uses a `ReadEventArgs` event argument type. This is to reuse the `OnRead` handler for all components and prevent code duplication. Use the **correct event argument type** in the production application, depending on the component (`AutoCompleteReadEventArgs`, `ComboBoxReadEventArgs`, etc.).
 

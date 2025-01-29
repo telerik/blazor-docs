@@ -78,7 +78,7 @@ The Window component fires events for visibility, state, size, and position chan
 
 ## Window Parameters
 
-The following table lists the Window parameters. Also check the [Window API](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow) for a full list of parameters, methods, and events.
+The following table lists the Window parameters. Also check the [Window API](slug://Telerik.Blazor.Components.TelerikWindow) for a full list of parameters, methods, and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -91,6 +91,7 @@ The following table lists the Window parameters. Also check the [Window API](/bl
 | `Draggable` | `bool` | Sets if the Window allows moving. |
 | `FooterLayoutAlign` | `WindowFooterLayoutAlign` enum <br /> (`Stretch`) | The alignment of the HTML elements in the `WindowFooter`. The possible options are `Stretch`, `Start`, `End`, and `Center`. |
 | `Height` | `string` | The `height` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
+| `Id` | `string` | The `id` attribute of the `<div class="k-window">` element. |
 | `Left` | `string` | The `left` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the left position is with regard to the defined container. |
 | `MaxHeight` | `string` | The maximum height of the Window during resizing or initial display. For example, if there is a lot of content and a fixed `Height` is not set. |
 | `MaxWidth` | `string` | The maximum width of the Window during resizing or initial display. For example, if there is a lot of content and a fixed `Width` is not set. |
@@ -101,7 +102,7 @@ The following table lists the Window parameters. Also check the [Window API](/bl
 | `Resizable` | `bool` <br /> (`true`) | Determines if the Window allows users to change its dimensions. |
 | `Size` | `string` | A predefined Window width. Use the string members of the static class `ThemeConstants.Window.Size` - `Small`, `Medium`, and `Large`. They translate to widths of `300px`, `800px` and `1200px`, respectively. If set, the `Width` parameter will take precedence over `Size`. |
 | `State` | `WindowState` enum <br /> (`Default`) | The Window state can be `Maximized`, `Minimized`, or `Default`. The parameter supports two-way binding. |
-| `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
+| `ThemeColor` | `string` | A predefined color scheme for the Window, especially the titlebar. Use the available members of the static class [`ThemeConstants.Window.ThemeColor`](slug://Telerik.Blazor.ThemeConstants.Window.ThemeColor). |
 | `Top` | `string` | The `top` style of the Window relative to the browser viewport. The parameter supports two-way binding. If `ContainmentSelector` is set, the top position is with regard to the defined container. |
 | `Visible` | `bool` | Defines if the Window is rendered and visible on the page. The parameter supports two-way binding. |
 | `Width` | `string` | The `width` style of the `<div class="k-window">` element. The parameter supports two-way binding. |
@@ -175,5 +176,5 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 ## See Also
 
 * [Live Demo: Window](https://demos.telerik.com/blazor-ui/window/overview)
-* [Window API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikWindow)
+* [Window API Reference](slug://Telerik.Blazor.Components.TelerikWindow)
 * [Comparison between All Popup Components](slug://common-kb-popup-component-comparison)

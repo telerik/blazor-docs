@@ -277,4 +277,4 @@ The Form also exposes a `Refresh()` method that calls `StateHasChanged()` only f
 ## See Also
 
 * [Live Demo: Form](https://demos.telerik.com/blazor-ui/form/overview)
-* [Form API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikForm)
+* [Form API Reference](slug://Telerik.Blazor.Components.TelerikForm)

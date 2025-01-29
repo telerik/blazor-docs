@@ -127,14 +127,14 @@ The TreeView can [display links to app views and external pages](slug://treeview
 
 ## TreeView Parameters
 
-The following table lists TreeView parameters, which are not related to other features on this page. Check the [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView) for a full list of properties, methods and events.
+The following table lists TreeView parameters, which are not related to other features on this page. Check the [TreeView API Reference](slug://Telerik.Blazor.Components.TelerikTreeView) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The additional CSS class that will be rendered on the `div.k-treeview` element. Use it to apply custom styles or [override the theme](slug://themes-override). |
-| `Size` | `string` <br /> `"md"` | Affects the TreeView layout, for example the amount of space between items. The possible valid values are `"lg"` (large), `"md"` (medium) and `"sm"` (small). For easier setting, use the predefined string properties in class [`Telerik.Blazor.ThemeConstants.TreeView.Size`](/blazor-ui/api/Telerik.Blazor.ThemeConstants.TreeView.Size). |
+| `Size` | `string` <br /> `"md"` | Affects the TreeView layout, for example the amount of space between items. The possible valid values are `"lg"` (large), `"md"` (medium) and `"sm"` (small). For easier setting, use the predefined string properties in class [`Telerik.Blazor.ThemeConstants.TreeView.Size`](slug://Telerik.Blazor.ThemeConstants.TreeView.Size). |
 | `DragThrottleInterval` | `int` <br /> (`0`) | The milliseconds between each firing of the `OnDrag` event during the dragging operations.  |
 
 
@@ -144,7 +144,7 @@ To execute TreeView methods, obtain reference to the component instance via `@re
 
 The TreeView is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
-The table below lists the TreeView methods. Also consult the [TreeView API](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView).
+The table below lists the TreeView methods. Also consult the [TreeView API](slug://Telerik.Blazor.Components.TelerikTreeView).
 
 | Method | Description |
 | --- | --- |
@@ -169,5 +169,5 @@ The table below lists the TreeView methods. Also consult the [TreeView API](/bla
 ## See Also
 
 * [Live TreeView Demos](https://demos.telerik.com/blazor-ui/treeview/overview)
-* [TreeVew API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
+* [TreeVew API Reference](slug://Telerik.Blazor.Components.TelerikTreeView)
 * [Enable TreeView Scrolling](slug://treeview-kb-horizontal-scrollbar)

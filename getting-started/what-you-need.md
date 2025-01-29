@@ -132,7 +132,7 @@ global using Telerik.DataSource.Extensions; // use OnRead events and ToDataSourc
 
 ## Service
 
-The Telerik Blazor service provides [component localization](slug://globalization-localization) and registers the default service that implements [`ITelerikStringLocalizer`](/blazor-ui/api/Telerik.Blazor.Services.ITelerikStringLocalizer).
+The Telerik Blazor service provides [component localization](slug://globalization-localization) and registers the default service that implements [`ITelerikStringLocalizer`](slug://Telerik.Blazor.Services.ITelerikStringLocalizer).
 
 The Telerik Blazor components render all their built-in labels through this localization mechanism for consistency, even when .NET localization is not used.
 

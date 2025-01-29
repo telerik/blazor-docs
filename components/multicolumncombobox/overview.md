@@ -168,7 +168,7 @@ To execute MultiColumnComboBox methods, obtain reference to the component instan
 
 The MultiColumnComboBox is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
-The table below lists the MultiComboBox methods. Also consult the [MultiColumnComboBox API](/blazor-ui/api/Telerik.Blazor.Components.TelerikMultiColumnComboBox-2).
+The table below lists the MultiComboBox methods. Also consult the [MultiColumnComboBox API](slug://Telerik.Blazor.Components.TelerikMultiColumnComboBox-2).
 
 | Method | Description |
 | --- | --- |

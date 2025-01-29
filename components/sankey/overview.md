@@ -91,7 +91,7 @@ By design, the Sankey renders a legend that illustrates the node details. You ca
 
 ## Sankey Parameters
 
-The Blazor Sankey diagram provides various parameters to configure the component. Also check the [Sankey public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSankey).
+The Blazor Sankey diagram provides various parameters to configure the component. Also check the [Sankey public API](slug://Telerik.Blazor.Components.TelerikSankey).
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
@@ -108,4 +108,4 @@ The Blazor Sankey diagram provides various parameters to configure the component
 ## See Also
 
 * [Live Demos: Sankey diagram](https://demos.telerik.com/blazor-ui/sankey/overview)
-* [Sankey diagram API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikSankey)
+* [Sankey diagram API Reference](slug://Telerik.Blazor.Components.TelerikSankey)

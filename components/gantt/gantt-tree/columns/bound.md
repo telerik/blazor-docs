@@ -127,7 +127,7 @@ You can read more details on how to tie the Gantt to your data fields and child 
 
 ## Gantt Bound Column Parameters
 
-The Blazor Gantt Bound Column provides various parameters to configure the component. Also check the [Gantt public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Bound Column provides various parameters to configure the component. Also check the [Gantt public API](slug://Telerik.Blazor.Components.TelerikGantt-1).
 
 ### Data Binding
 
