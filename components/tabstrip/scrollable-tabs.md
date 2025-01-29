@@ -75,9 +75,9 @@ The following example demonstrates this option in action.
 
 By default, the TabStrip renders its scroll buttons on both ends of the tab list. To customize the position of the scroll buttons, use the `ScrollButtonsPosition` parameter of the TabStrip. This option accepts the following values of type `TabStripScrollButtonsPosition`:
 
-* `Split` (default) - The scroll buttons will be rendered on both sides of the tab list.
-* `Start` - The scroll buttons will be rendered before the tab list.
-* `End` - The scroll buttons will be rendered after the tab list.
+* `Split` (default) — The scroll buttons will be rendered on both sides of the tab list.
+* `Start` — The scroll buttons will be rendered before the tab list.
+* `End` — The scroll buttons will be rendered after the tab list.
 
 The following example demonstrates this option in action.
 
