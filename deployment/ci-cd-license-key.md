@@ -53,8 +53,8 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 ### Docker
 
-1. Create a Docker [build secret](https://docs.docker.com/build/building/secrets/) with the Telerik license key.
-1. Set a `TELERIK_LICENSE` [environment variable in the container's environment] and use the license key from the secret.
+1. [Create a Docker build secret](https://docs.docker.com/build/building/secrets/#using-build-secrets) that holds the Telerik license key file.
+1. [Mount the secret](https://docs.docker.com/build/building/secrets/#secret-mounts) and set a `TELERIK_LICENSE` [environment variable in the container](https://docs.docker.com/build/building/secrets/#target).
 
 ## Next Steps
 
