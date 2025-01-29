@@ -13,7 +13,7 @@
 
 ## Step 0: Download Telerik UI for Blazor
 
-* If you have already purchased a Telerik UI for Blazor license, continue with the [next step and create a new project](#step-2-create-a-new-project).
+* If you have already purchased a Telerik UI for Blazor license, continue with the [next step and install a license key](#step-1-install-a-license-key).
 
 * If you are new to UI for Blazor and haven't purchased a license yet, you must <a href="https://www.telerik.com/download-trial-file/v2-b/ui-for-blazor" target="_blank">download and install the trial version</a> of the UI for Blazor components&mdash;this will activate your free trial and allow you to use the components. During the installation, select the **Set up Telerik NuGet package source** checkbox and the installer will configure the Telerik [online NuGet feed](slug://installation/nuget) automatically. You will use this feed later in the tutorial. 
 
