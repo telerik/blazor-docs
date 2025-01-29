@@ -51,6 +51,11 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
         TELERIK_LICENSE: ${ { secrets.TELERIK_LICENSE } } # remove the spaces between the brackets
     ````
 
+### Docker
+
+1. Create a Docker [build secret](https://docs.docker.com/build/building/secrets/) with the Telerik license key.
+1. Set a `TELERIK_LICENSE` [environment variable in the container's environment] and use the license key from the secret.
+
 ## Next Steps
 
 * [Restore Telerik NuGet Packages in CI/CD Workflows](slug://deployment-nuget)
