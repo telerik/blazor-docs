@@ -24,7 +24,7 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable the Grid PDF Export, add a [command button](slug:components/grid/columns/command) with the `PdfExport` command name to the [Grid toolbar](slug:components/grid/features/toolbar).
+To enable users to export the Grid to PDF, add a [command button](slug:components/grid/columns/command) with the `PdfExport` command name to the [Grid toolbar](slug:components/grid/features/toolbar).
 
 ````RAZOR.skip-repl
 <GridToolBarTemplate>
