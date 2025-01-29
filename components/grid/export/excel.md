@@ -8,7 +8,7 @@ published: True
 position: 1
 ---
 
-# Excel Export
+# Grid Excel Export
 
 You can export the grid to Excel with a click of a button. The current filter, sort, page, grouping, column order and column size are applied to the `xlsx` document.
 
@@ -32,11 +32,14 @@ To enable the Grid Excel Export, add a [command button](slug://components/grid/c
 </GridToolBarTemplate>
 ````
 
-Optionally, you can also set the `GridExcelExport` tag settings under the `GridExport` tag to choose:
+Optionally, you can also set the `GridExcelExport` tag settings under the `GridExport` tag to subscribe to the [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the Excel export options:
 
-* `FileName` - the name of the file. The grid will add the `.xslx` extension for you.
-* `AllPages` - whether to export the current page only, or the entire data from the data source.
-* Subscribe to [Grid export events](slug://grid-export-events) that allow further customizations of the exported columns or data.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `FileName` | `string` | The name of the file. The grid will add the `.xslx` extension for you. |
+| `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
 >caption Export the Grid to Excel - Example
 
@@ -67,8 +70,9 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 </TelerikGrid>
 
 @code {
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -99,8 +103,10 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
-* `SaveAsExcelFileAsync` - `ValueTask` - sends the exported excel file to the browser for download.
-* `ExportToExcelAsync` - `Task<MemoryStream>` - returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+| Method | Type | Description |
+| --- | --- | --- |
+| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. |
+| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
 
 >note The same methods are exposed for exporting a [CSV file](slug://grid-export-csv#programmatic-export).
 
@@ -147,15 +153,16 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private MemoryStream exportedExcelStream { get; set; }
 
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
+
     private async Task GetTheDataAsAStream()
     {
         MemoryStream finalizedStream = await GridRef.ExportToExcelAsync();
 
         exportedExcelStream = new MemoryStream(finalizedStream.ToArray());
     }
-
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {

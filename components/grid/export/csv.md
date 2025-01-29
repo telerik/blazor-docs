@@ -8,7 +8,7 @@ published: True
 position: 1
 ---
 
-# CSV Export
+# Grid CSV Export
 
 You can export the grid to CSV with a click of a button. The current filter, sort, page, grouping and column order are applied to the `.csv` document.
 
@@ -32,11 +32,14 @@ To enable the grid CSV Export, add a [command button](slug://components/grid/col
 </GridToolBarTemplate>
 ````
 
-Optionally, you can also set the `GridCsvExport` tag settings under the `GridExport` tag to choose:
+Optionally, you can also set the `GridCsvExport` tag settings under the `GridExport` tag to subscribe to the [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the CSV export options:
 
-* `FileName` - the name of the file. The grid will add the `.csv` extension for you.
-* `AllPages` - whether to export the current page only, or the entire data from the data source.
-* Subscribe to [Grid export events](slug://grid-export-events) that allow further customizations of the exported columns or data.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Parameter | Type and Default&nbsp;Value | Description |
+| --- | --- | --- |
+| `FileName` | `string` | The name of the file. The grid will add the `.csv` extension for you. |
+| `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
 >caption Export the Grid to CSV - Example
 
@@ -67,8 +70,9 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 </TelerikGrid>
 
 @code {
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -99,8 +103,10 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
 You can programmatically invoke the export feature of the Grid, by using the following methods exposed on the `@ref` of the Grid:
 
-* `SaveAsCsvFileAsync` - `ValueTask` - sends the exported CSV file to the browser for download
-* `ExportToCsvAsync` - `Task<MemoryStream>` - returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance.
+| Method | Type | Description |
+| --- | --- | --- |
+| `SaveAsCsvFileAsync` | `ValueTask` | Sends the exported CSV file to the browser for download. |
+| `ExportToCsvAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
 
 >note The same methods are exposed for exporting an [Excel file](slug://grid-export-excel#programmatic-export).
 
@@ -146,15 +152,16 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
     private MemoryStream exportedCSVStream { get; set; }
 
+    private List<SampleData> GridData { get; set; }
+
+    private bool ExportAllPages { get; set; }
+
     private async Task GetTheDataAsAStream()
     {
         MemoryStream finalizedStream = await GridRef.ExportToCsvAsync();
 
         exportedCSVStream = new MemoryStream(finalizedStream.ToArray());
     }
-
-    List<SampleData> GridData { get; set; }
-    bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
