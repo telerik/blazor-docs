@@ -25,7 +25,7 @@ By default, the filter row puts an appropriate editor (like a numeric textbox fo
 
 To customize the filter cell, use the `<FilterCellTemplate>` tag of the `<TreeListColumn>`. It receives a `context` of type `FilterCellTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - a [CompositeFilterDescriptor](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug://common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
+* `FilterDescriptor` - a [CompositeFilterDescriptor](slug://Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug://common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
 
 * `FilterAsync()` - an `async` method that invokes the built-in treelist filtering logic so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
 

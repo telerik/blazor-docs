@@ -216,5 +216,5 @@ The `Page` parameter supports two-way binding so it can respond to changes from 
 ## See Also
 
 * [Live Pager Demos](https://demos.telerik.com/blazor-ui/pager/overview)
-* [Pager API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPager)
+* [Pager API Reference](slug://Telerik.Blazor.Components.TelerikPager)
 * [How to increase the pager dropdownlist width](slug://pager-kb-dropdown-width)

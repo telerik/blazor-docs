@@ -150,7 +150,7 @@ The various [ListBox events](slug://listbox-events) allow you to implement custo
 
 ## ListBox Parameters
 
-The table below lists the ListBox parameters. For a full list of the ListBox API members (parameters, methods, and events), check the [ListBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikListBox-1).
+The table below lists the ListBox parameters. For a full list of the ListBox API members (parameters, methods, and events), check the [ListBox API Reference](slug://Telerik.Blazor.Components.TelerikListBox-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -235,4 +235,4 @@ The ListBox exposes methods for programmatic operation. To use them, define a re
 ## See Also
 
 * [Live Demo: ListBox](https://demos.telerik.com/blazor-ui/listbox/overview)
-* [ListBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikListBox-1)
+* [ListBox API Reference](slug://Telerik.Blazor.Components.TelerikListBox-1)

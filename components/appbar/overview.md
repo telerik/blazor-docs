@@ -72,7 +72,7 @@ You can control the position of the AppBar and how the component behaves accordi
 
 ## AppBar Parameters
 
-The Blazor AppBar provides parameters to configure the component. Also check the [AppBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAppBar) for a full list of properties.
+The Blazor AppBar provides parameters to configure the component. Also check the [AppBar API Reference](slug://Telerik.Blazor.Components.TelerikAppBar) for a full list of properties.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -128,4 +128,4 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 ## See Also
 
 * [Live AppBar Demos](https://demos.telerik.com/blazor-ui/appbar/overview)
-* [AppBar API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikAppBar)
+* [AppBar API Reference](slug://Telerik.Blazor.Components.TelerikAppBar)

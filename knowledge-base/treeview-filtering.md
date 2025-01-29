@@ -43,11 +43,11 @@ The suggested approach below relies on [flat TreeView data](slug://components/tr
 In both scenarios, there should be no [loading of TreeView items on demand](slug://components/treeview/data-binding/load-on-demand), otherwise the filtering will not provide all possible results.
 
 1. Add a [TextBox](slug://components/textbox/overview) for the filter string.
-1. (optional) Add a [DropDownList](slug://components/dropdownlist/overview) or another suitable component for the [filter operator](/blazor-ui/api/Telerik.DataSource.FilterOperator).
+1. (optional) Add a [DropDownList](slug://components/dropdownlist/overview) or another suitable component for the [filter operator](slug://Telerik.DataSource.FilterOperator).
 1. Use a [Button `OnClick` event](slug://button-events) or the [TextBox `ValueChanged` event](slug://components/textbox/events) to trigger the TreeView item search process.
-1. Create a [`DataSourceRequest` object](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) and populate its `Filters` property with a single [`FilterDescriptor`](/blazor-ui/api/Telerik.DataSource.FilterDescriptor).
-    * If you need more complex filtering logic, use one or more [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor)s.
-1. Execute the [`ToDataSourceResult()` extension method](slug://common-features-data-binding-onread#todatasourceresult-method) on the TreeView `Data`. You will need to import the [`Telerik.DataSource.Extensions` namespace](/blazor-ui/api/Telerik.DataSource.Extensions).
+1. Create a [`DataSourceRequest` object](slug://Telerik.DataSource.DataSourceRequest) and populate its `Filters` property with a single [`FilterDescriptor`](slug://Telerik.DataSource.FilterDescriptor).
+    * If you need more complex filtering logic, use one or more [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor)s.
+1. Execute the [`ToDataSourceResult()` extension method](slug://common-features-data-binding-onread#todatasourceresult-method) on the TreeView `Data`. You will need to import the [`Telerik.DataSource.Extensions` namespace](slug://Telerik.DataSource.Extensions).
 1. (optional) Add any missing parent items to the filtered items collection.
 1. (optional) Use a [TreeView `ItemTemplate`](slug://components/treeview/templates) to highlight the search string inside the displayed TreeView items.
 
@@ -290,5 +290,5 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
 
 * [TreeView Filtering with Hierarchy Data](https://demos.telerik.com/blazor-ui/treeview/manual-filtering)
 * [ToDataSourceResult Method](slug://common-features-data-binding-onread#todatasourceresult-method)
-* [DataSourceRequest API Reference](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
+* [DataSourceRequest API Reference](slug://Telerik.DataSource.DataSourceRequest)
 * [TreeView Item Template](slug://components/treeview/templates)

@@ -25,7 +25,7 @@ The `SelectFilesButtonTemplate` allows you to modify the **Select Files...** but
 
 ## See Also
 
-* [Upload API](/blazor-ui/api/Telerik.Blazor.Components.TelerikUpload)
+* [Upload API](slug://Telerik.Blazor.Components.TelerikUpload)
 * [Upload Overview](slug://upload-overview)
 * [Upload Validation](slug://upload-validation)
 * [Upload Events](slug://upload-events)

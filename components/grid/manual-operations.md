@@ -194,20 +194,9 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 ## Grouping with OnRead
 
-When the grid needs to be grouped, the shape of the data changes - it is no longer a flat list of models, but a nested list of collections that describe each group and have the group data. At the same time, the grid is designed for a data source that is a collection of models, and the source of this collection is up to the application.
+When the Grid needs to be grouped, the shape of the data changes and it is no longer a flat list of models. Instead, the data is a nested list of [`AggregateFunctionsGroup` objects](slug://telerik.datasource.aggregatefunctionsgroup) that describe each group and include its data items.
 
-When you let the grid handle the operations internally, it hides that complexity from you, but when you perform the operations yourself, this data structure cannot be expressed with the typical `IEnumerable<TItem>` data source for the grid.
-
-Thus, to use the `OnRead` event with grouping, you must:
-
-1. Use an `IEnumerable<object>` for the Grid data.
-    * This is required so the special data structure for grouped data can be used, otherwise you will get compile-time errors.
-1. Set the `FieldType` of the columns to match the type of the field you will be showing.
-    * If you also use [filtering](slug://components/grid/filtering), do not use nullable types. For example, if the model field is `int?`, set `FieldType="@(typeof(int))"`.
-    * This is required because the grid is not bound to a specific type anymore, but to an `object`, and cannot infer the column type in order to define filters and new items.
-1. Prepare the appropriate group collections.
-    * The example below shows a simple way through the Telerik `.ToDataSourceResult` extension method that is easy to use when you have all the data, or when you can pass objects by reference, like in a server-side Blazor app.
-    * The examples in the following repo show one way you can serialize such data through HTTP and service calls: [Use Telerik DataSourceRequest and DataSourceResult on the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server).
+When you bind the Grid with its `Data` parameter, or when [using `OnRead` with `ToDataSourceResult()`](slug://common-features-data-binding-onread#todatasourceresult-method), this complexity is hidden. But if you perform the data operations yourself, you need to create and populate the `AggregateFunctionsGroup` objects manually.
 
 >caption Grouping with OnRead
 
@@ -281,11 +270,7 @@ This sample shows how to set up the grid to use grouping with manual data source
 }
 ````
 
->important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](https://github.com/telerik/blazor-ui/tree/master/grid/binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
-
->note Since the grid does not have the type of the data models (it is bound to `IEnumerable<object>`), it uses the first item in the available data to infer the type. If there is no data, this type will be unavailable and the grid will be unable to create an item to insert. The filters can get the proper operators list from the `FieldType`, but an entire model cannot be constructed by the grid. 
->
-> Thus, clicking the built-in Add command button on its toolbar when there is no data will produce a `null` item and if you have editor templates, there may be null reference errors (the `context` will be `null`). To avoid that, you can [initiate insertion of items through the grid state](slug://grid-kb-add-edit-state) in order to ensure a model reference exists.
+>important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the Grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](slug://grid-kb-binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
 
 
 ## Aggregates with OnRead
@@ -395,6 +380,6 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [DataSourceRequest Object API](/blazor-ui/api/Telerik.DataSource.DataSourceRequest)
-* [DataSourceResult Object API](/blazor-ui/api/Telerik.DataSource.DataSourceResult)
+* [DataSourceRequest Object API](slug://Telerik.DataSource.DataSourceRequest)
+* [DataSourceResult Object API](slug://Telerik.DataSource.DataSourceResult)
 * [Blazor Grid](slug://grid-overview)

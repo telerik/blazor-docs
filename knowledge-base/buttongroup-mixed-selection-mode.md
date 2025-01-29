@@ -28,7 +28,7 @@ How can I create a third selection mode that is a mix between the `Single` and `
 
 Currently, the ButtonGroup [`SelectionMode`](slug://buttongroup-selection) supports the two `Single` and `Multiple` options.
 
-To create a third, multiple selection mode, prevent the deselection of the last selected item, and enable at least one button to always stay selected, handle the [`SelectedChanged`](slug://buttongroup-events#selectedchanged) event of each [`ButtonGroupToggleButton`](/blazor-ui/api/Telerik.Blazor.Components.ButtonGroupToggleButton). When you deselect a button, check if it was the last selected.
+To create a third, multiple selection mode, prevent the deselection of the last selected item, and enable at least one button to always stay selected, handle the [`SelectedChanged`](slug://buttongroup-events#selectedchanged) event of each [`ButtonGroupToggleButton`](slug://Telerik.Blazor.Components.ButtonGroupToggleButton). When you deselect a button, check if it was the last selected.
 
 ````RAZOR
 <TelerikButtonGroup SelectionMode="@ButtonGroupSelectionMode.Multiple">

@@ -1,120 +1,131 @@
 ---
-title: How to minimize a popup window to the bottom of the page?
-description: Is there any way to collapse a window to the bottom of a page and how to create a responsive modal that can be minimized?
+title: Minimize a Window to the Bottom Right of the Page
+description: Learn how to collapse a Window to the bottom of a page and create a responsive popup that is a chat bubble.
 type: how-to
-page_title: How to minimize a popup window to the bottom of the page?
+page_title: How to Minimize a Popup Window to the Bottom Right of the Page
 slug: window-modal-minimize-popup
-position: 
-tags: window,modal,popup,collapse,minimize
-ticketid: 1542823
+tags: blazor, window, minimize
+ticketid: 1542823, 1676477
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Window for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Window for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
-Is there any way to collapse a window to the bottom of a page? How to create a responsive modal that can be minimized? How to minimize Modal Window as a chat for messages?
+
+This KB article answers the following questions:
+
+* How to minimize the Telerik Window for Blazor to the bottom right?
+* How to collapse a Window to the bottom of a page?
+* How to create a responsive modal Window that can be minimized?
+* How to minimize a modal Window as a chat for messages?
 
 ## Solution
-To implement a responsible popup that can be minimized to the bottom of the page:
 
-1. Set the `Top` and `Left` parameters to control the position of the modal.
-2. Use boolean flags to show and hide the popup.
-3. Use the [MediaQuery](slug://mediaquery-overview) component to make the modal window responsive.
+### Minimize Window to the Bottom Right
 
->caption The result from the code snippet below on a big screen.
+To minimize the Window to the bottom-right corner of the viewport:
 
-![Blazor Window Big Screen](images/window-big-screen.gif)
+1. Set a custom CSS class to the Window with the `Class` parameter, for example, `minimized-at-bottom`.
+1. Apply the following styles to the `.k-window-minimized.minimized-at-bottom` CSS combinator:
+    * `top` and `left` must be `auto !important`
+    * `bottom` and `right` must be zero or an arbitrary small value
+    * `transform` must be `none`
 
->caption The result from the code snippet below on a small screen.
+````RAZOR
+<TelerikButton OnClick="@( () => WindowVisible = !WindowVisible )">Toggle Window</TelerikButton>
 
-![Blazor Window Small Screen](images/window-small-screen.gif)
-
-````Razor
-@*Responsive minimizable popup.*@
-
-<TelerikMediaQuery Media="(max-width: 960px)" OnChange="((changed) => Small = changed)"></TelerikMediaQuery>
-
-<TelerikWindow Class="@myClass" Modal="@isModal"
-               Top="@TopPosition"
-               Left="@LeftPosition" 
-               @bind-Visible="@isModalVisible">
+<TelerikWindow @bind-Visible="@WindowVisible"
+               Class="minimized-at-bottom">
+    <WindowActions>
+        <WindowAction Name="Minimize" />
+        <WindowAction Name="Close" />
+    </WindowActions>
     <WindowTitle>
-        <strong>@Title</strong>
+        Window Title
     </WindowTitle>
     <WindowContent>
-        @if (isModal)
-        {
-            @Content
-        }
+        Window Content
+    </WindowContent>
+</TelerikWindow>
+
+<style>
+    .k-window-minimized.minimized-at-bottom {
+        top: auto !important;
+        left: auto !important;
+        bottom: 1em;
+        right: 1em;
+        transform: none;
+    }
+</style>
+
+@code {
+    private bool WindowVisible { get; set; } = true;
+}
+````
+
+### Create Responsive Chat Window
+
+To configure a responsive popup Window that transforms to a chat bubble on small screens:
+
+1. Use the [MediaQuery component](slug://mediaquery-overview) to make the Window responsive and change its configuration, depending on the browser viewport size.
+1. Use custom CSS classes and styles to tweak the Window appearance and make it look like a bubble when minimized.
+
+````RAZOR
+<TelerikMediaQuery Media="(max-width: 960px)"
+                   OnChange="@( (bool matches) => IsSmallScreen = matches )" />
+
+<TelerikWindow Class="@WindowClass"
+               MinWidth="140px"
+               @bind-State="@WindowState"
+               ThemeColor="@ThemeConstants.Window.ThemeColor.Primary"
+               Visible="true">
+    <WindowTitle>@WindowTitle</WindowTitle>
+    <WindowContent>
+        <p>The Window title changes, depending on the browser viewport size.</p>
+        <p>Reduce the browser width and minimize the Window to minimize it as a chart bubble at the bottom-right.</p>
     </WindowContent>
     <WindowActions>
-        <WindowAction Name="MyMinimizer" Hidden="@(!isModal)" Icon="@SvgIcon.WindowMinimize" OnClick="@MyCustomMinimize" />
-        <WindowAction Name="MyExpander" Hidden="@isModal" Icon="@SvgIcon.Window" OnClick="@MyCustomExpand" />
+        <WindowAction Name="Minimize" />
     </WindowActions>
 </TelerikWindow>
 
+<style>
+    .k-window-minimized.minimized-at-bottom {
+        top: auto !important;
+        left: auto !important;
+        bottom: 1em;
+        right: 1em;
+        transform: none;
+    }
+
+    .chat-bubble-window {
+        min-height: auto !important;
+        padding: var(--kendo-spacing-4);
+        border-radius: var(--kendo-border-radius-full);
+        background-color: var(--kendo-color-primary);
+        color: var(--kendo-color-on-primary);
+    }
+</style>
+
 @code {
-    bool isModalVisible { get; set; } = true;
-    bool isModal { get; set; } = true;
-    private bool Small { get; set; }
+    private string WindowClass => IsSmallScreen && WindowState == WindowState.Minimized ? "minimized-at-bottom chat-bubble-window" : "";
+    private WindowState WindowState { get; set; } = WindowState.Default;
+    private string WindowTitle => IsSmallScreen ? "Chat" : "Customer Support Chat";
 
-    string Title => Small == true && !isModal ? "M" : "My Responsive Popup";
-    string Content = "---------- Welcome to our Minimized/Collapsed popup! ----------";
-    string TopPosition => Small == true && !isModal ? "100px" : Top;
-    string LeftPosition => Small == true && !isModal ? "300px" : Left;
-    string Top = "40%";
-    string Left = "40%";
-
-    string myClass => Small == true && !isModal ? "minimized" : "";
-
-    public void MyCustomMinimize()
-    {
-        Top = "90%";
-        Left = "15%";
-        isModal = false;
-        StateHasChanged();
-    }
-
-    public void MyCustomExpand()
-    {
-        Top = "40%";
-        Left = "40%";
-        isModal = true;
-        StateHasChanged();
-    }
-}
-
-@if (!isModal)
-{
-    <style>
-        .k-window-content:last-child {
-            display: none;
-        }
-
-        .k-window-titlebar {
-            border-style: none;
-        }
-
-        .minimized {
-            background-color: #ff6358;
-            color: white;
-            display: inline;
-            padding: 14px;
-            border-bottom-left-radius: 65%;
-            border-bottom-right-radius: 65%;
-            border-top-left-radius: 65%;
-            border-top-right-radius: 65%;
-        }
-    </style>
+    private bool IsSmallScreen { get; set; }
 }
 ````
+
+## See Also
+
+* [Window Position](slug://components/window/position)

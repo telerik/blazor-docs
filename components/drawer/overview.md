@@ -102,7 +102,7 @@ The Blazor Drawer fires select and expand events. Handle those events to respond
 
 ## Drawer Parameters
 
-The Blazor Drawer provides various parameters to configure the component. Also check the [Drawer public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1).
+The Blazor Drawer provides various parameters to configure the component. Also check the [Drawer public API](slug://Telerik.Blazor.Components.TelerikDrawer-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -171,4 +171,4 @@ The Drawer methods are accessible through it's reference. These methods change t
 ## See Also
 
 * [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)
-* [Drawer API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDrawer-1)
+* [Drawer API Reference](slug://Telerik.Blazor.Components.TelerikDrawer-1)

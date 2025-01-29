@@ -163,4 +163,4 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 
 * [Live PivotGrid Demos - Local Data Binding](https://demos.telerik.com/blazor-ui/pivotgrid/local-data-binding)
 * [Live PivotGrid Demos - OLAP (XMLA) Data Binding](https://demos.telerik.com/blazor-ui/pivotgrid/xmla-data-binding)
-* [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1)
+* [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1)

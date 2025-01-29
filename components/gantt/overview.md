@@ -213,7 +213,7 @@ To execute Gantt methods, obtain reference to the component instance via `@ref`.
 
 The Gantt is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
 
-The table below lists the Gantt methods. Also consult the [Gantt API](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1).
+The table below lists the Gantt methods. Also consult the [Gantt API](slug://Telerik.Blazor.Components.TelerikGantt-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -243,4 +243,4 @@ The table below lists the Gantt methods. Also consult the [Gantt API](/blazor-ui
 ## See Also
 
   * [Live Demos: Gantt](https://demos.telerik.com/blazor-ui/gantt/overview)
-  * [Gantt API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikGantt-1)
+  * [Gantt API Reference](slug://Telerik.Blazor.Components.TelerikGantt-1)

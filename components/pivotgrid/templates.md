@@ -134,4 +134,4 @@ All template components expose an optional `Context` parameter. Set it in scenar
 ## See Also
 
 * [Live PivotGrid Demos - Templates](https://demos.telerik.com/blazor-ui/pivotgrid/templates)
-* [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1)
+* [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1)

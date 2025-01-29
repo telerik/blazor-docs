@@ -237,4 +237,4 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 ## See Also
 
 * [Live Demo: DropDownButton Appearance](https://demos.telerik.com/blazor-ui/dropdownbutton/appearance)
-* [DropDownButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropDownButton)
+* [DropDownButton API](slug://Telerik.Blazor.Components.TelerikDropDownButton)

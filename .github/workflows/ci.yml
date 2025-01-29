@@ -2,14 +2,14 @@ name: CI
 
 on:
   workflow_dispatch:
-  push:
-    branches: [master, production]
-    paths:
-      - "**.md"
-  pull_request:
-    branches: [master, production]
+  # push:
+  #   branches: [master, production]
+  #   paths:
+  #     - "**.md"
+  # pull_request:
+  #   branches: [master, production]
 
 jobs:
   build_docs:
-    uses: ./.github/workflows/build_docs_no_api.yml
+    uses: ./.github/workflows/build_docs.yml
     secrets: inherit

@@ -100,4 +100,4 @@ Add a `<PdfViewerToolBar>` tag inside `<TelerikPdfViewer>` to configure a custom
 ## See Also
 
 * [PdfViewer Live Demo](https://demos.telerik.com/blazor-ui/pdfviewer/overview)
-* [PdfViewer API](/blazor-ui/api/Telerik.Blazor.Components.TelerikPdfViewer)
+* [PdfViewer API](slug://Telerik.Blazor.Components.TelerikPdfViewer)

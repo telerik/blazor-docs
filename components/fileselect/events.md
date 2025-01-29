@@ -18,7 +18,7 @@ This article describes the events and event arguments of the Telerik FileSelect 
 
 ## FileSelectFileInfo
 
-The FileSelect event handlers provide a [`FileSelectEventArgs` argument](/blazor-ui/api/Telerik.Blazor.Components.FileSelectEventArgs). `FileSelectEventArgs` has a `Files` property, which is a `List<FileSelectFileInfo>` type.
+The FileSelect event handlers provide a [`FileSelectEventArgs` argument](slug://Telerik.Blazor.Components.FileSelectEventArgs). `FileSelectEventArgs` has a `Files` property, which is a `List<FileSelectFileInfo>` type.
 
 The `FileSelectFileInfo` type contains the following properties:
 

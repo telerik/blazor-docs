@@ -20,21 +20,21 @@ To use the templates, declare a `<SankeyTooltip>` tag as a direct child of `<Tel
 ## Link Tooltip Template
 
 The `LinkTemplate` controls the content of the Tooltip that will appear when the user hovers a link. The `NodeTemplate` exposes a `context` of type 
-[`SankeyLinkTooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.SankeyLinkTooltipTemplateContext) which provides the following properties:
+[`SankeyLinkTooltipTemplateContext`](slug://Telerik.Blazor.Components.SankeyLinkTooltipTemplateContext) which provides the following properties:
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `Source` | [`SankeyDataNode`](/blazor-ui/api/telerik.blazor.components.sankeydatanode) | The source of the hovered link. Provides details for the source node such as its label, opacity, color, width, offset, alignment, and more.   |
-| `Target` | [`SankeyDataNode`](/blazor-ui/api/telerik.blazor.components.sankeydatanode) | The target of the hovered link. Provides details for the target node such as its label, opacity, color, width, offset, alignment and more.   | 
+| `Source` | [`SankeyDataNode`](slug://telerik.blazor.components.sankeydatanode) | The source of the hovered link. Provides details for the source node such as its label, opacity, color, width, offset, alignment, and more.   |
+| `Target` | [`SankeyDataNode`](slug://telerik.blazor.components.sankeydatanode) | The target of the hovered link. Provides details for the target node such as its label, opacity, color, width, offset, alignment and more.   | 
 | `Value` | `double?` | The hovered link value. | 
 
 ## Node Tooltip Template
 
-The `NodeTemplate` controls the content of the Tooltip that will appear when the user hovers a node. The `NodeTemplate` exposes a `context` of type [`SankeyNodeTooltipTemplateContext`](/blazor-ui/api/Telerik.Blazor.Components.SankeyNodeTooltipTemplateContext) which provides the following properties:
+The `NodeTemplate` controls the content of the Tooltip that will appear when the user hovers a node. The `NodeTemplate` exposes a `context` of type [`SankeyNodeTooltipTemplateContext`](slug://Telerik.Blazor.Components.SankeyNodeTooltipTemplateContext) which provides the following properties:
 
 | Property | Type | Description |
 | ---------| ---- | ----------- |
-| `DataItem` | [`SankeyDataNode`](/blazor-ui/api/telerik.blazor.components.sankeydatanode) | The node that the user hovered. The `SankeyDataNode` provides details for the hovered node such as its label, opacity, color, width, offset and alignment.   | 
+| `DataItem` | [`SankeyDataNode`](slug://telerik.blazor.components.sankeydatanode) | The node that the user hovered. The `SankeyDataNode` provides details for the hovered node such as its label, opacity, color, width, offset and alignment.   | 
 | `Value` | `double?` | The hovered node value.  | 
 
 ## Example

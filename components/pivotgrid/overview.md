@@ -152,7 +152,7 @@ The tables below list the parameters of [all components, which comprise the Pivo
 
 ### Grid Parameters
 
-The following table lists the `TelerikPivotGrid` parameters. Also check the [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1).
+The following table lists the `TelerikPivotGrid` parameters. Also check the [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1).
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -251,4 +251,4 @@ The Pivot Grid exposes methods for programmatic operation. To use them, define a
 ## See Also
 
 * [Live PivotGrid Demos](https://demos.telerik.com/blazor-ui/pivotgrid/overview)
-* [PivotGrid API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikPivotGrid-1)
+* [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1)

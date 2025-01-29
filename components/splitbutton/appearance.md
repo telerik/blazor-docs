@@ -237,4 +237,4 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 ## See Also
 
 * [Live Demo: SplitButton Appearance](https://demos.telerik.com/blazor-ui/splitbutton/appearance)
-* [SplitButton API](/blazor-ui/api/Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)

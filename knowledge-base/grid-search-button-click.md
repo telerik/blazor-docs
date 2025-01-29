@@ -32,7 +32,7 @@ I am using the Grid SearchBox, but I don't want it to search for every typed let
 1. [Bind the Grid with an OnRead event handler](slug://components/grid/manual-operations).
 1. Replace the [**GridSearchBox**](slug://grid-searchbox) with a [TextBox](slug://components/textbox/overview) and a [Button](slug://components/button/overview) with an [OnClick event handler](slug://button-events).
 1. Optionally, handle the [TextBox `OnChange` event](slug://components/textbox/events) too. This will allow searching on textbox blur and Enter keypress.
-1. In the click/change handler, build a [`CompositeFilterDescriptor`](/blazor-ui/api/Telerik.DataSource.CompositeFilterDescriptor) with a `LogicalOperator` of `Or`. Populate its `FilterDescriptors` collection with filters for all searchable Grid model fields.
+1. In the click/change handler, build a [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor) with a `LogicalOperator` of `Or`. Populate its `FilterDescriptors` collection with filters for all searchable Grid model fields.
 1. [Add the composite filter descriptor to the Grid State to search programmatically](slug://grid-state#setstateasync-examples).
 
 Note the [difference between searching and filtering in the Grid state](slug://grid-state#information-in-the-grid-state). Filtering affects the Grid's filtering UI (row or menu), while searching does not.

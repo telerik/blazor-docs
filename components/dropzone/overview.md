@@ -50,7 +50,7 @@ The DropZone allows you to customize its rendering and appearance through a `Tem
 
 ## Parameters
 
-The following table lists DropZone parameters. Check the [DropZone API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikDropZone) for a full list of properties, methods and events.
+The following table lists DropZone parameters. Check the [DropZone API Reference](slug://Telerik.Blazor.Components.TelerikDropZone) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 

@@ -40,7 +40,7 @@ The different Upload events use different event argument types, but the exposed 
 |---|---|---|
 | `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. The file is always one in `OnCancel`, `OnError`, `OnProgress`, `OnRemove`, and `OnSuccess`. |
 | `IsCancelled` | `bool` | Set to `true` to cancel the event and the respective user action. |
-| `Operation` | [`UploadOperationType`](/blazor-ui/api/Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
+| `Operation` | [`UploadOperationType`](slug://Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Request` | `UploadHttpRequest` | Information about the server response such as status code and any custom messages. The object contains the `int` property `Status` and the `StatusText`, `ResponseType`, and `ResponseText` strings. |
 | `RequestData` | `Dictionary<string, object>` | Add `KeyValuePair` definitions to [send custom data](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
@@ -62,7 +62,7 @@ The `UploadFileInfo` object has the following properties:
 | `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The [file can be renamed](#renaming-a-file) in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Size` | `long` | The file size in bytes. |
-| `Status` | [`UploadFileStatus` enum](/blazor-ui/api/Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
+| `Status` | [`UploadFileStatus` enum](slug://Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
 
 
 ## OnCancel

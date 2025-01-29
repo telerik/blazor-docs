@@ -83,7 +83,7 @@ If a Telerik component has both a `Placeholder` and a floating label, the behavi
 
 ## FloatingLabel Parameters
 
-The following table lists the FloatingLabel parameters. Also check the [FloatingLabel API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFloatingLabel) for a full list of properties, methods and events.
+The following table lists the FloatingLabel parameters. Also check the [FloatingLabel API Reference](slug://Telerik.Blazor.Components.TelerikFloatingLabel) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -101,4 +101,4 @@ The following table lists the FloatingLabel parameters. Also check the [Floating
 ## See Also
 
 * [Live Floating Label Demos](https://demos.telerik.com/blazor-ui/floatinglabel/overview)
-* [Floating Label API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikFloatingLabel)
+* [Floating Label API Reference](slug://Telerik.Blazor.Components.TelerikFloatingLabel)

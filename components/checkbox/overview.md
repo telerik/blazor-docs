@@ -100,4 +100,4 @@ else
 ## See Also
 
 * [Live CheckBox Demos](https://demos.telerik.com/blazor-ui/checkbox/overview)
-* [CheckBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikCheckBox-1)
+* [CheckBox API Reference](slug://Telerik.Blazor.Components.TelerikCheckBox-1)

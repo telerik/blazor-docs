@@ -68,7 +68,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 
 * One level of grouping is supported.
 * The `DefaultText` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
-* A grouped DropDownList will provide a `Groups` property with a single [`GroupDescriptor`](/blazor-ui/api/Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](/blazor-ui/api/Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug://components/dropdownlist/events#onread). This will allow the developer to apply grouping with [manual data operations](slug://components/grid/manual-operations).
+* A grouped DropDownList will provide a `Groups` property with a single [`GroupDescriptor`](slug://Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug://Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug://components/dropdownlist/events#onread). This will allow the developer to apply grouping with [manual data operations](slug://components/grid/manual-operations).
 
 ## See Also
 

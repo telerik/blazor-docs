@@ -86,7 +86,7 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `Autocomplete` | `string` | The [`autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) on the `<input />` element. |
 | `DebounceDelay` | `int` <br /> (`150`) | The time in milliseconds between the last typed symbol and the value update. Use it to balance between client-side performance and number of database queries. |
 | `Decimals` | `int` | The number of allowed decimal places during typing. Takes effect only while the input is focused. The default value depends on the culture. |
-| `Format` | `string` | The number format when the input is not focused. Read more at [Standard Numeric Format Strings in .NET](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) |
+| `Format` | `string` | The number format when the input is not focused. Read more about .NET format strings at [Standard Numeric Format Strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings) and [Custom Numeric Format Strings](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings). |
 | `Id` | `string` | The `id` attribute on the `<input />` element. |
 | `InputMode` | `string` | The [`inputmode` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) of the `<input />` element. |
 | `Max` | `TValue`* <br /> (`T.MaxValue`) | The maximum value the input can accept. Must match the `Value` type. |
@@ -171,4 +171,4 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor-ui/numerictextbox/validation)
 * [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
 * [Input Validation](slug://common-features/input-validation)
-* [NumericTextBox API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikNumericTextBox-1)
+* [NumericTextBox API Reference](slug://Telerik.Blazor.Components.TelerikNumericTextBox-1)

@@ -1,16 +1,17 @@
 ---
 title: Blazor Web App
-page_title: First Steps with Blazor Web Apps and Telerik UI for Blazor
-description: Make your first steps with Telerik UI for Blazor and build a Web App that runs the UI for Blazor components.
+page_title: First Steps with Blazor Web App and Telerik UI
+meta_title: First Steps with Blazor Web App | Telerik UI for Blazor.
+description: Learn how to use the Telerik UI for Blazor components in a Blazor Web App project template for .NET 8 and .NET 9.
 slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
 published: true
 position: 5
 ---
 
-# First Steps with UI for Blazor in a Web App
+# First Steps with Blazor Web App and Telerik UI
 
-This article explains how to use the Telerik UI for Blazor components in a <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-9.0#blazor-web-app" target="_blank">Blazor Web App</a> project template that exists for .NET 8 and 9. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+This article explains how to use the Telerik UI for Blazor components in a Blazor Web App project template that exists for .NET 8 and 9. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
@@ -28,7 +29,7 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 1. Click **Create**.
 
-> Most Telerik Blazor components require interactivity. They will not respond to user actions and the Blazor framework will not refresh their UI in static render mode. Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static render mode at all.
+> Each component in a Blazor Web App utilizes a render mode to define its hosting model, determine its rendering location, and specify whether it is interactive. Most Telerik Blazor components require interactivity. They will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
 >
 > The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
 
@@ -36,7 +37,7 @@ This article explains how to use the Telerik UI for Blazor components in a <a hr
 
 ## Step 3: Install the Telerik UI for Blazor Components
 
-1. Right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
+1. To include the Telerik component library, right-click each project that will use Telerik Blazor components, and select **Manage NuGet Packages**.
 
     * Apps with interactive Server render mode need the Telerik Nuget package in the server project.
     * Apps with global interactive Auto or WebAssembly render mode need the Telerik NuGet package in the client project.

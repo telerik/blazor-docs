@@ -1351,5 +1351,5 @@ using System.Collections.ObjectModel;
 
 * [Live Demo: TreeView Drag and Drop](https://demos.telerik.com/blazor-ui/treeview/drag-drop)
 * [Data Binding a TreeView](slug://components/treeview/data-binding/overview)
-* [TreeView API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikTreeView)
+* [TreeView API Reference](slug://Telerik.Blazor.Components.TelerikTreeView)
 * [Drag TreeView Items to a Custom Target](slug://treeview-kb-drag-to-custom-target)

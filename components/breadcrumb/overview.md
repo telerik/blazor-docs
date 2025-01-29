@@ -118,4 +118,4 @@ The Breadcrumb provides the following features:
 ## See Also
 
 * [Live Demo: Breadcrumb Overview](https://demos.telerik.com/blazor-ui/breadcrumb/overview)
-* [BreadCrumb API Reference](/blazor-ui/api/Telerik.Blazor.Components.TelerikBreadcrumb-1)
+* [BreadCrumb API Reference](slug://Telerik.Blazor.Components.TelerikBreadcrumb-1)
