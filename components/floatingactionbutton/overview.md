@@ -10,7 +10,11 @@ position: 0
 
 # Blazor Floating Action Button Overview
 
-The <a href="https://www.telerik.com/blazor-ui/floating-action-button" target="_blank">Blazor Floating Action Button</a> is a UI component that is tied to the most logical action expected from a user looking at a particular screen. It floats in the application above other items, and its main action directly corresponds to the content on the screen. You can configure the FloatingActionButton to be a single button with a single action, to display additional related actions, or to provide speed dial actions.
+The <a href="https://www.telerik.com/blazor-ui/floating-action-button" target="_blank">Blazor Floating Action Button</a> is a UI component that shows over the other page content and may not move during scrolling. The component can perform the most logical action expected from a user looking at a particular screen. You can configure the FloatingActionButton to display:
+
+* A single button with a single action
+* Additional related actions
+* Speed dial actions
 
 The Floating Action Button comes with built-in customization features that lets you fine-tune the [positioning and alignment](slug://fab-positions) of the component, customize its [appearance](slug://fab-appearance), use icons, and attach click [events](slug://fab-events).
 
