@@ -51,7 +51,7 @@ The Blazor Floating Action Button provides various parameters that allow you to 
 | `Id` | `string` | The `id` attribute of the Floating Action Button. |
 | `Icon` | `object` | The icon rendered in the Floating Action Button. Can be set to a predefined Telerik icon or a custom one. | 
 | `Title` | `string` | The `title` attribute of the Floating Action Button. |
-| `PositionMode` | `FloatingActionButtonPositionMode ` <br /> (`Fixed`) | The position of the Floating Action Button relative to the container. |
+| `PositionMode` | `FloatingActionButtonPositionMode` enum <br /> (`Fixed`) | The position of the Floating Action Button relative to the container. |
 | `HorizontalAlign` | `FloatingActionButtonHorizontalAlign` <br /> (`End`) | Determines if the left or the right side of the Floating Action Button will touch its parent container. [Read more about Floating Action Button positioning.](slug://fab-positions) |
 | `VerticalAlign` | `FloatingActionButtonVerticalAlign` <br /> (`Bottom`) | Determines if the Floating Action Button will touch the parent container with its top or bottom side. |
 | `HorizontalOffset` | `string` <br /> (`16px`) | The horizontal offset value added to the button position, creating a blank space between the button and the parent. |
