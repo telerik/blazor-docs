@@ -46,8 +46,8 @@ The Blazor Floating Action Button provides various parameters that allow you to 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
-|----------|----------|----------|
-| `Enabled` | `bool` <br/> (`true`) | Whether the Floating Action Button is enabled. |
+| --- | --- | --- |
+| `Enabled` | `bool` <br /> (`true`) | Whether the Floating Action Button is enabled. |
 | `Id` | `string` | The `id` attribute of the Floating Action Button. |
 | `Icon` | `object` | The icon rendered in the Floating Action Button. Can be set to a predefined Telerik icon or a custom one. | 
 | `Title` | `string` | The `title` attribute of the Floating Action Button. |
