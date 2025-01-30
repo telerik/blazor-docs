@@ -41,7 +41,7 @@ The Blazor Floating Action Button fires events that you can handle and respond t
 
 ## Floating Action Button Parameters
 
-The Blazor Floating Action Button provides various parameters that allow you to configure the component. Also check the [Floating Action Button public API](/blazor-ui/api/Telerik.Blazor.Components.TelerikFloatingActionButton).
+The Blazor Floating Action Button provides various parameters that allow you to configure the component. Also check the [Floating Action Button public API](slug:Telerik.Blazor.Components.TelerikFloatingActionButton).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
