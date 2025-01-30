@@ -23,7 +23,7 @@ The Floating Action Button comes with built-in customization features that lets 
 1. Use the `<TelerikFloatingActionButton>` tag to add the component to your razor page.
 2. (optional) Customize the [appearance](slug://fab-appearance) of the Telerik Blazor Floating Action Button.
 
->caption Basic Blazor Floating Action Button configuration
+>caption Basic Blazor Floating Action Button
 
 ````RAZOR
 <TelerikFloatingActionButton Size="@ThemeConstants.Button.Size.Large"
