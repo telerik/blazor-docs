@@ -8,11 +8,11 @@ published: True
 position: 16
 ---
 
-# TabStrip Tabs Alignment
+# TabStrip Tabs Size
 
 By design, the tabs are displayed in medium size.
 
-You can customize their size through the `Size` parameter. It supports the following values:
+You can customize the size of the TabStrip tabs using the `Size` parameter. It is recommended to use predefined constants from the `ThemeConstants.TabStrip.Size` static class. The available options are:
 
 * `small` — Reduces the default padding of the TabStrip tabs. This size is useful when you want to fit more tabs in a limited space.
 * `medium` (default) — Represents the default padding of the TabStrip tabs.

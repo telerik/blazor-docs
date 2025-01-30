@@ -52,7 +52,7 @@ The Blazor TabStrip component allows you to control the position of the tabs. [R
 
 The Blazor TabStrip component allows you to control the alignment of the tabs. [Read more about the Tabs Alignment...](slug://tabstrip-tabs-alignment)
 
-## Size of the Tabs
+## Tab Size
 
 The Blazor TabStrip component allow you to set different size of the tabs and scroll buttons. [Read more about the TabStrip Sizing...](slug://tabstrip-tabs-size)
 
