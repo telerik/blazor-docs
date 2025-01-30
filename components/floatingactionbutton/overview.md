@@ -45,7 +45,7 @@ The Blazor Floating Action Button provides various parameters that allow you to 
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter | Type and Default Value | Description |
+| Parameter | Type and Default&nbsp;Value | Description |
 |----------|----------|----------|
 | `Enabled` | `bool` <br/> (`true`) | Whether the Floating Action Button is enabled. |
 | `Id` | `string` | The `id` attribute of the Floating Action Button. |
