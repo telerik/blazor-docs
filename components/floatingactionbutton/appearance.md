@@ -89,37 +89,37 @@ The color of the button is controlled through the `ThemeColor` parameter. You ca
                              Icon="SvgIcon.Play" />
 
 @code {
-    private string ThemeColor { get; set; } = ThemeConstants.Badge.ThemeColor.Primary;
+    private string ThemeColor { get; set; } = ThemeConstants.Button.ThemeColor.Primary;
     private List<string> ThemeColors { get; set; } = new List<string>()
     {
-        "base",
-        "primary",
-        "secondary",
-        "tertiary",
-        "info",
-        "success",
-        "warning",
-        "error",
-        "dark",
-        "light",
-        "inverse"
+        ThemeConstants.Button.ThemeColor.Base,
+        ThemeConstants.Button.ThemeColor.Primary,
+        ThemeConstants.Button.ThemeColor.Secondary,
+        ThemeConstants.Button.ThemeColor.Tertiary,
+        ThemeConstants.Button.ThemeColor.Info,
+        ThemeConstants.Button.ThemeColor.Success,
+        ThemeConstants.Button.ThemeColor.Warning,
+        ThemeConstants.Button.ThemeColor.Error,
+        ThemeConstants.Button.ThemeColor.Dark,
+        ThemeConstants.Button.ThemeColor.Light,
+        ThemeConstants.Button.ThemeColor.Inverse
     };
 
-    private string Rounded { get; set; } = ThemeConstants.Badge.Rounded.Full;
+    private string Rounded { get; set; } = ThemeConstants.Button.Rounded.Full;
     private List<string> RoundedValues { get; set; } = new List<string>()
     {
-        "sm",
-        "md",
-        "lg",
-        "full"
+        ThemeConstants.Button.Rounded.Small,
+        ThemeConstants.Button.Rounded.Medium,
+        ThemeConstants.Button.Rounded.Large,
+        ThemeConstants.Button.Rounded.Full
     };
 
-    private string Size { get; set; } = ThemeConstants.Badge.Size.Medium;
+    private string Size { get; set; } = ThemeConstants.Button.Size.Medium;
     private List<string> Sizes { get; set; } = new List<string>()
     {
-        "sm",
-        "md",
-        "lg"
+        ThemeConstants.Button.Size.Small,
+        ThemeConstants.Button.Size.Medium,
+        ThemeConstants.Button.Size.Large
     };
 }
 ````

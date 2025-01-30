@@ -26,9 +26,21 @@ The Floating Action Button comes with built-in customization features that lets 
 >caption Basic Blazor Floating Action Button
 
 ````RAZOR
+Current time: @Result
 <TelerikFloatingActionButton Size="@ThemeConstants.Button.Size.Large"
-                             VerticalAlign="@FloatingActionButtonVerticalAlign.Middle" 
-                             Icon="@SvgIcon.InfoCircle"/>
+                             VerticalAlign="@FloatingActionButtonVerticalAlign.Top"
+                             HorizontalAlign="@FloatingActionButtonHorizontalAlign.Center"
+                             ThemeColor="@ThemeConstants.Button.ThemeColor.Info"
+                             Icon="@SvgIcon.Clock"
+                             OnClick="@HandleClickEvent" />
+@code {
+    private string Result { get; set; } = DateTime.Now.ToString("HH:MM:ss:fff");
+
+    private void HandleClickEvent()
+    {
+        Result = DateTime.Now.ToString("HH:MM:ss:fff");
+    }
+}
 ````
 
 ## Position and Alignment
@@ -63,10 +75,10 @@ The following parameters enable you to customize the appearance of the Blazor Fl
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Defines the `<div class="k-badge">` CSS class rendered on the main wrapping element of the Floating Action Button component. Use it for [styling customizations](slug://themes-override). |
-| `Rounded` | `Telerik.Blazor.ThemeConstants.Badge.Rounded.Full` | Defines how rounded the borders of the Floating Action Button are. |
-| `Size` | `Telerik.Blazor.ThemeConstants.Badge.Size.Medium` | Sets the size of the Floating Action Button. |
-| `ThemeColor` | `Telerik.Blazor.ThemeConstants.Badge.ThemeColor.Primary` | Adjusts the background color of the Floating Action Button. |
+| `Class` | `string` | Defines the custom CSS class rendered on `<button class="k-fab">`, which is the main wrapping element of the Floating Action Button component. Use it for [styling customizations](slug://themes-override). |
+| `Rounded` | `string` <br /> `"full"` | Defines how rounded the borders of the Floating Action Button are. Use predefined value constants from the static class `Telerik.Blazor.ThemeConstants.Button.Rounded`. |
+| `Size` | `string` <br /> (`"md"`) | Sets the size of the Floating Action Button. Set it to a predefined value constant from the static class `Telerik.Blazor.ThemeConstants.Button.Size`. |
+| `ThemeColor` | `string` <br /> (`"primary"`) | Adjusts the background color of the Floating Action Button. Use predefined values from the static class `Telerik.Blazor.ThemeConstants.Button.ThemeColor`. |
 
 
 ## Next Steps

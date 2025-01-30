@@ -41,20 +41,16 @@ Use the available alignment parameters to control which side of the Floating Act
     <label>
         Horizontal Alignment
         <br />
-        <TelerikDropDownList Data="@HorizontalAligns" @bind-Value="@HorizontalAlign" Width="150px">
-            <DropDownListSettings>
-                <DropDownButtonPopupSettings MaxHeight="auto" />
-            </DropDownListSettings>
-        </TelerikDropDownList>
+        <TelerikRadioGroup Data="@HorizontalAligns"
+                           @bind-Value="@HorizontalAlign">
+        </TelerikRadioGroup>
     </label>
     <label>
         Vertical Alignment
         <br />
-        <TelerikDropDownList Data="@VerticalAligns" @bind-Value="@VerticalAlign" Width="150px">
-            <DropDownListSettings>
-                <DropDownButtonPopupSettings MaxHeight="auto" />
-            </DropDownListSettings>
-        </TelerikDropDownList>
+        <TelerikRadioGroup Data="@VerticalAligns"
+                           @bind-Value="@VerticalAlign">
+        </TelerikRadioGroup>
     </label>
 </div>
 
