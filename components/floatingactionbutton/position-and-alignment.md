@@ -12,7 +12,7 @@ position: 2
 
 You can position and align the Blazor Floating Action Button component relative to its parent container by using the available parameters. The example at the bottom of the page lets you experiment with the available parameters.
 
-## Position
+## Position Mode
 
 The `PositionMode` parameter accepts a member of the `FloatingActionButtonPositionMode` enum and controls the CSS position of the Floating Action Button:
 
