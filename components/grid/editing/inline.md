@@ -20,158 +20,264 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 
 To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Inline`, then handle the CRUD events as shown in the example below.
 
-
 >caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
 
 ````RAZOR
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+@using System.ComponentModel.DataAnnotations
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-Use the command buttons to control the CUD operations.
-<br />
-<strong>Editing is cancelled for the first two records</strong>.
+<p>The example below shows how to:</p>
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+<ul>
+    <li>Render command buttons conditionally.</li>
+    <li>Refresh the Grid after editing by reloading the data from the remote datasource.</li>
+    <li>Refresh the Grid after editing by applying the user changes to the local data collection.</li>
+    <li>Cancel the OnCancel event conditionally, so that the Grid remains in edit mode. Similar behavior can be achieved by cancelling OnCreate and OnUpdate.</li>
+    <li>Confirm Delete commands with a built-in Grid dialog. You can also intercept Delete commands with a separate Dialog or a custom popup.</li>
+    <li>Cancel the OnAdd and OnEdit events conditionally, so that the Grid does not go into edit mode.</li>
+</ul>
+
+<TelerikGrid Data="@GridData"
+             ConfirmDelete="@GridConfirmDelete"
+             EditMode="@GridEditMode.Inline"
+             OnAdd="@OnGridAdd"
+             OnCancel="@OnGridCancel"
+             OnCreate="@OnGridCreate"
+             OnDelete="@OnGridDelete"
+             OnEdit="@OnGridEdit"
+             OnUpdate="@OnGridUpdate"
+             Pageable="true"
+             PageSize="5"
+             Sortable="true">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add" ThemeColor="@AddEditButtonThemeColor">Add Item</GridCommandButton>
+        <span class="k-separator"></span>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShouldCancelOnAddEdit" /> Cancel OnAdd and OnEdit Events</label>
+        <span class="k-separator"></span>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShouldConfirmOnCancel" /> Confirm Cancel Commands</label>
+        <span class="k-separator"></span>
+        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@GridConfirmDelete" /> Confirm Delete Commands</label>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        <GridColumn Field="@nameof(Product.Id)" Editable="false" Width="60px" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Description)" EditorType="@GridEditorType.TextArea">
+            <Template>
+                @{ var dataItem = (Product)context; }
+                <div style="white-space:pre">@dataItem.Description</div>
+            </Template>
+        </GridColumn>
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridCommandColumn Title="Commands" Width="180px">
+            @{ var dataItem = (Product)context; }
+            <GridCommandButton Command="Edit" ThemeColor="@AddEditButtonThemeColor">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ThemeColor="@CancelButtonThemeColor" ShowInEdit="true">Cancel</GridCommandButton>
+            @if (dataItem.Discontinued)
+            {
+                <GridCommandButton Command="Delete" ThemeColor="@DeleteButtonThemeColor">Delete</GridCommandButton>
+            }
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    void EditHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+    private List<Product> GridData { get; set; } = new();
 
-        // prevent opening for edit based on condition
-        if (item.ID < 3)
+    private ProductService GridProductService { get; set; } = new();
+
+    [CascadingParameter]
+    public DialogFactory? TelerikDialogs { get; set; }
+
+    private bool GridConfirmDelete { get; set; } = true;
+    private bool ShouldCancelOnAddEdit { get; set; }
+    private bool ShouldConfirmOnCancel { get; set; } = true;
+
+    private string AddEditButtonThemeColor => ShouldCancelOnAddEdit ? ThemeConstants.Button.ThemeColor.Error : ThemeConstants.Button.ThemeColor.Base;
+    private string DeleteButtonThemeColor => GridConfirmDelete ? ThemeConstants.Button.ThemeColor.Base : ThemeConstants.Button.ThemeColor.Warning;
+    private string CancelButtonThemeColor => ShouldConfirmOnCancel ? ThemeConstants.Button.ThemeColor.Base : ThemeConstants.Button.ThemeColor.Warning;
+
+    private void OnGridAdd(GridCommandEventArgs args)
+    {
+        if (ShouldCancelOnAddEdit)
         {
-            args.IsCancelled = true;// the general approach for cancelling an event
+            args.IsCancelled = true;
+            return;
         }
-
-        Console.WriteLine("Edit event is fired.");
     }
 
-    async Task UpdateHandler(GridCommandEventArgs args)
+    private async Task OnGridCancel(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        if (ShouldConfirmOnCancel)
+        {
+            bool shouldContinue = await TelerikDialogs!.ConfirmAsync("Do you want to discard your changes?");
 
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Update event is fired.");
+            if (!shouldContinue)
+            {
+                args.IsCancelled = true;
+            }
+        }
     }
 
-    async Task DeleteHandler(GridCommandEventArgs args)
+    private async Task OnGridCreate(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var createdItem = (Product)args.Item;
 
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
+        // Create the item in the database.
+        int newId = await GridProductService.Create(createdItem);
 
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Delete event is fired.");
+        // Reload the data from the database.
+        GridData = await GridProductService.Read();
+        // OR
+        // Create the item in the local data too.
+        //createdItem.Id = newId;
+        //GridData.Insert(0, createdItem);
     }
 
-    async Task CreateHandler(GridCommandEventArgs args)
+    private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var deletedItem = (Product)args.Item;
 
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
+        // Delete the item in the database.
+        await GridProductService.Delete(deletedItem);
 
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Create event is fired.");
+        // Reload the data from the database.
+        GridData = await GridProductService.Read();
+        // OR
+        // Delete the item in the local data too.
+        //GridData.Remove(deletedItem);
     }
 
-    async Task CancelHandler(GridCommandEventArgs args)
+    private void OnGridEdit(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        Console.WriteLine("Cancel event is fired.");
+        if (ShouldCancelOnAddEdit)
+        {
+            args.IsCancelled = true;
+            return;
+        }
     }
 
-
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
+    private async Task OnGridUpdate(GridCommandEventArgs args)
     {
-        public int ID { get; set; }
-        [Required]
-        public string Name { get; set; }
-    }
+        var updatedItem = (Product)args.Item;
 
-    public List<SampleData> MyData { get; set; }
+        // Update the item in the database.
+        bool success = await GridProductService.Update(updatedItem);
 
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
+        // Reload the data from the database.
+        GridData = await GridProductService.Read();
+        // OR
+        // Update the item in the local data too.
+        //int originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
+        //if (originalItemIndex != -1)
+        //{
+        //    GridData[originalItemIndex] = updatedItem;
+        //}
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await GetGridData();
+        GridData = await GridProductService.Read();
     }
 
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
+    public class ProductService
     {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
+        private List<Product> Items { get; set; }
 
-        public static async Task Create(SampleData itemToInsert)
+        private int LastId { get; set; }
+
+        public async Task<int> Create(Product product)
         {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
+            // Simulate async operation.
+            await Task.Delay(100);
+
+            product.Id = ++LastId;
+
+            Items.Insert(0, product);
+
+            return LastId;
         }
 
-        public static async Task<List<SampleData>> Read()
+        public async Task<bool> Delete(Product product)
         {
-            if (_data.Count < 1)
+            // Simulate async operation.
+            await Task.Delay(100);
+
+            if (Items.Contains(product))
             {
-                for (int i = 1; i < 50; i++)
+                Items.Remove(product);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<List<Product>> Read()
+        {
+            // Simulate async operation.
+            await Task.Delay(100);
+
+            return Items;
+        }
+
+        public async Task<DataSourceResult> Read(DataSourceRequest request)
+        {
+            return await Items.ToDataSourceResultAsync(request);
+        }
+
+        public async Task<bool> Update(Product product)
+        {
+            // Simulate async operation.
+            await Task.Delay(100);
+
+            int originalItemIndex = Items.FindIndex(x => x.Id == product.Id);
+
+            if (originalItemIndex != -1)
+            {
+                Items[originalItemIndex] = product;
+                return true;
+            }
+
+            return false;
+        }
+
+        public ProductService()
+        {
+            Items = new();
+
+            for (int i = 1; i <= 15; i++)
+            {
+                Items.Add(new Product()
                 {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "Name " + i.ToString()
-                    });
-                }
+                    Id = ++LastId,
+                    Name = $"Product {LastId}",
+                    Description = $"Multi-line\ndescription {LastId}",
+                    Price = LastId % 2 == 0 ? null : Random.Shared.Next(0, 100) * 1.23m,
+                    Quantity = LastId % 2 == 0 ? 0 : Random.Shared.Next(0, 3000),
+                    ReleaseDate = DateTime.Today.AddDays(-Random.Shared.Next(365, 3650)),
+                    Discontinued = LastId % 2 == 0
+                });
             }
 
-            return await Task.FromResult(_data);
         }
+    }
 
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            _data.Remove(itemToDelete);
-        }
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
