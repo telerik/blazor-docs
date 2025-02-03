@@ -1,11 +1,10 @@
 ---
 title: Get the content of the Editor selected by the user
-description: How to get the content of the Editor selected by the user
+description: Learn how to retrieve the selected text from the Telerik Editor using JavaScript to apply custom formatting dynamically.
 type: how-to
 page_title: Get the user selection in the Editor
 slug: editor-kb-get-selection
-position:
-tags:
+tags: blazor, editor, selection
 res_type: kb
 ---
 
@@ -53,7 +52,7 @@ If you want to use it on the .NET (Blazor) side, you need to:
 
 @inject IJSRuntime js
 
-<TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent" EditMode="@EditorEditMode.Iframe">
+<TelerikEditor Tools="@Tools" @bind-Value="@TheEditorContent" EditMode="@EditorEditMode.Div">
     <EditorCustomTools>
         <EditorCustomTool Name="GetSelectedText">
             <TelerikButton OnClick="@GetSelectedText">Get selected text</TelerikButton>
@@ -61,15 +60,14 @@ If you want to use it on the .NET (Blazor) side, you need to:
     </EditorCustomTools>
 </TelerikEditor>
 
-
 Selected text: @SelectedText
 
 @code {
-    string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
-    List<IEditorTool> Tools { get; set; }
-    public string SelectedText { get; set; }
+    private string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
+    private List<IEditorTool> Tools { get; set; }
+    private string SelectedText { get; set; }
     
-    async Task GetSelectedText()
+    private async Task GetSelectedText()
     {
         SelectedText = await js.InvokeAsync<string>("getSelectedText");
     }
@@ -120,15 +118,14 @@ If you want to use it on the .NET (Blazor) side, you need to:
     </EditorCustomTools>
 </TelerikEditor>
 
-
 Selected text: @SelectedText
 
 @code {
-    string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
-    List<IEditorTool> Tools { get; set; }
-    public string SelectedText { get; set; }
+    private string TheEditorContent { get; set; } = "<h1>Lorem ipsum</h1><p>Dolor sit amet.</p>";
+    private List<IEditorTool> Tools { get; set; }
+    private string SelectedText { get; set; }
     
-    async Task GetSelectedText()
+    private async Task GetSelectedText()
     {
         SelectedText = await js.InvokeAsync<string>("getSelectedText");
     }
