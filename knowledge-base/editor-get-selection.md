@@ -4,7 +4,7 @@ description: Learn how to retrieve the selected text from the Telerik Editor usi
 type: how-to
 page_title: Get the user selection in the Editor
 slug: editor-kb-get-selection
-tags: editor, selected, text, highlighted
+tags: blazor, editor, selection
 res_type: kb
 ---
 
