@@ -49,7 +49,7 @@ The purpose of this step is to supply the correct application culture to the `Re
 Create and add localization resource `resx` files to your app, based on the languages that the app must support. Use the following links for reference:
 
 * A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](slug://Telerik.Blazor.Resources.Messages).
-* An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug://installation/msi) or [UI for Blazor ZIP archive](slug://installation/zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
+* An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug://installation-msi) or [UI for Blazor ZIP archive](slug://installation-zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
 * Community resource files are available in the <a href="https://github.com/telerik/blazor-ui-messages" target="_blank">`blazor-ui-messages` GitHub repository</a>. These resource files are updated and maintained by the Telerik community. They may not be compatible with the latest product version. You are welcome to contribute your own resource files.
 
 > Update the localization resource files every time you upgrade Telerik UI for Blazor. Otherwise you may see:
@@ -177,7 +177,7 @@ You can find sample runnable projects for both server-side Blazor and for WebAss
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Localized Telerik Blazor Web App with Server Render Mode</a>
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank">Localized Telerik Blazor WebAssembly Standalone App</a>
 
-You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer](slug://installation/msi) or [UI for Blazor ZIP archive](slug://installation/zip) for download instructions.
+You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer](slug://installation-msi) or [UI for Blazor ZIP archive](slug://installation-zip) for download instructions.
 
 
 ## Troubleshooting

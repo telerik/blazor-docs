@@ -12,8 +12,9 @@ position: 5
 
 This article explains some concepts and how to troubleshoot the most common errors related to setting up the Telerik NuGet packages for automated builds, CI and CD.
 
-Sections in this article:
+> To successfully set up a CI/CD environment for Telerik Blazor apps, also refer to the article about [Telerik license keys in CI/CD](slug://deployment-license-key).
 
+Sections in this article:
 
 * [Basics](#basics)
 * [Azure DevOps Pipelines](#azure-devops-pipelines)
@@ -29,7 +30,7 @@ There are a couple of common ways people implement CI/CD automated builds.
 
 * You can [restore the Telerik NuGet packages](slug://deployment-nuget) by downloading them from the Telerik NuGet server. You can achieve this by using the more secure token-based authentication with the Telerik NuGet server. If you prefer the basic authentication with a username and password, you can use your own credentials (or the credentials of the license holder, depending on how your licenses are set up) in the `NuGet.Config` of the build machine/pipeline. In this case, make sure that your credentials are encrypted when you add the Telerik feed source through the CLI. Alternatively, you can copy an encrypted version from your own local config if you have one and if plain text is an issue. See more on setting up the [Telerik NuGet package source](slug://installation/nuget).
 
-* Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated](slug://installation/msi) and from the [zip archive](slug://installation/zip)).
+* Creating a local folder (for example, on a shared network drive or other suitable location accessible only by your builds and team) that holds the `.nupkg` files we provide (you can download them from your telerik.com account, or from your local installation - both [automated](slug://installation-msi) and from the [zip archive](slug://installation-zip)).
 
 You must protect your credentials and/or the Telerik packages and ensure they are used only by you and not by other developers, according to the [license-per-developer policy](https://www.telerik.com/purchase/license-agreement/blazor-ui). As long as your credentials are obfuscated/masked, they can be used by your colleagues (e.g. developers, QAs, designers, front-end devs, DBAs, etc.) for building and running a solution, provided they do not use the Telerik components to create functionality. Most importantly, you must ensure that such credentials or package sources are not available to the general public (for example, in public repositories). 
 
@@ -39,25 +40,19 @@ You must protect your credentials and/or the Telerik packages and ensure they ar
 When using Azure pipelines, we encourage you to review the following resources on setting things up:
 
 * Blog post: [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
-
 * Sample Repo and Video Tutorial: [Telerik DevOpsExamples by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 
->caption There are a couple of common questions and issues:
+There are a couple of common questions and issues:
 
 * Obtaining credentials - see the points above for either using your own credentials, or using a shared package source.
-
 * Telerik feed not being found - the most common reason for a problem is that the path to the `NuGet.Config` file is wrong (it should, by default, be at the root level).
-
 * An `index.json not found` error can occur from many root causes. If you have successfully authenticated, this error usually means that the feed wasn't able to be searched or connected to. A common reason is an incorrect feed URL, such as including a trailing slash - Correct: `https://nuget.telerik.com/v3/index.json` and Incorrect: `https://nuget.telerik.com/v3/index.json/`.
 
->caption A few things to double check to ensure correct setup:
+A few things to double check to ensure correct setup:
 
 * The Service connection is using Basic Authentication and the URL is correct (`https://nuget.telerik.com/v3/index.json` exactly, no trailing slash).
-
 * That Service Connection is selected as the credentials source.
-
 * The credentials being used have a UI for Blazor license.
-
 * Make sure that you use `dotnet restore` and not `nuget restore` in your pipeline step.
 
 
@@ -75,8 +70,8 @@ jobs:
     runs-on: windows-latest
 
     env:
-      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the space between the brackets
-      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the space between the brackets
+      TELERIK_USERNAME: ${ { secrets.MyTelerikAccountUsername } }  # remove the spaces between the brackets
+      TELERIK_PASSWORD: ${ { secrets.MyTelerikAccountPassword } }  # remove the spaces between the brackets
 
 ````
 
@@ -140,6 +135,11 @@ RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 ````
 
 
+## Next Steps
+
+* [Set Up Telerik License Key in CI/CD Environment](slug://deployment-license-key)
+
+
 ## Further Reading
 
 @[template](/_contentTemplates/common/issues-and-warnings.md#nuget-security-links)
@@ -147,8 +147,8 @@ RUN dotnet build "./MyBlazorApp.csproj" -c Release -o /app/build
 
 ## See Also
 
+* [Install License Key in CI/CD Environment](slug://deployment-license-key)
 * [Blog Post: Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 * [DevOpsExamples repo by Lance McCarthy](https://github.com/LanceMcCarthy/DevOpsExamples)
 * [Setup of the Telerik Online Private NuGet Feed](slug://installation/nuget)
 * [NuGet Feed Troubleshooting](slug://troubleshooting-nuget)
-

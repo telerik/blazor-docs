@@ -12,7 +12,7 @@ position: 15
 
 This page provides information for common issues you may encounter while deploying applications with the Telerik UI for Blazor components.
 
->important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug://installation/nuget) or a [local feed](slug://installation/zip). See the [CI, CD, Build Server](slug://deployment-ci-cd-build-pc) article for more details on setting automation up.
+>important The machine that performs the publish build must be able to properly restore the referenced Telerik NuGet packages. This can be [our online feed](slug://installation/nuget) or a [local feed](slug://installation-zip). See the [CI, CD, Build Server](slug://deployment-ci-cd-build-pc) article for more details on setting automation up.
 
 @[template](/_contentTemplates/common/general-info.md#status-telerik-com)
 

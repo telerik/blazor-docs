@@ -85,6 +85,10 @@ The **Create New Project** wizard generates a project that is based on the Micro
 
 Finally, you can apply one of the available [themes](slug://themes-overview) to your project.
 
+### Step 4: Install or Update License Key
+
+If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
+
 ## See Also
 
 * [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)

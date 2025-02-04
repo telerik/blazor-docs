@@ -84,6 +84,10 @@ In this step, you can apply one of the available [themes](slug://themes-overview
 
 You can choose to back up the project state before the conversion (in a folder called `<ProjectName>_Backup>_<timestamp>`).
 
+### Step 4: Install or Update License Key
+
+If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
+
 ## Troubleshooting
 
 When converting a project, you may encounter the following most common issues:

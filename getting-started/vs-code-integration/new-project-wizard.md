@@ -44,37 +44,41 @@ The available templates vary depending on the target framework and hosting model
 
 Type your project name and select the output folder for it.
 
-#### Section 3: Select UI for Blazor Version
+#### Section 3: Install or Update License Key
+
+If necessary, the Telerik Visual Studio Code extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
+
+#### Section 4: Select UI for Blazor Version
 
 Select the preferred UI for Blazor version. Make sure that your system has access to the specified version of the UI components. You can achieve this with the [Telerik NuGet feed](slug://installation/nuget).
 
-#### Section 4: Select Hosting Model
+#### Section 5: Select Hosting Model
 
 Here you can select the desired hosting model&mdash;[**WebApp**](slug://getting-started/web-app), [**Client** (also: WebAssembly)](slug://getting-started/client-side), [**Server**](slug://getting-started/server-side), or [**Hybrid** (a hybrid Blazor MAUI)](slug://getting-started/hybrid-blazor).
 
 The available target framework options are updated upon selecting the hosting model.
 
-#### Section 5: Select Your License Type
+#### Section 6: Select Your License Type
 
 Select your license type - **Commercial** (**Paid**) or **Trial**.
 
-#### Section 6: Choose How to Distribute the Client Assets
+#### Section 7: Choose How to Distribute the Client Assets
 
 Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug://getting-started/what-you-need#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug://common-features-cdn).
 
-#### Section 7: Enable or Disable Localization
+#### Section 8: Enable or Disable Localization
 
 Choose whether to use [localization](slug://globalization-localization) in the project or not.
 
-#### Section 8: Select the Preferred Icon Type
+#### Section 9: Select the Preferred Icon Type
 
 Decide if you want to switch to using [Font Icons](slug://common-features-icons) instead of the default SVG icons.
 
-#### Section 9: Select Target Framework
+#### Section 10: Select Target Framework
 
 The available .NET framework versions vary depending on the selected hosting model.
 
-#### Section 10: Select Theme
+#### Section 11: Select Theme
 
 Select your desired [theme](slug://themes-overview) for your project. Click **See All Swatches** to explore the available [theme color variations](slug://themes-overview#basics).
 

@@ -25,7 +25,7 @@ In this article:
 
 ## Basics
 
-The `Telerik.DataSource` package is distributed through the [Telerik NuGet package source](slug://installation/nuget) and is available to both trial and commercial licenses. It is also available as a resource in the [offline installer](slug://installation/msi) and [resources archive](slug://installation/zip) of Telerik UI for Blazor and some other Telerik suites, such as UI for ASP.NET Core.
+The `Telerik.DataSource` package is distributed through the [Telerik NuGet package source](slug://installation/nuget) and is available to both trial and commercial licenses. It is also available as a resource in the [offline installer](slug://installation-msi) and [resources archive](slug://installation-zip) of Telerik UI for Blazor and some other Telerik suites, such as UI for ASP.NET Core.
 
 The `Telerik.DataSource` package targets `netstandard2.1`.
 

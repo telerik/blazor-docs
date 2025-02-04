@@ -63,7 +63,7 @@ There are three ways to load a Telerik theme, in terms of physical CSS file loca
 * Load a CSS theme as a local file in the `wwwroot` folder in the Blazor app. This option is relevant to the following cases:
     * When using [custom themes](slug://themes-customize).
     * When [creating](slug://getting-started-vs-integration-new-project) or [converting](slug://getting-started-vs-integration-convert-project) Telerik Blazor apps with the [Telerik UI for Blazor Visual Studio extension](slug://getting-started-vs-integration-overview).
-    * When using themes in Blazor from the Telerik UI for Blazor [MSI installer](slug://installation/msi) or [ZIP archive](slug://installation/zip). The CSS files are in the `swatches` folder.
+    * When using themes from the Telerik UI for Blazor [MSI installer](slug://installation-msi) or [ZIP archive](slug://installation-zip). The CSS files are in the `swatches` folder.
     * When using [LibMan](slug://common-kb-telerik-themes-libman) or <a href="https://www.telerik.com/design-system/docs/themes/get-started/installation/" target="_blank">npm</a> to obtain a specific Telerik theme version. In this case, you can use all built-in theme swatches.
 
 > The Blazor app must load only one Telerik theme file at a time. Upgrade the theme with every Telerik UI for Blazor version upgrade, unless you are loading the theme as a static NuGet asset.
