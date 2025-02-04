@@ -1,0 +1,38 @@
+{
+  "metaUrl": "button/basic/",
+  "url": "https://localhost:7053/button/basic/",
+  "source": {
+    "options": [
+      {
+        "name": "Program Language",
+        "values": [
+          "Javascript",
+          "TypeScript"
+        ]
+      }
+    ],
+    "files": [
+      {
+        "name": "index.html",
+        "language": "html",
+        "contentUrl": "https://localhost:7053/demo/1/file1"
+      },
+      {
+        "name": "main.jsx",
+        "contentUrl": "https://localhost:7053/demo/1/file2",
+        "language": "javascript",
+        "options": {
+          "Program Language": "Javascript"
+        }
+      },
+      {
+        "name": "main.tsx",
+        "contentUrl": "https://localhost:7053/demo/1/file3",
+        "language": "typescript",
+        "options": {
+          "Program Language": "Typescript"
+        }
+      }
+    ]
+  }
+}

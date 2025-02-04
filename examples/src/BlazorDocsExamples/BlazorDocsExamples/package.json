@@ -1,0 +1,17 @@
+{
+  "name": "blazordocsexamples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "copy-css": "node copy-css.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@progress/kendo-theme-bootstrap": "^10.0.0",
+    "@progress/kendo-theme-default": "^10.0.0",
+    "@progress/kendo-theme-fluent": "^10.0.0",
+    "@progress/kendo-theme-material": "^10.0.0"    
+  }
+}
