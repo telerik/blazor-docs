@@ -1,10 +1,10 @@
 ---
-title: Handle Upload Controls Visibility in TelerikPdfViewer
-description: Learn how to manage the visibility of upload controls in TelerikPdfViewer when loading a PDF file.
+title: How to Hide Upload Component in TelerikPdfViewer
+description: Learn how to hide the Upload component in TelerikPdfViewer when loading a PDF file.
 type: how-to
-page_title: How to Control Upload Component Visibility in TelerikPdfViewer
-slug: pdfviewer-kb-upload-controls-visibility
-tags: pdfviewer, blazor, upload controls, visibility, enableloadercontainer
+page_title: How to Hide Upload Component in TelerikPdfViewer
+slug: pdfviewer-kb-hide-upload
+tags: pdfviewer, blazor, upload, visibility, enableloadercontainer, hide
 res_type: kb
 ticketid: 1675214
 ---
@@ -26,13 +26,13 @@ When using the [TelerikPdfViewer](https://docs.telerik.com/blazor-ui/components/
 
 This knowledge base article also answers the following questions:
 
-- How to prevent interaction with Upload controls while a PDF is loading in TelerikPdfViewer?
+- How to prevent interaction with Upload component while a PDF is loading in TelerikPdfViewer?
 - How to hide Upload component in TelerikPdfViewer until the PDF file is fully loaded?
-- How to use custom CSS with TelerikPdfViewer to manage control visibility?
+- How to use custom CSS with TelerikPdfViewer to hide Upload component?
 
 ## Solution
 
-To control the visibility of upload controls in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. This can be achieved by leveraging the [`OnOpen`](slug://components/pdfviewer/events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
+To control the visibility of Upload component in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. To achieve that, use the [`OnOpen`](slug://components/pdfviewer/events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
 
 ````RAZOR
 <TelerikPdfViewer Data="@PdfSource"
@@ -42,11 +42,11 @@ To control the visibility of upload controls in the `TelerikPdfViewer` while a P
                   Class="@PdfClass">
 </TelerikPdfViewer>
 <style>
-    .my-pdf .k-external-dropzone {
+    .hide-pdf-upload .k-external-dropzone {
         display: none;
     }
 
-    .my-pdf .k-upload {
+    .hide-pdf-upload .k-upload {
         display: none;
     }
 </style>
@@ -56,13 +56,8 @@ To control the visibility of upload controls in the `TelerikPdfViewer` while a P
 
     private async Task OnPdfOpen(PdfViewerOpenEventArgs args)
     {
-        //hide upload controls
-        PdfClass = "my-pdf";
-    }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
+        //hide Upload component
+        PdfClass = "hide-pdf-upload";
     }
 }
 ````
