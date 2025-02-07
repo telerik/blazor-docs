@@ -85,6 +85,8 @@ The Blazor ToolBar provides parameters to configure the component:
 | `Adaptive` <br /> (deprecated) | `bool` <br /> (`true`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow. [Template items](slug://toolbar-templated-item#notes) don't participate in this mechanism and they are always rendered in the ToolBar itself. This parameter is deprecated in favor of `OverflowMode`. |
 | `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations](slug://themes-override). |
 | `OverflowMode` | `ToolBarOverflowMode` <br /> (`Menu`) | The adaptive mode of the Toolbar. |
+| `ScrollButtonsPosition` | `ToolBarScrollButtonsPosition` enum <br/> (`ToolBarScrollButtonsPosition.Split`) | Specifies the position of the buttons when the ToolBar scroll adaptive mode is enabled. |
+| `ScrollButtonsVisibility` | `ToolBarScrollButtonsVisibility` enum <br/> (`ToolBarScrollButtonsVisibility.Visible`)| Specifies the visibility of the buttons when the ToolBar scroll adaptive mode is enabled. |
 
 ### Styling and Appearance
 
