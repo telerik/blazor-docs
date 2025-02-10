@@ -4,7 +4,7 @@ description: Learn how to hide the Upload component in TelerikPdfViewer when loa
 type: how-to
 page_title: How to Hide Upload Component in TelerikPdfViewer
 slug: pdfviewer-kb-hide-upload
-tags: pdfviewer, blazor, upload, visibility, enableloadercontainer, hide
+tags: pdfviewer, blazor, upload, visibility, enableloadercontainer, hide, dropzone
 res_type: kb
 ticketid: 1675214
 ---
@@ -27,12 +27,12 @@ When using the [TelerikPdfViewer](https://docs.telerik.com/blazor-ui/components/
 This knowledge base article also answers the following questions:
 
 - How to prevent interaction with Upload component while a PDF is loading in TelerikPdfViewer?
-- How to hide Upload component in TelerikPdfViewer until the PDF file is fully loaded?
+- How to hide Upload and DropZone components in TelerikPdfViewer until the PDF file is fully loaded?
 - How to use custom CSS with TelerikPdfViewer to hide Upload component?
 
 ## Solution
 
-To control the visibility of Upload component in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. To achieve that, use the [`OnOpen`](slug://components/pdfviewer/events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
+To control the visibility of Upload component and its dropzone in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. To achieve that, use the [`OnOpen`](slug://components/pdfviewer/events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
 
 ````RAZOR
 <TelerikPdfViewer Data="@PdfSource"
