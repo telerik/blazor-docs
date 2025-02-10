@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/dock-manager" target="_blank">Blazor DockManager component</a> is a versatile tool that enables users to manage and organize multiple panes within a single container. It supports features like docking, undocking, resizing, and repositioning, offering a flexible and customizable layout.
 
->tip The DockManager is best suited for desktop-like interfaces and applications designed for larger screens, where users can take full advantage of its advanced layout management capabilities.
+The DockManager is best suited for desktop-like interfaces and applications designed for larger screens, where users can take full advantage of its advanced layout management capabilities.
 
 ## Creating Blazor DockManager
 
