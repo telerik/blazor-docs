@@ -5,7 +5,7 @@ description: Save, load, change the DockManager for Blazor state - docking, undo
 slug: dockmanager-state
 tags: telerik,blazor,dockmanager,state,save,load,layout,set,change,management
 published: True
-position: 5
+position: 15
 ---
 
 # DockManager State

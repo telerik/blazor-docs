@@ -12,6 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/dock-manager" target="_blank">Blazor DockManager component</a> is a versatile tool that enables users to manage and organize multiple panes within a single container. It supports features like docking, undocking, resizing, and repositioning, offering a flexible and customizable layout.
 
+>tip The DockManager is best suited for desktop-like interfaces and applications designed for larger screens, where users can take full advantage of its advanced layout management capabilities.
 
 ## Creating Blazor DockManager
 
@@ -19,112 +20,63 @@ The <a href="https://www.telerik.com/blazor-ui/dock-manager" target="_blank">Bla
 2. Use `<DockManagerPanes>` to structure the main docked layout.
 3. Within <DockManagerPanes>, add:
     * `<DockManagerContentPane>` for standalone panes.
-    * `<DockManagerSplitPane>` to create resizable sections containing multiple panes.
+    * `<DockManagerSplitPane>` to create sections with multiple resizable panes.
     * `<DockManagerTabGroupPane>` to enable tabbed panes.
-4. Define `HeaderTemplate` inside each pane to set the headers text.
-5. Populate the `Content` section of each pane with the desired UI elements.
+4. Define `HeaderTemplate` tag inside each pane to set the headers text.
+5. Populate the `Content` tag section of each pane with the desired UI elements.
 6. Optionally, `<DockManagerFloatingPanes>` to create panes that can float outside the main dock layout.
 
 >caption Telerik Blazor DockManager
 
 ````RAZOR
-<TelerikDockManager>
+<TelerikDockManager Height="90vh">
     <DockManagerPanes>
 
-        <DockManagerContentPane>
-            <HeaderTemplate>
-                Navigation
-            </HeaderTemplate>
-            <Content>
-                <ul>
-                    <li>Dashboard</li>
-                    <li>Projects</li>
-                    <li>Teams</li>
-                    <li>Settings</li>
-                </ul>
-            </Content>
-        </DockManagerContentPane>
-
-        <DockManagerSplitPane>
+        <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical"
+                              Size="40%">
             <Panes>
 
-                <DockManagerContentPane>
-                    <HeaderTemplate>
-                        <strong>Active Tasks</strong>
-                    </HeaderTemplate>
+                <DockManagerContentPane Size="55%" HeaderText="Pane 1.1">
                     <Content>
-                        <ul>
-                            <li>Task 1 - In Progress</li>
-                            <li>Task 2 - Pending Review</li>
-                            <li>Task 3 - Completed</li>
-                        </ul>
+                        First Content Pane in Split configuration
                     </Content>
                 </DockManagerContentPane>
 
-                <DockManagerContentPane>
-                    <HeaderTemplate>
-                        <strong>Recent Activity</strong>
-                    </HeaderTemplate>
+                <DockManagerContentPane HeaderText="Pane 1.2">
                     <Content>
-                        <p>User A updated Project X</p>
-                        <p>User B commented on Task 3</p>
-                        <p>New file uploaded for Task 2</p>
+                        Second Content Pane in Split configuration
                     </Content>
                 </DockManagerContentPane>
 
             </Panes>
         </DockManagerSplitPane>
 
-        <DockManagerSplitPane>
+        <DockManagerTabGroupPane>
             <Panes>
-                <DockManagerTabGroupPane>
-                    <Panes>
 
-                        <DockManagerContentPane>
-                            <HeaderTemplate>
-                                <strong>Project Overview</strong>
-                            </HeaderTemplate>
-                            <Content>
-                                <p>Summary of ongoing projects, completion rate, and deadlines.</p>
-                            </Content>
-                        </DockManagerContentPane>
-
-                        <DockManagerContentPane>
-                            <HeaderTemplate>
-                                <strong>Team Performance</strong>
-                            </HeaderTemplate>
-                            <Content>
-                                <p>Performance metrics of different teams, including task completion and efficiency.</p>
-                            </Content>
-                        </DockManagerContentPane>
-
-                    </Panes>
-                </DockManagerTabGroupPane>
-
-                <DockManagerContentPane>
-                    <HeaderTemplate>
-                        <strong>Notifications</strong>
-                    </HeaderTemplate>
+                <DockManagerContentPane HeaderText="Tab 2.1">
                     <Content>
-                        <p>New messages, mentions, and important updates.</p>
+                        First Tab Content
+                    </Content>
+                </DockManagerContentPane>
+
+                <DockManagerContentPane HeaderText="Tab 2.2">
+                    <Content>
+                        Second Tab Content
                     </Content>
                 </DockManagerContentPane>
 
             </Panes>
-        </DockManagerSplitPane>
+        </DockManagerTabGroupPane>
     </DockManagerPanes>
 
     <DockManagerFloatingPanes>
         <DockManagerSplitPane>
             <Panes>
 
-                <DockManagerContentPane>
-                    <HeaderTemplate>
-                        <strong>Team Chat</strong>
-                    </HeaderTemplate>
+                <DockManagerContentPane HeaderText="Floating Pane">
                     <Content>
-                        <p>Live conversation with team members.</p>
-                        <TelerikTextBox @bind-Value="@ChatMessage"></TelerikTextBox>
+                        Floating Pane Content
                     </Content>
                 </DockManagerContentPane>
 
@@ -132,17 +84,13 @@ The <a href="https://www.telerik.com/blazor-ui/dock-manager" target="_blank">Bla
         </DockManagerSplitPane>
     </DockManagerFloatingPanes>
 </TelerikDockManager>
-
-@code {
-    private string ChatMessage { get; set; }
-}
 ````
 
 ## State
 
-The [Dock Manager allows getting and setting its state](slug://dockmanager-state). The DockManager state contains information about the panes hierarchy, a collection of all the floating panes, and all the DockManager configurations, such as its orientation.
+The [Dock Manager allows getting and setting its state](slug://dockmanager-state). The DockManager state contains information about the pane hierarchy, floating panes, current pane settings, and the DockManager configuration, such as its orientation.
 
-## Dock Types
+## Docking Types
 
 The DockManager exposes the ability to dock globally or within other panes. [Read more about the available DockManager dock types...](slug://dockmanager-dock-types)
 
@@ -156,7 +104,7 @@ The Dock Manager fires [events when the user changes the panes layout](slug://do
 
 ## DockManager Parameters
 
-The following table lists the Dock Manager parameters. Also check the [DockManager API Reference](slug://Telerik.Blazor.Components.TelerikTileLayout) for a full list of all properties, methods and events.
+The following table lists the Dock Manager parameters. Also check the [DockManager API Reference](slug://Telerik.Blazor.Components.TelerikDockManager) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -228,29 +176,29 @@ Use the component reference to execute methods and [get or set the DockManager s
 <div class="skip-repl"></div>
 
 ````RAZOR
-<TelerikDockManager @ref="@DockRef" />
+<TelerikDockManager @ref="@DockManagerRef" />
 
 <TelerikButton OnClick="@GetDockManagerState">Get DockManager State</TelerikButton>
 
 @code{
-    private TelerikDockManager DockRef { get; set; }
+    private TelerikDockManager? DockManagerRef { get; set; }
 
-    private async Task GetDockManagerState()
+    private void GetDockManagerState()
     {
-        var dockState = DockRef.GetState();
+        var dockState = DockManagerRef?.GetState();
     }
 }
 ````
 
 ## Next Steps
 
-* [DockManager Dock Types](slug://dockmanager-dock-types)
-* [DockManager Pane Types](slug://dockmanager-pane-types)
-* [DockManager State](slug://dockmanager-state)
-* [Explore DockManager Events](slug://dockmanager-events)
+* [Explore the DockManager Docking Types](slug://dockmanager-dock-types)
+* [Explore the DockManager Pane Types](slug://dockmanager-pane-types)
+* [Configure the DockManager State](slug://dockmanager-state)
+* [Handle the DockManager Events](slug://dockmanager-events)
 
 
 ## See Also
 
-* [DockManager API](slug://Telerik.Blazor.Components.TelerikFileManager-1)
+* [DockManager API](slug://Telerik.Blazor.Components.TelerikDockManager-1)
 * [Live Demo: DockManager](https://demos.telerik.com/blazor-ui/dockmanager/overview)

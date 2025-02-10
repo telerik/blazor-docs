@@ -14,6 +14,8 @@ This article explains the events available in the Telerik DockManager for Blazor
 
 * [OnDock](#ondock)
 * [OnUndock](#ondock)
+* [VisibleChanged](#visiblechanged)
+* [SizeChanged](#sizechanged)
 * [OnPaneResize](#onpaneresize)
 * [State Events](#state-events)
 * [OnPin](#onpin)
@@ -42,6 +44,14 @@ The event handler receives as an argument an `DockManagerUndockEventArgs` object
 |---|---|---|
 | `IsCancelled` | `bool` <br /> (`false`) | Set the `IsCancelled` property to `true` to cancel the event. |
 | `PaneId` | `string` | The Id of the floating pane that is being undocked. |
+
+## VisibleChanged
+
+The `VisibleChanged` event is fired when the user tries to hide a given pane. You can effectively cancel the event by not propagating the new visibility state to the variable the `Visible` property is bound to. This is the way to cancel the event and keep the pane visible.
+
+## SizeChanged
+
+The `SizeChanged` event is triggered when the `Size` parameter of the corresponding pane is changed.
 
 ## OnPaneResize
 
@@ -91,140 +101,176 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 >caption DockManager with all available events.
 
 `````RAZOR
-<strong>The events log is below the component.</strong>
-
-<TelerikDockManager Height="800px"
-                    Width="90%"
+<TelerikDockManager @ref="@DockManagerRef"
+                    Height="70vh"
+                    Width="90vw"
                     OnDock="@OnPaneDock"
                     OnUndock="@OnPaneUndock"
                     OnPin="@OnPanePin"
                     OnPaneResize="@OnPaneResize"
                     OnUnpin="@OnPaneUnpin">
     <DockManagerPanes>
-        <DockManagerSplitPane AllowEmpty="true">
+
+        <DockManagerSplitPane Orientation="@DockManagerPaneOrientation.Vertical"
+                              Size="40%"
+                              Id="SplitPane">
             <Panes>
-                <DockManagerContentPane HeaderText="Task Details"
-                                        Id="taskDetails">
+
+                <DockManagerContentPane HeaderText="Pane 1"
+                                        Id="Pane1"
+                                        Size="50%"
+                                        Closeable="false">
                     <Content>
-                        This pane displays task details like description, assignee, and status.
-                        Task 1: Update website UI
+                        Pane 1. Undocking is allowed. Docking over it is cancelled.
                     </Content>
                 </DockManagerContentPane>
-                <DockManagerContentPane HeaderText="Assigned To"
-                                        Id="assignedTo">
+
+                <DockManagerContentPane HeaderText="Pane 2"
+                                        Id="Pane2"
+                                        Size="50%"
+                                        Closeable="false">
                     <Content>
-                        This pane shows which team members are assigned to the tasks.
-                        Team Member: John Doe
+                        Pane 2. Docking over it is allowed. Undocking is cancelled.
+                        <br />
+                        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                                       Enabled="@( !Pane4Visible || !FloatingPaneVisible )"
+                                       OnClick="@( () => { Pane4Visible = true; FloatingPaneVisible = true; DockManagerRef?.Refresh(); })">
+                            Restore Closed Panes
+                        </TelerikButton>
                     </Content>
                 </DockManagerContentPane>
-                <DockManagerContentPane HeaderText="Due Date"
-                                        Id="dueDate">
-                    <Content>
-                        This pane contains the task deadline and the progress bar.
-                        Due Date: 03/20/2025
-                    </Content>
-                </DockManagerContentPane>
-                <DockManagerTabGroupPane>
-                    <Panes>
-                        <DockManagerContentPane HeaderText="Comments"
-                                                Id="comments">
-                            <Content>
-                                This pane allows team members to leave comments and feedback.
-                                Comment: "Looks good, but needs more details."
-                            </Content>
-                        </DockManagerContentPane>
-                        <DockManagerContentPane HeaderText="Attachments"
-                                                Id="attachments">
-                            <Content>
-                                This pane shows files attached to the task, such as documents and screenshots.
-                                Attachment: Project_Mockup.pdf
-                            </Content>
-                        </DockManagerContentPane>
-                    </Panes>
-                </DockManagerTabGroupPane>
+
             </Panes>
         </DockManagerSplitPane>
+
+        <DockManagerTabGroupPane Id="TabGroupPane">
+            <Panes>
+
+                <DockManagerContentPane HeaderText="Pane 3"
+                                        Id="Pane3"
+                                        Closeable="false">
+                    <Content>
+                        Pane 3. Unpinning is possible, but pinning is cancelled.
+                    </Content>
+                </DockManagerContentPane>
+
+                <DockManagerContentPane HeaderText="Pane 4"
+                                        Id="Pane4"
+                                        Visible="@Pane4Visible"
+                                        VisibleChanged="OnPane4VisibleChanged">
+                    <Content>
+                        Pane 4. Can be closed. Unpinning is cancelled.
+                    </Content>
+                </DockManagerContentPane>
+
+            </Panes>
+        </DockManagerTabGroupPane>
     </DockManagerPanes>
 
     <DockManagerFloatingPanes>
-        <DockManagerSplitPane>
+        <DockManagerSplitPane Id="FloatingSplitPane">
             <Panes>
-                <DockManagerContentPane>
-                    <HeaderTemplate>
-                        <strong>Live Updates</strong>
-                    </HeaderTemplate>
+
+                <DockManagerContentPane HeaderText="Floating Pane"
+                                        Id="FloatingPane"
+                                        Visible="@FloatingPaneVisible"
+                                        VisibleChanged="OnFloatingPaneVisibleChanged">
                     <Content>
-                        Displays real-time progress updates on the task.
-                        Task 1 - 50% Completed
+                        Floating Pane. Can be closed.
                     </Content>
                 </DockManagerContentPane>
+
             </Panes>
         </DockManagerSplitPane>
     </DockManagerFloatingPanes>
 </TelerikDockManager>
 
-<div class="col">
-    @((MarkupString)Log)
+<p style="color: var(--kendo-color-primary)">DockManager Events (latest on top):</p>
+
+<div style="height: 20vh; border:1px solid var(--kendo-color-border); overflow: auto;">
+    @foreach (var item in DockManagetEventLog)
+    {
+        <div>@( (MarkupString)item )</div>
+    }
 </div>
 
 @code {
-    private string Log { get; set; }
+    private TelerikDockManager DockManagerRef { get; set; }
+
+    private bool Pane4Visible { get; set; } = true;
+    private bool FloatingPaneVisible { get; set; } = true;
+
+    private List<string> DockManagetEventLog { get; set; } = new List<string>();
 
     private void OnPaneDock(DockManagerDockEventArgs args)
     {
-        if (args.TargetPaneId == "taskDetails")
+        if (args.TargetPaneId == "Pane1")
         {
             args.IsCancelled = true;
-            Log += $"<br /> Task pane with ID {args.PaneId} was about to dock to task pane with ID {args.TargetPaneId}. The event is cancelled.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was about to dock to pane <strong>{args.TargetPaneId}</strong>. Event cancelled.");
         }
         else
         {
-            Log += $"<br /> Task pane with ID {args.PaneId} was docked to task pane with ID {args.TargetPaneId}.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was docked to pane <strong>{args.TargetPaneId}.");
         }
     }
 
     private void OnPaneUndock(DockManagerUndockEventArgs args)
     {
-        if (args.PaneId == "assignedTo")
+        if (args.PaneId == "Pane2")
         {
             args.IsCancelled = true;
-            Log += $"<br /> Task pane with ID {args.PaneId} was about to undock. The event is cancelled.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was about to undock. Event cancelled.");
         }
         else
         {
-            Log += $"<br /> Task pane with ID {args.PaneId} was undocked.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was undocked.");
         }
     }
 
     private void OnPanePin(DockManagerPinEventArgs args)
     {
-        if (args.PaneId == "dueDate")
+        if (args.PaneId == "Pane3")
         {
             args.IsCancelled = true;
-            Log += $"<br /> Task pane with ID {args.PaneId} was about to pin. The event is cancelled.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was about to pin. Event cancelled.");
         }
         else
         {
-            Log += $"<br /> Task pane with ID {args.PaneId} was pinned.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was pinned.");
         }
     }
 
     private void OnPaneResize(DockManagerPaneResizeEventArgs args)
     {
-        Log += $"<br /> Task pane with ID {args.PaneId} was resized. The new size is {args.Size}.";
+        DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was resized to {args.Size}.");
     }
 
     private void OnPaneUnpin(DockManagerUnpinEventArgs args)
     {
-        if (args.PaneId == "comments")
+        if (args.PaneId == "Pane4")
         {
             args.IsCancelled = true;
-            Log += $"<br /> Task pane with ID {args.PaneId} was about to unpin. The event is cancelled.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was about to unpin. Event cancelled.");
         }
         else
         {
-            Log += $"<br /> Task pane with ID {args.PaneId} was unpinned.";
+            DockManagetEventLog.Insert(0, $"Pane <strong>{args.PaneId}</strong> was unpinned.");
         }
+    }
+
+    private void OnPane4VisibleChanged(bool newVisible)
+    {
+        Pane4Visible = newVisible;
+
+        DockManagetEventLog.Insert(0, $"Pane <strong>Pane4</strong> was closed.");
+    }
+
+    private void OnFloatingPaneVisibleChanged(bool newVisible)
+    {
+        FloatingPaneVisible = newVisible;
+
+        DockManagetEventLog.Insert(0, $"Pane <strong>FloatingPane</strong> was closed.");
     }
 }
 `````
