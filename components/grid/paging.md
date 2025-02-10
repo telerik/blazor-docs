@@ -132,11 +132,13 @@ In addition to `Page` and `PageSize`, the Grid provides advanced pager configura
 
 The following articles and sample projects can be helpful when implementing paging:
 
-* [Capture PageChanged event](slug://grid-events#pagechanged)
+* [Capture PageChanged Event](slug://grid-events#pagechanged)
 
 * [Server Paging](slug://components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
-* [How to increase the pager dropdownlist width](slug://pager-kb-dropdown-width)
+* [How to Increase the DropDownList Width of the Pager](slug://pager-kb-dropdown-width)
+
+* [How to Integrate Top and Bottom Pager](https://demos.telerik.com/blazor-ui/pager/integration)
 
 ## See Also
 
