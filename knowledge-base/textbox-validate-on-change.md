@@ -17,6 +17,10 @@ res_type: kb
 			<td>Product</td>
 			<td>TextBox for Blazor</td>
 		</tr>
+        <tr>
+            <td>Product Version</td>
+            <td>2.30 and older</td>
+        </tr>
 	</tbody>
 </table>
 
