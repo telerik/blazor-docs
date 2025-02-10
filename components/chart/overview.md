@@ -70,7 +70,7 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
-## Title
+## Title and Subtitle
 
 You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter. In addition, the `ChartTitle` `Description` parameter allows the app to provide accessible text content, which screen readers announce when the Chart gains focus.
 
