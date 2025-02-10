@@ -22,8 +22,6 @@ The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Cha
 >caption Basic chart
 
 ````RAZOR
-Basic chart and common settings/elements
-
 <TelerikChart>
 	<ChartSeriesItems>
 		<ChartSeries Type="ChartSeriesType.Line" Name="Product 1 (bound to simple data)" Data="@simpleData">
@@ -55,7 +53,7 @@ Basic chart and common settings/elements
 	}
 
 	public List<MyDataModel> modelData = new List<MyDataModel>()
-    {
+	{
 		new MyDataModel() { SecondSeriesValue = 1, ExtraData = "first" },
 		new MyDataModel() { SecondSeriesValue = 5, ExtraData = "second" },
 		new MyDataModel() { SecondSeriesValue = 3, ExtraData = "third" },
@@ -72,25 +70,28 @@ Basic chart and common settings/elements
 
 @[template](/_contentTemplates/chart/link-to-basics.md#configurable-nested-chart-settings)
 
-## Chart Title
+## Title and Subtitle
 
 You can add a short description of the Chart's purpose by using the `ChartTitle` tag and the `Text` parameter. In addition, the `ChartTitle` `Description` parameter allows the app to provide accessible text content, which screen readers announce when the Chart gains focus.
 
->caption Using ChartTitle
+You can also add a secondary title through `ChartSubtitle` and configure its `Position`.
+
+>caption Using Chart Title, Description and 
 
 <div class="skip-repl"></div>
 
 ````RAZOR
 <TelerikChart>
-    <ChartTitle Text="Product Sales" Description="Product Sales by Year and Country"></ChartTitle>
+    <ChartTitle Text="Product Sales"
+                Description="Product Sales by Year and Country"
+                Position="@ChartTitlePosition.Top">
+        <ChartSubtitle Text="Product Sales by Year and Country"
+                       Position="@ChartSubtitlePosition.Bottom" />
+    </ChartTitle>
 </TelerikChart>
 ````
 
-## Chart Subtitle
-
-You can add a descriptive text that enriches the [Title](#chart-title) by adding the `ChartSubtitle` and assigning a value for the `Text` parameter.
-
-## Chart Size
+## Size
 
 To control the chart size, use its `Width` and `Height` properties. You can read more on how they work in the [Dimensions](slug://common-features/dimensions) article.
 
@@ -142,6 +143,87 @@ You can make a responsive chart
     public List<object> someData = new List<object>() { 10, 2, 7, 5 };
 
     public string[] xAxisItems = new string[] { "Q1", "Q2", "Q3", "Q4" };
+}
+````
+
+## Styling with CSS Variables
+
+The Chart allows various [customizations through child tags and parameters](#chart-elements). Starting with version 7.2.0, the Chart also supports visual customizations through [CSS variables](slug:themes-customize#setting-theme-variables).
+
+>caption Using CSS variables to customize the Chart appearance
+
+````RAZOR
+<style>
+    /* All Charts */
+    div.k-chart {
+        /* Chart background */
+        --kendo-chart-bg: #ffd;
+        /* Chart text */
+        --kendo-chart-text: #f00;
+        /* First series color. Supports up to --kendo-chart-series-30 */
+        --kendo-chart-series-1: #f93;
+    }
+
+    /* Charts with this CSS class */
+    div.lime-chart {
+        /* Chart background */
+        --kendo-chart-bg: #dfd;
+        /* Chart text */
+        --kendo-chart-text: #00f;
+        /* First series color. Supports up to --kendo-chart-series-30 */
+        --kendo-chart-series-1: #39f;
+    }
+</style>
+
+<div style="display: flex; gap: 2em;">
+    <TelerikChart Height="240px"
+                  Width="400px">
+        <ChartTitle Text="Chart" />
+        <ChartSeriesItems>
+            <ChartSeries Type="ChartSeriesType.Column"
+                         Data="@ChartData"
+                         Field="@nameof(SalesData.Revenue)"
+                         CategoryField="@nameof(SalesData.Product)">
+            </ChartSeries>
+        </ChartSeriesItems>
+    </TelerikChart>
+
+    <TelerikChart Class="lime-chart"
+                  Height="240px"
+                  Width="400px">
+        <ChartTitle Text="Chart" />
+        <ChartSeriesItems>
+            <ChartSeries Type="ChartSeriesType.Column"
+                         Data="@ChartData"
+                         Field="@nameof(SalesData.Revenue)"
+                         CategoryField="@nameof(SalesData.Product)">
+            </ChartSeries>
+        </ChartSeriesItems>
+    </TelerikChart>
+</div>
+
+@code {
+    private List<SalesData> ChartData { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        var productCount = 3;
+
+        for (int i = 1; i <= productCount; i++)
+        {
+            ChartData.Add(new SalesData()
+            {
+                Product = $"Product {i}",
+                Revenue = i * 4
+            });
+        }
+    }
+
+    public class SalesData
+    {
+        public string Product { get; set; } = string.Empty;
+        public decimal Revenue { get; set; }
+    }
 }
 ````
 
