@@ -168,6 +168,8 @@ meta:
     title: FileManager
   "*editor":
     title: Editor
+  "*dockmanager":
+    title: Dock Manager
   "*dropdowntree":
     title: DropDownTree
   "*dropzone":

@@ -173,6 +173,7 @@ You can watch a YouTube playlist of getting started tutorials for Blazor (videos
       <IntroTableAnchor title="Card" href="slug:card-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Carousel" href="slug:carousel-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Dialog" href="slug:dialog-overview"></IntroTableAnchor>
+      <IntroTableAnchor title="Dock Manager" href="slug:dockmanager-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Form" href="slug:form-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Grid Layout" href="slug:gridlayout-overview"></IntroTableAnchor>
       <IntroTableAnchor title="Media Query" href="slug:mediaquery-overview"></IntroTableAnchor>
