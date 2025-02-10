@@ -148,7 +148,7 @@ You can make a responsive chart
 
 ## Styling with CSS Variables
 
-The Chart allows various [customizations through various child tags and parameters](#chart-elements). Since version 7.2.0, the Chart also supports visual customizations through [CSS variables](slug:themes-customize#setting-theme-variables).
+The Chart allows various [customizations through child tags and parameters](#chart-elements). Starting with version 7.2.0, the Chart also supports visual customizations through [CSS variables](slug:themes-customize#setting-theme-variables).
 
 >caption Using CSS variables to customize the Chart appearance
 
