@@ -64,5 +64,5 @@ To control the visibility of Upload component and its dropzone in the `TelerikPd
 
 ## See Also
 
-- [TelerikPdfViewer Overview](slug://components/pdfviewer/overview)
-- [TelerikPdfViewer Events](slug://components/pdfviewer/events)
+- [TelerikPdfViewer Overview](slug://pdfviewer/overview) 
+- [TelerikPdfViewer Events](slug://pdfviewer/events)
