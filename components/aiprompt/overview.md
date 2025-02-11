@@ -61,6 +61,9 @@ The component allows you to interact with the output from the AI and execute a s
 }
 ````
 
+## Integration with Microsoft.Extensions.AI
+
+The AIPrompt supports using the [Microsoft.Extensions.AI library](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to boost your AI integration and  provide seamless integration with various AI models. [Learn how to integrate Microsoft.Extensions.AI with yourAIPrompt component...](slug://common-features-extensions-ai-integration)
 
 ## ToolBar
 
