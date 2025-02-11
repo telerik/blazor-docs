@@ -61,6 +61,9 @@ The component allows you to interact with the output from the AI and execute a s
 }
 ````
 
+## Integration with Microsoft.Extensions.AI
+
+The AIPrompt supports using the [Microsoft.Extensions.AI library](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to provide seamless integration with various AI models and boost your workflow when connecting the AIPrompt with AI models. [Learn how to integrate Microsoft.Extensions.AI with your AIPrompt component...](slug://common-features-microsoft-extensions-ai-integration)
 
 ## ToolBar
 
@@ -92,14 +95,15 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | --- | --- | --- |
 | `AIPromptViews` | `RenderFragment` | Allows control over the views of the content. Use it to set the visibility of a predefined view or to create custom views. If a render fragment is not provided, the AIPrompt will display its default views. |
 | `AIPromptToolBar` | `RenderFragment` | Any additional buttons that will be rendered within the ToolBar. This parameter will append the new items, rather than override buttons related to existing views. |
+| `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme](slug://themes-override). |
+| `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
+| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
 | `PromptText` | `string` | The value of the text within the prompt view. Use it when you need to add some form of transformation to the prompt. The parameter supports two-way binding. |
 | `PromptTextChanged` | `EventCallback<string>` | The handler called whenever the `PromptText` changes. |
 | `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the Prompt view. |
 | `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
-| `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
 | `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme](slug://themes-override). |
-| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
+| `SystemPrompt` | `string` <br/> (See "Description" column) | Defines the system prompt that is passed to the [`IChatClient.CompleteAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient.completeasync?view=net-9.0-pp), when such is used. The default value is: `"You are a helpful assistant designed to assist users. Your goal is to provide helpful, accurate, and contextually appropriate information in a clear and concise manner. Avoid discussing harmful, illegal, or inappropriate topics"`.
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
 
 ## AIPrompt Reference and Methods
