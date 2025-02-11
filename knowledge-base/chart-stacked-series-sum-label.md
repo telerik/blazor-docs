@@ -43,7 +43,7 @@ This knowledge base article answers the following questions:
 
 ## Solution
 
-The article suggests two scenarios with examples. Both of them use series labels for a different purpose. If users need to see the separate non-stacked series values, consider [Chart tooltips](slug://chart-tooltip-overview).
+The article suggests two scenarios with examples. Both of them use series labels for a different purpose. If users need to see the separate non-stacked series values, consider [Chart tooltips](slug:chart-tooltip-overview).
 
 * [Display a sum of stacked Chart series above each stacked column](#aggregated-stack-column-label)
 * [Display a label on the horizontal Chart axis below each column](#stack-group-or-column-name-as-custom-axis-label)
@@ -52,9 +52,9 @@ The article suggests two scenarios with examples. Both of them use series labels
 
 Here is how to display the total sum of stacked Chart series above each stacked column:
 
-1. Configure [Chart series stacking](slug://components/chart/stack).
-1. Add a `<ChartSeriesLabels>` tag and define a [label template](slug://components/chart/label-template-format#templates) for the series that will display at the top of each stacked column. This is the last `<ChartSeries>` in the Chart declaration from a given stack `Group`.
-1. In the series label template, render the [`stackValue` property](slug://components/chart/label-template-format#series-label-template) of the template argument object (`context`).
+1. Configure [Chart series stacking](slug:components/chart/stack).
+1. Add a `<ChartSeriesLabels>` tag and define a [label template](slug:components/chart/label-template-format#templates) for the series that will display at the top of each stacked column. This is the last `<ChartSeries>` in the Chart declaration from a given stack `Group`.
+1. In the series label template, render the [`stackValue` property](slug:components/chart/label-template-format#series-label-template) of the template argument object (`context`).
 
 >caption Display stack aggregate and group name as axis label with Chart column series
 
@@ -202,7 +202,7 @@ Here is how to display the total sum of stacked Chart series above each stacked 
 
 Here is how to display an additional custom label on the horizontal Chart axis below each column. This approach doesn't require stacking and can be used with standalone column series too.
 
-1. Add a `<ChartSeriesLabels>` tag and define a [label template](slug://components/chart/label-template-format#templates) for the series that will display at the bottom of each stacked column. This is the first `<ChartSeries>` in the Chart declaration from a given stack `Group`. If you are not using stacking, then implement this step for all column series.
+1. Add a `<ChartSeriesLabels>` tag and define a [label template](slug:components/chart/label-template-format#templates) for the series that will display at the bottom of each stacked column. This is the first `<ChartSeries>` in the Chart declaration from a given stack `Group`. If you are not using stacking, then implement this step for all column series.
 1. Set `Position="@ChartSeriesLabelsPosition.InsideBase"` to each `<ChartSeriesLabels>` tag.
 1. (optional) Set `Rotation` to each `<ChartSeriesLabels>` tag.
 1. (optional) Set `Background="transparent"` to each `<ChartSeriesLabels>` tag. This will prevent label overlapping and fading if the columns are too close to one another.
@@ -304,6 +304,6 @@ Chart label templates require a different configuration for [Telerik UI for Blaz
 
 ## See Also
 
-* [Chart Series Stacking](slug://components/chart/stack)
-* [Chart Label Templates](slug://components/chart/label-template-format)
-* [Chart Tooltips](slug://chart-tooltip-overview)
+* [Chart Series Stacking](slug:components/chart/stack)
+* [Chart Label Templates](slug:components/chart/label-template-format)
+* [Chart Tooltips](slug:chart-tooltip-overview)

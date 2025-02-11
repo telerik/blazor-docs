@@ -147,7 +147,7 @@ There are three alternative ways to solve this:
 
 1. Initialize the nested object in its property declaration in the main Grid model class.
 2. Initialize the nested object in the parent object constructor.
-3. Initialize the nested object in the [Grid `OnModelInit` event](slug://grid-events#onmodelinit).
+3. Initialize the nested object in the [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
 
 The example below demonstrates all three options. Pick one, according to your preferences.
 

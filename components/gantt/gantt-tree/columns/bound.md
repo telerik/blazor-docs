@@ -25,7 +25,7 @@ To show data in a Gantt Chart, you must define `GanttColumn` instances in the `G
 
 Since the Gantt is designed for hierarchical data, you should also define which column will hold the expand/collapse arrow for the child items. It can be any column, not necessarily the first, and you denote it by setting its `Expandable` parameter to `true`.
 
-You can read more details on how to tie the Gantt to your data fields and child elements in the [Data Binding Overview](slug://gantt-data-binding-overview) article. It provides information on the features of the model, and describing the parent-child relationships in two different ways.
+You can read more details on how to tie the Gantt to your data fields and child elements in the [Data Binding Overview](slug:gantt-data-binding-overview) article. It provides information on the features of the model, and describing the parent-child relationships in two different ways.
 
 >caption Provide data to the Gantt and choose which columns (fields) to see
 
@@ -127,7 +127,7 @@ You can read more details on how to tie the Gantt to your data fields and child 
 
 ## Gantt Bound Column Parameters
 
-The Blazor Gantt Bound Column provides various parameters to configure the component. Also check the [Gantt public API](slug://Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Bound Column provides various parameters to configure the component. Also check the [Gantt public API](slug:Telerik.Blazor.Components.TelerikGantt-1).
 
 ### Data Binding
 
@@ -143,13 +143,13 @@ The Blazor Gantt Bound Column provides various parameters to configure the compo
 | Parameter | Type and Default Value | Description |
 | --- | --- | --- |
 | `Title` | `string` | The text that is rendered in the column header. See the Notes below for its behavior. |
-| `DisplayFormat` | `string` | The C# format string that is used to render the field value in the cell when the Gantt is in display mode. Read more in the [Column Display Format](slug://treelist-columns-displayformat) article. |
+| `DisplayFormat` | `string` | The C# format string that is used to render the field value in the cell when the Gantt is in display mode. Read more in the [Column Display Format](slug:treelist-columns-displayformat) article. |
 | `TextAlign` | `ColumnTextAlign` enum <br /> (`Left`) | Specifies the horizontal alignment of the cell text. |
-| `Width` | `string` | The width of the column. See the [Dimensions](slug://common-features/dimensions) article for information about the supported formats. See [Gantt Column Width Behavior](slug://gantt-columns-width) for detailed information about the Gantt behavior with different column width configurations. |
-| `MinResizableWidth` | `int` <br /> (`30`) | The minimum allowed column width during [user resizing](slug://gantt-columns-resize). Unlike the string `Width` property, this one is decimal and expects pixel values. |
-| `MaxResizableWidth` | `int` | The maximum allowed column width during [user resizing](slug://gantt-columns-resize). Unlike the string `Width` property, this one is decimal and expects pixel values. |
+| `Width` | `string` | The width of the column. See the [Dimensions](slug:common-features/dimensions) article for information about the supported formats. See [Gantt Column Width Behavior](slug:gantt-columns-width) for detailed information about the Gantt behavior with different column width configurations. |
+| `MinResizableWidth` | `int` <br /> (`30`) | The minimum allowed column width during [user resizing](slug:gantt-columns-resize). Unlike the string `Width` property, this one is decimal and expects pixel values. |
+| `MaxResizableWidth` | `int` | The maximum allowed column width during [user resizing](slug:gantt-columns-resize). Unlike the string `Width` property, this one is decimal and expects pixel values. |
 | `Visible` | `bool?` <br /> (`null`) | If this parameter is set to `false`, it hides the column from the Gantt Tree. Accepts both `bool` and `bool?` types, and `null` is treated like `true`. |
-| `HeaderClass` | `string` | Adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default Gantt styles](slug://themes-override). |
+| `HeaderClass` | `string` | Adds a custom CSS class to the header cell of the column. Use it to apply custom styles or [override the default Gantt styles](slug:themes-override). |
 
 ## Notes
 

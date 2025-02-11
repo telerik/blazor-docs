@@ -54,5 +54,5 @@ The template exposes a `context` parameter, which allows access to the Carousel 
 
 ## See Also
 
-* [Carousel Events](slug://carousel-events)
+* [Carousel Events](slug:carousel-events)
 * [Carousel Live Demo](https://demos.telerik.com/blazor-ui/carousel/overview)

@@ -18,7 +18,7 @@ This article describes the events and event arguments of the Telerik FileSelect 
 
 ## FileSelectFileInfo
 
-The FileSelect event handlers provide a [`FileSelectEventArgs` argument](slug://Telerik.Blazor.Components.FileSelectEventArgs). `FileSelectEventArgs` has a `Files` property, which is a `List<FileSelectFileInfo>` type.
+The FileSelect event handlers provide a [`FileSelectEventArgs` argument](slug:Telerik.Blazor.Components.FileSelectEventArgs). `FileSelectEventArgs` has a `Files` property, which is a `List<FileSelectFileInfo>` type.
 
 The `FileSelectFileInfo` type contains the following properties:
 
@@ -35,7 +35,7 @@ Property | Type | Description
 `InvalidMaxFileSize` | `bool` | A Boolean flag that shows if the file size exceeds the maximum.
 `Stream`| `FileInfoStream` | A [`System.IO.Stream`](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream) that can be used to load the file to memory, file system, or other. Used for **asynchronously** getting the file contents as a byte array.
 
-> Due to the Blazor framework limitations, `FileInfoStream` does not support **synchronous** operations such as `Read`, `Seek`, `Flush`, and `Write`. The methods exist, but will [throw an exception](slug://fileselect-kb-stream-exception). A possible workaround is to copy the `FileInfoStream` **asynchronously** to another `Stream` with `CopyToAsync`, as demonstrated by the `OnSelect` event example below.
+> Due to the Blazor framework limitations, `FileInfoStream` does not support **synchronous** operations such as `Read`, `Seek`, `Flush`, and `Write`. The methods exist, but will [throw an exception](slug:fileselect-kb-stream-exception). A possible workaround is to copy the `FileInfoStream` **asynchronously** to another `Stream` with `CopyToAsync`, as demonstrated by the `OnSelect` event example below.
 
 ## OnSelect
 
@@ -147,5 +147,5 @@ The event handler receives a [`FileSelectEventArgs` object](#fileselectfileinfo)
 ## See Also
 
 * [Live Demo: Blazor FileSelect Events](https://demos.telerik.com/blazor-ui/fileselect/events)
-* [Telerik UI for Blazor FileSelect Overview](slug://fileselect-overview)
-* [Blazor FileSelect Validation](slug://fileselect-validation)
+* [Telerik UI for Blazor FileSelect Overview](slug:fileselect-overview)
+* [Blazor FileSelect Validation](slug:fileselect-validation)

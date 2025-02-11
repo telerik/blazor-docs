@@ -32,15 +32,15 @@ This KB article answers the following questions:
 
 The default schema of the Telerik Editor does not include an `<i>` tag, so the Editor strips such elements automatically. To allow adding font icons through `<i>` tags in the Editor content:
 
-1. [Modify the ProseMirror schema](slug://editor-modify-default-schema) to include a node for the `<i>` element.
-2. Ensure the required font icon stylesheets can affect the Editor content. The approach varies depending on the [edit mode of the Editor](slug://editor-edit-modes-overview):
+1. [Modify the ProseMirror schema](slug:editor-modify-default-schema) to include a node for the `<i>` element.
+2. Ensure the required font icon stylesheets can affect the Editor content. The approach varies depending on the [edit mode of the Editor](slug:editor-edit-modes-overview):
     * [Iframe Edit Mode](#add-icons-in-iframe-edit-mode)
     * [Div Edit Mode](#add-icons-in-div-edit-mode)
 
 
 ### Add Icons in Iframe Edit Mode
 
-When the [Editor `EditMode` is set to `EditorEditMode.Iframe`](slug://editor-edit-modes-iframe), the content area is inside an `<iframe>` element that does not apply the CSS rules from the current page.
+When the [Editor `EditMode` is set to `EditorEditMode.Iframe`](slug:editor-edit-modes-iframe), the content area is inside an `<iframe>` element that does not apply the CSS rules from the current page.
 
 This means that you need to inject the icons stylesheet into the `<iframe>`, so the icons are properly rendered. At the time of writing (UI for Blazor **6.1.0**), [the Editor does not support injecting your CSS files into the iframe](https://feedback.telerik.com/blazor/1543925-add-the-ability-to-inject-css-files-into-the-iframe) but you can inject them with JSInterop in `OnAfterRenderAsync`.
 
@@ -133,7 +133,7 @@ This means that you need to inject the icons stylesheet into the `<iframe>`, so 
 
 ### Add Icons in Div Edit Mode
 
-When the [Editor `EditMode` is set to `EditorEditMode.Div`](slug://editor-edit-modes-div), the content area is a `<div contenteditable="true">` element that inherits the CSS rules from the current page.
+When the [Editor `EditMode` is set to `EditorEditMode.Div`](slug:editor-edit-modes-div), the content area is a `<div contenteditable="true">` element that inherits the CSS rules from the current page.
 
 This allows you to include the icon stylesheets in the `<head>` of the web page along with the other stylesheets. 
 
@@ -206,5 +206,5 @@ Make sure to use the correct way and resources for your actual project *@
 
 ## See Also
 
-* [Custom Editor Tools](slug://editor-custom-tools)
-* [Modify the ProseMirror Schema](slug://editor-modify-default-schema)
+* [Custom Editor Tools](slug:editor-custom-tools)
+* [Modify the ProseMirror Schema](slug:editor-modify-default-schema)

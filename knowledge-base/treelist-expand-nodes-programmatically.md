@@ -181,5 +181,5 @@ Below is an example demonstrating how to use the TreeList State to expand or col
 
 ## See Also
 
-- [TreeList State Documentation](slug://treelist-state)
-- [TreeList Overview](slug://treelist-overview)
+- [TreeList State Documentation](slug:treelist-state)
+- [TreeList Overview](slug:treelist-overview)

@@ -27,7 +27,7 @@ How to make the GridColumn title text wrap around and be centered?
 
 ## Solution
 
-Use [custom CSS to override the default Grid styles](slug://themes-override). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter](slug://components/grid/columns/bound) that can help to target specific columns.
+Use [custom CSS to override the default Grid styles](slug:themes-override). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter](slug:components/grid/columns/bound) that can help to target specific columns.
 
 The custom CSS should align header text to the center and enable text wrapping.
 
@@ -103,10 +103,10 @@ For older product versions, or to target all columns, use `.k-header` instead of
 
 ## Notes
 
-* If you only need to center or right-align the header text, use the approach from [Center Grid Column Header Content](slug://grid-kb-center-column-header-content). This will keep the preset `display: flex` style of the cells.
+* If you only need to center or right-align the header text, use the approach from [Center Grid Column Header Content](slug:grid-kb-center-column-header-content). This will keep the preset `display: flex` style of the cells.
 
-* If you want full control over the header text contents and rendering, you can use the [column header template](slug://grid-templates-column-header).
+* If you want full control over the header text contents and rendering, you can use the [column header template](slug:grid-templates-column-header).
 
 ## See Also
 
-* [Center or Right-Align Grid Column Headers](slug://grid-kb-center-column-header-content)
+* [Center or Right-Align Grid Column Headers](slug:grid-kb-center-column-header-content)

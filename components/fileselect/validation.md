@@ -24,7 +24,7 @@ The Telerik FileSelect component offers parameters to validate the file selectio
 
 >caption Client validation in the Telerik FileSelect component
 
-For brevity, this sample does not showcase actual upload of the files. You can find an example in the [FileSelect Events article](slug://fileselect-events).
+For brevity, this sample does not showcase actual upload of the files. You can find an example in the [FileSelect Events article](slug:fileselect-events).
 
 ````RAZOR
 @* Some images are only allowed, min size 1KB, max size 4MB *@
@@ -54,5 +54,5 @@ For brevity, this sample does not showcase actual upload of the files. You can f
 ## See Also
 
 * [Live Demo: FileSelect Validation](https://demos.telerik.com/blazor-ui/fileselect/validation)
-* [FileSelect Overview](slug://fileselect-overview)
-* [FileSelect Events](slug://fileselect-events)
+* [FileSelect Overview](slug:fileselect-overview)
+* [FileSelect Events](slug:fileselect-events)

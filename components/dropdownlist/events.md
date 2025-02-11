@@ -20,13 +20,13 @@ This article explains the events available in the Telerik DropDownList for Blazo
 * [OnItemRender](#onitemrender)
 * [OnBlur](#onblur)
 
-The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding](slug://components/dropdownlist/databind) article for more details.
+The examples in this article use `string` values and simple data sources for brevity. You can use full models, see the [data binding](slug:components/dropdownlist/databind) article for more details.
 
 ## ValueChanged
 
 The `ValueChanged` event fires upon every change of the user selection.
 
-The example below uses [binding](slug://components/dropdownlist/databind) to string data for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
+The example below uses [binding](slug:components/dropdownlist/databind) to string data for brevity. You can use full models as well. The type of the argument in the lambda expression must match the `Value` type of the component, and the `ValueField` type (if `ValueField` is set).
 
 >caption Handle DropDownList ValueChanged
 
@@ -66,7 +66,7 @@ The example below uses [binding](slug://components/dropdownlist/databind) to str
 
 ## OnChange
 
-The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here](slug://ddl-kb-onchange-fires-twice) for sample logic on executing it only once per value selection.
+The `OnChange` event represents a user action - confirmation of the current value. In inputs, it fires when the user presses `Enter` in the input, or when the input loses focus. In the DropDownList, it fires when the user selects an item as well. See [here](slug:ddl-kb-onchange-fires-twice) for sample logic on executing it only once per value selection.
 
 >tip The `OnChange` event is a custom event and does not interfere with bindings, so you can use it together with models and forms.
 
@@ -99,19 +99,19 @@ from the model: @MySelectedItem
 
 ## OnRead
 
-You can use the [`OnRead` event](slug://common-features-data-binding-onread) to provide data to the component based on custom logic and the current user input and/or scroll position (when using [virtualization](slug://dropdownlist-virtualization)). The event fires when:
+You can use the [`OnRead` event](slug:common-features-data-binding-onread) to provide data to the component based on custom logic and the current user input and/or scroll position (when using [virtualization](slug:dropdownlist-virtualization)). The event fires when:
 
 * The component initializes.
-* The user [filters](slug://components/dropdownlist/filter).
-* The user scrolls with [virtualization](slug://dropdownlist-virtualization) enabled.
+* The user [filters](slug:components/dropdownlist/filter).
+* The user scrolls with [virtualization](slug:dropdownlist-virtualization) enabled.
 
-Find out how to [get the applied filtering and grouping criteria](slug://common-features-descriptors).
+Find out how to [get the applied filtering and grouping criteria](slug:common-features-descriptors).
 
 You can also call remote data through `async` operations.
 
 >caption Custom Data according to the user input in the DropDownList
 
->tip You can also debounce the service calls and implement minimum filter length. An example of such approach is available in [this knowledge base article for the ComboBox](slug://combo-kb-debounce-onread). The same approach is applicable for the DropDownList.
+>tip You can also debounce the service calls and implement minimum filter length. An example of such approach is available in [this knowledge base article for the ComboBox](slug:combo-kb-debounce-onread). The same approach is applicable for the DropDownList.
 
 @[template](/_contentTemplates/common/dropdowns-virtualization.md#value-in-onread)
 
@@ -167,7 +167,7 @@ You can also call remote data through `async` operations.
 }
 ````
 
->tip This example uses plain strings for brevity, you can use full models - see the [data binding](slug://components/dropdownlist/databind) article for examples.
+>tip This example uses plain strings for brevity, you can use full models - see the [data binding](slug:components/dropdownlist/databind) article for examples.
 
 
 >caption Filter large local data through the Telerik DataSource extensions
@@ -397,6 +397,6 @@ The `OnBlur` event fires when the component loses focus.
 
 ## See Also
 
-* [ValueChanged and Validation](slug://value-changed-validation-model)
-* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)
-* [Blazor DropDownList](slug://components/dropdownlist/overview)
+* [ValueChanged and Validation](slug:value-changed-validation-model)
+* [Fire OnChange Only Once](slug:ddl-kb-onchange-fires-twice)
+* [Blazor DropDownList](slug:components/dropdownlist/overview)

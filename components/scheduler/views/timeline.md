@@ -112,8 +112,8 @@ Generally, the views are designed around the timeframe that they show and the da
 
 ## See Also
 
-* [Views](slug://scheduler-views-overview)
-* [Navigation](slug://scheduler-navigation)
+* [Views](slug:scheduler-views-overview)
+* [Navigation](slug:scheduler-navigation)
 * [Live Demo: Scheduler Timeline View](https://demos.telerik.com/blazor-ui/scheduler/timeline-view)
-* [Resource Grouping](slug://scheduler-resource-grouping)
+* [Resource Grouping](slug:scheduler-resource-grouping)
 

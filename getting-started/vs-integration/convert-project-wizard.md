@@ -10,18 +10,18 @@ position: 3
 
 This article demonstrates how to enable the Progress&reg; Telerik&reg; UI for Blazor components in your existing Blazor app with a few mouse clicks. The supported integration is helpful if you already have a substantial app, or if you want to use the Microsoft templates to start with features like authentication and add the UI components later.
 
-To add the Telerik UI components to your existing Blazor application, use the Convert Project Wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this feature enables you to start your project with the desired version. To make sure you are up to date, you can also [get the latest version](slug://getting-started-vs-integration-latest-version).
+To add the Telerik UI components to your existing Blazor application, use the Convert Project Wizard. The wizard detects all installed versions of Telerik UI for Blazor and lists them in the **Version** combobox&mdash;this feature enables you to start your project with the desired version. To make sure you are up to date, you can also [get the latest version](slug:getting-started-vs-integration-latest-version).
 
 The Convert Project Wizard automates a set of steps that you otherwise must perform manually.
 
 The wizard adds the following client assets to your project:
-* [Telerik stylesheet](slug://getting-started/what-you-need#css-theme-and-javascript-files)
-* [JS Interop file](slug://getting-started/what-you-need#css-theme-and-javascript-files)
+* [Telerik stylesheet](slug:getting-started/what-you-need#css-theme-and-javascript-files)
+* [JS Interop file](slug:getting-started/what-you-need#css-theme-and-javascript-files)
 
 The wizard also configures the project to use the Telerik UI for Blazor components by adding the following utilities:
-* [Required `@using` directives](slug://getting-started/what-you-need#namespaces) to the `~/_Imports.razor` file.
-* [`TelerikLayout.razor` component](slug://getting-started/what-you-need#telerikrootcomponent) at the root level of the DOM.
-* Registration of the [Telerik services](slug://getting-started/what-you-need#service).
+* [Required `@using` directives](slug:getting-started/what-you-need#namespaces) to the `~/_Imports.razor` file.
+* [`TelerikLayout.razor` component](slug:getting-started/what-you-need#telerikrootcomponent) at the root level of the DOM.
+* Registration of the [Telerik services](slug:getting-started/what-you-need#service).
 
 ## Getting the Wizard
 
@@ -72,13 +72,13 @@ This screen provides the ability to:
 * Download the latest available version.
 * Choose a particular version to add to the project.
 * Configure additional project settings like:
-    * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug://getting-started/what-you-need#css-theme-and-javascript-files) or from the [Telerik CDN](slug://common-features-cdn).
-    * Enable [localization](slug://globalization-localization).
-    * Use [font icons](slug://common-features-icons) instead of the default SVG icons.
+    * Load the required Telerik UI stylesheet and JS Interop file as [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or from the [Telerik CDN](slug:common-features-cdn).
+    * Enable [localization](slug:globalization-localization).
+    * Use [font icons](slug:common-features-icons) instead of the default SVG icons.
 
 ### Step 2: Select Theme
 
-In this step, you can apply one of the available [themes](slug://themes-overview) to your project.
+In this step, you can apply one of the available [themes](slug:themes-overview) to your project.
 
 ### Step 3: Create a Backup
 
@@ -86,7 +86,7 @@ You can choose to back up the project state before the conversion (in a folder c
 
 ### Step 4: Install or Update License Key
 
-If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug://installation-license-key), and will install or update it.
+If necessary, the Telerik Visual Studio extension will notify you about a missing or outdated [license key](slug:installation-license-key), and will install or update it.
 
 ## Troubleshooting
 
@@ -100,7 +100,7 @@ When converting a project, you may encounter the following most common issues:
 
 If you see an error screen in the wizard, make sure that you have selected the UI project in the Solution Explorer. For example, the Issue can occur in WebAssembly apps as they can include a Server and Shared projects, and only the Client project is the actual Blazor UI app that needs the Telerik components.
 
-Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components](slug://getting-started/what-you-need).
+Some specific project settings can also cause an exception during conversion. The fastest solution is to [manually configure the project for the Telerik components](slug:getting-started/what-you-need).
 
 ### Components Fail
 
@@ -130,8 +130,8 @@ The fix is to move the `TelerikLayout.razor` file to the original `Shared` folde
 
 ## See Also
 
-* [Telerik UI for Blazor Visual Studio Extensions Overview](slug://getting-started-vs-integration-overview)
-* [Downloading the Latest Telerik UI for Blazor Versions](slug://getting-started-vs-integration-latest-version)
-* [Getting Started with Client-Side Apps](slug://getting-started/client-side)
-* [Getting Started with Server-Side Apps](slug://getting-started/server-side)
-* [Workflow for Using the UI Components for Blazor](slug://getting-started/what-you-need)
+* [Telerik UI for Blazor Visual Studio Extensions Overview](slug:getting-started-vs-integration-overview)
+* [Downloading the Latest Telerik UI for Blazor Versions](slug:getting-started-vs-integration-latest-version)
+* [Getting Started with Client-Side Apps](slug:getting-started/client-side)
+* [Getting Started with Server-Side Apps](slug:getting-started/server-side)
+* [Workflow for Using the UI Components for Blazor](slug:getting-started/what-you-need)

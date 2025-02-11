@@ -37,9 +37,9 @@ The Telerik Grid for Blazor does not support transposing. A transposed Grid requ
 
 Here are a few possible ways to display transposed data:
 
-* Use the [Telerik Form component for Blazor](slug://form-overview) instead of a Grid. The Form does not provide Grid features, but it can be databound to a model object and supports editing.
+* Use the [Telerik Form component for Blazor](slug:form-overview) instead of a Grid. The Form does not provide Grid features, but it can be databound to a model object and supports editing.
 * Render static HTML markup, which uses the Grid CSS classes. This will produce Grid-like UI, but without any additional built-in features.
-* Combine the previous two options to achieve a Form that looks like a Grid. Use the Grid's HTML markup in a [Form `FormItemsTemplate`](slug://form-formitems-formitemstemplate). Optionally, remove the [built-in Form submit button by using an empty `<FormButtons>` tag](slug://form-formitems-buttons).
+* Combine the previous two options to achieve a Form that looks like a Grid. Use the Grid's HTML markup in a [Form `FormItemsTemplate`](slug:form-formitems-formitemstemplate). Optionally, remove the [built-in Form submit button by using an empty `<FormButtons>` tag](slug:form-formitems-buttons).
 
 Alternatively, shape the data structure, so that it's suitable to display in a regular non-transposed Grid.
 
@@ -268,5 +268,5 @@ The following example demonstrates all options.
 
 ## See Also
 
-* [Grid Overview](slug://grid-overview)
-* [Form FormItemsTemplate](slug://form-formitems-formitemstemplate)
+* [Grid Overview](slug:grid-overview)
+* [Form FormItemsTemplate](slug:form-formitems-formitemstemplate)

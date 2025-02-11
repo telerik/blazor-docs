@@ -29,7 +29,7 @@ How can I drag and drop rows between two different Grids, which are bound to dif
 
 ## Solution
 
-1. [Bind the two Grids to the same interface](slug://grid-data-binding#binding-to-interface).
+1. [Bind the two Grids to the same interface](slug:grid-data-binding#binding-to-interface).
 1. Use the interface type in all event handlers related to drag-and-drop.
 1. If the two Grid models include unique property names, disable sorting and filtering for the respective columns. Otherwise, the Grids will be unable to build their internal filtering logic and will throw a null reference exception.
 
@@ -171,4 +171,4 @@ How can I drag and drop rows between two different Grids, which are bound to dif
 
 ## See Also
 
-* [Grid Row Drag and Drop](slug://grid-drag-drop-overview)
+* [Grid Row Drag and Drop](slug:grid-drag-drop-overview)

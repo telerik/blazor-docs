@@ -10,7 +10,7 @@ position: 15
 
 # Manual Data Source Operations
 
-By default, the scheduler will receive the entire collection of appointments, and it will perform the necessary operations (like determining which ones to go into the current view) internally to it. You can perform these operations yourself by handling the `OnRead` event of the scheduler as shown in the example below. The data source will be read after each [navigation](slug://scheduler-navigation) as well, to ensure fresh data.
+By default, the scheduler will receive the entire collection of appointments, and it will perform the necessary operations (like determining which ones to go into the current view) internally to it. You can perform these operations yourself by handling the `OnRead` event of the scheduler as shown in the example below. The data source will be read after each [navigation](slug:scheduler-navigation) as well, to ensure fresh data.
 
 The parameter of type `DataSourceRequest` exposes information about the desired paging, filtering and sorting so you can, for example, call your remote endpoint with appropriate parameters so its performance is optimized and it fetches only the relevant data.
 
@@ -196,7 +196,7 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 ## See Also
 
-  * [CRUD Operations Overview](slug://components/grid/editing/overview)
+  * [CRUD Operations Overview](slug:components/grid/editing/overview)
   * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
   * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
   

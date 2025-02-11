@@ -10,7 +10,7 @@ position: 0
 
 # Range Bar Chart
 
-The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">Blazor Range Bar Chart</a> displays data as horizontal bars whose position and length vary according to pairs of `from` and `to` values. You can use a Range Bar Chart to show a comparison between several sets of data (for example, summaries of quantitative or time data). Each series is automatically colored differently for easier reading. The Range Bar Chart is similar to the [Bar Chart](slug://components/chart/types/bar), which can be regarded as a Range Bar Chart with zero `from` values.
+The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">Blazor Range Bar Chart</a> displays data as horizontal bars whose position and length vary according to pairs of `from` and `to` values. You can use a Range Bar Chart to show a comparison between several sets of data (for example, summaries of quantitative or time data). Each series is automatically colored differently for easier reading. The Range Bar Chart is similar to the [Bar Chart](slug:components/chart/types/bar), which can be regarded as a Range Bar Chart with zero `from` values.
 
 @[template](/_contentTemplates/chart/link-to-basics.md#understand-basics-and-databinding-first)
 
@@ -20,7 +20,7 @@ The <a href="https://www.telerik.com/blazor-ui/range-bar-chart" target="_blank">
 2. Set the series `Type` parameter to `ChartSeriesType.RangeBar`.
 3. Provide a data collection to the series `Data` parameter. You can use a [collection of arrays](#binding-range-bar-series-to-collection-of-arrays) or a [collection of custom objects](#binding-range-column-series-to-custom-objects).
 4. If the Range Bar data is a collection of arrays, provide data for the `Categories` parameter of the `ChartCategoryAxis`.
-5. (optional) Set `Visible="true"` or define [label `Template`](slug://components/chart/label-template-format) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
+5. (optional) Set `Visible="true"` or define [label `Template`](slug:components/chart/label-template-format) for `<ChartSeriesLabelsFrom>` or `<ChartSeriesLabelsTo>`. These are nested tags inside `<ChartSeriesLabels>` of the respective `<ChartSeries>`.
 
 ### Binding Range Bar Series to Collection of Arrays
 

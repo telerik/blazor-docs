@@ -37,9 +37,9 @@ This article shows how to format the percent in a label for a pie or donut chart
 
 To customize the percentage display, you need to:
 
-1. Use a [Chart label template](slug://components/chart/label-template-format#templates). Set the label template function name to the `Template` parameter of `ChartSeriesLabels`.
+1. Use a [Chart label template](slug:components/chart/label-template-format#templates). Set the label template function name to the `Template` parameter of `ChartSeriesLabels`.
 
-1. Use the [`percentage` field](slug://components/chart/label-template-format#series-label-template) of the JavaScript label template function's argument.
+1. Use the [`percentage` field](slug:components/chart/label-template-format#series-label-template) of the JavaScript label template function's argument.
 
 1. Implement the desired additional rounding/formatting in the JavaScript code.
 
@@ -103,5 +103,5 @@ To customize the percentage display, you need to:
 
 ## See Also
 
-* [Knowledge Base article: How to localize numeric labels in the Chart](slug://chart-kb-localized-numeric-labels)
+* [Knowledge Base article: How to localize numeric labels in the Chart](slug:chart-kb-localized-numeric-labels)
 * [Sample project: Chart Label Template](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)

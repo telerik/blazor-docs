@@ -62,4 +62,4 @@ For details on how the ToggleButton keyboard navigation works, refer to the [Bla
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

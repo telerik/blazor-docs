@@ -13,7 +13,7 @@ position: 35
 
 The Filter Template lets you customize the appearance and logic of the built-in filters. It lets you step on the built-in filtering logic of the grid and implement your own design and logic for setting their values.
 
-There are two different templates you can use depending on the [Filter Mode](slug://components/grid/filtering) that you chose:
+There are two different templates you can use depending on the [Filter Mode](slug:components/grid/filtering) that you chose:
 
 * [Filter Row Template](#filter-row-template)
 * [Filter Menu Template](#filter-menu-template)
@@ -26,11 +26,11 @@ By default, the filter row puts an appropriate editor (like a numeric textbox fo
 
 To customize the filter cell, use the `<FilterCellTemplate>` tag of the `<GridColumn>`. It receives a `context` of type `FilterCellTemplateContext` that provides the following members:
 
-* `FilterDescriptor` - a [CompositeFilterDescriptor](slug://Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug://common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
+* `FilterDescriptor` - a [CompositeFilterDescriptor](slug:Telerik.DataSource.CompositeFilterDescriptor) object that describes the column filter. By default, its `FilterDescriptors` field contains two `FilterDescriptor` instances and its `LogicalOperator` is `AND`. You can populate the filter values in the existing `FilterDescriptors` and add more instances. You can change their [filter operator](slug:common-features-filter-operators) and the `LogicalOperator` of the `CompositeFilterDescriptor`.
 
-* `FilterAsync()` - an `async` method that invokes the built-in grid filtering logic (including a handler to [`OnRead`](slug://components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
+* `FilterAsync()` - an `async` method that invokes the built-in grid filtering logic (including a handler to [`OnRead`](slug:components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value changes or a button is clicked).
 
-* `ClearFilterAsync()` - an `async` method that invokes the built-in grid clear filtering logic (including a handler to [`OnRead`](slug://components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value is cleared or a button is clicked).
+* `ClearFilterAsync()` - an `async` method that invokes the built-in grid clear filtering logic (including a handler to [`OnRead`](slug:components/grid/manual-operations) if you use one) so you can call upon it easily from your template (e.g., when a value is cleared or a button is clicked).
 
 You can store a reference to each column's context in a field in the view-model, so you can write the handlers in the standard C# code, instead of using lambdas in the markup. You can also pass the context as a Parameter to your own separate filter component to reduce clutter in the main grid markup and code.
 
@@ -43,7 +43,7 @@ The example below shows a custom filter that:
 * Shows how you can store a reference to the context or use it inline in the template.
 * Showcases building a filter descriptor with two filters and sample logic that always filters the data even if one of the inputs is empty.
 
-You can find more examples in the [Live Demo: Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row) that is available in your local installation under the `demos` folder. Also check [How to implement a filter operator dropdown list in a Filter Row Template](slug://grid-kb-filter-operator-dropdown) in order to mimic the default filter row UI.
+You can find more examples in the [Live Demo: Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row) that is available in your local installation under the `demos` folder. Also check [How to implement a filter operator dropdown list in a Filter Row Template](slug:grid-kb-filter-operator-dropdown) in order to mimic the default filter row UI.
 
 
 >caption Custom Filter Row Template - Min and Max filters on OnChange
@@ -182,11 +182,11 @@ The example below shows a custom filter that:
 
 You can find more examples in the [Live Demo: Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu) that is available in your local installation under the `demos` folder.
 
-For an example with the CheckboxList Filter, see the [Custom Data](slug://grid-checklist-filter#custom-data) section in its article.
+For an example with the CheckboxList Filter, see the [Custom Data](slug:grid-checklist-filter#custom-data) section in its article.
 
 >caption Custom Filter Menu Template - Multiple Checkboxes
 
->tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering](slug://grid-checklist-filter) article.
+>tip The grid can create a checkbox filter for you, see the [CheckBoxList Filtering](slug:grid-checklist-filter) article.
 
 ````RAZOR
 @using Telerik.DataSource
@@ -407,5 +407,5 @@ The template receives a `context` of type `FilterMenuTemplateContext` that provi
 
 * [Live Demo: Grid Custom Filter Row](https://demos.telerik.com/blazor-ui/grid/custom-filter-row)
 * [Live Demo: Grid Custom Filter Menu](https://demos.telerik.com/blazor-ui/grid/custom-filter-menu)
-* [KB: Use Filter Operator DropDown List in Filter Row Template](slug://grid-kb-filter-operator-dropdown)
-* [Blazor Grid](slug://grid-overview)
+* [KB: Use Filter Operator DropDown List in Filter Row Template](slug:grid-kb-filter-operator-dropdown)
+* [Blazor Grid](slug:grid-overview)

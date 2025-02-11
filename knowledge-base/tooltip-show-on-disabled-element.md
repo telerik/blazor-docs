@@ -54,5 +54,5 @@ Here's an example demonstrating how to implement this solution:
 
 ## See Also
 
-- [Tooltip Component Overview](slug://tooltip-overview)
-- [Button Component Overview](slug://components/button/overview)
+- [Tooltip Component Overview](slug:tooltip-overview)
+- [Button Component Overview](slug:components/button/overview)

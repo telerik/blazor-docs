@@ -83,7 +83,7 @@ The UI for the scheduler provides the following options for interacting with the
 
 ## Delete Confirmation Dialog
 
-When the user clicks the close button (`x`) of the appointment a confirmation dialog will appear. To read more information see the [Delete Confirmation Dialog article](slug://scheduler-delete-confirmation-dialog).
+When the user clicks the close button (`x`) of the appointment a confirmation dialog will appear. To read more information see the [Delete Confirmation Dialog article](slug:scheduler-delete-confirmation-dialog).
 
 
 ## Example
@@ -313,6 +313,6 @@ The example below shows the signature of the event handlers so you can copy the 
 
 ## See Also
 
-  * [Data Binding](slug://scheduler-appointments-databinding)
+  * [Data Binding](slug:scheduler-appointments-databinding)
   * [Live Demo: Appointment Editing](https://demos.telerik.com/blazor-ui/scheduler/appointment-editing)
   * [Custom Edit Form](https://github.com/telerik/blazor-ui/tree/master/scheduler/custom-edit-form)

@@ -95,4 +95,4 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [DateRangePicker Overview](slug://daterangepicker-overview)
+* [DateRangePicker Overview](slug:daterangepicker-overview)

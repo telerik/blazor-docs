@@ -68,4 +68,4 @@ To wrap the Wizard step labels and display the full text, apply custom CSS style
 ## See Also
 
 - [Wizard Overview](https://docs.telerik.com/blazor-ui/components/wizard/overview)
-- [Override the Theme or Apply Custom CSS Styles](slug://themes-override)
+- [Override the Theme or Apply Custom CSS Styles](slug:themes-override)

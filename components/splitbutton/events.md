@@ -57,11 +57,11 @@ at <strong> @ClickTimeString </strong>.
 
 ## Next Steps
 
-* [Add SplitButton Icons](slug://splitbutton-icons)
-* [Configure the SplitButton appearance](slug://splitbutton-appearance)
+* [Add SplitButton Icons](slug:splitbutton-icons)
+* [Configure the SplitButton appearance](slug:splitbutton-appearance)
 
 
 ## See Also
 
-* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug:Telerik.Blazor.Components.TelerikSplitButton)
 * [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)

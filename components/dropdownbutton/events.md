@@ -55,5 +55,5 @@ The event handler can be synchronous (`void`) or asynchronous (`async Task`).
 
 ## See Also
 
-* [DropDownButton API](slug://Telerik.Blazor.Components.TelerikDropDownButton)
+* [DropDownButton API](slug:Telerik.Blazor.Components.TelerikDropDownButton)
 * [Live Demo: DropDownButton](https://demos.telerik.com/blazor-ui/dropdownbutton/overview)

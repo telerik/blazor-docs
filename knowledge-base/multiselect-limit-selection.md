@@ -22,14 +22,14 @@ ticketid: 1670731
 
 ## Description
 
-When using the [MultiSelect](slug://multiselect-overview) component, it might be necessary to limit the number of items a user can select. For example, restricting selection to a maximum of three items. This KB article also answers the following questions:
+When using the [MultiSelect](slug:multiselect-overview) component, it might be necessary to limit the number of items a user can select. For example, restricting selection to a maximum of three items. This KB article also answers the following questions:
 - How to set a selection limit on MultiSelect in Blazor?
 - How to prevent additional selections in MultiSelect after reaching a defined limit?
 - How to notify users they've reached the maximum number of selectable items in MultiSelect?
 
 ## Solution
 
-To restrict the number of selectable items in a MultiSelect component, use one-way binding with the `Value` parameter and the [`ValueChanged`](slug://multiselect-events#valuechanged) event. This approach allows you to manually update the selected items collection and enforce a maximum selection limit.
+To restrict the number of selectable items in a MultiSelect component, use one-way binding with the `Value` parameter and the [`ValueChanged`](slug:multiselect-events#valuechanged) event. This approach allows you to manually update the selected items collection and enforce a maximum selection limit.
 
 Below is a demonstration of how to implement a selection limit. This example restricts the user to a maximum of three selections and informs them when they have reached this limit.
 
@@ -72,5 +72,5 @@ Below is a demonstration of how to implement a selection limit. This example res
 
 ## See Also
 
-- [MultiSelect Overview](slug://multiselect-overview)
-- [MultiSelect Events](slug://multiselect-events)
+- [MultiSelect Overview](slug:multiselect-overview)
+- [MultiSelect Events](slug:multiselect-events)

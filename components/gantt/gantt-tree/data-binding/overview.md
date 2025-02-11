@@ -21,13 +21,13 @@ First, review:
 
 There are two modes of providing data to a Gantt Tree, and they all use the items' features. Once you are familiar with the current article, choose the data binding you wish to use more:
 
-* [Flat data](slug://gantt-data-binding-flat-data) - a single collection of items with defined parent-child relationships. See the `Id` and `ParentId` settings.
+* [Flat data](slug:gantt-data-binding-flat-data) - a single collection of items with defined parent-child relationships. See the `Id` and `ParentId` settings.
 
-* [Hierarchical data](slug://gantt-data-binding-hierarchical-data) - separate collections of items and their child items. This is the default mode of the component. See the `Items` setting.
+* [Hierarchical data](slug:gantt-data-binding-hierarchical-data) - separate collections of items and their child items. This is the default mode of the component. See the `Items` setting.
 
 ## Gantt Tree Item Features
 
-The Blazor Gantt Tree provides various parameters to configure its items. Also, check the [Gantt public API](slug://Telerik.Blazor.Components.TelerikGantt-1).
+The Blazor Gantt Tree provides various parameters to configure its items. Also, check the [Gantt public API](slug:Telerik.Blazor.Components.TelerikGantt-1).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -64,6 +64,6 @@ The properties of a Gantt Tree item match directly to a field of the model the t
 
 ## See Also
 
-  * [Binding to Flat Data](slug://gantt-data-binding-flat-data)
-  * [Binding to Hierarchical Data](slug://gantt-data-binding-hierarchical-data)
+  * [Binding to Flat Data](slug:gantt-data-binding-flat-data)
+  * [Binding to Hierarchical Data](slug:gantt-data-binding-hierarchical-data)
   

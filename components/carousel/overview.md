@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carou
 
 1. Use the `TelerikCarousel` tag to add the component to your razor page.
 1. Populate the `Data` property with your collection of items.
-1. Use the nested [`<Template>`](slug://carousel-template) tag to declare the HTML content that you want to display.
+1. Use the nested [`<Template>`](slug:carousel-template) tag to declare the HTML content that you want to display.
 1. Set `Width` and `Height` attributes of the Carousel, according to the content to display.
 
 >caption Carousel with 5 pages and some basic content
@@ -59,15 +59,15 @@ The <a href = "https://www.telerik.com/blazor-ui/carousel" target="_blank">Carou
 
 ## Template
 
-To display any content in the Carousel, use a [Template](slug://carousel-template) and place your desired markup inside. If a template is not set, the Carousel will not display anything.
+To display any content in the Carousel, use a [Template](slug:carousel-template) and place your desired markup inside. If a template is not set, the Carousel will not display anything.
 
 ## Events
 
-The Blazor Carousel generates events that you can handle and further customize its behavior. [Read more about the Blazor Carousel events...](slug://carousel-events)
+The Blazor Carousel generates events that you can handle and further customize its behavior. [Read more about the Blazor Carousel events...](slug:carousel-events)
 
 ## Carousel Parameters
 
-The following table lists Carousel parameters. Check the [Carousel API Reference](slug://Telerik.Blazor.Components.TelerikCarousel-1) for a full list of properties, methods and events.
+The following table lists Carousel parameters. Check the [Carousel API Reference](slug:Telerik.Blazor.Components.TelerikCarousel-1) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -79,22 +79,22 @@ The following table lists Carousel parameters. Check the [Carousel API Reference
 | `Page` | `int` <br/> ( 1 ) | The 1-based index of content item to display. Supports two-way binding.|
 | `AutomaticPageChange` | `bool` <br/> (`true`) | Whether the Carousel will automatically switch to the next page after a short delay.|
 | `AutomaticPageChangeInterval` | `int` <br/> ( 5000 )| The automatic page change delay in milliseconds.|
-| `Width` | `string` | The Carousel width. See [Dimensions](slug://common-features/dimensions) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.|
+| `Width` | `string` | The Carousel width. See [Dimensions](slug:common-features/dimensions) for more details. The Carousel renders in a `<div>`, so it expands horizontally to 100% by default.|
 | `Height` | `string` | The Carousel height. By default and by design, the component has no height and does not expand, based on its content. *In other words, the Carousel will be zero pixels high, if height is not applied.*|
-| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to apply custom styles or [override the theme](slug://themes-override).
+| `Class` | `string` | The CSS class that will be rendered on the main wrapping element of the component. Use it to apply custom styles or [override the theme](slug:themes-override).
 | `ThemeColor` | `string` <br /> (`"light"`) | Sets predefined colors to the Carousel component. Use the members of the static class `ThemeConstants.Carousel.ThemeColor` to set valid values. |
 
 ## Carousel Reference and Methods
 
 To execute Carousel methods, obtain reference to the component instance via `@ref`.
 
-The Carousel is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug://common-features-data-binding-overview#component-type).
+The Carousel is a generic component. Its type depends on the type of its model and the type of its `Value`. In case you cannot provide either the `Value` or `Data` initially, you need to [set the corresponding types to the `TItem` and `TValue` parameters](slug:common-features-data-binding-overview#component-type).
 
-The table below lists the Carousel methods. Also consult the [Carousel API](slug://Telerik.Blazor.Components.TelerikCarousel-1).
+The table below lists the Carousel methods. Also consult the [Carousel API](slug:Telerik.Blazor.Components.TelerikCarousel-1).
 
 | Method | Description |
 | --- | --- |
-| `Rebind` | [Refreshes the component data](slug://carousel-refresh-data#rebind-method). |
+| `Rebind` | [Refreshes the component data](slug:carousel-refresh-data#rebind-method). |
 
 <div class="skip-repl"></div>
 ````RAZOR
@@ -107,12 +107,12 @@ The table below lists the Carousel methods. Also consult the [Carousel API](slug
 
 ## Next Steps
 
-* [Declare a Template](slug://carousel-template)
-* [Explore the Carousel Events](slug://carousel-events)
+* [Declare a Template](slug:carousel-template)
+* [Explore the Carousel Events](slug:carousel-events)
 
 ## See Also
 
-* [Carousel Template](slug://carousel-template)
-* [Carousel Events](slug://carousel-events)
+* [Carousel Template](slug:carousel-template)
+* [Carousel Events](slug:carousel-events)
 * [Carousel Live Demo](https://demos.telerik.com/blazor-ui/carousel/overview)
-* [Carousel API Reference](slug://Telerik.Blazor.Components.TelerikCarousel-1)
+* [Carousel API Reference](slug:Telerik.Blazor.Components.TelerikCarousel-1)

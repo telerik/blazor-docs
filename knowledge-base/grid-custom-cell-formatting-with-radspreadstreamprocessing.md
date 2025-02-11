@@ -29,17 +29,17 @@ I want to format the cells of the exported Excel file and customize their appear
 
 ## Solution
 
-Handle the [`OnAfterExport`](slug://grid-export-events#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
+Handle the [`OnAfterExport`](slug:grid-export-events#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
 You can copy the bytes from this stream and import it using RadSpreadStreamProcessing to access and modify the cells.
 
-The customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing).
+The customization of the exported Excel files is faster with the [RadSpreadStreamProcessing library](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) than with [RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing).
 
 The example below demonstrates the export and customization of an Excel file. You can apply the same approach to CSV files.
 
 To customize the cell format of the exported file before it reaches the client:
 
-1. Handle the [`OnAfterExport`](slug://grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized so that the resource does not leak. Its binary data, however, is available so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Handle the [`OnAfterExport`](slug:grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized so that the resource does not leak. Its binary data, however, is available so you can copy the stream bytes to a new `MemoryStream` instance.
 
 1. Define the desired cell styles. The example below demonstrates adding cell fill, you can specify different [cell styles](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/features/cell-styles) based on the result you want to achieve.
 
@@ -250,7 +250,7 @@ To customize the cell format of the exported file before it reaches the client:
 
 ## See Also
 
-* [Custom cell formatting of the exported file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
-* [Format numbers and dates in the exported CSV file from the Grid](slug://grid-kb-number-formatting-of-the-csv-export)
-* [Change the default CSV delimiter (comma) during Grid export](slug://grid-kb-csv-export-change-field-delimiter)
-* [Configure Document Processing Libraries](slug://getting-started-vs-integration-dpl)
+* [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
+* [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
+* [Change the default CSV delimiter (comma) during Grid export](slug:grid-kb-csv-export-change-field-delimiter)
+* [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)

@@ -18,17 +18,17 @@ This article explains which are the built-in tools and commands of the Editor, h
 
 This article describes the Editor *tools* and *commands*.
 
-An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in  tools can render as buttons, color pickers or dropdown lists. The Editor also supports [custom tools with custom rendering](slug://editor-custom-tools).
+An Editor *tool* is the visible interface for a given action. For example, the button that bolds text is a tool. Built-in  tools can render as buttons, color pickers or dropdown lists. The Editor also supports [custom tools with custom rendering](slug:editor-custom-tools).
 
 An Editor *command* is the action, which modifies the HTML value in some way. Each built-in Editor tool has an associated command. Custom tools can execute business logic or invoke built-in commands.
 
 The information about the Editor tools and commands is organized in tables below. Here is what the table headers mean:
 
-* `Class Name` - use it to [add the tool to the Editor toolbar](slug://editor-toolbar)
+* `Class Name` - use it to [add the tool to the Editor toolbar](slug:editor-toolbar)
 
 * `Command Name` - use it to [execute the command programmatically](#programmatic-execution). In this case, also use the syntax from the `Argument` column.
 
-* `Tool Type` - a tool can be a [button](slug://Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](slug://Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](slug://Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar](slug://editor-toolbar).
+* `Tool Type` - a tool can be a [button](slug:Telerik.Blazor.Components.Editor.ButtonTool), a [dropdown list](slug:Telerik.Blazor.Components.Editor.DropDownListTool) or a [color picker](slug:Telerik.Blazor.Components.Editor.ColorTool). Each of these three types exposes some customization options. See the examples for the [color tools](#color-tool-customization), [font tools](#font-tool-customization) and the [Format tool](#format-tool-customization). Only *buttons* can be added to tool groups in the [toolbar](slug:editor-toolbar).
 
 * `Description` - information about what the tool and command do.
 
@@ -83,7 +83,7 @@ Here is a simple example that demonstrates how to use class names, command names
 * [Commands Without Built-in Tools](#commands-without-built-in-tools)
 * [Programmatic Command Execution](#programmatic-execution)
 
-When [choosing which Editor tools to render](slug://editor-toolbar#choose-toolbar-items), it is possible to [create a tools collection from scratch](slug://editor-toolbar#create-a-toolbar-from-scratch) or [append additional tools to a preset collection](slug://editor-toolbar#add-remove-tools-from-existing-toolbar).
+When [choosing which Editor tools to render](slug:editor-toolbar#choose-toolbar-items), it is possible to [create a tools collection from scratch](slug:editor-toolbar#create-a-toolbar-from-scratch) or [append additional tools to a preset collection](slug:editor-toolbar#add-remove-tools-from-existing-toolbar).
 
 ## Inline Tools
 
@@ -198,7 +198,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 | Property | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](slug://Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug://colorpicker-overview#supported-value-formats). |
+| `Colors` | `IEnumerable<string>`. | The list of available colors to set from the Color tool. You can provide a member of [`ColorPalettePresets`](slug:Telerik.Blazor.ColorPalettePresets), or a custom list of [RGB(A) or HEX colors in different supported formats](slug:colorpicker-overview#supported-value-formats). |
 | `Title` | `string` | The tooltip content that shows on tool mouse over. |
 | `ValueFormat` | `ColorFormat` enum <br /> (`Rgb`) | The format, which the Color tool will set in the generated HTML markup. Use `Rgb` or `Hex`. |
 
@@ -235,7 +235,7 @@ The `ForeColor` and `BackgroundColor` tools expose a few customization propertie
 
 ### Font Tool Customization
 
-The [`FontFamily`](slug://Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](slug://Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
+The [`FontFamily`](slug:Telerik.Blazor.Components.Editor.FontFamily) and [`FontSize`](slug:Telerik.Blazor.Components.Editor.FontSize) tools have a `Data` property that accepts a `List<EditorDropDownListItem>`. Use it to customize the available options in these dropdowns. You can also change the dropdown label via `DefaultText`.
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor
@@ -376,7 +376,7 @@ All tools in the table below are *buttons*, except `Format`, which is a *dropdow
 
 ### Format Tool Customization
 
-The [`Format` tool exposes a `Data` property](slug://Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
+The [`Format` tool exposes a `Data` property](slug:Telerik.Blazor.Components.Editor.Format) that accepts a `List<EditorDropDownListItem>`. Use it to reduce or reorder the items in the dropdown list.
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor
@@ -516,9 +516,9 @@ Some Editor commands have no built-in tools. These commands can only be [invoked
 
 ## Programmatic Execution
 
-You can invoke the built-in Editor commands from outside the component or from [custom tools](slug://editor-custom-tools).
+You can invoke the built-in Editor commands from outside the component or from [custom tools](slug:editor-custom-tools).
 
-In order to do so, you need to use the [Editor reference](slug://editor-overview#editor-reference-and-methods) and to call the [ExecuteAsync method](slug://editor-overview#editor-reference-and-methods).
+In order to do so, you need to use the [Editor reference](slug:editor-overview#editor-reference-and-methods) and to call the [ExecuteAsync method](slug:editor-overview#editor-reference-and-methods).
 
 >tip Use the reference tables above to find the command name and its arguments for the command you want to invoke.
 
@@ -572,5 +572,5 @@ In order to do so, you need to use the [Editor reference](slug://editor-overview
 
 ## See Also
 
-* [Editor Overview](slug://editor-overview)
-* [Editor Toolbar](slug://editor-toolbar)
+* [Editor Overview](slug:editor-overview)
+* [Editor Toolbar](slug:editor-toolbar)

@@ -18,7 +18,7 @@ This article explains how to relate TreeView item features to properties of the 
 
 ## Item Features
 
-The TreeView items have features that map to properties in the model. The following model uses property names that will [work automatically, with no additional TreeView configuration](slug://treeview-overview#creating-blazor-treeview):
+The TreeView items have features that map to properties in the model. The following model uses property names that will [work automatically, with no additional TreeView configuration](slug:treeview-overview#creating-blazor-treeview):
 
 <div class="skip-repl"></div>
 
@@ -52,15 +52,15 @@ The above model properties have the following meaning for the TreeView:
 
 | Property | Description |
 | --- | --- |
-| `Id` | A unique identifier. Required for [binding to **flat data**](slug://components/treeview/data-binding/flat-data). |
-| `Text` | Sets the item content as plain text. For rich content and nested components, use an [item template](slug://components/treeview/templates) |
+| `Id` | A unique identifier. Required for [binding to **flat data**](slug:components/treeview/data-binding/flat-data). |
+| `Text` | Sets the item content as plain text. For rich content and nested components, use an [item template](slug:components/treeview/templates) |
 | **Item relations** | |
-| `HasChildren` | Determines whether the item has children, no matter if they are loaded or not. Required for binding to **flat data** and for [**load on demand**](slug://components/treeview/data-binding/load-on-demand). If `true`, the item will show an expand arrow. With **hierarchical data**, the TreeView renders expand icons based on `Items`, but `HasChildren` will take precedence. |
+| `HasChildren` | Determines whether the item has children, no matter if they are loaded or not. Required for binding to **flat data** and for [**load on demand**](slug:components/treeview/data-binding/load-on-demand). If `true`, the item will show an expand arrow. With **hierarchical data**, the TreeView renders expand icons based on `Items`, but `HasChildren` will take precedence. |
 | `ParentId` | Identifies the item's parent. Required for binding to **flat data**. Set to `null` for root items. **Do not use `ParentId` with hierarchical data.** |
-| `Items` | Defines the item's children. Required for [binding to **hierarchical data**](slug://components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The TreeView will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
-| [**Graphics**](slug://treeview-icons) | |
-| `Icon` | Defines a [Telerik Font and Svg icon](slug://common-features-icons) |
-| [**Navigation**](slug://treeview-navigation) | |
+| `Items` | Defines the item's children. Required for [binding to **hierarchical data**](slug:components/treeview/data-binding/hierarchical-data). The children's type can be different from the parent item type. The TreeView will render an expand arrow on the parent node if its child `Items` collection is not `null`. Also see `HasChildren`. |
+| [**Graphics**](slug:treeview-icons) | |
+| `Icon` | Defines a [Telerik Font and Svg icon](slug:common-features-icons) |
+| [**Navigation**](slug:treeview-navigation) | |
 | `Url` | If set, the TreeView will generate a link to another page in the app, or an external page. |
 
 ## TreeView Bindings
@@ -77,9 +77,9 @@ Each `TreeViewBinding` tag exposes the following parameters that refer to model 
 | `HasChildrenField` | `"HasChildren"` |
 | `ParentIdField` (flat data) | `"ParentId"` |
 | `ItemsField` (hierarchical data) | `"Items"` |
-| [**Graphics**](slug://treeview-icons) | |
+| [**Graphics**](slug:treeview-icons) | |
 | `IconField` | `"Icon"` |
-| [**Navigation**](slug://treeview-navigation) | |
+| [**Navigation**](slug:treeview-navigation) | |
 | `UrlField` | `"Url"` |
 
 It is possible to [configure different bindings for different item levels](#multiple-level-bindings). Usually one binding configuration is enough. For example, if the model properties are...
@@ -119,9 +119,9 @@ public class TreeItem
 
 The `TreeViewBinding` tag has one more parameter - **`Level`**. It allows you to define different model properties for different TreeView levels.
 
-Multiple level bindings can make the application more flexible. If you use [hierarchical data binding](slug://components/treeview/data-binding/hierarchical-data), the children can even use a different model type from their parent.
+Multiple level bindings can make the application more flexible. If you use [hierarchical data binding](slug:components/treeview/data-binding/hierarchical-data), the children can even use a different model type from their parent.
 
-`Level` also allows you to define a different [`ItemTemplate`](slug://components/treeview/templates) for different levels.
+`Level` also allows you to define a different [`ItemTemplate`](slug:components/treeview/templates) for different levels.
 
 To define multiple bindings, add multiple `TreeViewBinding` tags and set their `Level`. **Levels are zero-based.**
 
@@ -206,9 +206,9 @@ The third level will use the main data bindings settings that do not have a leve
 
 Learn the three different ways to provide data to a TreeView:
 
-* [Use flat data](slug://components/treeview/data-binding/flat-data) - a collection of self-referencing items with parent-child relationships
-* [Use hierarchical data](slug://components/treeview/data-binding/hierarchical-data) - each item holds its children in a nested property
-* [Load child items on demand](slug://components/treeview/data-binding/load-on-demand) (lazy loading) - load children when the parent node expands. Applies to both types of data.
+* [Use flat data](slug:components/treeview/data-binding/flat-data) - a collection of self-referencing items with parent-child relationships
+* [Use hierarchical data](slug:components/treeview/data-binding/hierarchical-data) - each item holds its children in a nested property
+* [Load child items on demand](slug:components/treeview/data-binding/load-on-demand) (lazy loading) - load children when the parent node expands. Applies to both types of data.
 
 
 ## See Also

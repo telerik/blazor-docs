@@ -165,4 +165,4 @@ For details on how the Spreadsheet keyboard navigation works, refer to the [Blaz
 ## See Also
 
 * [Blazor Spreadsheet Demos](https://demos.telerik.com/blazor-ui/spreadsheet/overview)
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

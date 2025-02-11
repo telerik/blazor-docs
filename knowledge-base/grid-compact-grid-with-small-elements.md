@@ -23,14 +23,14 @@ res_type: kb
 
 ## Description
 
-I am using the [Grid sizing feature](slug://grid-sizing) and my Grid is a Compact Grid. I want to reduce the size of all elements in the Grid. How can I:
+I am using the [Grid sizing feature](slug:grid-sizing) and my Grid is a Compact Grid. I want to reduce the size of all elements in the Grid. How can I:
 * Change the size of all icons in the Grid?
 * Set smaller font size to all elements in the Grid?
 
 ## Solution
 
-1. Set the [Grid `Class` parameter](slug://grid-overview#grid-parameters) to a custom CSS class. This allows you to target specific Grid instances.
-1. Use the defined class to [override the theme styles](slug://themes-override) of the desired elements in the Grid.
+1. Set the [Grid `Class` parameter](slug:grid-overview#grid-parameters) to a custom CSS class. This allows you to target specific Grid instances.
+1. Use the defined class to [override the theme styles](slug:themes-override) of the desired elements in the Grid.
 
 >caption Change Blazor Grid Elements Styles
 
@@ -172,5 +172,5 @@ I am using the [Grid sizing feature](slug://grid-sizing) and my Grid is a Compac
 
 ## See Also
 
-* [Compact Grid](slug://grid-sizing)
-* [Customize CSS Theme Styles](slug://themes-override)
+* [Compact Grid](slug:grid-sizing)
+* [Customize CSS Theme Styles](slug:themes-override)

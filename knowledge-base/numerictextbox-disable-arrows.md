@@ -65,4 +65,4 @@ The example below demonstrates how to conditionally render CSS styles to disable
 ## See Also
 
 * [NumericTextBox Overview](https://docs.telerik.com/blazor-ui/components/numerictextbox/overview)
-* [Override the Theme or Apply Custom CSS Styles](slug://themes-override)
+* [Override the Theme or Apply Custom CSS Styles](slug:themes-override)

@@ -102,7 +102,7 @@ You must also provide the correct value for the `HasChildren` field - for items 
 
 ## See Also
   
-  * [PanelBar Data Binding Overview](slug://panelbar-data-binding-overview)
-  * [Binding to Hierarchical Data](slug://panelbar-data-binding-hierarchical)
+  * [PanelBar Data Binding Overview](slug:panelbar-data-binding-overview)
+  * [Binding to Hierarchical Data](slug:panelbar-data-binding-hierarchical)
   * [Live Demo: PanelBar Flat Data](https://demos.telerik.com/blazor-ui/panelbar/flat-data)
 

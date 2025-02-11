@@ -40,7 +40,7 @@ The MultiSelect creates a collection of its selected items internally, based on 
 
 Sort the MultiSelect `Data`, according to the selected items' order in `Value`. For example, move the selected items to the beginning of the `Data` collection.
 
-Optionally, use the [MultiSelect `OnChange` or `ValueChanged` events](slug://multiselect-events) to reorder the MultiSelect `Data` every time when users select or deselect items. [`Rebind()`](slug://common-features-data-binding-overview#refresh-data) the MultiSelect afterwards to re-render the dropdown.
+Optionally, use the [MultiSelect `OnChange` or `ValueChanged` events](slug:multiselect-events) to reorder the MultiSelect `Data` every time when users select or deselect items. [`Rebind()`](slug:common-features-data-binding-overview#refresh-data) the MultiSelect afterwards to re-render the dropdown.
 
 >caption Reorder MultiSelect Data to match the selected items order in Value
 
@@ -124,5 +124,5 @@ Optionally, use the [MultiSelect `OnChange` or `ValueChanged` events](slug://mul
 
 ## See Also
 
-* [Data binding a MultiSelect](slug://multiselect-databind)
-* [Pre-select MultiSelect items](slug://multiselect-pre-select-items)
+* [Data binding a MultiSelect](slug:multiselect-databind)
+* [Pre-select MultiSelect items](slug:multiselect-pre-select-items)

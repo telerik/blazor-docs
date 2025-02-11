@@ -43,15 +43,15 @@ How to make the TreeView read-only?
 
 2\. Handle these TreeView events:
 
-* [`ExpandedItemsChanged`](slug://treeview-events#expandeditemschanged)
-* [`CheckedItemsChanged`](slug://treeview-events#checkeditemschanged)
-* [`SelectedItemsChanged`](slug://treeview-events#selecteditemschanged)
+* [`ExpandedItemsChanged`](slug:treeview-events#expandeditemschanged)
+* [`CheckedItemsChanged`](slug:treeview-events#checkeditemschanged)
+* [`SelectedItemsChanged`](slug:treeview-events#selecteditemschanged)
 
-Normally, the event handlers should update the expanded, checked and selected items, as the [documentation examples](slug://treeview-events) show. In this case, if the TreeView is "disabled", the event handlers will not update the TreeView parameter values. In this way, the TreeView state and nodes will remain the same.
+Normally, the event handlers should update the expanded, checked and selected items, as the [documentation examples](slug:treeview-events) show. In this case, if the TreeView is "disabled", the event handlers will not update the TreeView parameter values. In this way, the TreeView state and nodes will remain the same.
 
 3\. Disable [`pointer-events`](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events) with a CSS rule. This will prevent client-side collapse animations in the TreeView, which may be visible to users, even though the TreeView will ignore the collapse action.
 
-4\. Optionally, apply `opacity` CSS style to make the TreeView **look** disabled. If you need item-specific visual customizations, use the [`OnItemRender` event](slug://treeview-events#onitemrender).
+4\. Optionally, apply `opacity` CSS style to make the TreeView **look** disabled. If you need item-specific visual customizations, use the [`OnItemRender` event](slug:treeview-events#onitemrender).
 
 >caption Disable and enable TreeView to prevent user actions
 
@@ -174,7 +174,7 @@ Normally, the event handlers should update the expanded, checked and selected it
 
 ## See Also
 
-* [TreeView Events](slug://treeview-events)
-* [TreeView CheckBoxes](slug://treeview-checkboxes-overview)
-* [TreeView Expanded Items](slug://treeview-expand-items)
-* [TreeView Selection](slug://treeview-selection-overview)
+* [TreeView Events](slug:treeview-events)
+* [TreeView CheckBoxes](slug:treeview-checkboxes-overview)
+* [TreeView Expanded Items](slug:treeview-expand-items)
+* [TreeView Selection](slug:treeview-selection-overview)

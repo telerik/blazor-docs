@@ -61,10 +61,10 @@ You can define the `HeaderTemplate` with the following configuration in the `Tab
 
 ## Next Steps
 
-* [Use TabStrip Events](slug://tabstrip-events)
+* [Use TabStrip Events](slug:tabstrip-events)
 
 
 ## See Also
 
 * [Live Demo: TabStrip Header Template](https://demos.telerik.com/blazor-ui/tabstrip/header-template)
-* [How to remove TabStrip tabs](slug://tabstrip-kb-remove-tab)
+* [How to remove TabStrip tabs](slug:tabstrip-kb-remove-tab)

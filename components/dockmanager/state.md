@@ -21,7 +21,7 @@ This article describes:
 
 ## Information in the DockManager State
 
-The `DockManagerState` object exposes a collection of all the floating panes including their [settings](slug://dockmanager-overview#dockmanager-parameters).
+The `DockManagerState` object exposes a collection of all the floating panes including their [settings](slug:dockmanager-overview#dockmanager-parameters).
 
 ## Events
 
@@ -45,7 +45,7 @@ The event argument is of type `DockManagerStateEventArgs` and has a `DockManager
 
 ## Methods
 
-The `GetState` and `SetState` methods of the [DockManager instance](slug://dockmanager-overview#dockmanager-reference) let you get and set the current DockManager state on demand at any time *after* [`OnStateInit`](#onstateinit).
+The `GetState` and `SetState` methods of the [DockManager instance](slug:dockmanager-overview#dockmanager-reference) let you get and set the current DockManager state on demand at any time *after* [`OnStateInit`](#onstateinit).
 
 * `GetState` returns the current DockManager state, so you can save it or [retrieve specific information](#information-in-the-dockmanager-state). For example, you can use `GetState` to get the current panes position. Or, you can get the current panes size.
 
@@ -218,5 +218,5 @@ The example below shows how to restore the previous state of the DockManager on 
 ## See Also
 
 * [Live Demo: DockManager State](https://demos.telerik.com/blazor-ui/dockmanager/persist-state)
-* [DockManagerState API reference](slug://Telerik.Blazor.Components.TelerikDockManager)
-* [Blazor DockManager](slug://dockmanager-overview)
+* [DockManagerState API reference](slug:Telerik.Blazor.Components.TelerikDockManager)
+* [Blazor DockManager](slug:dockmanager-overview)

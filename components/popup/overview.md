@@ -46,30 +46,30 @@ The <a href = "https://www.telerik.com/blazor-ui/popup" target="_blank">Blazor P
 
 ## Popup Positioning and Collision
 
-Use the available positioning and collision settings to customize how the Popup positions and reacts to insufficient space in the viewport. [Read more about the Blazor Popup Positioning and Collision...](slug://popup-position-collision)
+Use the available positioning and collision settings to customize how the Popup positions and reacts to insufficient space in the viewport. [Read more about the Blazor Popup Positioning and Collision...](slug:popup-position-collision)
 
 ## Popup Animations 
 
-Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popup animations...](slug://popup-animation).
+Use the available parameters to customize the animation type and its duration. [Read more about the Blazor Popup animations...](slug:popup-animation).
 
 ## Popup Parameters
 
-The Blazor Popup provides parameters to configure the component. Also check the [Popup API Reference](slug://Telerik.Blazor.Components.TelerikPopup) for a full list of properties, methods and events.
+The Blazor Popup provides parameters to configure the component. Also check the [Popup API Reference](slug:Telerik.Blazor.Components.TelerikPopup) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Defines how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.](slug://popup-position-collision)|
+| `AnchorHorizontalAlign` | `PopupAnchorHorizontalAlign` enum <br /> (`Left`) | Defines how the anchor aligns with the Popup component on the horizontal plane. [Read more about Popup Positioning.](slug:popup-position-collision)|
 | `AnchorSelector` | `string` | The CSS selector for the anchor element of the Popup. |
-| `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Defines how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.](slug://popup-position-collision). |
-| `AnimationDuration` | `int` | The duration of the animation in milliseconds. [Read more about Popup animations.](slug://popup-animation) |
-| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The type of animation when the component displays and hides. [Read more about Popup animations.](slug://popup-animation) |
-| `HorizontalAlign` | `PopupHorizontalAlign ` enum <br /> (`Left`) | Determines if the left or the right side of the Popup will touch its anchor. [Read more about Popup Positioning.](slug://popup-position-collision) |
-| `HorizontalCollision` | `PopupCollision  ` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.](slug://popup-position-collision) |
+| `AnchorVerticalAlign` | `PopupAnchorVerticalAlign` enum <br /> (`Bottom`) | Defines how the anchor aligns with the Popup on the vertical plane. [Read more about Popup Positioning.](slug:popup-position-collision). |
+| `AnimationDuration` | `int` | The duration of the animation in milliseconds. [Read more about Popup animations.](slug:popup-animation) |
+| `AnimationType` | `AnimationType` enum <br /> (`SlideDown`) | The type of animation when the component displays and hides. [Read more about Popup animations.](slug:popup-animation) |
+| `HorizontalAlign` | `PopupHorizontalAlign ` enum <br /> (`Left`) | Determines if the left or the right side of the Popup will touch its anchor. [Read more about Popup Positioning.](slug:popup-position-collision) |
+| `HorizontalCollision` | `PopupCollision  ` enum <br /> (`Fit`) | Sets the behavior of the Popup when it doesn't fit in the viewport based on the horizontal plane. [Read more about Popup collision behavior.](slug:popup-position-collision) |
 | `HorizontalOffset` | `double` | The horizontal space between the Popup and its anchor in pixels. |
-| `VerticalAlign` | `PopupVerticalAlign ` enum <br /> (`Top`) | Determines if the Popup will touch the anchor with its top, bottom, or center. [Read more about Popup Positioning.](slug://popup-position-collision) |
-| `VerticalCollision` | `PopupCollision  ` enum <br /> (`Flip`) | Defines the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.](slug://popup-position-collision) |
+| `VerticalAlign` | `PopupVerticalAlign ` enum <br /> (`Top`) | Determines if the Popup will touch the anchor with its top, bottom, or center. [Read more about Popup Positioning.](slug:popup-position-collision) |
+| `VerticalCollision` | `PopupCollision  ` enum <br /> (`Flip`) | Defines the behavior of the Popup when it doesn't fit in the viewport based on the vertical plane. [Read more about Popup collision behavior.](slug:popup-position-collision) |
 | `VerticalOffset` | `double` | The vertical space between the Popup and its anchor in `pixels`. |
 
 ### Styling and Appearance
@@ -78,7 +78,7 @@ The following parameters enable you to customize the appearance of the Blazor Po
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | The custom CSS class to be rendered on the `<div>` element, which wraps the component `ChildContent`. Use for [styling customizations](slug://themes-override). |
+| `Class` | `string` | The custom CSS class to be rendered on the `<div>` element, which wraps the component `ChildContent`. Use for [styling customizations](slug:themes-override). |
 | `Height` | `string` | The height of the Popup. |
 | `Width` | `string` | The width of the Popup. If not set, the component width will match the anchor width. |
 
@@ -124,11 +124,11 @@ To execute Popup methods, obtain a reference to the component instance with `@re
 
 ## Next Steps
 
-* [Explore the Popup Positioning and Collision Settings](slug://popup-position-collision)
-* [Customize the Popup Animations](slug://popup-animation)
+* [Explore the Popup Positioning and Collision Settings](slug:popup-position-collision)
+* [Customize the Popup Animations](slug:popup-animation)
 
 ## See Also
 
 * [Live Popup Demos](https://demos.telerik.com/blazor-ui/popup/overview)
-* [Popup API Reference](slug://Telerik.Blazor.Components.TelerikPopup)
-* [Comparison between All Popup Components](slug://common-kb-popup-component-comparison)
+* [Popup API Reference](slug:Telerik.Blazor.Components.TelerikPopup)
+* [Comparison between All Popup Components](slug:common-kb-popup-component-comparison)

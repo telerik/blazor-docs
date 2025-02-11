@@ -111,4 +111,4 @@ To import the data of an Excel file in the Grid:
 
 ## See Also
 
-  * [Configuring Document Processing Libraries](slug://getting-started-vs-integration-dpl)
+  * [Configuring Document Processing Libraries](slug:getting-started-vs-integration-dpl)

@@ -34,36 +34,36 @@ This KB answers the following questions:
 
 ## Solution
 
-The steps and example below describe how to create a custom component that looks and works similarly to a [Telerik MultiColumnComboBox for Blazor](slug://multicolumncombobox-overview), but uses an actual [Grid component](slug://grid-overview) inside a [Popup component](slug://popup-overview).
+The steps and example below describe how to create a custom component that looks and works similarly to a [Telerik MultiColumnComboBox for Blazor](slug:multicolumncombobox-overview), but uses an actual [Grid component](slug:grid-overview) inside a [Popup component](slug:popup-overview).
 
 ## Prerequisites
 
 The solution below requires familiarity with:
 
-* [Telerik Grid for Blazor](slug://grid-overview), especially the [Grid state](slug://grid-state) and [Grid selection](slug://grid-selection-overview).
-* [Telerik Popup for Blazor](slug://popup-overview);
-* [Telerik TextBox for Blazor](slug://components/textbox/overview);
+* [Telerik Grid for Blazor](slug:grid-overview), especially the [Grid state](slug:grid-state) and [Grid selection](slug:grid-selection-overview).
+* [Telerik Popup for Blazor](slug:popup-overview);
+* [Telerik TextBox for Blazor](slug:components/textbox/overview);
 * Implementing [Blazor component parameters that support two-way binding](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-8.0#binding-with-component-parameters).
 * Implementing [Blazor components with `ChildContent` that is a `RenderFragment`](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-8.0#child-content-render-fragments).
 
 ## Steps
 
-1. Implement UI that looks like a closed Telerik ComboBox. For example, use a [TextBox](slug://components/textbox/overview) and a [`TextBoxSuffixTemplate`](slug://common-features/input-adornments) with an [icon Button](slug://button-icons) inside.
-1. Add a [Popup](slug://popup-overview) and set its `AnchorSelector` to be a selector that depends on a custom `Class` of the TextBox.
-1. Add a [Grid](slug://grid-overview) inside the Popup. Enable the features that you need.
-1. Use [Grid row selection](slug://grid-selection-row) and the Grid `SelectedItemsChanged` event to set the TextBox `Value` and the overall value of the custom MultiColumnComboBox component.
+1. Implement UI that looks like a closed Telerik ComboBox. For example, use a [TextBox](slug:components/textbox/overview) and a [`TextBoxSuffixTemplate`](slug:common-features/input-adornments) with an [icon Button](slug:button-icons) inside.
+1. Add a [Popup](slug:popup-overview) and set its `AnchorSelector` to be a selector that depends on a custom `Class` of the TextBox.
+1. Add a [Grid](slug:grid-overview) inside the Popup. Enable the features that you need.
+1. Use [Grid row selection](slug:grid-selection-row) and the Grid `SelectedItemsChanged` event to set the TextBox `Value` and the overall value of the custom MultiColumnComboBox component.
 1. (optional) Extract the whole implementation to a separate generic Razor component and implement parameters such as `Value` and `Data`.
 
 ## How it Works
 
 * The example demonstrates a generic and reusable Razor component called `ComboBoxGrid`.
-* The component has several parameters, which work similarly to the corresponding [MultiColumnComboBox parameters](slug://multicolumncombobox-overview#multicolumncombobox-parameters):
+* The component has several parameters, which work similarly to the corresponding [MultiColumnComboBox parameters](slug:multicolumncombobox-overview#multicolumncombobox-parameters):
     * `Data`
     * `Value`
     * `TextField`
     * `ValueField`
     * `Width`
-* Typing in the component's textbox opens the dropdown and filters the Grid, similar to a [SearchBox](slug://grid-searchbox#search-from-code).
+* Typing in the component's textbox opens the dropdown and filters the Grid, similar to a [SearchBox](slug:grid-searchbox#search-from-code).
 * Blurring the textbox or hitting Enter will select the first matching item in the Grid.
 * Selecting a Grid item applies a new `ComboBoxGrid` value and closes the dropdown.
 * Closing and reopening the dropdown preserves the Grid state.
@@ -569,7 +569,7 @@ The solution below requires familiarity with:
 
 ## See Also
 
-* [Grid State](slug://grid-state)
-* [Grid Selection](slug://grid-selection-overview)
-* [Popup Overview](slug://popup-overview)
-* [TextBox Events](slug://components/textbox/events)
+* [Grid State](slug:grid-state)
+* [Grid Selection](slug:grid-selection-overview)
+* [Popup Overview](slug:popup-overview)
+* [TextBox Events](slug:components/textbox/events)

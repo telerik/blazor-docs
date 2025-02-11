@@ -31,7 +31,7 @@ When the user selects a range from the calendar popup, the first click always fi
 
 >note The user can only type in the inputs and that will fire the corresponding event. Selecting from the calendar popup also fires the event. There is no way to know what the user intent is when they start modifying the values - whether they will modify one or both, so there is no definitive way to know when the user has finished using the component. Such logic is heuristic and is up to the application.
 
-> If [`AdaptiveRendering`](slug://adaptive-rendering) is enabled, on small and medium devices `StartValueChanged` and `EndValueChanged` will fire only when the user clicks the confirmation button in the action sheet.
+> If [`AdaptiveRendering`](slug:adaptive-rendering) is enabled, on small and medium devices `StartValueChanged` and `EndValueChanged` will fire only when the user clicks the confirmation button in the action sheet.
 
 >caption Handle StartValueChanged and EndValueChanged
 
@@ -267,5 +267,5 @@ The event handler receives as an argument an `DateRangePickerCalendarCellRenderE
 
 ## See Also
 
-* [ValueChanged and Validation](slug://value-changed-validation-model)
-* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)
+* [ValueChanged and Validation](slug:value-changed-validation-model)
+* [Fire OnChange Only Once](slug:ddl-kb-onchange-fires-twice)

@@ -10,7 +10,7 @@ position: 20
 
 # Radial Gauge Labels
 
-You can customize the appearance of the labels rendered on the [scale](slug://radial-gauge-scale) of the Radial Gauge by using the `<RadialGaugeScaleLabels>`, child tag of the `<RadialGaugeScale>`, and the parameters it exposes:
+You can customize the appearance of the labels rendered on the [scale](slug:radial-gauge-scale) of the Radial Gauge by using the `<RadialGaugeScaleLabels>`, child tag of the `<RadialGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
 
@@ -139,7 +139,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 ## See Also
 
 * [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
-* [Radial Gauge: Overview](slug://radial-gauge-overview)
-* [Radial Gauge: Scale](slug://radial-gauge-scale)
-* [Radial Gauge: Pointers](slug://radial-gauge-pointers)
-* [Radial Gauge: Ranges](slug://radial-gauge-ranges)
+* [Radial Gauge: Overview](slug:radial-gauge-overview)
+* [Radial Gauge: Scale](slug:radial-gauge-scale)
+* [Radial Gauge: Pointers](slug:radial-gauge-pointers)
+* [Radial Gauge: Ranges](slug:radial-gauge-ranges)

@@ -41,8 +41,8 @@ By default, HTML paragraphs have top and bottom margins.
 Here are the possible workarounds to remove extra empty space between list items:
 
 * Remove the `<p>` tags via string manipulation of the submitted Editor value.
-* Remove the paragraph margins with CSS in the app stylesheet. This is applicable when the Editor's [`EditMode`](slug://editor-edit-modes-overview) is [`Div`](slug://editor-edit-modes-div) and the Editor content is within the same web document as the Editor itself.
-* Remove the paragraphs margins by injecting additional CSS into the Editor's iframe. This is applicable when the Editor's `EditMode` is [`Iframe`](slug://editor-edit-modes-iframe) and the Editor content is in a separate web document.
+* Remove the paragraph margins with CSS in the app stylesheet. This is applicable when the Editor's [`EditMode`](slug:editor-edit-modes-overview) is [`Div`](slug:editor-edit-modes-div) and the Editor content is within the same web document as the Editor itself.
+* Remove the paragraphs margins by injecting additional CSS into the Editor's iframe. This is applicable when the Editor's `EditMode` is [`Iframe`](slug:editor-edit-modes-iframe) and the Editor content is in a separate web document.
 
 >caption Remove empty space between list items in the Editor
 
@@ -112,4 +112,4 @@ It is possible to [hack the ProseMirror engine and disable usage of `p` inside `
 
 ## See Also
 
-* [How to render new line break in the Editor on Enter](slug://editor-kb-new-line-break)
+* [How to render new line break in the Editor on Enter](slug:editor-kb-new-line-break)

@@ -33,7 +33,7 @@ How to change the pager dropdown list width and make it wider? The page size num
 
 ## Solution
 
-Use [custom CSS to override the default width](slug://themes-override) in the Telerik Blazor theme.
+Use [custom CSS to override the default width](slug:themes-override) in the Telerik Blazor theme.
 
 1. Set a custom `Class` to the component (Pager, Grid or ListView).
 1. Target the `.k-pager-sizes .k-dropdownlist` elements inside the component(s) with this custom `Class`.

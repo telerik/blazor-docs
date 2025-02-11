@@ -57,9 +57,9 @@ For samples of using each data binding approach listed above, see its correspond
 
 ## See Also
 
-  * [Binding to Flat Data](slug://treelist-data-binding-flat-data)
-  * [Binding to Hierarchical Data](slug://treelist-data-binding-hierarchical-data)
-  * [Load on Demand](slug://treelist-data-binding-load-on-demand)
+  * [Binding to Flat Data](slug:treelist-data-binding-flat-data)
+  * [Binding to Hierarchical Data](slug:treelist-data-binding-hierarchical-data)
+  * [Load on Demand](slug:treelist-data-binding-load-on-demand)
   * [Live Demo: TreeList Flat Data](https://demos.telerik.com/blazor-ui/treelist/binding-flat-data)
   * [Live Demo: TreeList Hierarchical Data](https://demos.telerik.com/blazor-ui/treelist/binding-hierarchical-data)
   * [Live Demo: TreeList Load on Demand](https://demos.telerik.com/blazor-ui/treelist/load-on-demand)

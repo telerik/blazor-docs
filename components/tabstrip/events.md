@@ -80,4 +80,4 @@ If you remove programmatically the currently active tab, when it disposes, the e
 
 ## See Also
 
-  * [TabStrip Overview](slug://components/tabstrip/overview)
+  * [TabStrip Overview](slug:components/tabstrip/overview)

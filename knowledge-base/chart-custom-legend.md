@@ -33,7 +33,7 @@ This knowledge base article answers the following questions:
 To use a custom Chart legend, you need to:
 
 1. Disable the built-in legend with `<ChartLegend Visible="false" />`
-1. Define specific colors for the Chart series or data points [through `Color` or `ColorField`](slug://components/chart/types/column).
+1. Define specific colors for the Chart series or data points [through `Color` or `ColorField`](slug:components/chart/types/column).
 1. Implement the custom legend UI outside the Chart.
 1. Use the same Chart series or data point colors in custom Chart legend.
 
@@ -229,5 +229,5 @@ To use a custom Chart legend, you need to:
 
 ## See Also
 
-* [Chart Legend Documentation](slug://chart-legend)
+* [Chart Legend Documentation](slug:chart-legend)
 * [Chart Legend Customization Demo](https://demos.telerik.com/blazor-ui/chart/legend-customization)

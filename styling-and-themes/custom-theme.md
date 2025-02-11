@@ -77,7 +77,7 @@ The example below shows how to customize some of the theme variables.
 
 ## Overriding Theme Styles
 
-You can [override theme styles with custom CSS](slug://themes-override), no matter if the app is using a built-in or custom theme. This approach makes sense only for a relatively small number of customizations. Beyond that, choose some of the other alternatives on this page.
+You can [override theme styles with custom CSS](slug:themes-override), no matter if the app is using a built-in or custom theme. This approach makes sense only for a relatively small number of customizations. Beyond that, choose some of the other alternatives on this page.
 
 Upgrading may require changes to the additional custom CSS code, but only if there are breaking changes in the HTML output and styling.
 
@@ -91,10 +91,10 @@ Each <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/def
 
 ## Loading Custom Themes
 
-Custom themes are used in a [similar way as the built-in themes](slug://getting-started/what-you-need#css-theme). The notable differences are:
+Custom themes are used in a [similar way as the built-in themes](slug:getting-started/what-you-need#css-theme). The notable differences are:
 
 * The custom theme must reside in the `wwwroot` folder of the Blazor app or on a CDN provider.
-* You must recreate custom themes every time you [update the Telerik UI for Blazor version](slug://upgrade-tutorial).
+* You must recreate custom themes every time you [update the Telerik UI for Blazor version](slug:upgrade-tutorial).
 
 Make sure that the Blazor app is loading only one Telerik theme at a time. If you are replacing a built-in theme with a custom theme, you must remove the `<link>` element of the built-in theme.
 

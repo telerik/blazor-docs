@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/validation-message" target="_bl
 
 To enable Telerik Validation Messages for a form field:
 
-1. Add a `<TelerikValidationMessage>` tag near the respective `<FormItem>` tag, or [inside a form item `<Template>`](slug://form-formitems-template).
+1. Add a `<TelerikValidationMessage>` tag near the respective `<FormItem>` tag, or [inside a form item `<Template>`](slug:form-formitems-template).
 1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage` component.
 1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
 
@@ -231,11 +231,11 @@ Use the `Class` parameter of the Validation Message to add a custom CSS class to
 
 ## Next Steps
 
-* Explore [TelerikValidationTooltip](slug://validation-tools-tooltip)
+* Explore [TelerikValidationTooltip](slug:validation-tools-tooltip)
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary](slug://validation-tools-summary)
-* [TelerikValidationTooltip](slug://validation-tools-tooltip)
-* [Form Component](slug://form-overview)
+* [TelerikValidationSummary](slug:validation-tools-summary)
+* [TelerikValidationTooltip](slug:validation-tools-tooltip)
+* [Form Component](slug:form-overview)

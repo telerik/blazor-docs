@@ -147,5 +147,5 @@ actual slider value: @TheIndex
 
 ## See Also
 
-* [Slider Overview](slug://slider-overview)
+* [Slider Overview](slug:slider-overview)
 * [Live Demo: Slider Label Template](https://demos.telerik.com/blazor-ui/slider/label-template)

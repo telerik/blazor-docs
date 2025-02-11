@@ -26,7 +26,7 @@ The <a href="https://www.telerik.com/blazor-ui/ohlc-chart" target="_blank">OHLC 
     * `CloseField` - the field with the Close value
     * `HighField` - the field with the High value
     * `LowField` - the field with the Low value
-4. make the x-axis a [Date axis](slug://components/chart/date-axis) - while the candlestick chart can work with simple string categories, it is designed to show financial data over time
+4. make the x-axis a [Date axis](slug:components/chart/date-axis) - while the candlestick chart can work with simple string categories, it is designed to show financial data over time
 
 
 >caption An OHLC chart that shows product financial stock data

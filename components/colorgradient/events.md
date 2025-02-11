@@ -72,5 +72,5 @@ When using this event, make sure to update the component `Value` programmaticall
 
 ## See Also
 
-* [ColorGradient Overview](slug://colorgradient-overview)
+* [ColorGradient Overview](slug:colorgradient-overview)
 * [ColorGradient Live Demo](https://demos.telerik.com/blazor-ui/colorgradient/overview)

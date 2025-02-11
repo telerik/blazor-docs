@@ -201,7 +201,7 @@ Dynamic page size change
 
 ## Events
 
-The TreeList exposes several relevant events. You can find related examples in the [Events](slug://treelist-events) article.
+The TreeList exposes several relevant events. You can find related examples in the [Events](slug:treelist-events) article.
 
 * `PageChanged` - you can use this to react to the user changing the page.
 * `PageSizeChanged` - fires when the user changes the page size via the pager DropDownList.

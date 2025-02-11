@@ -10,16 +10,16 @@ position: 55
 
 # Manual Data Source Operations
 
-By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug://components/grid/features/paging), [sorting](slug://components/grid/features/sorting), [filtering](slug://components/grid/filtering)) internally.
+By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug:components/grid/features/paging), [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering)) internally.
 
-You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug://components/grid/editing/overview) as well, to ensure fresh data.
+You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug:components/grid/editing/overview) as well, to ensure fresh data.
 
->tip Make sure to get familiar with all the general [`OnRead` event documentation](slug://common-features-data-binding-onread) first.
+>tip Make sure to get familiar with all the general [`OnRead` event documentation](slug:common-features-data-binding-onread) first.
 
 
 ## Examples
 
-Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](slug://components/grid/editing/overview) article.
+Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](slug:components/grid/editing/overview) article.
 
 The comments in the code provide explanations on what is done and why.
 
@@ -32,7 +32,7 @@ Examples:
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [Debounce Data Source Operations and Requests](slug://grid-kb-debounce-operations)
+* [Debounce Data Source Operations and Requests](slug:grid-kb-debounce-operations)
 
 ## Custom paging with a remote service
 
@@ -194,9 +194,9 @@ Using Telerik DataSource extension methods to manipulate all the data into paged
 
 ## Grouping with OnRead
 
-When the Grid needs to be grouped, the shape of the data changes and it is no longer a flat list of models. Instead, the data is a nested list of [`AggregateFunctionsGroup` objects](slug://telerik.datasource.aggregatefunctionsgroup) that describe each group and include its data items.
+When the Grid needs to be grouped, the shape of the data changes and it is no longer a flat list of models. Instead, the data is a nested list of [`AggregateFunctionsGroup` objects](slug:telerik.datasource.aggregatefunctionsgroup) that describe each group and include its data items.
 
-When you bind the Grid with its `Data` parameter, or when [using `OnRead` with `ToDataSourceResult()`](slug://common-features-data-binding-onread#todatasourceresult-method), this complexity is hidden. But if you perform the data operations yourself, you need to create and populate the `AggregateFunctionsGroup` objects manually.
+When you bind the Grid with its `Data` parameter, or when [using `OnRead` with `ToDataSourceResult()`](slug:common-features-data-binding-onread#todatasourceresult-method), this complexity is hidden. But if you perform the data operations yourself, you need to create and populate the `AggregateFunctionsGroup` objects manually.
 
 >caption Grouping with OnRead
 
@@ -270,12 +270,12 @@ This sample shows how to set up the grid to use grouping with manual data source
 }
 ````
 
->important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the Grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](slug://grid-kb-binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
+>important This approach cannot work directly with a [DataTable](https://demos.telerik.com/blazor-ui/grid/data-table) or [OData](https://github.com/telerik/blazor-ui/tree/master/grid/odata) as underlying data sources, because these two external data sources do not return objects that can be converted to the data structure needed for grouping by the Grid. We recommend that you consider creating actual models to use the Grid in a native Blazor way. If that's not possible, you can consider [ExpandoObject collections](slug:grid-kb-binding-to-expando-object) which are a bit more flexible and can be parsed to the needed grouping structure.
 
 
 ## Aggregates with OnRead
 
-When using [aggregates](slug://grid-aggregates) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
+When using [aggregates](slug:grid-aggregates) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
 
 <div class="skip-repl"></div>
 
@@ -376,10 +376,10 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
 ## See Also
 
-* [CRUD Operations Overview](slug://components/grid/editing/overview)
+* [CRUD Operations Overview](slug:components/grid/editing/overview)
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
-* [DataSourceRequest Object API](slug://Telerik.DataSource.DataSourceRequest)
-* [DataSourceResult Object API](slug://Telerik.DataSource.DataSourceResult)
-* [Blazor Grid](slug://grid-overview)
+* [DataSourceRequest Object API](slug:Telerik.DataSource.DataSourceRequest)
+* [DataSourceResult Object API](slug:Telerik.DataSource.DataSourceResult)
+* [Blazor Grid](slug:grid-overview)

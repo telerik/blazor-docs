@@ -86,16 +86,16 @@ Click the + icon to expand the row details
 
 ![Blazor Hierarchy Grid In Grid](images/hierarchy-grid-in-grid.png)
 
->tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy](slug://grid-three-level-hierarchy) KB article.
+>tip To have more levels, simply nest more grids and name the `context` variables. You can find an example in the [Multi-Level Hierarchy](slug:grid-three-level-hierarchy) KB article.
 
 
 ## Expand Rows From Code
 
-You can choose which detail templates will be expanded from your code through the grid [state](slug://grid-state). Its `ExpandedItems` field contains a collection of the expanded Grid items (all detail templates are collapsed by default).
+You can choose which detail templates will be expanded from your code through the grid [state](slug:grid-state). Its `ExpandedItems` field contains a collection of the expanded Grid items (all detail templates are collapsed by default).
 
 The `ExpandedItems` collection is compared against the Grid Data collection in order to determine which rows will be expanded. The default behavior of the framework is to compare objects by their reference.
 
-When the `ExpandedItems` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no expanded items. In such cases, you have to override the [`Equals`](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals) method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method as well. A similar example is available at [Save and Load Grid State from Browser LocalStorage](slug://grid-kb-save-load-state-localstorage).
+When the `ExpandedItems` are obtained from a different data source to the Grid (e.g., from a separate service method and not from the view-model), the references may not match and so there will be no expanded items. In such cases, you have to override the [`Equals`](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals) method of the underlying model class so that it matches them, for example, by a unique identifier rather than by reference so that two objects can be equal regardless of their origin, but according to their contents. When you are overriding the `Equals` method, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method as well. A similar example is available at [Save and Load Grid State from Browser LocalStorage](slug:grid-kb-save-load-state-localstorage).
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -109,13 +109,13 @@ When the `ExpandedItems` are obtained from a different data source to the Grid (
 
 The following articles and sample projects can be helpful when implementing hierarchy:
 
-* [Editing in Hierarchy](slug://grid-kb-editing-in-hierarchy)
+* [Editing in Hierarchy](slug:grid-kb-editing-in-hierarchy)
 
 * [Load Hierarchical Data On Demand](https://github.com/telerik/blazor-ui/tree/master/grid/load-on-demand-hierarchy)
 
-* [Multi-Level Hierarchy](slug://grid-three-level-hierarchy)
+* [Multi-Level Hierarchy](slug:grid-three-level-hierarchy)
 
-* [Align Columns in Nested Grids](slug://grid-kb-align-columns-hierarchy)
+* [Align Columns in Nested Grids](slug:grid-kb-align-columns-hierarchy)
 
 * [Custom Excel Export that Includes Hierarchy](https://github.com/telerik/blazor-ui/tree/master/grid/export-to-xlsx-hierarchy)
 
@@ -126,6 +126,6 @@ The following articles and sample projects can be helpful when implementing hier
 ## See Also
 
 * [Live Demo: Grid Hierarchy](https://demos.telerik.com/blazor-ui/grid/hierarchy)
-* [Customize Hierarchy Expand Column in Blazor Grid](slug://grid-kb-customize-hierarchy-expand-column-blazor-grid)
-* [Drag and Drop Rows in Grid Hierarchy](slug://grid-kb-drag-drop-rows-hierarchy)
-* [Blazor Grid](slug://grid-overview)
+* [Customize Hierarchy Expand Column in Blazor Grid](slug:grid-kb-customize-hierarchy-expand-column-blazor-grid)
+* [Drag and Drop Rows in Grid Hierarchy](slug:grid-kb-drag-drop-rows-hierarchy)
+* [Blazor Grid](slug:grid-overview)

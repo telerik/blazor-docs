@@ -46,7 +46,7 @@ You can use:
 
 ### Localization
 
-You can enable [Localization](slug://globalization-localization) in your application and provide the desired custom text for the corresponding element keys.
+You can enable [Localization](slug:globalization-localization) in your application and provide the desired custom text for the corresponding element keys.
 
 The keys for the elements of the built-in Delete Confirmation Dialog are:
 
@@ -61,10 +61,10 @@ The keys for the elements of the built-in Delete Confirmation Dialog are:
 
 ### Predefined Dialog Component
 
-Use a [Predefined Confirm Dialog](slug://dialog-predefined#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
+Use a [Predefined Confirm Dialog](slug:dialog-predefined#confirm) with the desired custom text. Additionally, you may get the details for the current item and add them to the text:
 
 * Use the Grid `Class` parameter to set a `z-index` style, which is lower than the default Dialog `z-index` of 10,000.
-* Handle the [`OnDelete`](slug://grid-events#cud-events) event of the Grid.
+* Handle the [`OnDelete`](slug:grid-events#cud-events) event of the Grid.
 * Display the predefined Dialog in the `OnDelete` handler.
 * Cancel the event or proceed with the `OnDelete` logic depending on the user choice.
 * The same approach is applicable to the `OnCreate` and `OnUpdate` events.
@@ -183,13 +183,13 @@ Use a [Predefined Confirm Dialog](slug://dialog-predefined#confirm) with the des
 
 ### Dialog Component
 
-Using the [Dialog component](slug://dialog-overview) will let you have fully customized Delete Confirmation Dialog. To handle the scenario:
+Using the [Dialog component](slug:dialog-overview) will let you have fully customized Delete Confirmation Dialog. To handle the scenario:
 
 * Declare a Dialog instance and add the desired content and buttons there. Normally, you would need at least two buttons - for confirmation and cancelling the delete operation.
-* Use [custom commands](slug://components/grid/columns/command) instead of the built-in `Save` and `Delete` commands to obtain the data item and show the Dialog component.
+* Use [custom commands](slug:components/grid/columns/command) instead of the built-in `Save` and `Delete` commands to obtain the data item and show the Dialog component.
 * Handle the Dialog button clicks: 
     * Proceed with the item deletion in the Confirm button click handler. 
-    * Hide the Dialog on Cancel. Optionally, [exit Grid edit mode programmatically](slug://grid-kb-add-edit-state).
+    * Hide the Dialog on Cancel. Optionally, [exit Grid edit mode programmatically](slug:grid-kb-add-edit-state).
 * The same approach is applicable to the `OnCreate` and `OnUpdate` events.
 
 ````RAZOR
@@ -335,5 +335,5 @@ Using the [Dialog component](slug://dialog-overview) will let you have fully cus
 
 ## See Also
 
-* [Grid Editing](slug://components/grid/editing/overview)
-* [Dialog Overview](slug://dialog-overview)
+* [Grid Editing](slug:components/grid/editing/overview)
+* [Dialog Overview](slug:dialog-overview)

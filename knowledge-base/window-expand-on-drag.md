@@ -42,7 +42,7 @@ The Grid table has a `table-layout:fixed` style. If the Grid has no width, the f
 
 ## Solution
 
-Set the **Width** attribute of the Window or the Grid. To maintain [responsive behavior, set a Window width in relative units - `vw` or `%`](slug://window-kb-responsive).
+Set the **Width** attribute of the Window or the Grid. To maintain [responsive behavior, set a Window width in relative units - `vw` or `%`](slug:window-kb-responsive).
 
 >caption Prevent Window expansion on drag with a relative Width
 

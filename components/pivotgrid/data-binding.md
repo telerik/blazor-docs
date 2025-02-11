@@ -23,9 +23,9 @@ The PivotGrid supports different data sources via its `DataProviderType` paramet
 
 ## Local
 
-When bound to local data, the Pivot Grid requires its `Data` parameter to provide all the data at once as `IEnumerable<TItem>`. The component will perform all aggregate calculations in-memory and there is no [load on demand](slug://pivotgrid-overview#pivotgrid-parameters).
+When bound to local data, the Pivot Grid requires its `Data` parameter to provide all the data at once as `IEnumerable<TItem>`. The component will perform all aggregate calculations in-memory and there is no [load on demand](slug:pivotgrid-overview#pivotgrid-parameters).
 
-If the local data changes programmatically, you need to reset the collection instance or [call the PivotGrid `Rebind()` method](slug://pivotgrid-overview#pivotgrid-reference-and-methods). See the common documentation about [refreshing component data](slug://common-features-data-binding-overview#refresh-data) for details.
+If the local data changes programmatically, you need to reset the collection instance or [call the PivotGrid `Rebind()` method](slug:pivotgrid-overview#pivotgrid-reference-and-methods). See the common documentation about [refreshing component data](slug:common-features-data-binding-overview#refresh-data) for details.
 
 > Large amounts of local data may impact the performance, especially in WebAssembly applications.
 
@@ -163,4 +163,4 @@ The `<PivotGridXmlaDataProviderCredentials>` component creates an object, which 
 
 * [Live PivotGrid Demos - Local Data Binding](https://demos.telerik.com/blazor-ui/pivotgrid/local-data-binding)
 * [Live PivotGrid Demos - OLAP (XMLA) Data Binding](https://demos.telerik.com/blazor-ui/pivotgrid/xmla-data-binding)
-* [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1)
+* [PivotGrid API Reference](slug:Telerik.Blazor.Components.TelerikPivotGrid-1)

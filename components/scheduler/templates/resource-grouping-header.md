@@ -15,7 +15,7 @@ You can use the `SchedulerResourceGroupHeaderTemplate` to customize the renderin
 The `SchedulerResourceGroupHeaderTemplate`:
 * Is invoked for each resource when the Scheduler is configured to have resources and grouping.
 * Applies in both horizontal and vertical grouping.
-* Can be defined individually for each [Scheduler view](slug://scheduler-views-overview).
+* Can be defined individually for each [Scheduler view](slug:scheduler-views-overview).
 
 The `context` of the template is a `SchedulerResourceGroupHeaderTemplateContext` object that contains:
 

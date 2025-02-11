@@ -126,4 +126,4 @@ Thus, the scrollbar can only get so small, and you can only scroll to a certain 
 
 
 ## Solution
-The only possible solution if you have so many records is to use the standard [paging](slug://components/grid/features/paging).
+The only possible solution if you have so many records is to use the standard [paging](slug:components/grid/features/paging).

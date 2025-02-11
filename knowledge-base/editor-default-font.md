@@ -28,7 +28,7 @@ I would like to set a default font typeface to the Editor.
 
 ## Solutions
 
-The default font typeface of the content area of the Editor is based on the default font of the browser it is run under. When you are using the Editor in [Div](slug://editor-edit-modes-div) edit mode you can use CSS rules to define the default font-family for the content area of the component. The control exposes a `Class` parameter that takes a custom CSS class which can be used to cascade the required styles. 
+The default font typeface of the content area of the Editor is based on the default font of the browser it is run under. When you are using the Editor in [Div](slug:editor-edit-modes-div) edit mode you can use CSS rules to define the default font-family for the content area of the component. The control exposes a `Class` parameter that takes a custom CSS class which can be used to cascade the required styles. 
 
 >caption Set a default font family for the content area of the Editor in Div edit mode
 

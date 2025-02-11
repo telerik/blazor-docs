@@ -23,14 +23,14 @@ Provides full control over explicitly defining custom content to be rendered for
 
 #### TabGroup Pane
 
-Groups panes in a tab strip, similar to the [TabStrip component](slug://components/tabstrip/overview). Users can navigate through panes using tabs in the header. 
+Groups panes in a tab strip, similar to the [TabStrip component](slug:components/tabstrip/overview). Users can navigate through panes using tabs in the header. 
 
 * It can be a direct child of `<DockManagerSplitPane>`. 
 * It can only contain `<DockManagerContentPane>` children.
 
 #### Split Pane
 
-Organizes panes in a [Splitter-like](slug://splitter-overview) manner, allowing the container pane to be split either horizontally or vertically. 
+Organizes panes in a [Splitter-like](slug:splitter-overview) manner, allowing the container pane to be split either horizontally or vertically. 
 
 * It can be a direct child of another `<DockManagerSplitPane>`. 
 * It can contain `<DockManagerTabGroupPane>`, `<DockManagerContentPane>`, and other `<DockManagerSplitPane>` tags as children. 

@@ -63,8 +63,8 @@ To enable validation in the Telerik Form for Blazor add the `<FormValidation>` t
 @[template](/_contentTemplates/common/form-validation.md#note-validation)
 
 When you provide an `EditContext` to the form, you can use its [`EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontextdataannotationsextensions.enabledataannotationsvalidation?view=aspnetcore-8.0#microsoft-aspnetcore-components-forms-editcontextdataannotationsextensions-enabledataannotationsvalidation(microsoft-aspnetcore-components-forms-editcontext-system-iserviceprovider)) method to add the data annotation validation instead of using the markup. This is useful in the following cases:
-* When the model the form is bound to changes at runtime. For example, when you [have a reset button](slug://form-formitems-buttons#how-to-add-a-reset-clear-button-to-the-form).
-* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component](slug://form-overview#form-reference-and-methods)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
+* When the model the form is bound to changes at runtime. For example, when you [have a reset button](slug:form-formitems-buttons#how-to-add-a-reset-clear-button-to-the-form).
+* When you need to re-attach the validation after changing the `Model`. In this case you need to use the [reference to the Form component](slug:form-overview#form-reference-and-methods)&mdash;`TheFormReference.EditContext.EnableDataAnnotationsValidation(IServiceProvider serviceProvider)`.
 
 @[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
 
@@ -116,7 +116,7 @@ This section provides the following examples:
 * [Validate a Complex Model](#validate-a-complex-model)
 * [Fluent Validation](#fluent-validation)
 
-It is also possible to [trigger Form validation programmatically](slug://form-overview#form-reference-and-methods) or [use custom DataAnnotations validation](slug://validation-kb-custom-dataannotations-validator).
+It is also possible to [trigger Form validation programmatically](slug:form-overview#form-reference-and-methods) or [use custom DataAnnotations validation](slug:validation-kb-custom-dataannotations-validator).
 
 ### Validate a Model
 
@@ -279,5 +279,5 @@ You can use third-party validation libraries that integrate with the standard `E
 
 ## See Also
 
-* [Custom Form `DataAnnotations` Validation](slug://validation-kb-custom-dataannotations-validator)
-* [Conditional Form Validation Options](slug://form-kb-conditional-validation)
+* [Custom Form `DataAnnotations` Validation](slug:validation-kb-custom-dataannotations-validator)
+* [Conditional Form Validation Options](slug:form-kb-conditional-validation)

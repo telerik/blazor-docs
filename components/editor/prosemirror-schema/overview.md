@@ -28,11 +28,11 @@ The Editor uses a built-in schema with predefined nodes and marks, which describ
 
 To change the existing nodes and marks or define new ones, you can:
 
-* [Modify the Default Schema](slug://editor-modify-default-schema)
-* [Create a New Schema](slug://editor-create-new-schema)
+* [Modify the Default Schema](slug:editor-modify-default-schema)
+* [Create a New Schema](slug:editor-create-new-schema)
 
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Schema](https://demos.telerik.com/blazor-ui/editor/prosemirror-schema)
-* [Modify the Default Schema](slug://editor-modify-default-schema)
-* [Create a New Schema](slug://editor-create-new-schema)
+* [Modify the Default Schema](slug:editor-modify-default-schema)
+* [Create a New Schema](slug:editor-create-new-schema)

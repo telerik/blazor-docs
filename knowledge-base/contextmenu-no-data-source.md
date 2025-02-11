@@ -28,7 +28,7 @@ That way we can use this control to provide a popup of items that we can control
 
 ## Solution
 
-If you don't want to define a data source, you can provide an empty `List<object>` to the `Data` parameter of the Context menu. This way, you will meet the component's requirement of providing data and in the same time you will be able to actually create the content for it yourself using the [Content Template](slug://contextmenu-content-template).
+If you don't want to define a data source, you can provide an empty `List<object>` to the `Data` parameter of the Context menu. This way, you will meet the component's requirement of providing data and in the same time you will be able to actually create the content for it yourself using the [Content Template](slug:contextmenu-content-template).
 
 
 

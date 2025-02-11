@@ -109,4 +109,4 @@ The example below sorts the categories (`Company`) by the stacked value (sum) of
 ## See Also
 
 * [How to display a stacked series sum label in the Telerik Blazor Chart](slug:chart-kb-stacked-series-sum-label)
-* [Chart Series Stacking](slug://components/chart/stack)
+* [Chart Series Stacking](slug:components/chart/stack)

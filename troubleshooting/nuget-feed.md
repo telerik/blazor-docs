@@ -10,7 +10,7 @@ position: 7
 
 # Telerik NuGet Feed Troubleshooting
 
-This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the online [Telerik NuGet feed](slug://installation/nuget), and their solutions.
+This article summarizes the issues that may occur when you work with the Telerik UI for Blazor library and the online [Telerik NuGet feed](slug:installation/nuget), and their solutions.
 
 Regardless of the cause for the issue, it is recommended that you start from the section on the commonly occurring issues.
 
@@ -67,14 +67,14 @@ If you suspect that your saved credentials are wrong, use the following steps to
 * No provided credentials
 * Incorrect password
 * [Correct password with unescaped special characters](#special-characters-in-the-password)
-* Using an invalidated (removed) [Telerik NuGet API key](slug://installation/nuget#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/nuget-keys" target="_blank">your Telerik account</a>.
+* Using an invalidated (removed) [Telerik NuGet API key](slug:installation/nuget#use-nuget-api-key), which no longer exists in <a href="https://www.telerik.com/account/downloads/nuget-keys" target="_blank">your Telerik account</a>.
 * Using a valid Telerik NuGet API key with the wrong username. It must be `api-key`.
 
 An easy way to verify your credentials is to [access the Telerik NuGet server directly in the web browser](#tips-for-handling-common-nuget-issues). Then, depending on your setup, check or update your credentials in:
 
 * The applicable `NuGet.Config` file. There may be <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior" target="_blank">multiple such files on the device</a>.
 * [Windows Credential Manager](#removing-saved-credentials)
-* In a [CI/CD workflow](slug://deployment-nuget#using-net-cli-commands), which [obtains the credentials from a secret](slug://deployment-nuget#storing-nuget-keys).
+* In a [CI/CD workflow](slug:deployment-nuget#using-net-cli-commands), which [obtains the credentials from a secret](slug:deployment-nuget#storing-nuget-keys).
 
 ### Special Characters in the Password
 
@@ -100,14 +100,14 @@ If the error occurs for the `Telerik.UI.for.Blazor` package, it may look like th
 
 `error NU1101: Unable to find package Telerik.UI.for.Blazor. No packages exist with this id in source(s): nuget.org`
 
-Such an error implies that the [Telerik NuGet source](slug://installation/nuget) is not added or enabled. The possible causes are:
+Such an error implies that the [Telerik NuGet source](slug:installation/nuget) is not added or enabled. The possible causes are:
 
 * Missing Telerik NuGet source configuration in the `NuGet.Config` file.
 * The correct `NuGet.Config` file is not used, because it is missing or misplaced.
 
-If the error occurs in a Docker scenario, the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the Docker image build. You can also [reference the `NuGet.Config` file path explicitly in the `dotnet restore` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#options). For more information, see the [Docker section](slug://deployment-ci-cd-build-pc#docker) in the deployment documentation and the [private NuGet feeds in Docker](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) forum thread.
+If the error occurs in a Docker scenario, the solution is to copy the `NuGet.Config` file (or configure the NuGet source) explicitly during the Docker image build. You can also [reference the `NuGet.Config` file path explicitly in the `dotnet restore` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#options). For more information, see the [Docker section](slug:deployment-ci-cd-build-pc#docker) in the deployment documentation and the [private NuGet feeds in Docker](https://www.telerik.com/forums/can-the-telerik-blazor-and-asp-net-tools-be-used-in-a-docker-container) forum thread.
 
-If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages](slug://common-features-icons), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
+If the error occurs for the [`Telerik.FontIcons` and `Telerik.SvgIcons` icon packages](slug:common-features-icons), the NuGet client is not using `nuget.org` as a NuGet source. The possible causes are:
 
 * The `nuget.org` source is disabled.
 * There is [`packageSourceMapping`](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping), which forces the NuGet client to search for the icon packages in the `nuget.telerik.com` source. However, the icon packages are published on `nuget.org`.
@@ -138,19 +138,19 @@ Incorrect package source mapping can result in errors similar to:
 
 `NU1100 Unable to resolve 'Telerik... (>= ...)' for 'net...'. PackageSourceMapping is enabled, the following source(s) were not considered: ...`
 
-The solution is to check the **Package Source Mapping** settings in Visual Studio, or [review all applicable `NuGet.Config` files](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses) on the machine. Then, [adjust the package source mapping configuration](slug://installation/nuget#package-source-mapping).
+The solution is to check the **Package Source Mapping** settings in Visual Studio, or [review all applicable `NuGet.Config` files](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses) on the machine. Then, [adjust the package source mapping configuration](slug:installation/nuget#package-source-mapping).
 
 ## Failed to Retrieve Information from Remote Source
 
-An attempt to use the [obsolete Telerik NuGet v2 feed](slug://installation/nuget#obsolete-telerik-nuget-url) after November 2024 will result in an error:
+An attempt to use the [obsolete Telerik NuGet v2 feed](slug:installation/nuget#obsolete-telerik-nuget-url) after November 2024 will result in an error:
 
 `Failed to retrieve information about 'Telerik.UI.for.Blazor' from remote source 'https://nuget.telerik.com/nuget/FindPackagesById()?id='Telerik.UI.for.Blazor'&semVerLevel=2.0.0'.`
 
-The solution is to [use the Telerik NuGet v3 feed](slug://installation/nuget).
+The solution is to [use the Telerik NuGet v3 feed](slug:installation/nuget).
 
 Another possible reason for the same error is an incorrect NuGet feed URL.
 
 ## See Also
 
-* [Setting Up the Online Private Telerik NuGet Feed](slug://installation/nuget)
-* [CI, CD, Build Server](slug://deployment-ci-cd-build-pc)
+* [Setting Up the Online Private Telerik NuGet Feed](slug:installation/nuget)
+* [CI, CD, Build Server](slug:deployment-ci-cd-build-pc)

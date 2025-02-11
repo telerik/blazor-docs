@@ -40,14 +40,14 @@ Here are 4 different ways to achieve date-only filtering with `is equal to` filt
 
 ### Handle OnStateChanged
 
-This approach is suitable for [`FilterMenu` filter mode](slug://grid-filter-menu). The Grid will reveal the filtering customization in its filter menu - the filter operators will change and the two DatePickers will show adjacent date values. After the initial `is equal to` filtering, the application business logic should determine how to handle the next user actions.
+This approach is suitable for [`FilterMenu` filter mode](slug:grid-filter-menu). The Grid will reveal the filtering customization in its filter menu - the filter operators will change and the two DatePickers will show adjacent date values. After the initial `is equal to` filtering, the application business logic should determine how to handle the next user actions.
 
-1. Subscribe to the [`OnStateChanged` event](slug://grid-state#events).
-1. Check if [`args.PropertyName`](slug://Telerik.Blazor.Components.GridStateEventArgs-1) is `"FilterDescriptors"`.
+1. Subscribe to the [`OnStateChanged` event](slug:grid-state#events).
+1. Check if [`args.PropertyName`](slug:Telerik.Blazor.Components.GridStateEventArgs-1) is `"FilterDescriptors"`.
 1. Iterate the filter descriptors in `args.GridState.FilterDescriptors`.
-1. If there is an active filter for the date column, [modify the filter descriptors to filter the Grid rows between two dates](slug://grid-state#setstateasync-examples).
+1. If there is an active filter for the date column, [modify the filter descriptors to filter the Grid rows between two dates](slug:grid-state#setstateasync-examples).
 
-Note the [difference between `FilterDescriptor` and `CompositeFilterDescriptor`](slug://components/grid/filtering#filter-descriptors). This scenario involves both types.
+Note the [difference between `FilterDescriptor` and `CompositeFilterDescriptor`](slug:components/grid/filtering#filter-descriptors). This scenario involves both types.
 
 >caption Filter Grid by date via filter descriptor changes in OnStateChanged
 
@@ -122,11 +122,11 @@ Note the [difference between `FilterDescriptor` and `CompositeFilterDescriptor`]
 
 ### Bind via OnRead
 
-This approach is suitable for [`FilterRow` filter mode](slug://grid-filter-row). The Grid filtering interface will not reveal the filtering customization to the user.
+This approach is suitable for [`FilterRow` filter mode](slug:grid-filter-row). The Grid filtering interface will not reveal the filtering customization to the user.
 
-1. Bind the Grid via its [`OnRead` event](slug://common-features-data-binding-onread).
-1. Check for existing filters in the [`DataSourceRequest` argument](slug://common-features-data-binding-onread#event-argument) (`args.Request.Filters`).
-1. If there is an active filter for the date column, change the `Operator` and `Value` of the existing [`FilterDescriptor`](slug://Telerik.DataSource.FilterDescriptor). Add one more filter descriptor for the same column (`Member`), so that the date column is filtered between two dates.
+1. Bind the Grid via its [`OnRead` event](slug:common-features-data-binding-onread).
+1. Check for existing filters in the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) (`args.Request.Filters`).
+1. If there is an active filter for the date column, change the `Operator` and `Value` of the existing [`FilterDescriptor`](slug:Telerik.DataSource.FilterDescriptor). Add one more filter descriptor for the same column (`Member`), so that the date column is filtered between two dates.
 1. Continue the `OnRead` handler execution with the modified `DataSourceRequest` object.
 
 >caption Filter Grid by date via filter descriptor changes in OnRead
@@ -219,8 +219,8 @@ This approach is suitable for [`FilterRow` filter mode](slug://grid-filter-row).
 This approach is suitable for both filter menu and filter row modes. It has the following specifics:
 
 * Sorting will ignore the time values, unless there is an extra column, which is bound to the complete `DateTime` value.
-* Time value display requires a [column `Template`](slug://grid-templates-column) or an extra "time" column.
-* Time value editing requires an [`EditorTemplate`](slug://grid-templates-editor).
+* Time value display requires a [column `Template`](slug:grid-templates-column) or an extra "time" column.
+* Time value editing requires an [`EditorTemplate`](slug:grid-templates-editor).
 
 >caption Filter Grid by date via additional model property
 
@@ -289,8 +289,8 @@ This approach is suitable for both filter menu and filter row modes. It has the 
 
 ### Use Filter Template
 
-* This approach is suitable for [`FilterMenu` filter mode](slug://grid-filter-menu).
-* The date column requires a [`FilterMenuTemplate`](slug://grid-templates-filter).
+* This approach is suitable for [`FilterMenu` filter mode](slug:grid-filter-menu).
+* The date column requires a [`FilterMenuTemplate`](slug:grid-templates-filter).
 * The filter menu template provides full control over filtering interface and behavior.
 * More coding may be required.
 
@@ -299,6 +299,6 @@ See the [Grid Filter Menu Template Demo](https://demos.telerik.com/blazor-ui/gri
 
 ## See Also
 
-* [Grid State](slug://grid-state)
-* [Grid Filtering Overview](slug://components/grid/filtering)
-* [Grid Manual Data Operations with OnRead](slug://components/grid/manual-operations)
+* [Grid State](slug:grid-state)
+* [Grid Filtering Overview](slug:components/grid/filtering)
+* [Grid Manual Data Operations with OnRead](slug:components/grid/manual-operations)

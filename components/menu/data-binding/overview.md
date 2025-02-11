@@ -21,8 +21,8 @@ First, review:
 
 There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Hierarchical data](slug://components/menu/data-binding/hierarchical-data) - separate collections of items and their child items.
-* [Flat data](slug://components/menu/data-binding/flat-data) - a single collection of items with defined parent-child relationships.
+* [Hierarchical data](slug:components/menu/data-binding/hierarchical-data) - separate collections of items and their child items.
+* [Flat data](slug:components/menu/data-binding/flat-data) - a single collection of items with defined parent-child relationships.
 
 ## Menu Item Features
 
@@ -38,7 +38,7 @@ The menu items provide the following features that you control through the corre
 
 * `Text` - the text that will be shown on the item.
 
-* `Icon` - The [Telerik Font or SVG icon](slug://common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug://breadcrumb-icons).
+* `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:breadcrumb-icons).
 
 * `Url` - the view the item will navigate to by generating a link.
 
@@ -189,7 +189,7 @@ public class MenuItem
 
 ## See Also
 
-  * [Binding to Flat Data](slug://components/menu/data-binding/flat-data)
-  * [Binding to Hierarchical Data](slug://components/menu/data-binding/hierarchical-data)
+  * [Binding to Flat Data](slug:components/menu/data-binding/flat-data)
+  * [Binding to Hierarchical Data](slug:components/menu/data-binding/hierarchical-data)
   * [Live Demo: Menu Flat Data](https://demos.telerik.com/blazor-ui/menu/flat-data)
   * [Live Demo: Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/menu/hierarchical-data)

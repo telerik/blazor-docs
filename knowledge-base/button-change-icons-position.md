@@ -31,7 +31,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-You can change the [icon](slug://common-features-icons) position and add more icons in the Button by using the following approaches:
+You can change the [icon](slug:common-features-icons) position and add more icons in the Button by using the following approaches:
 
 * To display multiple icons in one Button, nest the `TelerikIcon` in the `TelerikButton` content.
 * To control the position of the icon in relation to the text content of the Button, use CSS.

@@ -31,16 +31,16 @@ How can I copy and paste in the Editor component programmatically?
 
 To programmatically copy from the Editor:
 
-1. Use a [custom Editor tool](slug://editor-custom-tools) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
+1. Use a [custom Editor tool](slug:editor-custom-tools) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
 1. On tool click (pure JavaScript event), [obtain the window selection](https://developer.mozilla.org/en-US/docs/Web/API/Window/getSelection).
 1. Use the [`write()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write) method of the browser [`Clipboard`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard).
 
 To programmatically paste in the Editor:
 
-1. Use a [custom Editor tool](slug://editor-custom-tools) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
+1. Use a [custom Editor tool](slug:editor-custom-tools) that relies on plain HTML and completely client-side event handling. Do not use `@onclick` directives or Razor component events.
 1. On tool click (pure JavaScript event), use the [`read()`](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/read) method of the browser Clipboard.
 1. Pass the clipboard content to the [.NET runtime with `JSInterop`](https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-dotnet-from-javascript).
-1. Use the [`insertHtml` Editor command](slug://editor-built-in-tools#commands-without-built-in-tools). For more information, see the section on [programmatic execution](slug://editor-built-in-tools#programmatic-execution) and analyze if you will be pasting block content or inline content.
+1. Use the [`insertHtml` Editor command](slug:editor-built-in-tools#commands-without-built-in-tools). For more information, see the section on [programmatic execution](slug:editor-built-in-tools#programmatic-execution) and analyze if you will be pasting block content or inline content.
 
 >caption Programmatic copy and paste in the Telerik UI for Blazor Editor
 
@@ -213,5 +213,5 @@ To programmatically paste in the Editor:
 
 # See Also
 
-* [Built-in Editor Tools](slug://editor-built-in-tools)
-* [Custom Editor Tools](slug://editor-custom-tools)
+* [Built-in Editor Tools](slug:editor-built-in-tools)
+* [Custom Editor Tools](slug:editor-custom-tools)

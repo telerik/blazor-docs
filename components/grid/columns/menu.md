@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The Grid allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting](slug://components/grid/features/sorting), [filtering](slug://components/grid/filtering), [showing or hiding](slug://grid-columns-visible) columns and [freezing or unfreezing](slug://grid-columns-frozen) them.
+The Grid allows you to set up a menu for its columns. It enables you to perform high-level customization like [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering), [showing or hiding](slug:grid-columns-visible) columns and [freezing or unfreezing](slug:grid-columns-frozen) them.
 
 >caption In this article:
 * [Basics](#basics)
@@ -97,7 +97,7 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 To control whether filtering is possible from the Column Menu set the `FilterMode` parameter of the `GridColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
-* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug://grid-filter-row).
+* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug:grid-filter-row).
 * `FilterMenu`—enables a filter menu to apply filtering.
 
 ### Groupable
@@ -122,7 +122,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 1. Use the `GridColumnMenuChooser` tag (child to the `GridColumnMenuSettings`)
 
-1. Add the [Template](slug://grid-templates-column-chooser) tag
+1. Add the [Template](slug:grid-templates-column-chooser) tag
 
 1. Provide `GridColumnMenuChooserGroup` which is a collection of the columns that should be in the section
     
@@ -130,7 +130,7 @@ You can organize the columns in the [Column Chooser](#column-chooser) in differe
 
 1. Use the `GridColumnMenuChooserItem` to denote the columns that should be in the group
 
-    * You must use set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`](slug://components/grid/columns/bound#grid-bound-column-parameters) parameter of the corresponding Grid Column.
+    * You must use set the `ColumnId` parameter of the `GridColumnMenuChooserItem` to the value of the [`Id`](slug:components/grid/columns/bound#grid-bound-column-parameters) parameter of the corresponding Grid Column.
     
     * If you set the `Title` parameter of the `GridColumnMenuChooserItem` it will override the value of the `Title` parameter of the corresponding Grid Column. 
 
@@ -250,11 +250,11 @@ The columns in the Column Chooser are divided into sections. The Lockable option
 
 * Applying settings to a Grid column like `Filterable="false"`, `Sortable="false"`, `Lockable="false"` will take precedence over the common settings applied in the `<GridColumnMenuSettings>` and disable the above-mentioned functionalities for the corresponding column.
 
-* If the Grid has a [frozen](slug://grid-columns-frozen) column (`Locked="true"`), that column cannot be unfrozen from the column menu.
+* If the Grid has a [frozen](slug:grid-columns-frozen) column (`Locked="true"`), that column cannot be unfrozen from the column menu.
 
-* If you are using the [Column Chooser Template](slug://grid-templates-column-chooser) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Grid Columns.
+* If you are using the [Column Chooser Template](slug:grid-templates-column-chooser) or you are grouping the columns into [sections](#sections), it is recommended to add the `Title` parameter to all Grid Columns.
 
 ## See Also
   * [Live Demo: Grid Column Menu](https://demos.telerik.com/blazor-ui/grid/column-menu)
   * [Live Demo: Grid Custom Column Menu](https://demos.telerik.com/blazor-ui/grid/custom-column-menu)
-  * [Blazor Grid](slug://grid-overview)
+  * [Blazor Grid](slug:grid-overview)

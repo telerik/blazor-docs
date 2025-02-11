@@ -22,13 +22,13 @@ res_type: kb
 
 
 ## Description
-When I right click a cell in a Grid, I want to show context menu. I need to know row, column and ideally cell value.  When using the [grid context menu event](slug://grid-events#onrowcontextmenu), I need to figure out which column was clicked.
+When I right click a cell in a Grid, I want to show context menu. I need to know row, column and ideally cell value.  When using the [grid context menu event](slug:grid-events#onrowcontextmenu), I need to figure out which column was clicked.
 
 ## Solution
 To distinguish a column (cell) from the rest, you need to:
 
-1. Use the [cell template](slug://grid-templates-column) for columns that need special handling.
-2. [Integrate the context menu there](slug://contextmenu-integration) explicitly. 
+1. Use the [cell template](slug:grid-templates-column) for columns that need special handling.
+2. [Integrate the context menu there](slug:contextmenu-integration) explicitly. 
 3. Make sure to stop the event propagation so that the built-in grid event does not trigger.
 4. In the specific event handlers for the context menu event, employ your application logic to use the row, and metadata from the event handlers to built the desired context menu experience.
 
@@ -162,7 +162,7 @@ This example uses a simple boolean flag for brevity, you can extend the logic to
 
 ## Notes
 
-If you need to do this for many columns, you can consider using the [row template](slug://grid-templates-row), and/or extracting the desired logic into its own component so you can repeat it more easily in the grid.
+If you need to do this for many columns, you can consider using the [row template](slug:grid-templates-row), and/or extracting the desired logic into its own component so you can repeat it more easily in the grid.
 
 While it might be a performance hit, an event that could make this easier may become available through <a href="https://feedback.telerik.com/blazor/1507338-oncellcontextmenu-event" target="_blank">this request</a>. You can Follow its status there.
 

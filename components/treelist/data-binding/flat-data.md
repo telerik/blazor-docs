@@ -117,8 +117,8 @@ If there are child items for a certain node (items whose `ParentId` points to th
 
 ## See Also
 
-  * [TreeList Data Binding Basics](slug://treelist-data-binding-overview)
+  * [TreeList Data Binding Basics](slug:treelist-data-binding-overview)
   * [Live Demo: TreeList Flat Data](https://demos.telerik.com/blazor-ui/treelist/binding-flat-data)
-  * [Binding to Hierarchical Data](slug://treelist-data-binding-hierarchical-data)
-  * [Load on Demand](slug://treelist-data-binding-load-on-demand)
+  * [Binding to Hierarchical Data](slug:treelist-data-binding-hierarchical-data)
+  * [Load on Demand](slug:treelist-data-binding-load-on-demand)
 

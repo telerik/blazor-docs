@@ -31,7 +31,7 @@ This Knowledge Base article answers the following questions:
 ## Solution
 
 1. Set a custom CSS class to the Tooltip through the `Class` parameter. This configuration allows you to target specific Tooltip instances.
-2. Use the defined class to [override the theme styles](slug://themes-override).
+2. Use the defined class to [override the theme styles](slug:themes-override).
 3. Customize the callout (small arrow) position by using this CSS combinator `.your-class .k-callout`, to suit your specific requirements.
 3. Set a value for the `TargetSelector` parameter of the Tooltip.
 
@@ -79,5 +79,5 @@ This Knowledge Base article answers the following questions:
 ````
 
 ## See Also
-* [Tooltip Overview](slug://tooltip-overview)
-* [Tooltip Position](slug://tooltip-position)
+* [Tooltip Overview](slug:tooltip-overview)
+* [Tooltip Position](slug:tooltip-position)

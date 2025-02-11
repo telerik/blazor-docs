@@ -146,7 +146,7 @@ This event fires upon the rendering of the Grids columns. It receives an argumen
 
 ## See Also
 
-  * [Grid Overview](slug://grid-overview)
-  * [Grid Events](slug://grid-events)
-  * [Manual Data Source Operations](slug://components/grid/manual-operations)
-  * [Blazor Grid](slug://grid-overview)
+  * [Grid Overview](slug:grid-overview)
+  * [Grid Events](slug:grid-events)
+  * [Manual Data Source Operations](slug:components/grid/manual-operations)
+  * [Blazor Grid](slug:grid-overview)

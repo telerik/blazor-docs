@@ -68,7 +68,7 @@ If you want to put the TreeList in a certain configuration without preserving th
 
 To reset the TreeList state, call `SetStateAsync(null)`.
 
-You should avoid calling `SetStateAsync` in the treelist [CRUD methods](slug://treelist-editing-overview). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
+You should avoid calling `SetStateAsync` in the treelist [CRUD methods](slug:treelist-editing-overview). Doing so may lead to unexpected results because the grid has more logic to execute after the event.
 
 ## Information in the TreeList State
 
@@ -110,9 +110,9 @@ You can find the following examples in this section:
 
 The following example shows one way you can store the TreeList state - through a custom service that calls the browser's LocalStorage. You can use your own database here, or a file, or Microsoft's ProtectedBrowserStorage package, or any other storage you prefer. This is just an example you can use as base and modify to suit your project.
   
->note If you use [Hierarchical data](slug://treelist-data-binding-hierarchical-data) for the TreeList you need to serialize the current item only and not the entire collection of child items in order not to exceed the size of the LocalStorage.
+>note If you use [Hierarchical data](slug:treelist-data-binding-hierarchical-data) for the TreeList you need to serialize the current item only and not the entire collection of child items in order not to exceed the size of the LocalStorage.
 
->note We support the `System.Text.Json` serialization that is built-in in Blazor. Be aware of its [limitation to not serialize `Type` properties](slug://kb-grid-json-serializer-null-membertype).
+>note We support the `System.Text.Json` serialization that is built-in in Blazor. Be aware of its [limitation to not serialize `Type` properties](slug:kb-grid-json-serializer-null-membertype).
 
 >caption Save, Load, Reset TreeList state on every state change. Uses a sample LocalStorage in the browser.
 
@@ -537,7 +537,7 @@ Sometimes you may want to know what the user changed in the TreeList (e.g., when
 
 The example below shows how to achieve it by using the`OnStateChanged` event.
 
-Find out how to [get the applied filtering and sorting criteria](slug://common-features-descriptors).
+Find out how to [get the applied filtering and sorting criteria](slug:common-features-descriptors).
 
 >caption Know when the TreeList state changes, which parameter changed and amend the change
 
@@ -710,7 +710,7 @@ Find out how to [get the applied filtering and sorting criteria](slug://common-f
 
 The TreeList state lets you store the item that the user is currently working on - both an existing model that is being edited, and a new item the user is inserting. This happens automatically when you save the TreeList state. If you want to save on every keystroke instead of on `OnChange` - use a custom editor template and update the `EditItem` or `InsertedItem` of the state object as required, then save the state into your service.
 
-In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button](slug://treelist-columns-command).
+In addition to that, you can also use the `EditItem`, `OriginalEditItem`, `InsertItem` and `ParentItem` fields of the state object to put the TreeList in edit/insert mode through your own application code, instead of needing the user to initiate this through a [command button](slug:treelist-columns-command).
 
 >caption Put and item in Edit mode or start Inserting a new item
 

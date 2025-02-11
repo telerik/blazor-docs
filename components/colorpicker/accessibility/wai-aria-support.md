@@ -83,4 +83,4 @@ For details on how the ColorPicker keyboard navigation works, refer to:
 ## See Also
 
 * [Blazor ColorPicker Demos](https://demos.telerik.com/blazor-ui/colorpicker/overview)
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

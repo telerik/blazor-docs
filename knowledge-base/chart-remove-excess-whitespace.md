@@ -84,4 +84,4 @@ To reduce the whitespace around a Chart, use the `Padding` parameter of the Char
 ## See Also
 
 - [ChartSeries API Documentation](https://docs.telerik.com/blazor-ui/api/telerik.blazor.components.chartseries)
-- [Chart for Blazor Overview](slug://components/chart/overview)
+- [Chart for Blazor Overview](slug:components/chart/overview)

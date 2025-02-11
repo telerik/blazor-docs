@@ -24,7 +24,7 @@ This article explains the events available in the Telerik TreeView for Blazor:
 
 ## CheckedItemsChanged
 
-The `CheckedItemsChanged` event fires every time the user uses a [checkbox](slug://treeview-checkboxes-overview) to select a new item.
+The `CheckedItemsChanged` event fires every time the user uses a [checkbox](slug:treeview-checkboxes-overview) to select a new item.
 
 ## ExpandedItemsChanged
 
@@ -32,7 +32,7 @@ The `ExpandedItemsChanged` event fires every time the user expands or collapses 
 
 ## OnExpand
 
-The `OnExpand` event fires when the user expands or collapses a node (either with the mouse, or with the keyboard). You can use it to know that the user performed that action, and/or to implement [load on demand](slug://components/treeview/data-binding/load-on-demand).
+The `OnExpand` event fires when the user expands or collapses a node (either with the mouse, or with the keyboard). You can use it to know that the user performed that action, and/or to implement [load on demand](slug:components/treeview/data-binding/load-on-demand).
 
 @[template](/_contentTemplates/common/general-info.md#rerender-after-event)
 
@@ -54,7 +54,7 @@ The event handler receives a `TreeViewItemContextMenuEventArgs` argument, which 
 
 @[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
-The `OnItemContextMenu` is used to [integrate the Context menu](slug://contextmenu-integration#context-menu-for-a-treeview-node) to the TreeView node.
+The `OnItemContextMenu` is used to [integrate the Context menu](slug:contextmenu-integration#context-menu-for-a-treeview-node) to the TreeView node.
 
 ## OnItemDoubleClick
 
@@ -77,7 +77,7 @@ The event handler receives as an argument an `TreeViewItemRenderEventArgs` objec
 
 ## SelectedItemsChanged
 
-The `SelectedItemsChanged` event fires when the [selection](slug://treeview-selection-overview) is enabled and the user clicks on a new item.
+The `SelectedItemsChanged` event fires when the [selection](slug:treeview-selection-overview) is enabled and the user clicks on a new item.
 
 ## Drag Events
 
@@ -88,7 +88,7 @@ The TreeView implements the Drag and Drop functionality through the following dr
 * The `OnDrop` event fires when the user drops a node into a new location. The event fires only if the new location is a Telerik component.
 * The `OnDragEnd` event fires when a drag operation ends. Unlike the `OnDrop` event, `OnDragEnd` will fire even if the new location is not a Telerik component.   
 
-For more details and examples, see the [Treeview Drag and Drop](slug://treeview-drag-drop-overview) article.
+For more details and examples, see the [Treeview Drag and Drop](slug:treeview-drag-drop-overview) article.
 
 ## Example
 
@@ -324,6 +324,6 @@ For more details and examples, see the [Treeview Drag and Drop](slug://treeview-
 
 ## See Also
 
-  * [TreeView Overview](slug://treeview-overview)
-  * [TreeView Selection](slug://treeview-selection-overview)
-  * [TreeView CheckBoxes](slug://treeview-checkboxes-overview)
+  * [TreeView Overview](slug:treeview-overview)
+  * [TreeView Selection](slug:treeview-selection-overview)
+  * [TreeView CheckBoxes](slug:treeview-checkboxes-overview)

@@ -10,7 +10,7 @@ position: 1
 
 # Tooltip for Telerik Blazor Chart
 
-The Telerik Chart provides a tooltip for its data points. You can have settings specific to each `<ChartSeries>`, common tooltip settings for all series, or a [shared](slug://chart-tooltip-shared) tooltip for all categories.
+The Telerik Chart provides a tooltip for its data points. You can have settings specific to each `<ChartSeries>`, common tooltip settings for all series, or a [shared](slug:chart-tooltip-shared) tooltip for all categories.
 
 In this article:
 
@@ -262,5 +262,5 @@ The available series data point information in the `context` is:
 
 ## See Also
 
-  * [Chart Overview](slug://components/chart/overview)
-  * [Chart Shared Tooltip](slug://chart-tooltip-shared)
+  * [Chart Overview](slug:components/chart/overview)
+  * [Chart Shared Tooltip](slug:chart-tooltip-shared)

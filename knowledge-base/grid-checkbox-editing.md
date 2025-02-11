@@ -37,10 +37,10 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Define a [`<GridColumn>` with a `Field`](slug://components/grid/columns/bound) that points to a `bool` property.
-1. Set [`Editable="false"`](slug://components/grid/columns/bound#data-operations) for that column, if the [Grid `EditMode`](slug://components/grid/editing/overview) is `Incell`.
-1. Define a [column cell template](slug://grid-templates-column) (`<Template>`) for the column. Place a [`TelerikCheckBox` component](slug://checkbox-overview) inside.
-1. If the updated CheckBox values require real-time synchronization with a remote data source, then use the [CheckBox `OnChange` or `ValueChanged` event](slug://checkbox-events). In this case, `ValueChanged` will also require a [`ValueExpression`](slug://common-kb-requires-valueexpression).
+1. Define a [`<GridColumn>` with a `Field`](slug:components/grid/columns/bound) that points to a `bool` property.
+1. Set [`Editable="false"`](slug:components/grid/columns/bound#data-operations) for that column, if the [Grid `EditMode`](slug:components/grid/editing/overview) is `Incell`.
+1. Define a [column cell template](slug:grid-templates-column) (`<Template>`) for the column. Place a [`TelerikCheckBox` component](slug:checkbox-overview) inside.
+1. If the updated CheckBox values require real-time synchronization with a remote data source, then use the [CheckBox `OnChange` or `ValueChanged` event](slug:checkbox-events). In this case, `ValueChanged` will also require a [`ValueExpression`](slug:common-kb-requires-valueexpression).
 
 ```CSHTML
 @using Telerik.DataSource.Extensions
@@ -178,8 +178,8 @@ This KB article answers the following questions:
 
 ## Notes
 
-The [built-in Grid editing](slug://components/grid/editing/overview) feature creates a [copy of the original data item](slug://components/grid/editing/overview#notes) while a row is in edit mode. As a result, CheckBox value changes in the non-templated column above are applied to the template columns *after* the `OnUpdate` handler executes.
+The [built-in Grid editing](slug:components/grid/editing/overview) feature creates a [copy of the original data item](slug:components/grid/editing/overview#notes) while a row is in edit mode. As a result, CheckBox value changes in the non-templated column above are applied to the template columns *after* the `OnUpdate` handler executes.
 
 ## See Also
 
-* [Grid Column Cell Template](slug://grid-templates-column)
+* [Grid Column Cell Template](slug:grid-templates-column)

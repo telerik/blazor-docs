@@ -20,11 +20,11 @@ There are two templates:
 
 The appointment template lets you control the rendering of the appointment content, but it keeps the other built-in appointment features - such as drag and resize handles, delete icon, arrows indicating if the appointment spans more than a day.
 
-You can set a template for the entire scheduler, or you can also set templates per [view](slug://scheduler-views-overview). If a template is set on the particular view, it will take precedence over the shared template for the whole scheduler.
+You can set a template for the entire scheduler, or you can also set templates per [view](slug:scheduler-views-overview). If a template is set on the particular view, it will take precedence over the shared template for the whole scheduler.
 
 The `context` of the template is the item that it will display. You can cast it to the model type you use.
 
-You can also style the entire appointments by adding a class to their wrapping element by using the [ItemRender event](slug://scheduler-events#itemrender).
+You can also style the entire appointments by adding a class to their wrapping element by using the [ItemRender event](slug:scheduler-events#itemrender).
 
 >caption Example of using appointment templates and all-day appointment templates in the scheduler. The Month view uses a different template than the other views
 

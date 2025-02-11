@@ -32,10 +32,10 @@ This KB answers the following questions:
 
 ## Solution
 
-1. Configure the [Grid hierarchy](slug://components/grid/features/hierarchy) with a `<DetailTemplate>`.
-1. [Set `RowDraggable="true"` and handle the `OnRowDrop` event](slug://grid-drag-drop-overview) for the master or detail Grids.
-1. [Set unique `@ref` attributes to all detail Grid instances](slug://common-kb-dynamic-refs).
-1. [Set unique `@key` attributes to all detail Grid instances](slug://grid-kb-using-components-in-templates).
+1. Configure the [Grid hierarchy](slug:components/grid/features/hierarchy) with a `<DetailTemplate>`.
+1. [Set `RowDraggable="true"` and handle the `OnRowDrop` event](slug:grid-drag-drop-overview) for the master or detail Grids.
+1. [Set unique `@ref` attributes to all detail Grid instances](slug:common-kb-dynamic-refs).
+1. [Set unique `@key` attributes to all detail Grid instances](slug:grid-kb-using-components-in-templates).
 1. (optional) Disable dragging from certain Grids. Use custom CSS to hide specific drag columns. The example below shows how to do this separately for each Grid instance in the hierarchy.
 1. (optional) Disable dropping to certain Grid instances. Use logic in the `OnRowDrop` event handlers. The example below prevents dragging and dropping of master rows to the detail Grids.
 
@@ -255,7 +255,7 @@ This KB answers the following questions:
 
 ## See Also
 
-* [Grid Hierarchy](slug://components/grid/features/hierarchy)
-* [Grid Drag and Drop](slug://grid-drag-drop-overview)
-* [Set `@ref` to Detail Grids](slug://common-kb-dynamic-refs)
-* [Use `@key` in Grid Templates](slug://grid-kb-using-components-in-templates)
+* [Grid Hierarchy](slug:components/grid/features/hierarchy)
+* [Grid Drag and Drop](slug:grid-drag-drop-overview)
+* [Set `@ref` to Detail Grids](slug:common-kb-dynamic-refs)
+* [Use `@key` in Grid Templates](slug:grid-kb-using-components-in-templates)

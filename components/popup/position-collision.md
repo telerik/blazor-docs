@@ -177,4 +177,4 @@ The following example lets you experiment with the available settings that contr
 ## See Also
 
 * [Live Popup Demos](https://demos.telerik.com/blazor-ui/popup/overview)
-* [Popup API Reference](slug://Telerik.Blazor.Components.TelerikPopup)
+* [Popup API Reference](slug:Telerik.Blazor.Components.TelerikPopup)

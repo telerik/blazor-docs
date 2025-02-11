@@ -31,11 +31,11 @@ How to reverse the Grid sorting logic for a column?
 
 ## Solution
 
-This scenario requires knowledge about the [Grid State](slug://grid-state). Get familiar with the following sections first:
+This scenario requires knowledge about the [Grid State](slug:grid-state). Get familiar with the following sections first:
 
-* [Information in the Grid State](slug://grid-state#information-in-the-grid-state)
-* [Grid `OnStateChanged` Event](slug://grid-state#onstatechanged)
-* [Grid State Methods](slug://grid-state#methods)
+* [Information in the Grid State](slug:grid-state#information-in-the-grid-state)
+* [Grid `OnStateChanged` Event](slug:grid-state#onstatechanged)
+* [Grid State Methods](slug:grid-state#methods)
 
 The Grid always tries to maintain the following order of sorting states for each column:
 
@@ -44,11 +44,11 @@ No sorting &gt; Ascending &gt; Descending &gt; No sorting &gt; ...
 Let's assume that the Grid has a `Stock` column which is not sorted, but it should be sorted descending first, if the user clicks on the header. The required algorithm to intercept sorting and change the sort direction is:
 
 1. Set a helper variable that will keep the previous sort state of the `Stock` column. If the column is unsorted by default, then the helper variable can be equal to `null`.
-1. Subscribe to the [Grid `OnStateChanged` Event](slug://grid-state#onstatechanged).
+1. Subscribe to the [Grid `OnStateChanged` Event](slug:grid-state#onstatechanged).
 1. Check if the user has changed the sort state by checking if `args.PropertyName` is `"SortDescriptors"`.
 1. If yes, then iterate `args.GridState.SortDescriptors` and check if the `Stock` column is now sorted, what is the sort direction, and what was the previous sort direction.
-1. Depending on the current situation, either override the `SortDirection` property of the [`SortDescriptor`](slug://telerik.datasource.sortdescriptor), or add a new `SortDescriptor` to the `args.GridState.SortDescriptors`. The logic will vary, depending on the Grid `SortMode` (`Single` or `Multiple`).
-1. Use the [Grid `SetStateAsync` method](slug://grid-state#methods) to apply the modified Grid state to the component instance.
+1. Depending on the current situation, either override the `SortDirection` property of the [`SortDescriptor`](slug:telerik.datasource.sortdescriptor), or add a new `SortDescriptor` to the `args.GridState.SortDescriptors`. The logic will vary, depending on the Grid `SortMode` (`Single` or `Multiple`).
+1. Use the [Grid `SetStateAsync` method](slug:grid-state#methods) to apply the modified Grid state to the component instance.
 
 >caption Sort a Grid column descending first
 
@@ -192,5 +192,5 @@ The Name and Price columns will sort <strong>ascending</strong> first.
 
 ## See Also
 
-* [Grid State documentation](slug://grid-state)
-* [GridState API reference](slug://Telerik.Blazor.Components.GridState-1)
+* [Grid State documentation](slug:grid-state)
+* [GridState API reference](slug:Telerik.Blazor.Components.GridState-1)

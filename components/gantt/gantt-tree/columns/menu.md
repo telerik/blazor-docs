@@ -10,7 +10,7 @@ position: 20
 
 # Column Menu
 
-The Gantt allows you to set up a menu for its columns. The Column Menu enables you to perform high-level customization like [sorting](slug://gantt-sorting), [filtering](slug://gantt-filtering-overview), and [showing or hiding](slug://gantt-columns-visible) columns.
+The Gantt allows you to set up a menu for its columns. The Column Menu enables you to perform high-level customization like [sorting](slug:gantt-sorting), [filtering](slug:gantt-filtering-overview), and [showing or hiding](slug:gantt-columns-visible) columns.
 
 >caption In this article:
 * [Basics](#basics)
@@ -138,7 +138,7 @@ The **Apply** button sets the column visibility according to the current checkbo
 
 To control whether filtering is possible from the Column Menu, set the `FilterMode` parameter of the `GanttColumnMenuSettings` tag to a member of the `ColumnMenuFilterMode` enum:
 
-* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug://gantt-filter-row).
+* `None`—disables the filtering from the Column Menu. This is the recommended option if you use the [`FilterRow` mode](slug:gantt-filter-row).
 * `FilterMenu`—enables filtering from a filter menu.
 
 ### Frozen Columns
@@ -159,7 +159,7 @@ The Gantt Column Menu lets you group the columns in the [Column Chooser](#column
 
 1. Use the `GanttColumnMenuChooser` tag (child to the `GanttColumnMenuSettings`).
 
-1. Add the [Template](slug://gantt-templates-column-chooser) tag.
+1. Add the [Template](slug:gantt-templates-column-chooser) tag.
 
 1. Provide a `GanttColumnMenuChooserGroup`, which is a collection of the columns that will be in the section. To render a title for the section, use the `Title` parameter.
     
@@ -283,7 +283,7 @@ The example shows the following things:
 
 * The settings applied to a Gantt column take precedence over the settings applied to the Column Menu through the `<GanttColumnMenuSettings>` tag. For example, if you set `Lockable="false"` to a Gantt column and `Lockable="true"` to the Gantt Column Menu, the Frozen Columns functionality will be disabled.
 
-* When using the [Column Chooser Template](slug://gantt-templates-column-chooser) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all Gantt Columns.
+* When using the [Column Chooser Template](slug:gantt-templates-column-chooser) or grouping the columns into [sections](#column-sections), add the `Title` parameter to all Gantt Columns.
 
 ## See Also
   * [Live Demo: Gantt Column Menu](https://demos.telerik.com/blazor-ui/gantt/column-menu)

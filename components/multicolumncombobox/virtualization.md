@@ -25,7 +25,7 @@ This section will explain the parameters and behaviors that are related to the v
 >caption To enable UI virtualization, you need to set the following parameters of the component:
 
 * `ScrollMode` - `Telerik.Blazor.DropDownScrollMode` - set it to `DropDownScrollMode.Virtual`. It defaults to the "regular" scrolling.
-* `ListHeight` - `string` - [set the height](slug://common-features/dimensions) of the dropdown. It must **not** be a `null/empty` string.
+* `ListHeight` - `string` - [set the height](slug:common-features/dimensions) of the dropdown. It must **not** be a `null/empty` string.
 * `ItemHeight` - `decimal` - set it to the height each individual item will have in the dropdown. Make sure to accommodate the content your items will have and any item template.
 * `PageSize` - `int` - defines how many items will actually be rendered and reused. The value determines how many items are loaded on each scroll. The number of items must be large enough according to the `ItemHeight` and popup `ListHeight`, so that there are more items than the dropdown so there is a scrollbar.
 

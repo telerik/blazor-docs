@@ -20,7 +20,7 @@ The TreeList component supports row and cell selection. When you select a row or
 
 ## Enable Row or Cell Selection
 
-You can configure the TreeList either for row or cell selection. See [Row Selection Basics](slug://treelist-selection-row#basics) and [Cell Selection Basics](slug://treelist-selection-cell#basics) for more details and examples.
+You can configure the TreeList either for row or cell selection. See [Row Selection Basics](slug:treelist-selection-row#basics) and [Cell Selection Basics](slug:treelist-selection-cell#basics) for more details and examples.
 
 ## Use Single or Multiple Selection
 
@@ -39,20 +39,20 @@ The TreeList exposes two parameters to get or set its selected rows and cells.
 
 Both parameters support two-way binding. You can also use the parameters to pre-select rows or cells for your users.
 
-See [Row Selection Basics](slug://treelist-selection-row#basics) and [Cell Selection Basics](slug://treelist-selection-cell#basics) for more details.
+See [Row Selection Basics](slug:treelist-selection-row#basics) and [Cell Selection Basics](slug:treelist-selection-cell#basics) for more details.
 
 ## Events
 
 You can respond to the user action of selecting a new item through the TreeList events:
 
-* Use the [`SelectedItemsChanged` event](slug://treelist-selection-row#selecteditemschanged-event) to respond to row selection.
-* Use the [`SelectedCellsChanged` event](slug://treelist-selection-cell#selectedcellschanged-event) to respond to cell selection.
+* Use the [`SelectedItemsChanged` event](slug:treelist-selection-row#selecteditemschanged-event) to respond to row selection.
+* Use the [`SelectedCellsChanged` event](slug:treelist-selection-cell#selectedcellschanged-event) to respond to cell selection.
 
 ## Integration with Other TreeList Features
 
 The selection feature behavior may differ when the TreeList configuration includes row or cell selection and other TreeList features. In these situations, certain limitations might arise, or additional adjustments may be required.
 
-See [Rows Selection and Other TreeList Features](slug://treelist-selection-row#row-selection-and-other-treelist-features) and [Cells Selection and Other TreeList Features](slug://treelist-selection-cell#cell-selection-and-other-treelist-features) for more details.
+See [Rows Selection and Other TreeList Features](slug:treelist-selection-row#row-selection-and-other-treelist-features) and [Cells Selection and Other TreeList Features](slug:treelist-selection-cell#cell-selection-and-other-treelist-features) for more details.
 
 ## See Also
 

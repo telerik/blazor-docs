@@ -36,13 +36,13 @@ There are two possible ways to implement a reusable Notification component insta
 
 The Notification component in both scenarios must be defined:
 
-1. As a descendant (or child) of the [`<TelerikRootComponent>`](slug://rootcomponent-overview).
+1. As a descendant (or child) of the [`<TelerikRootComponent>`](slug:rootcomponent-overview).
 1. In a `.razor` file with enabled interactive render mode. The `MainLayout` is interactive only if the Blazor app has **Global** interactivity location.
 
 ### Pass the Notification in a Cascading Value
 
-1. [Define a Telerik Notification component](slug://notification-overview#creating-blazor-notification) in `MainLayout.razor`.
-1. [Set the Notification `@ref` attribute](slug://notification-overview#notifications-reference-and-methods). Use an `internal` or `public` accessor.
+1. [Define a Telerik Notification component](slug:notification-overview#creating-blazor-notification) in `MainLayout.razor`.
+1. [Set the Notification `@ref` attribute](slug:notification-overview#notifications-reference-and-methods). Use an `internal` or `public` accessor.
 1. Wrap the `@Body` in `MainLayout` in a `<CascadingValue>` that passes the `MainLayout` instance itself. This avoids potential issues with missing Notification instance in child components on initial app load. Set `IsFixed="true"` to the `CascadingValue` to avoid unnecessary renders.
 1. Consume the `MainLayout` instance in child Razor components as a `[CascadingParameter]` and access the Notification instance methods through the `MainLayout` instance.
 
@@ -102,8 +102,8 @@ The Notification component in both scenarios must be defined:
 
 1. Implement a service that holds a Notification component instance as a property and executes component methods.
 1. Register the service in `Program.cs`.
-1. [Define a Telerik Notification component](slug://notification-overview#creating-blazor-notification) in `MainLayout.razor`.
-1. Inject the service in `MainLayout.razor` and [set the Notification `@ref` attribute](slug://notification-overview#notifications-reference-and-methods) to a property of the service.
+1. [Define a Telerik Notification component](slug:notification-overview#creating-blazor-notification) in `MainLayout.razor`.
+1. Inject the service in `MainLayout.razor` and [set the Notification `@ref` attribute](slug:notification-overview#notifications-reference-and-methods) to a property of the service.
 1. Inject and use the service in other Razor components.
 
 >caption Reuse a Notification in a service
@@ -199,4 +199,4 @@ builder.Services.AddSingleton<NotificationService>();
 
 ## See Also
 
-* [Notification Overview](slug://notification-overview)
+* [Notification Overview](slug:notification-overview)

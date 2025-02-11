@@ -389,4 +389,4 @@ You can use the exposed parameters of the GridLayout items to create more comple
 
 ## See Also
 
-  * [Overview](slug://gridlayout-overview)
+  * [Overview](slug:gridlayout-overview)

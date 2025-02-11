@@ -95,4 +95,4 @@ For details on how the Calendar keyboard navigation works, refer to the [Blazor 
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

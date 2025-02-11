@@ -104,7 +104,7 @@ This approach of providing nodes lets you gather separate collections of data an
 
 ## See Also
 
-  * [PanelBar Data Binding Basics](slug://panelbar-data-binding-overview)
+  * [PanelBar Data Binding Basics](slug:panelbar-data-binding-overview)
   * [Live Demo: PanelBar Hierarchical Data](https://demos.telerik.com/blazor-ui/panelbar/hierarchical-data)
-  * [Binding to Flat Data](slug://panelbar-data-binding-flat)
+  * [Binding to Flat Data](slug:panelbar-data-binding-flat)
 

@@ -68,4 +68,4 @@ This knowledge base article answers the following questions:
 
 ## See Also
 
-* [Grid Column Template](slug://grid-templates-column)
+* [Grid Column Template](slug:grid-templates-column)

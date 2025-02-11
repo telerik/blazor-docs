@@ -95,7 +95,7 @@ The `<CircularGaugeScale>` exposes the following parameters:
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The [labels](slug://circular-gauge-labels) will be rendered next to the `MajorUnit` ticks.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The [labels](slug:circular-gauge-labels) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
@@ -198,6 +198,6 @@ If you set the `Reverse` (`bool`) parameter to `true` the scale direction will b
 
 * [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
 * [Live Demo: Circular Gauge - Scale Options](https://demos.telerik.com/blazor-ui/circulargauge/scale-options)
-* [Circular Gauge: Overview](slug://circular-gauge-overview)
-* [Circular Gauge: Pointers](slug://circular-gauge-pointers)
-* [Circular Gauge: Labels](slug://circular-gauge-labels)
+* [Circular Gauge: Overview](slug:circular-gauge-overview)
+* [Circular Gauge: Pointers](slug:circular-gauge-pointers)
+* [Circular Gauge: Labels](slug:circular-gauge-labels)

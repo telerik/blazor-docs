@@ -29,7 +29,7 @@ How to set custom CSS styles to the Window?
 
 The Window `Class` parameter lets you define a CSS class that will be rendered on the popup element. You can cascade through it in order to change the appearance of both the content, and the built-in elements of the Window.
 
-Use CSS selectors with higher specificity to customize the looks of the Window. See [how to override the Telerik Blazor theme](slug://themes-override) for more tips.
+Use CSS selectors with higher specificity to customize the looks of the Window. See [how to override the Telerik Blazor theme](slug:themes-override) for more tips.
 
 >caption Use a Class to change the appearance and style of the Window
 

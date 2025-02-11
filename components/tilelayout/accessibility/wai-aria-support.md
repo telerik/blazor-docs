@@ -61,9 +61,9 @@ The TileLayout has been tested with the following screen readers and browsers co
 
 ## Keyboard Navigation
 
-For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug://accessibility-overview#keyboard-navigation) article.
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug:accessibility-overview#keyboard-navigation) article.
 
 ## See Also
 
 * [Blazor TileLayout Demos](https://demos.telerik.com/blazor-ui/tilelayout/overview)
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

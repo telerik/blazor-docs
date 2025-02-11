@@ -38,7 +38,7 @@ You can read more about it in the following resources:
 
 ## Solution
 
-You can see how to add Telerik assets, services and the root component in the [What You Need](slug://getting-started/what-you-need) article. Make sure you are familiar with it before you continue reading. Both the client-side, and the server-side information is necessary.
+You can see how to add Telerik assets, services and the root component in the [What You Need](slug:getting-started/what-you-need) article. Make sure you are familiar with it before you continue reading. Both the client-side, and the server-side information is necessary.
 
 There are a couple of things specific to the Telerik components that you need to do:
 

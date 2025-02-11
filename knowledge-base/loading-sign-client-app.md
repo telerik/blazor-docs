@@ -32,4 +32,4 @@ While the client-side Blazor app is loading and spinning up, you may want to sho
 
 ## Solution
 
-Use the [Loader](slug://loader-overview) or [LoaderContainer](slug://loadercontainer-overview) component.
+Use the [Loader](slug:loader-overview) or [LoaderContainer](slug:loadercontainer-overview) component.

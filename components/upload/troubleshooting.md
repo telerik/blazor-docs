@@ -21,7 +21,7 @@ The action method is hit, but the method argument is `null`
 * Make sure the action method argument names match the `SaveField` and `RemoveField` values. The default value of both parameters is `"files"`.
 * The argument type of the `SaveUrl` action method should be `IFormFile` or `IEnumerable<IFormFile>`.
 * The argument type of the `RemoveUrl` action method should be `string` or `IEnumerable<string>`.
-* The uploaded [file size may be over the web server's maximum](slug://upload-overview#large-file-uploads).
+* The uploaded [file size may be over the web server's maximum](slug:upload-overview#large-file-uploads).
 
 
 ## HTTP 400 Bad request
@@ -48,16 +48,16 @@ The server does not return any response. The browser console shows connection er
 * `Failed to load resource: net::ERR_CONNECTION_RESET`
 * `Failed to load resource: The network connection was lost.`
 
-This means that the uploaded file size [exceeds the web server's maximum](slug://upload-overview#large-file-uploads).
+This means that the uploaded file size [exceeds the web server's maximum](slug:upload-overview#large-file-uploads).
 
 
 ## Antiforgery Validation Blocks the Upload Requests
 
-If the upload controller is decorated with the `[ValidateAntiForgeryToken]` attribute, the Upload component must include antiforgery tokens in its upload and delete requests. Use the [`OnUpload` and `OnRemove`](slug://upload-events) events to [add the required antiforgery tokens](slug://upload-kb-validateantiforgerytoken).
+If the upload controller is decorated with the `[ValidateAntiForgeryToken]` attribute, the Upload component must include antiforgery tokens in its upload and delete requests. Use the [`OnUpload` and `OnRemove`](slug:upload-events) events to [add the required antiforgery tokens](slug:upload-kb-validateantiforgerytoken).
 
 
 ## See Also
 
-* [How to implement Upload controller methods](slug://upload-overview#implement-controller-methods)
-* [Validation](slug://upload-validation)
-* [Events](slug://upload-events)
+* [How to implement Upload controller methods](slug:upload-overview#implement-controller-methods)
+* [Validation](slug:upload-validation)
+* [Events](slug:upload-events)

@@ -15,7 +15,7 @@ The `Operators` parameter takes a literal with the available operators for each 
 
 ## Supported Fields Operators
 
-[Read about the supported Filter Fields Operators...](slug://common-features-filter-operators)
+[Read about the supported Filter Fields Operators...](slug:common-features-filter-operators)
 
 **To configure a Field Operators:**
 

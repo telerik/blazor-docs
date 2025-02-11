@@ -62,7 +62,7 @@ The scale of the linear gauge renders the values, pointers and labels. You can c
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `LinearGaugePointer` will render as a `MajorUnit` tick. The [labels](slug://linear-gauge-labels) will be rendered next to the `MajorUnit` ticks.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The values provided to the `LinearGaugePointer` will render as a `MajorUnit` tick. The [labels](slug:linear-gauge-labels) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
@@ -194,5 +194,5 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 
 * [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
 * [Live Demo: Linear Gauge - Scale Options](https://demos.telerik.com/blazor-ui/lineargauge/scale-options)
-* [Linear Gauge: Overview](slug://linear-gauge-overview)
-* [Linear Gauge: Pointers](slug://linear-gauge-pointers)
+* [Linear Gauge: Overview](slug:linear-gauge-overview)
+* [Linear Gauge: Pointers](slug:linear-gauge-pointers)

@@ -33,9 +33,9 @@ How to change the background color of individual items in the ComboBox or DropDo
 
 ## Solution
 
-It is possible to apply a custom background color to each item inside the ComboBox/DropDownList dropdown. To achieve that, use an [**ItemTemplate**](slug://components/dropdownlist/templates). The same customization is possible for the AutoComplete and MultiSelect.
+It is possible to apply a custom background color to each item inside the ComboBox/DropDownList dropdown. To achieve that, use an [**ItemTemplate**](slug:components/dropdownlist/templates). The same customization is possible for the AutoComplete and MultiSelect.
 
-On the other hand, to apply a custom background color to the value inside the component, use a [**ValueTemplate**](slug://components/dropdownlist/templates). This customization is supported for the DropDownList only.
+On the other hand, to apply a custom background color to the value inside the component, use a [**ValueTemplate**](slug:components/dropdownlist/templates). This customization is supported for the DropDownList only.
 
 Here are some additional notes to keep in mind, and an example.
 

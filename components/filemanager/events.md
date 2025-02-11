@@ -351,7 +351,7 @@ A FileManager in a WebAssembly app usually displays files from a remote server. 
 
 ### PathChanged
 
-The `PathChanged` event fires when the user navigates to a different folder through the TreeView or by double-clicking a folder item in the [FileManager View](slug://filemanager-views). The event handler receives the new path as a `string` argument.
+The `PathChanged` event fires when the user navigates to a different folder through the TreeView or by double-clicking a folder item in the [FileManager View](slug:filemanager-views). The event handler receives the new path as a `string` argument.
 
 ### SelectedItemsChanged
 
@@ -359,7 +359,7 @@ The `SelectedItemChanged` event fires every time the user clicks on a new file/f
 
 ### ViewChanged
 
-The `ViewChanged` event fires when the user toggles between the [two FileManager views (`Grid` and `ListView`)](slug://filemanager-views). If you are using the event, make sure to update the value of the `View` parameter, otherwise the user action will have no effect.
+The `ViewChanged` event fires when the user toggles between the [two FileManager views (`Grid` and `ListView`)](slug:filemanager-views). If you are using the event, make sure to update the value of the `View` parameter, otherwise the user action will have no effect.
 
 ## Example
 

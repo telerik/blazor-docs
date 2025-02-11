@@ -76,7 +76,7 @@ The RangeSlider is a generic component that takes the type of the `StartValue` w
 
 ## Steps
 
-The RangeSlider works with small and large steps and they are both required. Read more for their configuration and explore examples in the [Steps article](slug://rangeslider-steps).
+The RangeSlider works with small and large steps and they are both required. Read more for their configuration and explore examples in the [Steps article](slug:rangeslider-steps).
 
 ## Ticks Position
 
@@ -88,11 +88,11 @@ You can customize the default horizontal orientation of the RangeSlider through 
 
 ## Decimals
 
-This setting helps avoid [round-off errors](https://en.wikipedia.org/wiki/Round-off_error) when calculating steps (see more about this type of errors [here](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems)). Explore the [Decimals article](slug://rangeslider-decimals) for details on how to configure this option.
+This setting helps avoid [round-off errors](https://en.wikipedia.org/wiki/Round-off_error) when calculating steps (see more about this type of errors [here](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems)). Explore the [Decimals article](slug:rangeslider-decimals) for details on how to configure this option.
 
 ## Validation
 
-You can validate RangeSlider value using the built-in validation. See the [Input Validation](slug://common-features/input-validation) article for more details.
+You can validate RangeSlider value using the built-in validation. See the [Input Validation](slug:common-features/input-validation) article for more details.
 
 ## Parameters
 
@@ -119,11 +119,11 @@ The following parameters enable you to customize the appearance of the Blazor Sl
 
 ## Next Steps
 
-* [RangeSlider Steps](slug://rangeslider-steps)
+* [RangeSlider Steps](slug:rangeslider-steps)
 
 ## See Also
 
 * [Live Demo: RangeSlider](https://demos.telerik.com/blazor-ui/rangeslider/overview)
 * [Live Demo: RangeSlider Settings](https://demos.telerik.com/blazor-ui/rangeslider/customization)
-* [RangeSlider Events](slug://rangeslider-events)
+* [RangeSlider Events](slug:rangeslider-events)
 

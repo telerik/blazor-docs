@@ -33,12 +33,12 @@ This KB article answers the following questions:
 
 The best reason to align Grid column headers across hierarchy levels is when the Grid displays a self-referencing hierarchy. There are two ways to achieve the desired appearance and aligned columns:
 
-* Use a [TreeList component](slug://treelist-overview). It may be a better option than the Grid, because the TreeList supports a random number of hierarchy levels and there is no need to define and configure each level separately. The TreeList uses the same column and column header for each data item property at any level.
-* Use a Grid with [additional CSS code](slug://themes-override) to align the columns at all hierarchy levels.
+* Use a [TreeList component](slug:treelist-overview). It may be a better option than the Grid, because the TreeList supports a random number of hierarchy levels and there is no need to define and configure each level separately. The TreeList uses the same column and column header for each data item property at any level.
+* Use a Grid with [additional CSS code](slug:themes-override) to align the columns at all hierarchy levels.
 
 The steps below describe how to align columns when using a Grid hierarchy.
 
-1. Set a [custom CSS `Class`](slug://grid-overview#grid-parameters) to the master (parent) Grid, so that the custom styles do not affect other Grid instances.
+1. Set a [custom CSS `Class`](slug:grid-overview#grid-parameters) to the master (parent) Grid, so that the custom styles do not affect other Grid instances.
 1. Use the custom CSS class to:
     1. Remove the padding of the `DetailTemplate` container (`td.k-detail-cell`).
     1. Disable the vertical scrollbar of the Grid data area (`div.k-grid-content`).
@@ -46,7 +46,7 @@ The steps below describe how to align columns when using a Grid hierarchy.
     1. Remove the right border of the detail Grids (`.k-grid`).
 1. Set the same column `Width` to the columns from all hierarchy levels, that should align with one another.
 1. Set widths to all columns, except the first one of each Grid. This will allow the first column to expand and collapse automatically, depending on the hierarchy level and the available space.
-1. If the number of hierarchy levels is greater than two, use [named `context` variables for the Grid `DetailTemplate`](slug://nest-renderfragment).
+1. If the number of hierarchy levels is greater than two, use [named `context` variables for the Grid `DetailTemplate`](slug:nest-renderfragment).
 1. (optional) Remove the header area of the detail Grids. This makes sense only if the detail Grids have no enabled features that rely on column headers, for example, sorting or filtering.
 
 >caption Align the columns in hierarchical grids
@@ -195,6 +195,6 @@ The steps below describe how to align columns when using a Grid hierarchy.
 
 ## See Also
 
-* [Grid Hierarchy](slug://components/grid/features/hierarchy)
-* [Using custom CSS with Telerik Blazor components](slug://themes-override)
-* [TreeList component documentation](slug://treelist-overview)
+* [Grid Hierarchy](slug:components/grid/features/hierarchy)
+* [Using custom CSS with Telerik Blazor components](slug:themes-override)
+* [TreeList component documentation](slug:treelist-overview)

@@ -46,14 +46,14 @@ The solution is different when:
 Things to consider:
 
 * When using `OnRead`, there will be less custom code and no need to repeat the internal Grid data operations manually.
-* When the Grid data is grouped, the `DataSourceResult.Data` collection contains members of type [`AggregateFunctionsGroup`](slug://Telerik.DataSource.AggregateFunctionsGroup) instead of Grid model class objects.
+* When the Grid data is grouped, the `DataSourceResult.Data` collection contains members of type [`AggregateFunctionsGroup`](slug:Telerik.DataSource.AggregateFunctionsGroup) instead of Grid model class objects.
 
 ### When Using Data Parameter
 
-1. Obtain the [Grid state](slug://grid-state) in the [Grid `OnStateChanged` event](slug://grid-state#events) or with the [Grid `GetState()` method](slug://grid-state#methods). The exact approach depends on if you want to get the current visible Grid data automatically or on demand.
-1. Create a new [`DataSourceRequest` object](slug://Telerik.DataSource.DataSourceRequest). Populate its properties with [the respective information from the `GridState` object](slug://grid-state#information-in-the-grid-state). Note that the `Filters` property of the `DataSourceRequest` will have to include filter descriptors from two [`GridState` properties](slug://Telerik.Blazor.Components.GridState-1) - `FilterDescriptors` and `SearchFilter`.
+1. Obtain the [Grid state](slug:grid-state) in the [Grid `OnStateChanged` event](slug:grid-state#events) or with the [Grid `GetState()` method](slug:grid-state#methods). The exact approach depends on if you want to get the current visible Grid data automatically or on demand.
+1. Create a new [`DataSourceRequest` object](slug:Telerik.DataSource.DataSourceRequest). Populate its properties with [the respective information from the `GridState` object](slug:grid-state#information-in-the-grid-state). Note that the `Filters` property of the `DataSourceRequest` will have to include filter descriptors from two [`GridState` properties](slug:Telerik.Blazor.Components.GridState-1) - `FilterDescriptors` and `SearchFilter`.
 1. (optional) If you want to get the currently filtered and sorted data from all Grid pages, do not set the `Page`, `PageSize`, and `Skip` properties of the `DataSourceRequest` object.
-1. Execute the [`ToDataSourceResult()` extension method](slug://common-features-data-binding-onread#todatasourceresult-method) on the Grid `Data` collection. You will need to import the `Telerik.DataSource.Extensions` namespace.
+1. Execute the [`ToDataSourceResult()` extension method](slug:common-features-data-binding-onread#todatasourceresult-method) on the Grid `Data` collection. You will need to import the `Telerik.DataSource.Extensions` namespace.
 1. The currently visible Grid data will be in the `Data` property of the `DataSourceResult` object, which is returned by `ToDataSourceResult()`. The total Grid item count (on all pages) will be in the `Total` property.
 
 The most important part of the example below is in the `RequestCurrentMainGridData()` method.
@@ -202,8 +202,8 @@ or
 
 ### When Using OnRead Event
 
-1. Implement the [Grid `OnRead` event handler](slug://common-features-data-binding-onread) as usual. More Grid-specific examples are available in the [Grid Manual Operations](slug://components/grid/manual-operations) article.
-1. The visible data items on the current Grid page are in [the `args.Data` collection, which is set in the Grid `OnRead` handler](slug://common-features-data-binding-onread#event-argument). `args.Data` is a property of the `GridReadEventArgs` event argument, so it's not accessible outside `OnRead`. That's why you can cache it in a separate variable, together with the total item count (`args.Total`).
+1. Implement the [Grid `OnRead` event handler](slug:common-features-data-binding-onread) as usual. More Grid-specific examples are available in the [Grid Manual Operations](slug:components/grid/manual-operations) article.
+1. The visible data items on the current Grid page are in [the `args.Data` collection, which is set in the Grid `OnRead` handler](slug:common-features-data-binding-onread#event-argument). `args.Data` is a property of the `GridReadEventArgs` event argument, so it's not accessible outside `OnRead`. That's why you can cache it in a separate variable, together with the total item count (`args.Total`).
 
 Optionally, if you want to get the currently filtered and sorted data from all Grid pages:
 
@@ -315,5 +315,5 @@ The most important part of the example below is in the `OnGridRead` handler.
 
 ## See Also
 
-* [Grid State](slug://grid-state)
-* [Data Binding with OnRead Event](slug://common-features-data-binding-onread)
+* [Grid State](slug:grid-state)
+* [Data Binding with OnRead Event](slug:common-features-data-binding-onread)

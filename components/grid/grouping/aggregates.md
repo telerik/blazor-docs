@@ -11,7 +11,7 @@ position: 5
 
 # Grid Aggregates
 
-The Grid component provides built-in aggregates for column values based on [grouping](slug://components/grid/features/grouping) and also a grand total row.
+The Grid component provides built-in aggregates for column values based on [grouping](slug:components/grid/features/grouping) and also a grand total row.
 
 #### In this article:
 
@@ -37,9 +37,9 @@ The `Count` aggregate can be applied to any type of field. The other aggregates 
 
 You can use aggregates in the following templates:
 
-* [`GroupFooterTemplate`](slug://grid-templates-column-group-footer) of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
-* [`GroupHeaderTemplate`](slug://grid-templates-group-header) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
-* [`FooterTemplate`](slug://grid-templates-column-footer) of a `GridColumn` - a grand total row of footers for the entire grid.
+* [`GroupFooterTemplate`](slug:grid-templates-column-group-footer) of a `GridColumn` - a footer in the respective column that renders when the grid is grouped.
+* [`GroupHeaderTemplate`](slug:grid-templates-group-header) of a `GridColumn` - a header in the respective column that renders when the grid is grouped by that column. The `Value` field in the context carries the current group value.
+* [`FooterTemplate`](slug:grid-templates-column-footer) of a `GridColumn` - a grand total row of footers for the entire grid.
 
 ## Access The Aggregate Values
 
@@ -189,9 +189,9 @@ To enable aggregates:
 * If you try to use an aggregate that is not defined, you will get a `null` value.
 * If you try to use an aggregate that is not compatible with `Field` type, a runtime error will occur.
 
-* If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection](slug://grid-refresh-data) yourself, or fetching it anew from the service (example [here](slug://components/grid/editing/overview), see how the Create/Update/Delete events fetch data anew).
+* If you update a field of a model the `Data` collection in the view-model, aggregates will not be updated automatically - the grid needs to re-evaluate that data first, and since this is an expensive operation a UI render does not trigger it. You can [update the data collection](slug:grid-refresh-data) yourself, or fetching it anew from the service (example [here](slug:components/grid/editing/overview), see how the Create/Update/Delete events fetch data anew).
 
-* If you [bind the Grid via `OnRead` event](slug://components/grid/manual-operations), make sure to set `AggregateResults` in the `GridReadEventArgs` event argument object. Otherwise the Grid will calculate aggregates from the data on the current page only.
+* If you [bind the Grid via `OnRead` event](slug:components/grid/manual-operations), make sure to set `AggregateResults` in the `GridReadEventArgs` event argument object. Otherwise the Grid will calculate aggregates from the data on the current page only.
 
 <div class="skip-repl"></div>
 
@@ -210,4 +210,4 @@ private async Task OnGridRead(GridReadEventArgs args)
 ## See Also
 
 * [Live Demo: Grid Grouping](https://demos.telerik.com/blazor-ui/grid/grouping)
-* [Blazor Grid](slug://grid-overview)
+* [Blazor Grid](slug:grid-overview)

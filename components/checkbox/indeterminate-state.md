@@ -13,7 +13,7 @@ position: 2
 In addition to `checked` and `unchecked` basic states, the Telerik CheckBox has a third state - `Indeterminate`. This means that its state is something in between - neither checked, nor unchecked.
 The main use case is when the checkbox owns a number of sub-options and they have different states, than the main checkbox is in indeterminate state.
 
-To put the checkbox in the indeterminate state, set its `Indeterminate` parameter to `true`. You can bind it to a `bool` and `bool?` types, and it also exposes the [`IndeterminateChanged` event](slug://checkbox-events#indeterminatechanged) and two-way binding.
+To put the checkbox in the indeterminate state, set its `Indeterminate` parameter to `true`. You can bind it to a `bool` and `bool?` types, and it also exposes the [`IndeterminateChanged` event](slug:checkbox-events#indeterminatechanged) and two-way binding.
 
 The `Indeterminate` parameter maps to the `indeterminate` attribute of the standard HTML `<input type="checkbox" />`.
 
@@ -170,5 +170,5 @@ Checked: @TheValue
 
 ## See Also
 
-* [Checkbox Overview](slug://checkbox-overview)
-* [Checkbox Events](slug://checkbox-events)
+* [Checkbox Overview](slug:checkbox-overview)
+* [Checkbox Events](slug:checkbox-events)

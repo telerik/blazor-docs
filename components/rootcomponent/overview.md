@@ -17,13 +17,13 @@ The `TelerikRootComponent` is a special component in Telerik UI for Blazor. Its 
 
 The `TelerikRootComponent` is responsible for the following tasks:
 
-* It provides settings to all its child Telerik components, for example, for the [icon type](slug://common-features-icons#set-global-icon-type) or [right-to-left (RTL) support](slug://rtl-support).
+* It provides settings to all its child Telerik components, for example, for the [icon type](slug:common-features-icons#set-global-icon-type) or [right-to-left (RTL) support](slug:rtl-support).
 * It renders all Telerik popups, which has the following benefits:
     * It's more reliable that the popups will display on top of the other page content.
     * There is no risk for the popups to be trapped by scrollable containers, or clipped by containers with an `overflow:hidden` style.
-* It exposes the `DialogFactory` for using [predefined dialogs](slug://dialog-predefined).
+* It exposes the `DialogFactory` for using [predefined dialogs](slug:dialog-predefined).
 
-The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the root component to wrap all other Telerik components in the app, otherwise an [exception may occur](slug://common-kb-component-requires-telerikrootcomponent). To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
+The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the root component to wrap all other Telerik components in the app, otherwise an [exception may occur](slug:common-kb-component-requires-telerikrootcomponent). To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
 
 
 ## Using TelerikRootComponent
@@ -64,7 +64,7 @@ However, you can also add `<TelerikRootComponent>` directly to an existing appli
 * The `TelerikRootComponent` must reside in an interactive layout or component.
 * Application layouts are interactive only if the whole app is interactive. To achieve this, set **Interactivity location** of the app to **Global** during app creation.
 
-If you are using Telerik components in a Blazor app with **Per page/component** interactivity location, then learn [how to correctly add the `TelerikRootComponent`](slug://rootcomponent-percomponent) in this case.
+If you are using Telerik components in a Blazor app with **Per page/component** interactivity location, then learn [how to correctly add the `TelerikRootComponent`](slug:rootcomponent-percomponent) in this case.
 
 
 ## TelerikRootComponent Parameters
@@ -73,16 +73,16 @@ If you are using Telerik components in a Blazor app with **Per page/component** 
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `EnableRtl` | `bool` | Enables [right-to-left (RTL) support](slug://rtl-support). |
-| `IconType` | `IconType` enum <br /> (`Svg`) | The icon type, which other Telerik components will use to render internal icons. Regardless of this parameter value, you can freely use the [`<TelerikFontIcon>`](slug://common-features-icons#fonticon-component) and [`<TelerikSvgIcon>`](slug://common-features-icons#svgicon-component) components, and [set the `Icon` parameter of other Telerik components](slug://button-icons) to any type that you wish. |
-| `Localizer` | `Telerik.Blazor.Services.ITelerikStringLocalizer` | The Telerik localization service. The recommended approach is to [define the localizer as a service in `Program.cs`](slug://globalization-localization). Use the `Localizer` parameter only in special cases when this is not possible. |
+| `EnableRtl` | `bool` | Enables [right-to-left (RTL) support](slug:rtl-support). |
+| `IconType` | `IconType` enum <br /> (`Svg`) | The icon type, which other Telerik components will use to render internal icons. Regardless of this parameter value, you can freely use the [`<TelerikFontIcon>`](slug:common-features-icons#fonticon-component) and [`<TelerikSvgIcon>`](slug:common-features-icons#svgicon-component) components, and [set the `Icon` parameter of other Telerik components](slug:button-icons) to any type that you wish. |
+| `Localizer` | `Telerik.Blazor.Services.ITelerikStringLocalizer` | The Telerik localization service. The recommended approach is to [define the localizer as a service in `Program.cs`](slug:globalization-localization). Use the `Localizer` parameter only in special cases when this is not possible. |
 
 ### TelerikRootComponent Settings
 
-The `TelerikRootComponent` exposes and additional `<RootComponentSettings>` tag for further customizations. You can use it to configure the screen breakpoints for the adaptive rendering of the supported components. [Learn how to customize the default adaptive breakpoints](slug://adaptive-rendering#customize-the-default-adaptive-breakpoints).
+The `TelerikRootComponent` exposes and additional `<RootComponentSettings>` tag for further customizations. You can use it to configure the screen breakpoints for the adaptive rendering of the supported components. [Learn how to customize the default adaptive breakpoints](slug:adaptive-rendering#customize-the-default-adaptive-breakpoints).
 
 ## See Also
 
-* [Popup Troubleshooting](slug://troubleshooting-general-issues)
-* [Setting up Telerik Blazor apps](slug://getting-started/what-you-need)
-* [Exception: Telerik component requires a TelerikRootComponent](slug://common-kb-component-requires-telerikrootcomponent)
+* [Popup Troubleshooting](slug:troubleshooting-general-issues)
+* [Setting up Telerik Blazor apps](slug:getting-started/what-you-need)
+* [Exception: Telerik component requires a TelerikRootComponent](slug:common-kb-component-requires-telerikrootcomponent)

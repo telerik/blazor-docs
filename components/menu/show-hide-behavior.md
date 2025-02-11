@@ -22,7 +22,7 @@ The `ShownOn` and `HideOn` parameters allow you to set the event that will show 
 * The `HideOn` parameter accepts a value from the `Telerik.Blazor.MenuHideEvent` enum:
 
     * `MouseLeave`&mdash;Child Menu items will disappear when the mouse cursor leaves the child item group and their parent.
-    * `Click`&mdash;Child Menu items will disappear when the user clicks or taps on their parent or on another parent, or outside the Menu. Clicking a child item will not close the currently open child item group. To change this behavior, use the [`CloseOnClick`](slug://components/menu/overview#menu-parameters) parameter.
+    * `Click`&mdash;Child Menu items will disappear when the user clicks or taps on their parent or on another parent, or outside the Menu. Clicking a child item will not close the currently open child item group. To change this behavior, use the [`CloseOnClick`](slug:components/menu/overview#menu-parameters) parameter.
 
 By default, the Menu items are shown on hover (mouse enter) over the Menu and hidden on mouse leave.
 
@@ -129,8 +129,8 @@ By default, the Menu items are shown on hover (mouse enter) over the Menu and hi
 
 ## Next Steps
 
-* [Explore the Menu Templates](slug://components/menu/templates)
+* [Explore the Menu Templates](slug:components/menu/templates)
 
 ## See Also
 
-* [Menu Overview](slug://components/menu/overview)
+* [Menu Overview](slug:components/menu/overview)

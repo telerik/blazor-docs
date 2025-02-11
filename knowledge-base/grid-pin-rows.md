@@ -34,8 +34,8 @@ This KB article answers the following questions:
 
 To freeze Grid rows you can:
 
-* Use the [`OnRead event`](slug://components/grid/manual-operations) to place the row/rows on top of the data collection for the Grid. 
-* Use the [`OnRowRender event`](slug://grid-events#onrowrender) to add a custom CSS class to the rows you want to pin.
+* Use the [`OnRead event`](slug:components/grid/manual-operations) to place the row/rows on top of the data collection for the Grid. 
+* Use the [`OnRowRender event`](slug:grid-events#onrowrender) to add a custom CSS class to the rows you want to pin.
 * Dynamically calculate the `top` CSS rule with JavaScript.
 * Register the JavaScript file. 
 

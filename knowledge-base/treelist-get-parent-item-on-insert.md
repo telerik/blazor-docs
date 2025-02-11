@@ -31,7 +31,7 @@ When inserting a child item in the TreeList I would like to be able to get the i
 
 ## Solution
 
-The approaches to handle this would depend of the type of data the component is bound to - [Flat](slug://treelist-data-binding-flat-data) or [Hierarchical](slug://treelist-data-binding-hierarchical-data). The examples below showcase how to handle both scenarios:
+The approaches to handle this would depend of the type of data the component is bound to - [Flat](slug:treelist-data-binding-flat-data) or [Hierarchical](slug:treelist-data-binding-hierarchical-data). The examples below showcase how to handle both scenarios:
 
 * [Get the Parent Item When Inserting a Child to the TreeList When Bound To Flat Data](#get-the-parent-item-when-inserting-a-child-to-the-treelist-when-bound-to-flat-data)
 
@@ -41,9 +41,9 @@ The approaches to handle this would depend of the type of data the component is 
 
 #### Step by step Explanations
 
-1. Create a [custom command](slug://treelist-columns-command) to initiate inserting in the `TreeListCommandColumn`.
+1. Create a [custom command](slug:treelist-columns-command) to initiate inserting in the `TreeListCommandColumn`.
 1. Pass the `TreeListCommandEventsArgs` object to the `OnClick` handler.
-1. Use the [TreeList state](slug://treelist-state) and its `InsertedItem` field to populate the desired information from the current item that you have in the event arguments.
+1. Use the [TreeList state](slug:treelist-state) and its `InsertedItem` field to populate the desired information from the current item that you have in the event arguments.
 
 
 ````RAZOR
@@ -174,9 +174,9 @@ The approaches to handle this would depend of the type of data the component is 
 
 #### Step by step Explanations
 
-1. Create a [custom command](slug://treelist-columns-command) to initiate inserting in the `TreeListCommandColumn`.
+1. Create a [custom command](slug:treelist-columns-command) to initiate inserting in the `TreeListCommandColumn`.
 1. Pass the `TreeListCommandEventsArgs` object to the `OnClick` handler.
-1. Set the `ParentItem` field of the [TreeList state](slug://treelist-state) to the item received from the `TreeListCommandEventsArgs`.
+1. Set the `ParentItem` field of the [TreeList state](slug:treelist-state) to the item received from the `TreeListCommandEventsArgs`.
 1. Use the TreeList state and its `InsertedItem` field to populate the desired information from the current item that you have in the event arguments..
 
 

@@ -35,7 +35,7 @@ How to align the text to the right or center in my inputs (such as textbox and n
 
 ## Solution
 
-You can use [standard CSS customizations](slug://themes-override) for inputs in the Telerik UI for Blazor. To make cascading of the styles easier, use the `Class` parameter and pass a custom CSS class. Use the `text-align` rule with a suitable selector.
+You can use [standard CSS customizations](slug:themes-override) for inputs in the Telerik UI for Blazor. To make cascading of the styles easier, use the `Class` parameter and pass a custom CSS class. Use the `text-align` rule with a suitable selector.
 
 The example below shows how to align a numeric textbox and a combo box to the right, and how to align a textbox to the center.
 

@@ -103,7 +103,7 @@ This approach of providing nodes lets you gather separate collections of data fo
 
 ## See Also
 
-  * [Menu Data Binding Basics](slug://components/menu/data-binding/overview)
+  * [Menu Data Binding Basics](slug:components/menu/data-binding/overview)
   * [Live Demo: Menu Hierarchical Data](https://demos.telerik.com/blazor-ui/menu/hierarchical-data)
-  * [Binding to Flat Data](slug://components/menu/data-binding/flat-data)
+  * [Binding to Flat Data](slug:components/menu/data-binding/flat-data)
 

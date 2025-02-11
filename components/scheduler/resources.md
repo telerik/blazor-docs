@@ -36,15 +36,15 @@ To use resources:
 
 1. Under the `SchedulerResources` tag, define a `SchedulerResource` for each type of resource you will be using.
     * Set its `Field` parameter to a string that will point to the name of the field in the appointment that associated appointments with the resource type.
-    * The `Title` parameter defines the text shown for its dropdown in the [edit form](slug://scheduler-appointments-edit).
+    * The `Title` parameter defines the text shown for its dropdown in the [edit form](slug:scheduler-appointments-edit).
 1. Provide a collection of resource entries for each type of resource you will use to the `Data` parameter of the resource.
     * The `ColorField`, `ValueField` and `TextField` let you specify field names in the resource model that contain the data. These fields must all be of type `string`. The default values are `Value`, `Text`, `Color` respectively. If you use them, you don't need to explicitly specify them in the markup.
-1. Define appointments [as usual](slug://scheduler-appointments-databinding). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
+1. Define appointments [as usual](slug:scheduler-appointments-databinding). Add a `string` field to them for each resources type they will require. The name of this field must match the value of the `Field` parameter of the resource declaration.
     * If you are using multiple resource types, you will need a field for each resource.
 1. Populate the appointment field that matches the resource name with the corresponding `Value` of the resource that you want associated with it.
     * If you don't want any resource in the appointment, define a resource with empty strings in its `Value` and `Color` fields, and a suitable `Text`.
 
->tip To style the appointments, you can also use their [template](slug://scheduler-templates-appointment) and the [ItemRender event](slug://scheduler-events#itemrender).
+>tip To style the appointments, you can also use their [template](slug:scheduler-templates-appointment) and the [ItemRender event](slug:scheduler-events#itemrender).
 
 ## Examples
 
@@ -405,6 +405,6 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
 ## See Also
 
 * [Live Demo: Scheduler Resources](https://demos.telerik.com/blazor-ui/scheduler/resources)
-* [Scheduler Overview](slug://scheduler-overview)
-* [Scheduler Data Binding](slug://scheduler-appointments-databinding)
-* [Scheduler Appointment Editing](slug://scheduler-appointments-edit)
+* [Scheduler Overview](slug:scheduler-overview)
+* [Scheduler Data Binding](slug:scheduler-appointments-databinding)
+* [Scheduler Appointment Editing](slug:scheduler-appointments-edit)

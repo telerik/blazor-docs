@@ -88,29 +88,29 @@ The DockManager is best suited for desktop-like interfaces and applications desi
 
 ## State
 
-The [Dock Manager allows getting and setting its state](slug://dockmanager-state). The DockManager state contains information about the pane hierarchy, floating panes, current pane settings, and the DockManager configuration, such as its orientation.
+The [Dock Manager allows getting and setting its state](slug:dockmanager-state). The DockManager state contains information about the pane hierarchy, floating panes, current pane settings, and the DockManager configuration, such as its orientation.
 
 ## Docking Types
 
-The DockManager exposes the ability to dock globally or within other panes. [Read more about the available DockManager dock types...](slug://dockmanager-dock-types)
+The DockManager exposes the ability to dock globally or within other panes. [Read more about the available DockManager dock types...](slug:dockmanager-dock-types)
 
 ## Pane Types
 
-The DockManager exposes the ability to configure different pane types. [Read more about the DockManager pane types...](slug://dockmanager-pane-types)
+The DockManager exposes the ability to configure different pane types. [Read more about the DockManager pane types...](slug:dockmanager-pane-types)
 
 ## Events
 
-The Dock Manager fires [events when the user changes the panes layout](slug://dockmanager-events). This allows custom logic execution, refreshing of nested components and saving the [DockManager state](slug://dockmanager-state) for later restore.
+The Dock Manager fires [events when the user changes the panes layout](slug:dockmanager-events). This allows custom logic execution, refreshing of nested components and saving the [DockManager state](slug:dockmanager-state) for later restore.
 
 ## DockManager Parameters
 
-The following table lists the Dock Manager parameters. Also check the [DockManager API Reference](slug://Telerik.Blazor.Components.TelerikDockManager) for a full list of all properties, methods and events.
+The following table lists the Dock Manager parameters. Also check the [DockManager API Reference](slug:Telerik.Blazor.Components.TelerikDockManager) for a full list of all properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The custom CSS class of the `<div class="k-dockmanager">` element. Use it to [override theme styles](slug://themes-override). |
+| `Class` | `string` | The custom CSS class of the `<div class="k-dockmanager">` element. Use it to [override theme styles](slug:themes-override). |
 | `Height` | `string` | The Dock Manager height. If not set, the component will expand automatically to cover the available space. |
 | `Orientation`  | `DockManagerPaneOrientation` enum <br /> (`Vertical`) | Determines the orientation of the root splitter. |
 | `Width` | `string` | The Dock Manager width. If not set, the component will expand horizontally to fill its parent. |
@@ -121,7 +121,7 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 | --- | --- | --- |
 | `AllowFloat` | `bool` <br /> (`false`) | Determines whether the pane can be dragged from the dock manager layout to create a new floating pane. |
 | `AllowInnerDock` | `bool` <br /> (`true`) | Restricts from performing inner docking within the specified pane. Inner docking is an operation that allows dropping one pane over another, creating a TabGroupPane (TabStrip). |
-| `Class` | `string` | The custom CSS class of the `<div class="k-pane-scrollable">` element. Use it to [override theme styles](slug://themes-override). |
+| `Class` | `string` | The custom CSS class of the `<div class="k-pane-scrollable">` element. Use it to [override theme styles](slug:themes-override). |
 | `Closeable` | `bool` <br /> (`false`) | Determines whether the pane can be closed. |
 | `Dockable` | `bool` <br /> (`false`) | Specifies whether the pane allows other panes to be docked to or over it. This determines if the end user can drop other panes over it or next to it, creating a DockManagerSplitPane (Splitter) or a DockManagerTabGroupPane (TabStrip). |
 | `HeaderText` | `string` | The pane title, displayed in the pane header and as the button text in the DockManager toolbar when the pane is unpinned. |
@@ -137,7 +137,7 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AllowEmpty` | `bool` <br /> (`false`) | Determines whether a splitter pane is shown as empty when a child pane is removed (dragged out, closed, etc.). If set to false, the splitter is re-rendered without the removed child pane. |
-| `Class` | `string` | The custom CSS class of the `<div class="k-dock-manager-splitter">` element. Use it to [override theme styles](slug://themes-override). |
+| `Class` | `string` | The custom CSS class of the `<div class="k-dock-manager-splitter">` element. Use it to [override theme styles](slug:themes-override). |
 | `Id` | `string` <br /> (`Guid`) | The id of the pane. |
 | `Orientation`  | `DockManagerPaneOrientation` enum <br /> (`Vertical`) | Determines the orientation of the rendered splitter. |
 | `Size` | `string` | Determines the size of the splitter pane. |
@@ -165,11 +165,11 @@ The following table lists the Dock Manager parameters. Also check the [DockManag
 
 ## DockManager Reference
 
-Use the component reference to execute methods and [get or set the DockManager state](slug://dockmanager-state).
+Use the component reference to execute methods and [get or set the DockManager state](slug:dockmanager-state).
 
 | Method | Description |
 | --- | --- |
-| `GetState` | Returns the current state of the Dock Manager as a [`DockManagerState` object](slug://Telerik.Blazor.Components.DockManagerState). |
+| `GetState` | Returns the current state of the Dock Manager as a [`DockManagerState` object](slug:Telerik.Blazor.Components.DockManagerState). |
 | `Refresh` | Use the method to programmatically re-render the component.  |
 | `SetState` | Applies the provided `DockManagerState` argument as a new state of the Dock Manager. |
 
@@ -192,13 +192,13 @@ Use the component reference to execute methods and [get or set the DockManager s
 
 ## Next Steps
 
-* [Explore the DockManager Docking Types](slug://dockmanager-dock-types)
-* [Explore the DockManager Pane Types](slug://dockmanager-pane-types)
-* [Configure the DockManager State](slug://dockmanager-state)
-* [Handle the DockManager Events](slug://dockmanager-events)
+* [Explore the DockManager Docking Types](slug:dockmanager-dock-types)
+* [Explore the DockManager Pane Types](slug:dockmanager-pane-types)
+* [Configure the DockManager State](slug:dockmanager-state)
+* [Handle the DockManager Events](slug:dockmanager-events)
 
 
 ## See Also
 
-* [DockManager API](slug://Telerik.Blazor.Components.TelerikDockManager)
+* [DockManager API](slug:Telerik.Blazor.Components.TelerikDockManager)
 * [Live Demo: DockManager](https://demos.telerik.com/blazor-ui/dockmanager/overview)

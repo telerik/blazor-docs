@@ -116,5 +116,5 @@ Normally, the `SelectedChanged` handler should update the `Selected` value of th
 
 ## See Also
 
-* [ButtonGroup Overview](slug://buttongroup-overview)
-* [ButtonGroup Selection](slug://buttongroup-selection)
+* [ButtonGroup Overview](slug:buttongroup-overview)
+* [ButtonGroup Selection](slug:buttongroup-selection)

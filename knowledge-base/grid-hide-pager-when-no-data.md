@@ -41,8 +41,8 @@ If there are no items, the Grid pager will show "Page 1 of 0" and "0 - 0 of 0 it
 
 When the Grid has no items, you can hide the pager or some pager elements in two ways:
 
-* Enable and disable [`Pageable`](slug://components/grid/features/paging) conditionally.
-* Apply a CSS `Class` conditionally and use it to [hide parts of the pager or the whole pager](slug://themes-override).
+* Enable and disable [`Pageable`](slug:components/grid/features/paging) conditionally.
+* Apply a CSS `Class` conditionally and use it to [hide parts of the pager or the whole pager](slug:themes-override).
 
 The following example demonstrates both options.
 
@@ -150,6 +150,6 @@ The following example demonstrates both options.
 
 ## See Also
 
-* [Grid Paging](slug://components/grid/features/paging)
-* [TreeList Paging](slug://treelist-paging)
-* [Customize Telerik Blazor Components with CSS](slug://themes-override)
+* [Grid Paging](slug:components/grid/features/paging)
+* [TreeList Paging](slug:treelist-paging)
+* [Customize Telerik Blazor Components with CSS](slug:themes-override)

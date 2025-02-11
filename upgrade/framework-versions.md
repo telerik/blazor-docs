@@ -95,5 +95,5 @@ Telerik UI for Blazor is committed to the currently supported official versions 
 
 ## See Also
 
-  * [Telerik UI for Blazor: Old Versions Support Policy](slug://old_versions_support_policy)
+  * [Telerik UI for Blazor: Old Versions Support Policy](slug:old_versions_support_policy)
   * <a href="https://dotnet.microsoft.com/platform/support/policy/dotnet-core" target="_blank">Microsoft .NET Core and .NET 5 Support Policy</a>

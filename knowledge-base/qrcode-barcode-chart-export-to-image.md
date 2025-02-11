@@ -46,7 +46,7 @@ When using the `SVG` rendering mode:
 1. [Draw the image](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) into the `canvas` element.
 1. Use the [`toDataURL`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL) method of the `canvas` HTML element to obtain a Base64 data URI for the image.
 
-> When using a Blazor app with **Server** render mode, make sure to [increase the SignalR max message size](slug://common-kb-increase-signalr-max-message-size), otherwise the Base64 data URI may not reach the .NET runtime.
+> When using a Blazor app with **Server** render mode, make sure to [increase the SignalR max message size](slug:common-kb-increase-signalr-max-message-size), otherwise the Base64 data URI may not reach the .NET runtime.
 
 >caption Export QRCode, BarCode, or Chart to Image
 
@@ -258,6 +258,6 @@ When using the `SVG` rendering mode:
 
 ## See Also
 
-* [Barcode Overview](slug://barcode-overview)
-* [Chart Overview](slug://components/chart/overview)
-* [QRCore Overview](slug://qrcode-overview)
+* [Barcode Overview](slug:barcode-overview)
+* [Chart Overview](slug:components/chart/overview)
+* [QRCore Overview](slug:qrcode-overview)

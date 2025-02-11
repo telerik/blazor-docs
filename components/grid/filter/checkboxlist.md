@@ -10,7 +10,7 @@ position: 15
 
 # Grid CheckBoxList Filtering
 
-You can change the [filter menu](slug://grid-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
+You can change the [filter menu](slug:grid-filter-menu) to show a list of checkboxes with the distinct values from the data source. This lets your users filter records by a commonly found value quickly, and select multiple values with ease. The behavior is similar to Excel filtering.
 
 ## Enabling CheckBoxList Filtering
 
@@ -67,9 +67,9 @@ To enable the CheckBoxList filtering in the Telerik Grid for Blazor:
 
 By default, the Telerik Grid takes the `Distinct` values from its `Data` to populate the checkbox list filter for each field.
 
-Using the [`OnRead` event](slug://components/grid/manual-operations) to customize or perform data operations on the server/service limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
+Using the [`OnRead` event](slug:components/grid/manual-operations) to customize or perform data operations on the server/service limits the Grid to the current page of data, restricting user options. You may want to provide the full list.
 
-To customize the CheckBoxList behavior, use the [Filter Menu Template](slug://grid-templates-filter#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. The template provides the following settings:
+To customize the CheckBoxList behavior, use the [Filter Menu Template](slug:grid-templates-filter#filter-menu-template). Place the `TelerikCheckBoxListFilter` component inside the `FilterMenuTemplate` to get the default CheckBoxList filtering UI. The template provides the following settings:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -224,6 +224,6 @@ depending on how you filter the data so you may never be able to get back all va
 
 ## See Also
 
-* [Grid Filtering Overview](slug://components/grid/filtering)
+* [Grid Filtering Overview](slug:components/grid/filtering)
 * [Live Demo: Grid CheckBox List Filter](https://demos.telerik.com/blazor-ui/grid/filter-checkboxlist)
-* [Blazor Grid](slug://grid-overview)
+* [Blazor Grid](slug:grid-overview)

@@ -110,7 +110,7 @@ You can use the ExpandMode to allow the user to expand one or more items at a ti
 
 The PanelBar lets the user expand an item. You can also pre-expand a desired item.
 
-To use the item expansion, use the `ExpandedItems` parameter. It allows two-way binding (@bind-ExpandedItems) and one-way binding + [ExpandedItemsChanged](slug://panelbar-events#expandeditemschanged) event.
+To use the item expansion, use the `ExpandedItems` parameter. It allows two-way binding (@bind-ExpandedItems) and one-way binding + [ExpandedItemsChanged](slug:panelbar-events#expandeditemschanged) event.
 
 The ExpandedItems collection is of type `IEnumerable<object>`.
 
@@ -306,6 +306,6 @@ If the [ExpandMode](#expandmode) is set to `Single` the ExpandedItems collection
 
 ## See Also
 
-* [PanelBar Overview](slug://panelbar-overview)
-* [PanelBar Data Binding](slug://panelbar-data-binding-overview)
-* [PanelBar Events](slug://panelbar-events)
+* [PanelBar Overview](slug:panelbar-overview)
+* [PanelBar Data Binding](slug:panelbar-data-binding-overview)
+* [PanelBar Events](slug:panelbar-events)

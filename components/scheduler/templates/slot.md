@@ -17,7 +17,7 @@ You can use the `SlotTemplate` and the `AllDaySlotTemplate` to customize the ren
 
 ## AllDaySlotTemplate
 
-Use the `AllDaySlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor that span across a full day. This template can be defined for the [Day, Multiday, and Week Scheduler views](slug://scheduler-views-overview). 
+Use the `AllDaySlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor that span across a full day. This template can be defined for the [Day, Multiday, and Week Scheduler views](slug:scheduler-views-overview). 
 
 The `context` of the template is a `SchedulerAllDaySlotTemplateContext` object that contains:
 
@@ -25,11 +25,11 @@ The `context` of the template is a `SchedulerAllDaySlotTemplateContext` object t
 | --- | --- | --- |
 | `Start` | `DateTime` | The slot's start time. |
 | `End` | `DateTime` | The slot's end time.|
-| `Resources` | `List<KeyValuePair<string, object>` | A collection of resources for which the slot is defined. The collection is populated when the [Resources](slug://scheduler-resources) and [Resource Grouping](slug://scheduler-resource-grouping) features are used. |
+| `Resources` | `List<KeyValuePair<string, object>` | A collection of resources for which the slot is defined. The collection is populated when the [Resources](slug:scheduler-resources) and [Resource Grouping](slug:scheduler-resource-grouping) features are used. |
 
 ## SlotTemplate
 
-Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [Day, Multiday, Month, Timeline, and Week Scheduler views](slug://scheduler-views-overview). 
+Use the `SlotTemplate` to provide a custom rendering for the cells in the Telerik Scheduler for Blazor. This template can be defined for the [Day, Multiday, Month, Timeline, and Week Scheduler views](slug:scheduler-views-overview). 
 
 The `context` of the template is a `SchedulerSlotTemplateContext` object that contains:
 
@@ -37,7 +37,7 @@ The `context` of the template is a `SchedulerSlotTemplateContext` object that co
 | --- | --- | --- |
 | `Start` | `DateTime` | The slot's start time. |
 | `End` | `DateTime` | The slot's end time.|
-| `Resources` | `List<KeyValuePair<string, object>` | A collection of resources for which the slot is defined. The collection is populated when the [Resources](slug://scheduler-resources) and [Resource Grouping](slug://scheduler-resource-grouping) features are used. |
+| `Resources` | `List<KeyValuePair<string, object>` | A collection of resources for which the slot is defined. The collection is populated when the [Resources](slug:scheduler-resources) and [Resource Grouping](slug:scheduler-resource-grouping) features are used. |
 
 >note When you use the SlotTemplate in the Timeline Scheduler view, and the content of the template is not a plain string, you must add the `!k-pos-absolute` built-in class to the custom element.
 

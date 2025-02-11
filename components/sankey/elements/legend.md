@@ -19,13 +19,13 @@ To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | [`SankeyLegendAlign` enum](slug://telerik.blazor.sankeylegendalign) <br/> (`Start`) | The alignment of the legend. |
+| `Align` | [`SankeyLegendAlign` enum](slug:telerik.blazor.sankeylegendalign) <br/> (`Start`) | The alignment of the legend. |
 | `Background` | `string`  | The background color of the legend. |
 | `Height` | `double?`  | The height of the legend. |
 | `OffsetX` | `double?`  | The X offset of the legend. The offset is relative to the current position of the legend. |
 | `OffsetY` | `double?`  | The Y offset of the legend. The offset is relative to the current position of the legend. |
-| `Orientation` | [`SankeyLegendOrientation` enum](slug://telerik.blazor.sankeylegendorientation) <br/> (`Horizontal`)  | The orientation of the legend. |
-| `Position` | [`SankeyLegendPosition` enum](slug://telerik.blazor.sankeylegendposition) <br/> (`Bottom`)| The position of the legend. |
+| `Orientation` | [`SankeyLegendOrientation` enum](slug:telerik.blazor.sankeylegendorientation) <br/> (`Horizontal`)  | The orientation of the legend. |
+| `Position` | [`SankeyLegendPosition` enum](slug:telerik.blazor.sankeylegendposition) <br/> (`Bottom`)| The position of the legend. |
 | `Reverse` | `double?`  | Whether the legend items are reversed. |
 | `Spacing` | `double?`  | The spacing between the labels of the legend. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the legend is visible. |
@@ -36,17 +36,17 @@ To customize the legend in the Sankey chart, declare a `<SankeyLegend>` tag as a
 
 The `<SankeyLegend>` tag exposes nested tags for further customization of the separate legend elements. The structure of the nested tags is `<SankeyLegend*Specifics*>`, where the specifics can be:
 
-* [`Border`](slug://telerik.blazor.components.sankeylegendborder)
-* [`Item`](slug://telerik.blazor.components.sankeylegenditem)
-* [`Labels`](slug://telerik.blazor.components.sankeylegendlabels) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendLabels*Specifics*>`, where the specifics can be:
-    * [`Margin`](slug://telerik.blazor.components.sankeylegendlabelsmargin)
-    * [`Padding`](slug://telerik.blazor.components.sankeylegendlabelspadding)
-* [`Margin`](slug://telerik.blazor.components.sankeylegendmargin)
-* [`Padding`](slug://telerik.blazor.components.sankeylegendpadding)
-* [`Title`](slug://telerik.blazor.components.sankeylegendtitle) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendTitle*Specifics*>`, where the specifics can be:
-    * [`Border`](slug://telerik.blazor.components.sankeylegendtitleborder)
-    * [`Margin`](slug://telerik.blazor.components.sankeylegendtitlemargin)
-    * [`Padding`](slug://telerik.blazor.components.sankeylegendtitlepadding)  
+* [`Border`](slug:telerik.blazor.components.sankeylegendborder)
+* [`Item`](slug:telerik.blazor.components.sankeylegenditem)
+* [`Labels`](slug:telerik.blazor.components.sankeylegendlabels) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendLabels*Specifics*>`, where the specifics can be:
+    * [`Margin`](slug:telerik.blazor.components.sankeylegendlabelsmargin)
+    * [`Padding`](slug:telerik.blazor.components.sankeylegendlabelspadding)
+* [`Margin`](slug:telerik.blazor.components.sankeylegendmargin)
+* [`Padding`](slug:telerik.blazor.components.sankeylegendpadding)
+* [`Title`](slug:telerik.blazor.components.sankeylegendtitle) - exposes additional nested options. The structure of the nested tags is `<SankeyLegendTitle*Specifics*>`, where the specifics can be:
+    * [`Border`](slug:telerik.blazor.components.sankeylegendtitleborder)
+    * [`Margin`](slug:telerik.blazor.components.sankeylegendtitlemargin)
+    * [`Padding`](slug:telerik.blazor.components.sankeylegendtitlepadding)  
 
 >tip Use the IntelliSense to explore the nested tags and their properties.
 
@@ -108,8 +108,8 @@ The `<SankeyLegend>` tag exposes nested tags for further customization of the se
 ## See Also
 
 * [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
-* [Sankey Links](slug://sankey-links)
-* [Sankey Nodes](slug://sankey-nodes)
-* [Sankey Labels](slug://sankey-labels)
-* [Sankey Tooltip](slug://sankey-tooltip)
-* [Sankey Title](slug://sankey-title)
+* [Sankey Links](slug:sankey-links)
+* [Sankey Nodes](slug:sankey-nodes)
+* [Sankey Labels](slug:sankey-labels)
+* [Sankey Tooltip](slug:sankey-tooltip)
+* [Sankey Title](slug:sankey-title)

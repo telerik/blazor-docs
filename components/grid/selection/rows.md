@@ -10,7 +10,7 @@ position: 3
 
 # Row Selection
 
-The Grid component supports [single or multiple row selection](slug://grid-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
+The Grid component supports [single or multiple row selection](slug:grid-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
 
 ## Basics
 
@@ -23,10 +23,10 @@ Check the [Grid Keyboard navigation demo](https://demos.telerik.com/blazor-ui/gr
 To enable row selection:
 
 1. Define the selection mode through one of the following options:
-    * Set the [Grid `SelectionMode` parameter](slug://grid-selection-overview#use-single-or-multiple-selection), or
+    * Set the [Grid `SelectionMode` parameter](slug:grid-selection-overview#use-single-or-multiple-selection), or
     * Add a `<GridSelectionSettings>` tag inside the Grid `<GridSettings>` tag, and set the `SelectionType` parameter to `GridSelectionType.Row`.
 1. Set the Grid `SelectedItems` parameter to a collection of type `IEnumerable<TItem>` where `TItem` is the Grid model class. The collection must be initialized in advance.
-1. Optionally, add a [checkbox column](slug://components/grid/columns/checkbox) to the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection](slug://components/grid/columns/checkbox#parameters).
+1. Optionally, add a [checkbox column](slug:components/grid/columns/checkbox) to the `GridColumns` collection of the Grid. The `GridCheckboxColumn` provides [additional configuration settings related to selection](slug:components/grid/columns/checkbox#parameters).
 
 >caption Grid multiple row selection
 
@@ -84,7 +84,7 @@ To enable row selection:
 
 You can respond to user selection actions through the `SelectedItemsChanged` event. The event handler receives a collection of the Grid data model. The collection may have multiple, single, or no items in it, depending on the `SelectionMode` and the last user selection.
 
-> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`](slug://grid-events#onrowclick) or [`OnRowDoubleClick`](slug://grid-events#onrowdoubleclick) event instead.
+> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`](slug:grid-events#onrowclick) or [`OnRowDoubleClick`](slug:grid-events#onrowdoubleclick) event instead.
 
 >caption Using the Grid SelectedItemsChanged event
 
@@ -158,9 +158,9 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [Grid `OnUpdate` event](slug://components/grid/editing/overview#events).
+* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [Grid `OnUpdate` event](slug:components/grid/editing/overview#events).
 * When the user deletes a selected item, the Grid automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged-event) fires.
-* To select a new item in the Grid you can use the [`OnCreate` event](slug://components/grid/editing/overview#events) to update the `SelectedItems` collection.
+* To select a new item in the Grid you can use the [`OnCreate` event](slug:components/grid/editing/overview#events) to update the `SelectedItems` collection.
 
 ## Equals Comparison
 
@@ -169,7 +169,7 @@ The items in `SelectedItems` are compared against the items in the Grid data in 
 * The Grid is databound through its `OnRead` event and each data request returns different data item instances.
 * The `SelectedItems` are obtained from a different data source than the all Grid items, for example, from a separate service.
 
-In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the Grid model class](slug://grid-state#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
+In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the Grid model class](slug:grid-state#equals-comparison) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Row Selection and Other Grid Features
 
@@ -179,12 +179,12 @@ The selection behavior may vary when other Grid features are enabled, such as ed
 
 When users edit rows, the row selection has the following behavior:
 
-* In [`Incell` edit mode](slug://components/grid/editing/incell) the row selection can work only through a [checkbox column](slug://components/grid/columns/checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode](slug://grid-kb-row-select-incell-edit) KB article.
-* [`Inline` edit mode](slug://components/grid/editing/inline) and [`Popup` edit mode](slug://components/grid/editing/popup) integrate with row selection without limitations.
+* In [`Incell` edit mode](slug:components/grid/editing/incell) the row selection can work only through a [checkbox column](slug:components/grid/columns/checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) KB article.
+* [`Inline` edit mode](slug:components/grid/editing/inline) and [`Popup` edit mode](slug:components/grid/editing/popup) integrate with row selection without limitations.
 
 ### Selection and Virtual Scrolling
 
-When the Grid has [virtual scrolling](slug://components/grid/virtual-scrolling), the component is able to select a range of rows with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
+When the Grid has [virtual scrolling](slug:components/grid/virtual-scrolling), the component is able to select a range of rows with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
 
 1. Select a row.
 1. Scroll down, so that virtualization kicks in and the rendered rows are no longer the same.
@@ -196,14 +196,14 @@ In this case, the range selection will start from the first row that is currentl
 
 The `SelectedItems` collection persists across paging.
 
-The [**Select All** checkbox in the Grid checkbox column](slug://components/grid/columns/checkbox#parameters) cannot select items on other pages when using the Grid `OnRead` event.
+The [**Select All** checkbox in the Grid checkbox column](slug:components/grid/columns/checkbox#parameters) cannot select items on other pages when using the Grid `OnRead` event.
 
 ### Selection and Templates
 
-When using [Grid templates](slug://components/grid/features/templates) with row selection:
+When using [Grid templates](slug:components/grid/features/templates) with row selection:
 
-* If you are using a [Grid column template](slug://grid-templates-column) and you have a clickable element in the template, you can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template](slug://grid-kb-row-selection-in-column-template).
-* If you are using a [row template](slug://grid-templates-row) the Grid cannot render a built-in [checkbox column](slug://components/grid/columns/checkbox). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following knowledge base article: [Implement Built-in Functions when Using Grid Row Template](slug://grid-kb-row-template-simulate-built-in-functions).
+* If you are using a [Grid column template](slug:grid-templates-column) and you have a clickable element in the template, you can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template](slug:grid-kb-row-selection-in-column-template).
+* If you are using a [row template](slug:grid-templates-row) the Grid cannot render a built-in [checkbox column](slug:components/grid/columns/checkbox). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the Grid. You can find an example to get started in the following knowledge base article: [Implement Built-in Functions when Using Grid Row Template](slug:grid-kb-row-template-simulate-built-in-functions).
 
 ### Selection and Row Drag and Drop
 
@@ -212,4 +212,4 @@ The Grid clears the `SelectedItems` collection when the user drags and drops sel
 ## See Also
 
 * [Live Demo: Grid Row Selection](https://demos.telerik.com/blazor-ui/grid/row-selection)
-* [Blazor Grid](slug://grid-overview)
+* [Blazor Grid](slug:grid-overview)

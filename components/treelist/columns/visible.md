@@ -120,9 +120,9 @@ To hide a TreeList column set its `Visible` parameter to `false`. To hide a colu
 
 Non-visible columns (`Visible="false"`) will have the following behavior:
 
-* Will not be [editable](slug://treelist-editing-overview).
-* [Templates](slug://treelist-templates-overview) will not be rendered.
-    * When using [Row Template](slug://treelist-templates-row) the visibility of the column should be implemented by the application in the row template itself - the treelist can only toggle the visibility of the header.
+* Will not be [editable](slug:treelist-editing-overview).
+* [Templates](slug:treelist-templates-overview) will not be rendered.
+    * When using [Row Template](slug:treelist-templates-row) the visibility of the column should be implemented by the application in the row template itself - the treelist can only toggle the visibility of the header.
 
 
 ## Examples

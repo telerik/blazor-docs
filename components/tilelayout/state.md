@@ -28,7 +28,7 @@ The `TileLayoutItemState` object has the following fields:
 
 The TileLayout component reads the state collection and applies the information from it to each tile that is declared in the markup sequentially. Thus, changing the tiles collection between a save and a load of the state might alter the results.
 
-You can consider saving the current state of the component in events that it exposes (such as [OnReorder and OnResize](slug://tilelayout-events)) or on an event specific to your app (such as a button click or the `Dispose` method from `IDisposable` from its parent component). You can consider loading the state in events like `OnAfterRender` of its parent component, or events specific to your app such as button click.
+You can consider saving the current state of the component in events that it exposes (such as [OnReorder and OnResize](slug:tilelayout-events)) or on an event specific to your app (such as a button click or the `Dispose` method from `IDisposable` from its parent component). You can consider loading the state in events like `OnAfterRender` of its parent component, or events specific to your app such as button click.
 
 >caption Save, Load, Persist and Manage the State of a TileLayout. Uses a sample LocalStorage in the browser.
 
@@ -171,13 +171,13 @@ public class LocalStorage
 
 ## Add And Remove Tiles
 
-To change the tile collection itself and add or remove tiles, render the `<TileLayoutItem>` instances with a loop. See article [How to Add and Remove TileLayout Tiles](slug://tilelayout-kb-add-remove-tiles).
+To change the tile collection itself and add or remove tiles, render the `<TileLayoutItem>` instances with a loop. See article [How to Add and Remove TileLayout Tiles](slug:tilelayout-kb-add-remove-tiles).
 
 ## Next Steps
 
-* [Explore TileLayout event](slug://tilelayout-events)
+* [Explore TileLayout event](slug:tilelayout-events)
 
 ## See Also
 
 * [Live Demo: TileLayout State](https://demos.telerik.com/blazor-ui/tilelayout/persist-state)
-* [KB: Add or Remove Tiles](slug://tilelayout-kb-add-remove-tiles)
+* [KB: Add or Remove Tiles](slug:tilelayout-kb-add-remove-tiles)

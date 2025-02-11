@@ -10,7 +10,7 @@ position: 5
 
 # Manual Data Source Operations
 
-The ListView lets you fetch the current page of data on demand through the [`OnRead` event](slug://common-features-data-binding-onread). This can let you optimize database queries and return only a small number of records.
+The ListView lets you fetch the current page of data on demand through the [`OnRead` event](slug:common-features-data-binding-onread). This can let you optimize database queries and return only a small number of records.
 
 In this article you will find examples how to:
 * implement [custom paging](#custom-paging)

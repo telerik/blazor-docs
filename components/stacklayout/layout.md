@@ -255,4 +255,4 @@ The `VerticalAlign` parameter controls the alignment of the items in the `Teleri
 
 ## See Also
 
-  * [Overview](slug://stacklayout-overview)
+  * [Overview](slug:stacklayout-overview)

@@ -32,25 +32,25 @@ There are three available ready-made dialogs:
 
 ### TelerikRootComponent Dependency
 
-The `DialogFactory` cascading parameter can only be consumed inside child Razor components of the [`TelerikRootComponent`](slug://rootcomponent-overview#purpose). This is easily achieved in standard Blazor apps where the `TelerikRootComponent` resides inside the layout file.
+The `DialogFactory` cascading parameter can only be consumed inside child Razor components of the [`TelerikRootComponent`](slug:rootcomponent-overview#purpose). This is easily achieved in standard Blazor apps where the `TelerikRootComponent` resides inside the layout file.
 
-* To show predefined dialogs in `MainLayout.razor`, [add the `TelerikRootComponent` in a parent layout](slug://rootcomponent-overview#using-telerikrootcomponent).
-* When [using UI for Blazor in ASP.NET apps](slug://telerik-blazor-in-asp-net-app), an additional child component is needed.
+* To show predefined dialogs in `MainLayout.razor`, [add the `TelerikRootComponent` in a parent layout](slug:rootcomponent-overview#using-telerikrootcomponent).
+* When [using UI for Blazor in ASP.NET apps](slug:telerik-blazor-in-asp-net-app), an additional child component is needed.
 
-If the `TelerikRootComponent` is not available, or if it's at the wrong place in the app, [the `DialogFactory` will trigger a `NullReferenceException`](slug://dialog-kb-dialogfactory-null).
+If the `TelerikRootComponent` is not available, or if it's at the wrong place in the app, [the `DialogFactory` will trigger a `NullReferenceException`](slug:dialog-kb-dialogfactory-null).
 
 ### Using await
 
-The `DialogFactory` methods must be awaited. Do not use them with [discard variables (`_`)](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/discards). If you don't need to await the user response, then [use the `<TelerikDialog>` component](slug://dialog-overview) declaratively. 
+The `DialogFactory` methods must be awaited. Do not use them with [discard variables (`_`)](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/discards). If you don't need to await the user response, then [use the `<TelerikDialog>` component](slug:dialog-overview) declaratively. 
 
 ### Showing Multiple Predefined Dialogs
 
-The `DialogFactory` supports only one open popup dialog at a time. Showing multiple predefined dialogs simultaneously can result in unexpected app behavior. If a long asynchronous operation can end with the display of a `DialogFactory` popup, the application should prevent the user from triggering additional predefined dialogs before the time consuming operation completes. Consider a [LoaderContainer](slug://loadercontainer-overview) to block the whole user interface or a [specific component](slug://loadercontainer-overview#fill-a-parent-container).
+The `DialogFactory` supports only one open popup dialog at a time. Showing multiple predefined dialogs simultaneously can result in unexpected app behavior. If a long asynchronous operation can end with the display of a `DialogFactory` popup, the application should prevent the user from triggering additional predefined dialogs before the time consuming operation completes. Consider a [LoaderContainer](slug:loadercontainer-overview) to block the whole user interface or a [specific component](slug:loadercontainer-overview#fill-a-parent-container).
 
 
 ## Alert
 
-The alert dialog is a Blazor popup message. It shows the user that something went wrong, such as a major error that requires their attention and blocks the UI, as opposed to a [notification](slug://notification-overview) that is not modal and is small.
+The alert dialog is a Blazor popup message. It shows the user that something went wrong, such as a major error that requires their attention and blocks the UI, as opposed to a [notification](slug:notification-overview) that is not modal and is small.
 
 >caption Use an Alert dialog
 
@@ -196,5 +196,5 @@ The prompt dialog returns a `string` that the user enters when they press `OK`, 
 ## See Also
 
 * [Live Demo: Predefined Dialogs](https://demos.telerik.com/blazor-ui/dialog/predefined-dialogs)
-* [Using the `<TelerikDialog>` Component Declaratively](slug://dialog-overview)
-* [Setting Width to Predefined Dialogs](slug://dialog-kb-dialogfactory-alert-confirm-prompt-width)
+* [Using the `<TelerikDialog>` Component Declaratively](slug:dialog-overview)
+* [Setting Width to Predefined Dialogs](slug:dialog-kb-dialogfactory-alert-confirm-prompt-width)

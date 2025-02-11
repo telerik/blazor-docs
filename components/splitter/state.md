@@ -134,13 +134,13 @@ public class LocalStorage
 }
 ````
 
->tip You can use the [Splitter events](slug://splitter-events) to save the component state and restore it on page reload. Learn more at [Save and Load the Splitter State](slug://splitter-kb-save-and-load-state).
+>tip You can use the [Splitter events](slug:splitter-events) to save the component state and restore it on page reload. Learn more at [Save and Load the Splitter State](slug:splitter-kb-save-and-load-state).
 
 ## Next Steps
 
-* [Handle Splitter events](slug://splitter-events)
+* [Handle Splitter events](slug:splitter-events)
 
 ## See Also
 
-* [Splitter Panes](slug://splitter-panes)
+* [Splitter Panes](slug:splitter-panes)
 * [Live Demo: Splitter](https://demos.telerik.com/blazor-ui/splitter/overview)

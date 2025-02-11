@@ -116,6 +116,6 @@ You can use the template to render arbitrary content according to your applicati
 
 ## See Also
 
-  * [Data Binding a Context Menu](slug://contextmenu-data-binding-overview)
+  * [Data Binding a Context Menu](slug:contextmenu-data-binding-overview)
   * [Live Demo: Context Menu Templates](https://demos.telerik.com/blazor-ui/contextmenu/templates)
 

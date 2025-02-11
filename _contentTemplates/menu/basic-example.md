@@ -1,5 +1,5 @@
 #data-binding-basics-link
-Before continuing, make sure you are familiar with the [menu data binding basics](slug://components/menu/data-binding/overview).
+Before continuing, make sure you are familiar with the [menu data binding basics](slug:components/menu/data-binding/overview).
 #end
 
 #has-children-behavior
@@ -7,5 +7,5 @@ If you set `HasChildren` to `false`, child items will not be rendered even if th
 #end
 
 #context-menudata-binding-basics-link
-Before continuing, make sure you are familiar with the [context menu data binding basics](slug://contextmenu-data-binding-overview).
+Before continuing, make sure you are familiar with the [context menu data binding basics](slug:contextmenu-data-binding-overview).
 #end

@@ -10,7 +10,7 @@ position: 40
 
 # Column Chooser Template
 
-The Column Chooser Template lets you control the rendering of the [ColumnChooser](slug://treelist-column-menu#column-chooser). It exposes a [`context`](slug://Telerik.Blazor.Components.ColumnMenuChooserTemplateContext) object that contains a list of all columns in the TreeList. 
+The Column Chooser Template lets you control the rendering of the [ColumnChooser](slug:treelist-column-menu#column-chooser). It exposes a [`context`](slug:Telerik.Blazor.Components.ColumnMenuChooserTemplateContext) object that contains a list of all columns in the TreeList. 
 
 When you set up the Column Chooser Template, the list of columns that are rendered by default will not be present.
 
@@ -127,4 +127,4 @@ When you set up the Column Chooser Template, the list of columns that are render
  * [Live Demo: TreeList Templates](https://demos.telerik.com/blazor-ui/treelist/templates)
  * [Live Demo: TreeList Column Menu](https://demos.telerik.com/blazor-ui/treelist/column-menu)
  * [Live Demo: TreeList Custom Column Menu](https://demos.telerik.com/blazor-ui/treelist/custom-column-menu)
- * [Columns Menu](slug://treelist-column-menu)
+ * [Columns Menu](slug:treelist-column-menu)

@@ -40,7 +40,7 @@ Define a row header template with a `<RowHeaderTemplate>` component. The `contex
 
 ## Example
 
-All template components expose an optional `Context` parameter. Set it in scenarios with nested templates of different components, otherwise you will get an error [*Child content element uses the same parameter name ('context')*](slug://nest-renderfragment). The example below sets a custom `Context` name for the `DataCellTemplate`.
+All template components expose an optional `Context` parameter. Set it in scenarios with nested templates of different components, otherwise you will get an error [*Child content element uses the same parameter name ('context')*](slug:nest-renderfragment). The example below sets a custom `Context` name for the `DataCellTemplate`.
 
 >caption Using PivotGrid header and data cell templates
 
@@ -134,4 +134,4 @@ All template components expose an optional `Context` parameter. Set it in scenar
 ## See Also
 
 * [Live PivotGrid Demos - Templates](https://demos.telerik.com/blazor-ui/pivotgrid/templates)
-* [PivotGrid API Reference](slug://Telerik.Blazor.Components.TelerikPivotGrid-1)
+* [PivotGrid API Reference](slug:Telerik.Blazor.Components.TelerikPivotGrid-1)

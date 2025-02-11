@@ -14,8 +14,8 @@ The `<TelerikSplitButton>` and `<SplitButtonItem>` provide an `Icon` parameter t
 
 The `Icon` parameter type is `object` and it accepts:
 
-* A property of the static [`SvgIcon` class](slug://common-features-icons#icons-list)
-* A member of the [`FontIcon` enum](slug://common-features-icons#icons-list)
+* A property of the static [`SvgIcon` class](slug:common-features-icons#icons-list)
+* A member of the [`FontIcon` enum](slug:common-features-icons#icons-list)
 * A `string` that is a CSS class for a custom icon
 
 @[template](/_contentTemplates/common/icons.md#font-icons-css-note)
@@ -62,4 +62,4 @@ The `Icon` parameter type is `object` and it accepts:
 ## See Also
 
 * [Live Demo: SplitButton Icons](https://demos.telerik.com/blazor-ui/splitbutton/overview)
-* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug:Telerik.Blazor.Components.TelerikSplitButton)

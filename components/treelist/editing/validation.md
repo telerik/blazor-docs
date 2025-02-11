@@ -10,7 +10,7 @@ position: 40
 
 # TreeList Validation
 
-The Telerik UI for Blazor TreeList supports built-in validation that is enabled by default. The component passes an `EditContext` as a cascading value to the editable cells. If any validation messages are present the TreeList will render them as [Validation Tooltips](slug://validation-tools-tooltip) on hover of the specific editor. 
+The Telerik UI for Blazor TreeList supports built-in validation that is enabled by default. The component passes an `EditContext` as a cascading value to the editable cells. If any validation messages are present the TreeList will render them as [Validation Tooltips](slug:validation-tools-tooltip) on hover of the specific editor. 
 
 #### In this Article:
 
@@ -302,5 +302,5 @@ You can validate the TreeList with any validator that uses the `EditContext`. To
 
 ## See Also
 
-  * [TreeList Editing](slug://treelist-editing-overview)
+  * [TreeList Editing](slug:treelist-editing-overview)
    

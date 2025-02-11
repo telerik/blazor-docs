@@ -78,7 +78,7 @@ The group headers stick to the top of the dropdown during scrolling. In other wo
 
 * One level of grouping is supported.
 * The `Placeholder` (e.g. "Select item...") is always rendered above the sticky group header in the dropdown.
-* A grouped MultiColumnComboBox will provide a `Groups` property with a single [`GroupDescriptor`](slug://Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug://Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug://multicolumncombobox-events#onread). This will allow the developer to apply grouping with [manual data operations](slug://common-features-data-binding-onread).
+* A grouped MultiColumnComboBox will provide a `Groups` property with a single [`GroupDescriptor`](slug:Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug:Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug:multicolumncombobox-events#onread). This will allow the developer to apply grouping with [manual data operations](slug:common-features-data-binding-onread).
 
 ## See Also
 

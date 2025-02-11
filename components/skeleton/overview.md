@@ -56,7 +56,7 @@ else
 
 ## Appearance
 
-The Telerik UI for Blazor Skeleton provides various options to control its [visual appearance](slug://skeleton-appearance):
+The Telerik UI for Blazor Skeleton provides various options to control its [visual appearance](slug:skeleton-appearance):
 
 * `ShapeType`
 * `AnimationType`
@@ -68,8 +68,8 @@ The table below, lists the available parameters for the Skeleton component.
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<span class="k-skeleton">` element. |
-| `ShapeType` | `SkeletonShapeType` enum<br />(`Text`) | Sets the [shape](slug://skeleton-appearance#shapetype). |
-| `AnimationType` | `SkeletonAnimationType` enum<br />(`Pulse`) | Sets the [animation of the Skeleton](slug://skeleton-appearance#animationtype). |
+| `ShapeType` | `SkeletonShapeType` enum<br />(`Text`) | Sets the [shape](slug:skeleton-appearance#shapetype). |
+| `AnimationType` | `SkeletonAnimationType` enum<br />(`Pulse`) | Sets the [animation of the Skeleton](slug:skeleton-appearance#animationtype). |
 | `Width` | `string` | Sets the width of the Skeleton component. Required for every shape. |
 | `Height` | `string` | Sets the height of the Skeleton component. Require for the `Circle` and `Rectangle` shapes. The `Text` shape calculates its own height, but you can override it with the `Height` parameter. |
 | `Visible` | `bool`<br />(`true`) | Controls if the Skeleton is rendered on the page. |
@@ -77,10 +77,10 @@ The table below, lists the available parameters for the Skeleton component.
 
 ## Next Steps
 
-* [Check the Skeleton appearance settings](slug://skeleton-appearance)
+* [Check the Skeleton appearance settings](slug:skeleton-appearance)
 
 
 ## See Also
 
 * [Live Demo: Skeleton](https://demos.telerik.com/blazor-ui/skeleton/overview)
-* [Skeleton API Reference](slug://Telerik.Blazor.Components.TelerikSkeleton)
+* [Skeleton API Reference](slug:Telerik.Blazor.Components.TelerikSkeleton)

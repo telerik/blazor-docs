@@ -57,11 +57,11 @@ The Notification component renders a brief message to the user which holds infor
 
 ## Stacked Notifications
 
-Multiple Notifications can stack if they derive from different references. [Read the Stacked Notifications article for more information...](slug://notification-stacked-notifications)
+Multiple Notifications can stack if they derive from different references. [Read the Stacked Notifications article for more information...](slug:notification-stacked-notifications)
 
 ## Templates
 
-You can customize the rendering of the Notification by using Templates. To learn more about this feature, refer to the [Notification Templates article](slug://notification-templates).
+You can customize the rendering of the Notification by using Templates. To learn more about this feature, refer to the [Notification Templates article](slug:notification-templates).
 
 ## Notification Parameters
 
@@ -69,9 +69,9 @@ You can customize the rendering of the Notification by using Templates. To learn
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `Class`  | `string` | The CSS class that will be rendered on the main wrapping element of the Notification component - `<div class="k-notification-container">`. You could use that class to to control things like the size or the z-index of the component. You can find more infomation and examples in the [Appearance](slug://notification-appearance) article. |
-| `OnChange`  | `EventCallback<bool>` |  This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events](slug://mediaquery-events) article for more information.  |
-| `AnimationType`  | `AnimationType` enum <br /> `Fade` | Allows you to customize the animation of the Notifications. You can find more infomation and examples in the [Appearance](slug://notification-appearance) article.  |
+| `Class`  | `string` | The CSS class that will be rendered on the main wrapping element of the Notification component - `<div class="k-notification-container">`. You could use that class to to control things like the size or the z-index of the component. You can find more infomation and examples in the [Appearance](slug:notification-appearance) article. |
+| `OnChange`  | `EventCallback<bool>` |  This event indicates whether the media query string provided to the `Media` parameter matches the current browser size. It fires when it matches, and when it stops matching. See the [Events](slug:mediaquery-events) article for more information.  |
+| `AnimationType`  | `AnimationType` enum <br /> `Fade` | Allows you to customize the animation of the Notifications. You can find more infomation and examples in the [Appearance](slug:notification-appearance) article.  |
 | `AnimationDuration`  | `int` <br /> `300` | Defines the duration of the animation in milliseconds.|
 | `VerticalPosition`  | `NotificationVerticalPosition` enum <br /> `Bottom` | Defines the vertical position of the Notification.|
 | `HorizontalPosition`  | `NotificationHorizontalPosition` enum <br /> `Right` | Defines the horizontal position of the Notification. |
@@ -82,16 +82,16 @@ The `NotificationModel` class is used to add new notifications to the page. You 
 
 | Property | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `ThemeColor`  | `string` | The color of the notification is controlled through this parameter. You can find more infomation and examples in the [Appearance](slug://notification-appearance) article. |
+| `ThemeColor`  | `string` | The color of the notification is controlled through this parameter. You can find more infomation and examples in the [Appearance](slug:notification-appearance) article. |
 | `Closable`  | `bool` <br /> `true` | If set to `true` a close button will appear which will enable the user to close the Notification. If you want the Notification to not close automatically you should set the `Closable` parameter to `true` and the `CloseAfter` to `0`. |
 | `CloseAfter`  | `int` <br /> `5000` | Allows you to configure after how much time the Notification component will close automatically. Set it to `0` to prevent it from closing automatically. |
 | `ShowIcon`  | `bool` <br /> `true` | Allows you to specify whether an icon should appear in the component. |
-| `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article](slug://common-features-icons#icon-namespaces). |
+| `Icon`  | `string` | Specifies the icon that will render in the component if the `ShowIcon` parameter is set to `true`. You can find more information on adding an icon to a Telerik Component in [Telerik Font Icons article](slug:common-features-icons#icon-namespaces). |
 | `Text`  | `string` | The text that will be rendered in the Notification component. |
 
 ### Styling and Appearance
 
-You can customize the appearance and styling of the Notification component by changing the notifications' colors, animation type, size, and stack order. For more information, see the [Notification Appearance](slug://notification-appearance) article.
+You can customize the appearance and styling of the Notification component by changing the notifications' colors, animation type, size, and stack order. For more information, see the [Notification Appearance](slug:notification-appearance) article.
 
 ## Notifications Reference and Methods
 
@@ -120,14 +120,14 @@ To use the Blazor Notification methods, you have to get a reference to the compo
 }
 ````
 
-You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide](slug://notification-open-close-hide) article.
+You can find more information on opening, closing and hiding the Notification in the [Open, Close and Hide](slug:notification-open-close-hide) article.
 
 ## Next Steps
 
-* [Learn more about the Notification Templates](slug://notification-templates)
+* [Learn more about the Notification Templates](slug:notification-templates)
 
 ## See Also
 
 * [Live Demo: Notification](https://demos.telerik.com/blazor-ui/notification/overview)
-* [Notification API Reference](slug://Telerik.Blazor.Components.TelerikNotification)
-* [Reuse One Notification Instance](slug://notification-kb-single-instance)
+* [Notification API Reference](slug:Telerik.Blazor.Components.TelerikNotification)
+* [Reuse One Notification Instance](slug:notification-kb-single-instance)

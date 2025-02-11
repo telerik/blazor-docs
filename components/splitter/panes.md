@@ -21,13 +21,13 @@ Each Splitter pane is configured individually and offers the following parameter
 
 | Attribute | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The custom CSS class that renders on the pane element (`<div class="k-pane">`). Use it to [apply custom styling](slug://themes-override) or [enable scrolling](#pane-scrolling). |
+| `Class` | `string` | The custom CSS class that renders on the pane element (`<div class="k-pane">`). Use it to [apply custom styling](slug:themes-override) or [enable scrolling](#pane-scrolling). |
 | `Collapsed` | `bool` | Defines if the pane content renders or not. Supports two-way binding. Collapsed panes still show their splitbar and available actions, for example, expand icon or resize handle. Compare with the `Visible` parameter. |
 | `Collapsible` | `bool` | Whether the user can collapse (hide) the pane to provide more room for other panes. When enabled, the adjacent splitbar (the drag handle between the panes) will offer a collapse button for the pane. |
 | `Max` | `string` | The maximum size the pane can have in pixels or percentages. When it is reached, the user cannot expand its size further. |
 | `Min` | `string` |  The minimum size the pane can have in pixels or percentages. When it is reached, the user cannot reduce its size further. |
 | `Resizable` | `bool` <br /> (`true`) | Whether users can resize the pane with a resize handle (splitbar) or the keyboard. Pane resizing always affects two panes. To enable resizing for a specific pane, at least one adjacent pane must be resizable too. |
-| `Size` | `string` | The pane `width` CSS style in [horizontal Splitters](slug://splitter-orientation), or the pane `height` in [vertical Splitters](slug://splitter-orientation). Supports two-way binding. The `Size` must be between the `Min` and `Max` values. See [Pane Size](#pane-size) below for more details on pane dimensions and behavior. |
+| `Size` | `string` | The pane `width` CSS style in [horizontal Splitters](slug:splitter-orientation), or the pane `height` in [vertical Splitters](slug:splitter-orientation). Supports two-way binding. The `Size` must be between the `Min` and `Max` values. See [Pane Size](#pane-size) below for more details on pane dimensions and behavior. |
 | `Visible` | `bool` | Defines if the pane element and splitbar render or not. When toggled at runtime, the pane's index remains unchanged, unlike when adding a pane with a conditional statement, which appends it at the end. Compare with the `Collapsed` parameter. |
 
 >caption Configure Splitter Panes
@@ -82,7 +82,7 @@ The sections below provide more details and a [hands-on example](#example).
 
 ### Pane Size
 
-The Splitter pane `Size` controls the pane width or height, depending on the [Splitter `Orientation`](slug://splitter-orientation).
+The Splitter pane `Size` controls the pane width or height, depending on the [Splitter `Orientation`](slug:splitter-orientation).
 
 There must be at least one `SplitterPane` without a `Size`. This pane will adjust automatically to occupy the remaining space, based on the other pane sizes.
 
@@ -97,18 +97,18 @@ Collapsibility and resizability have the following impact on the Splitter pane d
 
 ### Splitter Width and Height
 
-In a [vertical Splitter](slug://splitter-orientation), the pane widths match the Splitter `Width`.
+In a [vertical Splitter](slug:splitter-orientation), the pane widths match the Splitter `Width`.
 
 Here is how the Splitter `Height` affects the pane heights:
 
-* If a [horizontal Splitter](slug://splitter-orientation) has no `Height`, then its panes do not expand vertically to fill up the Splitter element. The [example](#example) below shows how to work around this with a `height:auto` style on the `.k-pane` class.
+* If a [horizontal Splitter](slug:splitter-orientation) has no `Height`, then its panes do not expand vertically to fill up the Splitter element. The [example](#example) below shows how to work around this with a `height:auto` style on the `.k-pane` class.
 * If a vertical Splitter has no `Height`, then all its panes ignore their `Size`. The panes expand or shrink, depending on their content. There is no pane scrolling.
 * If a vertical Splitter has a `Height`, then:
     * All panes obey their set `Size`.
     * Static panes with no `Size` expand to match the Splitter `Height`, leading to content overflow.
     * Flex panes with no `Size` shrink to zero height, but only if there is a static pane with no `Size`.
 
-See [Splitter Parameters](slug://splitter-overview#splitter-parameters) for more information about the component `Width` and `Height`.
+See [Splitter Parameters](slug:splitter-overview#splitter-parameters) for more information about the component `Width` and `Height`.
 
 ### Example
 
@@ -297,9 +297,9 @@ Splitter Orientation:
 
 ## Next Steps
 
-* [Set the Splitter orientation](slug://splitter-orientation)
-* [Manage the Splitter state](slug://splitter-state)
-* [Handle Splitter events](slug://splitter-events)
+* [Set the Splitter orientation](slug:splitter-orientation)
+* [Manage the Splitter state](slug:splitter-state)
+* [Handle Splitter events](slug:splitter-events)
 
 ## See Also
 

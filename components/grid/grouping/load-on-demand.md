@@ -10,7 +10,7 @@ position: 10
 
 # Load On Demand Group Data
 
-The grid component lets you load the data for each individual [group](slug://components/grid/features/grouping) on demand, instead of having it always present.
+The grid component lets you load the data for each individual [group](slug:components/grid/features/grouping) on demand, instead of having it always present.
 
 In this article:
 
@@ -24,16 +24,16 @@ In this article:
 
 ## Basics
 
-To enable load-on-demand for the groups, set `LoadGroupsOnDemand="true"` for the Grid. In this mode, the Grid behaves as usual when there is no grouping, and you can use this together with [Virtual Scrolling for the rows](slug://components/grid/virtual-scrolling).
+To enable load-on-demand for the groups, set `LoadGroupsOnDemand="true"` for the Grid. In this mode, the Grid behaves as usual when there is no grouping, and you can use this together with [Virtual Scrolling for the rows](slug:components/grid/virtual-scrolling).
 
-Once grouping is applied (either manually by the user, or through the Grid [state](slug://grid-state#setstateasync-examples)), the groups will now show up collapsed by default. When the user expands a group, all its rows will be requested from the data source. If you provide all the `Data` to the Grid, the component will perform the operations for you. For details about server operations, see below.
+Once grouping is applied (either manually by the user, or through the Grid [state](slug:grid-state#setstateasync-examples)), the groups will now show up collapsed by default. When the user expands a group, all its rows will be requested from the data source. If you provide all the `Data` to the Grid, the component will perform the operations for you. For details about server operations, see below.
 
 Each group header, each group footer and the Grid footer will count as rows for the purposes of paging. Until you expand a group, its child items are not counted and shown in the `Total` count for the purposes of paging.
 
 
 ### Server Operations
 
-When loading data on demand through the [OnRead event](slug://components/grid/manual-operations), there can be three different kinds of requests, depending on the needed data:
+When loading data on demand through the [OnRead event](slug:components/grid/manual-operations), there can be three different kinds of requests, depending on the needed data:
 
 * If there is no grouping, the request is as usual - no additional parameters or settings are added by the Grid.
 
@@ -268,9 +268,9 @@ Scroll through the groups or expand them to load their data on demand
 
 To toggle how the Grid loads groups:
 
-1. [Obtain reference to the Grid instance with `@ref`](slug://grid-overview#blazor-grid-reference-and-methods).
+1. [Obtain reference to the Grid instance with `@ref`](slug:grid-overview#blazor-grid-reference-and-methods).
 1. Change the `LoadGroupsOnDemand` parameter value.
-1. [Rebind()](slug://common-features-data-binding-overview#refresh-data) the Grid.
+1. [Rebind()](slug:common-features-data-binding-overview#refresh-data) the Grid.
 
 >caption Switch the Grid group load mode
 
@@ -362,11 +362,11 @@ To toggle how the Grid loads groups:
 
 * Since group headers and footers are treated like rows in the grid, the group headers may remain on a previous page from the data when you page the grid.
 
-* If the group load on demand is used in combination with [virtual scrolling](slug://components/grid/virtual-scrolling):
+* If the group load on demand is used in combination with [virtual scrolling](slug:components/grid/virtual-scrolling):
 
     * All requirements and limitations of virtual scrolling apply.
     
-    * [Aggregates](slug://grid-aggregates) are not supported.
+    * [Aggregates](slug:grid-aggregates) are not supported.
 
 * When exporting only the current Grid page (`AllPages="false"`), the exported file will not contain child data for collapsed groups.
 
@@ -374,4 +374,4 @@ To toggle how the Grid loads groups:
 ## See Also
 
 * [Live Demo: Grid Group Load On Demand](https://demos.telerik.com/blazor-ui/grid/group-loadondemand)
-* [Blazor Grid](slug://grid-overview)
+* [Blazor Grid](slug:grid-overview)

@@ -27,11 +27,11 @@ How to convert the HTML string value of the Editor and retrieve it as plain text
 
 ## Solution
 
-The HTML value of the Editor can be [converted to plain text and other formats](slug://editor-import-export) with our [Document Processing library](slug://dpl-in-blazor).
+The HTML value of the Editor can be [converted to plain text and other formats](slug:editor-import-export) with our [Document Processing library](slug:dpl-in-blazor).
 
 Here are the required steps:
 
-1. Add the [`Telerik.Documents.Core` and `Telerik.Documents.Flow`](slug://dpl-in-blazor) NuGet packages to your project.
+1. Add the [`Telerik.Documents.Core` and `Telerik.Documents.Flow`](slug:dpl-in-blazor) NuGet packages to your project.
 1. Import the required namespaces:
     * `Telerik.Windows.Documents.Flow.FormatProviders.Html`
     * `Telerik.Windows.Documents.Flow.FormatProviders.Txt`
@@ -85,4 +85,4 @@ To export to another format, use the corresponding namespace and format provider
 
 ## See Also 
 
-  * [Configuring Document Processing Libraries](slug://getting-started-vs-integration-dpl)
+  * [Configuring Document Processing Libraries](slug:getting-started-vs-integration-dpl)

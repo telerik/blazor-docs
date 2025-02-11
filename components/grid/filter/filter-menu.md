@@ -64,7 +64,7 @@ Set the `FilterMode` parameter of the Telerik Grid to `GridFilterMode.FilterMenu
 
 ## Filter From Code
 
-To learn how to programmatically filter the Grid, refer to the [Grid State](slug://grid-state) documentation article.
+To learn how to programmatically filter the Grid, refer to the [Grid State](slug:grid-state) documentation article.
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -123,19 +123,19 @@ You can override the default Filter Menu behavior for each column through the fo
 
 ### FilterMenuType
 
-You can switch between [CheckBoxList](slug://grid-checklist-filter) and a `Menu` filtering layout for a particular `<GridColumn>` by setting the `FilterMenuType` to `FilterMenuType.Menu` or `FilterMenuType.CheckBoxList`.
+You can switch between [CheckBoxList](slug:grid-checklist-filter) and a `Menu` filtering layout for a particular `<GridColumn>` by setting the `FilterMenuType` to `FilterMenuType.Menu` or `FilterMenuType.CheckBoxList`.
 
 ### CheckBoxList
 
-You can render a list of checkboxes instead of the default menu layout. Read the [CheckBoxList Filtering article](slug://grid-checklist-filter) for more information... 
+You can render a list of checkboxes instead of the default menu layout. Read the [CheckBoxList Filtering article](slug:grid-checklist-filter) for more information... 
 
 ### Filter Menu Template
 
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Menu Template](slug://grid-templates-filter#filter-menu-template) article.
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Menu Template](slug:grid-templates-filter#filter-menu-template) article.
 
 
 ## See Also
 
-  * [Grid Filtering Overview](slug://components/grid/filtering)
+  * [Grid Filtering Overview](slug:components/grid/filtering)
   * [Live Demo: Grid Filter Menu](https://demos.telerik.com/blazor-ui/grid/filter-menu)
-  * [Blazor Grid](slug://grid-overview)
+  * [Blazor Grid](slug:grid-overview)

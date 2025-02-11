@@ -20,23 +20,23 @@ This article describes the [Blazor PDF Viewer](https://demos.telerik.com/blazor-
 
 ## OnDownload
 
-The `OnDownload` event fires when the user clicks on the Download button in the [PDF Viewer toolbar](slug://pdfviewer-toolbar).
+The `OnDownload` event fires when the user clicks on the Download button in the [PDF Viewer toolbar](slug:pdfviewer-toolbar).
 
-The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](slug://Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. Do not add the `.pdf` file extension - the component will do that. The default name of the downloaded file is `Document.pdf`. See the [example below](#example).
+The event handler receives an argument of type [`PdfViewerDownloadEventArgs`](slug:Telerik.Blazor.Components.PdfViewerDownloadEventArgs). The event is cancellable and allows the application to set a name of the downloaded file. Do not add the `.pdf` file extension - the component will do that. The default name of the downloaded file is `Document.pdf`. See the [example below](#example).
 
 
 ## OnError
 
 The `OnError` event fires when a file error occurs. For example, the user tries to open a corrupt file or a file that is not in the correct format.
 
-The event handler receives an argument of type [`PdfViewerErrorEventArgs`](slug://Telerik.Blazor.Components.PdfViewerErrorEventArgs), which exposes a `Message` property. See the [example below](#example).
+The event handler receives an argument of type [`PdfViewerErrorEventArgs`](slug:Telerik.Blazor.Components.PdfViewerErrorEventArgs), which exposes a `Message` property. See the [example below](#example).
 
 
 ## OnOpen
 
-The `OnOpen` event fires when the user selects a file to open from the [PDF Viewer toolbar](slug://pdfviewer-toolbar).
+The `OnOpen` event fires when the user selects a file to open from the [PDF Viewer toolbar](slug:pdfviewer-toolbar).
 
-The event handler receives an argument of type [`PdfViewerOpenEventArgs`](slug://Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. To read the `Stream`, you may need to [increase the maximum SignalR message size](slug://pdfviewer-overview#large-file-support).
+The event handler receives an argument of type [`PdfViewerOpenEventArgs`](slug:Telerik.Blazor.Components.PdfViewerOpenEventArgs). The event is cancellable and allows the application to obtain the PDF file name, size and contents as a `Stream`. To read the `Stream`, you may need to [increase the maximum SignalR message size](slug:pdfviewer-overview#large-file-support).
 
 Using `OnOpen` is *not* required. Users can open local files from their devices without this handler. See the [example below](#example).
 
@@ -126,10 +126,10 @@ The event handler receives the new zoom level as an argument of type `decimal`. 
 
 ## Next Steps
 
-* [Customize the PDF Viewer toolbar](slug://pdfviewer-toolbar)
+* [Customize the PDF Viewer toolbar](slug:pdfviewer-toolbar)
 
 
 ## See Also
 
 * [PdfViewer Events Demo](https://demos.telerik.com/blazor-ui/pdfviewer/events)
-* [PdfViewer API](slug://Telerik.Blazor.Components.TelerikPdfViewer)
+* [PdfViewer API](slug:Telerik.Blazor.Components.TelerikPdfViewer)

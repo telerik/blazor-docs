@@ -23,11 +23,11 @@ To install a license key, you must have a developer or trial license for:
 
 If you are new to Telerik UI for Blazor, <a href="https://www.telerik.com/blazor-ui" target="_blank">sign up for a free trial</a>.
 
-The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug://getting-started/what-you-need#nuget-packages). During project build, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
+The `Telerik.UI.for.Blazor` NuGet package [depends on the `Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages). During project build, the `Telerik.Licensing` package automatically verifies the license key and activates Telerik UI for Blazor in that project.
 
-Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. To build Telerik Blazor apps in a CI/CD environment, [set up a Telerik license key in CI/CD](slug://deployment-license-key).
+Follow the steps below for [automatic](#automatic-installation) or [manual](#manual-installation) license key installation in your local development environment. To build Telerik Blazor apps in a CI/CD environment, [set up a Telerik license key in CI/CD](slug:deployment-license-key).
 
-An [invalid or missing license key results in app build warnings](slug://troubleshooting-license-key-errors) and watermarks in the application UI.
+An [invalid or missing license key results in app build warnings](slug:troubleshooting-license-key-errors) and watermarks in the application UI.
 
 >warning The license key file is personal and confidential. Do not commit this file to source control and do not save it to a publicly accessible location!
 
@@ -36,7 +36,7 @@ An [invalid or missing license key results in app build warnings](slug://trouble
 To download and install your Telerik license key automatically, use either of the following Telerik productivity tools:
 
 * <a href="https://docs.telerik.com/controlpanel/introduction" target="_blank">Telerik Control Panel</a>&mdash;this tool downloads and installs different Telerik products on your machine.
-* [Telerik UI for Blazor Visual Studio extension](slug://getting-started-vs-integration-overview)&mdash;this tool adds or upgrades Telerik UI for Blazor in new or existing apps.
+* [Telerik UI for Blazor Visual Studio extension](slug:getting-started-vs-integration-overview)&mdash;this tool adds or upgrades Telerik UI for Blazor in new or existing apps.
 
 The above tools download and install a license key for you and make it available for all projects that you develop on your local machine. The license key file and location is specified in the [Manual Installation](#manual-installation) section below.
 
@@ -59,7 +59,7 @@ The new license key includes information about all previous purchases. This proc
 
 * If you used [automatic license key installation](#automatic-installation), then open the tool that you used to download and install the license key file. You can also update the license key file by using the [manual steps above](#manual-installation).
 * If you used the [manual license key installation](#manual-installation), then repeat the same steps.
-* To [update your license key in CI/CD environments](slug://deployment-license-key), get your new license key and update the environment variable value.
+* To [update your license key in CI/CD environments](slug:deployment-license-key), get your new license key and update the environment variable value.
 
 ## Frequently Asked Questions
 
@@ -91,14 +91,14 @@ Scenarios that do not match the above three descriptions result in the following
 
 * A popup banner appears on application startup.
 * A watermark appears on Telerik UI for Blazor components.
-* [A warning message appears in the application's build log](slug://troubleshooting-license-key-errors).
+* [A warning message appears in the application's build log](slug:troubleshooting-license-key-errors).
 
 #### I updated the Telerik UI for Blazor version in my project and license errors appeared. Why?
 
 The most likely cause is that the new Telerik UI for Blazor version was released after the expiration date of your current license or license key. To fix this issue:
 
 1. Renew your Telerik UI for Blazor license if necessary.
-1. [Update your license key](slug://installation-license-key)
+1. [Update your license key](slug:installation-license-key)
 
 #### Can I use the same license key in multiple builds?
 
@@ -112,7 +112,7 @@ No, the license validation and activation occur offline.
 
 No, do not add the `telerik-license.txt` license key file or its contents to source control.
 
-Do not store the license key in plain text in GitHub Actions Workflow definitions. Build servers [must use the `TELERIK_LICENSE` environment variable](slug://deployment-license-key).
+Do not store the license key in plain text in GitHub Actions Workflow definitions. Build servers [must use the `TELERIK_LICENSE` environment variable](slug:deployment-license-key).
 
 #### What happens if both the environment variable and the license key file are present?
 
@@ -136,11 +136,11 @@ No, versions up to **7.1.0** released prior to February 2025 do not require a li
 
 ## Next Steps
 
-* [Set Up the Telerik NuGet Feed](slug://installation/nuget)
-* [Install License Key in CI/CD Environment](slug://deployment-license-key)
+* [Set Up the Telerik NuGet Feed](slug:installation/nuget)
+* [Install License Key in CI/CD Environment](slug:deployment-license-key)
 
 ## See Also
 
-* [Troubleshoot License Key Errors](slug://troubleshooting-license-key-errors)
-* [Get Started with a Blazor Web App](slug://getting-started/web-app)
-* [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)
+* [Troubleshoot License Key Errors](slug:troubleshooting-license-key-errors)
+* [Get Started with a Blazor Web App](slug:getting-started/web-app)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)

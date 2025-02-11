@@ -10,13 +10,13 @@ position: 7
 
 # Telerik License Key in CI/CD Environment
 
-This article describes how to set up and activate your [Telerik UI for Blazor license key](slug://installation-license-key) across a few popular CI/CD services by using environment variables.
+This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular CI/CD services by using environment variables.
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 ## Basics
 
-When working with CI/CD platforms, always add the [`Telerik.Licensing` NuGet package](slug://getting-started/what-you-need#nuget-packages) as a project dependency. This package activates the Telerik Blazor components at build time by using the provided license key.
+When working with CI/CD platforms, always add the [`Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages) as a project dependency. This package activates the Telerik Blazor components at build time by using the provided license key.
 
 The license activation process in a CI/CD environment involves the following steps:
 
@@ -58,9 +58,9 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 ## Next Steps
 
-* [Restore Telerik NuGet Packages in CI/CD Workflows](slug://deployment-nuget)
+* [Restore Telerik NuGet Packages in CI/CD Workflows](slug:deployment-nuget)
 
 ## See Also
 
-* [CI, CD, Build Server](slug://deployment-ci-cd-build-pc)
-* [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)
+* [CI, CD, Build Server](slug:deployment-ci-cd-build-pc)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)

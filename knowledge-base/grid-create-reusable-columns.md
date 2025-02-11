@@ -171,5 +171,5 @@ public class Role
 
 ## See Also
 
-- [Grid Columns](slug://components/grid/columns/bound)
-- [Grid Templates](slug://components/grid/features/templates)
+- [Grid Columns](slug:components/grid/columns/bound)
+- [Grid Templates](slug:components/grid/features/templates)

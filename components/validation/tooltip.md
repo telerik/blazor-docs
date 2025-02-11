@@ -16,7 +16,7 @@ The <a href = "https://www.telerik.com/blazor-ui/validationtooltip" target="_bla
 
 To enable Telerik Validation Tooltip for a field in the Telerik Form:
 
-1. Add a `<TelerikValidationTooltip>` tag inside the TelerikForm `<FormItems>` tag, or [inside a form item `<Template>`](slug://form-formitems-template).
+1. Add a `<TelerikValidationTooltip>` tag inside the TelerikForm `<FormItems>` tag, or [inside a form item `<Template>`](slug:form-formitems-template).
 1. Provide a lambda expression in the `For` parameter that sets the associated property of the model, just like with the standard Blazor `ValidationMessage`.
 1. Set the `TargetSelector` parameter to a CSS selector that points to the element(s) the Tooltip will associate itself with.
 1. (optional) Disable the built-in validation messages of the Telerik Form to avoid repetition. Set `ValidationMessageType="@FormValidationMessageType.None"`.
@@ -64,7 +64,7 @@ To enable Telerik Validation Tooltip for a field in the Telerik Form:
 }
 ````
 
->tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see [Form Validation - Validation Message Type](slug://form-validation#validation-message-type). Use standalone validation tooltips only to make more advanced customizations such as the ones in this article.
+>tip The Telerik Form can provide tooltips out-of-the-box with a single setting - see [Form Validation - Validation Message Type](slug:form-validation#validation-message-type). Use standalone validation tooltips only to make more advanced customizations such as the ones in this article.
 
 ## Using Validation Tooltip with EditForm
 
@@ -273,6 +273,6 @@ Use the `Class` parameter of the Validation Tooltip to add a custom CSS class to
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [TelerikValidationSummary](slug://validation-tools-summary)
-* [TelerikValidationTooltip](slug://validation-tools-message)
-* [Form Component](slug://form-overview)
+* [TelerikValidationSummary](slug:validation-tools-summary)
+* [TelerikValidationTooltip](slug:validation-tools-message)
+* [Form Component](slug:form-overview)

@@ -94,4 +94,4 @@ For details on how the ColorGradient keyboard navigation works, refer to the [Bl
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

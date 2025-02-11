@@ -44,6 +44,6 @@ The `OnChange` event fires to notify you whether the media query string provided
 
 ## See Also
 
-  * [Overview](slug://mediaquery-overview)
-  * [Integration](slug://mediaquery-integration)
+  * [Overview](slug:mediaquery-overview)
+  * [Integration](slug:mediaquery-integration)
    

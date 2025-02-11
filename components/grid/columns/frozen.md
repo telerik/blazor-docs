@@ -14,7 +14,7 @@ The Grid lets you freeze one or more columns. This will allow the user to scroll
 
 To enable the column freezing, set the `Locked` parameter of the column to `true`.
 
-If the column you want to freeze is not the first in the list, the grid must be scrollable. This requires that there are enough columns with their `Width` set so that the grid has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the grid). You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior](slug://grid-columns-width) article.
+If the column you want to freeze is not the first in the list, the grid must be scrollable. This requires that there are enough columns with their `Width` set so that the grid has a horizontal scrollbar (the sum of the Widths of the columns exceeds the Width of the grid). You can read more about the scrolling behavior of the grid in the [Grid Column Width Behavior](slug:grid-columns-width) article.
 
 This article you can observe Freezing different columns. The examples are separated into types for clarity:
 * [Frozen first and last columns](#frozen-first-and-last-columns)
@@ -175,4 +175,4 @@ The frozen columns pose some requirements:
 
 ## See also
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/grid/frozen-columns)
- * [Blazor Grid](slug://grid-overview)
+ * [Blazor Grid](slug:grid-overview)

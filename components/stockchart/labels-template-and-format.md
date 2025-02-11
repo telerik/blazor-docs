@@ -128,7 +128,7 @@ Standard number format strings and rotate the labels of the Category Axis
 
 You can use the `Template` parameter to apply more complex formatting to the labels in the StockChart for Blazor. The syntax of the template is based on the [Kendo Templates](https://docs.telerik.com/kendo-ui/framework/templates/overview). The labels are not HTML elements so the `Template` cannot contain arbitrary HTML elements. If you want to add a new line, use the `\n` symbol instead of a block HTML element. 
 
-To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find examples of this in the [How to format the percent in a label for a pie or donut chart](slug://chart-format-percent) knowledge base article and the [Label Format - Complex Logic](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) sample project.
+To format the values, you need to call a JavaScript function that will return the desired new string based on the template value you pass to it. You can find examples of this in the [How to format the percent in a label for a pie or donut chart](slug:chart-format-percent) knowledge base article and the [Label Format - Complex Logic](https://github.com/telerik/blazor-ui/tree/master/chart/label-template) sample project.
 
 ### Template Fields
 

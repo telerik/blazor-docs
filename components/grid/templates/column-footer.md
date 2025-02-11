@@ -10,9 +10,9 @@ position: 20
 
 # Column Footer Template
 
-You can display a grand total row at the bottom of the grid through the `FooterTemplate` of each [bound](slug://components/grid/columns/bound) column.
+You can display a grand total row at the bottom of the grid through the `FooterTemplate` of each [bound](slug:components/grid/columns/bound) column.
 
-You can use [aggregates](slug://grid-aggregates) for the current field directly from the `context`, and its `AggregateResults` field lets you get aggregates for other fields that you have defined through their field name and aggregate function.
+You can use [aggregates](slug:grid-aggregates) for the current field directly from the `context`, and its `AggregateResults` field lets you get aggregates for other fields that you have defined through their field name and aggregate function.
 
 
 >caption Footer Template with grand total data
@@ -98,5 +98,5 @@ Footer templates usually display aggregates. Here are some things to keep in min
 ## See Also
 
  * [Live Demo: Grid Footer Template](https://demos.telerik.com/blazor-ui/grid/footer-template)
- * [Blazor Grid](slug://grid-overview)
+ * [Blazor Grid](slug:grid-overview)
 

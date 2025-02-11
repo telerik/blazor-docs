@@ -10,7 +10,7 @@ position: 0
 
 # Blazor ChunkProgressBar Overview
 
-The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar component</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate](slug://chunkprogressbar-indeterminate-state) while waiting for an update.
+The <a href = "https://www.telerik.com/blazor-ui/chunkprogressbar" target = "_blank">Blazor ChunkProgressBar component</a> tracks the execution of operations and displays what portion of it is completed in predefined number of sections (chunks). For very long tasks, you can also make it [indeterminate](slug:chunkprogressbar-indeterminate-state) while waiting for an update.
 
 
 ## Creating Blazor ChunkProgressBar
@@ -77,7 +77,7 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 | `Value` | `double` | The value of the ChunkProgressBar. This value indicates the progress of the tracked process and is distributed in the chunks (sections) of the ChunkProgressBar. It is a fraction of the `Max`. Read mode in the [Chunk Count, Value and MaxValue](#chunk-count-value-and-maxvalue) section. |
 | `ChunkCount` | `unsigned int` <br /> (`5`) | The number of chunks the ChunkProgressBar will be separated into. |
 | `Orientation` | `ProgressBarOrientation` <br /> (`Horizontal`) | Controls the orientation of the Chunk Progress Bar. |
-| `Indeterminate` | `bool` <br /> (`true`) | Controls if the Chunk Progress Bar is in indeterminate state. Read the [Indeterminate](slug://chunkprogressbar-indeterminate-state) article for more information. |
+| `Indeterminate` | `bool` <br /> (`true`) | Controls if the Chunk Progress Bar is in indeterminate state. Read the [Indeterminate](slug:chunkprogressbar-indeterminate-state) article for more information. |
 
 ## Examples
 
@@ -100,9 +100,9 @@ In the example below each chunk is "worth" `10 / 4 = 2.5`. The `Value` is `3` so
 
 ## Next Steps
 
-* [Learn more about the Indeterminate state](slug://chunkprogressbar-indeterminate-state)
+* [Learn more about the Indeterminate state](slug:chunkprogressbar-indeterminate-state)
 
 ## See Also
 
 * [Live Demo: ChunkProgressBar](https://demos.telerik.com/blazor-ui/chunkprogressbar/overview)
-* [ChunkProgressBar API Reference](slug://Telerik.Blazor.Components.TelerikChunkProgressBar)
+* [ChunkProgressBar API Reference](slug:Telerik.Blazor.Components.TelerikChunkProgressBar)

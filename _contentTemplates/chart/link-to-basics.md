@@ -1,5 +1,5 @@
 #understand-basics-and-databinding-first
-This article assumes you are familiar with the [chart basics](slug://components/chart/overview) and [data binding](slug://components/chart/databind).
+This article assumes you are familiar with the [chart basics](slug:components/chart/overview) and [data binding](slug:components/chart/databind).
 #end
 
 #color-field-bar-column
@@ -109,9 +109,9 @@ You can render the lines between the points with different styles. The supported
 
 * `Normal`—This is the default style. It produces a straight line between data points.
 
-* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes. Supported for [categorical](slug://components/chart/databind#series-types) types of [Line](slug://components/chart/types/line) charts only, but not for scatter charts.
+* `Step`—The style renders the connection between data points through vertical and horizontal lines. It is suitable for indicating that the value is constant between the changes. Supported for [categorical](slug:components/chart/databind#series-types) types of [Line](slug:components/chart/types/line) charts only, but not for scatter charts.
 
-* `Smooth`—This style causes the Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines. Not supported with [stacked](slug://components/chart/stack) series with missing values.
+* `Smooth`—This style causes the Chart to display a fitted curve through data points. It is suitable when the data requires to be displayed with a curve, or when you wish to connect the points with smooth instead of straight lines. Not supported with [stacked](slug:components/chart/stack) series with missing values.
 
 #end
 
@@ -150,7 +150,7 @@ When configuring nested properties and child elements in your chart, the inner t
 
 #configurable-nested-chart-settings-categorical
 
-An example of this is the rotation the Labels of a [categorical](slug://components/chart/databind#series-types) chart. You can use the
+An example of this is the rotation the Labels of a [categorical](slug:components/chart/databind#series-types) chart. You can use the
 
 `ChartCategoryAxes` > `ChartCategoryAxis` > `ChartCategoryAxisLabels` > `ChartCategoryAxisLabelsRotation` tag
 
@@ -162,7 +162,7 @@ This approach is not limited only to the Labels - it can be used with all tags t
 
 #configurable-nested-chart-settings-numerical
 
-For example, for [numerical](slug://components/chart/databind#series-types) charts you can rotate the Labels for `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout. This can be done through the
+For example, for [numerical](slug:components/chart/databind#series-types) charts you can rotate the Labels for `ChartXAxes` or `ChartYAxes` depending on your application design needs and layout. This can be done through the
 
 `ChartXAxes` > `ChartXAxis` > `ChartXAxisLabelsRotation` tag
 
@@ -174,7 +174,7 @@ This approach is not limited only to the Labels - it can be used with to all tag
 
 #configurable-nested-chart-settings-axis-free
 
-For example, for [axis-free](slug://components/chart/databind#series-types) charts you can rotate their Labels, Title, Legend and others. Example for doing so is customizing the Chart Series Labels by using the parameters in the
+For example, for [axis-free](slug:components/chart/databind#series-types) charts you can rotate their Labels, Title, Legend and others. Example for doing so is customizing the Chart Series Labels by using the parameters in the
 
 `ChartSeriesItems` > `ChartSeries` > `ChartSeriesLabels` tag and its child tags.
 

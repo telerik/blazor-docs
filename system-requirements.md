@@ -80,4 +80,4 @@ Use the following browsers to access web applications with Telerik UI for Blazor
 
 ## See Also
 
-* [Old Versions Support Policy](slug://old_versions_support_policy)
+* [Old Versions Support Policy](slug:old_versions_support_policy)

@@ -154,12 +154,12 @@ There are many user experience patterns and ways that users want to input dates,
 
 ## Next Steps
 
-* [Set Date Input format](slug://components/dateinput/supported-formats)
-* [Customize the Date Input appearance](slug://dateinput-appearance)
-* [Handle Date Input events](slug://components/dateinput/events)
+* [Set Date Input format](slug:components/dateinput/supported-formats)
+* [Customize the Date Input appearance](slug:dateinput-appearance)
+* [Handle Date Input events](slug:components/dateinput/events)
 
 
 ## See Also
 
 * [Live Demo: Date Input](https://demos.telerik.com/blazor-ui/dateinput/overview)
-* [DateInput Overview](slug://components/dateinput/overview)
+* [DateInput Overview](slug:components/dateinput/overview)

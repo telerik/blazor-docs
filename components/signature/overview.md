@@ -12,7 +12,7 @@ position: 0
 
 This article provides information about the <a href = "https://www.telerik.com/blazor-ui/signature" target="_blank">Blazor Signature component</a> and its core features.
 
-The Blazor Signature component provides an area where users can draw their signatures with a mouse, pen, or with their fingertips. You can use the component in any application where the users must sign a document. The Blazor Signature integrates easily with the [TelerikForm](slug://form-overview). The component stores the value of the signature as a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.buffers.text.base64?view=net-6.0">base64 string</a>
+The Blazor Signature component provides an area where users can draw their signatures with a mouse, pen, or with their fingertips. You can use the component in any application where the users must sign a document. The Blazor Signature integrates easily with the [TelerikForm](slug:form-overview). The component stores the value of the signature as a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.buffers.text.base64?view=net-6.0">base64 string</a>
 
 ## Creating Blazor Signature
 
@@ -107,21 +107,21 @@ To test with physical PNG files, uncomment the code below and run the example in
 
 ## Appearance
 
-The Signature component provides settings to control its appearance, for example colors and borders. [Read more about the Blazor Signature appearance settings...](slug://signature-appearance)
+The Signature component provides settings to control its appearance, for example colors and borders. [Read more about the Blazor Signature appearance settings...](slug:signature-appearance)
 
 ## Events
 
-Use the Blazor Signature **blur** and value **change** events to respond to user actions. [Read more about the Blazor Signature events...](slug://signature-events)
+Use the Blazor Signature **blur** and value **change** events to respond to user actions. [Read more about the Blazor Signature events...](slug:signature-events)
 
 ## SignalR Message Size
 
-In **Blazor server-side applications**, the Signature component uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. This is rarely enough for the Signature `Value`, which is a Base64 image, so [increase the max WebSocket message size for the Blazor application](slug://common-kb-increase-signalr-max-message-size).
+In **Blazor server-side applications**, the Signature component uses the **SignalR WebSocket**, which has a default maximum message size of **32 KB**. This is rarely enough for the Signature `Value`, which is a Base64 image, so [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
 
 The Signature parameters, which affect the `Value` size are `ExportScale`, `Height`, and `Width`.
 
 ## Signature Parameters
 
-The following table lists the Signature parameters. Also check the [Signature API Reference](slug://Telerik.Blazor.Components.TelerikSignature).
+The following table lists the Signature parameters. Also check the [Signature API Reference](slug:Telerik.Blazor.Components.TelerikSignature).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -130,11 +130,11 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `AriaDescribedBy` | `string` | Maps to the `area-describedby` attribute. Use this parameter to establish a relationship between widgets or groups and the text that describes them. |
 | `AriaLabel` | `string` | Maps to the `aria-label` attribute. Use  this parameter if the text that labels the component is not visible. |
 | `AriaLabelledBy` | `string` | Maps to the `area-labelledby` attribute. Use this parameter to reference another element to define its accessible name. |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles](slug://themes-override). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-signature">` element. Use it to [override theme styles](slug:themes-override). |
 | `DebounceDelay` | `int` <br /> `(150)` | The time in milliseconds between the last drawn line and the value change event. Increase the debounce delay to optimize the number of client-server requests while the user is drawing, especially when the `Width` and `Height` are larger. |
 | `Enabled` | `bool` <br /> `(true)` | Defines if the component is enabled. |
 | `ExportScale` | `double` <br /> `(2)` | The `Width` and `Height` of the component will be multiplied by the export scale when converting the signature to an image. If you don't need to save a high-precision signature of the user, or if the `Width` and `Height` are large, reduce the export scale to optimize the [`Value` size](#signalr-message-size). |
-| `Height` | `string` | Defines the height of the component. Set it in `px`. If you need to use relative units, see how to [resize the Signature with the browser](slug://signature-kb-relative-width-height). |
+| `Height` | `string` | Defines the height of the component. Set it in `px`. If you need to use relative units, see how to [resize the Signature with the browser](slug:signature-kb-relative-width-height). |
 | `HideLine` | `bool` | Whether the dotted line is rendered. |
 | `Maximizable` | `bool` | Whether the Signature can be maximized via a button at the top-right corner. When maximized, the component will show a modal popup dialog. Also see `PopupScale`. |
 | `PopupScale` | `double` <br /> `(3)` | The `Width` and `Height` of the component will be multiplied by the `PopupScale` value when maximizing the Blazor Signature. Also see `Maximizable`. |
@@ -142,8 +142,8 @@ The following table lists the Signature parameters. Also check the [Signature AP
 | `Smooth` | `bool` | Use this parameter to smoothen the signature line. |
 | `StrokeWidth` | `double?` | The drawn lines' thickness in pixels. |
 | `TabIndex` | `int?` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the Tab key. |
-| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs). |
-| `Width` | `string` | Defines the width of the component. Set the it in `px`. If you need to use relative units, see how to [resize the Signature at runtime](slug://signature-kb-relative-width-height). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug:common-features/input-validation#validation-modes-for-simple-inputs). |
+| `Width` | `string` | Defines the width of the component. Set the it in `px`. If you need to use relative units, see how to [resize the Signature at runtime](slug:signature-kb-relative-width-height). |
 
 ## Signature Reference and Methods
 
@@ -182,11 +182,11 @@ The Signature exposes methods for programmatic operation. To use them, define a 
 
 ## Next Steps
 
-* [Explore the Signature Appearance Settings](slug://signature-appearance)
-* [Handle the Signature Events](slug://signature-events)
-* [Validate the Signature](slug://common-features/input-validation)
+* [Explore the Signature Appearance Settings](slug:signature-appearance)
+* [Handle the Signature Events](slug:signature-events)
+* [Validate the Signature](slug:common-features/input-validation)
 
 ## See Also
 
 * [Live Demo: Signature](https://demos.telerik.com/blazor-ui/signature/overview)
-* [Signature API Reference](slug://Telerik.Blazor.Components.TelerikSignature)
+* [Signature API Reference](slug:Telerik.Blazor.Components.TelerikSignature)

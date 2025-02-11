@@ -32,7 +32,7 @@ You can pre-select a date in `Single` selection mode by setting the `Value` prop
 
 To pre-select dates in the `Multiple` selection mode, use the `SelectedDates` property which is of type `List<DateTime>`.
 
-In `Range` selection mode you can get the start and end dates of the range the user selected through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events](slug://components/calendar/events) article.
+In `Range` selection mode you can get the start and end dates of the range the user selected through the `RangeStart` and `RangeEnd` parameters of type `DateTime`. You also get events `RangeStartChanged` and `RangeEndChanged`. You can read more about them and see an example in the [Events](slug:components/calendar/events) article.
 
 ## Receive User Selection
 
@@ -133,14 +133,14 @@ With multiple selection mode, to get the user selection, use the `SelectedDates`
 
 ### Range Selection Mode
 
-With range selection mode, the range selection is alternating, meaning every odd click sets the value of the [`RangeStart` parameter](slug://components/calendar/overview#calendar-parameters), while every even click sets the value of the [`RangeEnd` parameter](slug://components/calendar/overview#calendar-parameters).
+With range selection mode, the range selection is alternating, meaning every odd click sets the value of the [`RangeStart` parameter](slug:components/calendar/overview#calendar-parameters), while every even click sets the value of the [`RangeEnd` parameter](slug:components/calendar/overview#calendar-parameters).
 
-Setting either value may reset the other value if the range is not valid. The range is not valid if the `RangeStart` value is after the `RangeEnd` value. To set such range as valid you can use the [`AllowReverse` parameter](slug://components/calendar/overview#calendar-parameters).
+Setting either value may reset the other value if the range is not valid. The range is not valid if the `RangeStart` value is after the `RangeEnd` value. To set such range as valid you can use the [`AllowReverse` parameter](slug:components/calendar/overview#calendar-parameters).
 
 With range selection mode, you have two options to get the user choice:
 
 * Configure two-way binding for the `RangeStart` and the `RangeEnd` parameters, OR
-* Use one-way binding for `RangeStart` and the `RangeEnd` parameters and handle the [RangeStartChanged and RangeEndChanged events](slug://components/calendar/events#rangestartchanged-and-rangeendchanged).
+* Use one-way binding for `RangeStart` and the `RangeEnd` parameters and handle the [RangeStartChanged and RangeEndChanged events](slug:components/calendar/events#rangestartchanged-and-rangeendchanged).
 
 
 >caption Range selection with two-way binding and AllowReverse

@@ -28,25 +28,25 @@ Before adding the Telerik UI for Blazor components, ensure that the correspondin
 
 ## Adding the UI for Blazor Components
 
-The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is similar to including the components in a [native Blazor app](slug://getting-started/what-you-need) and involves the steps listed below. 
+The process for adding Telerik UI for Blazor to a WinForms, WPF, or MAUI app is similar to including the components in a [native Blazor app](slug:getting-started/what-you-need) and involves the steps listed below. 
 
 ### 1. Get the Telerik UI for Blazor Package
 
-To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...](slug://getting-started/what-you-need#nuget-packages)
+To use the  UI for Blazor components, install the `Telerik.UI.for.Blazor` package and include its reference in the `.csproj` file of the app. [Read more on where to get the `Telerik.UI.for.Blazor` package...](slug:getting-started/what-you-need#nuget-packages)
 
 ### 2. Install the Telerik License Key
 
-[Install your Telerik license key](slug://getting-started/what-you-need#license-key) to activate Telerik UI for Blazor during application build.
+[Install your Telerik license key](slug:getting-started/what-you-need#license-key) to activate Telerik UI for Blazor during application build.
 
 ### 3. Add the Telerik Client Assets
 
-To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets](slug://getting-started/what-you-need#css-theme-and-javascript-files). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
+To have the Telerik Blazor components look and behave as expected, you need the Telerik [CSS and JavaScript assets](slug:getting-started/what-you-need#css-theme-and-javascript-files). Include the assets inside the `<head>` of the `wwwroot/index.html` file.
 
-You can add the Telerik resources as [static assets](slug://getting-started/what-you-need#css-theme-and-javascript-files).
+You can add the Telerik resources as [static assets](slug:getting-started/what-you-need#css-theme-and-javascript-files).
 
 ### 4. Include @using Statements 
 
-You can set the project to recognize all Telerik components without explicit `@using` statements in every `.razor` file. To achieve this, add the code below to your `~/_Imports.razor` file. You can register one or both icon namespaces depending on the [icon type you will be using](slug://common-features-icons).
+You can set the project to recognize all Telerik components without explicit `@using` statements in every `.razor` file. To achieve this, add the code below to your `~/_Imports.razor` file. You can register one or both icon namespaces depending on the [icon type you will be using](slug:common-features-icons).
 
 >caption _Imports.razor
 
@@ -61,14 +61,14 @@ You can set the project to recognize all Telerik components without explicit `@u
 
 ### 5. Add the TelerikRootComponent
 
-Use a single [`TelerikRootComponent`](slug://rootcomponent-overview) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
+Use a single [`TelerikRootComponent`](slug:rootcomponent-overview) component as a top-level component in the app and make sure it wraps all content. At the time of writing, custom layouts are not supported, so you can add it to:
 
 * `Shared/MainLayout.razor` for MAUI apps
 * `Main.razor` for WPF and WinForms apps
 
 Make sure that the `TelerikRootComponent` matches the web view viewport and remove the default margin of the `<body>` HTML element.
 
-Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration](slug://getting-started/what-you-need#telerikrootcomponent)).
+Once custom layouts are supported, you will be able to configure a Telerik layout in the same way as with regular Blazor web apps (check [Common Configuration](slug:getting-started/what-you-need#telerikrootcomponent)).
 
 ### 6. Register the Telerik Services
 
@@ -116,7 +116,7 @@ Add your desired Telerik Blazor components in the app as in a native Blazor app.
 
 ## Running the Blazor Hybrid App
 
-You can now run the hybrid application in debug mode, but it's recommended to [be aware of possible caveats during deployment and prevent them upfront](slug://hybrid-blazor-apps#known-issues).
+You can now run the hybrid application in debug mode, but it's recommended to [be aware of possible caveats during deployment and prevent them upfront](slug:hybrid-blazor-apps#known-issues).
 
 Refer to the following articles for more information on each technology stack:
 
@@ -126,12 +126,12 @@ Refer to the following articles for more information on each technology stack:
 
 ## Next Steps
 
-* [Explore the specifics of Telerik UI for Blazor in native MAUI](slug://hybrid-blazor-apps)
+* [Explore the specifics of Telerik UI for Blazor in native MAUI](slug:hybrid-blazor-apps)
 
 ## See Also
 
-* [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
-* [First Steps with Blazor Web App](slug://getting-started/web-app)
-* [First Steps with Blazor Server](slug://getting-started/server-side)
-* [First Steps with Blazor WebAssembly](slug://getting-started/client-side)
+* [First Steps with Blazor Web App](slug:getting-started/web-app)
+* [First Steps with Blazor Server](slug:getting-started/server-side)
+* [First Steps with Blazor WebAssembly](slug:getting-started/client-side)

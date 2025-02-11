@@ -14,11 +14,11 @@ You can rearrange the tiles in the tile layout by a simple drag-and-drop of thei
 
 To enable reordering, set the `Reorderable` parameter of the main `TelerikTileLayout` tag to `true`.
 
-To be able to drag and reorder a tile, it must have some [content](slug://tilelayout-tile-content) in its header.
+To be able to drag and reorder a tile, it must have some [content](slug:tilelayout-tile-content) in its header.
 
 @[template](/_contentTemplates/tilelayout/basics.md#resizing-reordering-logic)
 
-Reordering a tile fires the [OnReorder event](slug://tilelayout-events#onreorder).
+Reordering a tile fires the [OnReorder event](slug:tilelayout-events#onreorder).
 
 > When the tile layout allows reordering, it captures mouse events in the tile headers. Thus, if you put components in the `HeaderTemplate` of the tiles, they may not function as expected. For example, you may not be able to focus inputs with the mouse. The header is designed for presentation purposes and to allow dragging. We recommend putting editors or complex content in the `Content` of the tiles.
 
@@ -52,11 +52,11 @@ Reordering a tile fires the [OnReorder event](slug://tilelayout-events#onreorder
 
 ## Next Steps
 
-* [Handle Tile Layout events](slug://tilelayout-events).
-* [Manage the Tile Layout state](slug://tilelayout-state).
+* [Handle Tile Layout events](slug:tilelayout-events).
+* [Manage the Tile Layout state](slug:tilelayout-state).
 
 
 ## See Also
 
-* [Overview](slug://tilelayout-overview)
+* [Overview](slug:tilelayout-overview)
 * [Live Demo: TileLayout Reordering](https://demos.telerik.com/blazor-ui/tilelayout/reordering)

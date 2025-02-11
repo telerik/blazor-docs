@@ -24,7 +24,7 @@ This article explains the events available in the Telerik Scheduler for Blazor:
 
 ## CUD Events
 
-To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelete` and `OnUpdate` events. They let you propagate the changes the user makes in the UI to the view model and to the data storage. You can read mode in the [Appointment Editing](slug://scheduler-appointments-edit) article.
+To implement appointment editing, the scheduler exposes the `OnCreate`, `OnDelete` and `OnUpdate` events. They let you propagate the changes the user makes in the UI to the view model and to the data storage. You can read mode in the [Appointment Editing](slug:scheduler-appointments-edit) article.
 
 ## OnModelInit
 
@@ -838,7 +838,7 @@ It provides a `SchedulerItemContextMenuEventArgs` object to the event handler an
 
 The `OnItemRender` event fires when an appointment is going to be rendered in the scheduler. It fires one for every appointment, including all-day appointments that span several days/slots, and the class is rendered on all elements.
 
-Through its event arguments you can get the `Item` to cast it to your model type and to set the `Class` that will render on the appointment wrapping element. This lets you customize the appearance of the entire appointment, not just the contents of its [template](slug://scheduler-templates-appointment).
+Through its event arguments you can get the `Item` to cast it to your model type and to set the `Class` that will render on the appointment wrapping element. This lets you customize the appearance of the entire appointment, not just the contents of its [template](slug:scheduler-templates-appointment).
 
 >caption Customize the appearance of the scheduler appointments by adding custom CSS classes to them conditionally
 
@@ -946,7 +946,7 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 | --- | --- | --- |
 | `Class` | `string` | The CSS class that will be applied to the cell. |
 | `IsAllDay` | `bool` | Whether the slot is inside the `AllDay` row/column.
-| `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources](slug://scheduler-resources) and [grouping](slug://scheduler-resource-grouping). Needed to differentiate between the same dates within different groups. |
+| `Resources` | `List<KeyValuePair<string, object>` | The resources that are associated with the column/row. Applicable when the Scheduler uses both - [resources](slug:scheduler-resources) and [grouping](slug:scheduler-resource-grouping). Needed to differentiate between the same dates within different groups. |
 | `Start` | `DateTime` | The slot start time. |
 | `End` | `DateTime` | The slot end time. |
 
@@ -1039,7 +1039,7 @@ The handler receives an argument of type `SchedulerCellRenderEventArgs` which ex
 
 ## DateChanged
 
-The `DateChanged` event fires when the user [navigates](slug://scheduler-navigation) to another date in the scheduler. For a view whose start is determined by outside factors and not only by the `Date` parameter (the week view), the event argument may not always be the start time of the range, but a date contained within the range. You could also use this event to load only appointments from the view's range which can be a performance optimization technique if you have a very large number of appointments.
+The `DateChanged` event fires when the user [navigates](slug:scheduler-navigation) to another date in the scheduler. For a view whose start is determined by outside factors and not only by the `Date` parameter (the week view), the event argument may not always be the start time of the range, but a date contained within the range. You could also use this event to load only appointments from the view's range which can be a performance optimization technique if you have a very large number of appointments.
 
 >caption Handle the `DateChanged` event
 
@@ -1125,7 +1125,7 @@ The `DateChanged` event fires when the user [navigates](slug://scheduler-navigat
 
 ## ViewChanged
 
-The `ViewChanged` event fires when the user chooses a new [View](slug://scheduler-views-overview). You can read more about the navigation options the user has in the [Navigation](slug://scheduler-navigation) article.
+The `ViewChanged` event fires when the user chooses a new [View](slug:scheduler-views-overview). You can read more about the navigation options the user has in the [Navigation](slug:scheduler-navigation) article.
 
 >caption Handle the `ViewChanged` event.
 
@@ -1207,8 +1207,8 @@ The `ViewChanged` event fires when the user chooses a new [View](slug://schedule
 
 ## See Also
 
-* [Scheduler Overview](slug://scheduler-overview)
-* [Views Overview](slug://scheduler-views-overview)
-* [Scheduler Navigation](slug://scheduler-navigation)
-* [Data Binding](slug://scheduler-appointments-databinding)
-* [Appointments Editing](slug://scheduler-appointments-edit)
+* [Scheduler Overview](slug:scheduler-overview)
+* [Views Overview](slug:scheduler-views-overview)
+* [Scheduler Navigation](slug:scheduler-navigation)
+* [Data Binding](slug:scheduler-appointments-databinding)
+* [Appointments Editing](slug:scheduler-appointments-edit)

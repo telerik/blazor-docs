@@ -77,4 +77,4 @@ To hide the horizontal scrollbar in a TelerikListView, apply custom CSS to set t
 
 ## See Also
 
-- [ListView Overview](slug://listview-overview)
+- [ListView Overview](slug:listview-overview)

@@ -26,7 +26,7 @@ res_type: kb
 
 This KB article answers the following questions:
 
-* How to implement a filter operator dropdown list in a [Grid filter row template (`FilterCellTemplate`)](slug://grid-templates-filter)?
+* How to implement a filter operator dropdown list in a [Grid filter row template (`FilterCellTemplate`)](slug:grid-templates-filter)?
 * How to reuse the filter operator logic and the clear filter button logic across multiple filter cell templates?
 
 
@@ -42,7 +42,7 @@ The sample also shows a few additional optional features:
 * Highlight the Filter Operator DropDownList when the column is filtered. See the `IsFilterActive` parameter of `FilterOperatorList`.
 * Choose the available options in the Filter Operator DropDownList. See the `FilterOperators` parameter of `FilterOperatorList`.
 
-`FilterOperatorList` and `FilterClearButton` are custom Razor components. The implementation is just an example and subject to customization, according to the specific scenario and business requirements. Refer to the [Grid Filtering](slug://components/grid/filtering) and [Grid Filter Templates](slug://grid-templates-filter) documentation for more information about how filtering works.
+`FilterOperatorList` and `FilterClearButton` are custom Razor components. The implementation is just an example and subject to customization, according to the specific scenario and business requirements. Refer to the [Grid Filtering](slug:components/grid/filtering) and [Grid Filter Templates](slug:grid-templates-filter) documentation for more information about how filtering works.
 
 >caption Using Filter Operators and Clear Button in FilterCellTemplate
 
@@ -453,5 +453,5 @@ The sample also shows a few additional optional features:
 
 ## See Also
 
-* [Grid Filtering](slug://components/grid/filtering)
-* [Grid Filter Templates](slug://grid-templates-filter)
+* [Grid Filtering](slug:components/grid/filtering)
+* [Grid Filter Templates](slug:grid-templates-filter)

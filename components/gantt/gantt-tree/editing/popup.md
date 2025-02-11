@@ -17,7 +17,7 @@ In this article:
 
 ## Basics
 
-Popup editing lets the user click an [Edit command button](slug://components/grid/columns/command) on the row, and a popup shows up with the editable fields associated with a Gantt Task. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Popup editing lets the user click an [Edit command button](slug:components/grid/columns/command) on the row, and a popup shows up with the editable fields associated with a Gantt Task. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel` and `Delete` command buttons and the `Add` toolbar button fire events to let you handle the data source operations.
 
@@ -27,13 +27,13 @@ To enable Popup editing in the Gantt Tree, set its `TreeListEditMode` property t
 
 The popup editing dialog renders up to four tabs that allow you to edit:
 
-* `General`—The fields that are used in the [data-binding schema](slug://gantt-data-binding-overview#gantt-tree-item-features).
-* `Other`—The fields that are not included in the [data-binding schema](slug://gantt-data-binding-overview#gantt-tree-item-features) but are present in the bound model.
-* `Predecessor` and `Successor` - render if you have defined [dependencies](slug://gantt-dependencies-overview) in the Gantt component. You can use these tabs as an alternative to the standard [dependency editing](slug://gantt-dependencies-editing)
+* `General`—The fields that are used in the [data-binding schema](slug:gantt-data-binding-overview#gantt-tree-item-features).
+* `Other`—The fields that are not included in the [data-binding schema](slug:gantt-data-binding-overview#gantt-tree-item-features) but are present in the bound model.
+* `Predecessor` and `Successor` - render if you have defined [dependencies](slug:gantt-dependencies-overview) in the Gantt component. You can use these tabs as an alternative to the standard [dependency editing](slug:gantt-dependencies-editing)
 
 ## Event Arguments
 
-In Telerik UI for Blazor version 4.5.0, the `GanttUpdateEventArgs` received three new collections as fields. They are populated when you define [Dependencies](slug://gantt-dependencies-overview) in the Gantt.
+In Telerik UI for Blazor version 4.5.0, the `GanttUpdateEventArgs` received three new collections as fields. They are populated when you define [Dependencies](slug:gantt-dependencies-overview) in the Gantt.
 
 | Field | Type | Description |
 |----------|----------|----------|
@@ -49,7 +49,7 @@ The `GanttDependencyDescriptor` exposes four fields that describe the mutated de
 |----------|----------|----------|
 | `PredecessorId` | `object`  | The Id of the predecessor of the mutated dependency. |
 | `SuccessorId` | `object`  | The Id of the successor of the mutated dependency. |
-| `Type` | `GanttDependencyType` enum | The [type of the dependency](slug://gantt-dependencies-databind). |
+| `Type` | `GanttDependencyType` enum | The [type of the dependency](slug:gantt-dependencies-databind). |
 | `DataItem` | `object`  | The model associated with this dependency. |
 
 >caption The Command buttons and the Gantt events let you handle data operations in Popup edit mode.

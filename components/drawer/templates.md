@@ -17,11 +17,11 @@ The Drawer can be customized by using Templates. This article explains the avail
 
 ## ItemTemplate
 
-The `<ItemTemplate>` controls the rendering of the [data bound items](slug://drawer-data-binding) in the Drawer, in case you want to use a rendering different than the default one.
+The `<ItemTemplate>` controls the rendering of the [data bound items](slug:drawer-data-binding) in the Drawer, in case you want to use a rendering different than the default one.
 
 This template receives a `context` argument that is of the data model type and represents the current item.
 
-When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a populated `Url` property](slug://drawer-navigation).
+When using an `ItemTemplate`, the Drawer can still [navigate automatically if the `UrlField` parameter is set, or if the Drawer data items have a populated `Url` property](slug:drawer-navigation).
 
 >caption Use ItemTemplate to control the rendering of the items in the Drawer.
 
@@ -86,7 +86,7 @@ When using an `ItemTemplate`, the Drawer can still [navigate automatically if th
 
 The `<Template>` allows you to control the whole rendering of the Drawer so you can add extra content and application logic. This template receives a `context` argument that is `IEnumerable<TItem>` - it is the `Data` collection of the component.
 
-When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection](slug://drawer-selection) and rendering, navigation to different pages, etc. Page navigation can be done with `<a>`, `<NavLink>`, `NavigationManager` and so on.
+When using this template all built-in features of the Drawer are disabled and should be implemented by the application, for example the [item selection](slug:drawer-selection) and rendering, navigation to different pages, etc. Page navigation can be done with `<a>`, `<NavLink>`, `NavigationManager` and so on.
 
 The drawer will expand and collapse as usual, but the content has to be controlled by the application entirely.
 
@@ -216,6 +216,6 @@ Using the `<Template>` and `<ItemTemplate>` together is not possible - the Templ
 ## See Also
 
 * [Drawer Templates Demo](https://demos.telerik.com/blazor-ui/drawer/overview)
-* [Drawer Data Binding](slug://drawer-data-binding)
-* [Drawer Navigation](slug://drawer-navigation)
+* [Drawer Data Binding](slug:drawer-data-binding)
+* [Drawer Navigation](slug:drawer-navigation)
 * [Hierarchical Drawer Demo](https://demos.telerik.com/blazor-ui/drawer/hierarchical-drawer)

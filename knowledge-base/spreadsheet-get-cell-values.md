@@ -33,8 +33,8 @@ This KB article answers the following questions:
 1. Install the required [Telerik Document Processing NuGet packages](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started):
     * `Telerik.Documents.Spreadsheet`
     * `Telerik.Documents.Spreadsheet.FormatProviders.OpenXml`
-1. Set the [`@ref` attribute of the Spreadsheet](slug://spreadsheet-overview#spreadsheet-reference-and-methods), so that you can call component methods.
-1. Use the [`ExportToExcelAsync()` Spreadsheet method](slug://spreadsheet-overview#spreadsheet-reference-and-methods) to get the Excel file as a `byte[]`.
+1. Set the [`@ref` attribute of the Spreadsheet](slug:spreadsheet-overview#spreadsheet-reference-and-methods), so that you can call component methods.
+1. Use the [`ExportToExcelAsync()` Spreadsheet method](slug:spreadsheet-overview#spreadsheet-reference-and-methods) to get the Excel file as a `byte[]`.
 1. Create a `MemoryStream` that contains the Excel file byte array.
 
     The steps below use the [Telerik RadSpreadProcessing API](https://docs.telerik.com/devtools/document-processing/api/) and are outside the scope of Telerik UI for Blazor.
@@ -206,5 +206,5 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [Spreadsheet Overview](slug://spreadsheet-overview)
-* [Spreadsheet Tools](slug://spreadsheet-tools)
+* [Spreadsheet Overview](slug:spreadsheet-overview)
+* [Spreadsheet Tools](slug:spreadsheet-tools)

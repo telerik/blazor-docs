@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-How to add the Telerik Badge to the [Telerik Avatar component](slug://avatar-overview) or another container that cannot have child elements.
+How to add the Telerik Badge to the [Telerik Avatar component](slug:avatar-overview) or another container that cannot have child elements.
 
 ## Solution
 

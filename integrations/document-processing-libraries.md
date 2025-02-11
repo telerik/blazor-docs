@@ -36,4 +36,4 @@ Telerik Document Processing Libraries' [Configuration Wizard](https://docs.teler
 * [Installing on Your Computer](https://docs.telerik.com/devtools/document-processing/getting-started/installation/installing-on-your-computer)
 * [Trial Version and Commercial License](https://docs.telerik.com/devtools/document-processing/introduction#trial-version-and-commercial-license)
 * [System Requirements](https://docs.telerik.com/devtools/document-processing/getting-started/installation/system-requirements)
-* [Version Conflict Detected Error for Telerik.Zip](slug://dpl-kb-version-conflict-detected-telerik-zip)
+* [Version Conflict Detected Error for Telerik.Zip](slug:dpl-kb-version-conflict-detected-telerik-zip)

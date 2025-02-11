@@ -10,9 +10,9 @@ position: 0
 
 # Blazor Steps Overview
 
-The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes - each step includes a visual [indicator](slug://stepper-indicators), you can define a [label](slug://stepper-labels) for the corresponding indicator and manage the step [state](slug://stepper-state) and [validity](slug://stepper-steps-validation).
+The Steps are the building blocks of the Stepper component. You can include the desired steps by adding a `StepperStep` tag for every step. The steps appearance can be configured through the features the `StepperStep` exposes - each step includes a visual [indicator](slug:stepper-indicators), you can define a [label](slug:stepper-labels) for the corresponding indicator and manage the step [state](slug:stepper-state) and [validity](slug:stepper-steps-validation).
 
-The whole rendering of the steps can also be customized with a [Step Template](slug://step-template).
+The whole rendering of the steps can also be customized with a [Step Template](slug:step-template).
 
 >caption In this article:
 
@@ -25,18 +25,18 @@ The `StepperStep` exposes the following parameters which allow you to configure 
 
 ### Indicators 
 
-The [visual indicators](slug://stepper-indicators) of the steps can include the content below.
+The [visual indicators](slug:stepper-indicators) of the steps can include the content below.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
 | `Text` | `string` | Specifies the step indicator text. |
-| `Icon` | `object` | The icon which will be rendered inside the step indicator. The parameter can accept [properties of the static `SvgIcon` class, members of the `FontIcon` enum](slug://common-features-icons), or strings for custom icons. |
+| `Icon` | `object` | The icon which will be rendered inside the step indicator. The parameter can accept [properties of the static `SvgIcon` class, members of the `FontIcon` enum](slug:common-features-icons), or strings for custom icons. |
 
 ### State
 
-The steps can have one of the [states](slug://stepper-state) below.
+The steps can have one of the [states](slug:stepper-state) below.
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
@@ -47,8 +47,8 @@ The steps can have one of the [states](slug://stepper-state) below.
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Label` | `string` | Specifies the [label text](slug://stepper-labels) that will be rendered under the corresponding step indicator. |
-| `Valid` | `bool?` | Specifies if the step is [valid](slug://stepper-steps-validation) or not. |
+| `Label` | `string` | Specifies the [label text](slug:stepper-labels) that will be rendered under the corresponding step indicator. |
+| `Valid` | `bool?` | Specifies if the step is [valid](slug:stepper-steps-validation) or not. |
 | `Class` | `string` | CSS class for the current step. |
 
 ## Steps Declaration

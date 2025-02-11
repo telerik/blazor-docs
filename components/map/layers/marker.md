@@ -320,4 +320,4 @@ The `MapLayerMarkerSettingsTooltip` tag allows you to fine-tune the content, app
 
 ## See Also
 
-* [How to Change Map Marker Colors](slug://map-kb-change-marker-colors)
+* [How to Change Map Marker Colors](slug:map-kb-change-marker-colors)

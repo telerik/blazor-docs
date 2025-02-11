@@ -14,15 +14,15 @@ By default, each Grid cell renders the value of the respective column `Field` of
 
 ## Basics
 
-To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`](slug://components/grid/columns/bound#data-operations), while the cells' parent row is in [inline edit mode](slug://components/grid/editing/inline).
+To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`](slug:components/grid/columns/bound#data-operations), while the cells' parent row is in [inline edit mode](slug:components/grid/editing/inline).
 
 Visual Studio tends to autocomplete the `<Template>` tag with a lowercase `t` which breaks the template logic and does not allow you to access the `context`. Ensure the `Template` tag uses a capital `T`. 
 
 ### Template Context
 
-The Grid column template exposes a `context` variable, which is the respective item from the Grid data collection. Cast the `context` to your Grid model type in order to access and use its properties. [Rename the `context` variable when using nested templates, for example a Grid column `Template` inside a Grid `DetailTemplate`](slug://nest-renderfragment).
+The Grid column template exposes a `context` variable, which is the respective item from the Grid data collection. Cast the `context` to your Grid model type in order to access and use its properties. [Rename the `context` variable when using nested templates, for example a Grid column `Template` inside a Grid `DetailTemplate`](slug:nest-renderfragment).
 
->tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature](slug://grid-columns-displayformat) without the need to declare a template.
+>tip If you only want to format numbers, dates, enums, you can do so with the [DisplayFormat feature](slug:grid-columns-displayformat) without the need to declare a template.
 
 ## Example
 
@@ -96,7 +96,7 @@ The example below shows how to:
 }
 ````
 
->tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug://grid-kb-checkbox-editing). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
+>tip The above example renders read-only checkboxes to display boolean values. You can also [use checkboxes in display mode and directly change the underlying data source values](slug:grid-kb-checkbox-editing). This can make boolean value editing faster, because the Grid doesn't go into edit mode.
 
 ## Using Components in Grid Column Templates
 
@@ -106,4 +106,4 @@ The example below shows how to:
 
 * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
 * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
-* [Blazor Grid](slug://grid-overview)
+* [Blazor Grid](slug:grid-overview)

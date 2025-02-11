@@ -32,9 +32,9 @@ This KB article answers the following question:
 
 ## Solution
 
-1. Use a [Grid column (cell) template](slug://grid-templates-column) to wrap the cell content in a `<span>` or `<div>` with some CSS class.
-1. Use the `TargetSelector` of the [`Telerik UI for Blazor Tooltip`](slug://tooltip-overview) to attach it to the `<span>`.
-1. Use the [Tooltip's Template](slug://tooltip-template) and its context to load Data on demand.
+1. Use a [Grid column (cell) template](slug:grid-templates-column) to wrap the cell content in a `<span>` or `<div>` with some CSS class.
+1. Use the `TargetSelector` of the [`Telerik UI for Blazor Tooltip`](slug:tooltip-overview) to attach it to the `<span>`.
+1. Use the [Tooltip's Template](slug:tooltip-template) and its context to load Data on demand.
 
 >caption Using a Tooltip in the Grid
 

@@ -128,5 +128,5 @@ The `IconField` model property can hold:
 
 ## See Also
 
-* [ChipList Overview](slug://chiplist-overview)
+* [ChipList Overview](slug:chiplist-overview)
 * [Live Demo: ChipList](https://demos.telerik.com/blazor-ui/chiplist/overview)

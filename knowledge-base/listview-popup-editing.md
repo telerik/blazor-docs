@@ -32,12 +32,12 @@ How to use popup editing for the ListView component, similar to the Grid?
 The steps below assume that the ListView data items are of type `TItem`.
 
 1. Define an additional variable of type `TItem` in the Razor component. This variable will hold the copy of the ListView item, which is in edit or create mode. In the example below, this is `ProductInEditMode`.
-1. Define a [Telerik Window](slug://window-overview) that will contain the popup edit form. Bind the Window's `Visible` parameter to some variable. Configure the Window's dimensions, modality, actions, etc.
-1. Define a [Telerik Form](slug://form-overview) inside the Window's `<WindowContent>`. Set the Form's `Model` parameter to the variable of type `TItem` from step 1. You can also use an `EditContext` instead of a `Model`.
-1. Add an edit Button to the [ListView `<Template>`](slug://listview-templates). Use a lambda expression to pass the ListView template `context` as an argument to the [Button's `OnClick` handler](slug://button-events). Assign the `context` property values to the variable from step 1.
-1. Add a Button to the [ListView `<HeaderTemplate>`](slug://listview-templates) or anywhere outside the ListView. This Button's `OnClick` handler will create a new instance of `TItem` and assign it to the variable from step 1.
+1. Define a [Telerik Window](slug:window-overview) that will contain the popup edit form. Bind the Window's `Visible` parameter to some variable. Configure the Window's dimensions, modality, actions, etc.
+1. Define a [Telerik Form](slug:form-overview) inside the Window's `<WindowContent>`. Set the Form's `Model` parameter to the variable of type `TItem` from step 1. You can also use an `EditContext` instead of a `Model`.
+1. Add an edit Button to the [ListView `<Template>`](slug:listview-templates). Use a lambda expression to pass the ListView template `context` as an argument to the [Button's `OnClick` handler](slug:button-events). Assign the `context` property values to the variable from step 1.
+1. Add a Button to the [ListView `<HeaderTemplate>`](slug:listview-templates) or anywhere outside the ListView. This Button's `OnClick` handler will create a new instance of `TItem` and assign it to the variable from step 1.
 1. Set the Window's `Visible` parameter to `true` on add/edit Button click.
-1. Use the [Form's `OnValidSubmit` or `OnSubmit` event](slug://form-events) to save the ListView item to the database, [`Rebind()`](slug://common-features-data-binding-overview#refresh-data) the ListView, and hide the Window.
+1. Use the [Form's `OnValidSubmit` or `OnSubmit` event](slug:form-events) to save the ListView item to the database, [`Rebind()`](slug:common-features-data-binding-overview#refresh-data) the ListView, and hide the Window.
 
 >caption ListView Popup Editing
 
@@ -206,6 +206,6 @@ The steps below assume that the ListView data items are of type `TItem`.
 
 ## See Also
 
-* [ListView Editing](slug://listview-editing)
-* [Form Overview](slug://form-overview)
-* [Window Overview](slug://window-overview)
+* [ListView Editing](slug:listview-editing)
+* [Form Overview](slug:form-overview)
+* [Window Overview](slug:window-overview)

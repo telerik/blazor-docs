@@ -19,11 +19,11 @@ The Card component supports a variety of template-based components used as build
 
 * [`CardFooter`](#cardfooter) -  renders footer area separated from the content through a separator.
 
-* [`CardImage`](#cardimage) - renders card image to fill the size of the card. Read more in the [Card Image article](slug://card-image).
+* [`CardImage`](#cardimage) - renders card image to fill the size of the card. Read more in the [Card Image article](slug:card-image).
 
-* [`CardActions`](#cardactions) - renders dedicated area for actions. Read more in the [Actions article](slug://card-actions).
+* [`CardActions`](#cardactions) - renders dedicated area for actions. Read more in the [Actions article](slug:card-actions).
 
-* [`CardSeparator`](#cardseparator) - renders a horizontal line. Read more in the [Card Separator](slug://card-separator) article.
+* [`CardSeparator`](#cardseparator) - renders a horizontal line. Read more in the [Card Separator](slug:card-separator) article.
 
 * [`CardTitle`](#cardtitle) - renders div title with default theme styling.
 
@@ -98,7 +98,7 @@ Use the `CardFooter` tag to render the footer area of the Card.
 
 ## CardImage
 
-Use the [`CardImage`](slug://card-image) tag to render the image section of the Card. The image will fill the size of the card unless you set any other `Width` and `Height` values.
+Use the [`CardImage`](slug:card-image) tag to render the image section of the Card. The image will fill the size of the card unless you set any other `Width` and `Height` values.
 
 >caption Use `CardImage` in the Card component. The result from the snippet below.
 
@@ -120,7 +120,7 @@ Use the [`CardImage`](slug://card-image) tag to render the image section of the 
 
 ## CardActions
 
-Use the [`CardActions`](slug://card-actions) tag to render the actions area of the Card. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons.
+Use the [`CardActions`](slug:card-actions) tag to render the actions area of the Card. You could place any action buttons inside and style them with the predefined orientation and layout of the buttons.
 
 >caption Use `CardActions` in the Card component. The result from the snippet below.
 
@@ -145,7 +145,7 @@ Use the [`CardActions`](slug://card-actions) tag to render the actions area of t
 
 ## CardSeparator
 
-Use the `CardActions` tag to render the actions area of the Card. An example of [`CardSeparator`](slug://card-separator) used between Card elements or nested inside an element.
+Use the `CardActions` tag to render the actions area of the Card. An example of [`CardSeparator`](slug:card-separator) used between Card elements or nested inside an element.
 
 >caption Use `CardSeparator` in the Card component. The result from the snippet below.
 

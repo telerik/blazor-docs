@@ -10,7 +10,7 @@ position: 1
 
 # Grid Inline Editing
 
-Inline editing lets the user click an [Edit command button](slug://components/grid/columns/command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Inline editing lets the user click an [Edit command button](slug:components/grid/columns/command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
 
@@ -185,4 +185,4 @@ Use the command buttons to control the CUD operations.
 ## See Also
 
   * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Blazor Grid](slug://grid-overview)
+  * [Blazor Grid](slug:grid-overview)

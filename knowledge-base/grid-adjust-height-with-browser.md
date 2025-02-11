@@ -43,7 +43,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-The Grid will obey its `Height` parameter value in the same way as a regular HTML `<div>`. The component can apply any [valid CSS dimension unit](slug://common-features/dimensions). If the app layout and CSS styles can make a plain `<div>` resize with the browser viewport or the parent element, then the Grid can behave in the same way too.
+The Grid will obey its `Height` parameter value in the same way as a regular HTML `<div>`. The component can apply any [valid CSS dimension unit](slug:common-features/dimensions). If the app layout and CSS styles can make a plain `<div>` resize with the browser viewport or the parent element, then the Grid can behave in the same way too.
 
 The following sections demonstrate different ways to make a Grid resize vertically, depending on the available space. The information and samples are applicable to [other Telerik components for Blazor](#environment).
 
@@ -54,7 +54,7 @@ The following sections demonstrate different ways to make a Grid resize vertical
 * [Use minimum or maximum height](#apply-minimum-or-maximum-height)
 * [Set `PageSize` depending on the Grig height]()
 
-> If the [Grid is using virtual columns](slug://grid-columns-virtual), then its `Height` must be set in pixels and the techniques in this article are not applicable.
+> If the [Grid is using virtual columns](slug:grid-columns-virtual), then its `Height` must be set in pixels and the techniques in this article are not applicable.
 
 ## Use Percent
 
@@ -256,4 +256,4 @@ You can change the Grid `PageSize` at runtime, so that it is consistent with the
 
 ## See Also
 
-* [Using Dimensions in Telerik Blazor Components](slug://common-features/dimensions)
+* [Using Dimensions in Telerik Blazor Components](slug:common-features/dimensions)

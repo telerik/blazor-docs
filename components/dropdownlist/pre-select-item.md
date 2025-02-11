@@ -49,4 +49,4 @@ Selected value: @selectedValue
 
 ## See Also
 
-* [Blazor DropDownList](slug://components/dropdownlist/overview)
+* [Blazor DropDownList](slug:components/dropdownlist/overview)

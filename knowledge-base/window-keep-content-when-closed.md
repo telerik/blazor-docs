@@ -31,16 +31,16 @@ When the `Visible` parameter is set to `false`, the Window content is disposed f
 
 To achieve the desired result, toggle the visibility of the Window with CSS:
 
-1. Create a [custom **Close** action](slug://components/window/actions#custom-actions).
-1. Handle the [`OnClick`](slug://button-events#onclick) event of the action button to apply the needed CSS.
+1. Create a [custom **Close** action](slug:components/window/actions#custom-actions).
+1. Handle the [`OnClick`](slug:button-events#onclick) event of the action button to apply the needed CSS.
 
-The further steps will vary depending on whether or not the [Window is modal](slug://components/window/modal). Only the second approach applies to the [Dialog](slug://dialog-overview) as it is always modal by design.
+The further steps will vary depending on whether or not the [Window is modal](slug:components/window/modal). Only the second approach applies to the [Dialog](slug:dialog-overview) as it is always modal by design.
 
 For more details on the suggested approaches, refer to the following examples in the section:
 * [Customizing the closing action of non-modal Windows](#custom-close-for-non-modal-windows)
 * [Customizing the closing action of modal Windows and Dialogs](#custom-close-for-modal-windows-and-dialogs)
 
-> The suggested implementations are based on hiding the Window and preserving its content in the DOM. As a result, the component is never treated as really closed and user actions such as [pressing the `Esc` key](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) or [clicking the overlay of a modal Window](slug://components/window/modal) will not close the Window as no **Close** command is actually defined. If needed, you have to implement the required behavior in a custom manner.
+> The suggested implementations are based on hiding the Window and preserving its content in the DOM. As a result, the component is never treated as really closed and user actions such as [pressing the `Esc` key](https://demos.telerik.com/blazor-ui/window/keyboard-navigation) or [clicking the overlay of a modal Window](slug:components/window/modal) will not close the Window as no **Close** command is actually defined. If needed, you have to implement the required behavior in a custom manner.
 
 ### Custom Close for Non-Modal Windows
 
@@ -128,7 +128,7 @@ To customize the closing of a non-modal Window:
 
 ### Custom Close for Modal Windows and Dialogs
 
-The [modal Window](slug://components/window/modal) and [Dialog](slug://dialog-overview) components have a different rendering. They are wrapped in a `<div class="k-dialog-wrapper">` which contains both the component and the overlay. To allow the user to interact with the page while the Window or Dialog is hidden, you also need to hide the overlay.
+The [modal Window](slug:components/window/modal) and [Dialog](slug:dialog-overview) components have a different rendering. They are wrapped in a `<div class="k-dialog-wrapper">` which contains both the component and the overlay. To allow the user to interact with the page while the Window or Dialog is hidden, you also need to hide the overlay.
 
 To customize the closing of a modal Window or Dialog:
 

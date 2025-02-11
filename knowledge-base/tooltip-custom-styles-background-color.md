@@ -27,7 +27,7 @@ How to customize the Blazor ToolTip styling? I want to set different text color 
 
 ## Solution
 
-1. Review the [fundamentals of custom styling and CSS overrides](slug://themes-override).
+1. Review the [fundamentals of custom styling and CSS overrides](slug:themes-override).
 1. Set a `Class` to the TelerikToolTip component.
 1. Each tooltip is a `div.k-tooltip`. Note that the custom CSS class renders on the tooltip's **container**, not the `.k-tooltip` element itself. So use a [descendant CSS combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 1. If using a custom **background** color for `.k-tooltip`, then use the same **text** color for `.k-tooltip .k-callout`.

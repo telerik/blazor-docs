@@ -25,7 +25,7 @@ First, get familiar with the [**Event Arguments**](#event-arguments) section, as
 * [`OnUpload`](#onupload)
     * [Sending additional custom data with the uploaded file](#send-custom-data-with-the-file)
 
->warning Make sure to also check the section about [Upload security](slug://upload-overview#security).
+>warning Make sure to also check the section about [Upload security](slug:upload-overview#security).
 
 @[template](/_contentTemplates/common/general-info.md#event-callback-can-be-async)
 
@@ -40,7 +40,7 @@ The different Upload events use different event argument types, but the exposed 
 |---|---|---|
 | `Files` | `List<UploadFileInfo>` | *All Upload events* expose a `Files` collection of [`UploadFileInfo`](#uploadfileinfo) members. The collection contains one or more files in the `OnClear`, `OnSelect`, and `OnUpload` handlers. The file is always one in `OnCancel`, `OnError`, `OnProgress`, `OnRemove`, and `OnSuccess`. |
 | `IsCancelled` | `bool` | Set to `true` to cancel the event and the respective user action. |
-| `Operation` | [`UploadOperationType`](slug://Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
+| `Operation` | [`UploadOperationType`](slug:Telerik.Blazor.UploadOperationType) enum | Can be `Upload` or `Remove`. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Request` | `UploadHttpRequest` | Information about the server response such as status code and any custom messages. The object contains the `int` property `Status` and the `StatusText`, `ResponseType`, and `ResponseText` strings. |
 | `RequestData` | `Dictionary<string, object>` | Add `KeyValuePair` definitions to [send custom data](#send-custom-data-with-the-file) to the controller in [`OnUpload`](#onupload) and [`OnRemove`](#onremove). |
@@ -56,13 +56,13 @@ The `UploadFileInfo` object has the following properties:
 |---|---|---|
 | `Extension` | `string` | The file extension (type), together with the dot. |
 | `Id` | `string` | The unique file identifier in GUID format. |
-| `InvalidExtension` | `bool` | Defines if the file violates the [`AllowedExtensions` value](slug://upload-overview#upload-parameters). |
-| `InvalidMaxFileSize` | `bool` | Defines if the file violates the [`MaxFileSize` value](slug://upload-overview#upload-parameters). |
-| `InvalidMinFileSize` | `bool` | Defines if the file violates the [`MinFileSize` value](slug://upload-overview#upload-parameters). |
+| `InvalidExtension` | `bool` | Defines if the file violates the [`AllowedExtensions` value](slug:upload-overview#upload-parameters). |
+| `InvalidMaxFileSize` | `bool` | Defines if the file violates the [`MaxFileSize` value](slug:upload-overview#upload-parameters). |
+| `InvalidMinFileSize` | `bool` | Defines if the file violates the [`MinFileSize` value](slug:upload-overview#upload-parameters). |
 | `Name` | `string` | The **encoded** file name, including the extension. One method to decode it is [`System.Net.WebUtility.HtmlDecode()`](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility.htmldecode). The file name received by the controller (endpoint) is **not encoded**. The [file can be renamed](#renaming-a-file) in the [`OnSelect`](#onselect) and [`OnUpload`](#onupload) handlers. |
 | `Progress` | `int` | The uploaded percentage of the file in the [`OnProgress` event](#onprogress). |
 | `Size` | `long` | The file size in bytes. |
-| `Status` | [`UploadFileStatus` enum](slug://Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
+| `Status` | [`UploadFileStatus` enum](slug:Telerik.Blazor.UploadFileStatus) | The current status of the file in the context of the Upload component (`Selected`, `Uploading`, `Uploaded`, `Failed`). |
 
 
 ## OnCancel
@@ -98,7 +98,7 @@ See the [full example](#example) below.
 
 ## OnClear
 
-The `OnClear` event fires when the user clicks the *Clear* button below the file list. This button is visible when [`AutoUpload="false"`](slug://upload-overview#upload-parameters).
+The `OnClear` event fires when the user clicks the *Clear* button below the file list. This button is visible when [`AutoUpload="false"`](slug:upload-overview#upload-parameters).
 
 The `UploadClearEventArgs` event argument contains the [properties `Files` and `IsCancelled`](#event-arguments). The `Files` property can contain one or more files.
 
@@ -279,7 +279,7 @@ See the [full example](#example) below.
 
 The `OnSelect` event fires when the user selects one or more new files for upload. The selection of files is achieved either through the *Select files* button or by dropping the files anywhere in the component.
 
-The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files, and it is possible to [count the total number of selected files](slug://upload-kb-count-selected-uploaded-files).
+The `UploadSelectEventArgs` event argument contains the [`Files` and `IsCancelled` properties](#event-arguments). The `Files` property can contain one or more files, and it is possible to [count the total number of selected files](slug:upload-kb-count-selected-uploaded-files).
 
 If you cancel the event, the Upload component will neither list, nor upload the selected files.
 
@@ -339,7 +339,7 @@ The `OnSuccess` event fires when an upload or remove request is successful. The 
 
 The [`UploadSuccessEventArgs` event argument](#event-arguments) contains the following properties:
 
-* `Files` that contains one file. See [how to count the total number of uploaded files](slug://upload-kb-count-selected-uploaded-files).
+* `Files` that contains one file. See [how to count the total number of uploaded files](slug:upload-kb-count-selected-uploaded-files).
 * `Operation`
 * `Request`
 
@@ -414,11 +414,11 @@ If you cancel the event, the file upload will not start. If `AutoUpload="false"`
 Use the `OnUpload` and [`OnRemove`](#onremove) event handlers to send additional custom data and request headers to the server, together with the file. For example, the data may be related to:
 
 * Authentication
-* [CSRF/XSRF cross-site antiforgery tokens](slug://upload-kb-validateantiforgerytoken)
+* [CSRF/XSRF cross-site antiforgery tokens](slug:upload-kb-validateantiforgerytoken)
 * New file name (also see section [Renaming a File](#renaming-a-file))
 * Any metadata related to the app business logic
 
-To send cookies with the upload request, set the [`WithCredentials` component parameter](slug://upload-overview#upload-parameters) to `true`.
+To send cookies with the upload request, set the [`WithCredentials` component parameter](slug:upload-overview#upload-parameters) to `true`.
 
 To send a complex object or a collection, serialize it first. Receive it as a `string` argument in the controller method and deserialize it.
 
@@ -496,8 +496,8 @@ Make sure to enable controller routing in the app startup file (`Program.cs`). I
 
 Also see:
 
-* Section [Implement Controller Methods](slug://upload-overview#implement-controller-methods)
-* Page [Upload Troubleshooting](slug://upload-troubleshooting)
+* Section [Implement Controller Methods](slug:upload-overview#implement-controller-methods)
+* Page [Upload Troubleshooting](slug:upload-troubleshooting)
 
 >caption Using the Upload events
 
@@ -800,6 +800,6 @@ app.Run();
 ## See Also
 
 * [Live Demo: Upload Events](https://demos.telerik.com/blazor-ui/upload/events)
-* [Upload Overview](slug://upload-overview)
-* [Upload Methods](slug://upload-overview#upload-reference-and-methods)
-* [Count all selected and uploaded files](slug://upload-kb-count-selected-uploaded-files)
+* [Upload Overview](slug:upload-overview)
+* [Upload Methods](slug:upload-overview#upload-reference-and-methods)
+* [Count all selected and uploaded files](slug:upload-kb-count-selected-uploaded-files)

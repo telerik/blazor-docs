@@ -31,11 +31,11 @@ Can I upload files directly to Azure Blob Storage?
 
 ## Solution
 
-Both the [FileSelect](slug://fileselect-overview) and [Upload](slug://upload-overview) components can help with uploading files to Azure Blob Storage. There are some [differences between how the two components work](slug://upload-overview#upload-vs-fileselect), which will determine the exact usage.
+Both the [FileSelect](slug:fileselect-overview) and [Upload](slug:upload-overview) components can help with uploading files to Azure Blob Storage. There are some [differences between how the two components work](slug:upload-overview#upload-vs-fileselect), which will determine the exact usage.
 
 ### Using FileSelect
 
-The `TelerikFileSelect` provides the selected files to the .NET runtime as a `System.IO.Stream`. Use the [`OnSelect` event](slug://fileselect-events#onselect) to obtain the file and send it to the Azure blob service.
+The `TelerikFileSelect` provides the selected files to the .NET runtime as a `System.IO.Stream`. Use the [`OnSelect` event](slug:fileselect-events#onselect) to obtain the file and send it to the Azure blob service.
 
 ### Using Upload
 
@@ -43,7 +43,7 @@ The `TelerikUpload` needs an HTTP endpoint, which will receive the uploaded file
 
 The Azure Blob Service does not expose such HTTP endpoint. Do the following:
 
-1. [Implement a `Save` controller action method](slug://upload-overview#implement-controller-methods) in the Blazor app.
+1. [Implement a `Save` controller action method](slug:upload-overview#implement-controller-methods) in the Blazor app.
 1. Set the action method URL as a `SaveUrl` in the Upload.
 1. Send the uploaded file to the blob service after you obtain it in the `Save` action method.
 

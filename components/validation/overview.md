@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Validation Tools Overview
 
-Telerik UI for Blazor provides different ways to show and customize validation messages. The validation tools can be used together with the [Telerik Form](slug://form-overview) or with any form that provides an [`EditContext`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext) like the [standard .NET `EditForm`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform).
+Telerik UI for Blazor provides different ways to show and customize validation messages. The validation tools can be used together with the [Telerik Form](slug:form-overview) or with any form that provides an [`EditContext`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editcontext) like the [standard .NET `EditForm`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform).
 
 @[template](/_contentTemplates/common/form-validation.md#note-validation)
 
@@ -18,15 +18,15 @@ Telerik UI for Blazor provides different ways to show and customize validation m
 
 Telerik provides the following validation tools to help you style your form validation:
 
-* [Validation Summary](slug://validation-tools-summary)
-* [Validation Message](slug://validation-tools-message)
-* [Validation Tooltip](slug://validation-tools-tooltip)
+* [Validation Summary](slug:validation-tools-summary)
+* [Validation Message](slug:validation-tools-message)
+* [Validation Tooltip](slug:validation-tools-tooltip)
 
 These components add customization options on top of the standard validation tools the frameworks provides - `ValidationSummary` and `ValidationMessage`
 
 ## Integration with the TelerikForm
 
-You can seamlessly integrate the validation tools with the [Form Component](slug://form-overview). To avoid duplication of validation messages, set the [ValidationMessageType](slug://form-overview#form-parameters) parameter of the form to `FormValidationMessageType.None`. You can also use the validation components in [templates with custom editors](slug://form-formitems-template) that you can define with your own code.
+You can seamlessly integrate the validation tools with the [Form Component](slug:form-overview). To avoid duplication of validation messages, set the [ValidationMessageType](slug:form-overview#form-parameters) parameter of the form to `FormValidationMessageType.None`. You can also use the validation components in [templates with custom editors](slug:form-formitems-template) that you can define with your own code.
 
 ````RAZOR
 @* Disable the default validation messages from the Telerik Form and use the validation tools instead *@
@@ -124,11 +124,11 @@ You can seamlessly integrate the validation tools with the [Form Component](slug
 
 # Next Steps
 
-* Explore [TelerikValidationSummary](slug://validation-tools-summary)
-* Use [TelerikValidationMessage](slug://validation-tools-message)
-* Try [TelerikValidationTooltip](slug://validation-tools-tooltip)
+* Explore [TelerikValidationSummary](slug:validation-tools-summary)
+* Use [TelerikValidationMessage](slug:validation-tools-message)
+* Try [TelerikValidationTooltip](slug:validation-tools-tooltip)
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [Form Component](slug://form-overview)
+* [Form Component](slug:form-overview)

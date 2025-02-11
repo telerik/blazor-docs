@@ -21,8 +21,8 @@ First, review:
 
 There are two modes of providing data to a menu, and they all use the items' features. Once you are familiar with the current article, choose the data binding more you wish to use:
 
-* [Hierarchical data](slug://contextmenu-data-binding-hierarchical-data) - separate collections of items and their child items.
-* [Flat data](slug://contextmenu-data-binding-flat-data) - a single collection of items with defined parent-child relationships.
+* [Hierarchical data](slug:contextmenu-data-binding-hierarchical-data) - separate collections of items and their child items.
+* [Flat data](slug:contextmenu-data-binding-flat-data) - a single collection of items with defined parent-child relationships.
 
 ## Context Menu Item Features
 
@@ -38,7 +38,7 @@ The menu items provide the following features that you control through the corre
 
 * `Text` - the text that will be shown on the item.
 
-* `Icon` - The [Telerik Font or SVG icon](slug://common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug://contextmenu-icons).
+* `Icon` - The [Telerik Font or SVG icon](slug:common-features-icons) that will be rendered in the item. Read more in the [Icons article](slug:contextmenu-icons).
 
 * `Url` - the view the item will navigate to by generating a link.
 
@@ -202,6 +202,6 @@ public class ContextMenuItem
 
 ## See Also
 
-  * [Binding to Flat Data](slug://contextmenu-data-binding-flat-data)
-  * [Binding to Hierarchical Data](slug://contextmenu-data-binding-hierarchical-data)
+  * [Binding to Flat Data](slug:contextmenu-data-binding-flat-data)
+  * [Binding to Hierarchical Data](slug:contextmenu-data-binding-hierarchical-data)
   * [Live Demo: Context Menu](https://demos.telerik.com/blazor-ui/contextmenu/overview)

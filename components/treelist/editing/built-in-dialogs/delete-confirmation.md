@@ -183,6 +183,6 @@ The built-in delete confirmation dialog triggers before item deletion. You can e
 * [Live Demo: TreeList InCell Editing](https://demos.telerik.com/blazor-ui/treelist/editing-incell)
 * [Live Demo: TreeList Custom Editor Template](https://demos.telerik.com/blazor-ui/treelist/custom-editor)
 * [Live Demo: TreeList Custom Edit Form](https://demos.telerik.com/blazor-ui/treelist/editing-custom-form)
-* [Customize the Delete Confirmation Dialog](slug://grid-kb-customize-delete-confirmation-dialog)
+* [Customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog)
 
 

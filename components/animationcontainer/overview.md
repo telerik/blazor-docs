@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_blank">Blazor Animation Container component</a> enables you to create messages and popups or expandable containers. It lets you define its animation, size and position, and arbitrary content.
 
->tip If you are looking for an option to create [Notification](slug://notification-overview), [Tooltip](slug://tooltip-overview) or expandable container such as [Drawer](slug://drawer-overview), you may use the dedicated components.
+>tip If you are looking for an option to create [Notification](slug:notification-overview), [Tooltip](slug:tooltip-overview) or expandable container such as [Drawer](slug:drawer-overview), you may use the dedicated components.
 
 ## Creating Blazor AnimationContainer
 
@@ -51,7 +51,7 @@ The <a href="https://www.telerik.com/blazor-ui/animation-container" target="_bla
 
 The Animation Container renders at the place of its declaration. It has a `position:absolute` CSS style, so it will display over adjacent elements. The component position can be offset by parent elements with a `position` style, even of the `Top` and `Left` parameters are set.
 
-The component should reside outside elements with an `overflow` CSS style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation does not exist for the [Popup](slug://popup-overview) and [Popover](slug://popover-overview) components.
+The component should reside outside elements with an `overflow` CSS style. Otherwise, it may be clipped or overlapped by other scrollable containers. This limitation does not exist for the [Popup](slug:popup-overview) and [Popover](slug:popover-overview) components.
 
 ## Animation
 
@@ -193,6 +193,6 @@ The Animation Container provides methods for programmatic operation. To use them
 ## See Also
 
 * [Live Demos: Animation Container](https://demos.telerik.com/blazor-ui/animationcontainer/overview)
-* [AnimationContainer API Reference](slug://Telerik.Blazor.Components.TelerikAnimationContainer)
-* [Hide the AnimationContainer on Outside Click](slug://animationcontainer-kb-close-on-outside-click)
-* [Comparison between All Popup Components](slug://common-kb-popup-component-comparison)
+* [AnimationContainer API Reference](slug:Telerik.Blazor.Components.TelerikAnimationContainer)
+* [Hide the AnimationContainer on Outside Click](slug:animationcontainer-kb-close-on-outside-click)
+* [Comparison between All Popup Components](slug:common-kb-popup-component-comparison)

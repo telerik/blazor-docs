@@ -94,7 +94,7 @@ The `ThemeColor` parameter sets the color of the animated loading indicator. You
 * `Light`
 * `Inverse`
 
-These predefined options match the main [Telerik Theme](slug://themes-overview) and you can see that in action in the [Loader Appearance live demo](https://demos.telerik.com/blazor-ui/loader/appearance).
+These predefined options match the main [Telerik Theme](slug:themes-overview) and you can see that in action in the [Loader Appearance live demo](https://demos.telerik.com/blazor-ui/loader/appearance).
 
 >caption Built-in Theme Colors
 

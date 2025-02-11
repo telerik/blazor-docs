@@ -12,7 +12,7 @@ position: 55
 
 The Telerik UI for Blazor Chart supports drilldown functionality for exploring data.
 
-The drill-down feature allows the users to click on a data point (for example, bar, column, pie segment, etc.) to navigate to a different view that contains finer-grained data like breakdown by product of the selected category. The view hierarchy can be displayed in a [Breadcrumb](slug://breadcrumb-overview) for easy navigation back to previous views.
+The drill-down feature allows the users to click on a data point (for example, bar, column, pie segment, etc.) to navigate to a different view that contains finer-grained data like breakdown by product of the selected category. The view hierarchy can be displayed in a [Breadcrumb](slug:breadcrumb-overview) for easy navigation back to previous views.
 
 ## Configuring DrillDown Charts
 

@@ -17,7 +17,7 @@ This article explains how to get the <a href = "https://www.telerik.com/blazor-u
 > * **Blazor WebAssembly App**, which exists up to .NET 7.
 > * **Blazor WebAssembly Standalone App** for .NET 8 and newer versions.
 >
-> If you prefer the **Blazor Web App** template for .NET 8 and newer versions, then follow the [tutorial about Blazor Web Apps](slug://getting-started/web-app).
+> If you prefer the **Blazor Web App** template for .NET 8 and newer versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
@@ -67,13 +67,13 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 **HTML**
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. In the `~/wwwroot/index.html` file of the client web application, add the [theme stylesheet as a static asset](slug://themes-overview#using-a-theme). The theme allows you to select the appearance and color scheme for the Telerik Blazor components.
+2\. In the `~/wwwroot/index.html` file of the client web application, add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme). The theme allows you to select the appearance and color scheme for the Telerik Blazor components.
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
 ### 5.2. Include @using Statements
 
-In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using](slug://common-features-icons).
+In the `~/_Imports.razor` file, add the `@using` directives below. This configures the project to recognize the Telerik components in all files. You can register one or both icon namespaces, depending on the [icon type you will be using](slug:common-features-icons).
 
 ````RAZOR.skip-repl
 @using Telerik.Blazor
@@ -113,7 +113,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 ## See Also
 
-* [Workflow Details for Telerik UI for Blazor](slug://getting-started/what-you-need)
+* [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
-* [First Steps with Blazor Web App](slug://getting-started/web-app)
-* [First Steps with Blazor Server](slug://getting-started/server-side)
+* [First Steps with Blazor Web App](slug:getting-started/web-app)
+* [First Steps with Blazor Server](slug:getting-started/server-side)

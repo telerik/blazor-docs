@@ -33,7 +33,7 @@ This KB article answers the following questions:
 
 ## Solution
 
-CSS style customizations require knowledge about [CSS specificity](slug://themes-override#css-knowledge) and how to [use the browser's DOM inspector](slug://themes-override#tools).
+CSS style customizations require knowledge about [CSS specificity](slug:themes-override#css-knowledge) and how to [use the browser's DOM inspector](slug:themes-override#tools).
 
 Here are two possible scenarios:
 
@@ -122,8 +122,8 @@ To change the color of all borders in the Grid or TreeList:
 
 To change the border color of a specific Grid or TreeList column:
 
-1. Set the `HeaderClass` parameter of the column. See [Grid Column Appearance](slug://components/grid/columns/bound#appearance) or [TreeList Column Appearance](slug://treelist-columns-bound#appearance).
-1. Subscribe to the `OnCellRender` event of the column. In the event handler, set `args.Class` to a custom CSS class. See [Grid `OnCellRender` event](slug://grid-column-events) or [TreeList `OnCellRender` event](slug://treelist-column-events).
+1. Set the `HeaderClass` parameter of the column. See [Grid Column Appearance](slug:components/grid/columns/bound#appearance) or [TreeList Column Appearance](slug:treelist-columns-bound#appearance).
+1. Subscribe to the `OnCellRender` event of the column. In the event handler, set `args.Class` to a custom CSS class. See [Grid `OnCellRender` event](slug:grid-column-events) or [TreeList `OnCellRender` event](slug:treelist-column-events).
 1. Apply the desired `border-color` style to:
     * The specific header cell and the one after it (`th + th`);
     * The specific data cell and the one after it (`td + td`).
@@ -214,5 +214,5 @@ To change the border color of a specific Grid or TreeList column:
 
 ## See Also
 
-* [Change CSS Theme Styles](slug://themes-override)
-* [Change Grid Font Size](slug://grid-kb-change-font-size)
+* [Change CSS Theme Styles](slug:themes-override)
+* [Change Grid Font Size](slug:grid-kb-change-font-size)

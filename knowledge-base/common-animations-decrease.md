@@ -33,7 +33,7 @@ This knowledge base article discusses the following scenarios:
 
 ## Solution
 
-You can use a [CSS rule override](slug://themes-override) to change or disable the animation of the Telerik dropdowns.
+You can use a [CSS rule override](slug:themes-override) to change or disable the animation of the Telerik dropdowns.
 
 >caption Disable Telerik Blazor dropdown animations
 

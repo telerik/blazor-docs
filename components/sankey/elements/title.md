@@ -26,21 +26,21 @@ The `<SankeyTitle>` tag exposes the following parameters for customization of th
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --------- | ---- | ----------- |
-| `Align` | [`SankeyTitleAlign` enum](slug://telerik.blazor.sankeytitlealign) <br/> (`Left`) | The alignment of the title. |
+| `Align` | [`SankeyTitleAlign` enum](slug:telerik.blazor.sankeytitlealign) <br/> (`Left`) | The alignment of the title. |
 | `Background` | `string`  | The background color of the title. |
 | `Color` | `string` <br/> (`rgb(66, 66, 66)`)  | The text color of the title. |
 | `Description` | `string`  | The accessible description of the Sankey. Added as `aria-label` to the `<div class="k-sankey">` element. |
 | `Font` | `string` <br/> (`16px Helvetica Neue, Helvetica, Arial, sans-serif`) | The font of the title. |
-| `Position` | [`SankeyTitlePosition` enum](slug://telerik.blazor.sankeytitleposition) <br/> (`Top`)| The position of the title. |
+| `Position` | [`SankeyTitlePosition` enum](slug:telerik.blazor.sankeytitleposition) <br/> (`Top`)| The position of the title. |
 | `Visible` | `bool?` <br/> (`true`) | Whether the title is visible. |
 
 ### Nested Customization Tags
 
 The `<SankeyTitle>` tag exposes nested tags for further customization. The structure of the nested tags is `<SankeyTitle*Specifics*>`, where the specifics can be:
 
-* [`Border`](slug://telerik.blazor.components.sankeytitleborder)
-* [`Margin`](slug://telerik.blazor.components.sankeytitlemargin)
-* [`Padding`](slug://telerik.blazor.components.sankeytitlepadding)
+* [`Border`](slug:telerik.blazor.components.sankeytitleborder)
+* [`Margin`](slug:telerik.blazor.components.sankeytitlemargin)
+* [`Padding`](slug:telerik.blazor.components.sankeytitlepadding)
 
 ## Example
 
@@ -96,8 +96,8 @@ The `<SankeyTitle>` tag exposes nested tags for further customization. The struc
 ## See Also
 
 * [Live Demo: Sankey Diagram Configuration](https://demos.telerik.com/blazor-ui/sankey/configuration)
-* [Sankey Links](slug://sankey-links)
-* [Sankey Nodes](slug://sankey-nodes)
-* [Sankey Labels](slug://sankey-labels)
-* [Sankey Legend](slug://sankey-legend)
-* [Sankey Tooltip](slug://sankey-tooltip)
+* [Sankey Links](slug:sankey-links)
+* [Sankey Nodes](slug:sankey-nodes)
+* [Sankey Labels](slug:sankey-labels)
+* [Sankey Legend](slug:sankey-legend)
+* [Sankey Tooltip](slug:sankey-tooltip)

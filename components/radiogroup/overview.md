@@ -10,7 +10,7 @@ position: 0
 
 # Blazor RadioGroup Overview
 
-The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazor RadioGroup component</a> allows the user to select an option from a predefined set of choices in a list of radio buttons. The radio group is styled according to the Telerik [Theme](slug://themes-overview). You can also choose the [layout order](slug://radiogroup-layout) and [label position](slug://radiogroup-label-position).
+The <a href="https://www.telerik.com/blazor-ui/radiogroup" target="_blank">Blazor RadioGroup component</a> allows the user to select an option from a predefined set of choices in a list of radio buttons. The radio group is styled according to the Telerik [Theme](slug:themes-overview). You can also choose the [layout order](slug:radiogroup-layout) and [label position](slug:radiogroup-label-position).
 
 ## Creating Blazor RadioGroup
 
@@ -57,31 +57,31 @@ Chosen gender: @( ChosenGender == 0 ? "no selection yet" : ChosenGender.ToString
 
 ## Data Binding
 
-The Blazor RadioGroup supports data binding to strings, [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data, and a model collection. [Read more about the Blazor RadioGroup data binding](slug://radiogroup-databind).
+The Blazor RadioGroup supports data binding to strings, [value type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) data, and a model collection. [Read more about the Blazor RadioGroup data binding](slug:radiogroup-databind).
 
 ## Layout
 
-The RadioGroup component provides two ways to render the list of options - in a *vertical* or in a *horizontal* fashion. [Read more about the Blazor RadioGroup layouts](slug://radiogroup-layout).
+The RadioGroup component provides two ways to render the list of options - in a *vertical* or in a *horizontal* fashion. [Read more about the Blazor RadioGroup layouts](slug:radiogroup-layout).
 
 ## Label Position
 
-The RadioGroup component provides two ways to render the labels of the radio buttons - *before* or *after* the radio buttons. [Read more about the Blazor RadioGroup label position](slug://radiogroup-label-position).
+The RadioGroup component provides two ways to render the labels of the radio buttons - *before* or *after* the radio buttons. [Read more about the Blazor RadioGroup label position](slug:radiogroup-label-position).
 
 ## Appearance Settings
 
-The Blazor RadioGroup provides a `Size` parameter to customize the radio button dimensions. [Read more about the Blazor RadioGroup appearance settings](slug://radiogroup-appearance).
+The Blazor RadioGroup provides a `Size` parameter to customize the radio button dimensions. [Read more about the Blazor RadioGroup appearance settings](slug:radiogroup-appearance).
 
 ## Templates
 
-The [RadioGroup item template](slug://radiogroup-templates) allows customization of the content of each radio item.
+The [RadioGroup item template](slug:radiogroup-templates) allows customization of the content of each radio item.
 
 ## Events
 
-The Blazor RadioGroup fires blur and value change events to respond to user actions. [Read more about the Blazor RadioGroup events](slug://radiogroup-events).
+The Blazor RadioGroup fires blur and value change events to respond to user actions. [Read more about the Blazor RadioGroup events](slug:radiogroup-events).
 
 ## RadioGroup Parameters
 
-The Blazor RadioGroup provides various parameters to configure the component. Also check the [RadioGroup public API](slug://Telerik.Blazor.Components.TelerikRadioGroup-2).
+The Blazor RadioGroup provides various parameters to configure the component. Also check the [RadioGroup public API](slug:Telerik.Blazor.Components.TelerikRadioGroup-2).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -99,7 +99,7 @@ The Blazor RadioGroup provides various parameters to configure the component. Al
 | `ValueField` | `string` <br /> (`Value`) | The name of the field from the model that will populate the underlying `Value`. |
 | `Value` | `object` | The value of the component. Supports one and two-way binding. If the `Value` matches a `ValueField` value in the Data, the corresponding item from the data will be pre-selected. |
 
-See the [Input Validation](slug://common-features/input-validation) article for more details.
+See the [Input Validation](slug:common-features/input-validation) article for more details.
 
 ## RadioGroup Reference and Methods
 
@@ -144,12 +144,12 @@ The RadioGroup provides a `FocusAsync` method that allows the application to foc
 
 ## Next Steps
 
-* [Bind the RadioGroup to Data](slug://radiogroup-databind)
-* [Handle the RadioGroup Events](slug://radiogroup-events)
-* [Explore the RadioGroup Layouts](slug://radiogroup-layout)
-* [Customize the RadioGroup Item Rendering with Templates](slug://radiogroup-templates)
+* [Bind the RadioGroup to Data](slug:radiogroup-databind)
+* [Handle the RadioGroup Events](slug:radiogroup-events)
+* [Explore the RadioGroup Layouts](slug:radiogroup-layout)
+* [Customize the RadioGroup Item Rendering with Templates](slug:radiogroup-templates)
 
 ## See Also
 
 * [Live RadioGroup Demos](https://demos.telerik.com/blazor-ui/radiogroup/overview)
-* [RadioGroup API Reference](slug://Telerik.Blazor.Components.TelerikRadioGroup-2)
+* [RadioGroup API Reference](slug:Telerik.Blazor.Components.TelerikRadioGroup-2)

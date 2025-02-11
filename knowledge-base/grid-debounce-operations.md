@@ -31,11 +31,11 @@ There are three ideas on the basic approach how to do this:
 
 * Use the [FilterMenu](https://demos.telerik.com/blazor-ui/grid/filter-menu) filtering mode because it fires filtering requests only when the user presses a button.
 
-    * If you want to keep the UI simple (e.g., to simplify the service logic that you want to implement), the following article shows how to hide he extra filters in the filter menu: [Only one filter option in FilterMenu](slug://grid-kb-only-one-filtermenu-option)
+    * If you want to keep the UI simple (e.g., to simplify the service logic that you want to implement), the following article shows how to hide he extra filters in the filter menu: [Only one filter option in FilterMenu](slug:grid-kb-only-one-filtermenu-option)
 
     * if you already have an OData service that handles filtering, you can use that with the filter menu: [Get Telerik Grid Data from an OData v4 Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 
-* Implement the desired throttling/debouncing in the [OnRead event](slug://common-features-data-binding-onread). Below is an example of this.
+* Implement the desired throttling/debouncing in the [OnRead event](slug:common-features-data-binding-onread). Below is an example of this.
 
 * Implement your own filtering (a second example is available below).
 

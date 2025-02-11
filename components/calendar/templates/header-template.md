@@ -12,7 +12,7 @@ position: 10
 
 The `<HeaderTemplate>` allows you to customize the header of the calendar. If the application defines this template, the component will not render any of the built-in buttons and labels in the header area.
 
-The example below is using a [Calendar reference and methods](slug://components/calendar/overview#calendar-reference-and-methods).
+The example below is using a [Calendar reference and methods](slug:components/calendar/overview#calendar-reference-and-methods).
 
 >caption Use custom rendering in the Calendar header
 
@@ -54,5 +54,5 @@ The example below is using a [Calendar reference and methods](slug://components/
 
 ## See Also
 
-* [Calendar Templates Overview](slug://calendar-templates-overview)
+* [Calendar Templates Overview](slug:calendar-templates-overview)
 * [Live Demo: Calendar Templates](https://demos.telerik.com/blazor-ui/calendar/templates)

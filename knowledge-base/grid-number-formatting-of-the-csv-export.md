@@ -27,7 +27,7 @@ I want to format numbers and dates in the exported CSV file. For example, set sp
 
 ## Solution
 
-Handle the [OnAfterExport](slug://grid-export-events#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
+Handle the [OnAfterExport](slug:grid-export-events#onafterexport) event of the Grid. It fires before the actual file is provided to the user. The `Stream` field of its event argument contains the output of the export as a `MemoryStream`.
 
 You can copy the bytes from this stream and import them in a [`RadSpreadProcessing workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-workbooks/working-with-workbooks-what-is-workbook) to access and modify the cells.
 
@@ -37,7 +37,7 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package for the `workbook` import, so you can then access the data of the exported CSV file and modify its format.
 
-1. Handle the [OnAfterExport](slug://grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Handle the [OnAfterExport](slug:grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
 1. Use a `CsvFormatProvider` instance to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
 
@@ -153,6 +153,6 @@ To format numeric and date cells of the exported file before it reaches the clie
 
 ## See Also
 
-  * [Change the default CSV delimiter (comma) during Grid export](slug://grid-kb-csv-export-change-field-delimiter)
-  * [Custom cell formatting of the exported file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
-  * [Configure Document Processing Libraries](slug://getting-started-vs-integration-dpl)
+  * [Change the default CSV delimiter (comma) during Grid export](slug:grid-kb-csv-export-change-field-delimiter)
+  * [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
+  * [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)

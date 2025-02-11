@@ -28,13 +28,13 @@ I want to customize the Grid Toolbar Searchbox, so it also searches in the hidde
 
 ## Solution
 
-By default, the Grid looks in all string fields in its currently visible columns. You can [customize the SearchBox](slug://grid-searchbox#customize-the-searchbox), so the Grid will search only in certain columns. However, the search will still be based on the **visible** fields provided to the `Fields` parameter of the `GridSearchBox`.
+By default, the Grid looks in all string fields in its currently visible columns. You can [customize the SearchBox](slug:grid-searchbox#customize-the-searchbox), so the Grid will search only in certain columns. However, the search will still be based on the **visible** fields provided to the `Fields` parameter of the `GridSearchBox`.
 
 If you want to search in the hidden fields of the Grid, do the following:
 
-* Bind the Grid with an [`OnRead` event handler](slug://common-features-data-binding-onread).
-* In the `OnRead` handler, [check if there is a filter applied](slug://components/grid/manual-operations#get-information-from-the-datasourcerequest) in `args.Request.Filters`.
-* The applied filters are of type [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor). The composite filter descriptor has a `FilterDescriptors` property, which holds a collection plain [single-field `FilterDescriptor`s](slug://Telerik.DataSource.FilterDescriptor). Each of the `FilterDescriptor` in the search descriptor targets one of the visible columns.
+* Bind the Grid with an [`OnRead` event handler](slug:common-features-data-binding-onread).
+* In the `OnRead` handler, [check if there is a filter applied](slug:components/grid/manual-operations#get-information-from-the-datasourcerequest) in `args.Request.Filters`.
+* The applied filters are of type [`CompositeFilterDescriptor`](slug:Telerik.DataSource.CompositeFilterDescriptor). The composite filter descriptor has a `FilterDescriptors` property, which holds a collection plain [single-field `FilterDescriptor`s](slug:Telerik.DataSource.FilterDescriptor). Each of the `FilterDescriptor` in the search descriptor targets one of the visible columns.
 * Obtain the search string from the `SearchFilter` property of the Grid state. It holds a `CompositeFilterDescriptor` too.
 * Add one additional `FilterDescriptor` to the search `CompositeFilterDescriptor` for every hidden column.
 
@@ -130,8 +130,8 @@ If you want to search in the hidden fields of the Grid, do the following:
 
 ## See Also
 
-* [Change Grid Search Results on Column Hide or Show](slug://grid-kb-search-match-visible-columns)
-* [Search the Grid in Numeric and Date Model Fields](slug://grid-kb-search-numeric-fields)
-* [Search the Grid on Button Click](slug://grid-kb-search-button-click)
-* [Search the Grid with a `StartsWith` operator](slug://grid-kb-search-startswith)
-* [Format or Bold Search Results in the Grid](slug://grid-kb-search-highlight-results)
+* [Change Grid Search Results on Column Hide or Show](slug:grid-kb-search-match-visible-columns)
+* [Search the Grid in Numeric and Date Model Fields](slug:grid-kb-search-numeric-fields)
+* [Search the Grid on Button Click](slug:grid-kb-search-button-click)
+* [Search the Grid with a `StartsWith` operator](slug:grid-kb-search-startswith)
+* [Format or Bold Search Results in the Grid](slug:grid-kb-search-highlight-results)

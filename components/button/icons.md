@@ -10,7 +10,7 @@ position: 2
 
 # Button Icons
 
-You can add a [Telerik Font or SVG icon](slug://common-features-icons) to the Button to illustrate its purpose by using the `Icon` parameter.
+You can add a [Telerik Font or SVG icon](slug:common-features-icons) to the Button to illustrate its purpose by using the `Icon` parameter.
 
 
 ## Icon Parameter
@@ -61,4 +61,4 @@ Images used as icons should generally be small enough to fit in a line of text. 
 
 ## See Also
 
-* [Telerik UI for Blazor Button Overview](slug://components/button/overview)
+* [Telerik UI for Blazor Button Overview](slug:components/button/overview)

@@ -10,7 +10,7 @@ position: 20
 
 ## Linear Gauge Labels
 
-You can customize the appearance of the labels rendered on the [scale](slug://linear-gauge-scale) of the Linear Gauge by using the `<LinearGaugeScaleLabels>`, child tag of the `<LinearGaugeScale>`, and the parameters it exposes:
+You can customize the appearance of the labels rendered on the [scale](slug:linear-gauge-scale) of the Linear Gauge by using the `<LinearGaugeScaleLabels>`, child tag of the `<LinearGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
 
@@ -160,7 +160,7 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered.
 ## See Also
 
 * [Live Demo: Linear Gauge](https://demos.telerik.com/blazor-ui/lineargauge/overview)
-* [Linear Gauge: Overview](slug://linear-gauge-overview)
-* [Linear Gauge: Scale](slug://linear-gauge-scale)
-* [Linear Gauge: Ranges](slug://linear-gauge-ranges)
-* [Linear Gauge: Pointers](slug://linear-gauge-pointers)
+* [Linear Gauge: Overview](slug:linear-gauge-overview)
+* [Linear Gauge: Scale](slug:linear-gauge-scale)
+* [Linear Gauge: Ranges](slug:linear-gauge-ranges)
+* [Linear Gauge: Pointers](slug:linear-gauge-pointers)
