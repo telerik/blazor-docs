@@ -63,7 +63,7 @@ The component allows you to interact with the output from the AI and execute a s
 
 ## Integration with Microsoft.Extensions.AI
 
-The AIPrompt supports using the [Microsoft.Extensions.AI library](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to boost your AI integration and  provide seamless integration with various AI models. [Learn how to integrate Microsoft.Extensions.AI with yourAIPrompt component...](slug://common-features-extensions-ai-integration)
+The AIPrompt supports using the [Microsoft.Extensions.AI library](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to provide seamless integration with various AI models and boost your workflow when connecting the AIPrompt with AI models. [Learn how to integrate Microsoft.Extensions.AI with your AIPrompt component...](slug://common-features-microsoft-extensions-ai-integration)
 
 ## ToolBar
 
@@ -103,7 +103,7 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the Prompt view. |
 | `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
 | `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `SystemPrompt` | `string` <br/> (`"You are a helpful assistant designed to assist users. Your goal is to provide helpful, accurate, and contextually appropriate information in a clear and concise manner. Avoid discussing harmful, illegal, or inappropriate topics."`) | Defines the system prompt that is passed to the [`IChatClient.CompleteAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient.completeasync?view=net-9.0-pp), when such is used.
+| `SystemPrompt` | `string` <br/> (See "Description" column) | Defines the system prompt that is passed to the [`IChatClient.CompleteAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient.completeasync?view=net-9.0-pp), when such is used. The default value is: `"You are a helpful assistant designed to assist users. Your goal is to provide helpful, accurate, and contextually appropriate information in a clear and concise manner. Avoid discussing harmful, illegal, or inappropriate topics"`.
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
 
 ## AIPrompt Reference and Methods
