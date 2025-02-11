@@ -10,7 +10,7 @@ position: 4
 
 # Integration with Microsoft.Extensions.AI
 
-Some Telerik UI for Blazor components incorporate the [Microsoft.Extensions.AI package](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to simplify you AI integration and let you easily use and test various AI providers.
+Some Telerik UI for Blazor components incorporate the [Microsoft.Extensions.AI package](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp) to simplify your AI integration, provide flexibility and let you easily use and test various AI providers.
 
 ## Supported Components
 
@@ -37,5 +37,5 @@ To integrate the **Microsoft.Extensions.AI** library with your AIPrompt componen
 
 * [AIPrompt Overview - Documenation](slug:aiprompt-overview)
 * [AIPrompt - Live Demo](https://demos.telerik.com/blazor-ui/aiprompt/overview)
+* [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp)
 * [Introducing Microsoft.Extensions.AI Preview – Unified AI Building Blocks for .NET](https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/)
-* [Microsoft.Extensions.AI package](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp)
