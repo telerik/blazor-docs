@@ -23,15 +23,15 @@ This knowledge-base article also answers the following questions:
 To display Tooltip for Grid column headers that are truncated, follow the steps below:
 
 1. Use the [Column Header Template](slug:components/grid/templates/column-header#column-header-template) to customize the header content. Wrap the header content in a `<span>` HTML element.
-2. Monitor the column width changes by utilizing the [Grid State](slug:components/grid/state) and the `ColumnState` object.
+2. Monitor the column width changes by utilizing the [Grid State](slug:components/grid/state) and its [ColumnState](slug:components/grid/state#information-in-the-grid-state) property.
 3. Implement the [TelerikTooltip](slug:components/tooltip/overview) component and utilize its [Template](slug:components/tooltip/template) to define the content of the tooltip, which should match the full column header text.
 4. Apply a custom CSS class to the column header content when the width of the column is reduced enough to hide its full content. This class will be used as the target selector for the TelerikTooltip.
 
-### Example Implementation
+>caption Show TelerikTooltip on the Grid column header
 
 ````RAZOR
-@using System.ComponentModel.DataAnnotations
-
+<strong>Resize first column to see the result</strong>
+<br/>
 <TelerikGrid Data="@MyData" Resizable="true"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => HandleColumnWidthChange(args))"
              @ref="GridRef"
@@ -94,7 +94,6 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
     public class SampleData
     {
         public int Id { get; set; }
-        [Display(Name = "Employee Name")]
         public string Name { get; set; } = string.Empty;
         public string Team { get; set; } = string.Empty;
     }
