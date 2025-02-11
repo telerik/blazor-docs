@@ -27,7 +27,7 @@ I want to get an instance of my model when I select an item from a dropdown (suc
 
 ## Description
 
-All Telerik UI for Blazor dropdown components support a string and [built-in value-type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) `Value` so that [validation](slug://common-features/input-validation) and filtering can work. The Value and Text cannot be classes (models) because that would prevent validation from working and filtering/comparing entire classes is an operation that is not defined.
+All Telerik UI for Blazor dropdown components support a string and [built-in value-type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-types) `Value` so that [validation](slug:common-features/input-validation) and filtering can work. The Value and Text cannot be classes (models) because that would prevent validation from working and filtering/comparing entire classes is an operation that is not defined.
 
 ## Solution
 

@@ -28,13 +28,13 @@ This KB article answers the following questions:
 * How to prevent the selection of a certian row in the Grid?
 * How to disable the checkbox column of a disabled row in a Blazor Grid?
 * How to customize the checkbox column of a certain row?
-* How to prevent the selection of Grid items conditionally through the [`SelectedItemsChanged`](slug://grid-events#selecteditemschanged) event?
+* How to prevent the selection of Grid items conditionally through the [`SelectedItemsChanged`](slug:grid-events#selecteditemschanged) event?
 
 ## Solution
 
 The key points in the required implementation are:
 
-* Use the [`OnRowRender`](slug://grid-events#onrowrender) handler to set a custom class to the desired row. 
+* Use the [`OnRowRender`](slug:grid-events#onrowrender) handler to set a custom class to the desired row. 
 * Use the `SelectedItemsChanged` event of the Grid to prevent the selection of items conditionally.
 * Disable the checkboxes by conditionally applying classes to the rows where the checkboxes will be disabled.
 * Add a CSS rule that targets and disables the checkboxes on the rows where you applied custom classes.
@@ -106,4 +106,4 @@ The key points in the required implementation are:
 
 ## See Also
 
-* [Grid Selection](slug://grid-selection-overview)
+* [Grid Selection](slug:grid-selection-overview)

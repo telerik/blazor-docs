@@ -185,10 +185,10 @@ Use the `Class` parameter of the Validation Summary component to add a custom CS
 
 ## Next Steps
 
-* Use [TelerikValidationMessage](slug://validation-tools-message)
-* Try [TelerikValidationTooltip](slug://validation-tools-tooltip)
+* Use [TelerikValidationMessage](slug:validation-tools-message)
+* Try [TelerikValidationTooltip](slug:validation-tools-tooltip)
 
 ## See Also
 
 * [Live Demo: Validation](https://demos.telerik.com/blazor-ui/validation/overview)
-* [Form Component](slug://form-overview)
+* [Form Component](slug:form-overview)

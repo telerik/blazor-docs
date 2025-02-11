@@ -41,7 +41,7 @@ I would like to show a floating label for Telerik Inputs. The label should be di
 
 ## Solution
 
->important **UI for Blazor 3.1.0** includes a standalone [FloatingLabel component](slug://floatinglabel-overview). Use that instead.
+>important **UI for Blazor 3.1.0** includes a standalone [FloatingLabel component](slug:floatinglabel-overview). Use that instead.
 
 The following code snippet shows how to add a floating label to TextBox, MaskedTextBox, TextArea, DatePicker, and DropDownList components. The example uses plain HTML elements and CSS styles that are included in the `Telerik UI for Blazor` theme. The styles transform the `<label>` element to a floating label.
 

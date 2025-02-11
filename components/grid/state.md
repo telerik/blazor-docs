@@ -23,26 +23,26 @@ This article describes:
 
 ## Information in the Grid State
 
-The Grid state is a generic [class `GridState<TItem>`](slug://Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model. The `GridState<TItem>` object exposes the following properties:
+The Grid state is a generic [class `GridState<TItem>`](slug:Telerik.Blazor.Components.GridState-1). The type depends on the type of the Grid model. The `GridState<TItem>` object exposes the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups](slug://components/grid/features/grouping) when `LoadGroupsOnDemand="false"`, i.e. when not [loading groups on demand](slug://grid-group-lod). |
-| `ColumnStates` | `ICollection<GridColumnState>` | Information about each [column's reorder index, width, visibility, locked state, `Id` parameter value and `Field`](slug://components/grid/columns/bound). The column order in the collection matches the column order in the Grid declaration. On the other hand, the `Index` property matches the current column's position in the UI. **`Id` and `Field` are always `null` after deserialization, because these properties have no public setters.** |
-| `EditField` | `string` | The currently edited data item property in [`Incell` edit mode](slug://components/grid/editing/incell). |
-| `EditItem` | `TItem`* | The currently edited data item in [any edit mode](slug://components/grid/editing/overview). |
-| `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)](slug://components/grid/features/hierarchy). |
-| `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`](slug://common-features-descriptors#filtering), except the ones that relate to the [`GridSearchBox`](slug://grid-searchbox). |
-| `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping](slug://components/grid/features/grouping). |
-| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing](slug://components/grid/editing/incell#event-sequence). |
+| `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups](slug:components/grid/features/grouping) when `LoadGroupsOnDemand="false"`, i.e. when not [loading groups on demand](slug:grid-group-lod). |
+| `ColumnStates` | `ICollection<GridColumnState>` | Information about each [column's reorder index, width, visibility, locked state, `Id` parameter value and `Field`](slug:components/grid/columns/bound). The column order in the collection matches the column order in the Grid declaration. On the other hand, the `Index` property matches the current column's position in the UI. **`Id` and `Field` are always `null` after deserialization, because these properties have no public setters.** |
+| `EditField` | `string` | The currently edited data item property in [`Incell` edit mode](slug:components/grid/editing/incell). |
+| `EditItem` | `TItem`* | The currently edited data item in [any edit mode](slug:components/grid/editing/overview). |
+| `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)](slug:components/grid/features/hierarchy). |
+| `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering), except the ones that relate to the [`GridSearchBox`](slug:grid-searchbox). |
+| `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping](slug:components/grid/features/grouping). |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing](slug:components/grid/editing/incell#event-sequence). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
-| `Page` | `int?` | The current [page index](slug://components/grid/features/paging). Some user actions reset the page index to 1, such as filtering or changing the page size. |
-| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`](slug://common-features-descriptors#filtering) that holds the filter descriptors for the [`GridSearchBox`](slug://grid-searchbox). |
-| `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)](slug://grid-selection-overview). |
-| `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling](slug://components/grid/virtual-scrolling). In other words, this is the number of rows above the currently visible ones. |
-| `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts](slug://components/grid/features/sorting). |
+| `Page` | `int?` | The current [page index](slug:components/grid/features/paging). Some user actions reset the page index to 1, such as filtering or changing the page size. |
+| `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering) that holds the filter descriptors for the [`GridSearchBox`](slug:grid-searchbox). |
+| `SelectedItems` | `ICollection<TItem>` | The currently [selected data item(s)](slug:grid-selection-overview). |
+| `Skip` | `int?` | The number of scrolled data items when using [virtual row scrolling](slug:components/grid/virtual-scrolling). In other words, this is the number of rows above the currently visible ones. |
+| `SortDescriptors` | `ICollection<SortDescriptor>` | The currently applied [sorts](slug:components/grid/features/sorting). |
 | `TableWidth` | `string` | The sum of all visible column widths. This property changes together with `ColumnStates`. The `OnStateChanged` event does not fire separately for it. |
 
 \* `TItem` is the Grid model type.
@@ -166,7 +166,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 Here is some additional information about certain `PropertyName` values:
 
 * `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug://components/grid/editing/incell#event-sequence).
+* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug:components/grid/editing/incell#event-sequence).
 * `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
 * `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
 
@@ -176,7 +176,7 @@ Here is some additional information about certain `PropertyName` values:
 
 To observe the changes in the Grid state more easily, copy and run the following example in a local app and at full screen.
 
-Find out how to [get the applied filtering, sorting and grouping criteria](slug://common-features-descriptors).
+Find out how to [get the applied filtering, sorting and grouping criteria](slug:common-features-descriptors).
 
 >caption Using Grid OnStateChanged
 
@@ -362,9 +362,9 @@ Find out how to [get the applied filtering, sorting and grouping criteria](slug:
 
 ## Methods
 
-The `GetState` and `SetStateAsync` methods of the [Grid instance](slug://grid-overview#blazor-grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
+The `GetState` and `SetStateAsync` methods of the [Grid instance](slug:grid-overview#blazor-grid-reference-and-methods) let you get and set the current Grid state on demand at any time *after* [`OnStateInit`](#onstateinit).
 
-* `GetState` returns the current Grid state, so you can save it or [retrieve specific information](#information-in-the-grid-state). For example, you can [use `GetState` to get the current filters, sorts, and page number](slug://grid-kb-get-filtered-data). Or, you can [get the current Grid column properties like order index, width, and others)](slug://grid-kb-column-state).
+* `GetState` returns the current Grid state, so you can save it or [retrieve specific information](#information-in-the-grid-state). For example, you can [use `GetState` to get the current filters, sorts, and page number](slug:grid-kb-get-filtered-data). Or, you can [get the current Grid column properties like order index, width, and others)](slug:grid-kb-column-state).
 
 * `SetStateAsync` receives an instance of a `GridState<TItem>` object and applies it to the Grid. For example, you can have a button that puts the Grid in a certain configuration programmatically, for example sort or filter the data, enter or exit edit mode, expand or collapse groups or detail Grids, etc.
 
@@ -376,7 +376,7 @@ If you want to make changes to the current Grid state:
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetStateAsync()` in `OnStateInit`. Instead, get or set the `GridState` property of the event argument.
 >
-> Avoid calling `SetStateAsync` in the Grid [CRUD methods](slug://components/grid/editing/overview) (such as [`OnRead`](slug://components/grid/manual-operations), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
+> Avoid calling `SetStateAsync` in the Grid [CRUD methods](slug:components/grid/editing/overview) (such as [`OnRead`](slug:components/grid/manual-operations), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 >tip To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
 >
@@ -417,22 +417,22 @@ The tabs below show how to set the Grid state and control filtering, sorting and
 
 ## Equals Comparison
 
-State properties that pertain to data items (for example, edited item or selected items) are typed according to the Grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the [`.Equals()`](https://learn.microsoft.com/en-us/dotnet/api/system.object.equals) check for a class (object) is a reference check and the reference from the restored state is very unlikely to match the current reference in the Grid data. Thus, you may want to [override the `.Equals()` method of the Grid model class](slug://grid-kb-save-load-state-localstorage), so that it compares by ID, or otherwise re-populate the models in the state object with the new model references from the Grid data.
+State properties that pertain to data items (for example, edited item or selected items) are typed according to the Grid model. If you restore such data, make sure to implement appropriate comparison checks - by default the [`.Equals()`](https://learn.microsoft.com/en-us/dotnet/api/system.object.equals) check for a class (object) is a reference check and the reference from the restored state is very unlikely to match the current reference in the Grid data. Thus, you may want to [override the `.Equals()` method of the Grid model class](slug:grid-kb-save-load-state-localstorage), so that it compares by ID, or otherwise re-populate the models in the state object with the new model references from the Grid data.
 
 
 ## Examples
 
 You can find multiple examples for using the Grid state in the following [Knowledge Base articles](/knowledge-base):
 
-* [Save and load the Grid state from `localStorage`](slug://grid-kb-save-load-state-localstorage)
-* [Save the Grid state in a WebAssembly app](slug://grid-kb-save-state-in-webassembly)
-* [Override a user action that changes the Grid state, for example, sort descending first](slug://grid-kb-sort-descending)
-* [Initiate programmatic editing or inserting of a Grid row](slug://grid-kb-add-edit-state)
-* [Get current Grid column state (order index, width, and others)](slug://grid-kb-column-state)
+* [Save and load the Grid state from `localStorage`](slug:grid-kb-save-load-state-localstorage)
+* [Save the Grid state in a WebAssembly app](slug:grid-kb-save-state-in-webassembly)
+* [Override a user action that changes the Grid state, for example, sort descending first](slug:grid-kb-sort-descending)
+* [Initiate programmatic editing or inserting of a Grid row](slug:grid-kb-add-edit-state)
+* [Get current Grid column state (order index, width, and others)](slug:grid-kb-column-state)
 
 
 ## See Also
 
 * [Live Demo: Grid State](https://demos.telerik.com/blazor-ui/grid/persist-state)
-* [GridState API reference](slug://Telerik.Blazor.Components.GridState-1)
-* [Blazor Grid](slug://grid-overview)
+* [GridState API reference](slug:Telerik.Blazor.Components.GridState-1)
+* [Blazor Grid](slug:grid-overview)

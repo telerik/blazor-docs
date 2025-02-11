@@ -61,7 +61,7 @@ This section gives examples that show how to:
 
 ### Use Different Templates
 
-When you are using different references in order to provide multiple templates the Notifications will not [stack](slug://notification-stacked-notifications).
+When you are using different references in order to provide multiple templates the Notifications will not [stack](slug:notification-stacked-notifications).
 
 ````RAZOR
 @* Use different templates for different content and notifications *@

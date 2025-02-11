@@ -36,8 +36,8 @@ You can also skip directly to the examples:
 
 
 The general approach to customize the Chart is to apply settings using nested tags. In the case of the `Labels` the tag is 
-* for [categorical charts](slug://components/chart/databind#series-types) -  `<ChartCategoryAxisLabels>` under the `<ChartCategoryAxis>`.
-* for [numerical charts](slug://components/chart/databind#series-types) - `<ChartXAxisLabels>` and `<ChartYAxisLabels>` under the `<ChartXAxis>` and `<ChartYAxis>`.
+* for [categorical charts](slug:components/chart/databind#series-types) -  `<ChartCategoryAxisLabels>` under the `<ChartCategoryAxis>`.
+* for [numerical charts](slug:components/chart/databind#series-types) - `<ChartXAxisLabels>` and `<ChartYAxisLabels>` under the `<ChartXAxis>` and `<ChartYAxis>`.
 
 
 You can control the `Labels` by applying the following settings to the `<ChartCategoryAxisLabels>` or `<ChartXAxisLabels>` tags depending on the Chart type:
@@ -198,4 +198,4 @@ This example shows how to enable automatic label rotation - try running the page
 
 ## Notes
 
-You can also see the Knowledge base article regarding [clustered grid lines](slug://chart-kb-crowded-grid-lines) to further improve the layout of the Chart.
+You can also see the Knowledge base article regarding [clustered grid lines](slug:chart-kb-crowded-grid-lines) to further improve the layout of the Chart.

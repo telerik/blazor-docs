@@ -13,6 +13,6 @@
 
 #default-fields-match-issues
 
-If your model field names match any of the default names, the component will try to use them. For example, a field called `Icon` will try to produce a Telerik icon out of those values and that may not be what you want. If you want to override such behaviors, you can set `IconField="someNonExistingField"`. You can read more about this [here](slug://common-kb-custom-font-icons-fail). This also applies to other fields too. Another example would be a field called `Url` - in case you want to perform navigation yourself through templates, you may want to set `UrlField="someFakeField"` so that the component does not navigate on its own.
+If your model field names match any of the default names, the component will try to use them. For example, a field called `Icon` will try to produce a Telerik icon out of those values and that may not be what you want. If you want to override such behaviors, you can set `IconField="someNonExistingField"`. You can read more about this [here](slug:common-kb-custom-font-icons-fail). This also applies to other fields too. Another example would be a field called `Url` - in case you want to perform navigation yourself through templates, you may want to set `UrlField="someFakeField"` so that the component does not navigate on its own.
 
 #end

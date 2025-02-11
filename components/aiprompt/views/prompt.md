@@ -38,7 +38,7 @@ Additionally, the Prompt view can display prompt suggestions related to the prom
 ## See Also
 
   * [Live Demo: AIPrompt](https://demos.telerik.com/blazor-ui/aiprompt/overview)
-  * [Views Overview](slug://aiprompt-views-overview)
-  * [Prompt View](slug://aiprompt-views-prompt)
-  * [Output View](slug://aiprompt-views-output)
-  * [Views Templates](slug://aiprompt-views-templates)
+  * [Views Overview](slug:aiprompt-views-overview)
+  * [Prompt View](slug:aiprompt-views-prompt)
+  * [Output View](slug:aiprompt-views-output)
+  * [Views Templates](slug:aiprompt-views-templates)

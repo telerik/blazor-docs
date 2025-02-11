@@ -10,7 +10,7 @@ position: 15
 
 # Circular Gauge Labels
 
-You can customize the appearance of the labels rendered on the [scale](slug://circular-gauge-scale) of the Circular Gauge by using the `<CircularGaugeScaleLabels>`, child tag of the `<CircularGaugeScale>`, and the parameters it exposes:
+You can customize the appearance of the labels rendered on the [scale](slug:circular-gauge-scale) of the Circular Gauge by using the `<CircularGaugeScaleLabels>`, child tag of the `<CircularGaugeScale>`, and the parameters it exposes:
 
 * [Format](#format)
 
@@ -185,6 +185,6 @@ The `Visible` (`bool`) parameter controls whether the labels will be rendered. I
 
 * [Live Demo: Circular Gauge](https://demos.telerik.com/blazor-ui/circulargauge/overview)
 * [Live Demo: Circular Gauge - Center Template](https://demos.telerik.com/blazor-ui/circulargauge/center-template)
-* [Circular Gauge: Overview](slug://circular-gauge-overview)
-* [Circular Gauge: Scale](slug://circular-gauge-scale)
-* [Circular Gauge: Pointers](slug://circular-gauge-pointers)
+* [Circular Gauge: Overview](slug:circular-gauge-overview)
+* [Circular Gauge: Scale](slug:circular-gauge-scale)
+* [Circular Gauge: Pointers](slug:circular-gauge-pointers)

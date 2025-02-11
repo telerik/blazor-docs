@@ -111,7 +111,7 @@ The `AriaTemplate` parameter of `ChartSeriesLabels` allows the app to provide a 
 
 When `AriaTemplate` is not defined, the Chart renders accessible data point labels that match the [series label template](#series-label-template). If a series label template is also not defined, the Chart renders an accessible data point label that matches the default series label.
 
-`AriaTemplate` requires the [Chart to render as SVG](slug://chart-rendering-modes) (the default behavior).
+`AriaTemplate` requires the [Chart to render as SVG](slug:chart-rendering-modes) (the default behavior).
 
 ### Category Axis Label Template
 
@@ -424,7 +424,7 @@ function chartLabelFunction(context) {
 
 ### Hide Label Conditionally
 
-In some cases, you want the series to have labels, but certain data points must not have a label. For example, in a [stacked series](slug://components/chart/stack) where a certain value is `0`.
+In some cases, you want the series to have labels, but certain data points must not have a label. For example, in a [stacked series](slug:components/chart/stack) where a certain value is `0`.
 
 To do that, you need to:
 
@@ -505,6 +505,6 @@ To do that, you need to:
 ## See Also
 
 * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)
-* [Format percentage in label for Pie or Donut Chart](slug://chart-format-percent)
-* [Localize numeric Chart labels](slug://chart-kb-localized-numeric-labels)
+* [Format percentage in label for Pie or Donut Chart](slug:chart-format-percent)
+* [Localize numeric Chart labels](slug:chart-kb-localized-numeric-labels)
 * [Complex logic in Chart label format](https://github.com/telerik/blazor-ui/tree/master/chart/label-template)

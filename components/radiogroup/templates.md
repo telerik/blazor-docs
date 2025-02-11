@@ -66,9 +66,9 @@ The template exposes a `context` variable. Cast it to the RadioGroup model type 
 
 ## Next Steps
 
-* [Handle the RadioGroup Events](slug://radiogroup-events)
+* [Handle the RadioGroup Events](slug:radiogroup-events)
 
 ## See Also
 
 * [Live Demo: RadioGroup Templates](https://demos.telerik.com/blazor-ui/radiogroup/templates)
-* [RadioGroup Label Position](slug://radiogroup-label-position)
+* [RadioGroup Label Position](slug:radiogroup-label-position)

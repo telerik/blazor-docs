@@ -104,7 +104,7 @@ To allow sorting on more than one column at a time, set the `SortMode` parameter
 
 ## Sort From Code
 
-You can sort the grid from your own code through its [state](slug://grid-state).
+You can sort the grid from your own code through its [state](slug:grid-state).
 
 @[template](/_contentTemplates/grid/state.md#initial-state)
 
@@ -118,12 +118,12 @@ You can sort the grid from your own code through its [state](slug://grid-state).
 
 The following articles and sample projects can be helpful when implementing sorting:
 
-* [Capture Sorted event](slug://grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change
+* [Capture Sorted event](slug:grid-state#onstatechanged) - the grid state lets you know when it changes so you can capture different aspects of the change
 
-* [Server Sorting](slug://components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
+* [Server Sorting](slug:components/grid/manual-operations) - this article explains how to implement manual data source operations so you can offload the work to the server. It provides the overview of how to setup the grid for that, and examples - several with local data and links a repository with examples using REST API endpoints.
 
 ## See Also
 
   * [Live Demo: Grid Sorting](https://demos.telerik.com/blazor-ui/grid/sorting)
-  * [Blazor Grid](slug://grid-overview)
+  * [Blazor Grid](slug:grid-overview)
    

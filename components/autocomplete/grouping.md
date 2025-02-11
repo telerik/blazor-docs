@@ -66,7 +66,7 @@ The group headers can stick to the top of the dropdown during scrolling. In othe
 # Notes
 
 * One level of grouping is supported.
-* A grouped AutoComplete will provide a `Groups` property with a single [`GroupDescriptor`](slug://Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug://Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug://autocomplete-events#onread). This will allow the developer to apply grouping with [manual data operations](slug://components/grid/manual-operations).
+* A grouped AutoComplete will provide a `Groups` property with a single [`GroupDescriptor`](slug:Telerik.DataSource.GroupDescriptor) in the [`DataSourceRequest`](slug:Telerik.DataSource.DataSourceRequest) argument of its [OnRead event](slug:autocomplete-events#onread). This will allow the developer to apply grouping with [manual data operations](slug:components/grid/manual-operations).
 
 ## See Also
 

@@ -121,5 +121,5 @@ else
 
 ## See Also
 
-* [Window does not update parent](slug://window-does-not-update-parent)
-* [Window in EditForm Context](slug://window-in-form-edit-context)
+* [Window does not update parent](slug:window-does-not-update-parent)
+* [Window in EditForm Context](slug:window-in-form-edit-context)

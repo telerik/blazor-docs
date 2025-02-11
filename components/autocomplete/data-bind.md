@@ -160,5 +160,5 @@ The AutoComplete is, essentially, a textbox. This means that its `Value` is alwa
 
 ## See Also
 
-* [AutoComplete Overview](slug://autocomplete-overview)
+* [AutoComplete Overview](slug:autocomplete-overview)
 * [Live Demo: AutoComplete](https://demos.telerik.com/blazor-ui/autocomplete/overview)

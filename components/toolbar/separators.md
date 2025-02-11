@@ -16,7 +16,7 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
 
 * `ToolBarSpacer` - defines empty space in the toolbar which separates the items. The space between the items is automatically calculated to fit the width of the ToolBar. For example, one spacer in the middle of the items will push the second part of items to the right-hand side of the toolbar.
 
-* `ToolBarButtonGroup` - you can combine built-in buttons into groups and those groups also add some spacing and separation around themselves. You can read more about them in the [Built-in Tools - ToolBarButtonGroup](slug://toolbar-built-in-tools#toolbarbuttongroup) section.
+* `ToolBarButtonGroup` - you can combine built-in buttons into groups and those groups also add some spacing and separation around themselves. You can read more about them in the [Built-in Tools - ToolBarButtonGroup](slug:toolbar-built-in-tools#toolbarbuttongroup) section.
 
 
 >caption Use ToolBarButtonGroup, ToolBarSeparator and ToolBarSpace to separate items in the ToolBar
@@ -46,4 +46,4 @@ You can visually separate the items in the Telerik ToolBar for Blazor. Depending
 ## See Also
 
   * [Live Demo: ToolBar Overview](https://demos.telerik.com/blazor-ui/toolbar/overview)
-  * [ToolBar Overview](slug://toolbar-overview)
+  * [ToolBar Overview](slug:toolbar-overview)

@@ -178,4 +178,4 @@ To bind a collection of dependencies to the Gantt Chart you should use the `Data
 
 ## Next Steps
 
-* [Explore Gantt dependency editing](slug://gantt-dependencies-editing)
+* [Explore Gantt dependency editing](slug:gantt-dependencies-editing)

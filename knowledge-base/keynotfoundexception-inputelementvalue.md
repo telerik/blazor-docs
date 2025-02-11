@@ -38,19 +38,19 @@ When I set the focus on a DatePicker or DateInput and tab to switch to another c
 
 ## Possible Cause
 
-This error indicates that the app is using an old or wrong version of the `telerik-blazor.js` file, for example, after a [component version upgrade](slug://upgrade-tutorial).
+This error indicates that the app is using an old or wrong version of the `telerik-blazor.js` file, for example, after a [component version upgrade](slug:upgrade-tutorial).
 
 
 ## Solution
 
 To resolve the error:
 
-* (if using [CDN](slug://common-features-cdn)) Update the `telerik-blazor.js` file URL to the correct version.
-* (if using static assets) Clear the browser cache and [add a cache buster for the Telerik CSS and JavaScript files](slug://common-kb-browser-cache-buster).
+* (if using [CDN](slug:common-features-cdn)) Update the `telerik-blazor.js` file URL to the correct version.
+* (if using static assets) Clear the browser cache and [add a cache buster for the Telerik CSS and JavaScript files](slug:common-kb-browser-cache-buster).
 * (if using a local JS file) Replace the `telerik-blazor.js` file with the new version.
 
 
 ## See Also
 
-* [Telerik UI for Blazor version upgrade steps](slug://upgrade-tutorial)
-* [JavaScript error troubleshooting](slug://troubleshooting-js-errors)
+* [Telerik UI for Blazor version upgrade steps](slug:upgrade-tutorial)
+* [JavaScript error troubleshooting](slug:troubleshooting-js-errors)

@@ -72,9 +72,9 @@ The FloatingActionButton has been tested with the following screen readers and b
 
 ## Keyboard Navigation
 
-For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug://accessibility-overview#keyboard-navigation) article.
+For details on how the keyboard navigation works in Telerik UI for Blazor, refer to the [Accessibility Overview](slug:accessibility-overview#keyboard-navigation) article.
 
 ## See Also
 
 * [FloatingActionButton Overview](https://demos.telerik.com/blazor-ui/floatingactionbutton/overview)
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

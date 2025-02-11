@@ -84,4 +84,4 @@ The Telerik UI for Blazor Chart does not support DataTable binding out of the bo
 
 ## See Also
 
-  * [Chart Data Binding](slug://components/chart/databind)
+  * [Chart Data Binding](slug:components/chart/databind)

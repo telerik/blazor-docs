@@ -1,5 +1,5 @@
 #understand-basics-and-databinding-first
-This article assumes you are familiar with the [stock chart basics](slug://stockchart-overview) and [data binding](slug://stockchart-data-binding).
+This article assumes you are familiar with the [stock chart basics](slug:stockchart-overview) and [data binding](slug:stockchart-data-binding).
 #end
 
 

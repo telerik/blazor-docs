@@ -28,7 +28,7 @@ When setting percentage dimensions to elements with special positioning (such as
 
 ## Position
 
-When using positioning parameters, for example `Top` or `Left`, the component placement may be affected by CSS styles on the component's parent. If you experience issues, [inspect the rendered HTML to see what elements are present and what their CSS styles are](slug://themes-override#tools).
+When using positioning parameters, for example `Top` or `Left`, the component placement may be affected by CSS styles on the component's parent. If you experience issues, [inspect the rendered HTML to see what elements are present and what their CSS styles are](slug:themes-override#tools).
 
 >tip You can set dimensions in percentage (such as `Width="100%"`) to make the components responsive and let them resize according to the app layout and browser viewport. A lot of components expand to 100% width by default, for example, the Grid, Form, Scheduler, Spreadsheet, all input components, and others.
 
@@ -95,5 +95,5 @@ The examples here showcase different units and examples of using them to set dim
 
 ## See Also
 
-* [Themes](slug://themes-overview)
-* [Override Theme Styles](slug://themes-override)
+* [Themes](slug:themes-overview)
+* [Override Theme Styles](slug:themes-override)

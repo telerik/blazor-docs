@@ -83,7 +83,7 @@ To reproduce the problem, you can use the following code sample:
 The cause for this null exception is the binding of Telerik UI for Blazor components to a `struct` component model.
 
 ## Solution
-The solution is to always bind the component to a `class` model, not a `struct`. For more information, see [Data Binding Overview](slug://common-features-data-binding-overview#how-to-provide-data).
+The solution is to always bind the component to a `class` model, not a `struct`. For more information, see [Data Binding Overview](slug:common-features-data-binding-overview#how-to-provide-data).
 
 <div class="skip-repl"></div>
 ````CS
@@ -99,4 +99,4 @@ public class Product
 
 ## See Also
 
-- [Data Binding Overview](slug://common-features-data-binding-overview)
+- [Data Binding Overview](slug:common-features-data-binding-overview)

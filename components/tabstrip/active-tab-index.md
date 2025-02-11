@@ -10,7 +10,7 @@ position: 5
 
 # TabStrip Active Tab Index
 
-The TabStrip allows you to get or set the index of the currently selected (active) tab through the `ActiveTabIndex` parameter. It supports two-way binding (the `@bind-ActiveTabIndex` syntax) and one-way binding used along with the [`ActiveTabIndexChanged` event](slug://tabstrip-events#activetabindexchanged).
+The TabStrip allows you to get or set the index of the currently selected (active) tab through the `ActiveTabIndex` parameter. It supports two-way binding (the `@bind-ActiveTabIndex` syntax) and one-way binding used along with the [`ActiveTabIndexChanged` event](slug:tabstrip-events#activetabindexchanged).
 
 To deactivate all tabs, set the `ActiveTabIndex` parameter to `-1`.
 

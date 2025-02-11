@@ -10,7 +10,7 @@ position: 5
 
 # Dialog Header
 
-The header contains the `Title` and the [`Close Action` button](slug://dialog-action-buttons).
+The header contains the `Title` and the [`Close Action` button](slug:dialog-action-buttons).
 
 There are two ways to define a Dialog title:
 * a string `Title` attribute of the component
@@ -55,4 +55,4 @@ The following example demonstrates how to set up the title through a template. T
 
 ## See Also
 
-* [(KB) Keep Content in the DOM When the Window Is Closed](slug://window-kb-keep-content-when-closed)
+* [(KB) Keep Content in the DOM When the Window Is Closed](slug:window-kb-keep-content-when-closed)

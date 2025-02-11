@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Chip Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chip" target="_blank">Blazor Chip component</a> shows a piece of information in a compact form. The chip can be selected, removed or disabled. You can respond to various user interactions through the exposed [events](slug://chip-events), and customize the [appearance](slug://chip-appearance) of the Telerik Chip for Blazor.
+The <a href="https://www.telerik.com/blazor-ui/chip" target="_blank">Blazor Chip component</a> shows a piece of information in a compact form. The chip can be selected, removed or disabled. You can respond to various user interactions through the exposed [events](slug:chip-events), and customize the [appearance](slug:chip-appearance) of the Telerik Chip for Blazor.
 
 ## Creating Blazor Chip
 
@@ -43,24 +43,24 @@ To use a Telerik Chip for Blazor:
 
 ## Events
 
-[The Chip component fires events for clicks, selection and removal. Read more about them here.](slug://chip-events)
+[The Chip component fires events for clicks, selection and removal. Read more about them here.](slug:chip-events)
 
 ## Appearance
 
-You can customize the appearance of the Blazor Chip via a variety of built-in customization options. [Read more about the Chip appearance settings...](slug://chip-appearance)
+You can customize the appearance of the Blazor Chip via a variety of built-in customization options. [Read more about the Chip appearance settings...](slug:chip-appearance)
 
 >tip To learn more about the appearance, anatomy, and accessibility of the Chip, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/chip/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Chip Parameters
 
-The table below lists the Chip parameters. Also check the [Chip API Reference](slug://Telerik.Blazor.Components.TelerikChip) for all parameters, methods and events.
+The table below lists the Chip parameters. Also check the [Chip API Reference](slug:Telerik.Blazor.Components.TelerikChip) for all parameters, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AriaLabel` | `string` | Maps to the `aria-label` attribute of the `<div class="k-chip">` element. Use this parameter if the text that labels the component is not visible. |
-| `Class` | `string` | An additional CSS class for the `<div class="k-chip">` element. Use it to [customize the component styles and override the theme](slug://themes-override). |
+| `Class` | `string` | An additional CSS class for the `<div class="k-chip">` element. Use it to [customize the component styles and override the theme](slug:themes-override). |
 | `Disabled` | `bool` | Specifies if the Chip is disabled. |
 | `Icon` | `object` | Use this parameter to render an icon in the chip. |
 | `Id` | `string` | Renders as the `id` attribute on the `<select />` element, so you can attach a `<label for="">` to it. |
@@ -69,15 +69,15 @@ The table below lists the Chip parameters. Also check the [Chip API Reference](s
 | `Selectable` | `bool` <br/> (`true`) | Specifies if the Chip can be selected. Overrides the `Selected` parameter value.|
 | `Selected` | `bool` | Controls the selected state of the Chip. |
 | `TabIndex` | `int` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `Text` | `string` | The string that is rendered in the Chip. You can set the `Text` parameter even when [using a `RenderFragment` as a `ChildContent` of the Chip](#creating-blazor-chip). Otherwise `ChipRemoveEventArgs.Text` will be `null` in the [`OnRemove` handler](slug://chip-events)#onremove. |
+| `Text` | `string` | The string that is rendered in the Chip. You can set the `Text` parameter even when [using a `RenderFragment` as a `ChildContent` of the Chip](#creating-blazor-chip). Otherwise `ChipRemoveEventArgs.Text` will be `null` in the [`OnRemove` handler](slug:chip-events)#onremove. |
 
 ## Next Steps
 
-* [Customize the Chip appearance](slug://chip-appearance)
-* [Handle Chip events](slug://chip-events)
+* [Customize the Chip appearance](slug:chip-appearance)
+* [Handle Chip events](slug:chip-events)
 
 
 ## See Also
 
 * [Live Demo: Chip Overview](https://demos.telerik.com/blazor-ui/chip/overview)
-* [Chip API Reference](slug://Telerik.Blazor.Components.TelerikChip)
+* [Chip API Reference](slug:Telerik.Blazor.Components.TelerikChip)

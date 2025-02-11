@@ -135,5 +135,5 @@ This event fires upon the rendering of the TreeLists columns. It receives an arg
 
 ## See Also
 
-  * [TreeList Overview](slug://treelist-overview)
-  * [TreeList Events](slug://treelist-events)
+  * [TreeList Overview](slug:treelist-overview)
+  * [TreeList Events](slug:treelist-events)

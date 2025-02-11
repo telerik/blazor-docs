@@ -73,23 +73,23 @@ the rest of the features the component provides further in this article *@
 
 ## Templates
 
-The ListView allows full control of the item rendering and layout. The component has a header, footer, and template for editing items. [Read more about the Blazor ListView templates](slug://listview-templates).
+The ListView allows full control of the item rendering and layout. The component has a header, footer, and template for editing items. [Read more about the Blazor ListView templates](slug:listview-templates).
 
 ## Editing
 
-The ListView component has functionality to put the items in edit/insert mode, as well as delete items through dedicated command buttons. [Read more about the Blazor ListView editing](slug://listview-editing).
+The ListView component has functionality to put the items in edit/insert mode, as well as delete items through dedicated command buttons. [Read more about the Blazor ListView editing](slug:listview-editing).
 
 ## Paging
 
-The ListView supports automatic paging of the provided data, so the user has less scrolling to do. The list also fits better in the layout. [Read more about the Blazor ListView paging](slug://listview-paging).
+The ListView supports automatic paging of the provided data, so the user has less scrolling to do. The list also fits better in the layout. [Read more about the Blazor ListView paging](slug:listview-paging).
 
 ## Refresh Data
 
-The ListView can refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor ListView data refresh](slug://listview-refresh-data).
+The ListView can refresh its data manually so the component can react to changes in the collection. [Read more about the Blazor ListView data refresh](slug:listview-refresh-data).
 
 ## Events
 
-The ListView provides events related to editing and [loading data on demand](slug://listview-manual-operations). [Read more about the Blazor ListView events](slug://listview-events).
+The ListView provides events related to editing and [loading data on demand](slug:listview-manual-operations). [Read more about the Blazor ListView events](slug:listview-events).
 
 ## ListView Parameters
 
@@ -99,25 +99,25 @@ The table below lists the ListView parameters. For a full list of the ListView A
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | The `class` attribute of the `<div class="k-listview">` element. Use it to apply custom styles or [override the theme](slug://themes-override). |
+| `Class` | `string` | The `class` attribute of the `<div class="k-listview">` element. Use it to apply custom styles or [override the theme](slug:themes-override). |
 | `Data` | `IEnumerable<TItem>` | The ListView component data collection. |
 | `EnableLoaderContainer` | `bool` <br /> (`true`) | The ListView loading container that is shown when there are long-running operations. |
-| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default ListView dimensions depend on the CSS theme. |
+| `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug:common-features/dimensions). The default ListView dimensions depend on the CSS theme. |
 | `Page` | `int` <br /> (`1`) | The current page of the ListView component. |
 | `Pageable` | `bool` <br /> (`false`) | Determines if the ListView allows paging. |
 | `PageSize` | `int` <br /> (`10`) | The number of items to display per page in the ListView. |
-| `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default ListView dimensions depend on the CSS theme. |
+| `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug:common-features/dimensions). The default ListView dimensions depend on the CSS theme. |
 
 ## Next Steps
 
-* [Implement ListView Templates](slug://listview-templates)
+* [Implement ListView Templates](slug:listview-templates)
 
-* [Enable ListView Editing](slug://listview-editing)
+* [Enable ListView Editing](slug:listview-editing)
 
-* [Explore the ListView Events](slug://listview-events)
+* [Explore the ListView Events](slug:listview-events)
 
 ## See Also
 
   * [Live ListView Demos](https://demos.telerik.com/blazor-ui/listview/overview)
-  * [ListView API Reference](slug://Telerik.Blazor.Components.TelerikListView-1)
+  * [ListView API Reference](slug:Telerik.Blazor.Components.TelerikListView-1)
 

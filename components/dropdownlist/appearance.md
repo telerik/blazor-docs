@@ -182,4 +182,4 @@ The `FillMode` controls how the TelerikDropDownList is filled. You can set it to
 
 ## See Also
 
-* [Blazor DropDownList](slug://components/dropdownlist/overview)
+* [Blazor DropDownList](slug:components/dropdownlist/overview)

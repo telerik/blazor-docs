@@ -36,5 +36,5 @@ You can provide your own set of colors to the Blazor Color Palette component. Yo
 
 ## See Also
 
-* [Color Palette Overview](slug://colorpalette-overview)
-* [Predefined Color Lists](slug://colorpalette-presets)
+* [Color Palette Overview](slug:colorpalette-overview)
+* [Predefined Color Lists](slug:colorpalette-presets)

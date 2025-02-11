@@ -21,7 +21,7 @@ The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data i
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when they want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
-You can read more about the CUD events in the [Editing Overview](slug://treelist-editing-overview) article.
+You can read more about the CUD events in the [Editing Overview](slug:treelist-editing-overview) article.
 
 ## Other Events
 
@@ -43,7 +43,7 @@ You can read more about the CUD events in the [Editing Overview](slug://treelist
 The `OnExpand` event fires when the user clicks the expand arrow on a row that has children but they are collapsed. It receives arguments of type `TreeListExpandEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
 
 
-You can use `OnExpand` to know the user action and/or to [load data on demand](slug://treelist-data-binding-load-on-demand).
+You can use `OnExpand` to know the user action and/or to [load data on demand](slug:treelist-data-binding-load-on-demand).
 
 The `OnCollapse` event fires when the user collapses an expanded row through the collapse arrow. It receives arguments of type `TreeListCollapseEventArgs<T>` where `T` is the model you bind the treelist to, and the `Item` field in the event arguments is the current model.
 
@@ -165,19 +165,19 @@ The `OnCollapse` event fires when the user collapses an expanded row through the
 
 ## Command Button Click
 
-The command buttons of a treelist provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column](slug://treelist-columns-command), and from a [Toolbar Button](slug://treelist-toolbar).
+The command buttons of a treelist provide an `OnClick` event before firing their built-in command (such as opening a row for editing, or adding a new row). You can do this to implement some additional logic and to also handle custom commands - both from a [Command Column](slug:treelist-columns-command), and from a [Toolbar Button](slug:treelist-toolbar).
 
 ## SelectedItemsChanged
 
-Fires when [row selection is enabled](slug://treelist-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one or multiple rows, depending on the [selection mode](slug://treelist-selection-overview#use-single-or-multiple-selection).
+Fires when [row selection is enabled](slug:treelist-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one or multiple rows, depending on the [selection mode](slug:treelist-selection-overview#use-single-or-multiple-selection).
 
-Visit the [TreeList Row Selection article to see an example](slug://treelist-selection-row#selecteditemschanged-event).
+Visit the [TreeList Row Selection article to see an example](slug:treelist-selection-row#selecteditemschanged-event).
 
 ## SelectedCellsChanged
 
-Fires when [cell selection is enabled](slug://treelist-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode](slug://treelist-selection-overview#use-single-or-multiple-selection).
+Fires when [cell selection is enabled](slug:treelist-selection-overview#enable-row-or-cell-selection) and the user selects or deselects one cell or multiple cells, depending on the [selection mode](slug:treelist-selection-overview#use-single-or-multiple-selection).
 
-Visit the [TreeList Cell Selection article to see an example](slug://treelist-selection-cell#selectedcellschanged-event).
+Visit the [TreeList Cell Selection article to see an example](slug:treelist-selection-cell#selectedcellschanged-event).
 
 ## OnModelInit
 
@@ -1396,7 +1396,7 @@ This event fires upon the rendering of the TreeList rows. It receives an argumen
 
 ## OnRowDrop
 
-The `OnRowDrop` event fires when the user drags and drops rows in the TreeList or between TreeLists. You can read more on setting it up and using the TreeList row dragging feature in the [Row Drag and Drop](slug://treelist-drag-drop-overview) article.
+The `OnRowDrop` event fires when the user drags and drops rows in the TreeList or between TreeLists. You can read more on setting it up and using the TreeList row dragging feature in the [Row Drag and Drop](slug:treelist-drag-drop-overview) article.
 
 ## PageChanged
 
@@ -1574,6 +1574,6 @@ Make sure to update the current page size when using the event.
 
 ## See Also
 
-* [TreeList Overview](slug://treelist-overview)
-* [TreeList Column Events](slug://treelist-column-events)
-* [TreeList Editing Overview](slug://treelist-editing-overview)
+* [TreeList Overview](slug:treelist-overview)
+* [TreeList Column Events](slug:treelist-column-events)
+* [TreeList Editing Overview](slug:treelist-editing-overview)

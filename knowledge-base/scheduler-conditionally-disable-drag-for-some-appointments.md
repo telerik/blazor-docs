@@ -33,9 +33,9 @@ This KB article answers the following questions:
 
 To conditionally disable dragging an appointment based on your desired condition, follow these steps:
 
-1. Handle the [`OnItemRender` event](slug://scheduler-events#itemrender) to add a custom CSS class to the non-draggable appointments.
+1. Handle the [`OnItemRender` event](slug:scheduler-events#itemrender) to add a custom CSS class to the non-draggable appointments.
 2. Use this custom CSS class as a selector to stop the [pointer-events](https://www.w3schools.com/cssref/css3_pr_pointer-events.php) of the targeted appointments.
-3. Extend the [`OnUpdate` handler](slug://scheduler-appointments-edit#basics) logic to ensure the appointment will not be dropped to another slot. Steps 1 and 2 will prevent dragging, but the user can enable the pointer events from the DOM inspector. Add a check in your `OnUpdate` handler to ensure that if the user drags the appointment, it will not be updated and dropped to a different slot.
+3. Extend the [`OnUpdate` handler](slug:scheduler-appointments-edit#basics) logic to ensure the appointment will not be dropped to another slot. Steps 1 and 2 will prevent dragging, but the user can enable the pointer events from the DOM inspector. Add a check in your `OnUpdate` handler to ensure that if the user drags the appointment, it will not be updated and dropped to a different slot.
 
 > This solution also prevents the user from deleting the non-draggable appointments. See [Notes section](#notes) if you want to allow the deleting.
 

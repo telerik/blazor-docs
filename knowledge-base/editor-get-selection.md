@@ -28,7 +28,7 @@ I would like to get the content of the Editor selected (highlighted) by the user
 
 In order to receive or modify the selected (highlighted) content of the Editor, you need to use JavaScript. The `selection` object is inherently JavaScript-based because HTML editing is based on the rich text editing engine of the browser, and so it has no .NET counterpart.
 
-Since the Editor has two different edit modes - [Div](slug://editor-edit-modes-div) and [Iframe](slug://editor-edit-modes-iframe), the examples below will showcase how to get the selected text for both of them. 
+Since the Editor has two different edit modes - [Div](slug:editor-edit-modes-div) and [Iframe](slug:editor-edit-modes-iframe), the examples below will showcase how to get the selected text for both of them. 
 
 ## Examples
 
@@ -44,7 +44,7 @@ At this point, you can apply changes to it with JavaScript.
 If you want to use it on the .NET (Blazor) side, you need to:
 
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
-1. Call a JavaScript function from a [Custom Tool](slug://editor-custom-tools) in the Editor that will return that selection.
+1. Call a JavaScript function from a [Custom Tool](slug:editor-custom-tools) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
 ````RAZOR Component
@@ -102,7 +102,7 @@ At this point, you can apply changes to it with JavaScript.
 If you want to use it on the .NET (Blazor) side, you need to:
 
 1. Serialize the selection to a string so .NET can understand it, by using the `toString()` method.
-1. Call a JavaScript function from a [Custom Tool](slug://editor-custom-tools) in the Editor that will return that selection.
+1. Call a JavaScript function from a [Custom Tool](slug:editor-custom-tools) in the Editor that will return that selection.
 
 <div class="skip-repl"></div>
 ````RAZOR Component

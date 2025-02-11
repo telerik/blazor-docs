@@ -22,7 +22,7 @@ ticketid: 1665785
 
 ## Description
 
-When I am using the [Popup Form Template](slug://grid-templates-popup-form) in the Grid for Blazor, the [default Update and Cancel buttons are removed](slug://grid-templates-popup-form#specifics). I am not using the [`ButtonsTemplate`](slug://grid-templates-popup-buttons) and the footer remains empty. This takes unnecessary space and affects the UI's aesthetics. 
+When I am using the [Popup Form Template](slug:grid-templates-popup-form) in the Grid for Blazor, the [default Update and Cancel buttons are removed](slug:grid-templates-popup-form#specifics). I am not using the [`ButtonsTemplate`](slug:grid-templates-popup-buttons) and the footer remains empty. This takes unnecessary space and affects the UI's aesthetics. 
 
 The requirement is to either hide this empty footer or utilize it by placing the custom form buttons within. 
 
@@ -43,8 +43,8 @@ There are two approaches to address this requirement:
 
 To display custom buttons in the footer and handle form submission, follow these steps:
 
-1. Declare a [`<FormButtons>`](slug://form-formitems-buttons) tag inside the custom Form and leave it empty, so the Form does not render its default buttons.
-2. Declare custom buttons in the [`<ButtonsTemplate>`](slug://grid-templates-popup-buttons) and handle their `OnClick` events to manage the Form submission.
+1. Declare a [`<FormButtons>`](slug:form-formitems-buttons) tag inside the custom Form and leave it empty, so the Form does not render its default buttons.
+2. Declare custom buttons in the [`<ButtonsTemplate>`](slug:grid-templates-popup-buttons) and handle their `OnClick` events to manage the Form submission.
 
 >caption Displaying custom buttons in the popup footer
 
@@ -456,5 +456,5 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
 ## See Also
 
-- [Grid Popup Editing - Documentation](slug://components/grid/editing/popup)
-- [Customizing the Grid's Edit Form](slug://grid-templates-popup-form)
+- [Grid Popup Editing - Documentation](slug:components/grid/editing/popup)
+- [Customizing the Grid's Edit Form](slug:grid-templates-popup-form)

@@ -121,6 +121,6 @@ function makeDateInputsReadOnly() {
 
 ## See Also
 
-* [DatePicker Overview](slug://components/datepicker/overview)
-* [TimePicker Overview](slug://components/timepicker/overview)
-* [DateTimePicker Overview](slug://components/datetimepicker/overview)
+* [DatePicker Overview](slug:components/datepicker/overview)
+* [TimePicker Overview](slug:components/timepicker/overview)
+* [DateTimePicker Overview](slug:components/datetimepicker/overview)

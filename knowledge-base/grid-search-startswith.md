@@ -38,7 +38,7 @@ There are two ways to quickly search Grid items with a **`starts with`** filter 
 
 ### Use the Grid Filter Row
 
-By default, the [`GridSearchBox` searches in **string** values with a **`contains`** filter](slug://grid-searchbox). The easiest way to search by **`starts with`** filter is to use the [built-in row filter](slug://grid-filter-row) with a configured [default filter operator](slug://grid-filter-row#configuring-the-filter-row).
+By default, the [`GridSearchBox` searches in **string** values with a **`contains`** filter](slug:grid-searchbox). The easiest way to search by **`starts with`** filter is to use the [built-in row filter](slug:grid-filter-row) with a configured [default filter operator](slug:grid-filter-row#configuring-the-filter-row).
 
 >caption Filter Grid columns with a "StartsWith" operator
 
@@ -84,10 +84,10 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 
 ### Use the Grid SearchBox
 
-1. Subscribe to the [Grid OnStateChanged event](slug://grid-state#events).
+1. Subscribe to the [Grid OnStateChanged event](slug:grid-state#events).
 1. In the handler, check if the user has just changed the SearchBox value. `args.PropertyName` will be `"SearchFilter"`.
 1. Obtain the current Grid state with `GetState()`.
-1. See if the Search [`CompositeFilterDescriptor`](slug://components/grid/filtering#filter-descriptors) is populated. This means the SearchBox is not empty.
+1. See if the Search [`CompositeFilterDescriptor`](slug:components/grid/filtering#filter-descriptors) is populated. This means the SearchBox is not empty.
 1. Iterate the search filter descriptors and change the `Operator`.
 1. Reset the Grid state with `SetStateAsync()`.
 
@@ -173,7 +173,7 @@ By default, the [`GridSearchBox` searches in **string** values with a **`contain
 
 ## See Also
 
-* [Search the Grid in Numeric and Date Model Fields](slug://grid-kb-search-numeric-fields)
-* [Search the Grid in Hidden Fields](slug://grid-kb-search-in-hidden-fields)
-* [Search the Grid on Button Click](slug://grid-kb-search-button-click)
-* [Format or Bold Search Results in the Grid](slug://grid-kb-search-highlight-results)
+* [Search the Grid in Numeric and Date Model Fields](slug:grid-kb-search-numeric-fields)
+* [Search the Grid in Hidden Fields](slug:grid-kb-search-in-hidden-fields)
+* [Search the Grid on Button Click](slug:grid-kb-search-button-click)
+* [Format or Bold Search Results in the Grid](slug:grid-kb-search-highlight-results)

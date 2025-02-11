@@ -12,7 +12,7 @@ position: 10
 
 This article describes the declarative settings of the DropDownButton component, which affect the styling and appearance of the primary button.
 
-The DropDownButton provides the same appearance parameters as the regular [Button component](slug://button-appearance):
+The DropDownButton provides the same appearance parameters as the regular [Button component](slug:button-appearance):
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
@@ -230,11 +230,11 @@ The `ThemeColor` parameter sets the background and text color of the DropDownBut
 
 ## Next Steps
 
-* [Handle DropDownButton Events](slug://dropdownbutton-events)
-* [Add DropDownButton Icons](slug://dropdownbutton-icons)
+* [Handle DropDownButton Events](slug:dropdownbutton-events)
+* [Add DropDownButton Icons](slug:dropdownbutton-icons)
 
 
 ## See Also
 
 * [Live Demo: DropDownButton Appearance](https://demos.telerik.com/blazor-ui/dropdownbutton/appearance)
-* [DropDownButton API](slug://Telerik.Blazor.Components.TelerikDropDownButton)
+* [DropDownButton API](slug:Telerik.Blazor.Components.TelerikDropDownButton)

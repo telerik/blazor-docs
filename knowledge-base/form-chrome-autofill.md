@@ -148,6 +148,6 @@ You can also add a standard HTML `<label>` element to have a label for your inpu
 
 ## See Also
 
-* [Label not moved from input on browser autofill in Chrome](slug://textbox-chrome-autofill-label)
+* [Label not moved from input on browser autofill in Chrome](slug:textbox-chrome-autofill-label)
 
-* [Empty TextBox value on Chrome autofill](slug://textbox-kb-empty-value-on-autofill)
+* [Empty TextBox value on Chrome autofill](slug:textbox-kb-empty-value-on-autofill)

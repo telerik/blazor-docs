@@ -37,8 +37,8 @@ How to keep the above column `Width` configuration and:
 
 ## Solution
 
-1. Use the Grid's [`Class` parameter](slug://grid-overview#grid-parameters) to set a custom CSS class.
-1. Set a `min-width` style for the Grid table elements through the custom CSS class. The `min-width` value must be greater than the sum of the all set column [`Width`s](slug://grid-columns-width).
+1. Use the Grid's [`Class` parameter](slug:grid-overview#grid-parameters) to set a custom CSS class.
+1. Set a `min-width` style for the Grid table elements through the custom CSS class. The `min-width` value must be greater than the sum of the all set column [`Width`s](slug:grid-columns-width).
 
 As a result, the width-less N number of columns will receive 1/N of the remaining space. A large-enough `min-width` value will ensure that the width-less columns remain visible and wide enough.
 
@@ -98,4 +98,4 @@ The Grid will show a horizontal scrollbar when its width is less than the table 
 
 ## See Also
 
-* [Grid column width behavior](slug://grid-columns-width)
+* [Grid column width behavior](slug:grid-columns-width)

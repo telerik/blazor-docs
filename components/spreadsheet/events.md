@@ -32,7 +32,7 @@ See the [example below](#example).
 
 ## OnOpen
 
-The `OnOpen` event fires when the user clicks on the **Open** button in the Spreadsheet toolbar and opens a file for editing from their file system. The Spreadsheet uses a [FileSelect component](slug://fileselect-overview) for opening files. The Spreadsheet `OnOpen` event is similar to the [FileSelect `OnSelect` event](slug://fileselect-events#onselect).
+The `OnOpen` event fires when the user clicks on the **Open** button in the Spreadsheet toolbar and opens a file for editing from their file system. The Spreadsheet uses a [FileSelect component](slug:fileselect-overview) for opening files. The Spreadsheet `OnOpen` event is similar to the [FileSelect `OnSelect` event](slug:fileselect-events#onselect).
 
 The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following properties:
 
@@ -40,7 +40,7 @@ The `SpreadsheetOpenEventArgs` argument of the `OnOpen` event has the following 
 
 | Property Name | Type | Description |
 | --- | --- | --- |
-| `Files` | `List<FileSelectFileInfo>` | The `List` contains one member and it is the file that the user opened. Check the [`FileSelectFileInfo` section in the FileSelect Events documentation](slug://fileselect-events#fileselectfileinfo) for more information about the `FileSelectFileInfo` properties `Name`, `Size,` `Extension`, and `Stream`. |
+| `Files` | `List<FileSelectFileInfo>` | The `List` contains one member and it is the file that the user opened. Check the [`FileSelectFileInfo` section in the FileSelect Events documentation](slug:fileselect-events#fileselectfileinfo) for more information about the `FileSelectFileInfo` properties `Name`, `Size,` `Extension`, and `Stream`. |
 | `IsCancelled` | `bool` | Sets if the open action should be prevented. |
 
 

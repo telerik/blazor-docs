@@ -16,8 +16,8 @@ The <a href = "https://www.telerik.com/blazor-ui/sankey-chart" target="_blank">B
 ## Creating Blazor Sankey Diagram
 
 1. Add the `<TelerikSankey>` tag to your razor page.
-1. [Bind the Sankey Data](slug://sankey-data-binding) - the Sankey diagram expects its data to have a specific structure and use specific object types.
-1. (Optional) Set the [`ColorType` of the `SankeyLinks`](slug://sankey-links).
+1. [Bind the Sankey Data](slug:sankey-data-binding) - the Sankey diagram expects its data to have a specific structure and use specific object types.
+1. (Optional) Set the [`ColorType` of the `SankeyLinks`](slug:sankey-links).
 1. (Optional) Set `Width` and `Height` of the Sankey chart.
 
 >caption Sankey diagram with width, height and link colors based on the source nodes
@@ -69,29 +69,29 @@ The <a href = "https://www.telerik.com/blazor-ui/sankey-chart" target="_blank">B
 
 The Sankey component uses three main building blocks for the visual data representation:
 
-* [Nodes](slug://sankey-nodes) - rectangular elements that can be connected to each other.
-* [Labels](slug://sankey-labels) - the names of the nodes.
-* [Links](slug://sankey-links) - the lines that connect the nodes to each other.
+* [Nodes](slug:sankey-nodes) - rectangular elements that can be connected to each other.
+* [Labels](slug:sankey-labels) - the names of the nodes.
+* [Links](slug:sankey-links) - the lines that connect the nodes to each other.
 
 ## Data Binding
 
-The Sankey `Data` accepts an object of type `SankeyData` that contains all the information for the nodes, links and labels. [Read more about the data binding specifics in the Sankey diagram...](slug://sankey-data-binding)
+The Sankey `Data` accepts an object of type `SankeyData` that contains all the information for the nodes, links and labels. [Read more about the data binding specifics in the Sankey diagram...](slug:sankey-data-binding)
 
 ## Title
 
-You can add a short description of the Sankey's purpose by using the `<SankeyTitle>` tag and the `Text` parameter. In addition, [you can customize the appearance of the title through the dedicated parameters](slug://sankey-title).
+You can add a short description of the Sankey's purpose by using the `<SankeyTitle>` tag and the `Text` parameter. In addition, [you can customize the appearance of the title through the dedicated parameters](slug:sankey-title).
 
 ## Tooltip
 
-The Sankey chart shows a tooltip when the user hovers a node or a link that contains details for the hovered element. Use the [Tooltip Templates if you want to customize their content and appearance](slug://sankey-tooltip).
+The Sankey chart shows a tooltip when the user hovers a node or a link that contains details for the hovered element. Use the [Tooltip Templates if you want to customize their content and appearance](slug:sankey-tooltip).
 
 ## Legend
 
-By design, the Sankey renders a legend that illustrates the node details. You can [customize the legend or remove it](slug://sankey-legend) depending on the application needs.
+By design, the Sankey renders a legend that illustrates the node details. You can [customize the legend or remove it](slug:sankey-legend) depending on the application needs.
 
 ## Sankey Parameters
 
-The Blazor Sankey diagram provides various parameters to configure the component. Also check the [Sankey public API](slug://Telerik.Blazor.Components.TelerikSankey).
+The Blazor Sankey diagram provides various parameters to configure the component. Also check the [Sankey public API](slug:Telerik.Blazor.Components.TelerikSankey).
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
@@ -102,10 +102,10 @@ The Blazor Sankey diagram provides various parameters to configure the component
 
 ## Next Steps
 
-* [Bind Data to the Sankey Diagram](slug://sankey-data-binding)
-* [Explore the Sankey Elements](slug://sankey-events)
+* [Bind Data to the Sankey Diagram](slug:sankey-data-binding)
+* [Explore the Sankey Elements](slug:sankey-events)
 
 ## See Also
 
 * [Live Demos: Sankey diagram](https://demos.telerik.com/blazor-ui/sankey/overview)
-* [Sankey diagram API Reference](slug://Telerik.Blazor.Components.TelerikSankey)
+* [Sankey diagram API Reference](slug:Telerik.Blazor.Components.TelerikSankey)

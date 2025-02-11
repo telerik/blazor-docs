@@ -17,7 +17,7 @@ The Loader component displays an animated loading indicator, which shows users t
 
 ## Comparison with the LoaderContainer
 
-The **Loader** is placed inside another component or HTML element. Typically, it occupies a relatively small area. On the other hand, the [**LoaderContainer** component](slug://loadercontainer-overview) can cover a bigger part of the page or the whole viewport with a semi-transparent overlay and a loading animation.
+The **Loader** is placed inside another component or HTML element. Typically, it occupies a relatively small area. On the other hand, the [**LoaderContainer** component](slug:loadercontainer-overview) can cover a bigger part of the page or the whole viewport with a semi-transparent overlay and a loading animation.
 
 
 ## Creating Blazor Loader
@@ -51,35 +51,35 @@ The **Loader** is placed inside another component or HTML element. Typically, it
 
 ## Appearance
 
-The Blazor Loader component provides [appearance settings for size, color and loading animation type](slug://loader-appearance).
+The Blazor Loader component provides [appearance settings for size, color and loading animation type](slug:loader-appearance).
 
 
 ## Using In Other Components
 
-It is possible to place the Loader component inside another component for better user experience. Here is an [example that integrates the Loader inside a Button](slug://loader-kb-inside-button).
+It is possible to place the Loader component inside another component for better user experience. Here is an [example that integrates the Loader inside a Button](slug:loader-kb-inside-button).
 
 
 ## Loader Parameters
 
-The following table lists the Loader parameters. Also check the [Loader API Reference](slug://Telerik.Blazor.Components.TelerikLoader).
+The following table lists the Loader parameters. Also check the [Loader API Reference](slug:Telerik.Blazor.Components.TelerikLoader).
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader">` element. Use it to [override theme styles](slug://themes-override). |
-| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug://loader-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](slug://Telerik.Blazor.ThemeConstants.Loader.Size). |
-| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic](slug://loader-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](slug://Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
-| `Type`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape](slug://loader-appearance#type). |
+| `Class` | `string` | Renders a custom CSS class to the `<div class="k-loader">` element. Use it to [override theme styles](slug:themes-override). |
+| `Size` | `string`<br />(`"md"`) | Sets the [size of the animated graphic](slug:loader-appearance#size). For convenience, use the members of the static class [`ThemeConstants.Loader.Size`](slug:Telerik.Blazor.ThemeConstants.Loader.Size). |
+| `ThemeColor` | `string`<br />(`"primary"`) | Sets the [color of the animated graphic](slug:loader-appearance#themecolor). For convenience, use the members of the static class [`ThemeConstants.Loader.ThemeColor`](slug:Telerik.Blazor.ThemeConstants.Loader.ThemeColor). |
+| `Type`| `LoaderType` enum<br />(`Pulsing`) | Defines the [loading animation shape](slug:loader-appearance#type). |
 | `Visible` | `bool`<br /> (`true`) | Sets if the Loader is rendered on the page. |
 
 
 ## Next Steps
 
-* [Explore the Loader Appearance Settings](slug://loader-appearance)
+* [Explore the Loader Appearance Settings](slug:loader-appearance)
 
 
 ## See Also
 
 * [Live Demo: Loader](https://demos.telerik.com/blazor-ui/loader/overview)
-* [Loader API Reference](slug://Telerik.Blazor.Components.TelerikLoader)
+* [Loader API Reference](slug:Telerik.Blazor.Components.TelerikLoader)

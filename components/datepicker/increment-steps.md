@@ -40,5 +40,5 @@ All values default to `1` to provide every possible option. If you set a value l
 ## See Also
 
 * [Live Demo: Date Picker Incremental Steps](https://demos.telerik.com/blazor-ui/datepicker/incremental-steps)
-* [Blazor DatePicker Overview](slug://components/datepicker/overview)
+* [Blazor DatePicker Overview](slug:components/datepicker/overview)
 

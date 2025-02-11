@@ -94,5 +94,5 @@ For details on how the TreeList keyboard navigation works, refer to the [Blazor 
 
 ## See Also
 
-* [Blazor TreeList Accessibility Example](slug://treelist-accessibility-overview#blazor-treelist-accessibility-example)
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Blazor TreeList Accessibility Example](slug:treelist-accessibility-overview#blazor-treelist-accessibility-example)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

@@ -25,11 +25,11 @@ To connect ListBox components:
 
 1. Set the `Id` parameter of all ListBox instances.
 1. Set the `ConnectedListBoxId` parameter of the primary instance to the `Id` value of the secondary instance.
-1. [Hide the transfer buttons](slug://listbox-toolbar) from the secondary instance, unless it's a primary one for another ListBox.
-1. Subscribe to the [`OnTransfer` event handler](slug://listbox-events#ontransfer) of all primary ListBoxes.
-1. [`Rebind()`](slug://listbox-overview#listbox-reference-and-methods) each ListBox after making programmatic changes to its `Data`.
+1. [Hide the transfer buttons](slug:listbox-toolbar) from the secondary instance, unless it's a primary one for another ListBox.
+1. Subscribe to the [`OnTransfer` event handler](slug:listbox-events#ontransfer) of all primary ListBoxes.
+1. [`Rebind()`](slug:listbox-overview#listbox-reference-and-methods) each ListBox after making programmatic changes to its `Data`.
 
-> The object references in `args.Items` in the [`OnTransfer` handler](slug://listbox-events#ontransfer) do not match the object references in the `Data` collection of the source ListBox. To remove items from the source ListBox, search for them by some unique identifier.
+> The object references in `args.Items` in the [`OnTransfer` handler](slug:listbox-events#ontransfer) do not match the object references in the `Data` collection of the source ListBox. To remove items from the source ListBox, search for them by some unique identifier.
 
 
 ## Example
@@ -204,9 +204,9 @@ To connect ListBox components:
 
 ## Next Steps
 
-* [Enable ListBox drag-and-drop](slug://listbox-dragdrop)
-* [Implement ListBox templates](slug://listbox-templates)
-* [Handle ListBox events](slug://listbox-events)
+* [Enable ListBox drag-and-drop](slug:listbox-dragdrop)
+* [Implement ListBox templates](slug:listbox-templates)
+* [Handle ListBox events](slug:listbox-events)
 
 
 ## See Also

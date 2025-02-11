@@ -25,7 +25,7 @@ The <a href="https://www.telerik.com/blazor-ui/pie-chart" target="_blank">Blazor
 3. provide a data model collection to its `Data` property
 4. set the `Field` and `CategoryField` properties to the corresponding fields in the model that carry the values and names that will be shown in the legend
 
-If you use [simple data binding](slug://components/chart/databind#independent-series-binding) and only provide values, the chart will not render a legend.
+If you use [simple data binding](slug:components/chart/databind#independent-series-binding) and only provide values, the chart will not render a legend.
 
 >caption A pie chart that shows product revenues
 

@@ -36,11 +36,11 @@ The Numeric TextBox component is generic, meaning that it takes the type of its 
 
 ## Events
 
-The Blazor Numeric TextBox generates events that you can handle and further customize its behavior. [Read more about the Blazor Numeric TextBox events...](slug://components/numerictextbox/events).
+The Blazor Numeric TextBox generates events that you can handle and further customize its behavior. [Read more about the Blazor Numeric TextBox events...](slug:components/numerictextbox/events).
 
 ## Validation
 
-You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...](slug://common-features/input-validation).
+You can ensure that the component value is acceptable by using the built-in validation. [Read more about input validation...](slug:common-features/input-validation).
 
 ## Custom Format Strings
 
@@ -97,19 +97,19 @@ The Blazor Numeric TextBox allows you to define your desired custom format throu
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `Step` | `TValue`* <br /> (`1`) | The decimal value with which the component value changes when using the arrows. Must match the `Value` type. |
 | `TabIndex` | `int?` | The `tabindex` attribute of the `<input />` element. Use it to customize the tabbing order on your page. |
-| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs). |
+| `ValidateOn` | `ValidationEvent` enum <br/> (`Input`) | The event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug:common-features/input-validation#validation-modes-for-simple-inputs). |
 | `Value` | `TValue`* | The component value. |
 
 \* `TValue` can be [any numeric type](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types), except `nint` and `nuint`. Note that all `TValue` parameters must be of the same type.
 
 ### Styling and Appearance
 
-The following parameters enable you to customize the [appearance](slug://numerictextbox-appearance) of the Blazor Numeric TextBox:
+The following parameters enable you to customize the [appearance](slug:numerictextbox-appearance) of the Blazor Numeric TextBox:
 
 | Attribute | Type and Default Value | Description |
 | --- | --- | --- |
 | `Class` | `string` | The CSS class that will be rendered on the `<span class="k-numerictextbox">` element. |
-| `Width` | `string` | The width of the component in [any supported CSS unit](slug://common-features/dimensions). |
+| `Width` | `string` | The width of the component in [any supported CSS unit](slug:common-features/dimensions). |
 
 >tip To learn more about the appearance, anatomy, and accessibility of the Numeric TextBox, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/numerictextbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
@@ -140,7 +140,7 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 
 ## Notes
 
-* If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimal separators (more on [globalization in the Telerik components](slug://globalization-overview)).
+* If you want to use a currency format, you must specify the culture for your app thread, so .NET knows what symbol to render. If you don't do that, you may see an unexpected/incorrect symbol or format. The Telerik Numeric Textbox uses the thread culture for currency signs and decimal separators (more on [globalization in the Telerik components](slug:globalization-overview)).
 
 * You may want to match the decimal places available in the `Format` and in the `Decimals` parameters. This will unify the rounding of the numbers when the input is focused and when it is not. For example, if you start with a value `12.3m` and `Step=0.1m` it will render as `12.3` due to the `Math.Round()` behavior in .NET. Changing the value with the spinner icons up and then down will result in `12.30` because the value had had a second decimal digit at some point and that precision is added to the number already.
 
@@ -162,7 +162,7 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 
 ## Next Steps
 
-* [Using the Numeric Textbox Events](slug://components/numerictextbox/events)
+* [Using the Numeric Textbox Events](slug:components/numerictextbox/events)
 
 
 ## See Also
@@ -170,5 +170,5 @@ The Numeric TextBox has a `FocusAsync` method that enables programmatic focus. T
 * [Live Demo: Numeric Textbox](https://demos.telerik.com/blazor-ui/numerictextbox/overview)
 * [Live Demo: Numeric Textbox Validation](https://demos.telerik.com/blazor-ui/numerictextbox/validation)
 * [Live Demo: Numeric Textbox Formats](https://demos.telerik.com/blazor-ui/numerictextbox/formats)
-* [Input Validation](slug://common-features/input-validation)
-* [NumericTextBox API Reference](slug://Telerik.Blazor.Components.TelerikNumericTextBox-1)
+* [Input Validation](slug:common-features/input-validation)
+* [NumericTextBox API Reference](slug:Telerik.Blazor.Components.TelerikNumericTextBox-1)

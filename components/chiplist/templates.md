@@ -56,6 +56,6 @@ The `<ItemTemplate>` allows you to control the rendering of the chips in the Chi
 ````
 ## See Also
 
-  * [ChipList Overview](slug://chiplist-overview)
+  * [ChipList Overview](slug:chiplist-overview)
    
   

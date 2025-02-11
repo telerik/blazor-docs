@@ -37,9 +37,9 @@ This KB answers the following questions:
 
 Add an inline [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) to your Grid rows by following these steps:
 
-1. Define a [`DetailTemplate`](slug://components/grid/features/hierarchy).
+1. Define a [`DetailTemplate`](slug:components/grid/features/hierarchy).
 1. Hide the hierarchy expand column with CSS.
-1. Use the [`SetStateAsync()` method](slug://grid-state#setstateasync-examples) to [enter and exit Grid edit mode programmatically](slug://grid-kb-add-edit-state).
+1. Use the [`SetStateAsync()` method](slug:grid-state#setstateasync-examples) to [enter and exit Grid edit mode programmatically](slug:grid-kb-add-edit-state).
 
 >tip The Telerik UI for Blazor Form works with a cloned instance of the edited or added item to support cancellation. If you cancel the addition of a new item, you need to delete it from the Grid data collection.   
 
@@ -219,5 +219,5 @@ Add an inline [Blazor Form](https://demos.telerik.com/blazor-ui/form/overview) t
 
 * <a href="https://demos.telerik.com/blazor-ui/grid/overview" target="_blank">Live Demo: Grid Overview</a>
 * <a href="https://demos.telerik.com/blazor-ui/form/overview" target="_blank">Live Demo: Form Overview</a>
-* [Documentation: Grid Overivew](slug://grid-overview)
-* [Documentation: Form Overview](slug://form-overview)
+* [Documentation: Grid Overivew](slug:grid-overview)
+* [Documentation: Form Overview](slug:form-overview)

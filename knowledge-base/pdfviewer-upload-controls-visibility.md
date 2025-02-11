@@ -32,7 +32,7 @@ This knowledge base article also answers the following questions:
 
 ## Solution
 
-To control the visibility of Upload component and its dropzone in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. To achieve that, use the [`OnOpen`](slug://pdfviewer-events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
+To control the visibility of Upload component and its dropzone in the `TelerikPdfViewer` while a PDF is loading, apply custom CSS to hide the upload controls. To achieve that, use the [`OnOpen`](slug:pdfviewer-events#onopen) event to apply a CSS class with the required styles that hide the controls until the PDF file is loaded successfully.
 
 ````RAZOR
 <TelerikPdfViewer Data="@PdfSource"
@@ -64,5 +64,5 @@ To control the visibility of Upload component and its dropzone in the `TelerikPd
 
 ## See Also
 
-- [TelerikPdfViewer Overview](slug://pdfviewer-overview)
-- [TelerikPdfViewer Events](slug://pdfviewer-events)
+- [TelerikPdfViewer Overview](slug:pdfviewer-overview)
+- [TelerikPdfViewer Events](slug:pdfviewer-events)

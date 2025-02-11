@@ -8,13 +8,13 @@ position: 0
 
 # List of Telerik UI for Blazor Versions with Breaking Changes
 
-This article lists the releases of the Telerik UI for Blazor product that introduce breaking changes. You may want to go through it when [upgrading](slug://upgrade-tutorial) to see whether you are affected.
+This article lists the releases of the Telerik UI for Blazor product that introduce breaking changes. You may want to go through it when [upgrading](slug:upgrade-tutorial) to see whether you are affected.
 
 
-* [7.0.0](slug://changes-in-7-0-0)
-* [6.0.0](slug://changes-in-6-0-0)
-* [5.0.0](slug://changes-in-5-0-0)
-* [4.0.0](slug://changes-in-4-0-0)
-* [3.0.0](slug://changes-in-3-0-0)
-* [2.2.0](slug://changes-in-2-2-0)
-* [2.0.0](slug://changes-in-2-0-0)
+* [7.0.0](slug:changes-in-7-0-0)
+* [6.0.0](slug:changes-in-6-0-0)
+* [5.0.0](slug:changes-in-5-0-0)
+* [4.0.0](slug:changes-in-4-0-0)
+* [3.0.0](slug:changes-in-3-0-0)
+* [2.2.0](slug:changes-in-2-2-0)
+* [2.0.0](slug:changes-in-2-0-0)

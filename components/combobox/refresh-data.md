@@ -21,7 +21,7 @@ In this article:
 
 ## Rebind Method
 
-To refresh the ComboBox data when using [`OnRead`](slug://components/combobox/events#onread), call the `Rebind` method of the TelerikComboBox reference. This will fire the `OnRead` event and execute the business logic in the handler.
+To refresh the ComboBox data when using [`OnRead`](slug:components/combobox/events#onread), call the `Rebind` method of the TelerikComboBox reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````RAZOR
 @* Clicking on the Rebind button will delete the first option from the dropdown and refresh the data *@
@@ -230,6 +230,6 @@ To refresh the ComboBox data when using [`OnRead`](slug://components/combobox/ev
 
 ## See Also
 
-  * [ObservableCollection](slug://common-features-observable-data)
+  * [ObservableCollection](slug:common-features-observable-data)
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui)

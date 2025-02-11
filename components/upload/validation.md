@@ -52,6 +52,6 @@ Removing invalid files with the [x] button in the Upload interface will not call
 
 ## See Also
 
-* [Upload Overview](slug://upload-overview)
-* [Upload Events](slug://upload-events)
+* [Upload Overview](slug:upload-overview)
+* [Upload Events](slug:upload-events)
 * [Live Demo: Upload Validation](https://demos.telerik.com/blazor-ui/upload/validation)

@@ -33,7 +33,7 @@ You can use the template to render arbitrary content according to your applicati
 
 ### Handle DOM events in a template - e.g., click on a node
 
->tip You can respond to the user click on a node by using the [`OnItemClick`](slug://treeview-events#onitemclick) event.
+>tip You can respond to the user click on a node by using the [`OnItemClick`](slug:treeview-events#onitemclick) event.
 
 ````RAZOR
 @result
@@ -120,7 +120,7 @@ You can use the template to render arbitrary content according to your applicati
 
 ### Use templates to implement navigation between views without the usage of the UrlField feature
 
->tip You can read more information on how to use the Treeview to switch between pages from the [Navigation](slug://treeview-navigation) article
+>tip You can read more information on how to use the Treeview to switch between pages from the [Navigation](slug:treeview-navigation) article
 
 ````RAZOR
 Implement your own navigation through NavLink elements, instead of using the built-in feature
@@ -263,5 +263,5 @@ Multiple templates usage.
 
 ## See Also
 
-  * [Data Binding a TreeView](slug://components/treeview/data-binding/overview)
+  * [Data Binding a TreeView](slug:components/treeview/data-binding/overview)
   * [Live Demo: TreeView](https://demos.telerik.com/blazor-ui/treeview/overview)

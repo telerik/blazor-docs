@@ -56,4 +56,4 @@ The nested `AppBarSection` tag exposes parameters:
 ## See Also
 
   * [Live Demo: AppBar Overview](https://demos.telerik.com/blazor-ui/appbar/overview)
-  * [AppBar Overview](slug://appbar-overview)
+  * [AppBar Overview](slug:appbar-overview)

@@ -32,7 +32,7 @@ How to define a conditional Grid Detail Template (`DetailTemplate`)? I want to h
 
 ## Solution
 
-The [`GridToolBarTemplate`](slug://components/grid/features/toolbar) and the [`DetailTemplate`](slug://components/grid/features/hierarchy) are standard Blazor `RenderFragment`s. Their default value is `null` and then the toolbar and the hierarchy are not rendered. As soon as the `<GridToolBar>` or `<DetailTemplate>` tag is added, the `RenderFragment` value is no longer `null`, even if the tag itself is empty.
+The [`GridToolBarTemplate`](slug:components/grid/features/toolbar) and the [`DetailTemplate`](slug:components/grid/features/hierarchy) are standard Blazor `RenderFragment`s. Their default value is `null` and then the toolbar and the hierarchy are not rendered. As soon as the `<GridToolBar>` or `<DetailTemplate>` tag is added, the `RenderFragment` value is no longer `null`, even if the tag itself is empty.
 
 There are two ways to display a `RenderFragment` or any template conditionally:
 

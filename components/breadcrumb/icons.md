@@ -10,7 +10,7 @@ position: 10
 
 # Breadcrumb Icons
 
-You can add [Telerik Font or SVG icons](slug://common-features-icons) to the Breadcrumb items. The component also supports custom icons.
+You can add [Telerik Font or SVG icons](slug:common-features-icons) to the Breadcrumb items. The component also supports custom icons.
 
 To use Breadcrumb icons, define a property in the component model class and assign the property name to the `IconField` parameter of the Breadcrumb.
 

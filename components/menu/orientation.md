@@ -90,5 +90,5 @@ The default orientation is horizontal.
 
 ## See Also
 
-* [Menu Overview](slug://components/menu/overview)
+* [Menu Overview](slug:components/menu/overview)
 * [Live Demo: Orientation](https://demos.telerik.com/blazor-ui/menu/orientation)

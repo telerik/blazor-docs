@@ -243,5 +243,5 @@ You can customize the default Filter Row behavior for each Gantt Tree column thr
 
 ## See Also
 
-  * [Gantt Filtering Overview](slug://gantt-filtering-overview)
+  * [Gantt Filtering Overview](slug:gantt-filtering-overview)
   * [Live Demo: Gantt Filter Row](https://demos.telerik.com/blazor-ui/gantt/filter-row)

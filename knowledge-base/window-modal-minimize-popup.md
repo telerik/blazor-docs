@@ -77,7 +77,7 @@ To minimize the Window to the bottom-right corner of the viewport:
 
 To configure a responsive popup Window that transforms to a chat bubble on small screens:
 
-1. Use the [MediaQuery component](slug://mediaquery-overview) to make the Window responsive and change its configuration, depending on the browser viewport size.
+1. Use the [MediaQuery component](slug:mediaquery-overview) to make the Window responsive and change its configuration, depending on the browser viewport size.
 1. Use custom CSS classes and styles to tweak the Window appearance and make it look like a bubble when minimized.
 
 ````RAZOR
@@ -128,4 +128,4 @@ To configure a responsive popup Window that transforms to a chat bubble on small
 
 ## See Also
 
-* [Window Position](slug://components/window/position)
+* [Window Position](slug:components/window/position)

@@ -54,5 +54,5 @@ C:\Users\[username]\AppData\Roaming\Telerik\Updates
 
 ## See Also
 
-* [Creating New Projects with Visual Studio](slug://getting-started-vs-integration-new-project )
-* [Updating Projects with Visual Studio](slug://getting-started-vs-integration-upgrade-project )
+* [Creating New Projects with Visual Studio](slug:getting-started-vs-integration-new-project )
+* [Updating Projects with Visual Studio](slug:getting-started-vs-integration-upgrade-project )

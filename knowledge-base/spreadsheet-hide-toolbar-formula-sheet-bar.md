@@ -82,4 +82,4 @@ To change the visibility of the toolbar, formula bar, and sheet bar in the Sprea
 
 ## See Also
 
-* [Spreadsheet Overview](slug://spreadsheet-overview)
+* [Spreadsheet Overview](slug:spreadsheet-overview)

@@ -46,8 +46,8 @@ The following sections discuss how to implement the desired behavior, what are t
 
 The solution below requires familiarity with:
 
-* [How to use Grid filter descriptors](slug://components/grid/filtering#filter-descriptors)
-* [How to change the Grid state](slug://grid-state)
+* [How to use Grid filter descriptors](slug:components/grid/filtering#filter-descriptors)
+* [How to change the Grid state](slug:grid-state)
 * [How to invoke Razor component events from a child component](https://docs.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-6.0#eventcallback).
 
 
@@ -55,7 +55,7 @@ The solution below requires familiarity with:
 
 Here is an overview of the major steps in the example:
 
-1. Add a search textbox to the [Grid toolbar](slug://components/grid/features/toolbar) or outside the Grid. Do not use the default [`GridSearchBox` component](slug://grid-searchbox), as it searches inside string fields only.
+1. Add a search textbox to the [Grid toolbar](slug:components/grid/features/toolbar) or outside the Grid. Do not use the default [`GridSearchBox` component](slug:grid-searchbox), as it searches inside string fields only.
 1. Handle the `oninput` event of the search textbox. Alternatively, use a search button with an `onclick` handler.
 1. Use the event handler to:
     * Create a new `CompositeFilterDescriptor`.
@@ -334,7 +334,7 @@ Here is an overview of the major steps in the example:
 
 ## See Also
 
-* [Search the Grid on Button Click](slug://grid-kb-search-button-click)
-* [Search the Grid in Hidden Fields](slug://grid-kb-search-in-hidden-fields)
-* [Search the Grid with a `StartsWith` operator](slug://grid-kb-search-startswith)
-* [Format or Bold Search Results in the Grid](slug://grid-kb-search-highlight-results)
+* [Search the Grid on Button Click](slug:grid-kb-search-button-click)
+* [Search the Grid in Hidden Fields](slug:grid-kb-search-in-hidden-fields)
+* [Search the Grid with a `StartsWith` operator](slug:grid-kb-search-startswith)
+* [Format or Bold Search Results in the Grid](slug:grid-kb-search-highlight-results)

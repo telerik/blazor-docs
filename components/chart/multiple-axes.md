@@ -32,7 +32,7 @@ This article contains the following sections:
 
 ## Define Multiple Axes
 
-The way multiple axes are declared depends on the [chart series type](slug://components/chart/databind#series-types):
+The way multiple axes are declared depends on the [chart series type](slug:components/chart/databind#series-types):
 
 ### Categorical Charts
 
@@ -550,5 +550,5 @@ This approach can work for both numerical and categorical axes. The example belo
 
 ## See Also
 
-  * [Data Binding a Chart](slug://components/chart/databind)
+  * [Data Binding a Chart](slug:components/chart/databind)
   * [Live Demos: Chart](https://demos.telerik.com/blazor-ui/chart/overview)

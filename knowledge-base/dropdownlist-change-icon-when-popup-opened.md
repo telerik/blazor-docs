@@ -29,12 +29,12 @@ Specifically, I want the icon to point up when the dropdown is expanded and to p
 
 To change the DropDownList icon when the popup is opened, follow these steps:
 
-1. Handle the [`OnOpen`](slug://components/dropdownlist/events#onopen) and [`OnClose`](slug://components/dropdownlist/events#onclose) events of the DropDownList component.
+1. Handle the [`OnOpen`](slug:components/dropdownlist/events#onopen) and [`OnClose`](slug:components/dropdownlist/events#onclose) events of the DropDownList component.
 2. Declare a flag to save the opened or closed state of the popup.
 3. Toggle the flag value in the `OnOpen` and `OnClose` event handlers.
 4. Use CSS to change the icon based on the flag value. Conditionally add a `<style>` tag to achieve this.
    - All components, including the DropDownList, use SVG icons. To change the icon, you can alter the `path` of the `<svg>` element.
-   - To get the path of the [desired icon](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list), render an [`SvgIcon`](slug://common-features-icons#svgicon-component) component, inspect it, and copy its path.
+   - To get the path of the [desired icon](https://www.telerik.com/design-system/docs/foundation/iconography/icon-list), render an [`SvgIcon`](slug:common-features-icons#svgicon-component) component, inspect it, and copy its path.
 
 >caption Change the DropDownList icon when expanded
 

@@ -22,9 +22,9 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug://components/grid/editing/overview#events). |
-| CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug://grid-export-events#onbeforeexport). |
-| ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug://grid-export-events#onbeforeexport). |
+| Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:components/grid/editing/overview#events). |
+| CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
+| ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
 
 ### Layout Tools
@@ -151,9 +151,9 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 
 ## Custom Toolbar Configuration
 
-Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the Grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://components/grid/columns/command) article).
+Add a `<GridToolBarTemplate>` tag inside `<TelerikGrid>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the Grid header to match your business needs and also `GridCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug:components/grid/columns/command) article).
 
-When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<GridToolBar>` uses the [built-in keyboard navigation](slug://accessibility-overview#keyboard-navigation) through arrow keys.
+When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<GridToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<GridToolBar>` uses the [built-in keyboard navigation](slug:accessibility-overview#keyboard-navigation) through arrow keys.
 
 >caption Custom Grid Toolbar
 
@@ -217,9 +217,9 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 
 ## Next Steps
 
-* [Handle Grid events](slug://grid-events)
+* [Handle Grid events](slug:grid-events)
 
 ## See Also
 
 * [Grid Live Demo](https://demos.telerik.com/blazor-ui/grid/overview)
-* [Grid API](slug://Telerik.Blazor.Components.TelerikGrid-1)
+* [Grid API](slug:Telerik.Blazor.Components.TelerikGrid-1)

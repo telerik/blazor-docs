@@ -55,16 +55,16 @@ The ListView component can page the entire data source automatically. Alternativ
 
 ## Events
 
-The ListView exposes three relevant events. You can find related examples in the [Events](slug://listview-events) article.
+The ListView exposes three relevant events. You can find related examples in the [Events](slug:listview-events) article.
 
 * `PageChanged` - you can use this to react to the user changing the page.
 * `PageSizeChanged` - fires when the user changes the page size via the pager DropDownList.
-* `OnRead` - you can use this to perform the read operation yourself on demand, instead of providing the entire data source at once. You can read more about this in the [Manual Data Source Operations](slug://listview-manual-operations) article.
+* `OnRead` - you can use this to perform the read operation yourself on demand, instead of providing the entire data source at once. You can read more about this in the [Manual Data Source Operations](slug:listview-manual-operations) article.
 
 >tip You can optimize database queries in two ways:
 >
 > * Use an `IQueryable<MyModel>` collection for the listview `Data`. The listview will build a LINQ expression internally that will be resolved only when needed. This can be useful when the `Data` comes from something like an EntityFramework context.
-> * Bind the ListView with an [`OnRead` handler](slug://common-features-data-binding-onread) and implement [manual data source operations](slug://listview-manual-operations).
+> * Bind the ListView with an [`OnRead` handler](slug:common-features-data-binding-onread) and implement [manual data source operations](slug:listview-manual-operations).
 
 ## Pager Settings
 
@@ -117,8 +117,8 @@ In addition to `Page` and `PageSize`, the ListView provides advanced pager confi
 
 ## See Also
 
-* [ListView Overview](slug://listview-overview)
-* [Manual Data Source Operations](slug://listview-manual-operations)
-* [Events](slug://listview-events)
-* [How to increase the pager dropdownlist width](slug://pager-kb-dropdown-width)
+* [ListView Overview](slug:listview-overview)
+* [Manual Data Source Operations](slug:listview-manual-operations)
+* [Events](slug:listview-events)
+* [How to increase the pager dropdownlist width](slug:pager-kb-dropdown-width)
 * [Live Demo: ListView](https://demos.telerik.com/blazor-ui/listview/overview)

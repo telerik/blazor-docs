@@ -47,4 +47,4 @@ It receives argument of type [MouseEventArgs](https://docs.microsoft.com/en-us/d
 
 ## See Also
 
-  * [Telerik UI for Blazor Button Overview](slug://components/button/overview)
+  * [Telerik UI for Blazor Button Overview](slug:components/button/overview)

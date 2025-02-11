@@ -57,7 +57,7 @@ The `OnCalendarCellRender` event fires when each calendar cell in each view is a
 * Find out the cell date.
 * Set a custom CSS class for the `<td>` element.
 
-As an argument, the event handler receives a [`DateTimePickerCalendarCellRenderEventArgs` object](slug://telerik.blazor.components.datetimepickercalendarcellrendereventargs), which contains the following properties:
+As an argument, the event handler receives a [`DateTimePickerCalendarCellRenderEventArgs` object](slug:telerik.blazor.components.datetimepickercalendarcellrendereventargs), which contains the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ model value: @DateTimePickerValue
 
 The `OnClose` event fires before the DateTimePicker popup closes.
 
-As an argument, the event handler receives a [`DateTimePickerCloseEventArgs` object](slug://telerik.blazor.components.datetimepickercloseeventargs), which contains the following properties:
+As an argument, the event handler receives a [`DateTimePickerCloseEventArgs` object](slug:telerik.blazor.components.datetimepickercloseeventargs), which contains the following properties:
 
 | Property | Description |
 | --- | --- |
@@ -175,7 +175,7 @@ As an argument, the event handler receives a [`DateTimePickerCloseEventArgs` obj
 
 The `OnOpen` event fires before the DateTimePicker popup renders. 
 
-As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` object](slug://telerik.blazor.components.datetimepickeropeneventargs), which contains the following properties:
+As an argument, the event handler receives a [`DateTimePickerOpenEventArgs` object](slug:telerik.blazor.components.datetimepickeropeneventargs), which contains the following properties:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -242,5 +242,5 @@ model value: @DateTimePickerValue
 
 ## See Also
 
-* [ValueChanged and Validation](slug://value-changed-validation-model)
-* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)
+* [ValueChanged and Validation](slug:value-changed-validation-model)
+* [Fire OnChange Only Once](slug:ddl-kb-onchange-fires-twice)

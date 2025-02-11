@@ -10,12 +10,12 @@ position: 10
 
 This article describes how to use token-based authentication for the Telerik NuGet feed. You will learn how to create and use NuGet API keys to restore Telerik NuGet packages in your Continuous Integration (CI) workflow.
 
-The [Telerik NuGet server](slug://installation/nuget) provides two ways to authenticate:
+The [Telerik NuGet server](slug:installation/nuget) provides two ways to authenticate:
 
 * Basic authentication with your Telerik username and password.
 * Token-based authentication with a NuGet API key.
 
-When you need to restore the [Telerik NuGet packages](slug://getting-started/what-you-need#nuget-packages) as part of your CI, a NuGet API key is the more secure way to authenticate. This method does not require you to provide your Telerik credentials anywhere in the CI workflow. A NuGet Key has a limited scope and can be used only with the Telerik NuGet server. If any of your NuGet keys is compromised, you can quickly delete it and create a new one.
+When you need to restore the [Telerik NuGet packages](slug:getting-started/what-you-need#nuget-packages) as part of your CI, a NuGet API key is the more secure way to authenticate. This method does not require you to provide your Telerik credentials anywhere in the CI workflow. A NuGet Key has a limited scope and can be used only with the Telerik NuGet server. If any of your NuGet keys is compromised, you can quickly delete it and create a new one.
 
 
 ## Generating NuGet Keys
@@ -96,12 +96,12 @@ You can use the .NET CLI `add source` or `update source` commands to set the cre
     dotnet nuget add source 'TelerikOnlineFeed' --source 'https://nuget.telerik.com/v3/index.json' --username 'api-key' --password '${{ "{{secrets.TELERIK_NUGET_KEY}}" }}' --configfile './NuGet.Config' --store-password-in-clear-text
     ````
 
-> When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors](slug://common-kb-package-telerik-pivot-not-compatible-with-netframework).
+> When restoring NuGet packages through the CLI, [use `dotnet restore` rather than `nuget restore` to avoid compatibility errors](slug:common-kb-package-telerik-pivot-not-compatible-with-netframework).
 
 
 ## See Also
 
-* [Telerik NuGet Feed](slug://installation/nuget)
-* [CI, CD, Build Server Setup](slug://deployment-ci-cd-build-pc)
+* [Telerik NuGet Feed](slug:installation/nuget)
+* [CI, CD, Build Server Setup](slug:deployment-ci-cd-build-pc)
 * [Azure DevOps and Telerik NuGet Packages](https://www.telerik.com/blogs/azure-devops-and-telerik-nuget-packages)
 * [Announcing NuGet Keys](https://www.telerik.com/blogs/announcing-nuget-keys)

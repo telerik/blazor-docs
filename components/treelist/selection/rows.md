@@ -10,7 +10,7 @@ position: 3
 
 # Row Selection
 
-The TreeList component supports [single or multiple row selection](slug://treelist-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
+The TreeList component supports [single or multiple row selection](slug:treelist-selection-overview#use-single-or-multiple-selection). You can select a row with mouse click and through a checkbox column. You can access the collection of selected rows, use this collection and modify it. You can subscribe to selection events.
 
 ## Basics
 
@@ -23,10 +23,10 @@ Check the [TreeList Keyboard navigation demo](https://demos.telerik.com/blazor-u
 To enable row selection:
 
 1. Define the selection mode through one of the following options:
-    * Set the [TreeList `SelectionMode` parameter](slug://treelist-selection-overview#use-single-or-multiple-selection), or
+    * Set the [TreeList `SelectionMode` parameter](slug:treelist-selection-overview#use-single-or-multiple-selection), or
     * Add a `<TreeListSelectionSettings>` tag to the `<TreeListSettings>` tag, and set the `SelectionType` parameter to `TreeListSelectionType.Row`.
 1. Set the TreeList `SelectedItems` parameter to a collection of type `IEnumerable<TItem>` where `TItem` is the TreeList model class. The collection must be initialized in advance.
-1. Optionally, add a [checkbox column](slug://treelist-columns-checkbox) to the `TreeListColumns` collection of the TreeList. The `TreeListCheckboxColumn` provides [additional configuration settings related to selection](slug://treelist-columns-checkbox#parameters).
+1. Optionally, add a [checkbox column](slug:treelist-columns-checkbox) to the `TreeListColumns` collection of the TreeList. The `TreeListCheckboxColumn` provides [additional configuration settings related to selection](slug:treelist-columns-checkbox#parameters).
 
 >caption TreeList multiple row selection
 
@@ -91,7 +91,7 @@ To enable row selection:
 
 You can respond to user selection actions through the `SelectedItemsChanged` event. The event handler receives a collection of the TreeList data model. The collection may have multiple, single, or no items in it, depending on the `SelectionMode` and the last user selection.
 
-> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`](slug://treelist-events#onrowclick) or [`OnRowDoubleClick`](slug://treelist-events#onrowdoubleclick) event instead.
+> The `SelectedItemsChanged` event handler cannot be awaited. To execute asynchronous operations when the user selects rows, use the [`OnRowClick`](slug:treelist-events#onrowclick) or [`OnRowDoubleClick`](slug:treelist-events#onrowdoubleclick) event instead.
 
 >caption Using the TreeList SelectedItemsChanged event
 
@@ -171,9 +171,9 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 When the TreeList `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [TreeList `OnUpdate` event](slug://treelist-editing-overview#events).
+* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [TreeList `OnUpdate` event](slug:treelist-editing-overview#events).
 * When the user deletes a selected item, the TreeList automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged-event) fires.
-* To select a new item in the TreeList you can use the [`OnCreate` event](slug://treelist-editing-overview#events) to update the `SelectedItems` collection.
+* To select a new item in the TreeList you can use the [`OnCreate` event](slug:treelist-editing-overview#events) to update the `SelectedItems` collection.
 
 ## Equals Comparison
 
@@ -181,7 +181,7 @@ The items in `SelectedItems` are compared against the items in the TreeList data
 
 * The `SelectedItems` are obtained from a different data source than the all TreeList items, for example, from a separate service.
 
-In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the TreeList model class](slug://treelist-state#basics) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
+In such cases, the selected rows may not appear as expected. You have to [override the `Equals` method of the TreeList model class](slug:treelist-state#basics) so that the items are compared by a unique identifier rather than by reference. When you override `Equals`, it is also recommended to override the [`GetHashCode`](https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode) method.
 
 ## Row Selection and Other TreeList Features
 
@@ -191,12 +191,12 @@ The selection behavior may vary when other TreeList features are enabled, such a
 
 When users edit rows, the row selection has the following behavior:
 
-* In [`Incell` edit mode](slug://treelist-editing-incell) the row selection can work only through a [checkbox column](slug://treelist-columns-checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<TreeListCheckboxColumn/>` check out the [Row Selection in Edit with InCell EditMode](slug://grid-kb-row-select-incell-edit) KB article. It is for the Grid component, but the concept is the same.
-* [`Inline` edit mode](slug://treelist-editing-inline) and [`Popup` edit mode](slug://treelist-editing-popup) integrate with row selection without limitations.
+* In [`Incell` edit mode](slug:treelist-editing-incell) the row selection can work only through a [checkbox column](slug:treelist-columns-checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<TreeListCheckboxColumn/>` check out the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) KB article. It is for the Grid component, but the concept is the same.
+* [`Inline` edit mode](slug:treelist-editing-inline) and [`Popup` edit mode](slug:treelist-editing-popup) integrate with row selection without limitations.
 
 ### Selection and Virtual Scrolling
 
-When the TreeList has [virtual scrolling](slug://treelist-virtual-scrolling), the component is able to select a range of rows with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
+When the TreeList has [virtual scrolling](slug:treelist-virtual-scrolling), the component is able to select a range of rows with **Shift** only if all rows in that range are currently rendered. Consider the following scenario:
 
 1. Select a row.
 1. Scroll down, so that virtualization kicks in and the rendered rows are no longer the same.
@@ -210,10 +210,10 @@ The `SelectedItems` collection persists across paging.
 
 ### Selection and Templates
 
-When using [TreeList templates](slug://treelist-templates-overview) with row selection:
+When using [TreeList templates](slug:treelist-templates-overview) with row selection:
 
-* If you are using a [TreeList column template](slug://treelist-templates-column) and you have a clickable element in the template, you can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template](slug://grid-kb-row-selection-in-column-template). It is for the Grid component, but the concept is identical.
-* If you are using a [row template](slug://treelist-templates-row) the TreeList cannot render a built-in [checkbox column](slug://treelist-columns-checkbox). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the TreeList. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item). It is for the Grid component, but the concept is identical.
+* If you are using a [TreeList column template](slug:treelist-templates-column) and you have a clickable element in the template, you can check the knowledge base article on [how to prevent row selection when the user clicks another component in the Grid column template](slug:grid-kb-row-selection-in-column-template). It is for the Grid component, but the concept is identical.
+* If you are using a [row template](slug:treelist-templates-row) the TreeList cannot render a built-in [checkbox column](slug:treelist-columns-checkbox). You have to render checkboxes manually and handle their changed event to populate the `SelectedItems` collection of the TreeList. You can find an example to get started in the following thread: [Grid Row Template with Selection - Unsure how to Bind to Selected Item](https://feedback.telerik.com/blazor/1463819-grid-row-template-with-selection-unsure-how-to-bind-to-selected-item). It is for the Grid component, but the concept is identical.
 
 ### Selection and Row Drag and Drop
 

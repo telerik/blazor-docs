@@ -25,7 +25,7 @@ res_type: kb
 This KB article answers the following questions:
 
 * How to display only all-day events in the Scheduler?
-* How to show only all-day appointments in a [Timeline View](slug://scheduler-views-timeline) of the Scheduler?
+* How to show only all-day appointments in a [Timeline View](slug:scheduler-views-timeline) of the Scheduler?
 * How to create a multiday scheduler view that only displays the all-day events?
 
 ## Solution

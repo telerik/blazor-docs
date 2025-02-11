@@ -34,8 +34,8 @@ To configure the initially displayed files, use the `Files` parameter of the Upl
 ## Persist Selected Files
 
 The Initial Files feature of the Upload allows you to save a list of files that the user has selected. Then, you can display them again when the page is reloaded. To achieve this:
-1. Store the [`UploadFileInfo`](slug://upload-events#uploadfileinfo) records received during the [`OnSelect`](slug://upload-events#onselect) event.
-1. Load the [`UploadFileInfo`](slug://upload-events#uploadfileinfo) records in the Upload when the page is loaded.
+1. Store the [`UploadFileInfo`](slug:upload-events#uploadfileinfo) records received during the [`OnSelect`](slug:upload-events#onselect) event.
+1. Load the [`UploadFileInfo`](slug:upload-events#uploadfileinfo) records in the Upload when the page is loaded.
 
 >caption How to load files and display them initially in the Upload
 
@@ -82,5 +82,5 @@ The Initial Files feature of the Upload allows you to save a list of files that 
 
 ## See Also
 
-* [Upload API](slug://Telerik.Blazor.Components.TelerikUpload)
-* [Upload Overview](slug://upload-overview)
+* [Upload API](slug:Telerik.Blazor.Components.TelerikUpload)
+* [Upload Overview](slug:upload-overview)

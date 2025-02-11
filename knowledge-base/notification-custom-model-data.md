@@ -26,11 +26,11 @@ I need to get a custom field with different value to each notification (i.e. the
 
 ## Solution
 
-1. Implement a `class` that inherits from [`Telerik.Blazor.Components.NotificationModel`](slug://Telerik.Blazor.Components.NotificationModel). For example, `MyExtendedNotificationModel`.
+1. Implement a `class` that inherits from [`Telerik.Blazor.Components.NotificationModel`](slug:Telerik.Blazor.Components.NotificationModel). For example, `MyExtendedNotificationModel`.
 1. Add the required properties to the new class.
-1. Pass a `MyExtendedNotificationModel` instance to the Notification [`Show` method](slug://notification-open-close-hide). This will allow you to set the custom properties.
-1. In the [Notification `<Template>`](slug://notification-templates), cast the `context` to `MyExtendedNotificationModel`. This will allow you to access and consume the additional data.
-1. If you use [both overloads of `Show()`](slug://notification-open-close-hide#open), make sure to check if the cast is successful, otherwise you may get a `NullReferenceException`.
+1. Pass a `MyExtendedNotificationModel` instance to the Notification [`Show` method](slug:notification-open-close-hide). This will allow you to set the custom properties.
+1. In the [Notification `<Template>`](slug:notification-templates), cast the `context` to `MyExtendedNotificationModel`. This will allow you to access and consume the additional data.
+1. If you use [both overloads of `Show()`](slug:notification-open-close-hide#open), make sure to check if the cast is successful, otherwise you may get a `NullReferenceException`.
 
 ````RAZOR
 <TelerikNotification @ref="@NotificationReference">

@@ -1,5 +1,5 @@
 #initial-state
->tip If you want to set an initial state to the Grid, use a similar snippet, but in the [`OnStateInit event`](slug://grid-state#onstateinit)
+>tip If you want to set an initial state to the Grid, use a similar snippet, but in the [`OnStateInit event`](slug:grid-state#onstateinit)
 #end
 
 

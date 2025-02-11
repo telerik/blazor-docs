@@ -29,9 +29,9 @@ How to implement RadioGroup behavior, but style the label and radio input pairs 
 
 Use custom CSS to make the radio inputs invisible and style their labels to look like buttons.
 
-The RadioGroup will look similar to a [ButtonGroup with single selection](slug://buttongroup-selection#single-selection). The major difference is that the RadioGroup has a single value of type `<T>`, while each button in the ButtonGroup is bound to a separate `boolean` value for its selected state.
+The RadioGroup will look similar to a [ButtonGroup with single selection](slug:buttongroup-selection#single-selection). The major difference is that the RadioGroup has a single value of type `<T>`, while each button in the ButtonGroup is bound to a separate `boolean` value for its selected state.
 
->tip The following example is for versions 6.0 and above, which feature an [updated HTML rendering for the RadioGroup](slug://rendering-changes-in-6-0-0#radiogroup). If you are using an older version, use the [alternative CSS code from the section below](#solution-up-to-version-5-1-1).
+>tip The following example is for versions 6.0 and above, which feature an [updated HTML rendering for the RadioGroup](slug:rendering-changes-in-6-0-0#radiogroup). If you are using an older version, use the [alternative CSS code from the section below](#solution-up-to-version-5-1-1).
 
 >caption Style the RadioGroup like a ButtonGroup
 
@@ -221,4 +221,4 @@ The following CSS code targets different RadioGroup HTML markup up to version 5.
 
 ## See Also
 
-* [How to override CSS theme styles](slug://themes-override)
+* [How to override CSS theme styles](slug:themes-override)

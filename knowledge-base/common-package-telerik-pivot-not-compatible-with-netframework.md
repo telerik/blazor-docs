@@ -57,7 +57,7 @@ To fix and avoid NuGet restore errors, use the [.NET CLI `dotnet restore` comman
 
 ## See Also
 
-* [Setting up the Telerik NuGet Source](slug://installation/nuget)
-* [Troubleshooting the Telerik NuGet Source](slug://troubleshooting-nuget)
+* [Setting up the Telerik NuGet Source](slug:installation/nuget)
+* [Troubleshooting the Telerik NuGet Source](slug:troubleshooting-nuget)
 * [.NET CLI dotnet restore command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore)
 * [.NET CLI dotnet nuget commands](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-nuget-add-source)

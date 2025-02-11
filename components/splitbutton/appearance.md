@@ -12,7 +12,7 @@ position: 10
 
 This article describes the declarative settings of the SplitButton component, which affect its styling and appearance.
 
-The SplitButton provides the same appearance parameters, as the regular [Button component](slug://button-appearance):
+The SplitButton provides the same appearance parameters, as the regular [Button component](slug:button-appearance):
 
 * [FillMode](#fillmode)
 * [Rounded](#rounded)
@@ -230,11 +230,11 @@ The `ThemeColor` parameter sets the SplitButton's background and text color from
 
 ## Next Steps
 
-* [Handle SplitButton Events](slug://splitbutton-events)
-* [Add SplitButton Icons](slug://splitbutton-icons)
+* [Handle SplitButton Events](slug:splitbutton-events)
+* [Add SplitButton Icons](slug:splitbutton-icons)
 
 
 ## See Also
 
 * [Live Demo: SplitButton Appearance](https://demos.telerik.com/blazor-ui/splitbutton/appearance)
-* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug:Telerik.Blazor.Components.TelerikSplitButton)

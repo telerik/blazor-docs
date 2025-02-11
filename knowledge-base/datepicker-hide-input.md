@@ -33,11 +33,11 @@ Is there a way to hide the input portion of the DatePicker and leave only the se
 
 ## Solution
 
-Use [custom CSS](slug://themes-override) to hide the textbox and leave only the button and icon.
+Use [custom CSS](slug:themes-override) to hide the textbox and leave only the button and icon.
 
 To customize only specific Date/Time Pickers, use their Class parameter.
 
-This technique prevents automatic closing of the DatePicker popup after the user selects a date. To hide the popup, call JavaScript from the [`ValueChanged` event handler](slug://components/datepicker/events#valuechanged). This workaround is not necessary for DateTimePickers and TimePickers.
+This technique prevents automatic closing of the DatePicker popup after the user selects a date. To hide the popup, call JavaScript from the [`ValueChanged` event handler](slug:components/datepicker/events#valuechanged). This workaround is not necessary for DateTimePickers and TimePickers.
 
 >caption Hide Date/Time Picker TextBox
 

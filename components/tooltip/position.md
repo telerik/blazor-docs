@@ -54,10 +54,10 @@ You can control it through the `Position` parameter, which takes a member of the
 
 ## Next Steps
 
-* [Choose a Tooltip Show Event](slug://tooltip-show-event)
-* [Explore ToolTip Templates](slug://tooltip-template)
+* [Choose a Tooltip Show Event](slug:tooltip-show-event)
+* [Explore ToolTip Templates](slug:tooltip-template)
 
 ## See Also
 
-* [Blazor Tooltip Overview](slug://tooltip-overview)
+* [Blazor Tooltip Overview](slug:tooltip-overview)
 * [Live Demo: Tooltip Position](https://demos.telerik.com/blazor-ui/tooltip/position)

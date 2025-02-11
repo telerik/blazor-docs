@@ -36,9 +36,9 @@ This KB article answers the following questions:
 
 To render Form items inside custom Razor components:
 
-1. Define all [`<FormGroup>`](slug://form-formgroups) and [`<FormItem>`](slug://form-formitems) instances inside the `<FormItems>` tag of the Form.
-1. Add a [`<FormItemsTemplate>`](slug://form-formitems-formitemstemplate) tag to the Form.
-1. Define [group renderers](slug://form-formitems-formitemstemplate#form-group-renderer) and [item renderers](slug://form-formitems-formitemstemplate#form-item-renderer) for the Form groups and items, which will be children of the `<FormItemsTemplate>`.
+1. Define all [`<FormGroup>`](slug:form-formgroups) and [`<FormItem>`](slug:form-formitems) instances inside the `<FormItems>` tag of the Form.
+1. Add a [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate) tag to the Form.
+1. Define [group renderers](slug:form-formitems-formitemstemplate#form-group-renderer) and [item renderers](slug:form-formitems-formitemstemplate#form-item-renderer) for the Form groups and items, which will be children of the `<FormItemsTemplate>`.
 1. Add the custom Razor components inside `<FormItemsTemplate>`.
 1. Define parameters for the custom Razor components, which will receive Form groups or Form items.
 1. Define the required renderers inside the custom Razor components, according to the parameters from the previous step.
@@ -202,5 +202,5 @@ namespace YourAppName.Data
 
 ## See Also
 
-* [Form Template for All Items](slug://form-formitems-formitemstemplate)
-* [Form Items](slug://form-formitems)
+* [Form Template for All Items](slug:form-formitems-formitemstemplate)
+* [Form Items](slug:form-formitems)

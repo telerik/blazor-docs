@@ -23,21 +23,21 @@ res_type: kb
 
 ## Description
 
-I want to programmatically [select a row in the Grid](slug://grid-selection-row) based on specific conditions in my code. Once selected, I’d like the Grid to automatically scroll to that row so it’s visible to the user.
+I want to programmatically [select a row in the Grid](slug:grid-selection-row) based on specific conditions in my code. Once selected, I’d like the Grid to automatically scroll to that row so it’s visible to the user.
 
 ## Solution
 
 The solution to select programatically a row in Grid and scroll to that selected row, depends on the Grid configuration.
 
-### Grid with **[paging feature](slug://components/grid/features/paging)**
+### Grid with **[paging feature](slug:components/grid/features/paging)**
 
 1. Ensure the Grid is on the same page as the selected row.
 1. Invoke a JavaScript to make the browser scroll to the selected row into view. The browsers provide the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView" target="_blank">`scrollIntoView()` method</a> that does the scrolling. You can find a selected row in the grid markup by its `k-selected` CSS class.
 
-### Grid with **[virtualization feature](slug://components/grid/virtual-scrolling)**
+### Grid with **[virtualization feature](slug:components/grid/virtual-scrolling)**
 
-1. Use the [Grid state](slug://grid-state).
-1. Set the [`Skip` parameter](slug://grid-state#information-in-the-grid-state) to the index of the item in the current data collection.
+1. Use the [Grid state](slug:grid-state).
+1. Set the [`Skip` parameter](slug:grid-state#information-in-the-grid-state) to the index of the item in the current data collection.
 
 ## Example
 
@@ -284,6 +284,6 @@ The example below offers comments in the code on some possible improvements.
 ````
 
 ## See Also
-* [Grid Row Selection](slug://grid-selection-row)
-* [Grid paging feature](slug://components/grid/features/paging)
-* [Grid virtualization feature](slug://components/grid/virtual-scrolling)
+* [Grid Row Selection](slug:grid-selection-row)
+* [Grid paging feature](slug:components/grid/features/paging)
+* [Grid virtualization feature](slug:components/grid/virtual-scrolling)

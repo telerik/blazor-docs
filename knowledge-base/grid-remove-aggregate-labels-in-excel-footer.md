@@ -32,10 +32,10 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Install the required [Telerik Document Processing NuGet packages](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started). Note the [version compatibility requirements to avoid conflicts with Telerik UI for Blazor](slug://dpl-kb-version-conflict-detected-telerik-zip).
+1. Install the required [Telerik Document Processing NuGet packages](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/getting-started). Note the [version compatibility requirements to avoid conflicts with Telerik UI for Blazor](slug:dpl-kb-version-conflict-detected-telerik-zip).
     * `Telerik.Documents.Spreadsheet`
     * `Telerik.Documents.Spreadsheet.FormatProviders.OpenXml`
-1. Subscribe to the [Grid `OnAfterExport` event for Excel export](slug://grid-export-events#onafterexport).
+1. Subscribe to the [Grid `OnAfterExport` event for Excel export](slug:grid-export-events#onafterexport).
 1. In the `OnAfterExport` handler, obtain the generated Excel file as a byte array from the `Stream` property of the [`GridAfterExcelExportEventArgs` event argument](/blazor-ui/api/telerik.blazor.components.gridafterexcelexporteventargs).
 1. Create a new `MemoryStream` object and populate it with the Excel file byte array.
 
@@ -43,9 +43,9 @@ This KB article answers the following questions:
 
 1. Use an [`XlsxFormatProvider` to `Import()` the Excel file `MemoryStream` as a `Workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/import-and-export-to-excel-file-formats/xlsx/xlsxformatprovider).
 1. Get the `Worksheet` object from the `Workbook`.
-1. [Find the footer cells by their row and column indexes](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet), which depend on the exported number of rows and [current Grid column state](slug://grid-kb-column-state). Alternatively, [iterate cell ranges](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/iterating-used-cells).
+1. [Find the footer cells by their row and column indexes](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/accessing-cells-of-worksheet), which depend on the exported number of rows and [current Grid column state](slug:grid-kb-column-state). Alternatively, [iterate cell ranges](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/iterating-used-cells).
 1. Get each footer cell value (`ICellValue` object) and use `ICellValue.RawValue` to obtain the actual cell content.
-1. [Set the modified footer cell values](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/get-set-clear-properties), according to your business requirements. You can remove the predefined aggregate labels or add custom content that is similar to the [Grid `FooterTemplate`](slug://grid-templates-column-footer) content.
+1. [Set the modified footer cell values](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/working-with-cells/get-set-clear-properties), according to your business requirements. You can remove the predefined aggregate labels or add custom content that is similar to the [Grid `FooterTemplate`](slug:grid-templates-column-footer) content.
 1. [`Export()` the modified `Workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/import-and-export-to-excel-file-formats/xlsx/xlsxformatprovider) to a new `MemoryStream` and then to a `byte[]`. Assign the byte array to the `Stream` property of the `GridAfterExcelExportEventArgs` event argument.
 
 >caption Remove aggregate labels from footer cells in the exported Excel file by the Grid
@@ -179,6 +179,6 @@ This KB article answers the following questions:
 
 ## See Also
 
-* [Grid Export Events](slug://grid-export-events)
-* [Grid Excel Export](slug://grid-export-excel)
-* [Telerik Document Processing](slug://dpl-in-blazor)
+* [Grid Export Events](slug:grid-export-events)
+* [Grid Excel Export](slug:grid-export-excel)
+* [Telerik Document Processing](slug:dpl-in-blazor)

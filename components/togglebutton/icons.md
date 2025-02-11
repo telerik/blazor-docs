@@ -18,7 +18,7 @@ You can put a Font or Svg Icon in the toggle button to illustrate its purpose fo
 
 | Parameter | Type and Default Value | Description |
 |---|---|---|
-| `Icon`| `object` | Use it to display a [Telerik Font and SVG Icons](slug://common-features-icons). |
+| `Icon`| `object` | Use it to display a [Telerik Font and SVG Icons](slug:common-features-icons). |
 
 The following example shows how to use SVG and Font icons. If you don't add text to the button, the button will center the icon on all sides.
 
@@ -56,4 +56,4 @@ Images and icons should generally be small enough to fit in a line of text - the
 
 ## See Also
 
-* [ToggleButton Overview](slug://togglebutton-overview)
+* [ToggleButton Overview](slug:togglebutton-overview)

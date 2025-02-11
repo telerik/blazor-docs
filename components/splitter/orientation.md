@@ -99,8 +99,8 @@ Sometimes you need to create a more complex layout that includes both horizontal
 
 ## Next Steps
 
-* [Manage the Splitter state](slug://splitter-state)
-* [Handle Splitter events](slug://splitter-events)
+* [Manage the Splitter state](slug:splitter-state)
+* [Handle Splitter events](slug:splitter-events)
 
 ## See Also
 

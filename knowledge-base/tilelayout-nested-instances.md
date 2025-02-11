@@ -160,6 +160,6 @@ To manage nested TileLyouts with resizing and reordering:
 ````
 
 ## See Also
-- [TileLayout Overview](slug://tilelayout-overview)
-- [TileLayout Reorderable Documentation](slug://tilelayout-reorder)
-- [TileLayout Resizable Documentation](slug://tilelayout-resize)
+- [TileLayout Overview](slug:tilelayout-overview)
+- [TileLayout Reorderable Documentation](slug:tilelayout-reorder)
+- [TileLayout Resizable Documentation](slug:tilelayout-resize)

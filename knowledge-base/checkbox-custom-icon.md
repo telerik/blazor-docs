@@ -31,7 +31,7 @@ This knowledge base article answers the following questions:
 
 ## Solution
 1. Set a custom CSS class to the Tooltip through the `Class` parameter. This configuration will allow you to target specific Checkbox instances.
-2. Use the defiend class to [override the theme styles](slug://themes-override) with the following CSS approach.
+2. Use the defiend class to [override the theme styles](slug:themes-override) with the following CSS approach.
 
 >caption How to change the Checkbox icons
 
@@ -85,6 +85,6 @@ This knowledge base article answers the following questions:
 ````
 
 ## See Also
-* [Built-in Font and SVG Icons](slug://common-features-icons)
-* [Checkbox Indeterminate State](slug://checkbox-indeterminate-state)
+* [Built-in Font and SVG Icons](slug:common-features-icons)
+* [Checkbox Indeterminate State](slug:checkbox-indeterminate-state)
 

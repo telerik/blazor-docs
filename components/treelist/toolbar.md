@@ -22,7 +22,7 @@ The [Blazor TreeList](https://demos.telerik.com/blazor-ui/treelist/overview) dis
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Add | `TreeListToolBarAddTool` | An add command that fires the [`OnAdd` event](slug://treelist-editing-overview#events). |
+| Add | `TreeListToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:treelist-editing-overview#events). |
 | SearchBox | `TreeListToolBarSearchBoxTool` | A searchbox that filters multiple TreeList columns simultaneously. |
 
 ### Layout Tools
@@ -226,9 +226,9 @@ Add a `<TreeListToolBar>` tag inside `<TelerikTreeList>` to configure a toolbar,
 
 ## Custom Toolbar Configuration
 
-Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the TreeList header to match your business needs and also `TreeListCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug://treelist-columns-command) article).
+Add a `<TreeListToolBarTemplate>` tag inside `<TelerikTreeList>` to configure a custom toolbar. You can add your own HTML and components to create a more complex layout in the TreeList header to match your business needs and also `TreeListCommandButton` instances (read more about the features available in those buttons in the [Command Column](slug:treelist-columns-command) article).
 
-When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<TreeListToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<TreeListToolBar>` uses the [built-in keyboard navigation](slug://accessibility-overview#keyboard-navigation) through arrow keys.
+When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navigate between the focusable items. This is because the `<TreeListToolBarTemplate>` allows rendering of custom elements. On the other hand, the `<TreeListToolBar>` uses the [built-in keyboard navigation](slug:accessibility-overview#keyboard-navigation) through arrow keys.
 
 >caption Custom TreeList Toolbar
 
@@ -345,10 +345,10 @@ When using a `<TreeListToolBarTemplate>`, you need to use the `Tab` key to navig
 
 ## Next Steps
 
-* [Handle TreeList events](slug://treelist-events)
+* [Handle TreeList events](slug:treelist-events)
 
 
 ## See Also
 
 * [TreeList Live Demo](https://demos.telerik.com/blazor-ui/treelist/overview)
-* [TreeList API](slug://Telerik.Blazor.Components.TelerikTreeList-1)
+* [TreeList API](slug:Telerik.Blazor.Components.TelerikTreeList-1)

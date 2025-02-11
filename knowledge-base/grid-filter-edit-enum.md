@@ -27,7 +27,7 @@ If I'm filtering a column containing enum values I expect a dropdown of availabl
 
 ## Solution
 
-For versions prior to `2.15.0`, you could use a [custom editor template](slug://grid-templates-editor) and put a [dropdown bound to the enum](slug://dropdown-kb-bind-to-enum) in it. Filtering, however, was based on the numerical values of the enum.
+For versions prior to `2.15.0`, you could use a [custom editor template](slug:grid-templates-editor) and put a [dropdown bound to the enum](slug:dropdown-kb-bind-to-enum) in it. Filtering, however, was based on the numerical values of the enum.
 
 As of **2.15.0**, the grid provides enum filtering and editing through dropdowns out-of-the-box without any additional code.
 

@@ -24,7 +24,7 @@ res_type: kb
 
 ## Description
 
-The `file.Stream` object in the [FileSelect `OnSelect` event handler](slug://fileselect-events#onselect) throws a `NotImplementedException`.
+The `file.Stream` object in the [FileSelect `OnSelect` event handler](slug:fileselect-events#onselect) throws a `NotImplementedException`.
 
 The FileSelect `Stream` (`FileInfoStream`) has exposed methods that are "not implemented".
 
@@ -46,11 +46,11 @@ The same exception will occur for the following methods and properties:
 
 ## Possible Cause
 
-Due to Blazor framework limitations, [`FileInfoStream` does not support synchronous operations](slug://fileselect-events#fileselectfileinfo) such as `Read`, `Seek`, `Flush` and `Write`. The methods exist, but throw an exception.
+Due to Blazor framework limitations, [`FileInfoStream` does not support synchronous operations](slug:fileselect-events#fileselectfileinfo) such as `Read`, `Seek`, `Flush` and `Write`. The methods exist, but throw an exception.
 
 ## Solution
 
-Copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsync()`. Apart from the example below, also check the [FileSelect `OnSelect` event documentation](slug://fileselect-events#onselect).
+Copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsync()`. Apart from the example below, also check the [FileSelect `OnSelect` event documentation](slug:fileselect-events#onselect).
 
 >caption Copy the FileSelect Stream to another one and use sync methods
 
@@ -78,4 +78,4 @@ Copy the `FileInfoStream` **asynchronously** to another `Stream` via `CopyToAsyn
 
 ## See Also
 
-* [FileSelect Overview](slug://fileselect-overview)
+* [FileSelect Overview](slug:fileselect-overview)

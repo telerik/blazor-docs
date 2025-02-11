@@ -48,7 +48,7 @@ If the `Type` parameter value is not matching the type of the content, you will 
 
 ## Next Steps
 
-* [Configure the appearance options of the Avatar](slug://avatar-appearance)
+* [Configure the appearance options of the Avatar](slug:avatar-appearance)
 
 ## See Also
 

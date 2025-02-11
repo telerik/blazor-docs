@@ -405,4 +405,4 @@ Both event arguments expose an `Item` and `IsCancelled` properties. To cancel ea
 
 ## See Also
 
-  * [PanelBar Overview](slug://panelbar-overview)
+  * [PanelBar Overview](slug:panelbar-overview)

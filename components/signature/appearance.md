@@ -162,5 +162,5 @@ Use the `Size` parameter to apply the `min-height` CSS style to the `<div class=
 
 ## See Also
 
-* [Signature Overview](slug://signature-overview)
+* [Signature Overview](slug:signature-overview)
 * [Live Demo: Signature Overview](https://demos.telerik.com/blazor-ui/signature/overview)

@@ -29,7 +29,7 @@ The use case would be to choose a start datetime and then the user inputs a time
 
 ## Solution
 
-You can create a custom input for time duration using a [MaskedTextBox](slug://maskedtextbox-overview). The used mask could be `00:00:00` and you can [include the literals in the value](slug://maskedtextbox-mask-prompt#include-literals-in-the-value), so you can then split the MaskedTextBox value string by them and assign the separate hours, minutes, seconds values to corresponding variables.
+You can create a custom input for time duration using a [MaskedTextBox](slug:maskedtextbox-overview). The used mask could be `00:00:00` and you can [include the literals in the value](slug:maskedtextbox-mask-prompt#include-literals-in-the-value), so you can then split the MaskedTextBox value string by them and assign the separate hours, minutes, seconds values to corresponding variables.
 
 Then, use the `AddHours`, `AddMinutes`, `AddSeconds` methods of `DateTime` objects to add the hours, minutes, seconds values to the start datetime and thus calculate the end datetime.
 

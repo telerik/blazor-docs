@@ -28,18 +28,18 @@ res_type: kb
 
 ## Description
 
-How to use calendar [month cell template](slug://calendar-templates-month) (`MonthCellTemplate`) with the TelerikDatePicker? I need to modify color and font size of enabled and disabled dates inside the Calendar.
+How to use calendar [month cell template](slug:calendar-templates-month) (`MonthCellTemplate`) with the TelerikDatePicker? I need to modify color and font size of enabled and disabled dates inside the Calendar.
 
 ## Solution
 
-At the time of writing (UI for Blazor version 2.29), the DatePicker does not expose [Calendar templates](slug://calendar-templates-overview). However, it is possible to achieve the desired result with a combination of a few components:
+At the time of writing (UI for Blazor version 2.29), the DatePicker does not expose [Calendar templates](slug:calendar-templates-overview). However, it is possible to achieve the desired result with a combination of a few components:
 
-* [DateInput](slug://components/dateinput/overview),
-* [icon button](slug://button-icons)
-* [Calendar](slug://components/calendar/overview)
-* [AnimationContainer](slug://components/animationcontainer/overview).
+* [DateInput](slug:components/dateinput/overview),
+* [icon button](slug:button-icons)
+* [Calendar](slug:components/calendar/overview)
+* [AnimationContainer](slug:components/animationcontainer/overview).
 
-The only difference to a DatePicker is that the Calendar will not hide automatically when the user clicks outside the popup. The user will need to click on the icon button, or select a date. To improve the experience, you can add a "close" button inside the AnimationContainer or [close it with JavaScript](slug://animationcontainer-kb-close-on-outside-click).
+The only difference to a DatePicker is that the Calendar will not hide automatically when the user clicks outside the popup. The user will need to click on the icon button, or select a date. To improve the experience, you can add a "close" button inside the AnimationContainer or [close it with JavaScript](slug:animationcontainer-kb-close-on-outside-click).
 
 The components are wrapped in a container with a `position:relative` style. This is needed to align the AnimationContainer popup position to the DateInput.
 
@@ -109,4 +109,4 @@ TelerikDateInput:
 
 ## See Also
 
-* [Hide the AnimationContainer on outside click](slug://animationcontainer-kb-close-on-outside-click)
+* [Hide the AnimationContainer on outside click](slug:animationcontainer-kb-close-on-outside-click)

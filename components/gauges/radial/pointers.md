@@ -160,7 +160,7 @@ The pointer caps are rendered as per the order they are declared in the markup -
 
 * [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
 * [Live Demo: Radial Gauge - Multiple pointers](https://demos.telerik.com/blazor-ui/radialgauge/multiple-pointers)
-* [Radial Gauge: Overview](slug://radial-gauge-overview)
-* [Radial Gauge: Scale](slug://radial-gauge-scale)
-* [Radial Gauge: Labels](slug://radial-gauge-labels)
-* [Radial Gauge: Ranges](slug://radial-gauge-ranges)
+* [Radial Gauge: Overview](slug:radial-gauge-overview)
+* [Radial Gauge: Scale](slug:radial-gauge-scale)
+* [Radial Gauge: Labels](slug:radial-gauge-labels)
+* [Radial Gauge: Ranges](slug:radial-gauge-ranges)

@@ -45,5 +45,5 @@ The Telerik Blazor Color Palette component comes with a set of predefined color 
 
 ## See Also
 
-* [Color Palette Overview](slug://colorpalette-overview)
-* [Custom Color Lists](slug://colorpalette-custom-colors)
+* [Color Palette Overview](slug:colorpalette-overview)
+* [Custom Color Lists](slug:colorpalette-custom-colors)

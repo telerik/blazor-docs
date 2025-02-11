@@ -23,12 +23,12 @@ res_type: kb
 
 ## Description
 
-I want to set different background colors to the appointments dynamically. I can add custom CSS classes through the [OnItemRender](slug://scheduler-events#itemrender) event. However, this isn't a practical use case for us, as we will be applying many different styles, which can change depending on who is using the application, so we don't want to have that many classes for each case. Is there any other way to achieve the desired result? We already have the colors in the database.
+I want to set different background colors to the appointments dynamically. I can add custom CSS classes through the [OnItemRender](slug:scheduler-events#itemrender) event. However, this isn't a practical use case for us, as we will be applying many different styles, which can change depending on who is using the application, so we don't want to have that many classes for each case. Is there any other way to achieve the desired result? We already have the colors in the database.
 
 ## Solution
 
 * Add background-color and color properties to the appointment model.
-* Use [Appointment Templates](slug://scheduler-templates-appointment) to render the desired colors and styles for each appointment. Retrieve the style values from the template `context`.
+* Use [Appointment Templates](slug:scheduler-templates-appointment) to render the desired colors and styles for each appointment. Retrieve the style values from the template `context`.
 * Wrap the appointment template content in a container that will hold the custom styles.
 * (optional) Remove the default `padding` of the `.k-event` elements.
 

@@ -32,34 +32,34 @@ In this article:
 
 The following components support observable data for their `Data` parameter. Note that observable data is not supported with manual data binding via the `OnRead` event.
 
-* [AutoComplete](slug://autocomplete-refresh-data)
+* [AutoComplete](slug:autocomplete-refresh-data)
 
-* [Carousel](slug://carousel-refresh-data)
+* [Carousel](slug:carousel-refresh-data)
 
-* [ComboBox](slug://combobox-refresh-data)
+* [ComboBox](slug:combobox-refresh-data)
 
-* [DropDownList](slug://dropdownlist-refresh-data)
+* [DropDownList](slug:dropdownlist-refresh-data)
 
-* [Grid documentation](slug://grid-refresh-data), [live demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
+* [Grid documentation](slug:grid-refresh-data), [live demo](https://demos.telerik.com/blazor-ui/grid/observable-data)
 
-* [ListView](slug://listview-refresh-data)
+* [ListView](slug:listview-refresh-data)
 
-* [MultiSelect](slug://multiselect-refresh-data)
+* [MultiSelect](slug:multiselect-refresh-data)
 
-* [TreeList](slug://treelist-refresh-data)
+* [TreeList](slug:treelist-refresh-data)
 
-* [TreeView](slug://treeview-refresh-data)
+* [TreeView](slug:treeview-refresh-data)
 
 
 You can refresh other components that do not support observable data by creating a [New collection reference](#refresh-data).
 
-* [Scheduler](slug://scheduler-refresh-data)
+* [Scheduler](slug:scheduler-refresh-data)
 
-* [Menu](slug://menu-refresh-data)
+* [Menu](slug:menu-refresh-data)
 
-* [Drawer](slug://drawer-refresh-data)
+* [Drawer](slug:drawer-refresh-data)
 
-* [ContextMenu](slug://context-menu-refresh-data)
+* [ContextMenu](slug:context-menu-refresh-data)
 
 
 ## See Also

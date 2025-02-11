@@ -23,7 +23,7 @@ ticketid: 1675338
 </table>
 
 ## Description
-In some scenarios, you might want to conditionally show or hide command buttons in a [Grid for Blazor](slug://grid-overview) based on the data of the current row. For instance, you may want to display a delete button only for items that meet certain criteria. This article demonstrates how to achieve this behavior by using the context of the command column.
+In some scenarios, you might want to conditionally show or hide command buttons in a [Grid for Blazor](slug:grid-overview) based on the data of the current row. For instance, you may want to display a delete button only for items that meet certain criteria. This article demonstrates how to achieve this behavior by using the context of the command column.
 
 ## Solution
 To conditionally show or hide command buttons in a Grid, use the context parameter of the `GridCommandColumn` to access the current row's data. Based on this data, you can conditionally render the command button.
@@ -233,5 +233,5 @@ If you prefer not to remove the button from the DOM but simply hide it, you can 
 ````
 
 ## See Also
-* [Grid Overview](slug://grid-overview)
-* [Grid Command Column](slug://components/grid/columns/command)
+* [Grid Overview](slug:grid-overview)
+* [Grid Command Column](slug:components/grid/columns/command)

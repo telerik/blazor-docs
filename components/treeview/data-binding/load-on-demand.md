@@ -14,7 +14,7 @@ This article explains how to load nodes on demand the TreeView for Blazor.
 @[template](/_contentTemplates/treeview/basic-example.md#data-binding-basics-link)
 
 
-You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [flat](slug://components/treeview/data-binding/flat-data) or [hierarchical](slug://components/treeview/data-binding/hierarchical-data) data to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
+You don't have to provide all the data the treeview will render at once - the root nodes are sufficient for an initial display. You can then use the `OnExpand` event of the treeview to provide [flat](slug:components/treeview/data-binding/flat-data) or [hierarchical](slug:components/treeview/data-binding/hierarchical-data) data to the node that was just expanded. Loading nodes on demand can improve the performance of your application by requesting less data at any given time.
 
 In this article:
 
@@ -26,7 +26,7 @@ In this article:
 
 ## Hierarchical Data Load on Demand - One Model
 
-The **example** below shows how you can handle hierarchical data load on demand in detail. It uses the same model for the two different [levels of data bindings](slug://components/treeview/data-binding/overview#multiple-level-bindings) it showcases.
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses the same model for the two different [levels of data bindings](slug:components/treeview/data-binding/overview#multiple-level-bindings) it showcases.
 
 >caption One Model Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
@@ -234,7 +234,7 @@ The **example** below shows how you can handle flat data load on demand in detai
 
 ## Hierarchical Data Load on Demand - Different Models
 
-The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings](slug://components/treeview/data-binding/overview#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings ( see [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand-one-model) ).
+The **example** below shows how you can handle hierarchical data load on demand in detail. It uses two different models for the two different [levels of data bindings](slug:components/treeview/data-binding/overview#multiple-level-bindings) it showcases. You do not have to use different models and/or different bindings ( see [Hierarchical Data Load on Demand - One Model](#hierarchical-data-load-on-demand-one-model) ).
 
 >caption Different Models Hierarchical Data Load on Demand in a TreeView with sample handling of the various cases. Review the code comments for details.
 
@@ -339,7 +339,7 @@ The **example** below shows how you can handle hierarchical data load on demand 
 
 ## See Also
 
-  * [TreeView Data Binding Basics](slug://components/treeview/data-binding/overview)
+  * [TreeView Data Binding Basics](slug:components/treeview/data-binding/overview)
   * [Live Demo: TreeView Load on Demand](https://demos.telerik.com/blazor-ui/treeview/lazy-loading)
-  * [Binding to Flat Data](slug://components/treeview/data-binding/flat-data)
-  * [Binding to Hierarchical Data](slug://components/treeview/data-binding/hierarchical-data)
+  * [Binding to Flat Data](slug:components/treeview/data-binding/flat-data)
+  * [Binding to Hierarchical Data](slug:components/treeview/data-binding/hierarchical-data)

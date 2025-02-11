@@ -15,7 +15,7 @@ You can control and customize the rendering of the content items in the PanelBar
 * The `ContentTemplate` is defined under the `PanelBarBinding` tag.
 * It provides a `context` object that you can cast to the type, which the PanelBar is bound to.
 * The template can include other Razor components or executable code.
-* Similar to [`PanelBarBinding`s](slug://panelbar-data-binding-overview), there can be **one** `ContentTemplate` for all items at the same level. If the content of these items should be different, use conditional statements inside the template.
+* Similar to [`PanelBarBinding`s](slug:panelbar-data-binding-overview), there can be **one** `ContentTemplate` for all items at the same level. If the content of these items should be different, use conditional statements inside the template.
 * A `ContentTemplate` displays like a child item. It is rendered only for the items, which have no children.
 
 >caption Use ContentTemplate to customize the content items
@@ -110,5 +110,5 @@ Without a Level, the ContentTemplate will be applied to all items that have no c
 
 ## See Also
 
-  * [Data Binding a PanelBar](slug://panelbar-data-binding-overview)
+  * [Data Binding a PanelBar](slug:panelbar-data-binding-overview)
   * [Live Demo: PanelBar](https://demos.telerik.com/blazor-ui/panelbar/overview)

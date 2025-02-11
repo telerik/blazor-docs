@@ -28,7 +28,7 @@ I would like functionality where you close any detail page that is open if the c
 I also want to expand the detail template on row click, not (only) through the built-in expand button.
 
 ## Solution
-You can use the [grid state](slug://grid-state) to make sure only one item is expanded. You can also use the [OnRead event](slug://components/grid/manual-operations) to have an ordered list of the current page items so you can get the row index easily for use with the state. You can also use the [grid events](slug://grid-events) (`OnRowClick` and `OnRowExpand`) to call the logic that will change the grid state.
+You can use the [grid state](slug:grid-state) to make sure only one item is expanded. You can also use the [OnRead event](slug:components/grid/manual-operations) to have an ordered list of the current page items so you can get the row index easily for use with the state. You can also use the [grid events](slug:grid-events) (`OnRowClick` and `OnRowExpand`) to call the logic that will change the grid state.
 
 ````RAZOR
 @using Telerik.DataSource.Extensions

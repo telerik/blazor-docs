@@ -27,7 +27,7 @@ How to create a vertical button group? What is the best way to make the buttons 
 
 ## Solution
 
-[Override the ButtonGroup styles](slug://themes-override) and change the default horizontal [flexbox layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). Make the following changes:
+[Override the ButtonGroup styles](slug:themes-override) and change the default horizontal [flexbox layout](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). Make the following changes:
 
 * Change the `flexbox-flow` style to `column`.
 * Set a `Width` to the button group or leave it expand to 100%.

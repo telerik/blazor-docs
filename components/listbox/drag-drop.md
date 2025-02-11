@@ -10,7 +10,7 @@ position: 40
 
 # ListBox Item Drag and Drop
 
-The Telerik Blazor ListBox allows users to drag and drop items within the same component instance or across different instances. This is a more flexible alternative to [reordering](slug://listbox-overview#creating-blazor-listbox) or [moving ListBox items](slug://listbox-connect) with toolbar buttons. As a result, dragging and dropping can be a lot faster and convenient to users when the number of related ListBoxes is three or more.
+The Telerik Blazor ListBox allows users to drag and drop items within the same component instance or across different instances. This is a more flexible alternative to [reordering](slug:listbox-overview#creating-blazor-listbox) or [moving ListBox items](slug:listbox-connect) with toolbar buttons. As a result, dragging and dropping can be a lot faster and convenient to users when the number of related ListBoxes is three or more.
 
 
 ## Configuration
@@ -18,9 +18,9 @@ The Telerik Blazor ListBox allows users to drag and drop items within the same c
 To enable drag and drop between ListBox components:
 
 1. Set `Draggable="true"` to all of them.
-1. Set [`DropSources` to the `Id` values](slug://listbox-overview#listbox-parameters) of the permitted source ListBoxes.
-1. Subscribe to the [`OnDrop` event](slug://listbox-events#ondrop) of each ListBox that users can drag items from. The `OnDrop` event always fires from the source (origin) ListBox instance.
-1. [`Rebind()`](slug://listbox-overview#listbox-reference-and-methods) each ListBox after making programmatic changes to its `Data`.
+1. Set [`DropSources` to the `Id` values](slug:listbox-overview#listbox-parameters) of the permitted source ListBoxes.
+1. Subscribe to the [`OnDrop` event](slug:listbox-events#ondrop) of each ListBox that users can drag items from. The `OnDrop` event always fires from the source (origin) ListBox instance.
+1. [`Rebind()`](slug:listbox-overview#listbox-reference-and-methods) each ListBox after making programmatic changes to its `Data`.
 
 
 ## Example
@@ -208,8 +208,8 @@ To enable drag and drop between ListBox components:
 
 ## Next Steps
 
-* [Implement ListBox templates](slug://listbox-templates)
-* [Handle ListBox events](slug://listbox-events)
+* [Implement ListBox templates](slug:listbox-templates)
+* [Handle ListBox events](slug:listbox-events)
 
 
 ## See Also

@@ -28,15 +28,15 @@ Sections in this article:
 
 The Gantt Tree offers several editing modes with different user experience. Set the `TreeListEditMode` property to a member of the `GanttTreeListEditMode` enum:
 
-* `None` - The built-in [`Add` and `Edit` commands](slug://gantt-columns-command#built-in-commands) don't work in this mode.
-* `Incell` - the default `TreeListEditMode` value. [Edit a single cell](slug://gant-tree-incell-editing) by clicking on it or tabbing
-* `Inline` - [edit a row](slug://gant-tree-inline-editing) by clicking on an [Edit command button](slug://gantt-columns-command)
-* `Popup` - [edit a row in a popup form](slug://gant-tree-popup-editing) by clicking on an Edit button
+* `None` - The built-in [`Add` and `Edit` commands](slug:gantt-columns-command#built-in-commands) don't work in this mode.
+* `Incell` - the default `TreeListEditMode` value. [Edit a single cell](slug:gant-tree-incell-editing) by clicking on it or tabbing
+* `Inline` - [edit a row](slug:gant-tree-inline-editing) by clicking on an [Edit command button](slug:gantt-columns-command)
+* `Popup` - [edit a row in a popup form](slug:gant-tree-popup-editing) by clicking on an Edit button
 
 
 ## Events
 
-* `OnCreate` - fires when the `Save` [command button](slug://gantt-columns-command) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
+* `OnCreate` - fires when the `Save` [command button](slug:gantt-columns-command) button for a newly added item is clicked. The event handler receives an argument of type `GanttCreateEventArgs` that exposes the following fields:
 
     * `Item` - an object you can cast to your model class to obtain the current data item.
 

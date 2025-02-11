@@ -20,7 +20,7 @@ In this article:
 
 ## Rebind Method
 
-To refresh the `ListView` data when using [`OnRead`](slug://listview-manual-operations), call the `Rebind` method of the `TelerikListView` reference. This will fire the `OnRead` event and execute the business logic in the handler.
+To refresh the `ListView` data when using [`OnRead`](slug:listview-manual-operations), call the `Rebind` method of the `TelerikListView` reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````RAZOR
 @* Clicking on the Rebind button will delete the first item from the ListView and refresh the data *@
@@ -281,6 +281,6 @@ To refresh the `ListView` data when using [`OnRead`](slug://listview-manual-oper
 
 ## See Also
 
-  * [ObservableCollection](slug://common-features-observable-data)
+  * [ObservableCollection](slug:common-features-observable-data)
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui)

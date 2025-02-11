@@ -27,9 +27,9 @@ You can control the `type` attribute through the `ButtonType` property of the co
 
 ## Form Parameter
 
-The Blazor Button has another parameter related to form submission - `Form`. It allows you to associate a form with a submit button, which is outside the form. Use together with the [`Id` parameter of the Form](slug://form-overview#form-parameters) and set both parameters to the same `string` value.
+The Blazor Button has another parameter related to form submission - `Form`. It allows you to associate a form with a submit button, which is outside the form. Use together with the [`Id` parameter of the Form](slug:form-overview#form-parameters) and set both parameters to the same `string` value.
 
 
 ## See Also
 
-* [Telerik UI for Blazor Button Overview](slug://components/button/overview)
+* [Telerik UI for Blazor Button Overview](slug:components/button/overview)

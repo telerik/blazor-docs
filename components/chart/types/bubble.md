@@ -10,7 +10,7 @@ position: 0
 
 # Bubble Chart
 
-The <a href="https://www.telerik.com/blazor-ui/bubble-chart" target="_blank">Blazor Bubble chart</a> shows the data as points with coordinates and size defined by their items' values. You might think of a Bubble chart as a variation of the [Scatter chart](slug://components/chart/types/scatter), in which the data points are replaced with bubbles. This allows a Bubble chart to display three dimensional data — two values for the items' coordinates and one for their size.
+The <a href="https://www.telerik.com/blazor-ui/bubble-chart" target="_blank">Blazor Bubble chart</a> shows the data as points with coordinates and size defined by their items' values. You might think of a Bubble chart as a variation of the [Scatter chart](slug:components/chart/types/scatter), in which the data points are replaced with bubbles. This allows a Bubble chart to display three dimensional data — two values for the items' coordinates and one for their size.
 
 ![bubble chart](images/bubble-chart.png)
 

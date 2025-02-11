@@ -64,4 +64,4 @@ For details on how the Editor keyboard navigation works, refer to the [Blazor Ed
 
 ## See Also
 
-* [Accessibility in Telerik UI for Blazor](slug://accessibility-overview)
+* [Accessibility in Telerik UI for Blazor](slug:accessibility-overview)

@@ -25,7 +25,7 @@ This article contains the following sections:
 
 **To integrate the Filter with the Telerik Grid, you need to:**
 
-1. Set the Value parameter of the Filter via [one-way](slug://filter-events#valuechanged) or two-way binding. If you want to filter at the moment of change, use Filter with a one-way bound value.
+1. Set the Value parameter of the Filter via [one-way](slug:filter-events#valuechanged) or two-way binding. If you want to filter at the moment of change, use Filter with a one-way bound value.
 2. Update the Grid data based on the Filter value.
 
 >caption Filter with two-way bound value in Grid

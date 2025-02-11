@@ -10,7 +10,7 @@ position: 3
 
 # Drawer for Navigation
 
-The Drawer is a different kind of a [menu](slug://components/menu/overview) that is commonly used to navigate between pages in the app - it can generate the needed links for you through its `UrlField` when [data binding](slug://drawer-data-binding).
+The Drawer is a different kind of a [menu](slug:components/menu/overview) that is commonly used to navigate between pages in the app - it can generate the needed links for you through its `UrlField` when [data binding](slug:drawer-data-binding).
 
 To use the Drawer for navigating between pages:
 
@@ -63,11 +63,11 @@ To use the Drawer for navigating between pages:
 ## Additional Examples
 
 * A GitHub sample project that showcases [Drawer as side navigation](https://github.com/telerik/blazor-ui/tree/master/drawer/sidenav).
-* KB article on [how to select a Drawer item when the page loads](slug://drawer-kb-sync-selected-item).
+* KB article on [how to select a Drawer item when the page loads](slug:drawer-kb-sync-selected-item).
 
 
 ## See Also
 
-* [Drawer Data Binding](slug://drawer-data-binding)
-* [Drawer Templates](slug://drawer-templates)
+* [Drawer Data Binding](slug:drawer-data-binding)
+* [Drawer Templates](slug:drawer-templates)
 * [Drawer Demos](https://demos.telerik.com/blazor-ui/drawer/overview)

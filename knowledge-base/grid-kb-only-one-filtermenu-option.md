@@ -32,8 +32,8 @@ I want simple filtering options in the Grid filter menu - both for my uses and m
 
 There are two options:
 
-* Use a [custom filter template](slug://grid-templates-filter). It provides full flexibility over the interface and building the filter descriptor.
-* Use custom CSS to [override the theme](slug://themes-override) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach. Note that **the required CSS is different for different UI for Blazor versions**:
+* Use a [custom filter template](slug:grid-templates-filter). It provides full flexibility over the interface and building the filter descriptor.
+* Use custom CSS to [override the theme](slug:themes-override) and hide the elements that provide the and/or secondary conditions. The example below demonstrates this approach. Note that **the required CSS is different for different UI for Blazor versions**:
 
 <div class="skip-repl"></div>
 ````CSS

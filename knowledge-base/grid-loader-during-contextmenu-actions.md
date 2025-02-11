@@ -32,7 +32,7 @@ This knowledge base article also answers the following questions:
 
 ## Solution
 
-To display a spinner during delayed operations initiated from a ContextMenu in a TelerikGrid, utilize the [TelerikLoaderContainer](slug://loadercontainer-overview) component. Display the TelerikLoaderContainer while the data is being loaded or an action is being performed, and hide it once the operation is complete.
+To display a spinner during delayed operations initiated from a ContextMenu in a TelerikGrid, utilize the [TelerikLoaderContainer](slug:loadercontainer-overview) component. Display the TelerikLoaderContainer while the data is being loaded or an action is being performed, and hide it once the operation is complete.
 
 ````RAZOR
 @using System.Collections.ObjectModel
@@ -226,6 +226,6 @@ To display a spinner during delayed operations initiated from a ContextMenu in a
 
 ## See Also
 
-* [LoaderContainer Overview](slug://loadercontainer-overview)
-* [Grid Overview](slug://grid-overview)
-* [ContextMenu Overview](slug://contextmenu-overview)
+* [LoaderContainer Overview](slug:loadercontainer-overview)
+* [Grid Overview](slug:grid-overview)
+* [ContextMenu Overview](slug:contextmenu-overview)

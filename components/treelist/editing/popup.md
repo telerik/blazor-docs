@@ -22,7 +22,7 @@ In this article:
 
 ## Basics
 
-Popup editing lets the user click an [Edit command button](slug://treelist-columns-command) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Popup editing lets the user click an [Edit command button](slug:treelist-columns-command) on the row, and a popup shows up with all its editable columns open up for changes. They can then click the `Save` button in the dialog to submit the changes to the model. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
 In a similar fashion, the `Cancel`, `Delete` command buttons and the `Add` toolbar button fire events on the treelist to let you handle the data source operations.
 
@@ -30,7 +30,7 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 
 To enable Popup editing in the treelist, set its `EditMode` property to `Telerik.Blazor.TreeListEditMode.Popup`, then handle the CRUD events as shown in the example below.
 
-The Popup editing mode supports [validation](slug://common-features/input-validation). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
+The Popup editing mode supports [validation](slug:common-features/input-validation). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
 
 >caption The Command buttons and the treelist events let you handle data operations in Popup edit mode
@@ -322,7 +322,7 @@ The TreeList exposes options to customize the edit popup and its form. You can d
 
 ### Editability of Hidden Columns
 
-Staring from version 7.0, the TreeList allows users to edit [hidden columns](slug://treelist-columns-visible) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<TreeListColumn>` tag.
+Staring from version 7.0, the TreeList allows users to edit [hidden columns](slug:treelist-columns-visible) by default. To disable editing of a hidden column, set `Editable="false"` to the respective `<TreeListColumn>` tag.
 
 ### Popup Customization
 
@@ -330,7 +330,7 @@ The `TreeListPopupEditSettings` nested tag exposes the following parameters to a
 
 @[template](/_contentTemplates/common/popup-edit-customization.md#popup-settings)
 
-For example, here is [how to set the TreeList popup edit form's title, so that it matches a property value of the edited data item](slug://grid-kb-popup-edit-title).
+For example, here is [how to set the TreeList popup edit form's title, so that it matches a property value of the edited data item](slug:grid-kb-popup-edit-title).
 
 ### Edit Form Customization
 
@@ -456,14 +456,14 @@ The `TreeListPopupEditFormSettings` nested tag exposes the following parameters 
 
 ### Popup Form Customization
 
-In the `TreeListPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the TreeList. For more information and examples on customizing the TreeList Popup window, refer to the [Popup Form Template](slug://treelist-templates-popup-form) article.
+In the `TreeListPopupEditFormSettings`, you can declare a `FormTemplate`. This template enables you to fully customize the appearance and content of the create/edit Popup window in the TreeList. For more information and examples on customizing the TreeList Popup window, refer to the [Popup Form Template](slug:treelist-templates-popup-form) article.
 
 ### Popup Buttons Customization
 
-You can specify a `ButtonsTemplate` in the `TreeListPopupEditFormSettings` to customize how the buttons look in the create/edit Popup window of the TreeList. To learn more and see an example of customizing the TreeList Popup buttons, refer to the [Popup Buttons Template](slug://treelist-templates-popup-buttons) article.
+You can specify a `ButtonsTemplate` in the `TreeListPopupEditFormSettings` to customize how the buttons look in the create/edit Popup window of the TreeList. To learn more and see an example of customizing the TreeList Popup buttons, refer to the [Popup Buttons Template](slug:treelist-templates-popup-buttons) article.
 
 ## See Also
 
   * [Live Demo: TreeList Popup Editing](https://demos.telerik.com/blazor-ui/treelist/editing-popup)
-  * [Custom Editor Template Per Field](slug://treelist-templates-editor)
+  * [Custom Editor Template Per Field](slug:treelist-templates-editor)
 

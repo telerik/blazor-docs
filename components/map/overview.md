@@ -10,13 +10,13 @@ position: 0
 
 # Blazor Map Overview
 
-The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers. The component provides [tile layers](slug://components/map/layers/tile), [vector shape layers](slug://components/map/layers/shape), [bubble layers](slug://components/map/layers/bubble), and [marker layers](slug://components/map/layers/marker).
+The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map component</a> displays geospatial information organized in layers. The component provides [tile layers](slug:components/map/layers/tile), [vector shape layers](slug:components/map/layers/shape), [bubble layers](slug:components/map/layers/bubble), and [marker layers](slug:components/map/layers/marker).
 
 ## Creating Blazor Map
 
 1. Use the `TelerikMap` tag to add the component to a Razor file.
 1. Add a `<MapLayer>` tag nested inside `<MapLayers>`. Set its `Type` to `MapLayersType.Tile`.
-1. Set the [`UrlTemplate` parameter](slug://components/map/layers#maplayer-parameters) of the tile layer. Check the [required syntax that complies with Content Security Policy](#content-security-policy).
+1. Set the [`UrlTemplate` parameter](slug:components/map/layers#maplayer-parameters) of the tile layer. Check the [required syntax that complies with Content Security Policy](#content-security-policy).
 1. (optional) Set the Map `Attribution` and `Subdomains` parameters, depending on the specific tile provider.
 
 >caption Basic Telerik Map for Blazor
@@ -41,11 +41,11 @@ The <a href="https://www.telerik.com/blazor-ui/map" target="_blank">Blazor Map c
 
 ## Layers
 
-The layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...](slug://components/map/layers)
+The layers are responsible for organizing the Map information. [Read more about the supported Blazor Map layers...](slug:components/map/layers)
 
 ## Markers
 
-You can add different points with real coordinates on the map as markers. [Read more about the Blazor Map Markers...](slug://components/map/layers/marker)
+You can add different points with real coordinates on the map as markers. [Read more about the Blazor Map Markers...](slug:components/map/layers/marker)
 
 ## Pan and Zoom
 
@@ -59,7 +59,7 @@ Blazor Map also incorporates a navigation tool allowing the end user to easily z
 
 ## Events
 
-The Blazor Map generates events that you can handle and further customize its behavior. [Read more about the Blazor Map events...](slug://components/map/events).
+The Blazor Map generates events that you can handle and further customize its behavior. [Read more about the Blazor Map events...](slug:components/map/events).
 
 ## Content Security Policy
 
@@ -68,7 +68,7 @@ The Map renders with the help of a JavaScript-based rendering engine. This engin
 * [Legacy inline syntax](#creating-blazor-map). In this case, the template parameter is a string that consumes dynamic values <a href="https://docs.telerik.com/kendo-ui/framework/templates/essentials" target="_blank">through `#= ... #` expressions</a>, for example, `UrlTemplate="https://#= subdomain #.tile.openstreetmap.org/#= zoom #/#= x #/#= y #.png"`;
 * JavaScript functions that obtain dynamic values from the function arguments, for example, `UrlTemplate="jsFunctionName"`. This feature was introduced in version **4.5.0** of Telerik UI for Blazor.
 
-Both syntax options provide the same capabilities. The legacy inline syntax depends on JavaScript code evaluation, which is not [compliant with strict Content Security Policy (CSP)](slug://troubleshooting-csp). The function-based approach is CSP-compliant and can be more readable and convenient in complex scenarios.
+Both syntax options provide the same capabilities. The legacy inline syntax depends on JavaScript code evaluation, which is not [compliant with strict Content Security Policy (CSP)](slug:troubleshooting-csp). The function-based approach is CSP-compliant and can be more readable and convenient in complex scenarios.
 
 >caption CSP-compliant Map
 
@@ -176,8 +176,8 @@ The Map exposes a `Refresh` method. Use it to redraw the component after making 
 
 ## Next Steps
 
-* [Configure Map Layers](slug://components/map/layers)
-* [Handle Map Events](slug://components/map/events)
+* [Configure Map Layers](slug:components/map/layers)
+* [Handle Map Events](slug:components/map/events)
 
 ## See Also
 

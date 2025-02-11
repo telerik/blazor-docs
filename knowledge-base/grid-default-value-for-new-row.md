@@ -133,5 +133,5 @@ Click the <strong>Add</strong> button to see the default values for the HireDate
 
 You can use the grid state to put the grid in insert/edit mode without the built-in "Add" command. You can add a button (your own or a GridCommandButton but with a custom command name) to the toolbar, and in its OnClick event you can set the `InsertedItem` of the grid state as desired.
 
-You can find an example of this in the [Initiate Editing or Inserting of an Item](slug://grid-kb-add-edit-state) example.
+You can find an example of this in the [Initiate Editing or Inserting of an Item](slug:grid-kb-add-edit-state) example.
 

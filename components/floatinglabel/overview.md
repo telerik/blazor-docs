@@ -65,7 +65,7 @@ The FloatingLabel does not support third-party components and generic HTML input
 
 ## Forms and Validation
 
-The FloatingLabel can change its styles, based on validation state. See [Validation](slug://floatinglabel-validation) for details and example.
+The FloatingLabel can change its styles, based on validation state. See [Validation](slug:floatinglabel-validation) for details and example.
 
 
 ## Placeholder Behavior
@@ -83,22 +83,22 @@ If a Telerik component has both a `Placeholder` and a floating label, the behavi
 
 ## FloatingLabel Parameters
 
-The following table lists the FloatingLabel parameters. Also check the [FloatingLabel API Reference](slug://Telerik.Blazor.Components.TelerikFloatingLabel) for a full list of properties, methods and events.
+The following table lists the FloatingLabel parameters. Also check the [FloatingLabel API Reference](slug:Telerik.Blazor.Components.TelerikFloatingLabel) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Attribute | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | Renders additional CSS class to the `span.k-floating-label-container` element, which holds the `<label>` child element. Use `Class` to apply custom styles or [override the theme](slug://themes-override). |
+| `Class` | `string` | Renders additional CSS class to the `span.k-floating-label-container` element, which holds the `<label>` child element. Use `Class` to apply custom styles or [override the theme](slug:themes-override). |
 | `Id` | `string` | Renders an `id` attribute to the `label.k-label` element. To improve accessibility, set the same string as floating label `Id` and `AriaLabelledBy` value of the associated Telerik component. |
 
 
 ## Next Steps
 
-* [Review Floating Label integration with form validation](slug://floatinglabel-validation)
+* [Review Floating Label integration with form validation](slug:floatinglabel-validation)
 
 
 ## See Also
 
 * [Live Floating Label Demos](https://demos.telerik.com/blazor-ui/floatinglabel/overview)
-* [Floating Label API Reference](slug://Telerik.Blazor.Components.TelerikFloatingLabel)
+* [Floating Label API Reference](slug:Telerik.Blazor.Components.TelerikFloatingLabel)

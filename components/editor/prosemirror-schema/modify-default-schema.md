@@ -10,7 +10,7 @@ position: 3
 
 # Modify the Default ProseMirror Schema
 
-This article describes how you can modify the default [ProseMirror schema that the Editor for Blazor uses](slug://editor-prosemirror-schema-overview). Updating the existing schema is useful if you want to:
+This article describes how you can modify the default [ProseMirror schema that the Editor for Blazor uses](slug:editor-prosemirror-schema-overview). Updating the existing schema is useful if you want to:
 
 * Extend the Editor capabilities and allow end users to add more kinds of HTML tags than the predefined ones.
 * Allow adding more attributes to the predefined HTML elements.
@@ -32,7 +32,7 @@ The below example shows how to:
 * Add a `mark` for the `<s>` element.
 * Return the updated schema, so the Editor can use it.
 
->tip The Editor in this example uses the [`Div` edit mode](slug://editor-edit-modes-iframe), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode](slug://editor-edit-modes-div), you have to plug the styles with JavaScript as shown in [this example](slug://editor-prosemirror-plugins).
+>tip The Editor in this example uses the [`Div` edit mode](slug:editor-edit-modes-iframe), so the style for the `<hr>` element is applied. If you use the default [`Iframe` edit mode](slug:editor-edit-modes-div), you have to plug the styles with JavaScript as shown in [this example](slug:editor-prosemirror-plugins).
 
 >caption Modify the default ProseMirror Schema
 
@@ -120,7 +120,7 @@ The below example shows how to:
 ## See Also
 
 * [Live Demo: Editor - ProseMirror Schema](https://demos.telerik.com/blazor-ui/editor/prosemirror-schema)
-* [Create a New Schema](slug://editor-create-new-schema)
+* [Create a New Schema](slug:editor-create-new-schema)
 
 
 <!-- # Common Scenarios

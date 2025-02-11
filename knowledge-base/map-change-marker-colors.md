@@ -22,7 +22,7 @@ ticketid: 1675518
 
 ## Description
 
-When integrating a [Map for Blazor](slug://components/map/layers), you might want to customize the appearance of your map markers to differentiate them or match your application's theme. This knowledge base article also answers the following questions:
+When integrating a [Map for Blazor](slug:components/map/layers), you might want to customize the appearance of your map markers to differentiate them or match your application's theme. This knowledge base article also answers the following questions:
 
 - How can I set the color of a map marker in Blazor?
 - How to change the color of specific map markers based on their titles?
@@ -30,7 +30,7 @@ When integrating a [Map for Blazor](slug://components/map/layers), you might wan
 
 ## Solution
 
-To customize the color of map markers in a Blazor application, you can [override the default theme styles](slug://themes-override).
+To customize the color of map markers in a Blazor application, you can [override the default theme styles](slug:themes-override).
 
 ### Change the Color to All Map Markers
 
@@ -120,5 +120,5 @@ To change the color of specific markers, target them based on their titles using
 
 ## See Also
 
-- [Override Theme Styles](slug://themes-override)
-- [Map - Marker Layer](slug://components/map/layers/marker)
+- [Override Theme Styles](slug:themes-override)
+- [Map - Marker Layer](slug:components/map/layers/marker)

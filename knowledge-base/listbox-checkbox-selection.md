@@ -33,8 +33,8 @@ This KB article answers the following questions:
 
 ## Solution
 
-1. Define a [ListBox item template](slug://listbox-templates#item-template).
-1. In the `<ItemTemplate>`, add a [CheckBox component](slug://checkbox-overview) with a [`Value` parameter](slug://checkbox-overview#checkbox-parameters) and a [`ValueChanged` event handler](slug://checkbox-events#valuechanged).
+1. Define a [ListBox item template](slug:listbox-templates#item-template).
+1. In the `<ItemTemplate>`, add a [CheckBox component](slug:checkbox-overview) with a [`Value` parameter](slug:checkbox-overview#checkbox-parameters) and a [`ValueChanged` event handler](slug:checkbox-events#valuechanged).
 1. The CheckBox `Value` must be `true` if the current item (`ItemTemplate` `context`) is a member of the ListBox `SelectedItems` collection.
 1. The CheckBox `ValueChanged` handler must add or remove the current ListBox item from the `SelectedItems` collection.
 1. Wrap the CheckBox component in a `<span @onclick:stopPropagation>`, so that the checkbox clicks do not interfere with the built-in ListBox selection feature.
@@ -148,5 +148,5 @@ ListBox <code>SelectionMode</code>:
 
 ## See Also
 
-* [ListBox Templates](slug://listbox-templates)
-* [ListBox Selection](slug://listbox-selection)
+* [ListBox Templates](slug:listbox-templates)
+* [ListBox Selection](slug:listbox-selection)

@@ -208,4 +208,4 @@ Use the `ItemTemplate` to determine the node text's rendering and customize the 
 
 ## See Also
 
-* [TreeView Item Template](slug://components/treeview/templates)
+* [TreeView Item Template](slug:components/treeview/templates)

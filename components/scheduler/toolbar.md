@@ -14,13 +14,13 @@ The [Blazor Scheduler toolbar](https://demos.telerik.com/blazor-ui/scheduler/too
 
 ## Built-in Tools
 
-By default, the [Blazor Scheduler](slug://scheduler-overview) displays all its built-in tools in the following order:
+By default, the [Blazor Scheduler](slug:scheduler-overview) displays all its built-in tools in the following order:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Tool Tag | Description |
 | --- | --- |
-| `SchedulerToolBarNavigationTool` | A group of navigation buttons. They can navigate to the present day, to the previous period, and to the next period depending on the [Scheduler view](slug://scheduler-views-overview). |
+| `SchedulerToolBarNavigationTool` | A group of navigation buttons. They can navigate to the present day, to the previous period, and to the next period depending on the [Scheduler view](slug:scheduler-views-overview). |
 | `SchedulerToolBarCalendarTool` | A button that shows the start and the end of the current period. Upon click, you can select a new period via a calendar popup. |
 | `SchedulerToolBarViewsTool` | A button group or a dropdown (depending on the screen size) with all available views. |
 

@@ -75,7 +75,7 @@ Blazor Server apps use a **SignalR WebSocket** to communicate between the client
 
 ## Solution
 
-[Increase the maximum SignalR WebSocket message size (`MaximumReceiveMessageSize`) for the Blazor application in `HubOptions`](slug://common-kb-increase-signalr-max-message-size).
+[Increase the maximum SignalR WebSocket message size (`MaximumReceiveMessageSize`) for the Blazor application in `HubOptions`](slug:common-kb-increase-signalr-max-message-size).
 
 ## Notes
 

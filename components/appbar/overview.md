@@ -60,26 +60,26 @@ The <a href = "https://www.telerik.com/blazor-ui/appbar" target="_blank">Blazor 
 
 ## AppBar Sections
 
-Use the AppBar Sections to render arbitrary HTML content to match the UI and UX needs of your application. [Read more about the Blazor AppBar sections...](slug://appbar-sections)
+Use the AppBar Sections to render arbitrary HTML content to match the UI and UX needs of your application. [Read more about the Blazor AppBar sections...](slug:appbar-sections)
 
 ## Content Dividers
 
-The AppBar features separators and spacers that can visually divide the component items. [Read more about the Blazor AppBar separators and spacers.](slug://appbar-separators).
+The AppBar features separators and spacers that can visually divide the component items. [Read more about the Blazor AppBar separators and spacers.](slug:appbar-separators).
 
 ## Positioning
 
-You can control the position of the AppBar and how the component behaves according to the flow of the page. [Read more about the Blazor AppBar positioning.](slug://appbar-position).
+You can control the position of the AppBar and how the component behaves according to the flow of the page. [Read more about the Blazor AppBar positioning.](slug:appbar-position).
 
 ## AppBar Parameters
 
-The Blazor AppBar provides parameters to configure the component. Also check the [AppBar API Reference](slug://Telerik.Blazor.Components.TelerikAppBar) for a full list of properties.
+The Blazor AppBar provides parameters to configure the component. Also check the [AppBar API Reference](slug:Telerik.Blazor.Components.TelerikAppBar) for a full list of properties.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Position` | `AppBarPosition` <br /> (`None`) | The position of the AppBar on the page. [Read more about AppBar positioning.](slug://appbar-position) |
-| `PositionMode` | `AppBarPosition` <br /> (`Static`) | Sets how the AppBar is positioned according to the flow of the document. [Read more about AppBar positioning.](slug://appbar-position) |
+| `Position` | `AppBarPosition` <br /> (`None`) | The position of the AppBar on the page. [Read more about AppBar positioning.](slug:appbar-position) |
+| `PositionMode` | `AppBarPosition` <br /> (`Static`) | Sets how the AppBar is positioned according to the flow of the document. [Read more about AppBar positioning.](slug:appbar-position) |
 
 ### Styling and Appearance
 
@@ -87,12 +87,12 @@ The following parameters enable you to customize the appearance of the Blazor Ap
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the AppBar component, which is `<div class="k-appbar">`. Use for [styling customizations](slug://themes-override). |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the AppBar component, which is `<div class="k-appbar">`. Use for [styling customizations](slug:themes-override). |
 | `Height` | `string` | The height of the AppBar. |
 | `ThemeColor` | `Telerik.Blazor.ThemeConstants.AppBar.ThemeColor` | Adjust the color of the AppBar |
 | `Width` | `string` | The width of the AppBar. |
 
-You can find more information for customizing the AppBar appearance in the [Appearance article](slug://appbar-appearance).
+You can find more information for customizing the AppBar appearance in the [Appearance article](slug:appbar-appearance).
 
 ## AppBar Reference and Methods
 
@@ -121,11 +121,11 @@ To execute AppBar methods, obtain reference to the component instance with `@ref
 
 ## Next Steps
 
-* [Explore the AppBar Sections](slug://appbar-sections)
-* [Use the AppBar Sections](slug://appbar-separators)
-* [Customize the AppBar position](slug://appbar-position)
+* [Explore the AppBar Sections](slug:appbar-sections)
+* [Use the AppBar Sections](slug:appbar-separators)
+* [Customize the AppBar position](slug:appbar-position)
 
 ## See Also
 
 * [Live AppBar Demos](https://demos.telerik.com/blazor-ui/appbar/overview)
-* [AppBar API Reference](slug://Telerik.Blazor.Components.TelerikAppBar)
+* [AppBar API Reference](slug:Telerik.Blazor.Components.TelerikAppBar)

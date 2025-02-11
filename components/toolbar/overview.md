@@ -15,7 +15,7 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 ## Creating Blazor ToolBar
 
 1. Add the `<TelerikToolBar>` tag to a Razor file.
-2. Use child tags to add [tools](slug://toolbar-built-in-tools) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`](slug://common-features-icons#icons-list).
+2. Use child tags to add [tools](slug:toolbar-built-in-tools) such as `<ToolBarButton>` or `<ToolBarToggleButton>`. Set button text as child content. Optionally, set [`Icon`](slug:common-features-icons#icons-list).
 3. Define `OnClick` handlers for the buttons.
 4. Set the `Selected` parameter of the toggle buttons. It supports two-way binding.
 5. (optional) Place related buttons in a `<ToolBarButtonGroup>` to display them together.
@@ -60,19 +60,19 @@ The <a href = "https://www.telerik.com/blazor-ui/toolbar" target="_blank">Blazor
 
 ## Built-in Tools
 
-The ToolBar component can include built-in tools such as buttons, toggle buttons and button groups. [Read more about the Blazor ToolBar built-in tools](slug://toolbar-built-in-tools).
+The ToolBar component can include built-in tools such as buttons, toggle buttons and button groups. [Read more about the Blazor ToolBar built-in tools](slug:toolbar-built-in-tools).
 
 ## Separators
 
-The Toolbar features separators and spacers that can visually divide the component items. [Read more about the Blazor ToolBar separators and spacers.](slug://toolbar-separators).
+The Toolbar features separators and spacers that can visually divide the component items. [Read more about the Blazor ToolBar separators and spacers.](slug:toolbar-separators).
 
 ## Custom Items
 
-The ToolBar component supports template items. Use them to create complex toolbars with dropdowns, inputs and other custom content. [Read more about Blazor ToolBar item customization](slug://toolbar-templated-item).
+The ToolBar component supports template items. Use them to create complex toolbars with dropdowns, inputs and other custom content. [Read more about Blazor ToolBar item customization](slug:toolbar-templated-item).
 
 ## Events
 
-The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events](slug://toolbar-events).
+The Blazor ToolBar fires click and selection events. Handle those events to respond to user actions. [Read more about the Blazor ToolBar events](slug:toolbar-events).
 
 ## ToolBar Parameters
 
@@ -82,8 +82,8 @@ The Blazor ToolBar provides parameters to configure the component:
 
 | Parameter | Type | Description |
 | ----------- | ----------- | ----------- |
-| `Adaptive` <br /> (deprecated) | `bool` <br /> (`true`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow. [Template items](slug://toolbar-templated-item#notes) don't participate in this mechanism and they are always rendered in the ToolBar itself. This parameter is deprecated in favor of `OverflowMode`. |
-| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations](slug://themes-override). |
+| `Adaptive` <br /> (deprecated) | `bool` <br /> (`true`) | Toggles the overflow popup of the ToolBar. The component displays an additional anchor on its side, where it places all items which do not fit and overflow. [Template items](slug:toolbar-templated-item#notes) don't participate in this mechanism and they are always rendered in the ToolBar itself. This parameter is deprecated in favor of `OverflowMode`. |
+| `Class` | `string` | The CSS class to be rendered on the main wrapping element of the ToolBar component, which is `<div class="k-toolbar">`. Use for [styling customizations](slug:themes-override). |
 | `OverflowMode` | `ToolBarOverflowMode` <br /> (`Menu`) | The adaptive mode of the Toolbar. |
 | `ScrollButtonsPosition` | `ToolBarScrollButtonsPosition` enum <br /> (`Split`) | Specifies the position of the buttons when the ToolBar scroll adaptive mode is enabled. |
 | `ScrollButtonsVisibility` | `ToolBarScrollButtonsVisibility` enum <br /> (`Visible`)| Specifies the visibility of the buttons when the ToolBar scroll adaptive mode is enabled. |
@@ -96,7 +96,7 @@ The following parameters enable you to customize the appearance of the Blazor To
 | --- | --- | --- |
 | `Size` | `Telerik.Blazor.ThemeConstants.ToolBar.Size` | Adjust the size of the ToolBar |
 
-You can find more information for customizing the ToolBar appearance in the [Appearance article](slug://toolbar-appearance).
+You can find more information for customizing the ToolBar appearance in the [Appearance article](slug:toolbar-appearance).
 
 ## Example
 
@@ -150,12 +150,12 @@ The Blazor Toolbar has an option for adaptiveness. This option allows you to hid
 
 ## Next Steps
 
-* [Explore the ToolBar built-in tools](slug://toolbar-built-in-tools)
-* [Handle the ToolBar Events](slug://toolbar-events)
-* [Use the ToolBar Separators](slug://toolbar-separators)
-* [Implement custom ToolBar tools](slug://toolbar-built-in-tools)
+* [Explore the ToolBar built-in tools](slug:toolbar-built-in-tools)
+* [Handle the ToolBar Events](slug:toolbar-events)
+* [Use the ToolBar Separators](slug:toolbar-separators)
+* [Implement custom ToolBar tools](slug:toolbar-built-in-tools)
 
 ## See Also
 
 * [Live ToolBar Demos](https://demos.telerik.com/blazor-ui/toolbar/overview)
-* [ToolBar API Reference](slug://Telerik.Blazor.Components.TelerikToolBar)
+* [ToolBar API Reference](slug:Telerik.Blazor.Components.TelerikToolBar)

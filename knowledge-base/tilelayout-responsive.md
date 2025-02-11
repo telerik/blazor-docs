@@ -30,7 +30,7 @@ Generally, the `Width` and `Height` parameters of the component can take values 
 
 This works well for the initial rendering and the component will be "responsive" immediately according to your layout, regardless of the display (desktop, tablet, phone).
 
-When the layout changes dynamically at runtime, you can use the [TelerikMediaQuery](slug://mediaquery-overview) component to respond to changes of the browser window size. This would allow you to change one or more of the parameters of the component like `Columns`, `ColumnWidth`, and `RowHeight`.
+When the layout changes dynamically at runtime, you can use the [TelerikMediaQuery](slug:mediaquery-overview) component to respond to changes of the browser window size. This would allow you to change one or more of the parameters of the component like `Columns`, `ColumnWidth`, and `RowHeight`.
 
 ````RAZOR
 @* Resize the browser to width to less than 767px to change the layout of the component.  *@

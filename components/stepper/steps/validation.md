@@ -16,7 +16,7 @@ Step validation serves as a visual indication whether a step is valid or not. It
 
 You can toggle the `Valid` parameter value based on your application logic to accordingly render success or error icon. You can then use the `Valid` parameter value to perform logic for any further desired operations (for example preventing the user from navigating to the next step if the current one is invalid).
 
-Depending on the [display mode](slug://stepper-display-modes) the Stepper is using, validation icons will be displayed either in the step indicator or as part of the step label.
+Depending on the [display mode](slug:stepper-display-modes) the Stepper is using, validation icons will be displayed either in the step indicator or as part of the step label.
 
 
 In this article:
@@ -26,7 +26,7 @@ In this article:
 
 ## Validation in Stepper with Display mode: Steps
 
-If the Stepper uses the default display mode ([`Steps`](slug://stepper-display-modes#steps)), the validation icons will be displayed in the step indicator regardless of whether or not a label is defined for every step.
+If the Stepper uses the default display mode ([`Steps`](slug:stepper-display-modes#steps)), the validation icons will be displayed in the step indicator regardless of whether or not a label is defined for every step.
 
 When validation icons are rendered inside the indicators, they will override the content of the step indicator (text, icon etc). They have priority over the step indicator content in order to notify whether the corresponding step is valid or not.
 
@@ -77,7 +77,7 @@ When validation icons are rendered inside the indicators, they will override the
 
 ## Validation in Stepper with Display mode: Labels
 
-If the Stepper uses the [`Labels`](slug://stepper-display-modes#labels)display mode, the validation icons will be displayed as part of the step label.
+If the Stepper uses the [`Labels`](slug:stepper-display-modes#labels)display mode, the validation icons will be displayed as part of the step label.
 
 >caption Setup Steps validation in a Stepper with Display mode: Labels. The result from the snippet.
 

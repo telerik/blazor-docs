@@ -126,5 +126,5 @@ Using this event requires one-way binding for the `Value` parameter and manual u
 
 ## See Also
 
-* [ValueChanged and Validation](slug://value-changed-validation-model)
-* [Fire OnChange Only Once](slug://ddl-kb-onchange-fires-twice)
+* [ValueChanged and Validation](slug:value-changed-validation-model)
+* [Fire OnChange Only Once](slug:ddl-kb-onchange-fires-twice)

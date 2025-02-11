@@ -95,6 +95,6 @@ else
 
 ## See Also
 
-* [Remove Dotted Tab Outline](slug://tabstrip-kb-remove-dotted-outline)
-* [Override the Theme or Apply Custom CSS Styles](slug://themes-override)
+* [Remove Dotted Tab Outline](slug:tabstrip-kb-remove-dotted-outline)
+* [Override the Theme or Apply Custom CSS Styles](slug:themes-override)
 * [Telerik TabStrip Tabs Configuration](https://docs.telerik.com/blazor-ui/components/tabstrip/tabs-configuration)

@@ -30,7 +30,7 @@ I want to set different colors for the Gantt tasks. I store the colors in my dat
 
 Follow these steps to apply the desired colors to the Gantt tasks:
 
-1. Use a [Task Template](slug://gantt-task-template) to override the default task rendering.
+1. Use a [Task Template](slug:gantt-task-template) to override the default task rendering.
 1. In the template, declare a wrapping element that will contain all the task details. Specify the desired task information inside.
 1. Add an attribute `style="background-color"` to the wrapper and set the desired color. If your model has a color field that you want to use, you may get its value from the template's `context`.
 1. Use custom CSS to remove the default padding of the task template element (`<div class="k-task-template">`) and adjust the custom wrapper, so it covers the whole task element. This ensures that the background color covers the whole task.
@@ -231,7 +231,7 @@ Follow these steps to apply the desired colors to the Gantt tasks:
 
 ## See Also
 
-* [Gantt Task Overview](slug://gantt-overview)
-* [Gantt Task Template](slug://gantt-task-template)
+* [Gantt Task Overview](slug:gantt-overview)
+* [Gantt Task Template](slug:gantt-task-template)
 * [Live Demos: Gantt](https://demos.telerik.com/blazor-ui/gantt/overview)
-* [Gantt API Reference](slug://Telerik.Blazor.Components.TelerikGantt-1)
+* [Gantt API Reference](slug:Telerik.Blazor.Components.TelerikGantt-1)

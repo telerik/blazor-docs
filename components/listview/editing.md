@@ -10,7 +10,7 @@ position: 3
 
 # Editing
 
-The ListView lets you edit the data through a dedicated [edit template](slug://listview-templates#edit-template). You can put the items in edit/insert mode, as well as delete items through dedicated command buttons from the listview.
+The ListView lets you edit the data through a dedicated [edit template](slug:listview-templates#edit-template). You can put the items in edit/insert mode, as well as delete items through dedicated command buttons from the listview.
 
 To invoke the commands, use the `ListViewCommandButton` component in the templates of the component. It can take the following built-in `Command` values:
 * `Add` - initializes a new item insertion by adding the `EditTemplate` at the top of the listview.
@@ -200,6 +200,6 @@ The CUD operations are implemented through dedicated events that let you alter t
 
 ## See Also
 
-  * [ListView Overview](slug://listview-overview)
+  * [ListView Overview](slug:listview-overview)
    
   

@@ -21,7 +21,7 @@ ticketid: 1669381
 
 ## Description
 
-When using the TelerikGrid in Blazor applications, it's common to implement a custom `FilterMenu` for enhanced filtering capabilities. However, integrating a Telerik UI for Blazor component that is responsible for the dynamic Grid filtering based on user input does not work as expected. For example, the [AutoComplete](slug://autocomplete-overview) component does not consider the selection from the dropdown list of `StringOperators` within the [`FilterMenuTemplate`](slug://grid-templates-filter#filter-menu-template). 
+When using the TelerikGrid in Blazor applications, it's common to implement a custom `FilterMenu` for enhanced filtering capabilities. However, integrating a Telerik UI for Blazor component that is responsible for the dynamic Grid filtering based on user input does not work as expected. For example, the [AutoComplete](slug:autocomplete-overview) component does not consider the selection from the dropdown list of `StringOperators` within the [`FilterMenuTemplate`](slug:grid-templates-filter#filter-menu-template). 
 
 This knowledge base article also answers the following questions:
 - How to integrate AutoComplete with `StringOperators` in a TelerikGrid `FilterMenuTemplate`?
@@ -203,6 +203,6 @@ To achieve the desired behavior, encapsulate the content of the `FilterMenuTempl
 
 ## See Also
 
-- [DropDownList Overview](slug://components/dropdownlist/overview)
-- [Grid FilterMenu Documentation](slug://grid-filter-menu)
+- [DropDownList Overview](slug:components/dropdownlist/overview)
+- [Grid FilterMenu Documentation](slug:grid-filter-menu)
 - [Feedback Portal - Expose a Method to Refresh the FilterMenu](https://feedback.telerik.com/blazor/1584289-expose-a-method-to-refresh-the-filtermenu-from-the-code)

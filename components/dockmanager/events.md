@@ -55,7 +55,7 @@ The `SizeChanged` event is triggered when the `Size` parameter of the correspond
 
 ## OnPaneResize
 
-The `OnPaneResize` event is fired when any pane is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug://dockmanager-state) for your users.
+The `OnPaneResize` event is fired when any pane is resized. It lets you respond to that change if needed - for example, call the `.Refresh()` method of a chart or otherwise repaint a child component in the content. You can also use it to, for example, update the saved [state](slug:dockmanager-state) for your users.
 
 The event handler receives as an argument an `DockManagerPaneResizeEventArgs` object that contains:
 
@@ -72,7 +72,7 @@ The DockManager state lets you control through code the aspects of the DockManag
 
 * `OnStateChanged` - fires when the user performs an action so you can see what area was changed and, if needed, alter the component state.
 
-Review the [DockManager state](slug://dockmanager-state) article for more details and examples on how the grid state works and what you can do with it.
+Review the [DockManager state](slug:dockmanager-state) article for more details and examples on how the grid state works and what you can do with it.
 
 ## OnPin
 
@@ -277,9 +277,9 @@ The event handler receives as an argument an `DockManagerUnpinEventArgs` object 
 
 ## Next Steps
 
-* [Manage the Dock Manager state](slug://dockmanager-state).
+* [Manage the Dock Manager state](slug:dockmanager-state).
 
 
 ## See Also
 
-* [DockManager Overview](slug://dockmanager-overview)
+* [DockManager Overview](slug:dockmanager-overview)

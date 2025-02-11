@@ -10,7 +10,7 @@ position: 25
 
 # Column Group Footer
 
-When the grid is grouped, the columns can display a footer with information about the column data [aggregates](slug://grid-aggregates) and some custom text/logic. The template is strongly typed and exposes the available aggregates values.
+When the grid is grouped, the columns can display a footer with information about the column data [aggregates](slug:grid-aggregates) and some custom text/logic. The template is strongly typed and exposes the available aggregates values.
 
 >caption Sample Column Group Footer Template
 
@@ -87,5 +87,5 @@ When the grid is grouped, the columns can display a footer with information abou
 
  * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
- * [Blazor Grid](slug://grid-overview)
+ * [Blazor Grid](slug:grid-overview)
 

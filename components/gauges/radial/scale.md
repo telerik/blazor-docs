@@ -61,7 +61,7 @@ The Scale of the Radial Gauge renders the values, pointers and labels. You can c
 
 ## MinorUnit and MajorUnit
 
-* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The [labels](slug://radial-gauge-labels) will be rendered next to the `MajorUnit` ticks.
+* The `MajorUnit` (`double`) parameter controls the interval between the major unit divisions of the component. The [labels](slug:radial-gauge-labels) will be rendered next to the `MajorUnit` ticks.
 
 * The `MinorUnit` (`double`) parameter controls the interval between the minor unit divisions of the component.
 
@@ -182,8 +182,8 @@ You can remove the MinorUnit ticks from the rendering of the scale by using the 
 * [Live Demo: Radial Gauge](https://demos.telerik.com/blazor-ui/radialgauge/overview)
 * [Live Demo: Radial Gauge - Scale Ranges](https://demos.telerik.com/blazor-ui/radialgauge/scale-ranges)
 * [Live Demo: Radial Gauge - Scale Options](https://demos.telerik.com/blazor-ui/radialgauge/scale-options)
-* [Radial Gauge: Overview](slug://radial-gauge-overview)
-* [Radial Gauge: Pointers](slug://radial-gauge-pointers)
-* [Radial Gauge: Labels](slug://radial-gauge-labels)
-* [Radial Gauge: Ranges](slug://radial-gauge-ranges)
+* [Radial Gauge: Overview](slug:radial-gauge-overview)
+* [Radial Gauge: Pointers](slug:radial-gauge-pointers)
+* [Radial Gauge: Labels](slug:radial-gauge-labels)
+* [Radial Gauge: Ranges](slug:radial-gauge-ranges)
 

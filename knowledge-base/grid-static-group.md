@@ -33,7 +33,7 @@ How to ensure a group is always set for the grid?
 I would like to not show the buttons to remove the grouping options for this grid.
 
 ## Solution
-To ensure certain grid state (like always having the grid grouped by a certain field), you can use the [grid state](slug://grid-state) - through its `OnStateChanged` event, you can know what the user did and [prevent or override that action](slug://grid-state#onstatechanged).
+To ensure certain grid state (like always having the grid grouped by a certain field), you can use the [grid state](slug:grid-state) - through its `OnStateChanged` event, you can know what the user did and [prevent or override that action](slug:grid-state#onstatechanged).
 
 You can hide the group header or [x] buttons on group indicators with CSS rules.
 

@@ -31,7 +31,7 @@ How to use columns and rows for the Blazor Calendar multi-month feature?
 
 ## Solution
 
-1. Set a [`Class`](slug://components/calendar/overview#styling-and-appearance) to the `<TelerikCalendar>` component.
+1. Set a [`Class`](slug:components/calendar/overview#styling-and-appearance) to the `<TelerikCalendar>` component.
 1. Use the custom CSS class to set a `flex-flow: row wrap;` CSS style to `.k-hstack` as a descendant selector.
 1. (optional) Use the custom CSS class to apply a fixed width.
 
@@ -67,6 +67,6 @@ How to use columns and rows for the Blazor Calendar multi-month feature?
 
 ## See Also
 
-* [Calendar MultiView](slug://components/calendar/multiview)
-* [Disable Calendar Weekends](slug://calendar-kb-disable-weekends)
-* [Hide Calendar Weekends](slug://calendar-kb-hide-weekends)
+* [Calendar MultiView](slug:components/calendar/multiview)
+* [Disable Calendar Weekends](slug:calendar-kb-disable-weekends)
+* [Hide Calendar Weekends](slug:calendar-kb-hide-weekends)

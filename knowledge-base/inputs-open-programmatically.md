@@ -238,7 +238,7 @@ TimePicker:
 
 ## Versions Before 3.0
 
-[UI for Blazor versions 2.25 - 2.30 have different HTML rendering for the input components](slug://changes-in-3-0-0). Use this `attachFocusHandler` code instead:
+[UI for Blazor versions 2.25 - 2.30 have different HTML rendering for the input components](slug:changes-in-3-0-0). Use this `attachFocusHandler` code instead:
 
 <div class="skip-repl"></div>
 ````JS

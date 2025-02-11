@@ -43,10 +43,10 @@ This KB article answers the following questions:
 
 Here are the unique features and distinguishing characteristics of all Telerik UI for Blazor popup components:
 
-* The [AnimationContainer](slug://components/animationcontainer/overview) is a blank animated element that [renders at the same place where it is declared](slug://components/animationcontainer/overview#position). The rendering location can matter a lot in some cases, for example, in scenarios with scrollable conatiners.
-* The [Dialog](slug://dialog-overview) and [Window](slug://window-overview) are very similar. Basically, the Dialog is a modal Window that cannot be resized or dragged. The Dialog has [built-in layouts for action buttons in its footer](slug://dialog-action-buttons).
-* The [Popover](slug://popover-overview) and [Tooltip](slug://tooltip-overview) are also similar. The Popover is designed to work with a single anchor (target), while the Tooltip works with multiple targets. Both components can show a callout. Similar to the [Dialog](slug://dialog-overview), the Popover supports action buttons in its footer.
-* The [Popup](slug://popup-overview) UX can be similar to a [Window](slug://window-overview) or a drop down, depending on its animation and position settings. Similar to the [Popover](slug://popover-overview), the Popup also works with a single anchor and is positioned relative to it. The Popup has the [most comprehensive set of parameters that position and align it to its anchor](slug://popup-position-collision). Use the Popup to implement custom drop down components, which do not exist in the product.
+* The [AnimationContainer](slug:components/animationcontainer/overview) is a blank animated element that [renders at the same place where it is declared](slug:components/animationcontainer/overview#position). The rendering location can matter a lot in some cases, for example, in scenarios with scrollable conatiners.
+* The [Dialog](slug:dialog-overview) and [Window](slug:window-overview) are very similar. Basically, the Dialog is a modal Window that cannot be resized or dragged. The Dialog has [built-in layouts for action buttons in its footer](slug:dialog-action-buttons).
+* The [Popover](slug:popover-overview) and [Tooltip](slug:tooltip-overview) are also similar. The Popover is designed to work with a single anchor (target), while the Tooltip works with multiple targets. Both components can show a callout. Similar to the [Dialog](slug:dialog-overview), the Popover supports action buttons in its footer.
+* The [Popup](slug:popup-overview) UX can be similar to a [Window](slug:window-overview) or a drop down, depending on its animation and position settings. Similar to the [Popover](slug:popover-overview), the Popup also works with a single anchor and is positioned relative to it. The Popup has the [most comprehensive set of parameters that position and align it to its anchor](slug:popup-position-collision). Use the Popup to implement custom drop down components, which do not exist in the product.
 
 The following table provides another point of view for easier comparison.
 
@@ -54,14 +54,14 @@ The following table provides another point of view for easier comparison.
 
 | Component | Rendering Location * | Position Relative To | Anchor Elements | Built-in Styled Content | Modality | Resizing and Dragging |
 | --- | --- | --- | --- | --- | --- | --- |
-| AnimationContainer | in-place | depends on positioned containers and [`Top` and `Left`](slug://components/animationcontainer/overview#position) | 0, but can be simulated | none | no | no |
-| Dialog | root | page | 0 | header with [optional close button](slug://dialog-overview#dialog-parameters), footer with action buttons | yes | no |
+| AnimationContainer | in-place | depends on positioned containers and [`Top` and `Left`](slug:components/animationcontainer/overview#position) | 0, but can be simulated | none | no | no |
+| Dialog | root | page | 0 | header with [optional close button](slug:dialog-overview#dialog-parameters), footer with action buttons | yes | no |
 | Popover | root | anchor element | 1, [limited support for multiple](https://demos.telerik.com/blazor-ui/popover/overview) | header, footer with action buttons, callout | no | no |
 | Popup | root | anchor element | 1 | none | no | no |
 | Tooltip | root | anchor element | unlimited | icons, callout | no | no |
-| Window | depends on [`ContainmentSelector`](slug://components/window/position#containmentselector) | page | 0 | header with actions | depends on [`Modal`](slug://components/window/modal) | yes |
+| Window | depends on [`ContainmentSelector`](slug:components/window/position#containmentselector) | page | 0 | header with actions | depends on [`Modal`](slug:components/window/modal) | yes |
 
-\* **Root** rendering location means as a direct child of the [`TelerikRootComponent`](slug://rootcomponent-overview). **In-place** is how Blazor components normally work.
+\* **Root** rendering location means as a direct child of the [`TelerikRootComponent`](slug:rootcomponent-overview). **In-place** is how Blazor components normally work.
 
 
 ## See Also

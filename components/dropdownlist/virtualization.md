@@ -177,4 +177,4 @@ Run this and see how you can display, scroll and filter over 10k records in the 
 ## See Also
 
 * [Live Demo: DropDownList Virtualization](https://demos.telerik.com/blazor-ui/dropdownlist/virtualization)
-* [Blazor DropDownList](slug://components/dropdownlist/overview)
+* [Blazor DropDownList](slug:components/dropdownlist/overview)

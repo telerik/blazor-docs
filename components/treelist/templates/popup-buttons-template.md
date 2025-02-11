@@ -13,7 +13,7 @@ position: 50
 
 With the `ButtonsTemplate`, you can personalize the appearance and behavior of the buttons in the create/edit Popup window of the TreeList component.
 
->If a [FormTemplate](slug://treelist-templates-popup-form) is declared, the `ButtonsTemplate` will be ignored.
+>If a [FormTemplate](slug:treelist-templates-popup-form) is declared, the `ButtonsTemplate` will be ignored.
 
 >caption Modifying the buttons in the create/edit Popup by using a `ButtonsTemplate`.
 ````RAZOR

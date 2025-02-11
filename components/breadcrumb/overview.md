@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Breadcrumb Overview
 
-The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazor Breadcrumb component</a> allows navigation within a folder structure or web page. It provides an easy way to navigate backwards by one or multiple steps. In addition to built-in [navigation capabilities](slug://breadcrumb-navigation), you can browse through the items, define [templates](slug://breadcrumb-templates) for the individual nodes, render text and [icons](slug://breadcrumb-icons), and respond to [events](slug://breadcrumb-events).
+The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazor Breadcrumb component</a> allows navigation within a folder structure or web page. It provides an easy way to navigate backwards by one or multiple steps. In addition to built-in [navigation capabilities](slug:breadcrumb-navigation), you can browse through the items, define [templates](slug:breadcrumb-templates) for the individual nodes, render text and [icons](slug:breadcrumb-icons), and respond to [events](slug:breadcrumb-events).
 
 >caption In this article:
 
@@ -23,9 +23,9 @@ The <a href="https://www.telerik.com/blazor-ui/breadcrumb" target="_blank">Blazo
 To use a Telerik Breadcrumb for Blazor:
 
 1. add the `TelerikBreadcrumb` tag
-1. provide a collection of objects to its `Data` property (read more in the [Data Binding article](slug://breadcrumb-data-binding))
+1. provide a collection of objects to its `Data` property (read more in the [Data Binding article](slug:breadcrumb-data-binding))
 1. match the fields in the model with the binding schema for the nodes
-    * In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article](slug://breadcrumb-navigation) for more details on how to use the Breadcrumb for navigating through items.
+    * In this example, we keep it simple by only providing text for the Breadcrumb items. See the [Navigation article](slug:breadcrumb-navigation) for more details on how to use the Breadcrumb for navigating through items.
 
 >caption Basic Breadcrumb with data binding. The result from the snippet below.
 
@@ -97,9 +97,9 @@ To use a Telerik Breadcrumb for Blazor:
 
 The Breadcrumb provides the following features:
 
-* `Data`&mdash;a collection of flat data for all items in the Breadcrumb. See the [Data Binding](slug://breadcrumb-data-binding) article for details.
+* `Data`&mdash;a collection of flat data for all items in the Breadcrumb. See the [Data Binding](slug:breadcrumb-data-binding) article for details.
 
-* `CollapseMode`&mdash;specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes](slug://breadcrumb-collapse-modes) article.
+* `CollapseMode`&mdash;specifies how the Breadcrumb items are displayed if they cannot fit on a single line. Read more in the [Collapse Modes](slug:breadcrumb-collapse-modes) article.
 
 * `Width`&mdash;the width of the Breadcrumb component.
 
@@ -109,13 +109,13 @@ The Breadcrumb provides the following features:
 
 * `Class`&mdash;the CSS class that will be rendered on the main wrapping element of the Breadcrumb.
 
-* `ItemTemplate`&mdash;define a custom template for the Items of the Breadcrumb. Read more in the [Templates](slug://breadcrumb-templates) article.
+* `ItemTemplate`&mdash;define a custom template for the Items of the Breadcrumb. Read more in the [Templates](slug:breadcrumb-templates) article.
 
-* `SeparatorTemplate`&mdash;define a custom template for the [Breadcrumb Separator](slug://breadcrumb-separator). Read more in the [Templates](slug://breadcrumb-templates) article.
+* `SeparatorTemplate`&mdash;define a custom template for the [Breadcrumb Separator](slug:breadcrumb-separator). Read more in the [Templates](slug:breadcrumb-templates) article.
 
-* Events&mdash;you can respond to user actions to implement your business logic. For more details see the [Events](slug://breadcrumb-events) article.
+* Events&mdash;you can respond to user actions to implement your business logic. For more details see the [Events](slug:breadcrumb-events) article.
 
 ## See Also
 
 * [Live Demo: Breadcrumb Overview](https://demos.telerik.com/blazor-ui/breadcrumb/overview)
-* [BreadCrumb API Reference](slug://Telerik.Blazor.Components.TelerikBreadcrumb-1)
+* [BreadCrumb API Reference](slug:Telerik.Blazor.Components.TelerikBreadcrumb-1)

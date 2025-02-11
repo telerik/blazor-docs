@@ -41,8 +41,8 @@ How to refresh the component data after a few seconds with a Timer?
 
 1. Use a [`System.Timers.Timer`](https://learn.microsoft.com/en-us/dotnet/api/system.timers.timer).
 1. Define an `Elapsed` event handler.
-1. When [binding via `Data` parameter](slug://common-features-data-binding-overview), the `Elapsed` event handler should [reset the collection reference or call the `Rebind` method](slug://common-features-data-binding-overview#refresh-data) of the component(s).
-1. When [binding via `OnRead` event](slug://common-features-data-binding-onread), the `Elapsed` event handler should [call the `Rebind` method](slug://common-features-data-binding-onread#refresh-data) of the component(s) via [`InvokeAsync`](https://stackoverflow.com/questions/65230621/statehaschanged-vs-invokeasyncstatehaschanged-in-blazor).
+1. When [binding via `Data` parameter](slug:common-features-data-binding-overview), the `Elapsed` event handler should [reset the collection reference or call the `Rebind` method](slug:common-features-data-binding-overview#refresh-data) of the component(s).
+1. When [binding via `OnRead` event](slug:common-features-data-binding-onread), the `Elapsed` event handler should [call the `Rebind` method](slug:common-features-data-binding-onread#refresh-data) of the component(s) via [`InvokeAsync`](https://stackoverflow.com/questions/65230621/statehaschanged-vs-invokeasyncstatehaschanged-in-blazor).
 1. Be aware of [Blazor Tread Safety](https://blazor-university.com/components/multi-threaded-rendering/invokeasync/). 
 
 >caption Rebind Telerik Blazor components with Timer
@@ -224,10 +224,10 @@ The first data item is: @DropDownData.FirstOrDefault()?.Text
 
 We recommend using [`System.Timers.Timer` instead of `System.Threading.Timer` in Blazor](https://stackoverflow.com/questions/19577296/thread-safety-of-system-timers-timer-vs-system-threading-timer).
 
-When the DropDownList is bound via `Data`, its dropdown will not refresh automatically if it is open during the rebind. This is because all our popups are rendered outside the Razor component that defines them. The limitation does not exist with [`OnRead` data binding](slug://common-features-data-binding-onread), because then the UI refresh does not rely on the Blazor component life cycle.
+When the DropDownList is bound via `Data`, its dropdown will not refresh automatically if it is open during the rebind. This is because all our popups are rendered outside the Razor component that defines them. The limitation does not exist with [`OnRead` data binding](slug:common-features-data-binding-onread), because then the UI refresh does not rely on the Blazor component life cycle.
 
 ## See Also
 
-* [Component Data Binding Overview](slug://common-features-data-binding-overview)
-* [Data Binding with OnRead event](slug://common-features-data-binding-onread)
+* [Component Data Binding Overview](slug:common-features-data-binding-overview)
+* [Data Binding with OnRead event](slug:common-features-data-binding-onread)
 * [Blazor Tread Safety](https://blazor-university.com/components/multi-threaded-rendering/invokeasync/)

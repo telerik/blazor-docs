@@ -22,15 +22,15 @@ res_type: kb
 
 ## Description
 
-This article shows how to create, update, and delete items in the main (master) and nested (detail) Grids in a [hierarchy](slug://components/grid/features/hierarchy).
+This article shows how to create, update, and delete items in the main (master) and nested (detail) Grids in a [hierarchy](slug:components/grid/features/hierarchy).
 
 
 ## Solution
 
 The Grid CRUD operations are independent of the hierarchy. Each Grid performs editing separately and has its own handlers.
 
-1. [Configure editing for the main Grid](slug://components/grid/editing/overview).
-1. Define a [`DetailTemplate`](slug://components/grid/features/hierarchy) and configure the nested Grid inside it, including editing.
+1. [Configure editing for the main Grid](slug:components/grid/editing/overview).
+1. Define a [`DetailTemplate`](slug:components/grid/features/hierarchy) and configure the nested Grid inside it, including editing.
 1. To persist the expanded state of a `DetailTemplate` while editing its parent item, override the `Equals()` method of the master data item class. This is supported from version **5.1.0**.
 
 The example below shows the separate CUD event handlers and also how to get the parent data item in the nested Grid handlers. The `UpdateOrder`, `CreateOrder`, and `DeleteOrder` handlers receive the `productItem` in order to access the data item from the parent Grid. If you don't need access to the main Grid's data, don't pass the context through a lambda function.
@@ -316,5 +316,5 @@ Grid <code>EditMode</code>:
 
 ## See Also
 
-* [Grid Editing](slug://components/grid/editing/overview)
-* [Grid Hierarchy](slug://components/grid/features/hierarchy)
+* [Grid Editing](slug:components/grid/editing/overview)
+* [Grid Hierarchy](slug:components/grid/features/hierarchy)

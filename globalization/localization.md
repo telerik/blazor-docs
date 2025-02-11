@@ -19,9 +19,9 @@ The localization of the Telerik components builds on top of the standard .NET me
 * [ASP.NET Core Blazor Globalization and Localization](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization)
 * [Globalization and Localization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization)
 
-The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](slug://Telerik.Blazor.Services.ITelerikStringLocalizer) service to resolve localization keys to strings that will render in the UI. The key format is `<ComponentName>_<Key>`.
+The Telerik UI for Blazor components use a [`ITelerikStringLocalizer`](slug:Telerik.Blazor.Services.ITelerikStringLocalizer) service to resolve localization keys to strings that will render in the UI. The key format is `<ComponentName>_<Key>`.
 
-The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.Messages` class](slug://telerik.blazor.resources.messages) and a resource file with the default English message strings. The components use the built-in `resx` file internally if the app does not define another localization service for the Telerik components. The API reference for the `Messages` class lists all supported localization keys.
+The `Telerik.UI.for.Blazor` NuGet package includes a [`Telerik.Blazor.Resources.Messages` class](slug:telerik.blazor.resources.messages) and a resource file with the default English message strings. The components use the built-in `resx` file internally if the app does not define another localization service for the Telerik components. The API reference for the `Messages` class lists all supported localization keys.
 
 
 ## Localize Telerik Blazor Components
@@ -48,14 +48,14 @@ The purpose of this step is to supply the correct application culture to the `Re
 
 Create and add localization resource `resx` files to your app, based on the languages that the app must support. Use the following links for reference:
 
-* A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](slug://Telerik.Blazor.Resources.Messages).
-* An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug://installation-msi) or [UI for Blazor ZIP archive](slug://installation-zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
+* A full up-to-date list of localization keys is available in the [`Telerik.Blazor.Resources.Messages` API reference](slug:Telerik.Blazor.Resources.Messages).
+* An up-to-date English resource file is available in the [Telerik UI for Blazor demo site](https://demos.telerik.com/blazor-ui). Download the [UI for Blazor automated installer](slug:installation-msi) or [UI for Blazor ZIP archive](slug:installation-zip). Go to the installation location and open the folder `\demos\TelerikBlazorDemos\Resources\`. The folder contains `resx` localization files for a few different languages.
 * Community resource files are available in the <a href="https://github.com/telerik/blazor-ui-messages" target="_blank">`blazor-ui-messages` GitHub repository</a>. These resource files are updated and maintained by the Telerik community. They may not be compatible with the latest product version. You are welcome to contribute your own resource files.
 
 > Update the localization resource files every time you upgrade Telerik UI for Blazor. Otherwise you may see:
 >
 * Missing or non-translated messages in the UI
-* [Exceptions related to missing localization keys](slug://common-kb-null-value-parameter-format)
+* [Exceptions related to missing localization keys](slug:common-kb-null-value-parameter-format)
 >
 > Telerik supports the default English strings. The `resx` files for the other languages are provided as-is and you can use them as base for implementing your own.
 
@@ -83,7 +83,7 @@ Make sure the `resx` files are defined as `EmbeddedResource` in the **Build Acti
 
 ### Step 3: Implement ITelerikStringLocalizer Service
 
-Create a service that implements [`Telerik.Blazor.Services.ITelerikStringLocalizer`](slug://Telerik.Blazor.Services.ITelerikStringLocalizer). The service must implement an indexer that returns the desired string based on the requested localization key. Normally, the returned string also depends on the current culture, unless you are [using the localization mechanism to override specific UI labels only](slug://common-kb-localize-selected-localization-keys).
+Create a service that implements [`Telerik.Blazor.Services.ITelerikStringLocalizer`](slug:Telerik.Blazor.Services.ITelerikStringLocalizer). The service must implement an indexer that returns the desired string based on the requested localization key. Normally, the returned string also depends on the current culture, unless you are [using the localization mechanism to override specific UI labels only](slug:common-kb-localize-selected-localization-keys).
 
 The example below obtains localized strings from resource `resx` files. You can obtain the required strings from any other source, such as a database, `json` files, hash tables, and so on.
 
@@ -132,7 +132,7 @@ builder.Services.AddSingleton(typeof(ITelerikStringLocalizer), typeof(SampleResx
 
 ### Step 5: Inject Your Localization Service
 
-This step is optional. You need it to manually render localized strings from the Telerik resource files. For example, the Telerik resource files include keys for the [built-in Grid commands](slug://components/grid/columns/command).
+This step is optional. You need it to manually render localized strings from the Telerik resource files. For example, the Telerik resource files include keys for the [built-in Grid commands](slug:components/grid/columns/command).
 
 * Import the `Telerik.Blazor.Services` namespace.
 * Inject your `ITelerikStringLocalizer` service.
@@ -177,17 +177,17 @@ You can find sample runnable projects for both server-side Blazor and for WebAss
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ServerLocalizationResx" target="_blank">Localized Telerik Blazor Web App with Server Render Mode</a>
 * <a href="https://github.com/telerik/blazor-ui/tree/master/common/localization/ClientLocalizationResx" target="_blank">Localized Telerik Blazor WebAssembly Standalone App</a>
 
-You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer](slug://installation-msi) or [UI for Blazor ZIP archive](slug://installation-zip) for download instructions.
+You can also find a localization implementation in the offline version of the [Telerik UI for Blazor demos](https://demos.telerik.com/blazor-ui). Check your Telerik UI for Blazor installation folder or visit [UI for Blazor automated installer](slug:installation-msi) or [UI for Blazor ZIP archive](slug:installation-zip) for download instructions.
 
 
 ## Troubleshooting
 
-Outdated Telerik resource files may cause [some UI labels to appear in English](slug://common-kb-partial-localization), or the app may trigger a [`Value cannot be null. (Parameter 'format')` exception](slug://common-kb-value-cannot-be-null-parameter-format).
+Outdated Telerik resource files may cause [some UI labels to appear in English](slug:common-kb-partial-localization), or the app may trigger a [`Value cannot be null. (Parameter 'format')` exception](slug:common-kb-value-cannot-be-null-parameter-format).
 
 This is not related to the Telerik components, but setting `ResourcePath` in `services.AddLocalization()` may break the standard `IStringLocalizer` in your app or make it more difficult to use.
 
 
 ## See Also
 
-* [Globalization Overview](slug://globalization-overview)
-* [Localize Only Some Component Labels](slug://common-kb-localize-selected-localization-keys)
+* [Globalization Overview](slug:globalization-overview)
+* [Localize Only Some Component Labels](slug:common-kb-localize-selected-localization-keys)

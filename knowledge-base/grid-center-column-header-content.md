@@ -30,7 +30,7 @@ How to align Grid header cell text to the right?
 
 ## Solution
 
-Use [custom CSS to override the default Grid styles](slug://themes-override). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter](slug://components/grid/columns/bound) that can help to target specific columns.
+Use [custom CSS to override the default Grid styles](slug:themes-override). Since [version 3.4.0](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-3-4-0), the [Grid columns provide a `HeaderClass` parameter](slug:components/grid/columns/bound) that can help to target specific columns.
 
 For older product versions, or to target all columns, use `.k-header` instead of a custom CSS class.
 
@@ -134,10 +134,10 @@ For older product versions, or to target all columns, use `.k-header` instead of
 
 ## Notes
 
-* If you need to wrap the column header content as well, you can try the approach from this knowledge base article - [Wrap and center the Grid Column Header text](slug://grid-kb-wrap-and-center-column-header-text). It shows how to change the default display property of the header cells to `block` and then easily operate with their content to wrap and center it.
+* If you need to wrap the column header content as well, you can try the approach from this knowledge base article - [Wrap and center the Grid Column Header text](slug:grid-kb-wrap-and-center-column-header-text). It shows how to change the default display property of the header cells to `block` and then easily operate with their content to wrap and center it.
 
-* If you want full control over the header text contents and rendering, you can use a [column header template](slug://grid-templates-column-header).
+* If you want full control over the header text contents and rendering, you can use a [column header template](slug:grid-templates-column-header).
 
 ## See Also
 
-* [Wrap and center the Grid Column Header text](slug://grid-kb-wrap-and-center-column-header-text)
+* [Wrap and center the Grid Column Header text](slug:grid-kb-wrap-and-center-column-header-text)

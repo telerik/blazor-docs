@@ -52,12 +52,12 @@ Each tile provides settings that define how many columns and rows its takes up -
 
 ## Next Steps
 
-* [Find how to set tile content](slug://tilelayout-tile-content).
-* Enable tile [resizing](slug://tilelayout-resize) and [reordering](slug://tilelayout-reorder).
-* [Handle Tile Layout events](slug://tilelayout-events).
-* [Manage the Tile Layout state](slug://tilelayout-state).
+* [Find how to set tile content](slug:tilelayout-tile-content).
+* Enable tile [resizing](slug:tilelayout-resize) and [reordering](slug:tilelayout-reorder).
+* [Handle Tile Layout events](slug:tilelayout-events).
+* [Manage the Tile Layout state](slug:tilelayout-state).
 
 
 ## See Also
 
-* [TileLayout Overview](slug://tilelayout-overview)
+* [TileLayout Overview](slug:tilelayout-overview)

@@ -60,30 +60,30 @@ Last action: <strong> @LastAction </strong>
 
 ## Icons
 
-The primary SplitButton action and each secondary item in the dropdown can [display a font icon or an image](slug://splitbutton-icons) for better looks and user experience.
+The primary SplitButton action and each secondary item in the dropdown can [display a font icon or an image](slug:splitbutton-icons) for better looks and user experience.
 
 
 ## Appearance
 
-The SplitButton provides a [variety of settings to control its visual appearance](slug://splitbutton-appearance), for example the colors, borders, and size. This spares the need to use custom CSS code.
+The SplitButton provides a [variety of settings to control its visual appearance](slug:splitbutton-appearance), for example the colors, borders, and size. This spares the need to use custom CSS code.
 
 >tip To learn more about the appearance, anatomy, and accessibility of the SplitButton, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/splitbutton/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
 ## Events
 
-Each SplitButton action [fires a separate `OnClick` event](slug://splitbutton-events), so that the application can react to user behavior.
+Each SplitButton action [fires a separate `OnClick` event](slug:splitbutton-events), so that the application can react to user behavior.
 
 
 ## SplitButton Parameters
 
-The following table lists the SplitButton parameters, except those related to [built-in styling](slug://splitbutton-appearance) and [icons](slug://splitbutton-icons). Also check the [SplitButton API Reference](slug://Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
+The following table lists the SplitButton parameters, except those related to [built-in styling](slug:splitbutton-appearance) and [icons](slug:splitbutton-icons). Also check the [SplitButton API Reference](slug:Telerik.Blazor.Components.TelerikSplitButton) for a full list of properties, methods and events.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `AriaLabel` | `string` | Sets the `aria-label` attribute of the primary action element, which is `<button class="k-button">`. |
-| `Class` | `string` | Renders a custom CSS class to the main component element, which is `<div class="k-split-button">`. Use it to [override the theme styles](slug://themes-override) to obtain a specific appearance, if none of the [SplitButton appearance settings](slug://splitbutton-appearance) can achieve this. |
+| `Class` | `string` | Renders a custom CSS class to the main component element, which is `<div class="k-split-button">`. Use it to [override the theme styles](slug:themes-override) to obtain a specific appearance, if none of the [SplitButton appearance settings](slug:splitbutton-appearance) can achieve this. |
 | `Enabled` | `bool`<br />(`true`) | Enables or disables the component. |
 | `Id` | `string` | Sets the `id` attribute of the primary action element (`<button>`). |
 | `TabIndex`| `int` | Sets the `tabindex` attribute of the primary action element. |
@@ -120,7 +120,7 @@ The SplitButton exposes configuration settings for its dropdown (popup). The par
 
 ### Item Settings
 
-The following table lists the `SplitButtonItem` parameters, except those related to [icons](slug://splitbutton-icons).
+The following table lists the `SplitButtonItem` parameters, except those related to [icons](slug:splitbutton-icons).
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ The following table lists the `SplitButtonItem` parameters, except those related
 
 ## SplitButton Reference and Methods
 
-The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Be aware of the Blazor life cycle if you want to [focus the component on page load](slug://inputs-kb-focus#focus-on-page-load).
+The SplitButton exposes a `FocusAsync` method to focus it programmatically. To use it, define a reference to the component instance with the `@ref` attribute. Be aware of the Blazor life cycle if you want to [focus the component on page load](slug:inputs-kb-focus#focus-on-page-load).
 
 >caption Get a reference to the SplitButton and execute methods
 
@@ -171,13 +171,13 @@ Last action clicked: <strong> @LastActionClicked </strong>
 
 ## Next Steps
 
-* [Handle SplitButton Events](slug://splitbutton-events)
-* [Add SplitButton Icons](slug://splitbutton-icons)
-* [Configure the SplitButton appearance](slug://splitbutton-appearance)
+* [Handle SplitButton Events](slug:splitbutton-events)
+* [Add SplitButton Icons](slug:splitbutton-icons)
+* [Configure the SplitButton appearance](slug:splitbutton-appearance)
 
 
 ## See Also
 
-* [SplitButton API](slug://Telerik.Blazor.Components.TelerikSplitButton)
+* [SplitButton API](slug:Telerik.Blazor.Components.TelerikSplitButton)
 * [Live Demo: SplitButton](https://demos.telerik.com/blazor-ui/splitbutton/overview)
-* [KB: Change Primary SplitButton Action on Click](slug://splitbutton-kb-change-primary-action-onclick)
+* [KB: Change Primary SplitButton Action on Click](slug:splitbutton-kb-change-primary-action-onclick)

@@ -36,7 +36,7 @@ If I use similar code with the `IconClass` of a plain component like a `TelerikB
 
 ## Possible Cause
 
-The most common reason for such a problem is that the model field that carries the classes for the custom font matches the default name that the Telerik component uses for the built-in [Telerik icons](slug://common-features-icons) - `Icon`.
+The most common reason for such a problem is that the model field that carries the classes for the custom font matches the default name that the Telerik component uses for the built-in [Telerik icons](slug:common-features-icons) - `Icon`.
 
 The databinding settings of the databound components have default field names and they look for Telerik icons in the `Icon` field of the model, unless you specify otherwise.
 

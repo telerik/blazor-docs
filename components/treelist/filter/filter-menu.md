@@ -10,7 +10,7 @@ position: 10
 
 # TreeList Filter Menu
 
-One of the [filter modes of the treelist](slug://treelist-filtering) is a popup menu with filter options that you can open from the column headers.
+One of the [filter modes of the treelist](slug:treelist-filtering) is a popup menu with filter options that you can open from the column headers.
 
 In this article:
 
@@ -24,7 +24,7 @@ To enable the filter menu, set the `FilterMode` property of the grid to `Telerik
 
 The treelist will render a button in the column header that you click to get a popup with filtering options. The popup lets you choose filter operator, filter criteria, to apply and clear the filter.
 
-A key difference in the behavior from the [filter row](slug://treelist-filter-row) is that the filter is now applied only upon a button click, not upon input change. This may improve performance with large data sets.
+A key difference in the behavior from the [filter row](slug:treelist-filter-row) is that the filter is now applied only upon a button click, not upon input change. This may improve performance with large data sets.
 
 >caption Filter Menu in Telerik TreeList
 
@@ -103,7 +103,7 @@ A key difference in the behavior from the [filter row](slug://treelist-filter-ro
 
 ## Filter From Code
 
-You can set the TreeList filters from your code through the component [state](slug://treelist-state).
+You can set the TreeList filters from your code through the component [state](slug:treelist-state).
 
 @[template](/_contentTemplates/treelist/state.md#initial-state)
 
@@ -209,10 +209,10 @@ You can override the default Filter Row behavior for each column through the fol
 
 ### Filter Menu Template
 
-The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template](slug://grid-templates-filter#filter-menu-template) article.
+The template will let you have full control over the Filter Row rendering and behavior. See how you can implement it and explore the example in the [Filter Row Template](slug:grid-templates-filter#filter-menu-template) article.
 
 
 ## See Also
 
-  * [Treelist Filtering Overview](slug://treelist-filtering)
+  * [Treelist Filtering Overview](slug:treelist-filtering)
   * [Live Demo: TreeList Filter Menu](https://demos.telerik.com/blazor-ui/treelist/filter-menu)

@@ -10,23 +10,23 @@ position: 17
 
 # FileManager Upload
 
-The FileManager allows uploading of files through an integrated Upload component. The Upload shows in a dialog when the user clicks on the [`Upload` Toolbar button](slug://filemanager-toolbar).
+The FileManager allows uploading of files through an integrated Upload component. The Upload shows in a dialog when the user clicks on the [`Upload` Toolbar button](slug:filemanager-toolbar).
 
->tip Before continuing, make sure you are familiar with the features and API of the [Upload component](slug://upload-overview).
+>tip Before continuing, make sure you are familiar with the features and API of the [Upload component](slug:upload-overview).
 
 Configure the integrated Upload through the `FileManagerUploadSettings` child tag of `FileManagerSettings`. The FileManager exposes parameter names that are identical to the respective Upload component API members:
 
-* [Upload parameters](slug://upload-overview#upload-parameters)
-* [Upload validation settings](slug://upload-validation)
-* [Upload events](slug://upload-events)
+* [Upload parameters](slug:upload-overview#upload-parameters)
+* [Upload validation settings](slug:upload-validation)
+* [Upload events](slug:upload-events)
 
 ## Example
 
 The example below demonstrates how to handle successful upload on the FileManager. Note the following milestones:
 
-* To actually **upload** the file, [implement a controller method](slug://upload-overview#implement-controller-methods).
-* To save the file in the **correct folder**, use the [Upload's `OnUpload` event](slug://upload-events#onupload) and send the FileManager's `Path` value to the controller.
-* To receive an optional **custom response** from the controller, use the [Upload's `OnSuccess` event arguments](slug://upload-events#onsuccess).
+* To actually **upload** the file, [implement a controller method](slug:upload-overview#implement-controller-methods).
+* To save the file in the **correct folder**, use the [Upload's `OnUpload` event](slug:upload-events#onupload) and send the FileManager's `Path` value to the controller.
+* To receive an optional **custom response** from the controller, use the [Upload's `OnSuccess` event arguments](slug:upload-events#onsuccess).
 
 >caption Using FileManager Upload
 
@@ -285,8 +285,8 @@ The example below demonstrates how to handle successful upload on the FileManage
 
 ## Next Steps
 
-* [Upload Events](slug://upload-events)
-* [Upload Validation](slug://upload-validation)
+* [Upload Events](slug:upload-events)
+* [Upload Validation](slug:upload-validation)
 
 ## See Also
 

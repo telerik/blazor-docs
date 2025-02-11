@@ -11,7 +11,7 @@ position: 5
 
 # Editor Iframe Edit Mode
 
-The Iframe mode is the default [edit mode](slug://editor-edit-modes-overview) of the editor. It creates a separate `document` for editing, because the editable area is an `<iframe>` HTML element.
+The Iframe mode is the default [edit mode](slug:editor-edit-modes-overview) of the editor. It creates a separate `document` for editing, because the editable area is an `<iframe>` HTML element.
 
 This has the following implications:
 
@@ -28,6 +28,6 @@ This has the following implications:
 
 ## See Also
 
-  * [Editor Overview](slug://editor-overview)
-  * [Editor Toolbar](slug://editor-toolbar)
+  * [Editor Overview](slug:editor-overview)
+  * [Editor Toolbar](slug:editor-toolbar)
 

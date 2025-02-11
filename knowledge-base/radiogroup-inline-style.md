@@ -29,7 +29,7 @@ How can I add a RadioGroup component on the same line as other elements? By defa
 
 The RadioGroup renders an `<ul>` element which is block-level by default and falls on a new line. Here is how to override the styling and make the RadioGroup remain on the same line:
 
-1. Set a [CSS Class](slug://radiogroup-overview#radiogroup-parameters) to the RadioGroup.
+1. Set a [CSS Class](slug:radiogroup-overview#radiogroup-parameters) to the RadioGroup.
 1. Override the `display: flex` style of the `<ul class="k-radio-list">` element to `inline-flex`.
 1. Optionally, apply a `vertical-align` style to line up the component with the other elements next to it.
 

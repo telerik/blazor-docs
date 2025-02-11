@@ -12,7 +12,7 @@ position: 0
 
 The <a href="https://www.telerik.com/blazor-ui/textbox" target="_blank">Blazor TextBox component</a> allows the user to enter a generic plain text message. 
 
-You can control [various attributes](#textbox-parameters) of the `input` element and turn the TextBox into a password box, for example. You can also configure this component to respond to [events](slug://components/textbox/events).
+You can control [various attributes](#textbox-parameters) of the `input` element and turn the TextBox into a password box, for example. You can also configure this component to respond to [events](slug:components/textbox/events).
 
 ## Creating Blazor TextBox
 
@@ -33,7 +33,7 @@ You can control [various attributes](#textbox-parameters) of the `input` element
 
 ## Appearance
 
-The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings](slug://textbox-appearance).
+The TextBox component provides settings to control its appearance. [Read more about the Blazor TextBox appearance settings](slug:textbox-appearance).
 
 >tip To learn more about the appearance, anatomy, and accessibility of the TextBox, visit the [Progress Design System Kit documentation](https://www.telerik.com/design-system/docs/components/textbox/)—an information portal offering rich component usage guidelines, descriptions of the available style variables, and globalization support details.
 
@@ -41,7 +41,7 @@ The TextBox component provides settings to control its appearance. [Read more ab
 
 ## Events
 
-The Blazor TextBox generates blur and value change events for further customizing its behavior. [Read more about the Blazor TextBox events](slug://components/textbox/events).
+The Blazor TextBox generates blur and value change events for further customizing its behavior. [Read more about the Blazor TextBox events](slug:components/textbox/events).
 
 ## TextBox Parameters
 
@@ -61,17 +61,17 @@ The Blazor TextBox provides various parameters to configure the component:
 | `MaxLength` | `int?` | Maps to the `maxlength` attribute of the HTML `<input />` element. |
 | `InputMode` | `string` | A `string` that maps to the [`inputmode`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) attribute of the HTML element. You can use it to instruct the rendering device to show a suitable virtual keyboard (for example, one optimized for entering an URL or an email). Make sure to use values that make sense for a text input. For example, if you need a numerical input, use the TelerikNumericTextBox component, or the TelerikDatePicker for dates. |
 | `Name` | `string` | The `name` attribute of the HTML element. It is usually required so the `AutoComplete` will be honored by the browser. |
-| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Password Textbox demo](https://demos.telerik.com/blazor-ui/textbox/password) and the [Add Eye Icon to Reveal a TextBox Password](slug://textbox-kb-eye-reveal-password) article. |
+| `Password` | `bool` | When set to `true`, the HTML element renders `type="password"` so that the user input is hidden. You can find examples of validation and reveal buttons in the [Password Textbox demo](https://demos.telerik.com/blazor-ui/textbox/password) and the [Add Eye Icon to Reveal a TextBox Password](slug:textbox-kb-eye-reveal-password) article. |
 | `Placeholder` | `string` | A `string` that maps to the `placeholder` attribute of the HTML element. If a `Label` is defined, it will be shown instead of the placeholder when the input is not focused. |
 | `ShowClearButton` | `bool` | Defines if the user can clear the component value through an **x** button rendered inside the input. |
 | `SpellCheck` | `string` | A `string` that maps to the [`spellcheck`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck) attribute of the HTML element. Use it to disable browser spellchecking if it's intrusive to the user or due to [privacy and security concerns](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck#security_and_privacy_concerns). |
 | `TabIndex` | ``Nullable<int>`` | Maps to the `tabindex` attribute of the HTML element. You can use it to customize the order in which the inputs in your form focus with the `Tab` key. |
-| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [Blazor Tooltip](slug://tooltip-overview). |
-| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug://common-features/input-validation#validation-modes-for-simple-inputs). |
+| `Title` | `string` | Maps to the `title` attribute of the HTML element. You can use it to add a [Blazor Tooltip](slug:tooltip-overview). |
+| `ValidateOn` | `ValidationEvent` enum <br /> (`Input`) | Configures the event that will trigger validation (if validation is enabled). Read more at [Validation Modes for Simple Inputs](slug:common-features/input-validation#validation-modes-for-simple-inputs). |
 | `Value` | `string` | The value of the input. Supports two-way binding. |
-| `Width` | `string` | The component width. See [Dimensions](slug://common-features/dimensions). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
+| `Width` | `string` | The component width. See [Dimensions](slug:common-features/dimensions). The `Width` parameter has no default value, but the theme applies a `width: 100%` style. |
 
-See also the [Input Validation](slug://common-features/input-validation) article.
+See also the [Input Validation](slug:common-features/input-validation) article.
 
 ## TextBox Reference and Methods
 
@@ -113,7 +113,7 @@ The TextBox provides a `FocusAsync` method that allows the application to focus 
 
 >caption Password type TextBox
 
-See [Add Eye Icon to Reveal a TextBox Password](slug://textbox-kb-eye-reveal-password).
+See [Add Eye Icon to Reveal a TextBox Password](slug:textbox-kb-eye-reveal-password).
 
 >caption Programmatically change the TextBox value
 
@@ -139,10 +139,10 @@ TextBox value: @StringValue
 
 ## Next Steps
 
-* [Explore the TextBox Appearance Settings](slug://textbox-appearance)
-* [Handle the TextBox Events](slug://components/textbox/events)
+* [Explore the TextBox Appearance Settings](slug:textbox-appearance)
+* [Handle the TextBox Events](slug:components/textbox/events)
 
 ## See Also
 
 * [Live Demo: TextBox](https://demos.telerik.com/blazor-ui/textbox/overview)
-* [TextBox API Reference](slug://Telerik.Blazor.Components.TelerikTextBox)
+* [TextBox API Reference](slug:Telerik.Blazor.Components.TelerikTextBox)

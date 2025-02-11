@@ -148,5 +148,5 @@ The event handler receives as an argument an `MultiColumnComboBoxCloseEventArgs`
 
 ## See Also
 
-* [ColorPicker Overview](slug://colorpicker-overview)
-* [ColorPicker Views](slug://colorpicker-views)
+* [ColorPicker Overview](slug:colorpicker-overview)
+* [ColorPicker Views](slug:colorpicker-views)

@@ -106,5 +106,5 @@ The Editor clears `<script>` tags and removes DOM event handler attributes (e.g.
 
 ## See Also
 
-* [Editor Overview](slug://editor-overview)
+* [Editor Overview](slug:editor-overview)
 * [Live Demo: Paste Cleanup](https://demos.telerik.com/blazor-ui/editor/paste-cleanup)

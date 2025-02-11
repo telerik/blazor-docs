@@ -164,4 +164,4 @@ Here are a few examples in their corresponding tabs per component:
 
 ## See Also
 
-* [The basics of value binding and data binding](slug://get-started-value-vs-data-binding)
+* [The basics of value binding and data binding](slug:get-started-value-vs-data-binding)

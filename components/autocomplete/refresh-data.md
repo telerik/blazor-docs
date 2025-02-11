@@ -21,7 +21,7 @@ In this article:
 
 ## Rebind Method
 
-To refresh the AutoComplete data when using [`OnRead`](slug://autocomplete-events#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
+To refresh the AutoComplete data when using [`OnRead`](slug:autocomplete-events#onread), call the `Rebind` method of the TelerikAutoComplete reference. This will fire the `OnRead` event and execute the business logic in the handler.
 
 ````RAZOR
 @* Clicking on the Rebind button will delete the first item from the datasource and refresh the data in the UI *@
@@ -221,6 +221,6 @@ To refresh the AutoComplete data when using [`OnRead`](slug://autocomplete-event
 
 ## See Also
 
-  * [ObservableCollection](slug://common-features-observable-data)
+  * [ObservableCollection](slug:common-features-observable-data)
   * [INotifyCollectionChanged Interface](https://docs.microsoft.com/en-us/dotnet/api/system.collections.specialized.inotifycollectionchanged?view=netframework-4.8)
   * [Live Demos](https://demos.telerik.com/blazor-ui)

@@ -29,7 +29,7 @@ Some of the Scheduler features and behaviors depend directly on values in the ap
 * Define a model with *default (expected) property names*. In this case, the Scheduler will recognize and use the properties automatically. See [an example with default field names](#example-with-default-field-names).
 * Define *custom property names*. In this case, define the property names as parameters of the `<TelerikScheduler>` tag. The parameter names derive from the default property names, for example `IdField`, `TitleField`, `StartField`, etc. See [an example with custom field names](#example-with-custom-field-names).
 
->tip The Scheduler model can carry additional information in other existing properties, that will be used by your application logic, or in [Scheduler item templates](slug://scheduler-templates-appointment).
+>tip The Scheduler model can carry additional information in other existing properties, that will be used by your application logic, or in [Scheduler item templates](slug:scheduler-templates-appointment).
 
 The following table lists the default property names and explains how the Scheduler uses these properties. The appointment model needs to provide all properties from the list below, no matter if they have the same names or not.
 
@@ -246,8 +246,8 @@ The Scheduler edit form works with an instance that that the scheduler creates f
 
 ## Next Steps
 
-* [Configure Scheduler views](slug://scheduler-views-overview)
-* [Enable Scheduler editing](slug://scheduler-appointments-edit)
+* [Configure Scheduler views](slug:scheduler-views-overview)
+* [Enable Scheduler editing](slug:scheduler-appointments-edit)
 
 
 ## See Also

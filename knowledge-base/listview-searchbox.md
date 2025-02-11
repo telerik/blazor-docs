@@ -29,7 +29,7 @@ How to implement a ListView search box, similar to the [SearchBox in the Blazor 
 
 It is possible to search and filter the ListView programmatically. The example below is a modified version of the [ListView filtering demo](https://demos.telerik.com/blazor-ui/listview/filtering).
 
-* Notice the usage of a [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor), instead of a [`FilterDescriptor`](slug://Telerik.DataSource.FilterDescriptor). This is because we are searching in multiple fields with an `OR` logical operator. The [Grid Filtering documentation](slug://components/grid/filtering#filter-descriptors) explains the difference between the two descriptor types.
+* Notice the usage of a [`CompositeFilterDescriptor`](slug:Telerik.DataSource.CompositeFilterDescriptor), instead of a [`FilterDescriptor`](slug:Telerik.DataSource.FilterDescriptor). This is because we are searching in multiple fields with an `OR` logical operator. The [Grid Filtering documentation](slug:components/grid/filtering#filter-descriptors) explains the difference between the two descriptor types.
 * Populate the `FilterDescriptors` collection of the `CompositeFilterDescriptor` object with one `FilterDescriptor` for each field that you want to search in.
 
 >caption ListView Search Textbox

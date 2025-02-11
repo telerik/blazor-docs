@@ -44,7 +44,7 @@ public class Employee
 }
 ```
 
-Modify the class to [include a primitive property that holds a unique identifier](slug://grids-foreign-key):
+Modify the class to [include a primitive property that holds a unique identifier](slug:grids-foreign-key):
 
 ```csharp
 public class Employee
@@ -56,8 +56,8 @@ public class Employee
 
 ## See Also
 
-* [Grid Editing](slug://components/grid/editing/overview)
-* [Gantt Editing](slug://gantt-tree-editing)
-* [ListView Editing](slug://listview-editing)
-* [Scheduler Editing](slug://scheduler-appointments-edit)
-* [TreeList Editing](slug://treelist-editing-overview)
+* [Grid Editing](slug:components/grid/editing/overview)
+* [Gantt Editing](slug:gantt-tree-editing)
+* [ListView Editing](slug:listview-editing)
+* [Scheduler Editing](slug:scheduler-appointments-edit)
+* [TreeList Editing](slug:treelist-editing-overview)

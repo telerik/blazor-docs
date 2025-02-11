@@ -78,7 +78,7 @@ We leverage leading commercial tools to automatically monitor and update third-p
 
 Content Security Policy (CSP) is a critical security measure that helps detect and mitigate the risks of content injection vulnerabilities, such as cross-site scripting (XSS) and data injection attacks. Telerik UI for Blazor components are designed to be CSP-compliant, ensuring secure integration into customer projects.
 
-For more detailed information on CSP compliance, refer to the [Telerik UI for Blazor Content Security Policy](slug://troubleshooting-csp) article.
+For more detailed information on CSP compliance, refer to the [Telerik UI for Blazor Content Security Policy](slug:troubleshooting-csp) article.
 
 This resource provides guidelines on how to configure your Blazor application to comply with CSP requirements when using the Telerik UI for Blazor components.
 
@@ -90,8 +90,8 @@ We closely monitor the [OWASP Top 10](https://owasp.org/www-project-top-ten/) li
 
 The following resources outline best practices and recommendations for securing the corresponding component and mitigating potential risks:
 
-* [Editor - Security Guidelines](slug://editor-overview#security)
-* [Upload - Security Guidelines](slug://upload-overview#security)
+* [Editor - Security Guidelines](slug:editor-overview#security)
+* [Upload - Security Guidelines](slug:upload-overview#security)
 
-For more detailed answers to common security-related questions, please refer to our [Security FAQ page](slug://security-faq).      
+For more detailed answers to common security-related questions, please refer to our [Security FAQ page](slug:security-faq).      
  

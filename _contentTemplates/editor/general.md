@@ -8,7 +8,7 @@ The application must sanitize the content before passing it to the Editor and, o
 
 This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps do not require additional configuration for the Editor to work with large content.
 
-Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` from the browser to the server .NET runtime and vice-versa. The default SignalR maximum message size is **32 KB**. To work with larger content (especially paste images as Base64 strings), [increase the max WebSocket message size for the Blazor application](slug://common-kb-increase-signalr-max-message-size).
+Blazor **Server** apps use the **SignalR WebSocket** to send the Editor `Value` from the browser to the server .NET runtime and vice-versa. The default SignalR maximum message size is **32 KB**. To work with larger content (especially paste images as Base64 strings), [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
 
 #end
 #prosemirror-schema-prerequisites

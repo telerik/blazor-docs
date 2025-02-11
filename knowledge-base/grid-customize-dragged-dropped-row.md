@@ -29,9 +29,9 @@ I am using Grid with Drag and Drop functionality to drag the items from one Grid
 
 Do the following to customize the appearance of the dropped item:
 
-* Use a global variable to store the dropped item. You can get it from the `GridRowDropEventArgs` of the [`OnRowDrop` event](slug://grid-events#onrowdrop)
+* Use a global variable to store the dropped item. You can get it from the `GridRowDropEventArgs` of the [`OnRowDrop` event](slug:grid-events#onrowdrop)
 
-* Handle the [`OnRowRender` event](slug://grid-events#onrowrender) of the Grid to set a custom CSS class to the item that is matching the dropped one (you can compare them by Id, for example).
+* Handle the [`OnRowRender` event](slug:grid-events#onrowrender) of the Grid to set a custom CSS class to the item that is matching the dropped one (you can compare them by Id, for example).
 
 * Additionally, you can set some custom styles for the drag clue container. The element matches this CSS selector: `.k-header.k-drag-clue`.
 

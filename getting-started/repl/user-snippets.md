@@ -34,4 +34,4 @@ The **User Snippets** menu allows you to review and manage your code snippets:
 
 ## See Also
 
-* [Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor](slug://blazor-repl-snippets-scaffolders)
+* [Predefined Editor Snippets and Scaffolders in Telerik REPL for Blazor](slug:blazor-repl-snippets-scaffolders)

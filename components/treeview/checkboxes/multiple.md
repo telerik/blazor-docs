@@ -36,7 +36,7 @@ This section contains the following examples:
 
 ### Multiple selection using one-way data binding
 
-You can use one-way binding to provide an initial node selection, and respond to the [`CheckedItemsChanged`](slug://treeview-events#checkeditemschanged) event to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled.
+You can use one-way binding to provide an initial node selection, and respond to the [`CheckedItemsChanged`](slug:treeview-events#checkeditemschanged) event to update the view-model when user selection occurs. If you don't update the model, selection is effectively canceled.
 
 
 ````RAZOR
@@ -407,5 +407,5 @@ You can bind the treeview to different models at each level, and the selection a
 
 ## See Also
 
-  * [Checkboxes Overview](slug://treeview-checkboxes-overview)
-  * [Single Node](slug://treeview-checkboxes-single)
+  * [Checkboxes Overview](slug:treeview-checkboxes-overview)
+  * [Single Node](slug:treeview-checkboxes-single)

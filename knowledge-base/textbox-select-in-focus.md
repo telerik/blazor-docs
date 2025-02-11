@@ -43,7 +43,7 @@ At the time of writing, Blazor does not have native API for handling focus and s
 </script>
 ````
 
-1. Call that function in the desired event like `@focusin`. See how to get such events [here](slug://inputs-kb-handle-keyboard-events).
+1. Call that function in the desired event like `@focusin`. See how to get such events [here](slug:inputs-kb-handle-keyboard-events).
 
 
 ````RAZOR.skip-repl

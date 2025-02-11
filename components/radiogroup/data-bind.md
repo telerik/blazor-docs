@@ -177,5 +177,5 @@ The RadioGroup is a generic component and its type depends on the type of its `D
 
 ## See Also
 
-* [RadioGroup Overview](slug://radiogroup-overview)
+* [RadioGroup Overview](slug:radiogroup-overview)
 * [Live Demo: RadioGroup](https://demos.telerik.com/blazor-ui/radiogroup/overview)

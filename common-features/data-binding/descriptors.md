@@ -13,10 +13,10 @@ position: 10
 
 This article explains how to retrieve the applied filtering, searching, sorting, and grouping criteria in Blazor components. The article applies to components that support these features. The components that offer one or all of the functionalities are:
 
-* Components that [expose an `OnRead` event](slug://common-features-data-binding-onread#components-with-onread-event), excluding the [ListView](slug://listview-overview), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
-* [Filter](slug://filter-overview)
-* [Gantt](slug://gantt-overview)
-* [TreeList](slug://treelist-overview)
+* Components that [expose an `OnRead` event](slug:common-features-data-binding-onread#components-with-onread-event), excluding the [ListView](slug:listview-overview), because the ListView doesn't support built-in filtering, searching, sorting, and grouping.
+* [Filter](slug:filter-overview)
+* [Gantt](slug:gantt-overview)
+* [TreeList](slug:treelist-overview)
 
 ## Get Sort, Filter, Group, and Search Descriptors
 
@@ -27,7 +27,7 @@ You can obtain the applied filtering, searching, sorting, and grouping criteria 
 
 ### Through the OnRead Event
 
-Use the [`Request` property](slug://common-features-data-binding-onread#event-argument) of the [`OnRead` event argument object](slug://Telerik.Blazor.Components.ReadEventArgs):
+Use the [`Request` property](slug:common-features-data-binding-onread#event-argument) of the [`OnRead` event argument object](slug:Telerik.Blazor.Components.ReadEventArgs):
 
 <div class="skip-repl"></div>
 
@@ -83,17 +83,17 @@ See the [complete example](#example-with-component-state) at the bottom of the a
 
 ## Filtering
 
-The `args.Request.Filters` and the `args....State.FilterDescriptors` are collections of [`IFilterDescriptor`](slug://Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor` from the respective collection:
+The `args.Request.Filters` and the `args....State.FilterDescriptors` are collections of [`IFilterDescriptor`](slug:Telerik.DataSource.IFilterDescriptor). To access the filtering criteria, such as the user input to filter by, cast each `IFilterDescriptor` from the respective collection:
 
-* If the component is of type input or select, such as the AutoComplete, ComboBox, DropDownList, MultiColumnComboBox, MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](slug://telerik.datasource.filterdescriptor).
-* Otherwise, cast each `IFilterDescriptor` from the `args.Request.Filters` collection, respectively from the `args....State.FilterDescriptors` collection, to [`CompositeFilterDescriptor`](slug://Telerik.DataSource.CompositeFilterDescriptor).
+* If the component is of type input or select, such as the AutoComplete, ComboBox, DropDownList, MultiColumnComboBox, MultiSelect, cast the first `IFilterDescriptor` from the collection to [`FilterDescriptor`](slug:telerik.datasource.filterdescriptor).
+* Otherwise, cast each `IFilterDescriptor` from the `args.Request.Filters` collection, respectively from the `args....State.FilterDescriptors` collection, to [`CompositeFilterDescriptor`](slug:Telerik.DataSource.CompositeFilterDescriptor).
 
 ### CompositeFilterDescriptor
 
 The `CompositeFilterDescriptor` exposes:
 
-* The [`FilterDescriptors`](slug://telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria, cast each `IFilterDescriptor` to a `FilterDescriptor`. When the Filter component gets groupable filtering, cast each `IFilterDescriptor` to another `CompositeFilterDescriptor`.
-* The [`LogicalOperator`](slug://telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
+* The [`FilterDescriptors`](slug:telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_FilterDescriptors) property. This property represents another collection of `IFilterDescriptor`. To access the filtering criteria, cast each `IFilterDescriptor` to a `FilterDescriptor`. When the Filter component gets groupable filtering, cast each `IFilterDescriptor` to another `CompositeFilterDescriptor`.
+* The [`LogicalOperator`](slug:telerik.datasource.compositefilterdescriptor#Telerik_DataSource_CompositeFilterDescriptor_LogicalOperator) property. This property can be either `AND` or `OR`. This property represents the logical operator applied between the instances in the `FilterDescriptors` collection.
 
 When the filtering is initiated, the `CompositeFilterDescriptor` properties get different values depending on the filter mode:
 
@@ -112,16 +112,16 @@ The searching criteria in a Grid or TreeList are stored in an individual `IFilte
 
 ## Sorting
 
-The sorting criteria in a Grid, TreeList or Gantt are stored in a collection of [`SortDescriptor`](slug://telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
+The sorting criteria in a Grid, TreeList or Gantt are stored in a collection of [`SortDescriptor`](slug:telerik.datasource.sortdescriptor) objects. Each `SortDescriptor` instance gives access to:
 * The `Member`&mdash;The field where the user sorts.
 * The `SortDirection`&mdash;The sort direction for this sort descriptor.
 
-When the [`SortMode`](slug://Telerik.Blazor.SortMode) is `Multiple`, you may need to consider the order of the `SortDescriptor` instances. The first applied sorting criteria take precedence over all others. If there are equal values in the first sorted items, then those items are sorted by the following sorting criteria.
+When the [`SortMode`](slug:Telerik.Blazor.SortMode) is `Multiple`, you may need to consider the order of the `SortDescriptor` instances. The first applied sorting criteria take precedence over all others. If there are equal values in the first sorted items, then those items are sorted by the following sorting criteria.
 
 
 ## Grouping
 
-Тhe grouping criteria for each group are stored in an individual collection of [`GroupDescriptor`](slug://telerik.datasource.groupdescriptor) objects. The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
+Тhe grouping criteria for each group are stored in an individual collection of [`GroupDescriptor`](slug:telerik.datasource.groupdescriptor) objects. The `GroupDescriptor` class inherits the `SortDescriptor` class and gives access to the same properties as the `SortDescriptor` class.
 
 The user may group by multiple fields. The groups for subsequent fields will be nested within their parent groups. The grouping criteria from the parent group are stored in the first `GroupDescriptor` instance from the collection.
 
@@ -335,13 +335,13 @@ You can obtain the FilterDescriptor, SearchFilter, SortDescriptor, and GroupDesc
 
 ## See Also
 
-* [AutoComplete OnRead Event](slug://autocomplete-events#onread)
-* [ComboBox OnRead Event](slug://components/combobox/events#onread)
-* [DropDownList OnRead Event](slug://components/dropdownlist/events#onread)
-* [Filter Overview](slug://filter-overview)
-* [Gantt State](slug://gantt-state)
-* [Grid OnRead Event](slug://components/grid/manual-operations)
-* [Grid State](slug://grid-state)
-* [MultiColumnComboBox OnRead Event](slug://multicolumncombobox-events#onread)
-* [MultiSelect OnRead Event](slug://multiselect-events#onread)
-* [TreeList State](slug://treelist-state)
+* [AutoComplete OnRead Event](slug:autocomplete-events#onread)
+* [ComboBox OnRead Event](slug:components/combobox/events#onread)
+* [DropDownList OnRead Event](slug:components/dropdownlist/events#onread)
+* [Filter Overview](slug:filter-overview)
+* [Gantt State](slug:gantt-state)
+* [Grid OnRead Event](slug:components/grid/manual-operations)
+* [Grid State](slug:grid-state)
+* [MultiColumnComboBox OnRead Event](slug:multicolumncombobox-events#onread)
+* [MultiSelect OnRead Event](slug:multiselect-events#onread)
+* [TreeList State](slug:treelist-state)

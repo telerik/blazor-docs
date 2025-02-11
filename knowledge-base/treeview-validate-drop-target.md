@@ -30,10 +30,10 @@ How to validate the drop target, so I don't allow the user to drop the file if t
 
 To validate the drop target and prevent the user from dropping on an invalid target, follow these steps:
 
-1. Handle the [`OnDrag`](slug://treeview-events#drag-events) event of the TreeView to validate the target based on your requirements. In the example below, we are checking it the user tries to drop an item from the **Documents** folder into the **Pictures** folder - the **Pictures** folder is not a valid target in this case.
+1. Handle the [`OnDrag`](slug:treeview-events#drag-events) event of the TreeView to validate the target based on your requirements. In the example below, we are checking it the user tries to drop an item from the **Documents** folder into the **Pictures** folder - the **Pictures** folder is not a valid target in this case.
 1. Raise a flag if the target is not valid.
 1. Change the icon in the drag clue to indicate the target is not valid. Once the [Drag Clue Template](https://feedback.telerik.com/blazor/1501043-drag-clue-template) is available, you may use it to change the rendering as needed. At the time of writing, changing the icon is only possible with CSS as per the example below.
-1. Include a conditional logic in your [`OnDrop`](slug://treeview-events#drag-events) handler to not perform any action if the target is invalid.
+1. Include a conditional logic in your [`OnDrop`](slug:treeview-events#drag-events) handler to not perform any action if the target is invalid.
 1. Use CSS to hide the build-in drop hint for the invalid target.
 
 

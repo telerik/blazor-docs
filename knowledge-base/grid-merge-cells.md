@@ -27,7 +27,7 @@ How can I merge cells across rows in the Blazor Data Grid?
 
 ## Solution
 
-To control the table cell and row rendering, you must use the [Row Template](slug://grid-templates-row) of the grid.
+To control the table cell and row rendering, you must use the [Row Template](slug:grid-templates-row) of the grid.
 
 Then, you can set the `rowspan` and `colspan` attributes of the `<td>` elements as necessary to merge them.
 

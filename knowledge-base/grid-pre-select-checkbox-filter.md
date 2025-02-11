@@ -27,7 +27,7 @@ How can I pre-set a checkbox filter using a filter descriptor? How to set checkb
 ## Solution
 To pre-select checkbox filter in the Grid using a filter descriptor:
 
-1. Use the [OnStateInit](slug://grid-state#events) event of the Grid.
+1. Use the [OnStateInit](slug:grid-state#events) event of the Grid.
 2. Create a new `GridState` instance.
 3. Add a new `CompositeFilterDescriptor` instance to the `FilterDescriptors` collection in the state.
 4. Apply the new state to the current Grid state.

@@ -41,5 +41,5 @@ To put the ChunkProgressBar in Indeterminate state set the `Indeterminate`, `boo
 ## See Also
 
   * [Live Demo: ChunkProgressBar Overview](https://demos.telerik.com/blazor-ui/chunkprogressbar/overview)
-  * [Overview](slug://chunkprogressbar-overview)
+  * [Overview](slug:chunkprogressbar-overview)
   

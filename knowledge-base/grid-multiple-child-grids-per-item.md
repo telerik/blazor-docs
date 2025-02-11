@@ -27,7 +27,7 @@ We have a hierarchical Grid where each master item has two child sub-Grids. We w
 
 ## Solution
 
-[Grid hierarchy](slug://components/grid/features/hierarchy) requires a child Grid in a [`DetailTemplate`](slug://Telerik.Blazor.Components.TelerikGrid-1#Telerik_Blazor_Components_TelerikGrid_1_DetailTemplate). The `DetailTemplate` is essentially a `RenderFragment`, so it can include any content - be that one, two or more Grids, other components or html elements.
+[Grid hierarchy](slug:components/grid/features/hierarchy) requires a child Grid in a [`DetailTemplate`](slug:Telerik.Blazor.Components.TelerikGrid-1#Telerik_Blazor_Components_TelerikGrid_1_DetailTemplate). The `DetailTemplate` is essentially a `RenderFragment`, so it can include any content - be that one, two or more Grids, other components or html elements.
 
 In order to render two child (detail) Grids at the same time, you just need to declare both of them inside the `DetailTemplate` tag. The example below demonstrates how to achieve this.
 

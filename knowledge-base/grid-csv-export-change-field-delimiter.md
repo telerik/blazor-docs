@@ -38,7 +38,7 @@ To change the field delimiter, do the following:
 
 1. Install `Telerik.Documents.Spreadsheet.FormatProviders.Xls` package, so you can use the `CsvFormatProvider`
 
-1. Handle the [OnAfterExport](slug://grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
+1. Handle the [OnAfterExport](slug:grid-export-events#onafterexport) event of the Grid. The stream it provides is finalized, so that the resource does not leak. Its binary data, however, is available, so you can copy the stream bytes to a new `MemoryStream` instance.
 
 1. Create a `CsvFormatProvider` instance and use it to [import the new `MemoryStream` in a `workbook`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/formats-and-conversion/csv/csvformatprovider#import).
 
@@ -140,7 +140,7 @@ To change the field delimiter, do the following:
 
 ## See Also
 
-  * [Format numbers and dates in the exported CSV file from the Grid](slug://grid-kb-number-formatting-of-the-csv-export)
-  * [Custom cell formatting of the exported file with RadSpreadProcessing](slug://grid-kb-custom-cell-formatting-with-radspreadprocessing)
-  * [Configure Document Processing Libraries](slug://getting-started-vs-integration-dpl)
+  * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
+  * [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
+  * [Configure Document Processing Libraries](slug:getting-started-vs-integration-dpl)
 
