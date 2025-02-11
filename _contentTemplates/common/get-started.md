@@ -182,7 +182,7 @@ You can learn more about the [`TelerikRootComponent` purpose and usage](slug:roo
 
 #license-key-version
 
->tip This documentation section applies to Telerik UI for Blazor version **7.2.0** and above. Older versions do not require a license key.
+>tip This documentation section applies to Telerik UI for Blazor version **8.0.0** and above. Older versions do not require a license key.
 
 #end
 

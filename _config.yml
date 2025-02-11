@@ -676,10 +676,10 @@ baseurl: /blazor-ui
 enable_blazorRepl: true
 
 ## Latest UI for Blazor version. Used in some articles
-uiForBlazorLatestVersion: "7.1.0"
+uiForBlazorLatestVersion: "8.0.0"
 
 ## Compatible theme version for CDN URLs
-themesVersion: "10.0.1"
+themesVersion: "10.2.0"
 
 ## Product
 product: "Telerik UI for Blazor"
