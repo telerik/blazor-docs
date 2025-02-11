@@ -100,7 +100,7 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the Prompt view. |
 | `PromptSuggestionItemTemplate` | `RenderFragment<string>` | The Prompt Suggestion Item template of the AIPrompt. |
 | `ShowOutputRating` | `bool` <br /> (`false`) | Controls the visibility of the rating buttons within the output card. |
-| `SystemPrompt` | `string` | Defines the system prompt that is passed to the [`IChatClient.CompleteAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient.completeasync?view=net-9.0-pp), when such is used.
+| `SystemPrompt` | `string` <br/> (`"You are a helpful assistant designed to assist users. Your goal is to provide helpful, accurate, and contextually appropriate information in a clear and concise manner. Avoid discussing harmful, illegal, or inappropriate topics."`) | Defines the system prompt that is passed to the [`IChatClient.CompleteAsync`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient.completeasync?view=net-9.0-pp), when such is used.
 | `Width` | `string` | The `width` style of the component in any [supported CSS unit](slug://common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
 
 ## AIPrompt Reference and Methods
