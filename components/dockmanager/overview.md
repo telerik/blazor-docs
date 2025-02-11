@@ -200,5 +200,5 @@ Use the component reference to execute methods and [get or set the DockManager s
 
 ## See Also
 
-* [DockManager API](slug://Telerik.Blazor.Components.TelerikDockManager-1)
+* [DockManager API](slug://Telerik.Blazor.Components.TelerikDockManager)
 * [Live Demo: DockManager](https://demos.telerik.com/blazor-ui/dockmanager/overview)
