@@ -32,7 +32,7 @@ This KB answers the following questions:
 
 The [PivotGrid supports date aggregates by period](slug:pivotgrid-data-binding#usage-differences) only with [XMLA data binding](slug:pivotgrid-data-binding#xmla). Consider the following approach for local data scenarios:
 
-1. Define all `DateTime` properties in the PivotGrid model class as `internal` or `private`, so that the PivotGrid ignores them.
+1. Define all `DateTime` properties in the PivotGrid model class as `internal`, `protected`, or `private`, so that the PivotGrid ignores them.
 1. Define additional helper properties in the PivotGrid model class, which will extract the year, month, week, and day values from the `DateTime` properties.
 1. Use the helper properties in the PivotGrid definition and UI.
 1. (optional) Use a [PivotGrid column header template](slug:pivotgrid-templates#column-header-template) to format the values of the helper properties. This may be necessary, because the PivotGrid sorts `string` values alphabetically in the column headers. In this case, you may also need to [get the correct localized value for the "TOTAL" label](slug:globalization-localization).
