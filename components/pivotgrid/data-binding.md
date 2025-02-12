@@ -20,14 +20,21 @@ The PivotGrid supports different data sources via its `DataProviderType` paramet
 * [`Local`](#local) (default)
 * [`Xmla`](#xmla)
 
+### Usage Differences
+
+The available data providers differ in several ways:
+
+* XMLA binding is more complex to setup, but more flexible.
+* Local data with a `DateTime` property does not support automatic aggregations by date periods like years, months, weeks, and so on.
+* XMLA binding supports [load on demand](slug:pivotgrid-overview#pivotgrid-parameters), which offloads all calculations to the external data source. Local binding receives all data at once and performs all aggregate calculations in-memory. Large amounts of local data may impact the performance, especially in WebAssembly apps.
+* When using load on demand, XMLA binding supports custom aggregate functions that are defined and performed in the OLAP cube. Local data supports only the [predefined aggregate types in the `PivotGridAggregateType` enum](slug:telerik.blazor.pivotgridaggregatetype).
+* When using local data, all defined measures in `<PivotGridMeasures>` render by default in the PivotGrid. Users can uncheck and hide the measures they don't need from the [PivotGrid Configurator](slug:pivotgrid-configurator).
 
 ## Local
 
-When bound to local data, the Pivot Grid requires its `Data` parameter to provide all the data at once as `IEnumerable<TItem>`. The component will perform all aggregate calculations in-memory and there is no [load on demand](slug:pivotgrid-overview#pivotgrid-parameters).
+When bound to local data, the Pivot Grid requires its `Data` parameter to provide all the data at once as `IEnumerable<TItem>`.
 
 If the local data changes programmatically, you need to reset the collection instance or [call the PivotGrid `Rebind()` method](slug:pivotgrid-overview#pivotgrid-reference-and-methods). See the common documentation about [refreshing component data](slug:common-features-data-binding-overview#refresh-data) for details.
-
-> Large amounts of local data may impact the performance, especially in WebAssembly applications.
 
 >caption PivotGrid bound to Local data provider
 
