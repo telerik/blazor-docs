@@ -12,7 +12,7 @@ position: 5
 
 The Blazor DockManager component exposes the ability to configure different pane types.
 
-When defining pane types, the naming convention follows the structure `<DockManager*Type*Pane>`, where **Type** specifies the behavior of the pane. The available types are:
+When defining pane types, the naming convention follows the structure `<DockManager`**`Type`**`Pane>`, where **Type** specifies the behavior of the pane. The available types are:
 
 #### Content Pane
 
