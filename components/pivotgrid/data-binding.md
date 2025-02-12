@@ -25,7 +25,7 @@ The PivotGrid supports different data sources via its `DataProviderType` paramet
 The available data providers differ in several ways:
 
 * XMLA binding is more complex to setup, but more flexible.
-* Local data does not support aggregations by date periods for `DateTime` properties. If you need [aggregations by year, month, week, and so on, then create additional `int` or `string` properties in the PivotGrid model class](slug:pivotgrid-kb-local-date-aggregates).
+* Local data does not support aggregations by date periods for `DateTime` properties. If a `DateTime` property is added as a row or column, the PivotGrid will generate a separate row or column for each unique `DateTime` value. If you need [aggregations by year, month, week, and so on, then create additional `int` or `string` properties in the PivotGrid model class](slug:pivotgrid-kb-local-date-aggregates).
 * XMLA binding supports [load on demand](slug:pivotgrid-overview#pivotgrid-parameters), which offloads all calculations to the external data source. Local binding receives all data at once and performs all aggregate calculations in-memory. Large amounts of local data may impact the performance, especially in WebAssembly apps.
 * When using load on demand, XMLA binding supports custom aggregate functions that are defined and performed in the OLAP cube. Local data supports only the [predefined aggregate types in the `PivotGridAggregateType` enum](slug:telerik.blazor.pivotgridaggregatetype).
 * When using local data, all defined measures in `<PivotGridMeasures>` render by default in the PivotGrid. Users can uncheck and hide the measures they don't need from the [PivotGrid Configurator](slug:pivotgrid-configurator).
