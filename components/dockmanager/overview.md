@@ -18,13 +18,13 @@ The DockManager is best suited for desktop-like interfaces and applications desi
 
 1. Add the `TelerikDockManager` tag.
 2. Use `<DockManagerPanes>` to structure the main docked layout.
-3. Within <DockManagerPanes>, add:
+3. Within `<DockManagerPanes>`, add:
     * `<DockManagerContentPane>` for standalone panes.
     * `<DockManagerSplitPane>` to create sections with multiple resizable panes.
     * `<DockManagerTabGroupPane>` to enable tabbed panes.
 4. Define `HeaderTemplate` tag inside each pane to set the headers text.
 5. Populate the `Content` tag section of each pane with the desired UI elements.
-6. Optionally, `<DockManagerFloatingPanes>` to create panes that can float outside the main dock layout.
+6. Optionally, add `<DockManagerFloatingPanes>` to create panes that can float outside the main dock layout.
 
 >caption Telerik Blazor DockManager
 
