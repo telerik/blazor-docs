@@ -102,7 +102,7 @@ The most likely cause is that the new Telerik UI for Blazor version was released
 
 #### Can I use the same license key in multiple builds?
 
-You can use your personal license key in multiple pipelines, builds, and environments. However, each individual developer must use their own unique personal license key.
+You can use one license key in multiple pipelines, builds, and environments. However, each individual developer must use their own unique personal license key in their development environment.
 
 #### Do I need an Internet connection to activate the license?
 
