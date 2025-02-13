@@ -1,5 +1,5 @@
 #export-common-notes
-* `bool` fields are exported as `TRUE` or `FALSE` strings, because there is no boolean data type in Excel and these string values are the most common ones used in data and macros.
+* `bool` fields are exported as `TRUE` or `FALSE` strings, because there is no native boolean data type in exported format and these string values are the most common ones used in data and macros.
 
 * Date and number formats are exported with the following format: `mm/dd/yyyy hh:mm:ss` plus the current app culture AM/PM specifier for dates, and `Convert.ToDouble(value)` for numbers (which uses the current thread culture). The Excel date formats are different than .NET date formats and Excel may not always recognize the column as dates, for example, if the entire date format from the .NET culture is used.
 
