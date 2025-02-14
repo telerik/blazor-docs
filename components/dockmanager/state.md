@@ -217,6 +217,6 @@ The example below shows how to restore the previous state of the DockManager on 
 
 ## See Also
 
-* [Live Demo: DockManager State](https://demos.telerik.com/blazor-ui/dockmanager/persist-state)
+* [Live Demo: DockManager](https://demos.telerik.com/blazor-ui/dockmanager/overview)
 * [DockManagerState API reference](slug:Telerik.Blazor.Components.TelerikDockManager)
 * [Blazor DockManager](slug:dockmanager-overview)
