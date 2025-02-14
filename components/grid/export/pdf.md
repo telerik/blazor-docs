@@ -227,4 +227,4 @@ The following sample projects show two ways to implement a PDF export
 ## See Also
 
 * [Blazor Grid](slug:grid-overview)
-* [Live Demo: Grid PDF Export](https://demos.telerik.com/blazor-ui/grid/export-pdf)
+* [Live Demo: Grid Export](https://demos.telerik.com/blazor-ui/grid/export)
