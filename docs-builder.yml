@@ -30,6 +30,8 @@ liquid-output-delimiter-right: "}}"
 liquid:
   uiForBlazorLatestVersion: "8.0.0"
   themesVersion: "10.2.0"
+  secrets_TELERIK_NUGET_KEY: "{{ secrets.TELERIK_NUGET_KEY }}"
+  secrets_TELERIK_LICENSE: "{{ secrets.TELERIK_LICENSE }}"
 
 meta:
   "*templates":
