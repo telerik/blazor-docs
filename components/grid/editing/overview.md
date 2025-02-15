@@ -20,7 +20,7 @@ This page explains how to:
 
 ## Edit Modes
 
-The Grid offers several editing modes with different user experience. To allow users to add or edit data items in the GRid:
+The Grid offers several ways to add and edit rows with different user experience. To allow users to add or edit in the Grid:
 
 1. Set the `EditMode` parameter to a [member of the `GridEditMode` enum](slug:telerik.blazor.grideditmode).
 1. Define the required [events](#events) and appropriate [command buttons](#commands) for the selected edit mode and operations.
@@ -29,14 +29,26 @@ The default Grid edit mode is `GridEditMode.None`. The built-in [`Add` and `Edit
 
 All Grid edit modes work with one cell or one row. Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
 
+### Item Instances During Editing
+
+The Grid uses [`Activator.CreateInstance<TItem>()`](https://learn.microsoft.com/en-us/dotnet/api/system.activator.createinstance) to generate item instances for add and edit mode. This brings the following requirements and considerations:
+
+* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance. Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
+* All editable properties must be `public` and have setters. These properties must not be `readonly`.
+* There must be no `public` properties that create a circular reference. For example, if the Grid model class is `Person`, it must not have properties of type `Person`.
+* The `OnEdit` event handler receives the original item instance from the Grid data collection in `GridCommandEventArgs.Item`.
+* The [column `<EditorTemplate>` `context`](slug:grid-templates-editor) is the new (cloned) item instance.
+* The `OnUpdate` event handler receives the cloned and modified item in `GridCommandEventArgs.Item`. The app must replace the original item with the cloned item. Alternatively, the app must update the property values in the original item one by one.
+
 ### In Cell
 
-Set the Grid `EditMode` parameter to `GridEditMode.Inline`. During in-cell editing, only one table cell is in edit mode. The user can:
+Set the Grid `EditMode` parameter to `GridEditMode.Incell`. During in-cell editing, only one table cell is in edit mode. The user can:
 
-* Press **Tab** or **Shift** + **Tab** to confirm the current edit value and edit the next or previous cell.
-* Click on another cell to confirm the current edit value and edit the new cell.
+* Press **Tab** or **Shift** + **Tab** to confirm the current value and edit the next or previous cell.
+* Press **Enter** to confirm the current value and edit the cell below.
 * Press **ESC** to cancel the current change and exit edit mode.
-* Click outside the Grid to confirm the current edit value and exit edit mode.
+* Click on another cell to confirm the current value and edit the new cell.
+* Click outside the Grid to confirm the current value and exit edit mode.
 * Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
 In-cell CUD operations require the following setup:
@@ -44,19 +56,23 @@ In-cell CUD operations require the following setup:
 * **Add** command button
 * **Delete** command button
 
-Without the above command buttons, the application can only add or remove data items programmatically.
+Without using the above command buttons, the application can:
+
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
 
 In-cell edit mode does not require **Edit**, **Save**, and **Cancel** command buttons.
 
 ### Inline
 
-During inline editing, only one table row is in edit mode. The user can:
+Set the Grid `EditMode` parameter to `GridEditMode.Inline`. During inline editing, only one table row is in edit mode. The user can:
 
 * Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
-* Press **ESC** to cancel the current row changes and exit edit mode.
+* Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
 * Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
-In-cell CUD operations requires the following setup:
+Inline CUD operations require the following setup:
 
 * **Add** command button
 * **Delete** command button
@@ -64,11 +80,31 @@ In-cell CUD operations requires the following setup:
 * **Save** command button
 * **Cancel** command button
 
-Without the above command buttons, the application can only add or remove data items programmatically.
+Without using the above command buttons, the application can:
 
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
 
-* `Inline`&mdash;[edit a row](slug://components/grid/editing/inline) by clicking on an [Edit command button](slug://components/grid/columns/command)
-* `Popup`&mdash;[edit a row in a popup form](slug://components/grid/editing/popup) by clicking on an Edit button
+### Popup
+
+Set the Grid `EditMode` parameter to `GridEditMode.Popup`. During popup editing, only one table row is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to focus the next or previous input component.
+* Click the **Save** command button to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
+
+Popup CUD operations require the following setup:
+
+* **Add** command button
+* **Delete** command button
+* **Edit** command button
+
+Without using the above command buttons, the application can:
+
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+
+Popup edit mode does not require **Save** and **Cancel** command buttons. The Grid renders them automaatically in the popup, unless you define a [`<ButtonsTemplate>`](slug:grid-templates-popup-buttons) or a [`<FormTemplate>`](slug:grid-templates-popup-form).
 
 ## Events
 
@@ -100,9 +136,9 @@ You can customize the editors rendered in the Grid by providing the `EditorType`
 | **Boolean**         | `GridEditorType.CheckBox`<br> `GridEditorType.Switch` |
 | **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
 
-## Data Parameter and OnRead Event
+## Rebind Grid After CUD
 
-During CUD operations, the Grid expects the application to make changes to the data source and provide the latest data to the component. This can happen in a few different ways, depending on the used Grid [data binding mechanism](slug:common-features-data-binding-overview#how-to-provide-data).
+During CUD operations, the Grid expects the application to make changes to the data source and provide the latest data to the component. This can happen in different ways, depending on the current Grid [data binding mechanism](slug:common-features-data-binding-overview#how-to-provide-data).
 
 ### Data Parameter
 
@@ -143,14 +179,6 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
 * If you are [using the `OnRead` event to optimize the data requests](slug:components/grid/manual-operations), it will fire after the CUD events (`OnCreate`, `OnUpdate`, `OnDelete`, `OnCancel`) so that the grid data can be refreshed properly from the real data source. If you want to avoid such calls to the database, you can raise a flag in those four events to avoid calling your data service in the `OnRead` event, and then you can lower that flag at the end of `OnRead` so subsequent calls can fetch fresh data.
 
-* The Grid uses `Activator.CreateInstance<TItem>();` to generate a new item when an Insert or Edit action is invoked, so the Model should have a parameterless constructor defined. If you cannot have such a constructor, you must use the [OnModelInit](slug:grid-events#onmodelinit) event.
-    * Another case when you may need to insert items through the grid state is when you use [OnRead with grouping](slug:components/grid/manual-operations#grouping-with-onread). In such cases the Grid is bound to an `object`, not to a particular model. As a result, it can't create new items for you and errors may be thrown. A workaround might be [invoking Edit/Insert through the grid state](slug:grid-kb-add-edit-state) and creating the object with your own code.
-
-* While editing, the Grid creates a **copy of your original object** which has a **different reference**. You receive that copy in the `OnUpdate` event handler. The `OnEdit` event receives the original item from the pristine `Data` collection, because it is a cancellable event and fires before the grid logic creates the copy. The built-in editors and [editor templates](slug:grid-templates-editor) receive the copy for their `context` that the grid will create after `OnEdit`.
-    * For the Grid to successfully create a copy of the original object, all properties must have а setter and must not be `readonly`. Otherwise, editing may stop working.
-
-* If you want to pre-populate values to the user, see the [Setting default values in new row](slug:grid-kb-default-value-for-new-row) KnowledgeBase article.
-
 * When you are using your Entity Framework models directly in the Grid (especially in a server-side Blazor scenario) and you use the `Item` property of `GridCommandEventArgs` directly in your DataBase update method, you can get one of the following exceptions: `The instance of entity type 'YourModel' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached...` or `This is a DynamicProxy2 error: The interceptor attempted to 'Proceed' for method 'Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader get_LazyLoader()' which has no target. When calling method without target there is no implementation to 'proceed' to and it is the responsibility of the interceptor to mimic the implementation (set return value, out arguments etc)`.
     
     To fix it you can change the update using this approach:
@@ -184,11 +212,7 @@ There are a few considerations to keep in mind with the CUD operations of the gr
 
 ## See Also
 
-  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Live Demo: Grid Popup Editing](https://demos.telerik.com/blazor-ui/grid/editing-popup)
-  * [Live Demo: Grid InCell Editing](https://demos.telerik.com/blazor-ui/grid/editing-incell)
-  * [Live Demo: Grid Custom Editor Template](https://demos.telerik.com/blazor-ui/grid/custom-editor)
-  * [Live Demo: Grid Custom Edit Form](https://demos.telerik.com/blazor-ui/grid/editing-custom-form)
-  * [Batch Editing Example](https://github.com/telerik/blazor-ui/tree/master/grid/batch-editing)
-  * [Enter and Exit Grid Edit Mode Programmatically](slug:grid-kb-add-edit-state)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demos: Grid Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
+* [Enter and Exit Grid Edit Mode Programmatically](slug://grid-kb-add-edit-state)
+* [Set Default Values for Grid Add and Edit Mode](slug://grid-kb-default-value-for-new-row)
+* [Edit All Grid Rows and Cells at the Same Time](slug:grid-kb-edit-all-rows-cells)
