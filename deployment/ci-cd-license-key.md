@@ -45,11 +45,20 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 1. Create a new <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository" target="_blank">Repository Secret</a> or an <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization" target="_blank">Organization Secret</a>.
 1. Set the name of the secret to `TELERIK_LICENSE` and paste the contents of the license file as a value.
-1. After running `npm install` or `yarn`, add a build step to activate the license:
-    ````YAML
+1. Add a `TELERIK_LICENSE` environment variable to the step, which builds the Blazor app:
+    ````YAML.skip-repl
     env:
-        TELERIK_LICENSE: ${ { secrets.TELERIK_LICENSE } } # remove the spaces between the brackets
+      TELERIK_LICENSE: ${{ secrets_TELERIK_LICENSE }}
     ````
+    As a result, the whole step may look similar to:
+    ````YAML.skip-repl
+    - name: Build with dotnet
+      run: dotnet build -c Release
+      env:
+        TELERIK_LICENSE: ${{ secrets_TELERIK_LICENSE }}
+        TELERIK_NUGET_KEY: ${{ secrets_TELERIK_NUGET_KEY }}
+    ````
+    (Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.)
 
 ### Docker
 
