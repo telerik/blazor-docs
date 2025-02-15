@@ -48,20 +48,20 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 1. Add a `TELERIK_LICENSE` environment variable to the steps, which build and publish the Blazor app:
     ````YAML.skip-repl
     env:
-      TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
+      TELERIK_LICENSE: ${{ "{{ secrets.TELERIK_LICENSE }}" }}
     ````
     The resulting workflow steps may look similar to:
     ````YAML.skip-repl
     - name: Build Step
       run: dotnet build -c Release
       env:
-        TELERIK_NUGET_KEY: ${{ curly_open }} secrets.TELERIK_NUGET_KEY {{ curly_close }}
-        TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
+        TELERIK_NUGET_KEY: ${{ "{{ secrets.TELERIK_NUGET_KEY }}" }}
+        TELERIK_LICENSE: ${{ "{{ secrets.TELERIK_LICENSE }}" }}
 
     - name: Publish Step
       run: dotnet publish -c Release
       env:
-        TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
+        TELERIK_LICENSE: ${{ "{{ secrets.TELERIK_LICENSE }}" }}
     ````
     (Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.)
 
