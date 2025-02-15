@@ -3,33 +3,72 @@ title: Overview
 page_title: Grid - CRUD Overview
 description: CRUD basics for the Grid for Blazor.
 slug: components/grid/editing/overview
-tags: telerik,blazor,grid,editing,overview
+tags: telerik, blazor, grid, editing
 published: True
 position: 0
 ---
 
 # Blazor Grid CRUD Operations
 
-The Blazor Grid supports CRUD operations and validation. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).
+The Telerik Grid for Blazor supports create, update, and delete operations (CRUD). The component can also validate the user input. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).
 
-This page explains how to enable editing, use the relevant events and command buttons. There is also a runnable code example.
+This page explains how to:
 
-#### In this article:
+* Enable editing
+* Use the relevant events
+* Define command buttons
 
-- [Basics](#basics)
-- [Events](#events)
-- [Customize The Editor Fields](#customize-the-editor-fields)
-- [Example](#example)
-- [Notes](#notes)
+## Edit Modes
 
-## Basics
+The Grid offers several editing modes with different user experience. To allow users to add or edit data items in the GRid:
 
-The Grid offers several editing modes with different user experience. Set the `EditMode` property to a member of the `GridEditMode` enum:
+1. Set the `EditMode` parameter to a [member of the `GridEditMode` enum](slug:telerik.blazor.grideditmode).
+1. Define the required [events](#events) and appropriate [command buttons](#commands) for the selected edit mode and operations.
 
-* `None` - the default `GridEditMode` value. The built-in [`Add` and `Edit` commands](slug:components/grid/columns/command#built-in-commands) don't work in this mode.
-* `Incell` - [edit a single cell](slug:components/grid/editing/incell) by clicking on it or tabbing
-* `Inline` - [edit a row](slug:components/grid/editing/inline) by clicking on an [Edit command button](slug:components/grid/columns/command)
-* `Popup` - [edit a row in a popup form](slug:components/grid/editing/popup) by clicking on an Edit button
+The default Grid edit mode is `GridEditMode.None`. The built-in [`Add` and `Edit` commands](slug://components/grid/columns/command#built-in-commands) don't work in this mode.
+
+All Grid edit modes work with one cell or one row. Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
+
+### In Cell
+
+Set the Grid `EditMode` parameter to `GridEditMode.Inline`. During in-cell editing, only one table cell is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to confirm the current edit value and edit the next or previous cell.
+* Click on another cell to confirm the current edit value and edit the new cell.
+* Press **ESC** to cancel the current change and exit edit mode.
+* Click outside the Grid to confirm the current edit value and exit edit mode.
+* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+
+In-cell CUD operations require the following setup:
+
+* **Add** command button
+* **Delete** command button
+
+Without the above command buttons, the application can only add or remove data items programmatically.
+
+In-cell edit mode does not require **Edit**, **Save**, and **Cancel** command buttons.
+
+### Inline
+
+During inline editing, only one table row is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
+* Press **ESC** to cancel the current row changes and exit edit mode.
+* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+
+In-cell CUD operations requires the following setup:
+
+* **Add** command button
+* **Delete** command button
+* **Edit** command button
+* **Save** command button
+* **Cancel** command button
+
+Without the above command buttons, the application can only add or remove data items programmatically.
+
+
+* `Inline`&mdash;[edit a row](slug://components/grid/editing/inline) by clicking on an [Edit command button](slug://components/grid/columns/command)
+* `Popup`&mdash;[edit a row in a popup form](slug://components/grid/editing/popup) by clicking on an Edit button
 
 ## Events
 
@@ -61,343 +100,34 @@ You can customize the editors rendered in the Grid by providing the `EditorType`
 | **Boolean**         | `GridEditorType.CheckBox`<br> `GridEditorType.Switch` |
 | **DateTime**        | `GridEditorType.DatePicker`<br> `GridEditorType.DateTimePicker`<br> `GridEditorType.TimePicker` |
 
+## Data Parameter and OnRead Event
 
-````RAZOR
-@* The usage of the EditorType parameter *@
+During CUD operations, the Grid expects the application to make changes to the data source and provide the latest data to the component. This can happen in a few different ways, depending on the used Grid [data binding mechanism](slug:common-features-data-binding-overview#how-to-provide-data).
 
-@using System.ComponentModel.DataAnnotations
+### Data Parameter
 
-<TelerikGrid Data=@MyData 
-             EditMode="@GridEditMode.Inline" 
-             Pageable="true" 
-             Height="400px"
-             OnUpdate="@UpdateHandler" 
-             OnDelete="@DeleteHandler" 
-             OnCreate="@CreateHandler" 
-             OnCancel="@CancelHandler">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) 
-                    EditorType="@GridEditorType.TextArea"
-                    Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
+At the end of the `OnCreate`, `OnDelete`, and `OnUpdate` event handler, the application must do one of the following:
 
+* Make a request to the database and retrieve the latest data. Set the collection as the new value of the Grid `Data` parameter. The Grid will rebind automatically. The following examples demonstrate this approach: ........
+* Use the CUD event arguments to update the local data collection in the `Data` parameter manually. This approach spares one database request, but the user may not see recent changes made by other users.
 
-@code {
-    async Task UpdateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+### OnRead Event
 
-        await MyService.Update(item);
+The Grid will automatically fire its `OnRead` event after any CUD event. Given that the original component data source is already up-to-date, the component will receive the latest data.
 
-        await GetGridData();
-    }
+To spare the database request in this case, the app must:
 
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+* Use previously cached data in the `OnRead` handler.
+* Update the cached data with the latest user changes before setting it to `args.Data`.
 
-        await MyService.Delete(item);
+## Examples
 
-        await GetGridData();
-    }
+See Grid CRUD operations in action at:
 
-    async Task CreateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        await MyService.Create(item);
-
-        await GetGridData();
-    }
-
-    async Task CancelHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        await Task.Delay(1000); //simulate actual long running async operation
-    }
-
-    public class SampleData
-    {
-        public int ID { get; set; }
-        [Required]
-        public string Name { get; set; }
-    }
-
-    List<SampleData> MyData { get; set; }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "Name " + i.ToString()
-                    });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            _data.Remove(itemToDelete);
-        }
-    }
-}
-````
-
-## Example
-
-The example below shows how you can handle the events the grid exposes, so you can Create, Update or Delete records in your data source and the view model.
-
->tip You can see the CRUD events in action in our live demos for [Inline](https://demos.telerik.com/blazor-ui/grid/editing-inline), [Popup](https://demos.telerik.com/blazor-ui/grid/editing-popup) and [InCell](https://demos.telerik.com/blazor-ui/grid/editing-incell) editing. You can also use the [Telerik Wizard](slug:getting-started-vs-integration-new-project) project templates to easily create an application that showcases the Telerik Grid with CRUD events implemented.
-
->caption Handling the CRUD events of the grid to save data to the actual data source (mocked with local methods in this example, see the code comments for details)
-
-````RAZOR
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@ 
-
-Editing is cancelled for the first two records.
-<br />
-<strong>There is a deliberate delay</strong> in the data source operations in this example to mimic real life delays and to showcase the async nature of the calls.
-
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="400px"
-             OnAdd="@AddHandler" OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
-
-@logger
-
-@code {
-    async Task AddHandler(GridCommandEventArgs args)
-    {
-        //Set default values for new items
-        ((SampleData)args.Item).Name = "New Item Name";
-
-        //Cancel if needed
-        //args.IsCancelled = true;
-    }
-
-    async Task EditHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        //prevent opening for edit based on condition
-        if (item.ID < 3)
-        {
-            args.IsCancelled = true;//the general approach for cancelling an event
-        }
-
-        AppendToLog("Edit", args);
-    }
-
-    async Task UpdateHandler(GridCommandEventArgs args)
-    {
-        AppendToLog("Update", args);
-
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        AppendToLog("Delete", args);
-
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-    }
-
-    async Task CreateHandler(GridCommandEventArgs args)
-    {
-        AppendToLog("Create", args);
-
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-    }
-
-    async Task CancelHandler(GridCommandEventArgs args)
-    {
-        AppendToLog("Cancel", args);
-
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        await Task.Delay(1000); //simulate actual long running async operation
-    }
-
-    // this method and field just display what happened for visual cues in this example
-
-    MarkupString logger;
-    void AppendToLog(string commandName, GridCommandEventArgs args)
-    {
-        string currAction = string.Format(
-            "<br />Command: <strong>{0}</strong>; is cancelled: <strong>{1}</strong>; is the item new: <strong>{2}</strong>",
-                commandName,
-                args.IsCancelled,
-                args.IsNew
-            );
-        logger = new MarkupString(logger + currAction);
-    }
-
-
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        [Required]
-        public string Name { get; set; }
-    }
-
-    List<SampleData> MyData { get; set; }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API will look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "Name " + i.ToString()
-                    });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            await Task.Delay(1000); // simulate actual long running async operation
-
-            _data.Remove(itemToDelete);
-        }
-    }
-}
-````
-
->tip The grid events use `EventCallback` and can be synchronous or asynchronous. The example above shows async versions, and the signature for synchronous events is `void <MethodName>(GridCommandEventArgs args)`.
+* [Inline Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline)
+* [Popup Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/editing-popup)
+* [In-Cell Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/editing-incell)
+* [Custom Batch Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/batch-editing)
 
 ## Notes
 
