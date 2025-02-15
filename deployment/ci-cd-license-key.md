@@ -33,30 +33,35 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 ### Azure Pipelines (YAML)
 
-1. Create a new <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch" target="_blank">user-defined variable</a> named `TELERIK_LICENSE`.
+1. Create a new [user-defined variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) named `TELERIK_LICENSE`.
 1. Paste the contents of the license key file as a value.
 
 ### Azure Pipelines (Classic)
 
-1. Create a new <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch" target="_blank">user-defined variable</a> named `TELERIK_LICENSE`.
+1. Create a new [user-defined variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch) named `TELERIK_LICENSE`.
 1. Paste the contents of the license key file as a value.
 
 ### GitHub Actions
 
-1. Create a new <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository" target="_blank">Repository Secret</a> or an <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization" target="_blank">Organization Secret</a>.
+1. Create a new [Repository Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or an [Organization Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).
 1. Set the name of the secret to `TELERIK_LICENSE` and paste the contents of the license file as a value.
-1. Add a `TELERIK_LICENSE` environment variable to the step, which builds the Blazor app:
+1. Add a `TELERIK_LICENSE` environment variable to the steps, which build and publish the Blazor app:
     ````YAML.skip-repl
     env:
       TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
     ````
-    As a result, the whole step may look similar to:
+    The resulting workflow steps may look similar to:
     ````YAML.skip-repl
-    - name: Build with dotnet
+    - name: Build Step
       run: dotnet build -c Release
       env:
-        TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
         TELERIK_NUGET_KEY: ${{ curly_open }} secrets.TELERIK_NUGET_KEY {{ curly_close }}
+        TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
+
+    - name: Publish Step
+      run: dotnet publish -c Release
+      env:
+        TELERIK_LICENSE: ${{ curly_open }} secrets.TELERIK_LICENSE {{ curly_close }}
     ````
     (Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.)
 
