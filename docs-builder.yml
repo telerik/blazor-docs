@@ -30,8 +30,6 @@ liquid-output-delimiter-right: "}}"
 liquid:
   uiForBlazorLatestVersion: "8.0.0"
   themesVersion: "10.2.0"
-  curly_open: "{{"
-  curly_close: "}}"
 
 meta:
   "*templates":
