@@ -17,6 +17,13 @@ The Telerik UI for Blazor Grid supports built-in validation that is enabled by d
 * [Disable the validation](#disable-validation)
 * [Use a custom validator](#use-a-custom-validator)
 
+* The built-in validation is not supported in Grids bound to dynamic data such as `ExpandoObject`, `DataTable`, or `Dictionary`.
+
+* The [Grid validation](slug://grid-editing-validation) is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the grid).
+
+* For example, you may want to update the view-model only on success of the data service with the model returned from the server. Another thing you may want to do is to inform the user for server (async, remote) validation errors such as duplicates. You can find examples of both in the [Remote Validation sample project](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation).
+
+
 ## Disable Validation
 
 To disable the built-in validation, add a `<GridValidationSettings>` tag to the `<GridSettings>` and set the `Enabled` parameter to `false`.

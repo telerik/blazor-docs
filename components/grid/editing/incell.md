@@ -29,6 +29,35 @@ The InCell edit mode provides a specific user experience and behaves differently
 
 ## Basics
 
+### In Cell
+
+Set the Grid `EditMode` parameter to `GridEditMode.Incell`. During in-cell editing, only one table cell is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to confirm the current value and edit the next or previous cell.
+* Press **Enter** to confirm the current value and edit the cell below.
+* Press **ESC** to cancel the current change and exit edit mode.
+* Click on another cell to confirm the current value and edit the new cell.
+* Click outside the Grid to confirm the current value and exit edit mode.
+* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+
+The Grid commands execute cell by cell and the Grid events also fire cell by cell.
+
+In-cell CUD operations use the following commands:
+
+* **Add** command
+* **Delete** command
+
+Without using the above command buttons, the application can:
+
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+
+In-cell edit mode does not require **Edit**, **Save**, and **Cancel** command buttons.
+
+In in-cell edit mode, the `OnAdd` and `OnCreate` events fire immediately one after the other, unless `OnAdd` is cancelled. This means that users are always editing existing rows. They are never adding a new row.
+
+===
+
 To enable InCell editing mode, set the `EditMode` property of the grid to `Telerik.Blazor.GridEditMode.Incell`. You can handle the `OnUpdate`, `OnCreate` and `OnDelete` events to perform the CUD operations, as shown in the example below. 
 
 To add a new item, you must add a [toolbar](slug:components/grid/features/toolbar) with an `Add` command. `OnCreate` will fire immediately when you click the `Add` button - see [Event Sequence](#event-sequence) below.
