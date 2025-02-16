@@ -20,6 +20,20 @@ If you need more complex logic inside the editor template, compared to simple da
 
 >tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug:components/grid/editing/incell#editor-template).
 
+When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug://common-kb-requires-valueexpression) knowledge base article for more details.
+
+<div class="skip-repl"></div>
+````RAZOR
+<EditorTemplate>
+    <TelerikTextBox Value="@myModel.MyField"
+                    ValueExpression="@( () => myModel.MyField )">
+    </TelerikTextBox>
+</EditorTemplate>
+
+@* Applies to the other input type components as well *@
+````
+
+
 **In this article:**
 
 * [Notes](#notes)

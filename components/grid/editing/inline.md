@@ -12,6 +12,34 @@ position: 1
 
 Inline editing lets the user click an [Edit command button](slug:components/grid/columns/command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
 
+===
+
+### Inline
+
+Set the Grid `EditMode` parameter to `GridEditMode.Inline`. During inline editing, only one table row is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
+* Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
+* Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
+
+Inline CUD operations use the following commands:
+
+* **Add** command
+* **Delete** command
+* **Edit** command
+* **Save** command
+* **Cancel** command
+
+Without using the above command buttons, the application can:
+
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+
+The Grid commands execute row by row and the Grid events also fire row by row.
+
+===
+
 In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
 
 When validation is not satisfied, clicking the Save, Delete or Add buttons will not have effect, but you can still navigate between all fields in the row to complete editing.

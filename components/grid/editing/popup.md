@@ -32,6 +32,33 @@ To enable Popup editing in the grid, set its `EditMode` property to `Telerik.Bla
 
 The Popup editing mode supports [validation](slug:common-features/input-validation). To use it, all you need to do is decorate your model with the desired annotations. Validation errors will be shown in the popup and will prevent the Update operation.
 
+===
+
+### Popup
+
+Set the Grid `EditMode` parameter to `GridEditMode.Popup`. During popup editing, only one table row is in edit mode. The user can:
+
+* Press **Tab** or **Shift** + **Tab** to focus the next or previous input component.
+* Click the **Save** command button to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
+
+Popup CUD operations use the following commands:
+
+* **Add** command
+* **Delete** command
+* **Edit** command
+
+Without using the above command buttons, the application can:
+
+* [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+
+Popup edit mode does not require **Save** and **Cancel** command buttons. The Grid renders them automatically in the popup, unless you define a [`<ButtonsTemplate>`](slug:grid-templates-popup-buttons) or a [`<FormTemplate>`](slug:grid-templates-popup-form).
+
+The Grid commands execute row by row and the Grid events also fire row by row.
+
+===
+
 >caption Grid popup editing example. Please review the code comments
 
 ````RAZOR

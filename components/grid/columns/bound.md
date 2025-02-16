@@ -109,7 +109,7 @@ You can use the following properties on bound columns:
 ### Data Operations
 
 * `Editable` - (defaults to `true`) - set it to `true` or `false` to allow or prevent [editing](slug:components/grid/editing/overview) of this field. To edit data, you also need a [CommandColumn](slug:components/grid/columns/command).
-* `EditorType` - set the [editor component for `string` or `DateTime` columns](slug:components/grid/editing/overview#customize-the-editor-fields) when an [`EditorTemplate`](slug:grid-templates-editor) is not used.
+* `EditorType` - set the [editor component for `string` or `DateTime` columns](slug:components/grid/editing/overview#column-editors) when an [`EditorTemplate`](slug:grid-templates-editor) is not used.
 * `Filterable` - (defaults to `true`) - set this to `false` so a [filterable](slug:components/grid/filtering) Grid will not let the user filter that particular column.
 * `FilterEditorType` - (defaults to `GridFilterEditorType.DatePicker`) - determines if the default filtering component of a `DateTime` column will be a DatePicker or a DateTimePicker.
 * `FilterEditorFormat` - sets the `Format` of the filtering component as a `string`. Works for DateTime and numeric columns. Do not use a placeholder (e.g. set `"D"`, not `"{0:D}"`).

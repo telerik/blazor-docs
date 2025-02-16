@@ -189,7 +189,7 @@ The following list contains information about requirements and limitations when 
 
 ### Editing
 
-If any non-string property in the `ExpandoObject` is `nullable`, then do not set [`EditorType`](slug:components/grid/editing/overview#customize-the-editor-fields) for the column. Instead, use a [Grid column `EditorTemplate`](slug:grid-templates-editor). The following code snippet is part of the full example below.
+If any non-string property in the `ExpandoObject` is `nullable`, then do not set [`EditorType`](slug:components/grid/editing/overview#column-editors) for the column. Instead, use a [Grid column `EditorTemplate`](slug:grid-templates-editor). The following code snippet is part of the full example below.
 
 <div class="skip-repl"></div>
 
