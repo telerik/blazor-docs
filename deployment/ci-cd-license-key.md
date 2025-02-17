@@ -33,7 +33,7 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 ### Azure Pipelines
 
-1. Create a new user-defined variable named `TELERIK_LICENSE`, according to your [YAML](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#set-variables-in-pipeline) or [Classic](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch#set-variables-in-pipeline) pipeline setup.
+1. Create a new [user-defined variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables) named `TELERIK_LICENSE`, according to your [YAML](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#set-variables-in-pipeline) or [Classic](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch#set-variables-in-pipeline) pipeline setup.
 1. Paste the contents of the license key file as a value of the variable.
 
 ### GitHub Actions
