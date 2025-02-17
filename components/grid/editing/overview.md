@@ -10,27 +10,32 @@ position: 0
 
 # Blazor Grid CRUD Operations
 
-The Telerik Grid for Blazor supports create, update, and delete operations (CRUD). The component can also validate the user input. Use the CRUD events to transfer the changes to the underlying data source (for example, call a service to update the database, and not only with the view data).
+The Telerik Grid for Blazor features create, update, and delete operations (CRUD). The component also supports `DataAnnotations` or custom validation. This page describes:
 
-This page describes:
-
-* How Grid create, update, and delete operations work.
-* What are the available edit modes.
-* How to enable editing.
-* The Grid commands.
-* The Grid events.
+* How the create, update, and delete operations work in the Grid.
+* What are the available edit modes and how to enable them.
+* The Grid commands
+* The Grid events
 * How to change the built-in editors for certain data types.
 * How to refresh the Grid after editing.
 * How Grid editing integrates with other component features.
 
 ## Basics
 
-The Grid CRUD operations rely on the following algorithm:
+The Grid CRUD operations rely on the following algorithm and milestones:
 
-1. Users execute Grid *commands* (**Edit**, **Save**, **Delete**, and more) with the mouse or keyboard.
-1. The Grid fires *events* (`OnCreate`, `OnDelete`, `OnUpdate` and more), which provide information what the user did or how the component data changed.
-1. The application applies the changes to the Grid data source.
+1. Users execute [Grid commands (**Edit**, **Save**, **Delete**, and more)](#commands) with the mouse or keyboard. The commands control the Grid behavior.
+1. The Grid fires [events (`OnCreate`, `OnDelete`, `OnUpdate` and more)](#events), which provide information what the user did or how the component data changed.
+1. The application applies the changes to the Grid data source in the above event handlers.
 1. The Grid rebinds to display the latest data.
+
+### Model Requirements
+
+Adding or editing rows in the Grid has the following requirements on the Grid model:
+
+* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instance). Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
+* All editable properties must be `public` and have setters. These properties must not be `readonly`.
+* There must be no self-referencing or inherited properties that can cause `StackOverflowException` or `AmbiguousMatchException` during [programmatic model instance creation](#events).
 
 ## Edit Modes
 
@@ -51,28 +56,6 @@ Editing multiple rows at the same time is not supported. You can [render editors
 
 Delete operations require the same configuration and work in the same way, no matter what is the Grid `EditMode`. Delete operations do not require Grid editing to be enabled.
 
-## Item Instances During Editing
-
-The Grid uses [`Activator.CreateInstance<TItem>()`](https://learn.microsoft.com/en-us/dotnet/api/system.activator.createinstance) to generate item instances for add and edit mode. This brings the following requirements and considerations:
-
-* The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance. Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
-* All editable properties must be `public` and have setters. These properties must not be `readonly`.
-* There must be no `public` properties that create a circular reference. For example, if the Grid model class is `Person`, it must not have properties of type `Person`.
-* The `OnEdit` event handler receives the original item instance from the Grid data collection in `GridCommandEventArgs.Item`.
-* The [column `<EditorTemplate>` `context`](slug:grid-templates-editor) is the new (cloned) item instance.
-* The `OnUpdate` event handler receives the cloned and modified item in `GridCommandEventArgs.Item`. The app must replace the original item with the cloned item. Alternatively, the app must update the property values in the original item one by one.
-
-When binding the Grid directly to Entity Framework models or `DbSet`, and using the cloned `GridCommandEventArgs.Item` in your database update method, you can get one of the following exceptions:
-
-* `The instance of entity type ... cannot be tracked because another instance with the same key value for ... is already being tracked.`
-* `This is a DynamicProxy2 error: The interceptor attempted to 'Proceed' for method 'Microsoft.EntityFrameworkCore.Infrastructure.ILazyLoader get_LazyLoader()' which has no target.`.
-
-In such cases, perform the database update as follows:
-
-1. Find the original object in your database by ID. For example, you can use `dbContext.Find()`.
-1. Apply the changes property by property, for example, `efItem.Property1 = clonedItem.Property1`
-1. Call `dbContext.SaveChanges()`.
-
 ## Commands
 
 The Grid provides the following built-in commands, which enable users to manage the component data:
@@ -85,43 +68,42 @@ The Grid provides the following built-in commands, which enable users to manage 
 
 To use a command, define a `<GridCommandButton>` and set its `Name` parameter to the required command name.
 
+Command buttons can only reside in a [Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
+
 ## Events
 
-The Grid does not modify its data directly. Instead, the component fires events, which allow the app to:
+The Grid events, which are related to adding, editing, and deleting items, have the following characteristics:
 
-* Detect, approve, or reject the user actions.
-* Make changes to the Grid data source.
+* All events provide a [`GridCommandEventArgs` argument](slug:telerik.blazor.components.gridcommandeventargs) in the handler.
+* All events are cancellable if you set the `GridCommandEventArgs.IsCancelled` property to `true`.
+* Some of the events are required. The app must use them to modify the Grid data source, based on the user changes.
+* Some of the events are optional. The app can use them to implement custom logic and manage the user experience.
+* Some event handlers receive the original data item in `GridCommandEventArgs.Item`, while others receive a new or cloned data item instance. See the next section and the table below for details.
 
-The Grid CUD events have the following characteristics:
+### Item Instances
 
-* Some of the events are required. The app must use them to modify the Grid data source, based on the user actions.
-* Some of the events are optional. The app can use them to implement business logic and manage the user experience.
-* Some events receive the original data item in the event argument, while others receive a newly created (cloned) data item instance.
-* All events receive a [`GridCommandEventArgs` argument](slug:telerik.blazor.components.gridcommandeventargs) in the event handler.
-* All events are cancellable.
+The Grid does not modify its data directly when going to add or edit mode. Instead, it creates a new item instance or clones an existing one. The component uses [`Activator.CreateInstance<TItem>()`](https://learn.microsoft.com/en-us/dotnet/api/system.activator.createinstance) and [`PropertyInfo.SetValue()`](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.setvalue). This approach:
+
+* Allows users to cancel their changes and revert to the original data item values.
+* Provides the app with full control over the data source.
+* Brings some requirements [for the Grid model class](#model-requirements) and for [updating Entity Framework models](slug:grid-kb-entity-framework-model-update).
+
+### Comparison
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Event | Required | Description | `args.Item` Instance | If Cancelled |
+| Event | Required | Description | `GridCommandEventArgs` `Item` Instance | If Cancelled |
 | --- | --- | --- | --- | --- |
-| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters insert mode. Also see `OnCreate`. | New | The Grid remains in read mode. |
-| `OnCancel` | No | Fires on `Cancel` command button click. | New | The Grid remains in insert or edit mode. |
-| `OnCreate` | To insert new items. | Fires on `Save` command button click for new items. Also see `OnAdd`. | New | The Grid remains in insert mode. |
+| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters insert mode. This event preceeds `OnCreate` or `OnCancel`. | New | The Grid remains in read mode. |
+| `OnCancel` | No | Fires on `Cancel` command button click. | New or cloned | The Grid remains in insert or edit mode. |
+| `OnCreate` | To insert new items. | Fires on `Save` command button click for new items. This event succeeds `OnAdd`. | New | The Grid remains in insert mode. |
 | `OnDelete` | To delete items. | Fires on `Delete` command button click. Can display a [delete confirmation dialog](slug://grid-delete-confirmation). |Original | The item remains in the data. |
-| `OnEdit` | No | Fires on `Edit` command button click, before the Grid actually enters edit mode. Also see `OnUpdate`. | Original | The Grid remains in read mode. |
-| `OnUpdate` | To edit existing items. | Fires on `Save` command button click for existing items. Also see `OnEdit`. | New | The Grid remains in edit mode. |
+| `OnEdit` | No | Fires on `Edit` command button click, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | The Grid remains in read mode. |
+| `OnUpdate` | To edit existing items. | Fires on `Save` command button click for existing items. This event succeeds `OnEdit`. | Cloned | The Grid remains in edit mode. |
 
-The CUD event handlers receive an argument of type `GridCommandEventArgs` that exposes the following fields:
+### Handler Signatures
 
-* `IsCancelled` - a boolean field indicating whether the grid operation is to be prevented (for example, prevent a row from opening for edit, or from updating the data layer).
-* `IsNew` - a boolean field indicating whether the item was just added through the grid. Lets you differentiate a data source Create operation from Update operation in the `OnClick` event of a command button.
-* `Item` - an object you can cast to your model class to obtain the current data item.
-* `Field` - specific to [InCell editing](slug:components/grid/editing/incell) - indicates which is the model field the user changed when updating data.
-* `Value` - specific to [InCell editing](slug:components/grid/editing/incell) - indicates what is the new value the user changed when updating data.
-
-You can initiate editing or inserting of an item from anywhere on the page (buttons outside of the grid, or components in a column template) through the [grid state](slug:grid-kb-add-edit-state).
-
-The CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for awaitable operations or data service calls, otherwise you may experience errors such as:
+The CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations or data service calls. Otherwise you may experience errors such as:
 
 * `Cannot access a disposed object.`
 * `A second operation started on this context before a previous operation completed.`
@@ -146,7 +128,7 @@ During CUD operations, the Grid expects the application to make changes to the d
 At the end of the `OnCreate`, `OnDelete`, and `OnUpdate` event handler, the application must do one of the following:
 
 * Make a request to the database and retrieve the latest data. Set the collection as the new value of the Grid `Data` parameter. The Grid will rebind automatically. The following examples demonstrate this approach: ........
-* Use the CUD event arguments to update the local data collection in the `Data` parameter manually. This approach spares one database request, but the user may not see recent changes made by other users.
+* [Use the CUD event arguments to update the local item collection in the `Data` parameter manually](slug:grid-kb-load-cached-data-after-crud-operations#data-parameter).
 
 ### OnRead Event
 
@@ -157,12 +139,7 @@ The Grid automatically fires [`OnRead`](slug://components/grid/manual-operations
 * `OnDelete`
 * `OnUpdate`
 
-In this way, the Grid receives the latest data after each operation is complete. If you need to skip the database read request in this case, you can:
-
-1. Cache the values of `args.Data` and `args.Total` from the previous `OnRead` event handler execution.
-1. Raise a boolen flag in the CUD event handler and check it in the `OnRead` handler.
-1. Update the cached data and total value with the latest user changes before using them in the current `OnRead` call.
-1. Reset the boolean flag, so that next time the Grid receives fresh data from the data source.
+In this way, the Grid receives the latest data after each operation is complete. If you need to skip the database read request in this case, you can [cache the Grid data in the `OnRead` handler, modify it manually, and reuse it](slug:grid-kb-load-cached-data-after-crud-operations#onread-event).
 
 ## Integration with Other Grid Features
 
