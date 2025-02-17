@@ -14,7 +14,7 @@ The column's `EditorTemplate` defines the inline template or component that will
 
 You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid row. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
-The template receives a **copy** of the original model, so that changes can be canceled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview](slug:components/grid/editing/overview#notes) for more details on how and when that copy is created.
+The template receives a copy of the original data item. This allows users to cancel their edits and restore the original property value. The [CRUD Events section](slug:components/grid/editing/overview#events) provides more information about this programmatic item creation.
 
 If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug:grid-kb-custom-edit-form).
 
