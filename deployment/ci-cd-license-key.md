@@ -31,15 +31,10 @@ The license activation process in a CI/CD environment involves the following ste
 
 The recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environment is to use environment variables. Each CI/CD platform has a different process for setting environment variables. This article lists only some of the most popular examples.
 
-### Azure Pipelines (YAML)
+### Azure Pipelines
 
-1. Create a new [user-defined variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) named `TELERIK_LICENSE`.
-1. Paste the contents of the license key file as a value.
-
-### Azure Pipelines (Classic)
-
-1. Create a new [user-defined variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch) named `TELERIK_LICENSE`.
-1. Paste the contents of the license key file as a value.
+1. Create a new [user-defined variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables) named `TELERIK_LICENSE`.
+1. Paste the contents of the license key file as a value of the variable.
 
 ### GitHub Actions
 
@@ -63,7 +58,7 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
       env:
         TELERIK_LICENSE: ${{ "{{ secrets.TELERIK_LICENSE }}" }}
     ````
-    (Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.)
+    Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
 
 ### Docker
 
