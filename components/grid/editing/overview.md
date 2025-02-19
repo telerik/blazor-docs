@@ -10,15 +10,15 @@ position: 0
 
 # Blazor Grid CRUD Operations
 
-The Telerik Grid for Blazor features create, update, and delete operations (CRUD). The component also supports `DataAnnotations` or custom validation. This page describes:
+The Telerik Grid for Blazor features create, update, and delete operations (CRUD) in different UX modes. The component also supports `DataAnnotations` or custom validation. This page describes:
 
-* How the create, update, and delete operations work in the Grid.
-* What are the available edit modes and how to enable them.
-* The Grid commands
-* The Grid events
-* How to change the built-in editors for certain data types.
-* How to refresh the Grid after editing.
-* How Grid editing integrates with other component features.
+* [How the create, update, and delete operations work in the Grid](#basics).
+* [What are the available edit modes and how to enable them](#edit-modes).
+* [The Grid commands](#commands)
+* [The Grid events](#events)
+* [How to change the built-in editors for certain data types](#column-editors).
+* [How to refresh the Grid after editing](#rebinding-after-data-changes).
+* [How Grid editing integrates with other component features](#integration-with-other-features).
 
 ## Basics
 
@@ -66,9 +66,7 @@ The Grid provides the following built-in commands, which enable users to manage 
 * `Edit`&mdash;puts a Grid row in edit mode. Fires the `OnEdit` event.
 * `Save`&mdash;confirms the row changes and exits edit mode, if the user input is valid. Fires the `OnUpdate` event.
 
-To use a command, define a `<GridCommandButton>` and set its `Name` parameter to the required command name.
-
-Command buttons can only reside in a [Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
+Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
 
 ## Events
 
@@ -103,7 +101,7 @@ The Grid does not modify its data directly when going to add or edit mode. Inste
 
 ### Handler Signatures
 
-The CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations or data service calls. Otherwise you may experience errors such as:
+The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations or data service calls. Otherwise you may experience errors such as:
 
 * `Cannot access a disposed object.`
 * `A second operation started on this context before a previous operation completed.`
@@ -119,9 +117,9 @@ You can customize the editors rendered in the Grid by providing the `EditorType`
 | `DateTime` | `DatePicker` (default) <br /> `DateTimePicker` <br> `TimePicker` |
 | `string` | `TextArea` <br /> `TextBox` (default) |
 
-## Rebind Grid After CUD
+## Rebinding After Data Changes
 
-During CUD operations, the Grid expects the application to make changes to the data source and provide the latest data to the component. This can happen in different ways, depending on the current Grid [data binding mechanism](slug:common-features-data-binding-overview#how-to-provide-data).
+During add, edit, and delete operations, the Grid expects the application to make changes to the data source and provide the latest data to the component. This can happen in different ways, depending on the current Grid [data binding mechanism](slug:common-features-data-binding-overview#how-to-provide-data).
 
 ### Data Parameter
 
@@ -141,15 +139,13 @@ The Grid automatically fires [`OnRead`](slug://components/grid/manual-operations
 
 In this way, the Grid receives the latest data after each operation is complete. If you need to skip the database read request in this case, you can [cache the Grid data in the `OnRead` handler, modify it manually, and reuse it](slug:grid-kb-load-cached-data-after-crud-operations#onread-event).
 
-## Integration with Other Grid Features
+## Integration with Other Features
 
-* If you want to perform other data operations while the component is in Edit mode (applicable for [InCell](slug://components/grid/editing/incell) and [Inline](slug://components/grid/editing/inline) editing) the following behavior will occur:
+Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the additional information on this topic for inline and in-cell edit modes.
 
-@[template](/_contentTemplates/common/grid-treelist-editing-notes.md#grid-treelist-data-operations-while-editing)
+Updated rows comply with the current filter, group, search, and sort settings, just like all other rows. As a result, an updated row may render at a different place or disappear. To prevent this temporarily, you can [bind the component with `OnRead` and provide cached data after the edit operation](slug:grid-kb-load-cached-data-after-crud-operations#onread-event).
 
-* Updated rows comply with the current sort, filter, and group settings, just like all other rows. As a result, an updated row may render at a different place or disappear from the current page.
-
-* When editing a master row in a [hierarchy Grid](slug://components/grid/features/hierarchy), the respective `DetailTemplate` will collapse unless you [override the `Equals()` method of the master data item class](slug://grid-kb-editing-in-hierarchy).
+When editing a master row in a [hierarchy Grid](slug://components/grid/features/hierarchy), the respective `DetailTemplate` will collapse unless you [override the `Equals()` method of the master data item class](slug://grid-kb-editing-in-hierarchy).
 
 
 ## Examples
@@ -167,4 +163,5 @@ See Grid CRUD operations in action at:
 * [Live Demos: Grid Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
 * [Enter and Exit Grid Edit Mode Programmatically](slug://grid-kb-add-edit-state)
 * [Set Default Values for Grid Add and Edit Mode](slug://grid-kb-default-value-for-new-row)
+* [Edit Rows in Hierarchy Grid](slug://grid-kb-editing-in-hierarchy)
 * [Edit All Grid Rows and Cells at the Same Time](slug:grid-kb-edit-all-rows-cells)

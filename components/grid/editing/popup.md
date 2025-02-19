@@ -10,6 +10,8 @@ position: 2
 
 # Grid Popup Editing
 
+Popup editing enables the app to render a larger form that occupies a larger part of the screen and contain editable fields that are not visible in the Grid.
+
 In this article:
 
 * [Basics](#basics)

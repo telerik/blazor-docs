@@ -10,33 +10,48 @@ position: 1
 
 # Grid Inline Editing
 
-Inline editing lets the user click an [Edit command button](slug:components/grid/columns/command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the grid where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service).
+Inline Grid editing lets users modify all values on a Grid row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.
 
-===
+## Basics
 
-### Inline
-
-Set the Grid `EditMode` parameter to `GridEditMode.Inline`. During inline editing, only one table row is in edit mode. The user can:
+To use inline Grid editing, [set the Grid `EditMode` parameter to `GridEditMode.Inline`](slug:components/grid/editing/overview#edit-modes). During inline editing, only one table row is in edit mode. Users can:
 
 * Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
 * Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
 * Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
 * Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
-Inline CUD operations use the following commands:
+Inline add, edit, and delete operations use the following [commands](slug:components/grid/editing/overview#commands):
 
-* **Add** command
-* **Delete** command
-* **Edit** command
-* **Save** command
-* **Cancel** command
+* **Add**
+* **Delete**
+* **Edit**
+* **Save**
+* **Cancel**
 
 Without using the above command buttons, the application can:
 
 * [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
-* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+* Modify data items directly in the Grid `Data` collection or remote data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
 
 The Grid commands execute row by row and the Grid events also fire row by row.
+
+## Integration with Other Features
+
+Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:components/grid/editing/overview#integration-with-other-features).
+
+### Add, Edit
+
+This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row or cell.
+
+* If the validation is not satisfied, the component will block the user action until they complete or cancel the current add or edit operation.
+* If the validation is satisfied, then editing will abort and the component will fire `OnCancel`.
+
+### Delete, Filter, Group, Search, Sort
+
+This section explains what happens when the user tries to perform another data operation, while the component is already in add or edit mode.
+
+* If the component is in `Inline` edit mode, then editing will abort and the component will fire `OnCancel`.
 
 ===
 
@@ -48,24 +63,205 @@ You can also cancel the events by setting the `IsCancelled` property of the even
 
 To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Inline`, then handle the CRUD events as shown in the example below.
 
->caption The Command buttons and the grid events let you handle data operations in Inline edit mode (see the code comments for details)
+## Examples
+
+### Basic
+
+The example below shows how to:
+
+* Implement inline Grid CRUD operations with the simplest and minimal required setup.
+* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
+* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Use `DataAnnotations` validation for some model class properties.
+
+>caption Basic Grid inline editing configuration
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<p>The example below shows how to:</p>
+<TelerikGrid Data="@GridData"
+             EditMode="@GridEditMode.Inline"
+             OnCreate="@OnGridCreate"
+             OnDelete="@OnGridDelete"
+             OnUpdate="@OnGridUpdate">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add">Add Item</GridCommandButton>
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridCommandColumn Width="180px">
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
 
-<ul>
-    <li>Render command buttons conditionally.</li>
-    <li>Refresh the Grid after editing by reloading the data from the remote datasource.</li>
-    <li>Refresh the Grid after editing by applying the user changes to the local data collection.</li>
-    <li>Cancel the OnCancel event conditionally, so that the Grid remains in edit mode. Similar behavior can be achieved by cancelling OnCreate and OnUpdate.</li>
-    <li>Confirm Delete commands with a built-in Grid dialog. You can also intercept Delete commands with a separate Dialog or a custom popup.</li>
-    <li>Cancel the OnAdd and OnEdit events conditionally, so that the Grid does not go into edit mode.</li>
-</ul>
+@code {
+    private List<Product> GridData { get; set; } = new();
 
+    private ProductService GridProductService { get; set; } = new();
+
+    private async Task OnGridCreate(GridCommandEventArgs args)
+    {
+        var createdItem = (Product)args.Item;
+
+        await GridProductService.Create(createdItem);
+
+        GridData = await GridProductService.Read();
+    }
+
+    private async Task OnGridDelete(GridCommandEventArgs args)
+    {
+        var deletedItem = (Product)args.Item;
+
+        await GridProductService.Delete(deletedItem);
+
+        GridData = await GridProductService.Read();
+    }
+
+    private async Task OnGridUpdate(GridCommandEventArgs args)
+    {
+        var updatedItem = (Product)args.Item;
+
+        await GridProductService.Update(updatedItem);
+
+        GridData = await GridProductService.Read();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GridData = await GridProductService.Read();
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
+    }
+
+    #region Data Service
+
+    public class ProductService
+    {
+        private List<Product> Items { get; set; } = new();
+
+        private int LastId { get; set; }
+
+        public async Task<int> Create(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            product.Id = ++LastId;
+
+            Items.Insert(0, product);
+
+            return LastId;
+        }
+
+        public async Task<bool> Delete(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            if (Items.Contains(product))
+            {
+                Items.Remove(product);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<List<Product>> Read()
+        {
+            await SimulateAsyncOperation();
+
+            return Items;
+        }
+
+        public async Task<DataSourceResult> Read(DataSourceRequest request)
+        {
+            return await Items.ToDataSourceResultAsync(request);
+        }
+
+        public async Task<bool> Update(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            int originalItemIndex = Items.FindIndex(x => x.Id == product.Id);
+
+            if (originalItemIndex != -1)
+            {
+                Items[originalItemIndex] = product;
+                return true;
+            }
+
+            return false;
+        }
+
+        private async Task SimulateAsyncOperation()
+        {
+            await Task.Delay(100);
+        }
+
+        public ProductService(int itemCount = 5)
+        {
+            Random rnd = Random.Shared;
+
+            for (int i = 1; i <= itemCount; i++)
+            {
+                Items.Add(new Product()
+                {
+                    Id = ++LastId,
+                    Name = $"Product {LastId}",
+                    Description = $"Multi-line\ndescription {LastId}",
+                    Price = LastId % 2 == 0 ? null : rnd.Next(0, 100) * 1.23m,
+                    Quantity = LastId % 2 == 0 ? 0 : rnd.Next(0, 3000),
+                    ReleaseDate = DateTime.Today.AddDays(-rnd.Next(365, 3650)),
+                    Discontinued = LastId % 2 == 0
+                });
+            }
+        }
+    }
+
+    #endregion Data Service
+}
+````
+
+### Advanced
+
+The example below shows how to:
+
+* Implement inline Grid CRUD operations with all available events and various built-in customizations.
+* Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
+* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
+* Use `DataAnnotations` validation for some model class properties.
+* Mark a column as non-editable.
+* Customize column editors without using an `EditorTemplate`.
+* Render command buttons conditionally.
+* Confirm **Delete** commands with the built-in Grid Dialog. You can also [intercept item deletion with a separate Dialog or a custom popup](slug:grid-kb-customize-delete-confirmation-dialog).
+* Cancel the `OnAdd` and `OnEdit` events conditionally, so that the Grid does not go into edit mode.
+* Cancel the `OnCancel` event conditionally, so that the Grid remains in edit mode and the user doesn't lose their unsaved changes.
+
+>caption Advanced Grid inline editing configuration
+
+````RAZOR
 <TelerikGrid Data="@GridData"
              ConfirmDelete="@GridConfirmDelete"
              EditMode="@GridEditMode.Inline"
@@ -83,8 +279,6 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
         <span class="k-separator"></span>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShouldCancelOnAddEdit" /> Cancel OnAdd and OnEdit Events</label>
         <span class="k-separator"></span>
-        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ShouldConfirmOnCancel" /> Confirm Cancel Commands</label>
-        <span class="k-separator"></span>
         <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@GridConfirmDelete" /> Confirm Delete Commands</label>
     </GridToolBarTemplate>
     <GridColumns>
@@ -99,12 +293,12 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
         <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
         <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
         <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
-        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" EditorType="@GridEditorType.Switch" />
         <GridCommandColumn Title="Commands" Width="180px">
             @{ var dataItem = (Product)context; }
             <GridCommandButton Command="Edit" ThemeColor="@AddEditButtonThemeColor">Edit</GridCommandButton>
             <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" ThemeColor="@CancelButtonThemeColor" ShowInEdit="true">Cancel</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
             @if (dataItem.Discontinued)
             {
                 <GridCommandButton Command="Delete" ThemeColor="@DeleteButtonThemeColor">Delete</GridCommandButton>
@@ -212,16 +406,30 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
         GridData = await GridProductService.Read();
     }
 
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
+    }
+
+    #region Data Service
+
     public class ProductService
     {
-        private List<Product> Items { get; set; }
+        private List<Product> Items { get; set; } = new();
 
         private int LastId { get; set; }
 
         public async Task<int> Create(Product product)
         {
-            // Simulate async operation.
-            await Task.Delay(100);
+            await SimulateAsyncOperation();
 
             product.Id = ++LastId;
 
@@ -232,8 +440,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 
         public async Task<bool> Delete(Product product)
         {
-            // Simulate async operation.
-            await Task.Delay(100);
+            await SimulateAsyncOperation();
 
             if (Items.Contains(product))
             {
@@ -247,8 +454,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 
         public async Task<List<Product>> Read()
         {
-            // Simulate async operation.
-            await Task.Delay(100);
+            await SimulateAsyncOperation();
 
             return Items;
         }
@@ -260,8 +466,7 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
 
         public async Task<bool> Update(Product product)
         {
-            // Simulate async operation.
-            await Task.Delay(100);
+            await SimulateAsyncOperation();
 
             int originalItemIndex = Items.FindIndex(x => x.Id == product.Id);
 
@@ -274,49 +479,35 @@ To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Bl
             return false;
         }
 
-        public ProductService()
+        private async Task SimulateAsyncOperation()
         {
-            Items = new();
+            await Task.Delay(100);
+        }
 
-            for (int i = 1; i <= 15; i++)
+        public ProductService(int itemCount = 5)
+        {
+            Random rnd = Random.Shared;
+
+            for (int i = 1; i <= itemCount; i++)
             {
                 Items.Add(new Product()
                 {
                     Id = ++LastId,
                     Name = $"Product {LastId}",
                     Description = $"Multi-line\ndescription {LastId}",
-                    Price = LastId % 2 == 0 ? null : Random.Shared.Next(0, 100) * 1.23m,
-                    Quantity = LastId % 2 == 0 ? 0 : Random.Shared.Next(0, 3000),
-                    ReleaseDate = DateTime.Today.AddDays(-Random.Shared.Next(365, 3650)),
+                    Price = LastId % 2 == 0 ? null : rnd.Next(0, 100) * 1.23m,
+                    Quantity = LastId % 2 == 0 ? 0 : rnd.Next(0, 3000),
+                    ReleaseDate = DateTime.Today.AddDays(-rnd.Next(365, 3650)),
                     Discontinued = LastId % 2 == 0
                 });
             }
-
         }
     }
 
-    public class Product
-    {
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public decimal? Price { get; set; }
-        public int Quantity { get; set; }
-        [Required]
-        public DateTime? ReleaseDate { get; set; }
-        public bool Discontinued { get; set; }
-    }
+    #endregion Data Service
 }
 ````
 
->caption The result from the code snippet above, after the Edit button was clicked on the fourth row
-
-![Blazor Grid Inline Editing](images/inline-editing.png)
-
->note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
-
 ## See Also
 
-  * [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Inline Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)

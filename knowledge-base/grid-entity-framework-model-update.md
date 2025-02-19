@@ -4,7 +4,7 @@ description: Learn how to resolve and avoid exceptions when updating Grid items 
 type: troubleshooting
 page_title: How to Fix Exception Instance of Entity Type Cannot Be Tracked
 slug: grid-kb-entity-framework-model-update
-tags: blazor, grid, treelist, entityframework
+tags: blazor, grid, treelist, editing, entityframework
 ticketid:
 res_type: kb
 ---
