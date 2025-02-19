@@ -18,6 +18,8 @@ Command columns and non-editable columns are skipped while tabbing.
 
 The InCell edit mode provides a specific user experience and behaves differently than other edit modes. Please review the notes below to get a better understanding of these specifics.
 
+In-cell edit mode can be more convenient for advanced users, fast users, or users who prefer keyboard navigation rather than clicking command buttons.
+
 
 #### Sections in this article
 
@@ -55,6 +57,27 @@ Without using the above command buttons, the application can:
 In-cell edit mode does not require **Edit**, **Save**, and **Cancel** command buttons.
 
 In in-cell edit mode, the `OnAdd` and `OnCreate` events fire immediately one after the other, unless `OnAdd` is cancelled. This means that users are always editing existing rows. They are never adding a new row.
+
+===
+
+@[template](/_contentTemplates/common/grid-treelist-editing-notes.md#grid-treelist-data-operations-while-editing)
+
+===
+
+### Add, Edit
+
+This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row or cell.
+
+* If the validation is not satisfied, the component will block the user action until they complete or cancel the current add or edit operation.
+* If the validation is satisfied, then editing will complete and the component will fire `OnUpdate`.
+
+### Delete, Filter, Group, Search, Sort
+
+This section explains what happens when the user tries to perform another data operation, while the component is already in add or edit mode.
+
+* If the component is in `Incell` edit mode and the validation is...
+    * satisfied, then editing will complete and the component will fire `OnUpdate`.
+    * not satisfied, then editing will abort and the component will fire `OnCancel`.
 
 ===
 

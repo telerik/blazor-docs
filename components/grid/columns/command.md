@@ -40,7 +40,7 @@ The `GridCommandButton` tag offers the following features:
 
 ### Built-in Commands
 
-There are four built-in commands:
+There are five built-in commands:
 
 * `Add` - initiates the creation of a new item.
 * `Edit` - initiates the inline or popup editing (depending on the GridEditMode configuration of the grid).
@@ -48,7 +48,7 @@ There are four built-in commands:
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
 
-> The `Add` and `Edit` commands require [enabled editing](slug:components/grid/editing/overview).
+> All commands, except `Delete` require [enabled editing](slug:components/grid/editing/overview).
 
 ### The OnClick handler
 
