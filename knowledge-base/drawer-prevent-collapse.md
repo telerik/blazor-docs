@@ -54,7 +54,7 @@ I would like to prevent the Drawer from collapsing when an item from the navigat
                         @onclick="@(() => SelectAndNavigate(item))"
                         class="k-drawer-item @GetSelectedItemClass(item)"
                         style="white-space:nowrap">
-                        <span class="k-icon k-i-@item.Icon" style="margin-right: 8px;"></span>
+                        <TelerikSvgIcon Icon="@item.Icon" />
                         @if (DrawerExpanded)
                         {
                             <span class="k-item-text">@item.Text</span>
