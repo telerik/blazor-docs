@@ -22,11 +22,11 @@ Telerik UI for Blazor comes with a set of built-in CSS themes that control the v
 
 ## Basics
 
-### Theme
+### What is a Theme?
 
 A *theme* is a collection of styles in a CSS file, which determine the appearance of the Telerik Blazor components, including fonts, colors, sizes and layouts. For example, *Default* and *Bootstrap* are two [built-in theme names](#built-in-themes).
 
-### Swatch
+### What is a Swatch?
 
 A *theme swatch* is a color variation of a theme. All <a href="https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/" target="_blank">swatches of a given theme</a> use the same fonts, sizes, and layouts. On the other hand, the text colors, background colors and border colors are different. For example, *Default Ocean Blue* and *Bootstrap Nordic* are two built-in swatch names.
 

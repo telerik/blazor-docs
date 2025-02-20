@@ -22,7 +22,7 @@ The CDN hosts two kinds of static client assets for the Telerik UI for Blazor co
 
 The [Telerik CSS themes](slug:themes-overview) are available on two CDN hosts:
 
-* `unpkg.com` provides [all built-in theme swatches](slug:themes-overview#swatch). The version number in the theme URL matches the version of the theme itself. Make sure to [use compatible theme and component versions](slug:themes-overview#compatibility-and-maintenance). For example, use theme version `{{site.themesVersion}}` with UI for Blazor version `{{site.uiForBlazorLatestVersion}}`.
+* `unpkg.com` provides [all built-in theme swatches](slug:themes-overview#what-is-a-swatch). The version number in the theme URL matches the version of the theme itself. Make sure to [use compatible theme and component versions](slug:themes-overview#compatibility-and-maintenance). For example, use theme version `{{site.themesVersion}}` with UI for Blazor version `{{site.uiForBlazorLatestVersion}}`.
 * `blazor.cdn.telerik.com` provides a limited set of popular [theme swatches](slug:themes-overview#basics). The version number in the theme URL matches the version of the Telerik UI for Blazor components, for example, `{{site.uiForBlazorLatestVersion}}`.
 
 ### UNPKG CDN
