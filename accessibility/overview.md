@@ -77,7 +77,7 @@ When using [right-to-left text direction](slug:rtl-support), the keyboard shortc
 
 WCAG sections <a href="https://www.w3.org/TR/WCAG22/#contrast-minimum" target="_blank">1.4.3 Contrast (Minimum)</a> and <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced" target="_blank">1.4.6 Contrast (Enhanced)</a> define contrast ratios for accessibility compliance. The built-in [*Default Ocean Blue A11y* theme swatch](https://www.telerik.com/design-system/docs/themes/kendo-themes/default/swatches/#ocean-blue-accessibility-swatch) in Telerik UI for Blazor conforms to WCAG Level AA, except success criterion <a href="https://www.w3.org/TR/WCAG22/#non-text-contrast" target="_blank">1.4.11 Non-text Contrast</a> in the ColorPalette component.
 
-You can [obtain and use the Default Ocean Blue A11y swatch](slug:themes-overview#swatch) starting from the following component and theme versions:
+You can [obtain and use the Default Ocean Blue A11y swatch](slug:themes-overview#what-is-a-swatch) starting from the following component and theme versions:
 
 * [Telerik UI for Blazor version 4.0.1](https://www.telerik.com/support/whats-new/blazor-ui/release-history/ui-for-blazor-4-0-1)
 * [Themes version 6.0.3](https://github.com/telerik/kendo-themes/releases/tag/v6.0.3). Check section [Theme Version Compatibility](slug:themes-overview#compatibility-and-maintenance) on how to align Telerik UI for Blazor versions with theme versions.
