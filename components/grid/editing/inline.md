@@ -12,16 +12,20 @@ position: 1
 
 Inline Grid editing lets users modify all values on a Grid row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.
 
+> This article requires familiarity with the information at [Grid CRUD Overview](slug:components/grid/editing/overview).
+
 ## Basics
 
-To use inline Grid editing, [set the Grid `EditMode` parameter to `GridEditMode.Inline`](slug:components/grid/editing/overview#edit-modes). During inline editing, only one table row is in edit mode. Users can:
+To use inline Grid editing, [set the Grid `EditMode` parameter to `GridEditMode.Inline`](slug:components/grid/editing/overview#edit-modes). During inline editing, only one table row is in edit mode at a time. Users can:
 
 * Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
 * Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
 * Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
 * Peform another Grid operation, for example, paging or sorting, to cancel the current edit operation.
 
-Inline add, edit, and delete operations use the following [commands](slug:components/grid/editing/overview#commands):
+## Commands
+
+Inline add, edit, and delete operations use the following [command buttons](slug:components/grid/editing/overview#commands):
 
 * **Add**
 * **Delete**
@@ -34,7 +38,9 @@ Without using the above command buttons, the application can:
 * [Manage insert or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
 * Modify data items directly in the Grid `Data` collection or remote data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
 
-The Grid commands execute row by row and the Grid events also fire row by row.
+The Grid commands execute row by row and the Grid events also fire row by row. This is similar to [popup editing](slug:components/grid/editing/popup) and unlike [in-cell editing](slug:components/grid/editing/incell), where commands and events relate to cells.
+
+When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons will not have effect, but users can still navigate between all input components in the row to complete the editing.
 
 ## Integration with Other Features
 
@@ -42,26 +48,14 @@ Here is how the component behaves when the user tries to use add and edit operat
 
 ### Add, Edit
 
-This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row or cell.
+This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row.
 
 * If the validation is not satisfied, the component will block the user action until they complete or cancel the current add or edit operation.
 * If the validation is satisfied, then editing will abort and the component will fire `OnCancel`.
 
 ### Delete, Filter, Group, Search, Sort
 
-This section explains what happens when the user tries to perform another data operation, while the component is already in add or edit mode.
-
-* If the component is in `Inline` edit mode, then editing will abort and the component will fire `OnCancel`.
-
-===
-
-In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the grid to let you handle the data source operations.
-
-When validation is not satisfied, clicking the Save, Delete or Add buttons will not have effect, but you can still navigate between all fields in the row to complete editing.
-
-You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
-
-To enable Inline editing in the grid, set its `EditMode` property to `Telerik.Blazor.GridEditMode.Inline`, then handle the CRUD events as shown in the example below.
+If the component is already in add or edit mode, and the user tries to perform another data operation, then editing will abort and the component will fire `OnCancel`.
 
 ## Examples
 
