@@ -72,11 +72,25 @@ Command buttons can only reside in a [Grid Command Column](slug:components/grid/
 
 The Grid events, which are related to adding, editing, and deleting items, have the following characteristics:
 
-* All events provide a [`GridCommandEventArgs` argument](slug:telerik.blazor.components.gridcommandeventargs) in the handler.
-* All events are cancellable if you set the `GridCommandEventArgs.IsCancelled` property to `true`.
+* All events provide a [`GridCommandEventArgs` argument](#gridcommandeventargs) in the handler.
+* All events are cancellable, so that the user action is prevented.
 * Some of the events are required. The app must use them to modify the Grid data source, based on the user changes.
 * Some of the events are optional. The app can use them to implement custom logic and manage the user experience.
 * Some event handlers receive the original data item in `GridCommandEventArgs.Item`, while others receive a new or cloned data item instance. See the next section and the table below for details.
+
+The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations. Otherwise the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
+
+### GridCommandEventArgs
+
+The [`GridCommandEventArgs` event argument](slug:telerik.blazor.components.gridcommandeventargs) exposes the following properties:
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| `Field` | `string` | The [column `Field` name](slug:components/grid/columns/bound#data-binding). Applicable only for [in-cell edit mode](slug:components/grid/editing/incell). |
+| `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Comparison table](#comparison) below for details. |
+| `IsNew` | `bool` | Defines if `Item` is a newly added row or an existing row. |
+| `Item` | `object` | The data item, which the user is adding, deleting, or editing. Cast it to the Grid model type. |
+| `Value` | `object` | The data item value, which the user is editing. You can cast it to the correct type, based on the `Field`. Applicable only for [in-cell edit mode](slug:components/grid/editing/incell). |
 
 ### Item Instances
 
@@ -98,14 +112,6 @@ The Grid does not modify its data directly when going to add or edit mode. Inste
 | `OnDelete` | To delete items. | Fires on `Delete` command button click. Can display a [delete confirmation dialog](slug://grid-delete-confirmation). |Original | The item remains in the data. |
 | `OnEdit` | No | Fires on `Edit` command button click, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | The Grid remains in read mode. |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command button click for existing items. This event succeeds `OnEdit`. | Cloned | The Grid remains in edit mode. |
-
-### Handler Signatures
-
-The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations or data service calls. Otherwise you may experience errors such as:
-
-* `Cannot access a disposed object.`
-* `A second operation started on this context before a previous operation completed.`
-* The Grid may refresh before the data operation is complete and the expected changes will not be present in the UI.
 
 ## Column Editors
 
@@ -141,12 +147,11 @@ In this way, the Grid receives the latest data after each operation is complete.
 
 ## Integration with Other Features
 
-Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the additional information on this topic for inline and in-cell edit modes.
-
 Updated rows comply with the current filter, group, search, and sort settings, just like all other rows. As a result, an updated row may render at a different place or disappear. To prevent this temporarily, you can [bind the component with `OnRead` and provide cached data after the edit operation](slug:grid-kb-load-cached-data-after-crud-operations#onread-event).
 
 When editing a master row in a [hierarchy Grid](slug://components/grid/features/hierarchy), the respective `DetailTemplate` will collapse unless you [override the `Equals()` method of the master data item class](slug://grid-kb-editing-in-hierarchy).
 
+Learn more integration details for the [inline](slug:components/grid/editing/inline#integration-with-other-features) and [in-cell](slug:components/grid/editing/incell#integration-with-other-features) edit modes.
 
 ## Examples
 

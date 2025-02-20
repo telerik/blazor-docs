@@ -421,6 +421,27 @@ Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base 
 
 ![Editor Template for a foreign key](images/edit-template-foreign-key.png)
 
+## In-cell Editor Templates
+
+The incell editor template requires a focusable element to maintain the tab order when using the keyboard. If you prevent editing based on a runtime condition, you must provide some focusable element. (Setting `Editable=false` for the entire column does not require a focusable element.) Here is one way to add a focusable non-editable element:
+
+<div class="skip-repl"></div>
+
+````RAZOR
+<EditorTemplate>
+    @{
+        if (myCurrentEditCondition)
+        {
+            <MyCustomEditor />
+        }
+        else
+        {
+            <div tabindex="0">editing not allowed</div>
+        }
+    }
+</EditorTemplate>
+````
+
 ## See Also
 
 * [Live Demo: Grid Templates](https://demos.telerik.com/blazor-ui/grid/templates)
