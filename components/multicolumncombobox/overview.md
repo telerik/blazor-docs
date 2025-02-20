@@ -18,7 +18,7 @@ The <a href="https://www.telerik.com/blazor-ui/multicolumncombobox" target="_bla
 1. Use the `<TelerikMultiColumnComboBox>` tag.
 1. Populate the `Data` parameter with the collection that you want to appear in the dropdown.
 1. Set the `TextField` and `ValueField` parameters to point to the corresponding property names of the model.
-1. [Bind the component `Value`](slug:get-started-value-vs-data-binding #value-binding) to a variable of the same type as the one of the `ValueField`.
+1. [Bind the component `Value`](slug:get-started-value-vs-data-binding#value-binding) to a variable of the same type as the one of the `ValueField`.
 1. Add `MultiColumnComboBoxColumn` instances under the `MultiColumnComboBoxColumns` tag. The `Field` parameter of each column must point to a property in the model.
 
 >caption MultiColumnComboBox data binding with two-way value binding
