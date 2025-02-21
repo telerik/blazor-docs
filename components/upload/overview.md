@@ -69,13 +69,16 @@ Steps 4 and 5 are optional, but strongly recommended.
     * The correct binding source attribute for the file name argument is `[FromForm]`. Set it explicitly if you are using an [`[ApiController]` attribute](https://learn.microsoft.com/en-gb/aspnet/core/web-api/).
     * Use the Upload [`OnRemove` event](slug:upload-events#onremove) to [send additional custom data with the file](slug:upload-events#send-custom-data-with-the-file) as an argument to the `Remove` controller method.
 
-Both action methods must accept `POST` requests. Correct request routing depends on the application.
+Both action methods must accept `POST` requests.
 
-The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
+Request routing depends on the application and it outside the Upload component's scope. Normally, the following two statements in the server project's `Program.cs` are enough:
 
-Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
+* `builder.Services.AddControllers();`
+* `app.MapDefaultControllerRoute();`.
 
 Also check the [Upload Troubleshooting](slug:upload-troubleshooting) page.
+
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
 
 >caption Sample Upload Controller
 
