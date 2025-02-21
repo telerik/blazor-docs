@@ -71,7 +71,7 @@ Steps 4 and 5 are optional, but strongly recommended.
 
 Both action methods must accept `POST` requests.
 
-Request routing depends on the application and it outside the Upload component's scope. Normally, the following two statements in `Program.cs` are enough:
+Request routing depends on the application and it outside the Upload component's scope. Normally, the following two statements in the server project's `Program.cs` are enough:
 
 * `builder.Services.AddControllers();`
 * `app.MapDefaultControllerRoute();`.
