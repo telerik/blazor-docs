@@ -293,7 +293,7 @@ private async Task OnGridRead(GridReadEventArgs args)
 
 ## Get Information From the DataSourceRequest
 
-With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state).
+With a few simple loops, you can extract information from the DataSourceRequest object to use in your own API (such as filters, sorts, paging state). The [Grid SearchBox value](slug:grid-searchbox) can be extracted in two ways: from the last `CompositeFilterDescriptor` in the `args.Request.Filters` collection, or from the [`SearchFilter` property of the Grid state](slug:grid-state#information-in-the-grid-state).
 
 ````RAZOR
 @using Telerik.DataSource
@@ -307,6 +307,9 @@ With a few simple loops, you can extract information from the DataSourceRequest 
              FilterMode="@GridFilterMode.FilterRow"
              Pageable="true" PageSize="15"
              Height="400px">
+    <GridToolBarTemplate>
+        <GridSearchBox />
+    </GridToolBarTemplate>
     <GridColumns>
         <GridColumn Field="Id" />
         <GridColumn Field="Name" />
