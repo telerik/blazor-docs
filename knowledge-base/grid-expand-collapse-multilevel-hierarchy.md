@@ -4,10 +4,20 @@ description: Learn how to implement an "Expand/Collapse All" option for a multi-
 type: how-to
 page_title: How to Implement Expand/Collapse All for Multi-Level Hierarchical Grid in Blazor
 slug: grid-kb-expand-collapse-multilevel-hierarchy
-tags: grid, hierarchical, grid, expand, collapse, blazor, state,multilevel
+tags: blazor, grid, hierarchy, state
 res_type: kb
 ticketid: 1675753
 ---
+
+## Environment
+<table>
+	<tbody>
+		<tr>
+			<td>Product</td>
+			<td>Grid for Blazor</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Description
 
@@ -19,7 +29,7 @@ To control the expansion and collapse of all rows in a multi-level Hierarchical 
 
 1. Use the [`SetStateAsync` method](slug://grid-state#methods) for the parent Grid to control the expansion and collapse of its rows.
 2. Use the [`OnStateInit` event](slug://grid-state#onstateinit) of the child Grids to expand their rows by default when the parent Grid rows expand.
-3. If some child Grids are already visible and their `OnStateInit` event has been fired, use `SetStateAsync` for these child Grids to control their expansion state.
+3. If some child Grids are already visible and their `OnStateInit` event has been fired, use `SetStateAsync` through their [dynamic references](slug://common-kb-dynamic-refs) to control their expansion state.
 
 ````RAZOR
 <TelerikGrid @ref="@GridRef"
