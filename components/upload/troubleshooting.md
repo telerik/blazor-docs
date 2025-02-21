@@ -26,7 +26,7 @@ The action method is hit, but the method argument is `null`
 
 ## HTTP 400 Bad request
 
-The action method is not hit and the server returns HTTP 400 Bad request.
+The action method is not hit and the server returns `HTTP 400 Bad request`.
 
 * Make sure that [controller routing is enabled and configured correctly](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing). For example, the controller samples in this documentation use `[Route("api/[controller]/[action]")]`. It is enough to add `app.MapDefaultControllerRoute();` to `Program.cs` in the default Blazor project template. [Web API controllers require explicit `[Route]` configuration](https://learn.microsoft.com/en-gb/aspnet/core/web-api/?view=aspnetcore-8.0#attribute-routing-requirement).
 * Make sure that the `[Route]` attribute in the upload controller (if set) is compatible with `SaveUrl` and `RemoveUrl`.
@@ -39,6 +39,16 @@ The action method is not hit and the server returns HTTP 400 Bad request.
 The Remove action may return `HTTP 415 Unsupported Media Type`.
 
 This means that the Remove action method expects `IEnumerable<string>` and .NET does not infer the correct binding source. Set a `[FromForm]` [binding source attribute](https://learn.microsoft.com/en-gb/aspnet/core/web-api/?view=aspnetcore-8.0#binding-source-parameter-inference) to the file name argument.
+
+
+## HTTP 405 Method Not Allowed
+
+The action method is not hit and the server returns `HTTP 405 Method not allowed`.
+
+Make sure that [controller routing is enabled](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) in the server-side project's startup file (`Program.cs`). Normally, the following two statements are required:
+
+* `builder.Services.AddControllers();`
+* `app.MapDefaultControllerRoute();`.
 
 
 ## Connection Error and No Response
