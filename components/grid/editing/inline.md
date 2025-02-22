@@ -12,7 +12,7 @@ position: 1
 
 Inline Grid editing lets users modify all values on a Grid row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.
 
-> This article requires familiarity with the information at [Grid CRUD Overview](slug:components/grid/editing/overview).
+> This article requires familiarity with the information at [Grid CRUD Operations](slug:components/grid/editing/overview).
 
 ## Basics
 
@@ -65,7 +65,7 @@ The example below shows how to:
 
 * Implement inline Grid CRUD operations with the simplest and minimal required setup.
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
-* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Rebind the Grid automatically through the `OnRead` event after the create, delete, or update operation is complete. When [using the `Data` parameter, you must either query the data source again, or modify the local `Data` collection manually](#advanced).
 * Use `DataAnnotations` validation for some model class properties.
 
 >caption Basic Grid inline editing configuration
@@ -75,7 +75,8 @@ The example below shows how to:
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
-<TelerikGrid Data="@GridData"
+<TelerikGrid OnRead="@OnGridRead"
+             TItem="@Product"
              EditMode="@GridEditMode.Inline"
              OnCreate="@OnGridCreate"
              OnDelete="@OnGridDelete"
@@ -99,8 +100,6 @@ The example below shows how to:
 </TelerikGrid>
 
 @code {
-    private List<Product> GridData { get; set; } = new();
-
     private ProductService GridProductService { get; set; } = new();
 
     private async Task OnGridCreate(GridCommandEventArgs args)
@@ -108,8 +107,6 @@ The example below shows how to:
         var createdItem = (Product)args.Item;
 
         await GridProductService.Create(createdItem);
-
-        GridData = await GridProductService.Read();
     }
 
     private async Task OnGridDelete(GridCommandEventArgs args)
@@ -117,8 +114,15 @@ The example below shows how to:
         var deletedItem = (Product)args.Item;
 
         await GridProductService.Delete(deletedItem);
+    }
 
-        GridData = await GridProductService.Read();
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        DataSourceResult result = await GridProductService.Read(args.Request);
+
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
     }
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
@@ -126,13 +130,6 @@ The example below shows how to:
         var updatedItem = (Product)args.Item;
 
         await GridProductService.Update(updatedItem);
-
-        GridData = await GridProductService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        GridData = await GridProductService.Read();
     }
 
     public class Product
@@ -243,7 +240,7 @@ The example below shows how to:
 
 * Implement inline Grid CRUD operations with all available events and various built-in customizations.
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
-* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Reload the Grid `Data` after making changes to the data source. When [using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically](#basic).
 * Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
 * Use `DataAnnotations` validation for some model class properties.
 * Mark a column as non-editable.
