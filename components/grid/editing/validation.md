@@ -12,11 +12,11 @@ position: 40
 
 The Telerik Grid for Blazor supports built-in validation that is enabled by default. This article describes how the Grid validation works and how to customize or disable it.
 
-> This article requires familiarity with the information at [Grid CRUD Operations](slug:components/grid/editing/overview).
+@[template](/_contentTemplates/grid/editing.md#overview-required)
 
 ## Basics
 
-By default, the Grid validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:components/grid/editing/inline) or [in-cell](slug:components/grid/editing/incell) editing, the Grid renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) on hover of the invalid inputs. In popup edit mode, the Grid shows a [Validation Summary](slug:validation-tools-summary) in the popup.
+By default, the Grid validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:grid-editing-inline) or [in-cell](slug:grid-editing-incell) editing, the Grid renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) on hover of the invalid inputs. In popup edit mode, the Grid shows a [Validation Summary](slug:validation-tools-summary) in the popup.
 
 When a row is not in edit mode, the `EditContext` is `null`. The Grid `EditContext` is a cascading parameter, which can overrides any cascading parameters from parent components, such as an `<EditForm>` that may wrap the Grid.
 
@@ -74,7 +74,7 @@ Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazore
     </GridSettings>
     <GridToolBarTemplate>
         <GridCommandButton Command="Add">Add Item</GridCommandButton>
-        <label class="k-label k-checkbox-label">
+        <label class="k-checkbox-label">
             <TelerikCheckBox @bind-Value="@GridValidationEnabled" />
             Enable Validation
         </label>

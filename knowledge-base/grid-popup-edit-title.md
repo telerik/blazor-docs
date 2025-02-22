@@ -33,9 +33,9 @@ How to dynamically set the Grid popup edit Window title?
 
 ## Solution
 
-1. Add a [`<GridPopupEditSettings>` tag](slug:components/grid/editing/popup#popup-dimensions-and-styles) inside a `<GridSettings>` tag in the Grid declaration.
+1. Add a [`<GridPopupEditSettings>` tag](slug:grid-editing-popup#popup-dimensions-and-styles) inside a `<GridSettings>` tag in the Grid declaration.
 1. Set the `Title` parameter of `GridPopupEditSettings` to a string property.
-1. Handle the [Grid `OnEdit` event](slug:components/grid/editing/overview#events) and set the popup title to the desired data item value.
+1. Handle the [Grid `OnEdit` event](slug:grid-editing-overview#events) and set the popup title to the desired data item value.
 1. Handle the `OnClick` event of the button that adds new items. Usually this is a [command button in the Grid toolbar](slug:components/grid/features/toolbar). Set the popup title to the desired string label.
 
 >caption Dynamic Grid Popup Edit Form Title
@@ -120,4 +120,4 @@ How to dynamically set the Grid popup edit Window title?
 
 ## See Also
 
-* [Grid Popup Editing](slug:components/grid/editing/popup)
+* [Grid Popup Editing](slug:grid-editing-popup)

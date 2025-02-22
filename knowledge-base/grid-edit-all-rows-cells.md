@@ -192,5 +192,5 @@ The discussed mechanism can be beneficial in some scenarios, but has the followi
 
 ## See Also
 
-* [Grid Editing Overview](slug:components/grid/editing/overview)
+* [Grid Editing Overview](slug:grid-editing-overview)
 * [Grid Column Cell Template](slug:grid-templates-column)

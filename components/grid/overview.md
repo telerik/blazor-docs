@@ -112,7 +112,7 @@ The Grid can perform CRUD operations on its current data - add, edit and delete 
 
 The Grid offers several editing modes with different user experience - incell, inline and popup.
 
-See [Grid CRUD Operations Overview](slug:components/grid/editing/overview) for more details.
+See [Grid CRUD Operations Overview](slug:grid-editing-overview) for more details.
 
 
 ## Virtualization

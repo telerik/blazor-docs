@@ -37,7 +37,7 @@ The `OnAdd`, `OnCreate`, `OnUpdate` and `OnDelete` events let you get the data i
 
 The `OnEdit` and `OnCancel` events let you respond to user actions - when they want to edit an item and when the want to cancel changes on an item they have been editing. You can use them to, for example, prevent editing of certain items based on some condition.
 
-You can read more about the CUD events in the [Editing Overview](slug:components/grid/editing/overview) article.
+You can read more about the CUD events in the [Editing Overview](slug:grid-editing-overview) article.
 
 ## Read Event
 
@@ -1069,7 +1069,7 @@ Visit the [Grid Cell Selection article to see an example](slug:grid-selection-ce
 ## See Also
 
   * [Grid Overview](slug:grid-overview)
-  * [Grid Editing Overview](slug:components/grid/editing/overview)
+  * [Grid Editing Overview](slug:grid-editing-overview)
   * [Grid Column Events](slug:grid-column-events)
   * [Manual Data Source Operations](slug:components/grid/manual-operations)
   * [Blazor Grid](slug:grid-overview)

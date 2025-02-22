@@ -2,7 +2,7 @@
 title: Overview
 page_title: Grid - CRUD Overview
 description: CRUD basics for the Grid for Blazor.
-slug: components/grid/editing/overview
+slug: grid-editing-overview
 tags: telerik, blazor, grid, editing
 published: True
 previous_url: /components/grid/editing/built-in-dialogs/delete-confirmation, /components/grid/editing/built-in-dialogs/overview
@@ -32,7 +32,7 @@ The Grid CRUD operations rely on the following algorithm and milestones:
 
 ### Model Requirements
 
-Adding or editing rows in the Grid has the following requirements on the Grid model:
+Adding or editing rows in the Grid sets the following requirements on the Grid model:
 
 * The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instance). Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
@@ -65,7 +65,7 @@ Delete operations provide the same user experience in all Grid edit modes and re
 
 Delete operations can work even if the Grid `EditMode` parameter value is `None`.
 
-See delete operations in action in the examples for Grid [inline](slug:components/grid/editing/inline#examples), [in-cell](slug:components/grid/editing/incell#examples) and [popup](slug:components/grid/editing/popup#examples) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
+See delete operations in action in the examples for Grid [inline](slug:grid-editing-inline#examples), [in-cell](slug:grid-editing-incell#examples) and [popup](slug:grid-editing-popup#examples) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
 
 ## Commands
 
@@ -80,7 +80,7 @@ The Grid provides the following built-in commands, which enable users to manage 
 Users execute commands in the following ways:
 
 * By clicking on [command buttons](slug:slug:components/grid/columns/command#the-gridcommandbutton-tag).
-* By clicking on editable cells in [in-cell edit mode](slug:components/grid/editing/incell) and then anywhere else on the page.
+* By clicking on editable cells in [in-cell edit mode](slug:grid-editing-incell) and then anywhere else on the page.
 * By pressing keys that are part of the [Grid keyboard navigation](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
 
 Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
@@ -91,33 +91,20 @@ The Grid events, which are related to adding, editing, and deleting items, have 
 
 * All events provide a [`GridCommandEventArgs` argument](#gridcommandeventargs) in the handler.
 * All events are cancellable, so that the user action is prevented.
-* Some of the events are required. The app must use them to modify the Grid data source, based on the user changes.
-* Some of the events are optional. The app can use them to implement custom logic and manage the user experience.
+* Some of the events are required and they provide information about how the user changed the Grid data. The app must use these events to modify the Grid data source. [The Grid does not modify its data directly](#item-instances).
+* Some of the events are optional and they provide information about what the user is doing. The app can use these events to implement custom logic and manage the user experience.
 * Some event handlers receive the original data item in `GridCommandEventArgs.Item`, while others receive a [new or cloned data item instance](#item-instances).
 
-The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations. Otherwise the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
+Some events fire in sequence pairs, as they mark the beginning and the end of a user operation. The value input and [validation](slug:grid-editing-validation) occur in-between:
 
-### GridCommandEventArgs
+* `OnAdd` and `OnCreate` for add operations
+* `OnEdit` and `OnUpdate` for edit operations
 
-The [`GridCommandEventArgs` event argument](slug:telerik.blazor.components.gridcommandeventargs) exposes the following properties:
-
-| Property Name | Type | Description |
-| --- | --- | --- |
-| `Field` | `string` | The [column `Field` name](slug:components/grid/columns/bound#data-binding). Applicable only for [in-cell edit mode](slug:components/grid/editing/incell). |
-| `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Comparison table](#comparison) below for details. |
-| `IsNew` | `bool` | Defines if `Item` is a newly added row or an existing row. |
-| `Item` | `object` | The data item, which the user is adding, deleting, or editing. Cast it to the Grid model type. |
-| `Value` | `object` | The data item value, which the user is editing. You can cast it to the correct type, based on the `Field`. Applicable only for [in-cell edit mode](slug:components/grid/editing/incell). |
-
-### Item Instances
-
-The Grid does not modify its data directly when going to add or edit mode. Instead, it creates a new item instance or clones an existing one. The component uses [`Activator.CreateInstance<TItem>()`](https://learn.microsoft.com/en-us/dotnet/api/system.activator.createinstance) and [`PropertyInfo.SetValue()`](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.setvalue). This approach:
-
-* Allows users to cancel their changes and revert to the original data item values.
-* Provides the app with full control over the data source.
-* Brings some requirements [for the Grid model class](#model-requirements) and for [updating Entity Framework models](slug:grid-kb-entity-framework-model-update).
+Both user workflows can end with the `OnCancel` event instead.
 
 ### Comparison
+
+>caption Grid CRUD Events
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -129,6 +116,28 @@ The Grid does not modify its data directly when going to add or edit mode. Inste
 | `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | Original | The item remains in the data. |
 | `OnEdit` | No | Fires on `Edit` command button click, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | The Grid remains in read mode. |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command button click for existing items. This event succeeds `OnEdit`. | Cloned | The Grid remains in edit mode. |
+
+> The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations. Otherwise the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
+
+### Item Instances
+
+The Grid does not modify its data directly in add or edit mode. Instead, the component creates a new item instance or clones an existing one. The Grid uses [`Activator.CreateInstance<TItem>()`](https://learn.microsoft.com/en-us/dotnet/api/system.activator.createinstance) and [`PropertyInfo.SetValue()`](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.propertyinfo.setvalue). This approach:
+
+* Allows users to cancel their changes and revert to the original data item values.
+* Provides the app with full control over the data source.
+* Sets some requirements [for the Grid model class](#model-requirements) and for [updating Entity Framework models](slug:grid-kb-entity-framework-model-update).
+
+### GridCommandEventArgs
+
+The Grid events, which are related to adding, editing, and deleting items, provide the same event argument: [`GridCommandEventArgs`](slug:telerik.blazor.components.gridcommandeventargs). It exposes the following properties:
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| `Field` | `string` | The [column `Field` name](slug:components/grid/columns/bound#data-binding). Applicable only for [in-cell edit mode](slug:grid-editing-incell). |
+| `IsCancelled` | `bool` | Defines if the user action should be prevented. See the [Comparison table](#comparison) below for details. |
+| `IsNew` | `bool` | Defines if `Item` is a newly added row or an existing row. |
+| `Item` | `object` | The data item, which the user is adding, deleting, or editing. Cast it to the Grid model type. |
+| `Value` | `object` | The data item value, which the user is editing. You can cast it to the correct type, based on the `Field`. Applicable only for [in-cell edit mode](slug:grid-editing-incell). |
 
 ## Column Editors
 
@@ -168,7 +177,7 @@ Updated rows comply with the current filter, group, search, and sort settings, j
 
 When editing a master row in a [hierarchy Grid](slug://components/grid/features/hierarchy), the respective `DetailTemplate` will collapse unless you [override the `Equals()` method of the master data item class](slug://grid-kb-editing-in-hierarchy).
 
-Learn more integration details for the [inline](slug:components/grid/editing/inline#integration-with-other-features) and [in-cell](slug:components/grid/editing/incell#integration-with-other-features) edit modes.
+Learn more integration details for the [inline](slug:grid-editing-inline#integration-with-other-features) and [in-cell](slug:grid-editing-incell#integration-with-other-features) edit modes.
 
 ## Examples
 
@@ -179,10 +188,8 @@ See Grid CRUD operations in action at:
 * [In-Cell Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/editing-incell)
 * [Custom Batch Editing Online Demo](https://demos.telerik.com/blazor-ui/grid/batch-editing)
 
-
 ## See Also
 
-* [Live Demos: Grid Editing](https://demos.telerik.com/blazor-ui/grid/editing-inline)
 * [Enter and Exit Grid Edit Mode Programmatically](slug://grid-kb-add-edit-state)
 * [Set Default Values for Grid Add and Edit Mode](slug://grid-kb-default-value-for-new-row)
 * [Edit Rows in Hierarchy Grid](slug://grid-kb-editing-in-hierarchy)

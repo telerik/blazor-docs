@@ -32,7 +32,7 @@ This end result spares one database request, but the user may not see recent cha
 
 ### Data Parameter
 
-Use the [Grid CUD event arguments](slug:components/grid/editing/overview#events) to update the local item collection in the `Data` parameter manually.
+Use the [Grid CUD event arguments](slug:grid-editing-overview#events) to update the local item collection in the `Data` parameter manually.
 
 >caption Avoid a Read request after Create, Delete, and Update operations
 
@@ -419,5 +419,5 @@ Use the [Grid CUD event arguments](slug:components/grid/editing/overview#events)
 
 ## See Also
 
-* [Grid CRUD Operations Overview](slug:components/grid/editing/overview)
+* [Grid CRUD Operations Overview](slug:grid-editing-overview)
 * [TreeList CRUD Operations Overview](slug:treelist-editing-overview)
