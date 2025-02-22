@@ -10,322 +10,157 @@ position: 40
 
 # Grid Validation
 
-The Telerik UI for Blazor Grid supports built-in validation that is enabled by default. The Grid passes an `EditContext` as a cascading value to the editable cells. When you use [inline](slug:components/grid/editing/inline) or [incell](slug:components/grid/editing/incell) editing, if any validation messages are present, the Grid will render them as [Validation Tooltips](slug:validation-tools-tooltip) on hover of the edited input. 
+The Telerik Grid for Blazor supports built-in validation that is enabled by default. This article describes how the Grid validation works and how to customize or disable it.
 
-#### In this Article:
+> This article requires familiarity with the information at [Grid CRUD Operations](slug:components/grid/editing/overview).
 
-* [Disable the validation](#disable-validation)
-* [Use a custom validator](#use-a-custom-validator)
+## Basics
 
-* The built-in validation is not supported in Grids bound to dynamic data such as `ExpandoObject`, `DataTable`, or `Dictionary`.
+By default, the Grid validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:components/grid/editing/inline) or [in-cell](slug:components/grid/editing/incell) editing, the Grid renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) on hover of the invalid inputs. In popup edit mode, the Grid shows a [Validation Summary](slug:validation-tools-summary) in the popup.
 
-* The [Grid validation](slug://grid-editing-validation) is based on the <a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-5.0#validator-components" target="_blank">`DataAnnotationValidator`</a> and creates its own `EditContext` for a row that is in edit/insert mode. When the row is not in edit/insert mode, the `EditContext` is `null`. The `EditContext` is a cascading parameter and overrides any cascading parameters from parent components (such as an `<EditForm>` that may wrap the grid).
+When a row is not in edit mode, the `EditContext` is `null`. The Grid `EditContext` is a cascading parameter, which can overrides any cascading parameters from parent components, such as an `<EditForm>` that may wrap the Grid.
 
-* For example, you may want to update the view-model only on success of the data service with the model returned from the server. Another thing you may want to do is to inform the user for server (async, remote) validation errors such as duplicates. You can find examples of both in the [Remote Validation sample project](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation).
+The built-in Grid validation is not supported with dynamic data such as `ExpandoObject`, `DataTable`, or `Dictionary`.
 
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
 
 ## Disable Validation
 
-To disable the built-in validation, add a `<GridValidationSettings>` tag to the `<GridSettings>` and set the `Enabled` parameter to `false`.
+To disable the built-in Grid validation:
 
-````RAZOR
-@* Disable the built-in validation in the Grid *@
+1. Add `<GridSettings>` as a child tag inside the Grid.
+1. Add a `<GridValidationSettings>` tag inside `<GridSettings>`.
+1. Set the `Enabled` parameter of `GridValidationSettings` to false.
 
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+See the [example](#example) below.
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
-             OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
-    <GridSettings>
-        <GridValidationSettings Enabled="false">
-        </GridValidationSettings>
-    </GridSettings>
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
+## Use Custom Validator
 
-@code {
-    void EditHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+You can validate the Grid with any validator that uses the `EditContext`. To change the default validator:
 
-        // prevent opening for edit based on condition
-        if (item.ID < 3)
-        {
-            args.IsCancelled = true;// the general approach for cancelling an event
-        }
+1. Add `<GridSettings>` as a child tag inside the Grid.
+1. Add a `<GridValidationSettings>` tag inside `<GridSettings>`.
+1. Define the custom validator in the `<ValidatorTemplate>` `RenderFragment` inside `<GridValidationSettings>`.
 
-        Console.WriteLine("Edit event is fired.");
-    }
+Third party validation tools are not part of Telerik UI for Blazor. Reference the required NuGet packages explicitly.
 
-    async Task UpdateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+## Example
 
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
+The example below shows how to:
 
-        // update the local view-model data with the service data
-        await GetGridData();
+* Enable and disable validation in the Grid.
+* Validate the user input with a custom validator instead of the default `DataAnnotationsValidator`.
 
-        Console.WriteLine("Update event is fired.");
-    }
+Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazored.FluentValidation) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
 
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
+>caption Use Telerik Grid for Blazor with FluentValidation
 
-        // perform actual data source operation here through your service
-        await MyService.Delete(item);
+````RAZOR.skip-repl
+@* Requires the Blazored.FluentValidation NuGet package *@
 
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Delete event is fired.");
-    }
-
-    async Task CreateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Create event is fired.");
-    }
-
-    async Task CancelHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-
-        // if necessary, perform actual data source operation here through your service
-
-        Console.WriteLine("Cancel event is fired.");
-    }
-
-
-    // in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
-    public class SampleData
-    {
-        public int ID { get; set; }
-        [Required]
-        public string Name { get; set; }
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    async Task GetGridData()
-    {
-        MyData = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetGridData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 50; i++)
-                {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = "Name " + i.ToString()
-                    });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            _data.Remove(itemToDelete);
-        }
-    }
-}
-````
-
-## Use a Custom Validator
-
-You can validate the Grid with any validator that uses the `EditContext`. To change the default validator, add a `<ValidatorTemplate>` tag in `<GridValidationSettings>`. Define the custom validator in the `ValidatorTemplate`. 
-
->note Such third party tools are not included in the Telerik UI for Blazor package. Your project must reference their NuGet packages explicitly. The code snippet below will not run unless you install an appropriate package first. You can find such in the <a href="https://docs.fluentvalidation.net/en/latest/blazor.html" target="_blank">official FluentValidation documentation</a>.
-
-<div class="skip-repl"></div>
-````RAZOR
 @using Blazored.FluentValidation
 @using FluentValidation
 
 <TelerikGrid Data="@GridData"
-             Pageable="true"
              EditMode="@GridEditMode.Inline"
-             OnCreate="@CreateHandler"
-             OnUpdate="@UpdateHandler"
-             Height="500px">
+             OnCreate="@OnGridCreate"
+             OnUpdate="@OnGridUpdate">
     <GridSettings>
-        <GridValidationSettings>
+        <GridValidationSettings Enabled="@GridValidationEnabled">
             <ValidatorTemplate>
-                <FluentValidationValidator Validator="@Validator" />
+                <FluentValidationValidator Validator="@GridFluentValidator" />
             </ValidatorTemplate>
         </GridValidationSettings>
     </GridSettings>
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add">Add Item</GridCommandButton>
+        <label class="k-label k-checkbox-label">
+            <TelerikCheckBox @bind-Value="@GridValidationEnabled" />
+            Enable Validation
+        </label>
     </GridToolBarTemplate>
     <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" Width="80px" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridCommandColumn Width="240px">
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridCommandColumn Width="180px">
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Save" ShowInEdit="true">Save</GridCommandButton>
+            <GridCommandButton Command="Cancel" ShowInEdit="true">Cancel</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private List<SampleData> GridData { get; set; } = new();
+    private List<Product> GridData { get; set; } = new();
 
-    private SampleDataValidator Validator = new();
+    private FluentProductValidator GridFluentValidator = new();
 
-    public class SampleDataValidator : AbstractValidator<SampleData>
+    public class FluentProductValidator : AbstractValidator<Product>
     {
-        public SampleDataValidator()
+        public FluentProductValidator()
         {
-            RuleFor(item => item.Name).NotEmpty().MaximumLength(50);
+            RuleFor(item => item.Name).NotEmpty().MinimumLength(3).MaximumLength(24);
+            RuleFor(item => item.Price).NotNull().GreaterThan(0);
+            RuleFor(item => item.ReleaseDate).NotEmpty().GreaterThanOrEqualTo(DateTime.Today.AddYears(-10));
         }
     }
 
-    private async Task UpdateHandler(GridCommandEventArgs args)
+    private bool GridValidationEnabled { get; set; } = true;
+
+    private int LastId { get; set; }
+
+    private void OnGridCreate(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var createdItem = (Product)args.Item;
 
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
+        createdItem.Id = ++LastId;
 
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Update event is fired.");
+        GridData.Insert(0, createdItem);
     }
 
-    private async Task CreateHandler(GridCommandEventArgs args)
+    private void OnGridUpdate(GridCommandEventArgs args)
     {
-        SampleData item = (SampleData)args.Item;
+        var updatedItem = (Product)args.Item;
+        int originalItemIndex = GridData.FindIndex(i => i.Id == updatedItem.Id);
 
-        // perform actual data source operation here through your service
-        await MyService.Create(item);
-
-        // update the local view-model data with the service data
-        await GetGridData();
-
-        Console.WriteLine("Create event is fired.");
+        if (originalItemIndex != -1)
+        {
+            GridData[originalItemIndex] = updatedItem;
+        }
     }
 
-    private async Task GetGridData()
+    protected override void OnInitialized()
     {
-        GridData = await MyService.Read();
+        for (int i = 1; i <= 5; i++)
+        {
+            GridData.Add(new Product()
+            {
+                Id = ++LastId,
+                Name = $"Product {LastId}",
+                Price = LastId % 2 == 0 ? null : Random.Shared.Next(0, 100) * 1.23m,
+                Quantity = LastId % 2 == 0 ? 0 : Random.Shared.Next(0, 3000),
+                ReleaseDate = DateTime.Today.AddDays(-Random.Shared.Next(365, 3650)),
+                Discontinued = LastId % 2 == 0
+            });
+        }
     }
 
-    protected override async Task OnInitializedAsync()
+    public class Product
     {
-        await GetGridData();
-    }
-
-    public class SampleData
-    {
-        public int ID { get; set; }
-
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-    }
-
-    // The following static class mimics an actual data service.
-    public static class MyService
-    {
-        private static List<SampleData> _data { get; set; } = new List<SampleData>();
-
-        public static async Task Create(SampleData itemToInsert)
-        {
-            itemToInsert.ID = _data.Count + 1;
-            _data.Insert(0, itemToInsert);
-        }
-
-        public static async Task<List<SampleData>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i <= 50; i++)
-                {
-                    _data.Add(new SampleData()
-                    {
-                        ID = i,
-                        Name = $"Name {i}"
-                    });
-                }
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(SampleData itemToUpdate)
-        {
-            var index = _data.FindIndex(i => i.ID == itemToUpdate.ID);
-            if (index != -1)
-            {
-                _data[index] = itemToUpdate;
-            }
-        }
-
-        public static async Task Delete(SampleData itemToDelete)
-        {
-            _data.Remove(itemToDelete);
-        }
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 `````
 
-@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
-
 ## See Also
 
-* [Grid Editing](slug:components/grid/editing/overview)
 * [Custom Grid `DataAnnotations` Validation](slug:validation-kb-custom-dataannotations-validator)
-* [Blazor Grid](slug:grid-overview)
+* [Remote Validation](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation)

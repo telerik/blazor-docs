@@ -12,7 +12,7 @@ position: 2
 
 Popup editing enables the app to render a larger form with customizable dimensions and layout. This edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the Grid table.
 
-> This article requires familiarity with the information at [Grid CRUD Overview](slug:components/grid/editing/overview).
+> This article requires familiarity with the information at [Grid CRUD Operations](slug:components/grid/editing/overview).
 
 ## Basics
 
@@ -81,12 +81,171 @@ The example below shows how to:
 
 * Implement popup Grid CRUD operations with the simplest and minimal required setup.
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
-* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Rebind the Grid automatically through the `OnRead` event after the create, delete, or update operation is complete. When [using the `Data` parameter, you must either query the data source again, or modify the local `Data` collection manually](#advanced).
 * Use `DataAnnotations` validation for some model class properties.
 
 >caption Basic Grid popup editing configuration
 
 ````RAZOR
+@using System.ComponentModel.DataAnnotations
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikGrid OnRead="OnGridRead"
+             TItem="@Product"
+             EditMode="@GridEditMode.Popup"
+             OnCreate="@OnGridCreate"
+             OnDelete="@OnGridDelete"
+             OnUpdate="@OnGridUpdate">
+    <GridToolBarTemplate>
+        <GridCommandButton Command="Add">Add Item</GridCommandButton>
+    </GridToolBarTemplate>
+    <GridColumns>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridCommandColumn Width="180px">
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete">Delete</GridCommandButton>
+        </GridCommandColumn>
+    </GridColumns>
+</TelerikGrid>
+
+@code {
+    private ProductService GridProductService { get; set; } = new();
+
+    private async Task OnGridCreate(GridCommandEventArgs args)
+    {
+        var createdItem = (Product)args.Item;
+
+        await GridProductService.Create(createdItem);
+    }
+
+    private async Task OnGridDelete(GridCommandEventArgs args)
+    {
+        var deletedItem = (Product)args.Item;
+
+        await GridProductService.Delete(deletedItem);
+    }
+
+    private async Task OnGridRead(GridReadEventArgs args)
+    {
+        DataSourceResult result = await GridProductService.Read(args.Request);
+
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
+    }
+
+    private async Task OnGridUpdate(GridCommandEventArgs args)
+    {
+        var updatedItem = (Product)args.Item;
+
+        await GridProductService.Update(updatedItem);
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
+    }
+
+    #region Data Service
+
+    public class ProductService
+    {
+        private List<Product> Items { get; set; } = new();
+
+        private int LastId { get; set; }
+
+        public async Task<int> Create(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            product.Id = ++LastId;
+
+            Items.Insert(0, product);
+
+            return LastId;
+        }
+
+        public async Task<bool> Delete(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            if (Items.Contains(product))
+            {
+                Items.Remove(product);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<List<Product>> Read()
+        {
+            await SimulateAsyncOperation();
+
+            return Items;
+        }
+
+        public async Task<DataSourceResult> Read(DataSourceRequest request)
+        {
+            return await Items.ToDataSourceResultAsync(request);
+        }
+
+        public async Task<bool> Update(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            int originalItemIndex = Items.FindIndex(x => x.Id == product.Id);
+
+            if (originalItemIndex != -1)
+            {
+                Items[originalItemIndex] = product;
+                return true;
+            }
+
+            return false;
+        }
+
+        private async Task SimulateAsyncOperation()
+        {
+            await Task.Delay(100);
+        }
+
+        public ProductService(int itemCount = 5)
+        {
+            Random rnd = Random.Shared;
+
+            for (int i = 1; i <= itemCount; i++)
+            {
+                Items.Add(new Product()
+                {
+                    Id = ++LastId,
+                    Name = $"Product {LastId}",
+                    Description = $"Multi-line\ndescription {LastId}",
+                    Price = LastId % 2 == 0 ? null : rnd.Next(0, 100) * 1.23m,
+                    Quantity = LastId % 2 == 0 ? 0 : rnd.Next(0, 3000),
+                    ReleaseDate = DateTime.Today.AddDays(-rnd.Next(365, 3650)),
+                    Discontinued = LastId % 2 == 0
+                });
+            }
+        }
+    }
+
+    #endregion Data Service
+}
 ````
 
 ### Advanced
@@ -95,7 +254,7 @@ The example below shows how to:
 
 * Implement popup Grid CRUD operations with all available events and various built-in customizations.
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
-* Reload the Grid `Data` after making changes to the data source. When using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically.
+* Reload the Grid `Data` after making changes to the data source. When [using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically](#basic).
 * Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
 * Use `DataAnnotations` validation for some model class properties.
 * Mark a column as non-editable.

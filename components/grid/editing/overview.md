@@ -5,6 +5,7 @@ description: CRUD basics for the Grid for Blazor.
 slug: components/grid/editing/overview
 tags: telerik, blazor, grid, editing
 published: True
+previous_url: /components/grid/editing/built-in-dialogs/delete-confirmation, /components/grid/editing/built-in-dialogs/overview
 position: 0
 ---
 
@@ -24,7 +25,7 @@ The Telerik Grid for Blazor features create, update, and delete operations (CRUD
 
 The Grid CRUD operations rely on the following algorithm and milestones:
 
-1. Users execute [Grid commands (**Edit**, **Save**, **Delete**, and more)](#commands) with the mouse or keyboard. The commands control the Grid behavior.
+1. Users execute [Grid commands (**Edit**, **Save**, **Delete**, and more)](#commands) with the mouse or keyboard.
 1. The Grid fires [events (`OnCreate`, `OnDelete`, `OnUpdate` and more)](#events), which provide information what the user did or how the component data changed.
 1. The application applies the changes to the Grid data source in the above event handlers.
 1. The Grid rebinds to display the latest data.
@@ -39,7 +40,7 @@ Adding or editing rows in the Grid has the following requirements on the Grid mo
 
 ## Edit Modes
 
-The Grid offers several ways to add and edit rows with a different user experience and UI:
+The Grid offers several ways to add and edit rows with a different user experience:
 
 * *In-Cell*&mdash;users modify the Grid content cell by cell.
 * *Inline*&mdash;users modify the Grid content row by row.
@@ -54,17 +55,33 @@ The default `EditMode` parameter value is `GridEditMode.None`. The built-in [`Ad
 
 Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
 
-Delete operations require the same configuration and work in the same way, no matter what is the Grid `EditMode`. Delete operations do not require Grid editing to be enabled.
+### Delete Operations
+
+Delete operations provide the same user experience in all Grid edit modes and require the same configuration:
+
+* [**Delete** command button](#commands)
+* [`OnDelete` event](#events)
+* Optional `ConfirmDelete` Grid parameter. It determines if the component will show a Dialog before firing `OnDelete`, so that users can abort the operation.
+
+Delete operations can work even if the Grid `EditMode` parameter value is `None`.
+
+See delete operations in action in the examples for Grid [inline](slug:components/grid/editing/inline#examples), [in-cell](slug:components/grid/editing/incell#examples) and [popup](slug:components/grid/editing/popup#examples) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
 
 ## Commands
 
 The Grid provides the following built-in commands, which enable users to manage the component data:
 
-* `Add`&mdash;inserts a new row and puts it in edit mode. Fires the `OnAdd` [event](#events).
+* `Add`&mdash;adds a new row and puts it in edit mode. Fires the `OnAdd` [event](#events).
 * `Cancel`&mdash;cancels the row changes and exits edit mode. Fires the `OnCancel` event.
 * `Delete`&mdash;deletes a Grid rows. Fires the `OnDelete` event.
 * `Edit`&mdash;puts a Grid row in edit mode. Fires the `OnEdit` event.
 * `Save`&mdash;confirms the row changes and exits edit mode, if the user input is valid. Fires the `OnUpdate` event.
+
+Users execute commands in the following ways:
+
+* By clicking on [command buttons](slug:slug:components/grid/columns/command#the-gridcommandbutton-tag).
+* By clicking on editable cells in [in-cell edit mode](slug:components/grid/editing/incell) and then anywhere else on the page.
+* By pressing keys that are part of the [Grid keyboard navigation](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
 
 Command buttons can only reside in a [Grid Command Column](slug:components/grid/columns/command) or the [Grid ToolBar](slug:components/grid/features/toolbar). You can also [trigger add and edit operations programmatically](slug:grid-kb-add-edit-state) from anywhere on the web page through the [Grid State](slug:grid-state).
 
@@ -76,7 +93,7 @@ The Grid events, which are related to adding, editing, and deleting items, have 
 * All events are cancellable, so that the user action is prevented.
 * Some of the events are required. The app must use them to modify the Grid data source, based on the user changes.
 * Some of the events are optional. The app can use them to implement custom logic and manage the user experience.
-* Some event handlers receive the original data item in `GridCommandEventArgs.Item`, while others receive a new or cloned data item instance. See the next section and the table below for details.
+* Some event handlers receive the original data item in `GridCommandEventArgs.Item`, while others receive a [new or cloned data item instance](#item-instances).
 
 The Grid CRUD event handlers must return either `void` or `async Task`. Do not use `async void` for handlers that execute awaitable operations. Otherwise the Grid may show incorrect data, or the app may throw exceptions related to disposed objects or concurrency.
 
@@ -106,10 +123,10 @@ The Grid does not modify its data directly when going to add or edit mode. Inste
 
 | Event | Required | Description | `GridCommandEventArgs` `Item` Instance | If Cancelled |
 | --- | --- | --- | --- | --- |
-| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters insert mode. This event preceeds `OnCreate` or `OnCancel`. | New | The Grid remains in read mode. |
-| `OnCancel` | No | Fires on `Cancel` command button click. | New or cloned | The Grid remains in insert or edit mode. |
-| `OnCreate` | To insert new items. | Fires on `Save` command button click for new items. This event succeeds `OnAdd`. | New | The Grid remains in insert mode. |
-| `OnDelete` | To delete items. | Fires on `Delete` command button click. Can display a [delete confirmation dialog](slug://grid-delete-confirmation). |Original | The item remains in the data. |
+| `OnAdd` | No | Fires on `Add` [command button](slug://components/grid/columns/command) click, before the Grid enters add mode. This event preceeds `OnCreate` or `OnCancel`. | New | The Grid remains in read mode. |
+| `OnCancel` | No | Fires on `Cancel` command button click. | New or cloned | The Grid remains in add or edit mode. |
+| `OnCreate` | To add new items. | Fires on `Save` command button click for new items. This event succeeds `OnAdd`. | New | The Grid remains in add mode. |
+| `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | Original | The item remains in the data. |
 | `OnEdit` | No | Fires on `Edit` command button click, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | The Grid remains in read mode. |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command button click for existing items. This event succeeds `OnEdit`. | Cloned | The Grid remains in edit mode. |
 
