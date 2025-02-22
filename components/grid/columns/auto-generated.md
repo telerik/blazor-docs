@@ -192,7 +192,7 @@ This example shows how to:
 * Make multiple selection
 * Add paging to the Grid
 
->caption Observe the behavior of auto-generated columns with [Editing operations](slug:components/grid/editing/overview), [Selection](slug:grid-selection-overview), [Paging](slug:components/grid/features/paging) and using the custom attributes.
+>caption Observe the behavior of auto-generated columns with [Editing operations](slug:grid-editing-overview), [Selection](slug:grid-selection-overview), [Paging](slug:components/grid/features/paging) and using the custom attributes.
 
 ````RAZOR
 @using System.ComponentModel.DataAnnotations

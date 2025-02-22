@@ -29,7 +29,7 @@ This article shows how to create, update, and delete items in the main (master) 
 
 The Grid CRUD operations are independent of the hierarchy. Each Grid performs editing separately and has its own handlers.
 
-1. [Configure editing for the main Grid](slug:components/grid/editing/overview).
+1. [Configure editing for the main Grid](slug:grid-editing-overview).
 1. Define a [`DetailTemplate`](slug:components/grid/features/hierarchy) and configure the nested Grid inside it, including editing.
 1. To persist the expanded state of a `DetailTemplate` while editing its parent item, override the `Equals()` method of the master data item class. This is supported from version **5.1.0**.
 
@@ -316,5 +316,5 @@ Grid <code>EditMode</code>:
 
 ## See Also
 
-* [Grid Editing](slug:components/grid/editing/overview)
+* [Grid Editing](slug:grid-editing-overview)
 * [Grid Hierarchy](slug:components/grid/features/hierarchy)

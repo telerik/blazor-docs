@@ -29,7 +29,7 @@ When binding the Grid directly to Entity Framework models or `DbSet`, and using 
 
 ## Cause
 
-The Grid [creates a separate data item instance when going into add or edit mode](slug:components/grid/editing/overview#item-instances). Entity Framework can track one only entity with a given primary key value.
+The Grid [creates a separate data item instance when going into add or edit mode](slug:grid-editing-overview#item-instances). Entity Framework can track one only entity with a given primary key value.
 
 ## Solution
 
@@ -123,5 +123,5 @@ private async Task OnGridUpdate(GridCommandEventArgs args)
 
 ## See Also
 
-* [Grid CRUD Operations Overview](slug:components/grid/editing/overview)
+* [Grid CRUD Operations Overview](slug:grid-editing-overview)
 * [TreeList CRUD Operations Overview](slug:treelist-editing-overview)

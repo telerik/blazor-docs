@@ -56,9 +56,9 @@ Each property that is not relevant to a desired Grid state, should be set to `nu
 
 ## Example
 
-The sample below shows how to add, edit, cancel and save items in [`Inline`](slug:components/grid/editing/inline) and [`Popup`](slug:components/grid/editing/popup) `EditMode`.
+The sample below shows how to add, edit, cancel and save items in [`Inline`](slug:grid-editing-inline) and [`Popup`](slug:grid-editing-popup) `EditMode`.
 
-All these operations can also be used for [`Incell`](slug:components/grid/editing/incell). However, blurring the edited cell triggers [`OnUpdate`](slug:components/grid/editing/overview#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`](slug:grid-templates-editor) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
+All these operations can also be used for [`Incell`](slug:grid-editing-incell). However, blurring the edited cell triggers [`OnUpdate`](slug:grid-editing-overview#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`](slug:grid-templates-editor) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
 
 >caption Enter and exit Grid edit mode programmatically
 

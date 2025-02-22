@@ -22,7 +22,7 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 
 | Tool Name | Tool Tag | Description |
 | --- | --- | --- |
-| Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:components/grid/editing/overview#events). |
+| Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
 | CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
