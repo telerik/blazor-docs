@@ -1,6 +1,6 @@
 #table-layout
 <style>
-    article table {
+    .article table {
         table-layout: auto;
         word-break: normal;
     }
