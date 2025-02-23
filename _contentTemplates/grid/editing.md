@@ -172,6 +172,8 @@ Without using the above command buttons, the application can:
 
 #advanced-example-description
 * Use the `OnCreate`, `OnDelete` and `OnUpdate` events to make changes to the Grid data source.
+* Use the `OnModelInit` event to provide [model instances](slug:grid-editing-overview#item-instances) with some default values before add and edit operations start.
+* Use the `OnAdd` event to provide some default values before add operations start.
 * Reload the Grid `Data` after making changes to the data source. When [using the Grid `OnRead` event, the component will fire `OnRead` and rebind automatically](#basic).
 * Apply the user changes to the Grid `Data` parameter to spare one read request to the database.
 * Use `DataAnnotations` validation for the `Name` and `ReleaseDate` properties.
@@ -189,6 +191,7 @@ Without using the above command buttons, the application can:
              OnCreate="@OnGridCreate"
              OnDelete="@OnGridDelete"
              OnEdit="@OnGridEdit"
+             OnModelInit="@OnGridModelInit"
              OnUpdate="@OnGridUpdate"
              Pageable="true"
              PageSize="5"
@@ -242,6 +245,9 @@ Without using the above command buttons, the application can:
         {
             args.IsCancelled = true;
         }
+
+        var newItem = (Product)args.Item;
+        newItem.Name = "Value from OnAdd";
     }
 
     private async Task OnGridCancel(GridCommandEventArgs args)
@@ -292,6 +298,11 @@ Without using the above command buttons, the application can:
         {
             args.IsCancelled = true;
         }
+    }
+
+    private Product OnGridModelInit()
+    {
+        return new Product() { Description = "Value from OnModelInit" };
     }
 
     private async Task OnGridUpdate(GridCommandEventArgs args)
