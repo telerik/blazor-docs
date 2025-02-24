@@ -1090,7 +1090,8 @@ The `OnRowDoubleClick` event handler receives a `TreeListRowClickEventArgs` argu
 @code {
     private void OnRowDoubleClickHander(TreeListRowClickEventArgs args)
     {
-        var clickedRow = args.Item as Employee;
+        var clickedRow = (Employee)args.Item;
+        string columnField = args.Field;
     }
 
     public List<Employee> Data { get; set; }
@@ -1201,9 +1202,9 @@ The `OnRowContextMenu` event handler receives a `TreeListRowClickEventArgs` argu
 	
     private void OnRowContextMenuHandler(TreeListRowClickEventArgs args)
     {
-        var clickedRow = args.Item as Employee;
+        var clickedRow = (Employee)args.Item;
 
-        logger = $"OnRowContextMenu event fired from right clicking on {clickedRow.Name}";
+        logger = $"OnRowContextMenu event fired from right clicking on row {clickedRow.Name} and column {args.Field}";
     }
 
     public List<Employee> Data { get; set; }
