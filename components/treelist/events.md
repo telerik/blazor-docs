@@ -987,7 +987,8 @@ The `OnRowClick` event handler receives a `TreeListRowClickEventArgs` argument, 
 @code {
     private void OnRowClickHander(TreeListRowClickEventArgs args)
     {
-        var clickedRow = args.Item as Employee;
+        var clickedRow = (Employee)args.Item;
+        string columnField = args.Field;
     }
 
     public List<Employee> Data { get; set; }

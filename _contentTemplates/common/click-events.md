@@ -32,19 +32,6 @@ The event *does not fire* when the user:
 
 #end
 
-#rowclick-args-example
-
-        if (args.EventArgs is KeyboardEventArgs keyboardEventArgs)
-        {
-            Console.WriteLine($"The user pressed {keyboardEventArgs.Key} on row {model.Name} and column {args.Field}.");
-        }
-        else if (args.EventArgs is MouseEventArgs mouseEventArgs)
-        {
-            Console.WriteLine($"The user clicked {mouseEventArgs.ClientX} {mouseEventArgs.ClientY} on row {model.Name} and column {args.Field}.");
-        }
-
-#end
-
 #rowcontextmenu
 
 The `OnRowContextMenu` event fires when the user:
