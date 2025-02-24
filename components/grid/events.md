@@ -491,97 +491,60 @@ The `OnRowClick` event handler receives a `GridRowClickEventArgs` argument, whic
 
 @[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
->caption Use the OnRowClick event to load data on demand based on the clicked row
+>caption Using the Grid OnRowClick event
 
 ````RAZOR
-@* Use the OnRowClick event to load data on demand based on the clicked row *@
-
-There is a deliberate delay in the data loading to showcase the async nature of the event
-
-<TelerikGrid Data="@MyData"
-             Height="400px"
-             Width="700px"
-             Pageable="true"
-             OnRowClick="@OnRowClickHandler"
-             SelectionMode="@GridSelectionMode.Single"
-             @bind-SelectedItems="@SelectedItems">
+<TelerikGrid Data="@GridData"
+             OnRowClick="@OnGridRowClick"
+             Navigable="true">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@nameof(Product.Id)" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
     </GridColumns>
 </TelerikGrid>
 
-@if (ProjectData.Any())
-{
-    <br />
-    <TelerikGrid Data="@ProjectData" AutoGenerateColumns="true"
-                 Pageable="true" PageSize="4" Width="700px">
-    </TelerikGrid>
-}
+<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
 
 @code {
-    // enable single row selection to showcase the clicked row to the user. Not mandatory
-    public IEnumerable<SampleData> SelectedItems { get; set; } = Enumerable.Empty<SampleData>();
+    private List<Product> GridData { get; set; } = new();
 
-    // data that will be loaded on demand for the next components - another grid in this sample
-    public List<ProjectModel> ProjectData { get; set; } = new List<ProjectModel>();
+    private string RowEventLog { get; set; } = "Click a Grid cell or hit Enter while it's focused...";
 
-    async Task OnRowClickHandler(GridRowClickEventArgs args)
+    private void OnGridRowClick(GridRowClickEventArgs args)
     {
-        var model = args.Item as SampleData;
+        var dataItem = (Product)args.Item;
+        string columnField = args.Field;
+        string userAction = args.EventArgs is KeyboardEventArgs ? "key press" : "click";
 
-        ProjectData = await GetProjectData(model.Id);
-        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
+        RowEventLog = $@"<code>OnRowClick</code> event fired for <strong>{userAction}</strong> on
+            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
     }
 
-    async Task<List<ProjectModel>> GetProjectData(int id)
+    protected override void OnInitialized()
     {
-        await Task.Delay(500); // simulate loading data from a service, remove from a real app
-
-        ProjectData = new List<ProjectModel>()
+        for (int i = 1; i <= 5; i++)
         {
-            new ProjectModel()
-            {
-                ProjectManagerId = id,
-                ProjectName = $"Project name {id}",
-                DueDate = DateTime.Today.AddDays(-id),
-                isActive = id % 2 == 0 ? true : false
+            GridData.Add(new Product()
+                {
+                    Id = i,
+                    Name = $"Name {i}",
+                    Price = Random.Shared.Next(1, 100) * 1.23m,
+                    Quantity = Random.Shared.Next(0, 1000)
+                });
             }
-        };
-        return await Task.FromResult(ProjectData);
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
-    {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
-
-    public class SampleData
+    public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
-    }
-
-    public class ProjectModel
-    {
-        public int ProjectManagerId { get; set; }
-        public string ProjectName { get; set; }
-        public DateTime DueDate { get; set; }
-        public bool isActive { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
-
->caption The result from the code snippet above
-
-![OnRowClick example](images/onrowclick-example.gif)
 
 ## OnRowDoubleClick
 
@@ -591,57 +554,55 @@ The `OnRowDoubleClick` event handler receives a `GridRowClickEventArgs` argument
 
 @[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
->caption Use the OnRowDoubleClick event to receive information on the clicked row
+>caption Using the Grid OnRowDoubleClick event
 
 ````RAZOR
-@* Use the OnRowDoubleClick event to receive information on the row the user clicked on *@
-
-<TelerikGrid Data="@MyData"
-             Height="400px"
-             Width="700px"
-             Pageable="true"
-             OnRowDoubleClick="@OnRowDoubleClickHandler">
+<TelerikGrid Data="@GridData"
+             OnRowDoubleClick="@OnGridRowDoubleClick">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" Groupable="false" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@nameof(Product.Id)" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
     </GridColumns>
 </TelerikGrid>
 
-@if (!String.IsNullOrEmpty(logger))
-{
-    <div>
-        @logger
-    </div>
-}
+<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
 
 @code {
-    string logger = String.Empty;
+    private List<Product> GridData { get; set; } = new();
 
-    void OnRowDoubleClickHandler(GridRowClickEventArgs args)
+    private string RowEventLog { get; set; } = "Double-click a Grid cell...";
+
+    private void OnGridRowDoubleClick(GridRowClickEventArgs args)
     {
-        var model = args.Item as SampleData;
+        var dataItem = (Product)args.Item;
+        string columnField = args.Field;
 
-        logger = $"Double clicked on {model.Name}";
-        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
-        
+        RowEventLog = $@"<code>OnRowDoubleClick</code> event fired for
+            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    protected override void OnInitialized()
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        for (int i = 1; i <= 5; i++)
+        {
+            GridData.Add(new Product()
+                {
+                    Id = i,
+                    Name = $"Name {i}",
+                    Price = Random.Shared.Next(1, 100) * 1.23m,
+                    Quantity = Random.Shared.Next(0, 1000)
+                });
+        }
+    }
 
-    public class SampleData
+    public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
@@ -654,53 +615,57 @@ The `OnRowContextMenu` event handler receives a `GridRowClickEventArgs` argument
 
 @[template](/_contentTemplates/common/click-events.md#clickeventargs)
 
->caption Use the Grid OnRowContextMenu event and get the data model
+>caption Using the Grid OnRowContextMenu event
 
 ````RAZOR
-@* Get the row model from a context menu action (right click/long tap) *@
-
-<TelerikGrid Data="@MyData"
-             Pageable="true"
-             PageSize="6"
-             OnRowContextMenu="@OnRowContextMenuHandler">
+<TelerikGrid Data="@GridData"
+             OnRowContextMenu="@OnGridRowContextMenu"
+             Navigable="true">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="120px" />
-        <GridColumn Field="@(nameof(SampleData.Name))" Title="Employee Name" />
-        <GridColumn Field="@(nameof(SampleData.Team))" Title="Team" />
-        <GridColumn Field="@(nameof(SampleData.HireDate))" Title="Hire Date" />
+        <GridColumn Field="@nameof(Product.Id)" />
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
     </GridColumns>
 </TelerikGrid>
 
-<br />
-
-@logger
+<p style="margin-top:1em;font-size:1.5em">@( (MarkupString)RowEventLog )</p>
 
 @code {
-    void OnRowContextMenuHandler(GridRowClickEventArgs args)
-    {
-        SampleData model = args.Item as SampleData;
+    private List<Product> GridData { get; set; } = new();
 
-        logger = $"OnRowContextMenu event fired from right clicking on {model.Name}";
-        @[template](/_contentTemplates/common/click-events.md#rowclick-args-example)
+    private string RowEventLog { get; set; } = "Right-click a Grid cell or hit the context menu key while it's focused...";
+
+    private void OnGridRowContextMenu(GridRowClickEventArgs args)
+    {
+        var dataItem = (Product)args.Item;
+        string columnField = args.Field;
+        string userAction = args.EventArgs is KeyboardEventArgs ? "key press" : "click";
+
+        RowEventLog = $@"<code>OnRowContextMenu</code> event fired for <strong>{userAction}</strong> on
+            row <strong>{dataItem.Id}</strong> and column <strong>{columnField}</strong>";
     }
 
-    public IEnumerable<SampleData> MyData = Enumerable.Range(1, 30).Select(x => new SampleData
+    protected override void OnInitialized()
     {
-        Id = x,
-        Name = "name " + x,
-        Team = "team " + x % 5,
-        HireDate = DateTime.Now.AddDays(-x).Date
-    });
+        for (int i = 1; i <= 5; i++)
+        {
+            GridData.Add(new Product()
+                {
+                    Id = i,
+                    Name = $"Name {i}",
+                    Price = Random.Shared.Next(1, 100) * 1.23m,
+                    Quantity = Random.Shared.Next(0, 1000)
+                });
+        }
+    }
 
-    public string logger { get; set; } = String.Empty;
-
-
-    public class SampleData
+    public class Product
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Team { get; set; }
-        public DateTime HireDate { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
 ````
