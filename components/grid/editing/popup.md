@@ -10,7 +10,7 @@ position: 2
 
 # Grid Popup Editing
 
-Popup editing enables the app to render a larger form with customizable dimensions and layout. This edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the Grid table.
+Popup editing allows the app to render a larger form with customizable dimensions and layout. The popup edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the Grid table.
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 
@@ -36,7 +36,7 @@ Popup add, edit, and delete operations use the following [command buttons](slug:
 
 Popup edit mode does not use **Save** and **Cancel** command buttons in the [Grid command column](slug:grid-columns-command). The Grid renders them automatically in the popup, unless you define a [Buttons Template](slug:grid-templates-popup-buttons) or a [Form Template](slug:grid-templates-popup-form).
 
-The Grid commands execute row by row and the Grid events also fire row by row.
+In popup edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row.
 
 ## Customization
 

@@ -35,9 +35,9 @@ Inline add, edit, and delete operations use the following [command buttons](slug
 
 @[template](/_contentTemplates/grid/editing.md#without-commands)
 
-The Grid commands execute row by row and the Grid events also fire row by row. This is similar to [popup editing](slug:grid-editing-popup) and unlike [in-cell editing](slug:grid-editing-incell), where commands and events relate to cells.
+In inline edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row. This is similar to [popup editing](slug:grid-editing-popup) and unlike [in-cell editing](slug:grid-editing-incell), where commands and events relate to cells.
 
-When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons will not have effect, but users can still navigate between all input components in the row to complete the editing.
+When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons has no effect, but users can still navigate between all input components in the row to complete the editing.
 
 ## Integration with Other Features
 
@@ -47,12 +47,12 @@ Here is how the component behaves when the user tries to use add and edit operat
 
 This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row.
 
-* If the validation is not satisfied, the component will block the user action until they complete or cancel the current add or edit operation.
-* If the validation is satisfied, then editing will abort and the component will fire `OnCancel`.
+* If the validation is not satisfied, the component blocks the user action until they complete or cancel the current add or edit operation.
+* If the validation is satisfied, then editing aborts and the component fires `OnCancel`.
 
-### Delete, Filter, Group, Search, Sort
+### Delete, Filter, Group, Page, Search, Sort
 
-If the component is already in add or edit mode, and the user tries to perform another data operation, then editing will abort and the component will fire `OnCancel`.
+If the component is already in add or edit mode, and the user tries to perform another data operation, then editing aborts and the component fires `OnCancel`.
 
 ## Examples
 

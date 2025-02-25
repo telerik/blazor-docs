@@ -8,8 +8,8 @@
 
 Without using the above command buttons, the application can:
 
-* [Manage add or edit mode](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
-* Modify data items directly in the Grid `Data` collection or the data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
+* [Manage add or edit mode programmatically](slug:grid-kb-add-edit-state) through the [Grid state](slug:grid-state).
+* Modify data items directly in the Grid data source. [Rebind the Grid](slug:common-features-data-binding-overview#refresh-data) afterwards.
 
 #end
 

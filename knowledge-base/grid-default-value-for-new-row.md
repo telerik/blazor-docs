@@ -1,137 +1,125 @@
 ---
-title: Setting default values in new row
-description: How to set default values in a new grid row.
+title: Set Default Values for New Grid Rows
+description: Learn how to set default values when the user adds new data items to a Telerik Grid or Telerik TreeList for Blazor.
 type: how-to
-page_title: Set default values in new row
+page_title: How to Set Default Values for New Grid Rows
 slug: grid-kb-default-value-for-new-row
 position: 
-tags: 
+tags: blazor, grid, treelist, crud
 ticketid: 1433032
 res_type: kb
 ---
 
 ## Environment
-<table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
-</table>
 
+<table>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Description
 
-Is there any way to default the values that are used when I create a new row?
+This KB article answers the following questions:
 
-So for example, I have a row where I want to default a date to Jan 1st of the following year.  However, when I add the row, it adds nulls to all fields and the date shows up as 1 Jan 1900 and there's a lot of fiddly clicking to set the right date.
-
-Or, if the field is not nullable it would default to a zero or to a `Jan 01` in the year `0001`.
+* How to apply predefined default values to data item properties when adding new rows to the Grid?
+* How to set default values that are used when I create a new row? For example, I want to default a date to January 1 of next year instead of `null` or `Jan 1, 0001`.
 
 ## Solution
 
-There are two ways to set default values in a new row:
+There are several ways to set default values in a new Grid or TreeList row:
 
-* [Set them in the default constructor of the model class.](#set-them-in-the-default-constructor-of-the-model-class)
-* [Use the grid state](#use-the-grid-state)
+* [In the component model class](#model-class)
+* [In the `OnAdd` event](#onadd-event)
+* [In the `OnModelInit` event](#onmodelinit-event)
+* [Through the Grid State](#grid-state)
 
+### Model Class
 
+Setting default values in the model class is independent of the Grid component.
 
-### Set them in the default constructor of the model class.
+>caption Set default values inline
 
->caption How to set default values in a new grid row
+````C#.skip-repl
+public class Order
+{
+    public int Quantity { get; set; } = 10;
 
-<div class="skip-repl"></div>
-````C# Model
-    public class SampleData
-    {
-        public SampleData()
-        {
-            // to set default values in the grid, use the default constructor of the model
-            HireDate = DateTime.Now.AddDays(14);
-            Salary = 1000;
-        }
-
-        public int ID { get; set; }
-        public string Name { get; set; }
-
-        public DateTime HireDate { get; set; }
-        public decimal Salary { get; set; }
-    }
+    public DateTime Received { get; set; } = DateTime.Now;
+}
 ````
-````RAZOR Component
-@* To set default values for the new row, use the default model constructor to set them
-    The Telerik grid and editors will show the values your app provides *@
 
-Click the <strong>Add</strong> button to see the default values for the HireDate and Salary fields
+>caption Set default values in the constructor method
 
-<TelerikGrid Data=@MyData EditMode="@GridEditMode.Inline" Pageable="true" Height="500px"
-             OnUpdate="@UpdateHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
-    </GridToolBarTemplate>
-    <GridColumns>
-        <GridColumn Field=@nameof(SampleData.ID) Title="ID" Editable="false" />
-        <GridColumn Field=@nameof(SampleData.Name) Title="Name" />
-        <GridColumn Field=@nameof(SampleData.HireDate) Title="Hire Date (has default value)" />
-        <GridColumn Field=@nameof(SampleData.Salary) Title="Salary (has default value)" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</GridCommandButton>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
-            <GridCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</GridCommandButton>
-        </GridCommandColumn>
-    </GridColumns>
-</TelerikGrid>
+````C#.skip-repl
+public class Order
+{
+    public int Quantity { get; set; }
 
-@code {
-    async Task UpdateHandler(GridCommandEventArgs args)
+    public DateTime Received { get; set; }
+
+    public Order()
     {
-        SampleData item = (SampleData)args.Item;
-        var index = MyData.FindIndex(i => i.ID == item.ID);
-        if (index != -1)
-        {
-            MyData[index] = item;
-        }
-    }
-
-    async Task DeleteHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-        MyData.Remove(item);
-    }
-
-    async Task CreateHandler(GridCommandEventArgs args)
-    {
-        SampleData item = (SampleData)args.Item;
-        item.ID = MyData.Count + 1;
-        MyData.Insert(0, item);
-    }
-
-    public List<SampleData> MyData { get; set; }
-
-    protected override void OnInitialized()
-    {
-        MyData = new List<SampleData>();
-
-        for (int i = 0; i < 50; i++)
-        {
-            MyData.Add(new SampleData()
-            {
-                ID = i,
-                Name = "Name " + i.ToString(),
-                HireDate = DateTime.Now.AddMonths(-i),
-                Salary = i^3
-            });
-        }
+        Quantity = 10;
+        Received = DateTime.Now;
     }
 }
 ````
 
-### Use the grid state
+### OnAdd Event
 
-You can use the grid state to put the grid in insert/edit mode without the built-in "Add" command. You can add a button (your own or a GridCommandButton but with a custom command name) to the toolbar, and in its OnClick event you can set the `InsertedItem` of the grid state as desired.
+The [Grid `OnAdd` event](slug:grid-editing-overview#events) fires when the user clicks on the **Add** command button and before the Grid renders the new row. Set the default values to the `Item` property of the [`GridCommandEventArgs` event argument](slug:grid-editing-overview#gridcommandeventargs).
 
-You can find an example of this in the [Initiate Editing or Inserting of an Item](slug:grid-kb-add-edit-state) example.
+>caption Set default values in the Grid OnAdd event
 
+````C#.skip-repl
+private void OnGridAdd(GridCommandEventArgs args)
+{
+    var newItem = (Order)args.Item;
+    newItem.Quantity = 10;
+    newItem.Received = DateTime.Now;
+}
+````
+
+See complete runnable examples for [inline](slug:grid-editing-inline#advanced), [popup](slug:grid-editing-popup#advanced), and [in-cell](slug:grid-editing-incell#advanced) edit mode.
+
+### OnModelInit Event
+
+The [Grid `OnModelInit` event](slug:grid-editing-overview#events) fires when the Grid [needs a new model instance](slug:grid-editing-overview#item-instances) for add or edit mode. Set the default values to the item object that the event handler returns.
+
+>caption Set default values in the OnAdd event
+
+````C#.skip-repl
+private Order OnGridModelInit()
+{
+    return new Order()
+    {
+        Quantity = 10,
+        Received = DateTime.Now
+    };
+}
+````
+
+See complete runnable examples for [inline](slug:grid-editing-inline#advanced), [popup](slug:grid-editing-popup#advanced), and [in-cell](slug:grid-editing-incell#advanced) edit mode.
+
+### Grid State
+
+You can [use the Grid State to put the component in add or edit mode programmatically](slug:grid-kb-add-edit-state). This process does not use [built-in commands](slug:grid-editing-overview#commands). In this case, set the default item values to the [`InsertedItem` property](slug:grid-state#information-in-the-grid-state) of the `GridState` object.
+
+````C#.skip-repl
+var gridState = GridRef.GetState();
+
+gridState.InsertedItem = new Order();
+gridState.InsertedItem.Quantity = 10;
+gridState.InsertedItem.Received = DateTime.Now;
+
+await GridRef.SetStateAsync(gridState);
+````
+
+## See Also
+
+* [Grid CRUD Events](slug:grid-editing-overview#events)
+* [Grid State](slug:grid-state)
