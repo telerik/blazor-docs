@@ -42,7 +42,7 @@ Unlike [inline editing](slug:grid-editing-inline), the in-cell edit mode does no
 
 ## Events
 
-Users enter and exit in-cell edit mode cell by cell, so the `OnEdit`, `OnCancel`, and `OnUpdate` Grid events also fire cell by cell.
+Users enter and exit in-cell edit mode cell by cell, so the [`OnEdit`, `OnCancel`, and `OnUpdate` events](slug:grid-editing-overview#events) also fire cell by cell.
 
 In in-cell edit mode, the `OnAdd` and `OnCreate` events fire immediately one after the other, unless `OnAdd` is cancelled. This means that:
 
@@ -62,15 +62,15 @@ Here is how the component behaves when the user tries to use add and edit operat
 
 This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another cell.
 
-* If the validation is not satisfied, the component will block the user action until they complete or cancel the current add or edit operation.
-* If the validation is satisfied, then editing will complete and the component will fire `OnUpdate`.
+* If the validation is not satisfied, the component blocks the user action until they complete or cancel the current add or edit operation.
+* If the validation is satisfied, then editing completes and the component fires `OnUpdate`.
 
-### Delete, Filter, Group, Search, Sort
+### Delete, Filter, Group, Page, Search, Sort
 
 This section explains what happens when the user tries to perform another data operation, while the component is already in add or edit mode.
 
-* If the validation is satisfied, then editing will complete and the component will fire `OnUpdate`.
-* If the validation is not satisfied, then editing will abort and the component will fire `OnCancel`.
+* If the validation is satisfied, then editing completes and the component fires `OnUpdate`.
+* If the validation is not satisfied, then editing aborts and the component fires `OnCancel`.
 
 ### Selection
 
