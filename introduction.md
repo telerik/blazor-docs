@@ -49,10 +49,9 @@ If you are just getting started with Blazor and Web development, you may find th
 * [MSDN: First Steps with Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/get-started?view=aspnetcore-3.0&tabs=visual-studio)
 * [MSDN: Razor Syntax Reference](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-3.0)
 
-You can watch a YouTube playlist of getting started tutorials for Blazor (videos 1-4) and Telerik UI for Blazor (videos 5-8) below:
+You can watch a YouTube playlist of getting started tutorials for Telerik UI for Blazor:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HKsTL4byyTA?si=fKMLi2Vho7ikdD7_" title="Getting started with Telerik UI for Blazor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## List of Components
 
