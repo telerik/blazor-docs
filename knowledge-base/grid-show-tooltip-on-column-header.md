@@ -24,36 +24,49 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 
 1. Use the [Column Header Template](slug:components/grid/templates/column-header#column-header-template) to customize the header content. Wrap the header content in a `<span>` HTML element.
 2. Monitor the column width changes by utilizing the [Grid State](slug:components/grid/state) and its [ColumnState](slug:components/grid/state#information-in-the-grid-state) property.
-3. Implement the [TelerikTooltip](slug:components/tooltip/overview) component and utilize its [Template](slug:components/tooltip/template) to define the content of the tooltip, which should match the full column header text.
-4. Apply a custom CSS class to the column header content when the width of the column is reduced enough to hide its full content. This class will be used as the target selector for the TelerikTooltip.
+3. Use [TelerikTooltip](slug:components/tooltip/overview) component to display tooltip for each column header.
+4. Apply a custom CSS class to the column header content when the width of the column is insufficient to display its full content.
 
 >caption Show TelerikTooltip on the Grid column header
 
 ````RAZOR
-<strong>Resize first column to see the result</strong>
+<strong>Reduce the width of some columns to observe the expected result</strong>
 <br/>
 <TelerikGrid Data="@MyData" Resizable="true"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => HandleColumnWidthChange(args))"
              @ref="GridRef"
-             Width="300px">
+             Reorderable="true" Width="510px">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Name))"
-                    Width="165px">
+        <GridColumn Field="@(nameof(SampleData.Id))" Width="130px">
             <HeaderTemplate>
-                <span class="@HeaderClass">
+                <span title="Unique Identifier"
+                      class="@(ShowTooltip.GetValueOrDefault(nameof(SampleData.Id), false) ? "employee-header" : "")">
+                    Unique Identifier
+                </span>
+            </HeaderTemplate>
+        </GridColumn>
+
+        <GridColumn Field="@(nameof(SampleData.Name))" Width="165px">
+            <HeaderTemplate>
+                <span title="Long Employee Name"
+                      class="@(ShowTooltip.GetValueOrDefault(nameof(SampleData.Name), false) ? "employee-header" : "")">
                     Long Employee Name
                 </span>
             </HeaderTemplate>
         </GridColumn>
-        <GridColumn Field="@(nameof(SampleData.Team))" />
+
+        <GridColumn Field="@(nameof(SampleData.Team))" Width="210px">
+            <HeaderTemplate>
+                <span title="Extremely Long Team Name"
+                      class="@(ShowTooltip.GetValueOrDefault(nameof(SampleData.Team), false) ? "employee-header" : "")">
+                    Extremely Long Team Name
+                </span>
+            </HeaderTemplate>
+        </GridColumn>
     </GridColumns>
 </TelerikGrid>
 
-<TelerikTooltip TargetSelector=".employee-header"
-                Class="my-callout">
-    <Template>
-        Long Employee Name
-    </Template>
+<TelerikTooltip TargetSelector=".employee-header" Class="my-callout">
 </TelerikTooltip>
 
 <style>
@@ -63,8 +76,6 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 </style>
 
 @code {
-    private string HeaderClass { get; set; } = string.Empty;
-    private string HeaderId { get; set; } = string.Empty;
     private TelerikGrid<SampleData> GridRef { get; set; } = null!;
 
     private IEnumerable<SampleData> MyData = Enumerable.Range(1, 10).Select(x => new SampleData
@@ -74,18 +85,27 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
             Team = "team" + x
         });
 
+    // Define minimum width requirements for tooltips
+    private static readonly Dictionary<string, double> MinColumnWidths = new()
+    {
+        { nameof(SampleData.Id), 125 },
+        { nameof(SampleData.Name), 160 },
+        { nameof(SampleData.Team), 205 }
+    };
+
+    // Store whether a tooltip should be shown for each column
+    private Dictionary<string, bool> ShowTooltip = new();
+
     private async Task HandleColumnWidthChange(GridStateEventArgs<SampleData> args)
     {
-        var employeeColumnWidth = args.GridState.ColumnStates.First(c => c.Index == 1).Width.Replace("px", "");
-        var columnWidth = double.Parse(employeeColumnWidth);
-
-        if (columnWidth < 160)
+        foreach (var column in args.GridState.ColumnStates)
         {
-            HeaderClass = "employee-header";
-        }
-        else
-        {
-            HeaderClass = string.Empty;
+            string columnField = column.Field;
+            if (MinColumnWidths.TryGetValue(columnField, out double minWidth))
+            {
+                double currentWidth = double.Parse(column.Width.Replace("px", ""));
+                ShowTooltip[columnField] = currentWidth < minWidth;
+            }
         }
 
         await GridRef.SetStateAsync(args.GridState);
@@ -100,10 +120,11 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 }
 ````
 
-The additional CSS is used to adjust the position of the tooltip callout. Modify this CSS based on your application's specific layout and design requirements.
+> The additional CSS is used to adjust the position of the tooltip callout. Modify this CSS based on your application's specific layout and design requirements.
 
 ## See Also
 - [Grid Column Header Template Documentation](slug:components/grid/templates/column-header#column-header-template)
 - [Telerik Tooltip Overview](slug:components/tooltip/overview)
 - [Tooltip Template Feature](slug:components/tooltip/template)
 - [Hide the Tooltip Callout or Change Its Position](slug:tooltip-callout-position)
+- [Show Tooltip in Grid](slug:tooltip-in-grid)
