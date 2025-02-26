@@ -16,16 +16,14 @@ This article describes how to set up and activate your [Telerik UI for Blazor li
 
 ## Basics
 
-When working with CI/CD platforms, always add the [`Telerik.Licensing` NuGet package](slug:getting-started/what-you-need#nuget-packages) as a project dependency. This package activates the Telerik Blazor components at build time by using the provided license key.
+The Telerik license activation process in a CI/CD environment involves the following steps:
 
-The license activation process in a CI/CD environment involves the following steps:
-
-1. Add the `Telerik.Licensing` NuGet package as a dependency to all projects that reference Telerik UI for Blazor or Telerik Document Processing:
+1. Add the `Telerik.Licensing` NuGet package as a dependency to all projects that reference Telerik UI for Blazor or Telerik Document Processing. This package activates the Telerik products at build time by using the provided license key.
     ````XML.skip-repl
     <PackageReference Include="Telerik.Licensing" Version="1.*" />
     ````
-1. Go to the <a href="https://www.telerik.com/account/your-licenses/license-keys" target="_blank">License Keys page</a> in your Telerik account and get your license key.
-1. Set your license key value as an environment variable with a name `TELERIK_LICENSE`.
+1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
+1. Set your license key value as an [environment variable](#creating-environment-variables) with a name `TELERIK_LICENSE`. In specific cases you may need to [use a license file](#using-license-file) instead.
 
 ## Creating Environment Variables
 
@@ -35,6 +33,8 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 1. Create a new [user-defined variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables) named `TELERIK_LICENSE`, according to your [YAML](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#set-variables-in-pipeline) or [Classic](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch#set-variables-in-pipeline) pipeline setup.
 1. Paste the contents of the license key file as a value of the variable.
+
+> Another option is to use a Telerik license file as a [secure file in the pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files). Implement a [script that copies the license file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#consume-a-secure-file-in-a-pipeline) to the application's root folder, so that it's available to all projects that need it.
 
 ### GitHub Actions
 
@@ -64,6 +64,10 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 
 1. [Create a Docker build secret](https://docs.docker.com/build/building/secrets/#using-build-secrets) that holds the Telerik license key file.
 1. [Mount the secret](https://docs.docker.com/build/building/secrets/#secret-mounts) and set a `TELERIK_LICENSE` [environment variable in the container](https://docs.docker.com/build/building/secrets/#target).
+
+## Using License File
+
+Use a license file on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use an environment variable in these cases.
 
 ## Next Steps
 
