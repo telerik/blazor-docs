@@ -15,6 +15,8 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
 
+> Telerik UI for Blazor [requires interactive render mode](#interactive-render-mode). Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
+
 ## Prerequisites
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
@@ -37,7 +39,10 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 1. Click **Create**.
 
-> Each component in a Blazor Web App utilizes a render mode to define its hosting model, determine its rendering location, and specify whether it is interactive. Most Telerik Blazor components require interactivity. They will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
+### Interactive Render Mode
+
+> Telerik UI for Blazor requires interactive render mode. Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
+> The Telerik Blazor components will not respond to user actions and the Blazor framework will not refresh their UI in [Static server-side rendering mode (static SSR)](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#static-server-side-rendering-static-ssr). Telerik Blazor components with JavaScript rendering (Barcodes, Charts, Gauges, Maps, and QR Codes) will not render in static SSR at all.
 >
 > The `Account` section in the Blazor Web App template with identity is static by design. Most Telerik Blazor components cannot work in this section.
 
@@ -88,9 +93,9 @@ Add the `@using` directives below in the `~/_Imports.razor` file in all projects
 
 Use a single [`TelerikRootComponent`](slug:rootcomponent-overview) component as a top-level component in the app.
 
-@[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
+> The `TelerikRootComponent` requires [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). Layout components are interactive only in applications with **Global** Interactivity location. This section applies only to apps with **Global** interactivity. If your app is using **Per page/component** interactivity, then check [Using TelerikRootComponent in apps with per component interactivity](slug:rootcomponent-percomponent) instead.
 
-> The `TelerikRootComponent` requires an [interactive render mode](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes). Layout components are interactive only in applications with **Global** Interactivity location. This section 4.3 applies only to apps with **Global** interactivity. If your app is using **Per page/component** interactivity, then check [Using TelerikRootComponent in apps with per component interactivity](slug:rootcomponent-percomponent) instead.
+@[template](/_contentTemplates/common/get-started.md#root-component-main-layout)
 
 ### 5.4. Register the Telerik Blazor Service
 
