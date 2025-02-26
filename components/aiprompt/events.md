@@ -32,6 +32,7 @@ The event handler receives an argument of type [`AIPromptPromptRequestEventArgs`
 | `IsCancelled` | `bool` | Whether the event is cancelled and the built-in action is prevented. |
 | `OutputItem` | `AIPromptOutputItemDescriptor` | The output item. This property will be populated only when the user retries an existing output. See [`AIPromptOutputItemDescriptor`](slug:Telerik.Blazor.Components.AIPromptOutputItemDescriptor). |
 
+> Do not use the `OnPromptRequest` event when [integrating the AIPrompt component with `Microsoft.Extensions.AI`](slug:common-features-microsoft-extensions-ai-integration). The `OnPromptRequest` event disables such integration.
 
 ## OnCommandExecute
 
