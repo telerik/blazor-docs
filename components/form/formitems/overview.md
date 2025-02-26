@@ -122,58 +122,103 @@ When the user changes a value in a non-template Form item, the other Form items 
 
 In such cases, there are a few ways to trigger re-rendering and UI refresh inside or outside the Form:
 
-* Use a Telerik input component inside a [Form item `<Template>`](slug:form-formitems-template).
+* Use a Telerik input component inside a [Form item `<Template>`](slug:form-formitems-template). Define two-way binding for the `Value` parameter, or use `Value`, `ValueChanged`, and `ValueExpression`.
+* Use a custom component with two-way parameter binding for the respective Form model property. Alternatively, use one-way binding, but implement an `EventCallback` that updates the model property value.
 * Call the [`Refresh()` method of the Form](slug:form-overview#form-reference-and-methods). The method will re-render the Form itself.
 * Subscribe to the [`OnUpdate` event of the Form](slug:form-events#onupdate). The event is an `EventCallback`, so it will update the whole Razor component, which holds the Form.
 * Call `StateHasChanged()` inside the Razor component, which holds the Form. This will re-render the whole Razor component, including the Form.
+
+The example below demonstrates all of the above options. Note the differences in the two custom components:
+
+* `ChildTwo.razor` supports two-way binding with an `EventCallback` for its `Value` parameter.
+* `ChildOne.razor` does not support two-way binding and uses an `Action` instead of an `EventCallback`.
 
 >caption How to re-render all Form Items or the Form's parent component
 
 <div class="skip-repl"></div>
 
 ````RAZOR Home.razor
+@using System.ComponentModel.DataAnnotations
+
 <p>Type in the Form textboxes and observe the different results.</p>
 
 <p>
-    <label>
+    <label class="k-checkbox-label">
         <TelerikCheckBox @bind-Value="@ShouldUseOnUpdate" />
-        Use the <strong>Form <code>OnUpdate</code> event (an <code>EventCallback</code>)</strong> to re-render inside and outside the Form
+        Use the <strong>Form &nbsp;<code>OnUpdate</code>&nbsp; event (an &nbsp;<code>EventCallback</code>)</strong> to
+        re-render inside and outside the Form
     </label>
 </p>
 
 <TelerikForm @ref="@FormRef"
              Model="@Employee"
              OnUpdate="@OnFormUpdate">
+    <FormValidation>
+        <DataAnnotationsValidator />
+    </FormValidation>
     <FormItems>
-        <FormItem Field="@nameof(Person.Name)" LabelText="Regular FormItem - no re-render without OnUpdate"></FormItem>
-        <FormItem>
+        <FormItem Field="@nameof(Person.Name)" LabelText="No Template - no re-render without OnUpdate." />
+        <FormItem Field="@nameof(Person.Name)">
             <Template>
-                <label class="k-label k-form-label" style="color:var(--kendo-color-success)">
-                FormItem with &nbsp;<code>&lt;Template&gt;</code>&nbsp; - re-render inside and outside the Form</label>
+                <label class="k-label k-form-label" style="color: var(--kendo-color-success)">
+                    Telerik component - re-render inside and outside the Form.
+                </label>
                 <div class="k-form-field-wrap">
                     <TelerikTextBox @bind-Value="@Employee.Name" DebounceDelay="0" />
+                    <TelerikValidationMessage For="@( () => Employee.Name )" />
                 </div>
             </Template>
         </FormItem>
-        <FormItem>
+        <FormItem Field="@nameof(Person.Name)">
             <Template>
-                <label class="k-label k-form-label" style="color:var(--kendo-color-warning)">
-                FormItem with Template and Form &nbsp;<code>Refresh()</code>&nbsp; - re-render inside the Form</label>
+                <label class="k-label k-form-label" style="color: var(--kendo-color-success)">
+                    Custom component with two-way binding - re-render inside and outside the Form.
+                </label>
                 <div class="k-form-field-wrap">
-                    <ChildComponent Value="@Employee.Name"
-                                   ValueExpression="@( () => Employee.Name )"
-                                   OnChange="@OnChildChange_Refresh" />
+                    <ChildTwo @bind-Value="@Employee.Name" />
+                    <TelerikValidationMessage For="@( () => Employee.Name )" />
                 </div>
             </Template>
         </FormItem>
-        <FormItem>
+        <FormItem Field="@nameof(Person.Name)">
             <Template>
-                <label class="k-label k-form-label" style="color:var(--kendo-color-tertiary)">
-                FormItem with Template and &nbsp;<code>StateHasChanged()</code>&nbsp; - re-render inside and outside the Form</label>
+                <label class="k-label k-form-label" style="color: var(--kendo-color-success)">
+                    Custom component with one-way binding and EventCallback -
+                    re-render inside and outside the Form.
+                </label>
                 <div class="k-form-field-wrap">
-                    <ChildComponent Value="@Employee.Name"
-                                   ValueExpression="@( () => Employee.Name )"
-                                   OnChange="@OnChildChange_StateHasChanged" />
+                    <ChildTwo Value="@Employee.Name"
+                                 ValueChanged="@OnChildTwoChange_EventCallback"
+                                 ValueExpression="@( () => Employee.Name )" />
+                    <TelerikValidationMessage For="@( () => Employee.Name )" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Person.Name)">
+            <Template>
+                <label class="k-label k-form-label" style="color: var(--kendo-color-warning)">
+                    Custom component with one-way binding and Form &nbsp;<code>Refresh()</code>&nbsp; -
+                    re-render inside the Form.
+                </label>
+                <div class="k-form-field-wrap">
+                    <ChildOne Value="@Employee.Name"
+                                 ValueExpression="@( () => Employee.Name )"
+                                 OnChange="@OnChildOneChange_Refresh" />
+                    <TelerikValidationMessage For="@( () => Employee.Name )" />
+                </div>
+            </Template>
+        </FormItem>
+        <FormItem Field="@nameof(Person.Name)">
+            <Template>
+                <label class="k-label k-form-label" style="color: var(--kendo-color-tertiary)">
+                    Custom component with one-way binding and &nbsp;<code>StateHasChanged()</code>&nbsp; -
+                    re-render inside and outside the Form.
+                </label>
+                <div class="k-form-field-wrap">
+                    <ChildOne Value="@Employee.Name"
+                                 ValueExpression="@( () => Employee.Name )"
+                                 OnChange="@OnChildOneChange_StateHasChanged" />
+                    <TelerikValidationMessage For="@( () => Employee.Name )" />
                 </div>
             </Template>
         </FormItem>
@@ -182,7 +227,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
 
 <br />
 
-<p><code>Employee.Name</code> in UI outside the Form: <strong>@Employee.Name</strong></p>
+<p>&nbsp;<code>Employee.Name</code>&nbsp; in UI outside the Form: <strong>@Employee.Name</strong></p>
 
 <TelerikButton OnClick="@( () => { } )"
                ButtonType="@ButtonType.Button">
@@ -192,7 +237,7 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
 @code {
     private TelerikForm? FormRef { get; set; }
 
-    private Person Employee = new Person();
+    private Person Employee { get; set; } = new();
 
     private bool ShouldUseOnUpdate { get; set; }
 
@@ -207,7 +252,12 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
         // of the whole Razor component, which holds the Form.
     }
 
-    private void OnChildChange_Refresh(string newValue)
+    private void OnChildTwoChange_EventCallback(string newValue)
+    {
+        Employee.Name = newValue;
+    }
+
+    private void OnChildOneChange_Refresh(string newValue)
     {
         Employee.Name = newValue;
 
@@ -215,10 +265,9 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
         {
             FormRef?.Refresh();
         }
-
     }
 
-    private void OnChildChange_StateHasChanged(string newValue)
+    private void OnChildOneChange_StateHasChanged(string newValue)
     {
         Employee.Name = newValue;
 
@@ -228,15 +277,9 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
         }
     }
 
-    protected override void OnInitialized()
-    {
-        Employee = new Person();
-
-        base.OnInitialized();
-    }
-
     public class Person
     {
+        [Required]
         public string Name { get; set; }
 
         public Person()
@@ -246,7 +289,40 @@ In such cases, there are a few ways to trigger re-rendering and UI refresh insid
     }
 }
 ````
-````RAZOR ChildComponent.razor
+````RAZOR ChildTwo.razor
+@using System.Linq.Expressions
+
+<TelerikTextBox Value="@Value"
+                ValueChanged="@TextBoxValueChanged"
+                ValueExpression="@ValueExpression"
+                DebounceDelay="0" />
+
+@code {
+    [Parameter]
+    public string Value { get; set; } = string.Empty;
+
+    // This parameter is an EventCallback.
+    // It will refresh the whole parent component's UI.
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    // Get a validation expression from a parent component.
+    // See https://www.telerik.com/blazor-ui/documentation/knowledge-base/inputs-validation-child-component
+    [Parameter]
+    public Expression<Func<string>>? ValueExpression { get; set; }
+
+    private async Task TextBoxValueChanged(string newValue)
+    {
+        Value = newValue;
+
+        if (ValueChanged.HasDelegate)
+        {
+            await ValueChanged.InvokeAsync(newValue);
+        }
+    }
+}
+````
+````RAZOR ChildOne.razor
 @using System.Linq.Expressions
 
 <TelerikTextBox Value="@Value"
