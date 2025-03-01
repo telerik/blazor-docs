@@ -64,7 +64,7 @@ To allow users to add or edit values in the Grid:
 </TelerikGrid>
 ````
 
->tip See the Grid add and edit operations in action in the complete examples for Grid [inline](slug:grid-editing-inline#examples), [in-cell](slug:grid-editing-incell#examples) and [popup](slug:grid-editing-popup#examples) editing.
+>tip See the Grid add and edit operations in action in the complete examples for Grid [inline](slug:grid-editing-inline#examples), [in-cell](slug:grid-editing-incell#examples), and [popup](slug:grid-editing-popup#examples) editing.
 
 > Editing multiple rows at the same time is not supported. You can [render editors in all Grid data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
 
