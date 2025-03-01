@@ -154,14 +154,9 @@ To enable Inline editing in the treelist, set its `EditMode` property to `Teleri
                 DeleteChildren(employee.Id);
                 Items.Remove(employee);
 
-                if (employee.ParentId.HasValue)
+                if (employee.ParentId.HasValue && !Items.Any(x => x.ParentId == employee.ParentId.Value))
                 {
-                    Employee parentItem = Items.First(x => x.Id == employee.ParentId.Value);
-
-                    if (!Items.Any(x => x.ParentId == parentItem.Id))
-                    {
-                        parentItem.HasChildren = false;
-                    }
+                    Items.First(x => x.Id == employee.ParentId.Value).HasChildren = false;
                 }
 
                 return true;
