@@ -15,7 +15,7 @@ The Telerik Grid for Blazor supports create, update, and delete operations (CRUD
 
 * [How the create, update, and delete operations work in the Grid](#basics).
 * [What are the available edit modes and how to enable them](#edit-modes).
-* [The applicable Grid commands](#commands)
+* [The applicable Grid commands](#commands).
 * [The applicable Grid events](#events)
 * [How to change the built-in editors for certain data types](#column-editors).
 * [How to refresh the Grid data after add, edit, and delete operations](#rebinding-after-data-changes).
