@@ -203,7 +203,7 @@ See Grid CRUD operations in action at:
 
 * [Grid Inline Editing](slug:grid-editing-inline#examples)
 * [Grid Popup Editing](slug:grid-editing-popup#examples)
-* [Grid In-cell Editing](slug:grid-editing-incell#examples)
+* [Grid In-Cell Editing](slug:grid-editing-incell#examples)
 * [Online Grid Demos](https://demos.telerik.com/blazor-ui/grid/editing-inline)
 
 ## See Also
