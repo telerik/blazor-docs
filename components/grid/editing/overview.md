@@ -73,7 +73,7 @@ To allow users to add or edit values in the Grid:
 Delete operations provide the same user experience in all Grid edit modes and require the same configuration:
 
 * [**Delete** command button](#commands).
-* [`OnDelete` event](#events)
+* [`OnDelete` event](#events).
 * Optional `ConfirmDelete` Grid parameter. It determines if the component will show a Dialog before firing `OnDelete`, so that users can abort the operation.
 
 Delete operations can work even if the Grid `EditMode` parameter value is `None`.
