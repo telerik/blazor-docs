@@ -32,6 +32,7 @@ To enable Inline editing in the treelist, set its `EditMode` property to `Teleri
 <TelerikTreeList Data="@TreeListData"
                  IdField="@nameof(Employee.Id)"
                  ParentIdField="@nameof(Employee.ParentId)"
+                 ConfirmDelete="true"
                  EditMode="@TreeListEditMode.Inline"
                  OnCreate="@OnTreeListCreate"
                  OnDelete="@OnTreeListDelete"
