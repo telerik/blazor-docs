@@ -8,7 +8,7 @@ published: True
 position: 4
 ---
 
-# Grid InCell Editing
+# Grid In-Cell Editing
 
 In-cell editing allows users to click Grid data cells and type new values like in Excel. There is no need for command buttons to enter and exit edit mode. Users can quickly move between the editable cells and rows by using keyboard navigation.
 
