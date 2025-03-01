@@ -3,14 +3,14 @@ title: Popup Editing
 page_title: Grid - Popup Editing
 description: Popup editing of data in Grid for Blazor.
 slug: grid-editing-popup
-tags: telerik,blazor,grid,Popup,editing
+tags: telerik, blazor, grid, editing, popup
 published: True
 position: 2
 ---
 
 # Grid Popup Editing
 
-Popup editing allows the app to render a larger form with customizable dimensions and layout. The popup edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the Grid table.
+Grid popup editing allows the app to render a larger form with customizable dimensions and layout. The popup edit mode is also more suitable for mobile devices with small screens. The popup edit form may contain editable fields from hidden columns in the Grid table.
 
 @[template](/_contentTemplates/grid/editing.md#overview-required)
 

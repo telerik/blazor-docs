@@ -92,7 +92,7 @@ The Grid provides the following built-in commands, which enable users to add, de
 
 Users execute commands in the following ways:
 
-* By clicking on [command buttons](slug:slug:components/grid/columns/command#the-gridcommandbutton-tag).
+* By clicking on [command buttons](slug:components/grid/columns/command#the-gridcommandbutton-tag).
 * By clicking on editable cells in [in-cell edit mode](slug:grid-editing-incell) and then anywhere else on the page.
 * By using the [Grid keyboard navigation](https://demos.telerik.com/blazor-ui/grid/keyboard-navigation).
 
