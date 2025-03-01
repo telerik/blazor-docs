@@ -5,7 +5,7 @@ description: CRUD basics for the TreeList for Blazor.
 slug: treelist-editing-overview
 tags: telerik, blazor, treelist, editing
 published: True
-previous_url: /components/grid/editing/built-in-dialogs/delete-confirmation, /components/grid/editing/built-in-dialogs/overview
+previous_url: /components/treelist/editing/built-in-dialogs/delete-confirmation, /components/treelist/editing/built-in-dialogs/overview
 position: 0
 ---
 
