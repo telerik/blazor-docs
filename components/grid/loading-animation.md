@@ -23,7 +23,7 @@ The Grid `EnableLoaderContainer` parameter determines if the component will show
 * [Sorting](slug:components/grid/features/sorting)
 * [Grouping](slug:components/grid/features/grouping) 
 * [Expanding groups with load-on-demand](slug:grid-group-lod)
-* [Creating, deleting or editing records](slug:grid-editing-overview)
+* [Creating, deleting, or editing records](slug:grid-editing-overview)
 
 ## Show LoaderContainer on Initial Load
 
