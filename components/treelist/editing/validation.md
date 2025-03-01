@@ -86,9 +86,6 @@ Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazore
             Enable Validation
         </label>
     </TreeListToolBarTemplate>
-    <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add">Add Item</TreeListCommandButton>
-    </TreeListToolBarTemplate>
     <TreeListColumns>
         <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" />
         <TreeListColumn Field="@nameof(Employee.Salary)" DisplayFormat="{0:C2}" Width="130px" />
