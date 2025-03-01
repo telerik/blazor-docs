@@ -176,7 +176,7 @@ In the `OnCreate`, `OnDelete`, and `OnUpdate` event handler, the application mus
 * Make a read request to the database. Retrieve the latest data and set it as the new value of the TreeList `Data` parameter. The TreeList will rebind automatically. The following examples demonstrate this approach:
     * [Inline TreeList Editing](slug:treelist-editing-inline#example)
     * [Popup TreeList Editing](slug:treelist-editing-popup#example)
-    * [In-cell TreeList Editing](slug:treelist-editing-incell#example)
+    * [In-Cell TreeList Editing](slug:treelist-editing-incell#example)
 * [Use the event arguments to update the local item collection in the `Data` parameter manually](slug:grid-kb-load-cached-data-after-crud-operations#data-parameter).
 
 ## Integration with Other Features
@@ -193,7 +193,7 @@ See TreeList CRUD operations in action at:
 
 * [TreeList Inline Editing](slug:treelist-editing-inline#example)
 * [TreeList Popup Editing](slug:treelist-editing-popup#example)
-* [TreeList In-cell Editing](slug:treelist-editing-incell#example)
+* [TreeList In-Cell Editing](slug:treelist-editing-incell#example)
 * [Online TreeList Demos](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
 
 ## See Also
