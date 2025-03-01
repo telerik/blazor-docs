@@ -175,7 +175,7 @@ In the `OnCreate`, `OnDelete`, and `OnUpdate` event handler, the application mus
 * Make a read request to the database. Retrieve the latest data and set it as the new value of the Grid `Data` parameter. The Grid will rebind automatically. The following examples demonstrate this approach:
     * [Inline Grid Editing](slug:grid-editing-inline#advanced)
     * [Popup Grid Editing](slug:grid-editing-popup#advanced)
-    * [In-cell Grid Editing](slug:grid-editing-incell#advanced)
+    * [In-Cell Grid Editing](slug:grid-editing-incell#advanced)
 * [Use the event arguments to update the local item collection in the `Data` parameter manually](slug:grid-kb-load-cached-data-after-crud-operations#data-parameter).
 
 ### OnRead Event
