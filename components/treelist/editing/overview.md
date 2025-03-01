@@ -15,8 +15,8 @@ The Telerik TreeList for Blazor supports create, update, and delete operations (
 
 * [How the create, update, and delete operations work in the TreeList](#basics).
 * [What are the available edit modes and how to enable them](#edit-modes).
-* [The applicable TreeList commands](#commands)
-* [The applicable TreeList events](#events)
+* [The applicable TreeList commands](#commands).
+* [The applicable TreeList events](#events).
 * [How to change the built-in editors for certain data types](#column-editors).
 * [How to refresh the TreeList data after add, edit, and delete operations](#rebinding-after-data-changes).
 * [How the TreeList CRUD operations integrate with other component features](#integration-with-other-features).
@@ -48,7 +48,7 @@ The TreeList offers several ways to add and edit rows with a different user expe
 
 To allow users to add or edit values in the TreeList:
 
-1. Set the `EditMode` parameter to a [member of the `TreeListEditMode` enum](slug:telerik.blazor.treelisteditmode). The default `EditMode` parameter value is `None`. The built-in [`Add` and `Edit` commands](slug://treelist-columns-command#built-in-commands) don't work in this case.
+1. Set the `EditMode` parameter to a [member of the `TreeListEditMode` enum](slug:telerik.blazor.treelisteditmode). The default `EditMode` parameter value is `None` and the built-in [`Add` and `Edit` commands](slug://treelist-columns-command#built-in-commands) don't work.
 1. Define the required [command buttons](#commands) and [events](#events) for the selected edit mode and operations.
 
 >caption Set up TreeList popup edit mode
@@ -64,7 +64,7 @@ To allow users to add or edit values in the TreeList:
 </TelerikTreeList>
 ````
 
->tip See the TreeList add and edit operations in action in the complete examples for TreeList [inline](slug:treelist-editing-inline#example), [in-cell](slug:treelist-editing-incell#example) and [popup](slug:treelist-editing-popup#example) editing.
+>tip See the TreeList add and edit operations in action in the complete examples for TreeList [inline](slug:treelist-editing-inline#example), [in-cell](slug:treelist-editing-incell#example), and [popup](slug:treelist-editing-popup#example) editing.
 
 > Editing multiple rows at the same time is not supported. You can [render editors in all TreeList data cells through column `<Template>`s](slug:grid-kb-edit-all-rows-cells) as an alternative.
 
@@ -72,13 +72,13 @@ To allow users to add or edit values in the TreeList:
 
 Delete operations provide the same user experience in all TreeList edit modes and require the same configuration:
 
-* [**Delete** command button](#commands)
-* [`OnDelete` event](#events)
+* [**Delete** command button](#commands).
+* [`OnDelete` event](#events).
 * Optional `ConfirmDelete` TreeList parameter. It determines if the component will show a Dialog before firing `OnDelete`, so that users can abort the operation.
 
 Delete operations can work even if the TreeList `EditMode` parameter value is `None`.
 
->tip See delete operations in action in the complete examples for TreeList [inline](slug:treelist-editing-inline#example), [in-cell](slug:treelist-editing-incell#example) and [popup](slug:treelist-editing-popup#example) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
+>tip See the delete operations in action in the complete examples for TreeList [inline](slug:treelist-editing-inline#example), [in-cell](slug:treelist-editing-incell#example) and [popup](slug:treelist-editing-popup#example) editing. Also check how to [customize the Delete Confirmation Dialog](slug:grid-kb-customize-delete-confirmation-dialog).
 
 ## Commands
 
@@ -113,6 +113,8 @@ The following table describes the TreeList events, which are related to adding, 
 | `OnEdit` | No | Fires on `Edit` command invocation, before the TreeList actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | TreeList remains in read mode. |
 | `OnModelInit` | [Depends on the TreeList model type](slug:treelist-events#onmodelinit) | Fires when the TreeList requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the TreeList model type is an [interface, abstract class, or has no parameterless constructor](slug:treelist-events#onmodelinit). | No event arguments | Not cancellable |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event succeeds `OnEdit`. | [Cloned](#item-instances) | TreeList remains in edit mode. |
+
+The following considerations apply for the TreeList CRUD events:
 
 * Most events provide a [`TreeListCommandEventArgs` argument](#treelistcommandeventargs) in the handler. `OnModelInit` has no event argument.
 * All events, except `OnModelInit`, are cancellable and the user action can be prevented. Cancelling `OnDelete` does not automatically prevent item deletion from the TreeList data source. This depends entirely on the executed application code.

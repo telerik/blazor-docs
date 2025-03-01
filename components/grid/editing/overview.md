@@ -48,7 +48,7 @@ The Grid offers several ways to add and edit rows with a different user experien
 
 To allow users to add or edit values in the Grid:
 
-1. Set the `EditMode` parameter to a [member of the `GridEditMode` enum](slug:telerik.blazor.grideditmode). The default `EditMode` parameter value is `None`. The built-in [`Add` and `Edit` commands](slug://components/grid/columns/command#built-in-commands) don't work in this case.
+1. Set the `EditMode` parameter to a [member of the `GridEditMode` enum](slug:telerik.blazor.grideditmode). The default `EditMode` parameter value is `None` and the built-in [`Add` and `Edit` commands](slug://components/grid/columns/command#built-in-commands) don't work.
 1. Define the required [command buttons](#commands) and [events](#events) for the selected edit mode and operations.
 
 >caption Set up Grid popup edit mode
@@ -113,6 +113,8 @@ The following table describes the Grid events, which are related to adding, dele
 | `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | Grid remains in read mode. |
 | `OnModelInit` | [Depends on the Grid model type](slug:grid-events#onmodelinit) | Fires when the Grid requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the Grid model type is an [interface, abstract class, or has no parameterless constructor](slug:grid-events#onmodelinit). | No event arguments | Not cancellable |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event succeeds `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
+
+The following considerations apply for the Grid CRUD events:
 
 * Most events provide a [`GridCommandEventArgs` argument](#gridcommandeventargs) in the handler. `OnModelInit` has no event argument.
 * All events, except `OnModelInit`, are cancellable and the user action can be prevented. Cancelling `OnDelete` does not automatically prevent item deletion from the Grid data source. This depends entirely on the executed application code.
