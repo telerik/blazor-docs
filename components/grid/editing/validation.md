@@ -3,7 +3,7 @@ title: Validation
 page_title: Grid Validation
 description: Built-in validation in the Grid and how to customize the validation behavior.
 slug: grid-editing-validation
-tags: telerik,blazor,grid,validation,editing
+tags: telerik, blazor, grid, validation, editing
 published: True
 position: 40
 ---
@@ -158,7 +158,7 @@ Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazore
         public bool Discontinued { get; set; }
     }
 }
-`````
+````
 
 ## See Also
 

@@ -3,14 +3,14 @@ title: InCell Editing
 page_title: Grid - InCell Editing
 description: In-cell editing of data in Grid for Blazor.
 slug: grid-editing-incell
-tags: telerik,blazor,grid,in cell,editing
+tags: telerik, blazor, grid, editing, incell
 published: True
 position: 4
 ---
 
 # Grid InCell Editing
 
-In-cell editing allows users to click data cells and type new values like in Excel. There is no need for command buttons to enter and exit edit mode. Users can quickly move between the editable cells and rows by using keyboard navigation.
+In-cell editing allows users to click Grid data cells and type new values like in Excel. There is no need for command buttons to enter and exit edit mode. Users can quickly move between the editable cells and rows by using keyboard navigation.
 
 The in-cell edit mode provides a different user experience, compared to the inline and popup edit modes. In-cell edit mode can be more convenient for advanced users, fast users, or users who prefer keyboard navigation rather than clicking command buttons.
 
