@@ -80,9 +80,7 @@ To see how to select the row that is currently in in-cell edit mode without usin
 
 [Cell selection](slug:treelist-selection-cell) is not supported with in-cell edit mode.
 
-## Examples
-
-### Basic
+## Example
 
 The example below shows how to:
 

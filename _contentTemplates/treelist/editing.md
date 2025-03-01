@@ -1,6 +1,6 @@
 #overview-required
 
-> This article requires the knowledge from [TreeList CRUD Operations](slug:treelist-editing-overview).
+> Make sure to read the [TreeList CRUD Operations](slug:treelist-editing-overview) article first.
 
 #end
 

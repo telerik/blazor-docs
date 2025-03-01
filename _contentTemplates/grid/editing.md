@@ -1,6 +1,6 @@
 #overview-required
 
-> This article requires the knowledge from [Grid CRUD Operations](slug:grid-editing-overview).
+> Make sure to read the [Grid CRUD Operations](slug:grid-editing-overview) article first.
 
 #end
 
