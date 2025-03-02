@@ -100,6 +100,16 @@ Without using the above command buttons, the application can:
         [Required]
         public DateTime? HireDate { get; set; }
         public bool IsDriver { get; set; }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Employee && ((Employee)obj).Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     #region Data Service
