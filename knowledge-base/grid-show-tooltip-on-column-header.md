@@ -11,7 +11,7 @@ ticketid: 1677858
 
 ## Description
 
-When the column headers in a [Grid for Blazor](slug:components/grid/) are too long for the column width, they may be truncated with an ellipsis. In such cases, adding tooltips to the headers can help display the full text.
+When the column headers in a [Telerik Grid for Blazor](slug:grid-overview) are too long for the column width, they may be truncated with an ellipsis. In such cases, adding tooltips to the headers can help display the full text.
 
 This knowledge-base article also answers the following questions:
 
