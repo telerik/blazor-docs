@@ -40,7 +40,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => HandleColumnWidthChange(args))"
              Width="510px">
     <GridColumns>
-        <GridColumn Field="@(nameof(SampleData.Id))" Width="130px">
+        <GridColumn Field="@nameof(SampleData.Id)" Width="130px">
             <HeaderTemplate>
                 <span title="Unique Identifier"
                       class="@(ShowTooltip.GetValueOrDefault(nameof(SampleData.Id), false) ? "employee-header" : "")">
