@@ -25,7 +25,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 
 1. Use the [Column Header Template](slug:components/grid/templates/column-header#column-header-template) to customize the header content. Wrap the header content in a `<span>` HTML element.
 2. [Monitor the column width changes](slug:grid-kb-column-state) by using the [Grid `OnStateChanged` event](slug:components/grid/state#onstatechanged) and the [`ColumnState`](slug:components/grid/state#information-in-the-grid-state) property of the `GridState`.
-3. Use [TelerikTooltip](slug:components/tooltip/overview) component to display tooltip for each column header.
+3. Use a [TelerikTooltip](slug:components/tooltip/overview) component to display tooltip for each column header.
 4. Apply a custom CSS class to the column header content when the width of the column is insufficient to display its full content.
 
 >caption Show TelerikTooltip on the Grid column header
