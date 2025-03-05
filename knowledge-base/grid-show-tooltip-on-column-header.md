@@ -31,8 +31,8 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 >caption Show TelerikTooltip on the Grid column header
 
 ````RAZOR
-<strong>Reduce the width of some columns to observe the expected result</strong>
-<br/>
+<p><strong>Resize and shrink some columns to observe the expected result</strong></p>.
+
 <TelerikGrid Data="@MyData" Resizable="true"
              OnStateChanged="@((GridStateEventArgs<SampleData> args) => HandleColumnWidthChange(args))"
              @ref="GridRef"
