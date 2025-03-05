@@ -84,8 +84,8 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
     private IEnumerable<SampleData> MyData = Enumerable.Range(1, 10).Select(x => new SampleData
         {
             Id = x,
-            Name = "name " + x,
-            Team = "team" + x
+            Name = $"Name {x}",
+            Team = $"Team {x % 3 + 1}"
         });
 
     // Define minimum width requirements for tooltips
