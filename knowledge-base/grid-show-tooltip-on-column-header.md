@@ -20,6 +20,7 @@ This knowledge-base article also answers the following questions:
 - How to customize Grid column headers in Blazor?
 
 ## Solution
+
 To display Tooltip for Grid column headers that are truncated, follow the steps below:
 
 1. Use the [Column Header Template](slug:components/grid/templates/column-header#column-header-template) to customize the header content. Wrap the header content in a `<span>` HTML element.
