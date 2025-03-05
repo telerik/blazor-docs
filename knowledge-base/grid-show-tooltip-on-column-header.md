@@ -79,7 +79,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
 </style>
 
 @code {
-    private TelerikGrid<SampleData> GridRef { get; set; } = null!;
+    private TelerikGrid<SampleData>? GridRef { get; set; }
 
     private IEnumerable<SampleData> MyData = Enumerable.Range(1, 10).Select(x => new SampleData
         {
