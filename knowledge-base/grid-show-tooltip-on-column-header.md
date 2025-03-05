@@ -111,7 +111,7 @@ To display Tooltip for Grid column headers that are truncated, follow the steps 
             }
         }
 
-        await GridRef.SetStateAsync(args.GridState);
+        await GridRef!.SetStateAsync(args.GridState);
     }
 
     public class SampleData
