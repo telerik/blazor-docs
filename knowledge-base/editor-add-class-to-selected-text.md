@@ -22,22 +22,21 @@ ticketid: 1679881
 
 ## Description
 
-In certain situations, you might want to style the content within the [Editor for Blazor](slug:editor-overview) without relying on inline styles. Specifically, you might need to add CSS classes to `<div>` or `<span>` elements through the editor's toolbar. This knowledge base article guides you on how to add a toolbar custom tool that applies a `<p>` and a CSS class to selected text.
+In certain situations, you might want to style the content within the [Editor for Blazor](slug:editor-overview) without relying on inline styles. Specifically, you might need to add CSS class to specific element of the Editor cotent. This knowledge base article guides you on how to add a [Editor Custom Tool](slug:editor-custom-tools) that applies a `<p>` and a CSS class to selected text.
 
 This knowledge base article also answers the following questions:
+
 - How can I enhance text styling in the Editor for Blazor using CSS classes?
 - Is it possible to add a toolbar button in the Editor for Blazor that applies styling classes?
 - How do I use custom tools in the Editor for Blazor to manipulate text styling?
 
 ## Solution
 
-To add a class to a `<p>` element or any other element using a toolbar button in the Telerik Editor, create a custom tool that applies the desired class. The following steps and example code illustrate how to achieve this functionality:
+To add a custom CSS class to a `<p>` element or any other element using the Editor toolbar button, create a custom tool that applies the desired class. The following steps and example code illustrate how to achieve this functionality:
 
-### Creating a Custom Tool
+1. Define a Custom Tool in the Editor toolbar. This tool will specifically target the selected text and apply a CSS class to it.
 
-1. **Define a Custom Tool:** Start by defining a custom tool in the Editor toolbar. This tool will specifically target the selected text and apply a CSS class to it.
-
-2. **Leverage JavaScript Interop:** Utilize JavaScript Interop to get the selected text.
+2. Use JavaScript Interop to get the selected text.
 
 ````RAZOR
 @using Telerik.Blazor.Components.Editor
@@ -94,5 +93,5 @@ To add a class to a `<p>` element or any other element using a toolbar button in
 
 - [Editor Overview](slug:editor-overview)
 - [JavaScript Interop in Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability)
-- [Editor Custom Tools](slug:custom-tools)
-- [How to Get Selected Text in Editor](slug:editor-get-selection)
+- [Editor Custom Tools](slug:editor-custom-tools)
+- [How to Get Selected Text in Editor](slug:editor-kb-get-selection)
