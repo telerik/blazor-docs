@@ -3,304 +3,151 @@ title: Validation
 page_title: TreeList Validation
 description: Built-in validation in the TreeList and how to customize the validation behavior.
 slug: treelist-editing-validation
-tags: telerik,blazor,treelist,validation,editing
+tags: telerik, blazor, treelist, validation, editing
 published: True
 position: 40
 ---
 
 # TreeList Validation
 
-The Telerik UI for Blazor TreeList supports built-in validation that is enabled by default. The component passes an `EditContext` as a cascading value to the editable cells. If any validation messages are present the TreeList will render them as [Validation Tooltips](slug:validation-tools-tooltip) on hover of the specific editor. 
+The Telerik TreeList for Blazor supports built-in validation that is enabled by default. This article describes how the TreeList validation works and how to customize or disable it.
 
-#### In this Article:
+@[template](/_contentTemplates/treelist/editing.md#overview-required)
 
-* [Disable the validation](#disable-validation)
-* [Use a custom validator](#use-a-custom-validator)
+## Basics
+
+By default, the TreeList validation uses a [`DataAnnotationValidator`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.dataannotationsvalidator) and creates an `EditContext` for the row that is in add or edit mode. When you use [inline](slug:treelist-editing-inline) or [in-cell](slug:treelist-editing-incell) editing, the TreeList renders validation messages in [Validation Tooltips](slug:validation-tools-tooltip) on hover of the invalid inputs. In popup edit mode, the TreeList shows a [Validation Summary](slug:validation-tools-summary) in the popup.
+
+When a row is not in edit mode, the `EditContext` is `null`. The TreeList `EditContext` is a cascading parameter, which can overrides any cascading parameters from parent components, such as an `<EditForm>` that may wrap the TreeList.
+
+The built-in TreeList validation is not supported with dynamic data such as `ExpandoObject`, `DataTable`, or `Dictionary`.
+
+@[template](/_contentTemplates/common/form-validation.md#note-telerik-role-in-validation)
 
 ## Disable Validation
 
-To disable the built-in validation, add a `<TreeListValidationSettings>`tag  to the `<TreeListSettings>` and set the `Enabled` parameter to `false`.
+To disable the built-in TreeList validation:
 
-````RAZOR
-@* Disable the built-in validation in the TreeList *@
+1. Add `<TreeListSettings>` as a child tag inside the TreeList.
+1. Add a `<TreeListValidationSettings>` tag inside `<TreeListSettings>`.
+1. Set the `Enabled` parameter of `TreeListValidationSettings` to false.
 
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+See the [example](#example) below.
 
-<TelerikTreeList Data="@Data"
+## Use Custom Validator
+
+You can validate the TreeList with any validator that uses the `EditContext`. To change the default validator:
+
+1. Add `<TreeListSettings>` as a child tag inside the TreeList.
+1. Add a `<TreeListValidationSettings>` tag inside `<TreeListSettings>`.
+1. Define the custom validator in the `<ValidatorTemplate>` `RenderFragment` inside `<TreeListValidationSettings>`.
+
+Third party validation tools are not part of Telerik UI for Blazor. Reference the required NuGet packages explicitly.
+
+## Example
+
+The example below shows how to:
+
+* Enable and disable validation in the TreeList.
+* Validate the user input with a custom validator instead of the default `DataAnnotationsValidator`.
+
+Install the [`Blazored.FluentValidation`](https://www.nuget.org/packages/Blazored.FluentValidation) NuGet package to run the following code and refer to the [FluentValidation documentation](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
+
+>caption Use Telerik TreeList for Blazor with FluentValidation
+
+````RAZOR.skip-repl
+@* Requires the Blazored.FluentValidation NuGet package *@
+
+@using Blazored.FluentValidation
+@using FluentValidation
+@using System.ComponentModel.DataAnnotations
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(Employee.Id)"
+                 ParentIdField="@nameof(Employee.ParentId)"
+                 ConfirmDelete="true"
                  EditMode="@TreeListEditMode.Inline"
-                 OnUpdate="@UpdateItem"
-                 OnDelete="@DeleteItem"
-                 OnCreate="@CreateItem"
-                 OnEdit="@OnEditHandler"
-                 OnCancel="@OnCancelHandler"
-                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
-                 Width="850px">
+                 OnCreate="@OnTreeListCreate"
+                 OnUpdate="@OnTreeListUpdate"
+                 Height="400px">
     <TreeListSettings>
-        <TreeListValidationSettings Enabled="false">
+        <TreeListValidationSettings Enabled="@TreeListValidationEnabled">
+            <ValidatorTemplate>
+                <FluentValidationValidator Validator="@TreeListFluentValidator" />
+            </ValidatorTemplate>
         </TreeListValidationSettings>
     </TreeListSettings>
     <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
+        <TreeListCommandButton Command="Add">Add Item</TreeListCommandButton>
+        <label class="k-checkbox-label">
+            <TelerikCheckBox @bind-Value="@TreeListValidationEnabled" />
+            Enable Validation
+        </label>
     </TreeListToolBarTemplate>
     <TreeListColumns>
-        <TreeListCommandColumn Width="280px">
-            <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+        <TreeListColumn Field="@nameof(Employee.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(Employee.Salary)" DisplayFormat="{0:C2}" Width="130px" />
+        <TreeListColumn Field="@nameof(Employee.HireDate)" DisplayFormat="{0:d}" Width="140px" />
+        <TreeListColumn Field="@nameof(Employee.IsDriver)" Width="80px" />
+        <TreeListCommandColumn Width="160px">
+            <TreeListCommandButton Command="Add">Add</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" ShowInEdit="true">Save</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
         </TreeListCommandColumn>
-
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
-
 @code {
-    public List<Employee> Data { get; set; }
+    private IEnumerable<Employee>? TreeListData { get; set; }
 
-    // Sample CUD operations for the local data
-    async Task UpdateItem(TreeListCommandEventArgs args)
+    private EmployeeService TreeListEmployeeService { get; set; } = new();
+
+    private FluentProductValidator TreeListFluentValidator = new();
+
+    public class FluentProductValidator : AbstractValidator<Employee>
     {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    async Task CreateItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-        var parentItem = args.ParentItem as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Create(item, parentItem);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    async Task DeleteItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Delete(item);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    // OnEdit handler
-
-    async Task OnEditHandler(TreeListCommandEventArgs args)
-    {
-        Employee empl = args.Item as Employee;
-        if (empl.Id == 1)
+        public FluentProductValidator()
         {
-            // prevent opening for edit based on condition
-            args.IsCancelled = true;
-            Console.WriteLine("You cannot edit this item");
+            RuleFor(item => item.Name).NotEmpty().MinimumLength(3).MaximumLength(24);
+            RuleFor(item => item.Salary).NotNull().GreaterThan(0);
+            RuleFor(item => item.HireDate).NotEmpty().GreaterThanOrEqualTo(DateTime.Today);
         }
     }
 
-    // OnCancel handler
+    private bool TreeListValidationEnabled { get; set; } = true;
 
-    async Task OnCancelHandler(TreeListCommandEventArgs args)
+    private async Task OnTreeListCreate(TreeListCommandEventArgs args)
     {
-        Employee empl = args.Item as Employee;
-        // if necessary, perform actual data source operation here through your service
+        var createdItem = (Employee)args.Item;
+        var parentItem = (Employee?)args.ParentItem;
+
+        await TreeListEmployeeService.Create(createdItem, parentItem);
+
+        TreeListData = await TreeListEmployeeService.Read();
     }
 
-
-    // sample model
-
-    public class Employee
+    private async Task OnTreeListUpdate(TreeListCommandEventArgs args)
     {
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
+        var updatedItem = (Employee)args.Item;
 
-        public List<Employee> DirectReports { get; set; }
-        public bool HasChildren { get; set; }
+        await TreeListEmployeeService.Update(updatedItem);
 
-        // Used for the editing so replacing the object in the view-model data
-        // will treat it as the same object and keep its state - otherwise it will
-        // collapse after editing is done, which is not what the user would expect
-        public override bool Equals(object obj)
-        {
-            if (obj is Employee)
-            {
-                return this.Id == (obj as Employee).Id;
-            }
-            return false;
-        }
-    }
-
-    // data generation
-
-    async Task GetTreeListData()
-    {
-        Data = await MyService.Read();
+        TreeListData = await TreeListEmployeeService.Read();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await GetTreeListData();
+        TreeListData = await TreeListEmployeeService.Read();
     }
 
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<Employee> _data { get; set; } = new List<Employee>();
-        // used in this example for data generation and retrieval for CUD operations on the current view-model data
-        private static int LastId { get; set; } = 1;
-
-        public static async Task Create(Employee itemToInsert, Employee parentItem)
-        {
-            InsertItemRecursive(_data, itemToInsert, parentItem);
-        }
-
-        public static async Task<List<Employee>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 15; i++)
-                {
-                    Employee root = new Employee
-                    {
-                        Id = LastId,
-                        Name = $"root: {i}",
-                        EmailAddress = $"{i}@example.com",
-                        HireDate = DateTime.Now.AddYears(-i),
-                        DirectReports = new List<Employee>(),
-                        HasChildren = true
-                    };
-                    _data.Add(root);
-                    LastId++;
-
-                    for (int j = 1; j < 4; j++)
-                    {
-                        int currId = LastId;
-                        Employee firstLevelChild = new Employee
-                        {
-                            Id = currId,
-                            Name = $"first level child {j} of {i}",
-                            EmailAddress = $"{currId}@example.com",
-                            HireDate = DateTime.Now.AddDays(-currId),
-                            DirectReports = new List<Employee>(),
-                            HasChildren = true
-                        };
-                        root.DirectReports.Add(firstLevelChild);
-                        LastId++;
-
-                        for (int k = 1; k < 3; k++)
-                        {
-                            int nestedId = LastId;
-                            firstLevelChild.DirectReports.Add(new Employee
-                            {
-                                Id = LastId,
-                                Name = $"second level child {k} of {j} and {i}",
-                                EmailAddress = $"{nestedId}@example.com",
-                                HireDate = DateTime.Now.AddMinutes(-nestedId)
-                            }); ;
-                            LastId++;
-                        }
-                    }
-                }
-
-                _data[0].Name += " (non-editable, see OnEdit)";
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(Employee itemToUpdate)
-        {
-            UpdateItemRecursive(_data, itemToUpdate);
-        }
-
-        public static async Task Delete(Employee itemToDelete)
-        {
-            RemoveChildRecursive(_data, itemToDelete);
-        }
-
-        // sample helper methods for handling the view-model data hierarchy
-        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].Id.Equals(itemToUpdate.Id))
-                {
-                    items[i] = itemToUpdate;
-                    return;
-                }
-
-                if (items[i].DirectReports?.Count > 0)
-                {
-                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
-                }
-            }
-        }
-
-        static void RemoveChildRecursive(List<Employee> items, Employee item)
-        {
-            for (int i = 0; i < items.Count(); i++)
-            {
-                if (item.Equals(items[i]))
-                {
-                    items.Remove(item);
-
-                    return;
-                }
-                else if (items[i].DirectReports?.Count > 0)
-                {
-                    RemoveChildRecursive(items[i].DirectReports, item);
-
-                    if (items[i].DirectReports.Count == 0)
-                    {
-                        items[i].HasChildren = false;
-                    }
-                }
-            }
-        }
-
-        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
-        {
-            insertedItem.Id = LastId++;
-            if (parentItem != null)
-            {
-                parentItem.HasChildren = true;
-                if (parentItem.DirectReports == null)
-                {
-                    parentItem.DirectReports = new List<Employee>();
-                }
-
-                parentItem.DirectReports.Insert(0, insertedItem);
-            }
-            else
-            {
-                Data.Insert(0, insertedItem);
-            }
-        }
-    }
+@[template](/_contentTemplates/treelist/editing.md#flat-crud-service-and-model)
 }
 ````
 
-## Use a Custom Validator
-
-You can validate the TreeList with any validator that uses the `EditContext`. To change the default validator, add a `<ValidatorTemplate>` tag in `<TreeListSettings>`. Define the custom validator in the `ValidatorTemplate`. 
-
 ## See Also
 
-  * [TreeList Editing](slug:treelist-editing-overview)
-   
+* [Custom TreeList `DataAnnotations` Validation](slug:validation-kb-custom-dataannotations-validator)
+* [Remote Validation](https://github.com/telerik/blazor-ui/tree/master/grid/remote-validation)

@@ -29,7 +29,7 @@ How to prompt the user to confirm canceling the edit/create before proceeding wi
 
 ## Solution
 
-If the user performs another operation (such as sorting or filtering) while the Grid is in edit mode, then editing will be canceled. Check the last bullet in the [Editing Notes section](slug:components/grid/editing/overview#notes) for more details. The Grid `OnCancel` event will fire and you can handle it to display a Dialog to allow the user to choose whether they want to cancel the editing or not.
+If the user performs another operation (such as sorting or filtering) while the Grid is in edit mode, then editing will be canceled. Check the last bullet in the [Editing Notes section](slug:grid-editing-overview#notes) for more details. The Grid `OnCancel` event will fire and you can handle it to display a Dialog to allow the user to choose whether they want to cancel the editing or not.
 
 Telerik UI for Blazor provides predefined and custom Dialogs:
 

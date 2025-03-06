@@ -14,7 +14,7 @@ By default, each Grid cell renders the value of the respective column `Field` of
 
 ## Basics
 
-To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`](slug:components/grid/columns/bound#data-operations), while the cells' parent row is in [inline edit mode](slug:components/grid/editing/inline).
+To define a column template, use a `<Template>` tag inside the `<GridColumn>` tag. The Grid uses the defined `Template` to show the "view" representation of all cells in that column. This also includes cells from [columns that are marked as `Editable="false"`](slug:components/grid/columns/bound#data-operations), while the cells' parent row is in [inline edit mode](slug:grid-editing-inline).
 
 Visual Studio tends to autocomplete the `<Template>` tag with a lowercase `t` which breaks the template logic and does not allow you to access the `context`. Ensure the `Template` tag uses a capital `T`. 
 

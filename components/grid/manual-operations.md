@@ -12,14 +12,14 @@ position: 55
 
 By default, the Grid will receive the entire collection of data, and it will perform the necessary operations (like [paging](slug:components/grid/features/paging), [sorting](slug:components/grid/features/sorting), [filtering](slug:components/grid/filtering)) internally.
 
-You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug:components/grid/editing/overview) as well, to ensure fresh data.
+You can perform all data operations yourself (e.g. on the server) and load data on demand by using the `OnRead` event of the Grid. The data source will be read after each [CUD operation](slug:grid-editing-overview) as well, to ensure fresh data.
 
 >tip Make sure to get familiar with all the general [`OnRead` event documentation](slug:common-features-data-binding-onread) first.
 
 
 ## Examples
 
-Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](slug:components/grid/editing/overview) article.
+Below you can find a few examples of using the `OnRead` event to perform custom data source operations. They may not implement all operations for brevity. They showcase the basics only, and it is up to the application's data access layer to implement them. You can read more about implementing the CUD operations in the [CRUD Operations Overview](slug:grid-editing-overview) article.
 
 The comments in the code provide explanations on what is done and why.
 
@@ -379,7 +379,7 @@ With a few simple loops, you can extract information from the DataSourceRequest 
 
 ## See Also
 
-* [CRUD Operations Overview](slug:components/grid/editing/overview)
+* [CRUD Operations Overview](slug:grid-editing-overview)
 * [Live Demo: Manual Data Source Operations](https://demos.telerik.com/blazor-ui/grid/manual-operations)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Custom Server Operations](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)

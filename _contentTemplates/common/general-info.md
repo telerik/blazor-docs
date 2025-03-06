@@ -79,7 +79,7 @@ If you set the `ShouldRender` field of the event arguments to `true`, the compon
 | tb-gantt-editable          | [Gantt with Editing](slug:gantt-tree-editing) |
 | tb-ganttcolumn             | [Gantt - Databound Column](slug:gantt-columns-bound) |
 | tb-grid                    | [Grid](slug:grid-overview)           |
-| tb-grid-editable           | [Grid with Editing](slug:components/grid/editing/overview) |
+| tb-grid-editable           | [Grid with Editing](slug:grid-editing-overview) |
 | tb-gridcolumn              | [Grid - Databound Column](slug:components/grid/columns/bound) |
 | tb-gridcolumn-locked       | [Grid with Frozen Column](slug:grid-columns-frozen) |
 | tb-gridlayout              | [GridLayout](slug:gridlayout-overview) |

@@ -1,308 +1,99 @@
 ---
 title: Inline Editing
 page_title: TreeList - Inline Editing
-description: Inline (row) editing of data in treelist for Blazor.
+description: Inline (row) editing of data in TreeList for Blazor.
 slug: treelist-editing-inline
-tags: telerik,blazor,treelist,inline,editing
+tags: telerik, blazor, treelist, editing, inline
 published: True
 position: 1
 ---
 
 # TreeList Inline Editing
 
-Inline editing lets the user click an [Edit command button](slug:treelist-columns-command) on the row, and all its editable columns open up for changes. They can then click a `Save` command button to submit the changes to the data access layer. This fires the `OnUpdate` event of the treelist where your code receives the updated model so you can work with the data (for example, to call the appropriate method of your service). 
+Inline TreeList editing lets users modify all values on a TreeList row. The edit process starts and ends with clicking of command buttons on the respective row. Inline editing can be more intuitive for beginner users, compared to in-cell editing.
 
+@[template](/_contentTemplates/treelist/editing.md#overview-required)
 
-In a similar fashion, the `Cancel` and `Delete` command buttons fire events on the treelist to let you handle the data source operations.
+## Basics
 
-When validation is not satisfied, clicking the Save, Delete or Add buttons will not have effect, but you can still navigate between all fields in the row to complete editing.
+To use inline TreeList editing, [set the TreeList `EditMode` parameter to `TreeListEditMode.Inline`](slug:treelist-editing-overview#edit-modes). During inline editing, only one table row is in edit mode at a time. Users can:
 
-You can also cancel the events by setting the `IsCancelled` property of the event arguments to `true`. This lets you prevent the user from editing certain records, inserting or deleting items, based on your application logic.
+* Press **Tab** or **Shift** + **Tab** to focus the next or previous editable cell.
+* Click the **Save** command button or press **Enter** to confirm the current row changes and exit edit mode.
+* Click the **Cancel** command button or press **ESC** to cancel the current row changes and exit edit mode.
+* Peform another TreeList operation, for example, paging or sorting, to cancel the current edit operation.
 
-To enable Inline editing in the treelist, set its `EditMode` property to `Telerik.Blazor.TreeListEditMode.Inline`, then handle the CRUD events as shown in the example below.
+## Commands
 
+Inline add, edit, and delete operations use the following [command buttons](slug:treelist-editing-overview#commands):
 
->caption The Command buttons and the treelist events let you handle data operations in Inline edit mode
+* **Add**
+* **Delete**
+* **Edit**
+* **Save**
+* **Cancel**
+
+@[template](/_contentTemplates/treelist/editing.md#without-commands)
+
+In inline edit mode, the TreeList commands execute row by row and the corresponding [TreeList events](slug:treelist-editing-overview#events) also fire row by row. This is similar to [popup editing](slug:treelist-editing-popup) and unlike [in-cell editing](slug:treelist-editing-incell), where commands and events relate to cells.
+
+When validation is not satisfied, clicking the **Save**, **Delete** or **Add** command buttons has no effect, but users can still navigate between all input components in the row to complete the editing.
+
+## Integration with Other Features
+
+Here is how the component behaves when the user tries to use add and edit operations together with other component features. Also check the [common information on this topic for all edit modes](slug:treelist-editing-overview#integration-with-other-features).
+
+### Add, Edit
+
+This section explains what happens when the component is already in add or edit mode, and the user tries to add or edit another row.
+
+* If the validation is not satisfied, the component blocks the user action until they complete or cancel the current add or edit operation.
+* If the validation is satisfied, then editing aborts and the component fires `OnCancel`.
+
+### Delete, Filter, Group, Page, Search, Sort
+
+If the component is already in add or edit mode, and the user tries to perform another data operation, then editing aborts and the component fires `OnCancel`.
+
+## Example
+
+The example below shows how to:
+
+* Implement inline TreeList CRUD operations with the minimal required number of events.
+* Bind an editable TreeList to [flat data](slug:treelist-data-binding-flat-data). Check the [popup editing example] for an implementation with [hierarchical data](slug:treelist-data-binding-hierarchical-data).
+@[template](/_contentTemplates/treelist/editing.md#basic-example-description)
+
+>caption TreeList inline editing
 
 ````RAZOR
-@using System.ComponentModel.DataAnnotations @* for the validation attributes *@
+@using System.ComponentModel.DataAnnotations
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
 
-Editing is cancelled for the first record.
-<br />
-
-<TelerikTreeList Data="@Data"
+<TelerikTreeList Data="@TreeListData"
+                 IdField="@nameof(Employee.Id)"
+                 ParentIdField="@nameof(Employee.ParentId)"
+                 ConfirmDelete="true"
                  EditMode="@TreeListEditMode.Inline"
-                 OnUpdate="@UpdateItem"
-                 OnDelete="@DeleteItem"
-                 OnCreate="@CreateItem"
-                 OnEdit="@OnEditHandler"
-                 OnCancel="@OnCancelHandler"
-                 Pageable="true" ItemsField="@(nameof(Employee.DirectReports))"
-                 Width="850px">
-    <TreeListToolBarTemplate>
-        <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add</TreeListCommandButton>
-    </TreeListToolBarTemplate>
-    <TreeListColumns>
-        <TreeListCommandColumn Width="280px">
-            <TreeListCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Child</TreeListCommandButton>
-            <TreeListCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</TreeListCommandButton>
-            <TreeListCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</TreeListCommandButton>
-            <TreeListCommandButton Command="Save" Icon="@SvgIcon.Save" ShowInEdit="true">Save</TreeListCommandButton>
-            <TreeListCommandButton Command="Cancel" Icon="@SvgIcon.Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+@[template](/_contentTemplates/treelist/editing.md#basic-example-parameters-columns)
+        <TreeListCommandColumn Width="200px">
+            <TreeListCommandButton Command="Add">Add</TreeListCommandButton>
+            <TreeListCommandButton Command="Edit">Edit</TreeListCommandButton>
+            <TreeListCommandButton Command="Save" ShowInEdit="true">Save</TreeListCommandButton>
+            <TreeListCommandButton Command="Cancel" ShowInEdit="true">Cancel</TreeListCommandButton>
+            <TreeListCommandButton Command="Delete">Delete</TreeListCommandButton>
         </TreeListCommandColumn>
-
-        <TreeListColumn Field="Name" Expandable="true" Width="320px" />
-        <TreeListColumn Field="Id" Editable="false" Width="120px" />
-        <TreeListColumn Field="EmailAddress" Width="220px" />
-        <TreeListColumn Field="HireDate" Width="220px" />
     </TreeListColumns>
 </TelerikTreeList>
 
-
 @code {
-    public List<Employee> Data { get; set; }
+@[template](/_contentTemplates/treelist/editing.md#basic-example-code)
 
-    // Sample CUD operations for the local data
-    async Task UpdateItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Update(item);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    async Task CreateItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-        var parentItem = args.ParentItem as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Create(item, parentItem);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    async Task DeleteItem(TreeListCommandEventArgs args)
-    {
-        var item = args.Item as Employee;
-
-        // perform actual data source operations here through your service
-        await MyService.Delete(item);
-
-        // update the local view-model data with the service data
-        await GetTreeListData();
-    }
-
-    // OnEdit handler
-
-    async Task OnEditHandler(TreeListCommandEventArgs args)
-    {
-        Employee empl = args.Item as Employee;
-        if (empl.Id == 1)
-        {
-            // prevent opening for edit based on condition
-            args.IsCancelled = true;
-            Console.WriteLine("You cannot edit this item");
-        }
-    }
-
-    // OnCancel handler
-
-    async Task OnCancelHandler(TreeListCommandEventArgs args)
-    {
-        Employee empl = args.Item as Employee;
-        // if necessary, perform actual data source operation here through your service
-    }
-
-
-    // sample model
-
-    public class Employee
-    {
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public DateTime HireDate { get; set; }
-
-        public List<Employee> DirectReports { get; set; }
-        public bool HasChildren { get; set; }
-
-        // Used for the editing so replacing the object in the view-model data
-        // will treat it as the same object and keep its state - otherwise it will
-        // collapse after editing is done, which is not what the user would expect
-        public override bool Equals(object obj)
-        {
-            if (obj is Employee)
-            {
-                return this.Id == (obj as Employee).Id;
-            }
-            return false;
-        }
-    }
-
-    // data generation
-
-    async Task GetTreeListData()
-    {
-        Data = await MyService.Read();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetTreeListData();
-    }
-
-    // the following static class mimics an actual data service that handles the actual data source
-    // replace it with your actual service through the DI, this only mimics how the API can look like and works for this standalone page
-    public static class MyService
-    {
-        private static List<Employee> _data { get; set; } = new List<Employee>();
-        // used in this example for data generation and retrieval for CUD operations on the current view-model data
-        private static int LastId { get; set; } = 1;
-
-        public static async Task Create(Employee itemToInsert, Employee parentItem)
-        {
-            InsertItemRecursive(_data, itemToInsert, parentItem);
-        }
-
-        public static async Task<List<Employee>> Read()
-        {
-            if (_data.Count < 1)
-            {
-                for (int i = 1; i < 15; i++)
-                {
-                    Employee root = new Employee
-                    {
-                        Id = LastId,
-                        Name = $"root: {i}",
-                        EmailAddress = $"{i}@example.com",
-                        HireDate = DateTime.Now.AddYears(-i),
-                        DirectReports = new List<Employee>(),
-                        HasChildren = true
-                    };
-                    _data.Add(root);
-                    LastId++;
-
-                    for (int j = 1; j < 4; j++)
-                    {
-                        int currId = LastId;
-                        Employee firstLevelChild = new Employee
-                        {
-                            Id = currId,
-                            Name = $"first level child {j} of {i}",
-                            EmailAddress = $"{currId}@example.com",
-                            HireDate = DateTime.Now.AddDays(-currId),
-                            DirectReports = new List<Employee>(),
-                            HasChildren = true
-                        };
-                        root.DirectReports.Add(firstLevelChild);
-                        LastId++;
-
-                        for (int k = 1; k < 3; k++)
-                        {
-                            int nestedId = LastId;
-                            firstLevelChild.DirectReports.Add(new Employee
-                            {
-                                Id = LastId,
-                                Name = $"second level child {k} of {j} and {i}",
-                                EmailAddress = $"{nestedId}@example.com",
-                                HireDate = DateTime.Now.AddMinutes(-nestedId)
-                            }); ;
-                            LastId++;
-                        }
-                    }
-                }
-
-                _data[0].Name += " (non-editable, see OnEdit)";
-            }
-
-            return await Task.FromResult(_data);
-        }
-
-        public static async Task Update(Employee itemToUpdate)
-        {
-            UpdateItemRecursive(_data, itemToUpdate);
-        }
-
-        public static async Task Delete(Employee itemToDelete)
-        {
-            RemoveChildRecursive(_data, itemToDelete);
-        }
-
-        // sample helper methods for handling the view-model data hierarchy
-        static void UpdateItemRecursive(List<Employee> items, Employee itemToUpdate)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].Id.Equals(itemToUpdate.Id))
-                {
-                    items[i] = itemToUpdate;
-                    return;
-                }
-
-                if (items[i].DirectReports?.Count > 0)
-                {
-                    UpdateItemRecursive(items[i].DirectReports, itemToUpdate);
-                }
-            }
-        }
-
-        static void RemoveChildRecursive(List<Employee> items, Employee item)
-        {
-            for (int i = 0; i < items.Count(); i++)
-            {
-                if (item.Equals(items[i]))
-                {
-                    items.Remove(item);
-
-                    return;
-                }
-                else if (items[i].DirectReports?.Count > 0)
-                {
-                    RemoveChildRecursive(items[i].DirectReports, item);
-
-                    if (items[i].DirectReports.Count == 0)
-                    {
-                        items[i].HasChildren = false;
-                    }
-                }
-            }
-        }
-
-        static void InsertItemRecursive(List<Employee> Data, Employee insertedItem, Employee parentItem)
-        {
-            insertedItem.Id = LastId++;
-            if (parentItem != null)
-            {
-                parentItem.HasChildren = true;
-                if (parentItem.DirectReports == null)
-                {
-                    parentItem.DirectReports = new List<Employee>();
-                }
-
-                parentItem.DirectReports.Insert(0, insertedItem);
-            }
-            else
-            {
-                Data.Insert(0, insertedItem);
-            }
-        }
-    }
+@[template](/_contentTemplates/treelist/editing.md#flat-crud-service-and-model)
 }
 ````
 
->caption The result from the code snippet above, after the Edit button was clicked on the record with ID 4
-
-![Blazor TreeList Inline Editing](images/inline-editing.png)
-
->note It is up to the data access logic to save the data once it is changed in the data collection, or to revert changes. The example above showcases the events that allow you to do that. In a real application, the code for handling data operations may be entirely different.
-
 ## See Also
 
-  * [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
-   
+* [Live Demo: TreeList Inline Editing](https://demos.telerik.com/blazor-ui/treelist/editing-inline)
+* [TreeList Editor Template](slug:treelist-templates-editor)
+* [Start and End Editing through the TreeList State](slug:grid-kb-add-edit-state)

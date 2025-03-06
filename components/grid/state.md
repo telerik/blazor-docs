@@ -31,12 +31,12 @@ The Grid state is a generic [class `GridState<TItem>`](slug:Telerik.Blazor.Compo
 | --- | --- | --- |
 | `CollapsedGroups` | `ICollection<int>` | The indexes of all collapsed [groups](slug:components/grid/features/grouping) when `LoadGroupsOnDemand="false"`, i.e. when not [loading groups on demand](slug:grid-group-lod). |
 | `ColumnStates` | `ICollection<GridColumnState>` | Information about each [column's reorder index, width, visibility, locked state, `Id` parameter value and `Field`](slug:components/grid/columns/bound). The column order in the collection matches the column order in the Grid declaration. On the other hand, the `Index` property matches the current column's position in the UI. **`Id` and `Field` are always `null` after deserialization, because these properties have no public setters.** |
-| `EditField` | `string` | The currently edited data item property in [`Incell` edit mode](slug:components/grid/editing/incell). |
-| `EditItem` | `TItem`* | The currently edited data item in [any edit mode](slug:components/grid/editing/overview). |
+| `EditField` | `string` | The currently edited data item property in [`Incell` edit mode](slug:grid-editing-incell). |
+| `EditItem` | `TItem`* | The currently edited data item in [any edit mode](slug:grid-editing-overview). |
 | `ExpandedItems` | `ICollection<TItem>` | The expanded data items, when [using `<DetailTemplate>` (hierarchy)](slug:components/grid/features/hierarchy). |
 | `FilterDescriptors` | `ICollection<IFilterDescriptor>` | A collection of [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering), except the ones that relate to the [`GridSearchBox`](slug:grid-searchbox). |
 | `GroupDescriptors` | `ICollection<GroupDescriptor>` | Information about currently applied [grouping](slug:components/grid/features/grouping). |
-| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing](slug:components/grid/editing/incell#event-sequence). |
+| `InsertedItem` | `TItem`* | The data item that is being added in `Inline` or `Popup` edit mode. [Not applicable for `Incell` editing](slug:grid-editing-incell#event-sequence). |
 | `OriginalEditItem` | `TItem`* | The original copy of the data item that is currently in edit mode. This `GridState` property holds the unmodified data item values. |
 | `Page` | `int?` | The current [page index](slug:components/grid/features/paging). Some user actions reset the page index to 1, such as filtering or changing the page size. |
 | `SearchFilter` | `IFilterDescriptor` | The [`CompositeFilterDescriptor`](slug:common-features-descriptors#filtering) that holds the filter descriptors for the [`GridSearchBox`](slug:grid-searchbox). |
@@ -166,7 +166,7 @@ The example below shows how to apply initial sorting, filtering and grouping.
 Here is some additional information about certain `PropertyName` values:
 
 * `EditItem` is used when the user starts editing an existing item.
-* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug:components/grid/editing/incell#event-sequence).
+* `InsertedItem` signifies the user adding a new item in inline or popup edit mode. It's [not applicable for `Incell` editing](slug:grid-editing-incell#event-sequence).
 * `OriginalEditItem` is used when the user exits edit or insert mode via save or cancel.
 * `ColumnStates` is used for several column actions such as hiding, showing, locking, reordering and resizing.
 
@@ -376,7 +376,7 @@ If you want to make changes to the current Grid state:
 
 > Do not use `GetState()` in the [`OnStateInit`](#onstateinit) or [`OnStateChanged`](#onstatechanged) events. Do not use `SetStateAsync()` in `OnStateInit`. Instead, get or set the `GridState` property of the event argument.
 >
-> Avoid calling `SetStateAsync` in the Grid [CRUD methods](slug:components/grid/editing/overview) (such as [`OnRead`](slug:components/grid/manual-operations), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
+> Avoid calling `SetStateAsync` in the Grid [CRUD methods](slug:grid-editing-overview) (such as [`OnRead`](slug:components/grid/manual-operations), `OnUpdate`, `OnEdit`, `OnCreate`, `OnCancel`). Doing so may lead to unexpected results because the Grid has more logic to execute after these events. Setting the Grid state fires `OnRead`, so calling `SetStateAsync()` in this handler can lead to an endless loop.
 
 >tip To reset the Grid state to its initial markup configuration, call `SetStateAsync(null)`.
 >

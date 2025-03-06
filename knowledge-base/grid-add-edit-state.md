@@ -5,7 +5,7 @@ type: how-to
 page_title: Enter and Exit Grid Edit Mode from Code
 slug: grid-kb-add-edit-state
 position: 
-tags: grid, state
+tags: grid, state, editing
 ticketid:
 res_type: kb
 ---
@@ -24,17 +24,12 @@ res_type: kb
 
 ## Description
 
-How to enter edit mode from code?
-
-How to initiate insert and edit operations programmatically, instead of using [command buttons](slug:components/grid/columns/command)?
-
-How to add new Grid rows with a custom button, which is outside the component?
-
-How to insert Grid rows with an external button?
-
-How to cancel Grid edit mode programmatically?
-
-How to implement Grid command buttons outside the Grid?
+* How to enter edit mode from code?
+* How to initiate insert and edit operations programmatically, instead of using [command buttons](slug:components/grid/columns/command)?
+* How to add new Grid rows with a custom button, which is outside the component?
+* How to insert Grid rows with an external button?
+* How to cancel Grid edit mode programmatically?
+* How to implement Grid command buttons outside the Grid?
 
 
 ## Solution
@@ -46,7 +41,7 @@ This scenario requires knowledge about the [Grid State](slug:grid-state). Get fa
 
 To enter and exit edit mode, set the following properties of the `GridState` object:
 
-* `InsertedItem` must be a new data item instance that will potentially be added to the Grid. You can set some default values, if needed.
+* `InsertedItem` must be a new data item instance that will potentially be added to the Grid. Applicable only for `Inline` and `Popup` edit mode. You can set some default values, if needed.
 * `OriginalEditItem` must be a reference to an existing data item.
 * `EditItem` must be a clone (copy) of the `OriginalEditItem`. Later it will either update the original item, or be discarded.
 * `EditField` is used for incell editing only. It determines which cell will render an editor.
@@ -56,9 +51,9 @@ Each property that is not relevant to a desired Grid state, should be set to `nu
 
 ## Example
 
-The sample below shows how to add, edit, cancel and save items in [`Inline`](slug:components/grid/editing/inline) and [`Popup`](slug:components/grid/editing/popup) `EditMode`.
+The sample below shows how to add, edit, cancel and save items in [`Inline`](slug:grid-editing-inline) and [`Popup`](slug:grid-editing-popup) `EditMode`.
 
-All these operations can also be used for [`Incell`](slug:components/grid/editing/incell). However, blurring the edited cell triggers [`OnUpdate`](slug:components/grid/editing/overview#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`](slug:grid-templates-editor) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
+All these operations can also be used for [`Incell`](slug:grid-editing-incell). However, blurring the edited cell triggers [`OnUpdate`](slug:grid-editing-overview#events), so external UI to manage the Grid doesn't make sense. Some special [`EditorTemplate`](slug:grid-templates-editor) may benefit from programmatic incell cancel or update. The required logic is the same as with inline editing, with the addition of `EditField`.
 
 >caption Enter and exit Grid edit mode programmatically
 

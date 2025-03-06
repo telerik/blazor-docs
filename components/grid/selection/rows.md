@@ -158,9 +158,9 @@ You can respond to user selection actions through the `SelectedItemsChanged` eve
 
 When the Grid `Data` collection changes, the `SelectedItems` collection has the following behavior:
 
-* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [Grid `OnUpdate` event](slug:components/grid/editing/overview#events).
+* When the user updates a selected item and the item instance is replaced, you have to also replace the selected item object in the `SelectedItems` collection. Do that in the [Grid `OnUpdate` event](slug:grid-editing-overview#events).
 * When the user deletes a selected item, the Grid automatically deletes it from the `SelectedItems` collection and the [`SelectedItemsChanged` event](#selecteditemschanged-event) fires.
-* To select a new item in the Grid you can use the [`OnCreate` event](slug:components/grid/editing/overview#events) to update the `SelectedItems` collection.
+* To select a new item in the Grid you can use the [`OnCreate` event](slug:grid-editing-overview#events) to update the `SelectedItems` collection.
 
 ## Equals Comparison
 
@@ -179,8 +179,8 @@ The selection behavior may vary when other Grid features are enabled, such as ed
 
 When users edit rows, the row selection has the following behavior:
 
-* In [`Incell` edit mode](slug:components/grid/editing/incell) the row selection can work only through a [checkbox column](slug:components/grid/columns/checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) KB article.
-* [`Inline` edit mode](slug:components/grid/editing/inline) and [`Popup` edit mode](slug:components/grid/editing/popup) integrate with row selection without limitations.
+* In [`Incell` edit mode](slug:grid-editing-incell) the row selection can work only through a [checkbox column](slug:components/grid/columns/checkbox). This is required due to the overlapping pointer events that trigger selection and editing. To see how to select the row that is being edited in `InCell` edit mode without using a `<GridCheckboxColumn />` check out the [Row Selection in Edit with InCell EditMode](slug:grid-kb-row-select-incell-edit) KB article.
+* [`Inline` edit mode](slug:grid-editing-inline) and [`Popup` edit mode](slug:grid-editing-popup) integrate with row selection without limitations.
 
 ### Selection and Virtual Scrolling
 

@@ -41,7 +41,7 @@ Here are the required development steps:
 
 1. [Attach a `keyup` handler](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) for the Grid element (`div.k-grid`). Use a JavaScript code and call it once from `OnAfterRenderAsync`.
 1. Use the [`keyup` event arguments](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) to track `Enter` and `Tab` key presses inside edit cells (`td.k-grid-edit-cell`) on the last table row in the Grid.
-1. Check if the user is updating the last Grid row in the [`OnUpdate` handler](slug:components/grid/editing/overview#events).
+1. Check if the user is updating the last Grid row in the [`OnUpdate` handler](slug:grid-editing-overview#events).
 1. If the previous point is true, then use JSInterop to verify if the user has pressed `Enter` or `Tab`. In this case, add a new data item at the end of the Grid `Data` collection.
 1. If column reordering is enabled, use the [`OnStateChanged` event](slug:grid-state#events) to track which is the last editable column. Use this information when the user is tabbing, before adding a new data item to the Grid.
 
@@ -240,4 +240,4 @@ function getLastKey() {
 
 ## See Also
 
-* [Grid in cell editing](slug:components/grid/editing/incell)
+* [Grid in cell editing](slug:grid-editing-incell)

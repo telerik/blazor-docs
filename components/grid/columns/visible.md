@@ -67,7 +67,7 @@ To hide a Grid column set its `Visible` parameter to `false`. To hide a column b
 
 Non-visible columns (`Visible="false"`) will have the following behavior:
 
-* Will not be [editable](slug:components/grid/editing/overview).
+* Will not be [editable](slug:grid-editing-overview).
 * Will not be exported in [excel export](slug:grid-export-excel).
 * Will not be visible when the data is [grouped](slug:components/grid/features/grouping).
 * [Templates](slug:components/grid/features/templates) will not be rendered.

@@ -188,9 +188,9 @@ The `GridSelectedCellDescriptor` type exposes the following properties:
 
 When the Grid `Data` collection changes, the `SelectedCells` collection has the following behavior:
 
-* When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event](slug:components/grid/editing/overview#events).
+* When the user updates a selected cell and the item instance is replaced, you have to also replace the `DataItem` object in the `SelectedCells` collection. Do that in the [Grid `OnUpdate` event](slug:grid-editing-overview#events).
 * When the user deletes a row with selected cells, update the `SelectedCells` collection in the the Grid `OnDelete` event handler.
-* To select cells from a new item in the Grid you can use the [`OnCreate` event](slug:components/grid/editing/overview#events) to update the `SelectedCells` collection.
+* To select cells from a new item in the Grid you can use the [`OnCreate` event](slug:grid-editing-overview#events) to update the `SelectedCells` collection.
 
 ### Equals Comparison
 
@@ -209,8 +209,8 @@ The selection feature behavior may vary when the Grid configuration combines cel
 
 When you want to edit a Grid item, the cell selection has the following behavior:
 
-* Cell selection is not supported with [`Incell` edit mode](slug:components/grid/editing/incell) due to the overlapping pointer events that trigger selection and editing.
-* [`Inline` edit mode](slug:components/grid/editing/inline) and [`Popup` edit mode](slug:components/grid/editing/popup) integrate with cell selection without limitations.
+* Cell selection is not supported with [`Incell` edit mode](slug:grid-editing-incell) due to the overlapping pointer events that trigger selection and editing.
+* [`Inline` edit mode](slug:grid-editing-inline) and [`Popup` edit mode](slug:grid-editing-popup) integrate with cell selection without limitations.
 
 ### Selection and Virtual Scrolling
 

@@ -1,5 +1,5 @@
 #initial-state
->tip If you want to set an initial state to the TreeList, use a similar snippet, but in the [`OnStateInit event`](slug:treelist-state#set-default-initial-state)
+>tip If you want to set an initial state to the TreeList, use a similar snippet, but in the [`OnStateInit event`](slug:treelist-state#onstateinit)
 #end
 
 
@@ -407,6 +407,106 @@
 }
 #end
 
+#search-from-code
+@using Telerik.DataSource
+
+<TelerikTreeList @ref="@TreeListRef"
+                 Data="@TreeListData"
+                 IdField="@nameof(SampleModel.Id)"
+                 ParentIdField="@nameof(SampleModel.ParentId)"
+                 Pageable="true"
+                 Sortable="true">
+    <TreeListToolBarTemplate>
+        <TreeListSearchBox />
+        <TelerikButton Icon="@SvgIcon.Search"
+                       ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                       OnClick="@OnSearchButtonClick">Search Programmatically</TelerikButton>
+        <TelerikButton Icon="@SvgIcon.X"
+                       OnClick="@OnClearButtonClick">Clear Search</TelerikButton>
+    </TreeListToolBarTemplate>
+    <TreeListColumns>
+        <TreeListColumn Field="@nameof(SampleModel.Name)" Expandable="true" />
+        <TreeListColumn Field="@nameof(SampleModel.Description)" />
+    </TreeListColumns>
+</TelerikTreeList>
+
+@code {
+    private TelerikTreeList<SampleModel>? TreeListRef { get; set; }
+
+    private List<SampleModel> TreeListData { get; set; } = new();
+
+    private async Task OnSearchButtonClick()
+    {
+        if (TreeListRef != null)
+        {
+            var treelistState = TreeListRef.GetState();
+
+            var searchString = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)}";
+
+            var cfd = new CompositeFilterDescriptor();
+
+            cfd.LogicalOperator = FilterCompositionLogicalOperator.Or;
+            cfd.FilterDescriptors = new FilterDescriptorCollection();
+
+            // Add one FilterDesccriptor for each string column
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Name),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+            cfd.FilterDescriptors.Add(new FilterDescriptor()
+            {
+                Member = nameof(SampleModel.Description),
+                MemberType = typeof(string),
+                Operator = FilterOperator.Contains,
+                Value = searchString
+            });
+
+            treelistState.SearchFilter = cfd;
+
+            await TreeListRef.SetStateAsync(treelistState);
+        }
+    }
+
+    private async Task OnClearButtonClick()
+    {
+        if (TreeListRef != null)
+        {
+            var treelistState = TreeListRef.GetState();
+
+            (treelistState.SearchFilter as CompositeFilterDescriptor)?.FilterDescriptors.Clear();
+
+            await TreeListRef.SetStateAsync(treelistState);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        for (int i = 1; i <= 500; i++)
+        {
+            TreeListData.Add(new SampleModel()
+            {
+                Id = i,
+                ParentId = i <= 5 ? null : Random.Shared.Next(1, 6),
+                Name = $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} " +
+                    $"{(char)Random.Shared.Next(65, 91)}{(char)Random.Shared.Next(65, 91)} {i}",
+                Description = $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} " +
+                    $"{(char)Random.Shared.Next(97, 123)}{(char)Random.Shared.Next(97, 123)} {i}"
+            });
+        }
+    }
+
+    public class SampleModel
+    {
+        public int Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}
+#end
 
 #expand-items-from-code
 @*Expand a root level item on a button click*@
@@ -781,4 +881,8 @@
         return await Task.FromResult(data);
     }
 }
+#end
+
+#statechanged-possible-prop-values
+The possible values for the `PropertyName` are `SortDescriptors`, `FilterDescriptors`, `SearchFilter`, `Page`, `Skip`, `ColumnStates`, `ExpandedItems`, `InsertedItem`, `OriginalEditItem`, `EditItem`.
 #end

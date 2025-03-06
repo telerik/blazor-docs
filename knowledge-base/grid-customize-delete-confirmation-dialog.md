@@ -335,5 +335,5 @@ Using the [Dialog component](slug:dialog-overview) will let you have fully custo
 
 ## See Also
 
-* [Grid Editing](slug:components/grid/editing/overview)
+* [Grid Editing](slug:grid-editing-overview)
 * [Dialog Overview](slug:dialog-overview)
