@@ -93,6 +93,12 @@ There are several common causes for that behavior:
 
 
 ## Solution
+
 Set the `RowHeight` parameter to a fixed value in pixels so that it accommodates the content (depending on the content, padding, margins, font-size and other rules and settings on your app such the Theme and CSS related rules) and matches the monitor and browser settings.
 
-You can read more in the [Notes section of the Virtual Scrolling article](slug:components/grid/virtual-scrolling).
+You can read more in the [`RowHeight` section of the Grid Virtual Scrolling article](slug:components/grid/virtual-scrolling#rowheight).
+
+## See Also
+
+* [Virtual Grid Scrolling](slug:components/grid/virtual-scrolling)
+* [Virtual TreeList Scrolling](slug:treelist-virtual-scrolling)
