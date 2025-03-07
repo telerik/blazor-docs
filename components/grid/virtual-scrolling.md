@@ -8,57 +8,134 @@ published: True
 position: 60
 ---
 
-# Virtual Scrolling
+# Grid Virtual Scrolling
 
-Virtual scrolling provides an alternative to paging. Instead of utilizing a pager, the user scrolls vertically through all records in the data source.
+Virtual Grid scrolling allows users to scroll vertically through all records in the Grid data source. The feature is an alternative to paging.
 
-To enhance rendering performance, the Grid reuses the same set of HTML elements. As the next data loads, a loading indicator appears on the cells. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
+To enhance the rendering performance, the Grid reuses the same set of HTML elements. Loading indicators (skeletons) appear in the table cells during scrolling and data loading. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
-You can also use the Blazor Grid virtualization for the Grid columns. See the [Column Virtualization](slug:grid-columns-virtual) article for more information.
+You can also use the [Blazor Grid virtualization for the Grid columns](slug:grid-columns-virtual).
 
 ## Using Virtual Scrolling
 
-For the Blazor Grid virtualization to work, you need to:
+To enable Blazor Grid row virtualization:
 
 1. Set the `ScrollMode` parameter to `GridScrollMode.Virtual` (the default value is `Scrollable`).
-1. [Set the `Height` parameter](#setting-a-value-for-the-height-parameter).
-1. [Set the `RowHeight` parameter](#setting-a-value-for-the-rowheight-parameter).
-1. [Set the `PageSize` parameter](#setting-a-value-for-the-pagesize-parameter).
+1. [Set the `Height` parameter](#height) to a `string` CSS value.
+1. [Set the `RowHeight` parameter](#rowheight) to a `decimal` value that denotes pixels.
+1. [Set the `PageSize` parameter](#pagesize).
 
-## Setting a Value for the Height Parameter
+> The values of the `Height`, `RowHeight`, and `PageSize` parameters are related to one another. The following sections explain how.
 
-Set the `Height` parameter to a `string` value. The value can be in:
+## Height
 
-* Pixels&mdash;for example, `Height="480px"`.
-* Percent&mdash;for example, `Height="30%"`. If you set the `Height` parameter to a percentage value, ensure that the wrapper of the Grid has a fixed height set in pixels.
-* Relative CSS units like vh, vmin, and vmax&mdash;for example, `Height="30vh"`.
+Set the Grid `Height` parameter to any [valid `string` CSS value](slug:common-features/dimensions), for example, `px`, `%`, `em`, or `vh`. If the Grid should expand vertically, accoding to the available space, then check the article [Adjust Grid Height to Match the Browser Viewport Height](slug:grid-kb-adjust-height-with-browser).
 
-The tabs below show how to set the `Height` parameter with the different value options.
+Set the `Height` value, so that users can't see the whole [`PageSize` of items](#pagesize) at once. Otherwise, empty row skeletons may display in the Grid while users are not scrolling.
 
-<div class="skip-repl"></div>
-````RAZOR Pixel
+## PageSize
+
+Set the Grid `PageSize` parameter to an `int` value. The `PageSize` determines:
+
+* How many table rows are populated and rendered at any given time.
+* How many data items are requested from the data source when using the [Grid `OnRead` event to load data on demand](slug:components/grid/manual-operations).
+
+Set the `PageSize` value, so that the rendered table rows do fit in the [Grid height](#height). At least one table row must be completely invisible.Otherwise, empty row skeletons may display in the Grid while users are not scrolling. The exact `PageSize` value allows you to balance between better user experience and data request efficiency:
+
+* A larger `PageSize` value will make the Grid display empty row skeletons more rarely while users are scrolling down. At the same time, the Grid may be requesting a larger number of data items repetitively.
+* A smaller `PageSize` will make the Grid request a smaller number of items on each user scroll. At the same time, users will see row skeletons sooner or more frequently during scrolling.
+
+> The `PageSize` value does not affect the data request frequency. The Grid `OnRead` event always fires when the user stops scrolling, no matter what data is currently available.
+
+## RowHeight
+
+Set the `RowHeight` parameter to a `decimal` value. The Grid uses it to set an inline `height` style in pixels to all Grid table rows (`<tr>`).
+
+The `RowHeight` value must be large enough to accommodate the cell content in all rows, even if the content differs. In other words, the `RowHeight` setting must apply the same or greater table row height than what the browser would normally render. The effective row height depends on:
+
+* The cell content and text wrapping.
+* The [`Size` parameter value](slug:grid-sizing).
+* The CSS theme, including font size, line height, and cell paddings.
+
+For example, the following list shows the minimum valid `RowHeight` values when using the [built-in CSS themes](slug:themes-overview), single-line plain text content, no command buttons, and [`Medium` `Size`](slug:grid-sizing):
+
+* `36` for the Default theme (`14px` font size, `20px` line height, and 2 * `8px` vertical paddings)
+* `40` for the Bootstrap theme (`16px` font size, `24px` line height, and 2 * `8px` vertical paddings)
+* `48` for the Material theme (`14px` font size, `28px` line height, and 2 * `10px` vertical paddings)
+* `44` for the Fluent theme (`14px` font size, `20px` font size and 2 * `12px` vertical paddings)
+
+> Browsers treat table row `height` styles as `min-height` styles. If the table row content cannot fit in the set `RowHeight`, the browser expands the table row. The Grid configuration must not allow this to happen. It is crucial that all Grid table rows display with the same effective height when using virtial scrolling, otherwise the virtual scrolling experience will break.
+
+The `RowHeight` parameter value cannot change at runtime, unless the application recreates the whole Grid component by removing it from the web page temporarily.
+
+If necessary, you can also use the `RowHeight` parameter without virtual row scrolling.
+
+## Limitations
+
+The Blazor Grid virtualization enhances client-side rendering performance and improves the user experience by providing quicker access to all data items. However, this comes with the trade-offs:
+
+* [Hierarchy](slug:components/grid/features/hierarchy) is not supported. If the Grid hierarchy is self-referencing, use a [TreeList with virtual scrolling](slug:treelist-virtual-scrolling) instead.
+* [Grouping](slug:components/grid/features/grouping) is supported only when [loading groups on demand](slug:grid-group-lod).
+* There is a [browser limitation, which affects the maximum number of data items in a virtual Grid](slug:grid-kb-virtualization-many-records). The problem occurs with millions of items and you can partially mitigate it by [changing the Grid styles to make the row height smaller](slug:grid-kb-reduce-row-height).
+
+In addition to virtual scrolling, another approach to optimize the app rendering and data request performance is to use [Grid paging](slug:components/grid/features/paging) and [`OnRead` event](slug:common-features-data-binding-onread).
+
+## Example
+
+Row virtualization is often used with a large number of data items that cannot be loaded in a single request. Thus, the example below uses the [Grid `OnRead` event](slug:components/grid/manual-operations) together with the [`ToDataSourceResultAsync()`](slug:common-features-data-binding-onread#todatasourceresult-method) method. You can also use the Grid `Data` parameter and load all data items with a single request. [Do not use `Data` and `OnRead` at the same time](slug:common-features-data-binding-overview#how-to-provide-data).
+
+If you use the `OnRead` event without `ToDataSourceResultAsync()`, then [use the `Skip` and `PageSize` values](slug:components/grid/manual-operations#virtual-scrolling-with-onread) of the [`DataSourceRequest` argument](slug:common-features-data-binding-onread#event-argument) to determine the Grid scroll offset and load the correct data items.
+
+>caption Virtual Grid scrolling with optional OnRead event and grouping
+
+````RAZOR
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid OnRead="@OnGridRead"
              TItem="@Product"
+             FilterMode="GridFilterMode.FilterMenu"
+             Groupable="true"
+             Height="360px"
+             LoadGroupsOnDemand="true"
+             PageSize="20"
+             RowHeight="40"
              ScrollMode="@GridScrollMode.Virtual"
-             Height="480px" RowHeight="60" PageSize="20"
-             Sortable="true" FilterMode="@GridFilterMode.FilterRow">
+             Sortable="true">
+    <GridAggregates>
+        <GridAggregate Field="@nameof(Product.Name)"
+                       FieldType="@typeof(string)"
+                       Aggregate="@GridAggregateType.Count" />
+    </GridAggregates>
     <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
-        <GridColumn Field="@nameof(Product.Stock)" />
+        <GridColumn Field="@nameof(Product.Name)">
+            <FooterTemplate>
+                Count: @context.Count
+            </FooterTemplate>
+        </GridColumn>
+        <GridColumn Field="@nameof(Product.Category)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:c2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" />
     </GridColumns>
 </TelerikGrid>
 
+<p style="margin-top: 1em; font-size: 1.5em;">
+    <code>DataSourceRequest.Skip</code> value
+    in the <code>OnRead</code> event argument: <strong>@GridSkip</strong>
+</p>
+
 @code {
-    private List<Product> GridData { get; set; } = new List<Product>();
+    private List<Product> GridData { get; set; } = new();
+
+    private int GridSkip { get; set; }
 
     private async Task OnGridRead(GridReadEventArgs args)
     {
-        await Task.Delay(200); // simulate network delay
+        // Use args.Request.Skip and args.Request.PageSize
+        // to load the correct data items without ToDataSourceResultAsync()
+        GridSkip = args.Request.Skip;
 
-        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
+        DataSourceResult result = await GridData.ToDataSourceResultAsync(args.Request);
 
         args.Data = result.Data;
         args.Total = result.Total;
@@ -67,16 +144,17 @@ The tabs below show how to set the `Height` parameter with the different value o
 
     protected override void OnInitialized()
     {
-        GridData = new List<Product>();
-        var rnd = new Random();
-
         for (int i = 1; i <= 1000; i++)
         {
             GridData.Add(new Product()
             {
                 Id = i,
-                Name = $"Product {i}",
-                Stock = rnd.Next(0, 100)
+                Name = $"Name {i}",
+                Category = $"Category {i % 6 + 1}",
+                Price = Random.Shared.Next(1, 100) * 1.23m,
+                Quantity = Random.Shared.Next(0, 1000),
+                Release = DateTime.Now.AddDays(-Random.Shared.Next(60, 1000)),
+                Discontinued = i % 4 == 0
             });
         }
     }
@@ -85,255 +163,17 @@ The tabs below show how to set the `Height` parameter with the different value o
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public int Stock { get; set; }
+        public string Category { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public DateTime Release { get; set; }
+        public bool Discontinued { get; set; }
     }
 }
 ````
-````RAZOR Percent
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<div style="height: 600px">
-    <TelerikGrid OnRead="@OnGridRead"
-                 TItem="@Product"
-                 ScrollMode="@GridScrollMode.Virtual"
-                 Height="100%" RowHeight="60" PageSize="20"
-                 Sortable="true" FilterMode="@GridFilterMode.FilterRow">
-        <GridColumns>
-            <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
-            <GridColumn Field="@nameof(Product.Stock)" />
-        </GridColumns>
-    </TelerikGrid>
-</div>
-
-@code {
-    private List<Product> GridData { get; set; } = new List<Product>();
-
-    private async Task OnGridRead(GridReadEventArgs args)
-    {
-        await Task.Delay(200); // simulate network delay
-
-        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
-
-        args.Data = result.Data;
-        args.Total = result.Total;
-        args.AggregateResults = result.AggregateResults;
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Product>();
-        var rnd = new Random();
-
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Product {i}",
-                    Stock = rnd.Next(0, 100)
-                });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int Stock { get; set; }
-    }
-}
-````
-````RAZOR RelativeUnits
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<div>Select a relative CSS unit from the RadioGroup to see how the Grid's Height reacts to different relative CSS units.</div>
-
-<TelerikRadioGroup Data="@RelativeUnitsOptions"
-                   Value="@ChosenRelativeUnit"
-                   ValueChanged="@((int relativeUnitId) => RadioGroupChanged(relativeUnitId))"
-                   ValueField="@nameof(RelativeUnitsDescriptor.RelativeUnitId)"
-                   TextField="@nameof(RelativeUnitsDescriptor.RelativeUnitText)">
-</TelerikRadioGroup>
-
-<TelerikGrid OnRead="@OnGridRead"
-             TItem="@Product"
-             ScrollMode="@GridScrollMode.Virtual"
-             Height="@GridHeight" RowHeight="60" PageSize="20"
-             Sortable="true" FilterMode="@GridFilterMode.FilterRow">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
-        <GridColumn Field="@nameof(Product.Stock)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private int ChosenRelativeUnit { get; set; }
-
-    private string GridHeight { get; set; }
-
-    private void RadioGroupChanged(int relativeUnitId)
-    {
-        ChosenRelativeUnit = relativeUnitId;
-
-        RelativeUnitsDescriptor relativeUnit = RelativeUnitsOptions.FirstOrDefault(x => x.RelativeUnitId == relativeUnitId);
-
-        GridHeight = "50" + relativeUnit.RelativeUnitText;
-    }
-
-    private async Task OnGridRead(GridReadEventArgs args)
-    {
-        await Task.Delay(200); // simulate network delay
-
-        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
-
-        args.Data = result.Data;
-        args.Total = result.Total;
-        args.AggregateResults = result.AggregateResults;
-    }
-
-    protected override void OnInitialized()
-    {
-        GridHeight = "50" + RelativeUnitsOptions.FirstOrDefault().RelativeUnitText;
-
-        GridData = new List<Product>();
-
-        var rnd = new Random();
-
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Product {i}",
-                    Stock = rnd.Next(0, 100)
-                });
-        }
-    }
-
-    private List<Product> GridData { get; set; } = new List<Product>();
-
-    private List<RelativeUnitsDescriptor> RelativeUnitsOptions { get; set; } = new List<RelativeUnitsDescriptor>
-    {
-        new RelativeUnitsDescriptor { RelativeUnitId = 1, RelativeUnitText = "vm" },
-        new RelativeUnitsDescriptor { RelativeUnitId = 2, RelativeUnitText = "vmax" },
-        new RelativeUnitsDescriptor { RelativeUnitId = 3, RelativeUnitText = "vmin" }
-    };
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int Stock { get; set; }
-    }
-
-    public class RelativeUnitsDescriptor
-    {
-        public int RelativeUnitId { get; set; }
-        public string RelativeUnitText { get; set; }
-    }
-}
-````
-
-## Setting a Value for the RowHeight Parameter
-
-Set the `RowHeight` parameter to a `decimal` value which will always be interpreted as pixels (`px`). The value of the `RowHeight` must be greater than the height of the cell (or row) that the browser would normally render. 
-
-Consider the following specifics when setting the row height value:
-
-* The Grid renders padding in the cells by default. The loading skeletons have a line height in order to render. This results in some minimum row heights, which can vary depending on the theme and custom CSS styles on the page.
-* Ensure the height of the `td` element matches the `RowHeight` when using the [Row Template](slug:grid-templates-row).
-* Do not change the value of the `RowHeight` parameter at runtime.
-
-````RAZOR
-@* Remove the default padding and margin from the cells and remove the default line height of the loading skeletons to reduce the row height. *@
-
-@using Telerik.DataSource
-@using Telerik.DataSource.Extensions
-
-<style>
-    .small-row-height .k-placeholder-line {
-        display: none;
-    }
-
-    .small-row-height.k-grid td {
-        margin: 0;
-        padding: 0;
-    }
-</style>
-
-<TelerikGrid OnRead="@OnGridRead"
-             TItem="@Product"
-             ScrollMode="@GridScrollMode.Virtual"
-             Height="480px" RowHeight="30" PageSize="20"
-             Sortable="true" FilterMode="@GridFilterMode.FilterRow"
-             Class="small-row-height">
-    <GridColumns>
-        <GridColumn Field="@nameof(Product.Name)" Title="Product Name" />
-        <GridColumn Field="@nameof(Product.Stock)" />
-    </GridColumns>
-</TelerikGrid>
-
-@code {
-    private List<Product> GridData { get; set; } = new List<Product>();
-
-    private async Task OnGridRead(GridReadEventArgs args)
-    {
-        await Task.Delay(200); // simulate network delay
-
-        DataSourceResult result = GridData.ToDataSourceResult(args.Request);
-
-        args.Data = result.Data;
-        args.Total = result.Total;
-        args.AggregateResults = result.AggregateResults;
-    }
-
-    protected override void OnInitialized()
-    {
-        GridData = new List<Product>();
-        var rnd = new Random();
-
-        for (int i = 1; i <= 1000; i++)
-        {
-            GridData.Add(new Product()
-                {
-                    Id = i,
-                    Name = $"Product {i}",
-                    Stock = rnd.Next(0, 100)
-                });
-        }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int Stock { get; set; }
-    }
-}
-````
-
-## Setting a Value for the PageSize Parameter
-
-Set the `PageSize` parameter to an `int` value. The `PageSize` determines how many rows are rendered at any given time and how many items are requested from the data source when loading data on demand. For optimal performance, use a page size that fills the grid's data viewport without being excessively large.
-
-## Limitations
-
-The Blazor Grid virtualization primarily enhances client-side rendering performance and improves the user experience. However, it comes with the trade-off that certain features of the Grid are incompatible with it. An alternative approach is to utilize [regular paging](slug:components/grid/features/paging) combined with [manual data source operations](slug:components/grid/manual-operations) to achieve the desired data retrieval performance.
-
-These are the known limitations of the virtual scrolling feature:
-
-* [Hierarchy](slug:components/grid/features/hierarchy) is not supported.
-
-* [Grouping](slug:components/grid/features/grouping) is not supported. [Loading Group Data On Demand](slug:grid-group-lod) is supported, however.
-
 
 ## See Also
 
-  * [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
-  * [Selection in Grid with Virtualized Rows](slug:grid-selection-row#selection-and-virtual-scrolling)
-  * [Knowledge Base Article: Virtual Scroll Does Not Show All Items](slug:grid-kb-virtualization-many-records)
-  * [Knowledge Base Article: Virtual Scrolling Does Not Work](slug:grid-kb-virtual-scrolling-troubleshooting)
-  * [Knowledge Base Article: Setting Too Large Skip](slug:grid-kb-large-skip-virtualization)
-  * [Blazor Grid](slug:grid-overview)
+* [Live Demo: Grid Virtual Scrolling](https://demos.telerik.com/blazor-ui/grid/virtual-scrolling)
+* [Grid Selection with Virtual Rows](slug:grid-selection-row#selection-and-virtual-scrolling)
+* [How to Disable Row Placeholders During Virtual Scrolling](slug:grid-kb-hide-virtual-row-skeletons)
