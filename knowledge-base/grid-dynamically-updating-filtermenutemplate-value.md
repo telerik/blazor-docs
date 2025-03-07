@@ -1,10 +1,10 @@
 ---
-title: FilterMenuTemplate Not Updating After  Dynamic Value Change
+title: FilterMenuTemplate Not Updating After Dynamic Value Change
 description: Learn how to refresh and update the displayed value within a FilterMenuTemplate when its value changes dynamically in Grid for Blazor.
 type: troubleshooting
 page_title: Refreshing FilterMenuTemplate to Reflect Dynamic Value Changes in Blazor Grid
 slug: grid-kb-dynamically-updating-filtermenutemplate-value
-tags: grid, blazor, filtermenutemplate, dynamic, update, refresh, value
+tags: grid, blazor, filter, filtermenutemplate
 res_type: kb
 ticketid: 1677674
 ---
@@ -22,7 +22,7 @@ ticketid: 1677674
 
 ## Description
 
-I have a custom `FilterMenuTemplate` for a column where a slider is shown. Although filtering works as expected, the span within the `FilterMenuTemplate` that is supposed to show the current selected value does not update when the slider value changes.
+I have a custom `FilterMenuTemplate` for a column where a slider is shown. Although filtering works as expected, the `<span>` within the `FilterMenuTemplate` that is supposed to show the current selected value does not update when the slider value changes.
 
 ## Cause
 
@@ -51,8 +51,7 @@ To resolve this issue, encapsulate the content of the `FilterMenuTemplate` in a 
         <GridColumn Field="@(nameof(Product.Name))" Title="Product" Filterable="false" />
         <GridColumn Field="@(nameof(Product.Price))">
     <FilterMenuTemplate>
-        <CustomPriceFilter SelectedPrice="@SelectedPrice"
-                           SelectedPriceChanged="@(value => SelectedPrice = value)"
+        <CustomPriceFilter @bind-SelectedPrice="@SelectedPrice"
                            Context="context" />
     </FilterMenuTemplate>
 </GridColumn>
@@ -189,20 +188,19 @@ To resolve this issue, encapsulate the content of the `FilterMenuTemplate` in a 
         Context.FilterDescriptor.FilterDescriptors.Clear();
         Context.FilterDescriptor.FilterDescriptors.Add(new FilterDescriptor(nameof(Product.Price), FilterOperator.IsGreaterThanOrEqualTo, newValue));
         await SelectedPriceChanged.InvokeAsync(newValue);
-        // await Context.FilterAsync();
     }
 }
 `````
 `````RAZOR Product.cs
 public class Product
-    {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public string Size { get; set; }
-        public double Price { get; set; }
-    }
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? Size { get; set; }
+    public double Price { get; set; }
+}
 `````
 ## See Also
 
-- [Grid Overview](slug:grid-overview)
+- [Grid Filter Templates](slug:grid-templates-filter)
 - [Filtering in Grid](slug:components/grid/filtering)
