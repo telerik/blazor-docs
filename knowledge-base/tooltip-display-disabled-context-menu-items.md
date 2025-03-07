@@ -1,5 +1,5 @@
 ---
-title: Display Tooltips on Disabled Context Menu Items
+title: Display Tooltip on Disabled Context Menu Items
 description: Learn how to show tooltips over menu items that appear disabled in a Blazor application, using CSS for visual effects and conditional rendering.
 type: how-to
 page_title: How to Show Tooltips on Visually Disabled Context Menu Items with Blazor
@@ -27,7 +27,7 @@ This knowledge base article answers the following questions:
 
 ## Solution
 
-By default, disabled elements are not interactive, meaning they don’t trigger events like hover, click, or tooltip. However, you can achieve the desired behavior by making them appear visually "disabled" while keeping them interactive for tooltips with the CSS shown below.
+By default, disabled elements are not interactive and don’t trigger events like hover or click. Thus they don't integrate with tooltips. However, you can achieve the desired behavior by making them appear visually disabled while keeping them interactive for tooltips with the CSS code below.
 
 `````RAZOR
 <style>
@@ -36,31 +36,27 @@ By default, disabled elements are not interactive, meaning they don’t trigger 
         cursor: not-allowed;
     }
 
-    .disabled-item > * {
-        pointer-events: none; /* Prevent clicks on inner content but allow hover on parent */
-    }
+        .disabled-item > * {
+            pointer-events: none; /* Prevent clicks on inner content but allow hover on parent */
+        }
 </style>
 
 <div class="context-menu-target" style="width:200px; height: 100px; background: yellow;">
     Right-click (or tap and hold on a touch device) for a Context Menu.
 </div>
 
-DISABLE ELEMENTS
 <TelerikSwitch Value="@DisabledElements" ValueChanged="@((bool val) => SwitchHandler(val))" />
+Disable Menu Items
 
 <TelerikContextMenu Selector=".context-menu-target" Data="@MenuItems">
     <ItemTemplate>
-        <div class="menu-item @(context.ItemDisabled ? "disabled-item" : "")" data-disabled="@context.ItemDisabled">
+        <div class="menu-item @(context.ItemDisabled ? "disabled-item" : "")" title="@($"{context.Text} is disabled!")" data-disabled="@context.ItemDisabled">
             @context.Text
         </div>
     </ItemTemplate>
 </TelerikContextMenu>
 
-<TelerikTooltip TargetSelector=".menu-item.disabled-item">
-    <Template>
-        Tooltip for disabled item
-    </Template>
-</TelerikTooltip>
+<TelerikTooltip TargetSelector=".menu-item.disabled-item" />
 
 @code {
     private List<ContextMenuItem> MenuItems { get; set; }
@@ -78,29 +74,14 @@ DISABLE ELEMENTS
 
     protected override void OnInitialized()
     {
-        MenuItems = new List<ContextMenuItem>()
-        {
-            new ContextMenuItem
-            {
-                Text = "Item 1",
-                ItemType = "A"
-            },
-            new ContextMenuItem
-            {
-                Text = "Item 2",
-                ItemType = "A"
-            },
-            new ContextMenuItem
-            {
-                Text = "Item 3",
-                ItemType = "B"
-            },
-            new ContextMenuItem
-            {
-                Text = "Item 4",
-                ItemType = "B"
-            }
-        };
+        var itemTypes = new[] { "A", "B" };
+        MenuItems = Enumerable.Range(1, 4)
+            .Select(i => new ContextMenuItem
+                {
+                    Text = $"Item {i}",
+                    ItemType = itemTypes[(i - 1) / 2]
+                })
+            .ToList();
 
         base.OnInitialized();
     }
