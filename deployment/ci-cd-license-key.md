@@ -79,7 +79,14 @@ steps:
 ### Docker
 
 1. [Create a Docker build secret](https://docs.docker.com/build/building/secrets/#using-build-secrets) that holds the Telerik license key file.
-1. [Mount the secret](https://docs.docker.com/build/building/secrets/#secret-mounts) and set a `TELERIK_LICENSE` [environment variable in the container](https://docs.docker.com/build/building/secrets/#target).
+    ````SH.skip-repl
+    docker build --secret id=telerik-license-key,src=/path/to/telerik-license.txt .
+    ````
+1. [Mount the secret](https://docs.docker.com/build/building/secrets/#secret-mounts) and set a `TELERIK_LICENSE` [environment variable in the build container](https://docs.docker.com/build/building/secrets/#target). The environment variable is required when building and publishing the Telerik Blazor app.
+    ````SH.skip-repl
+    RUN --mount=type=secret,id=telerik-license-key,env=TELERIK_LICENSE \
+        dotnet publish BlazorProjectName.csproj -c Release -o /app/publish /p:UseAppHost=false
+    ````
 
 ## Using License File
 
