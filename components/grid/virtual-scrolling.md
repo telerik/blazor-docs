@@ -10,7 +10,7 @@ position: 60
 
 # Grid Virtual Scrolling
 
-Virtual Grid scrolling allows users to scroll vertically through all records in the Grid data source. The feature is an alternative to paging.
+The Grid virtual scrolling feature allows users to scroll vertically through all records in the Grid data source. The feature is an alternative to paging.
 
 To enhance the rendering performance, the Grid reuses the same set of HTML elements. Loading indicators (skeletons) appear in the table cells during scrolling and data loading. If the user scrolls back up after scrolling down to the next set of rows, the previous data reloads from the data source, similar to regular paging, with the scroll distance determining the data to be loaded.
 
