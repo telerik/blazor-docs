@@ -164,3 +164,4 @@ The example below shows how to:
 * [Grid Editor Template](slug:grid-templates-editor)
 * [Start and End Editing through the Grid State](slug:grid-kb-add-edit-state)
 * [Grid Selection Documentation](slug:grid-selection-overview)
+* [Blazor Grid](slug:grid-overview)
