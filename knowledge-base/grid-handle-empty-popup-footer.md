@@ -456,5 +456,5 @@ This approach relies on using CSS to hide the empty footer. Add your custom clas
 
 ## See Also
 
-- [Grid Popup Editing - Documentation](slug:components/grid/editing/popup)
+- [Grid Popup Editing - Documentation](slug:grid-editing-popup)
 - [Customizing the Grid's Edit Form](slug:grid-templates-popup-form)

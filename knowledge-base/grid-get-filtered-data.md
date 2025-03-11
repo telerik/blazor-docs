@@ -16,7 +16,7 @@ res_type: kb
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Grid for Blazor</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
         </tr>
     </tbody>
 </table>

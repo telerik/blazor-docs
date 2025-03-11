@@ -27,9 +27,7 @@ How do I display the Grid popup edit form in a multiple-column layout? How do I 
 
 ## Solution
 
-Customize the Grid edit from through the [`GridPopupEditFormSettings` tag](slug:components/grid/editing/popup#edit-form-customization).
-
-https://docs.telerik.com/blazor-ui/components/grid/editing/popup#edit-form-customization
+Customize the Grid edit form through the [`GridPopupEditFormSettings` tag](slug:grid-editing-popup#form-layout).
 
 ## Versions before 3.1.0
 
