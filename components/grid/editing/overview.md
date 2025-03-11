@@ -214,3 +214,4 @@ See Grid CRUD operations in action at:
 * [Set Default Values for Grid Add and Edit Mode](slug://grid-kb-default-value-for-new-row)
 * [Edit Rows in Hierarchy Grid](slug://grid-kb-editing-in-hierarchy)
 * [Edit All Grid Rows and Cells at the Same Time](slug:grid-kb-edit-all-rows-cells)
+* [Blazor Grid](slug:grid-overview)
