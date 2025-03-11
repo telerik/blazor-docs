@@ -127,4 +127,4 @@ If this is not enough, the only possible solution is to use [paging](slug:compon
 ## See Also
 
 * [Grid Virtual Scrolling](slug:components/grid/virtual-scrolling)
-* [Virtual TreeList Scrolling](slug:treelist-virtual-scrolling)
+* [TreeList Virtual Scrolling](slug:treelist-virtual-scrolling)
