@@ -406,9 +406,6 @@ meta:
   "*components/grid/filter":
     title: Filtering
     position: 22
-  "*components/grid/editing/built-in-dialogs":
-    title: Built-in Dialogs
-    position: 17
   "*components/grid/editing":
     title: Editing
     position: 10

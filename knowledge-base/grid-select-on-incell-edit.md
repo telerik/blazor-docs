@@ -21,7 +21,7 @@ res_type: kb
 
 ## Description
 
-When using the [InCell](slug:components/grid/editing/incell) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
+When using the [InCell](slug:grid-editing-incell) Editing Mode, I want the row that is currently edited to be selected. I want the user to get the current row selected by clicking both in editable and non-editable cells.
 
  By default, the click action opens a cell for editing and does not select a row to avoid an ambiguous action, and so rows can only be selected with the dedicated grid selection column.
 

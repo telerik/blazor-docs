@@ -56,7 +56,7 @@ public class Employee
 
 ## See Also
 
-* [Grid Editing](slug:components/grid/editing/overview)
+* [Grid Editing](slug:grid-editing-overview)
 * [Gantt Editing](slug:gantt-tree-editing)
 * [ListView Editing](slug:listview-editing)
 * [Scheduler Editing](slug:scheduler-appointments-edit)

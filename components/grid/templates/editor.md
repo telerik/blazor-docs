@@ -10,15 +10,29 @@ position: 15
 
 # Editor Template
 
-The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:components/grid/editing/overview) the field. It is also used when inserting a new item.
+The column's `EditorTemplate` defines the inline template or component that will be rendered when the user is [editing](slug:grid-editing-overview) the field. It is also used when inserting a new item.
 
 You can data bind components in the editor template to the current `context`. This is the data item instance, which is bound to the currently edited Grid row. Cast `context` to the data item type and store it in a global or local variable. Then, use this variable for one-way or two-way binding in the `EditorTemplate`.
 
-The template receives a **copy** of the original model, so that changes can be canceled with the `Cancel` command. See the [**Notes** section in the Grid Editing Overview](slug:components/grid/editing/overview#notes) for more details on how and when that copy is created.
+The template receives a copy of the original data item. This allows users to cancel their edits and restore the original property value. The [CRUD Events section](slug:grid-editing-overview#events) provides more information about this programmatic item creation.
 
 If you need more complex logic inside the editor template, compared to simple data binding, use the `change` event of the custom editor component. You can also use a [custom Grid edit form](slug:grid-kb-custom-edit-form).
 
->tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug:components/grid/editing/incell#editor-template).
+>tip The Editor Template works in all edit modes (Inline, Popup, InCell). Before using it with InCell mode, review the [pertinent notes](slug:grid-editing-incell#editor-template).
+
+When an input receives an `EditContext` (usually comes down as a cascading parameter), the framework also requires a `ValueExpression`. If you use two-way binding (the `@bind-Value` syntax), the `ValueExpression` is deducted from there. However, if you use only the `Value` property, you have to pass the `ValueExpression` yourself. This is a lambda expression that tells the framework what field in the model to update. The following sample demonstrates how to achieve that. You can also check the [Requires a value for ValueExpression](slug://common-kb-requires-valueexpression) knowledge base article for more details.
+
+<div class="skip-repl"></div>
+````RAZOR
+<EditorTemplate>
+    <TelerikTextBox Value="@myModel.MyField"
+                    ValueExpression="@( () => myModel.MyField )">
+    </TelerikTextBox>
+</EditorTemplate>
+
+@* Applies to the other input type components as well *@
+````
+
 
 **In this article:**
 
@@ -32,7 +46,7 @@ If you need more complex logic inside the editor template, compared to simple da
 
 * @[template](/_contentTemplates/common/inputs.md#edit-debouncedelay)
 
-* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview](slug:components/grid/editing/overview#notes) article.
+* The Grid row creates an `EditContext` and passes it to the `EditorTemplate`. You can read more about it in the [**Notes** section of the Editing Overview](slug:grid-editing-overview#notes) article.
 
 * We recommend casting the Editor Template context to your model and storing it in a local or a dedicated global variable. Do not share a global variable within multiple templates, like column (cell) template and editor template. Variable sharing can lead to unexpected behavior.
 
@@ -406,6 +420,27 @@ Also check the [Grid Foreign Key Column](slug:grids-foreign-key) knowledge base 
 >caption The result from the code snippet above, after Edit was clicked on the second row and the user expanded the dropdown from the editor template
 
 ![Editor Template for a foreign key](images/edit-template-foreign-key.png)
+
+## In-Cell Editor Templates
+
+The incell editor template requires a focusable element to maintain the tab order when using the keyboard. If you prevent editing based on a runtime condition, you must provide some focusable element. (Setting `Editable=false` for the entire column does not require a focusable element.) Here is one way to add a focusable non-editable element:
+
+<div class="skip-repl"></div>
+
+````RAZOR
+<EditorTemplate>
+    @{
+        if (myCurrentEditCondition)
+        {
+            <MyCustomEditor />
+        }
+        else
+        {
+            <div tabindex="0">editing not allowed</div>
+        }
+    }
+</EditorTemplate>
+````
 
 ## See Also
 

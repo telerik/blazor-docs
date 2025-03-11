@@ -260,7 +260,7 @@ You can refresh the Grid data by using the `Rebind` method exposed to the refere
 
 ## Call OnRead
 
-If you are [using the `OnRead` event to optimize the data requests](slug:components/grid/manual-operations), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations](slug:components/grid/editing/overview), yet you may need to do it on your own.
+If you are [using the `OnRead` event to optimize the data requests](slug:components/grid/manual-operations), you may want to call that to fetch fresh data from the server. The Grid does that automatically after the [edit operations](slug:grid-editing-overview), yet you may need to do it on your own.
 
 To make the Grid fire `OnRead`, execute its [`SetStateAsync` method](slug:grid-state)
 
@@ -365,7 +365,7 @@ The reason for such behavior is that the `Data` collection of the grid is a sepa
 
 This means that you need to ensure that the view-model will be updated as well, so that the `Data` parameter of the grid changes too. There are, generally, two ways to do this:
 
-* Use the [`OnRead` event to perform the grid data operations](slug:components/grid/manual-operations) - the grid will call it after the [CUD events like `OnUpdate`, `OnDelete`, `OnCreate`](slug:components/grid/editing/overview#notes) and it will let you query the database that was already update (which will also bring in other updates that other uses may have made).
+* Use the [`OnRead` event to perform the grid data operations](slug:components/grid/manual-operations) - the grid will call it after the [CUD events like `OnUpdate`, `OnDelete`, `OnCreate`](slug:grid-editing-overview#notes) and it will let you query the database that was already update (which will also bring in other updates that other uses may have made).
 
 * Update the local view-model data yourself with the information the grid event gives you (e.g., insert the new item in it, or remove a deleted item, or update the fields of an edited item). You can find similar code used in the [Grid - Inline Editing Live Demo](https://demos.telerik.com/blazor-ui/grid/editing-inline).
 

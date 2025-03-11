@@ -39,7 +39,7 @@ How to upload photos and files as an attachment in a Blazor Grid?
 
 Here are the required steps to implement file uploading inside the Telerik Blazor Grid.
 
-1. The Upload occupies more space than a simple textbox. Use [Grid popup editing](slug:components/grid/editing/popup) with a [wider popup edit form](slug:components/grid/editing/popup#customization).
+1. The Upload occupies more space than a simple textbox. Use [Grid popup editing](slug:grid-editing-popup) with a [wider popup edit form](slug:grid-editing-popup#customization).
 1. [Configure an Upload component](slug:upload-overview#creating-blazor-upload) inside a [Grid column `<EditorTemplate>`](slug:grid-templates-editor).
 1. Handle the [`OnUpload` event of the Upload](slug:upload-events#onupload) to send custom information to the Upload controller, for example, information about the Grid data item.
 1. [Implement the Upload controller methods](slug:upload-overview#implement-controller-methods), which receive and delete the uploaded files. File deletion is optional.
@@ -47,7 +47,7 @@ Here are the required steps to implement file uploading inside the Telerik Blazo
 1. The name of the saved file on the server can depend on the Razor UI or on the controller.
     * If the file name depends on the UI, send it to the controller via the `OnUpload` event arguments (`args.RequestData`).
     * If the file name depends on the controller, receive it in the `OnSuccess` event arguments via `args.Request.ResponseText`.
-1. Handle the [Grid `OnUpdate`, `OnCreate` and `OnDelete` events](slug:components/grid/editing/overview#events) to commit changes to the Grid data source. Optionally, delete the respective saved files in `OnDelete`. The example below uses `OnAdd` to provide the `Id` of the new Grid data item, which also affects the uploaded file's name.
+1. Handle the [Grid `OnUpdate`, `OnCreate` and `OnDelete` events](slug:grid-editing-overview#events) to commit changes to the Grid data source. Optionally, delete the respective saved files in `OnDelete`. The example below uses `OnAdd` to provide the `Id` of the new Grid data item, which also affects the uploaded file's name.
 1. Display the uploaded files as images or download links in a [Grid column `<Template>`](slug:grid-templates-column).
 
 
@@ -347,5 +347,5 @@ app.Run();
 
 * [Upload Controller](slug:upload-overview#implement-controller-methods)
 * [Upload Events](slug:upload-events)
-* [Grid Editing](slug:components/grid/editing/overview)
+* [Grid Editing](slug:grid-editing-overview)
 * [Grid Editor Template](slug:grid-templates-editor)

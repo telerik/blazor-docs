@@ -32,6 +32,6 @@ Here is a list of the changes:
 
 You can find more details (and samples) on the current way the grid operates in the following articles:
 
-* [grid editing overview](slug:components/grid/editing/overview)
+* [grid editing overview](slug:grid-editing-overview)
 * [grid command buttons](slug:components/grid/columns/command)
 * [grid toolbar](slug:components/grid/features/toolbar)
