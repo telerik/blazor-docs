@@ -27,7 +27,7 @@ How do I display the Grid popup edit form in a multiple-column layout? How do I 
 
 ## Solution
 
-Customize the Grid edit from through the [`GridPopupEditFormSettings` tag](slug:grid-editing-popup#form-layout).
+Customize the Grid edit form through the [`GridPopupEditFormSettings` tag](slug:grid-editing-popup#form-layout).
 
 ## Versions before 3.1.0
 
