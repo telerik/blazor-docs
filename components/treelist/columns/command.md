@@ -46,7 +46,7 @@ There are four built-in commands:
 
 * `Add` - initiates the creation of a new item. Can apply to rows as well, to create a child element for the current row.
 * `Edit` - initiates the inline or popup editing (depending on the TreeListEditMode configuration of the treelist).
-* `Delete` - initiates the deletion of an existing item. You can also enable a [delete confirmation dialog](slug:treelist-delete-confirmation).
+* `Delete` - initiates the [deletion of an existing item](slug:treelist-editing-overview#delete-operations).
 * `Save` - performs the actual update operation after the data has been changed. Triggers the `OnUpdate` or `OnCreate` event so you can perform the data source operation. Which event is triggered depends on whether the item was created or edited.
 * `Cancel` - aborts the current operation (edit or insert).
 

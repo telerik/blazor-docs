@@ -34,7 +34,7 @@ Popup add, edit, and delete operations use the following [command buttons](slug:
 
 @[template](/_contentTemplates/grid/editing.md#without-commands)
 
-Popup edit mode does not use **Save** and **Cancel** command buttons in the [Grid command column](slug:grid-columns-command). The Grid renders them automatically in the popup, unless you define a [Buttons Template](slug:grid-templates-popup-buttons) or a [Form Template](slug:grid-templates-popup-form).
+Popup edit mode does not use **Save** and **Cancel** command buttons in the [Grid command column](slug:components/grid/columns/command). The Grid renders them automatically in the popup, unless you define a [Buttons Template](slug:grid-templates-popup-buttons) or a [Form Template](slug:grid-templates-popup-form).
 
 In popup edit mode, the Grid commands execute row by row and the corresponding [Grid events](slug:grid-editing-overview#events) also fire row by row.
 
