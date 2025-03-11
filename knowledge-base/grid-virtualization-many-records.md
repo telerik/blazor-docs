@@ -1,40 +1,35 @@
 ---
-title: Virtual Scroll does not show all items
+title: Grid Virtual Scrolling Does Not Show All Table Rows
 description: When you have many items in the grid, you may be unable to see all of them with virtual scrolling
 type: troubleshooting
-page_title: Virtual Scrolling Does Not Show All Items
+page_title: Grid Virtual Scrolling Does Not Show All Table Rows
 slug: grid-kb-virtualization-many-records
-position: 
-tags: 
+position:
+tags:
 ticketid: 1502885
 res_type: kb
 ---
 
 ## Environment
+
 <table>
-	<tbody>
-		<tr>
-			<td>Product</td>
-			<td>Grid for Blazor</td>
-		</tr>
-	</tbody>
+    <tbody>
+        <tr>
+            <td>Product</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
+        </tr>
+    </tbody>
 </table>
 
-
 ## Description
-The virtual grid breaks when there are more than 3.000.000 records in TotalCount.
 
-I cannot see all records in the grid with virtual scrolling when there are many records.
+This KB article discusses the following issues:
 
-I cannot scroll to the end of the records when I have many records.
+* The virtual grid breaks when there are more than 3.000.000 records in TotalCount.
+* I cannot see all records in the grid with virtual scrolling when there are many records.
+* I cannot scroll to the end of the records when I have many records.
 
 Other symptoms can include the grid content overflowing its parent and hiding content after the grid, or you could see a border from the grid near the end of the scrollable container.
-
-In this article:
-
-* [Steps to Reproduce](#steps-to-reproduce)
-* [Possible Cause](#possible-cause)
-* [Solution](#solution)
 
 ## Steps to Reproduce
 
@@ -86,17 +81,18 @@ Total items: @GridData.Count
 
 The issue with the content overflow is the same - when the element size limit is reached, the browser does not render the element correctly and it overflows its parent.
 
->caption Overflowing content due to browser element size limit (see additional code below)\
+>caption Overflowing content due to browser element size limit (see additional code below)
 
 ![the content can overflow and hide adjacent elements when the element size limit is reached](images/virtualization-max-browser-height-overflow-issue.png)
 
 >caption Add this code just after the grid closing tag to color the element borders like in the image above to see the issue
 
 <div class="skip-repl"></div>
-````RAZOR
+
+````RAZOR.skip-repl
 </TelerikGrid>
 
-something after the grid that I can't see because of the grid issue
+Something below the Grid that I can't see.
 
 <style>
     .k-grid {
@@ -109,13 +105,13 @@ something after the grid that I can't see because of the grid issue
 </style>
 ````
 
-
 ## Possible Cause
+
 Browsers have a limitation on how large (tall or wide) an element can be. This limits how much data you can fit and how far the user can scroll.
 
 The height of the actual grid data element is `total records count` x `row height`. For example, with 60px row height, 1 million records will be 60 000 000 pixels.
 
-Browsers can usually go up to about 33 000 000 pixels.
+Browsers can usually go up to about 33,000,000 pixels.
 
 Thus, the scrollbar can only get so small, and you can only scroll to a certain extent of the data.
 
@@ -123,7 +119,12 @@ Thus, the scrollbar can only get so small, and you can only scroll to a certain 
 
 ![browser limitation of element height limits the number of records the grid can show with virtualization](images/virtualization-max-browser-height.png)
 
-
-
 ## Solution
-The only possible solution if you have so many records is to use the standard [paging](slug:components/grid/features/paging).
+
+A possible way to mitigate the problem is to [reduce the Grid row height](slug:grid-kb-reduce-row-height).
+If this is not enough, the only possible solution is to use [paging](slug:components/grid/features/paging).
+
+## See Also
+
+* [Grid Virtual Scrolling](slug:components/grid/virtual-scrolling)
+* [TreeList Virtual Scrolling](slug:treelist-virtual-scrolling)

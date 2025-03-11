@@ -29,6 +29,7 @@ Examples:
 * [Telerik .ToDataSourceResult(request)](#telerik-todatasourceresult-request)
 * [Grouping with OnRead](#grouping-with-onread)
 * [Aggregates with OnRead](#aggregates-with-onread)
+* [Virtual Scrolling with OnRead](#virtual-scrolling-with-onread)
 * [Get Information From the DataSourceRequest](#get-information-from-the-datasourcerequest)
 * [Use OData Service](https://github.com/telerik/blazor-ui/tree/master/grid/odata)
 * [Serialize the DataSoureRequest to the server](https://github.com/telerik/blazor-ui/tree/master/grid/datasourcerequest-on-server)
@@ -277,9 +278,7 @@ This sample shows how to set up the grid to use grouping with manual data source
 
 When using [aggregates](slug:grid-aggregates) with `OnRead`, the Grid expects you to set one more property of the `GridReadEventArgs` object - `AggregateResults`. Otherwise the component will show aggregate values for the current page only.
 
-<div class="skip-repl"></div>
-
-````CS
+````C#.skip-repl
 private async Task OnGridRead(GridReadEventArgs args)
 {
     DataSourceResult result = AllGridData.ToDataSourceResult(args.Request);
@@ -290,6 +289,19 @@ private async Task OnGridRead(GridReadEventArgs args)
 }
 ````
 
+## Virtual Scrolling with OnRead
+
+When using [virtual Grid scrolling](slug:components/grid/virtual-scrolling), get the values of `args.Request.Skip` and `args.Request.PageSize` to determine the current Grid scroll offset and load the correct data items. Do not use `args.Request.Page` with virtual scrolling, because it is always `1`.
+
+````C#.skip-repl
+private List<Product> GridData { get; set; } = new();
+
+private async Task OnGridRead(GridReadEventArgs args)
+{
+    args.Data = GridData.Skip(args.Request.Skip).Take(args.Request.PageSize);
+    args.Total = GridData.Count;
+}
+````
 
 ## Get Information From the DataSourceRequest
 
