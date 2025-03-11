@@ -2,7 +2,7 @@
 title: Grid Virtual Scrolling Does Not Show All Table Rows
 description: When you have many items in the grid, you may be unable to see all of them with virtual scrolling
 type: troubleshooting
-page_title: Virtual Grid Scroll Does Not Show All Data Items
+page_title: Grid Virtual Scrolling Does Not Show All Table Rows
 slug: grid-kb-virtualization-many-records
 position:
 tags:
