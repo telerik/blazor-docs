@@ -15,7 +15,7 @@ ticketid: 1677858
     <tbody>
         <tr>
             <td>Product</td>
-            <td>Grid for Blazor</td>
+            <td>Grid for Blazor, <br /> TreeList for Blazor</td>
         </tr>
     </tbody>
 </table>
