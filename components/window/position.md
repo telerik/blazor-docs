@@ -12,42 +12,10 @@ position: 2
 
 The Window offers several ways to control its position:
 
-* [`Centered` parameter](#centered)
 * [`ContainmentSelector` parameter](#containmentselector)
 * [`Top` and `Left` parameters](#top-and-left)
 
 The Window renders [in the root of the application](slug:window-overview#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position).
-
-
-## Centered
-
-The `Centered` parameter determines if the Window displays centered in the viewport. The parameter value is `true` by default.
-
-A centered Window applies the following CSS styles, which maintain the centered position even if the viewport size changes:
-
-````CSS.skip-repl
-.k-centered {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-````
-
-If the `Top` or `Left` parameters are set and not empty, they take precedence over `Centered`. To center the Window dynamically through its `Centered` parameter, bind the `Top` and `Left` parameters too, so you can reset them to `string.Empty` or `null`.
-
->caption Center the Window
-
-````RAZOR
-<TelerikWindow Centered="true" Visible="true">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowContent>
-        A Centered Window
-    </WindowContent>
-</TelerikWindow>
-````
-
 
 ## ContainmentSelector
 
@@ -127,3 +95,4 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 
 * [Live Demo: Window Position](https://demos.telerik.com/blazor-ui/window/position)
 * [Live Demo: Constrain Window Movement](https://demos.telerik.com/blazor-ui/window/constrain-movement)
+* [How to Center the Window Programmatically](slug:window-kb-center-programmatically)
