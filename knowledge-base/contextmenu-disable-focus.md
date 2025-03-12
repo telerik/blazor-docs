@@ -39,8 +39,8 @@ This Knowledge Base article answers the following questions:
 
 ````RAZOR
 <style>
-     /* The CSS combinator that targets the first item of the menu */
-    .no-shadow .k-menu.k-context-menu .k-item:focus > .k-link {
+    /* The CSS combinator that targets the first item of the menu */
+    .no-shadow .k-menu-group.k-context-menu .k-item:focus > .k-link {
         box-shadow: none;
     }
 </style>
