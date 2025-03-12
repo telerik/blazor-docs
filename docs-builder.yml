@@ -345,7 +345,6 @@ meta:
     position: 2200000
   "*components/animationcontainer":
     title: Animation Container
-    position: 2000000
   "*components/stockchart/tooltip":
     title: Tooltips
     position: 22
