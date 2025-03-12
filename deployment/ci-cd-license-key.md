@@ -18,16 +18,12 @@ This article describes how to set up and activate your [Telerik UI for Blazor li
 
 The Telerik license activation process in a CI/CD environment involves the following steps:
 
-1. Add the `Telerik.Licensing` NuGet package as a dependency to all projects that reference Telerik UI for Blazor or Telerik Document Processing. This package activates the Telerik products at build time by using the provided license key.
-    ````XML.skip-repl
-    <PackageReference Include="Telerik.Licensing" Version="1.*" />
-    ````
 1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
 1. Set your license key value as an [environment variable](#creating-environment-variables) with a name `TELERIK_LICENSE`. In specific cases you may need to [use a license file](#using-license-file) instead.
 
 ## Creating Environment Variables
 
-The recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environment is to use environment variables. Each CI/CD platform has a different process for setting environment variables. This article lists only some of the most popular examples.
+The recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environment is to use an environment variable. Each CI/CD platform has a different process for setting environment variables. This article lists only some of the most popular examples.
 
 ### Azure Pipelines
 
