@@ -54,12 +54,14 @@ Create and add localization resource `resx` files to your app, based on the lang
 
 > Update the localization resource files every time you upgrade Telerik UI for Blazor. Otherwise you may see:
 >
-* Missing or non-translated messages in the UI
-* [Exceptions related to missing localization keys](slug:common-kb-null-value-parameter-format)
->
-> Telerik supports the default English strings. The `resx` files for the other languages are provided as-is and you can use them as base for implementing your own.
+> * Missing or non-translated messages in the UI
+> * [Exceptions related to missing localization keys](slug:common-kb-null-value-parameter-format)
 
-Make sure the `resx` files are defined as `EmbeddedResource` in the **Build Action** properties or in the `.csproj` file. Normally, the `Designer` file is generated automatically on every `resx` file save.
+> Telerik supports the default English strings. The `resx` files for the other languages exist only for demo purposes and are provided as-is. You can use them as a base for implementing your own.
+
+#### Embed the Resource Files
+
+Define the `resx` files as `EmbeddedResource` in the **Build Action** properties or in the `.csproj` file. Normally, the `Designer` file is generated automatically on every `resx` file save.
 
 >caption Sample resource file configuration in the .csproj file
 
