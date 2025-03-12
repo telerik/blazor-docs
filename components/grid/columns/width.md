@@ -33,7 +33,7 @@ The Grid column width settings can vary and result in the following configuratio
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
 <style>
-    .multi-dimensonal-table th {
+    .multi-dimensional-table th {
         padding: 8px;
         background: var(--bg-table-th-color);
         color: var(--table-th-color);
@@ -43,7 +43,7 @@ The Grid column width settings can vary and result in the following configuratio
     }
 </style>
 
-<table class="multi-dimensonal-table">
+<table class="multi-dimensional-table">
 <tr><th>Explicit&nbsp;Column&nbsp;Widths<br> \ <br> Columns&nbsp;with&nbsp;Widths</th><th>Exceed the Grid Width</th><th>Subceed the Grid Width</th></tr>
 <tr><th>All</th><td>The Grid renders a horizontal scrollbar. All column widths match their settings.</td><td>All columns expand evenly to take up the available space in the Grid.</td></tr>
 <tr><th>Some</th><td>The applied column widths match the component settings. A horizontal scrollbar appears. All columns without widths shrink to zero width and disappear.</td><td>The applied column widths match the component settings. The remaining width-less columns shrink or expand, depending on the remaining space. A horizontal scrollbar may appears only if the columns that have widths exceed the Grid width. In this case the remaining columns will disappear.</td></tr>
