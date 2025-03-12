@@ -186,6 +186,7 @@ Without using the above command buttons, the application can:
 #end
 
 #advanced-example-parameters
+             ConfirmDelete="@GridConfirmDelete"
              OnAdd="@OnGridAdd"
              OnCancel="@OnGridCancel"
              OnCreate="@OnGridCreate"
