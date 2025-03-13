@@ -32,20 +32,14 @@ This knowledge base article answers the following questions:
 
 To center a Telerik Window programmatically, follow these steps:
 
-1. Use [`Top` and `Left` parameters](slug:components/window/position#top-and-left) – These parameters define the Window position on the screen.
-2. Reset `Top` and `Left` parameters to center the Window – Setting them to `string.Empty` allows automatic centering.
-3. Refresh the Window using component reference – Calling `WindowRef?.Refresh();` re-renders the Window with the new position.
+1. Bind the [`Top` and `Left` parameters](slug:components/window/position#top-and-left) using `@bind-Top` and `@bind-Left` to control the Window position dynamically. Set their default values to specific ones (e.g., `Top="30%"`, `Left="60%"`) to position the Window where you want it to appear initially.
+2. Set both parameters to `string.Empty` to reset the Window position. This will ensure that, the component automatically repositions itself to the center of the current viewport.
+3. Refresh the Window using component reference – Calling [`WindowRef?.Refresh();`](slug:window-overview#window-reference-and-methods) re-renders the Window with the new position.
 
->caption Telerik Blazor Window Centered Programmatically
+>caption Center the Telerik Blazor Window Programmatically
 
 ````RAZOR
-@if (!IsWindowVisible)
-{
-    <TelerikButton OnClick="@(() => IsWindowVisible = !IsWindowVisible)">Open Window</TelerikButton>
-}
-<TelerikButton OnClick="@CenterWindow">Center Window</TelerikButton>
-
-<TelerikWindow @bind-Visible="@IsWindowVisible"
+<TelerikWindow Visible="true"
                @bind-Top="@Top"
                @bind-Left="@Left"
                Width="200px"
@@ -54,14 +48,13 @@ To center a Telerik Window programmatically, follow these steps:
     <WindowTitle>
         Window Title
     </WindowTitle>
-    <WindowActions>
-        <WindowAction Name="Close" />
-    </WindowActions>
+    <WindowContent>
+        <TelerikButton OnClick="@CenterWindow">Center Window</TelerikButton>
+    </WindowContent>
 </TelerikWindow>
 
 @code {
     private TelerikWindow? WindowRef { get; set; }
-    private bool IsWindowVisible { get; set; } = true;
     private string Top { get; set; } = "30%";
     private string Left { get; set; } = "60%";
 
