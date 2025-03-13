@@ -50,6 +50,8 @@ The Grid column width settings can vary and result in the following configuratio
     }
 </style>
 
+The table below summarizes the possible behaviors of a Grid with various column widths.
+
 <table class="multi-dimensional-table">
 <tr><th>Explicit&nbsp;Column&nbsp;Widths<br> \ <br> Columns&nbsp;with&nbsp;Widths</th><th>Exceed the Grid Width</th><th>Subceed the Grid Width</th></tr>
 <tr><th>All</th><td>The Grid renders a horizontal scrollbar. All column widths match their settings.</td><td>All columns expand evenly to take up the available space in the Grid.</td></tr>
