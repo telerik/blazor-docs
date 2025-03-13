@@ -14,7 +14,7 @@ This article explains how to set TreeList column widths and how the component be
 
 ## Basics
 
-The TreeList renders separate HTML `<table>` elements for its header, data, and footer areas. This allows users to scroll the data area vertically, while the header and footer areas remain visible at all times. The TreeList tables apply `table-layout: fixed` and `width: 100%` CSS styles to ensure column alignment between the three areas.
+The TreeList renders separate HTML `<table>` elements for its header and data areas. This allows users to scroll the data area vertically, while the header area remains visible at all times. The TreeList tables apply `table-layout: fixed` and `width: 100%` CSS styles to ensure column alignment between the three areas.
 
 You can set the TreeList column `Width` parameter in any CSS unit, such as `px`, `%`, `vw`, `em`, `rem`. Unit-less `Width` values are not supported. You can read more on how to set sizes in Telerik components in the [Dimensions](slug:common-features/dimensions) article.
 
