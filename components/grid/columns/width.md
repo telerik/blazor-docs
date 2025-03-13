@@ -10,7 +10,7 @@ position: 4
 
 # Grid Column Width
 
-This article explains how the Grid behaves, depending on the set column widths.
+This article explains how to set Grid column widths and how the component behaves, depending on its column width configuration.
 
 ## Basics
 
@@ -20,43 +20,38 @@ You can set the Grid column `Width` parameter in any CSS unit, such as `px`, `%`
 
 ## Column Width Behavior
 
-The Grid column width settings can vary and result in the following configurations and behavior:
+The Grid column width settings can vary and result in the following behaviors:
 
-* All Grid columns have set widths:
-    * If the sum of the column widths exceeds the Grid component's width, a horizontal scrollbar appears. All columns retain their specified widths.
-    * If the sum of the column widths is less than the Grid's width, all columns expand evenly to take up the available space in the Grid.
-* Only some Grid columns have set widths:
-    * If the total width of these columns is less than the Grid component's width:
-
-        * The applied column widths match the component settings.
-        * The remaining columns without set widths shrink or expand, depending on the remaining space.
-        * A horizontal scrollbar may appear if the columns that have widths exceed the Grid width. In this case, the remaining columns will disappear.
-    * If the columns with set widths exceed the Grid component's width:
-        * The applied column widths match the component settings.
-        * A horizontal scrollbar appears.
-        * All columns without widths shrink to zero width and disappear.
-* No column has a set width&mdash;In this scenario, all columns are equally wide. They shrink and expand depending on the Grid's width.
-
-@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
-<style>
-    .multi-dimensional-table th {
-        padding: 8px;
-        background: var(--bg-table-th-color);
-        color: var(--table-th-color);
-        font-weight: 700;
-        text-align: left;
-        font-size: 18px;
-    }
-</style>
-
-The table below summarizes the possible behaviors of a Grid with various column widths.
+@[template](/_contentTemplates/common/parameters-table-styles.md#multidimensional-table)
 
 <table class="multi-dimensional-table">
-<tr><th>Explicit&nbsp;Column&nbsp;Widths<br> \ <br> Columns&nbsp;with&nbsp;Widths</th><th>Exceed the Grid Width</th><th>Subceed the Grid Width</th></tr>
-<tr><th>All</th><td>The Grid renders a horizontal scrollbar. All column widths match their settings.</td><td>All columns expand evenly to take up the available space in the Grid.</td></tr>
-<tr><th>Some</th><td>The applied column widths match the component settings. A horizontal scrollbar appears. All columns without widths shrink to zero width and disappear.</td><td>The applied column widths match the component settings. The remaining width-less columns shrink or expand, depending on the remaining space. A horizontal scrollbar may appears only if the columns that have widths exceed the Grid width. In this case the remaining columns will disappear.</td></tr>
-<tr><th>None</th><td>All columns are equally wide. They shrink and expand, depending on the Grid width.</td><td>All columns are equally wide. They shrink and expand, depending on the Grid width.</td></tr>
+    <colgroup><col style="width: 112px" /><col style="width: 70px" /><col /><col /></colgroup>
+    <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th colspan="2">The Sum of All Set Column Widths Is:</th>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Greater Than the Grid Width</th>
+        <th>Less Than the Grid Width</th>
+    </tr>
+    <tr>
+        <th style="writing-mode: vertical-lr;" rowspan="3">How Many Columns Have Width:</th>
+        <th>All</th>
+        <td><ul><li>All columns respect their <code>Width</code> setting.</li><li>A horizontal scrollbar appears.</li></ul></td>
+        <td><ul><li>All columns expand beyond their <code>Width</code> setting to fill the available space in the Grid.</li><li>There is no horizontal scrollbar.</li></ul></td>
+    </tr>
+    <tr>
+        <th>Some</th>
+        <td><ul><li>All columns respect their <code>Width</code> setting, if exists.</li><li>All columns without a <code>Width</code> shrink and disappear.</li><li>A horizontal scrollbar appears.</li></ul></td>
+        <td><ul><li>All columns respect their <code>Width</code> setting, if exists.</li><li>All columns without a <code>Width</code> shrink or expand, depending on the remaining space in the Grid.</li><li>There is no horizontal scrollbar.</li></ul></td>
+    </tr>
+    <tr>
+        <th>None</th>
+        <td colspan="2"><ul style="margin: .5em auto; width: max-content;"><li>All columns have the same width, which depends on the Grid width.</li><li>There is no horizontal scrollbar.</li></ul></td>
+    </tr>
 </table>
 
 To allow the users to adjust or auto-fit the column widths to the content, enable [Grid column resizing](slug:components/grid/columns/resize). You can also [resize columns through the Grid state](slug:grid-state#setstateasync) or [auto-fit columns programmatically](slug:components/grid/columns/resize#autofit-columns).
@@ -69,7 +64,7 @@ For predictable and user-friendly behavior, consider the following Grid configur
 
 * If the Grid has a fixed width and you need horizontal scrolling, set widths to all columns. Use absolute units that do not depend on the browser viewport size.
 * If the Grid does not need horizontal scrolling and is not likely to shrink too much, then leave at least one column without a width. This ensures that all set column widths are respected and the width-less columns take up the remaining space.
-* If the Grid width is unpredictable and the width-less columns may shrink too much, then apply a `min-width` style to the Grid tables, according to the exaple below.
+* If the Grid width is unpredictable and the width-less columns may shrink too much, then apply a `min-width` style to the Grid tables, according to the example below.
 
 >caption Apply a minimum width to the Grid table in a responsive layout
 
