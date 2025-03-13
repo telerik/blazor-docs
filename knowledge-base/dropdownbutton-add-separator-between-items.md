@@ -27,7 +27,7 @@ I want to visually separate the items in a [DropDownButton](slug:dropdownbutton-
 
 The DropDownButton does not have a concept for a "separator" item (similar to the [ContextMenu](slug:contextmenu-data-binding-overview), for example). However, the DropDownButton uses a declarative approach for its items, so you can add any desired item.
 
-The specific is that the content you declare in the DropDownButtonItem will be rendered inside the <span class="k-menu-link-text"> which is narrower and thus your custom separator will not cover the whole width of the popup. This article demonstrates how to achieve a similar effect by utilizing custom styling.
+The specific is that the content you declare in the DropDownButtonItem will be rendered inside the `<span class="k-menu-link-text">` which is narrower and thus your custom separator will not cover the whole width of the popup. This article demonstrates how to add a separator by utilizing custom styling.
 
 To create a visual separator between items in a DropDownButton, apply a custom class to the item that precedes the separator and style its bottom border. This approach allows you to simulate a separator without the need for a dedicated separator item. The custom class can be applied directly in the item declarations in your Blazor component.
 
