@@ -5,7 +5,7 @@ description: Export to Excel the Grid for Blazor.
 slug: grid-export-excel
 tags: telerik,blazor,grid,export,excel
 published: True
-position: 1
+position: 5
 ---
 
 # Grid Excel Export
@@ -18,9 +18,9 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
+  - [Requirements](#requirements)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
-  - [Notes](#notes)
 
 ## Basics
 
@@ -40,6 +40,8 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 | --- | --- | --- |
 | `FileName` | `string` | The name of the file. The grid will add the `.xslx` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
+
+> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
 
 >caption Export the Grid to Excel - Example
 
@@ -98,6 +100,11 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
     }
 }
 ````
+
+
+## Requirements
+
+* If you are setting `Width` to the columns, use only `px`. Excel does not understand units different than `px` and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
 
 ## Programmatic Export
 
@@ -198,16 +205,6 @@ The component allows you to control the data set that will be exported. It also 
 For more advanced customization (such as coloring the headers or bolding the titles) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license. Find examples on how to [format the cells of the exported Excel file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing) and how to [format the cells of the exported Excel file with RadSpreadStreamProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadstreamprocessing).
 
 Read more about how to [customize the exported file](slug:grid-export-events).
-
-## Notes
-
-The Excel export has the following specifics:
-
-* Excel does not understand units different than `px` for the column `Width`, and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own Excel file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
-
-@[template](/_contentTemplates/grid/export.md#export-common-notes)
-
 
 ## See Also
 
