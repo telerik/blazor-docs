@@ -23,7 +23,7 @@ You can set the Grid column `Width` parameter in any CSS unit, such as `px`, `%`
 The Grid column width settings can vary and result in the following configurations and behavior:
 
 * All Grid columns have set widths:
-    * The sum of the column widths exceeds the Grid component width. The Grid renders a horizontal scrollbar. All column widths match their settings.
+    * If the sum of the column widths exceeds the Grid component's width, a horizontal scrollbar appears. All columns retain their specified widths.
     * If the sum of the column widths is less than the Grid's width, all columns expand evenly to take up the available space in the Grid.
 * Only some Grid columns have set widths:
     * The columns that have widths take up less than the Grid component width. The applied column widths match the component settings. The remaining width-less columns shrink or expand, depending on the remaining space. A horizontal scrollbar may appears only if the columns that have widths exceed the Grid width. In this case the remaining columns will disappear.
