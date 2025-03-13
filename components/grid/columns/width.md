@@ -31,7 +31,10 @@ The Grid column width settings can vary and result in the following configuratio
         * The applied column widths match the component settings.
         * The remaining columns without set widths shrink or expand, depending on the remaining space.
         * A horizontal scrollbar may appear if the columns that have widths exceed the Grid width. In this case, the remaining columns will disappear.
-    * The columns that have widths take up more than the Grid component width. The applied column widths match the component settings. A horizontal scrollbar appears. All columns without widths shrink to zero width and disappear.
+    * If the columns with set widths exceed the Grid component's width:
+        * The applied column widths match the component settings.
+        * A horizontal scrollbar appears.
+        * All columns without widths shrink to zero width and disappear.
 * No column has a set width&mdash;In this scenario, all columns are equally wide. They shrink and expand depending on the Grid's width.
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
