@@ -12,7 +12,7 @@ position: 17
 
 The FileManager allows uploading of files through an integrated Upload component. The Upload shows in a dialog when the user clicks on the [`Upload` Toolbar button](slug:filemanager-toolbar).
 
->tip Before continuing, make sure you are familiar with the features and API of the [Upload component](slug:upload-overview).
+>tip Before you continue, make sure you are familiar with the features and API of the [Telerik Upload component](slug:upload-overview).
 
 Configure the integrated Upload through the `FileManagerUploadSettings` child tag of `FileManagerSettings`. The FileManager exposes parameter names that are identical to the respective Upload component API members:
 
@@ -22,11 +22,13 @@ Configure the integrated Upload through the `FileManagerUploadSettings` child ta
 
 ## Example
 
-The example below demonstrates how to handle successful upload on the FileManager. Note the following milestones:
+The example below demonstrates how to handle successful uploads in the FileManager. Note the following milestones:
 
-* To actually **upload** the file, [implement a controller method](slug:upload-overview#implement-controller-methods).
-* To save the file in the **correct folder**, use the [Upload's `OnUpload` event](slug:upload-events#onupload) and send the FileManager's `Path` value to the controller.
-* To receive an optional **custom response** from the controller, use the [Upload's `OnSuccess` event arguments](slug:upload-events#onsuccess).
+* To upload the file, [implement a controller method](slug:upload-overview#implement-controller-methods).
+* To save the file to the correct folder, use the [Upload's `OnUpload` event](slug:upload-events#onupload) and send the FileManager's `Path` value to the controller.
+* To receive an optional custom response from the controller, use the [Upload's `OnSuccess` event arguments](slug:upload-events#onsuccess).
+
+The `FileManagerController` class below assumes that the project name and namespace is `TelerikBlazorApp`. The FileManager `Data` is the contents of the application's `wwwroot` folder.
 
 >caption Using FileManager Upload
 
@@ -35,246 +37,160 @@ The example below demonstrates how to handle successful upload on the FileManage
 ````RAZOR
 @using System.IO
 
+@inject NavigationManager NavigationManager
+
+<p>Path: @FileManagerPath</p>
+
 <TelerikFileManager Data="@FileManagerData"
-                    @bind-Path="@DirectoryPath"
-                    OnModelInit="@OnModelInitHandler"
-                    Height="400px">
+                    @bind-Path="@FileManagerPath">
     <FileManagerSettings>
-        <FileManagerUploadSettings SaveUrl="api/filemanager/save"
-                                   RemoveUrl="/api/filemanager/remove"
-                                   OnUpload="@OnUploadUpload"
-                                   OnSuccess="@OnUploadSuccess">
-        </FileManagerUploadSettings>
+        <FileManagerUploadSettings SaveUrl="@ToAbsoluteUrl("api/filemanager/save")"
+                                   RemoveUrl="@ToAbsoluteUrl("api/filemanager/remove")"
+                                   OnUpload="@OnFileManagerUploadRequest"
+                                   OnRemove="@OnFileManagerUploadRequest"
+                                   OnSuccess="@OnFileManagerUploadSuccess" />
     </FileManagerSettings>
 </TelerikFileManager>
 
 @code {
-    private List<FlatFileEntry> FileManagerData = new List<FlatFileEntry>();
+    private List<FileManagerItem> FileManagerData { get; set; } = new();
 
-    private string RootPath { get; set; } = "root-folder-path";
-    private string DirectoryPath { get; set; } = "root-folder-path";
+    private string FileManagerPath { get; set; } = string.Empty;
 
-    private async Task OnUploadUpload(UploadEventArgs args)
+    // The source root folder for FileManagerData
+    private readonly string RootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+
+    private string ToAbsoluteUrl(string url)
     {
-        // Send the correct save location to the Upload controller
-        args.RequestData.Add("FileManagerPath", DirectoryPath);
+        return string.Concat(NavigationManager.BaseUri, url);
     }
 
-    private async Task OnUploadSuccess(UploadSuccessEventArgs args)
+    private void OnFileManagerUploadRequest(UploadEventArgs args)
     {
-        await UploadAsync(args, DirectoryPath);
+        // If FileManagerPath is empty, the controller action will not be hit
+        string pathToSend = string.IsNullOrEmpty(FileManagerPath) ? "/" : FileManagerPath;
+
+        args.RequestData.Add("FileManagerPath", pathToSend);
     }
 
-    private async Task UploadAsync(UploadSuccessEventArgs args, string path)
+    private async Task OnFileManagerUploadSuccess(UploadSuccessEventArgs args)
     {
-        await Task.Delay(300);
+        FileManagerData = await GetFileManagerData();
 
-        var uploadFiles = args.Files;
-
-        // Optional: use information from the Upload controller response
-        //var uploadResponse = args.Request.ResponseText;
-
-        var files = uploadFiles
-            .Select(x => new FlatFileEntry()
-                {
-                    Name = Path.GetFileNameWithoutExtension(x.Name),
-                    IsDirectory = false,
-                    HasDirectories = false,
-                    DateCreated = DateTime.Now,
-                    DateCreatedUtc = DateTime.Now,
-                    DateModified = DateTime.Now,
-                    DateModifiedUtc = DateTime.Now,
-                    Path = Path.Combine(path, x.Name),
-                    Extension = Path.GetExtension(x.Name),
-                    Size = x.Size
-                })
-            .ToList();
-
-        var directory = GetDirectory(path);
-        var directoryItems = FileManagerData;
-
-        for (int i = 0; i < files.Count; i++)
-        {
-            var file = files[i];
-            directoryItems.Add(file);
-        }
-
-        RefreshData();
-    }
-
-    private FlatFileEntry GetDirectory(string path)
-    {
-        var directory = FileManagerData.FirstOrDefault(x => x.IsDirectory && x.Path == path);
-
-        return directory;
-    }
-
-    private void RefreshData()
-    {
-        FileManagerData = new List<FlatFileEntry>(FileManagerData);
+        // OR
+        // you can add or remove items in FileManagerData manually
+        // depending on the value of args.Operation and args.Files
     }
 
     protected override async Task OnInitializedAsync()
     {
-        FileManagerData = await GetFlatFileEntries();
+        FileManagerData = await GetFileManagerData();
     }
 
-    //initialize the model to allow new folder creation
-    private FlatFileEntry OnModelInitHandler()
+    #region FileManager Data Generation
+
+    private async Task<List<FileManagerItem>> GetFileManagerData()
     {
-        var item = new FlatFileEntry();
-        item.Name = $"New folder";
-        item.Size = 0;
-        item.Path = Path.Combine(DirectoryPath, item.Name);
-        item.IsDirectory = true;
-        item.HasDirectories = false;
-        item.DateCreated = DateTime.Now;
-        item.DateCreatedUtc = DateTime.Now;
-        item.DateModified = DateTime.Now;
-        item.DateModifiedUtc = DateTime.Now;
+        // Simulate async operation
+        await Task.CompletedTask;
+
+        return ReadFileSystem();
+    }
+
+    private List<FileManagerItem> ReadFileSystem()
+    {
+        var items = new List<FileManagerItem>();
+
+        string rootPath = Path.Combine(RootPath);
+        DirectoryInfo rootDirectory = new(rootPath);
+
+        AddChildren(items, rootDirectory, null);
+
+        return items;
+    }
+
+    private void AddDirectory(List<FileManagerItem> items, DirectoryInfo directoryInfo, string? parentId)
+    {
+        FileManagerItem directoryEntry = ConvertToFileManagerItem(directoryInfo, parentId);
+        items.Add(directoryEntry);
+
+        AddChildren(items, directoryInfo, directoryEntry.Id);
+    }
+
+    private void AddChildren(List<FileManagerItem> items, DirectoryInfo directoryInfo, string? directoryId)
+    {
+        IEnumerable<FileInfo> files = directoryInfo.EnumerateFiles();
+        foreach (FileInfo file in files)
+        {
+            FileManagerItem item = ConvertToFileManagerItem(file, directoryId);
+            items.Add(item);
+        }
+
+        IEnumerable<DirectoryInfo> directories = directoryInfo.EnumerateDirectories();
+        foreach (DirectoryInfo directory in directories)
+        {
+            AddDirectory(items, directory, directoryId);
+        }
+    }
+
+    private FileManagerItem ConvertToFileManagerItem(DirectoryInfo directory, string? parentId)
+    {
+        var item = new FileManagerItem()
+        {
+            ParentId = parentId,
+            Name = directory.Name,
+            IsDirectory = true,
+            HasDirectories = directory.GetDirectories().Count() > 0,
+            DateCreated = directory.CreationTime,
+            DateCreatedUtc = directory.CreationTimeUtc,
+            DateModified = directory.LastWriteTime,
+            DateModifiedUtc = directory.LastWriteTimeUtc,
+            // Trim the path to avoid exposing it
+            Path = directory.FullName.Substring(directory.FullName.IndexOf(RootPath) + RootPath.Length),
+            Extension = directory.Extension,
+            // Hard-coded for simplicity, otherwise requires recursion
+            Size = 2 * 1024 * directory.GetFiles().LongCount()
+        };
 
         return item;
     }
 
-    // The FileManager is hard-coded, so you can explore the component more easily
-    private async Task<List<FlatFileEntry>> GetFlatFileEntries()
+    private FileManagerItem ConvertToFileManagerItem(FileInfo file, string? parentId)
     {
+        var item = new FileManagerItem()
+        {
+            ParentId = parentId,
+            Name = Path.GetFileNameWithoutExtension(file.FullName),
+            IsDirectory = false,
+            HasDirectories = false,
+            DateCreated = file.CreationTime,
+            DateCreatedUtc = file.CreationTimeUtc,
+            DateModified = file.LastWriteTime,
+            DateModifiedUtc = file.LastWriteTimeUtc,
+            // Trim the path to avoid exposing it
+            Path = file.FullName.Substring(file.FullName.IndexOf(RootPath) + RootPath.Length),
+            Extension = file.Extension,
+            Size = file.Length
+        };
 
-        var workFiles = new FlatFileEntry()
-            {
-                Id = "1",
-                ParentId = null,
-                Name = "Work Files",
-                IsDirectory = true,
-                HasDirectories = true,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(RootPath, "Work Files"),
-                Size = 3 * 1024 * 1024
-            };
-
-        var Documents = new FlatFileEntry()
-            {
-                Id = "2",
-                ParentId = workFiles.Id,
-                Name = "Documents",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "Documents"),
-                Size = 1024 * 1024
-            };
-
-        var Images = new FlatFileEntry()
-            {
-                Id = "3",
-                ParentId = workFiles.Id,
-                Name = "Images",
-                IsDirectory = true,
-                HasDirectories = false,
-                DateCreated = new DateTime(2022, 1, 2),
-                DateCreatedUtc = new DateTime(2022, 1, 2),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(workFiles.Path, "Images"),
-                Size = 2 * 1024 * 1024
-            };
-
-        var specification = new FlatFileEntry()
-            {
-                Id = "4",
-                ParentId = Documents.Id,
-                Name = "Specification",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".docx",
-                DateCreated = new DateTime(2022, 1, 5),
-                DateCreatedUtc = new DateTime(2022, 1, 5),
-                DateModified = new DateTime(2022, 2, 3),
-                DateModifiedUtc = new DateTime(2022, 2, 3),
-                Path = Path.Combine(Documents.Path, "Specification.docx"),
-                Size = 462 * 1024
-            };
-
-        var report = new FlatFileEntry()
-            {
-                Id = "5",
-                ParentId = Documents.Id,
-                Name = "Monthly report",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".xlsx",
-                DateCreated = new DateTime(2022, 1, 20),
-                DateCreatedUtc = new DateTime(2022, 1, 20),
-                DateModified = new DateTime(2022, 1, 25),
-                DateModifiedUtc = new DateTime(2022, 1, 25),
-                Path = Path.Combine(Documents.Path, "Monthly report.xlsx"),
-                Size = 538 * 1024
-            };
-
-        var dashboardDesign = new FlatFileEntry()
-            {
-                Id = "6",
-                ParentId = Images.Id,
-                Name = "Dashboard Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".png",
-                DateCreated = new DateTime(2022, 1, 10),
-                DateCreatedUtc = new DateTime(2022, 1, 10),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Dashboard Design.png"),
-                Size = 1024
-            };
-
-        var gridDesign = new FlatFileEntry()
-            {
-                Id = "7",
-                ParentId = Images.Id,
-                Name = "Grid Design",
-                IsDirectory = false,
-                HasDirectories = false,
-                Extension = ".jpg",
-                DateCreated = new DateTime(2022, 1, 12),
-                DateCreatedUtc = new DateTime(2022, 1, 12),
-                DateModified = new DateTime(2022, 2, 13),
-                DateModifiedUtc = new DateTime(2022, 2, 13),
-                Path = Path.Combine(Images.Path, "Grid Design.jpg"),
-                Size = 1024
-            };
-
-        var files = new List<FlatFileEntry>()
-            {
-                workFiles,
-
-                Documents,
-                specification,
-                report,
-
-                Images,
-                dashboardDesign,
-                gridDesign
-            };
-
-        return await Task.FromResult(files);
+        return item;
     }
 
-    public class FlatFileEntry
+    #endregion FileManager Data Generation
+
+    public class FileManagerItem
     {
-        public string Id { get; set; }
-        public string ParentId { get; set; }
-        public string Name { get; set; }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string? ParentId { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+        public string Extension { get; set; } = string.Empty;
         public long Size { get; set; }
-        public string Path { get; set; }
-        public string Extension { get; set; }
+        public string Path { get; set; } = string.Empty;
+
         public bool IsDirectory { get; set; }
         public bool HasDirectories { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateCreatedUtc { get; set; }
         public DateTime DateModified { get; set; }
@@ -282,11 +198,108 @@ The example below demonstrates how to handle successful upload on the FileManage
     }
 }
 ````
+````C# FileManagerController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace TelerikBlazorApp.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]/[action]")]
+    public class FileManagerController : ControllerBase
+    {
+        public IWebHostEnvironment HostingEnvironment { get; set; }
+
+        public FileManagerController(IWebHostEnvironment hostingEnvironment)
+        {
+            HostingEnvironment = hostingEnvironment;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(IFormFile files, [FromForm] string fileManagerPath)
+        {
+            if (files != null)
+            {
+                try
+                {
+                    if (fileManagerPath.StartsWith("/"))
+                    {
+                        // Path.Combine ignores the first argument if the second one is an absolute path
+                        fileManagerPath = fileManagerPath.Substring(1);
+                    }
+
+                    var saveLocation = Path.Combine(new string[] { HostingEnvironment.WebRootPath, fileManagerPath, files.FileName });
+
+                    using (var fileStream = new FileStream(saveLocation, FileMode.Create))
+                    {
+                        await files.CopyToAsync(fileStream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.StatusCode = 500;
+                    await Response.WriteAsync($"Upload failed: {ex.Message}");
+                }
+            }
+
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Remove([FromForm] string files, [FromForm] string fileManagerPath)
+        {
+            if (files != null)
+            {
+                try
+                {
+                    if (fileManagerPath.StartsWith("/"))
+                    {
+                        fileManagerPath = fileManagerPath.Substring(1);
+                    }
+
+                    var fileLocation = Path.Combine(HostingEnvironment.WebRootPath, fileManagerPath, files);
+
+                    if (System.IO.File.Exists(fileLocation))
+                    {
+                        System.IO.File.Delete(fileLocation);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.StatusCode = 500;
+                    await Response.WriteAsync($"Delete failed: {ex.Message}");
+                }
+            }
+
+            return new EmptyResult();
+        }
+    }
+}
+````
+````C# Program.cs
+// ...
+
+var builder = WebApplication.CreateBuilder(args);
+
+// ...
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// ...
+
+app.MapDefaultControllerRoute();
+
+// ...
+
+app.Run();
+````
 
 ## Next Steps
 
 * [Upload Events](slug:upload-events)
 * [Upload Validation](slug:upload-validation)
+* [Upload Troubleshooting](slug:upload-troubleshooting)
 
 ## See Also
 
