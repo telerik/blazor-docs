@@ -1,20 +1,8 @@
 #export-common-notes
-* `bool` fields are exported as `TRUE` or `FALSE` strings, because there is no native boolean data type in exported format and these string values are the most common ones used in data and macros.
 
-* Date and number formats are exported with the following format: `mm/dd/yyyy hh:mm:ss` plus the current app culture AM/PM specifier for dates, and `Convert.ToDouble(value)` for numbers (which uses the current thread culture). The Excel date formats are different than .NET date formats and Excel may not always recognize the column as dates, for example, if the entire date format from the .NET culture is used.
 
-* The Grid exports only `<GridColumn>` instances. Other types of columns are not exported, for example command, checkbox, hierarchy, group and row-drag columns.
 
-* If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
 
-* With Server-side Blazor, the file may become larger than the default SignalR connection limit, and this can disconnect the client and result in an error. Generally, this requires quite a lot of data to happen, but you may need to increase the size limit of the connection in the `ConfigureServices` method of your `Startup.cs` file, for example:
-
-````C#.skip-repl
-services.AddServerSideBlazor().AddHubOptions(o =>
-{
-    o.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-});
-````
 
 * With Client-side Blazor (WebAssembly), all the code runs in the browser and, at the time of writing, is considerably slower than server-side Blazor, and it only has one actual thread. This means that while the file is being generated, the UI will be unresponsive, so you may want to show a loading sign to the user through the `OnClick` handler of the command button, something like:
 
@@ -76,3 +64,4 @@ services.AddServerSideBlazor().AddHubOptions(o =>
 }
 ````
 #end
+ 

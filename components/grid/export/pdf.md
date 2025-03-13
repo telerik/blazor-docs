@@ -5,7 +5,7 @@ description: Export to PDF the Grid for Blazor.
 slug: grid-export-pdf
 tags: telerik,blazor,grid,export,pdf
 published: True
-position: 1
+position: 7
 ---
 
 # Grid PDF Export
@@ -17,9 +17,11 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
+  - [How It Works](#how-it-works)
+  - [Requirements](#requirements)
+  - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
-  - [Notes](#notes)
   - [Custom Export](#custom-export)
 
 ## Basics
@@ -43,6 +45,8 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
 | `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page&mdash;portrait or landscape. |
  
+> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
+
 >caption Export the Grid to PDF
 
 ````RAZOR
@@ -102,6 +106,20 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
     }
 }
 ````
+
+## How It Works
+
+* For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
+* Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
+
+## Requirements
+
+* PDF export requires pixel widths for all columns. Widths in other units such as `%` or `em` cannot be translated correctly and the respective columns will collapse in the exported PDF file. The column widths for the PDF export can differ from the ones in the Grid configuration for the web browser. To set column widths for the PDF file only, use the `Width` property of the [`OnBeforeExportEventArgs.Columns`](slug:grid-export-events#for-pdf-export) members.
+* Provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
+
+## Limitations
+
+* Some PDF fonts do not include Cyrillic or other non-Latin characters. In such cases, [load a compatible font explicitly](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider).
 
 ## Programmatic Export
 
@@ -199,20 +217,6 @@ The component allows you to control the data set that will be exported. It also 
 For more advanced customization the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`PdfProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library that is available with your license.
 
 Read more about how to [customize the exported file](slug:grid-export-events).
-
-## Notes
-
-The PDF export has the following specifics:
-
-* PDF export requires pixel widths for all columns. Widths in other units such as `%` or `em` cannot be translated correctly and the respective columns will collapse in the exported PDF file. The column widths for the PDF export can differ from the ones in the Grid configuration for the web browser. To set column widths for the PDF file only, use the `Width` property of the [`OnBeforeExportEventArgs.Columns`](slug:grid-export-events#for-pdf-export) members.
-* For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
-* Provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
-* Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
-* Some PDF fonts do not include Cyrillic or other non-Latin characters. In such cases, [load a compatible font explicitly](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider).
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own PDF file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
-
-@[template](/_contentTemplates/grid/export.md#export-common-notes)
-
 
 ## Custom Export
 

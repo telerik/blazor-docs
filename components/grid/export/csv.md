@@ -5,7 +5,7 @@ description: Export to CSV the Grid for Blazor.
 slug: grid-export-csv
 tags: telerik,blazor,grid,export,csv
 published: True
-position: 1
+position: 3
 ---
 
 # Grid CSV Export
@@ -17,6 +17,7 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
+  - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
   - [Notes](#notes)
@@ -40,6 +41,8 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 | --- | --- | --- |
 | `FileName` | `string` | The name of the file. The grid will add the `.csv` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
+
+> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
 
 >caption Export the Grid to CSV - Example
 
@@ -98,6 +101,10 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
     }
 }
 ````
+
+## Limitations
+
+* Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document. If you need to add such structure, consider [exporting to an Excel file](slug:grid-export-excel).
 
 ## Programmatic Export
 
@@ -198,14 +205,6 @@ For more advanced customizations (such as coloring the headers, bolding the titl
 
 [Read more about how to customize the exported file...](slug:grid-export-events)
 
-## Notes
-
-The CSV export has the following specifics:
-
-* Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document. If you need to add such structure, consider [exporting to an Excel file](slug:grid-export-excel).
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own Excel file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-excel-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>.
-
-@[template](/_contentTemplates/grid/export.md#export-common-notes)
 
 ## See Also
 
