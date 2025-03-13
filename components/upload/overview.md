@@ -78,7 +78,7 @@ Request routing depends on the application and is outside the Upload component s
 
 Also check the [Upload Troubleshooting](slug:upload-troubleshooting) page.
 
-The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorApp`.
 
 >caption Sample Upload Controller
 
@@ -92,7 +92,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TelerikBlazorUpload.Controllers
+namespace TelerikBlazorApp.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class UploadController : ControllerBase
