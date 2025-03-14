@@ -490,7 +490,7 @@ public async Task<IActionResult> Save(IFormFile files)
 
 ## Example
 
-The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorUpload`.
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorApp`.
 
 Make sure to enable controller routing in the app startup file (`Program.cs`). In this case, `app.MapDefaultControllerRoute();` is all that's needed.
 
@@ -688,7 +688,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TelerikBlazorUpload.Controllers
+namespace TelerikBlazorApp.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class UploadController : ControllerBase

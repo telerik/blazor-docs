@@ -47,6 +47,8 @@ In Blazor, [previewing images is easier when using the FileSelect](#using-the-fi
 
 You cannot preview the image in the Upload `OnSelect` event, because this event handler has no access to the file contents.
 
+The `UploadController` class below assumes that the project name and namespace is `TelerikBlazorApp`.
+
 >caption Preview uploaded images when using the Upload component
 
 <div class="skip-repl"></div>
@@ -130,7 +132,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TelerikBlazorUpload.Controllers
+namespace TelerikBlazorApp.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class UploadController : ControllerBase
