@@ -56,7 +56,7 @@ You can make the Window component responsive and allow it to adapt to different 
 
 ## Position
 
-You can set the position of the Window with the `Top` and `Left` parameters. The component features a boolean `Centered` parameter, which is `true` by default when `Top` and `Left` are not set. The Window component also provides a `ContainmentSelector` parameter that can limit resizing and dragging within the boundaries of a specified container.
+You can set the position of the Window with the `Top` and `Left` parameters. The Window component also provides a `ContainmentSelector` parameter that can limit resizing and dragging within the boundaries of a specified container.
 
 Read more about the [Blazor Window position...](slug:components/window/position)
 
@@ -84,7 +84,6 @@ The following table lists the Window parameters. Also check the [Window API](slu
 
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
-| `Centered` | `bool` <br /> (`true`) | Determines if the Window displays in the middle of the viewport. This parameter is ignored if `Top` or `Left` is set to a non-empty string. |
 | `Class` | `string` | The custom CSS class of the `<div class="k-window">` element. Use it to [override theme styles](slug:themes-override). Here is a [custom Window styling example](slug:window-kb-custom-css-styling). |
 | `CloseOnOverlayClick` | `bool` | Sets if a modal Window will close when the user clicks on the modal overlay that covers the rest of the page content. |
 | `ContainmentSelector` | `string` | A CSS selector that points to a unique HTML element on the page. The Window will render inside the specified container. Window resizing and dragging will be restricted by the boundaries of the specified container. Do not use `ContainmentSelector` with modal Windows. |
@@ -172,6 +171,7 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 * [Configure the Window position](slug:components/window/position)
 * [Set the Window size, minimized, and maximized state](slug:components/window/size)
 * [Handle Window events](slug:window-events)
+* [Learn How to Programmatically Center the Window](slug:window-kb-center-programmatically)
 
 ## See Also
 
