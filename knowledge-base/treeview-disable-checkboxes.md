@@ -52,12 +52,12 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
 </TelerikTreeView>
 
 <style>
-    .disabled-checkbox .k-checkbox {
-        opacity: 0.7;
+    .@(DisabledCheckboxClass) .k-checkbox {
+        opacity: 0.5;
         pointer-events: none;
     }
 
-    .disabled-checkbox .k-treeview-leaf {
+    .@(DisabledCheckboxClass) .k-treeview-leaf {
         opacity: 0.7;
         pointer-events: none;
     }
@@ -67,13 +67,14 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
     private IEnumerable<TreeViewItem> FlatData { get; set; }
     private IEnumerable<object> CheckedItems { get; set; } = new List<object>();
     private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeViewItem>();
+    private string DisabledCheckboxClass { get; set; } = "disabled-checkbox";
 
     private void HandleOnItemRender(TreeViewItemRenderEventArgs args)
     {
         var item = args.Item as TreeViewItem;
         if (!item.IsActive)
         {
-            args.Class = "disabled-checkbox";
+            args.Class = DisabledCheckboxClass;
         }
     }
     protected override void OnInitialized()
@@ -87,30 +88,30 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
         List<TreeViewItem> items = new List<TreeViewItem>();
 
         items.Add(new TreeViewItem()
-        {
-            Id = 1,
-            Text = "Root",
-            ParentIdValue = null,
-            HasChildren = true,
-            Icon = SvgIcon.Folder,
-            IsChecked = false,
-            IsActive = true
-        });
+            {
+                Id = 1,
+                Text = "Root",
+                ParentIdValue = null,
+                HasChildren = true,
+                Icon = SvgIcon.Folder,
+                IsChecked = false,
+                IsActive = true
+            });
 
         Random rnd = new Random();
         for (int i = 2; i <= 5; i++)
         {
             bool hasChildren = rnd.Next(0, 2) == 1;
             items.Add(new TreeViewItem()
-            {
-                Id = i,
-                Text = $"Folder {i}",
-                ParentIdValue = 1,
-                HasChildren = hasChildren,
-                Icon = hasChildren ? SvgIcon.Folder : SvgIcon.File,
-                IsChecked = false,
-                IsActive = rnd.Next(0, 2) == 1
-            });
+                {
+                    Id = i,
+                    Text = $"Folder {i}",
+                    ParentIdValue = 1,
+                    HasChildren = hasChildren,
+                    Icon = hasChildren ? SvgIcon.Folder : SvgIcon.File,
+                    IsChecked = false,
+                    IsActive = rnd.Next(0, 2) == 1
+                });
 
             if (hasChildren)
             {
@@ -118,15 +119,15 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
                 {
                     int childId = i * 10 + j;
                     items.Add(new TreeViewItem()
-                    {
-                        Id = childId,
-                        Text = $"File {childId}",
-                        ParentIdValue = i,
-                        HasChildren = false,
-                        Icon = SvgIcon.File,
-                        IsChecked = false,
-                        IsActive = rnd.Next(0, 2) == 1
-                    });
+                        {
+                            Id = childId,
+                            Text = $"File {childId}",
+                            ParentIdValue = i,
+                            HasChildren = false,
+                            Icon = SvgIcon.File,
+                            IsChecked = false,
+                            IsActive = rnd.Next(0, 2) == 1
+                        });
                 }
             }
         }
@@ -137,10 +138,10 @@ To disable checkboxes for specific TreeView items based on a condition, use the 
     public class TreeViewItem
     {
         public int Id { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
         public int? ParentIdValue { get; set; }
         public bool HasChildren { get; set; }
-        public ISvgIcon Icon { get; set; }
+        public ISvgIcon? Icon { get; set; }
         public bool IsChecked { get; set; }
         public bool IsActive { get; set; }
     }
