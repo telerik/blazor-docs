@@ -211,4 +211,5 @@ Read more about how to [customize the exported file](slug:grid-export-events).
   * [Live Demo: Grid Export](https://demos.telerik.com/blazor-ui/grid/export)
   * [Custom Cell Formatting of the Exported File with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
   * [Custom Cell Formatting of the Exported File with RadSpreadStreamProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadstreamprocessing)
+  * [Sowing a Loader While Exporting the Grid](slug:grid-kb-show-loader-while-exporting)
   * [Blazor Grid](slug:grid-overview)

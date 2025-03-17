@@ -232,3 +232,4 @@ The following sample projects show two ways to implement a PDF export
 
 * [Blazor Grid](slug:grid-overview)
 * [Live Demo: Grid Export](https://demos.telerik.com/blazor-ui/grid/export)
+* [Sowing a Loader While Exporting the Grid](slug:grid-kb-show-loader-while-exporting)
