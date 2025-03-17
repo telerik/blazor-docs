@@ -22,6 +22,7 @@ Before proceeding to the dedicated export articles, ensure you are familiar with
 ## How It Works
 
 * If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
+* The time for export will be longer if the Grid has a lot of records and/or in Client-side Blazor (WebAssembly) where all the code runs in the browser and, at the time of writing, is considerably slower than server-side Blazor, and it only has one actual thread. While the file is being generated, the UI will be unresponsive, so you may want to [show a loading sign to the user during the export process](slug: grid-kb-show-loader-while-exporting).
 
 ## Requirements
 
