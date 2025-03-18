@@ -32,9 +32,9 @@ This knowledge base article answers the following questions:
 
 To center a Telerik Window programmatically, follow these steps:
 
-1. Bind the [`Top` and `Left` parameters](slug:components/window/position#top-and-left) using `@bind-Top` and `@bind-Left` to control the Window position dynamically. Set their default values to specific ones (e.g., `Top="30%"`, `Left="60%"`) to position the Window where you want it to appear initially.
-2. Set both parameters to `string.Empty` to reset the Window position. This will ensure that, the component automatically repositions itself to the center of the current viewport.
-3. Refresh the Window using component reference – Calling [`WindowRef?.Refresh();`](slug:window-overview#window-reference-and-methods) re-renders the Window with the new position.
+1. Set the [`Top` and `Left` parameters](slug:components/window/position#top-and-left) using `@bind-Top` and `@bind-Left` or the [`TopChanged` and `LeftChanged` events](slug:window-events#leftchanged-and-topchanged).
+2. Set both parameters to `string.Empty` to center the Window initially or any time afterwards.
+3. [Call the `Refresh()` method of the Window component instance](slug:window-overview#window-reference-and-methods) to re-render the Window at the new position.
 
 >caption Center the Telerik Blazor Window Programmatically
 
