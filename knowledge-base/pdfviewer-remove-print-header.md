@@ -28,7 +28,7 @@ When printing a PDF file using the [PDFViewer for Blazor](slug:pdfviewer-overvie
 The PDFViewer component utilizes the standard browser printing engine, which includes an option to hide the header and footer. These sections often contain the application's name, printing timestamp, page numbers, and the URL, including "about:blank". To remove this information, perform the following steps upon initiating a print:
 
 1. Click on the **Print** button in PDFViewer to open the print dialog.
-2. In the print dialog, click on **More settings**.
+2. Select **More settings** in the print dialog.
 3. Uncheck the box labeled **Headers and footers**.
 
 By unchecking the **Headers and footers** option, you will remove the "about:blank" label and any other default header or footer information from your printed output.
