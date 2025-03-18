@@ -29,7 +29,7 @@ I would like to put the Drawer in [MiniMode](slug:drawer-mini-mode) on small scr
 ## Solution
 
 1. The Blazor application has to be aware of the current browser width. One way to achieve this is to use the [TelerikMediaQuery component](slug:mediaquery-overview).
-2. Use the MediaQuery `[OnChange event](slug:mediaquery-events)` to put the Drawer in MiniMode.
+2. Use the MediaQuery [`OnChange` event](slug:mediaquery-events) to put the Drawer in MiniMode.
 
 >caption Put the Drawer in MiniMode on small screens
 

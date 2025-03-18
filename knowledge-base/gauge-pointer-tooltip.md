@@ -35,7 +35,7 @@ How can I add a Tooltip to the Blazor Arc or Radial Gauge? I want to show a Tool
 To add a Tooltip for the pointer of the Gauge:
 
 1. Set the [`Color` of the Gauge Pointer](slug:arc-gauge-pointers#color).
-1. Declare an instance of `TelerikTooltip` ([Telerik UI for Blazor Tooltip])(slug:tooltip-overview).
+1. Declare [`TelerikTooltip`](slug:tooltip-overview) component instance.
 1. Set the [`TargetSelector`](slug:tooltip-overview#tooltip-parameters) of the Tooltip to a specific path element within the SVG rendered by the Gauge. Use the specified pointer color in the selector.
 
 The example below demonstrates how to add a Tooltip to the Arc Gauge. The same approach applies to all other Gauge types.
