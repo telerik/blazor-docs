@@ -55,8 +55,8 @@ To center a Telerik Window programmatically, follow these steps:
 
 @code {
     private TelerikWindow? WindowRef { get; set; }
-    private string Top { get; set; } = "30%";
-    private string Left { get; set; } = "60%";
+    private string Top { get; set; } = "10%";
+    private string Left { get; set; } = "10%";
 
     private void CenterWindow()
     {
