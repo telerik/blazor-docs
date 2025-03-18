@@ -62,7 +62,7 @@ To add a clear button inside the DropDownList component, follow the steps below:
 </TelerikButton>
 
 @code {
-    protected string? SelectedItem { get; set; }
+    private string? SelectedItem { get; set; }
 
     protected List<string> DropDownData = new List<string>() { "first", "second", "third" };
 
