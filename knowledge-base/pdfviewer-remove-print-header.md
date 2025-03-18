@@ -2,7 +2,7 @@
 title: Remove Printed Page Header
 description: Learn how to remove the header/footer information when printing a PDF document in PDFViewer for Blazor.
 type: how-to
-page_title: How to Remove the Header Label
+page_title: How to Remove Print Page Header and Footer
 slug: pdfviewer-kb-remove-print-header
 tags: pdfviewer, print, headers, footers
 res_type: kb
