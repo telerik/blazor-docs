@@ -64,7 +64,7 @@ To add a clear button inside the DropDownList component, follow the steps below:
 @code {
     private string? SelectedItem { get; set; }
 
-    protected List<string> DropDownData = new List<string>() { "first", "second", "third" };
+    private List<string> DropDownData = new List<string>() { "first", "second", "third" };
 
     private void HandleDropDownListReset()
     {
