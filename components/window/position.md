@@ -17,7 +17,9 @@ The Window offers several ways to control its position:
 * [Centered Window](#center)
 * [Positions Example](#example)
 
-The Window renders [in the root of the application](slug:window-overview#important-notes) or in its [containment element](#containmentselector). If the application is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position). However, if `Top` and `Left` parameters are not defined or equal to `string.Empty`, the Telerik Window will be positioned at the center of the viewport by default.
+The Window renders [in the root of the application](slug:window-overview#important-notes) or in its [containment element](#containmentselector). However, if the `Top` and `Left` parameters are not defined or equal to `string.Empty`, the Telerik Window will be positioned at the center of the viewport by default. 
+
+If the application is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position). 
 
 ## ContainmentSelector
 
@@ -68,7 +70,7 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 
 ## Center
 
- The Telerik Window is automatically centered when the `Top` and `Left` parameters are not set or are explicitly set to `string.Empty`. This ensures the Window appears in the middle of the viewport by default. To see this behavior in action, refer to the [example](#example) below.
+ The Telerik Window is automatically centered when the `Top` and `Left` parameters are not set or are explicitly set to `string.Empty`. To see this behavior in action, refer to the [example](#example) below.
 
 ## Example
 
@@ -81,14 +83,14 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
     <code>WindowTop</code>: @WindowTop
 </p>
 
-<TelerikWindow @bind-Left="@WindowLeft"
+<TelerikWindow @ref="@WindowRef"
+               @bind-Left="@WindowLeft"
                @bind-Top="@WindowTop"
                Visible="true"
-               Width="300px"
-               @ref="@WindowRef">
+               Width="300px">
     <WindowTitle>Window</WindowTitle>
     <WindowContent>
-        The values of <code>WindowLeft</code> and <code>WindowTop</code> change after the user ends dragging, resizing or centering the window.
+        The values of <code>WindowLeft</code> and <code>WindowTop</code> change after the user ends dragging or resizing.
     </WindowContent>
     <WindowFooter>
         <TelerikButton OnClick="@CenterWindow">Center Window</TelerikButton>
@@ -96,18 +98,17 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
 </TelerikWindow>
 
 @code {
-    private TelerikWindow WindowRef { get; set; }
+    private TelerikWindow? WindowRef { get; set; }
     private string WindowLeft { get; set; } = "50px";
     private string WindowTop { get; set; } = "50px";
 
     private void CenterWindow()
     {
         WindowLeft = WindowTop = string.Empty;
-        WindowRef.Refresh();
+        WindowRef?.Refresh();
     }
 }
 ````
-
 
 ## See Also
 
