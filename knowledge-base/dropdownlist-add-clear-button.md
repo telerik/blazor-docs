@@ -1,5 +1,5 @@
 ---
-title: How to Add a Clear Button inside DropDownList
+title: How to Add a Clear Button Inside DropDownList
 description: Learn how to integrate a clear button within the DropDownList for Blazor to enable users to reset the selected value easily.
 type: how-to
 page_title: How to Add a Clear Button Inside the DropDownList for Blazor
