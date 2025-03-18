@@ -76,4 +76,4 @@ To add a clear button inside the DropDownList component, follow the steps below:
 ## See Also
 
 - [Overview of the DropDownList for Blazor](slug:components/dropdownlist/overview)
-- [Overview of the DropDownList for Blazor](slug:components/button/overview)
+- [Blazor Button Overview](slug:components/button/overview)
