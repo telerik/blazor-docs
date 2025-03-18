@@ -105,6 +105,15 @@ If the column you want to freeze is not the first in the list, the treelist must
 }
 ````
 
+## Limitations
+
+The frozen columns pose some requirements:
+
+* The `Width` of the TreeList **must** be set in `px` units.
+
+* When a column is frozen (it has `Locked="true"`), its `Width` **must** be in `px` units.
+
+
 
 ## See also
  * [Live demo: Frozen Columns](https://demos.telerik.com/blazor-ui/treelist/frozen-columns)
