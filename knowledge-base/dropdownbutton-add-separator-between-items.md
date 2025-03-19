@@ -44,10 +44,10 @@ To create a visual separator between items in a DropDownButton, apply a custom c
     <DropDownButtonContent>Share</DropDownButtonContent>
 
     <DropDownButtonItems>
-        <DropDownButtonItem Icon="@SvgIcon.Facebook" OnClick="@(()=>OnItemClick("Facebook"))">Facebook</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Twitter" OnClick="@(()=>OnItemClick("Twitter"))">Twitter</DropDownButtonItem>
-        <DropDownButtonItem Icon="@SvgIcon.Linkedin" OnClick="@(()=>OnItemClick("Linkedin"))" Class="item-with-separator">Linkedin</DropDownButtonItem>
-       <DropDownButtonItem OnClick="@(()=>OnItemClick("Reddit"))">Other</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Facebook">Facebook</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Twitter">Twitter</DropDownButtonItem>
+        <DropDownButtonItem Icon="@SvgIcon.Linkedin" Class="item-with-separator">Linkedin</DropDownButtonItem>
+       <DropDownButtonItem>Other</DropDownButtonItem>
     </DropDownButtonItems>
 
 </TelerikDropDownButton>
