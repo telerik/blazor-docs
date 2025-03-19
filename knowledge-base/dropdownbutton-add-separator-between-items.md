@@ -40,7 +40,7 @@ To create a visual separator between items in a DropDownButton, apply a custom c
     }
  </style>
 
-<TelerikDropDownButton Icon="@SvgIcon.Share" OnClick="@(()=>OnItemClick("Primary"))">
+<TelerikDropDownButton Icon="@SvgIcon.Share">
     <DropDownButtonContent>Share</DropDownButtonContent>
 
     <DropDownButtonItems>
