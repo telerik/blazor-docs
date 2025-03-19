@@ -36,7 +36,7 @@ To create a visual separator between items in a DropDownButton, apply a custom c
 ````RAZOR
 <style>
     .item-with-separator {
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid var(--kendo-color-border-alt);
     }
  </style>
 
