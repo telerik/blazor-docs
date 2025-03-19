@@ -51,13 +51,6 @@ To create a visual separator between items in a DropDownButton, apply a custom c
     </DropDownButtonItems>
 
 </TelerikDropDownButton>
-
-@code {
-    private void OnItemClick(string item)
-    {
-        Console.WriteLine($"User clicked {item} option.");
-    }
-}
 ````
 
 ## See Also
