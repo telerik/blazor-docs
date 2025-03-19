@@ -2,7 +2,7 @@
 title: Select All Grid Items With CheckBox when Using OnRead
 description: How Select All Items With CheckBox when Using OnRead in the Grid for Blazor
 type: how-to
-page_title: How Select All Items With CheckBox when Using OnRead
+page_title: How to Select All Grid Items With CheckBox when Using OnRead
 slug: grid-kb-select-all-onread
 position: 
 tags: grid, selection, select all, checkbox, onread
