@@ -1,6 +1,6 @@
 ---
 title: Select All Grid Items With CheckBox when Using OnRead
-description: How Select All Items With CheckBox when Using OnRead in the Grid for Blazor
+description: How to select all Grid rows with checkBox when using the OnRead event in the Telerik Grid for Blazor.
 type: how-to
 page_title: How to Select All Grid Items With CheckBox when Using OnRead
 slug: grid-kb-select-all-onread
