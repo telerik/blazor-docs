@@ -25,7 +25,7 @@ I want to visually separate the items in a [DropDownButton](slug:dropdownbutton-
 
 ## Solution
 
-The DropDownButton does not have a concept for a "separator" item (similar to the [ContextMenu](slug:contextmenu-data-binding-overview), for example). However, the DropDownButton uses a declarative approach for its items, so you can add any desired item.
+The DropDownButton uses a declarative approach for its items, so you can add any desired item. This component does not have a concept for a "separator" item (similar to the [ContextMenu](slug:contextmenu-data-binding-overview), for example) but you can use a custom approach to create a separator.
 
 The content of the DropDownButtonItem is rendered inside a `<span class="k-menu-link-text">` element, which is narrower than the popup. Thus, a border inside the dropdown item content cannot span over the whole width of the popup. This article demonstrates how to add a separator by setting a CSS class on the whole item and using custom styling.
 
