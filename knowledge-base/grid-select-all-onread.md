@@ -1,5 +1,5 @@
 ---
-title: Select All Items With CheckBox when Using OnRead
+title: Select All Grid Items With CheckBox when Using OnRead
 description: How Select All Items With CheckBox when Using OnRead in the Grid for Blazor
 type: how-to
 page_title: How Select All Items With CheckBox when Using OnRead
