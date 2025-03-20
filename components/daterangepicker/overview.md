@@ -50,7 +50,7 @@ DateRangePicker.
 
 ## Events
 
-The Blazor Date Range Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Range Picker events...](slug:daterangepicker-events ).
+The Blazor Date Range Picker generates events that you can handle and further customize its behavior. [Read more about the Blazor Date Range Picker events...](slug:daterangepicker-events).
 
 ## Validation
 
