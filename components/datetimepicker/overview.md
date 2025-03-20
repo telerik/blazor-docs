@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateTime Picker Overview
 
-The Blazor DateTime Picker component allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input](slug:components/dateinput/overview) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events](slug:components/datetimepicker/events ).
+The Blazor DateTime Picker component allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input](slug:components/dateinput/overview) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events](slug:components/datetimepicker/events).
 
 ## Creating Blazor DateTimePicker
 
