@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Date-Time Picker Overview
-description: Overview of the DateTime Picker for Blazor.
+description: Blazor DateTime Picker lets users select dates and times through an interactive UI, enhancing forms and scheduling.
 slug: components/datetimepicker/overview
 tags: telerik,blazor,datetime,picker,datetimepicker,overview
 published: True
@@ -10,7 +10,7 @@ position: 0
 
 # Blazor DateTime Picker Overview
 
-The <a href="https://www.telerik.com/blazor-ui/datetimepicker" target="_blank">Blazor DateTime Picker component</a> allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input](slug:components/dateinput/overview) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events](slug:components/datetimepicker/events ).
+The Blazor DateTime Picker component allows the user to choose both a date and a time from a visual list in a dropdown, or to type it into a [date input](slug:components/dateinput/overview) that can accept only DateTime values. You can control the date and time format of the input, and respond to [events](slug:components/datetimepicker/events ).
 
 ## Creating Blazor DateTimePicker
 
@@ -64,7 +64,7 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
-## DateTime Picker Parameters
+## Blazor DateTime Picker Parameters
 
 The Blazor Date Time Picker provides various parameters that allow you to configure the component. Also check the [DateTimePicker's public API](slug:Telerik.Blazor.Components.TelerikDateTimePicker-1).
 
@@ -106,7 +106,7 @@ You can find more options for customizing the DateTimePicker styling in the [App
 
 @[template](/_contentTemplates/date-inputs/general.md#format-placeholder)
 
-## DateTimePicker Reference and Methods
+## Blazor DateTimePicker Reference and Methods
 
 Add a reference to the component instance to use the [Date Time Picker's methods](slug:Telerik.Blazor.Components.TelerikDateTimePicker-1).
 
