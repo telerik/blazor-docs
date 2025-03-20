@@ -30,7 +30,7 @@ The recommended way to provide your license key to the `Telerik.Licensing` NuGet
 1. Create a new [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables). Follow the respective producedure for your **YAML**,  **Classic**, or **CLI** pipeline setup. Also check the separate article [Set Secret Variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables).
 1. Paste the contents of the license key file as a value of the secret variable.
 1. Map the secret variable to a new environment variable named `TELERIK_LICENSE`.
-1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app.
+1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app. **Classic** pipelines may need to [set an output variable to share and consume the license key in multiple steps](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-an-output-variable-for-use-in-future-jobs).
 
 >caption Using a TELERIK_LICENSE environment variable in Azure Pipeline YAML
 
