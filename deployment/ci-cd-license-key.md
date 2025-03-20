@@ -43,34 +43,68 @@ steps:
     # ...
   env:
     TELERIK_LICENSE: $(Secret_Telerik_License_Key)
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    # ...
+  env:
+    TELERIK_LICENSE: $(Secret_Telerik_License_Key)
 ````
 
-> Another option is to use a Telerik license file as a [secure file in the pipeline](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files). Implement a [script that copies the license file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#consume-a-secure-file-in-a-pipeline) to the application's root folder, so that it's available to all projects that need it.
+Another option is to use a Telerik license file as a [secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files) in the pipeline. [Download the secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines) and use it with a `TELERIK_LICENSE_PATH` environment variable instead of `TELERIK_LICENSE` in all tasks, steps, or scripts that build and publish the Blazor app.
+
+`TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
+
+>caption Using a TELERIK_LICENSE_PATH environment variable in Azure Pipeline YAML
+
+````YAML.skip-repl
+steps:
+
+- task: DownloadSecureFile@1
+  name: telerikLicense
+  displayName: 'Download telerik-license.txt'
+  inputs:
+    secureFile: 'telerik-license.txt'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    # ...
+  env:
+    TELERIK_LICENSE_PATH: $(telerikLicense.secureFilePath)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish'
+  inputs:
+    command: 'publish'
+    # ...
+  env:
+    TELERIK_LICENSE_PATH: $(telerikLicense.secureFilePath)
+````
 
 ### GitHub Actions
 
 1. Create a new [Repository Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or an [Organization Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).
 1. Paste the contents of the license key file as a value of the GitHub secret.
 1. Assign the secret to an environment variable named `TELERIK_LICENSE`.
-1. Use the `TELERIK_LICENSE` environment variable in the steps, which build and publish the Blazor app:
-    ````YAML.skip-repl
-    env:
-      TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
-    ````
-    The resulting workflow steps may look similar to:
-    ````YAML.skip-repl
-    - name: Build Step
-      run: dotnet build -c Release
-      env:
-        TELERIK_NUGET_KEY: ${{ "{{ secrets.Telerik_NuGet_Key }}" }}
-        TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
+1. Use the `TELERIK_LICENSE` environment variable in the steps, which build and publish the Blazor app.
 
-    - name: Publish Step
-      run: dotnet publish -c Release
-      env:
-        TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
-    ````
-    Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
+>caption Using a TELERIK_LICENSE environment variable in GitHub Actions
+
+````YAML.skip-repl
+- name: Build Step
+  run: dotnet build -c Release
+  env:
+    TELERIK_NUGET_KEY: ${{ "{{ secrets.Telerik_NuGet_Key }}" }}
+    TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
+
+- name: Publish Step
+  run: dotnet publish -c Release
+  env:
+    TELERIK_LICENSE: ${{ "{{ secrets.Telerik_License_Key }}" }}
+````
+Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
 
 ### Docker
 
