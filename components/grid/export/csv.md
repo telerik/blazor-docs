@@ -20,7 +20,6 @@ When you click the Export button, your browser will receive the resulting file.
   - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
-  - [Notes](#notes)
   - [See Also](#see-also)
 
 ## Basics

@@ -107,7 +107,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 }
 ````
 
-## How It Works
+## How the Export Works
 
 * For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
 * Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
@@ -119,7 +119,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 ## Limitations
 
-* Some PDF fonts do not include Cyrillic or other non-Latin characters. In such cases, [load a compatible font explicitly](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider).
+* Some PDF fonts do not include Cyrillic or other non-Latin characters. In such cases, [load a compatible font explicitly](slug:grid-kb-load-cyrillic-fonts-in-pdf-export).
 
 ## Programmatic Export
 
