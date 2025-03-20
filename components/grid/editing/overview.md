@@ -110,7 +110,7 @@ The following table describes the Grid events, which are related to adding, dele
 | `OnCancel` | No | Fires on `Cancel` command invocation. | [New or cloned](#item-instances) | Grid remains in add or edit mode. |
 | `OnCreate` | To add new items. | Fires on `Save` command invocation for new items. This event succeeds `OnAdd`. | [New](#item-instances) | Grid remains in add mode. |
 | `OnDelete` | To [delete items](#delete-operations). | Fires on `Delete` command button click. | Original | Grid won't rebind. Deletion depends on the app itself. |
-| `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event preceeds `OnCreate` or `OnCancel`. | Original | Grid remains in read mode. |
+| `OnEdit` | No | Fires on `Edit` command invocation, before the Grid actually enters edit mode. This event preceeds `OnUpdate` or `OnCancel`. | Original | Grid remains in read mode. |
 | `OnModelInit` | [Depends on the Grid model type](slug:grid-events#onmodelinit) | Fires when the Grid requires a [new model instance](#item-instances), which is immediately before `OnAdd` or immediately after `OnEdit`. <br /> Use this event when the Grid model type is an [interface, abstract class, or has no parameterless constructor](slug:grid-events#onmodelinit). | No event arguments | Not cancellable |
 | `OnUpdate` | To edit existing items. | Fires on `Save` command invocation for existing items. This event succeeds `OnEdit`. | [Cloned](#item-instances) | Grid remains in edit mode. |
 
