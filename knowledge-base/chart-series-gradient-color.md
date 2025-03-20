@@ -54,8 +54,8 @@ How can I apply a gradient color effect on the Telerik UI for Blazor Chart serie
 @code {
     private List<object> ChartData = new List<object>() { 10, 2, 7, 5, 15 };
 }
-```
+````
 
 ## See Also
 
-* [Chart - Overview](slug:components/chart/overview)
+* [Chart Overview](slug:components/chart/overview)

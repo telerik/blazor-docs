@@ -125,7 +125,7 @@ Note that the [`HeaderTemplate`](slug:grid-templates-column-header) does not rec
         public double? StartYear10 { get; set; }
     }
 }
-```
+````
 
 ## See Also
 
