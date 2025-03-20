@@ -10,7 +10,7 @@ position: 0
 
 # Blazor Chart Overview
 
-The <a href="https://www.telerik.com/blazor-ui/chart" target="_blank">Blazor Chart component</a> allows you to visualize data to your users in a meaningful way so they can draw conclusions. You can use a variety of graph types and control all aspects of the component's appearance - from colors and fonts, to paddings, margins and templates.
+The <a href="https://demos.telerik.com/blazor-ui/chart/overview" target="_blank">Blazor Charts</a> components enables you to present data in a visually meaningful way, helping users draw insights effectively. It offers a wide range of graph types and provides full control over its appearance, including colors, fonts, paddings, margins, and templates.
 
 ## Creating Blazor Chart
 
