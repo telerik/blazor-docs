@@ -17,12 +17,10 @@ The Grid for Blazor provides a built-in functionality to export the data to:
 
 Before proceeding to the dedicated export articles, ensure you are familiar with the following specifics:
 
-<!-- @[template](/_contentTemplates/grid/export.md#export-common-notes) -->
-
-## How It Works
+## How the Export Works
 
 * If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
-* The time for export will be longer if the Grid has a lot of records and/or in Client-side Blazor (WebAssembly) where all the code runs in the browser and, at the time of writing, is considerably slower than server-side Blazor, and it only has one actual thread. While the file is being generated, the UI will be unresponsive, so you may want to [show a loading sign to the user during the export process](slug: grid-kb-show-loader-while-exporting).
+* The time for export will be longer if the Grid has a lot of records and/or in Client-side Blazor (WebAssembly) where all the code runs in the browser and, at the time of writing, is considerably slower than server-side Blazor, and it only has one actual thread. While the file is being generated, the UI will be unresponsive, so you may want to [show a loading sign to the user during the export process](slug:grid-kb-show-loader-while-exporting).
 
 ## Requirements
 
@@ -37,7 +35,7 @@ services.AddServerSideBlazor().AddHubOptions(o =>
 
 ## Limitations
 
-* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own PDF file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
+* Templates are not exported, because there is no provision in the framework for getting them at runtime. If a column, header or group header/footer has a template or aggregates, it will be ignored. The headers will be the `Title` of the column, the data is the data from the `Field`. If you need additional information, see if you can add it in a Field in the model, or create your own file. Find a <a href="https://feedback.telerik.com/blazor/1485764-customize-the-Pdf-file-before-it-gets-to-the-client" target="_blank">project example on how to generate your own exported file</a>. Find additional information on how to [export an image that is rendered in a Grid column template](slug:grid-export-image-column-excel).
 
 * `bool` fields are exported as `TRUE` or `FALSE` strings, because there is no native boolean data type in exported format and these string values are the most common ones used in data and macros.
 
@@ -47,4 +45,11 @@ services.AddServerSideBlazor().AddHubOptions(o =>
 
 ## Customization
 
-The Grid allows customizing the exported files - determine the desired data to be exported, changing the number/date formats and more. For such customizations, [handle the export events](slug: grid-export-events)
+The Grid allows customizing the exported files - determine the desired data to be exported, changing the number/date formats and more. For such customizations, [handle the export events](slug:grid-export-events).
+
+## See Also
+
+* [Grid Export to CSV](slug:grid-export-csv)
+* [Grid Export to Excel](slug:grid-export-excel)
+* [Grid Export to PDF](slug:grid-export-pdf)
+* [Live Demo: Grid Export](https://demos.telerik.com/blazor-ui/grid/export)
