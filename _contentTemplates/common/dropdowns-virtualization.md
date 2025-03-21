@@ -12,7 +12,7 @@ This section will explain the parameters and behaviors that are related to the v
 
 * `ScrollMode` - `Telerik.Blazor.DropDownScrollMode` - set it to `DropDownScrollMode.Virtual`. It defaults to the "regular" scrolling.
 * `Height` - `string` - [set the height](slug:common-features/dimensions) in the nested **popup settings** tag of the component. It must **not** be a `null/empty` string.
-* `ItemHeight` - `decimal` - set it to the height each individual item will have in the dropdown. Make sure to accommodate the content your items will have and any item template.
+* `ItemHeight` - `decimal` - set it to the height each individual item will have in the dropdown. Make sure to accommodate the content your items will have and any item template. [Disable text wrapping](slug:dropdowns-kb-disable-long-text-wrap) if the items have long text, which wraps and overlaps. Another option is to increase the component `Width` or just the dropdown `Width` in the nested `<ComponentName>PopupSettings` tag.
 * `PageSize` - `int` - defines how many items will actually be rendered and reused. The value determines how many items are loaded on each scroll. The number of items must be large enough according to the `ItemHeight` and popup `Height`, so that there are more items than the dropdown so there is a scrollbar.
 
 You can find a basic example in the [Local Data](#local-data-example) section below.
