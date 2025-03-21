@@ -13,7 +13,7 @@ const APP_LOADED_FALSE = createAppLoadingMessage(true);
 const uris = {
     "https://demos.telerik.com": "https://www.telerik.com",
     "https://sitdemos.telerik.com": "https://wwwsit.telerik.com",
-    "https://localhost:7053": "http://localhost:8000"
+    "https://localhost:7170": "http://localhost:8000"
 }
 
 window.TelerikMessageService = window.TelerikMessageService || (function () {
