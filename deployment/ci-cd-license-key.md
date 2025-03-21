@@ -19,13 +19,13 @@ This article describes how to set up and activate your [Telerik UI for Blazor li
 The Telerik license activation process in CI/CD environments involves the following steps:
 
 1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
-1. Set an [environment variable](#creating-environment-variables) with one of the following names:
+1. Set an environment variable with either of the following names:
   * `TELERIK_LICENSE`&mdash;the value must be the Telerik license key string.
   * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
 
 In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use the `TELERIK_LICENSE` environment variable.
 
-Use `TELERIK_LICENSE_PATH` or only a license file on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use the `TELERIK_LICENSE` environment variable in this case, due to the large variable value length.
+Use `TELERIK_LICENSE_PATH` or [only a license file](slug:installation-license-key#manual-installation) on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use the `TELERIK_LICENSE` environment variable in this case, due to the large variable value length.
 
 > Treat the license key and the license file as secrets. Always store and retrieve them in a secure manner, according to the build platform's best practices.
 
