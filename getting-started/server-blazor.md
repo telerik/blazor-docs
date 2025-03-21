@@ -103,7 +103,7 @@ Now your Blazor Server project can use the Telerik UI for Blazor components.
 
 The final step in this tutorial is to use a Telerik UI for Blazor component in a view and run it in the browser.
 
-1. In the `~/Components/Pages/Index.razor` view, add a `TelerikButton` component.
+1. In the `~/Pages/Index.razor` view, add a `TelerikButton` component.
 
 @[template](/_contentTemplates/common/get-started.md#add-component-sample)
 
