@@ -10,24 +10,32 @@ position: 7
 
 # Telerik License Key in CI/CD Environment
 
-This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular CI/CD services by using environment variables.
+This article describes how to set up and activate your [Telerik UI for Blazor license key](slug:installation-license-key) across a few popular cloud build CI/CD services. You can find guidance and examples on how to set environment variables for some of the most popular CI/CD platforms.
 
 @[template](/_contentTemplates/common/get-started.md#license-key-version)
 
 ## Basics
 
-The Telerik license activation process in a CI/CD environment involves the following steps:
+The Telerik license activation process in CI/CD environments involves the following steps:
 
 1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
-1. Set your license key value as an [environment variable](#creating-environment-variables) with a name `TELERIK_LICENSE`. In specific cases you may need to [use a license file](#using-license-file) instead.
+1. Set an [environment variable](#creating-environment-variables) with one of the following names:
+  * `TELERIK_LICENSE`&mdash;the value must be the Telerik license key string.
+  * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
 
-## Creating Environment Variables
+In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use the `TELERIK_LICENSE` environment variable.
 
-The recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environment is to use an environment variable. Each CI/CD platform has a different process for setting environment variables. This article lists only some of the most popular examples.
+Use `TELERIK_LICENSE_PATH` or only a license file on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use the `TELERIK_LICENSE` environment variable in this case, due to the large variable value length.
 
-### Azure Pipelines
+> Treat the license key and the license file as secrets. Always store and retrieve them in a secure manner, according to the build platform's best practices.
 
-1. Create a new [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables). Follow the respective producedure for your **YAML**,  **Classic**, or **CLI** pipeline setup. Also check the separate article [Set Secret Variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables).
+## Azure Pipelines
+
+Azure Pipelines provides built-in tools to store and use secret environment variables and secure files. The recommended option with **Classic** pipelines is to [download the Telerik license file as a secure file](#use-telerik_license_path).
+
+### Use TELERIK_LICENSE
+
+1. Create a new [secret variable](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables). Also check the separate article [Set Secret Variables](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-secret-variables).
 1. Paste the contents of the license key file as a value of the secret variable.
 1. Map the secret variable to a new environment variable named `TELERIK_LICENSE`.
 1. Use the `TELERIK_LICENSE` environment variable in the tasks, steps, or scripts that build and publish the Blazor app. **Classic** pipelines may need to [set an output variable to share and consume the license key in multiple steps](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-an-output-variable-for-use-in-future-jobs).
@@ -52,9 +60,11 @@ steps:
     TELERIK_LICENSE: $(Secret_Telerik_License_Key)
 ````
 
-Another option is to use a Telerik license file as a [secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files) in the pipeline. [Download the secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines) and use it with a `TELERIK_LICENSE_PATH` environment variable instead of `TELERIK_LICENSE` in all tasks, steps, or scripts that build and publish the Blazor app.
+### Use TELERIK_LICENSE_PATH
 
-`TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
+1. [Add a secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files) and grant any necessary permissions to use it in the pipeline.
+1. [Download the secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines) during pipeline run. The secure file path is available through the [`secureFilePath` output](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines#output-variables).
+1. Set the `TELERIK_LICENSE_PATH` environment variable in all tasks, steps, or scripts that build and publish the Blazor app.
 
 >caption Using a TELERIK_LICENSE_PATH environment variable in Azure Pipeline YAML
 
@@ -83,7 +93,7 @@ steps:
     TELERIK_LICENSE_PATH: $(telerikLicense.secureFilePath)
 ````
 
-### GitHub Actions
+## GitHub Actions
 
 1. Create a new [Repository Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or an [Organization Secret](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).
 1. Paste the contents of the license key file as a value of the GitHub secret.
@@ -107,7 +117,7 @@ steps:
 
 Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the article [Restoring NuGet Packages in Your CI Workflow](slug:deployment-nuget). It shows how to use the `TELERIK_NUGET_KEY` environment variable in your CI build environment.
 
-### Docker
+## Docker
 
 1. [Create a Docker build secret](https://docs.docker.com/build/building/secrets/#using-build-secrets) that holds the Telerik license key file.
     ````SH.skip-repl
@@ -118,10 +128,6 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
     RUN --mount=type=secret,id=telerik-license-key,env=TELERIK_LICENSE \
         dotnet publish BlazorProjectName.csproj -c Release -o /app/publish /p:UseAppHost=false
     ````
-
-## Using License File
-
-Use a license file on Windows and Windows Server machines, which are managed directly through the operating system's user interface. Do not use an environment variable in these cases.
 
 ## Next Steps
 
