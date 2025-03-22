@@ -72,6 +72,9 @@ The field names used for the resource model (`Text`, `Value` and `Color`) are th
         <SchedulerWeekView StartTime="@DayStart" />
         <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
+    <SchedulerSettings>
+        <SchedulerPopupEditSettings MaxHeight="99vh" />
+    </SchedulerSettings>
 </TelerikScheduler>
 
 @code {
@@ -177,6 +180,9 @@ The field names used for the resource model (`Name`, `Id` and `Shade`) are diffe
         <SchedulerWeekView StartTime="@DayStart" />
         <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
+    <SchedulerSettings>
+        <SchedulerPopupEditSettings MaxHeight="99vh" />
+    </SchedulerSettings>
 </TelerikScheduler>
 
 @code {
@@ -281,6 +287,9 @@ Actual CRUD operations are not implemented for brevity, just the UX is enabled s
         <SchedulerWeekView StartTime="@DayStart" />
         <SchedulerMultiDayView StartTime="@DayStart" NumberOfDays="10" />
     </SchedulerViews>
+    <SchedulerSettings>
+        <SchedulerPopupEditSettings MaxHeight="99vh" />
+    </SchedulerSettings>
 </TelerikScheduler>
 
 @code {
