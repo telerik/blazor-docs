@@ -107,6 +107,9 @@ The example below shows the signature of the event handlers so you can copy the 
                   OnEdit="@EditHandler" OnCancel="@CancelHandler"
                   AllowCreate="true" AllowDelete="true" AllowUpdate="true"
                   @bind-Date="@StartDate" Height="600px" @bind-View="@CurrView">
+    <SchedulerSettings>
+        <SchedulerPopupEditSettings MaxHeight="99vh" />
+    </SchedulerSettings>
     <SchedulerViews>
         <SchedulerDayView StartTime="@DayStart" />
         <SchedulerWeekView StartTime="@DayStart" />
