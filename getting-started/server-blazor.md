@@ -1,7 +1,8 @@
 ---
 title: Blazor Server App
 page_title: First Steps with Blazor Server Apps and Telerik UI for Blazor
-description: Make your first steps with Telerik UI for Blazor and build an app that runs the UI components server-side in Blazor server.
+meta_title: First Steps with Blazor Server-Side UI - Telerik UI for Blazor
+description: Blazor Server is a .NET framework that runs C# on the server, enabling interactive UIs via SignalR.
 slug: getting-started/server-side
 tags: get,started,first,steps,server
 published: true
@@ -10,11 +11,15 @@ position: 15
 
 # First Steps with Server-Side UI for Blazor
 
-This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+Blazor Server runs C# on the server and updates the UI in the browser through a SignalR connection, enabling interactive web apps without client-side .NET execution. This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 > This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using newer .NET versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-tip)
+
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
 
 ## Prerequisites
 
@@ -42,7 +47,7 @@ This article explains how to get the Telerik UI for Blazor components in your .N
 
 1. Right-click  the Blazor Server project in the solution and select **Manage NuGet Packages**.
 
-![Manage NuGet Packages](images/manage-nuget-packages-for-server-app.png)
+![Manage NuGet Packages in Blazor Server](images/manage-nuget-packages-for-server-app.png)
 
 2. Install the Telerik Blazor NuGet package:
 
@@ -119,3 +124,17 @@ If you prefer video instructions, you can also check the video tutorial below.
 * [Getting Started Videos for Blazor](https://www.youtube.com/watch?v=aaRAZYaJ4xc&list=PLvmaC-XMqeBYPTwcm478vs8Rujq2tiVJo)
 * [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org", 
+  "@type": "VideoObject", 
+  "name": "Adding Telerik UI for Blazor to an Existing Blazor Project", 
+  "description": "Telerik UI for Blazor components have been built from the ground-up to ensure you experience shorter development cycles, quick iterations and cut time to market. In this short video, we'll learn how to add the components to an existing Blazor project.", 
+  "thumbnailUrl": "https://img.youtube.com/vi/fwR8Yxe7DPQ/maxresdefault.jpg", 
+  "uploadDate": "2020-02-24", 
+  "duration": "PT4M14S", 
+  "contentUrl": "https://youtu.be/fwR8Yxe7DPQ", 
+  "embedUrl": "https://www.youtube.com/embed/fwR8Yxe7DPQ" 
+}
+</script>

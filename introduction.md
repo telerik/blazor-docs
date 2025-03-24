@@ -1,7 +1,8 @@
 ---
 title: Introduction
 page_title: Blazor Documentation for UI Components
-description: Check out the Telerik UI for Blazor documentation for guidance and examples on creating web applications with .NET using C# for the front-end.
+meta_title: Blazor Documentation - Telerik UI for Blazor
+description: Read the Telerik UI for Blazor documentation for guidance and examples on creating web apps with .NET using C#.
 slug: blazor-overview
 position: 1
 ---
@@ -257,3 +258,17 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 * Use guided wizards to generate new Telerik Projects in [Visual Studio](slug:getting-started-vs-integration-new-project) and [Visual Studio Code](slug:getting-started-vs-code-integration-overview).
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
 * [Style the Telerik Blazor Components](slug:themes-overview)
+
+<script type="application/ld+json"> 
+{
+  "@context": "https://schema.org", 
+  "@type": "VideoObject", 
+  "name": "Getting Started with Telerik UI for Blazor: Overview | Chapter 1", 
+  "description": "In this introductory chapter, we’ll provide a complete overview of the course and what you can expect to learn. We’ll cover the essentials of Telerik UI for Blazor, including the prerequisites needed to get started and the resources available to you. Take a tour of the demo application and get acquainted with the course downloads to ensure you’re fully prepared for the journey ahead.", 
+  "thumbnailUrl": "https://img.youtube.com/vi/HKsTL4byyTA/maxresdefault.jpg", 
+  "uploadDate": "2024-10-21", 
+  "duration": "PT13M49S", 
+  "contentUrl": "https://youtu.be/HKsTL4byyTA", 
+  "embedUrl": "https://www.youtube.com/embed/HKsTL4byyTA" 
+} 
+</script>
