@@ -176,3 +176,4 @@ The DropDownButton exposes a `FocusAsync` method that allows you to focus it pro
 * [DropDownButton API](slug:Telerik.Blazor.Components.TelerikDropDownButton)
 * [Live Demo: DropDownButton](https://demos.telerik.com/blazor-ui/dropdownbutton/overview)
 * [Live Demo: DropDownButton Items](https://demos.telerik.com/blazor-ui/dropdownbutton/items)
+* [Hierarchical DropDownButton Items](slug:dropdownbutton-kb-nested-item-hierarchy)
