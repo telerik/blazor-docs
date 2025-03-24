@@ -40,6 +40,7 @@ The `SchedulerPopupEditFormSettings` nested tag exposes the following parameters
     <SchedulerSettings>
         <SchedulerPopupEditSettings Width="600px"
                                     MinWidth="500px"
+                                    MaxHeight="99vh"
                                     Title="Edit Event"
                                     Class="custom-popup">
         </SchedulerPopupEditSettings>
