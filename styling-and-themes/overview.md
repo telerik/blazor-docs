@@ -20,6 +20,10 @@ Telerik UI for Blazor comes with a set of built-in CSS themes that control the v
 * How to [register a theme in your app](#using-a-theme)
 * How to [ensure compatibility between the Telerik components and the theme version](#compatibility-and-maintenance)
 
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
+
 ## Basics
 
 ### What is a Theme?

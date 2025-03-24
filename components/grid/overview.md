@@ -12,7 +12,7 @@ position: 0
 
 This article provides a quick introduction to get your first <a href="https://demos.telerik.com/blazor-ui/grid/overview" target="_blank">Blazor data grid component</a> up and running in a few seconds. There is a video tutorial and a list of the key features.
 
-The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features. They cover everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation and accessibility support.
+The Telerik Blazor Data Grid provides a comprehensive set of ready-to-use features that cover everything from paging, sorting, filtering, editing, and grouping to row virtualization, optimized data reading, keyboard navigation, and accessibility support.
 
 The Telerik Blazor grid is built on native Blazor from the ground up, by a company with a long history of making enterprise-ready Grids. This results in a highly customizable Grid that delivers lighting fast performance.
 
@@ -226,3 +226,17 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 
 * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/overview)
 * [Grid API Reference](slug:Telerik.Blazor.Components.TelerikGrid-1)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org", 
+  "@type": "VideoObject", 
+  "name": "Telerik UI for Blazor Data Grid", 
+  "description": "The Telerik Grid for Blazor is a powerful component, which allows you to visualize and edit data through its table representation. It provides a variety of options about how to present and perform operations over the underlying data, such as paging, sorting, filtering and editing. In this short video, we'll learn how to bind data to the data grid and customize its features.", 
+  "thumbnailUrl": "https://img.youtube.com/vi/NW2hHtmM2Gk/maxresdefault.jpg", 
+  "uploadDate": "2020-02-13", 
+  "duration": "PT5M10S", 
+  "contentUrl": "https://youtu.be/NW2hHtmM2Gk", 
+  "embedUrl": "https://www.youtube.com/embed/NW2hHtmM2Gk" 
+}
+</script> 
