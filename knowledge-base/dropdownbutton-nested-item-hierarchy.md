@@ -3,7 +3,7 @@ title: Nest DropDownButton Items in Hierarchy
 description: Learn how to nest dropdown buttons and use multiple sets of hierarchical dropdown items.
 type: how-to
 page_title: How to Nest DropDownButton Items in Hierarchy
-slug: t
+slug: dropdownbutton-kb-nested-item-hierarchy
 tags: blazor, dropdownbutton, hierarchy
 ticketid: 1628170, 1682574
 res_type: kb
@@ -24,15 +24,15 @@ res_type: kb
 
 This KB answers the following questions:
 
-* How to nest dropdown buttons and use multiple sets of dropdown items in hierarchy?
+* How to nest dropdown buttons and use multiple sets of dropdown items in a hierarchy?
 * How to allow nested layers of hierarchical items in the Telerik DropDownButton for Blazor? The UI should look like a multi-level Menu or ContextMenu.
 
 ## Solution
 
-Here are two ways to achieve hierarchy UI with a DropDownButton user interface.
+Here are two ways to achieve a hierarchy UI with a DropDownButton user interface.
 
-* [Indent the DropDownButton items with some empty space](#indent-dropdown-items)
-* [Use a Menu component and style it to look like a DropDownButton](#use-menu-component)
+* [Indent the DropDownButton items with some empty space](#indent-dropdown-items).
+* [Use a Menu component and style it to look like a DropDownButton](#use-menu-component).
 
 Both examples below use [Telerik CSS theme variables](https://www.telerik.com/design-system/docs/themes/kendo-themes/default/theme-variables/) to avoid the need to hard-code custom style values.
 
