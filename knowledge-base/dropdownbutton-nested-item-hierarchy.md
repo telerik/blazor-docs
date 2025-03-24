@@ -177,4 +177,4 @@ Both examples below use [Telerik CSS theme variables](https://www.telerik.com/de
 ## See Also
 
 * [DropDownButton Overview](slug:dropdownbutton-overview)
-* [Menu Overview](slug:menu-overview)
+* [Menu Overview](slug:components/menu/overview)
