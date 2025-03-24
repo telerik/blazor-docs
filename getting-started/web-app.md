@@ -17,6 +17,10 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 
 > Telerik UI for Blazor [requires interactive render mode](#interactive-render-mode). Using [**Global** Interactivity location](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-9.0#apply-a-render-mode-to-the-entire-app) is highly recommended.
 
+{% if site.has_cta_panels == true %}
+{% include cta-panel-introduction.html %}
+{% endif %}
+
 ## Prerequisites
 
 @[template](/_contentTemplates/common/get-started.md#prerequisites-download)
