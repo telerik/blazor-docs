@@ -1,7 +1,7 @@
 ---
 title: Icons
 page_title: Font and SVG Icons
-description: Blazor Icons consists of customizable, scalable icons for Blazor apps that enhance UI design with easy styling.
+description: Blazor Icons are customizable, scalable icons for Blazor apps that enhance UI design with easy styling.
 slug: common-features-icons
 tags: telerik,blazor,icon,font,built-in
 published: True
@@ -9,9 +9,9 @@ previous_url: /common-features/font-icons
 position: 1
 ---
 
-# Blazor Icons
+# Blazor SVG and Font Icons
 
-Telerik UI for Blazor provides a large set of built-in icons. There are two ways to consume and render them: as font icons or as SVG icons. It is also possible to use custom blazor icons, or define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
+Telerik UI for Blazor provides a large set of built-in icons. There are two ways to consume and render them: as font icons or as SVG icons. It is also possible to use custom Blazor icons, or define an application-wide setting, which affects the type of icons in all Telerik Blazor components.
 
 The Telerik Blazor components generate the same type of icons (font icons or SVG icons), [depending on the `TelerikRootComponent` configuration](#set-global-icon-type). However, Telerik UI for Blazor includes standalone [`FontIcon`](#fonticon-component) and [`SvgIcon`](#svgicon-component) components, which can be used at the same time.
 
@@ -19,7 +19,7 @@ In general, font icons produce a smaller HTML footprint and the glyph can be ove
 
 This article contains the following sections:
 
-* [How do icons work](#how-icons-work)
+* [How do icons work](#how-blazor-icons-work)
     * [Install icon NuGet packages](#icon-nuget-packages)
     * [Import icon namespaces](#icon-namespaces)
     * [Register font icon stylesheet](#font-icon-stylesheet) (SVG icons don't need it)
@@ -29,9 +29,9 @@ This article contains the following sections:
 * [`SvgIcon` component](#svgicon-component)
     * [Render custom SVG Icons with HTML](#render-custom-svg-icons-with-html)
     * [Use custom SVG icon collection](#use-custom-svg-icon-collection)
-* [Set global icon type for the whole application](#set-global-icon-type)
+* [Set global icon type for the whole application](#set-global-blazor-icon-type)
 * [Complete list of built-in icons](#icons-list)
-* [How to use custom icons](#custom-icon-support)
+* [How to use custom icons](#custom-blazor-icon-support)
 
 {% if site.has_cta_panels == true %}
 {% include cta-panel-introduction.html %}
@@ -49,7 +49,7 @@ The Telerik Blazor icons have three prerequisites to work:
 
 The Telerik Blazor components use built-in icons with the help of two NuGet packages. They are installed **automatically** as dependencies of the `Telerik.UI.for.Blazor` package:
 
-* `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** blazor icons
+* `Telerik.FontIcons` - defines the `FontIcon` `enum` for easier usage of built-in **font** Blazor icons
 * `Telerik.SvgIcons` - defines the `ISvgIcon` interface and the `SvgIcon` static class for built-in **SVG** icons
 
 >tip Unlike the `Telerik.UI.for.Blazor` package, the icon packages are available on the `nuget.org` source. Keep this in mind when using [`packageSourceMapping`](slug:installation/nuget#package-source-mapping).

@@ -232,7 +232,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
   "@context": "https://schema.org", 
   "@type": "VideoObject", 
   "name": "Telerik UI for Blazor Data Grid", 
-  "description": "The Telerik Grid for Blazor is a powerful component, which allows you to visualize and edit data via its table representation. It provides a variety of options about how to present and perform operations over the underlying data, such as paging, sorting, filtering and editing. In this short video, we'll learn how to bind data to the data grid and customize its features.", 
+  "description": "The Telerik Grid for Blazor is a powerful component, which allows you to visualize and edit data through its table representation. It provides a variety of options about how to present and perform operations over the underlying data, such as paging, sorting, filtering and editing. In this short video, we'll learn how to bind data to the data grid and customize its features.", 
   "thumbnailUrl": "https://img.youtube.com/vi/NW2hHtmM2Gk/maxresdefault.jpg", 
   "uploadDate": "2020-02-13", 
   "duration": "PT5M10S", 
