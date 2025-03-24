@@ -11,7 +11,7 @@ position: 15
 
 # First Steps with Server-Side UI for Blazor
 
-Blazor Server runs C# on the server and updates the UI in the browser via a SignalR connection, enabling interactive web apps without client-side .NET execution. This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+Blazor Server runs C# on the server and updates the UI in the browser through a SignalR connection, enabling interactive web apps without client-side .NET execution. This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 > This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using newer .NET versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
@@ -130,7 +130,7 @@ If you prefer video instructions, you can also check the video tutorial below.
   "@context": "https://schema.org", 
   "@type": "VideoObject", 
   "name": "Adding Telerik UI for Blazor to an Existing Blazor Project", 
-  "description": "Telerik UI for Blazor components have been built from the ground-up to ensure you experience shorter development cycles, quick iterations and cut time to market. In this short video, we'll learn how to add the components to an existing Blazor Project.", 
+  "description": "Telerik UI for Blazor components have been built from the ground-up to ensure you experience shorter development cycles, quick iterations and cut time to market. In this short video, we'll learn how to add the components to an existing Blazor project.", 
   "thumbnailUrl": "https://img.youtube.com/vi/fwR8Yxe7DPQ/maxresdefault.jpg", 
   "uploadDate": "2020-02-24", 
   "duration": "PT4M14S", 
