@@ -24,7 +24,7 @@ The Grid export feature has the following specifics:
 * If the Grid is using `OnRead` and is exporting all pages, it will fire an additional `OnRead` event at the time of exporting, with a request `PageSize` of `0`. This will enable the component to obtain all data.
 * The time for export will be longer if:
     * The Grid has a lot of records.
-    * The Grid is in a Client-side Blazor (WebAssembly) where all the code runs in the browser. At the time of writing, it is considerably slower than server-side Blazor, and it only has one actual thread.
+    * The Grid is in a WebAssembly app where all the code runs in the browser and in one thread.
 
 >tip While the file is being generated, the UI will be unresponsive, so you may want to [show a loading sign to the user during the export process](slug:grid-kb-show-loader-while-exporting).
 
