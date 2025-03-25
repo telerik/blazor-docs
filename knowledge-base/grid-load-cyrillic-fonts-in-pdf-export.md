@@ -31,7 +31,7 @@ Some PDF fonts do not have Cyrillic (or other alphabets) characters. In such cas
 
 For that purpose, use the Document Processing libraries to [implement FontsProvider](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider) and load your desired font.
 
-The snippet below shows how to load an example Cyrillic font, so the Grid can properly export the data in Bulgarian language (that uses Cyrillic characters) to a PDF document. If you load a file called file called "helvetica-cyrillic.ttf" in the `wwwroot` folder of your application, the export will work out of the box.
+The snippet below shows how to load an example Cyrillic font, so the Grid can properly export the data in Bulgarian language (that uses Cyrillic characters) to a PDF document. If you load a `helvetica-cyrillic.ttf` file in the `wwwroot` folder of your application, the export will work out of the box.
 
 >caption Load Cyrillic font for PDF export
 
