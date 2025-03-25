@@ -50,7 +50,7 @@ The Grid export feature has the following limitations:
 
 ## Customization
 
-The Grid allows customization of the exported files - determine the desired data to be exported, changing the number/date formats and more. For such customizations, [handle the export events](slug:grid-export-events).
+The Grid allows customization of the exported files. You can determine the desired data to be exported, change the number and date formats, and more. For such customizations, [handle the export events](slug:grid-export-events).
 
 ## See Also
 
