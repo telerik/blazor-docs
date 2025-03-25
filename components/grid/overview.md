@@ -227,7 +227,7 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
 * [Live Demos: Grid](https://demos.telerik.com/blazor-ui/grid/overview)
 * [Grid API Reference](slug:Telerik.Blazor.Components.TelerikGrid-1)
 
-<script type="application/ld+json">
+<!-- <script type="application/ld+json">
 {
   "@context": "https://schema.org", 
   "@type": "VideoObject", 
@@ -239,4 +239,4 @@ To execute these methods, obtain reference to the Grid instance via `@ref`.
   "contentUrl": "https://youtu.be/NW2hHtmM2Gk", 
   "embedUrl": "https://www.youtube.com/embed/NW2hHtmM2Gk" 
 }
-</script> 
+</script>  -->
