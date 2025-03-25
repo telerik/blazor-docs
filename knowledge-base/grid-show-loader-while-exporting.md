@@ -29,7 +29,7 @@ I have many items in the Grid and the export to Excel, CSV or PDF takes a while.
 To display a loader over the Grid during the Excel, CSV or PDF export, follow the steps below:
 
 1. Choose the deired UI for the Loader (this article shows the first two options): 
-    1. A [LoaderContainer](slug: loadercontainer-overview). Place the LoaderContainer component placed in a container together with the Grid and add `position:relative` style on this container to ensure the LoaderContainer covers only the Grid.
+    1. A [LoaderContainer](slug: loadercontainer-overview). Place the LoaderContainer component in a container together with the Grid and add `position:relative` style on this container to ensure the LoaderContainer covers only the Grid.
     1. A modal [Window](slug:) with a [Loader](slug: loader-overview) component inside.
     1. Your custom loader.
 1. Handle the [`OnBeforeExport` event](slug: grid-export-events#onbeforeexport) of the Grid to show the loader (set the loader's visibility to `true`).
