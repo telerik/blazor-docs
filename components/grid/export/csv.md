@@ -17,14 +17,25 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
-  - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
   - [See Also](#see-also)
 
 ## Basics
 
-To enable the grid CSV Export, add a [command button](slug:components/grid/columns/command) with the `CsvExport` command name to the [Grid toolbar](slug:components/grid/features/toolbar).
+To enable the grid CSV Export, you can choose one of the following options:
+
+* Add the `GridToolBarCsvExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
+
+````RAZOR.skip-repl
+<GridToolBar>        
+    <GridToolBarCsvExportTool>
+        Export to CSV
+    </GridToolBarCsvExportTool>
+</GridToolBar>
+````
+
+* Add a [command button](slug:components/grid/columns/command) with the `CsvExport` command name inside a templated [Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
 
 ````RAZOR.skip-repl
 <GridToolBarTemplate>
@@ -100,12 +111,6 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
     }
 }
 ````
-
-## Limitations
-
-The CSV export has the following limitation:
-
-* Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document.<br/>If you need to export columns with specific widths, consider [exporting to an Excel file](slug:grid-export-excel).
 
 ## Programmatic Export
 
@@ -202,7 +207,7 @@ To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` e
 
 The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns, such as `Width`, `Title`, and more.
 
-For more advanced customizations (such as coloring the headers, bolding the titles, or even changing cell values) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license.
+For more advanced customizations (such as formatting the numbers and dates, or changing the default comma delimiter) the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`SpreadProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadprocessing/overview) or the [`SpreadStreamProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radspreadstreamprocessing/overview) libraries that are available with your license.
 
 [Read more about how to customize the exported file...](slug:grid-export-events)
 
@@ -210,8 +215,6 @@ For more advanced customizations (such as coloring the headers, bolding the titl
 ## See Also
 
 * [Live Demo: Grid Export](https://demos.telerik.com/blazor-ui/grid/export)
-* [Custom cell formatting of the exported file with RadSpreadProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadprocessing)
-* [Custom cell formatting of the exported file with RadSpreadStreamProcessing](slug:grid-kb-custom-cell-formatting-with-radspreadstreamprocessing) 
 * [Format numbers and dates in the exported CSV file from the Grid](slug:grid-kb-number-formatting-of-the-csv-export)
 * [Change the default CSV delimiter (comma) during Grid export](slug:grid-kb-csv-export-change-field-delimiter)
 * [Sowing a Loader While Exporting the Grid](slug:grid-kb-show-loader-while-exporting)

@@ -26,7 +26,19 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable users to export the Grid to PDF, add a [command button](slug:components/grid/columns/command) with the `PdfExport` command name to the [Grid toolbar](slug:components/grid/features/toolbar).
+To enable users to export the Grid to PDF, you can choose one of the following options:
+
+* Add the `GridToolBarPdfExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
+
+````RAZOR.skip-repl
+<GridToolBar>        
+    <GridToolBarPdfExportTool>
+        Export to PDF
+    </GridToolBarPdfExportTool>
+</GridToolBar>
+````
+
+* Add a [command button](slug:components/grid/columns/command) with the `PdfExport` command name inside a templated [Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
 
 ````RAZOR.skip-repl
 <GridToolBarTemplate>
@@ -216,7 +228,7 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 To customize the exported file, handle the `OnBeforeExport` or `OnAfterExport` events the Grid exposes. 
 
-The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title`, and more. The [column widths in the exported PDF file must be large enough, so that the cell content fits](#notes). Text wrapping is not supported.
+The component allows you to control the data set that will be exported. It also provides built-in customization options for the columns such as `Width`, `Title`, and more. The [column widths in the exported PDF file must be large enough, so that the cell content fits](#limitations). Text wrapping is not supported.
 
 For more advanced customization the Grid lets you get the `MemoryStream` of the file. Thus, you can customize it using the [`PdfProcessing`](https://docs.telerik.com/devtools/document-processing/libraries/radpdfprocessing/overview) library that is available with your license.
 
