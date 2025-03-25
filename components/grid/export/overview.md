@@ -15,7 +15,7 @@ The Grid for Blazor provides a built-in functionality to export the data to:
 * [Excel](slug:grid-export-excel)
 * [PDF](slug:grid-export-pdf)
 
-Before proceeding to the dedicated export articles, ensure you are familiar with the following specifics:
+Before proceeding to the dedicated export articles, ensure you are familiar with the following information:
 
 ## How the Export Works
 
