@@ -104,7 +104,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 ## Requirements
 
-* If you are setting `Width` to the columns, use only `px`. Excel does not understand units different than `px` and if you use them (such as `rem` or `%`), it will fail to parse them and will render a collapsed (hidden) column with zero width.
+* When setting column `Width`, use only `px`. Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation.
 
 ## Programmatic Export
 
