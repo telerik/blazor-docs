@@ -23,7 +23,6 @@ res_type: kb
 ## Description
 
 My Grid uses a Cyrillic font but when I export it to PDF the text is missing. How to ensure the text will be properly included in the exported PDF file when using a Cyrillic font? 
-How to load data on demand when you have Hierarchy Grid?
 
 ## Solution
 
@@ -145,3 +144,8 @@ The snippet below shows how to load an example Cyrillic font, so the Grid can pr
     }
 }
 ````
+
+## See Also section
+
+* [Grid Export Overview](slug:grid-export-overview).
+* [Grid Export to PDF](slug:grid-export-pdf)

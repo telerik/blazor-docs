@@ -17,7 +17,7 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
-  - [How It Works](#how-it-works)
+  - [How the Export Works](#how-the-export-works)
   - [Requirements](#requirements)
   - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
@@ -45,7 +45,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
 | `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page&mdash;portrait or landscape. |
  
-> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
+> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
 
 >caption Export the Grid to PDF
 
@@ -109,16 +109,22 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 ## How the Export Works
 
-* For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
+The PDF export has the following specifics:
+
 * The UI for Blazor PDF export will export the Grid to a table and will not export the full HTML. This behavior is different from when exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
 
 ## Requirements
+
+The PDF export has the following requirements:
 
 * PDF export requires pixel widths for all columns. Widths in other units such as `%` or `em` cannot be translated correctly and the respective columns will collapse in the exported PDF file. The column widths for the PDF export can differ from the ones in the Grid configuration for the web browser. To set column widths for the PDF file only, use the `Width` property of the [`OnBeforeExportEventArgs.Columns`](slug:grid-export-events#for-pdf-export) members.
 * Provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
 
 ## Limitations
 
+The PDF export has the following limitations:
+
+* For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
 * Some PDF fonts do not include Cyrillic or other non-Latin characters. In such cases, [load a compatible font explicitly](slug:grid-kb-load-cyrillic-fonts-in-pdf-export).
 
 ## Programmatic Export

@@ -41,7 +41,7 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 | `FileName` | `string` | The name of the file. The grid will add the `.csv` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
-> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
+> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
 
 >caption Export the Grid to CSV - Example
 
@@ -103,7 +103,9 @@ Optionally, you can also set the `GridCsvExport` tag settings under the `GridExp
 
 ## Limitations
 
-* Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document. If you need to add such structure, consider [exporting to an Excel file](slug:grid-export-excel).
+The CSV export has the following limitation:
+
+* Column widths are not applied because a CSV document does not have such a concept. You can use any units in the grid itself, they will not be reflected in the exported document.<br/>If you need to export columns with specific widths, consider [exporting to an Excel file](slug:grid-export-excel).
 
 ## Programmatic Export
 

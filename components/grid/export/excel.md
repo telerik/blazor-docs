@@ -41,7 +41,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 | `FileName` | `string` | The name of the file. The grid will add the `.xslx` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
-> Before enabling the export feature, ensure you are familiar with [its specifics](slug:grid-export-overview#how-it-works).
+> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
 
 >caption Export the Grid to Excel - Example
 
@@ -103,6 +103,8 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 
 ## Requirements
+
+The Excel export has the following requirement:
 
 * When setting column `Width`, use only `px`. Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation.
 
