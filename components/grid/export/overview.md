@@ -32,13 +32,6 @@ The Grid export feature has the following specifics:
 
 In server-side Blazor apps, the file may become larger than the default SignalR message size limit. This can disconnect the client and result in an error. You may need to [increase the maximum SignalR message size](slug:common-kb-increase-signalr-max-message-size).
 
-````C#.skip-repl
-services.AddServerSideBlazor().AddHubOptions(o =>
-{
-    o.MaximumReceiveMessageSize = 1024 * 1024; // 1MB
-});
-````
-
 ## Limitations
 
 The Grid export feature has the following limitations:
