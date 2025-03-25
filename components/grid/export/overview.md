@@ -30,9 +30,7 @@ The Grid export feature has the following specifics:
 
 ## Requirements
 
-The Grid export feature has the following requirements:
-
-* With Server-side Blazor, the file may become larger than the default SignalR connection limit, and this can disconnect the client and result in an error. Generally, this requires quite a lot of data to happen, but you may need to increase the size limit of the connection in the `ConfigureServices` method of your `Startup.cs` file, for example:
+In server-side Blazor apps, the file may become larger than the default SignalR message size limit. This can disconnect the client and result in an error. You may need to [increase the maximum SignalR message size](slug:common-kb-increase-signalr-max-message-size).
 
 ````C#.skip-repl
 services.AddServerSideBlazor().AddHubOptions(o =>
