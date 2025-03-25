@@ -1,6 +1,6 @@
 ---
 title: Loading Cyrillic Fonts When Exporting the Grid to PDF
-description: How to lLoad Cyrillic fonts when exporting the Blazor Grid to PDF?
+description: How to load Cyrillic fonts when exporting the Blazor Grid to PDF?
 type: how-to
 page_title: Loading Cyrillic Fonts When Exporting the Grid to PDF
 slug: grid-kb-load-cyrillic-fonts-in-pdf-export
