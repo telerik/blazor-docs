@@ -24,7 +24,19 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable the Grid Excel Export, add a [command button](slug:components/grid/columns/command) with the `ExcelExport` command name to the [Grid toolbar](slug:components/grid/features/toolbar).
+To enable the Grid Excel Export, you can choose one of the following options:
+
+* Add the `GridToolBarExcelExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
+
+````RAZOR.skip-repl
+<GridToolBar>        
+    <GridToolBarExcelExportTool>
+        Export to Excel
+    </GridToolBarExcelExportTool>
+</GridToolBar>
+````
+
+* Add a [command button](slug:components/grid/columns/command) with the `ExcelExport` command name inside a templated [Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
 
 ````RAZOR.skip-repl
 <GridToolBarTemplate>
@@ -106,7 +118,7 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 
 The Excel export has the following requirement:
 
-* When setting column `Width`, use only `px`. Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation.
+* When setting column `Width`, use only `px`. Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation. If you prefer to use different than `px` units in the UI, handle the [`OnBeforeExport` event to provide the column width in pixels for the proper export](slug:grid-export-events#for-excel-export).
 
 ## Programmatic Export
 
