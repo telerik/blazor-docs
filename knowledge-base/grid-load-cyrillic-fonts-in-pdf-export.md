@@ -29,7 +29,7 @@ How to load data on demand when you have Hierarchy Grid?
 
 Some PDF fonts do not have Cyrillic (or other alphabets) characters. In such cases, you can load the fonts explicitly, so the proper texts appear in the exported Grid to PDF.
 
-For that purpose, use the Document Processing libraries to [implement FontsProvider](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider) and load your desired font.
+For that purpose, use the Document Processing libraries to [implement a FontsProvider](https://docs.telerik.com/devtools/document-processing/knowledge-base/pdfprocessing-implement-fontsprovider) and load your desired font.
 
 The snippet below shows how to load an example Cyrillic font, so the Grid can properly export the data in Bulgarian language (that uses Cyrillic characters) to a PDF document. If you load a `helvetica-cyrillic.ttf` file in the `wwwroot` folder of your application, the export will work out of the box.
 
