@@ -125,7 +125,7 @@ If you prefer video instructions, you can also check the video tutorial below.
 * [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
 
-<script type="application/ld+json">
+<!-- <script type="application/ld+json">
 {
   "@context": "https://schema.org", 
   "@type": "VideoObject", 
@@ -137,4 +137,4 @@ If you prefer video instructions, you can also check the video tutorial below.
   "contentUrl": "https://youtu.be/fwR8Yxe7DPQ", 
   "embedUrl": "https://www.youtube.com/embed/fwR8Yxe7DPQ" 
 }
-</script>
+</script> -->

@@ -259,7 +259,7 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
 * [Style the Telerik Blazor Components](slug:themes-overview)
 
-<script type="application/ld+json"> 
+<!-- <script type="application/ld+json"> 
 {
   "@context": "https://schema.org", 
   "@type": "VideoObject", 
@@ -271,4 +271,4 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
   "contentUrl": "https://youtu.be/HKsTL4byyTA", 
   "embedUrl": "https://www.youtube.com/embed/HKsTL4byyTA" 
 } 
-</script>
+</script> -->
