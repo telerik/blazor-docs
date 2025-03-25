@@ -128,9 +128,17 @@ or
 
 `error NU1102: Unable to find package Telerik.UI.for.Blazor with version (>= 5.1.1)`
 
-This error means that version `5.1.1` is outside the subscription period of your license.
+This error means one of the following:
 
-To solve the issue, use a different version or ask the license holder at your company to assign you another license that includes the desired product version.
+* Version `5.1.1` was released outside the subscription period of your license.
+* Version `5.1.1` is not available in your custom (local) NuGet feed.
+
+To solve the issue:
+
+* Use an accessible Telerik UI for Blazor version.
+* Ask the license holder at your company to assign you another license that includes the desired product version.
+* [Setup and use the remote Telerik NuGet package source](slug:installation/nuget) instead of a custom (local) feed. For CI and deployment environments, also check [Restoring NuGet Packages in CI](slug:deployment-nuget).
+* Add the required Telerik UI for Blazor version to your custom (local) NuGet feed.
 
 ## Unable to Resolve Package due to PackageSourceMapping
 
