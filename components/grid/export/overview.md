@@ -41,7 +41,7 @@ services.AddServerSideBlazor().AddHubOptions(o =>
 
 * Date and number formats are exported in the following format: `mm/dd/yyyy hh:mm:ss` plus the current app culture AM/PM specifier for dates, and `Convert.ToDouble(value)` for numbers (which uses the current thread culture). The Excel date formats are different than .NET date formats and Excel may not always recognize the column as dates, for example, if the entire date format from the .NET culture is used. To customize the date and number formats, use the [Export Events](slug: grid-export-events).
 
-* The Grid exports only `<GridColumn>` instances. Other types of columns are not exported, for example command, checkbox, hierarchy, group and row-drag columns.
+* The Grid exports only `<GridColumn>` instances. Other types of columns are not exported (for example: command, checkbox, hierarchy, group and row-drag columns).
 
 ## Customization
 
