@@ -109,9 +109,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 ## How the Export Works
 
-The PDF export has the following specifics:
-
-* The UI for Blazor PDF export will export the Grid to a table and will not export the full HTML. This behavior is different from when exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
+The Grid exports its raw data to PDF and does not export the full HTML. This behavior is different from the PDF exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
 
 ## Requirements
 
