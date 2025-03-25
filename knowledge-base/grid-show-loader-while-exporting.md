@@ -1,6 +1,6 @@
 ---
 title: Showing a Loader While Exporting the Grid
-description: Learn how to display a LoaderContainer over the Blazor Grid while it is exporting the items to Excel, CSV or PDF
+description: Learn how to display a LoaderContainer over the Blazor Grid while it is exporting the items to Excel, CSV or PDF.
 type: how-to
 page_title: How to Show a Loader While Exporting the Grid
 slug: grid-kb-show-loader-while-exporting
