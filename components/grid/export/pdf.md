@@ -110,7 +110,7 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 ## How the Export Works
 
 * For performance reasons, the PDF export mechanism draws each cell value on a single line. Any content that does not fit in the available space will be clipped. Text wrapping and PDF column resizing is not supported.
-* Exporting to PDF in UI for Blazor is different from exporting in Kendo jQuery, where the full HTML is exported. The Blazor export to PDF will export the Grid to a table, similar to an Excel table. If you want [to export to PDF as HTML, you can use a custom approach](#custom-export).
+* The UI for Blazor PDF export will export the Grid to a table and will not export the full HTML. This behavior is different from when exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
 
 ## Requirements
 
