@@ -6,7 +6,7 @@ page_title: How to Select All Grid Items With CheckBox when Using OnRead
 slug: grid-kb-select-all-onread
 position: 
 tags: grid, selection, select all, checkbox, onread
-ticketid: 1562945
+ticketid: 1562945, 1680863
 res_type: kb
 ---
 
