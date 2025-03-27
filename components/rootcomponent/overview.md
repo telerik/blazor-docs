@@ -22,8 +22,9 @@ The `TelerikRootComponent` is responsible for the following tasks:
     * It's more reliable that the popups will display on top of the other page content.
     * There is no risk for the popups to be trapped by scrollable containers, or clipped by containers with an `overflow:hidden` style.
 * It exposes the `DialogFactory` for using [predefined dialogs](slug:dialog-predefined).
+* It helps with the integration of components, for example, when using [connected ListBoxes](slug:listbox-connect) or a [Chart Breadcrumb](slug:chart-drilldown#).
 
-The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the root component to wrap all other Telerik components in the app, otherwise an [exception may occur](slug:common-kb-component-requires-telerikrootcomponent). To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
+The `TelerikRootComponent` achieves all these tasks with the help of [cascading values](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters). That's why it is crucial for the Root Component to wrap all other Telerik components in the app, otherwise an [exception may occur](slug:common-kb-component-requires-telerikrootcomponent). To ensure correct popup position, it is also highly recommended for the `TelerikRootComponent` to be the top-level component in the app and wrap all other content, including the application layout.
 
 
 ## Using TelerikRootComponent
