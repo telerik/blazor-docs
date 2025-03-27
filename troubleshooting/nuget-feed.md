@@ -137,7 +137,7 @@ To solve the issue:
 
 * Use an accessible Telerik UI for Blazor version.
 * Ask the license holder at your company to assign you another license that includes the desired product version.
-* [Setup and use the remote Telerik NuGet package source](slug:installation/nuget) instead of a custom (local) feed. For CI and deployment environments, also check [Restoring NuGet Packages in CI](slug:deployment-nuget).
+* [Set up and use the remote Telerik NuGet package source](slug:installation/nuget) instead of a custom (local) feed. For CI and deployment environments, also check [Restoring NuGet Packages in CI](slug:deployment-nuget).
 * Add the required Telerik UI for Blazor version to your custom (local) NuGet feed.
 
 ## Unable to Resolve Package due to PackageSourceMapping
