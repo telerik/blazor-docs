@@ -14,10 +14,9 @@ The Telerik Window component provides multiple options to control its position, 
 
 * [`ContainmentSelector` parameter](#containmentselector)
 * [`Top` and `Left` parameters](#top-and-left)
-* [Centered Window](#center)
-* [Positions Example](#example)
+* [Example](#example)
 
-The Window renders [in the root of the application](slug:window-overview#important-notes) or in its containment element. If the application is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position).
+The Window renders [in the root of the application](slug:window-overview#important-notes) or in its containment element.
 
 ## ContainmentSelector
 
@@ -65,6 +64,8 @@ In this case, the Window will render inside the specified container and not as a
 The `Top` and `Left` parameters control the Window placement on the page. The resulting position depends on the whole page content and not on the viewport or the current scroll offset. To see the parameters in action, refer to the [example](#example) below.
 
 When the [Window `ContainmentSelector` parameter is set](#containmentselector), the `Top` and `Left` parameters apply with regard to the top-left corner of the containment element.
+
+If the application is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position).
 
 ### Center
 
