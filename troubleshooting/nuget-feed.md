@@ -133,7 +133,7 @@ This error means one of the following:
 * Version `5.1.1` was released outside the subscription period of your license.
 * Version `5.1.1` is not available in your custom (local) NuGet feed.
 
-To solve the issue:
+Choose one of the following options to solve the issue:
 
 * Use an accessible Telerik UI for Blazor version.
 * Ask the license holder at your company to assign you another license that includes the desired product version.
