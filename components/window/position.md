@@ -10,44 +10,13 @@ position: 2
 
 # Window Position
 
-The Window offers several ways to control its position:
+The Telerik Window component provides multiple options to control its position, allowing you to customize its placement and behavior to suit your application's layout and requirements. This article contains the following sections:
 
-* [`Centered` parameter](#centered)
 * [`ContainmentSelector` parameter](#containmentselector)
 * [`Top` and `Left` parameters](#top-and-left)
+* [Example](#example)
 
-The Window renders [in the root of the application](slug:window-overview#important-notes) or in its [containment element](#containmentselector). If the app is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position).
-
-
-## Centered
-
-The `Centered` parameter determines if the Window displays centered in the viewport. The parameter value is `true` by default.
-
-A centered Window applies the following CSS styles, which maintain the centered position even if the viewport size changes:
-
-````CSS.skip-repl
-.k-centered {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-````
-
-If the `Top` or `Left` parameters are set and not empty, they take precedence over `Centered`. To center the Window dynamically through its `Centered` parameter, bind the `Top` and `Left` parameters too, so you can reset them to `string.Empty` or `null`.
-
->caption Center the Window
-
-````RAZOR
-<TelerikWindow Centered="true" Visible="true">
-    <WindowTitle>
-        Window Title
-    </WindowTitle>
-    <WindowContent>
-        A Centered Window
-    </WindowContent>
-</TelerikWindow>
-````
-
+The Window renders [in the root of the application](slug:window-overview#important-notes) or in its containment element.
 
 ## ContainmentSelector
 
@@ -92,11 +61,19 @@ In this case, the Window will render inside the specified container and not as a
 
 ## Top and Left
 
-The `Top` and `Left` parameters control the Window placement on the page. The resulting position depends on the whole page content and not on the viewport or the current scroll offset.
+The `Top` and `Left` parameters control the Window placement on the page. The resulting position depends on the whole page content and not on the viewport or the current scroll offset. To see the parameters in action, refer to the [example](#example) below.
 
 When the [Window `ContainmentSelector` parameter is set](#containmentselector), the `Top` and `Left` parameters apply with regard to the top-left corner of the containment element.
 
->caption Using Top and Left to manage the Window position
+If the application is using special CSS positioning, margins, or other offsets on the Window ancestors, these CSS styles may [affect the position of the Window](slug:troubleshooting-general-issues#wrong-popup-position).
+
+### Center
+
+ The Telerik Window is automatically centered when the `Top` and `Left` parameters are not set or are explicitly set to `string.Empty`. To see this behavior in action, refer to the [example](#example) below.
+
+## Example
+
+>caption Use Top and Left to manage the Window position
 
 ````RAZOR
 <p>
@@ -105,7 +82,8 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
     <code>WindowTop</code>: @WindowTop
 </p>
 
-<TelerikWindow @bind-Left="@WindowLeft"
+<TelerikWindow @ref="@WindowRef"
+               @bind-Left="@WindowLeft"
                @bind-Top="@WindowTop"
                Visible="true"
                Width="300px">
@@ -113,17 +91,26 @@ When the [Window `ContainmentSelector` parameter is set](#containmentselector), 
     <WindowContent>
         The values of <code>WindowLeft</code> and <code>WindowTop</code> change after the user ends dragging or resizing.
     </WindowContent>
+    <WindowFooter>
+        <TelerikButton OnClick="@CenterWindow">Center Window</TelerikButton>
+    </WindowFooter>
 </TelerikWindow>
 
 @code {
+    private TelerikWindow? WindowRef { get; set; }
     private string WindowLeft { get; set; } = "50px";
-
     private string WindowTop { get; set; } = "50px";
+
+    private void CenterWindow()
+    {
+        WindowLeft = WindowTop = string.Empty;
+        WindowRef?.Refresh();
+    }
 }
 ````
-
 
 ## See Also
 
 * [Live Demo: Window Position](https://demos.telerik.com/blazor-ui/window/position)
 * [Live Demo: Constrain Window Movement](https://demos.telerik.com/blazor-ui/window/constrain-movement)
+* [How to Center the Window Programmatically](slug:window-kb-center-programmatically)
