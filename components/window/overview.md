@@ -171,7 +171,6 @@ In Blazor, however, the render tree structure may be important. In some cases, t
 * [Configure the Window position](slug:components/window/position)
 * [Set the Window size, minimized, and maximized state](slug:components/window/size)
 * [Handle Window events](slug:window-events)
-* [Learn How to Programmatically Center the Window](slug:window-kb-center-programmatically)
 
 ## See Also
 
