@@ -34,7 +34,7 @@ To prompt the users with a warning message when they attempt to navigate away fr
 
 1. Inject [`NavigationManager`](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-7.0#handleprevent-location-changes) to handle navigation
 2. Register a handler using `NavigationManager.RegisterLocationChangingHandler()` to intercept navigation attempts
-3. In [`LocationChangingHandler`](https://www.telerik.com/blogs/blazor-new-locationchanging-events-dotnet-7), check if the form has unsaved changes
+3. Use the [`LocationChangingHandler`](https://www.telerik.com/blogs/blazor-new-locationchanging-events-dotnet-7) to check if the form has unsaved changes
 4. Add a [`<TelerikDialog>`](slug:dialog-overview) to prompt the user when there are unsaved changes
 5. Implement a `PreventLeaving()` method and `ProceedNavigation()` method to close the dialog without navigating and to manually navigate to the stored URL if the user confirms
 
@@ -51,7 +51,10 @@ To prompt the users with a warning message when they attempt to navigate away fr
     </FormItems>
 </TelerikForm>
 
-<NavLink href="test">Go To Other Page</NavLink>
+<TelerikButton OnClick="@(() => NavigateToExternalPage())">
+    Go To Other Page
+</TelerikButton>
+
 
 <TelerikDialog @bind-Visible="@ShowNavigationDialog"
                Title="Confirm Navigation">
@@ -60,7 +63,7 @@ To prompt the users with a warning message when they attempt to navigate away fr
     </DialogContent>
     <DialogButtons>
         <TelerikButton OnClick="@PreventLeaving">No</TelerikButton>
-        <TelerikButton ThemeColor="primary" OnClick="@ProceedNavigation">Yes</TelerikButton>
+        <TelerikButton ThemeColor="@ThemeConstants.Button.ThemeColor.Primary" OnClick="@ProceedNavigation">Yes</TelerikButton>
     </DialogButtons>
 </TelerikDialog>
 
@@ -94,6 +97,11 @@ To prompt the users with a warning message when they attempt to navigate away fr
         return ValueTask.CompletedTask;
     }
 
+    private void NavigateToExternalPage()
+    {
+        NavigationManager.NavigateTo("https://www.telerik.com/blazor-ui/documentation/introduction", forceLoad: true);
+    }
+
     private void PreventLeaving()
     {
         // Simply close the dialog without changing the page
@@ -119,12 +127,12 @@ To prompt the users with a warning message when they attempt to navigate away fr
     protected override void OnInitialized()
     {
         Employee = new Person()
-            {
-                Id = 1,
-                FirstName = "John",
-                LastName = "Doe",
-                BirthDate = DateTime.Today.AddYears(-30)
-            };
+        {
+            Id = 1,
+            FirstName = "John",
+            LastName = "Doe",
+            BirthDate = DateTime.Today.AddYears(-30)
+        };
 
         // Register the navigation handler
         NavEventRegistration = NavigationManager.RegisterLocationChangingHandler(LocationChangingHandler);
