@@ -14,6 +14,8 @@ You can export the Grid to PDF with the click of a button. The current filter, s
 
 The Grid exports its raw data to PDF and does not export the full HTML. This behavior is different from the PDF exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
 
+>tip Make sure to get familiar with all the [general export documentation first](slug:grid-export-overview).
+
 #### In This Article
 
   - [Basics](#basics)
@@ -29,8 +31,6 @@ To enable the PDF export in the Grid:
 1. [Add the Export Tool](#add-the-export-tool)
 1. [Configure the Export Settings](#configure-the-export-settings)
 1. [Set the Columns Width in Pixels](#set-the-columns-width-in-pixels)
-
-> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
 
 ### Add the Export Tool
 
