@@ -107,7 +107,7 @@ Users can [create, edit and delete Scheduler appointments](slug:scheduler-appoin
 
 ## Recurrence
 
-The [Scheduler supports recurring appointments and exceptions](slug:scheduler-recurrence). The Scheduler also exposes helper components that you can use to edit recurrences in custom edit forms.
+The [Scheduler supports recurring appointments and exceptions](slug:scheduler-recurrence). Telerik UI for Blazor also exposes [recurrence editor components](slug:scheduler-recurrence#recurrence-editor-components) that enable users to edit recurrence rules in an edit form.
 
 ## Resources and Grouping
 
