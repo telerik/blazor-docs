@@ -79,7 +79,7 @@ You need to download and install a new license key after:
 
 An expired [perpetual license](https://www.telerik.com/purchase/faq/licensing-purchasing#licensing) key is valid for all Telerik UI for Blazor versions published before the license expiration date.
 
-### Will Telerik UI for Blazor function with an expired license key?
+### Will Telerik UI for Blazor work with an expired license key?
 
 This depends on the [Telerik UI for Blazor license type (perpetual, subscription, or trial)](https://www.telerik.com/purchase/faq/licensing-purchasing#licensing):
 
@@ -93,7 +93,7 @@ Scenarios that do not match the above three descriptions result in the following
 * A watermark appears on Telerik UI for Blazor components.
 * [A warning message appears in the application's build log](slug:troubleshooting-license-key-errors).
 
-### I updated the Telerik UI for Blazor version in my project and license errors appeared. Why?
+### I updated Telerik UI for Blazor in my app and got license errors. Why?
 
 The most likely cause is that the new Telerik UI for Blazor version was released after the expiration date of your current license or license key. To fix this issue:
 
@@ -104,17 +104,17 @@ The most likely cause is that the new Telerik UI for Blazor version was released
 
 You can use one license key in multiple pipelines, builds, and environments. However, each individual developer must use their own unique personal license key in their development environment.
 
-### Do I need an Internet connection to activate the license?
+### Do I need Internet to activate the license?
 
 No, the license validation and activation occur offline.
 
-### Do I have to add the license key to source control?
+### Should I add the license key to source control?
 
 No, do not add the `telerik-license.txt` license key file or its contents to source control.
 
 Do not store the license key in plain text in GitHub Actions Workflow definitions. Build servers [must use the `TELERIK_LICENSE` environment variable](slug:deployment-license-key).
 
-### What happens if both the environment variable and the license key file are present?
+### What happens if I use both the environment variable and the license key file?
 
 If both the `TELERIK_LICENSE` environment variable and the `telerik-license.txt` file are present, then the environment variable will be used.
 To use the license key file, unset the environment variable.
@@ -123,12 +123,13 @@ To use the license key file, unset the environment variable.
 
 If both a global and a project-specific `telerik-license.txt` files exist, then the project-specific license key will be used.
 
-### My team has more than one license holder. Which key do we have to use?
+### My team has multiple licenses. Which key should we use?
 
 To activate Telerik UI for Blazor:
 
 * [Every developer must be assigned their own license or seat](https://www.telerik.com/purchase/faq/licensing-purchasing).
 * Every developer must use a license key that is associated with their personal Telerik account.
+* You can use any of the available [license keys in cloud build CI/CD environments](slug:deployment-license-key).
 
 ### Are earlier Telerik UI for Blazor versions affected?
 
