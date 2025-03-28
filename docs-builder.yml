@@ -312,16 +312,13 @@ meta:
     position: 80
   "*components/scheduler/templates":
     title: Templates
-    position: 10
+    position: 35
   "*components/scheduler/views":
     title: Views
-    position: 5
+    position: 3
   "*components/scheduler/editing":
     title: Editing
-    position: 3
-  "*components/scheduler/appointments":
-    title: Appointments
-    position: 2
+    position: 5
   "*components/menu/data-binding":
     title: Data Binding
     position: 2
