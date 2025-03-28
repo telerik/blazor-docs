@@ -63,7 +63,7 @@ steps:
 ### Use TELERIK_LICENSE_PATH
 
 1. [Add a secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files) and grant any necessary permissions to use it in the pipeline.
-1. [Download the secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines) during pipeline run. The secure file path is available through the [`secureFilePath` output](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines#output-variables).
+1. [Download the secure file](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines) in a task with a `name`. The secure file path is available to other tasks through the [`secureFilePath` output](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/download-secure-file-v1?view=azure-pipelines#output-variables).
 1. Set the `TELERIK_LICENSE_PATH` environment variable in all tasks, steps, or scripts that build and publish the Blazor app.
 
 >caption Using a TELERIK_LICENSE_PATH environment variable in Azure Pipeline YAML
