@@ -14,15 +14,6 @@ If you've arrived here wanting to search and peruse our docs, you'd be better se
 
 You can download a PDF with this documentation from [your telerik.com account](https://www.telerik.com/account). Go to the **Downloads** section, navigate to **UI for Blazor**, choose the version you want from the dropdown, and get the **PDF** file under the **Documentation** section.
 
-## Running Locally
-
-You can generate a static web site from the Telerik® UI for Blazor documentation and browse it locally.
-
-1. Clone the repository `git clone git@github.com:telerik/blazor-docs.git`
-2. Go to the [https://github.com/telerik/docs-seed](https://github.com/telerik/docs-seed) repo and follow the instructions from its own readme file
-
-If you want to keep the local documentation alive after closing the prompt, you can add the `_site` folder that was generated to a server of your choice. Make sure that it is under a path like `serverName/blazor-ui`. You can find sample instructions in the following page, and they are applicable for IIS, even though they are written for the UI for ASP.NET AJAX docs where we have two nests folders instead of one: [https://github.com/telerik/ajax-docs/wiki/Deploying-Documentation-on-IIS](https://github.com/telerik/ajax-docs/wiki/Deploying-Documentation-on-IIS).
-
 ## Useful Links
 
 * Browse all [UI for Blazor component demos live](https://demos.telerik.com/blazor-ui)
