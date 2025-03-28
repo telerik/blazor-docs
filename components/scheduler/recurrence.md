@@ -1,7 +1,7 @@
 ---
 title: Recurrence
 page_title: Scheduler Recurrence
-description: Overview of the Scheduler for Blazor.
+description: Learn how to set up the Telerik Scheduler for Blazor to display and edit recurring appointments.
 slug: scheduler-recurrence
 tags: telerik, blazor, scheduler, recurrence
 published: True
@@ -149,7 +149,7 @@ A single Scheduler data item defines one series of recurring appointments. Set t
         };
         SchedulerData.Add(dailyLunch);
 
-        // Create exceptions to the base appointment
+        // Create exceptions to the base appointment.
         int daysSinceMonday = SchedulerDate.DayOfWeek - DayOfWeek.Monday;
         DateTime lastMonday = DateTime.SpecifyKind(SchedulerDate.AddDays(-daysSinceMonday), DateTimeKind.Unspecified);
 
@@ -172,7 +172,7 @@ A single Scheduler data item defines one series of recurring appointments. Set t
         };
         SchedulerData.Add(earlyLunchException);
 
-        // Relate the exceptions to the base appointment
+        // Relate the exceptions to the base appointment.
         DateTime lateLunchOriginalStart = DateTime.SpecifyKind(lastMonday.AddHours(12), DateTimeKind.Unspecified);
         DateTime earlyLunchOriginalStart = DateTime.SpecifyKind(lastMonday.AddDays(3).AddHours(12), DateTimeKind.Unspecified);
         dailyLunch.RecurrenceExceptions = new List<DateTime>()
@@ -335,7 +335,7 @@ The following examples can serve as a reference for creating [custom Telerik Sch
 
     private void OnFormUpdate()
     {
-        // Only necessary to refresh the UI until all Rule parameters gain two-way binding
+        // Only necessary to refresh the UI until all Rule parameters gain two-way binding.
         RecurringAppointment!.RecurrenceRule = Rule?.ToString() ?? string.Empty;
     }
 
