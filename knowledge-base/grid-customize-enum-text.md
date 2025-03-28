@@ -41,7 +41,7 @@ Use the `Display` attribute on your enum members to specify custom display names
     <GridColumns>
         <GridColumn Field=@nameof(Employee.Name) />
         <GridColumn Field=@nameof(Employee.AgeInYears) Title="Age" />
-        <GridColumn Field=@nameof(Employee.TestEnum) Title="Test" />
+        <GridColumn Field=@nameof(Employee.EmploymentStatus) Title="Employment Status" />
     </GridColumns>
 </TelerikGrid>
 
@@ -59,7 +59,7 @@ Use the `Display` attribute on your enum members to specify custom display names
                 EmployeeId = i,
                 Name = "Employee " + i.ToString(),
                 AgeInYears = rand.Next(10, 80),
-                TestEnum = i % 2 == 0 ? TEST.Yes_Yes : TEST.No_No
+                EmploymentStatus = i % 3 == 0 ? EmploymentStatus.Full_Time : (i % 3 == 1 ? EmploymentStatus.Part_Time : EmploymentStatus.Contractor)
             });
         }
     }
@@ -69,16 +69,16 @@ Use the `Display` attribute on your enum members to specify custom display names
         public int? EmployeeId { get; set; }
         public string Name { get; set; }
         public int? AgeInYears { get; set; }
-        public TEST TestEnum { get; set; }
+        public EmploymentStatus EmploymentStatus { get; set; }
     }
 
-    public enum TEST
+    public enum EmploymentStatus
     {
-        [Display(Name = "Yes Yes")]
-        Yes_Yes,
-        [Display(Name = "No No")]
-        No_No,
-        None
+        [Display(Name = "Full Time")]
+        Full_Time,
+        [Display(Name = "Part Time")]
+        Part_Time,
+        Contractor
     }
 }
 `````
