@@ -164,15 +164,26 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 
     <GridToolBarTemplate>
         <div style="display: flex; width: 100%; justify-content: space-between;">
-            <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">
-                Add Employee
-            </GridCommandButton>
+            <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+
+            <div>
+                <GridCommandButton Command="CsvExport" Icon="@SvgIcon.FileCsv">Export to CSV</GridCommandButton>
+                <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
+                <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to Pdf</GridCommandButton>
+                <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
+            </div>
 
             <button @onclick="@( () => result = $"Custom button click on {DateTime.Now}" )">
                 Click Me
             </button>
         </div>
     </GridToolBarTemplate>
+
+    <GridExport>
+        <GridCsvExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
+        <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
+        <GridPdfExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
+    </GridExport>
 
     <GridColumns>
         <GridColumn Field=@nameof(SampleData.Name) Title="Employee Name" />
@@ -188,6 +199,8 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
 @code {
     private string result;
 
+    private bool ExportAllPages { get; set; }
+
     private void CreateHandler(GridCommandEventArgs args)
     {
         SampleData newItem = args.Item as SampleData;
@@ -196,6 +209,14 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
         result = string.Format("On {2} you added the employee {0} who was hired on {1}.", newItem.Name, newItem.HireDate, DateTime.Now);
         StateHasChanged();
     }
+   
+    private List<SampleData> MyData = Enumerable.Range(1, 50).Select(
+        x => new SampleData
+            {
+                ID = x,
+                Name = "name " + x,
+                HireDate = DateTime.Now.AddDays(-x)
+            }).ToList();
 
     //in a real case, keep the models in dedicated locations, this is just an easy to copy and see example
     public class SampleData
@@ -205,13 +226,6 @@ When using a `<GridToolBarTemplate>`, you need to use the `Tab` key to navigate 
         public DateTime HireDate { get; set; }
     }
 
-    public List<SampleData> MyData = Enumerable.Range(1, 50).Select(
-        x => new SampleData
-            {
-                ID = x,
-                Name = "name " + x,
-                HireDate = DateTime.Now.AddDays(-x)
-            }).ToList();
 }
 ````
 
