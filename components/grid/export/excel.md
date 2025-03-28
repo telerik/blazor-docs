@@ -14,6 +14,7 @@ You can export the grid to Excel with a click of a button. The current filter, s
 
 When you click the Export button, your browser will receive the resulting file.
 
+>tip Make sure to get familiar with all the [general export documentation first](slug:grid-export-overview).
 
 #### In This Article
 
@@ -28,8 +29,6 @@ To enable the Excel export in the Grid:
 1. [Add the Export Tool](#add-the-export-tool)
 1. [Configure the Export Settings](#configure-the-export-settings)
 1. [Set the Columns Width in Pixels](#set-the-columns-width-in-pixels)
-
-> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
 
 ### Add the Export Tool
 
