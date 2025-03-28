@@ -18,15 +18,22 @@ When you click the Export button, your browser will receive the resulting file.
 #### In This Article
 
   - [Basics](#basics)
-  - [Requirements](#requirements)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
 
 ## Basics
 
-To enable the Grid Excel Export, you can choose one of the following options:
+To enable the Excel export in the Grid:
 
-* Add the `GridToolBarExcelExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
+1. [Add the Export Tool](#add-the-export-tool)
+1. [Configure the Export Settings](#configure-the-export-settings)
+1. [Set the Columns Width in Pixels](#set-the-columns-width-in-pixels)
+
+> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
+
+### Add the Export Tool
+
+Add the `GridToolBarExcelExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
 
 ````RAZOR.skip-repl
 <GridToolBar>        
@@ -36,15 +43,11 @@ To enable the Grid Excel Export, you can choose one of the following options:
 </GridToolBar>
 ````
 
-* Add a [command button](slug:components/grid/columns/command) with the `ExcelExport` command name inside a templated [Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
+If you have a custom Toolbar, add a command button with the `ExcelExport` command name inside a [templated Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`).
 
-````RAZOR.skip-repl
-<GridToolBarTemplate>
-    <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
-</GridToolBarTemplate>
-````
+### Configure the Export Settings
 
-Optionally, you can also set the `GridExcelExport` tag settings under the `GridExport` tag to subscribe to the [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the Excel export options:
+To configure the Excel export settings, add the `GridExcelExport` tag under the `GridExport` tag. You may set the following options:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -53,24 +56,37 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 | `FileName` | `string` | The name of the file. The grid will add the `.xslx` extension for you. |
 | `AllPages` | `bool` | Whether to export the current page only, or the entire data from the data source. |
 
-> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
+For further customizations, use the `GridExcelExport` tag to subscribe to the [Grid export events](slug:grid-export-events).
 
->caption Export the Grid to Excel - Example
+### Set the Columns Width in Pixels
+
+The export to Excel does not require that all columns have explicit widths set. However, if you do set the column widths, ensure you use only `px`. 
+
+Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation. If you prefer to use different than `px` units in the UI, handle the [`OnBeforeExport` event to provide the column width in pixels for the proper export](slug:grid-export-events#for-excel-export).
+
+>caption Export the Grid to Excel
 
 ````RAZOR
 @* You can sort, group, filter, page the grid, resize and reodrder its columns, and you can click the
     Export button to save the current data *@
 
-<TelerikGrid Data="@GridData" Pageable="true" Sortable="true" Resizable="true" Reorderable="true"
-             FilterMode="@GridFilterMode.FilterRow" Groupable="true" >
+<TelerikGrid Data="@GridData"
+             Pageable="true"
+             Sortable="true"
+             Resizable="true"
+             Reorderable="true"
+             FilterMode="@GridFilterMode.FilterRow"
+             Groupable="true"
+             Width="1200px">
 
-    <GridToolBarTemplate>
-        <GridCommandButton Command="ExcelExport" Icon="@SvgIcon.FileExcel">Export to Excel</GridCommandButton>
-        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBarTemplate>
+    <GridToolBar>
+        <GridToolBarExcelExportTool>
+            Export to Excel
+        </GridToolBarExcelExportTool>
+    </GridToolBar>
 
     <GridExport>
-        <GridExcelExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
+        <GridExcelExport FileName="telerik-grid-export" />
     </GridExport>
 
     <GridColumns>
@@ -86,19 +102,17 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
 @code {
     private List<SampleData> GridData { get; set; }
 
-    private bool ExportAllPages { get; set; }
-
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-        {
-            ProductId = x,
-            ProductName = $"Product {x}",
-            UnitsInStock = x * 2,
-            Price = 3.14159m * x,
-            Discontinued = x % 4 == 0,
-            FirstReleaseDate = DateTime.Now.AddDays(-x)
-        }).ToList();
+            {
+                ProductId = x,
+                ProductName = $"Product {x}",
+                UnitsInStock = x * 2,
+                Price = 3.14159m * x,
+                Discontinued = x % 4 == 0,
+                FirstReleaseDate = DateTime.Now.AddDays(-x)
+            }).ToList();
     }
 
     public class SampleData
@@ -112,13 +126,6 @@ Optionally, you can also set the `GridExcelExport` tag settings under the `GridE
     }
 }
 ````
-
-
-## Requirements
-
-The Excel export has the following requirement:
-
-* When setting column `Width`, use only `px`. Excel cannot parse units different than `px` (e.g., `rem` or `%`) and renders a collapsed (hidden) column with zero width. This is an Excel limitation. If you prefer to use different than `px` units in the UI, handle the [`OnBeforeExport` event to provide the column width in pixels for the proper export](slug:grid-export-events#for-excel-export).
 
 ## Programmatic Export
 

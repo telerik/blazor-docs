@@ -10,15 +10,13 @@ position: 7
 
 # Grid PDF Export
 
-You can export the Grid to PDF with the click of a button. The current filter, sort, page, grouping, column order, and column size are applied to the exported PDF document.
+You can export the Grid to PDF with the click of a button. The current filter, sort, page, grouping, column order, and column size are applied to the exported PDF document. When you click the Export button, your browser will receive the resulting file.
 
-When you click the Export button, your browser will receive the resulting file.
+The Grid exports its raw data to PDF and does not export the full HTML. This behavior is different from the PDF exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
 
 #### In This Article
 
   - [Basics](#basics)
-  - [How the Export Works](#how-the-export-works)
-  - [Requirements](#requirements)
   - [Limitations](#limitations)
   - [Programmatic Export](#programmatic-export)
   - [Customization](#customization)
@@ -26,9 +24,17 @@ When you click the Export button, your browser will receive the resulting file.
 
 ## Basics
 
-To enable users to export the Grid to PDF, you can choose one of the following options:
+To enable the PDF export in the Grid:
 
-* Add the `GridToolBarPdfExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools):
+1. [Add the Export Tool](#add-the-export-tool)
+1. [Configure the Export Settings](#configure-the-export-settings)
+1. [Set the Columns Width in Pixels](#set-the-columns-width-in-pixels)
+
+> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
+
+### Add the Export Tool
+
+Add the `GridToolBarPdfExportTool` inside the [`<GridToolBar>`](slug:components/grid/features/toolbar#command-tools)
 
 ````RAZOR.skip-repl
 <GridToolBar>        
@@ -38,26 +44,29 @@ To enable users to export the Grid to PDF, you can choose one of the following o
 </GridToolBar>
 ````
 
-* Add a [command button](slug:components/grid/columns/command) with the `PdfExport` command name inside a templated [Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
+If you have a custom Toolbar, add a command button with the `PdfExport` command name inside a [templated Grid Toolbar](slug:components/grid/features/toolbar#custom-toolbar-configuration)(`<GridToolBarTemplate>`):
 
-````RAZOR.skip-repl
-<GridToolBarTemplate>
-    <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to Pdf</GridCommandButton>
-</GridToolBarTemplate>
-````
+### Configure the Export Settings
 
-Optionally, you can also set the `GridPdfExport` tag settings under the `GridExport` tag to subscribe to the [Grid export events](slug:grid-export-events) that allow further customization of the exported columns/data or configure the PDF export options:
+To configure the PDF export settings, add the `GridPdfExport` tag under the `GridExport` tag. You may set the following options:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
-
 | Parameter | Type and Default&nbsp;Value | Description |
 | --- | --- | --- |
 | `FileName` | `string` | The name of the file. The Grid will add the `.pdf` extension for you. |
 | `AllPages` | `bool` |  Whether to export the current page only, or the entire data from the data source. |
 | `PaperSize` | `GridPdfExportPaperSize` enum <br/> (`A4`) | The size of the paper for the exported file. |
 | `PageOrientation` | `GridPdfExportPageOrientation` enum <br/> (`Portrait`)| The orientation of the page&mdash;portrait or landscape. |
- 
-> Before enabling the export feature, ensure that you are familiar with [its specifics](slug:grid-export-overview#how-the-export-works).
+
+Provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
+
+For further customizations, use the `GridPdfExport` tag to subscribe to the [Grid export events](slug:grid-export-events).
+
+### Set the Columns Width in Pixels
+
+Provide pixel widths for all columns - PDF export requires pixel widths for all columns. Widths in other units such as `%` or `em` cannot be translated correctly and the respective columns will collapse in the exported PDF file. 
+
+The column widths for the PDF export can differ from the ones in the Grid configuration for the web browser. To set column widths for the PDF file only, use the `Width` property of the [`OnBeforeExportEventArgs.Columns`](slug:grid-export-events#for-pdf-export) members.
 
 >caption Export the Grid to PDF
 
@@ -70,16 +79,17 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
              Groupable="true"
              Pageable="true"
              Reorderable="true"
-             Resizable="true"             
+             Resizable="true"
              Sortable="true"
-             Width="650px">
-    <GridToolBarTemplate>
-        <GridCommandButton Command="PdfExport" Icon="@SvgIcon.FilePdf">Export to PDF</GridCommandButton>
-        <label class="k-checkbox-label"><TelerikCheckBox @bind-Value="@ExportAllPages" />Export All Pages</label>
-    </GridToolBarTemplate>
+             Width="700px">
+    <GridToolBar>
+        <GridToolBarPdfExportTool>
+            Export to PDF
+        </GridToolBarPdfExportTool>
+    </GridToolBar>
 
     <GridExport>
-        <GridPdfExport FileName="telerik-grid-export" AllPages="@ExportAllPages" />
+        <GridPdfExport FileName="telerik-grid-export"/>
     </GridExport>
 
     <GridColumns>
@@ -93,8 +103,6 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
 
 @code {
     private List<SampleData> GridData { get; set; }
-
-    private bool ExportAllPages { get; set; }
 
     protected override void OnInitialized()
     {
@@ -118,17 +126,6 @@ Optionally, you can also set the `GridPdfExport` tag settings under the `GridExp
     }
 }
 ````
-
-## How the Export Works
-
-The Grid exports its raw data to PDF and does not export the full HTML. This behavior is different from the PDF exporting in Kendo UI for jQuery. [To export to PDF as HTML, you can use a custom approach](#custom-export).
-
-## Requirements
-
-The PDF export has the following requirements:
-
-* PDF export requires pixel widths for all columns. Widths in other units such as `%` or `em` cannot be translated correctly and the respective columns will collapse in the exported PDF file. The column widths for the PDF export can differ from the ones in the Grid configuration for the web browser. To set column widths for the PDF file only, use the `Width` property of the [`OnBeforeExportEventArgs.Columns`](slug:grid-export-events#for-pdf-export) members.
-* Provide appropriate `PaperSize` and `PageOrientation` properties. For example, if you want to render 20 columns (100px each) in an A4 sheet, then this will yield unexpected results. The column dimensions in a PDF file are fixed, thus they cannot be resized as in Excel, which requires the developer to ensure proper export dimensions.
 
 ## Limitations
 
