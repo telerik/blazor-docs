@@ -275,7 +275,7 @@ string newRecurrenceString = recurrenceRule.ToString();
 There are two recommended ways to use the Telerik recurrence editors in a Telerik Form:
 
 * Place each recurrence editor in a separate [Form item `Template`](slug:form-formitems-template). This is the simpler option to set up.
-* Please all recurrence editors in a [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate). This is a more verbose approach, which provides better control over the Form's HTML rendering, layout and styling.
+* Place all recurrence editors in a [`<FormItemsTemplate>`](slug:form-formitems-formitemstemplate). This is a more verbose approach, which provides better control over the Form's HTML rendering, layout and styling.
 
 The following examples can serve as a reference for creating [custom Telerik Scheduler edit forms](slug:scheduler-kb-custom-edit-form) with recurrence editing. Using a markup structure that differs from the ones below may produce unexpected layouts.
 
