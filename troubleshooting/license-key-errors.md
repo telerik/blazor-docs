@@ -29,7 +29,7 @@ Refer to the specific error messages and tips below.
 
 ### No Telerik or Kendo UI product references detected in project (TKL001)
 
-This error can occur when a project references `Telerik.Licensing`, but not any other Telerik packages. In this case, please remove the `Telerik.Licensing` package from the project. If your scenario is different, please [contact Technical Support](https://www.telerik.com/account/support-center).
+This error can occur when a project references `Telerik.Licensing`, but not any other Telerik packages. In this case, remove the `Telerik.Licensing` package from the project. If your scenario is different, [contact Technical Support](https://www.telerik.com/account/support-center).
 
 ### No Telerik and Kendo UI License file found (TKL002)
 
