@@ -29,11 +29,11 @@ I have many items in the Grid and the export to Excel, CSV or PDF takes a while.
 To display a loader over the Grid during the Excel, CSV or PDF export, follow the steps below:
 
 1. Choose the deired UI for the Loader (this article shows the first two options): 
-    1. A [LoaderContainer](slug: loadercontainer-overview). Place the LoaderContainer component in a container together with the Grid and add `position:relative` style on this container to ensure the LoaderContainer covers only the Grid.
-    1. A modal [Window](slug: window-overview) with a [Loader](slug: loader-overview) component inside.
+    1. A [LoaderContainer](slug:loadercontainer-overview). Place the LoaderContainer component in a container together with the Grid and add `position:relative` style on this container to ensure the LoaderContainer covers only the Grid.
+    1. A modal [Window](slug:window-overview) with a [Loader](slug:loader-overview) component inside.
     1. Your custom loader.
-1. Handle the [`OnBeforeExport` event](slug: grid-export-events#onbeforeexport) of the Grid to show the loader (set the loader's visibility to `true`).
-1. Handle the [`OnAfterExport` event](slug: grid-export-events#onafterexport) of the Grid to hide the loader (set the loader's visibility to `false`).
+1. Handle the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport) of the Grid to show the loader (set the loader's visibility to `true`).
+1. Handle the [`OnAfterExport` event](slug:grid-export-events#onafterexport) of the Grid to hide the loader (set the loader's visibility to `false`).
 
 >caption Show a Loader during Grid export
 
@@ -113,8 +113,8 @@ To display a loader over the Grid during the Excel, CSV or PDF export, follow th
 
 ## See Also
 
-* [Grid Export Overview](slug: grid-export-overview)
-* [Grid Export to CSV](slug: grid-export-csv)
-* [Grid Export to Excel](slug: grid-export-excel)
-* [Grid Export to PDF](slug: grid-export-pdf)
-* [Grid Export Events](slug: grid-export-events)
+* [Grid Export Overview](slug:grid-export-overview)
+* [Grid Export to CSV](slug:grid-export-csv)
+* [Grid Export to Excel](slug:grid-export-excel)
+* [Grid Export to PDF](slug:grid-export-pdf)
+* [Grid Export Events](slug:grid-export-events)
