@@ -134,7 +134,7 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
 
 To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. There are two ways to list the [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages) to be treated as errors:
 
-* [Add a `<WarningsAsErrors>` tag to the `.csproj` project file(s)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors):
+* [Add a `<WarningsAsErrors>` tag](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors) to the `.csproj` project file:
     ````XML.skip-repl
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
