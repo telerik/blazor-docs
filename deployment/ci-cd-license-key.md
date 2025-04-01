@@ -144,7 +144,7 @@ To avoid accidental [license watermarks and notifications on your live site](slu
     </PropertyGroup>
     ````
 
-* [Set the `-warnaserror` switch when using the .NET CLI](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2022#switches):
+* [Set the `-warnaserror` switch](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2022#switches) when building with the .NET CLI:
     ````SH.skip-repl
     dotnet build -warnaserror:"TKL001;TKL002;TKL003;TKL004;TKL101;TKL102;TKL103;TKL104;TKL105"
     ````
