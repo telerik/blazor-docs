@@ -132,18 +132,22 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
 
 ## Abort Deployment on License Key Error
 
-To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. [Add a `<WarningsAsErrors>` tag](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors) to the project file(s) and include the desired [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages):
+To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. There are two ways to list the [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages) that should be treated as errors:
 
->caption Treat Telerik license warnings as errors in the .csproj project file
+* [Add a `<WarningsAsErrors>` tag to the `.csproj` project file(s)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors):
+    ````XML.skip-repl
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <WarningsAsErrors>TKL001;TKL002;TKL003;TKL004;TKL101;TKL102;TKL103;TKL104;TKL105</WarningsAsErrors>
+    </PropertyGroup>
+    ````
 
-````XML.skip-repl
-<PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <WarningsAsErrors>TKL001;TKL002;TKL003;TKL004;TKL101;TKL102;TKL103;TKL104;TKL105</WarningsAsErrors>
-</PropertyGroup>
-````
+* [Set the `-warnaserror` switch when using the .NET CLI](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2022#switches):
+    ````SH.skip-repl
+    dotnet build -warnaserror:TKL001,TKL002,TKL003,TKL004,TKL101,TKL102,TKL103,TKL104,TKL105
+    ````
 
 ## Next Steps
 
