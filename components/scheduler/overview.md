@@ -95,24 +95,28 @@ The [Scheduler offers different views](slug:scheduler-views-overview) that are s
 * Timeline (agenda) view
 
 
-## Editing
-
-Users can [create, edit and delete Scheduler appointments](slug:scheduler-appointments-edit). The component provides you with the new information so you can store it to the underlying data source.
-
-
 ## Navigation
 
 The [Scheduler features extensive navigation](slug:scheduler-navigation), which can be both programmatic and managed by the end user. The component can change the currently visible time range, the current view, and toggle business hours only display.
 
 
-## Templates
+## Editing
 
-You can [customize the appointment appearance and content via Scheduler templates](slug:scheduler-templates-appointment). Another option is to use the [Scheduler `OnItemRender` event](slug:scheduler-events#itemrender).
+Users can [create, edit and delete Scheduler appointments](slug:scheduler-appointments-edit). The component provides you with the new information so you can store it to the underlying data source.
 
+
+## Recurrence
+
+The Scheduler can display and edit [recurring appointments and recurrence exceptions](slug:scheduler-recurrence).
 
 ## Resources and Grouping
 
 [Scheduler resources](slug:scheduler-resources) provide a way to associate and [group appointments](slug:scheduler-resource-grouping) by certain criteria, such as a meeting room, a participating person, or used equipment.
+
+
+## Templates
+
+You can [customize the appointment appearance and content via Scheduler templates](slug:scheduler-templates-appointment). Another option is to use the [Scheduler `OnItemRender` event](slug:scheduler-events#itemrender).
 
 
 ## Events
