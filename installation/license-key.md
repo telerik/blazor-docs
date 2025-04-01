@@ -93,6 +93,8 @@ Scenarios that do not match the above three descriptions result in the following
 * A watermark appears on Telerik UI for Blazor components.
 * [A warning message appears in the application's build log](slug:troubleshooting-license-key-errors).
 
+To avoid accidental license watermarks and notifications on your live site, you can [fail the application build and abort deployment](slug:deployment-license-key#abort-deployment-on-license-key-error) when there is an issue with the license key.
+
 ### I updated Telerik UI for Blazor in my app and got license errors. Why?
 
 The most likely cause is that the new Telerik UI for Blazor version was released after the expiration date of your current license or license key. To fix this issue:
