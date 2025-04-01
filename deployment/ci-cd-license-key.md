@@ -132,7 +132,7 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
 
 ## Abort Deployment on License Key Error
 
-To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. Add a `<WarningsAsErrors>` tag to the project file(s) and include the desired [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages):
+To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. [Add a `<WarningsAsErrors>` tag](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors) to the project file(s) and include the desired [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages):
 
 >caption Treat Telerik license warnings as errors in the .csproj project file
 
