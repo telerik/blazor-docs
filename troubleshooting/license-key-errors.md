@@ -33,7 +33,7 @@ This error can occur when a project references `Telerik.Licensing`, but not any 
 
 ### No Telerik and Kendo UI License file found (TKL002)
 
-The error means that the license key is missing or not set up corrently. For example, the environment variable is not set or [the license file may be at the wrong place](slug:installation-license-key#manual-installation).
+The error means that the license key is missing or not set up corrently. For example, the environment variable is not set or [the license file may be at the wrong place](slug:installation-license-key#manual-installation). The error can also occur if the environment variable or license file exists, but it is empty.
 
 [Install a license key](slug:installation-license-key) again. Also check how to [set up a license key in CI/CD environments](slug:deployment-license-key).
 
