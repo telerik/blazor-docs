@@ -83,14 +83,14 @@ An expired [perpetual license](https://www.telerik.com/purchase/faq/licensing-pu
 
 This depends on the [Telerik UI for Blazor license type (perpetual, subscription, or trial)](https://www.telerik.com/purchase/faq/licensing-purchasing#licensing):
 
-* *Perpetual licenses* function normally with an expired license key, as long as the application is using a version that was released before the expiration date of the license.
-* *Subscription licenses* function normally in already deployed applications, but you cannot rebuild and republish the app.
-* *Trial licenses* function normally only within the 30-day trial period.
+* *Perpetual licenses* function normally with an expired license key, as long as the application is using a [Telerik UI for Blazor version that was released before the license expiration date](https://www.telerik.com/support/whats-new/blazor-ui/release-history).
+* *Subscription licenses* function normally in already deployed applications, as long as you do not rebuild and republish the app.
+* *Trial licenses* function normally during the 30-day trial period.
 
-Scenarios that do not match the above three descriptions result in the following application behaviors:
+Scenarios that do not match the above descriptions result in the following application behaviors:
 
 * A popup banner appears on application startup.
-* A watermark appears on Telerik UI for Blazor components.
+* A watermark appears on the Telerik components.
 * [A warning message appears in the application's build log](slug:troubleshooting-license-key-errors).
 
 To avoid accidental license watermarks and notifications on your live site, you can [fail the application build and abort deployment](slug:deployment-license-key#abort-deployment-on-license-key-error) when there is an issue with the license key.
