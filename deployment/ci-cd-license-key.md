@@ -20,8 +20,9 @@ The Telerik license activation process in CI/CD environments involves the follow
 
 1. Go to the [License Keys page](https://www.telerik.com/account/your-licenses/license-keys) in your Telerik account and download your license key.
 1. Set an environment variable with either of the following names:
-  * `TELERIK_LICENSE`&mdash;the value must be the Telerik license key string.
-  * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
+    * `TELERIK_LICENSE`&mdash;the value must be the Telerik license key string.
+    * `TELERIK_LICENSE_PATH`&mdash;the value must be the full path to the license key file, including the license file name itself. `TELERIK_LICENSE_PATH` requires `Telerik.Licensing` version `1.4.9` and above. You can use it with Telerik UI for Blazor `8.1.0` and above.
+1. (optional) [Fail the build and deployment](#abort-deployment-on-license-key-error) if there is an issue with the license key.
 
 In most cases, the recommended way to provide your license key to the `Telerik.Licensing` NuGet package in CI/CD environments is to use the `TELERIK_LICENSE` environment variable.
 
@@ -127,6 +128,25 @@ Also see [Using NuGet Keys](slug:deployment-nuget#using-nuget-keys) in the artic
     ````SH.skip-repl
     RUN --mount=type=secret,id=telerik-license-key,env=TELERIK_LICENSE \
         dotnet publish BlazorProjectName.csproj -c Release -o /app/publish /p:UseAppHost=false
+    ````
+
+## Abort Deployment on License Key Error
+
+To avoid accidental [license watermarks and notifications on your live site](slug:installation-license-key#will-telerik-ui-for-blazor-work-with-an-expired-license-key), you can fail the application build and abort deployment when there is an issue with the license key. There are two alternative ways to list the [Telerik license warning codes](slug:troubleshooting-license-key-errors#error-messages) to be treated as errors:
+
+* [Add a `<WarningsAsErrors>` tag](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings#warningsaserrors-and-warningsnotaserrors) to the `.csproj` project file:
+    ````XML.skip-repl
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <WarningsAsErrors>TKL001;TKL002;TKL003;TKL004;TKL101;TKL102;TKL103;TKL104;TKL105</WarningsAsErrors>
+    </PropertyGroup>
+    ````
+
+* [Set the `-warnaserror` MSBuild switch](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2022#switches) in the [`dotnet build` command](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build#msbuild):
+    ````SH.skip-repl
+    dotnet build -warnaserror:"TKL001;TKL002;TKL003;TKL004;TKL101;TKL102;TKL103;TKL104;TKL105"
     ````
 
 ## Next Steps
