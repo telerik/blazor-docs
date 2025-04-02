@@ -132,10 +132,8 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. |
-| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
-
->note The same methods are exposed for exporting a [CSV file](slug:grid-export-csv#programmatic-export).
+| `SaveAsExcelFileAsync` | `ValueTask` | Sends the exported excel file to the browser for download. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.Grid.GridExcelExportOptionsDescriptor) to customize the export. |
+| `ExportToExcelAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridExcelExportOptions`](slug:Telerik.Blazor.Components.Grid.GridExcelExportOptionsDescriptor) to customize the export. |
 
 >caption Invoke the export function from code
 
@@ -143,9 +141,12 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 @* Send the exported file for download and get the exported data as a memory stream *@
 
 @using System.IO
+@using Telerik.Blazor.Components.Grid;
 
 <TelerikButton OnClick="@(async () => await GridRef.SaveAsExcelFileAsync())">Download the excel file</TelerikButton>
 <TelerikButton OnClick="@GetTheDataAsAStream">Get the Exported Data as a MemoryStream</TelerikButton>
+<TelerikButton OnClick="@(async () => await SaveAsExcelWithOptions())">Download Excel with Options</TelerikButton>
+<TelerikButton OnClick="@(async () => await ExportToExcelWithOptions())">Get Excel Data with Options</TelerikButton>
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
@@ -177,31 +178,56 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 @code {
     private TelerikGrid<SampleData> GridRef { get; set; }
-
     private MemoryStream exportedExcelStream { get; set; }
-
     private List<SampleData> GridData { get; set; }
-
     private bool ExportAllPages { get; set; }
 
     private async Task GetTheDataAsAStream()
     {
         MemoryStream finalizedStream = await GridRef.ExportToExcelAsync();
-
         exportedExcelStream = new MemoryStream(finalizedStream.ToArray());
+    }
+
+    private async Task SaveAsExcelWithOptions()
+    {
+        await GridRef.SaveAsExcelFileAsync(new GridExcelExportOptions()
+        {
+            FileName = "custom-export",
+            Data = GridData.Take(10).ToList(),
+            Columns = new List<GridExcelExportColumn>()
+            {
+                new GridExcelExportColumn() { Field = nameof(SampleData.ProductId), Width = "100px" },
+                new GridExcelExportColumn() { Field = nameof(SampleData.ProductName), Width = "300px" }
+            }
+        });
+    }
+
+    private async Task ExportToExcelWithOptions()
+    {
+        var exportStream = await GridRef.ExportToExcelAsync(new GridExcelExportOptions()
+        {
+            Data = GridData.Take(10).ToList(),
+            Columns = new List<GridExcelExportColumn>()
+            {
+                new GridExcelExportColumn() { Field = nameof(SampleData.ProductId), Width = "100px" },
+                new GridExcelExportColumn() { Field = nameof(SampleData.ProductName), Width = "300px" }
+            }
+        });
+
+        exportedExcelStream = new MemoryStream(exportStream.ToArray());
     }
 
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.14159m * x,
-                Discontinued = x % 4 == 0,
-                FirstReleaseDate = DateTime.Now.AddDays(-x)
-            }).ToList();
+        {
+            ProductId = x,
+            ProductName = $"Product {x}",
+            UnitsInStock = x * 2,
+            Price = 3.14159m * x,
+            Discontinued = x % 4 == 0,
+            FirstReleaseDate = DateTime.Now.AddDays(-x)
+        }).ToList();
     }
 
     public class SampleData

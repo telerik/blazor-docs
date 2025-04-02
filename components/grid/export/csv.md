@@ -123,10 +123,8 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsCsvFileAsync` | `ValueTask` | Sends the exported CSV file to the browser for download. |
-| `ExportToCsvAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. |
-
->note The same methods are exposed for exporting an [Excel file](slug:grid-export-excel#programmatic-export).
+| `SaveAsCsvFileAsync` | `ValueTask` | Sends the exported CSV file to the browser for download. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.Grid.GridCsvExportOptionsDescriptor) to customize the export. |
+| `ExportToCsvAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.Grid.GridCsvExportOptionsDescriptor) to customize the export. |
 
 >caption Invoke the export function from code
 
@@ -134,14 +132,18 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 @* Send the exported file for download and get the exported data as a memory stream *@
 
 @using System.IO
+@using Telerik.Blazor.Components.Grid;
 
 <TelerikButton OnClick="@(async () => await GridRef.SaveAsCsvFileAsync())">Download the CSV file</TelerikButton>
 <TelerikButton OnClick="@GetTheDataAsAStream">Get the Exported Data as a MemoryStream</TelerikButton>
+<TelerikButton OnClick="@(async () => await SaveAsCsvWithOptions())">Download CSV with Options</TelerikButton>
+<TelerikButton OnClick="@(async () => await ExportToCsvWithOptions())">Get CSV Data with Options</TelerikButton>
 
 <TelerikGrid @ref="@GridRef"
              Data="@GridData"
              Pageable="true"
              Sortable="true"
+             Resizable="true"
              Reorderable="true"
              FilterMode="@GridFilterMode.FilterRow"
              Groupable="true">
@@ -156,42 +158,66 @@ You can programmatically invoke the export feature of the Grid, by using the fol
     </GridExport>
 
     <GridColumns>
-        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" />
-        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" />
-        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" />
-        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" />
-        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" />
-        <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" />
+        <GridColumn Field="@nameof(SampleData.ProductId)" Title="ID" Width="100px" />
+        <GridColumn Field="@nameof(SampleData.ProductName)" Title="Product Name" Width="300px" />
+        <GridColumn Field="@nameof(SampleData.UnitsInStock)" Title="In stock" Width="100px" />
+        <GridColumn Field="@nameof(SampleData.Price)" Title="Unit Price" Width="200px" />
+        <GridColumn Field="@nameof(SampleData.Discontinued)" Title="Discontinued" Width="100px" />
+        <GridColumn Field="@nameof(SampleData.FirstReleaseDate)" Title="Release Date" Width="300px" />
     </GridColumns>
 </TelerikGrid>
 
 @code {
     private TelerikGrid<SampleData> GridRef { get; set; }
-
-    private MemoryStream exportedCSVStream { get; set; }
-
+    private MemoryStream exportedCsvStream { get; set; }
     private List<SampleData> GridData { get; set; }
-
     private bool ExportAllPages { get; set; }
 
     private async Task GetTheDataAsAStream()
     {
-        MemoryStream finalizedStream = await GridRef.ExportToCsvAsync();
+        var exportStream = await GridRef.ExportToCsvAsync();
+        exportedCsvStream = new MemoryStream(exportStream.ToArray());
+    }
 
-        exportedCSVStream = new MemoryStream(finalizedStream.ToArray());
+    private async Task SaveAsCsvWithOptions()
+    {
+        await GridRef.SaveAsCsvFileAsync(new GridCsvExportOptions()
+        {
+            FileName = "custom-export",
+            Data = GridData.Take(10).ToList(),
+            Columns = new List<GridCsvExportColumn>()
+            {
+                new GridCsvExportColumn() { Field = nameof(SampleData.ProductId) },
+                new GridCsvExportColumn() { Field = nameof(SampleData.ProductName) }
+            }
+        });
+    }
+
+    private async Task ExportToCsvWithOptions()
+    {
+        var exportStream = await GridRef.ExportToCsvAsync(new GridCsvExportOptions()
+        {
+            Data = GridData.Take(10).ToList(),
+            Columns = new List<GridCsvExportColumn>()
+            {
+                new GridCsvExportColumn() { Field = nameof(SampleData.ProductId) },
+                new GridCsvExportColumn() { Field = nameof(SampleData.ProductName) }
+            }
+        });
+        exportedCsvStream = new MemoryStream(exportStream.ToArray());
     }
 
     protected override void OnInitialized()
     {
         GridData = Enumerable.Range(1, 100).Select(x => new SampleData
-            {
-                ProductId = x,
-                ProductName = $"Product {x}",
-                UnitsInStock = x * 2,
-                Price = 3.14159m * x,
-                Discontinued = x % 4 == 0,
-                FirstReleaseDate = DateTime.Now.AddDays(-x)
-            }).ToList();
+        {
+            ProductId = x,
+            ProductName = $"Product {x}",
+            UnitsInStock = x * 2,
+            Price = 3.14159m * x,
+            Discontinued = x % 4 == 0,
+            FirstReleaseDate = DateTime.Now.AddDays(-x)
+        }).ToList();
     }
 
     public class SampleData
