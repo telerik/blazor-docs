@@ -123,8 +123,8 @@ You can programmatically invoke the export feature of the Grid, by using the fol
 
 | Method | Type | Description |
 | --- | --- | --- |
-| `SaveAsCsvFileAsync` | `ValueTask` | Sends the exported CSV file to the browser for download. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.Grid.GridCsvExportOptionsDescriptor) to customize the export. |
-| `ExportToCsvAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.Grid.GridCsvExportOptionsDescriptor) to customize the export. |
+| `SaveAsCsvFileAsync` | `ValueTask` | Sends the exported CSV file to the browser for download. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.TelerikGrid-1.SaveAsCsvFileAsync) to customize the export. |
+| `ExportToCsvAsync` | `Task<MemoryStream>` | Returns the exported data as a `MemoryStream`. The stream itself is finalized, so that the resource does not leak. To read and work with the stream, clone its available binary data to a new `MemoryStream` instance. You can pass [`GridCsvExportOptions`](slug:Telerik.Blazor.Components.TelerikGrid-1.ExportToCsvAsync) to customize the export. |
 
 >caption Invoke the export function from code
 
