@@ -62,7 +62,7 @@ The Blazor Tooltip provides the following configuration parameters. Also check t
 | --- | --- | --- |
 | `Class` | `string` | Renders a custom CSS class to the `<div class="k-animation-container">` element, which is an ancestor (but not parent) of the `<div class="k-tooltip>` element. The former element is responsible for the Tooltip's `position` and `z-index` styles. The latter element applies the theme styling (borders, background, etc.). Use a CSS class to [override theme styles](slug:themes-override). Here is a [custom Tooltip styling example](slug:tooltip-kb-custom-styles). |
 | `Height` | `string` | Applies a height style in [any supported unit](slug:common-features/dimensions). @[template](/_contentTemplates/tooltip/notes.md#dimensions-behavior) |
-| `HideDelay` | `int` <br/> (0) | The delay in milliseconds before the Tooltip hides. The countdown starts only after the cursor moves away from the item. |
+| `HideDelay` | `int` <br/> (0) | The delay in milliseconds before the Tooltip hides. The countdown starts only after the cursor moves away from the anchor. |
 | `Id` | `string` | Renders an `id` attribute to the `<div class="k-tooltip>` element. To improve accessibility and screen reader behavior, set the same string as Tooltip `Id` and `aria-described-by` attribute of all Tooltip targets. |
 | `Position` | `TooltipPosition` enum <br /> (`Top`) | Sets the [Tooltip popup direction](slug:tooltip-position), with regard to its target. |
 | `ShowDelay` | `int` <br/> (0) | The Tooltip opening delay in milliseconds. |
