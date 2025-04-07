@@ -168,3 +168,7 @@ The following example lets you experiment with the available settings that contr
     };
 }
 ````
+
+## See Also
+
+* [Live Demo: Badge Appearance](https://demos.telerik.com/blazor-ui/badge/appearance)
