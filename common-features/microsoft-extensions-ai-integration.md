@@ -22,7 +22,7 @@ To integrate the **Microsoft.Extensions.AI** library with your AIPrompt componen
 >
 > When using the Telerik AIPrompt component with the Microsoft AI library, do not subscribe to the `OnPromptRequest` event.
 
-**Microsoft.Extensions.AI provides** a simple integration with various models where the configuration slightly differs depending on the model. The example below shows usage of [Azure OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI) and you may [explore some other examples with different models in this post](https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/#chat).
+**Microsoft.Extensions.AI provides** a simple integration with various models where the configuration slightly differs depending on the model. The example below shows usage of [Azure OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI) and you may [explore some other examples with different models in this sample application](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/AIPromptIntegration).
 
 >caption Startup.cs:
 
@@ -41,3 +41,4 @@ To integrate the **Microsoft.Extensions.AI** library with your AIPrompt componen
 * [AIPrompt - Live Demo](https://demos.telerik.com/blazor-ui/aiprompt/overview)
 * [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai?view=net-9.0-pp)
 * [Introducing Microsoft.Extensions.AI Preview – Unified AI Building Blocks for .NET](https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/)
+* [AIPrompt Integration with Microsoft.Extensions.AI - Sample Application](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/AIPromptIntegration)
