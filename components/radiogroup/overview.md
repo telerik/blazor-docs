@@ -103,13 +103,12 @@ See the [Input Validation](slug:common-features/input-validation) article for mo
 
 ## RadioGroup Reference and Methods
 
-The RadioGroup provides a `FocusAsync` method that allows the application to focus the component programmatically. First, obtain reference to the component through its `@ref` attribute.
-@[template](/_contentTemplates/common/inputs.md#focus-kb)
+The RadioGroup provides a `FocusItemAsync` method that allows the application to focus a specific radio input programmatically. It accepts an integer parameter representing the index of the radio button to focus. To use it is required to obtain the component reference through its `@ref` attribute.
 
->caption Using RadioGroup methods
+>caption Using RadioGroup FocusItemAsync method
 
 ````RAZOR
-<TelerikButton OnClick="@FocusRadioGroup">Focus RadioGroup</TelerikButton>
+<TelerikButton OnClick="@FocusLastRadioItem">Focus Last Radio Item</TelerikButton>
 
 <TelerikRadioGroup @ref="@RadioGroupRef"
                    Data="@RadioGroupData"
@@ -119,7 +118,7 @@ The RadioGroup provides a `FocusAsync` method that allows the application to foc
 </TelerikRadioGroup>
 
 @code{
-    private TelerikRadioGroup<ListItem, int?> RadioGroupRef { get; set; }
+    private TelerikRadioGroup<ListItem, int?>? RadioGroupRef { get; set; }
 
     private int? RadioGroupValue { get; set; }
 
@@ -129,9 +128,10 @@ The RadioGroup provides a `FocusAsync` method that allows the application to foc
         new ListItem { Id = 3, Text = "Baz" }
     };
 
-    private async Task FocusRadioGroup()
+    private async Task FocusLastRadioItem()
     {
-        await RadioGroupRef.FocusAsync();
+        // focus last radio item
+        await RadioGroupRef!.FocusItemAsync(2);
     }
 
     public class ListItem
