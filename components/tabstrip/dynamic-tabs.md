@@ -17,7 +17,7 @@ The Telerik TabStrip component supports effective management of dynamic tabs thr
 The `ActiveTabId` parameter allows you to manage the active tab by its ID. It supports two-way binding, allowing seamless updates between the component and the application state.
 
 
-The following example demonstrates how to use the `ActiveTabId` parameter to manage dynamic tabs:
+>caption Using the `ActiveTabId` parameter to manage dynamic tabs
 
 ````RAZOR
 <TelerikTabStrip @bind-ActiveTabId="@ActiveTabId">
