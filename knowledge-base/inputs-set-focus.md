@@ -60,7 +60,6 @@ The example below showcases it for a few of them, but it is available for all in
 * MultiColumnComboBox
 * MultiSelect
 * NumericTextBox
-* RadioGroup
 * SplitButton
 * TextArea
 * TextBox
