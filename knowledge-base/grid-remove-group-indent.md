@@ -31,9 +31,9 @@ This knowledge base article also answers the following questions:
 
 ## Solution
 
-To remove the group indent in the [Grid for Blazor](slug:components/grid/overview) and adjust the appearance of grouped headers, you will need to override the default theme styles. This solution involves applying custom CSS to the Grid. Run the example below to remove the default grouping indentation:
+To remove the group indent in the [Grid for Blazor](slug:grid-overview) and adjust the appearance of grouped headers, you will need to override the default theme styles. This solution involves applying custom CSS styles to the Grid component. Run the example below and group the Grid by some of the columns to see the removed group indentation:
 
-````RAZOR`
+````RAZOR
 <TelerikGrid Data=@GridData
              Groupable="true"
              Pageable="true"
@@ -87,5 +87,5 @@ To remove the group indent in the [Grid for Blazor](slug:components/grid/overvie
 
 ## See Also
 
-- [Grid Overview](slug:components/grid/overview)
-- [Customizing Theme Styles](slug:override-theme-styles)
+- [Grid Overview](slug:grid-overview)
+- [Override Theme Styles](slug:theme-override)
