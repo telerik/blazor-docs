@@ -43,6 +43,8 @@ Active Tab Index: @ActiveTabIndex
 }
 ````
 
+> The `ActiveTabIndexChanged` event and `ActiveTabIndex` parameter will be deprecated in a future releases. It is recommended to use the [`ActiveTabId`](slug:tabstrip-tabs-collection) parameter with [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event instead.
+
 ## See Also
 
   * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
