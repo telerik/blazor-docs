@@ -1,12 +1,12 @@
 ---
-title: How to Reorder, Lock or Resize the Hierarchy Expand/Collapse Column in Telerik Blazor Grid
-description: Learn how to customize the hierarchy expand/collapse column in Telerik Blazor Grid, including changing its position, locking it, and setting its width and title.
+title: Hide, Reorder, Lock or Resize the Grid Hierarchy Expand/Collapse Column
+description: Learn how to hide, reorder, lock (freeze), resize, or customize (set a title) the hierarchy expand/collapse column of the Telerik Blazor Grid.
 type: how-to
-page_title: How to Reorder, Lock or Resize the Hierarchy Expand/Collapse Column in Telerik Blazor Grid
+page_title: How to Hide, Reorder, Lock or Resize the Grid Hierarchy Expand/Collapse Column
 slug: grid-kb-customize-hierarchy-expand-column-blazor-grid
 tags: blazor, grid, hierarchy, expand, collapse, column
 res_type: kb
-ticketid: 1658470,1642380,1638466,1635003,1630238
+ticketid: 1658470, 1642380, 1638466, 1635003, 1630238, 1684240
 ---
 
 ## Environment
@@ -28,10 +28,12 @@ This KB article answers the following questions:
 * Is it possible to lock/freeze the expand column for a hierarchical grid?
 * Can I add a title to the hierarchy expand/collapse column?
 * How can I change the width of the expand column in a hierarchical Grid?
+* How to hide the Grid hierarchy expand/collapse column?
+* How to expand the Grid detail template with a link in the data row, instead of using the plus icon sign?
 
 ## Solution
 
-By default, the hierarchy expand/collapse column in the Telerik UI for Blazor [Grid](slug:grid-overview) is not declared in the markup like the other data-bound columns. It renders automatically when a `DetailTemplate` is added to the Grid. At the time of writing (UI for Blazor **6.0.2**), this built-in hierarchy expand/collapse column does not support being locked or other common configurations like managing its position, setting its width, or adding a title.
+By default, the hierarchy expand/collapse column in the Telerik UI for Blazor [Grid](slug:grid-overview) is not declared in the markup like the other data-bound columns. It renders automatically when a `DetailTemplate` is added to the Grid. At the time of writing (UI for Blazor **8.1.1**), this built-in hierarchy expand/collapse column does not support being locked or other common configurations like managing its position, setting its width, or adding a title.
 
 >tip Vote for and follow the [feature request for the Grid to support controlling the position of the expand column](https://feedback.telerik.com/blazor/1647135-ability-to-control-the-position-of-the-expand-column-in-a-hierarchical-grid).
 
@@ -59,19 +61,28 @@ To customize the hierarchy expand/collapse column, follow these steps:
     </GridSettings>
     <DetailTemplate>
         @{
-            var employee = context as MainModel;
+            var employee = (MainModel)context;
 
             <TelerikGrid Data="employee.Orders" Pageable="true" PageSize="5">
                 <GridColumns>
                     <GridColumn Field="OrderId"></GridColumn>
-                    <GridColumn Field="DealSize"></GridColumn>
+                    <GridColumn Field="DealSize" DisplayFormat="{0:c2}"></GridColumn>
                 </GridColumns>
             </TelerikGrid>
         }
     </DetailTemplate>
     <GridColumns>
         <GridColumn Field="@nameof(MainModel.Id)" Width="60px"></GridColumn>
-        <GridColumn Field="@nameof(MainModel.Name)"></GridColumn>
+        <GridColumn Field="@nameof(MainModel.Name)">
+            <Template>
+                @{
+                    var dataItem = (MainModel)context;
+                }
+                <TelerikButton FillMode="@ThemeConstants.Button.FillMode.Link"
+                               ThemeColor="@ThemeConstants.Button.ThemeColor.Success"
+                               OnClick="@( () => OnButtonClick(dataItem) )">@dataItem.Name</TelerikButton>
+            </Template>
+        </GridColumn>
         <GridColumn Field="@nameof(MainModel.Address)"></GridColumn>
         <GridColumn Field="@nameof(MainModel.Email)"></GridColumn>
         <GridColumn Width="60px">
@@ -79,18 +90,20 @@ To customize the hierarchy expand/collapse column, follow these steps:
                 @{
                     var dataItem = (MainModel)context;
                 }
-                <TelerikButton Icon="@GetButtonIcon(dataItem)" FillMode="@Telerik.Blazor.ThemeConstants.Button.FillMode.Flat" OnClick="@( () => OnButtonClick(dataItem) )" />
+                <TelerikButton Icon="@GetButtonIcon(dataItem)"
+                               FillMode="@Telerik.Blazor.ThemeConstants.Button.FillMode.Flat"
+                               OnClick="@( () => OnButtonClick(dataItem) )" />
             </Template>
         </GridColumn>
     </GridColumns>
 </TelerikGrid>
 
 <style>
-    /* shrink hierarchy column - do not hide it completely */
+    /* shrink the hierarchy column - do not hide it completely */
     .no-default-hierarchy-column .k-hierarchy-col {
         width: 0;
     }
-    /* hide everything from hierarchy column */
+    /* hide everything in the hierarchy column */
     .no-default-hierarchy-column .k-hierarchy-cell * {
         display: none;
     }
@@ -103,7 +116,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 
     private async Task OnButtonClick(MainModel dataItem)
     {
-        var gridState = GridRef.GetState();
+        var gridState = GridRef!.GetState();
 
         if (gridState.ExpandedItems.Contains(dataItem))
         {
@@ -119,7 +132,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 
     private ISvgIcon GetButtonIcon(MainModel dataItem)
     {
-        var gridState = GridRef.GetState();
+        var gridState = GridRef!.GetState();
 
         return GetButtonIcon(gridState.ExpandedItems.Contains(dataItem));
     }
@@ -144,10 +157,10 @@ To customize the hierarchy expand/collapse column, follow these steps:
     private List<MainModel> GenerateData()
     {
         List<MainModel> data = new List<MainModel>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i <= 5; i++)
         {
             MainModel mdl = new MainModel { Id = i, Name = $"Name {i}", Address = $"Address {i}", Email = $"example{i}@mail.com" };
-            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailsModel { OrderId = x, DealSize = x ^ i }).ToList();
+            mdl.Orders = Enumerable.Range(1, 15).Select(x => new DetailModel { OrderId = x, DealSize = Random.Shared.Next(100, 10000) }).ToList();
             data.Add(mdl);
         }
         return data;
@@ -156,23 +169,24 @@ To customize the hierarchy expand/collapse column, follow these steps:
     public class MainModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public List<DetailsModel> Orders { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public List<DetailModel> Orders { get; set; } = new();
 
         //override the Equals() method of the Grid model to ensure the items are properly expanded in case their references are changed
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (obj is MainModel)
-            {
-                return this.Id == (obj as MainModel).Id;
-            }
-            return false;
+            return obj is MainModel && ((MainModel)obj).Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 
-    public class DetailsModel
+    public class DetailModel
     {
         public int OrderId { get; set; }
         public double DealSize { get; set; }
@@ -182,7 +196,7 @@ To customize the hierarchy expand/collapse column, follow these steps:
 
 ## See Also
 
-- [Telerik Blazor Grid - Overview](slug:grid-overview)
-- [Telerik Blazor Grid - Column Templates](slug:grid-templates-column)
-- [Telerik Blazor Grid - Hierarchy](slug:components/grid/features/hierarchy)
-- [Telerik Documentation - Styling and Themes](slug:themes-override)
+* [Telerik Blazor Grid - Overview](slug:grid-overview)
+* [Telerik Blazor Grid - Column Templates](slug:grid-templates-column)
+* [Telerik Blazor Grid - Hierarchy](slug:components/grid/features/hierarchy)
+* [Telerik Documentation - Styling and Themes](slug:themes-override)
