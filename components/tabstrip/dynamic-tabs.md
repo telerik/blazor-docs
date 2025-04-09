@@ -10,7 +10,7 @@ position: 3
 
 # Dynamic Tabs in TabStrip
 
-The Telerik TabStrip component now supports managing dynamic tabs more effectively with the introduction of the `ActiveTabId` parameter and the new [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event. These features allow users to specify or track the active tab using its unique ID, making it easier to work with dynamic tab scenarios.
+The Telerik TabStrip component supports effective management of dynamic tabs through the `ActiveTabId` parameter and the [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event. These features allow users to specify or track the active tab using its unique ID, making it easier to work with dynamic tab scenarios.
 
 ## ActiveTabId Parameter
 
