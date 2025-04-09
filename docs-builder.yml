@@ -310,6 +310,9 @@ meta:
   "*components/editor/edit-modes":
     title: Edit Modes
     position: 80
+  "*components/editor/ai-integration":
+    title: AI Integration
+    position: 90
   "*components/scheduler/templates":
     title: Templates
     position: 35

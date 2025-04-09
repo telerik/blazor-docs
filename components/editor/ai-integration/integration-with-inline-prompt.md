@@ -1,5 +1,5 @@
 ---
-title: Editor Integration with Inline Prompt
+title: Integration with Inline Prompt
 page_title: Editor Integration with Inline Prompt
 description: Integration of the Inline Prompt in the Editor for Blazor.
 slug: editor-Inline Prompt-integration
@@ -8,7 +8,7 @@ published: True
 position: 3
 ---
 
-# AI Integration Overview
+# Editor Integration with Inline Prompt
 
 The Editor provides a built-in integration with an Inline Prompt component to help developers add AI-driven suggestions, completions, and assistance to their Editor.
 
@@ -25,18 +25,40 @@ The integration with the Inline Prompt covers the following use cases:
 
 To enable the Inline Prompt in the Editor:
 
-1. Set the `EnableInline Prompt` parameter to `true`.
+1. Set the `EnableInlineAIPrompt` parameter to `true`.
 1. Register an [`IChatClient` service](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.ai.ichatclient?view=net-9.0-pp) to generate the Inline Prompt responses. Configure the service according to the model you are using. The Inline Prompt is designed to automatically use the registered `IChatClient` as the component provides a [built-in integration with the **Microsoft.Extensions.AI** library](slug:common-features-microsoft-extensions-ai-integration).
 
 >caption Enabling the Inline Prompt in the Editor
 
-````RAZOR
+<div class="skip-repl"></div>
+````RAZOR Editor
+<TelerikEditor @bind-Value="@EditorValue"
+               EnableInlineAIPrompt="true"
+               Height="400px">
+</TelerikEditor>
 
+@code {
+
+    private string EditorValue { get; set; } = "Sample Editor content";
+
+}
+````
+````C# Program.cs
+// ...
+
+// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
+services.AddSingleton(new AzureOpenAIClient(
+    new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
+    new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
+
+services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().AsChatClient("gpt-4o-mini"));
+
+// ...
 ````
 
 ## Customizing the Inline Prompt
 
-The Editor allows customizing some of the integrated Inline Prompt's settings. For that purpose, use the `<EditorInline PromptSettings>` tag. It provides the following parameters that you can configure:
+The Editor allows customizing some of the integrated Inline Prompt's settings. For that purpose, use the `<EditorInlinePromptSettings>` tag. It provides the following parameters that you can configure:
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
@@ -47,8 +69,46 @@ The Editor allows customizing some of the integrated Inline Prompt's settings. F
 
 >caption Customizing the Inline Prompt in the Editor
 
-````RAZOR
+<div class="skip-repl"></div>
+````RAZOR Editor
+<TelerikEditor @bind-Value="@EditorValue"
+               EnableInlineAIPrompt="true"
+               Height="400px">
+    <EditorSettings>
+        <EditorInlineAIPromptSettings Commands="@Commands"></EditorInlineAIPromptSettings>
+    </EditorSettings>
+</TelerikEditor>
 
+@code {
+
+    private string EditorValue { get; set; } = "Sample Editor content";
+
+    private List<AIPromptCommandDescriptor> Commands { get; set; } = new List<AIPromptCommandDescriptor>
+    {
+        new AIPromptCommandDescriptor() { Id = "1", Title = "Simplify", Icon = SvgIcon.MinWidth, Prompt = "Simplify the text" },
+        new AIPromptCommandDescriptor() { Id = "2", Title = "Expand", Icon = SvgIcon.MaxWidth , Prompt = "Expand the text" },
+        new AIPromptCommandDescriptor() { Id = "3", Title = "Translate", Icon = SvgIcon.EditTools,
+            Children = new List<AIPromptCommandDescriptor>
+            {
+                new AIPromptCommandDescriptor() { Id = "4", Title = "English", Prompt = "Translate the text to English" },
+                new AIPromptCommandDescriptor() { Id = "5", Title = "Bulgarian", Prompt = "Translate the text to Bulgarian" },
+                new AIPromptCommandDescriptor() { Id = "6", Title = "Spanish", Prompt = "Translate the text to Spanish" },
+            }
+        }
+    };
+}
+````
+````C# Program.cs
+// ...
+
+// This example uses Azure OpenAI but you must configure the service depending on the model you are using. Read more at https://www.telerik.com/blazor-ui/documentation/common-features/microsoft-extensions-ai-integration
+services.AddSingleton(new AzureOpenAIClient(
+    new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
+    new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
+
+services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().AsChatClient("gpt-4o-mini"));
+
+// ...
 ````
 
 ## See Also
