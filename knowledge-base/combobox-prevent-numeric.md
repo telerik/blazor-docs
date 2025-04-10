@@ -33,7 +33,7 @@ To prevent users from entering numbers in the ComboBox:
 
 Below is the implementation:
 
-`````Razor
+`````RAZOR
 <div onkeydown="preventNumbers(event)">
     <TelerikComboBox Data="@ComboData"
                      Value="@ComboValue"
