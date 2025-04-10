@@ -28,7 +28,7 @@ I want to restrict typing numbers in the [`ComboBox`](slug:components/combobox/o
 
 To prevent users from entering numbers in the ComboBox: 
 
-1. Wrap the component in an HTML element and use the `onkeydown` event to capture every keystroke.
+1. Wrap the component in an HTML element and use the [`onkeydown` event](https://www.w3schools.com/jsref/event_onkeydown.asp) to capture every keystroke.
 2. Implement a JavaScript function that prevents the numbers.
 
 Below is the implementation:
