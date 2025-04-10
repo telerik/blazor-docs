@@ -1,6 +1,6 @@
 ---
 title: Initial Files not Displaying in FileSelect
-description: Learn how to show initial files in the FileSelect component for Blazor.
+description: Learn why initial files do not appear in the Blazor FileSelect component and how to display them correctly on initialization.
 type: troubleshooting
 page_title: How to Display Initial Files in Blazor FileSelect Component
 slug: fileselect-kb-blazor-initial-files
