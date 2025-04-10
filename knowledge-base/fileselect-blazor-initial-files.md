@@ -22,7 +22,7 @@ ticketid: 1683091
 
 ## Description
 
-In an attempt to display initial files in the [`FileSelect`](slug:fileselect-overview) component, the files are fetched from an API call and assigned to the Files parameter of the component. Despite this, the component does not render the initial file list as expected.
+In an attempt to display initial files in the [`FileSelect`](slug:fileselect-overview) component, the files are fetched from an API call and assigned to the `Files` parameter of the component. Despite this, the component does not render the initial file list as expected.
 
 ## Cause
 
