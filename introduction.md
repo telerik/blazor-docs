@@ -259,16 +259,12 @@ For any issues you might encounter while working with Telerik UI for Blazor, use
 * [Convert an existing project to a Telerik-enabled project](slug:getting-started-vs-integration-convert-project)
 * [Style the Telerik Blazor Components](slug:themes-overview)
 
-<!-- <script type="application/ld+json"> 
-{
-  "@context": "https://schema.org", 
-  "@type": "VideoObject", 
-  "name": "Getting Started with Telerik UI for Blazor: Overview | Chapter 1", 
-  "description": "In this introductory chapter, we’ll provide a complete overview of the course and what you can expect to learn. We’ll cover the essentials of Telerik UI for Blazor, including the prerequisites needed to get started and the resources available to you. Take a tour of the demo application and get acquainted with the course downloads to ensure you’re fully prepared for the journey ahead.", 
-  "thumbnailUrl": "https://img.youtube.com/vi/HKsTL4byyTA/maxresdefault.jpg", 
-  "uploadDate": "2024-10-21", 
-  "duration": "PT13M49S", 
-  "contentUrl": "https://youtu.be/HKsTL4byyTA", 
-  "embedUrl": "https://www.youtube.com/embed/HKsTL4byyTA" 
-} 
-</script> -->
+<VideoMetadata 
+    name="Getting Started with Telerik UI for Blazor: Overview | Chapter 1"
+    description="In this introductory chapter, we’ll provide a complete overview of the course and what you can expect to learn. We’ll cover the essentials of Telerik UI for Blazor, including the prerequisites needed to get started and the resources available to you. Take a tour of the demo application and get acquainted with the course downloads to ensure you’re fully prepared for the journey ahead."
+    thumbnail-url="https://img.youtube.com/vi/HKsTL4byyTA/maxresdefault.jpg"
+    upload-date="2024-10-21T00:00:00Z"
+    duration="PT13M49S"
+    content-url="https://youtu.be/HKsTL4byyTA"
+    embed-url="https://www.youtube.com/embed/HKsTL4byyTA">
+</VideoMetadata>
