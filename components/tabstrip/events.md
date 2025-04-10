@@ -12,13 +12,46 @@ position: 20
 
 This article explains the events available in the Telerik TabStrip for Blazor:
 
+* [ActiveTabIdChanged](#activetabidchanged)
 * [ActiveTabIndexChanged](#activetabindexchanged)
+
+## ActiveTabIdChanged
+
+The `ActiveTabIdChanged` event fires when the user changes the active tab. The event handler receives the new tab ID of type `string` as an argument. This event is designed to work with the new [`ActiveTabId` parameter](slug:tabstrip-tabs-collection).
+
+>caption Handle the tab ID selection changed event
+
+````RAZOR
+<TelerikTabStrip ActiveTabIdChanged="@HandleTabIdChange">
+    <TabStripTab Title="First">
+        First tab content. Click through the tabs.
+    </TabStripTab>
+    <TabStripTab Title="Second">
+        Second tab content.
+    </TabStripTab>
+    <TabStripTab Title="Third">
+        Third tab content.
+    </TabStripTab>
+</TelerikTabStrip>
+
+@Result
+
+@code {
+    private string Result { get; set; }
+    private void HandleTabIdChange(string tabId)
+    {
+        Result = $"Current tab ID is {tabId}";
+    }
+}
+````
 
 ## ActiveTabIndexChanged 
 
 The `ActiveTabIndexChanged` event fires when the user changes the tab that is currently shown. The event handler receives the new index as an argument.
 
 If you remove programmatically the currently active tab, when it disposes, the event will fire with index `-1` as there will be no selected tab anymore.
+
+> The `ActiveTabIndexChanged` event and `ActiveTabIndex` parameter will be deprecated in a future releases. It is recommended to use the [`ActiveTabId`](slug:tabstrip-tabs-collection) parameter with [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event instead.
 
 >caption Handle the tab selection changed event
 
@@ -81,3 +114,4 @@ If you remove programmatically the currently active tab, when it disposes, the e
 ## See Also
 
   * [TabStrip Overview](slug:components/tabstrip/overview)
+  * [Dynamic Tabs](slug:tabstrip-tabs-collection)

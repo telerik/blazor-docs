@@ -1,61 +1,70 @@
 ---
-title: Tabs Collection
-page_title: TabStrip Tabs Collection
-description: Overview of the TabStrip for Blazor.
+title: Dynamic Tabs
+page_title: TabStrip - Dynamic Tabs
+description: Learn how to use the ActiveTabId parameter in the Telerik TabStrip for Blazor to manage dynamic tabs.
 slug: tabstrip-tabs-collection
-tags: telerik,blazor,tab,strip,tabstrip,collection
+tags: telerik,blazor,tabstrip,dynamic tabs
 published: True
-position: 17
+position: 3
 ---
 
-# TabStrip Tabs Collection
+# Dynamic Tabs in TabStrip
 
-In some cases, you might need to declare tabs for objects in a collection. The TabStrip allows you to render its tabs by iterating that collection.
+In some cases, you might need to declare tabs for objects in a collection. The Telerik TabStrip allows you to render its tabs by iterating that collection. 
 
-This is an alternative approach for configuring the component instead of manually declaring each tab as a separate `TabStripTab` instance inside the `TabStrip` tag.
+The Telerik Tabstrip supports effective management of dynamic tabs through the `ActiveTabId` parameter and the [`ActiveTabIdChanged`](slug:tabstrip-events#activetabidchanged) event. These features allow users to specify or track the active tab using its unique ID, making it easier to work with dynamic tab scenarios.
 
->tip If you render components in the tabs created in a `foreach` loop, you may want to set their `@key` parameter to unique values, in order to ensure they will re-render. If you do not, the framework will render one instance of your custom component for all tabs and will only set its parameters, it will not initialize anew (`OnInitialized` will not fire a second time, only `OnParametersSet` will).
+## ActiveTabId Parameter
 
->caption Extract information for the currently selected tab from your model. Alter the model to affect the TabStrip. Create tabs dynamically based on external data.
+The `ActiveTabId` parameter allows you to manage the active tab by its ID. It supports two-way binding, allowing seamless updates between the component and the application state.
 
-You can find another example with some more details in the following sample project: [Dynamic Tabs](https://github.com/telerik/blazor-ui/tree/master/tabstrip/DynamicTabs).
+To deactivate all tabs, set the ActiveTabId parameter to `string.Empty`.
+
+>caption Using the `ActiveTabId` parameter to manage dynamic tabs
 
 ````RAZOR
-@result
-
-<TelerikTabStrip ActiveTabIndexChanged="@TabChangedHandler">
+<TelerikTabStrip @bind-ActiveTabId="@ActiveTabId">
     @{
-        foreach (MyTabModel item in tabs)
+        foreach (var tab in Tabs)
         {
-            <TabStripTab Title="@item.Title" Disabled="@item.Disabled" @key="@item">
-                Content for tab @item.Title
+            <TabStripTab @key="tab.Id" Title="@tab.Title" Visible="@tab.Visible" Disabled="@tab.Disabled">
+                <HeaderTemplate>
+                    <span>@tab.Title</span>
+                </HeaderTemplate>
+                <Content>
+                    @if (tab.Id == "home")
+                    {
+                        <p>Welcome back! Check out the latest updates and news here.</p>
+                    }
+                    else if (tab.Id == "profile")
+                    {
+                        <p>Update your personal information and preferences in this section.</p>
+                    }
+                    else if (tab.Id == "settings")
+                    {
+                        <p>Customize your experience by adjusting your settings here.</p>
+                    }
+                </Content>
             </TabStripTab>
         }
     }
 </TelerikTabStrip>
 
-<TelerikButton OnClick="@( () => tabs[1].Disabled = !tabs[1].Disabled )">Toggle the Disabled state of the second tab</TelerikButton>
-
 @code {
-    MarkupString result { get; set; }
-    void TabChangedHandler(int newIndex)
-    {
-        string tempResult = $"current tab {newIndex} selected on {DateTime.Now}";
-        MyTabModel currTab = tabs[newIndex];
-        tempResult += $"<br />the new tab has a title {currTab.Title}";
-        result = new MarkupString(tempResult);
-    }
+    private string ActiveTabId { get; set; }
 
-    List<MyTabModel> tabs = new List<MyTabModel>()
-    {
-        new MyTabModel { Title = "One" },
-        new MyTabModel { Title = "Two", Disabled = true },
-        new MyTabModel { Title = "Three" }
-    };
+    private List<Tab> Tabs { get; set; } = new List<Tab>
+{
+    new Tab { Id = "home", Title = "🏠 Home", Visible = true, Disabled = false },
+    new Tab { Id = "profile", Title = "👤 Profile", Visible = true, Disabled = false },
+    new Tab { Id = "settings", Title = "⚙️ Settings", Visible = true, Disabled = false }
+};
 
-    public class MyTabModel
+    public class Tab
     {
+        public string Id { get; set; }
         public string Title { get; set; }
+        public bool Visible { get; set; }
         public bool Disabled { get; set; }
     }
 }
@@ -63,4 +72,4 @@ You can find another example with some more details in the following sample proj
 
 ## See Also
 
-  * [Live Demo: TabStrip](https://demos.telerik.com/blazor-ui/tabstrip/overview)
+* [TabStrip Events](slug:tabstrip-events)

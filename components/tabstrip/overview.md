@@ -64,9 +64,13 @@ The Blazor TabStrip component can persist the content of the tabs. When the user
 
 The Blazor TabStrip allows you to scroll only its tabs. This is useful for scenarios where a lot of tabs are defined. [Read more about the Scrollable Tabs...](slug:tabstrip-scroll-tabs)
 
+## Dynamic Tabs
+
+The Blazor TabStrip component allows you to create TabStrip tabs dynamically. [Read more about the Dynamic Tabs...](slug:tabstrip-tabs-collection)
+
 ## Events
 
-The TabStrip fires an [`ActiveTabIndexChanged` event](slug:tabstrip-events) when the user clicks on a tab to select it.
+The TabStrip fires an `ActiveTabIndexChanged`and `ActiveTabIdChanged` events when the user clicks on a tab to select it. [Read more about the TabStrip events...](slug:tabstrip-events)
 
 ## TabStrip Parameters
 
@@ -76,7 +80,8 @@ The TabStrip provides the following features to allow further customization of i
 
 | Parameter        | Type  | Header 2                                 |
 |------------------|-------|------------------------------------------|
-| `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding.
+| `ActiveTabIndex` | `int` | The index of the currently shown tab. Supports two-way binding. This parameter is marked as obsolete and will be deprecated in future versions. Do not use togother with `ActiveTabId`. |
+| `ActiveTabId` | `int` | The index of the currently active tab. If it is not set, the first tab will be active. Do not use it together with `ActiveTabIndex`.|
 |`PersistTabContent` | `bool` | Whether to remove the content of inactive tabs from the DOM (if `false`), or just hide it with CSS (if `true`). See [Persist Content](slug:tabstrip-persist-content)
 | `Scrollable` | `bool` | Whether the tabs will be scrollable. See [Scrollable Tabs](slug:tabstrip-scroll-tabs)
 | `ScrollButtonsPosition` | `TabStripScrollButtonsPosition` enum <br/> (`TabStripScrollButtonsPosition.Split`)| Specifies the position of the buttons when the TabStrip is scrollable.
