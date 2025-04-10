@@ -125,16 +125,12 @@ If you prefer video instructions, you can also check the video tutorial below.
 * [First Steps with Blazor Web App](slug:getting-started/web-app)
 * [First Steps with Blazor WebAssembly](slug:getting-started/client-side)
 
-<!-- <script type="application/ld+json">
-{
-  "@context": "https://schema.org", 
-  "@type": "VideoObject", 
-  "name": "Adding Telerik UI for Blazor to an Existing Blazor Project", 
-  "description": "Telerik UI for Blazor components have been built from the ground-up to ensure you experience shorter development cycles, quick iterations and cut time to market. In this short video, we'll learn how to add the components to an existing Blazor project.", 
-  "thumbnailUrl": "https://img.youtube.com/vi/fwR8Yxe7DPQ/maxresdefault.jpg", 
-  "uploadDate": "2020-02-24", 
-  "duration": "PT4M14S", 
-  "contentUrl": "https://youtu.be/fwR8Yxe7DPQ", 
-  "embedUrl": "https://www.youtube.com/embed/fwR8Yxe7DPQ" 
-}
-</script> -->
+<VideoMetadata 
+    name="Adding Telerik UI for Blazor to an Existing Blazor Project"
+    description="Telerik UI for Blazor components have been built from the ground-up to ensure you experience shorter development cycles, quick iterations and cut time to market. In this short video, we'll learn how to add the components to an existing Blazor project."
+    thumbnail-url="https://img.youtube.com/vi/fwR8Yxe7DPQ/maxresdefault.jpg"
+    upload-date="2020-02-24T00:00:00Z"
+    duration="PT4M14S"
+    content-url="https://youtu.be/fwR8Yxe7DPQ"
+    embed-url="https://www.youtube.com/embed/fwR8Yxe7DPQ">
+</VideoMetadata>
