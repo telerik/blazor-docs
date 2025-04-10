@@ -32,19 +32,17 @@ The root cause of the issue is that the `Files` parameter of the FileSelect comp
 
 To ensure that the FileSelect component reflects changes made to the `Files` parameter, you’ll need to recreate the FileSelect component.
 
-`````Razor
+`````RAZOR
 @if (ShouldRenderFileSelect)
 {
     <TelerikFileSelect @ref="@FileSelectRef"
                        Class="required"
                        Files="@InitialFiles"
-                       Multiple="true"
-                       OnSelect="@OnSelectHandler"
-                       OnRemove="@OnFileRemoved" />
+                       Multiple="true" />
 }
 
 @code {
-    private TelerikFileSelect FileSelectRef { get; set; }
+    private TelerikFileSelect? FileSelectRef { get; set; }
     private List<FileSelectFileInfo> InitialFiles = new();
     private List<OSRFileInfoResponse> Files = new();
     private bool ShouldRenderFileSelect { get; set; } = true;
@@ -97,21 +95,6 @@ To ensure that the FileSelect component reflects changes made to the `Files` par
         });
     }
 
-    private void OnSelectHandler()
-    {
-        // OnSelect logic
-    }
-
-    private void OnFileRemoved()
-    {
-        // OnRemove logic
-    }
-
-    private void DownloadFileFromStream(byte[] buffer, string fileName)
-    {
-        // Simulate file download
-    }
-
     public class OSRFileInfoResponse
     {
         public byte[]? Buffer { get; set; }
@@ -121,4 +104,3 @@ To ensure that the FileSelect component reflects changes made to the `Files` par
         public string? Name => FileName?.Split("/").LastOrDefault();
     }
 }
-`````
