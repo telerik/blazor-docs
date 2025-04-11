@@ -14,7 +14,9 @@ This article introduces the <a href="https://www.telerik.com/blazor-ui/buttons" 
 
 Buttons convey user actions and can display text, images and HTML.
 
-<demo metaUrl="buttons/styling/appearance/" height="222" />
+<demo metaUrl="client/button/overview/" height="222"></demo>
+
+<demo metaUrl="server/pivotgrid/overview/" height="222"></demo>
 
 The Blazor Button provides a variety of styling options through the [built-in themes](slug:themes-overview) and the [button type](slug:button-type). It supports [font icons and images](slug:button-icons) and fires click [events](slug:button-events).
 
