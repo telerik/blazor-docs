@@ -16,6 +16,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 
 * [Item Template](#item-template)
 * [Tag Template](#tag-template)
+* [Summary Tag Template](#summary-tag-template)
 * [Header Template](#header-template)
 * [Footer Template](#footer-template)
 * [No Data Template](#no-data-template)
@@ -28,6 +29,14 @@ The MultiSelect component allows you to change what is rendered in its items, he
 ## Tag Template
 
 @[template](/_contentTemplates/dropdowns/templates.md#tag-template)
+
+## Summary Tag Template
+
+The `SummaryTagTemplate` controls the rendering of the summary tag. The Multiselect renders a summary tag in two cases:
+* In [Single Tag Mode](slug:multiselect-tag-mode#single-mode).
+* In Multiple Tag Mode - [when the selected items are more than the `MaxAllowedTags`](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections).
+
+The context of the `SummaryTagTemplate` is of type `MultiSelectSummaryTagTemplateContext<TItem>`. It provides an `Items` field (a `List<TItem>`) that contains the selected items.
 
 ## Header Template
 
@@ -46,7 +55,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 >caption Using MultiSelect Templates
 
 ````RAZOR
-@* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, FooterTemplate and NoDataTemplate *@
+@* MultiSelect component with HeaderTemplate, ItemTemplate, TagTemplate, SummaryTagTemplate, FooterTemplate and NoDataTemplate *@
 
 <p>
     <TelerikCheckBox @bind-Value="@IsDataAvailable" OnChange="@OnCheckBoxChangeHandler" />
@@ -57,6 +66,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
                     @bind-Value="@SelectedRoles"
                     TextField="Title"
                     ValueField="Id"
+                    MaxAllowedTags="@MaxAllowedTags"
                     Placeholder="Write the roles you need">
     <HeaderTemplate>
         <strong>Select one or more:</strong>
@@ -68,6 +78,9 @@ The MultiSelect component allows you to change what is rendered in its items, he
         <TelerikSvgIcon Icon="@context.Icon"></TelerikSvgIcon>
         @context.Title
     </TagTemplate>
+    <SummaryTagTemplate>
+        @(context.Items.Count() - MaxAllowedTags) more roles selected
+    </SummaryTagTemplate>
     <FooterTemplate>
         <h6>Total Positions: @MultiSelectData.Count()</h6>
     </FooterTemplate>
@@ -80,11 +93,13 @@ The MultiSelect component allows you to change what is rendered in its items, he
 </TelerikMultiSelect>
 
 @code {
-    private List<int> SelectedRoles { get; set; }
+    private List<int> SelectedRoles { get; set; } = new List<int>() { 1, 4, 5, 8 };
 
     private bool IsDataAvailable { get; set; } = true;
 
-    private List<Role> MultiSelectData { get; set; }   
+    private int MaxAllowedTags { get; set; } = 2;
+
+    private List<Role> MultiSelectData { get; set; }
 
     private List<Role> SourceData { get; set; } = new List<Role>()
     {
