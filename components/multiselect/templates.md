@@ -32,7 +32,7 @@ The MultiSelect component allows you to change what is rendered in its items, he
 
 ## Summary Tag Template
 
-The `SummaryTagTemplate` controls the rendering of the summary tag. The Multiselect renders a summary tag in two cases:
+The `SummaryTagTemplate` controls the rendering of the summary tag. The Multiselect renders a summary tag in the following cases:
 * In [Single Tag Mode](slug:multiselect-tag-mode#single-mode).
 * In Multiple Tag Mode - [when the selected items are more than the `MaxAllowedTags`](slug:multiselect-tag-mode#summarized-tags-based-on-the-number-of-selections).
 
