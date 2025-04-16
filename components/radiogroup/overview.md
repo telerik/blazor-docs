@@ -105,7 +105,7 @@ See the [Input Validation](slug:common-features/input-validation) article for mo
 
 The RadioGroup provides a `FocusItemAsync` method that allows the application to focus a specific radio input programmatically. It accepts an integer parameter representing the index of the radio button you want to focus. To use it, obtain the component reference through its `@ref` attribute.
 
->caption Using RadioGroup FocusItemAsync method
+>caption Using RadioGroup `FocusItemAsync` method
 
 ````RAZOR
 <TelerikButton OnClick="@FocusLastRadioItem">Focus Last Radio Item</TelerikButton>
