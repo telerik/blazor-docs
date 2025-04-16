@@ -36,8 +36,9 @@ Adding or editing rows in the Grid sets the following requirements on the Grid m
 
 * The Grid model class must have a parameterless constructor. Otherwise, use the [Grid `OnModelInit` event](slug:grid-events#onmodelinit) to provide a data item instance [when the Grid needs to create one](#item-instances). Optinally, you can also [set some default values](slug://grid-kb-default-value-for-new-row).
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
+  * All complex properties must be instantiated in [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
 * Self-referencing or inherited properties must not cause `StackOverflowException` or `AmbiguousMatchException` during [programmatic model instance creation](#item-instances).
-
+  
 ## Edit Modes
 
 The Grid offers several ways to add and edit rows with a different user experience:
