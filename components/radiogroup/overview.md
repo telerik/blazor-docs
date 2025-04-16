@@ -103,7 +103,7 @@ See the [Input Validation](slug:common-features/input-validation) article for mo
 
 ## RadioGroup Reference and Methods
 
-The RadioGroup provides a `FocusItemAsync` method that allows the application to focus a specific radio input programmatically. It accepts an integer parameter representing the index of the radio button to focus. To use it is required to obtain the component reference through its `@ref` attribute.
+The RadioGroup provides a `FocusItemAsync` method that allows the application to focus a specific radio input programmatically. It accepts an integer parameter representing the index of the radio button you want to focus. To use it, obtain the component reference through its `@ref` attribute.
 
 >caption Using RadioGroup FocusItemAsync method
 
