@@ -6,7 +6,7 @@ page_title: How to Filter or Search TreeView Items
 slug: treeview-kb-filter-items
 position: 
 tags: telerik, blazor, treeview, filter, search
-ticketid: 1629723, 1468684, 1547890, 1578053, 1541792
+ticketid: 1684940, 1629723, 1468684, 1547890, 1578053, 1541792
 res_type: kb
 ---
 
@@ -49,6 +49,7 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
     * If you need more complex filtering logic, use one or more [`CompositeFilterDescriptor`](slug:Telerik.DataSource.CompositeFilterDescriptor)s.
 1. Execute the [`ToDataSourceResult()` extension method](slug:common-features-data-binding-onread#todatasourceresult-method) on the TreeView `Data`. You will need to import the [`Telerik.DataSource.Extensions` namespace](slug:Telerik.DataSource.Extensions).
 1. (optional) Add any missing parent items to the filtered items collection.
+1. (optional) Set the [TreeView `ExpandedItems` parameter to expand or collapse the parent TreeView items](slug:treeview-expand-items) after filtering.
 1. (optional) Use a [TreeView `ItemTemplate`](slug:components/treeview/templates) to highlight the search string inside the displayed TreeView items.
 
 >tip If the filtering operator is fixed (for example, `Contains`), you can replace steps 4 and 5 with a standard LINQ expression:
@@ -75,6 +76,11 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
                      Value="@TreeViewFilterOperator"
                      ValueChanged="@TreeViewFilterOperatorChanged"
                      Width="180px" />
+
+<label class="k-checkbox-label">
+    <TelerikCheckBox @bind-Value="@ShouldExpandFilteredItems" />
+    Expand Filter Results
+</label>
 
 <p>@FilterLog</p>
 
@@ -122,6 +128,7 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
     private IEnumerable<object> ExpandedItems { get; set; } = new List<TreeItem>();
 
     private string FilterLog { get; set; } = string.Empty;
+    private bool ShouldExpandFilteredItems { get; set; } = true;
 
     #region Filtering Logic
 
@@ -160,6 +167,8 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
             FilterLog = $"Showing all {FlatData.Count} items.";
 
             FilteredData = FlatData;
+
+            ExpandedItems = FlatData.Where(x => x.ParentId is null);
         }
     }
 
@@ -195,6 +204,11 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
         FilterLog = $"Found {matchCount} matches. Showing {filteredItems.Count} out of {FlatData.Count} items.";
 
         FilteredData = filteredItems;
+
+        if (ShouldExpandFilteredItems)
+        {
+            ExpandedItems = FilteredData;
+        }
     }
 
     private void PopulateParent(int itemId, int? parentId, List<TreeItem> filteredItems, List<TreeItem> addedParents)
@@ -230,7 +244,7 @@ In both scenarios, there should be no [loading of TreeView items on demand](slug
     {
         FlatData = FilteredData = LoadFlat();
 
-        ExpandedItems = FlatData.Where(x => x.HasChildren == true);
+        ExpandedItems = FlatData.Where(x => x.ParentId is null);
     }
 
     private List<TreeItem> LoadFlat()
