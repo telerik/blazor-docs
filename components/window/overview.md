@@ -64,6 +64,10 @@ Read more about the [Blazor Window position...](slug:components/window/position)
 
 You can maximize, minimize, or close the Window through the action buttons in its titlebar. [Read more about the Blazor Window action buttons...](slug:components/window/actions)
 
+## Animations
+
+You can set the animation of the Window with the `AnimationType` parameter. Read more about the [Blazor Window animations...](slug:window-animations)
+
 ## Dragging
 
 You can move the Window on the page by dragging its titlebar. [Read more about the Blazor Window dragging option...](slug:window-draggable)
