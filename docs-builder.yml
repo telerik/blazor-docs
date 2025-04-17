@@ -20,6 +20,108 @@ enable-tabbed-code-blocks: true
 blazor-repl: true
 pdf-cover-png-path: ./images/pdf-cover.png
 
+demos:
+  metaFileName: demo.json
+  defaultTheme: default-ocean-blue-a11y
+  uris:
+      www.telerik.com: https://demos.telerik.com/blazor-examples/
+      www.telerik.com/blazor-ui/documentation/: https://demos.telerik.com/blazor-examples/
+      wwwsit.telerik.com: https://demos.telerik.com/blazor-examples/
+      wwwsit.telerik.com/blazor-ui/documentation/: https://demos.telerik.com/blazor-examples/
+      default: https://localhost:63216/blazor-examples/
+  themes:
+      default-main:
+          name: Main
+          group: Default
+          colors: ['#FFFFFF', '#ff6358', '#3d3d3d']
+      default-main-dark:
+          name: Main Dark
+          group: Default
+          tags: [dark]
+          colors: ['#141414', '#ea5a51', '#f5f5f5']
+      default-ocean-blue:
+          name: Ocean Blue
+          group: Default
+          colors: ['#ffffff', '#1274AC', '#3d3d3d']
+      default-ocean-blue-a11y:
+          name: Ocean Blue A11y
+          group: Default
+          tags: [accessibility]
+          colors: ['#ffffff', '#1274AC', '#424242']
+      default-nordic:
+          name: Nordic
+          group: Default
+          colors: ['#ffffff', '#1274ac', '#292b2c']
+      default-purple:
+          name: Purple
+          group: Default
+          colors: ['#ffffff', '#bf70cc', '#424242']
+      default-turquoise:
+          name: Turquoise
+          group: Default
+          colors: ['#ffffff', '#28bfba', '#424242']
+
+      bootstrap-main:
+          name: Main
+          group: Bootstrap
+          colors: ['#ffffff', '#0d6efd', '#212529']
+      bootstrap-main-dark:
+          name: Main Dark
+          tags: [dark]
+          group: Bootstrap
+          colors: ['#212529', '#0d6efd', '#dee2e6']
+      bootstrap-nordic:
+          name: Nordic
+          group: Bootstrap
+          colors: ['#ffffff', '#e7607b', '#50686e']
+      bootstrap-urban:
+          name: Urban
+          group: Bootstrap
+          colors: ['#ffffff', '#ff5c1a', '#000000']
+      bootstrap-vintage:
+          name: Vintage
+          group: Bootstrap
+          colors: ['#ffffff', '#744662', '#494138']
+
+      material-main:
+          name: Main
+          group: Material
+          colors: ['#ffffff', '#3f51b5', '#212121']
+      material-main-dark:
+          name: Main Dark
+          tags: [dark]
+          group: Material
+          colors: ['#121212', '#9fa8da', '#e0e0e0']
+      material-arctic:
+          name: Arctic
+          group: Material
+          colors: ['#ffffff', '#2196f3', '#455a64']
+      material-lime-dark:
+          name: Lime Dark
+          tags: [dark]
+          group: Material
+          colors: ['#121212', '#cddc39', '#ffffff']
+      material-nova:
+          name: Nova
+          group: Material
+          colors: ['#ffffff', '#e91e63', '#212121']
+
+      fluent-main:
+          name: Main
+          group: Fluent
+          colors: ['#ffffff', '#0078d4', '#323130']
+
+      fluent-main-dark:
+          name: Main Dark
+          group: Fluent
+          colors: ['#1b1a19', '#2899f5', '#f3f2f1']
+  actions:
+      open-repl:
+          name: Telerik REPL
+          group: Edit in
+          newWindow: true
+          iconUri: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxEAAAsRAX9kX5EAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAACRElEQVQ4T3WST2gTQRTGfzO7yW76z/5LpArFih4ECxUL0pNnQfTipcU2qODJepBClYpWUFG0XrwKmtgW/HMQ8SJC9aQnT9JLFWuxajWNxjRNs9ndGQ/bxk1LPxiYN+/7vnkz7wk2QX+GbgF3AS1gMBXn/XoOgAgHlzVydp692ua8GaF3Las1KI8JVWR0vJ1PYU2VQfIHO7TBVEOcjvwiKGeVZIDVBG6BZa0Zyy1y+/keljYYABybIR5rYkTCGbMWw8kBOljSgugWKOf5jM+V9FbSVQZ9czSVBaWn7az0LdAZMblu2BzWPriFVZIGsxYMG0pZXlUMkhlOIxlFg1ZcSie4BzCQ4QiCq9F6Ot08+M7/us1aEAPfOUSUm5E6Or3lIBmpAbfAO+0ykm7jNUB/lnNSM6x9EspbuxZf+oJ6IWgVErQCvwilLBg2PUYNU8lFJvsW2PmwhTt+iVvRxooYADnRxuPsLLvcPBeF4K8dByGhnAOvCLEWeqXiAUE7PfQ6A4AX3RRTrVwrLdHlFrgvTJQwgoqcJai8WgT8MKoOHnXwJdXCSeVywoyBWPtijQrzwqgy6P/G0cEZLM/hg95UUg0J0DtPT/IPbzQ8a96Nb1iY64kboMGwMOTxeYYatvPWbuQg8BtQygtNaLCzQ1JkBGIJ8B2mpZI8Wckw5uRwhaS5wtLBtEXrQAs+EnhJywIEJSfPDTIckJPbmEsnGCo77NceqemvWFIg7WbQmp/FX5zNFjhF0EZzJc9LUWZfupUL410s/wMjztTGtACXSgAAAABJRU5ErkJggg==
+
 cta-overview: The @Subject component is part of @ProductLink, a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial.
 cta-intro: "@ProductLink is a professional grade UI library with 110+ native components for building modern and feature-rich applications. To try it out sign up for a free 30-day trial."
 
