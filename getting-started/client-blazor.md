@@ -92,7 +92,7 @@ Use a single `TelerikRootComponent` component as a top-level component in the Bl
 
 In the `~/Program.cs` file of the client web application, register the Telerik Blazor service.
 
-**.NET 6 and .NET 7**
+**.NET 7**
 @[template](/_contentTemplates/common/js-interop-file.md#register-telerik-service-client)
     
 Now your project can use the Telerik UI for Blazor components.

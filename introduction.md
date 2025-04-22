@@ -28,7 +28,7 @@ If you are new to Telerik UI for Blazor, visit the Getting Started tutorials tha
 
 * [Get Started with a .NET 8 or 9 Blazor Web App](slug:getting-started/web-app)
 * [Get Started with a Blazor WebAssembly Standalone App](slug:getting-started/client-side)
-* [Get Started with a .NET 6 or 7 Blazor Server app](slug:getting-started/server-side)
+* [Get Started with a .NET 7 Blazor Server app](slug:getting-started/server-side)
 * [Get Started with Blazor Hybrid](slug:getting-started/hybrid-blazor)
 
 >tip This online Blazor documentation covers the latest version of Telerik UI for Blazor, which is `{{site.uiForBlazorLatestVersion}}`. If needed, [download the offline PDF Blazor documentation](#learning-resources) for the required older product version.

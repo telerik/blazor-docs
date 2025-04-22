@@ -11,7 +11,7 @@ position: 15
 
 # First Steps with Server-Side UI for Blazor
 
-Blazor Server runs C# on the server and updates the UI in the browser through a SignalR connection, enabling interactive web apps without client-side .NET execution. This article explains how to get the Telerik UI for Blazor components in your .NET 6 or 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
+Blazor Server runs C# on the server and updates the UI in the browser through a SignalR connection, enabling interactive web apps without client-side .NET execution. This article explains how to get the Telerik UI for Blazor components in your .NET 7 Blazor Server app and start using them quickly. You will create a new application from scratch, learn how to add the UI for Blazor components to a project, and finally, add a UI component to a view.
 
 > This article applies only to the **Blazor Server App** template in Visual Studio, which exists up to .NET 7. If you are using newer .NET versions, then follow the [tutorial about Blazor Web Apps](slug:getting-started/web-app).
 
@@ -62,19 +62,13 @@ To enable the Telerik UI for Blazor components, you must add several client-side
 
 ### 5.1. Add the Telerik UI for Blazor Client Assets
 
-1\. Add the `telerik-blazor.js` file to the `<head>` of your main index file:
-
-  * `~/Pages/_Host.cshtml` for .NET 7
-  * `~/Pages/_Layout.cshtml` for .NET 6
+1\. Add the `telerik-blazor.js` file to the `<head>` of your `~/Pages/_Host.cshtml` file
 
 **HTML**
 
 @[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
 
-2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme).
-
- * Use the `~/Pages/_Host.cshtml` index file for .NET 7
- * Use the `~/Pages/_Layout.cshtml` index file for .NET 6
+2\. To select the appearance and color scheme for the Telerik Blazor components, add the [theme stylesheet as a static asset](slug:themes-overview#using-a-theme) in the `~/Pages/_Host.cshtml` index file.
 
 @[template](/_contentTemplates/common/js-interop-file.md#theme-static-asset-snippet)
 
