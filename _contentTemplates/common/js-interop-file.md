@@ -7,18 +7,6 @@
 
 #end
 
-#add-js-interop-file-to-getting-started-server
- Add the `telerik-blazor.js` file to your main index file:
- 
- * `~/Pages/_Host.cshtml` for .NET 3.x and .NET 7
- * `~/Pages/_Layout.cshtml` for .NET 6
-
-    **HTML**
-
-@[template](/_contentTemplates/common/js-interop-file.md#js-interop-file-snippet)
-
-#end
-
 #js-interop-file-snippet
 ````HTML
 <head>
