@@ -23,7 +23,7 @@ The latest version of Telerik UI for Blazor (currently {{site.uiForBlazorLatestV
 
 Razor Class Libraries may target `netstandard2.0` by default, so you need to update that.
 
-> If your application targets an [older framework version, the latest Telerik UI for Blazor you can use is `4.6.0`](#compatible-net-versions).
+> If your application targets an [older framework version, you can only use older Telerik UI for Blazor versions](#compatible-net-versions).
 
 ### Supported .NET Versions
 
