@@ -18,7 +18,6 @@ Telerik UI for Blazor steps on Microsoft Blazor. You can host and run Telerik Bl
 
 The latest version of Telerik UI for Blazor (currently {{site.uiForBlazorLatestVersion}}) targets `net8.0`. Thus, apps and libraries that reference our package must use one of the following target frameworks:
 
-* `net7.0`
 * `net8.0`
 * `net9.0`
 
@@ -47,7 +46,7 @@ A **compatible .NET version** is one that is no longer (or not yet) officially s
 
 | .NET version | First UI for Blazor Version | Last UI for Blazor Version |
 | --- | --- | --- |
-| .NET 7 | 3.7.0 | {{site.uiForBlazorLatestVersion}} (current official) |
+| .NET 7 | 3.7.0 | 8.1.1 |
 | .NET 6 | 2.29.0 | 8.1.1 |
 | .NET 5 | 2.19.0 | 4.6.0 |
 | .NET Core 3.1 | 2.5.0 | 4.6.0 |
