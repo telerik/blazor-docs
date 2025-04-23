@@ -57,8 +57,6 @@ This section applies only to Blazor **Server** apps. Blazor **WebAssembly** apps
 
 In Blazor **Server** apps, the FileSelect uses the **SignalR WebSocket** to send files from the browser to the server .NET runtime. The default SignalR maximum message size is **32 KB**. To work with larger files, [increase the max WebSocket message size for the Blazor application](slug:common-kb-increase-signalr-max-message-size).
 
->tip The maximum file size supported by the framework up till .NET 5 was 2 GB and .NET 6 [removed this limit](https://github.com/dotnet/aspnetcore/pull/33900). While [Telerik UI for Blazor supports .NET version 3.1](slug:system-requirements), the FileSelect component will allow maximum file size of 2 GB.
-
 ## Drag-and-Drop File Support
 
 The FileSelect provides built-in file drag-and-drop support, which allows users to drag one or multiple files and drop them anywhere in the component. The [`OnSelect` event](slug:fileselect-events#onselect) is raised upon dropping the file. You can handle this event to perform further actions with the selected file.
