@@ -47,7 +47,7 @@ Blazor Server apps use a **SignalR WebSocket** to communicate between the client
 
 Increase the `MaximumReceiveMessageSize` via `HubOptions`. The syntax and code placement can vary, depending on the .NET version or when the application was created. Here are a few possible alternatives.
 
->caption Program.cs (.NET 7+)
+>caption Program.cs (.NET 6+)
 
 <div class="skip-repl"></div>
 
@@ -64,7 +64,7 @@ builder.Services.Configure<HubOptions>(options =>
 });
 ````
 
->caption Use AddHubOptions in .NET 7+
+>caption Use AddHubOptions in .NET 6+
 
 <div class="skip-repl"></div>
 
