@@ -88,4 +88,4 @@ To remove the group indent in the [Grid for Blazor](slug:grid-overview) and hide
 ## See Also
 
 - [Grid Overview](slug:grid-overview)
-- [Override Theme Styles](slug:theme-override)
+- [Override Theme Styles](slug:themes-override)
