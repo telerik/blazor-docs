@@ -11,12 +11,12 @@ ticketid: 1684110
 
 ## Description
 
-This knowledge base article also answers the following questions:
+This knowledge base article answers the following questions:
 
 - Is there a way to remove the group indent and adjust the spacing without compromising the Grid behavior?
 - How can I customize the grouping appearance in a Blazor Grid?
 - How to hide the group indent and group header icons in a Blazor Grid?
-- What is the best way to adjust the appearance of grouped headers in a Blazor Grid?
+- What is the best way to hide the expand/collapse icons of the groups headers in a Telerik Blazor Grid?
 
 ## Environment
 
@@ -31,7 +31,7 @@ This knowledge base article also answers the following questions:
 
 ## Solution
 
-To remove the group indent in the [Grid for Blazor](slug:grid-overview) and adjust the appearance of grouped headers, you will need to override the default theme styles. This solution involves applying custom CSS styles to the Grid component. Run the example below and group the Grid by some of the columns to see the removed group indentation:
+To remove the group indent in the [Grid for Blazor](slug:grid-overview) and hide the expand/collapse icons of the groups, you will need to override the default theme styles. This solution involves applying custom CSS styles to the Grid component. Run the example below and group the Grid by some of the columns to see the removed group indentation:
 
 ````RAZOR
 <TelerikGrid Data=@GridData
