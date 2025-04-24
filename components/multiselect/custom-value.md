@@ -1,7 +1,7 @@
 ---
-title: Custom Value
-page_title: MultiSelect - Custom Value
-description: Custom values and user input in the MultiColumnComboBox for Blazor.
+title: Custom Values
+page_title: MultiSelect - Custom Values
+description: Learn how to use custom values and user input in the MultiSelect for Blazor.
 slug: multiselect-custom-value
 tags: telerik,blazor,multiselect,custom,value,input
 published: True
@@ -10,24 +10,25 @@ position: 16
 
 # MultiSelect Custom Values
 
-The MultiSelect component allows the user to type in their own value that is not a part of the predefined set of options that the developer provided.
+The MultiSelect component lets users type their own values that are not part of the options predefined by the developer.
 
-The text entered by the user can still go into the field the combo box is bound to through two-way binding.
+The text entered by the user can still go into the collection that MultiSelect component is bound to through two-way binding.
 
-To enable custom user input, set the `AllowCustom` parameter to `true`. When the user types a custom value, it will appear as the first item in the list with the label: `Use"typed value"`. Refer to the example below to see it in action.
+To enable custom user input, set the `AllowCustom` parameter to `true`. When the user types a custom value, it appears as the first item in the list with the label: `Use "typed value"`. The user must select (click) the value, to actually add it the collection of values that MultiSelect is bound to. Refer to the example below to see the feature in action.
 
-> When MultiSelect is bound to a model, the `TextField`, `ValueField` and the `Value` must be of type `string`. Otherwise an exception will be thrown. Strings are required because the user input can take any form and may not be parsable to other types (such as numbers or GUID).
+> When custom values are enabled, the `TextField`, `ValueField` and the `Value` must be of type `string`. Otherwise an exception will be thrown. Strings are required because the user input can take any form and may not be parsable to other types (such as numbers or GUID).
 
-When custom input is allowed, the [ValueChanged event](slug:multiselect-events#valuechanged) fires on every keystroke, and not when an item is selected, because the MultiSelect component acts as a text input.
+When custom input is allowed, the [`ValueChanged` event](slug:multiselect-events#valuechanged) fires on every keystroke, instead of when an item is selected. This happens because the MultiSelect component behaves like a text input.
 
 >caption Allow custom user input in the MultiSelect component
 
 ````RAZOR
 <TelerikMultiSelect Data="@Cities"
                     @bind-Value="@SelectedCities"
-                    TextField="@nameof(City.CityName)" ValueField="@nameof(City.CityName)"
+                    TextField="@nameof(City.CityName)" 
+                    ValueField="@nameof(City.CityName)"
                     AllowCustom="true"
-                    Placeholder="Select city for the list or type a custom one"
+                    Placeholder="Select a city for the list or type a custom one"
                     Width="400px">
 </TelerikMultiSelect>
 
@@ -59,7 +60,7 @@ When custom input is allowed, the [ValueChanged event](slug:multiselect-events#v
 
 ## Limitations
 
-* `AllowCustom` is not compatible with [Adaptive rendering](slug:adaptive-rendering).
+* `AllowCustom` is not compatible with [adaptive rendering](slug:adaptive-rendering).
 
 ## See Also
 
