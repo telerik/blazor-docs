@@ -51,6 +51,8 @@ The sample below shows how to:
 >caption Using Form Item Templates
 
 ````RAZOR
+@using System.ComponentModel.DataAnnotations
+
 <TelerikForm Model="@FormModel">
     <FormValidation>
         <DataAnnotationsValidator></DataAnnotationsValidator>
