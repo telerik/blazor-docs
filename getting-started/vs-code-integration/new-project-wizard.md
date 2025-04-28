@@ -29,7 +29,7 @@ To create a Telerik-enabled Blazor project:
 
 The **Create New Project** wizard generates a project that is based on the Microsoft template. The app includes some Telerik UI components and the [required NuGet package reference, static assets, localization service, and the `TelerikRootComponent`](slug:getting-started/what-you-need).
 
-> The **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates were deprecated. Their source code is available in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
+> Earlier versions of the wizard provided the **Admin**, **Dashboard**, **CRUD**, **Form**, and **Chart** templates which are now deprecated. You can find their source code in the [`blazor-ui` repo](https://github.com/telerik/blazor-ui/tree/master/common/legacy-project-templates).
 
 The wizard contains the following sections:
 
