@@ -99,6 +99,7 @@ The Blazor MultiSelect provides various parameters that allow you to configure t
 | ----------- | ----------- | ------ |
 | `AdaptiveMode` | `AdaptiveMode` <br /> (`None`) | The [adaptive mode](slug:adaptive-rendering) of the component. |
 | `AutoClose` | `bool` <br /> (`true`) | Defines whether the dropdown list containing the items for the MultiSelect will automatically close after each user selection. |
+| `AllowCustom` | `bool` | Determines if the user can enter [custom values](slug:multiselect-custom-values). If enabled, the `ValueField` must be a `string`. |
 | `ShowClearButton` | `bool` | Whether the user will have the option to clear the selected items with a button on the input. When it is clicked, the `Value` will be updated to an empty list. |
 | `Data` | `IEnumerable<TItem>` | Allows you to provide the data source. Required. |
 | `DebounceDelay` | `int` <br/> 150 | Time in milliseconds between the last typed symbol and the internal `oninput` event firing. Applies when the user types and filters. Use it to balance between client-side performance and number of database queries. |
