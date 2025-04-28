@@ -59,8 +59,7 @@ Select your license type - **Commercial** (**Paid**) or **Trial**.
 
 Choose whether to load the required Telerik UI stylesheet and JS Interop file as [static NuGet assets](slug:getting-started/what-you-need#css-theme-and-javascript-files) or load them from the [Telerik CDN](slug:common-features-cdn).
 
-#### Section 7: Enable or Disable Localization
-#### Section 7: Enable or Disable Localization
+#### Section 7: Configure Localization
 
 Choose whether to use [localization](slug:globalization-localization) in the project or not.
 
