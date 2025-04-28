@@ -16,27 +16,31 @@ The Telerik Window component for Blazor provides an option to control the openin
 
 @[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
 
-| Parameter          | Type and Default&nbsp;Value       | Description |
+| Parameter | Type and Default&nbsp;Value| Description |
 |--------------------|------------------------------------|-------------|
-| `AnimationType`    | `WindowAnimationType` (`None`)    | Specifies the type of animation used when the window opens or closes. Full list of animation types is listed in the section below. |
-| `AnimationDuration`| `int` (`300`)                    | Defines the duration of the animation in milliseconds. |
+| `AnimationType`| `WindowAnimationType` (`None`)| Specifies the type of animation used when the window opens or closes. The full list of animation types is listed in the section below. |
+| `AnimationDuration`| `int` (`300`)| Defines the duration of the animation in milliseconds. |
 
 ## WindowAnimation Types
 
 The `WindowAnimationType` enumeration includes the following options:
 
-* `None` (default) - No animation.
-* `SlideUp` - Slides in from the bottom and slides out to the bottom.
-* `SlideDown` - Slides in from the top and slides out to the top.
-* `SlideRight` - Slides in from the left and slides out to the left.
-* `SlideLeft` - Slides in from the right and slides out to the right.
-* `PushUp` - Pushes in from the bottom and pushes out to the top.
-* `PushDown` - Pushes in from the top and pushes out to the bottom.
-* `PushLeft` - Pushes in from the right and pushes out to the left.
-* `PushRight` - Pushes in from the left and pushes out to the right.
-* `Fade` - Fades in and out.
-* `ZoomIn` - Zooms in from a larger size to its actual size and zooms out by expanding before disappearing.
-* `ZoomOut` - Zooms in from a smaller size to its actual size and zooms out by shrinking to the center.
+@[template](/_contentTemplates/common/parameters-table-styles.md#table-layout)
+
+| Animation Type | Description                                                                                     |
+|----------------|-------------------------------------------------------------------------------------------------|
+| `None` (default)| No animation.                                                                                  |
+| `SlideUp`      | Slides in from the bottom and slides out to the bottom.                                         |
+| `SlideDown`    | Slides in from the top and slides out to the top.                                               |
+| `SlideRight`   | Slides in from the left and slides out to the left.                                             |
+| `SlideLeft`    | Slides in from the right and slides out to the right.                                           |
+| `PushUp`       | Pushes in from the bottom and pushes out to the top.                                            |
+| `PushDown`     | Pushes in from the top and pushes out to the bottom.                                            |
+| `PushLeft`     | Pushes in from the right and pushes out to the left.                                            |
+| `PushRight`    | Pushes in from the left and pushes out to the right.                                            |
+| `Fade`         | Fades in and out.                                                                               |
+| `ZoomIn`       | Zooms in from a larger size to its actual size and zooms out by expanding before disappearing.  |
+| `ZoomOut`      | Zooms in from a smaller size to its actual size and zooms out by shrinking to the center.       |
 
 ## Example
 
@@ -101,7 +105,7 @@ The `WindowAnimationType` enumeration includes the following options:
     {
         AnimationTypes = new List<WindowAnimationType>();
 
-        // Populate the list of animation types
+        // Populate the list of animation types.
         foreach (WindowAnimationType animation in Enum.GetValues(typeof(WindowAnimationType)))
         {
             AnimationTypes.Add(animation);
