@@ -26,8 +26,10 @@ demos:
   uris:
       www.telerik.com: https://demos.telerik.com/blazor-examples/
       www.telerik.com/blazor-ui/documentation/: https://demos.telerik.com/blazor-examples/
-      wwwsit.telerik.com: https://demos.telerik.com/blazor-examples/
-      wwwsit.telerik.com/blazor-ui/documentation/: https://demos.telerik.com/blazor-examples/
+      wwwuat.telerik.com: https://blazor-examples-test-hwhpazgrf0b7gfh9.eastus-01.azurewebsites.net/
+      wwwuat.telerik.com/blazor-ui/documentation/: https://blazor-examples-test-hwhpazgrf0b7gfh9.eastus-01.azurewebsites.net/
+      wwwsit.telerik.com: https://blazor-examples-test-hwhpazgrf0b7gfh9.eastus-01.azurewebsites.net/
+      wwwsit.telerik.com/blazor-ui/documentation/: https://blazor-examples-test-hwhpazgrf0b7gfh9.eastus-01.azurewebsites.net/
       default: https://localhost:63216/blazor-examples/
   themes:
       default-main:
