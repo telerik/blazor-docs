@@ -2,7 +2,7 @@
 title: Custom Values
 page_title: MultiSelect - Custom Values
 description: Learn how to use custom values and user input in the MultiSelect for Blazor.
-slug: multiselect-custom-value
+slug: multiselect-custom-values
 tags: telerik,blazor,multiselect,custom,value,input
 published: True
 position: 16
