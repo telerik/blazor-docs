@@ -74,7 +74,7 @@ The Blazor DropDownList @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Adaptive Rendering
 
-<!-- <demo metaUrl="client/dropdownlist/adaptive/" height="420"></demo> -->
+<demo metaUrl="client/dropdownlist/adaptive/" height="420"></demo>
 
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
