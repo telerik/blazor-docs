@@ -21,6 +21,7 @@ The Position parameter accepts a member of the BadgePosition enum and controls t
 | Enum member | Description |
 |---------------|--------|
 | `Edge` <br /> (default) | The center of the Badge is at a corner of the parent container. |
+| `Inline` | The Badge renders as part of the normal content flow of the web page. The `HorizontalAlign` and `VerticalAlign` parameters have no effect with `Inline` `Position`. |
 | `Inside` | The Badge renders entirely inside the parent container. |
 | `Outside`   | The Badge renders entirely outside the parent container. | 
 
@@ -85,6 +86,7 @@ The following example lets you experiment with the available settings that contr
     private List<BadgePosition> Positions { get; set; } = new List<BadgePosition>()
     {
         BadgePosition.Edge,
+        BadgePosition.Inline,
         BadgePosition.Inside,
         BadgePosition.Outside
     };
@@ -107,4 +109,4 @@ The following example lets you experiment with the available settings that contr
 
 ## See Also
 
-  * [Live Demo: Badge Position](https://demos.telerik.com/blazor-ui/badge/position)
+* [Live Demo: Badge Position](https://demos.telerik.com/blazor-ui/badge/position)
