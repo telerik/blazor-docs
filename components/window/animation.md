@@ -42,6 +42,8 @@ The `WindowAnimationType` enumeration includes the following options:
 | `ZoomIn`       | Zooms in from a larger size to its actual size and zooms out by expanding before disappearing.  |
 | `ZoomOut`      | Zooms in from a smaller size to its actual size and zooms out by shrinking to the center.       |
 
+> When using animations other than the default (`None`), it is recommended to explicitly set the `Top` and `Left` parameters to control the Window position or center it on the screen. Without these settings, the Window will be positioned to the bottom-left corner of the screen. Explicit positioning ensures the Window appears in the intended location during and after the animation.
+
 ## Example
 
 ````RAZOR
