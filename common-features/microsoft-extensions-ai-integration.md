@@ -22,18 +22,7 @@ To integrate the **Microsoft.Extensions.AI** library with your AIPrompt componen
 >
 > When using the Telerik AIPrompt component with the Microsoft AI library, do not subscribe to the `OnPromptRequest` event.
 
-**Microsoft.Extensions.AI provides** a simple integration with various models where the configuration slightly differs depending on the model. The example below shows usage of [Azure OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI) and you may [explore some other examples with different models in this sample application](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/AIPromptIntegration).
-
->caption Startup.cs:
-
-<div class="skip-repl"></div>
-````C# 
-    services.AddSingleton(new AzureOpenAIClient(
-       new Uri("YOUR_AZURE_OPENAI_ENDPOINT"),
-       new AzureKeyCredential("YOUR_AZURE_OPENAI_CREDENTIAL")));
-
-    services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient>().AsChatClient("gpt-4o-mini"));
-````
+**Microsoft.Extensions.AI** provides a simple integration with various models where the configuration slightly differs depending on the model. [Explore examples with different models in this sample application](https://github.com/telerik/blazor-ui/tree/master/common/microsoft-extensions-ai-integration/AIPromptIntegration).
 
 ## See Also 
 
