@@ -38,7 +38,6 @@ Adding or editing rows in the Grid sets the following requirements on the Grid m
 * All editable properties must be `public` and have setters. These properties must not be `readonly`.
 * All complex properties used in the Grid must be instantiated in the [Grid `OnModelInit` event](slug:grid-events#onmodelinit).
 * Self-referencing or inherited properties must not cause `StackOverflowException` or `AmbiguousMatchException` during [programmatic model instance creation](#item-instances).
-  
 ## Edit Modes
 
 The Grid offers several ways to add and edit rows with a different user experience:
