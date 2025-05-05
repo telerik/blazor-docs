@@ -36,7 +36,7 @@ To ensure that the legend colors match the data points in a stacked Chart, use t
 
 Here is an example configuration that applies a specific color to each `ChartSeries` in a Stacked Bar Chart:
 
-`````Razor
+````RAZOR
 <TelerikChart Width="100%" Height="100%">
     <ChartSeriesItems>
         @foreach (var series in GraphDataPoints)
