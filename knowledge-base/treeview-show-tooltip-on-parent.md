@@ -68,36 +68,71 @@ To show Tooltip for Telerik TreeView parent items, use the [`ItemTemplate`](slug
     private void LoadHierarchical()
     {
         List<TreeItem> roots = new List<TreeItem>() {
-            new TreeItem { Text = "Item 1", Id = 1, HasChildren = true },
-            new TreeItem { Text = "Item 2", Id = 2, HasChildren = true }
-        };
+        new TreeItem { Text = "Engineering Department", Id = 1, HasChildren = true },
+        new TreeItem { Text = "Human Resources", Id = 2, HasChildren = true },
+        new TreeItem { Text = "Marketing", Id = 3, HasChildren = true }
+    };
 
+        // Engineering Team
         roots[0].Items.Add(new TreeItem
             {
-                Text = "Item 1 first child",
-                Id = 3
-
+                Text = "Software Development",
+                Id = 4,
+                HasChildren = true
             });
-
         roots[0].Items.Add(new TreeItem
             {
-                Text = "Item 1 second child",
-                Id = 4
-
+                Text = "QA and Testing",
+                Id = 5,
+                HasChildren = true
             });
 
-        roots[1].Items.Add(new TreeItem
+        roots[0].Items[0].Items.Add(new TreeItem
             {
-                Text = "Item 2 first child",
-                Id = 5
-
-            });
-
-        roots[1].Items.Add(new TreeItem
-            {
-                Text = "Item 2 second child",
+                Text = "Alice Johnson (Senior Developer)",
                 Id = 6
+            });
+        roots[0].Items[0].Items.Add(new TreeItem
+            {
+                Text = "Bob Smith (Frontend Developer)",
+                Id = 7
+            });
 
+        roots[0].Items[1].Items.Add(new TreeItem
+            {
+                Text = "Charlie Kim (QA Engineer)",
+                Id = 8
+            });
+
+        // HR Team
+        roots[1].Items.Add(new TreeItem
+            {
+                Text = "Diana Lee (HR Manager)",
+                Id = 9
+            });
+        roots[1].Items.Add(new TreeItem
+            {
+                Text = "Ethan Green (Recruiter)",
+                Id = 10
+            });
+
+        // Marketing Team
+        roots[2].Items.Add(new TreeItem
+            {
+                Text = "Content Strategy",
+                Id = 11,
+                HasChildren = true
+            });
+
+        roots[2].Items[0].Items.Add(new TreeItem
+            {
+                Text = "Fiona White (Content Lead)",
+                Id = 12
+            });
+        roots[2].Items[0].Items.Add(new TreeItem
+            {
+                Text = "George Brown (Copywriter)",
+                Id = 13
             });
 
         TreeData = roots;
