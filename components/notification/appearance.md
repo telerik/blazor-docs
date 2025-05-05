@@ -66,9 +66,9 @@ You can see them in action in the [Notification Animation](https://demos.telerik
 
 ## Size
 
-You can control the Size of the Notification by using CSS. To make the cascading of the styles easier and target a single instance of the component you should use the `Class` parameter exposed in the the `<TelerikNotification>` tag.
+You can control the Size of the Notification by using CSS. To make the cascading of the styles easier and target a single instance of the component you should use the `Class` parameter exposed in the `<TelerikNotification>` tag.
 
->caption Chance the Notiication width and height
+>caption Change the Notification width and height
 
 ````RAZOR
 <TelerikNotification @ref="@NotificationRef1"
