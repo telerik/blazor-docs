@@ -34,7 +34,7 @@ Stacked Charts are designed to display the combined values of multiple series st
 
 To ensure that the legend colors match the data points in a stacked Chart, use the `Color` parameter of the `ChartSeries`. This parameter sets a uniform color for all data points (bars) within a single series and determines the color shown in the legend for that series.
 
-Here is an example configuration that applies a specific color to each series in a stacked bar chart:
+Here is an example configuration that applies a specific color to each `ChartSeries` in a Stacked Bar Chart:
 
 `````Razor
 <TelerikChart Width="100%" Height="100%">
