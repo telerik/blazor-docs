@@ -94,4 +94,3 @@ Here is an example configuration that applies a specific color to each `ChartSer
         public required string Label { get; set; }
     }
 }
-`````
