@@ -28,7 +28,7 @@ When creating a Chart with Stacked Series, the colors of the data points render 
 
 This behavior is by design. Using the `ColorField` parameter to assign a unique color to each data point within a single series is supported in **non-stacked** Charts, but not in stacked Charts.
 
-Stacked Charts are designed to visualize the cumulative value of multiple series stacked atop one another. Applying individual colors to each data point in this context would compromise the visual clarity of the stack relationships and make it difficult for the legend to accurately reflect the data.
+Stacked Charts are designed to display the combined values of multiple series stacked together. Assigning unique colors to individual data points in this scenario can reduce the visual clarity of the stack relationships and prevent the legend from accurately representing the data.
 
 ## Solution
 
