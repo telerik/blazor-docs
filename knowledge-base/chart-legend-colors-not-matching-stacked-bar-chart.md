@@ -39,7 +39,7 @@ Here is an example configuration that applies a specific color to each series in
 `````Razor
 <TelerikChart Width="100%" Height="100%">
     <ChartSeriesItems>
-        @foreach (var series in _graphDataPoints)
+        @foreach (var series in GraphDataPoints)
         {
             <ChartSeries Field="@nameof(GraphDataPoint.Value)"
                          Type="ChartSeriesType.Bar"
@@ -54,14 +54,7 @@ Here is an example configuration that applies a specific color to each series in
 </TelerikChart>
 
 @code {
-    public class GraphDataPoint
-    {
-        public required string Color { get; set; }
-        public required int Value { get; set; }
-        public required string Label { get; set; }
-    }
-
-    private List<GraphDataPoint> _graphDataPoints { get; set; } = [
+    private List<GraphDataPoint> GraphDataPoints { get; set; } = [
         new GraphDataPoint
         {
             Label = "Early Settlement Candidate",
@@ -93,5 +86,12 @@ Here is an example configuration that applies a specific color to each series in
             Color = "#79C8AB"
         }
     ];
+
+    public class GraphDataPoint
+    {
+        public required string Color { get; set; }
+        public required int Value { get; set; }
+        public required string Label { get; set; }
+    }
 }
 `````
