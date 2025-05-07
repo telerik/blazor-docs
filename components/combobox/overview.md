@@ -73,6 +73,8 @@ The Blazor ComboBox @[template](/_contentTemplates/dropdowns/features.md#groupin
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/combobox/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Parameters

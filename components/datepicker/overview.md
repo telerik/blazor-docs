@@ -64,6 +64,8 @@ The Blazor DatePicker allows you to customize the rendering of the Calendar popu
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/datepicker/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Date Picker Parameters

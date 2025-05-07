@@ -62,6 +62,8 @@ The time format specifiers in the `Format` control the tumblers available in the
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/datetimepicker/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Blazor DateTime Picker Parameters

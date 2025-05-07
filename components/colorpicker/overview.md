@@ -66,6 +66,12 @@ The Blazor ColorPicker accepts values by the application code in the following f
 
 The ColorPicker does not support color keywords.
 
+## Adaptive Rendering
+
+<demo metaUrl="client/colorpicker/adaptive/" height="555"></demo>
+
+@[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
+
 ## ColorPicker Parameters
 
 The Blazor ColorPicker provides various parameters to configure the component. For more configuration options, see the [public Telerik UI for Blazor ColorPicker API](slug:Telerik.Blazor.Components.TelerikColorPicker).

@@ -69,6 +69,8 @@ The `Min` and `Max` properties require a `DateTime` object, but will only use th
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/timepicker/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Time Picker Parameters
