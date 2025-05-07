@@ -94,7 +94,7 @@ To change the field delimiter, do the following:
         CsvFormatProvider formatProvider = new CsvFormatProvider();
 
         //import the stream to a workbook
-        Workbook workbook = formatProvider.Import(CSVStream);
+        Workbook workbook = formatProvider.Import(CSVStream, new TimeSpan(0, 0, 5));
 
         //create a new MemoryStream to export the modified workbook in
         MemoryStream modifiedExport = new MemoryStream();

@@ -104,7 +104,7 @@ The PdfViewer does not currently have the capability to manage digital signature
 
         // **** PHASE 3 - IMPORT DOCUMENT and insert signature field **** //
 
-        var document = new PdfFormatProvider().Import(unsignedDocumentBytes);
+        var document = new PdfFormatProvider().Import(unsignedDocumentBytes, new TimeSpan(0, 0, 5));
 
         // This demo adds a new page and adding a new signature field there. If your document already has a signature field, you can search for it instead.
         RadFixedPage page = document.Pages.AddPage();
