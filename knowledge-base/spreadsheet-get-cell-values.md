@@ -138,7 +138,7 @@ This KB article answers the following questions:
         using MemoryStream ms = new MemoryStream(excelFileToRead);
 
         IWorkbookFormatProvider formatProvider = new XlsxFormatProvider();
-        Workbook workbook = formatProvider.Import(ms);
+        Workbook workbook = formatProvider.Import(ms, new TimeSpan(0, 0, 5));
         Worksheet worksheet = workbook.Worksheets.First();
 
         CellRange cellRange = worksheet.UsedCellRange;
