@@ -64,6 +64,8 @@ The DateRangePicker allows you to customize the rendering of the Calendar popup 
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/daterangepicker/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## DateRangePicker Parameters

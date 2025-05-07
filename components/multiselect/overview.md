@@ -87,6 +87,8 @@ The Blazor MultiSelect @[template](/_contentTemplates/dropdowns/features.md#grou
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/multiselect/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## Parameters

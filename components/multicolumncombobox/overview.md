@@ -99,6 +99,8 @@ The MultiColumnComboBox @[template](/_contentTemplates/dropdowns/features.md#gro
 
 ## Adaptive Rendering
 
+<demo metaUrl="client/multicolumncombobox/adaptive/" height="420"></demo>
+
 @[template](/_contentTemplates/dropdowns/adaptive-rendering.md#intro)
 
 ## MultiColumnComboBox Parameters
