@@ -94,7 +94,7 @@ To format numeric and date cells of the exported file before it reaches the clie
         CsvFormatProvider formatProvider = new CsvFormatProvider();
 
         //import the stream to a workbook
-        Workbook workbook = formatProvider.Import(CSVStream);
+        Workbook workbook = formatProvider.Import(CSVStream, new TimeSpan(0, 0, 5));
 
         //specify the desired formats
 

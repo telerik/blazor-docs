@@ -76,7 +76,7 @@ To export to another format, use the corresponding namespace and format provider
     private void ConvertValue(MouseEventArgs e)
     {
         HtmlFormatProvider htmlProvider = new HtmlFormatProvider();
-        RadFlowDocument document = htmlProvider.Import(HtmlValue);
+        RadFlowDocument document = htmlProvider.Import(HtmlValue, new TimeSpan(0, 0, 5));
         TxtFormatProvider txtProvider = new TxtFormatProvider();
         PlainTxtValue = txtProvider.Export(document);
     }

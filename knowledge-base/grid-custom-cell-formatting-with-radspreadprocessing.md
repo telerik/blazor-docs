@@ -99,7 +99,7 @@ To customize the cell format of the exported file before it reaches the client, 
         XlsxFormatProvider formatProvider = new XlsxFormatProvider();
 
         //import the stream to a workbook
-        Workbook workbook = formatProvider.Import(excelStream);
+        Workbook workbook = formatProvider.Import(excelStream, new TimeSpan(0, 0, 5));
 
         //select a range of cells
         CellSelection selection = workbook.Worksheets[0].Cells[0, 0, 0, 5];
