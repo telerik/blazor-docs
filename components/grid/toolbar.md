@@ -25,6 +25,9 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
 | CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
+| Filter | `GridToolBarFilterTool` | A toggle button that opens a filter menu. This tool contains two views - one for choosing the column and one for executing the filter on said column.  |
+| Sort | `GridToolBarGroupTool` | Enables grouping. |
+| Group | `GridToolBarSortTool` | A toggle button for sorting. |
 | SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
 
 ### Layout Tools
@@ -52,7 +55,9 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 ````RAZOR
 <TelerikGrid Data=@GridData
              EditMode="@GridEditMode.Inline"
+             FilterMode="@GridFilterMode.FilterMenu"
              Pageable="true"
+             AdaptiveMode="@AdaptiveMode.Auto"
              OnUpdate=@UpdateItem
              OnCreate=@CreateItem>
     <GridToolBar>
@@ -71,6 +76,18 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
         <GridToolBarExcelExportTool>
             Export to Excel
         </GridToolBarExcelExportTool>
+
+        <GridToolBarFilterTool>
+            Filter
+        </GridToolBarFilterTool>
+        
+        <GridToolBarSortTool>
+            Sort
+        </GridToolBarSortTool>
+
+        <GridToolBarGroupTool>
+            Group
+        </GridToolBarGroupTool>
 
         <GridToolBarSpacerTool />
 
