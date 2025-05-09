@@ -7,6 +7,7 @@ slug: getting-started/web-app
 tags: get,started,first,steps,web,app,template
 published: true
 position: 5
+previous_url: /getting-started/server-blazor
 ---
 
 # First Steps with Blazor Web App and Telerik UI
