@@ -109,10 +109,7 @@ The issue can manifest in a couple of ways:
 * The components have no styling.
 * There are JavaScript errors that Telerik objects cannot be found.
 
-The most common reason for this problem is a mismatch between the installed version and the actual license that you have. For example:
-
-* Only a trial version is installed on your development machine, but you already have a commercial license, yet you never installed the commercial version.
-* The wizard did not properly detect the installed version.
+The most common reason for this problem is a mismatch between the installed version and the actual license that you have.
 
 The cause are wrong paths to the needed web assets. To resolve this open the index file:
 

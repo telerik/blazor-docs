@@ -41,7 +41,6 @@ Upon successful completion of the above steps, the wizard must appear like this:
 The Telerik Document Processing Configuration wizard allows you to:
 
 * Select which libraries to use.
-* Use the commercial or trial versions of the libraries.
 * Select the project (`.csproj` file), in which you want to install the libraries. This option is useful when the user has many open projects in the workspace. If a library has any dependencies, they are automatically checked.
 
 The table below lists the assemblies that will be selected for each library:

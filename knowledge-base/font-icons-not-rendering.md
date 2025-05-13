@@ -47,9 +47,5 @@ To keep using Font icons in your application use one of the two approaches:
 * Download the [Telerik UI for Blazor package](slug:installation-msi#how-to-download-the-automated-installer) and reference the static assets for the Font Icons in the `_Host.cshtml` or `index.html` (based on the hosting model) file in your application:
 
 ````RAZOR
-<!-- For Trial licenses, use
-<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
--->
-
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 ````

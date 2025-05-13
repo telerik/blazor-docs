@@ -212,9 +212,9 @@ Use [our feedback portal](https://feedback.telerik.com/blazor) to tell us which 
 
 Page Templates offer ready-to-use Blazor layouts that effectively integrate the Telerik UI for Blazor components. These templates consist of Building Blocks, which are the individual elements that form the complete layouts. The templates and blocks streamline the development process by providing pre-designed, customizable elements. For more details, refer to the [Building Blocks and Page Templates documentation](https://www.telerik.com/design-system/docs/ui-templates/overview/).
 
-## Trial Version and Commercial License
+## Trial and Commercial License
 
-UI for Blazor is a commercial UI library. You are welcome to explore its full functionality and get technical support from the team when you register for a free 30-day trial. While using the trial package, a watermark and banner will appear over the rendered components.
+UI for Blazor is distributed as a single package, with functionality determined by the applied license. By default, you can register for a free 30-day trial to explore the full capabilities of the library and receive technical support. During the trial period, a visual watermark and banner will appear over rendered components.
 
 To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> and get acquainted with the full terms of use.
 

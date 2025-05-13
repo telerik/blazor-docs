@@ -30,7 +30,6 @@ Regardless of the cause for the issue, it is recommended that you start from the
 The most common reasons for issues with the private Telerik NuGet feed are related to:
 
 * Authentication and credentials.
-* Licensing. For example, requesting commercial packages with a trial license or vice-versa.
 * Missing or wrong local configuration (`NuGet.Config`).
 * Network connectivity issues, including **proxies** and **firewalls**.
 
@@ -39,8 +38,6 @@ Errors like `Unable to load the service index for source https://nuget.telerik.c
 ### Verify NuGet Credentials and Package Access
 
 To verify if you can access the Telerik NuGet server and the expected packages, open https://nuget.telerik.com/v3/search?q=blazor&prerelease=true&skip=0&take=100&semVerLevel=2.0.0 directly in the web browser and enter your Telerik credentials in the prompt.
-
-As a result, you will see a JSON output with the NuGet packages and versions that are available for you. Depending on your license, search for `Telerik.UI.for.Blazor` or `Telerik.UI.for.Blazor.Trial`.
 
 If the above URL doesn't open, you have either come across a local networking issue or [the NuGet server is down](#error-503-service-unavailable).
 

@@ -89,8 +89,6 @@ In version 4.6.0 of Telerik UI for Blazor, the font icon styles were separated i
 ````RAZOR
 <!-- If using static assets from the NuGet package -->
 <link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
-<!-- If using static assets from a Trial NuGet package -->
-<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />
 
 <!-- If using the Telerik Blazor CDN - set the correct version number in the URL -->
 <link href="https://blazor.cdn.telerik.com/blazor/{{site.uiForBlazorLatestVersion}}/kendo-font-icons/font-icons.css" rel="stylesheet" type="text/css" />

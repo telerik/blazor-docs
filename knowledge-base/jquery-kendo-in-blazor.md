@@ -42,6 +42,4 @@ Should you decide to use jQuery widgets from the Kendo UI suite, here are the th
 
 >tip A sample project that showcases these is available here: [jQuery Kendo Widgets in Blazor](https://github.com/telerik/blazor-ui/tree/master/common/kendo-in-blazor).
 
-The project references a commercial version of UI for Blazor. If you only have a trial license, replace the reference to the NuGet package and to the JS Interop file [accordingly](slug:getting-started/what-you-need).
-
 >note Such an integration is not supported by Telerik.

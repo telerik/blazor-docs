@@ -24,10 +24,6 @@
 <head>
     . . .
     <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js"></script>
-
-    <!-- For Trial licenses, use
-      <script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js"></script>
-    -->
 </head>
 ````
 #end
@@ -37,10 +33,6 @@
 <head>
     . . .
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-
-    <!-- For Trial licenses, use
-        <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />
-      -->
 </head>
 ````
 #end
