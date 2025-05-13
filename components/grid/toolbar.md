@@ -25,9 +25,9 @@ The [Blazor Grid](https://demos.telerik.com/blazor-ui/grid/overview) provides se
 | Add | `GridToolBarAddTool` | An add command that fires the [`OnAdd` event](slug:grid-editing-overview#events). |
 | CsvExport | `GridToolBarCsvExportTool` | An export command for CSV files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
 | ExcelExport | `GridToolBarExcelExportTool` | An export command for Excel files that fires the [`OnBeforeExport` event](slug:grid-export-events#onbeforeexport). |
-| Filter | `GridToolBarFilterTool` | A toggle button that opens a filter menu. This tool contains two views - one for choosing the column and one for executing the filter on said column.  |
-| Sort | `GridToolBarGroupTool` | Enables grouping. |
-| Group | `GridToolBarSortTool` | A toggle button for sorting. |
+| Filter | `GridToolBarFilterTool` | A toggle button in the Grid’s toolbar that opens a filter interface. On desktop screens, it displays a popup with a filter menu; on mobile devices, it renders as an `ActionSheet`. The component has two views: one for selecting the column to filter, and another for applying the filter to the selected column. The tool also exposes `Icon` parameter that allows you to override the default icon.  |
+| Group | `GridToolBarGroupTool` | A toggle button in the Grid’s toolbar that opens a popup listing the groupable columns — click a column to group by it. On mobile devices, the popup is rendered as an `ActionSheet`. The tool also exposes `Icon` parameter that allows you to override the default icon. |
+| Sort | `GridToolBarSortTool` | A toggle button in the Grid’s toolbar that opens a popup listing the sortable columns — click a column to sort by it. On mobile devices, the popup is rendered as an `ActionSheet`. The tool also exposes `Icon` parameter that allows you to override the default icon. |
 | SearchBox | `GridToolBarSearchBoxTool` | A searchbox that filters multiple Grid columns simultaneously. |
 
 ### Layout Tools
@@ -55,9 +55,11 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
 ````RAZOR
 <TelerikGrid Data=@GridData
              EditMode="@GridEditMode.Inline"
-             FilterMode="@GridFilterMode.FilterMenu"
+             FilterMode="GridFilterMode.FilterMenu"
+             Groupable="true"
+             Sortable="true"
              Pageable="true"
-             AdaptiveMode="@AdaptiveMode.Auto"
+             AdaptiveMode="AdaptiveMode.Auto"
              OnUpdate=@UpdateItem
              OnCreate=@CreateItem>
     <GridToolBar>
@@ -80,7 +82,7 @@ Add a `<GridToolBar>` tag inside `<TelerikGrid>` to configure a toolbar, for exa
         <GridToolBarFilterTool>
             Filter
         </GridToolBarFilterTool>
-        
+
         <GridToolBarSortTool>
             Sort
         </GridToolBarSortTool>
