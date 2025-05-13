@@ -61,8 +61,6 @@ Telerik UI for Blazor is distributed through several private and public NuGet pa
 | `Telerik.Pivot.Core` | Contains base code for the [PivotGrid component](slug:pivotgrid-overview). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 | `Telerik.Pivot.DataProviders.Xmla` | Adds support for [data binding the PivotGrid component to XMLA](slug:pivotgrid-data-binding). This NuGet package must not be used separately without the Telerik PivotGrid component. |
 
->note If you use a trial license, the private package names have a `.Trial` suffix, for example, `Telerik.UI.for.Blazor.Trial`.
-
 ### Getting the Telerik NuGet Packages
 
 To get the public Telerik icon and licensing packages, you only need the default NuGet package source `nuget.org`. To [use a local NuGet feed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds), download the packages from:
@@ -170,13 +168,9 @@ Register the [Telerik font icon stylesheet](slug:common-features-icons#font-icon
 ````HTML
 <head>
     <link rel="stylesheet" href="_content/Telerik.UI.for.Blazor/css/kendo-theme-default/all.css" />
-    <!-- When using a Trial license -->
-    <!--<link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />-->
 
     <!-- Add only if using font icons -->
     <!--<link href="_content/Telerik.UI.for.Blazor/css/kendo-font-icons/font-icons.css" rel="stylesheet" />-->
-    <!-- When using a Trial license -->
-    <!--<link href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-font-icons/font-icons.css" rel="stylesheet" />-->
 
     <!-- main application stylesheet -->
     <link rel="stylesheet" href="css/app.css" />
@@ -204,8 +198,6 @@ The recommended way to register the Telerik Blazor JS file for better loading pe
 <html>
 <head>
    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
-   <!-- When using a Trial license -->
-   <!--<script src="_content/Telerik.UI.for.Blazor.Trial/js/telerik-blazor.js" defer></script>-->
 </head>
 <body>
    <script src="_framework/blazor.web.js" autostart="false"></script>

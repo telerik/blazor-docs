@@ -50,8 +50,6 @@ C:\Users\[username]\AppData\Roaming\Telerik\Updates
 
 * **Suggest project upgrades for Telerik product versions available on my computer**—`True` by default.
 
-* **Suggest upgrades when an equal Dev release is detected on projects using a Trial**—`True` by default.
-
 ## See Also
 
 * [Creating New Projects with Visual Studio](slug:getting-started-vs-integration-new-project )

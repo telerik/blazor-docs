@@ -100,10 +100,6 @@ The `Telerik.UI.for.Blazor` NuGet package includes only the *Main* swatch of eac
 </head>
 ````
 
-> Trial users must add `.Trial` to the theme URL:
->
-> `<link rel="stylesheet" href="_content/Telerik.UI.for.Blazor.Trial/css/kendo-theme-default/all.css" />`
-
 ## Compatibility and Maintenance
 
 The Telerik themes are decoupled from the Telerik Blazor components, which leads to the following usage requirements:

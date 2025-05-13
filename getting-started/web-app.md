@@ -62,7 +62,7 @@ This article explains how to use the Telerik UI for Blazor components in a Blazo
 1. Install the Telerik Blazor NuGet package:
 
    1. Select the `telerik.com` **Package source** that you [added earlier](#step-3-add-the-telerik-nuget-feed-to-visual-studio). As this is a private NuGet feed, you must authenticate with your [Telerik account](https://www.telerik.com/account/) username and password.
-   1. Select the **Browse** tab, find the NuGet package, and click **Install**. Commercial license holders must install `Telerik.UI.for.Blazor`. Trial users must install `Telerik.UI.for.Blazor.Trial`.
+   1. Select the **Browse** tab, find the `Telerik.UI.for.Blazor` NuGet package, and click **Install**.
 
 ## Step 5: Enable the Blazor UI Components
 
