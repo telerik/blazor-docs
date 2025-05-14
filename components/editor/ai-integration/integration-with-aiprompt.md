@@ -10,13 +10,13 @@ position: 3
 
 # Editor Integration with AIPrompt
 
-The Editor provides a built-in integration with the [AIPrompt component](slug:aiprompt-overview) to help developers add AI-driven suggestions, completions, and assistance to their Editor.
+The Editor provides a built-in integration with the [AIPrompt component](slug:aiprompt-overview) to help users add AI-driven suggestions, completions, and assistance to their Editor.
 
 The integration with the AIPrompt component covers the following use cases:
 
 * Standalone prompting - The user can ask the AIPrompt without any context provided by the Editor. This could be useful for ideas generation, writing a whole piece of content (blog post), or just random questions.
-* Prompting with context - The user prompt will use additional context from the Editor (the selected text if any or the whole content).
-* Command with context - The user will run a command that will be applied to selected content (if any) or the whole content if no text is selected.
+* Prompting with context - The user prompt will use additional context from the Editor (the UI allows user can decide whether to use the selected text if any or the whole content).
+* Command with context - The user can select a command that will be applied to selected content (if any) or the whole content if no text is selected.
 
 ## Enabling the AIPrompt
 
@@ -61,8 +61,8 @@ The Editor allows customizing some of the integrated AIPrompt's settings. For th
 
 | Parameter | Type and Default value | Description |
 |-----------|------------------------|-------------|
-| `SystemPrompt`  | `string` <br/> (See "Description" column) | The system prompt that will be passed to the integrated AIPrompt. If not provided, the AIPrompt will use its [default `SystemPrompt` value](slug:aiprompt-overview#aiprompt-parameters) |
-| `Commands` | `List<AIPromptCommandDescriptor>` | The commands displayed within the Commands view. If not set the AIPrompt will use the [default predefined commands](slug:editor-ai-integration-overview#default-commands)
+| `SystemPrompt`  | `string` <br/> (See "Description" column) | The system prompt that will be passed to the integrated AIPrompt. If not provided, the AIPrompt will use its [default `SystemPrompt` value](slug:aiprompt-overview#aiprompt-parameters). |
+| `Commands` | `List<AIPromptCommandDescriptor>` | The commands displayed within the Commands view. If not set the AIPrompt will use the [default predefined commands](slug:editor-ai-integration-overview#ai-integration-capabilities). |
 
 >caption Customizing the AIPrompt in the Editor
 
@@ -110,6 +110,6 @@ services.AddChatClient(services => services.GetRequiredService<AzureOpenAIClient
 
 ## See Also
 
-* [Live Demo: AI Integration](https://demos.telerik.com/blazor-ui/editor/overview)
+* [Live Demo: AI Integration](https://demos.telerik.com/blazor-ui/editor/ai-integration)
 * [AI Integration Overview](slug:editor-ai-integration-overview)
 * [Editor Integration with Inline Prompt](slug:editor-ai-integration-overview)

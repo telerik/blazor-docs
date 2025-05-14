@@ -98,6 +98,7 @@ The table below lists the AIPrompt parameters. For a full list of the AIPrompt A
 | `Class` | `string` | The `class` attribute of the `<div class="k-prompt">` element. Use it to apply custom styles or [override the theme](slug:themes-override). |
 | `Commands` | `List<AIPromptCommandDescriptor>` | The predefined commands displayed within the Commands view. |
 | `Height` | `string` | The `height` style of the component in any [supported CSS unit](slug:common-features/dimensions). The default AIPrompt dimensions depend on the CSS theme. |
+| `PromptContext` | `string` | This text is appended to the prompt when sending the request. This is required in order to allow the component to work with external context, which is not visible in the prompt box.
 | `PromptText` | `string` | The value of the text within the prompt view. Use it when you need to add some form of transformation to the prompt. The parameter supports two-way binding. |
 | `PromptTextChanged` | `EventCallback<string>` | The handler called whenever the `PromptText` changes. |
 | `PromptSuggestions` | `List<string>` | The prompt suggestions displayed within the Prompt view. |

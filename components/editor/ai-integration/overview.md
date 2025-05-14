@@ -10,21 +10,15 @@ position: 0
 
 # AI Integration Overview
 
-The editor provides AI integration to enhance user productivity and streamline workflows. This integration is available in two ways:
+The Editor provides AI integration to enhance the user productivity and streamline workflows. This integration is available in two ways:
 
-1. **AIPrompt Component**: A reusable component that allows developers to integrate AI-powered prompts into their applications. It provides a structured way to interact with AI models and retrieve intelligent suggestions or completions.
+* **AIPrompt Component**: An [AIPrompt component](slug:aiprompt-overview) that is rendered in a separate pane on the left side of the Editor.
 
-2. **Inline Prompt**: A lightweight, on-the-fly AI prompt feature embedded directly within the editor. This allows users to access AI suggestions seamlessly while editing content without requiring additional setup.
-
+* **Inline Prompt**: A lightweight, on-the-fly AI prompt rendered in a popup that is shown once the user selects text in the Editor.
 
 ## AI Integration Capabilities
 
-Both features are designed to improve the user experience by leveraging AI capabilities directly within the editor environment.
-
-They provide the following built-in commands:
-
-### Default Commands
-
+Both features are designed to improve the user experience by leveraging AI capabilities directly within the Editor environment. The built-in AI integration allows the user to type their prompt and get a response based on the text in the Editor. The users can also use a set of built-in commands:
 * Rewrite
 * Fix Mistakes
 * Tone (Neutral, Friendly, Casual, Formal)
@@ -32,9 +26,11 @@ They provide the following built-in commands:
 * Adjust Length (Shorter, Longer)
 * Translate (English, Spanish, German)
 
+These can be customized through the nested configuration options for the [AIPrompt](slug:editor-aiprompt-integration) and [Inline Prompt](slug:editor-inline-prompt-integration).
+
 ## Next Steps
 
-See how you can enable and configure the available options: 
+See how you can enable and configure the available AI integration options: 
 
-* [Integration with AIPrompt component]()
-* [Integration with Inline Prompt]()
+* [Integration with AIPrompt component](slug:editor-aiprompt-integration)
+* [Integration with Inline Prompt](slug:editor-inline-prompt-integration)
