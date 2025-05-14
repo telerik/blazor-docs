@@ -6,7 +6,7 @@ slug: common-features-icons
 tags: telerik,blazor,icon,font,built-in
 published: True
 previous_url: /common-features/font-icons
-position: 1
+position: 20
 ---
 
 # Blazor SVG and Font Icons

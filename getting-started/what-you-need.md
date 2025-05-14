@@ -271,6 +271,9 @@ The Blazor application is ready to use Telerik components.
 
 @[template](/_contentTemplates/common/get-started.md#next-steps-after-getting-started)
 
+## Next Steps
+
+* Install the [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
 
 ## See Also
 

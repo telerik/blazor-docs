@@ -111,6 +111,10 @@ If you prefer video instructions, you can also check the video tutorial below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fwR8Yxe7DPQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Next Steps
+
+* Install the [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
+
 ## See Also
 
 * [Workflow Details for Telerik UI for Blazor](slug:getting-started/what-you-need)
