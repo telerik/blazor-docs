@@ -127,6 +127,7 @@ Refer to the following articles for more information on each technology stack:
 ## Next Steps
 
 * [Explore the specifics of Telerik UI for Blazor in native MAUI](slug:hybrid-blazor-apps)
+* Install the [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant) to generate code snippets that include Telerik UI for Blazor components and API.
 
 ## See Also
 

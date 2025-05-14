@@ -220,9 +220,11 @@ To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/
 
 ## Support Options
 
-For any issues you might encounter while working with Telerik UI for Blazor, use any of the available support channels:
+For questions and issues related to Telerik UI for Blazor, use any of the available support channels:
 
-* License holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [UI for Blazor dedicated support](https://www.telerik.com/account/support-tickets/) system.
+* The [Telerik GitHub Copilot extension for Blazor](slug:common-features-ai-code-assistant) can help you generate code snippets that include Telerik UI for Blazor components and API.
+
+* License holders and active trialists can take advantage of our outstanding customer support. To submit a support ticket, use the dedicated [UI for Blazor support](https://www.telerik.com/account/support-tickets/) system.
 
 * The [UI for Blazor forums](https://www.telerik.com/forums/blazor) are part of the free support you can get from the community and from the UI for Blazor team on all kinds of general issues.
 
