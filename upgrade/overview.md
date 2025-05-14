@@ -60,7 +60,7 @@ To upgrade the version of Telerik UI for Blazor you can use the [Upgrade Wizard]
 
 If you have just purchased a license and you need to migrate from the trial package to the licensed version, perform the following steps:
 
-1. After the purchase of a Commercial License, follow the steps in [Update your license key](slug:installation-license-key#license-key-updates).
+1. [Update your Telerik license key](slug:installation-license-key#license-key-updates) after you purchase or renew a license.
 
 1. To upgrade to the latest product version, follow the steps for [updating the Telerik UI for ASP.NET MVC version](#upgrading-to-new-versions).
 
@@ -76,7 +76,10 @@ While using a trial license, a watermark will be rendered over the components an
 
 > Purchase the Commercial Version now to get access to all product updates and the Telerik expert support.
 
-If you have a commercial license, but you still see the trial watermark and banner, then possible reasons may be that [Your license key must be updated](slug:installation-license-key#license-key-updates).
+If you have a commercial license, but you still see the trial watermark and banner, then make sure that:
+
+* Your [Telerik license key is installed correctly](slug:installation-license-key) and there are no [license key errors](slug:troubleshooting-license-key-errors) during build.
+* Your [Telerik license key is up-to-date](slug:installation-license-key#license-key-updates).
 
 ## See Also
 
