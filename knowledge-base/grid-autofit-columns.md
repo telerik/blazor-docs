@@ -166,7 +166,7 @@ function observeTarget(dotNetObj, gridClass) {
     dotNetInstance = dotNetObj;
  
     if (!result || !window.DotNet) {
-        window.setTimeout(observeTarget, 500);
+        window.setTimeout(observeTarget, 500, dotNetObj, gridClass);
         return;
     }
     observer.observe(result, options);
