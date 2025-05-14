@@ -214,7 +214,7 @@ Page Templates offer ready-to-use Blazor layouts that effectively integrate the 
 
 ## Trial and Commercial License
 
-UI for Blazor is distributed as a single package, with functionality determined by the applied license. By default, you can register for a free 30-day trial to explore the full capabilities of the library and receive technical support. During the trial period, a visual watermark and banner will appear over rendered components.
+UI for Blazor comes as a single package for all license types—whether you have a trial or commercial license, you download the same file. By registering for a free 30-day trial, you can explore the full capabilities of the library and receive technical support.
 
 To use UI for Blazor commercially, you need to <a href="https://www.telerik.com/purchase/blazor-ui" target="_blank">purchase a license</a>. Feel free to review the Telerik UI for Blazor <a href="https://www.telerik.com/purchase/license-agreement/blazor-ui" target="_blank">License Agreement</a> and get acquainted with the full terms of use.
 
