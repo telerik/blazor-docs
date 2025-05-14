@@ -27,7 +27,8 @@ With the `FormTemplate` feature, you can customize the appearance and content of
 ## Specifics
 
 When using the template, the default Popup form is replaced by the declared content within the `FormTemplate` tag. This introduces the following specifics:
-* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`](slug:grid-editing-overview#events) events cannot be triggered. To modify or cancel the update of a record, you need to include custom controls to manage these actions. 
+
+* The default **Update** and **Cancel** buttons are removed. This means that the [`OnUpdate` and `OnCancel`](slug:grid-editing-overview#events) events do not fire. To modify or cancel the update of a record, you need to include custom components to manage these actions. 
 * The popup footer remains empty by design. You can [either hide it or place your custom buttons in it](slug:grid-kb-handle-empty-popup-footer).
 * The `FormTemplate` disables the [built-in validation](slug:grid-editing-validation) of the Grid. Implement a [Form Validation](slug:form-validation) instead.
 * The [`<GridPopupEditFormSettings>` parameters](slug:grid-editing-popup#form-layout) do not apply to a custom `TelerikForm` that you may render inside the `<FormTemplate>` tag. Set the desired Form configurations such as `Columns`, `Orientation`, and more on the [Form component](slug:form-overview#form-parameters).
@@ -37,200 +38,238 @@ When using the template, the default Popup form is replaced by the declared cont
 Using a `FormTemplate` to modify the Edit/Create Popup window.
 
 ````RAZOR
-@using System.Collections.Generic;
+@using System.ComponentModel.DataAnnotations
 @using Telerik.DataSource
 @using Telerik.DataSource.Extensions
 
 <TelerikGrid @ref="@GridRef"
-             Data="@GridData"
+             OnRead="@OnGridRead"
+             TItem="@Product"
              EditMode="@GridEditMode.Popup"
-             Pageable="true"
-             Width="950px"
-             PageSize="5"
-             OnDelete="@DeleteItem">
+             OnDelete="@OnGridDelete">
     <GridToolBarTemplate>
-        <GridCommandButton Command="Add" Icon="@SvgIcon.Plus">Add Employee</GridCommandButton>
+        <GridCommandButton Command="Add">Add Item</GridCommandButton>
     </GridToolBarTemplate>
     <GridSettings>
         <GridPopupEditSettings Width="550px" MaxHeight="95vh" MaxWidth="95vw"></GridPopupEditSettings>
-        <GridPopupEditFormSettings Context="FormContext">
+        <GridPopupEditFormSettings Context="formContext">
             <FormTemplate>
                 @{
-                    EditItem = FormContext.Item as Person;
+                    if (GridEditItem is null)
+                    {
+                        // Setting GridEditItem unconditionally may
+                        // reset the modified and unsaved values after re-render.
+                        // Nullify GridEditItem when editing completes.
+                        GridEditItem = (Product)formContext.Item;
+                    }
 
-                    <TelerikForm Model="@EditItem"
+                    <TelerikForm Model="@GridEditItem"
                                  ColumnSpacing="20px"
                                  Columns="2"
                                  ButtonsLayout="@FormButtonsLayout.Stretch"
-                                 OnValidSubmit="@OnValidSubmit">
+                                 OnValidSubmit="@OnFormValidSubmit">
                         <FormItems>
-                            <FormItem Field="EmployeeId" Enabled="false"></FormItem>
-                            <FormItem Field="Name">
-                            </FormItem>
-                            <FormItem Field="HireDate" LabelText="Custom Hire Date Label"></FormItem>
-                            <FormItem>
+                            <FormItem Field="@nameof(Product.Id)" Enabled="false" />
+                            <FormItem Field="@nameof(Product.Name)" />
+                            <FormItem Field="@nameof(Product.Description)"
+                                      ColSpan="2"
+                                      EditorType="@FormEditorType.TextArea" />
+                            <FormItem Field="@nameof(Product.Price)">
                                 <Template>
-                                    <label for="position">Custom Position Label</label>
-                                    <TelerikDropDownList Data="@PositionsData"
-                                                         @bind-Value="@EditItem.Position"
-                                                         Id="position">
-                                    </TelerikDropDownList>
+                                    <label class="k-label k-form-label">Price</label>
+                                    <div class="k-form-field-wrap">
+                                        <TelerikNumericTextBox @bind-Value="@GridEditItem.Price"
+                                                               DebounceDelay="0" />
+                                        <TelerikValidationMessage For="@( () => GridEditItem.Price)" />
+                                    </div>
                                 </Template>
                             </FormItem>
-                            </FormItems>
-                            <FormButtons>
-                                <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
-                                <TelerikButton Icon="@nameof(SvgIcon.Cancel)" ButtonType="@ButtonType.Button" OnClick="@OnCancel">Cancel</TelerikButton>
-                            </FormButtons>
-                        </TelerikForm>
+                            <FormItem Field="@nameof(Product.Quantity)" />
+                            <FormItem Field="@nameof(Product.ReleaseDate)" />
+                            <FormItem Field="@nameof(Product.Discontinued)" />
+                        </FormItems>
+                        <FormButtons>
+                            <TelerikButton Icon="@nameof(SvgIcon.Save)">Save</TelerikButton>
+                            <TelerikButton Icon="@nameof(SvgIcon.Cancel)"
+                                           ButtonType="@ButtonType.Button"
+                                           OnClick="@ExitGridEditMode">Cancel</TelerikButton>
+                        </FormButtons>
+                    </TelerikForm>
                 }
             </FormTemplate>
         </GridPopupEditFormSettings>
     </GridSettings>
     <GridColumns>
-        <GridColumn Field=@nameof(Person.EmployeeId) Editable="false" />
-        <GridColumn Field=@nameof(Person.Name) />
-        <GridColumn Field=@nameof(Person.HireDate) Title="Hire Date" />
-        <GridColumn Field=@nameof(Person.Position) Title="Position" />
-        <GridCommandColumn>
-            <GridCommandButton Command="Edit" Icon="@SvgIcon.Pencil">Edit</GridCommandButton>
-            <GridCommandButton Command="Delete" Icon="@SvgIcon.Trash">Delete</GridCommandButton>
+        <GridColumn Field="@nameof(Product.Name)" />
+        <GridColumn Field="@nameof(Product.Price)" DisplayFormat="{0:C2}" />
+        <GridColumn Field="@nameof(Product.Quantity)" DisplayFormat="{0:N0}" />
+        <GridColumn Field="@nameof(Product.ReleaseDate)" DisplayFormat="{0:d}" />
+        <GridColumn Field="@nameof(Product.Discontinued)" Width="120px" />
+        <GridCommandColumn Width="180px">
+            <GridCommandButton Command="Edit">Edit</GridCommandButton>
+            <GridCommandButton Command="Delete">Delete</GridCommandButton>
         </GridCommandColumn>
     </GridColumns>
 </TelerikGrid>
 
 @code {
-    private List<string> PositionsData { get; set; } = new List<string>()
-    {
-        "Manager", "Developer", "QA"
-    };
+    private ProductService GridProductService { get; set; } = new();
 
-    private TelerikGrid<Person> GridRef { get; set; }
-    private List<Person> GridData { get; set; }
-    private Person EditItem { get; set; }
-    private List<Person> _people;
+    private TelerikGrid<Product>? GridRef { get; set; }
 
-    public class Person
-    {
-        public int EmployeeId { get; set; }
-        public string Name { get; set; }
-        public DateTime HireDate { get; set; }
-        public string Position { get; set; }
-    }
+    private Product? GridEditItem { get; set; }
 
-    public List<Person> People
+    private async Task OnFormValidSubmit()
     {
-        get
+        if (GridEditItem is null)
         {
-            if (_people == null)
-            {
-                _people = GeneratePeople(30);
-            }
-
-            return _people;
+            return;
         }
-    }
 
-    protected override void OnInitialized()
-    {
-        LoadData();
-    }
-
-    private void LoadData()
-    {
-        GridData = GetPeople();
-    }
-
-    private void DeleteItem(GridCommandEventArgs args)
-    {
-        DeletePerson(args.Item as Person);
-
-        LoadData();
-    }
-
-    private async Task OnValidSubmit()
-    {
-
-        if (EditItem.EmployeeId != default)
+        if (GridEditItem.Id != default)
         {
-            UpdatePerson(EditItem);
+            await GridProductService.Update(GridEditItem);
         }
         else
         {
-            CreatePerson(EditItem);
+            await GridProductService.Create(GridEditItem);
         }
 
-        await ExitEditAsync();
-
-        LoadData();
+        await ExitGridEditMode();
     }
 
-    private async Task OnCancel()
+    private async Task ExitGridEditMode()
     {
-        await ExitEditAsync();
-    }
-
-    private async Task ExitEditAsync()
-    {
-        var state = GridRef?.GetState();
-        state.OriginalEditItem = null;
-        state.EditItem = null;
-        state.InsertedItem = null;
-
-        await GridRef?.SetStateAsync(state);
-    }
-
-    #region Service Methods
-    private List<Person> GetPeople()
-    {
-        return People;
-    }
-
-    private DataSourceResult GetPeople(DataSourceRequest request)
-    {
-        return People.ToDataSourceResult(request);
-    }
-
-    private void DeletePerson(Person person)
-    {
-        People.Remove(person);
-    }
-
-    private void UpdatePerson(Person person)
-    {
-        var index = People.FindIndex(i => i.EmployeeId == person.EmployeeId);
-        if (index != -1)
+        if (GridRef is null)
         {
-            People[index] = person;
+            return;
         }
+
+        var state = GridRef.GetState();
+        state.OriginalEditItem = null!;
+        state.EditItem = null!;
+        state.InsertedItem = null!;
+
+        await GridRef.SetStateAsync(state);
+
+        GridEditItem = default;
     }
 
-    private void CreatePerson(Person person)
+    private async Task OnGridDelete(GridCommandEventArgs args)
     {
-        person.EmployeeId = People.Max(x => x.EmployeeId) + 1;
+        var deletedItem = (Product)args.Item;
 
-        People.Insert(0, person);
+        await GridProductService.Delete(deletedItem);
     }
 
-    private List<Person> GeneratePeople(int count, int startIndex = 0)
+    private async Task OnGridRead(GridReadEventArgs args)
     {
-        List<Person> result = new List<Person>();
+        DataSourceResult result = await GridProductService.Read(args.Request);
 
-        for (int i = startIndex; i < startIndex + count; i++)
+        args.Data = result.Data;
+        args.Total = result.Total;
+        args.AggregateResults = result.AggregateResults;
+    }
+
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public decimal? Price { get; set; }
+        public int Quantity { get; set; }
+        [Required]
+        public DateTime? ReleaseDate { get; set; }
+        public bool Discontinued { get; set; }
+    }
+
+    #region Data Service
+
+    public class ProductService
+    {
+        private List<Product> Items { get; set; } = new();
+
+        private int LastId { get; set; }
+
+        public async Task<int> Create(Product product)
         {
-            result.Add(new Person()
+            await SimulateAsyncOperation();
+
+            product.Id = ++LastId;
+
+            Items.Insert(0, product);
+
+            return LastId;
+        }
+
+        public async Task<bool> Delete(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            if (Items.Contains(product))
+            {
+                Items.Remove(product);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<List<Product>> Read()
+        {
+            await SimulateAsyncOperation();
+
+            return Items;
+        }
+
+        public async Task<DataSourceResult> Read(DataSourceRequest request)
+        {
+            return await Items.ToDataSourceResultAsync(request);
+        }
+
+        public async Task<bool> Update(Product product)
+        {
+            await SimulateAsyncOperation();
+
+            int originalItemIndex = Items.FindIndex(x => x.Id == product.Id);
+
+            if (originalItemIndex != -1)
+            {
+                Items[originalItemIndex] = product;
+                return true;
+            }
+
+            return false;
+        }
+
+        private async Task SimulateAsyncOperation()
+        {
+            await Task.Delay(100);
+        }
+
+        public ProductService(int itemCount = 5)
+        {
+            Random rnd = Random.Shared;
+
+            for (int i = 1; i <= itemCount; i++)
+            {
+                Items.Add(new Product()
                 {
-                    EmployeeId = i,
-                    Name = "Employee " + i.ToString(),
-                    HireDate = new DateTime(2020, 6, 1).Date.AddDays(count - (i % 7)),
-                    Position = i % 3 <= 2 ? PositionsData[i % 3] : PositionsData.FirstOrDefault()
-
+                    Id = ++LastId,
+                    Name = $"Product {LastId}",
+                    Description = $"Multi-line\ndescription {LastId}",
+                    Price = LastId % 2 == 0 ? null : rnd.Next(0, 100) * 1.23m,
+                    Quantity = LastId % 2 == 0 ? 0 : rnd.Next(0, 3000),
+                    ReleaseDate = DateTime.Today.AddDays(-rnd.Next(365, 3650)),
+                    Discontinued = LastId % 2 == 0
                 });
+            }
         }
-
-        return result;
     }
-    #endregion
+
+    #endregion Data Service
 }
 ````
 
