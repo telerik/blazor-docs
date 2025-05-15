@@ -45,7 +45,7 @@ The following properties enable you to customize each command:
             {
                 new AIPromptCommandDescriptor() { Id = "3", Title = "Professional", Prompt = "Change the tone of the following text to professional" },
                 new AIPromptCommandDescriptor() { Id = "4", Title = "Conversational", Prompt = "Change the tone of the following text to conversational" },
-                new AIPromptCommandDescriptor() { Id = "5", Title = "Humorous", Prompt = "Change the tone of the following text to Humorous" },
+                new AIPromptCommandDescriptor() { Id = "5", Title = "Humorous", Prompt = "Change the tone of the following text to humorous" },
                 new AIPromptCommandDescriptor() { Id = "6", Title = "Empathic", Prompt = "Change the tone of the following text to empathic" },
                 new AIPromptCommandDescriptor() { Id = "7", Title = "Academic", Prompt = "Change the tone of the following text to academic" },
             }
