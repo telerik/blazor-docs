@@ -15,7 +15,7 @@ This article describes the required steps to use the Telerik UI for Blazor compo
 
 >tip The information in this article builds on top of the step-by-step tutorials for specific Blazor application types or render modes:
 >
-> * [Blazor Web App](slug:getting-started/web-app) template in .NET 8 or 9
+> * [Blazor Web App](slug:getting-started/web-app) template
 > * [Blazor WebAssembly Standalone apps](slug:getting-started/client-side)
 > * [Blazor Hybrid (MAUI) apps](slug:getting-started/hybrid-blazor)
 >
